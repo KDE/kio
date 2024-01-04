@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:34+0000\n"
+"POT-Creation-Date: 2024-01-04 01:33+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3069,18 +3069,18 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "دیروز تغییر یافته است"
 
-#: filewidgets/kfileplacesmodel.cpp:1095
+#: filewidgets/kfileplacesmodel.cpp:1092
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "ناتوانی در افزودن به تابلوی مکان‌ها: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1102
+#: filewidgets/kfileplacesmodel.cpp:1099
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "فقط پوشه‌ها می‌توانند به تابلوی مکان‌ها افزوده شوند."
 
-#: filewidgets/kfileplacesmodel.cpp:1366
+#: filewidgets/kfileplacesmodel.cpp:1363
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3088,13 +3088,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "پخش"
 
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "پخش"
 
-#: filewidgets/kfileplacesmodel.cpp:1372
+#: filewidgets/kfileplacesmodel.cpp:1369
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3102,13 +3102,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "حذف &ایمن"
 
-#: filewidgets/kfileplacesmodel.cpp:1374
+#: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "حذف &ایمن"
 
-#: filewidgets/kfileplacesmodel.cpp:1379
+#: filewidgets/kfileplacesmodel.cpp:1376
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3116,39 +3116,39 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "پیاده کردن"
 
-#: filewidgets/kfileplacesmodel.cpp:1381
+#: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&پیاده کردن"
 
-#: filewidgets/kfileplacesmodel.cpp:1405
+#: filewidgets/kfileplacesmodel.cpp:1402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&بیرون دادن"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "افزارهٔ «%1» یک دیست نیست و نمی‌تواند بیرون داده شود."
 
-#: filewidgets/kfileplacesmodel.cpp:1487
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "هنگام دستیابی به «%1»، خطایی رخ داد. سامانه چنین پاسخ داد: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1489
+#: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "هنگام دستیابی به «%1» خطایی رخ داد"
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3159,13 +3159,13 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

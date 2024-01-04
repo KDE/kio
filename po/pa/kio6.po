@@ -3,22 +3,22 @@
 # Amanpreet Singh Brar <amanpreetalam@yahoo.com>, 2005.
 # Amanpreet Singh Brar <aalam@redhat.com>, 2005.
 # Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
-# A S Alam <aalam@users.sf.net>, 2007, 2008, 2009, 2010, 2011, 2019, 2022, 2023.
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2019, 2022, 2023, 2024 A S Alam <aalam@users.sf.net>
 # ASB <aalam@users.sf.net>, 2007.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2009, 2012, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:34+0000\n"
-"PO-Revision-Date: 2023-01-25 07:39-0800\n"
-"Last-Translator: A S Alam <aalam@satluj.org>\n"
-"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"POT-Creation-Date: 2024-01-04 01:33+0000\n"
+"PO-Revision-Date: 2024-01-03 14:01-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
@@ -35,7 +35,7 @@ msgstr "alam.yellow@gmail.com"
 #: core/chmodjob.cpp:201
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "%1 ਫਾਈਲ ਦੀ ਮਲਕੀਅਤ ਸੋਧੀ ਨਹੀਂ ਜਾ ਸਕੀ"
+msgstr "%1 ਫਾਇਲ ਦੀ ਮਲਕੀਅਤ ਸੋਧੀ ਨਹੀਂ ਜਾ ਸਕੀ"
 
 #: core/chmodjob.cpp:235
 #, kde-kuit-format
@@ -43,7 +43,7 @@ msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
-"ਫਾਈਲ <filename>%1</filename> ਦੀ ਓਨਰਸ਼ਿਪ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਤੁਹਾਡੇ ਕੋਲ ਬਦਲਣ ਲਈ "
+"ਫਾਇਲ <filename>%1</filename> ਦੀ ਓਨਰਸ਼ਿਪ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਤੁਹਾਡੇ ਕੋਲ ਬਦਲਣ ਲਈ "
 "ਲੋੜੀਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
 #: core/connectionbackend.cpp:108
@@ -98,7 +98,7 @@ msgstr "ਫੋਲਡਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
-msgstr "ਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
@@ -171,8 +171,8 @@ msgstr[1] "%1 ਫੋਲਡਰ"
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
-msgstr[0] "੧ ਫਾਈਲ"
-msgstr[1] "%1 ਫਾਈਲਾਂ"
+msgstr[0] "੧ ਫਾਇਲ"
+msgstr[1] "%1 ਫਾਇਲਾਂ"
 
 #: core/global.cpp:97
 #, kde-format
@@ -252,7 +252,7 @@ msgstr "ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 #: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
-msgstr "ਫ਼ਾਈਲ"
+msgstr "ਫਾਇਲ"
 
 #: core/job.cpp:135
 #, kde-format
@@ -298,12 +298,12 @@ msgstr "ਗੁਣ ਬਦਲੋ"
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
-msgstr "ਫਾਈਲ ਦੇ ਗੁਣ ਬਦਲਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਫਾਇਲ ਦੇ ਗੁਣ ਬਦਲਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
-msgstr "ਫ਼ਾਈਲਾਂ ਕਾਪੀ ਕਰੋ"
+msgstr "ਫਾਇਲ ਕਾਪੀ ਕਰੋ"
 
 #: core/job.cpp:272
 #, kde-format
@@ -317,7 +317,7 @@ msgstr ""
 #: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
-msgstr "ਫ਼ਾਈਲਾਂ ਹਟਾਓ"
+msgstr "ਫਾਇਲ ਹਟਾਓ"
 
 #: core/job.cpp:278
 #, kde-format
@@ -431,22 +431,22 @@ msgstr "ਪਰੋਟੋਕਾਲ %1 ਇੱਕ ਫਿਲਟਰ ਪਰੋਟੋਕ
 #: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1 ਇੱਕ ਫੋਲਡਰ ਹੈ, ਪਰ ਇੱਕ ਫਾਈਲ ਲੋੜੀਦੀ ਸੀ।"
+msgstr "%1 ਇੱਕ ਫੋਲਡਰ ਹੈ, ਪਰ ਇੱਕ ਫਾਇਲ ਲੋੜੀਦੀ ਸੀ।"
 
 #: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1 ਇੱਕ ਫ਼ਾਈਲ ਹੈ, ਪਰ ਫੋਲਡਰ ਲੋੜੀਦਾ ਸੀ।"
+msgstr "%1 ਇੱਕ ਫਾਇਲ ਹੈ, ਪਰ ਫੋਲਡਰ ਲੋੜੀਦਾ ਸੀ।"
 
 #: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "ਫ਼ਾਈਲ ਜਾਂ ਫੋਲਡਰ %1 ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
+msgstr "ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ %1 ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
 
 #: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "ਫ਼ਾਈਲ ਨਾਂ %1 ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
+msgstr "ਫਾਇਲ ਨਾਂ %1 ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
 #: core/job_error.cpp:74
 #, kde-format
@@ -542,12 +542,12 @@ msgstr ""
 #: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
-msgstr "ਫਾਈਲ %1 ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
+msgstr "ਫਾਇਲ %1 ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
 
 #: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
-msgstr "ਫਾਈਲ %1 ਉੱਤੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
+msgstr "ਫਾਇਲ %1 ਉੱਤੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:122
 #, kde-format
@@ -587,12 +587,12 @@ msgstr "ਫੋਲਡਰ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕ�
 #: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
-msgstr "ਫਾਈਲ %1 ਨੂੰ ਮੁੜ-ਪਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ।"
+msgstr "ਫਾਇਲ %1 ਨੂੰ ਮੁੜ-ਪਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "ਫਾਈਲ %1 ਦਾ ਨਾਂ-ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
+msgstr "ਫਾਇਲ %1 ਦਾ ਨਾਂ-ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
 #: core/job_error.cpp:152
 #, kde-format
@@ -607,7 +607,7 @@ msgstr "%1 ਲਈ ਅਧਿਕਾਰ ਨਹੀਂ ਬਦਲੇ ਜਾ ਸਕੇ�
 #: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "ਫਾਈਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
+msgstr "ਫਾਇਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:161
 #, kde-format
@@ -688,7 +688,7 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"ਅਸਲੀ ਫਾਈਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
+"ਅਸਲੀ ਫਾਇਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
 "ਅਧਿਕਾਰ ਚੈੱਕ ਕਰੋ ਜੀ।"
 
 #: core/job_error.cpp:202
@@ -697,7 +697,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"ਅਧੂਰੀ ਫਾਈਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
+"ਅਧੂਰੀ ਫਾਇਲ %1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
 "ਅਧਿਕਾਰ ਚੈੱਕ ਕਰੋ ਜੀ।"
 
 #: core/job_error.cpp:205
@@ -706,7 +706,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"ਅਸਲੀ ਫਾਈਲ %1 ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
+"ਅਸਲੀ ਫਾਇਲ %1 ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
 "ਅਧਿਕਾਰ ਚੈੱਕ ਕਰੋ ਜੀ।"
 
 #: core/job_error.cpp:208
@@ -715,7 +715,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"ਅਧੂਰੀ ਫਾਈਲ %1 ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
+"ਅਧੂਰੀ ਫਾਇਲ %1 ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
 "ਅਧਿਕਾਰ ਚੈੱਕ ਕਰੋ ਜੀ।"
 
 #: core/job_error.cpp:211
@@ -747,7 +747,7 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
-"ਸਰੋਤ ਅਤੇ ਨਿਯਤ ਫਾਈਲਾਂ ਇੱਕੋ ਹੀ ਹਨ।\n"
+"ਸਰੋਤ ਅਤੇ ਨਿਯਤ ਫਾਇਲਾਂ ਇੱਕੋ ਹੀ ਹਨ।\n"
 "%1"
 
 #: core/job_error.cpp:231
@@ -769,7 +769,7 @@ msgstr ""
 #: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
-msgstr "ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਦੇ ਅੰਦਰ ਨਹੀਂ ਸੁੱਟਿਆ ਜਾ ਸਕਦਾ ਹੈ"
+msgstr "ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਦੇ ਅੰਦਰ ਨਹੀਂ ਸੁੱਟਿਆ ਜਾ ਸਕਦਾ ਹੈ"
 
 #: core/job_error.cpp:243
 #, kde-format
@@ -810,7 +810,7 @@ msgstr ""
 #: core/job_error.cpp:261
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr "ਫ਼ਾਈਲ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣ ਲਈ ਬਹੁਤ ਹੀ ਵੱਡੀ ਹੈ।"
+msgstr "ਫਾਇਲ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣ ਲਈ ਬਹੁਤ ਹੀ ਵੱਡੀ ਹੈ।"
 
 #: core/job_error.cpp:264
 #, kde-format
@@ -911,7 +911,7 @@ msgstr "ਇਸ ਸਰੋਤ ਲਈ ਮੰਗ ਕੀਤੀ ਕਾਰਵਾਈ ਕ
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
-msgstr "ਫਾਈਲ ਕਿਸੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਜਾਂ ਕਾਰਜ ਵਲੋਂ ਵਰਤੀ ਜਾ ਰਹੀ ਹੋ ਸਕਦੀ ਹੈ (ਤਦੇ ਹੀ ਲਾਕ ਹੈ)।"
+msgstr "ਫਾਇਲ ਕਿਸੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਜਾਂ ਕਾਰਜ ਵਲੋਂ ਵਰਤੀ ਜਾ ਰਹੀ ਹੋ ਸਕਦੀ ਹੈ (ਤਦੇ ਹੀ ਲਾਕ ਹੈ)।"
 
 #: core/job_error.cpp:389
 #, kde-format
@@ -919,7 +919,7 @@ msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
 msgstr ""
-"ਚੈੱਕ ਕਰੋ ਕਿ ਕੋਈ ਹੋਰ ਐਪਲੀਕੇਸ਼ਨ ਜਾਂ ਵਰਤੋਂਕਾਰ ਫ਼ਾਈਲ ਵਰਤ ਤਾਂ ਨਹੀਂ ਰਿਹਾ ਜਾਂ ਫ਼ਾਈਲ ਲਾਕ ਤਾਂ ਨਹੀਂ "
+"ਚੈੱਕ ਕਰੋ ਕਿ ਕੋਈ ਹੋਰ ਐਪਲੀਕੇਸ਼ਨ ਜਾਂ ਵਰਤੋਂਕਾਰ ਫਾਇਲ ਵਰਤ ਤਾਂ ਨਹੀਂ ਰਿਹਾ ਜਾਂ ਫਾਇਲ ਲਾਕ ਤਾਂ ਨਹੀਂ "
 "ਕੀਤੀ।"
 
 #: core/job_error.cpp:392
@@ -1024,13 +1024,13 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"ਇਸ ਦਾ ਮਤਲਬ ਹੈ ਕਿ <strong>%1</strong> ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਏ ਨਹੀਂ ਜਾ ਸਕਦੇ ਹਨ, "
+"ਇਸ ਦਾ ਮਤਲਬ ਹੈ ਕਿ <strong>%1</strong> ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਏ ਨਹੀਂ ਜਾ ਸਕਦੇ ਹਨ, "
 "ਕਿਉਂਕਿ ਪੜ੍ਹਨ ਅਧਿਕਾਰ ਲਏ ਨਹੀਂ ਜਾ ਸਕੇ।"
 
 #: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "ਤੁਹਾਨੂੰ ਫਾਈਲ ਪੜ੍ਹਨ ਜਾਂ ਫੋਲਡਰ ਖੋਲ੍ਹਣ ਦਾ ਸ਼ਾਇਦ ਅਧਿਕਾਰ ਨਾ ਹੋਵੇ।"
+msgstr "ਤੁਹਾਨੂੰ ਫਾਇਲ ਪੜ੍ਹਨ ਜਾਂ ਫੋਲਡਰ ਖੋਲ੍ਹਣ ਦਾ ਸ਼ਾਇਦ ਅਧਿਕਾਰ ਨਾ ਹੋਵੇ।"
 
 #: core/job_error.cpp:446
 #, kde-format
@@ -1043,7 +1043,7 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"ਇਸ ਦਾ ਮਤਲਬ ਇਹ ਹੈ ਕਿ ਫਾਈਲ <strong>%1</strong> ਮੰਗ ਅਨੁਸਾਰ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ, ਪਰ "
+"ਇਸ ਦਾ ਮਤਲਬ ਇਹ ਹੈ ਕਿ ਫਾਇਲ <strong>%1</strong> ਮੰਗ ਅਨੁਸਾਰ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ, ਪਰ "
 "ਲਿਖਣ ਦੇ ਅਧਿਕਾਰ ਪਰਾਪਤ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ।"
 
 #: core/job_error.cpp:457
@@ -1192,14 +1192,14 @@ msgstr "ਇਸ ਨਤੀਜੇ ਨੂੰ ਪਰਾਪਤ ਕਰਨ ਕਈ ਹੋ
 #: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
-msgstr "ਲੋੜੀਦੀ ਫਾਈਲ"
+msgstr "ਲੋੜੀਦੀ ਫਾਇਲ"
 
 #: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
-msgstr "ਮੰਗੀ ਫਾਈਲ ਗਈ ਸੀ, ਪਰ ਇਸ ਦੀ ਬਜਾਏ ਫੋਲਡਰ <strong>%1</strong> ਮਿਲਿਆ ਹੈ।"
+msgstr "ਮੰਗੀ ਫਾਇਲ ਗਈ ਸੀ, ਪਰ ਇਸ ਦੀ ਬਜਾਏ ਫੋਲਡਰ <strong>%1</strong> ਮਿਲਿਆ ਹੈ।"
 
 #: core/job_error.cpp:549
 #, kde-format
@@ -1216,39 +1216,39 @@ msgstr "ਲੋੜੀਦਾ ਫੋਲਡਰ"
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
-msgstr "ਮੰਗਿਆ ਤਾਂ ਫੋਲਡਰ ਗਿਆ ਸੀ, ਪਰ ਇਸ ਦੀ ਬਜਾਏ ਫਾਈਲ <strong>%1</strong> ਮਿਲੀ ਹੈ।"
+msgstr "ਮੰਗਿਆ ਤਾਂ ਫੋਲਡਰ ਗਿਆ ਸੀ, ਪਰ ਇਸ ਦੀ ਬਜਾਏ ਫਾਇਲ <strong>%1</strong> ਮਿਲੀ ਹੈ।"
 
 #: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
-msgstr "ਫੋਲਡਰ ਜਾਂ ਫਾਈਲ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+msgstr "ਫੋਲਡਰ ਜਾਂ ਫਾਇਲ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
 #: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "ਦਿੱਤੀ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ <strong>%1</strong> ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
+msgstr "ਦਿੱਤੀ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ <strong>%1</strong> ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
 
 #: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
-msgstr "ਮੰਗੀ ਫਾਈਲ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਕਿਉਕਿ ਇਸ ਨਾਂ ਨਾਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
+msgstr "ਮੰਗੀ ਫਾਇਲ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਕਿਉਕਿ ਇਸ ਨਾਂ ਨਾਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
 #: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
-msgstr "ਮੌਜੂਦਾ ਫਾਈਲ ਨੂੰ ਕਿਤੇ ਹੋਰ ਭੇਜੋ ਅਤੇ ਫਿਰ ਕੋਸ਼ਿਸ ਕਰੋ।"
+msgstr "ਮੌਜੂਦਾ ਫਾਇਲ ਨੂੰ ਕਿਤੇ ਹੋਰ ਭੇਜੋ ਅਤੇ ਫਿਰ ਕੋਸ਼ਿਸ ਕਰੋ।"
 
 #: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
-msgstr "ਮੌਜੂਦਾ ਫਾਈਲ ਨੂੰ ਹਟਾਉ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ।"
+msgstr "ਮੌਜੂਦਾ ਫਾਇਲ ਨੂੰ ਹਟਾਉ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ।"
 
 #: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
-msgstr "ਨਵੀਂ ਫਾਈਲ ਲਈ ਬਦਲਵਾਂ ਫਾਈਲ ਨਾਂ ਚੁਣੋ।"
+msgstr "ਨਵੀਂ ਫਾਇਲ ਲਈ ਬਦਲਵਾਂ ਫਾਇਲ ਨਾਂ ਚੁਣੋ।"
 
 #: core/job_error.cpp:587
 #, kde-format
@@ -1329,7 +1329,7 @@ msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr ""
-"ਇਸ ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਫਾਈਲ <strong>%1</strong> ਨੂੰ ਲਿਖਣ ਦੀ ਕੋਸ਼ਿਸ ਨਾ-ਮਨਜ਼ੂਰ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ।"
+"ਇਸ ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਲਿਖਣ ਦੀ ਕੋਸ਼ਿਸ ਨਾ-ਮਨਜ਼ੂਰ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ।"
 
 #: core/job_error.cpp:642
 #, kde-format
@@ -1352,7 +1352,7 @@ msgstr "ਫੋਲਡਰ ਲਿਸਟ ਵਾਸਤੇ ਉਪਲੱਬਧ ਨਹ�
 #: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਇੱਕ ਫਾਈਲ-ਸਿਸਟਮ ਨਹੀਂ ਹੈ"
+msgstr "ਪਰੋਟੋਕਾਲ %1 ਇੱਕ ਫਾਇਲ-ਸਿਸਟਮ ਨਹੀਂ ਹੈ"
 
 #: core/job_error.cpp:655
 #, kde-format
@@ -1791,7 +1791,7 @@ msgstr "ਪੁਸ਼ਟੀ ਕਰੋ ਕਿ ਫੋਲਡਰ ਮੌਜੂਦ ਹ�
 #: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
-msgstr "ਫਾਈਲ ਟਰਾਂਸਫਰ ਮੁੜ-ਪਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
+msgstr "ਫਾਇਲ ਟਰਾਂਸਫਰ ਮੁੜ-ਪਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
 
 #: core/job_error.cpp:961
 #, kde-format
@@ -1803,7 +1803,7 @@ msgstr ""
 #: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "ਪਰੋਟੋਕਾਲ, ਜਾਂ ਸਰਵਰ, ਫਾਈਲ ਮੁੜ-ਪਰਾਪਤੀ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ, ਜਾਂ ਸਰਵਰ, ਫਾਇਲ ਮੁੜ-ਪਰਾਪਤੀ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ।"
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -2019,7 +2019,7 @@ msgstr ""
 #: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "ਅਸਲੀ ਫਾਈਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
+msgstr "ਅਸਲੀ ਫਾਇਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
 #: core/job_error.cpp:1144
 #, kde-format
@@ -2028,13 +2028,13 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"ਲੋੜੀਦੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀਂ ਫਾਈਲ ਨੂੰ ਹਟਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਆਮ ਤੌਰ ਉੱਤੇ ਇੱਕ ਫਾਈਲ ਭੇਜਣ ਦੀ "
-"ਕਾਰਵਾਈ ਦੌਰਾਨ। ਅਸਲੀ ਫਾਈਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
+"ਲੋੜੀਦੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀਂ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਆਮ ਤੌਰ ਉੱਤੇ ਇੱਕ ਫਾਇਲ ਭੇਜਣ ਦੀ "
+"ਕਾਰਵਾਈ ਦੌਰਾਨ। ਅਸਲੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "ਆਰਜ਼ੀ ਫਾਈਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
+msgstr "ਆਰਜ਼ੀ ਫਾਇਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
 #: core/job_error.cpp:1155
 #, kde-format
@@ -2043,14 +2043,14 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"ਲੋੜੀਦੀ ਕਾਰਵਾਈ ਨੂੰ ਇੱਕ ਆਰਜ਼ੀ ਫਾਈਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਜਿਸ ਲਈ ਨਵੀਂ ਫਾਈਲ ਨੂੰ ਡਾਊਨਲੋਡ "
-"ਕਰਨ ਦੌਰਾਨ ਸੰਭਾਲਿਆ ਜਾ ਸਕਦਾ। ਇਹ ਆਰਜ਼ੀ ਫਾਈਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ "
+"ਲੋੜੀਦੀ ਕਾਰਵਾਈ ਨੂੰ ਇੱਕ ਆਰਜ਼ੀ ਫਾਇਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਜਿਸ ਲਈ ਨਵੀਂ ਫਾਇਲ ਨੂੰ ਡਾਊਨਲੋਡ "
+"ਕਰਨ ਦੌਰਾਨ ਸੰਭਾਲਿਆ ਜਾ ਸਕਦਾ। ਇਹ ਆਰਜ਼ੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ "
 "ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "ਅਸਲੀ ਫਾਈਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
+msgstr "ਅਸਲੀ ਫਾਇਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
 #: core/job_error.cpp:1167
 #, kde-format
@@ -2058,13 +2058,13 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"ਮੰਗੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀ ਫਾਈਲ <strong>%1</strong> ਦਾ ਨਾਂ ਬਦਲਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਪਰ ਨਾਂ-"
+"ਮੰਗੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀ ਫਾਇਲ <strong>%1</strong> ਦਾ ਨਾਂ ਬਦਲਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਪਰ ਨਾਂ-"
 "ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "ਆਰਜ਼ੀ ਫਾਈਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
+msgstr "ਆਰਜ਼ੀ ਫਾਇਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
 #: core/job_error.cpp:1178
 #, kde-format
@@ -2072,7 +2072,7 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
-"ਲੋੜੀਦੇ ਓਪਰੇਸ਼ਨ ਲਈ ਇੱਕ ਆਰਜ਼ੀ ਫਾਈਲ <strong>%1</strong> ਬਣਾਉਣ ਦੀ ਲੋੜ ਸੀ, ਪਰ ਇਹ ਬਣਾਈ "
+"ਲੋੜੀਦੇ ਓਪਰੇਸ਼ਨ ਲਈ ਇੱਕ ਆਰਜ਼ੀ ਫਾਇਲ <strong>%1</strong> ਬਣਾਉਣ ਦੀ ਲੋੜ ਸੀ, ਪਰ ਇਹ ਬਣਾਈ "
 "ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ।"
 
 #: core/job_error.cpp:1187
@@ -2106,7 +2106,7 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"ਦਿੱਤੀ ਫਾਈਲ <strong>%1</strong> ਨੂੰ ਇੱਥੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ, ਕਿਉਕਿ ਡਿਸਕ ਉੱਤੇ ਖਾਲੀ "
+"ਦਿੱਤੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਇੱਥੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ, ਕਿਉਕਿ ਡਿਸਕ ਉੱਤੇ ਖਾਲੀ "
 "ਥਾਂ ਨਹੀਂ ਹੈ।"
 
 #: core/job_error.cpp:1206
@@ -2116,42 +2116,42 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ 1) ਨਾ-ਲੋੜੀਦੀਆਂ ਅਤੇ ਆਰਜ਼ੀ ਫਾਈਲਾਂ ਨੂੰ ਹਟਾ ਕੇ; 2) ਫਾਈਲਾਂ ਨੂੰ "
+"ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ 1) ਨਾ-ਲੋੜੀਦੀਆਂ ਅਤੇ ਆਰਜ਼ੀ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ; 2) ਫਾਇਲਾਂ ਨੂੰ "
 "ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ ਜਿਵੇਂ ਕਿ CD-Recordable ਡਿਸਕਾਂ ਉੱਤੇ ਲਿਖ ਕੇ ਜਾਂ 3) ਹੋਰ ਸਟੋਰੇਜ਼ ਸਮੱਰਥਾ ਜੋੜ ਕੇ।"
 
 #: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਈਲਾਂ ਇੱਕ ਹੀ ਹਨ"
+msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲਾਂ ਇੱਕ ਹੀ ਹਨ"
 
 #: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
-msgstr "ਓਪਰੇਸ਼ਨ ਮੁਕੰਮਲ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ, ਕਿਉਕਿ ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਈਲਾਂ ਇੱਕੋ ਹੀ ਫਾਈਲਾਂ ਹਨ।"
+msgstr "ਓਪਰੇਸ਼ਨ ਮੁਕੰਮਲ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ, ਕਿਉਕਿ ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲਾਂ ਇੱਕੋ ਹੀ ਫਾਇਲਾਂ ਹਨ।"
 
 #: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
-msgstr "ਟਿਕਾਣਾ ਫਾਈਲ ਲਈ ਵੱਖਰਾ ਨਾਂ ਚੁਣੋ।"
+msgstr "ਟਿਕਾਣਾ ਫਾਇਲ ਲਈ ਵੱਖਰਾ ਨਾਂ ਚੁਣੋ।"
 
 #: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਵਿੱਚ ਪਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ"
+msgstr "ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਵਿੱਚ ਪਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ"
 
 #: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
-msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਉਹੀ ਹੋਣ ਕਰਕੇ ਕਾਰਵਾਈ ਪੂਰੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
+msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਉਹੀ ਹੋਣ ਕਰਕੇ ਕਾਰਵਾਈ ਪੂਰੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
 
 #: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
-msgstr "ਆਈਟਮ ਨੂੰ ਵੱਖਰੇ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਪਾਓ।"
+msgstr "ਆਈਟਮ ਨੂੰ ਵੱਖਰੇ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਪਾਓ।"
 
 #: core/job_error.cpp:1235
 #, kde-format
@@ -2228,7 +2228,7 @@ msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
 msgstr ""
-"ਟਿਕਾਣਾ ਫਾਈਲ-ਸਿਸਟਮ ਵਲੋਂ ਐਨੀ ਵੱਡੀ ਫਈਲ ਲਈ ਸਹਿਯੋਗੀ ਨਾ ਹੋਣ ਕਰਕੇ ਫਾਈਲ <filename>%1</"
+"ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ ਵਲੋਂ ਐਨੀ ਵੱਡੀ ਫਈਲ ਲਈ ਸਹਿਯੋਗੀ ਨਾ ਹੋਣ ਕਰਕੇ ਫਾਇਲ <filename>%1</"
 "filename> ਨੂੰ ਟਰਾਂਸਫਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"
 
 #: core/job_error.cpp:1270
@@ -2237,7 +2237,7 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
-"ਟਿਕਾਣਾ ਡਰਾਇਵ ਨੂੰ ਐਨੀ ਵੱਡੀ ਫਾਈਲ ਲਈ ਸਹਿਯੋਗੀ ਹੋਣ ਵਾਲੇ ਫਾਈਲ-ਸਿਸਟਮ ਵਰਤ ਕੇ ਮੁੜ-ਫਾਰਮੈਟ ਕਰੋ।"
+"ਟਿਕਾਣਾ ਡਰਾਇਵ ਨੂੰ ਐਨੀ ਵੱਡੀ ਫਾਇਲ ਲਈ ਸਹਿਯੋਗੀ ਹੋਣ ਵਾਲੇ ਫਾਇਲ-ਸਿਸਟਮ ਵਰਤ ਕੇ ਮੁੜ-ਫਾਰਮੈਟ ਕਰੋ।"
 
 #: core/job_error.cpp:1275
 #, kde-format
@@ -2287,7 +2287,7 @@ msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਕੁਨੈਕਸ਼ਨ ਬੰਦ �
 #: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:846
 #, kde-format
@@ -2317,7 +2317,7 @@ msgstr "mime ਕਿਸਮ ਜਾਣਕਾਰੀ %1 ਤੋਂ ਪਰਾਪਤ ਕ
 #: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "ਫਾਈਲਾਂ ਦਾ ਨਾਂ-ਬਦਲੋ ਜਾਂ ਥਾਂ ਤਬਦੀਲੀ %1 ਵਿੱਚ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "ਫਾਇਲਾਂ ਦਾ ਨਾਂ-ਬਦਲੋ ਜਾਂ ਥਾਂ ਤਬਦੀਲੀ %1 ਵਿੱਚ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:858
 #, kde-format
@@ -2327,12 +2327,12 @@ msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ symlink ਬਣਾਉਣਾ ਸਹ�
 #: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "%1 ਤੋਂ ਫਾਈਲਾਂ ਕਾਪੀ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "%1 ਤੋਂ ਫਾਇਲਾਂ ਕਾਪੀ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "%1 ਤੋਂ ਫਾਈਲ ਹਟਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "%1 ਤੋਂ ਫਾਇਲ ਹਟਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:864
 #, kde-format
@@ -2342,17 +2342,17 @@ msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫੋਲਡਰ ਬਣਾਉਣ �
 #: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਈਲਾਂ ਦੇ ਗੁਣ ਤਬਦੀਲ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਤਬਦੀਲ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਈਲਾਂ ਦੇ ਗੁਣ ਬਦਲਣੇ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਬਦਲਣੇ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "%1 ਪਰੋਟੋਕਾਲ ਨਾਲ ਫਾਈਲ ਖੋਲ੍ਹਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+msgstr "%1 ਪਰੋਟੋਕਾਲ ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: core/slavebase.cpp:872
 #, kde-format
@@ -2410,7 +2410,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
-msgstr "ਤੁਸੀ ਫਾਈਲ ਹਟਾਉਣ ਲਈ ਫਾਈਲ ਨਹੀਂ ਚੁਣੀ ਹੈ।"
+msgstr "ਤੁਸੀ ਫਾਇਲ ਹਟਾਉਣ ਲਈ ਫਾਇਲ ਨਹੀਂ ਚੁਣੀ ਹੈ।"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2420,7 +2420,7 @@ msgstr "ਹਟਾਉਣ ਲਈ ਕੁਝ ਨਹੀਂ ਹੈ"
 #: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
-msgstr "ਤੁਸੀ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣ ਲਈ ਫਾਈਲ ਨਹੀਂ ਚੁਣੀ ਹੈ।"
+msgstr "ਤੁਸੀ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣ ਲਈ ਫਾਇਲ ਨਹੀਂ ਚੁਣੀ ਹੈ।"
 
 #: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
@@ -2524,7 +2524,7 @@ msgstr "ਫੋਲਡਰ ਪਹਿਲਾਂ"
 #: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Hidden Files Last"
-msgstr "ਲੁਕਵੀਆਂ ਫਾਈਲਾਂ ਸਭ ਤੋਂ ਪਿੱਛੇ"
+msgstr "ਲੁਕਵੀਆਂ ਫਾਇਲਾਂ ਸਭ ਤੋਂ ਪਿੱਛੇ"
 
 #: filewidgets/kdiroperator.cpp:2039
 #, kde-format
@@ -2549,12 +2549,12 @@ msgstr "ਆਈਕਾਨ ਸਥਿਤੀ"
 #: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
-msgstr "ਫਾਈਲ ਨਾਂ ਦੇ ਨਾਲ"
+msgstr "ਫਾਇਲ ਨਾਂ ਦੇ ਨਾਲ"
 
 #: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Above File Name"
-msgstr "ਫਾਈਲ ਨਾਂ ਉੱਤੇ"
+msgstr "ਫਾਇਲ ਨਾਂ ਉੱਤੇ"
 
 #: filewidgets/kdiroperator.cpp:2095
 #, kde-format
@@ -2584,7 +2584,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "ਲੁਕਵੀਆਂ ਫਾਈਲਾਂ ਵੇਖੋ"
+msgstr "ਲੁਕਵੀਆਂ ਫਾਇਲਾਂ ਵੇਖੋ"
 
 #: filewidgets/kdiroperator.cpp:2142
 #, kde-format
@@ -2712,7 +2712,7 @@ msgstr "ਇੱਥੇ ਭੇਜੋ"
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
-msgstr "*|ਸਭ ਫ਼ਾਈਲਾਂ"
+msgstr "*|ਸਭ ਫਾਇਲ"
 
 #: filewidgets/kfilefiltercombo.cpp:125
 #, kde-format
@@ -2723,13 +2723,13 @@ msgstr "%1 (%2)"
 #: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
-msgstr "ਸਭ ਸਹਾਇਕ ਫਾਈਲਾਂ"
+msgstr "ਸਭ ਸਹਾਇਕ ਫਾਇਲਾਂ"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
-msgstr "ਸਭ ਫਾਈਲਾਂ"
+msgstr "ਸਭ ਫਾਇਲਾਂ"
 
 #: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
@@ -2907,7 +2907,7 @@ msgstr "ਵਿਡੀਓ"
 #: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
-msgstr "ਸੱਜਰੀਆਂ ਫ਼ਾਈਲਾਂ"
+msgstr "ਸੱਜਰੀਆਂ ਫਾਇਲ"
 
 #: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
@@ -2924,80 +2924,80 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "ਕੱਲ੍ਹ ਸੋਧ ਕੀਤੇ"
 
-#: filewidgets/kfileplacesmodel.cpp:1095
+#: filewidgets/kfileplacesmodel.cpp:1092
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "ਥਾਵਾਂ ਪੈਨਲ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1102
+#: filewidgets/kfileplacesmodel.cpp:1099
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "ਸਿਰਫ਼ ਫੋਲਡਰ ਹੀ ਥਾਵਾਂ ਪੈਨਲ ਵਿੱਚ ਜੋੜੇ ਜਾ ਸਕਦੇ ਹਨ।"
 
-#: filewidgets/kfileplacesmodel.cpp:1366
+#: filewidgets/kfileplacesmodel.cpp:1363
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "...ਜਾਰੀ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "ਰੀਲਿਜ਼(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1372
+#: filewidgets/kfileplacesmodel.cpp:1369
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "…ਸਹੀ ਸਲਾਮਤੀ ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: filewidgets/kfileplacesmodel.cpp:1374
+#: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "ਸਹੀ ਸਲਾਮਤੀ ਹਟਾਓ(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1379
+#: filewidgets/kfileplacesmodel.cpp:1376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "…ਅਣ-ਮਾਊਂਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"
 
-#: filewidgets/kfileplacesmodel.cpp:1381
+#: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "ਅਣ-ਮਾਊਂਟ(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1405
+#: filewidgets/kfileplacesmodel.cpp:1402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "ਕੱਢੋ(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "ਡਿਵਾਈਸ '%1' ਇੱਕ ਡਿਸਕ ਨਹੀਂ ਹੈ ਅਤੇ ਬਾਹਰ ਨਹੀਂ ਕੱਢੀ ਜਾ ਸਕਦੀ।"
 
-#: filewidgets/kfileplacesmodel.cpp:1487
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1' ਵਰਤਣ ਦੌਰਾਨ ਗਲਤੀ ਆਈ ਹੈ, ਸਿਸਟਮ ਨੇ ਕਿਹਾ: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1489
+#: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1' ਵਰਤਣ ਦੌਰਾਨ ਗਲਤੀ ਆਈ ਹੈ"
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr "ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਈਲਾਂ ਐਪਲੀਕੇਸ਼ਨ ਨਾਲ ਖੁੱਲ੍ਹੀਆਂ ਹਨ।"
+msgstr "ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਇਲਾਂ ਐਪਲੀਕੇਸ਼ਨ ਨਾਲ ਖੁੱਲ੍ਹੀਆਂ ਹਨ।"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3008,13 +3008,13 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3066,7 +3066,7 @@ msgstr "ਸੋਧੋ(&E)…"
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "ਫ਼ਾਈਲ ਹਟਾਓ"
+msgstr "ਫਾਇਲ ਹਟਾਓ"
 
 #: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
@@ -3132,22 +3132,22 @@ msgstr "ਵਿਸ਼ਾਲ (%1x%1)"
 #: filewidgets/kfilewidget.cpp:600
 #, kde-format
 msgid "You can only select one file"
-msgstr "ਤੁਸੀਂ ਕੇਵਲ ਇੱਕ ਫਾਈਲ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ"
+msgstr "ਤੁਸੀਂ ਕੇਵਲ ਇੱਕ ਫਾਇਲ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ"
 
 #: filewidgets/kfilewidget.cpp:600
 #, kde-format
 msgid "More than one file provided"
-msgstr "ਇੱਕ ਤੋਂ ਵੱਧ ਫਾਈਲ ਦਿੱਤੀ ਗਈ ਹੈ"
+msgstr "ਇੱਕ ਤੋਂ ਵੱਧ ਫਾਇਲ ਦਿੱਤੀ ਗਈ ਹੈ"
 
 #: filewidgets/kfilewidget.cpp:771
 #, kde-format
 msgid "You can only select local files"
-msgstr "ਤੁਸੀ ਕੇਵਲ ਲੋਕਲ ਫਾਈਲਾਂ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ।"
+msgstr "ਤੁਸੀ ਕੇਵਲ ਲੋਕਲ ਫਾਇਲਾਂ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ।"
 
 #: filewidgets/kfilewidget.cpp:771
 #, kde-format
 msgid "Remote files not accepted"
-msgstr "ਰਿਮੋਟ ਫਾਈਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
+msgstr "ਰਿਮੋਟ ਫਾਇਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
 
 #: filewidgets/kfilewidget.cpp:778
 #, kde-format
@@ -3186,23 +3186,23 @@ msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
-"ਘੱਟੋ-ਘੱਟ ਇੱਕ ਫੋਲਡਰ ਅਤੇ ਇੱਕ ਫਾਈਲ ਚੁਣਨੀ ਚਾਹੀਦੀ ਹੈ। ਚੁਣੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ "
+"ਘੱਟੋ-ਘੱਟ ਇੱਕ ਫੋਲਡਰ ਅਤੇ ਇੱਕ ਫਾਇਲ ਚੁਣਨੀ ਚਾਹੀਦੀ ਹੈ। ਚੁਣੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ "
 "ਚੁਣਿਆ ਗਿਆ ਫੋਲਡਰ ਵੇਖਾਇਆ ਜਾਵੇਗਾ।"
 
 #: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Files and folders selected"
-msgstr "ਫਾਈਲਾਂ ਅਤੇ ਫੋਲਡਰ ਚੁਣੇ"
+msgstr "ਫਾਇਲਾਂ ਅਤੇ ਫੋਲਡਰ ਚੁਣੇ"
 
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "ਫਾਈਲ \"%1\" ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ"
+msgstr "ਫਾਇਲ \"%1\" ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ"
 
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "Cannot open file"
-msgstr "ਫਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
 
 #: filewidgets/kfilewidget.cpp:1176
 #, kde-format
@@ -3274,7 +3274,7 @@ msgid ""
 msgstr ""
 "<qt>ਇਹ ਬਟਨ ਤੁਹਾਨੂੰ ਇੱਕ ਖਾਸ ਟਿਕਾਣਾ ਬੁੱਕਮਾਰਕ ਕਰਨ ਲਈ ਸਹਾਇਕ ਹੈ। ਇਹ ਬਟਨ ਦਬਾਉਣ ਨਾਲ ਬੁੱਕਮਾਰਕ "
 "ਮੇਨੂ ਖੁੱਲ ਜਾਵੇਗਾ, ਜਿੱਥੇ ਤੁਸੀਂ ਇੱਕ ਬੁੱਕਮਾਰਕ ਜੋੜ, ਸੋਧ ਜਾਂ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ। <br /><br />ਇਹ ਬੁੱਕਮਾਰਕ "
-"ਫਾਈਲ ਡਾਈਲਾਗ ਲਈ ਹੀ ਖਾਸ ਹਨ, ਨਹੀਂ ਤਾਂ KDE ਵਿੱਚ ਹੋਰ ਬੁੱਕਮਾਰਕਾਂ ਵਾਂਗ ਕੰਮ ਕਰਦੇ।</qt>"
+"ਫਾਇਲ ਡਾਈਲਾਗ ਲਈ ਹੀ ਖਾਸ ਹਨ, ਨਹੀਂ ਤਾਂ KDE ਵਿੱਚ ਹੋਰ ਬੁੱਕਮਾਰਕਾਂ ਵਾਂਗ ਕੰਮ ਕਰਦੇ।</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1266 widgets/kpropertiesdesktopbase.ui:25
@@ -3297,7 +3297,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1350
 #, kde-format
 msgid "This is the name to save the file as."
-msgstr "ਇਹ ਫਾਈਲ ਸੰਭਾਲਣ ਲਈ ਫਾਈਲ ਨਾਂ ਹੈ।"
+msgstr "ਇਹ ਫਾਇਲ ਸੰਭਾਲਣ ਲਈ ਫਾਇਲ ਨਾਂ ਹੈ।"
 
 #: filewidgets/kfilewidget.cpp:1353
 #, kde-format
@@ -3305,13 +3305,13 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
-"ਇਹ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਫਾਈਲ ਨਾਂ ਹੈ। ਕਈ ਫਾਈਲਾਂ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਤੋਂ ਵੱਧ ਫਾਈਲਾਂ ਖਾਲੀ ਥਾਂ ਛੱਡ ਕੇ ਦਿੱਤੀਆਂ "
+"ਇਹ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਫਾਇਲ ਨਾਂ ਹੈ। ਕਈ ਫਾਇਲਾਂ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਤੋਂ ਵੱਧ ਫਾਇਲਾਂ ਖਾਲੀ ਥਾਂ ਛੱਡ ਕੇ ਦਿੱਤੀਆਂ "
 "ਜਾ ਸਕਦੀਆਂ ਹਨ।"
 
 #: filewidgets/kfilewidget.cpp:1358
 #, kde-format
 msgid "This is the name of the file to open."
-msgstr "ਇਹ ਖੋਲ੍ਹਣ ਲਈ ਫਾਈਲ ਦਾ ਨਾਂ ਹੈ।"
+msgstr "ਇਹ ਖੋਲ੍ਹਣ ਲਈ ਫਾਇਲ ਦਾ ਨਾਂ ਹੈ।"
 
 #: filewidgets/kfilewidget.cpp:1371
 #, kde-format
@@ -3322,22 +3322,22 @@ msgstr "ਥਾਵਾਂ"
 #: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "ਫ਼ਾਈਲ \"%1\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸ ਉੱਤੇ ਲਿਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਫਾਇਲ \"%1\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸ ਉੱਤੇ ਲਿਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: filewidgets/kfilewidget.cpp:1591
 #, kde-format
 msgid "Overwrite File?"
-msgstr "ਫ਼ਾਈਲ ਉੱਤੇ ਲਿਖਣਾ ਹੈ?"
+msgstr "ਫਾਇਲ ਉੱਤੇ ਲਿਖਣਾ ਹੈ?"
 
 #: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "You can only select local files."
-msgstr "ਤੁਸੀ ਕੇਵਲ ਲੋਕਲ ਫਾਈਲਾਂ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ।"
+msgstr "ਤੁਸੀ ਕੇਵਲ ਲੋਕਲ ਫਾਇਲਾਂ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ।"
 
 #: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "Remote Files Not Accepted"
-msgstr "ਰਿਮੋਟ ਫਾਈਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
+msgstr "ਰਿਮੋਟ ਫਾਇਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
 
 #: filewidgets/kfilewidget.cpp:1881
 #, fuzzy, kde-format
@@ -3359,7 +3359,7 @@ msgstr "ਆਈਕਾਨ ਸਾਈਜ਼: %1 ਪਿਕਸਲ"
 #: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "ਆਟੋਮੈਟਿਕ ਹੀ ਫਾਈਲ ਨਾਂ ਐਕਸ਼ਟੈਸ਼ਨ ਚੁਣੋ (%1)(&x)"
+msgstr "ਆਟੋਮੈਟਿਕ ਹੀ ਫਾਇਲ ਨਾਂ ਐਕਸ਼ਟੈਸ਼ਨ ਚੁਣੋ (%1)(&x)"
 
 #: filewidgets/kfilewidget.cpp:2282
 #, kde-format
@@ -3369,7 +3369,7 @@ msgstr "ਇਕਸਟੈਨਸ਼ਨ <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2288
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "ਆਟੋਮੈਟਿਕ ਚੁਣੀ ਫਾਈਲ-ਨਾਂ ਇਕਸਟੈਨਸ਼ਨ(&x)"
+msgstr "ਆਟੋਮੈਟਿਕ ਚੁਣੀ ਫਾਇਲ-ਨਾਂ ਇਕਸਟੈਨਸ਼ਨ(&x)"
 
 #: filewidgets/kfilewidget.cpp:2289
 #, kde-format
@@ -3395,7 +3395,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:2770
 #, kde-format
 msgid "&File type:"
-msgstr "ਫ਼ਾਈਲ ਕਿਸਮ(&F):"
+msgstr "ਫਾਇਲ ਕਿਸਮ(&F):"
 
 #: filewidgets/kfilewidget.cpp:2771
 #, kde-format
@@ -3426,7 +3426,7 @@ msgstr "ਅਫ਼ਸੋਸ"
 #: filewidgets/knewfilemenu.cpp:478
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>ਟੈਪਲੇਟ ਫਾਈਲ <b>%1</b> ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</qt>"
+msgstr "<qt>ਟੈਪਲੇਟ ਫਾਇਲ <b>%1</b> ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</qt>"
 
 #: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
 #, kde-format
@@ -3507,7 +3507,7 @@ msgstr "<filename>%1</filename> ਨਾਂ ਨਾਲ ਡਾਇਰੈਕਟਰੀ 
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename> ਨਾਂ ਨਾਲ ਫ਼ਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
+msgstr "<filename>%1</filename> ਨਾਂ ਨਾਲ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
 #: filewidgets/knewfilemenu.cpp:1362
 #, kde-format
@@ -3622,7 +3622,7 @@ msgstr "ਟਿਕਾਣਾ ਸੋਧਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 #: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "ਇਸ ਫਾਈਲ ਨੂੰ ਚਲਾਉਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
+msgstr "ਇਸ ਫਾਇਲ ਨੂੰ ਚਲਾਉਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
 #: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
@@ -3640,7 +3640,7 @@ msgstr ""
 #: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
-msgstr "ਤੁਸੀਂ ਇਹ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣਨ ਲਈ ਪਰਮਾਣਿਤ ਨਹੀਂ ਹੋ।"
+msgstr "ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣਨ ਲਈ ਪਰਮਾਣਿਤ ਨਹੀਂ ਹੋ।"
 
 #: gui/applicationlauncherjob.cpp:290
 #, kde-format
@@ -3689,7 +3689,7 @@ msgstr "%1 ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "ਫਾਈਲ \"%1\" ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ"
+msgstr "ਫਾਇਲ \"%1\" ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -3708,7 +3708,7 @@ msgid ""
 "%1\n"
 "is of type Link but has no URL=... entry."
 msgstr ""
-"ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਈਲ\n"
+"ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਇਲ\n"
 "%1\n"
 "ਇੱਕ ਲਿੰਕ ਕਿਸਮ ਦੀ ਹੈ, ਪਰ ਕੋਈ URL=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
@@ -3718,7 +3718,7 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"ਚੱਲਣਯੋਗ ਫਾਈਲ \"%1\" ਰਿਮੋਟ ਫਾਈਲ-ਸਿਸਟਮ ਉੱਤੇ ਮੌਜੂਦ ਹੈ। ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ "
+"ਚੱਲਣਯੋਗ ਫਾਇਲ \"%1\" ਰਿਮੋਟ ਫਾਇਲ-ਸਿਸਟਮ ਉੱਤੇ ਮੌਜੂਦ ਹੈ। ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ "
 "ਜਾ ਸਕੇਗਾ।"
 
 #: gui/openurljob.cpp:410
@@ -3740,13 +3740,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"\"%1\" ਫਾਈਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ।\n"
+"\"%1\" ਫਾਇਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ।\n"
 "%2"
 
 #: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਈਲ %1 ਵਿੱਚ ਕੋਈ  Type=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
+msgstr "ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਇਲ %1 ਵਿੱਚ ਕੋਈ  Type=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
 #: gui/openurljob.cpp:623
 #, kde-format
@@ -3759,7 +3759,7 @@ msgstr ""
 #: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
-msgstr "ਫ਼ਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
 
 #: gui/openurljob.cpp:683
 #, kde-format
@@ -3772,13 +3772,13 @@ msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
 msgstr ""
-"ਫ਼ਾਈਲ %1\n"
+"ਫਾਇਲ %1\n"
 "ਨੂੰ ਸੋਧਿਆ ਗਿਆ ਸੀ। ਕੀ ਤੁਸੀਂ ਤਬਦੀਲੀਆਂ ਅੱਪਲੋਡ ਕਰਨੀਆਂ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
-msgstr "ਫ਼ਾਈਲ ਬਦਲੀ ਗਈ"
+msgstr "ਫਾਇਲ ਬਦਲੀ ਗਈ"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
@@ -3798,7 +3798,7 @@ msgstr "ਗਲਤ URL: %1"
 #: kioexec/main.cpp:63
 #, kde-format
 msgid "File not found: %1"
-msgstr "%1: ਫ਼ਾਈਲ ਨਹੀਂ ਲੱਭੀ ਹੈ।"
+msgstr "%1: ਫਾਇਲ ਨਹੀਂ ਲੱਭੀ ਹੈ।"
 
 #: kioexec/main.cpp:80
 #, kde-format
@@ -3836,7 +3836,7 @@ msgid ""
 "has been modified.\n"
 "Do you want to upload the changes?"
 msgstr ""
-"ਫ਼ਾਈਲ\n"
+"ਫਾਇਲ\n"
 "%1\n"
 "ਨੂੰ ਸੋਧਿਆ ਗਿਆ ਸੀ।\n"
 "ਕੀ ਤੁਸੀਂ ਤਬਦੀਲੀਆਂ ਨੂੰ ਅੱਪਲੋਡ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
@@ -3889,7 +3889,7 @@ msgstr ""
 #: kioexec/main.cpp:302
 #, kde-format
 msgid "Suggested file name for the downloaded file"
-msgstr "ਡਾਊਨਲੋਡ ਕੀਤੀ ਫ਼ਾਈਲ ਲਈ ਸੁਝਾਇਆ ਫ਼ਾਈਲ ਨਾਂ"
+msgstr "ਡਾਊਨਲੋਡ ਕੀਤੀ ਫਾਇਲ ਲਈ ਸੁਝਾਇਆ ਫਾਇਲ ਨਾਂ"
 
 #: kioexec/main.cpp:303
 #, kde-format
@@ -3937,7 +3937,7 @@ msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 #: kioworkers/file/file_unix.cpp:101
 #, kde-format
 msgid "Change File Permissions"
-msgstr "ਫ਼ਾਈਲ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਬਦਲੋ"
+msgstr "ਫਾਇਲ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਬਦਲੋ"
 
 #: kioworkers/file/file_unix.cpp:102
 #, kde-format
@@ -3947,7 +3947,7 @@ msgstr "ਨਵੀਆਂ ਇਜਾਜ਼ਤਾਂ: %1"
 #: kioworkers/file/file_unix.cpp:105
 #, kde-format
 msgid "Change File Owner"
-msgstr "ਫ਼ਾਈਲ ਮਾਲਕ ਬਦਲੋ"
+msgstr "ਫਾਇਲ ਮਾਲਕ ਬਦਲੋ"
 
 #: kioworkers/file/file_unix.cpp:106
 #, kde-format
@@ -3957,7 +3957,7 @@ msgstr "ਨਵਾਂ ਮਾਲਕ: UID=%1, GID=%2"
 #: kioworkers/file/file_unix.cpp:109
 #, kde-format
 msgid "Remove File"
-msgstr "ਫ਼ਾਈਲ ਹਟਾਓ"
+msgstr "ਫਾਇਲ ਹਟਾਓ"
 
 #: kioworkers/file/file_unix.cpp:112
 #, kde-format
@@ -3977,7 +3977,7 @@ msgstr "ਡਾਇਰੈਕਟਰੀ ਇਜਾਜ਼ਤਾਂ: %1"
 #: kioworkers/file/file_unix.cpp:119
 #, kde-format
 msgid "Open File"
-msgstr "ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
 #: kioworkers/file/file_unix.cpp:122
 #, kde-format
@@ -3987,7 +3987,7 @@ msgstr "ਡਾਇਰੈਕਟਰੀ ਖੋਲ੍ਹੋ"
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "New Filename: %1"
-msgstr "ਨਵਾਂ ਫ਼ਾਈਲ ਨਾਂ: %1"
+msgstr "ਨਵਾਂ ਫਾਇਲ ਨਾਂ: %1"
 
 #: kioworkers/file/file_unix.cpp:130
 #, kde-format
@@ -4023,7 +4023,7 @@ msgstr ""
 #: kioworkers/file/file_unix.cpp:833
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "%1 ਤੋਂ %2 ਲਈ ਫਾਈਲ ਦੀ ਕਾਪੀ ਹੋ ਨਹੀਂ ਸਕਦੀ ਹੈ। (ਗਲਤੀ: %3)"
+msgstr "%1 ਤੋਂ %2 ਲਈ ਫਾਇਲ ਦੀ ਕਾਪੀ ਹੋ ਨਹੀਂ ਸਕਦੀ ਹੈ। (ਗਲਤੀ: %3)"
 
 #: kioworkers/file/file_unix.cpp:1055
 #, kde-format
@@ -4138,7 +4138,7 @@ msgstr "%1 ਲਈ ਕੋਈ ਵੀ ਦਸਤਾਵੇਜ਼ ਮੌਜੂਦ ਨਹ�
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "ਠੀਕ ਫਾਈਲ ਲੱਭੀ ਜਾ ਰਹੀ ਹੈ"
+msgstr "ਠੀਕ ਫਾਇਲ ਲੱਭੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
@@ -4168,7 +4168,7 @@ msgstr ""
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "%2 ਵਿੱਚ %1 ਫਾਈਲ-ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ ਜਾ ਸਕਿਆ"
+msgstr "%2 ਵਿੱਚ %1 ਫਾਇਲ-ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ ਜਾ ਸਕਿਆ"
 
 #: kioworkers/http/http.cpp:275 kioworkers/http/http.cpp:314
 #: kioworkers/http/http.cpp:328
@@ -4203,13 +4203,13 @@ msgstr "ਲੋੜੀਦਾ ਫੋਲਡਰ ਬਣਾਓ"
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਦੀ ਕਾਪੀ ਕਰੋ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੀ ਕਾਪੀ ਕਰੋ"
 
 #: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਭੇਜੋ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਭੇਜੋ"
 
 #: kioworkers/http/http.cpp:1194
 #, kde-format
@@ -4221,19 +4221,19 @@ msgstr "ਖਾਸ ਫੋਲਡਰ ਵਿੱਚ ਖੋਜੋ"
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਲਾਕ ਕਰੋ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਲਾਕ ਕਰੋ"
 
 #: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਅਣ-ਲਾਕ ਕਰੋ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਅਣ-ਲਾਕ ਕਰੋ"
 
 #: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਹਟਾਓ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਹਟਾਓ"
 
 #: kioworkers/http/http.cpp:1202
 #, kde-format
@@ -4245,7 +4245,7 @@ msgstr "ਸਰਵਰ ਦੀ ਸਮਰੱਥਾ ਲਈ ਕਿਊਰੀ"
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "ਖਾਸ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਵੋ"
+msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਵੋ"
 
 #: kioworkers/http/http.cpp:1206
 #, kde-format
@@ -4318,7 +4318,7 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
-"%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਨਿਯਤ ਸਰਵਰ ਨੇ ਫਾਈਲ ਜਾਂ ਫੋਲਡਰ ਸਵੀਕਾਰ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕਰ ਦਿੱਤਾ ਹੈ।"
+"%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਨਿਯਤ ਸਰਵਰ ਨੇ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਸਵੀਕਾਰ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕਰ ਦਿੱਤਾ ਹੈ।"
 
 #: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
 #, kde-format
@@ -4632,7 +4632,7 @@ msgstr "ਇੱਥੇ ਲਿੰਕ ਬਣਾਓ(&L)"
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
 msgid "What do you wish to do with this file?"
-msgstr "ਇਸ ਫ਼ਾਈਲ ਨਾਲ ਤੁਸੀਂ ਕੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਇਸ ਫਾਇਲ ਨਾਲ ਤੁਸੀਂ ਕੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
@@ -4718,7 +4718,7 @@ msgstr "ਵਾਪਸ (&o): ਫੋਲਡਰ ਬਣਾਓ"
 #: widgets/fileundomanager.cpp:320
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "ਵਾਪਸ (&o): ਫਾਈਲ ਬਣਾਓ"
+msgstr "ਵਾਪਸ (&o): ਫਾਇਲ ਬਣਾਓ"
 
 #: widgets/fileundomanager.cpp:322
 #, kde-format
@@ -4737,7 +4737,7 @@ msgstr ""
 #: widgets/fileundomanager.cpp:731
 #, kde-format
 msgid "Undo File Copy Confirmation"
-msgstr "ਫ਼ਾਈਲ ਕਾਪੀ ਨੂੰ ਵਾਪਸ ਲੈਣ ਦੀ ਤਸਦੀਕ"
+msgstr "ਫਾਇਲ ਕਾਪੀ ਨੂੰ ਵਾਪਸ ਲੈਣ ਦੀ ਤਸਦੀਕ"
 
 #: widgets/jobuidelegate.cpp:229
 #, kde-kuit-format
@@ -4879,7 +4879,7 @@ msgstr "ਐਂਟਰੀ ਕਿਸਮ"
 #: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "ਇਹ ਫੋਲਡਰ ਵਿੱਚ ਨਵੀਆਂ ਫਾਈਲਾਂ ਲਈ ਡਿਫਾਲਟ"
+msgstr "ਇਹ ਫੋਲਡਰ ਵਿੱਚ ਨਵੀਆਂ ਫਾਇਲਾਂ ਲਈ ਡਿਫਾਲਟ"
 
 #: widgets/kacleditwidget.cpp:400
 #, kde-format
@@ -5153,7 +5153,7 @@ msgstr "ਬਣਾਇਆ:"
 #: widgets/kfilepropspluginwidget.ui:415
 #, kde-format
 msgid "File System:"
-msgstr "ਫ਼ਾਈਲ ਸਿਸਟਮ:"
+msgstr "ਫਾਇਲ ਸਿਸਟਮ:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:445
@@ -5201,7 +5201,7 @@ msgstr ""
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr "ਚੁਣੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਪ੍ਰੋਗਰਾਮ ਦਾ ਨਾਂ ਦਿਓ।"
+msgstr "ਚੁਣੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਪ੍ਰੋਗਰਾਮ ਦਾ ਨਾਂ ਦਿਓ।"
 
 #: widgets/kopenwithdialog.cpp:589
 #, kde-format
@@ -5232,7 +5232,7 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>ਫਾਈਲ ਕਿਸਮ: <b>%1</b> ਲਈ ਕਾਰਜ ਕਿਸਮ ਦੀ ਚੋਣ ਕਰੋ। ਜੇਕਰ ਕਾਰਜ ਲਿਸਟ ਵਿੱਚ ਨਹੀਂ ਹੈ ਤਾਂ "
+"<qt>ਫਾਇਲ ਕਿਸਮ: <b>%1</b> ਲਈ ਕਾਰਜ ਕਿਸਮ ਦੀ ਚੋਣ ਕਰੋ। ਜੇਕਰ ਕਾਰਜ ਲਿਸਟ ਵਿੱਚ ਨਹੀਂ ਹੈ ਤਾਂ "
 "ਇਸ ਦਾ ਨਾਂ ਦਿਓ ਜਾਂ ਝਲਕ ਬਟਨ ਨੂੰ ਦਬਾਉ।</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
@@ -5269,11 +5269,11 @@ msgid ""
 msgstr ""
 "ਹੇਠ ਦਿੱਤੀਆਂ ਕਮਾਂਡਾਂ ਨਾਲ, ਤੁਹਾਡੇ ਕੋਲ ਕਈ ਥਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜਿੰਨਾਂ ਨੂੰ ਅਸਲ ਪਰੋਗਰਾਮ ਦੇ ਚੱਲਣ ਸਮੇਂ "
 "ਉਹਨਾਂ ਦੇ ਅਸਲੀ ਮੁੱਲਾਂ ਨਾਲ ਤਬਦੀਲ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ:\n"
-"%f - ਇੱਕ ਇੱਕਲਾ ਫਾਈਲ ਨਾਂ\n"
-"%F - ਫਾਈਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
+"%f - ਇੱਕ ਇੱਕਲਾ ਫਾਇਲ ਨਾਂ\n"
+"%F - ਫਾਇਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਇਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
 "%u - ਇੱਕ ਇੱਕਲਾ URL\n"
 "%U - URL ਦੀ ਇੱਕ ਲਿਸਟ\n"
-"%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਈਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
+"%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਇਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
 "%D - ਡਾਇਰੈਕਟਰੀਆਂ ਦੀ ਲਿਸਟ\n"
 "%i - ਆਈਕਾਨ\n"
 "%m - ਨਿੰਮਾ ਆਈਕਾਨ\n"
@@ -5286,7 +5286,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr ""
 "\"%1\" (%2)\n"
-"ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਨਾਲ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰੜ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)"
+"ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫਾਇਲ ਨਾਲ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰੜ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)"
 
 #: widgets/kopenwithdialog.cpp:743
 #, kde-format
@@ -5294,7 +5294,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"ਇਸ ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰਧ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)\n"
+"ਇਸ ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫਾਇਲਾਂ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰਧ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)\n"
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
@@ -5524,7 +5524,7 @@ msgstr "ਪਰੋਗਰਾਮ:"
 msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
-msgstr "ਲੋੜੀਦੀ ਚੱਲਣਯੋਗ ਫਾਈਲ ਲੱਭਣ ਵਾਸਤੇ ਆਪਣੇ ਫਾਈਲ ਸਿਸਟਮ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਦਬਾਓ।"
+msgstr "ਲੋੜੀਦੀ ਚੱਲਣਯੋਗ ਫਾਇਲ ਲੱਭਣ ਵਾਸਤੇ ਆਪਣੇ ਫਾਇਲ ਸਿਸਟਮ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਦਬਾਓ।"
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:120
@@ -5565,11 +5565,11 @@ msgid ""
 msgstr ""
 "ਹੇਠ ਦਿੱਤੀਆਂ ਕਮਾਂਡਾਂ ਨਾਲ, ਤੁਹਾਡੇ ਕੋਲ ਕਈ ਥਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜਿੰਨਾਂ ਨੂੰ ਅਸਲ ਪਰੋਗਰਾਮ ਦੇ ਚੱਲਣ ਸਮੇਂ "
 "ਉਹਨਾਂ ਦੇ ਅਸਲੀ ਮੁੱਲਾਂ ਨਾਲ ਤਬਦੀਲ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ:\n"
-"%f - ਇੱਕ ਇੱਕਲਾ ਫਾਈਲ ਨਾਂ\n"
-"%F - ਫਾਈਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
+"%f - ਇੱਕ ਇੱਕਲਾ ਫਾਇਲ ਨਾਂ\n"
+"%F - ਫਾਇਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਇਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
 "%u - ਇੱਕ ਇੱਕਲਾ URL\n"
 "%U - URL ਦੀ ਇੱਕ ਲਿਸਟ\n"
-"%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਈਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
+"%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਇਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
 "%D - ਡਾਇਰੈਕਟਰੀਆਂ ਦੀ ਲਿਸਟ\n"
 "%i - ਆਈਕਾਨ\n"
 "%m - ਨਿੰਮਾ ਆਈਕਾਨ\n"
@@ -5620,7 +5620,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
-msgstr "ਸਹਾਇਕ ਫਾਈਲ ਕਿਸਮ(&S):"
+msgstr "ਸਹਾਇਕ ਫਾਇਲ ਕਿਸਮ(&S):"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:230
@@ -5761,8 +5761,8 @@ msgstr ""
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
-msgstr[0] "1 ਫਾਈਲ"
-msgstr[1] "%1 ਫਾਈਲਾਂ"
+msgstr[0] "1 ਫਾਇਲ"
+msgstr[1] "%1 ਫਾਇਲਾਂ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #: widgets/kpropertiesdialogbuiltin_p.cpp:691
@@ -5785,12 +5785,12 @@ msgstr "ਘੱਟੋ-ਘੱਟ %1\n"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:773
 #, kde-format
 msgid "The new file name is empty."
-msgstr "ਨਵੀਂ ਫਾਈਲ ਦਾ ਨਾਂ ਖਾਲੀ ਹੈ! "
+msgstr "ਨਵੀਂ ਫਾਇਲ ਦਾ ਨਾਂ ਖਾਲੀ ਹੈ! "
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:971
 #, kde-format
 msgid "No registered file type"
-msgstr "ਕੋਈ ਰਜਿਸਟਰ ਕੀਤੀ ਫਾਈਲ ਕਿਸਮ ਨਹੀਂ ਹੈ"
+msgstr "ਕੋਈ ਰਜਿਸਟਰ ਕੀਤੀ ਫਾਇਲ ਕਿਸਮ ਨਹੀਂ ਹੈ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:973
 #, kde-format
@@ -5854,8 +5854,8 @@ msgstr "ਅਸੈੱਸ ਇਜਾਜ਼ਤਾਂ"
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] "ਇਹ ਫਾਈਲ ਇੱਕ ਲਿੰਕ ਹੈ ਅਤੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
-msgstr[1] "ਸਭ ਫਾਈਲਾਂ ਲਿੰਕ ਹਨ ਅਤੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
+msgstr[0] "ਇਹ ਫਾਇਲ ਇੱਕ ਲਿੰਕ ਹੈ ਅਤੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
+msgstr[1] "ਸਭ ਫਾਇਲਾਂ ਲਿੰਕ ਹਨ ਅਤੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1176
 #, kde-format
@@ -5913,8 +5913,8 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"ਇਹ ਚੋਣ ਯੋਗ ਕਰਨ ਨਾਲ ਫੋਲਡਰ ਦਾ ਮਾਲਕ ਹੀ ਇਸ ਵਿਚਲੀਆਂ ਫਾਈਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਦਾ ਨਾਂ ਤਬਦੀਲ ਕਰ ਜਾਂ "
-"ਹਟਾ ਸਕਦਾ ਹੈ। ਹੋਰ ਯੂਜ਼ਰ ਸਿਰਫ਼ ਨਵੀਆਂ ਫਾਈਲਾਂ ਜੋੜ ਸਕਦੇ ਹਨ, ਜਿੰਨਾਂ ਲਈ 'ਸਮੱਗਰੀ ਸੋਧ' ਅਧਿਕਾਰ ਲੋੜੀਦੇ "
+"ਇਹ ਚੋਣ ਯੋਗ ਕਰਨ ਨਾਲ ਫੋਲਡਰ ਦਾ ਮਾਲਕ ਹੀ ਇਸ ਵਿਚਲੀਆਂ ਫਾਇਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਦਾ ਨਾਂ ਤਬਦੀਲ ਕਰ ਜਾਂ "
+"ਹਟਾ ਸਕਦਾ ਹੈ। ਹੋਰ ਯੂਜ਼ਰ ਸਿਰਫ਼ ਨਵੀਆਂ ਫਾਇਲਾਂ ਜੋੜ ਸਕਦੇ ਹਨ, ਜਿੰਨਾਂ ਲਈ 'ਸਮੱਗਰੀ ਸੋਧ' ਅਧਿਕਾਰ ਲੋੜੀਦੇ "
 "ਹਨ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1214
@@ -5923,7 +5923,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"ਫਾਈਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਲਈ ਇਹ ਚੋਣ ਨੂੰ ਸਹੀਂ ਬਣਾਉ। ਇਹ ਤਾਂ ਹੀ ਕੋਈ ਮਤਲਬ ਰੱਖਦੀ ਹੈ, ਜੇਕਰ ਪਰੋਗਰਾਮ "
+"ਫਾਇਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਲਈ ਇਹ ਚੋਣ ਨੂੰ ਸਹੀਂ ਬਣਾਉ। ਇਹ ਤਾਂ ਹੀ ਕੋਈ ਮਤਲਬ ਰੱਖਦੀ ਹੈ, ਜੇਕਰ ਪਰੋਗਰਾਮ "
 "ਜਾਂ ਸਕਰਿਪਟ ਹੈ। ਇਹ ਤਾਂ ਲੋੜੀਦੀ ਹੈ, ਜੇਕਰ ਤੁਸੀਂ ਉਹਨਾਂ ਨੂੰ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1221
@@ -5983,7 +5983,7 @@ msgstr "ਪੜ੍ਹਨ"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
-msgstr "ਪੜ੍ਹਨ ਫਲੈਗ ਫਾਈਲ ਦੀ ਸਮੱਗਰੀ ਵਿਖਾਉਣ ਲਈ ਸਹਾਇਕ ਹੈ।"
+msgstr "ਪੜ੍ਹਨ ਫਲੈਗ ਫਾਇਲ ਦੀ ਸਮੱਗਰੀ ਵਿਖਾਉਣ ਲਈ ਸਹਾਇਕ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
@@ -6000,7 +6000,7 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"ਇਹ ਫਲੈਗ ਫਾਈਲਾਂ ਨੂੰ ਸ਼ਾਮਿਲ ਕਰਨ, ਨਾਂ-ਬਦਲੋ ਅਤੇ ਹਟਾਉਣ ਲਈ ਹੈ। ਯਾਦ ਰੱਖੋ ਕਿ ਹਟਾਉਣਾ ਅਤੇ ਨਾਂ-ਤਬਦੀਲ "
+"ਇਹ ਫਲੈਗ ਫਾਇਲਾਂ ਨੂੰ ਸ਼ਾਮਿਲ ਕਰਨ, ਨਾਂ-ਬਦਲੋ ਅਤੇ ਹਟਾਉਣ ਲਈ ਹੈ। ਯਾਦ ਰੱਖੋ ਕਿ ਹਟਾਉਣਾ ਅਤੇ ਨਾਂ-ਤਬਦੀਲ "
 "ਕਰਨ ਨੂੰ ਅਟਕਾਓ (ਸਟਿੱਕੀ) ਨਿਸ਼ਾਨ ਰਾਹੀਂ ਵੀ ਸੀਮਿਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1391
@@ -6011,7 +6011,7 @@ msgstr "ਲਿਖਣ"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
-msgstr "ਲਿਖਣ ਫਲੈਗ ਫਾਈਲ ਦੀ ਸਮੱਗਰੀ ਸੋਧਣ ਲਈ ਸਹਾਇਕ ਹੈ।"
+msgstr "ਲਿਖਣ ਫਲੈਗ ਫਾਇਲ ਦੀ ਸਮੱਗਰੀ ਸੋਧਣ ਲਈ ਸਹਾਇਕ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
@@ -6032,7 +6032,7 @@ msgstr "Exec"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1402
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "ਇਸ ਫਲੈਗ ਨਾਲ ਫਾਈਲ ਨੂੰ ਇੱਕ ਕਾਰਜ ਦੇ ਤੌਰ 'ਤੇ ਚਲਾਇਆ ਜਾ ਸਕਦਾ ਹੈ।"
+msgstr "ਇਸ ਫਲੈਗ ਨਾਲ ਫਾਇਲ ਨੂੰ ਇੱਕ ਕਾਰਜ ਦੇ ਤੌਰ 'ਤੇ ਚਲਾਇਆ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
@@ -6069,7 +6069,7 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
-"ਜੇਕਰ ਇਹ ਨਿਸ਼ਾਨ ਲਗਾਇਆ ਗਿਆ ਤਾਂ ਇਹ ਫੋਲਡਰ ਦਾ ਮਾਲਕ ਸਭ ਨਵੀਆਂ ਫਾਈਲਾਂ ਲਈ ਵੀ ਮਾਲਕ ਹੋਵੇਗਾ।"
+"ਜੇਕਰ ਇਹ ਨਿਸ਼ਾਨ ਲਗਾਇਆ ਗਿਆ ਤਾਂ ਇਹ ਫੋਲਡਰ ਦਾ ਮਾਲਕ ਸਭ ਨਵੀਆਂ ਫਾਇਲਾਂ ਲਈ ਵੀ ਮਾਲਕ ਹੋਵੇਗਾ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
@@ -6077,14 +6077,14 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"ਜੇਕਰ ਇਹ ਫਾਈਲ ਚੱਲਣਯੋਗ ਹੈ ਅਤੇ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਹੈ ਤਾਂ ਇਸ ਨੂੰ ਮਾਲਕ ਦੇ ਅਧਿਕਾਰਾਂ ਨਾਲ ਚਲਾਇਆ "
+"ਜੇਕਰ ਇਹ ਫਾਇਲ ਚੱਲਣਯੋਗ ਹੈ ਅਤੇ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਹੈ ਤਾਂ ਇਸ ਨੂੰ ਮਾਲਕ ਦੇ ਅਧਿਕਾਰਾਂ ਨਾਲ ਚਲਾਇਆ "
 "ਜਾਵੇਗਾ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
-msgstr "ਜੇਕਰ ਇਹ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਇਹ ਫੋਲਡਰ ਦੇ ਗਰੁੱਪ ਨੂੰ ਸਭ ਨਵੀਆਂ ਫਾਈਲਾਂ ਲਈ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
+msgstr "ਜੇਕਰ ਇਹ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਇਹ ਫੋਲਡਰ ਦੇ ਗਰੁੱਪ ਨੂੰ ਸਭ ਨਵੀਆਂ ਫਾਇਲਾਂ ਲਈ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1454
 #, kde-format
@@ -6092,7 +6092,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"ਜੇਕਰ ਇਹ ਫਾਈਲ ਚੱਲਣਯੋਗ ਹੈ ਅਤੇ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਹੈ ਤਾਂ ਇਸ ਨੂੰ ਗਰੁੱਪ ਦੇ ਅਧਿਕਾਰਾਂ ਨਾਲ ਚਲਾਇਆ "
+"ਜੇਕਰ ਇਹ ਫਾਇਲ ਚੱਲਣਯੋਗ ਹੈ ਅਤੇ ਨਿਸ਼ਾਨ ਦਿੱਤਾ ਗਿਆ ਹੈ ਤਾਂ ਇਸ ਨੂੰ ਗਰੁੱਪ ਦੇ ਅਧਿਕਾਰਾਂ ਨਾਲ ਚਲਾਇਆ "
 "ਜਾਵੇਗਾ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1461
@@ -6101,7 +6101,7 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"ਜੇਕਰ ਅਟਕਾਉ ਨਿਸ਼ਾਨ ਇੱਕ ਫੋਲਡਰ ਉੱਤੇ ਦੇ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਸਿਰਫ਼ ਮਾਲਕ ਅਤੇ ਰੂਟ (root) ਹੀ ਫਾਈਲਾਂ ਨੂੰ "
+"ਜੇਕਰ ਅਟਕਾਉ ਨਿਸ਼ਾਨ ਇੱਕ ਫੋਲਡਰ ਉੱਤੇ ਦੇ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਸਿਰਫ਼ ਮਾਲਕ ਅਤੇ ਰੂਟ (root) ਹੀ ਫਾਇਲਾਂ ਨੂੰ "
 "ਹਟਾ ਜਾਂ ਉਹਨਾਂ ਦਾ ਨਾਂ ਬਦਲ ਸਕਦੇ ਹਨ। ਨਹੀਂ ਤਾਂ ਹਰੇਕ ਕੋਈ ਲਿਖਣ ਅਧਿਕਾਰ ਵਾਲਾ ਇਹ ਕੁਝ ਕਰ ਸਕਦਾ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1466
@@ -6110,7 +6110,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"ਲਿਨਕਸ ਵਲੋਂ ਇੱਕ ਫਾਈਲ ਉੱਤੇ ਅਟਕਾਉ ਅਧਿਕਾਰਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ, ਪਰ ਕੁਝ ਹੋਰ ਸਿਸਟਮ "
+"ਲਿਨਕਸ ਵਲੋਂ ਇੱਕ ਫਾਇਲ ਉੱਤੇ ਅਟਕਾਉ ਅਧਿਕਾਰਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ, ਪਰ ਕੁਝ ਹੋਰ ਸਿਸਟਮ "
 "ਵਰਤਦੇ ਹਨ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1527
@@ -6143,8 +6143,8 @@ msgstr "ਵੇਰਿੰਗ (ਬਦਲਾਅ ਨਹੀਂ)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "ਇਸ ਫਾਈਲ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਵਰਤ ਰਹੀ ਹੈ।"
-msgstr[1] "ਇਹ ਫਾਈਲਾਂ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਵਰਤ ਰਹੀਆਂ ਹਨ।"
+msgstr[0] "ਇਸ ਫਾਇਲ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਵਰਤ ਰਹੀ ਹੈ।"
+msgstr[1] "ਇਹ ਫਾਇਲਾਂ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਵਰਤ ਰਹੀਆਂ ਹਨ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1795
 #, kde-format
@@ -6156,7 +6156,7 @@ msgstr[1] "ਇਹ ਫੋਲਡਰ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਵਰ�
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1809
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "ਇਹਨਾਂ ਫਾਈਲਾਂ ਲਈ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਹਨ।"
+msgstr "ਇਹਨਾਂ ਫਾਇਲਾਂ ਲਈ ਤਕਨੀਕੀ ਅਧਿਕਾਰ ਹਨ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2047
 #, kde-format
@@ -6231,7 +6231,7 @@ msgstr "URL:"
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
-msgstr "ਚੱਲਣਯੋਗ ਸਿਰਫ਼ ਲੋਕਲ ਫਾਈਲ ਸਿਸਟਮ ਲਈ ਸਹਾਇਕ ਹੈ।"
+msgstr "ਚੱਲਣਯੋਗ ਸਿਰਫ਼ ਲੋਕਲ ਫਾਇਲ ਸਿਸਟਮ ਲਈ ਸਹਾਇਕ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2573
 #, kde-format
@@ -6241,17 +6241,17 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ(&A)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "%1 ਲਈ ਫਾਈਲ ਕਿਸਮ ਜੋੜੋ"
+msgstr "%1 ਲਈ ਫਾਇਲ ਕਿਸਮ ਜੋੜੋ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "ਸ਼ਾਮਿਲ ਕਰਨ ਲਈ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਈਲ ਚੁਣੋ:"
+msgstr "ਸ਼ਾਮਿਲ ਕਰਨ ਲਈ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਇਲ ਚੁਣੋ:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2856
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "ਚੱਲਣਯੋਗ ਸਿਰਫ਼ ਲੋਕਲ ਫਾਈਲ ਸਿਸਟਮ ਲਈ ਸਹਾਇਕ ਹੈ।"
+msgstr "ਚੱਲਣਯੋਗ ਸਿਰਫ਼ ਲੋਕਲ ਫਾਇਲ ਸਿਸਟਮ ਲਈ ਸਹਾਇਕ ਹੈ।"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2870
 #, kde-format
@@ -6355,12 +6355,12 @@ msgstr "ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਦੀ ਸੰਰਚਨਾ..."
 #: widgets/kurlrequester.cpp:329
 #, kde-format
 msgid "Open file dialog"
-msgstr "ਫਾਈਲ ਖੋਲ੍ਹਣ ਡਾਈਲਾਗ"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹਣ ਡਾਈਲਾਗ"
 
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਈਲ-ਨਾਂ:"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਇਲ-ਨਾਂ:"
 
 #: widgets/paste.cpp:110
 #, kde-format
@@ -6384,7 +6384,7 @@ msgstr "ਇੱਕ ਫੋਲਡਰ ਚੇਪੋ"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "ਇੱਕ ਫ਼ਾਈਲ ਚੇਪੋ"
+msgstr "ਇੱਕ ਫਾਇਲ ਚੇਪੋ"
 
 #: widgets/paste.cpp:254
 #, kde-format
@@ -6415,7 +6415,7 @@ msgstr "ਡਾਟਾ ਫਾਰਮੈਟ:"
 #, fuzzy, kde-format
 #| msgid "Filename for clipboard content:"
 msgid "Filename for dropped contents:"
-msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਈਲ-ਨਾਂ:"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਇਲ-ਨਾਂ:"
 
 #: widgets/renamedialog.cpp:64
 #, kde-format
@@ -6471,7 +6471,7 @@ msgstr "ਇਹ ਫੋਲਡਰ ਕਾਪੀ ਨਾ ਕਰੋ ਜਾਂ ਭੇਜ
 #: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
-msgstr "ਇਹ ਫਾਈਲ ਕਾਪੀ ਨਾ ਕਰੋ ਜਾਂ ਭੇਜੋ ਨਾ, ਇਸ ਦੀ ਬਜਾਏ ਅਗਲੀ ਆਈਟਮ ਉੱਤੇ ਜਾਓ"
+msgstr "ਇਹ ਫਾਇਲ ਕਾਪੀ ਨਾ ਕਰੋ ਜਾਂ ਭੇਜੋ ਨਾ, ਇਸ ਦੀ ਬਜਾਏ ਅਗਲੀ ਆਈਟਮ ਉੱਤੇ ਜਾਓ"
 
 #: widgets/renamedialog.cpp:261
 #, kde-format
@@ -6487,14 +6487,14 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"ਫਾਈਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਨੂੰ ਮੌਜੂਦਾ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕੀਤਾ ਜਾਵੇਗਾ, ਉਹਨਾਂ ਦੀ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਸਮੇਤ।\n"
-"ਜੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਮੌਜੂਦਾ ਫਾਈਲ ਨਾਲ ਕੋਈ ਟਕਰਾ ਹੋਵੇਗਾ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁੱਛਿਆ ਜਾਵੇਗਾ।"
+"ਫਾਇਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਨੂੰ ਮੌਜੂਦਾ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕੀਤਾ ਜਾਵੇਗਾ, ਉਹਨਾਂ ਦੀ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਸਮੇਤ।\n"
+"ਜੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਮੌਜੂਦਾ ਫਾਇਲ ਨਾਲ ਕੋਈ ਟਕਰਾ ਹੋਵੇਗਾ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁੱਛਿਆ ਜਾਵੇਗਾ।"
 
 #: widgets/renamedialog.cpp:269
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "ਪੁਰਾਣੀਆਂ ਫ਼ਾਈਲਾਂ ਉੱਤੇ ਲਿਖੋ(&O)"
+msgstr "ਪੁਰਾਣੀਆਂ ਫਾਇਲ ਉੱਤੇ ਲਿਖੋ(&O)"
 
 #: widgets/renamedialog.cpp:273
 #, kde-format
@@ -6515,7 +6515,7 @@ msgid ""
 "Please enter a new file name:"
 msgstr ""
 "ਇਹ ਐਕਸ਼ਨ '%1' ਖੁਦ ਦੇ ਮੁੜ-ਲਿਖ ਦੇਵੇਗਾ।\n"
-"ਨਵੀਂ ਫਾਈਲ ਦਾ ਨਾਂ ਦਿਓ ਜੀ:"
+"ਨਵੀਂ ਫਾਇਲ ਦਾ ਨਾਂ ਦਿਓ ਜੀ:"
 
 #: widgets/renamedialog.cpp:300
 #, kde-format
@@ -6572,19 +6572,19 @@ msgstr "ਟਿਕਾਣਾ <b>%1 ਤੱਕ ਵੱਡਾ ਹੈ</b>"
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
-msgstr "ਫਾਈਲਾਂ ਇੱਕੋ ਜਿਹੀਆਂ ਹਨ।"
+msgstr "ਫਾਇਲਾਂ ਇੱਕੋ ਜਿਹੀਆਂ ਹਨ।"
 
 #: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
-msgstr "ਫਾਈਲਾਂ ਇੱਕੋ ਜਿਹੀਆਂ ਜਾਪਦੀਆਂ ਹਨ।"
+msgstr "ਫਾਇਲਾਂ ਇੱਕੋ ਜਿਹੀਆਂ ਜਾਪਦੀਆਂ ਹਨ।"
 
 #: widgets/renamedialog.cpp:438
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
-msgstr "ਫ਼ਾਈਲਾਂ ਵੱਖਰੀਆਂ ਹਨ।"
+msgstr "ਫਾਇਲ ਵੱਖਰੀਆਂ ਹਨ।"
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -6601,7 +6601,7 @@ msgstr "ਇੱਕ ਪੁਰਾਣਾ ਆਈਟਮ ਨਾਂ '%1' ਪਹਿਲਾ
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr " '%1' ਨਾਂ ਦੀ ਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
+msgstr " '%1' ਨਾਂ ਦੀ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
 #: widgets/renamedialog.cpp:469
 #, kde-format

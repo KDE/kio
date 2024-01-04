@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:34+0000\n"
+"POT-Creation-Date: 2024-01-04 01:33+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3102,19 +3102,19 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Izmijenjeno juče"
 
-#: filewidgets/kfileplacesmodel.cpp:1095
+#: filewidgets/kfileplacesmodel.cpp:1092
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Nije moguće dodati na tablu Mjesta: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1102
+#: filewidgets/kfileplacesmodel.cpp:1099
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Na tablu Mjesta se mogu dodati samo fascikle."
 
 # >> Release a removable djevice, so that it can bje unplugged.
-#: filewidgets/kfileplacesmodel.cpp:1366
+#: filewidgets/kfileplacesmodel.cpp:1363
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3123,13 +3123,13 @@ msgid "Releasing…"
 msgstr "&Oslobodi"
 
 # >> Release a removable djevice, so that it can bje unplugged.
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Oslobodi"
 
-#: filewidgets/kfileplacesmodel.cpp:1372
+#: filewidgets/kfileplacesmodel.cpp:1369
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3137,13 +3137,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Bezbjedno ukloni"
 
-#: filewidgets/kfileplacesmodel.cpp:1374
+#: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Bezbjedno ukloni"
 
-#: filewidgets/kfileplacesmodel.cpp:1379
+#: filewidgets/kfileplacesmodel.cpp:1376
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3151,39 +3151,39 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Demontiranje"
 
-#: filewidgets/kfileplacesmodel.cpp:1381
+#: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Demontiraj"
 
-#: filewidgets/kfileplacesmodel.cpp:1405
+#: filewidgets/kfileplacesmodel.cpp:1402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Izbaci"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "UreÄ‘aj â€ž%1â€œ nije disk i ne moÅ¾e se izbaciti."
 
-#: filewidgets/kfileplacesmodel.cpp:1487
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "GreÅ¡ka pri pristupu <resource>%1</resource>, sistem javlja: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1489
+#: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "GreÅ¡ka pri pristupu <resource>%1</resource>"
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3195,13 +3195,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:34+0000\n"
+"POT-Creation-Date: 2024-01-04 01:33+0000\n"
 "PO-Revision-Date: 2023-08-10 18:43+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3033,81 +3033,81 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Endra i går"
 
-#: filewidgets/kfileplacesmodel.cpp:1095
+#: filewidgets/kfileplacesmodel.cpp:1092
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Klarte ikkje leggja til i «Stadar»-panelet: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1102
+#: filewidgets/kfileplacesmodel.cpp:1099
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Du kan berre leggja mapper til «Stadar»-panelet."
 
-#: filewidgets/kfileplacesmodel.cpp:1366
+#: filewidgets/kfileplacesmodel.cpp:1363
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Slepper laus …"
 
 # Er snakk om CD-ROM-ar og sånt. Så vidt eg kan sjå, er det tilsvarande som for «Eject», så brukar same omsetjing.
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Løys ut"
 
-#: filewidgets/kfileplacesmodel.cpp:1372
+#: filewidgets/kfileplacesmodel.cpp:1369
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Fjernar trygt …"
 
-#: filewidgets/kfileplacesmodel.cpp:1374
+#: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Fjern trygt"
 
-#: filewidgets/kfileplacesmodel.cpp:1379
+#: filewidgets/kfileplacesmodel.cpp:1376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Avmonterer …"
 
-#: filewidgets/kfileplacesmodel.cpp:1381
+#: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Avmonter"
 
-#: filewidgets/kfileplacesmodel.cpp:1405
+#: filewidgets/kfileplacesmodel.cpp:1402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Løys ut"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Eininga «%1» er ikkje ei plate, og kan derfor ikkje løysast ut."
 
-#: filewidgets/kfileplacesmodel.cpp:1487
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Det oppstod ein feil ved forsøk på tilgang til «%1». Systemet sa: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1489
+#: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Det oppstod ein feil ved forsøk på tilgang til «%1»"
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "Éi eller fleire filer på eininga er i bruk av eit program."
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3122,13 +3122,13 @@ msgstr[1] ""
 "Éi eller fleire filer på eininga er i bruk av desse programma: "
 "<application>«%2»</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
