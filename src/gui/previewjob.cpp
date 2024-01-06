@@ -494,7 +494,7 @@ void PreviewJob::slotResult(KJob *job)
         const KIO::filesize_t size = (KIO::filesize_t)statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
 
-        if (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) {
+        if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !d->currentItem.item.isSlow()) {
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
         } else {
             // For remote items the "IgnoreMaximumSize" plugin property is not respected
