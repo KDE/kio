@@ -499,15 +499,6 @@ void PreviewJob::slotResult(KJob *job)
         } else {
             // For remote items the "IgnoreMaximumSize" plugin property is not respected
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumRemoteSize;
-
-            // Remote directories are not supported, don't try to do a file_copy on them
-            if (!skipCurrentItem) {
-                // TODO update item.mimeType from the UDS entry, in case it wasn't set initially
-                // But we don't use the MIME type anymore, we just use isDir().
-                if (d->currentItem.item.isDir()) {
-                    skipCurrentItem = true;
-                }
-            }
         }
         if (skipCurrentItem) {
             d->determineNextFile();
