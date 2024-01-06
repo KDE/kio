@@ -550,7 +550,7 @@ inline QString KFileItemPrivate::parsePermissions(mode_t perm) const
 void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
 {
     QMimeDatabase db;
-    if (m_bSkipMimeTypeFromContent) {
+    if (m_bSkipMimeTypeFromContent || isSlow()) {
         const QString scheme = url.scheme();
         if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto")) {
             m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
