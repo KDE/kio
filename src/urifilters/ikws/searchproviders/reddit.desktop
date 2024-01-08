@@ -21,6 +21,7 @@ Name[fi]=Reddit
 Name[fr]=Reddit
 Name[gl]=Reddit
 Name[he]=רדיט
+Name[hu]=Reddit
 Name[ia]=Reddit
 Name[id]=Reddit
 Name[ie]=Reddit
@@ -71,6 +72,7 @@ Query[fi]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
 Query[gl]=https://www.reddit.com/search/?q=\\{@}
 Query[he]=https://www.reddit.com/search/?q=\\{@}
+Query[hu]=https://www.reddit.com/search/?q=\\{@}
 Query[ia]=https://www.reddit.com/search/?q=\\{@}
 Query[id]=https://www.reddit.com/search/?q=\\{@}
 Query[ie]=https://www.reddit.com/search/?q=\\{@}
