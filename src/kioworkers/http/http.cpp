@@ -385,6 +385,17 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
         handleSslErrors(reply, errors);
     });
 
+    qint64 lastTotalSize = -1;
+
+    QObject::connect(reply, &QNetworkReply::downloadProgress, this, [this, &lastTotalSize](qint64 received, qint64 total) {
+        if (total != lastTotalSize) {
+            lastTotalSize = total;
+            totalSize(total);
+        }
+
+        processedSize(received);
+    });
+
     QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     QObject::connect(this, &HTTPProtocol::errorOut, &loop, [this, &loop](KIO::Error error) {
         lastError = error;
