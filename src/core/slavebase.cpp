@@ -1476,6 +1476,7 @@ void SlaveBase::send(int cmd, const QByteArray &arr)
             slaveWriteError = true;
         }
         if (slaveWriteError) {
+            qCWarning(KIO_CORE) << "An error occurred during write. The worker terminates now.";
             exit();
         }
     }
