@@ -3,13 +3,13 @@
 # Marcell Lengyel <miketkf@yahoo.com>, 1999.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011, 2015.
 # Balázs Úr <urbalazs@gmail.com>, 2012.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2018, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:33+0000\n"
-"PO-Revision-Date: 2022-02-08 09:30+0100\n"
+"PO-Revision-Date: 2024-01-08 13:17+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,10 +44,9 @@ msgstr ""
 "Nincs jogosultsága a módosítás végrehajtásához."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nem sikerült létrehozni ezt a KDE protokollt: %1"
+msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót: %1"
 
 #: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
 #, kde-format
@@ -223,8 +222,7 @@ msgid "Destination"
 msgstr "Cél"
 
 #: core/job.cpp:105
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Átnevezés"
@@ -794,10 +792,9 @@ msgid "Communication with the local password server failed"
 msgstr "Nem sikerült kapcsolatba lépni a helyi jelszókiszolgálóval"
 
 #: core/job_error.cpp:249
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nem sikerült létrehozni ezt a KDE protokollt. %1"
+msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót. %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -821,10 +818,9 @@ msgstr ""
 "Próbálja meg újra a jogosultságok módosítása után."
 
 #: core/job_error.cpp:261
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Ez a fájl túl nagy, nem helyezhető a kukába."
+msgstr "A fájl túl nagy, nem helyezhető a kukába."
 
 #: core/job_error.cpp:264
 #, kde-format
@@ -1174,21 +1170,16 @@ msgstr ""
 "kiszolgálón elérhető verzióval."
 
 #: core/job_error.cpp:506
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Rá lehet keresni az interneten olyan KDE programokra (ezeket „kioslave”-nek "
-"vagy „ioslave”-nek hívják), amelyek lehetővé teszik a protokoll használatát. "
-"A javasolt keresési helyek: <a href=\"https://kde-apps.org/\">https://kde-"
-"apps.org/</a> és <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"Rá lehet keresni az interneten olyan szoftverbővítményekre (ezeket „KIO "
+"feldolgozóknak” hívják), amelyek lehetővé teszik a protokoll használatát. A "
+"javasolt keresési helyek tartalmazzák a <a href=\"https://store.kde.org/"
+"\">KDE Store</a>-t."
 
 #: core/job_error.cpp:514
 #, kde-format
@@ -2344,28 +2335,21 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "A(z) %1 protokoll inicializálása nem sikerült"
 
 #: core/job_error.cpp:1252
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nem sikerült létrehozni a KDE protokollt"
+msgstr "Nem sikerült létrehozni a KIO feldolgozót"
 
 #: core/job_error.cpp:1254
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Nem sikerült elindítani azt az I/O-szolgáltatás, amely a(z) <strong>%1</"
+"Nem sikerült elindítani azt a KIO feldolgozót, amely a(z) <strong>%1</"
 "strong> protokollt kezeli. Ennek különféle technikai okai lehetnek."
 
 #: core/job_error.cpp:1259
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2524,24 +2508,20 @@ msgid "Unknown protocol '%1'."
 msgstr "Ismeretlen protokoll: „%1”."
 
 #: core/worker.cpp:345
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "A(z) „%1” protokollhoz tartozó kezelőprogram nem található."
+msgstr "A(z) „%1” protokollhoz tartozó KIO feldolgozó nem található."
 
 #: core/worker.cpp:353
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Nem lehet létrehozni socketet a(z) „%1” protokollt kezelő I/O-"
-"szolgáltatáshoz."
+"Nem lehet létrehozni socketet a(z) „%1” protokollt kezelő KIO feldolgozóhoz."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Nem található a „kioslave5” végrehajtható itt: „%1”"
+msgstr "Nem található a „kioworker” végrehajtható itt: „%1”"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -2568,7 +2548,7 @@ msgstr "&Csak a jelenlegi munkamenetben"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2685,10 +2665,9 @@ msgid "Folders First"
 msgstr "Mappák előre"
 
 #: filewidgets/kdiroperator.cpp:2032
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Rejtett fájlok megjelenítése"
+msgstr "Rejtett fájlok leghátul"
 
 #: filewidgets/kdiroperator.cpp:2039
 #, kde-format
@@ -2771,10 +2750,9 @@ msgid "Properties"
 msgstr "Tulajdonságok"
 
 #: filewidgets/kdiroperator.cpp:2172
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "Né&zet"
+msgstr "Né&zetmód"
 
 #: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
@@ -3092,25 +3070,21 @@ msgid "Modified Yesterday"
 msgstr "Tegnap módosított"
 
 #: filewidgets/kfileplacesmodel.cpp:1092
-#, fuzzy, kde-format
-#| msgid "Could not find the program '%1'"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "A(z) „%1” program nem található."
+msgstr "Nem sikerült hozzáadni a Helyek panelhez: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1099
-#, fuzzy, kde-format
-#| msgid "A folder cannot be moved into itself"
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Mappa nem helyezhető át önmagába"
+msgstr "Csak mappák adhatók hozzá a Helyek panelhez."
 
 #: filewidgets/kfileplacesmodel.cpp:1363
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Kiadás"
+msgstr "Kiadás…"
 
 #: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
@@ -3119,12 +3093,10 @@ msgid "&Release"
 msgstr "&Kiadás"
 
 #: filewidgets/kfileplacesmodel.cpp:1369
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Bi&ztonságos eltávolítás"
+msgstr "Biztonságos eltávolítás…"
 
 #: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
@@ -3133,12 +3105,10 @@ msgid "&Safely Remove"
 msgstr "Bi&ztonságos eltávolítás"
 
 #: filewidgets/kfileplacesmodel.cpp:1376
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Leválasztás"
+msgstr "Leválasztás…"
 
 #: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
@@ -3170,7 +3140,7 @@ msgstr "Hiba történt a(z) „%1” elérése közben"
 #: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Egy vagy több fájl az eszközről meg van nyitva egy alkalmazásban."
 
 #: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-kuit-format
@@ -3181,19 +3151,23 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Egy vagy több fájl az eszközről meg van nyitva a(z) <application>„%2”</"
+"application> alkalmazásban."
 msgstr[1] ""
+"Egy vagy több fájl az eszközről meg van nyitva a következő alkalmazásokban: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Újraformázás vagy szerkesztés a Partíciókezelővel"
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3237,11 +3211,10 @@ msgid "&Edit…"
 msgstr "Sz&erkesztés…"
 
 #: filewidgets/kfileplacesview.cpp:1175
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Fájl törlése"
+msgstr "Eltávolítás a Helyekből"
 
 #: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
@@ -3530,10 +3503,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Távoli fájlokat nem lehet megadni"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Minden mappa"
+msgstr "Minden mappa"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -3768,20 +3740,16 @@ msgid "Paste"
 msgstr "Beillesztés"
 
 #: filewidgets/kurlnavigator.cpp:545
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Megnyitás új lapon"
+msgstr "„%1” megnyitása új lapon"
 
 #: filewidgets/kurlnavigator.cpp:553
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Window"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Megnyitás új ablakban"
+msgstr "„%1” megnyitása új ablakban"
 
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
@@ -3908,11 +3876,10 @@ msgid "Launching %1"
 msgstr "%1 indítása"
 
 #: gui/kprocessrunner.cpp:462
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Nem található ez a fájl: \"%1\""
+msgstr "A(z) <command>%1</command> parancs nem található."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4156,13 +4123,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nem sikerült megváltoztatni %1 tulajdonosát."
+msgstr ""
+"Nem sikerült megváltoztatni a következő tulajdonosát és csoportját:\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -4923,8 +4891,7 @@ msgid "Moving"
 msgstr "Mozgatás"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
 msgstr "Átnevezés"
 
@@ -5021,8 +4988,7 @@ msgstr "Végleges törlés"
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:269
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Végleges törlés"
@@ -5561,16 +5527,13 @@ msgstr ""
 "„%1” (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "Az alkalmazástársítás meg&jegyzése ennél a fájltípusnál\n"
-"„%1” (%2)"
+"„%1”"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -5590,7 +5553,7 @@ msgstr "Ne &záruljon be az ablak a parancs befejeződése után"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "További alkalmazások letöltése a Discoverrel"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -5796,24 +5759,22 @@ msgstr "Meg&jegyzés:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Proxy használata (környe&zeti változókkal megadva)"
+msgstr "Környezeti változók:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "Adja meg, milyen néven szeretné futtatni az alkalmazást."
+msgstr "Ide írja be az alkalmazás indításához szükséges parancsot."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Program:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:117
@@ -5832,20 +5793,7 @@ msgstr "&Tallózás..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5860,10 +5808,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Itt kell megadni az alkalmazás indítási parancsát.\n"
+"Itt kell megadni az alkalmazás indításakor használandó argumentumokat.\n"
 "\n"
-"A parancs után többféle helyettesítési szimbólum használható, melyek helyére "
-"a program futtatásakor érvényes értékek kerülnek:\n"
+"Többféle helyettesítési szimbólum használható, melyek helyére a program "
+"futtatásakor érvényes értékek kerülnek:\n"
 "\n"
 "%f - fájlnév (csak egy)\n"
 "%F - fájlnevek (több); olyan alkalmazásoknál, melyek egynél több fájlt is "
@@ -5876,11 +5824,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Dokumentumok"
+msgstr "&Argumentumok:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -6101,10 +6047,9 @@ msgid "The new file name is empty."
 msgstr "Az új fájlnév nem lehet üres!"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:971
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "A tám&ogatott MIME-típusok:"
+msgstr "Nincs regisztrált fájltípus"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:973
 #, kde-format
@@ -6112,15 +6057,13 @@ msgid "No associated application"
 msgstr "Nincs társított alkalmazás"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:979
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Létrehozási dátum:"
+msgstr "Létrehozás…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:982
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Módosítás…"
@@ -6866,16 +6809,14 @@ msgid "C&ontinue"
 msgstr "F&olytatás"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Ez a művelet felülírja a célt."
+msgstr "Szeretné felülírni a célt?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Ez a művelet felülírja a célt."
+msgstr "Szeretné beolvasztani a(z) „%1” tartalmát ebbe: „%2”?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6888,46 +6829,39 @@ msgid "Destination"
 msgstr "Cél"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "A cél <b>kisebb ennyivel: %1</b>"
+msgstr "A forrás <b>sokkal frisebb</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "A cél <b>kisebb ennyivel: %1</b>"
+msgstr "A forrás <b>régebbi</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "A cél <b>kisebb ennyivel: %1</b>"
+msgstr "A forrás <b>kisebb ennyivel: %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "A cél <b>nagyobb ennyivel: %1</b>"
+msgstr "A forrás <b>nagyobb ennyivel: %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "A fájlok azonosak."
+msgstr "A fájlok <b>azonosak</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "A fájlok azonosnak tűnnek."
+msgstr "A fájlok <b>azonosnak tűnnek</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "A fájlok különbözőek"
+msgstr "A fájlok <b>különbözőek</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -7139,19 +7073,14 @@ msgstr ""
 "El szeretné fogadni ezt a tanúsítványt rákérdezés nélkül a továbbiakban?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Véglegesen törli ezt az elemet?<nl/><filename>%1</filename><nl/><nl/"
+"Véglegesen törli ezt az elemet?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>A művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:241
@@ -7171,30 +7100,19 @@ msgstr[1] ""
 "művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:254
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Véglegesen törli ezt az elemet?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>A művelet nem vonható vissza.</emphasis>"
+"Az elem áthelyezése a Kukába nem sikerült, mert túl nagy. Törli helyette "
+"véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>A művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -7205,11 +7123,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Véglegesen törli ezt az elemet?<nl/><nl/><emphasis strong='true'>A művelet "
-"nem vonható vissza.</emphasis>"
+"%1 elem áthelyezése a Kukába nem sikerült, mert túl nagy. Törli helyette "
+"véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>A művelet nem vonható vissza.</emphasis>"
 msgstr[1] ""
-"Véglegesen törli ezt a(z) %1 elemet?<nl/><nl/><emphasis strong='true'>A "
-"művelet nem vonható vissza.</emphasis>"
+"%1 elem áthelyezése a Kukába nem sikerült, mert túl nagyok. Törli ezeket "
+"helyette véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>A művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
