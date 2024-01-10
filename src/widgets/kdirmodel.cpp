@@ -1329,8 +1329,7 @@ bool KDirModel::canFetchMore(const QModelIndex &parent) const
 
     KDirModelNode *node = static_cast<KDirModelNode *>(parent.internalPointer());
     const KFileItem &item = node->item();
-    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isOnNetwork() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
-        && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
+    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isPopulated() && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
 }
 
 void KDirModel::fetchMore(const QModelIndex &parent)
