@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 01:33+0000\n"
+"POT-Creation-Date: 2024-01-11 00:35+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2070,7 +2070,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ម៉ាស៊ីន​បម្រើ​មមាញឹក​ក្នុង​ការ​ឆ្លើយតប​ទៅកាន់​សំណើ​ផ្សេងទៀត​ដែលត្រូវ​ឆ្លើយតប ។"
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1519
 #, kde-format
 msgid "Unknown Error"
 msgstr "កំហុស​មិន​ស្គាល់"
@@ -4400,90 +4400,90 @@ msgstr "មិន​អាច​អាន​ឯកសារ %1 បាន​ឡ�
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> នៅ <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1181
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ផ្សេង​ពី​នេះ ការ​ស្នើ​សុំ​នឹង​បាន​ជោគជ័យ ។"
 
-#: kioworkers/http/http.cpp:1184
+#: kioworkers/http/http.cpp:1195
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ទៅ​យក​តម្លៃ​ដែល​សមរម្យ"
 
-#: kioworkers/http/http.cpp:1186
+#: kioworkers/http/http.cpp:1197
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "កំណត់​តម្លៃ​លក្ខណៈ​សម្បត្តិ"
 
-#: kioworkers/http/http.cpp:1188
+#: kioworkers/http/http.cpp:1199
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "បង្កើត​ថត​ដែល​បាន​ស្នើ"
 
-#: kioworkers/http/http.cpp:1190
+#: kioworkers/http/http.cpp:1201
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ចម្លង​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1192
+#: kioworkers/http/http.cpp:1203
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ផ្លាស់ទី​ឯកសារ ឬ​ថត​ដែល​បានបញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1194
+#: kioworkers/http/http.cpp:1205
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ស្វែងរក​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1196
+#: kioworkers/http/http.cpp:1207
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ចាក់​សោ​ឯកសារ ឬ​ថត​ដែលបាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1198
+#: kioworkers/http/http.cpp:1209
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ដោះសោ​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1200
+#: kioworkers/http/http.cpp:1211
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "លុប​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1202
+#: kioworkers/http/http.cpp:1213
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "សួរ​សមត្ថភាព​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: kioworkers/http/http.cpp:1204
+#: kioworkers/http/http.cpp:1215
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ទាញយក​មាតិកា​របស់​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1206
+#: kioworkers/http/http.cpp:1217
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "រត់​​របាយការណ៍​នៅ​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1214
+#: kioworkers/http/http.cpp:1225
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "កំហុស​ដែល​មិន​រំពឹង​ទុក​ (%1) បាន​កើតឡើង​ខណៈពេល​ប៉ុនប៉ង​ទៅ​កាន់ %2 ។"
 
-#: kioworkers/http/http.cpp:1254
+#: kioworkers/http/http.cpp:1265
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4491,13 +4491,13 @@ msgid ""
 "below."
 msgstr "កំហុស​មួយ​បានកើតឡើង ខណៈ​ប៉ុនប៉ង %1 %2 ។ សេចក្ដី​សង្ខេប​នៃ​មូលហេតុ​គឺ​នៅ​ខាងក្រោម ។"
 
-#: kioworkers/http/http.cpp:1272 kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1283 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "ការចូលដំណើរការ​ត្រូវ​បាន​បដិសេធ ខណៈពេល​កំពុង​ប៉ុន​ប៉ង %1 ។"
 
-#: kioworkers/http/http.cpp:1286 kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1297 kioworkers/http/http.cpp:1434
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4505,7 +4505,7 @@ msgid ""
 msgstr ""
 "មិនអាច​បង្កើត​​ធនធាន​នៅ​ទិសដៅ​បានឡើយ គឺ​រហូតដល់​ការប្រមូលផ្តុំ (ថត) មធ្យម​មួយ ឬ​ច្រើន​ត្រូវ​បាន​បង្កើត ។"
 
-#: kioworkers/http/http.cpp:1295
+#: kioworkers/http/http.cpp:1306
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4522,28 +4522,28 @@ msgstr ""
 "បានទេ ឬ​អ្នក​បាន​ប៉ុនប៉ង​សរសេរ​ជាន់​លើ​ឯកសារ​មួយ ខណៈពេល​កំពុង​ស្នើ​ថា ឯកសារ​មិន​ត្រូវ​បាន​សរសេរ​ជាន់​សលើ ។ "
 "%1​"
 
-#: kioworkers/http/http.cpp:1303
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "មិនអាច​បង្កើត​ការ​ចាក់សោ​ដែលបាន​ស្នើ​បាន​ឡើយ ។ %1"
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "ម៉ាស៊ីន​បម្រើ​មិន​គាំទ្រ​សំណើ​ប្រភេទ​តួ​បានទេ ។"
 
-#: kioworkers/http/http.cpp:1314 kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1442
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "មិ​នអាច​តភ្ជាប់​ទៅ %1 បានទេ ពីព្រោះ​ធនធាន​ជាប់​សោ ។"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1329
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "អំពើ​នេះ​ត្រូវ​បាន​រារាំង​ដោយ​កំហុស​មួយ​ផ្សេង​ទៀត ។"
 
-#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1438
+#: kioworkers/http/http.cpp:1336 kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4551,7 +4551,7 @@ msgid ""
 "folder."
 msgstr "មិន​អាច​​បានទេ %1 ពីព្រោះ​ម៉ាស៊ីន​បម្រើ​ទិសដៅ​បដិសេធ​ការ​ទទួល​យក​ឯកសារ ឬ​ថត ។"
 
-#: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
+#: kioworkers/http/http.cpp:1345 kioworkers/http/http.cpp:1458
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4559,18 +4559,18 @@ msgid ""
 msgstr ""
 "ធនធាន​ទិសដៅ​មិន​មាន​ទំហំ​គ្រប់គ្រាន់ ដើម្បី​កត់​ត្រា​សភាព​របស់​ធនធាន បន្ទាប់ពី​ការ​ប្រតិបត្តិ​វិធីសាស្ត្រ​នេះ​ទេ ។"
 
-#: kioworkers/http/http.cpp:1387
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ធនធាន​មិន​អាច​ត្រូ​វបានលុប​ទេ ។"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ផ្ទុក %1 ឡើង"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

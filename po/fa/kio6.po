@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 01:33+0000\n"
+"POT-Creation-Date: 2024-01-11 00:35+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2109,7 +2109,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "کار‌ساز برای پاسخ به درخواستهای دیگری که باید پاسخ داده شوند، خیلی اشغال بود."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1519
 #, kde-format
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
@@ -4375,90 +4375,90 @@ msgstr "نتوانست نام پروندهٔ %1 را در %2 بیابد."
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> در <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1181
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "در غیر این صورت، درخواست به نتیجه رسیده است."
 
-#: kioworkers/http/http.cpp:1184
+#: kioworkers/http/http.cpp:1195
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "بازیابی مقادیر ویژگی"
 
-#: kioworkers/http/http.cpp:1186
+#: kioworkers/http/http.cpp:1197
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "تنظیم مقادیر ویژگی"
 
-#: kioworkers/http/http.cpp:1188
+#: kioworkers/http/http.cpp:1199
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ایجاد پوشهٔ درخواست‌شده"
 
-#: kioworkers/http/http.cpp:1190
+#: kioworkers/http/http.cpp:1201
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "رونویسی پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1192
+#: kioworkers/http/http.cpp:1203
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "انتقال پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1194
+#: kioworkers/http/http.cpp:1205
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "جست‌وجو در پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1196
+#: kioworkers/http/http.cpp:1207
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "قفل پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1198
+#: kioworkers/http/http.cpp:1209
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "باز کردن قفل پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1200
+#: kioworkers/http/http.cpp:1211
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "حذف پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1202
+#: kioworkers/http/http.cpp:1213
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "پرس‌وجوی قابلیت‌های کار‌ساز"
 
-#: kioworkers/http/http.cpp:1204
+#: kioworkers/http/http.cpp:1215
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "باز‌یابی محتویات پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1206
+#: kioworkers/http/http.cpp:1217
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "اجرای یک گزارش در پوشهٔ مشخص شده"
 
-#: kioworkers/http/http.cpp:1214
+#: kioworkers/http/http.cpp:1225
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "هنگام تلاش برای %2، خطای غیرمنتظره (%1) رخ داد."
 
-#: kioworkers/http/http.cpp:1254
+#: kioworkers/http/http.cpp:1265
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4467,13 +4467,13 @@ msgid ""
 msgstr ""
 "هنگام تلاش برای %1، %2، خطایی رخ داد. خلاصه‌ای از دلایل در زیر آمده است."
 
-#: kioworkers/http/http.cpp:1272 kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1283 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "هنگام تلاش برای %1، دسترسی رد شد."
 
-#: kioworkers/http/http.cpp:1286 kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1297 kioworkers/http/http.cpp:1434
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4482,7 +4482,7 @@ msgstr ""
 "یک منبع را نمی‌توان در مقصد ایجاد کرد، تا زمانی که یک یا چند مجموعه (پوشه‌) "
 "واسطه ایجاد شده باشد."
 
-#: kioworkers/http/http.cpp:1295
+#: kioworkers/http/http.cpp:1306
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4499,28 +4499,28 @@ msgstr ""
 "نبود، یا این که زمانی که در حال درخواست پرونده‌هایی که جای‌نوشت نمی‌شوند بودید؛ "
 "برای جای‌نوشت یک پرونده تلاش می‌کردید. %1"
 
-#: kioworkers/http/http.cpp:1303
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "نتوانست قفل درخواست‌شده را تصدیق کند. %1"
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "کار‌ساز، از درخواست نوع بدنه پشتیبانی نمی‌کند."
 
-#: kioworkers/http/http.cpp:1314 kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1442
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "ناتوان از %1، زیرا منبع قفل است."
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1329
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "این کنش توسط خطای دیگری پیشگیری شده بود."
 
-#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1438
+#: kioworkers/http/http.cpp:1336 kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4528,7 +4528,7 @@ msgid ""
 "folder."
 msgstr "ناتوان از %1، زیرا کار‌ساز مقصد، پرونده یا پوشه را رد نمی‌پذیرد."
 
-#: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
+#: kioworkers/http/http.cpp:1345 kioworkers/http/http.cpp:1458
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4536,18 +4536,18 @@ msgid ""
 msgstr ""
 "منبع مقصد، فضای کافی برای ضبط وضعیت منبع بعد از اجرای این روش را ندارد."
 
-#: kioworkers/http/http.cpp:1387
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "منبع نمی‌تواند حذف شود."
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "بارگذاری %1"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

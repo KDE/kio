@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 01:33+0000\n"
+"POT-Creation-Date: 2024-01-11 00:35+0000\n"
 "PO-Revision-Date: 2024-01-03 14:01-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -1988,7 +1988,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ਸਰਵਰ ਇੰਨਾ ਰੁੱਝਿਆ ਹੋਇਆ ਹੈ ਕਿ ਹੋਰ ਬੇਨਤੀਆਂ ਨੂੰ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦਾ ਹੈ।"
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1519
 #, kde-format
 msgid "Unknown Error"
 msgstr "ਅਣਜਾਣ ਗਲਤੀ"
@@ -4176,90 +4176,90 @@ msgstr "%2 ਵਿੱਚ %1 ਫਾਇਲ-ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ �
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> 'ਤੇ <b>%1</b> "
 
-#: kioworkers/http/http.cpp:1181
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ਨਹੀ ਤਾਂ, ਬੇਨਤੀ ਸਫਲ ਹੋਵੇਗੀ।"
 
-#: kioworkers/http/http.cpp:1184
+#: kioworkers/http/http.cpp:1195
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾ ਮੁੱਲ ਪਰਾਪਤ"
 
-#: kioworkers/http/http.cpp:1186
+#: kioworkers/http/http.cpp:1197
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾ ਮੁੱਲ ਦਿਓ"
 
-#: kioworkers/http/http.cpp:1188
+#: kioworkers/http/http.cpp:1199
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ਲੋੜੀਦਾ ਫੋਲਡਰ ਬਣਾਓ"
 
-#: kioworkers/http/http.cpp:1190
+#: kioworkers/http/http.cpp:1201
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੀ ਕਾਪੀ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1192
+#: kioworkers/http/http.cpp:1203
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਭੇਜੋ"
 
-#: kioworkers/http/http.cpp:1194
+#: kioworkers/http/http.cpp:1205
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ਖਾਸ ਫੋਲਡਰ ਵਿੱਚ ਖੋਜੋ"
 
-#: kioworkers/http/http.cpp:1196
+#: kioworkers/http/http.cpp:1207
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਲਾਕ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1198
+#: kioworkers/http/http.cpp:1209
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਅਣ-ਲਾਕ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1200
+#: kioworkers/http/http.cpp:1211
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਹਟਾਓ"
 
-#: kioworkers/http/http.cpp:1202
+#: kioworkers/http/http.cpp:1213
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "ਸਰਵਰ ਦੀ ਸਮਰੱਥਾ ਲਈ ਕਿਊਰੀ"
 
-#: kioworkers/http/http.cpp:1204
+#: kioworkers/http/http.cpp:1215
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਵੋ"
 
-#: kioworkers/http/http.cpp:1206
+#: kioworkers/http/http.cpp:1217
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "ਰਿਪੋਰਟ ਖਾਸ ਫੋਲਡਰ 'ਚ ਚਲਾਓ"
 
-#: kioworkers/http/http.cpp:1214
+#: kioworkers/http/http.cpp:1225
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 ਦੀ ਕੋਸ਼ਿਸ ਕਰਨ ਦੌਰਾਨ ਅਣਜਾਣ ਗਲਤੀ (%1) ਆਈ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1254
+#: kioworkers/http/http.cpp:1265
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4267,20 +4267,20 @@ msgid ""
 "below."
 msgstr "%1, %2 ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ। ਕਾਰਨਾਂ ਬਾਰੇ ਸੰਖੇਪ ਜਾਣਕਾਰੀ ਹੇਠ ਦਿੱਤੀ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1272 kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1283 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 ਲਈ ਕੋਸ਼ਿਸ ਕਰਨ ਤੇ ਪਹੁੰਚ ਪਾਬੰਦੀ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1286 kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1297 kioworkers/http/http.cpp:1434
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1295
+#: kioworkers/http/http.cpp:1306
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4290,28 +4290,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1303
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "ਲੋੜੀਦੇ ਲਾਕ ਲਈ ਅਧਿਕਾਰ ਨਹੀਂ ਮਿਲ ਨਹੀਂ ਸਕੇ। %1"
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1314 kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1442
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਸਰੋਤ ਲਾਕ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1329
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਇੱਕ ਗਲਤੀ ਕਰਕੇ ਰੋਕੀ ਗਈ ਹੈ"
 
-#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1438
+#: kioworkers/http/http.cpp:1336 kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4320,25 +4320,25 @@ msgid ""
 msgstr ""
 "%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਨਿਯਤ ਸਰਵਰ ਨੇ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਸਵੀਕਾਰ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕਰ ਦਿੱਤਾ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
+#: kioworkers/http/http.cpp:1345 kioworkers/http/http.cpp:1458
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1387
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ਸਰੋਤ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 ਅੱਪਲੋਡ"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
