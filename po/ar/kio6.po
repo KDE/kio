@@ -8,7 +8,7 @@
 # AbdulAziz AlSharif <a.a-a.s@hotmail.com>, 2007.
 # عبدالعزيز الشريف <a.a-a.s@hotmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# zayed <zayed.alsaidi@gmail.com>, 2008, 2009.
+# SPDX-FileCopyrightText: 2008, 2009, 2024 zayed <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, 2016, 2017, 2018.
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:35+0000\n"
-"PO-Revision-Date: 2023-07-06 10:30+0400\n"
+"PO-Revision-Date: 2024-01-17 17:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3153,11 +3153,10 @@ msgid "&Edit…"
 msgstr "&حرّر…"
 
 #: filewidgets/kfileplacesview.cpp:1175
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "أزِل الملف"
+msgstr "أزِل من الأماكن"
 
 #: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
@@ -3447,10 +3446,9 @@ msgid "Remote Files Not Accepted"
 msgstr "الملفّات البعيدة غير مقبولة"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|كلّ المجلّدات"
+msgstr "كلّ المجلّدات"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -4056,13 +4054,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "تعذّر تغيير ملكيّة %1."
+msgstr ""
+"تعذّر تغيير المالك و المجموعة لـ\n"
+" %1."
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -6775,16 +6774,14 @@ msgid "C&ontinue"
 msgstr "&تابع"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "سيكتب هذا الإجراء فوق المقصد."
+msgstr "هل تريد أن تكتب فوق المقصد؟"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "سيكتب هذا الإجراء سيدمج محتويات '%1'  في '%2'."
+msgstr "هل تريد دمج محتويات '%1'  في '%2'؟"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6798,49 +6795,42 @@ msgstr "المقصد"
 
 # هذا سيدخل في النص الطويل القادم (%3)
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "المقصد <b>أصغر بـ%1</b>"
+msgstr "المصدر <b>أحدث</b>"
 
 # هذا سيدخل في النص الطويل القادم (%3)
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "المقصد <b>أصغر بـ%1</b>"
+msgstr "المصدر <b>أقدم</b>"
 
 # هذا سيدخل في النص الطويل القادم (%3)
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "المقصد <b>أصغر بـ%1</b>"
+msgstr "المصدر <b>أصغر بـ%1</b>"
 
 # هذا سيدخل في النص الطويل القادم (%3)
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "المقصد <b>أكبر بـ%1</b>"
+msgstr "المصدر <b>أكبر بـ%1</b>"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "الملفات متطابقة."
+msgstr "الملفات  <b>متطابقة</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "يبدو أن الملفات متطابقة."
+msgstr "يبدو أن الملفات <b>متطابقة</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "الملفات مختلفة."
+msgstr "الملفات  <b>مختلفة</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
