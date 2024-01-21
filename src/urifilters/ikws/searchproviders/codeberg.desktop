@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=codeberg,cb
 Name=Codeberg
+Name[ar]=كودبيرغ
 Name[bg]=Codeberg
 Name[ca]=Codeberg
 Name[ca@valencia]=Codeberg
@@ -30,6 +31,7 @@ Name[x-test]=xxCodebergxx
 Name[zh_CN]=Codeberg
 Name[zh_TW]=Codeberg
 Query=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[ar]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ast]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[bg]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true

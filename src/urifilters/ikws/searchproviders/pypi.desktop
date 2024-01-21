@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=pypi
 Name=PyPI
+Name[ar]=PyPI
 Name[bg]=PyPI
 Name[ca]=PyPI
 Name[ca@valencia]=PyPI
@@ -29,6 +30,7 @@ Name[x-test]=xxPyPIxx
 Name[zh_CN]=PyPI
 Name[zh_TW]=PyPI
 Query=https://pypi.org/search/?q=\\{@}
+Query[ar]=https://pypi.org/search/?q=\\{@}
 Query[ast]=https://pypi.org/search/?q=\\{@}
 Query[bg]=https://pypi.org/search/?q=\\{@}
 Query[ca]=https://pypi.org/search/?q=\\{@}
