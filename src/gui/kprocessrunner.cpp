@@ -228,6 +228,29 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
         return;
     }
 
+    if (service) {
+        m_service = service;
+        // Store the desktop name, used by debug output and for the systemd unit name
+        m_desktopName = service->menuId();
+        if (m_desktopName.isEmpty() && m_executable == QLatin1String("systemsettings")) {
+            m_desktopName = QStringLiteral("systemsettings.desktop");
+        }
+        if (m_desktopName.endsWith(QLatin1String(".desktop"))) { // always true, in theory
+            m_desktopName.chop(strlen(".desktop"));
+        }
+        if (m_desktopName.isEmpty()) { // desktop files not in the menu
+            // desktopEntryName is lowercase so this is only a fallback
+            m_desktopName = service->desktopEntryName();
+        }
+        m_desktopFilePath = QFileInfo(serviceEntryPath).absoluteFilePath();
+        m_description = service->name();
+        if (!service->genericName().isEmpty()) {
+            m_description.append(QStringLiteral(" - %1").arg(service->genericName()));
+        }
+    } else {
+        m_description = userVisibleName;
+    }
+
 #if HAVE_X11
     static bool isX11 = QGuiApplication::platformName() == QLatin1String("xcb");
     if (isX11) {
@@ -296,35 +319,12 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                             }
                         },
                         Qt::SingleShotConnection);
-                    KWaylandExtras::requestXdgActivationToken(window, launchedSerial, maybeAliasedName(QFileInfo(m_serviceEntryPath).completeBaseName()));
+                    KWaylandExtras::requestXdgActivationToken(window, launchedSerial, resolveServiceAlias());
                 }
             }
         }
     }
 #endif
-
-    if (service) {
-        m_service = service;
-        // Store the desktop name, used by debug output and for the systemd unit name
-        m_desktopName = service->menuId();
-        if (m_desktopName.isEmpty() && m_executable == QLatin1String("systemsettings")) {
-            m_desktopName = QStringLiteral("systemsettings.desktop");
-        }
-        if (m_desktopName.endsWith(QLatin1String(".desktop"))) { // always true, in theory
-            m_desktopName.chop(strlen(".desktop"));
-        }
-        if (m_desktopName.isEmpty()) { // desktop files not in the menu
-            // desktopEntryName is lowercase so this is only a fallback
-            m_desktopName = service->desktopEntryName();
-        }
-        m_desktopFilePath = QFileInfo(serviceEntryPath).absoluteFilePath();
-        m_description = service->name();
-        if (!service->genericName().isEmpty()) {
-            m_description.append(QStringLiteral(" - %1").arg(service->genericName()));
-        }
-    } else {
-        m_description = userVisibleName;
-    }
 
     if (!m_waitingForXdgToken) {
         startProcess();
@@ -424,7 +424,7 @@ QString KProcessRunner::escapeUnitName(const QString &input)
     return res;
 }
 
-QString KProcessRunner::maybeAliasedName(const QString &pattern) const
+QString KProcessRunner::resolveServiceAlias() const
 {
     // Don't actually load aliased desktop file to avoid having to deal with recursion
     QString servName = m_service ? m_service->aliasFor() : QString{};
@@ -432,8 +432,7 @@ QString KProcessRunner::maybeAliasedName(const QString &pattern) const
         servName = name();
     }
 
-    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
-    return pattern.arg(escapeUnitName(servName), QUuid::createUuid().toString(QUuid::Id128));
+    return servName;
 }
 
 void KProcessRunner::emitDelayedError(const QString &errorMsg)

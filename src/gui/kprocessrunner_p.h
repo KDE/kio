@@ -132,7 +132,7 @@ protected:
     void setPid(qint64 pid);
     void terminateStartupNotification();
     QString name() const;
-    QString maybeAliasedName(const QString &pattern) const;
+    QString resolveServiceAlias() const;
     static QString escapeUnitName(const QString &input);
     void emitDelayedError(const QString &errorMsg);
 

@@ -90,7 +90,8 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
 
 void SystemdProcessRunner::startProcess()
 {
-    m_serviceName = SystemdProcessRunner::maybeAliasedName(QStringLiteral("app-%1@%2.service"));
+    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
+    m_serviceName = QStringLiteral("app-%1@%2.service").arg(escapeUnitName(resolveServiceAlias()), QUuid::createUuid().toString(QUuid::Id128));
 
     // Watch for new services
     m_manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);

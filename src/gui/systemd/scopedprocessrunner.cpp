@@ -13,7 +13,8 @@ ScopedProcessRunner::ScopedProcessRunner()
 void ScopedProcessRunner::slotProcessStarted()
 {
     ForkingProcessRunner::slotProcessStarted();
-    const QString serviceName = maybeAliasedName(QStringLiteral("app-%1-%2.scope"));
+    // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
+    const QString serviceName = QStringLiteral("app-%1-%2.scope").arg(escapeUnitName(resolveServiceAlias()), QUuid::createUuid().toString(QUuid::Id128));
 
     const auto manager = new systemd1::Manager(systemdService, systemdPath, QDBusConnection::sessionBus(), this);
 
