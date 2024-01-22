@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -5094,8 +5094,9 @@ msgid "Updating System Configuration"
 msgstr "सङ्गणकतन्त्राः विन्यासस्य अद्यतनीकरणम्"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, kde-format
-msgid "Updating system configuration."
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr "सङ्गणकतन्त्राः विन्यासस्य अद्यतनीकरणम्."
 
 #: widgets/kdirmodel.cpp:1219

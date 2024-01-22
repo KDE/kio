@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -5504,8 +5504,9 @@ msgid "Updating System Configuration"
 msgstr "Systeem Konfiguraasje oan't bywurkjen"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, kde-format
-msgid "Updating system configuration."
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr "Systeemkonfiguraasje oan't bywurkjen."
 
 #: widgets/kdirmodel.cpp:1219

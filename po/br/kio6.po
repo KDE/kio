@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -4989,8 +4989,9 @@ msgid "Updating System Configuration"
 msgstr "Emaon o bremañaat kefluniadur ar reizhiad"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, kde-format
-msgid "Updating system configuration."
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr "Emaon o bremañaat kefluniadur ar reizhiad."
 
 #: widgets/kdirmodel.cpp:1219

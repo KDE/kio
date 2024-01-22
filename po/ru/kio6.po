@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2023-12-20 12:27+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -5217,8 +5217,9 @@ msgstr "Обновление конфигурации системы"
 
 # BUGME: please add ellipsis (...) to indicate that it's an operation in progress. --aspotashev
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, kde-format
-msgid "Updating system configuration."
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr "Идёт обновление конфигурации системы…"
 
 #: widgets/kdirmodel.cpp:1219

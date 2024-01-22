@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -4886,9 +4886,10 @@ msgid "Updating System Configuration"
 msgstr ""
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, kde-format
-msgid "Updating system configuration."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Use system proxy configuration:"
+msgid "Updating system configuration…"
+msgstr "प्रणाली प्रॉक्सी संयोजनाचा वापर करा :"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format
@@ -7183,9 +7184,6 @@ msgstr ""
 
 #~ msgid "Enter the address for the proxy configuration script."
 #~ msgstr "प्रॉक्सी संयोजना स्क्रिप्ट करिता पत्ता दाखल करा."
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "प्रणाली प्रॉक्सी संयोजनाचा वापर करा :"
 
 #~ msgid "Auto D&etect"
 #~ msgstr "स्वयं शोधा (&E)"

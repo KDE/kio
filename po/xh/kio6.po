@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -5302,7 +5302,7 @@ msgstr "Uqwalaselo Lomshicileli"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, fuzzy, kde-format
-msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr "Yakha kwakhona indlela yendawo efihlakeleyo emayiqwalaselwe."
 
 #: widgets/kdirmodel.cpp:1219

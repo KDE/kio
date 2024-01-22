@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:35+0000\n"
+"POT-Creation-Date: 2024-01-22 00:35+0000\n"
 "PO-Revision-Date: 2023-12-15 14:19+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -4773,7 +4773,7 @@ msgstr ""
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
-msgid "Updating system configuration."
+msgid "Updating system configuration…"
 msgstr ""
 
 #: widgets/kdirmodel.cpp:1219
