@@ -1,7 +1,7 @@
 # translation of kcmkio.po to Chinese Traditional
 # traditional Chinese translation of kcmkio
 # Copyright (C) 2001-2002, 2003, 2007, 2008 Free Software Foundation, Inc.
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 # Translator: Kenduest Lee <kenduest@i18n.linux.org.tw>, 2001.
 # Chao-Hsiung Liao <pesder.liao@msa.hinet.net>, 2002.
 # 林耕宇 <s9321028@ncnu.edu.tw>, 2003.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:35+0000\n"
-"PO-Revision-Date: 2023-12-12 17:50+0900\n"
+"PO-Revision-Date: 2024-01-22 16:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -4986,10 +4986,9 @@ msgid "Updating System Configuration"
 msgstr "更新系統組態"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "更新系統組態。"
+msgstr "正在更新系統設定…"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format

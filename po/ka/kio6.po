@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:35+0000\n"
-"PO-Revision-Date: 2023-12-11 05:42+0100\n"
+"PO-Revision-Date: 2024-01-22 05:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5145,10 +5145,9 @@ msgid "Updating System Configuration"
 msgstr "სისტემის კონფიგურაციის განახლება"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "სისტემის კონფიგურაციის განახლება."
+msgstr "სისტემის კონფიგურაციის განახლება…"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format
