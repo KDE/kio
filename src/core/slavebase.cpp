@@ -732,6 +732,7 @@ void SlaveBase::mimeType(const QString &_type)
             if (ret == -1) {
                 qCDebug(KIO_CORE) << "read error on app connection while sending mimetype";
                 exit();
+                break;
             }
             qCDebug(KIO_CORE) << "got reply after sending mimetype" << cmd;
             if (cmd == CMD_HOST) { // Ignore.
