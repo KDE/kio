@@ -708,7 +708,7 @@ static bool isSubCommand(int cmd)
 
 void SlaveBase::mimeType(const QString &_type)
 {
-    // qDebug() << _type;
+    qCDebug(KIO_CORE) << "detected mimetype" << _type;
     int cmd = CMD_NONE;
     do {
         if (wasKilled()) {
@@ -717,7 +717,7 @@ void SlaveBase::mimeType(const QString &_type)
 
         // Send the meta-data each time we send the MIME type.
         if (!mOutgoingMetaData.isEmpty()) {
-            // qDebug() << "emitting meta data";
+            qCDebug(KIO_CORE) << "sending mimetype meta data";
             KIO_DATA << mOutgoingMetaData;
             send(INF_META_DATA, data);
         }
@@ -730,10 +730,10 @@ void SlaveBase::mimeType(const QString &_type)
                 ret = d->appConnection.read(&cmd, data);
             }
             if (ret == -1) {
-                // qDebug() << "read error";
+                qCDebug(KIO_CORE) << "read error on app connection while sending mimetype";
                 exit();
             }
-            // qDebug() << "got" << cmd;
+            qCDebug(KIO_CORE) << "got reply after sending mimetype" << cmd;
             if (cmd == CMD_HOST) { // Ignore.
                 continue;
             }
