@@ -709,7 +709,7 @@ static bool isSubCommand(int cmd)
 void SlaveBase::mimeType(const QString &_type)
 {
     // qDebug() << _type;
-    int cmd;
+    int cmd = CMD_NONE;
     do {
         if (wasKilled()) {
             break;
