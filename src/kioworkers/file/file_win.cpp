@@ -234,6 +234,14 @@ WorkerResult FileProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFla
     // To avoid error 17 - The system cannot move the file to a different disk drive.
     dwFlags |= MOVEFILE_COPY_ALLOWED;
 
+    if (_src.isDir() && (_src.filePath().front() != _dest.filePath().front())) {
+        auto copyResult = copy(src, dest, 0, _flags);
+        if (!copyResult.success()) {
+            return copyResult;
+        }
+        return del(src, false);
+    }
+
     if (MoveFileExW((LPCWSTR)_src.filePath().utf16(), (LPCWSTR)_dest.filePath().utf16(), dwFlags) == 0) {
         DWORD dwLastErr = GetLastError();
         if (dwLastErr == ERROR_FILE_NOT_FOUND) {
