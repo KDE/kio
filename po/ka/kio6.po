@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:35+0000\n"
+"POT-Creation-Date: 2024-01-24 00:35+0000\n"
 "PO-Revision-Date: 2024-01-22 05:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -5149,43 +5149,43 @@ msgstr "სისტემის კონფიგურაციის გა�
 msgid "Updating system configuration…"
 msgstr "სისტემის კონფიგურაციის განახლება…"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "სახელი"
 
-#: widgets/kdirmodel.cpp:1221
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ზომა"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "თარიღი"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "წვდომები"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ფენათა მენიუჯგუფი"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

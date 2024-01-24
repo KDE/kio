@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:35+0000\n"
+"POT-Creation-Date: 2024-01-24 00:35+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -5403,44 +5403,44 @@ msgstr "Metaedje a djoû di l' apontiaedje do sistinme"
 msgid "Updating system configuration…"
 msgstr "Metaedje a djoû di l' apontiaedje do sistinme."
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "No"
 
-#: widgets/kdirmodel.cpp:1221
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Grandeu"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1227
 #, fuzzy, kde-format
 #| msgid "Date"
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Date"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Droets"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Da"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Groupe"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:35+0000\n"
+"POT-Creation-Date: 2024-01-24 00:35+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -5311,43 +5311,43 @@ msgstr "سىستېما سەپلىمىسىنى يېڭىلاۋاتىدۇ"
 msgid "Updating system configuration…"
 msgstr "سىستېما سەپلىمىسىنى يېڭىلاۋاتىدۇ."
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ئاتى"
 
-#: widgets/kdirmodel.cpp:1221
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "چوڭلۇقى"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "چېسلا"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ئىمتىيازلار"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ئىگىسى"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "گۇرۇپپا"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
