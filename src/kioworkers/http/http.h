@@ -47,6 +47,15 @@ Q_SIGNALS:
     void errorOut(KIO::Error error);
 
 private:
+    enum DataMode {
+        // emit data() as it is received
+        Emit,
+        // turn the data in the response
+        Return,
+        // discard any response data
+        Discard,
+    };
+
     struct Response {
         int httpCode;
         QByteArray data;
@@ -73,10 +82,13 @@ private:
     void setSslMetaData();
 
     [[nodiscard]] KIO::WorkerResult post(const QUrl &url, qint64 size);
-    [[nodiscard]] Response makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *inputData, const QMap<QByteArray, QByteArray> &extraHeaders = {});
+    [[nodiscard]] Response
+    makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
 
-    [[nodiscard]] Response makeDavRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, const QMap<QByteArray, QByteArray> &extraHeaders = {});
-    [[nodiscard]] Response makeRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, const QMap<QByteArray, QByteArray> &extraHeaders = {});
+    [[nodiscard]] Response
+    makeDavRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
+    [[nodiscard]] Response
+    makeRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
 
     [[nodiscard]] KIO::WorkerResult davError(KIO::HTTP_METHOD method, const QUrl &url, const Response &response);
     [[nodiscard]] KIO::WorkerResult davError(QString &errorMsg, KIO::HTTP_METHOD method, int code, const QUrl &_url, const QByteArray &responseData);

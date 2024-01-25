@@ -170,8 +170,11 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
     }
 }
 
-HTTPProtocol::Response
-HTTPProtocol::makeDavRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, const QMap<QByteArray, QByteArray> &extraHeaders)
+HTTPProtocol::Response HTTPProtocol::makeDavRequest(const QUrl &url,
+                                                    KIO::HTTP_METHOD method,
+                                                    QByteArray &inputData,
+                                                    DataMode dataMode,
+                                                    const QMap<QByteArray, QByteArray> &extraHeaders)
 {
     auto headers = extraHeaders;
     const QString locks = davProcessLocks();
@@ -184,14 +187,14 @@ HTTPProtocol::makeDavRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArra
         headers.insert("If", locks.toLatin1());
     }
 
-    return makeRequest(url, method, inputData, headers);
+    return makeRequest(url, method, inputData, dataMode, headers);
 }
 
 HTTPProtocol::Response
-HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, const QMap<QByteArray, QByteArray> &extraHeaders)
+HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders)
 {
     QBuffer buffer(&inputData);
-    return makeRequest(url, method, &buffer, extraHeaders);
+    return makeRequest(url, method, &buffer, dataMode, extraHeaders);
 }
 
 static QString protocolForProxyType(QNetworkProxy::ProxyType type)
@@ -212,8 +215,11 @@ static QString protocolForProxyType(QNetworkProxy::ProxyType type)
     return QStringLiteral("http");
 }
 
-HTTPProtocol::Response
-HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *inputData, const QMap<QByteArray, QByteArray> &extraHeaders)
+HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
+                                                 KIO::HTTP_METHOD method,
+                                                 QIODevice *inputData,
+                                                 HTTPProtocol::DataMode dataMode,
+                                                 const QMap<QByteArray, QByteArray> &extraHeaders)
 {
     QNetworkAccessManager nam;
 
@@ -379,6 +385,10 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
     }
 
     QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
+
+    bool mimeTypeEmitted = false;
+    bool hadData = false;
+
     QEventLoop loop;
 
     QObject::connect(reply, &QNetworkReply::sslErrors, &loop, [this, reply](const QList<QSslError> errors) {
@@ -396,6 +406,33 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
         processedSize(received);
     });
 
+    QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, reply, dataMode, url, method]() {
+        handleRedirection(method, url, reply);
+
+        if (!mimeTypeEmitted) {
+            mimeType(readMimeType(reply));
+            mimeTypeEmitted = true;
+        }
+
+        if (dataMode == Emit) {
+            // Limit how much data we fetch at a time to avoid storing it all in RAM
+            // do it in metaDataChanged to work around https://bugreports.qt.io/browse/QTBUG-15065
+            reply->setReadBufferSize(2048);
+        }
+    });
+
+    if (dataMode == Emit) {
+        QObject::connect(reply, &QNetworkReply::readyRead, &nam, [this, reply, &hadData] {
+            while (reply->bytesAvailable() > 0) {
+                QByteArray buf(2048, Qt::Uninitialized);
+                qint64 readBytes = reply->read(buf.data(), 2048);
+                buf.truncate(readBytes);
+                data(buf);
+                hadData = true;
+            }
+        });
+    }
+
     QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     QObject::connect(this, &HTTPProtocol::errorOut, &loop, [this, &loop](KIO::Error error) {
         lastError = error;
@@ -403,12 +440,15 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
     });
     loop.exec();
 
+    // make sure data is emitted at least once
+    if (!hadData && dataMode == Emit) {
+        data(QByteArray());
+    }
+
     if (reply->error() == QNetworkReply::AuthenticationRequiredError) {
         reply->deleteLater();
         return {0, QByteArray(), KIO::ERR_ACCESS_DENIED};
     }
-
-    handleRedirection(method, url, reply);
 
     if (configValue(QStringLiteral("PropagateHttpHeader"), false)) {
         QStringList headers;
@@ -421,9 +461,12 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
         setMetaData(QStringLiteral("HTTP-Headers"), headers.join(QLatin1Char('\n')));
     }
 
-    mimeType(readMimeType(reply));
+    QByteArray returnData;
 
-    QByteArray buf = reply->readAll();
+    if (dataMode == Return) {
+        returnData = reply->readAll();
+    }
+
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
     setMetaData(QStringLiteral("responsecode"), QString::number(statusCode));
@@ -431,15 +474,13 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
 
     reply->deleteLater();
 
-    return {statusCode, buf};
+    return {statusCode, returnData};
 }
 
 KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 {
     QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_GET, inputData);
-
-    data(response.data);
+    Response response = makeRequest(url, KIO::HTTP_GET, inputData, DataMode::Emit);
 
     return sendHttpError(url, KIO::HTTP_GET, response);
 }
@@ -456,9 +497,7 @@ KIO::WorkerResult HTTPProtocol::put(const QUrl &url, int /*_mode*/, KIO::JobFlag
     }
 
     QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_PUT, inputData);
-
-    data(response.data);
+    Response response = makeRequest(url, KIO::HTTP_PUT, inputData, DataMode::Emit);
 
     return sendHttpError(url, KIO::HTTP_PUT, response);
 }
@@ -466,7 +505,7 @@ KIO::WorkerResult HTTPProtocol::put(const QUrl &url, int /*_mode*/, KIO::JobFlag
 KIO::WorkerResult HTTPProtocol::mimetype(const QUrl &url)
 {
     QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_HEAD, inputData);
+    Response response = makeRequest(url, KIO::HTTP_HEAD, inputData, DataMode::Discard);
 
     return sendHttpError(url, KIO::HTTP_HEAD, response);
 }
@@ -474,9 +513,7 @@ KIO::WorkerResult HTTPProtocol::mimetype(const QUrl &url)
 KIO::WorkerResult HTTPProtocol::post(const QUrl &url, qint64 /*size*/)
 {
     QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_POST, inputData);
-
-    data(response.data);
+    Response response = makeRequest(url, KIO::HTTP_POST, inputData, DataMode::Emit);
 
     return sendHttpError(url, KIO::HTTP_POST, response);
 }
@@ -620,7 +657,7 @@ KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
         {"Depth", stat ? "0" : "1"},
     };
 
-    Response response = makeDavRequest(url, method, inputData, extraHeaders);
+    Response response = makeDavRequest(url, method, inputData, DataMode::Return, extraHeaders);
 
     // TODO
     // if (!stat) {
@@ -953,7 +990,7 @@ KIO::WorkerResult HTTPProtocol::stat(const QUrl &url)
 KIO::WorkerResult HTTPProtocol::mkdir(const QUrl &url, int)
 {
     QByteArray inputData;
-    Response response = makeDavRequest(url, KIO::DAV_MKCOL, inputData);
+    Response response = makeDavRequest(url, KIO::DAV_MKCOL, inputData, DataMode::Discard);
 
     if (response.httpCode != 201) {
         return davError(KIO::DAV_MKCOL, url, response);
@@ -970,7 +1007,7 @@ KIO::WorkerResult HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::J
     };
 
     QByteArray inputData;
-    Response response = makeDavRequest(src, KIO::DAV_MOVE, inputData, extraHeaders);
+    Response response = makeDavRequest(src, KIO::DAV_MOVE, inputData, DataMode::Discard, extraHeaders);
 
     // Work around strict Apache-2 WebDAV implementation which refuses to cooperate
     // with webdav://host/directory, instead requiring webdav://host/directory/
@@ -1022,7 +1059,7 @@ KIO::WorkerResult HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO
     };
 
     QByteArray inputData;
-    Response response = makeDavRequest(src, KIO::DAV_COPY, inputData, extraHeaders);
+    Response response = makeDavRequest(src, KIO::DAV_COPY, inputData, DataMode::Discard, extraHeaders);
 
     // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
     if (response.httpCode == 201 || response.httpCode == 204) {
@@ -1035,7 +1072,7 @@ KIO::WorkerResult HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO
 KIO::WorkerResult HTTPProtocol::del(const QUrl &url, bool)
 {
     if (url.scheme().startsWith(QLatin1String("webdav"))) {
-        Response response = makeRequest(url, KIO::HTTP_DELETE, {});
+        Response response = makeRequest(url, KIO::HTTP_DELETE, {}, DataMode::Discard);
 
         // The server returns a HTTP/1.1 200 Ok or HTTP/1.1 204 No Content
         // on successful completion.
@@ -1045,7 +1082,7 @@ KIO::WorkerResult HTTPProtocol::del(const QUrl &url, bool)
         return davError(KIO::HTTP_DELETE, url, response);
     }
 
-    Response response = makeRequest(url, KIO::HTTP_DELETE, {});
+    Response response = makeRequest(url, KIO::HTTP_DELETE, {}, DataMode::Discard);
 
     return sendHttpError(url, KIO::HTTP_DELETE, response);
 }
@@ -1084,7 +1121,7 @@ bool HTTPProtocol::davDestinationExists(const QUrl &url)
         {"Depth", "0"},
     };
 
-    Response response = makeDavRequest(url, KIO::DAV_PROPFIND, request, extraHeaders);
+    Response response = makeDavRequest(url, KIO::DAV_PROPFIND, request, DataMode::Discard, extraHeaders);
 
     if (response.httpCode >= 200 && response.httpCode < 300) {
         // 2XX means the file exists. This includes 207 (multi-status response).
@@ -1117,9 +1154,7 @@ KIO::WorkerResult HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD met
     }
 
     QByteArray inputData = getData();
-    Response response = makeDavRequest(url, method, inputData, extraHeaders);
-
-    data(response.data);
+    Response response = makeDavRequest(url, method, inputData, DataMode::Emit, extraHeaders);
 
     // TODO old code seems to use http error, not dav error
     return sendHttpError(url, method, response);
