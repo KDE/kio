@@ -817,8 +817,23 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
     // Load servicemenus from new install location
     const QStringList paths =
         QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kio/servicemenus"), QStandardPaths::LocateDirectory);
-    const QStringList fromDisk = KFileUtils::findAllUniqueFiles(paths, QStringList(QStringLiteral("*.desktop")));
-    for (const QString &fileFromDisk : fromDisk) {
+    QStringList fromDisk = KFileUtils::findAllUniqueFiles(paths, QStringList(QStringLiteral("*.desktop")));
+
+    // Also search in kservices5 for compatibility with older existing files
+    const QStringList legacyPaths =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory);
+    const QStringList legacyFiles = KFileUtils::findAllUniqueFiles(legacyPaths, QStringList(QStringLiteral("*.desktop")));
+
+    for (const QString &path : legacyFiles) {
+        KDesktopFile file(path);
+
+        const QStringList serviceTypes = file.desktopGroup().readEntry("ServiceTypes", QStringList());
+        if (serviceTypes.contains(QStringLiteral("KonqPopupMenu/Plugin"))) {
+            fromDisk << path;
+        }
+    }
+
+    for (const QString &fileFromDisk : std::as_const(fromDisk)) {
         if (auto [_, inserted] = uniqueFileNames.insert(fileFromDisk.split(QLatin1Char('/')).last()); inserted) {
             filePaths << fileFromDisk;
         }
