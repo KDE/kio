@@ -453,9 +453,14 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
 
 bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
 {
-    const QStringList types = cfg.readXdgListEntry("MimeType");
+    QStringList types = cfg.readXdgListEntry("MimeType");
     if (types.isEmpty()) {
-        return false;
+        types = cfg.readEntry("ServiceTypes", QStringList());
+        types.removeAll(QStringLiteral("KonqPopupMenu/Plugin"));
+
+        if (types.isEmpty()) {
+            return false;
+        }
     }
 
     const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes", QStringList());
