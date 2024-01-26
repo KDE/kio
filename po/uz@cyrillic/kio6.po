@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:35+0000\n"
+"POT-Creation-Date: 2024-01-26 00:35+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -1974,7 +1974,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер бошқа талабларга жавоб бериш билан жуда банд эди."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
 msgid "Unknown Error"
 msgstr "Номаълум хато"
@@ -2257,88 +2257,88 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 протоколи билан алоқа ўрнатиб бўлмайди."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 протоколи билан алоқани узиб бўлмайди."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 протоколи билан файлларга мурожаат қилиб бўлмайди."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "'%1'га ёзиш қўлланмаган."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 протоколи учун махсус амаллар мавжуд эмас."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 протоколи билан жилдлар рўйхатини кўриб бўлмайди."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "'%1'дан маълумотни олиш қўлланмаган."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "'%1'дан MIME тури ҳақида маълумотни олиш қўлланмаган."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 билан файлнинг номини ўзгартириш ёки уни кўчириш қўлланмаган."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 протоколи билан рамзий боғ яратиш қўлланмаган."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 билан файлдан нусха олиш қўлланмаган."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 билан файлни ўчириш қўлланмаган."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 протоколи билан жилдни яратиш қўлланмаган."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 протоколи билан файлларнинг атрибутини ўзгартириш қўлланмаган."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:873
 #, fuzzy, kde-format
 #| msgid "Changing the attributes of files is not supported with protocol %1."
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 протоколи билан файлларнинг атрибутини ўзгартириш қўлланмаган."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:875
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 протоколи билан жилдни яратиш қўлланмаган."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 протоколи %2 амалини қўлламайди."
@@ -3746,12 +3746,12 @@ msgstr ""
 ".desktop файлида\n"
 "номаълум ёзув (%1)."
 
-#: gui/kprocessrunner.cpp:251
+#: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
 msgstr "%1'ни ишга тушириш"
 
-#: gui/kprocessrunner.cpp:462
+#: gui/kprocessrunner.cpp:461
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

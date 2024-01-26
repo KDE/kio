@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:35+0000\n"
+"POT-Creation-Date: 2024-01-26 00:35+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -2162,7 +2162,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Серверот беше премногу зафатен со одговарање на други барања за да одговори."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
 msgid "Unknown Error"
 msgstr "Непозната грешка"
@@ -2474,90 +2474,90 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Отворањето на врски не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Затворањето на врски не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Пристапувањето на датотеки не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Запишувањето во %1 не е поддржано."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Нема специјални дејства достапни за протоколот %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Прелистувањето папки не е поддржано за протоколот %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Преземањето податоци од %1 не е поддржано."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Преземањето информација за mime-тип од %1 не е поддржано."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Преименувањето или преместувањето на датотеки во рамките на %1 не се "
 "поддржани."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Создавањето симболички врски не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Копирањето датотеки во рамките на %1 не е поддржано."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Бришењето датотеки од %1 не е поддржано."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Создавањето папки не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Менувањето на атрибутите на датотеките не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Менувањето сопственик на датотеките не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Отворањето датотеки не е поддржано со протоколот %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколот %1 не го поддржува дејството %2."
@@ -4025,12 +4025,12 @@ msgstr ""
 "%1\n"
 "е непознат."
 
-#: gui/kprocessrunner.cpp:251
+#: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
 msgstr "Пуштање на %1"
 
-#: gui/kprocessrunner.cpp:462
+#: gui/kprocessrunner.cpp:461
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

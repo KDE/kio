@@ -1,7 +1,7 @@
 # translation of kio4.po to Français
 # translation of kio4.po to
 # traduction de kio4.po en Français
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Matthieu Robin <kde@macolu.org>, 2002,2003, 2004.
 # Robert Jacolin <rjacolin@ifrance.com>, 2003.
 # Gilles CAULIER <caulier.gilles@free.fr>, 2003.
@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:35+0000\n"
-"PO-Revision-Date: 2023-12-12 11:10+0100\n"
+"POT-Creation-Date: 2024-01-26 00:35+0000\n"
+"PO-Revision-Date: 2024-01-22 22:00+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2186,7 +2186,7 @@ msgstr ""
 "Le serveur était trop occupé à satisfaire d'autres requêtes pour pouvoir "
 "répondre."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
 msgid "Unknown Error"
 msgstr "Problème inconnu"
@@ -2488,91 +2488,91 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Impossible de déterminer le type du fichier de %1."
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 "L'ouverture des connexions avec le protocole %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 "La fermeture des connexions avec le protocole %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "L'accès à des fichiers avec le protocole %1 n'est pas pris en charge."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "L'écriture vers %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Aucune action spéciale n'est disponible pour le protocole %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Le protocole %1 ne gère pas le listage de dossiers."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "La réception de données depuis %1 n'est pas gérée."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "La réception du type MIME depuis %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Le renommage ou le déplacement de fichiers dans %1 n'est pas géré."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas la création de liens symboliques."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "La copie de fichiers dans %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "La suppression de fichiers dans %1 n'est pas gérée."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas la création de dossiers."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Le protocole %1 ne permet pas la modification des attributs de fichiers."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Le protocole %1 ne permet pas la modification des attributs de fichiers."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas l'ouverture de fichiers."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Le protocole %1 ne prend pas en charge l'action %2."
@@ -3970,12 +3970,12 @@ msgstr ""
 "%1\n"
 "n'est pas valable."
 
-#: gui/kprocessrunner.cpp:251
+#: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
 msgstr "Lancement de %1"
 
-#: gui/kprocessrunner.cpp:462
+#: gui/kprocessrunner.cpp:461
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5304,10 +5304,9 @@ msgid "Updating System Configuration"
 msgstr "Mise à jour de la configuration du système"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "Mise à jour de la configuration du système."
+msgstr "Mise à jour de la configuration du système..."
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format

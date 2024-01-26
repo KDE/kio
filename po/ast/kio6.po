@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:35+0000\n"
+"POT-Creation-Date: 2024-01-26 00:35+0000\n"
 "PO-Revision-Date: 2023-12-15 14:19+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -1894,7 +1894,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
 msgid "Unknown Error"
 msgstr ""
@@ -2156,87 +2156,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr ""
@@ -3529,12 +3529,12 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:251
+#: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
 msgstr ""
 
-#: gui/kprocessrunner.cpp:462
+#: gui/kprocessrunner.cpp:461
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

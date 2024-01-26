@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 00:35+0000\n"
+"POT-Creation-Date: 2024-01-26 00:35+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2180,7 +2180,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Siervier byŭ zanadta zaniaty adkazami na inšyja zapyty, kab adkazać."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nieviadomaja pamylka"
@@ -2489,87 +2489,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Nie ŭdalosia vyznačyć typ fajla %1"
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje zakryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje dostup da fajlaŭ."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapis u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Admyslovyja dziejanni niedastupnyja dlia pratakola %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Atrymannie spisa katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Atrymannie danych z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Atrymannie zviestak pra typy mime z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiena nazvy ci pieramiaščennie fajlaŭ u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Stvarennie simvaličnych spasylak nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kapijavannie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Vydaliennie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Stvarennie katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmiena atrybutaŭ fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiena ulasnika fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio fajlaŭ."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Pratakol %1 nie padtrymlivaje dziejannie %2."
@@ -3982,12 +3982,12 @@ msgstr ""
 "%1\n"
 "nieprydatny."
 
-#: gui/kprocessrunner.cpp:251
+#: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
 msgstr "Zapusk %1"
 
-#: gui/kprocessrunner.cpp:462
+#: gui/kprocessrunner.cpp:461
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
