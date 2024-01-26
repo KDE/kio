@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:39+0000\n"
+"POT-Creation-Date: 2024-01-26 01:37+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -2067,7 +2067,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
 msgid "Unknown Error"
 msgstr "അജ്ഞാത പിശക്"
@@ -2362,107 +2362,107 @@ msgstr "%1-ല്‍ പ്രവേശിക്കുവാന്‍ സോക�
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr ""
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "സമ്പ്രദായം %1 ബന്ധം തുടങ്ങുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "സമ്പ്രദായം %1 ബന്ധം അടക്കുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "സമ്പ്രദായം %1 ഫയലുകള്‍ സ്വീകരിക്കുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1-ലേക്ക് എഴുതുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 സമ്പ്രദായത്തിനു് പ്രത്യേക നടപടികളൊന്നും ലഭ്യമല്ല."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "അറകള്‍ കാണിയ്ക്കുന്നതു് %1 സമ്പ്രദായം പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1-ല്‍ നിന്നും വിവരങ്ങള്‍ വീണ്ടെടുക്കല്‍ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1-ല്‍ നിന്നും മൈം പോലുള്ള വിവരങ്ങള്‍ വീണ്ടെടുക്കല്‍ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ഫയലുകളുടെ പേര് മാറ്റുവാനോ %1 നകത്തു് ഫയലുകള്‍ നീക്കുന്നതിനോ പിന്തുണയില്ല."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 സമ്പ്രദായം സിംകണ്ണി നിര്‍മ്മിക്കുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1-നുള്ളില്‍ ഫയലുകള്‍ പകര്‍ത്തുന്നതിനെ പിന്താങ്ങുന്നില്ല."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1-ല്‍ നിന്നും ഫയലുകള്‍ വെട്ടിമാറ്റുവാനുള്ള പിന്തുണ ലഭ്യമല്ല."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ഫോള്‍ഡറുകള്‍ ഉണ്ടാക്കുന്നതിനുള്ള പിന്തുണ %1 സമ്പ്രദായം നല്‍കുന്നതല്ല."
 
-#: core/slavebase.cpp:904
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ഫയലുകളുടെ വിശേഷണങ്ങള്‍ മാറ്റുന്നതിനെ %1 സമ്പ്രദായം പിന്തുണക്കുന്നില്ല."
 
-#: core/slavebase.cpp:906
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ഫയലുകളുടെ ഉടമസ്ഥാവകാശം മാറ്റുന്നതിനെ %1 സമ്പ്രദായം പിന്തുണക്കുന്നില്ല."
 
-#: core/slavebase.cpp:908
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "%1-നൊപ്പം സബ്-യുആര്‍എല്ലുകളുടെ ഉപയോഗം പിന്തുണയ്ക്കുന്നില്ല."
 
-#: core/slavebase.cpp:910
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "ഒന്നിലധികം എടുക്കുന്നതിനുള്ള പിന്തുണ %1 സമ്പ്രദായം നല്‍കുന്നില്ല."
 
-#: core/slavebase.cpp:912
+#: core/slavebase.cpp:916
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ഫയലുകള്‍ തുറക്കുന്നതിനുള്ള പിന്തുണ %1 സമ്പ്രദായം നല്‍കുന്നതല്ല."
 
-#: core/slavebase.cpp:914
+#: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%2 നടപടി %1 സമ്പ്രദായം പിന്തുണക്കുന്നില്ല."
 
-#: core/slavebase.cpp:1089
+#: core/slavebase.cpp:1093
 #, kde-format
 msgid "&Yes"
 msgstr "&ഉവ്വു്"
 
-#: core/slavebase.cpp:1090
+#: core/slavebase.cpp:1094
 #, kde-format
 msgid "&No"
 msgstr "&ഇല്ല"
@@ -6964,43 +6964,43 @@ msgstr "ഘടിപ്പിയ്ക്കുക"
 msgid "Unmount"
 msgstr ""
 
-#: widgets/kdirmodel.cpp:1228
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "പേര്"
 
-#: widgets/kdirmodel.cpp:1230
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "വലുപ്പം"
 
-#: widgets/kdirmodel.cpp:1232
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "തീയതി"
 
-#: widgets/kdirmodel.cpp:1234
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "അനുമതികൾ"
 
-#: widgets/kdirmodel.cpp:1236
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ഉടമ"
 
-#: widgets/kdirmodel.cpp:1238
+#: widgets/kdirmodel.cpp:1242
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "കൂട്ടം"
 
-#: widgets/kdirmodel.cpp:1240
+#: widgets/kdirmodel.cpp:1244
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:39+0000\n"
+"POT-Creation-Date: 2024-01-26 01:37+0000\n"
 "PO-Revision-Date: 2023-08-28 05:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2090,7 +2090,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "სერვერს საპასუხოდ არ სცალია."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
 msgid "Unknown Error"
 msgstr "უცნობი შეცდომა"
@@ -2408,107 +2408,107 @@ msgstr ""
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "'%1'-ზე 'kioslave5' გამშვები ფაილი ვერ ვიპოვე."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "შეერთებების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "შეერთებების დახურვა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ფაილებთან წვდომა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1-ში ჩაწერა მხარდაუჭერელია."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "პროტოკოლისთვის %1 სპეციალური ქმედებები ხელმიუწვდომელია."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "საქაღალდეების სიის მღება პროტოკოლისთვის %1 მხარდაუჭერელია."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1-დან მონაცემების მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1-დან mime ტიპის ინფორმაციის მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1-ში ფაილების გადაადგილება ან სახელის გადარქმევა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "პროტოკოლით %1 სიმბმულების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1-ში ფაილების კოპირება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1-დან ფაილების წაშლა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "პროტოკოლით %1 საქაღალდეების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:904
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ფაილების ატრიბუტების შეცვლა მხარდაუჭერელია პროტოკოლისთვის %1."
 
-#: core/slavebase.cpp:906
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ფაილების მფლობელის შეცვლა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:908
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "ქვებმულების გამოყენება %1-თან ერთად მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:910
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "მრავალი მიღება მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:912
+#: core/slavebase.cpp:916
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ფაილების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:914
+#: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "პროტოკოლს %1 ქმედების (%2) მხარდაჭერა არ გააჩნია."
 
-#: core/slavebase.cpp:1089
+#: core/slavebase.cpp:1093
 #, kde-format
 msgid "&Yes"
 msgstr "&დიახ"
 
-#: core/slavebase.cpp:1090
+#: core/slavebase.cpp:1094
 #, kde-format
 msgid "&No"
 msgstr "&არა"
@@ -7359,43 +7359,43 @@ msgstr "მიმაგრება"
 msgid "Unmount"
 msgstr "მოხსნა"
 
-#: widgets/kdirmodel.cpp:1228
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "სახელი"
 
-#: widgets/kdirmodel.cpp:1230
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ზომა"
 
-#: widgets/kdirmodel.cpp:1232
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "თარიღი"
 
-#: widgets/kdirmodel.cpp:1234
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "წვდომები"
 
-#: widgets/kdirmodel.cpp:1236
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: widgets/kdirmodel.cpp:1238
+#: widgets/kdirmodel.cpp:1242
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ფენათა მენიუჯგუფი"
 
-#: widgets/kdirmodel.cpp:1240
+#: widgets/kdirmodel.cpp:1244
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

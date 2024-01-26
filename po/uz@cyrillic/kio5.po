@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:39+0000\n"
+"POT-Creation-Date: 2024-01-26 01:37+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -1974,7 +1974,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер бошқа талабларга жавоб бериш билан жуда банд эди."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
 msgid "Unknown Error"
 msgstr "Номаълум хато"
@@ -2280,108 +2280,108 @@ msgstr "%1 протоколи учун КЧ-слейв топилмади."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "%1 протоколи учун КЧ-слейв топилмади."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 протоколи билан алоқа ўрнатиб бўлмайди."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 протоколи билан алоқани узиб бўлмайди."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 протоколи билан файлларга мурожаат қилиб бўлмайди."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "'%1'га ёзиш қўлланмаган."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 протоколи учун махсус амаллар мавжуд эмас."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 протоколи билан жилдлар рўйхатини кўриб бўлмайди."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "'%1'дан маълумотни олиш қўлланмаган."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "'%1'дан MIME тури ҳақида маълумотни олиш қўлланмаган."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 билан файлнинг номини ўзгартириш ёки уни кўчириш қўлланмаган."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 протоколи билан рамзий боғ яратиш қўлланмаган."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 билан файлдан нусха олиш қўлланмаган."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 билан файлни ўчириш қўлланмаган."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 протоколи билан жилдни яратиш қўлланмаган."
 
-#: core/slavebase.cpp:904
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 протоколи билан файлларнинг атрибутини ўзгартириш қўлланмаган."
 
-#: core/slavebase.cpp:906
+#: core/slavebase.cpp:910
 #, fuzzy, kde-format
 #| msgid "Changing the attributes of files is not supported with protocol %1."
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 протоколи билан файлларнинг атрибутини ўзгартириш қўлланмаган."
 
-#: core/slavebase.cpp:908
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:910
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:912
+#: core/slavebase.cpp:916
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 протоколи билан жилдни яратиш қўлланмаган."
 
-#: core/slavebase.cpp:914
+#: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 протоколи %2 амалини қўлламайди."
 
-#: core/slavebase.cpp:1089
+#: core/slavebase.cpp:1093
 #, kde-format
 msgid "&Yes"
 msgstr "&Ҳа"
 
-#: core/slavebase.cpp:1090
+#: core/slavebase.cpp:1094
 #, kde-format
 msgid "&No"
 msgstr "&Йўқ"
@@ -7120,43 +7120,43 @@ msgstr "Улаш"
 msgid "Unmount"
 msgstr "Ажратиш"
 
-#: widgets/kdirmodel.cpp:1228
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Номи"
 
-#: widgets/kdirmodel.cpp:1230
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Ҳажми"
 
-#: widgets/kdirmodel.cpp:1232
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Сана"
 
-#: widgets/kdirmodel.cpp:1234
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Ҳуқуқлар"
 
-#: widgets/kdirmodel.cpp:1236
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Эгаси"
 
-#: widgets/kdirmodel.cpp:1238
+#: widgets/kdirmodel.cpp:1242
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Гуруҳ"
 
-#: widgets/kdirmodel.cpp:1240
+#: widgets/kdirmodel.cpp:1244
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:39+0000\n"
+"POT-Creation-Date: 2024-01-26 01:37+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1968,7 +1968,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ilo linluwi li toki tawa ilo ante mute li jo ala e tenpo tawa sina."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
 msgid "Unknown Error"
 msgstr "pakala pi sona ala"
@@ -2263,107 +2263,107 @@ msgstr "mi ken ala open e nasin toki tawa ilo tawa toki ilo '%1'."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "mi ken ala alasa e ilo 'kioslave5' lon '%1'"
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "mi ken ala open e linluwi kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "mi ken ala pini e linluwi kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "mi ken ala lukin e lipu kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "mi ken ala sitelen e %1."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "pali ante li lon ala tawa nasin toki ilo %1."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "mi ken ala lukin e poki kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "mi ken ala kama jo e sona tan %1."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "mi ken ala kama sona e kule lipu tan %1."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "mi ken ala ante li ken ala tawa e lipu lon %1."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ilo %1 li ken ala lon e nasin lipu."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "ilo li ken ala sama e lipu lon insa pi poki %1."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "weka lipu tan %1 li ken ala."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ilo %1 li ken ala lon e poki."
 
-#: core/slavebase.cpp:904
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala ante e ijo lipu."
 
-#: core/slavebase.cpp:906
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala ante e jan jo lipu."
 
-#: core/slavebase.cpp:908
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "ilo %1 li ken ala kepeken e nimi URL lon insa nimi URL ante."
 
-#: core/slavebase.cpp:910
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "ilo %1 li ken ala kama jo e lipu mute."
 
-#: core/slavebase.cpp:912
+#: core/slavebase.cpp:916
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala open e lipu."
 
-#: core/slavebase.cpp:914
+#: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "toki ilo %1 li ken ala pali %2."
 
-#: core/slavebase.cpp:1089
+#: core/slavebase.cpp:1093
 #, kde-format
 msgid "&Yes"
 msgstr "&lon"
 
-#: core/slavebase.cpp:1090
+#: core/slavebase.cpp:1094
 #, kde-format
 msgid "&No"
 msgstr "&ala"
@@ -7080,43 +7080,43 @@ msgstr "o kama insa e ilo"
 msgid "Unmount"
 msgstr "o weka tan insa ilo"
 
-#: widgets/kdirmodel.cpp:1228
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "nimi"
 
-#: widgets/kdirmodel.cpp:1230
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "suli"
 
-#: widgets/kdirmodel.cpp:1232
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "tenpo"
 
-#: widgets/kdirmodel.cpp:1234
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "lawa wile"
 
-#: widgets/kdirmodel.cpp:1236
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "jan lawa"
 
-#: widgets/kdirmodel.cpp:1238
+#: widgets/kdirmodel.cpp:1242
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "kulupu"
 
-#: widgets/kdirmodel.cpp:1240
+#: widgets/kdirmodel.cpp:1244
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

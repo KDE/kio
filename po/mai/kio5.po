@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:39+0000\n"
+"POT-Creation-Date: 2024-01-26 01:37+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -2016,7 +2016,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "आन निवेदनकेँ उत्तर देबामे सर्वर बेसी व्यस्त अछि."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
 msgid "Unknown Error"
 msgstr "अनजान त्रुटि"
@@ -2333,107 +2333,107 @@ msgstr "प्रोटोकाल '%1' क' लेल आइओ-स्ले�
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "प्रोटोकाल '%1' क' लेल आइओ-स्लेव  प्राप्त नहि कए सकल."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग कनेक्शन खोलनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग कनेक्शन बन्न कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग फाइल एक्सेस कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr " %1 पर लिखल जएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "प्रोटोकाल %1 क' लेल कोनो विशेष क्रिया उपलब्ध नहि अछि."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "प्रोटोकाल %1 क' लेल फोल्डरक सूची बनैनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 सँ डाटा निकालनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 सँ माइम प्रकार जानकारी निकालनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 केर भीतर फाइल घसकाएनाइ अथवा नाम बदलनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग सिमलिंक तैआर कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 केर भीतर फाइल नकल कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 सँ फाइल मेटाएब समर्थित नहि अछि."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग फोल्डर तैआर कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:904
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग फाइल विशेषता बदलना समर्थित नहि अछि."
 
-#: core/slavebase.cpp:906
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग फाइलसभ क' मालिकाना बदलना समर्थित नहि अछि."
 
-#: core/slavebase.cpp:908
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "%1 केर सँग सब-यूआरएल उपयोग कएनाइ समर्थित नहि अछि."
 
-#: core/slavebase.cpp:910
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग मल्टीपल गेट समर्थित नहि अछि."
 
-#: core/slavebase.cpp:912
+#: core/slavebase.cpp:916
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "प्रोटोकाल %1 केर सँग फाइलसभ खोलब समर्थित नहि अछि."
 
-#: core/slavebase.cpp:914
+#: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकाल %1 क्रिया %2 केँ समर्थित नहि करत."
 
-#: core/slavebase.cpp:1089
+#: core/slavebase.cpp:1093
 #, kde-format
 msgid "&Yes"
 msgstr "हँ (&Y)"
 
-#: core/slavebase.cpp:1090
+#: core/slavebase.cpp:1094
 #, kde-format
 msgid "&No"
 msgstr "नहि (&N)"
@@ -7210,43 +7210,43 @@ msgstr "माउन्ट"
 msgid "Unmount"
 msgstr "अनारोहित करू"
 
-#: widgets/kdirmodel.cpp:1228
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "नाम"
 
-#: widgets/kdirmodel.cpp:1230
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "आकार"
 
-#: widgets/kdirmodel.cpp:1232
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "दिनांक"
 
-#: widgets/kdirmodel.cpp:1234
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "अनुमतिसभ"
 
-#: widgets/kdirmodel.cpp:1236
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "मालिक"
 
-#: widgets/kdirmodel.cpp:1238
+#: widgets/kdirmodel.cpp:1242
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "समूह"
 
-#: widgets/kdirmodel.cpp:1240
+#: widgets/kdirmodel.cpp:1244
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

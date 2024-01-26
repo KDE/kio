@@ -40,7 +40,7 @@
 <para
 ><userinput
 >data:,foobar</userinput
-> (notez la virgule après le deux-points) fournira un document de texte contenant uniquement <literal
+> (Veuillez noter la virgule après le deux-points) fournira un document de texte contenant uniquement <literal
 >foobar</literal
 >. </para>
 
