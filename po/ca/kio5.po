@@ -1,26 +1,26 @@
 # Translation of kio5.po to Catalan
-# Copyright (C) 1998-2023 This_file_is_part_of_KDE
+# Copyright (C) 1998-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
+# SPDX-FileCopyrightText: 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
 # Sebastià Pla i Sanz <sps@sastia.com>, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006.
-# Josep M. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Albert Astals Cid <aacid@kde.org>, 2007.
 # Robert Millan <rmh@aybabtu.com>, 2009.
-# SPDX-FileCopyrightText: 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2023-10-22 23:50+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2024-01-29 15:24+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -1295,7 +1295,7 @@ msgstr "El fitxer o la carpeta no existeix"
 #: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "El fitxer o la carpeta especificat <strong>%1</strong> no existeix."
+msgstr "La carpeta o el fitxer especificat <strong>%1</strong> no existeix."
 
 #: core/job_error.cpp:572
 #, kde-format
@@ -3454,8 +3454,8 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 "S'ha seleccionat més d'una carpeta i aquest diàleg no accepta carpetes, per "
-"tant no es pot decidir en quina entrar. Si us plau, seleccioneu-ne només una "
-"per a llistar-la."
+"tant, no es pot decidir en quina entrar. Si us plau, seleccioneu-ne només "
+"una per a llistar-la."
 
 #: filewidgets/kfilewidget.cpp:883
 #, kde-format
@@ -6118,13 +6118,13 @@ msgstr "crea la carpeta demanada"
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "copia el fitxer o la carpeta especificat"
+msgstr "copia la carpeta o el fitxer especificat"
 
 #: kioworkers/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "mou el fitxer o la carpeta especificat"
+msgstr "mou la carpeta o el fitxer especificat"
 
 #: kioworkers/http/http.cpp:1575
 #, kde-format
@@ -6136,19 +6136,19 @@ msgstr "cerca dins la carpeta especificada"
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "bloqueja el fitxer o la carpeta especificat"
+msgstr "bloqueja la carpeta o el fitxer especificat"
 
 #: kioworkers/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "desbloqueja el fitxer o la carpeta especificat"
+msgstr "desbloqueja la carpeta o el fitxer especificat"
 
 #: kioworkers/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "suprimeix el fitxer o la carpeta especificat"
+msgstr "suprimeix la carpeta o el fitxer especificat"
 
 #: kioworkers/http/http.cpp:1587
 #, kde-format
@@ -6160,7 +6160,7 @@ msgstr "consultar les capacitats del servidor"
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "recupera el contingut del fitxer o la carpeta especificat"
+msgstr "recupera el contingut de la carpeta o fitxer especificat"
 
 #: kioworkers/http/http.cpp:1593
 #, kde-format
