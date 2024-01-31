@@ -11,6 +11,7 @@ Name[de]=PyPI
 Name[eo]=PyPI
 Name[es]=PyPI
 Name[eu]=PyPI
+Name[fi]=PyPI
 Name[fr]=PyPI
 Name[he]=PyPI
 Name[hu]=PyPI
@@ -19,6 +20,7 @@ Name[is]=PyPI
 Name[it]=PyPI
 Name[ka]=PyPI
 Name[nl]=PyPI
+Name[pa]=PyPI
 Name[pl]=PyPI
 Name[pt_BR]=PyPI
 Name[ru]=PyPI
@@ -40,6 +42,7 @@ Query[de]=https://pypi.org/search/?q=\\{@}
 Query[eo]=https://pypi.org/search/?q=\\{@}
 Query[es]=https://pypi.org/search/?q=\\{@}
 Query[eu]=https://pypi.org/search/?q=\\{@}
+Query[fi]=https://pypi.org/search/?q=\\{@}
 Query[fr]=https://pypi.org/search/?q=\\{@}
 Query[he]=https://pypi.org/search/?q=\\{@}
 Query[hu]=https://pypi.org/search/?q=\\{@}
@@ -48,6 +51,7 @@ Query[is]=https://pypi.org/search/?q=\\{@}
 Query[it]=https://pypi.org/search/?q=\\{@}
 Query[ka]=https://pypi.org/search/?q=\\{@}
 Query[nl]=https://pypi.org/search/?q=\\{@}
+Query[pa]=https://pypi.org/search/?q=\\{@}
 Query[pl]=https://pypi.org/search/?q=\\{@}
 Query[pt_BR]=https://pypi.org/search/?q=\\{@}
 Query[ru]=https://pypi.org/search/?q=\\{@}
