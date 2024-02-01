@@ -32,6 +32,7 @@ Name[is]=Qt6 hjálparskjöl á netinu
 Name[it]=Documentazione in linea di Qt6
 Name[ka]=Qt6 ონლაინ დოკუმენტაცია
 Name[ko]=Qt6 온라인 문서
+Name[lt]=Qt6 dokumentacija internete
 Name[my]=ကျူတီ၆ အွန်လိုင်းဒိုကူမန်တေးရှင်း
 Name[nl]=Qt6 online-documentatie
 Name[nn]=Qt6-dokumentasjon på nett
@@ -81,6 +82,7 @@ Query[is]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ka]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[lt]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

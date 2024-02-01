@@ -32,6 +32,7 @@ Name[is]=KDE Store
 Name[it]=KDE Store
 Name[ka]=KDE -ის მაღაზია
 Name[ko]=KDE 스토어
+Name[lt]=KDE parduotuvė
 Name[my]=ကေဒီအီး စတိုး
 Name[nl]=KDE Store
 Name[nn]=KDE-nettbutikken
@@ -81,6 +82,7 @@ Query[is]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ka]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[lt]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[my]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

@@ -30,6 +30,7 @@ Name[is]=Verkbeiðnir á KDE Invent
 Name[it]=Issue su KDE Invent
 Name[ka]=KDE Invent -ის პრობლემები
 Name[ko]=KDE Invent 이슈
+Name[lt]=KDE Invent klaidos
 Name[my]=ကေဒီအီး အင်ဗန့် အစ်ရှူး
 Name[nl]=KDE-invent problemen
 Name[nn]=KDE Invent-saker
@@ -80,6 +81,7 @@ Query[is]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ka]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[lt]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[my]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nn]=https://invent.kde.org/search?scope=issues&search=\\{@}

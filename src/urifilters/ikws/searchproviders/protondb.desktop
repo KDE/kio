@@ -30,6 +30,7 @@ Name[is]=ProtonDB
 Name[it]=ProtonDB
 Name[ka]=ProtonDB
 Name[ko]=ProtonDB
+Name[lt]=ProtonDB
 Name[my]=ပရိုတွန်ဒီဘီ
 Name[nl]=ProtonDB
 Name[nn]=ProtonDB
@@ -82,6 +83,7 @@ Query[is]=https://www.protondb.com/search?q=\\{@}
 Query[it]=https://www.protondb.com/search?q=\\{@}
 Query[ka]=https://www.protondb.com/search?q=\\{@}
 Query[ko]=https://www.protondb.com/search?q=\\{@}
+Query[lt]=https://www.protondb.com/search?q=\\{@}
 Query[my]=https://www.protondb.com/search?q=\\{@}
 Query[nl]=https://www.protondb.com/search?q=\\{@}
 Query[nn]=https://www.protondb.com/search?q=\\{@}
