@@ -397,7 +397,13 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     }
 
     qint64 pid = 0;
-    QProcess::startDetached(kioworkerExecutable, args, QString(), &pid);
+    QProcess process;
+    process.setProgram(kioworkerExecutable);
+    process.setArguments(args);
+#ifdef Q_OS_UNIX
+    process.setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
+#endif
+    process.startDetached(&pid);
     worker->setPID(pid);
 
     return worker;
