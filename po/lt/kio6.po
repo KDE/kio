@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 00:35+0000\n"
-"PO-Revision-Date: 2024-02-02 02:25+0200\n"
+"PO-Revision-Date: 2024-02-03 14:11+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -2242,7 +2242,7 @@ msgid ""
 "inadequate disk space."
 msgstr ""
 "Į nurodytą failą <strong>%1</strong> negali būti įrašoma, nes nėra "
-"užtektinai vietos diske."
+"pakankamai vietos diske."
 
 #: core/job_error.cpp:1206
 #, kde-format
@@ -2258,7 +2258,7 @@ msgstr ""
 #: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "Išeities ir paskirties failai identiški"
+msgstr "Šaltinio ir paskirties failai yra vienodi"
 
 #: core/job_error.cpp:1215
 #, kde-format
@@ -2266,18 +2266,18 @@ msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr ""
-"Operacija negali būti įvykdyta, nes išeities ir paskirties failas yra tas "
+"Operacija negali būti įvykdyta, nes šaltinio ir paskirties failas yra tas "
 "pats."
 
 #: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
-msgstr "Pasirinkite kitą vardą sukuriamam failui."
+msgstr "Pasirinkite paskirties failui kitokį pavadinimą."
 
 #: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "Failas ar aplankas mestas į save patį"
+msgstr "Failas ar aplankas numestas į save patį"
 
 #: core/job_error.cpp:1223
 #, kde-format
@@ -2285,13 +2285,13 @@ msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
-"Operacija negali būti įvykdyta, nes išeities ir paskirties failas yra tas "
+"Operacija negali būti įvykdyta, nes šaltinio ir paskirties failas yra tas "
 "pats."
 
 #: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
-msgstr "Meskite elementą į skirtingą failą ar aplanką."
+msgstr "Numeskite elementą į kitą failą ar aplanką."
 
 #: core/job_error.cpp:1235
 #, kde-format
@@ -2308,12 +2308,12 @@ msgstr "Veiksmo negalima atlikti, nes šaltinį bandoma perkelti į jį patį."
 #: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr "Perkelti į kitą aplanką."
+msgstr "Perkelti elementą į kitą aplanką."
 
 #: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
-msgstr "Nepavyksta susikalbėti su slaptažodžių serveriu"
+msgstr "Nepavyko susisiekti su slaptažodžių serveriu"
 
 #: core/job_error.cpp:1245
 #, fuzzy, kde-format
@@ -2328,13 +2328,13 @@ msgstr ""
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
-"Bandykite iš naujo paleisti sesiją arba peržiūrėkite žurnalus apie kiod "
-"klaidas."
+"Bandykite iš naujo paleisti seansą arba peržiūrėkite žurnaluse esančias "
+"klaidas iš kiod."
 
 #: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
-msgstr "Nepavyksta paleisti %1 protokolo"
+msgstr "Nepavyksta inicijuoti %1 protokolo"
 
 #: core/job_error.cpp:1252
 #, kde-format
@@ -2424,17 +2424,17 @@ msgstr "Nepavyko nustatyti %1 failo tipo"
 #: core/slavebase.cpp:845
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
-msgstr "Prisijungimų sukūrimas nėra palaikomas protokolu %1."
+msgstr "Ryšių užmezgimas nėra palaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:847
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
-msgstr "Prisijungimų uždarymas nėra palaikomas su protokolu %1."
+msgstr "Ryšių nutraukimas nėra palaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:849
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "Priėjimas prie failų nėra palaikomas su protokolu %1."
+msgstr "Prieiga prie failų nėra palaikoma naudojant protokolą %1."
 
 #: core/slavebase.cpp:851
 #, kde-format
@@ -2444,12 +2444,12 @@ msgstr "Rašymas į %1 nėra palaikomas."
 #: core/slavebase.cpp:853
 #, kde-format
 msgid "There are no special actions available for protocol %1."
-msgstr "Protokolui %1 nėra specialių veiksmų."
+msgstr "Protokolui %1 nėra prieinamų specialių veiksmų."
 
 #: core/slavebase.cpp:855
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
-msgstr "Aplankų sąrašo išvedimas protokolui %1 nėra palaikomas."
+msgstr "Aplankų išvardijimas protokolui %1 nėra palaikomas."
 
 #: core/slavebase.cpp:857
 #, kde-format
@@ -2459,47 +2459,47 @@ msgstr "Duomenų gavimas iš %1 nėra palaikomas."
 #: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "Mime tipų informacijos gavimas iš %1 nėra palaikomas."
+msgstr "MIME tipų informacijos gavimas iš %1 nėra palaikomas."
 
 #: core/slavebase.cpp:861
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "Failų vardų keitimas ar perkėlimas esant %1 nėra palaikomas."
+msgstr "Failų pervadinimas ar perkėlimas %1 viduje nėra palaikomas."
 
 #: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "Simbolinių nuorodų kūrimas nėra palaikomas su protokolu %1."
+msgstr "Simbolinių nuorodų kūrimas nėra palaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:865
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "Failų kopijavimas esant %1 nėra palaikomas."
+msgstr "Failų kopijavimas %1 viduje nėra palaikomas."
 
 #: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "Failų trynimas iš %1 nėra palaikomas."
+msgstr "Failų ištrynimas iš %1 nėra palaikomas."
 
 #: core/slavebase.cpp:869
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "Aplankų kūrimas su protokolu %1 nėra palaikomas."
+msgstr "Aplankų kūrimas naudojant protokolą %1 nėra palaikomas."
 
 #: core/slavebase.cpp:871
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
-msgstr "Failų atributų keitimas nėra palaikomas su protokolu %1."
+msgstr "Failų atributų keitimas nėra palaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "Failų nuosavybės keitimas yra nepalaikomas su protokolu %1."
+msgstr "Failų nuosavybės keitimas yra nepalaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:875
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "Failų atvėrimas yra nepalaikomas su protokolu %1."
+msgstr "Failų atvėrimas yra nepalaikomas naudojant protokolą %1."
 
 #: core/slavebase.cpp:877
 #, kde-format
@@ -2532,12 +2532,12 @@ msgstr "Nepavyko rasti „kioslave“ vykdomojo failo čia „%1“"
 #: widgets/widgetsaskuseractionhandler.cpp:492
 #, kde-format
 msgid "&Details"
-msgstr "&Detaliai"
+msgstr "&Išsamiau"
 
 #: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
-msgstr "&Visam laikui"
+msgstr "&Amžinai"
 
 #: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
@@ -2547,7 +2547,7 @@ msgstr "&Tęsti"
 #: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
-msgstr "Tik &dabartinė sesija"
+msgstr "Tik &dabartinis seansas"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -2558,7 +2558,7 @@ msgstr "%p%"
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
-msgstr "Nepasirinkote trinamo failo."
+msgstr "Nepažymėjote norimo ištrinti failo."
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2568,7 +2568,7 @@ msgstr "Nėra ką ištrinti"
 #: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
-msgstr "Nepasirinkote į šiukšlinę perkeltino failo."
+msgstr "Nepažymėjote į šiukšlinę perkeltino failo."
 
 #: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
@@ -2600,7 +2600,7 @@ msgstr "Grįžti"
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
-msgstr "Pirmyn"
+msgstr "Eiti pirmyn"
 
 #: filewidgets/kdiroperator.cpp:1950
 #, kde-format
@@ -2637,7 +2637,7 @@ msgstr "Rikiavimas"
 #: filewidgets/kdiroperator.cpp:1985
 #, kde-format
 msgid "Sort by Name"
-msgstr "Rikiuoti pagal vardą"
+msgstr "Rikiuoti pagal pavadinimą"
 
 #: filewidgets/kdiroperator.cpp:1991
 #, kde-format
@@ -2662,7 +2662,7 @@ msgstr "Didėjančiai"
 #: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgid "Descending"
-msgstr "Mažėjanti"
+msgstr "Mažėjančiai"
 
 #: filewidgets/kdiroperator.cpp:2026
 #, kde-format
@@ -2678,17 +2678,17 @@ msgstr "Rodyti paslėptus failus"
 #: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Icons View"
-msgstr "Piktogramų rodymas"
+msgstr "Piktogramų rodinys"
 
 #: filewidgets/kdiroperator.cpp:2046
 #, kde-format
 msgid "Compact View"
-msgstr "Kompaktiškas rodymas"
+msgstr "Kompaktiškas rodinys"
 
 #: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Details View"
-msgstr "Išsamus rodymas"
+msgstr "Išsamus rodinys"
 
 #: filewidgets/kdiroperator.cpp:2072
 #, kde-format
@@ -2698,7 +2698,7 @@ msgstr "Piktogramos pozicija"
 #: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
-msgstr "Greta failo pavadinimo"
+msgstr "Šalia failo pavadinimo"
 
 #: filewidgets/kdiroperator.cpp:2081
 #, kde-format
@@ -2708,22 +2708,22 @@ msgstr "Virš failo pavadinimo"
 #: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
-msgstr "Rodyti trumpai"
+msgstr "Trumpas rodinys"
 
 #: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
-msgstr "Rodyti detaliai"
+msgstr "Išsamus rodinys"
 
 #: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Tree View"
-msgstr "Medžio vaizdas"
+msgstr "Medžio rodinys"
 
 #: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed Tree View"
-msgstr "Detalaus medžio vaizdas"
+msgstr "Išsamus medžio rodinys"
 
 #: filewidgets/kdiroperator.cpp:2129
 #, kde-format
@@ -2748,7 +2748,7 @@ msgstr "Rodyti peržiūrą"
 #: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
-msgstr "Atverti aplanką, kuriame patalpinta"
+msgstr "Atverti vidinį aplanką"
 
 #: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
@@ -2888,7 +2888,7 @@ msgstr "Pridėti vietų įrašą"
 #: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Edit Places Entry"
-msgstr "Keisti vietų įrašą"
+msgstr "Taisyti vietų įrašą"
 
 #: filewidgets/kfileplaceeditdialog.cpp:78
 #, kde-format
@@ -2898,14 +2898,14 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
-"<qt>Šis tekstas rodomas Vietų skydelyje.<br /><br />Aprašymą turėtų sudaryti "
+"<qt>Šis tekstas rodomas Vietų skydelyje.<br /><br />Aprašą turėtų sudaryti "
 "vienas ar du žodžiai, kurie padėtų prisiminti, į ką kreipia šis įrašas. Jei "
-"nieko neįrašysite, aprašymas automatiškai sukursimas pagal vietos URL</qt>"
+"nieko neįrašysite, aprašas bus automatiškai sukurtas pagal vietos URL</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
 msgid "L&abel:"
-msgstr "Ž&ymė:"
+msgstr "E&tiketė:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
@@ -2956,9 +2956,9 @@ msgid ""
 "current application (%1).<br /><br />If this setting is not selected, the "
 "entry will be available in all applications.</qt>"
 msgstr ""
-"<qt>Pasirinkite šį nustatymą, jei norite, kad įrašas būtų matomas tik "
-"naudojant šią programą. (%1).<br /><br /> Jei šis nustatymas nėra "
-"pasirinktas, įrašas bus prieinamas visoms programoms.</qt>"
+"<qt>Pasirinkite šią nuostatą, jei norite, kad įrašas būtų matomas tik "
+"naudojant šią programą. (%1).<br /><br /> Jei ši nuostata nėra pasirinkta, "
+"įrašas bus prieinamas visoms programoms.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:185
 #, kde-format
@@ -3000,7 +3000,7 @@ msgstr "Keičiamieji įrenginiai"
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
-msgstr "Gairės"
+msgstr "Žymės"
 
 #: filewidgets/kfileplacesmodel.cpp:159
 msgctxt "KFile System Bookmarks"
@@ -3139,7 +3139,7 @@ msgstr "&Išstumti"
 #: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr "Įrenginys „%1“ nėra diskas ir negali būti atidarytas."
+msgstr "Įrenginys „%1“ nėra diskas ir negali būti išstumtas."
 
 #: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
@@ -3317,7 +3317,7 @@ msgstr "Galite pasirinkti tik vietinius failus"
 #: filewidgets/kfilewidget.cpp:771
 #, kde-format
 msgid "Remote files not accepted"
-msgstr "Nutolę failai nepriimami"
+msgstr "Nuotoliniai failai nepriimami"
 
 #: filewidgets/kfilewidget.cpp:778
 #, kde-format
@@ -3356,8 +3356,8 @@ msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
-"Buvo pažymėtas bent vienas aplankas ir bent vienas failas. Pažymėti failai "
-"bus ignoruojami, bus pateikiamas tik aplankų sąrašas"
+"Buvo pažymėtas bent vienas aplankas ir bent vienas failas. Pažymėtų failų "
+"bus nepaisoma, bus pateikiamas tik aplankų sąrašas"
 
 #: filewidgets/kfilewidget.cpp:813
 #, kde-format
@@ -3367,7 +3367,7 @@ msgstr "Failai ir aplankai pažymėti"
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "Failo „%1“ rasti nepavyko"
+msgstr "Nepavyko rasti failo „%1“"
 
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
@@ -3381,32 +3381,34 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>Paspauskite šį mygtuką, kad patektumėte į aukštesnio lygmens aplanką."
-"<br /><br />Pavyzdžiui, jei dabartinė vieta yra file:/home/konqi, paspaudęs "
+"<qt>Spustelėkite šį mygtuką, kad patektumėte į aukštesnio lygmens aplanką."
+"<br /><br />Pavyzdžiui, jei dabartinė vieta yra file:/home/konqi, paspaudę "
 "šį mygtuką pateksite į file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1180
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
-"Spragtelėję šį mygtuką nueisite vienu žingsniu atgal naršymo istorijoje."
+"Spustelėkite šį mygtuką, norėdami eiti vienu žingsniu atgal naršymo "
+"istorijoje."
 
 #: filewidgets/kfilewidget.cpp:1181
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
-"Spragtelėję šį mygtuką nueisite vienu žingsniu pirmyn naršymo istorijoje."
+"Spustelėkite šį mygtuką, norėdami eiti vienu žingsniu pirmyn naršymo "
+"istorijoje."
 
 #: filewidgets/kfilewidget.cpp:1183
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
-"Norėdami iš naujo įkelti esamo puslapio turinį, spragtelėkite šį mygtuką."
+"Spustelėkite šį mygtuką, norėdami iš naujo įkelti esamo puslapio turinį."
 
 #: filewidgets/kfilewidget.cpp:1185
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr "Paspauskite šį mygtuką norėdami sukurti naują aplanką."
+msgstr "Spustelėkite šį mygtuką norėdami sukurti naują aplanką."
 
 #: filewidgets/kfilewidget.cpp:1187
 #, kde-format
@@ -3460,7 +3462,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1266 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
-msgstr "&Vardas:"
+msgstr "Pa&vadinimas:"
 
 #: filewidgets/kfilewidget.cpp:1343
 #, kde-format
@@ -3477,7 +3479,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1350
 #, kde-format
 msgid "This is the name to save the file as."
-msgstr "Tai yra pavadinimas, kuriuo išsaugomas failas."
+msgstr "Tai yra pavadinimas, kuriuo įrašomas failas."
 
 #: filewidgets/kfilewidget.cpp:1353
 #, kde-format
@@ -3485,13 +3487,13 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
-"Tai yra atidaromų failų sąrašas.  Gali būti nurodytas daugiau nei viena "
-"failas, išvardinant kelis, atskiriant jas tarpais."
+"Tai yra atveriamų failų sąrašas. Gali būti nurodytas daugiau nei vienas "
+"failas, išvardijant kelis, atskiriant juos tarpais."
 
 #: filewidgets/kfilewidget.cpp:1358
 #, kde-format
 msgid "This is the name of the file to open."
-msgstr "Tai yra atidaromo failo pavadinimas."
+msgstr "Tai yra atveriamo failo pavadinimas."
 
 #: filewidgets/kfilewidget.cpp:1371
 #, kde-format
@@ -3570,18 +3572,17 @@ msgid ""
 "period will be automatically removed).</li></ol>If unsure, keep this option "
 "enabled as it makes your files more manageable."
 msgstr ""
-"Ši parinktis įgalina keletą patogių funkcijų saugant failus su prievardžiais:"
+"Ši parinktis įgalina keletą patogių funkcijų įrašant failus su prievardžiais:"
 "<br /><ol><li>Prievardis, nurodytas <b>%1</b> teksto langelyje, bus "
-"pakeistas, jei pakeisite failo tipą, į kurį reikia išsaugoti.<br /><br /></"
+"pakeistas, jei pakeisite failo tipą, į kurį reikia įrašyti.<br /><br /></"
 "li><li>Jei joks prievardis nenurodytas <b>%2</b> teksto langelyje, kai "
-"paspaudžiate <b>Išsaugoti</b>, %3 bus pridėtas prie failo pavadinimo "
-"pabaigos (jei failas tokiu pavadinimu dar neegzistuoja). Prievardis "
-"parenkamas pagal failo tipą, kuriuo norite išsaugoti failą.<br /><br />Jei "
-"nenorite, kad KDE automatiškai pridėtų prievardį, galite išjungti šią "
-"parinktį arba galite nuslopinti ją, pridėdami tašką (.) prie failo "
-"pavadinimo pabaigos(taškas bus panaikintas automatiškai).</li></ol>Jei "
-"nežinote ką pasirinkti, palikite šią parinktį įgalinta, nes ji padaro Jūsų "
-"failus lengviau valdomus."
+"paspaudžiate <b>Įrašyti</b>, %3 bus pridėtas prie failo pavadinimo pabaigos "
+"(jei failo tokiu pavadinimu dar nėra). Prievardis parenkamas pagal failo "
+"tipą, kuriuo norite įrašyti failą.<br /><br />Jei nenorite, kad KDE "
+"automatiškai pridėtų prievardį, galite išjungti šią parinktį arba galite "
+"nuslopinti ją, pridėdami tašką (.) prie failo pavadinimo pabaigos (taškas "
+"bus panaikintas automatiškai).</li></ol>Jei nežinote ką pasirinkti, palikite "
+"šią parinktį įgalinta, nes ji padaro jūsų failus lengviau valdomus."
 
 #: filewidgets/kfilewidget.cpp:2770
 #, kde-format
@@ -3610,7 +3611,7 @@ msgid ""
 msgstr ""
 "<qt>Šis filtras taikomas failų sąraše. Failų vardai, kurie neatitinka "
 "filtro, nebus rodomi.<p>Galite pasirinkti vieną iš nustatytų filtrų iš meniu "
-"arba įvesti savadarbį filtrą tiesiai į teksto langelį.</p><p>Galima naudoti "
+"arba įvesti tinkintą filtrą tiesiai į teksto langelį.</p><p>Galima naudoti "
 "pakaitos simbolius * ir ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:467
@@ -3621,7 +3622,7 @@ msgstr "Apgailestaujame"
 #: filewidgets/knewfilemenu.cpp:478
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>Šablono failas <b>%1</b> neegzistuoja.</qt>"
+msgstr "<qt>Šablono failo <b>%1</b> nėra.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
 #, kde-format
@@ -3646,8 +3647,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because it is reserved for "
 "use by the operating system."
 msgstr ""
-"Negalima naudoti <filename>%1</filename> vardo, nes jį galite naudoti "
-"operacinė sistema savoms reikmėms."
+"Negalima naudoti <filename>%1</filename> pavadinimo, nes jį savoms reikmėms "
+"gali naudoti operacinė sistema."
 
 #: filewidgets/knewfilemenu.cpp:1143
 #, kde-kuit-format
@@ -3655,7 +3656,9 @@ msgctxt "@info"
 msgid ""
 "The name <filename>%1</filename> starts with a dot, so it will be hidden by "
 "default."
-msgstr "Vardas „%1“ prasideda tašku, taigi numatytuoju atveju būtų paslėptas."
+msgstr ""
+"<filename>%1</filename> pavadinimas prasideda tašku, todėl pagal numatymą, "
+"jis bus paslėptas."
 
 #: filewidgets/knewfilemenu.cpp:1151
 #, kde-kuit-format
@@ -3764,12 +3767,12 @@ msgstr "Atverti „%1“ naujame lange"
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
 msgid "Edit"
-msgstr "Keisti"
+msgstr "Taisyti"
 
 #: filewidgets/kurlnavigator.cpp:565
 #, kde-format
 msgid "Navigate"
-msgstr "Žvalgyti"
+msgstr "Naršyti"
 
 #: filewidgets/kurlnavigator.cpp:580
 #, kde-format
@@ -3803,22 +3806,22 @@ msgstr "Kiti"
 #: filewidgets/kurlnavigatortogglebutton.cpp:28
 #, kde-format
 msgid "Edit mode"
-msgstr "Redagavimo veiksena"
+msgstr "Taisymo veiksena"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
-msgstr "Spragtelėkite norėdami naviguoti"
+msgstr "Spustelėkite norėdami naršyti po vietą"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
-msgstr "Spragtelėkite norėdami rašyti"
+msgstr "Spustelėkite norėdami taisyti vietą"
 
 #: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "Jūs neturite leidimų paleisti šį failą."
+msgstr "Jūs neturite įgaliojimų vykdyti šį failą."
 
 #: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
@@ -3836,7 +3839,7 @@ msgstr ""
 #: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
-msgstr "Jūs neturite teisės parinkti programos atverti šį failą."
+msgstr "Jūs neturite teisės pasirinkti programos, kuri atvers šį failą."
 
 #: gui/applicationlauncherjob.cpp:290
 #, kde-format
@@ -3878,7 +3881,7 @@ msgstr ""
 #: gui/kprocessrunner.cpp:274
 #, kde-format
 msgid "Launching %1"
-msgstr "Vykdoma %1"
+msgstr "Paleidžiama %1"
 
 #: gui/kprocessrunner.cpp:461
 #, kde-kuit-format
@@ -3968,7 +3971,7 @@ msgid ""
 "has been modified. Do you want to upload the changes?"
 msgstr ""
 "Failas %1\n"
-"pakeistas. Ar perduoti pakeitimus?"
+"pakeistas. Ar išsiųsti pakeitimus?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -3978,17 +3981,17 @@ msgstr "Failas pakeistas"
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
-msgstr "Įkelti"
+msgstr "Išsiųsti"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
-msgstr "Neįkelti"
+msgstr "Neišsiųsti"
 
 #: kioexec/main.cpp:57
 #, kde-format
 msgid "Invalid URL: %1"
-msgstr "Klaidingas URL: %1"
+msgstr "Neteisingas URL: %1"
 
 #: kioexec/main.cpp:63
 #, kde-format
@@ -4010,7 +4013,7 @@ msgid ""
 "Remote URL %1\n"
 "not allowed with --tempfiles switch"
 msgstr ""
-"Nutolęs URL %1\n"
+"Nuotolinis URL %1\n"
 "neleidžiama su --tempfiles perjungikliu"
 
 #: kioexec/main.cpp:236
@@ -4024,12 +4027,12 @@ msgstr ""
 "Tariamai laikinas failas\n"
 "%1\n"
 "buvo pakeistas.\n"
-"Ar vis tiek norite jį pašalinti?"
+"Ar vis tiek norite jį ištrinti?"
 
 #: kioexec/main.cpp:239
 #, kde-format
 msgid "Do Not Delete"
-msgstr "Netrinti"
+msgstr "Neištrinti"
 
 #: kioexec/main.cpp:246
 #, kde-format
@@ -4042,7 +4045,7 @@ msgstr ""
 "Failas\n"
 "%1\n"
 "pakeistas.\n"
-"Ar persiųsti pakeitimus?"
+"Ar išsiųsti pakeitimus?"
 
 #: kioexec/main.cpp:286
 #, kde-format
@@ -4053,8 +4056,8 @@ msgstr "KIOExec"
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
-"KIO Exec – Atveria nutolusius failus, seka pasikeitimus, klausia dėl failų "
-"įkėlimo"
+"KIO Exec – Atveria nuotolinius failus, seka pasikeitimus, klausia dėl failų "
+"išsiuntimo"
 
 #: kioexec/main.cpp:290
 #, kde-format
@@ -4089,7 +4092,7 @@ msgstr "Oswald Buddenhagen"
 #: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr "Elgtis su URL kaip su vietiniais failais ir vėliau pašalinti"
+msgstr "Elgtis su URL kaip su vietiniais failais ir vėliau juos ištrinti"
 
 #: kioexec/main.cpp:302
 #, kde-format
@@ -4099,17 +4102,17 @@ msgstr "Pasirinkite pavadinimą atsisiųstam failui"
 #: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
-msgstr "Komanda vykdymui"
+msgstr "Komanda, kurią vykdyti"
 
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "URL ar vietinis(iai) failas(ai), naudojami su „command“"
+msgstr "URL ar vietinis(-iai) failas(-ai), naudojami su „command“"
 
 #: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
-msgstr "Nustatomas ACL skirtas %1"
+msgstr "Nustatomas ACL, skirtas %1"
 
 #: kioworkers/file/file.cpp:737
 #, kde-format
@@ -4227,12 +4230,12 @@ msgstr ""
 #: kioworkers/file/file_unix.cpp:833
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Nepavyksta nukopijuoti failo iš %1 į %2. (Klaidos Nr.: %3)"
+msgstr "Nepavyksta nukopijuoti failo iš %1 į %2. (Klaidos nr.: %3)"
 
 #: kioworkers/file/file_unix.cpp:1055
 #, kde-format
 msgid "No media in device for %1"
-msgstr "%1 nėra įdėtas joks media į įrenginį"
+msgstr "Įrenginyje nėra jokios laikmenos, skirtos %1"
 
 #: kioworkers/file/file_unix.cpp:1347
 #, kde-format
@@ -4247,7 +4250,7 @@ msgstr ""
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
-msgstr "Jungiamasi prie mazgo %1"
+msgstr "Užmezgiamas ryšys su mazgu %1"
 
 #: kioworkers/ftp/ftp.cpp:369
 #, kde-format
@@ -4262,7 +4265,7 @@ msgstr "%1 (klaida %2)"
 #: kioworkers/ftp/ftp.cpp:507
 #, kde-format
 msgid "Sending login information"
-msgstr "Siunčiama registravimosi informacija"
+msgstr "Siunčiama prisijungimo informacija"
 
 #: kioworkers/ftp/ftp.cpp:557
 #, kde-format
@@ -4274,7 +4277,7 @@ msgid ""
 "%2\n"
 "\n"
 msgstr ""
-"Nusiųstas pranešimas:\n"
+"Išsiųstas pranešimas:\n"
 "Prisiregistruoju vardu=%1 su slaptažodžiu=[paslėptas]\n"
 "\n"
 "Serveris atsakė:\n"
@@ -4285,13 +4288,13 @@ msgstr ""
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
-"Norėdami prisijungti prie šios srities, turite pateikti naudotojo vardą ir "
+"Norėdami prisijungti prie šios svetainės, turite pateikti naudotojo vardą ir "
 "slaptažodį."
 
 #: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:263
 #, kde-format
 msgid "Site:"
-msgstr "Sritis:"
+msgstr "Svetainė:"
 
 #: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
@@ -4301,12 +4304,12 @@ msgstr "<b>%1</b>"
 #: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
-msgstr "Registracija OK"
+msgstr "Prisijungimas pavyko"
 
 #: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
-msgstr "Nepavyksta prisiregistruoti į %1."
+msgstr "Nepavyksta prisijungti prie %1."
 
 #: kioworkers/ftp/ftp.cpp:1032
 #, kde-format
@@ -4315,7 +4318,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr ""
 "\n"
-"Serveris pranešė: \"%1\""
+"Serveris pranešė: „%1“"
 
 #: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:311
 #, kde-format
@@ -4323,8 +4326,8 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Turite pateikti naudotojo vardą ir slaptažodį  žemiau nurodytam įgaliotajam "
-"serveriui serveriui norint prisijungti prie bet kokios srities."
+"Prieš galėdami lankytis svetainėse, turite pateikti naudotojo vardą ir "
+"slaptažodį žemiau nurodytam įgaliotajam serveriui."
 
 #: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:315
 #, kde-format
@@ -4334,7 +4337,7 @@ msgstr "Įgaliotasis serveris:"
 #: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
 msgid "Proxy Authentication Failed."
-msgstr "Įgaliotojo serverio autentikacija nepavyko."
+msgstr "Įgaliotojo serverio tapatybės nustatymas patyrė nesėkmę."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -4354,7 +4357,7 @@ msgstr "Dokumentas ruošiamas"
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
 #, kde-format
 msgid "The requested help file could not be parsed:<br />%1"
-msgstr "Nurodytas pagalbos failas negali būti išnagrinėtas:<br />%1"
+msgstr "Prašytas pagalbos failas negali būti išnagrinėtas:<br />%1"
 
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
@@ -4364,7 +4367,7 @@ msgstr "Įrašoma į podėlį"
 #: kioworkers/help/kio_help.cpp:253
 #, kde-format
 msgid "Using cached version"
-msgstr "Naudojama krepšio versiją"
+msgstr "Naudojama podėlio versija"
 
 #: kioworkers/help/kio_help.cpp:314
 #, kde-format
@@ -4374,7 +4377,7 @@ msgstr "Ieškoma skyriaus"
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "Nepavyko rasti failo %1, esančio %2."
+msgstr "Nepavyko rasti failo pavadinimo %1, esančio %2."
 
 #: kioworkers/http/http.cpp:281 kioworkers/http/http.cpp:320
 #: kioworkers/http/http.cpp:334
@@ -4385,7 +4388,7 @@ msgstr "<b>%1</b> mazge <b>%2</b>"
 #: kioworkers/http/http.cpp:1227
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
-msgstr "Priešingu atveju paklausimas būtų pavykęs."
+msgstr "Priešingu atveju užklausa būtų sėkminga."
 
 #: kioworkers/http/http.cpp:1230
 #, kde-format
@@ -4445,7 +4448,7 @@ msgstr "ištrinti nurodytą failą ar aplanką"
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
-msgstr "užklausti serverio galimybių"
+msgstr "užklausti serverio galimybes"
 
 #: kioworkers/http/http.cpp:1250
 #, kde-format
@@ -4471,13 +4474,13 @@ msgctxt "%1: request type, %2: url"
 msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
-msgstr "Bandant %1 įvyko klaida %2.  Priežasčių santrauka yra žemiau."
+msgstr "Bandant %1 įvyko klaida %2. Priežasčių santrauka yra žemiau."
 
 #: kioworkers/http/http.cpp:1318 kioworkers/http/http.cpp:1462
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
-msgstr "Priėjimas uždraustas bandant %1."
+msgstr "Prieiga uždrausta bandant %1."
 
 #: kioworkers/http/http.cpp:1332 kioworkers/http/http.cpp:1469
 #, kde-format
@@ -4485,8 +4488,8 @@ msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
-"Resursas negali būti sukurtas paskirties vietoje tol, kol vienas ar daugiau "
-"tarpinių rinkinių (aplankų) nebus sukurta."
+"Išteklius negali būti sukurtas paskirties vietoje tol, kol nebus sukurtas "
+"vienas ar daugiau tarpinių rinkinių (aplankų)."
 
 #: kioworkers/http/http.cpp:1341
 #, fuzzy, kde-format
@@ -4512,18 +4515,18 @@ msgstr ""
 #: kioworkers/http/http.cpp:1349
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr "Prašomas užrakinimas negali būti suteiktas.  %1"
+msgstr "Prašomas užrakinimas negali būti suteiktas. %1"
 
 #: kioworkers/http/http.cpp:1355
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "Serveris nepalaiko kūno paklausimo tipo."
+msgstr "Serveris nepalaiko pagrindinės dalies užklausos tipo."
 
 #: kioworkers/http/http.cpp:1360 kioworkers/http/http.cpp:1477
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
-msgstr "Nepavyksta %1, nes resursas yra užrakintas."
+msgstr "Nepavyksta %1, nes išteklius yra užrakintas."
 
 #: kioworkers/http/http.cpp:1364
 #, kde-format
@@ -4545,19 +4548,19 @@ msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
-"Paskirties resursas neturi užtektinai vietos įrašyti resurso būklei po šio "
-"metodo įvykdymo."
+"Paskirties ištekliuje nėra pakankamai vietos, kad būtų įrašyta ištekliaus "
+"būsena po šio metodo įvykdymo."
 
 #: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The resource cannot be deleted."
-msgstr "Resursas negali būti ištrintas."
+msgstr "Išteklius negali būti ištrintas."
 
 #: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "siųsti %1"
+msgstr "išsiųsti %1"
 
 #: kioworkers/http/http.cpp:1504
 #, kde-format
@@ -4586,10 +4589,10 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"Aplanko %1 nebėra, tad nėra įmanoma atstatyti failo ar aplanko į jo pirminę "
-"vietą. Norėdami atstatyti failą, galite sukurti aplanką iš naujo ir vėl "
-"panaudoti atstatymo operaciją, arba - tiesiog nutempkite failą į bet kurį "
-"kitą aplanką."
+"Katalogo %1 nebėra, tad neįmanoma atkurti failo ar aplanko į jo pirminę "
+"vietą. Norėdami atkurti failą, galite sukurti aplanką iš naujo ir vėl "
+"panaudoti atkūrimo operaciją, arba tiesiog nutempkite failą į bet kurį kitą "
+"aplanką."
 
 #: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
 #, kde-format
@@ -4609,7 +4612,7 @@ msgstr "nepalaikoma"
 #: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
-msgstr "Vidinė klaida funkcijoje copyOrMove, taip niekada neturėtų atsitikti"
+msgstr "Vidinė klaida funkcijoje copyOrMove, taip niekada neturėtų nutikti"
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -4620,17 +4623,17 @@ msgid ""
 msgstr ""
 "Pagalbinė programa KDE šiukšlinės tvarkymui\n"
 "Dėmesio: norėdami perkelti failus į šiukšlinę, nenaudokite ktrash, vietoje "
-"to naudokite „kioclient move 'url' trash:/“"
+"to, naudokite „kioclient move 'url' trash:/“"
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
 msgid "Empty the contents of the trash"
-msgstr "Ištuštinti šiukšlinę"
+msgstr "Išvalyti šiukšlinės turinį"
 
 #: kioworkers/trash/ktrash.cpp:33
 #, kde-format
 msgid "Restore a trashed file to its original location"
-msgstr "Atstatyti šiukšlinėje esančią failą į pirminę vietą"
+msgstr "Atkurti šiukšlinėje esantį failą į jo pirminę vietą"
 
 #: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
@@ -4652,17 +4655,17 @@ msgstr "Bandyti dar kartą nustatyti tapatybę"
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
-msgstr "Kartoti"
+msgstr "Bandyti dar kartą"
 
 #: kpasswdserver/kpasswdserver.cpp:796
 #, kde-format
 msgid "Authentication Dialog"
-msgstr "Tapatumo nustatymo dialogas"
+msgstr "Tapatybės nustatymo dialogas"
 
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
-msgstr "Prieiga neleista"
+msgstr "Prieiga uždrausta"
 
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
@@ -4672,7 +4675,7 @@ msgstr "Jūs neturite leidimo pasiekti %1 protokolo."
 #: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
-msgstr "Nerasta mėgstamiausių paieškos paslaugų tiekėjų."
+msgstr "Nerasta pageidaujamų paieškos paslaugos tiekėjų."
 
 #: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
@@ -4682,7 +4685,7 @@ msgstr "Nerasta paieškos paslaugos tiekėjų."
 #: urifilters/shorturi/kshorturifilter.cpp:241
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
-msgstr "<qt><b>%1</b> neturi pradinio aplanko!</qt>"
+msgstr "<qt><b>%1</b> neturi namų aplanko!</qt>"
 
 #: urifilters/shorturi/kshorturifilter.cpp:243
 #, kde-format
@@ -4693,7 +4696,7 @@ msgstr "<qt>Nėra naudotojo <b>%1</b>.</qt>"
 #: widgets/certificateparty.ui:28
 #, kde-format
 msgid "Common name:"
-msgstr "Bendras vardas:"
+msgstr "Bendrinis pavadinimas:"
 
 #. i18n: ectx: property (text), widget (QLabel, commonName)
 #: widgets/certificateparty.ui:38
@@ -4777,13 +4780,13 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Kontrolinė suma, kurios tikitės (MD5, SHA1, SHA256 arba SHA512)..."
+msgstr "Kontrolinė suma, kurios tikimasi (MD5, SHA1, SHA256 arba SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
-msgstr "Spauskite, jei norite įterpti kontrolinę sumą iš iškarpinės."
+msgstr "Spauskite, jei norite įdėti kontrolinę sumą iš iškarpinės."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
@@ -4853,7 +4856,7 @@ msgstr "&Kopijuoti čia"
 #: widgets/dropjob.cpp:320
 #, kde-format
 msgid "&Link Here"
-msgstr "Padaryti &nuorodą čia"
+msgstr "Sukurti čia &nuorodą"
 
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
@@ -4879,12 +4882,14 @@ msgstr "Atšaukti pakeitimus"
 #, kde-format
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "Šio veiksmo atšaukimui reikia root teisių. Tikrai tęsti?"
+msgstr ""
+"Šio veiksmo atšaukimui reikia pagrindinio naudotojo (root) teisių. Ar norite "
+"tęsti?"
 
 #: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Creating directory"
-msgstr "Kuriamas aplankas"
+msgstr "Kuriamas katalogas"
 
 #: widgets/fileundomanager.cpp:141
 #, kde-format
@@ -4899,17 +4904,17 @@ msgstr "Pervadinama"
 #: widgets/fileundomanager.cpp:148
 #, kde-format
 msgid "Deleting"
-msgstr "Trinama"
+msgstr "Ištrinama"
 
 #: widgets/fileundomanager.cpp:300
 #, kde-format
 msgid "Und&o"
-msgstr "At&statyti"
+msgstr "Atša&ukti"
 
 #: widgets/fileundomanager.cpp:306
 #, kde-format
 msgid "Und&o: Copy"
-msgstr "Atšaukti kopijavimą"
+msgstr "Atša&ukti: Kopijuoti"
 
 #: widgets/fileundomanager.cpp:308
 #, kde-format
@@ -4919,7 +4924,7 @@ msgstr ""
 #: widgets/fileundomanager.cpp:310
 #, kde-format
 msgid "Und&o: Move"
-msgstr "Atšaukti perkėlimą"
+msgstr "Atša&ukti: Perkelti"
 
 #: widgets/fileundomanager.cpp:312
 #, kde-format
@@ -4929,27 +4934,27 @@ msgstr "Atša&ukti: Pervadinti"
 #: widgets/fileundomanager.cpp:314
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "Atša&ukti: Pašalinti"
+msgstr "Atša&ukti: Perkelti į šiukšlinę"
 
 #: widgets/fileundomanager.cpp:316
 #, kde-format
 msgid "Und&o: Create Folder"
-msgstr "Atšaukti: Sukurti aplanką"
+msgstr "Atša&ukti: Sukurti aplanką"
 
 #: widgets/fileundomanager.cpp:318
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "Atšaukti: Sukurti aplanką(-us)"
+msgstr "Atšau&kti: Sukurti aplanką(-us)"
 
 #: widgets/fileundomanager.cpp:320
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "Atšaukti: Sukurti failą"
+msgstr "Atša&ukti: Sukurti failą"
 
 #: widgets/fileundomanager.cpp:322
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "Atša&ukti grupinį pervadinimą"
+msgstr "Atša&ukti: Masinis pervadinimas"
 
 #: widgets/fileundomanager.cpp:721
 #, kde-format
@@ -4973,9 +4978,9 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Ar tikrai norite negrįžtamai ištrinti šį objektą?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</"
-"emphasis>"
+"Ar tikrai norite visam laikui ištrinti šį elementą?<nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Šio veiksmo nebegalėsite atšaukti!"
+"</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
 #: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
@@ -5001,17 +5006,17 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"Ar tikrai norite negrįžtamai ištrinti šį objektą?<nl/><nl/><emphasis "
-"strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
+"Ar tikrai norite visam laikui ištrinti šį elementą?<nl/><nl/><emphasis "
+"strong='true'>Šio veiksmo nebegalėsite atšaukti!</emphasis>"
 msgstr[1] ""
-"Ar tikrai norite negrįžtamai ištrinti %1 objektus?<nl/><nl/><emphasis "
-"strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
+"Ar tikrai norite visam laikui ištrinti šiuos %1 elementus?<nl/><nl/"
+"><emphasis strong='true'>Šio veiksmo nebegalėsite atšaukti!</emphasis>"
 msgstr[2] ""
-"Ar tikrai norite negrįžtamai ištrinti %1 objektų?<nl/><nl/><emphasis "
-"strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
+"Ar tikrai norite visam laikui ištrinti šiuos %1 elementų?<nl/><nl/><emphasis "
+"strong='true'>Šio veiksmo nebegalėsite atšaukti!</emphasis>"
 msgstr[3] ""
-"Ar tikrai norite negrįžtamai ištrinti %1 objektą?<nl/><nl/><emphasis "
-"strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
+"Ar tikrai norite visam laikui ištrinti šį %1 elementą?<nl/><nl/><emphasis "
+"strong='true'>Šio veiksmo nebegalėsite atšaukti!</emphasis>"
 
 #: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
@@ -5020,14 +5025,14 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Ar tikrai norite negrįžtamai ištrinti visą šiukšlinės turinį?<nl/><nl/"
-"><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
+"Ar tikrai norite visam laikui ištrinti visą šiukšlinės turinį?<nl/><nl/"
+"><emphasis strong='true'>Šio veiksmo nebegalėsite atšaukti!</emphasis>"
 
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
-msgstr "Ištuštinti šiukšlinę"
+msgstr "Išvalyti šiukšlinę"
 
 #: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
@@ -5036,16 +5041,17 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
-"Ar tikrai norite perkelti šį objektą į šiukšlinę?<nl/><filename>%1</filename>"
+"Ar tikrai norite perkelti šį elementą į šiukšlinę?<nl/><filename>%1</"
+"filename>"
 
 #: widgets/jobuidelegate.cpp:278
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Ar tikrai norite perkelti šį objektą į šiukšlinę?"
-msgstr[1] "Ar tikrai norite perkelti %1 objektus į šiukšlinę?"
-msgstr[2] "Ar tikrai norite perkelti %1 objektų į šiukšlinę?"
-msgstr[3] "Ar tikrai norite perkelti %1 objektą į šiukšlinę?"
+msgstr[0] "Ar tikrai norite perkelti šį elementą į šiukšlinę?"
+msgstr[1] "Ar tikrai norite perkelti %1 elementus į šiukšlinę?"
+msgstr[2] "Ar tikrai norite perkelti %1 elementų į šiukšlinę?"
+msgstr[3] "Ar tikrai norite perkelti %1 elementą į šiukšlinę?"
 
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
@@ -5106,7 +5112,7 @@ msgstr " (numatytas)"
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
 msgid "Edit ACL Entry"
-msgstr "Keisti ACL įrašą"
+msgstr "Taisyti ACL įrašą"
 
 #: widgets/kacleditwidget.cpp:387
 #, kde-format
@@ -5116,7 +5122,7 @@ msgstr "Įrašo tipas"
 #: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "Numatyta naujoms failams šiame aplanke"
+msgstr "Numatyta naujiems failams šiame aplanke"
 
 #: widgets/kacleditwidget.cpp:400
 #, kde-format
@@ -5166,7 +5172,7 @@ msgstr "Tipas"
 #: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
-msgstr "Vardas"
+msgstr "Pavadinimas"
 
 #: widgets/kacleditwidget.cpp:597
 #, kde-format
@@ -5435,31 +5441,34 @@ msgid ""
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Nurodykite programą, kurią naudosite atverti <b>%1</b>. Jei tokios "
-"programos nėra, įrašykite vardą, arba spauskite mygtuką „Naršyti“.</qt>"
+"programos nėra, įrašykite pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr "Pasirinkite vardą programos, su kuria atversite nurodytus failus."
+msgstr ""
+"Pasirinkite pavadinimą programos, kurią naudodami atversite pažymėtus failus."
 
 #: widgets/kopenwithdialog.cpp:589
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
-"<qt>Pasirinkite programą, su kuria norėtumėte atverti failą<br/>%1</qt>"
+"<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti failą<br/>%1</"
+"qt>"
 
 #: widgets/kopenwithdialog.cpp:591
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
-msgstr[0] "<qt>Pasirinkite programą, su kuria norėtumėte atverti failą.</qt>"
+msgstr[0] ""
+"<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti failą.</qt>"
 msgstr[1] ""
-"<qt>Pasirinkite programą, su kuria norėtumėte atverti %1 failus.</qt>"
+"<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti %1 failus.</qt>"
 msgstr[2] ""
-"<qt>Pasirinkite programą, su kuria norėtumėte atverti %1 failų.</qt>"
+"<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti %1 failų.</qt>"
 msgstr[3] ""
-"<qt>Pasirinkite programą, su kuria norėtumėte atverti %1 failą.</qt>"
+"<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti %1 failą.</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -5477,8 +5486,8 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>Pasirinkite programą, skirtą failų tipui <b>%1</b>. Jei tokios programos "
-"nėra sąraše, įrašykite vardą, arba spauskite mygtuką „Ieškoti“.</qt>"
+"<qt>Pasirinkite programą, skirtą failo tipui <b>%1</b>. Jei tokios programos "
+"sąraše nėra, įrašykite pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
@@ -5486,8 +5495,8 @@ msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr ""
-"<qt>Pasirinkite programą. Jei tokios programos nėra sąraše, įrašykite "
-"vykdomojo failo vardą, arba spauskite mygtuką „Ieškoti“.</qt>"
+"<qt>Pasirinkite programą. Jei tokios programos sąraše nėra, įrašykite "
+"vykdomojo failo pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
@@ -5512,9 +5521,9 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
-"Po komandos galite turėti keletą pakaitos simbolių, kurie bus pakeisti "
-"konkrečiomis vertėmis leidžiant programą:\n"
-"%f - vieno failo vardas\n"
+"Po komandos galite turėti keletą pakaitos simbolių, kurie paleidžiant "
+"programą bus pakeisti konkrečiomis reikšmėmis:\n"
+"%f - vieno failo pavadinimas\n"
 "%F - failų sąrašas; naudoti su programomis, kurios atveria keletą failų "
 "vienu metu\n"
 "%u - vienas URL\n"
@@ -5531,7 +5540,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Įsiminti programos susiejimus su visais failais, kurių tipas\n"
+"Į&siminti programos susiejimus su visais failais, kurių tipas\n"
 "„%1“ (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
@@ -5559,7 +5568,7 @@ msgstr "Paleisti &terminale"
 #: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr "&Neužverti komandai pasibaigus"
+msgstr "&Neužverti komandai baigus darbą"
 
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
@@ -5714,9 +5723,9 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Pažymėkite šią parinktį jei norite būti tikri, kad Jūsų paleista programa "
-"tikrai startavo. Jūs pamatysite tai patvirtinantį blyksintį žymeklį ar pulto "
-"elementą."
+"Pažymėkite šią parinktį jei norite būti tikri, kad jūsų paleista programa "
+"tikrai startavo. Jūs pamatysite tai patvirtinantį blyksintį žymeklį arba "
+"užduočių juostą."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
@@ -5732,8 +5741,8 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
-"Įrašykite vardą, kurį norite suteikti šiai programai. Šį vardą matysite "
-"programų sąraše ir pulte."
+"Įrašykite pavadinimą, kurį norite suteikti šiai programai. Šį pavadinimą "
+"matysite programų sąraše ir skydelyje."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -5743,22 +5752,22 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "a dial up application (KPPP) would be \"Dial up tool\"."
 msgstr ""
-"Įrašykite čia programos aprašymą, atitinkantį jos panaudojimo sritį. "
-"Pavyzdys: prisijungimo skambinant priemonė (KPPP) galėtų būti apibūdinta "
-"kaip „Prisijungimo skambinant įrankis“."
+"Įrašykite čia programos aprašą, atitinkantį jos panaudojimo sritį. Pavyzdys: "
+"prisijungimo skambinant priemonė (KPPP) galėtų būti apibūdinta kaip "
+"„Skambinimo įrankis“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:45
 #, kde-format
 msgid "&Description:"
-msgstr "&Aprašymas:"
+msgstr "&Aprašas:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
 #, kde-format
 msgid "Type any comment you think is useful here."
-msgstr "Čia įrašykite Jūsų manymu naudingą komentarą."
+msgstr "Čia įrašykite jūsų manymu naudingą komentarą."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:65
@@ -5888,30 +5897,30 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>Šiame sąraše turi būti nurodyta, kokius failų tipus programa gali "
+"<qt><p>Šiame sąraše turi būti nurodyta, kokius failo tipus programa gali "
 "atverti. Šis sąrašas tvarkomas pagal <u>mime tipus</u>.</p>\n"
 "<p>MIME (Multipurpose Internet (e)Mail Extension) yra standartinis "
-"protokolas, nustatantis duomenų tipą pagal failų praplėtimus ir susijusius "
-"<u>mime tipus</u>. Pavyzdžiui: failo vardo gele.bmp dalis „bmp“ nurodo, kad "
-"ši failas yra specifinis paveikslėlio failas, <u>image/x-bmp</u>. Jei "
+"protokolas, nustatantis duomenų tipą pagal failų prievardžius ir susijusius "
+"<u>mime tipus</u>. Pavyzdžiui: failo pavadinimo gėlė.bmp dalis „bmp“ nurodo, "
+"kad šis failas yra specifinis paveikslėlio failas, <u>image/x-bmp</u>. Jei "
 "norite, kad sistema žinotų, kokios programos gali atverti kiekvieną failo "
 "tipą, turite informuoti sistemą, kokios programos gali juos atverti.</p>\n"
 "<p>Jei norite susieti programą su vienu ar daugiau failų, kurių nėra sąraše, "
 "tipų, spauskite mygtuką <b>Pridėti</b>, esantį žemiau. Jei sąraše yra failų "
-"tipų, kurių programa iš tiesų negali tvarkyti, galite juos pašalinti iš "
-"sąrašo paspaudę žemiau esantį mygtuką <b>Pašalinti</b>.</p></qt>"
+"tipų, kurių programa iš tiesų negali apdoroti, galite juos pašalinti iš "
+"sąrašo paspaudę žemiau esantį mygtuką <b>Šalinti</b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
-msgstr "&Palaikomi failų tipai:"
+msgstr "&Palaikomi failo tipai:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:230
 #, kde-format
 msgid "Mimetype"
-msgstr "Mime tipai"
+msgstr "MIME tipai"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:235
@@ -5926,8 +5935,8 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
-"Spauskite šį mygtuką jei norite pridėti failo tipą (mime tipą) kurį "
-"pasirinkta programa sugeba tvarkyti."
+"Spauskite šį mygtuką jei norite pridėti failo tipą (mime tipą), kurį "
+"pasirinkta programa sugeba apdoroti."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -5979,10 +5988,10 @@ msgstr "%1 savybės"
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
-msgstr[0] "%1 objekto savybės"
-msgstr[1] "%1 pažymėtų objektų savybės"
-msgstr[2] "%1 pažymėtų objektų savybės"
-msgstr[3] "%1 pažymėto objekto savybės"
+msgstr[0] "%1 elemento savybės"
+msgstr[1] "%1 pažymėtų elementų savybės"
+msgstr[2] "%1 pažymėtų elementų savybės"
+msgstr[3] "%1 pažymėto elemento savybės"
 
 #: widgets/kpropertiesdialog.cpp:347
 #, kde-format
@@ -6080,7 +6089,7 @@ msgstr "Bent %1\n"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:773
 #, kde-format
 msgid "The new file name is empty."
-msgstr "Naujas failo pavadinimas neįrašytas."
+msgstr "Naujas failo pavadinimas yra tuščias."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:971
 #, kde-format
@@ -6112,7 +6121,7 @@ msgstr "Nėra prieigos"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can Only View"
-msgstr "Gali tik peržiūrėti"
+msgstr "Gali tik žiūrėti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can View & Modify"
@@ -6120,7 +6129,7 @@ msgstr "Gali žiūrėti ir keisti turinį"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can Only View Content"
-msgstr "Gali tik peržiūrėti turinį"
+msgstr "Gali tik žiūrėti turinį"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can View & Modify Content"
@@ -6128,11 +6137,11 @@ msgstr "Gali žiūrėti ir keisti turinį"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can Only View/Read Content"
-msgstr "Gali peržiūrėti/nuskaityti turinį"
+msgstr "Gali tik žiūrėti/skaityti turinį"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can View/Read & Modify/Write"
-msgstr "Gali žiūrėti/rašyti ir keisti/įrašyti"
+msgstr "Gali žiūrėti/skaityti ir keisti/rašyti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1153
 #, kde-format
@@ -6143,7 +6152,7 @@ msgstr "&Leidimai"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1361
 #, kde-format
 msgid "Access Permissions"
-msgstr "Priėjimo leidimai"
+msgstr "Prieigos leidimai"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1174
 #, kde-format
@@ -6201,7 +6210,7 @@ msgstr "Tik savi&ninkas gali pervadinti ar ištrinti aplanko turinį"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Is &executable"
-msgstr "Yra &vykdoma"
+msgstr "Yra &vykdomasis"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
@@ -6220,7 +6229,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Įjunkite šią parinktį norėdami pažymėti failą kaip vykdomąją. Tai prasminga "
+"Įjunkite šią parinktį norėdami pažymėti failą kaip vykdomąjį. Tai prasminga "
 "tik programoms ir scenarijams. To reikia norint vykdyti failą."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1221
@@ -6246,12 +6255,12 @@ msgstr "Grupė:"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1310
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
-msgstr "Pritaikyti pakeitimus visiems poaplankiams ir jų turiniui"
+msgstr "Taikyti pakeitimus visiems poaplankiams ir jų turiniui"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1352
 #, kde-format
 msgid "Advanced Permissions"
-msgstr "Sudėtingesni leidimai"
+msgstr "Išplėstiniai leidimai"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
@@ -6280,7 +6289,7 @@ msgstr "Skaityti"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
-msgstr "Raudona vėliavėlė leidžia peržiūrėti failo turinį."
+msgstr "Skaitymo vėliavėlė leidžia peržiūrėti failo turinį."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
@@ -6288,7 +6297,7 @@ msgid ""
 "Write\n"
 "Entries"
 msgstr ""
-"Įrašyti\n"
+"Rašyti\n"
 "įrašus"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1388
@@ -6304,7 +6313,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1391
 #, kde-format
 msgid "Write"
-msgstr "Įrašyti"
+msgstr "Rašyti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
@@ -6315,7 +6324,7 @@ msgstr "Rašymo vėliavėlė leidžia keisti failo turinį."
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
-msgstr "Įeikite"
+msgstr "Įeiti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
@@ -6335,7 +6344,7 @@ msgstr "Pažymėkite šią vėliavėlę norėdami leisti vykdyti failą kaip pro
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Special"
-msgstr "Specialus"
+msgstr "Speciali"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1415
 #, kde-format
@@ -6343,7 +6352,7 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
-"Ypatinga vėliavėlė. Galioja visam aplankui, jos tikslią prasmę galite matyti "
+"Speciali vėliavėlė. Galioja visam aplankui, jos tikslią prasmę galite matyti "
 "dešiniajame stulpelyje."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1419
@@ -6352,7 +6361,7 @@ msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr ""
-"Ypatinga vėliavėlė. Jos tikslią prasmę galite matyti dešiniajame stulpelyje."
+"Speciali vėliavėlė. Jos tikslią prasmę galite matyti dešiniajame stulpelyje."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1424
 #, kde-format
@@ -6379,8 +6388,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"Jei failas yra vykdomas ir nustatyta ši vėliavėlė, jis bus vykdoma savininko "
-"leidimais."
+"Jei failas yra vykdomasis ir nustatyta ši vėliavėlė, jis bus vykdomas "
+"savininko leidimais."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
@@ -6396,8 +6405,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"Jei ši failas yra vykdoma ir nustatyta ši vėliavėlė, jis bus vykdomas grupės "
-"leidimais."
+"Jei šis failas yra vykdomasis ir nustatyta ši vėliavėlė, jis bus vykdomas "
+"grupės leidimais."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
@@ -6442,7 +6451,7 @@ msgstr "Nuoroda"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1662
 #, kde-format
 msgid "Varying (No Change)"
-msgstr "Perspėjimas (nėra pakeitimų)"
+msgstr "Permainingas (nėra pakeitimų)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1773
 #, kde-format
@@ -6457,15 +6466,15 @@ msgstr[3] "Šie failai naudoja išplėstinius leidimus."
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "Šis aplankas turi sudėtingesnius leidimus."
-msgstr[1] "Šie aplankai turi sudėtingesnius leidimus."
-msgstr[2] "Šie aplankai turi sudėtingesnius leidimus."
-msgstr[3] "Šie aplankai turi sudėtingesnius leidimus."
+msgstr[0] "Šis aplankas naudoja išplėstinius leidimus."
+msgstr[1] "Šie aplankai naudoja išplėstinius leidimus."
+msgstr[2] "Šie aplankai naudoja išplėstinius leidimus."
+msgstr[3] "Šie aplankai naudoja išplėstinius leidimus."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1809
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "Šie failai naudoja sudėtingesnius leidimus."
+msgstr "Šie failai naudoja išplėstinius leidimus."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2047
 #, kde-format
@@ -6498,7 +6507,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2315
 #, kde-format
 msgid "Checksums match."
-msgstr "Kontrolinės sumos atitinka."
+msgstr "Kontrolinės sumos sutampa."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2318
 #, kde-format
@@ -6578,7 +6587,7 @@ msgstr "KDE SSL informacija"
 #, kde-format
 msgctxt "The receiver of the SSL certificate"
 msgid "Subject"
-msgstr "Tema"
+msgstr "Subjektas"
 
 #: widgets/ksslinfodialog.cpp:50
 #, kde-format
@@ -6589,24 +6598,25 @@ msgstr "Išdavėjas"
 #: widgets/ksslinfodialog.cpp:82
 #, kde-format
 msgid "Current connection is secured with SSL."
-msgstr "Dabartinis prijungimas apsaugotas su SSL."
+msgstr "Dabartinis ryšys apsaugotas SSL."
 
 #: widgets/ksslinfodialog.cpp:86
 #, kde-format
 msgid ""
 "The main part of this document is secured with SSL, but some parts are not."
 msgstr ""
-"Pagrindinė šio dokumento dalis apsaugota su SSL, bet kai kurios dalys ne."
+"Pagrindinė šio dokumento dalis apsaugota SSL, bet kai kurios dalys "
+"neapsaugotos."
 
 #: widgets/ksslinfodialog.cpp:93
 #, kde-format
 msgid "Some of this document is secured with SSL, but the main part is not."
-msgstr "Dalis šio dokumento apsaugota su SSL, bet pagrindinė dalis ne."
+msgstr "Dalis šio dokumento apsaugota SSL, bet pagrindinė dalis neapsaugota."
 
 #: widgets/ksslinfodialog.cpp:97
 #, kde-format
 msgid "Current connection is not secured with SSL."
-msgstr "Dabartinis prijungimas neapsaugotas su SSL."
+msgstr "Dabartinis ryšys neapsaugotas SSL."
 
 #: widgets/ksslinfodialog.cpp:139
 #, kde-format
@@ -6690,8 +6700,8 @@ msgid ""
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 "Iškarpinės turinys pasikeitė nuo to laiko, kai paskutinį kartą naudojote "
-"funkciją „įterpti“: pasirinktas duomenų formatas jau nebetaikomas. Prašome "
-"nusikopijuoti  iš naujo tai, ką ketinote įterpti."
+"funkciją „įdėti“: pasirinktas duomenų formatas jau nebetaikomas. Prašome "
+"nusikopijuoti iš naujo tai, ką ketinote įdėti."
 
 #: widgets/paste.cpp:252
 #, kde-format
@@ -6735,7 +6745,7 @@ msgstr "Duomenų formatas:"
 #: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr "Numesto turinio failo pavadinimą:"
+msgstr "Numesto turinio failo pavadinimas:"
 
 #: widgets/renamedialog.cpp:64
 #, kde-format
@@ -6776,7 +6786,7 @@ msgstr "Pe&rvadinti"
 #: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "Suggest New &Name"
-msgstr "Siūlyti naują &vardą"
+msgstr "Siūlyti naują pa&vadinimą"
 
 #: widgets/renamedialog.cpp:248
 #, kde-format
@@ -6786,12 +6796,14 @@ msgstr "Pra&leisti"
 #: widgets/renamedialog.cpp:249
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
-msgstr "Nekopijuoti šio aplanko ir neperkelti, pereiti prie kito įrašo"
+msgstr ""
+"Nekopijuoti šio aplanko ir neperkelti, vietoj to, pereiti prie kito elemento"
 
 #: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
-msgstr "Nekopijuoti šio failo ir neperkelti, pereiti prie kito įrašo"
+msgstr ""
+"Nekopijuoti šio failo ir neperkelti, vietoj to, pereiti prie kito elemento"
 
 #: widgets/renamedialog.cpp:261
 #, kde-format
@@ -6824,7 +6836,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:285
 #, kde-format
 msgid "&Resume"
-msgstr "&Tęsti"
+msgstr "Pra&tęsti"
 
 #: widgets/renamedialog.cpp:294
 #, kde-format
@@ -6833,7 +6845,7 @@ msgid ""
 "Please enter a new file name:"
 msgstr ""
 "Šis veiksmas perrašys „%1“ juo pačiu.\n"
-"Prašome įrašyti naują failo vardą:"
+"Įrašykite naują failo pavadinimą:"
 
 #: widgets/renamedialog.cpp:300
 #, kde-format
@@ -6859,7 +6871,7 @@ msgstr "Šaltinis"
 #: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Destination"
-msgstr "Tikslas"
+msgstr "Paskirtis"
 
 #: widgets/renamedialog.cpp:405
 #, kde-format
@@ -6906,17 +6918,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "Senesnis objektas „%1“ vardu jau egzistuoja."
+msgstr "Jau yra senesnis elementas, pavadinimu „%1“."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "Failas „%1“ vardu jau yra."
+msgstr "Jau yra panašus failas, pavadinimu „%1“."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "Naujesnis objektas „%1“ vardu jau egzistuoja."
+msgstr "Jau yra naujesnis elementas, pavadinimu „%1“."
 
 #: widgets/renamedialog.cpp:482
 #, kde-format
@@ -6984,7 +6996,7 @@ msgstr "Pakeisti"
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
-msgstr "Kartoti"
+msgstr "Bandyti dar kartą"
 
 #: widgets/skipdialog.cpp:60
 #, kde-format
@@ -7030,7 +7042,7 @@ msgstr "Šifravimas:"
 #: widgets/sslinfo.ui:94
 #, kde-format
 msgid "Details:"
-msgstr "Detalės:"
+msgstr "Išsamiau:"
 
 #. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
 #: widgets/sslinfo.ui:114
@@ -7094,15 +7106,14 @@ msgstr ""
 #: widgets/widgetsaskuseractionhandler.cpp:490
 #, kde-format
 msgid "Server Authentication"
-msgstr "Serverio autentikacija"
+msgstr "Serverio tapatybės nustatymas"
 
 #: widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
-"Ar Jūs norėtumėte priimti šį liudijimą visam laikui neklausiant kiekvieną "
-"kartą?"
+"Ar norėtumėte priimti šį liudijimą visam laikui neklausiant kiekvieną kartą?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
