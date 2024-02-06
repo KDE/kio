@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 00:35+0000\n"
-"PO-Revision-Date: 2024-02-03 14:11+0200\n"
+"PO-Revision-Date: 2024-02-05 23:54+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -2512,21 +2512,21 @@ msgid "Unknown protocol '%1'."
 msgstr "Nežinomas protokolas „%1“."
 
 #: core/worker.cpp:345
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Nepavyksta rasti io-slave protokolui '%1'."
+msgstr "Nepavyksta rasti KIO darbininko, skirto „%1“ protokolui."
 
 #: core/worker.cpp:353
-#, fuzzy, kde-format
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Nepavyksta rasti io-slave protokolui '%1'."
+msgstr ""
+"Nepavyko sukurti lizdo, kuris paleistų KIO darbininką, skirtą „%1“ "
+"protokolui."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Nepavyko rasti „kioslave“ vykdomojo failo čia „%1“"
+msgstr "Nepavyko rasti „kioworker“ darbininko ties „%1“"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -2670,10 +2670,9 @@ msgid "Folders First"
 msgstr "Pirma aplankai"
 
 #: filewidgets/kdiroperator.cpp:2032
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Rodyti paslėptus failus"
+msgstr "Paskiausiai paslėpti failai"
 
 #: filewidgets/kdiroperator.cpp:2039
 #, kde-format
@@ -3080,24 +3079,22 @@ msgid "Modified Yesterday"
 msgstr "Vakar"
 
 #: filewidgets/kfileplacesmodel.cpp:1092
-#, fuzzy, kde-format
-#| msgid "Could not find the program '%1'"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Nepavyko rasti „%1“ programos"
+msgstr "Nepavyko įtraukti į Vietų skydelį: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1099
-#, fuzzy, kde-format
-#| msgid "A folder cannot be moved into itself"
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Aplanko negalima perkelti į jį patį"
+msgstr "Tik aplankai gali būti įtraukti į Vietų skydelį."
 
 #: filewidgets/kfileplacesmodel.cpp:1363
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "iš&laisvinti „%1“"
+msgstr "Releasing…"
 
 #: filewidgets/kfileplacesmodel.cpp:1365
 #, fuzzy, kde-format
@@ -3232,11 +3229,10 @@ msgid "&Edit…"
 msgstr "&Taisyti…"
 
 #: filewidgets/kfileplacesview.cpp:1175
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Šalinti failą"
+msgstr "Šalinti iš Vietų"
 
 #: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
@@ -3595,6 +3591,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
+"<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti formatą, "
+"kuriuo bus failas bus įrašytas.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2773
 #, kde-format
@@ -3668,26 +3666,33 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
+"Pavadinimas <filename>%1</filename> prasideda tarpu, o tai sąlygos, jog jis, "
+"rikiuojant pagal abėcėlę, bus rodomas prieš visus kitus elementus, kas savo "
+"ruožtu gali atrodyti keistai."
 
 #: filewidgets/knewfilemenu.cpp:1169
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
+"Pasvirojo brūkšnio naudojimas aplankų pavadinime sukurs poaplankius, štai "
+"taip:"
 
 #: filewidgets/knewfilemenu.cpp:1179
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
-msgstr ""
+msgstr "Pasvirojo brūkšnio naudojimas aplankų pavadinime sukurs poaplankius."
 
 #: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
+"Pasvirieji brūkšniai negali būti naudojami failų ir aplankų pavadinimuose."
 
 #: filewidgets/knewfilemenu.cpp:1196
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
+"Kairiniai brūkšniai negali būti naudojami failų ir aplankų pavadinimuose."
 
 #: filewidgets/knewfilemenu.cpp:1206
 #, kde-format
@@ -4122,13 +4127,14 @@ msgid ""
 msgstr "Nepavyksta pakeisti %1 leidimų"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nepavyko pakeisti nuosavybės %1."
+msgstr ""
+"Nepavyko pakeisti %1 savininko\n"
+"ir grupės"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -4196,10 +4202,9 @@ msgid "New Filename: %1"
 msgstr "Naujas failo pavadinimas: %1"
 
 #: kioworkers/file/file_unix.cpp:130
-#, fuzzy, kde-format
-#| msgid "Date: %1"
+#, kde-format
 msgid "Target: %1"
-msgstr "Data: %1"
+msgstr "Paskirtis: %1"
 
 #: kioworkers/file/file_unix.cpp:133
 #, kde-format
@@ -5078,8 +5083,7 @@ msgid "Owner"
 msgstr "Savininkas"
 
 #: widgets/kacleditwidget.cpp:231
-#, fuzzy, kde-format
-#| msgid "Owning Group"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "Savininkų grupė"
@@ -5097,8 +5101,7 @@ msgid "Mask"
 msgstr "Kaukė"
 
 #: widgets/kacleditwidget.cpp:243
-#, fuzzy, kde-format
-#| msgid "Named User"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "Įvardintas naudotojas"
@@ -5544,16 +5547,13 @@ msgstr ""
 "„%1“ (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Įsiminti programos susiejimus su visais failais, kurių tipas\n"
-"„%1“ (%2)"
+"Į&siminti programos susiejimus visiems failams, kurių tipas\n"
+"„%1“"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -5705,7 +5705,7 @@ msgstr "Atskiras GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr ""
+msgstr "Paleisti naudojant specialią vaizdo plokštę"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -6000,17 +6000,14 @@ msgid "Share"
 msgstr "Bendrinti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:105
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"<qt>Nepavyksta išsaugoti savybių. Jums neužtenka leidimų rašyti į <b>%1</b>."
-"</qt>"
+"Nepavyko įrašyti dėl nepakankamos rašymo prieigos prie:<nl/><filename>%1</"
+"filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:216
 #, kde-format
@@ -6853,10 +6850,9 @@ msgid "C&ontinue"
 msgstr "&Tęsti"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Šis veiksmas perrašys tikslą."
+msgstr "Ar norėtumėte perrašyti paskirtį?"
 
 #: widgets/renamedialog.cpp:364
 #, kde-format
