@@ -368,6 +368,10 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         request.setRawHeader("Accept", accept.toUtf8());
     }
 
+    if (metaData(QStringLiteral("HttpVersion")) == QStringLiteral("http1")) {
+        request.setAttribute(QNetworkRequest::Http2AllowedAttribute, false);
+    }
+
     for (auto [key, value] : extraHeaders.asKeyValueRange()) {
         request.setRawHeader(key, value);
     }
