@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 // Qt
 #include <QCoreApplication>
+#include <QUrl>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
