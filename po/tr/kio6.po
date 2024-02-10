@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 00:35+0000\n"
-"PO-Revision-Date: 2024-01-22 17:30+0300\n"
+"PO-Revision-Date: 2024-02-09 19:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2216,7 +2216,7 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"1) Gereksiz ve geçici dosyalarınızı silerek, 2) yazılabilir CD'lere var olan "
+"1) Gereksiz ve geçici dosyalarınızı silerek, 2) yazılabilir CD’lere var olan "
 "arşivinizi aktararak veya 3) daha büyük depolama kapasitesi edinerek yeterli "
 "disk alanı açabilirsiniz."
 
@@ -2398,7 +2398,7 @@ msgstr "Dosyalara erişim %1 protokolü ile yapılamaz."
 #: core/slavebase.cpp:851
 #, kde-format
 msgid "Writing to %1 is not supported."
-msgstr "%1'e yazmak henüz desteklenmiyor."
+msgstr "%1 konumuna yazmak henüz desteklenmiyor."
 
 #: core/slavebase.cpp:853
 #, kde-format
@@ -2438,7 +2438,7 @@ msgstr "%1 içinde dosya kopyalamak desteklenmiyor."
 #: core/slavebase.cpp:867
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "%1'den dosya silmek desteklenmiyor."
+msgstr "%1 konumundan dosyalar silmek desteklenmiyor."
 
 #: core/slavebase.cpp:869
 #, kde-format

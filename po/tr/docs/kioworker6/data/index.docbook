@@ -49,7 +49,7 @@
 </articleinfo>
 
 <para
->Veri URL'leri, bir &URL; kendisinde küçük belgelerin içerilebilmesine izin verir. Bu, çok küçük &HTML; sınama durumları veya ayrı bir belgenin olmasına gerek olmayan durumlar için yararlıdır.</para>
+>Veri URL’leri, bir &URL; kendisinde küçük belgelerin içerilebilmesine izin verir. Bu, çok küçük &HTML; sınama durumları veya ayrı bir belgenin olmasına gerek olmayan durumlar için yararlıdır.</para>
 
 <para
 ><userinput

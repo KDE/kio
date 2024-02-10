@@ -53,7 +53,7 @@
 > vererek kullanabilirsiniz.</para>
 
 <para
->https, http'nin bir SSL/TLS akışında kapsüllenmiş halidir.</para>
+>https, http’nin bir SSL/TLS akışında kapsüllenmiş halidir.</para>
 <para
 >SSL, internet üzerinden iletişim gizliliği sağlayan bir güvenlik protokolü olan Güvenli Yuva Katmanı protokolüdür. Protokol, istemci/sunucu uygulamalarının gizli dinleme, kurcalama veya ileti sahteciliğini önlemek üzere tasarlanmış bir biçimde iletişim kurmasını sağlar. </para>
 <para

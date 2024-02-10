@@ -1,7 +1,7 @@
 # Translation of kio4 to Korean.
 # Copyright (c) 2003, 2004, 2007-2008 Free Software Foundation, Inc.
 # KIM KyungHeon <tody@teoal.net>, 2003, 2004.
-# Shinjo Park <kde@peremen.name>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 # JungHee Lee <daemul72@gmail.com>, 2019, 2020.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 00:35+0000\n"
-"PO-Revision-Date: 2023-08-26 00:12+0200\n"
+"PO-Revision-Date: 2024-02-09 23:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3408,10 +3408,9 @@ msgid "Remote Files Not Accepted"
 msgstr "원격 파일을 사용할 수 없음"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|모든 디렉터리"
+msgstr "모든 폴더"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -5069,10 +5068,9 @@ msgid "Updating System Configuration"
 msgstr "시스템 설정 업데이트 중"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "시스템 설정 업데이트 중."
+msgstr "시스템 설정 업데이트 중…"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
@@ -6656,16 +6654,14 @@ msgid "C&ontinue"
 msgstr "계속(&O)"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "이 작업은 대상 파일을 덮어씁니다."
+msgstr "대상을 덮어쓰시겠습니까?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "이 작업은 '%1'의 내용을 '%2'에 합칩니다."
+msgstr "'%1'의 내용을 '%2'에 합치시겠습니까?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6678,46 +6674,39 @@ msgid "Destination"
 msgstr "대상"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "대상 파일이 <b>%1 더 작음</b>"
+msgstr "원본 파일이 <b>더 최신입니다</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "대상 파일이 <b>%1 더 작음</b>"
+msgstr "원본 파일이 <b>더 오래되었습니다</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "대상 파일이 <b>%1 더 작음</b>"
+msgstr "원본 파일이 <b>%1 더 작습니다</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "대상 파일이 <b>%1 더 큼</b>"
+msgstr "원본 파일이 <b>%1 더 큽니다</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "파일이 같습니다."
+msgstr "파일이 <b>같습니다</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "파일이 같은 것 같습니다."
+msgstr "파일이 <b>같은 것 같습니다</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "파일이 서로 다릅니다."
+msgstr "파일이 <b>서로 다릅니다</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
