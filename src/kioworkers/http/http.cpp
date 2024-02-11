@@ -387,7 +387,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
 
     bool mimeTypeEmitted = false;
-    bool hadData = false;
 
     QEventLoop loop;
 
@@ -422,13 +421,16 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     });
 
     if (dataMode == Emit) {
-        QObject::connect(reply, &QNetworkReply::readyRead, &nam, [this, reply, &hadData] {
+        QObject::connect(reply, &QNetworkReply::readyRead, &nam, [this, reply] {
             while (reply->bytesAvailable() > 0) {
                 QByteArray buf(2048, Qt::Uninitialized);
                 qint64 readBytes = reply->read(buf.data(), 2048);
+                if (readBytes == 0) {
+                    // End of data => don't emit the final data() call yet, the reply metadata is not yet complete!
+                    break;
+                }
                 buf.truncate(readBytes);
                 data(buf);
-                hadData = true;
             }
         });
     }
@@ -441,9 +443,12 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     loop.exec();
 
     // make sure data is emitted at least once
-    if (!hadData && dataMode == Emit) {
+    // NOTE: emitting an empty data set means "end of data" and must not happen
+    // before we have set up our metadata properties etc. Only emit this at the
+    // very end of the function if applicable.
+    auto emitDataOnce = qScopeGuard([this] {
         data(QByteArray());
-    }
+    });
 
     if (reply->error() == QNetworkReply::AuthenticationRequiredError) {
         reply->deleteLater();
