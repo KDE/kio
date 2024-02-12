@@ -1332,7 +1332,14 @@ bool KFileItem::isDir() const
         return false;
     }
 
+    if (d->m_fileMode != KFileItem::Unknown) {
+        // File mode is known so we can use that.
+        return Utils::isDirMask(d->m_fileMode);
+    }
+
     if (d->m_bMimeTypeKnown && d->m_mimeType.isValid()) {
+        // File mode is not known but we do know the mime type, so use that to
+        // avoid doing a stat.
         return d->m_mimeType.inherits(QStringLiteral("inode/directory"));
     }
 
