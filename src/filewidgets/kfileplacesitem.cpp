@@ -336,7 +336,16 @@ QVariant KFilePlacesItem::deviceData(int role) const
             } else if (m_player) {
                 const QStringList protocols = m_player->supportedProtocols();
                 if (!protocols.isEmpty()) {
-                    return QUrl(QStringLiteral("%1:udi=%2").arg(protocols.first(), d.udi()));
+                    const QString protocol = protocols.first();
+                    if (protocol == QLatin1String("mtp")) {
+                        return QUrl(QStringLiteral("%1:udi=%2").arg(protocol, d.udi()));
+                    } else {
+                        QUrl url;
+                        url.setScheme(protocol);
+                        url.setHost(d.udi().section(QLatin1Char('/'), -1));
+                        url.setPath(QStringLiteral("/"));
+                        return url;
+                    }
                 }
                 return QVariant();
             } else {
