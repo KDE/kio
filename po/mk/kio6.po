@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 00:35+0000\n"
+"POT-Creation-Date: 2024-02-13 00:35+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -4547,90 +4547,90 @@ msgstr "Не може да се прочита датотеката %1."
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> на <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1227
+#: kioworkers/http/http.cpp:1232
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Инаку, барањето ќе успееше."
 
-#: kioworkers/http/http.cpp:1230
+#: kioworkers/http/http.cpp:1235
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "преземи ги вредностите на својството"
 
-#: kioworkers/http/http.cpp:1232
+#: kioworkers/http/http.cpp:1237
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "постави ги вредностите на својството"
 
-#: kioworkers/http/http.cpp:1234
+#: kioworkers/http/http.cpp:1239
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "креирај ја бараната папка"
 
-#: kioworkers/http/http.cpp:1236
+#: kioworkers/http/http.cpp:1241
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "копирај ја зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1238
+#: kioworkers/http/http.cpp:1243
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "премести ја зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1240
+#: kioworkers/http/http.cpp:1245
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "пребарувај во зададената папка"
 
-#: kioworkers/http/http.cpp:1242
+#: kioworkers/http/http.cpp:1247
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "заклучи ја зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1244
+#: kioworkers/http/http.cpp:1249
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "отклучи ја зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1246
+#: kioworkers/http/http.cpp:1251
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "избриши ја зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1248
+#: kioworkers/http/http.cpp:1253
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "прашај за способностите на серверот"
 
-#: kioworkers/http/http.cpp:1250
+#: kioworkers/http/http.cpp:1255
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "преземи ја содржината на зададената датотека или папка"
 
-#: kioworkers/http/http.cpp:1252
+#: kioworkers/http/http.cpp:1257
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "извршува извештај во зададената папка"
 
-#: kioworkers/http/http.cpp:1260
+#: kioworkers/http/http.cpp:1265
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Се случи неочекувана грешка (%1) при обидот за %2."
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4639,13 +4639,13 @@ msgid ""
 msgstr ""
 "Се случи грешка при обидот за %1, %2. Подолу следи преглед на причините."
 
-#: kioworkers/http/http.cpp:1318 kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1323 kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Пристапот беше одбиен при обидот за %1."
 
-#: kioworkers/http/http.cpp:1332 kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1337 kioworkers/http/http.cpp:1474
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4654,7 +4654,7 @@ msgstr ""
 "Не може да биде создаден ресурс на одредиштето сѐ додека не се создадени "
 "една или повеќе привремени колекции (папки)."
 
-#: kioworkers/http/http.cpp:1341
+#: kioworkers/http/http.cpp:1346
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4671,28 +4671,28 @@ msgstr ""
 "propertybehavior или се обидовте да пребришете датотека, притоа барајќи да "
 "не се пребришуваат датотеки. %1"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1354
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Бараното заклучување не беше дозволено. %1"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1360
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Серверот не го поддржува типот на барање од телото."
 
-#: kioworkers/http/http.cpp:1360 kioworkers/http/http.cpp:1477
+#: kioworkers/http/http.cpp:1365 kioworkers/http/http.cpp:1482
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Не е можно %1 бидејќи ресурсот е заклучен."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1369
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ова дејство беше спречено од друга грешка."
 
-#: kioworkers/http/http.cpp:1371 kioworkers/http/http.cpp:1484
+#: kioworkers/http/http.cpp:1376 kioworkers/http/http.cpp:1489
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4702,7 +4702,7 @@ msgstr ""
 "Не е можно %1 бидејќи одредишниот сервер одбива да ја прифати датотеката или "
 "папката."
 
-#: kioworkers/http/http.cpp:1380 kioworkers/http/http.cpp:1493
+#: kioworkers/http/http.cpp:1385 kioworkers/http/http.cpp:1498
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4711,18 +4711,18 @@ msgstr ""
 "Одредишниот ресурс нема доволно место за да ја запише состојбата на ресурсот "
 "по извршувањето на овој метод."
 
-#: kioworkers/http/http.cpp:1433
+#: kioworkers/http/http.cpp:1438
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ресурсот не може да биде избришан."
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "качи %1"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1509
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

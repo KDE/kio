@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 00:35+0000\n"
+"POT-Creation-Date: 2024-02-13 00:35+0000\n"
 "PO-Revision-Date: 2024-01-08 13:17+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -4387,90 +4387,90 @@ msgstr "Nem található a(z) %1 fájlnév itt: %2."
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> itt: <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1227
+#: kioworkers/http/http.cpp:1232
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Máskülönben a kérés teljesült volna."
 
-#: kioworkers/http/http.cpp:1230
+#: kioworkers/http/http.cpp:1235
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "tulajdonságok lekérdezése"
 
-#: kioworkers/http/http.cpp:1232
+#: kioworkers/http/http.cpp:1237
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "tulajdonságok beállítása"
 
-#: kioworkers/http/http.cpp:1234
+#: kioworkers/http/http.cpp:1239
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "mappa létrehozása"
 
-#: kioworkers/http/http.cpp:1236
+#: kioworkers/http/http.cpp:1241
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "fájl vagy mappa másolása"
 
-#: kioworkers/http/http.cpp:1238
+#: kioworkers/http/http.cpp:1243
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "fájl vagy mappa áthelyezése"
 
-#: kioworkers/http/http.cpp:1240
+#: kioworkers/http/http.cpp:1245
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "keresés a megadott mappában"
 
-#: kioworkers/http/http.cpp:1242
+#: kioworkers/http/http.cpp:1247
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "fájl vagy mappa zárolása"
 
-#: kioworkers/http/http.cpp:1244
+#: kioworkers/http/http.cpp:1249
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "fájl vagy mappa zárolásának feloldása"
 
-#: kioworkers/http/http.cpp:1246
+#: kioworkers/http/http.cpp:1251
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "fájl vagy mappa törlése"
 
-#: kioworkers/http/http.cpp:1248
+#: kioworkers/http/http.cpp:1253
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "kiszolgáló jellemzőinek lekérdezése"
 
-#: kioworkers/http/http.cpp:1250
+#: kioworkers/http/http.cpp:1255
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "fájl vagy mappa tartalmának lekérdezése"
 
-#: kioworkers/http/http.cpp:1252
+#: kioworkers/http/http.cpp:1257
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "jelentés lefuttatása a megadott mappában"
 
-#: kioworkers/http/http.cpp:1260
+#: kioworkers/http/http.cpp:1265
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Nem várt hiba (%1) történt a következő művelet közben: %2."
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4480,13 +4480,13 @@ msgstr ""
 "Hiba történt a következő művelet közben: %1, %2. A lehetséges okok "
 "felsorolása alább látható."
 
-#: kioworkers/http/http.cpp:1318 kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1323 kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "A hozzáférés megtagadva a következő műveletnél: %1."
 
-#: kioworkers/http/http.cpp:1332 kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1337 kioworkers/http/http.cpp:1474
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4495,7 +4495,7 @@ msgstr ""
 "Egy erőforrást nem lehet létrehozni a megadott helyen, amíg a szükséges "
 "átmeneti mappák nem jönnek létre."
 
-#: kioworkers/http/http.cpp:1341
+#: kioworkers/http/http.cpp:1346
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4509,28 +4509,28 @@ msgstr ""
 "felülírásának letiltása mellett próbált meg egy fájlt felülírni.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1354
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "A kért zárolást nem sikerült végrehajtani. %1"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1360
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "A kiszolgáló nem támogatja az üzenet törzsében jelzett típusú kérést."
 
-#: kioworkers/http/http.cpp:1360 kioworkers/http/http.cpp:1477
+#: kioworkers/http/http.cpp:1365 kioworkers/http/http.cpp:1482
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Az erőforrás zárolt, ezért nem sikerült egy művelet: %1."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1369
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "A műveletet végrehajtását egy másik hiba megakadályozta."
 
-#: kioworkers/http/http.cpp:1371 kioworkers/http/http.cpp:1484
+#: kioworkers/http/http.cpp:1376 kioworkers/http/http.cpp:1489
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4540,7 +4540,7 @@ msgstr ""
 "A kiszolgáló nem fogadta el a kért fájlt vagy mappát, ezért ez a művelet nem "
 "sikerült: %1."
 
-#: kioworkers/http/http.cpp:1380 kioworkers/http/http.cpp:1493
+#: kioworkers/http/http.cpp:1385 kioworkers/http/http.cpp:1498
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4549,18 +4549,18 @@ msgstr ""
 "A művelet végrehajtása után a kiszolgálón nem maradt elég szabad hely az "
 "erőforrás megváltozott állapotának eltárolásához."
 
-#: kioworkers/http/http.cpp:1433
+#: kioworkers/http/http.cpp:1438
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Az erőforrás nem törölhető."
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 feltöltése"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1509
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
