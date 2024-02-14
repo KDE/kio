@@ -25,10 +25,13 @@ class CommandLauncherJobPrivate;
  * @brief CommandLauncherJob runs a command and watches it while running.
  *
  * It creates a startup notification and finishes it on success or on error (for the taskbar).
- * It also emits an error message if necessary (e.g. "program not found").
+ * It also emits a "program not found" error message if the requested command did not exist.
  *
- * The job finishes when the application is successfully started. At that point you can
- * query the PID.
+ * The job finishes when the command is successfully started; at that point you can
+ * query the PID with pid(). Note that no other errors are handled automatically after the
+ * command starts running. As far as CommandLauncherJob is concerned, if the command was
+ * launched, the result is a success. If you need to query the command for its exit status
+ * or error text later, it is recommended to use QProcess instead.
  *
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
  * you can do
@@ -132,7 +135,7 @@ public:
     void start() override;
 
     /**
-     * @return the PID of the application that was started
+     * @return the PID of the command that was started
      *
      * Available after the job emits result().
      */
