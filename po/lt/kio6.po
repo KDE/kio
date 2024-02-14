@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-13 00:35+0000\n"
-"PO-Revision-Date: 2024-02-05 23:54+0200\n"
+"PO-Revision-Date: 2024-02-14 01:17+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -122,11 +122,12 @@ msgstr "Nepavyko rasti „%1“ programos"
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
+"Programa „%1“ buvos surasta ties „%2“, bet jai trūksta vykdomojo leidimų."
 
 #: core/desktopexecparser.cpp:358
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr ""
+msgstr "Programai „%1“ trūksta vykdomojo leidimų."
 
 #: core/desktopexecparser.cpp:372
 #, kde-format
@@ -785,6 +786,7 @@ msgstr "Priėjimas prie apriboto prievado naudojant POST neleistas."
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
+"POST operacijai nebuvo pateikta reikalinga informacija apie turinio dydį."
 
 #: core/job_error.cpp:240
 #, kde-format
@@ -2342,17 +2344,13 @@ msgid "Unable to Create KIO Worker"
 msgstr "Nepavyko sukurti KIO darbininko"
 
 #: core/job_error.cpp:1254
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Programa io-slave, suteikianti galimybę naudotis <strong>%1</strong> "
-"protokolu negali būti paleista.  Taip paprastai būna dėl techninių "
-"priežasčių."
+"Nepavyko paleisti KIO darbininko, teikiančio prieigą prie <strong>%1</"
+"strong> protokolo. Taip įprastai nutinka dėl techninių priežasčių."
 
 #: core/job_error.cpp:1259
 #, kde-format
@@ -2360,6 +2358,8 @@ msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
+"klauncher nepavyko surasti ar paleisti įskiepio, kuris pateikia protokolą. "
+"Tai reiškia, jog, gali būti, kad jūsų įskiepio versija yra pasenusi."
 
 #: core/job_error.cpp:1265
 #, kde-kuit-format
@@ -3064,19 +3064,14 @@ msgid "Recent Locations"
 msgstr "Paskiausios vietos"
 
 #: filewidgets/kfileplacesmodel.cpp:420
-#, fuzzy
-#| msgid "Modified:"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
-msgstr "Keista:"
+msgstr "Modifikuota šiandiena"
 
 #: filewidgets/kfileplacesmodel.cpp:424
-#, fuzzy
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Yesterday"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
-msgstr "Vakar"
+msgstr "Modifikuota vakar"
 
 #: filewidgets/kfileplacesmodel.cpp:1092
 #, kde-format
@@ -3185,7 +3180,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Formatuoti iš naujo ar taisyti naudojant skaidinių tvarkytuvę"
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3340,6 +3335,9 @@ msgid ""
 "folders, so it is not possible to decide which one to enter. Please select "
 "only one folder to list it."
 msgstr ""
+"Pažymėtas daugiau kaip vienas aplankas, o šis dialogas nepriima kelių "
+"aplankų, todėl neįmanoma nuspręsti į kurį aplanką įžengti. Pažymėkite vieną "
+"aplanką, kad išvardytumėte jo turinį."
 
 #: filewidgets/kfilewidget.cpp:802
 #, kde-format
@@ -3840,6 +3838,8 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
+"Nepavyko paversti %1 tarnybos vykdomąja, vykdymas nutraukiamas.\n"
+"%2."
 
 #: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
@@ -3850,7 +3850,7 @@ msgstr "Jūs neturite teisės pasirinkti programos, kuri atvers šį failą."
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
-msgstr ""
+msgstr "Vidinė klaida: nepavyko paklausti naudotojo, kurią programą paleisti"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3929,13 +3929,14 @@ msgstr ""
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
+"Saugumo sumetimais vykdomųjų paleidimas šiame kontekste nėra leidžiamas."
 
 #: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
+msgstr "Programa „%1“, prieš ją paleidžiant, turi turėti vykdomojo leidimą."
 
 #: gui/openurljob.cpp:451
 #, kde-format
@@ -3958,6 +3959,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"Failas yra neužbaigtas ir neturėtų būti atveriamas.\n"
+"Patikrinkite atvertas programas ir pranešimų sritį, ar jose nėra neužbaigtų "
+"užduočių arba atsiuntimų."
 
 #: gui/openurljob.cpp:649
 #, kde-format
@@ -4214,7 +4218,7 @@ msgstr "Keisti laiko žymą"
 #: kioworkers/file/file_unix.cpp:137
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "Iš: %1, Į: %2"
 
 #: kioworkers/file/file_unix.cpp:140
 #, kde-format
@@ -4969,6 +4973,10 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
+"Failas %1 buvo nukopijuotas iš %2, bet nuo to laiko, akivaizdu, jog buvo "
+"modifikuotas ties %3.\n"
+"Atšaukus kopijavimą failas bus ištrintas, o visi modifikavimai – prarasti.\n"
+"Ar tikrai norite ištrinti %4?"
 
 #: widgets/fileundomanager.cpp:731
 #, kde-format
@@ -5107,10 +5115,9 @@ msgid "Named User"
 msgstr "Įvardintas naudotojas"
 
 #: widgets/kacleditwidget.cpp:254
-#, fuzzy, kde-format
-#| msgid " (Default)"
+#, kde-format
 msgid "Owner (Default)"
-msgstr " (numatytas)"
+msgstr "Savininkas (Numatytasis)"
 
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
@@ -5581,6 +5588,8 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
+"Nepavyko išskleisti vykdomojo pavadinimo iš „%1“, įrašykite teisingą "
+"programos pavadinimą."
 
 #: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
@@ -5813,22 +5822,7 @@ msgstr "&Naršyti..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several place holders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "%f - a single file name\n"
-#| "%F - a list of files; use for applications that can open several local "
-#| "files at once\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%d - the directory of the file to open\n"
-#| "%D - a list of directories\n"
-#| "%i - the icon\n"
-#| "%m - the mini-icon\n"
-#| "%c - the caption"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5843,20 +5837,19 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Čia įrašykite komandą, kuria paleisite šią programą.\n"
+"Čia įrašykite argumentus, kuriuos naudoti paleidžiant čia šią programą.\n"
 "\n"
-"Po komandos galite įrašyti keletą pakaitos simbolių, kurie, leidžiant "
-"komandą, bus pakeisti reikšmėmis:\n"
-"%f - vieno failo pavadinimas\n"
-"%F - failų sąrašas; naudoti tuo atveju, jei programa gali atverti kelis "
+"Galite naudoti keletą pakaitos simbolių, kurie, paleidžiant programą, bus "
+"pakeisti atitinkamomis reikšmėmis:\n"
+"\n"
+"%f – vieno failo pavadinimas\n"
+"%F – failų sąrašas; naudoti tuo atveju, jei programa gali atverti kelis "
 "vietinius failus iš karto\n"
-"%u - vienas URL\n"
-"%U - URL sąrašas\n"
-"%d - aplankas, kuriame yra atvertini failai\n"
-"%D - aplankų sąrašas\n"
-"%i - piktograma\n"
-"%m - mini-piktograma\n"
-"%c - pavadinimas"
+"%u – vienas URL adresas\n"
+"%U – URL adresų sąrašas\n"
+"%i – .desktop failo piktograma\n"
+"%c – .desktop failo pavadinimas\n"
+"%k – .desktop failo vieta"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
@@ -6519,6 +6512,9 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
+"<p>Kontrolinės sumos nesutampa.</p>Taip galėjo nutikti dėl sugadinto "
+"atsisiuntimo. Pabandykite atsisiųsti failą iš naujo.<br/>Jei patikrinimas "
+"vis tiek patiria nesėkmę, susisiekite su failo šaltiniu."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2335
 #, kde-format
@@ -6816,6 +6812,9 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
+"Failai ir aplankai bus nukopijuoti į esamą katalogą, šalia jo esamo "
+"turinio.\n"
+"Jei kils konfliktas su kataloge esančiu failu, jūsų vėl bus klausiama."
 
 #: widgets/renamedialog.cpp:269
 #, kde-format
@@ -6829,6 +6828,8 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
+"Paskirties failai, kurie buvo modifikuoti seniau, bus perrašyti šaltinio "
+"failais, o priešingu atveju – praleisti."
 
 #: widgets/renamedialog.cpp:285
 #, kde-format
@@ -6910,6 +6911,8 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
+"Tikėtina, kad failai yra vienodi: jie yra vienodo dydžio ir jų turinys "
+"pradžioje, viduryje ir pabaigoje yra vienodas."
 
 #: widgets/renamedialog.cpp:465
 #, kde-format
@@ -6977,7 +6980,7 @@ msgstr[3] "Pervadinti %1 pažymėtą elementą į:"
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
-msgstr ""
+msgstr "Simbolis „#“ bus pakeistas didėjančiais skaitmenimis, pradedant nuo:"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
