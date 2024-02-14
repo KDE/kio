@@ -167,6 +167,8 @@ QStringList KFilePlacesModelTest::placesUrls(KFilePlacesModel *model) const
         qDebug() << "Got:" << placesUrls(); \
         QCOMPARE(placesUrls(), urls); \
     } \
+    QCOMPARE(urls.size(), m_places->rowCount()); \
+    QCOMPARE(urls.size(), m_places2->rowCount()); \
     for (int row = 0; row < urls.size(); ++row) { \
         QModelIndex index = m_places->index(row, 0); \
         \
@@ -178,9 +180,6 @@ QStringList KFilePlacesModelTest::placesUrls(KFilePlacesModel *model) const
         QCOMPARE(m_places2->url(index).toString(), QUrl::fromUserInput(urls[row]).toString()); \
         QCOMPARE(m_places2->data(index, KFilePlacesModel::UrlRole).toUrl(), QUrl(m_places2->url(index))); \
     } \
-    \
-    QCOMPARE(urls.size(), m_places->rowCount()); \
-    QCOMPARE(urls.size(), m_places2->rowCount());
 /*clang-format on */
 
 QDBusInterface *KFilePlacesModelTest::fakeManager()
@@ -342,8 +341,12 @@ void KFilePlacesModelTest::testAddingInLaterVersion()
 
 void KFilePlacesModelTest::testReparse()
 {
-    // add item
+    // add item, and make sure m_places2 is synced
+    QSignalSpy rowsInsertedSpy(m_places2, &QAbstractItemModel::rowsInserted);
     m_places->addPlace(QStringLiteral("foo"), QUrl::fromLocalFile(QStringLiteral("/foo")), QString(), QString());
+    if (rowsInsertedSpy.empty()) {
+        QVERIFY(rowsInsertedSpy.wait());
+    }
 
     QStringList urls = initialListOfUrls();
     // it will be added at the end of places section
@@ -356,8 +359,12 @@ void KFilePlacesModelTest::testReparse()
     // check if they are the same
     CHECK_PLACES_URLS(urls);
 
-    // try to remove item
+    // try to remove item, and make sure m_places2 is synced
+    QSignalSpy rowsRemovedSpy(m_places2, &QAbstractItemModel::rowsRemoved);
     m_places->removePlace(m_places->index(2, 0));
+    if (rowsRemovedSpy.empty()) {
+        QVERIFY(rowsRemovedSpy.wait());
+    }
 
     urls = initialListOfUrls();
     CHECK_PLACES_URLS(urls);
