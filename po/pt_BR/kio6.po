@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:35+0000\n"
+"POT-Creation-Date: 2024-02-15 00:35+0000\n"
 "PO-Revision-Date: 2023-12-13 15:53-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2410,17 +2410,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Erro não documentado"
 
-#: core/kfileitem.cpp:1388
+#: core/kfileitem.cpp:1395
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Link simbólico para %1)"
 
-#: core/kfileitem.cpp:1390
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link para %2)"
 
-#: core/kfileitem.cpp:1393
+#: core/kfileitem.cpp:1400
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Aponta para %1)"

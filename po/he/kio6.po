@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:35+0000\n"
+"POT-Creation-Date: 2024-02-15 00:35+0000\n"
 "PO-Revision-Date: 2024-01-23 07:40+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2304,17 +2304,17 @@ msgstr "נא לפרמט את כונן היעד כך שישתמש במערכת ק
 msgid "Undocumented Error"
 msgstr "שגיאה לא מתועדת"
 
-#: core/kfileitem.cpp:1388
+#: core/kfileitem.cpp:1395
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(קישור סמלי אל %1)"
 
-#: core/kfileitem.cpp:1390
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, קישור אל %2)"
 
-#: core/kfileitem.cpp:1393
+#: core/kfileitem.cpp:1400
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"

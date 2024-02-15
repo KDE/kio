@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:35+0000\n"
+"POT-Creation-Date: 2024-02-15 00:35+0000\n"
 "PO-Revision-Date: 2024-01-23 00:05+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2391,17 +2391,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumentatu gabeko errorea"
 
-#: core/kfileitem.cpp:1388
+#: core/kfileitem.cpp:1395
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(e)ra esteka sinbolikoa)"
 
-#: core/kfileitem.cpp:1390
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(r)ako esteka)"
 
-#: core/kfileitem.cpp:1393
+#: core/kfileitem.cpp:1400
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1(e)ra apuntatzen du)"

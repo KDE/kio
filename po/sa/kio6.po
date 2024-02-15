@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:35+0000\n"
+"POT-Creation-Date: 2024-02-15 00:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2321,17 +2321,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेजित त्रुटि"
 
-#: core/kfileitem.cpp:1388
+#: core/kfileitem.cpp:1395
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 इत्यनेन सह प्रतीकात्मकं संबन्धम्)"
 
-#: core/kfileitem.cpp:1390
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 इत्यस्य सम्बन्धितुम्)"
 
-#: core/kfileitem.cpp:1393
+#: core/kfileitem.cpp:1400
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 प्रति सूचयति)"

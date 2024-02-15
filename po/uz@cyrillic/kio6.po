@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:35+0000\n"
+"POT-Creation-Date: 2024-02-15 00:35+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -2224,19 +2224,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Бу хато учун кўлланма йўқ."
 
-#: core/kfileitem.cpp:1388
+#: core/kfileitem.cpp:1395
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Рамзий боғ"
 
-#: core/kfileitem.cpp:1390
+#: core/kfileitem.cpp:1397
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "%1 билан боғланган (%2)"
 
-#: core/kfileitem.cpp:1393
+#: core/kfileitem.cpp:1400
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
