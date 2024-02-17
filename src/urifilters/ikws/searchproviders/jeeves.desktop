@@ -98,6 +98,7 @@ Keys=ask,jeeves
 Query=https://www.ask.com/web?q=\\{@}
 Query[ar]=https://www.ask.com/web?q=\\{@}
 Query[ast]=https://www.ask.com/web?q=\\{@}
+Query[be]=https://www.ask.com/web?q=\\{@}
 Query[bg]=https://www.ask.com/web?q=\\{@}
 Query[ca]=https://www.ask.com/web?q=\\{@}
 Query[ca@valencia]=https://www.ask.com/web?q=\\{@}
