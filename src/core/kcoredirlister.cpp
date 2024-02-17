@@ -2315,8 +2315,8 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     d->settings.lstFilters.clear();
     d->nameFilter = nameFilter;
     // Split on white space
-    const QStringList list = nameFilter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-    for (const QString &filter : list) {
+    const QList<QStringView> list = QStringView(nameFilter).split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    for (const QStringView filter : list) {
         d->settings.lstFilters.append(QRegularExpression(QRegularExpression::wildcardToRegularExpression(filter), QRegularExpression::CaseInsensitiveOption));
     }
 }
