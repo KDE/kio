@@ -34,6 +34,7 @@
 #include <QDropEvent>
 #include <QHBoxLayout>
 #include <QKeyEvent>
+#include <QLabel>
 #include <QMenu>
 #include <QMetaMethod>
 #include <QMimeData>
@@ -161,6 +162,11 @@ public:
      */
     QUrl retrievePlaceUrl() const;
 
+    /**
+     * Show the readonly icon when the current location is readonly.
+     */
+    void updateReadonlyIcon();
+
     KUrlNavigator *const q;
 
     QHBoxLayout *m_layout = new QHBoxLayout(q);
@@ -172,12 +178,14 @@ public:
     KUrlComboBox *m_pathBox = nullptr;
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
+    QLabel *m_readonlyIcon = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
     QWidget *m_dropWidget = nullptr;
 
     bool m_editable = false;
     bool m_active = true;
     bool m_showPlacesSelector = false;
+    bool m_showReadonlyIcon = false;
     bool m_showFullPath = false;
 
     struct {
@@ -261,6 +269,11 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotPathBoxChanged(text);
     });
 
+    m_readonlyIcon = new QLabel(q);
+    m_readonlyIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-locked")).pixmap(16, 16));
+    m_readonlyIcon->setToolTip(i18nc("url navigator", "This folder is not writable."));
+    m_readonlyIcon->hide();
+
     // create toggle button which allows to switch between
     // the breadcrumb and traditional view
     m_toggleEditableMode = new KUrlNavigatorToggleButton(q);
@@ -276,6 +289,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_schemes);
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
+    m_layout->addWidget(m_readonlyIcon);
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -286,7 +300,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
 {
-    m_layout->insertWidget(m_layout->count() - 1, widget, stretch);
+    m_layout->insertWidget(m_layout->count() - 2, widget, stretch);
 }
 
 void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
@@ -632,6 +646,10 @@ void KUrlNavigatorPrivate::updateContent()
 
         m_pathBox->show();
         m_pathBox->setUrl(currentUrl);
+
+        if (m_showReadonlyIcon) {
+            m_readonlyIcon->hide();
+        }
     } else {
         m_pathBox->hide();
 
@@ -654,6 +672,11 @@ void KUrlNavigatorPrivate::updateContent()
 
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
+
+        if (m_showReadonlyIcon) {
+            m_readonlyIcon->hide();
+            updateReadonlyIcon();
+        }
     }
 }
 
@@ -900,6 +923,24 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     return currentUrl;
 }
 
+void KUrlNavigatorPrivate::updateReadonlyIcon()
+{
+    QUrl url = q->locationUrl();
+    KIO::StatJob *job = KIO::stat(url);
+    q->connect(job, &KJob::result, q, [this, job, url]() {
+        if (job->error() == 0) {
+            if (url != q->locationUrl()) {
+                // URL has changed. This result is invalid.
+                return;
+            }
+            KFileItem item(job->statResult(), url);
+            if (item.isDir() && !item.isWritable()) {
+                m_readonlyIcon->show();
+            }
+        }
+    });
+}
+
 // ------------------------------------------------------------------------------------------------
 
 KUrlNavigator::KUrlNavigator(QWidget *parent)
@@ -1045,6 +1086,25 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
 bool KUrlNavigator::isPlacesSelectorVisible() const
 {
     return d->m_showPlacesSelector;
+}
+
+void KUrlNavigator::setShowReadonlyIcon(bool show)
+{
+    if (show == d->m_showReadonlyIcon) {
+        return;
+    }
+
+    d->m_showReadonlyIcon = show;
+    if (show) {
+        d->updateReadonlyIcon();
+    } else {
+        d->m_readonlyIcon->hide();
+    }
+}
+
+bool KUrlNavigator::showReadonlyIcon() const
+{
+    return d->m_showReadonlyIcon;
 }
 
 QUrl KUrlNavigator::uncommittedUrl() const
