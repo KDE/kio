@@ -2,10 +2,10 @@
 # Darafei Praliaskouski <komzpa@licei2.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-15 00:35+0000\n"
-"PO-Revision-Date: 2023-02-09 08:31\n"
+"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"PO-Revision-Date: 2024-02-16 01:20\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/kio/kio5.po\n"
-"X-Crowdin-File-ID: 8027\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/kio/kio6.po\n"
+"X-Crowdin-File-ID: 10142\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2529,10 +2529,9 @@ msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Не ўдалося стварыць сокет для запуску KIO worker для пратакола \"%1\"."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Не ўдалося знайсці выканальны файл \"kioslave5\" у \"%1\""
+msgstr "Не ўдалося знайсці выканальны файл \"kioworker\" у \"%1\""
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -2559,7 +2558,7 @@ msgstr "Т&олькі бягучы сеанс"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3006,12 +3005,12 @@ msgstr "Рухомыя носьбіты"
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
-msgstr "Пазнакі"
+msgstr "Тэгі"
 
 #: filewidgets/kfileplacesmodel.cpp:159
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
-msgstr "Усе пазнакі"
+msgstr "Усе тэгі"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
@@ -3185,7 +3184,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Перафарматаваць або рэдагаваць з дапамогай Partition Manager"
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3229,11 +3228,10 @@ msgid "&Edit…"
 msgstr "&Рэдагаванне…"
 
 #: filewidgets/kfileplacesview.cpp:1175
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Выдаліць файл"
+msgstr "Выдаліць з размяшчэнняў"
 
 #: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
@@ -3529,10 +3527,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Адлеглыя файлы не дапускаюцца"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Усе каталогі"
+msgstr "Усе каталогі"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -4150,13 +4147,12 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Не ўдалося змяніць уласніка для %1."
+msgstr "Не ўдалося змяніць уласніка і групу для %1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -4414,90 +4410,90 @@ msgstr "Не ўдалося знайсці назву %1 у %2."
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> на <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1232
+#: kioworkers/http/http.cpp:1236
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Інакш запыт быў бы ўдалым."
 
-#: kioworkers/http/http.cpp:1235
+#: kioworkers/http/http.cpp:1239
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "атрымаць значэнні ўласцівасцяў"
 
-#: kioworkers/http/http.cpp:1237
+#: kioworkers/http/http.cpp:1241
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "вызначыць значэнні ўласцівасцяў"
 
-#: kioworkers/http/http.cpp:1239
+#: kioworkers/http/http.cpp:1243
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "стварыць запытаны каталог"
 
-#: kioworkers/http/http.cpp:1241
+#: kioworkers/http/http.cpp:1245
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "скапіяваць вызначаны файл або каталог"
 
-#: kioworkers/http/http.cpp:1243
+#: kioworkers/http/http.cpp:1247
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "перамясціць вызначаны файл або каталог"
 
-#: kioworkers/http/http.cpp:1245
+#: kioworkers/http/http.cpp:1249
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "шукаць у вызначаным каталозе"
 
-#: kioworkers/http/http.cpp:1247
+#: kioworkers/http/http.cpp:1251
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "заблакаваць вызначаны файл або каталог"
 
-#: kioworkers/http/http.cpp:1249
+#: kioworkers/http/http.cpp:1253
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "разблакаваць вызначаны файл або каталог"
 
-#: kioworkers/http/http.cpp:1251
+#: kioworkers/http/http.cpp:1255
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "выдаліць вызначаны файл або каталог"
 
-#: kioworkers/http/http.cpp:1253
+#: kioworkers/http/http.cpp:1257
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "запытаць магчымасці сервера"
 
-#: kioworkers/http/http.cpp:1255
+#: kioworkers/http/http.cpp:1259
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "атрымаць змесціва вызначанага файла або каталога"
 
-#: kioworkers/http/http.cpp:1257
+#: kioworkers/http/http.cpp:1261
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "запусціць стварэнне справаздачы ў вызначаным каталозе"
 
-#: kioworkers/http/http.cpp:1265
+#: kioworkers/http/http.cpp:1269
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Падчас спробы %2 адбылася нечаканая памылка (%1)."
 
-#: kioworkers/http/http.cpp:1305
+#: kioworkers/http/http.cpp:1309
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4505,13 +4501,13 @@ msgid ""
 "below."
 msgstr "Падчас спробы %2 адбылася памылка %1. Зводка знаходзіцца ніжэй."
 
-#: kioworkers/http/http.cpp:1323 kioworkers/http/http.cpp:1467
+#: kioworkers/http/http.cpp:1327 kioworkers/http/http.cpp:1471
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Падчас спробы %1 было адмоўлена ў доступе."
 
-#: kioworkers/http/http.cpp:1337 kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1341 kioworkers/http/http.cpp:1478
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4520,7 +4516,7 @@ msgstr ""
 "Немагчыма стварыць рэсурс у месцы прызначэння, пакуль не будзе створаная "
 "адна або больш калекцый (каталогаў)."
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1350
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4535,28 +4531,28 @@ msgstr ""
 "гэтыя файлы не перазапісваюцца.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1354
+#: kioworkers/http/http.cpp:1358
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Немагчыма выканаць запытанае блакаванне. %1"
 
-#: kioworkers/http/http.cpp:1360
+#: kioworkers/http/http.cpp:1364
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер не падтрымлівае тып запыту цела."
 
-#: kioworkers/http/http.cpp:1365 kioworkers/http/http.cpp:1482
+#: kioworkers/http/http.cpp:1369 kioworkers/http/http.cpp:1486
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Не ўдалося %1, бо рэсурс заблакаваны."
 
-#: kioworkers/http/http.cpp:1369
+#: kioworkers/http/http.cpp:1373
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Гэтае дзеянне перарвана іншай памылкай."
 
-#: kioworkers/http/http.cpp:1376 kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1380 kioworkers/http/http.cpp:1493
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4564,7 +4560,7 @@ msgid ""
 "folder."
 msgstr "Не ўдалося %1, бо мэтавы сервер адмаўляецца прыняць файл або каталог."
 
-#: kioworkers/http/http.cpp:1385 kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1389 kioworkers/http/http.cpp:1502
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4573,18 +4569,18 @@ msgstr ""
 "Мэтавы рэсурс не мае месца для запісу стану рэсурсу пасля выканання гэтага "
 "метаду."
 
-#: kioworkers/http/http.cpp:1438
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Не ўдалося выдаліць рэсурс."
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1462
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "запампаваць %1"
 
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1513
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5231,10 +5227,9 @@ msgid "Updating System Configuration"
 msgstr "Абнаўленне канфігурацыі сістэмы"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "Абнаўленне канфігурацыі сістэмы."
+msgstr "Абнаўленне канфігурацыі сістэмы…"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
@@ -5815,10 +5810,9 @@ msgstr "Зменныя асяроддзя:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "Увядзіце імя карыстальніка, ад імя якога вы хочаце запускаць праграму."
+msgstr "Увядзіце загад для запуску гэтай праграмы тут."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -5845,20 +5839,7 @@ msgstr "&Агляд..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5873,25 +5854,25 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Увядзіце тут загад для запуску гэтай праграмы.\n"
+"Увядзіце тут аргументы для выкарыстання пры запуску гэтай праграмы.\n"
 "\n"
-"Пасля загаду можа быць некалькі зменных, якія заменяцца канкрэтнымі "
-"значэннямі пры запуску канкрэтнай праграмы:\n"
+"Вы можаце мець некалькі запаўняльнікаў, якія заменяцца фактычнымі значэннямі "
+"пры запуску рэальнай праграмы:\n"
 "\n"
-"%f - адна назва файла\n"
-"%F - спіс файлаў (для праграм, якія могуць адкрываць некалькі файлаў запар)\n"
-"%u - адзін URL\n"
-"%U - спіс URL\n"
-"%i - значок файла працоўнага стала (.desktop)\n"
-"%c - назва файла працоўнага стала (.desktop)\n"
-" %k - размяшчэнне файла працоўнага стала (.desktop)"
+" %f - адна назва файла\n"
+" %F - спіс файлаў (для праграм, якія могуць адкрываць некалькі файлаў "
+"адначасова)\n"
+" %u - адзін URL\n"
+" %U - спіс URL-адрасоў\n"
+" %i - значок файла .desktop\n"
+" %c - назва файла .desktop\n"
+" %k - размяшчэнне файла .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Аргументы:"
+msgstr "&Аргументы:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -6903,16 +6884,14 @@ msgid "C&ontinue"
 msgstr "П&рацягнуць"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Пры гэтым дзеянні перазапішуцца мэтавыя файлы."
+msgstr "Хочаце перазапісаць мэтавы элемент?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Пры гэтым дзеянні перазапішуцца мэтавыя файлы."
+msgstr "Хочаце аб'яднаць змесціва \"%1\" у \"%2\"?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6925,46 +6904,39 @@ msgid "Destination"
 msgstr "Мэтавы элемент"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Мэтавы элемент <b>меншы на %1</b>"
+msgstr "Крыніца <b>навейшая</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Мэтавы элемент <b>меншы на %1</b>"
+msgstr "Крыніца <b>старэйшая</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Мэтавы элемент <b>меншы на %1</b>"
+msgstr "Крыніца <b>меншая на %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Мэтавы элемент <b>большы на %1</b>"
+msgstr "Крыніца <b>большая на %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Файлы аднолькавыя."
+msgstr "Файлы <b>аднолькавыя</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Файлы выглядаюць аднолькавымі."
+msgstr "Файлы <b>выглядаюць аднолькавымі</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Файлы адрозніваюцца."
+msgstr "Файлы <b>адрозніваюцца</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
