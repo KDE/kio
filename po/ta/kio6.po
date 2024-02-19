@@ -9,13 +9,13 @@
 # Vasee Vaseeharan <vasee@ieee.org>, 2004.
 # Ambalam <tamilpc@ambalam.com>, 2004.
 # root <root@localhost.localdomain>, 2004.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-17 00:36+0000\n"
-"PO-Revision-Date: 2023-12-17 16:38+0530\n"
+"PO-Revision-Date: 2024-02-18 18:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5109,10 +5109,9 @@ msgid "Updating System Configuration"
 msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது."
+msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது…"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
