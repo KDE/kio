@@ -2557,7 +2557,6 @@ public:
     bool m_terminalBool;
     bool m_suidBool;
     // Corresponds to "PrefersNonDefaultGPU=" (added in destop-entry-spec 1.4)
-    // or to "X-KDE-RunOnDiscreteGpu=" for backwards compatibility
     bool m_runOnDiscreteGpuBool;
     bool m_startupBool;
 };
@@ -2827,11 +2826,7 @@ void KDesktopPropsPlugin::applyChanges()
     config.writeEntry("X-KDE-SubstituteUID", d->m_suidBool);
     config.writeEntry("X-KDE-Username", d->m_suidUserStr);
     if (KIO::hasDiscreteGpu()) {
-        if (config.hasKey("PrefersNonDefaultGPU")) {
-            config.writeEntry("PrefersNonDefaultGPU", d->m_runOnDiscreteGpuBool);
-        } else {
-            config.writeEntry("X-KDE-RunOnDiscreteGpu", d->m_runOnDiscreteGpuBool);
-        }
+        config.writeEntry("PrefersNonDefaultGPU", d->m_runOnDiscreteGpuBool);
     }
     config.writeEntry("StartupNotify", d->m_startupBool);
     config.sync();
