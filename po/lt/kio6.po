@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-17 00:36+0000\n"
-"PO-Revision-Date: 2024-02-14 01:17+0200\n"
+"PO-Revision-Date: 2024-02-20 01:14+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -464,12 +464,12 @@ msgstr "Failas ar aplankas %1 neegzistuoja."
 #: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "Failas, vardu %1, jau yra."
+msgstr "Failas, pavadinimu %1, jau yra."
 
 #: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "Aplankas, vardu %1 jau yra."
+msgstr "Aplankas, pavadinimu %1, jau yra."
 
 #: core/job_error.cpp:77
 #, kde-format
@@ -484,7 +484,7 @@ msgstr "Nežinomas mazgas %1"
 #: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
-msgstr "Priėjimas į %1 neleistas."
+msgstr "Prieiga prie %1 negalima."
 
 #: core/job_error.cpp:83
 #, kde-format
@@ -492,8 +492,8 @@ msgid ""
 "Access denied.\n"
 "Could not write to %1."
 msgstr ""
-"Priėjimas neleistas.\n"
-"Nepavyksta įrašyti į %1."
+"Prieiga negalima.\n"
+"Nepavyksta rašyti į %1."
 
 #: core/job_error.cpp:86
 #, kde-format
@@ -508,17 +508,17 @@ msgstr "Protokolas %1 neįgyvendina aplankų aptarnavimo."
 #: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
-msgstr "Surasta cikliška nuoroda %1 aplanke."
+msgstr "Surasta ciklinė nuoroda ties %1."
 
 #: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
-msgstr "Kopijuojant surasta cikliška nuoroda %1."
+msgstr "Kopijuojant surasta ciklinė nuoroda %1."
 
 #: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
-msgstr "Nepavyksta sukurti lizdo priėjimui į %1."
+msgstr "Nepavyksta sukurti lizdo prieigai prie %1."
 
 #: core/job_error.cpp:101
 #, kde-format
@@ -542,7 +542,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"Nepavyksta programiškai prijungti įrenginio.\n"
+"Nepavyksta prijungti įrenginio.\n"
 "Pranešimas apie klaidą:\n"
 "%1"
 
@@ -553,7 +553,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"Nepavyksta programiškai atjungti įrenginio.\n"
+"Nepavyksta atjungti įrenginio.\n"
 "Pranešimas apie klaidą:\n"
 "%1"
 
@@ -570,12 +570,12 @@ msgstr "Nepavyksta rašyti į failą %1."
 #: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
-msgstr "Nepavyksta prijungti %1."
+msgstr "Nepavyksta susieti %1."
 
 #: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
-msgstr "Nepavyksta klausyti %1."
+msgstr "Nepavyksta klausytis %1."
 
 #: core/job_error.cpp:128
 #, kde-format
@@ -590,7 +590,7 @@ msgstr "Nepavyksta pasiekti %1."
 #: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
-msgstr "Nepavyksta nutraukti sąrašo %1."
+msgstr "Nepavyksta nutraukti %1 išvardijimo."
 
 #: core/job_error.cpp:140
 #, kde-format
@@ -620,12 +620,12 @@ msgstr "Nepavyksta pakeisti %1 leidimų."
 #: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "Nepavyko pakeisti nuosavybės %1."
+msgstr "Nepavyko pakeisti %1 nuosavybės."
 
 #: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "Nepavyksta pašalinti failo %1."
+msgstr "Nepavyksta ištrinti failo %1."
 
 #: core/job_error.cpp:161
 #, kde-format
@@ -653,7 +653,7 @@ msgstr ""
 #: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Autorizacija nepavyko, %1 autentikacija nepalaikoma"
+msgstr "Nepavyko suteikti įgaliojimų, %1 tapatybės nustatymas nepalaikomas"
 
 #: core/job_error.cpp:176
 #, kde-format
@@ -661,7 +661,7 @@ msgid ""
 "User canceled action\n"
 "%1"
 msgstr ""
-"Naudotojas nutraukė veiksmą\n"
+"Naudotojas atsisakė veiksmo\n"
 "%1"
 
 #: core/job_error.cpp:179
@@ -706,7 +706,7 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nepavyksta ištrinti originalaus failo  %1.\n"
+"Nepavyksta ištrinti pradinio failo %1.\n"
 "Prašome patikrinti leidimus."
 
 #: core/job_error.cpp:202
@@ -715,7 +715,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nepavyksta ištrinti nepilno failo %1.\n"
+"Nepavyksta ištrinti dalinio failo %1.\n"
 "Prašome patikrinti leidimus."
 
 #: core/job_error.cpp:205
@@ -724,7 +724,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nepavyksta pervadinti originalaus failo %1.\n"
+"Nepavyksta pervadinti pradinio failo %1.\n"
 "Prašome patikrinti leidimus."
 
 #: core/job_error.cpp:208
@@ -733,7 +733,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nepavyksta pervadinti nepilno failo %1.\n"
+"Nepavyksta pervadinti dalinio failo %1.\n"
 "Prašome patikrinti leidimus."
 
 #: core/job_error.cpp:211
@@ -760,7 +760,7 @@ msgstr ""
 #: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
-msgstr "Diske nėra pakankamai laisvos vietos įrašyti %1."
+msgstr "Diske nėra pakankamai laisvos vietos, kad būtų įrašytas %1."
 
 #: core/job_error.cpp:223
 #, kde-format
@@ -768,7 +768,7 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
-"Išeities ir paskirties failas yra tas pats.\n"
+"Šaltinio ir paskirties failas yra tas pats.\n"
 "%1"
 
 #: core/job_error.cpp:231
@@ -779,7 +779,7 @@ msgstr "Serveriui reikia %1, bet tai nėra prieinama."
 #: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "Priėjimas prie apriboto prievado naudojant POST neleistas."
+msgstr "Prieiga prie apriboto prievado naudojant POST neleistina."
 
 #: core/job_error.cpp:237
 #, kde-format
@@ -847,7 +847,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
-msgstr "(nežinoma)"
+msgstr "(nežinomas)"
 
 #: core/job_error.cpp:301
 #, kde-format
@@ -863,7 +863,7 @@ msgstr "<b>Techninė priežastis</b>: "
 #: core/job_error.cpp:307
 #, kde-format
 msgid "<b>Details of the request</b>:"
-msgstr "<b>Užklausos detalės</b>:"
+msgstr "<b>Išsamiau apie užklausą</b>:"
 
 #: core/job_error.cpp:307
 #, kde-format
@@ -918,7 +918,7 @@ msgstr "Kreipkitės į serverio administratorių dėl tolesnės pagalbos."
 #: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "Patikrinkite Jūsų leidimus naudotis šiuo resursu."
+msgstr "Patikrinkite savo leidimus naudotis šiuo ištekliu."
 
 #: core/job_error.cpp:383
 #, kde-format
@@ -926,8 +926,8 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"Jūsų priėjimo leidimai gali būti neadekvatūs atlikti norimai operacijai su "
-"šiuo resursu."
+"Jūsų prieigos leidimai gali būti neadekvatūs, kad būtų atliekama užklausta "
+"operacija su šiuo ištekliu."
 
 #: core/job_error.cpp:386
 #, kde-format
@@ -949,12 +949,12 @@ msgstr ""
 #: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
-msgstr "Nors tai mažai tikėtina, galbūt įvyko aparatinė klaida."
+msgstr "Nors tai mažai tikėtina, bet, galbūt, įvyko aparatinės įrangos klaida."
 
 #: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
-msgstr "Turbūt Jūs susidūrėte su programos klaida."
+msgstr "Turbūt susidūrėte su programos klaida."
 
 #: core/job_error.cpp:396
 #, kde-format
@@ -962,8 +962,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
-"Greičiausiai tai pačios programos klaida. Pagalvokite apie pilno klaidos "
-"aprašymo nusiuntimą, kaip aprašyta žemiau."
+"Greičiausiai tai pačios programos klaida. Pagalvokite apie viso klaidos "
+"aprašymo pateikimą, kaip tai aprašyta žemiau."
 
 #: core/job_error.cpp:399
 #, kde-format
@@ -971,8 +971,9 @@ msgid ""
 "Update your software to the latest version. Your distribution should provide "
 "tools to update your software."
 msgstr ""
-"Atnaujinkite savo programinę įrangą iki naujausios versijos.  Jūsų "
-"programinės įrangos distribucija turi turėti priemones atnaujinimui."
+"Atnaujinkite savo programinę įrangą iki naujausios versijos. Jūsų "
+"platinamasis paketas turėtų pateikti priemones, skirtas atnaujinti "
+"programinę įrangą."
 
 #: core/job_error.cpp:402
 #, kde-format
@@ -985,19 +986,19 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
-"Jei niekas daugiau nepavyksta, pagalvokite apie pagalbą KDE komandai ar "
-"trečios šalies žmogui, užsiimančiam programų priežiūra, pateikdami aukštos "
-"kokybės pranešimą apie programos klaidą.  Iš pradžių pažiūrėkite <a href="
-"\"https://bugs.kde.org/\">KDE pranešimų apie programos klaidas srityje</a>, "
-"ar nebuvo jau pranešta apie tą pačią programos klaidą.  Jei ne, pažiūrėkite "
-"visas ydos pasirodymo aplinkybes, ir parašykite apie tai pranešime apie  "
-"programos klaidą, kartu su visomis kitomis detalėms, kurios Jūsų nuomone "
-"gali padėti."
+"Jei nieko daugiau nepavyksta padaryti, pagalvokite apie pagalbą KDE komandai "
+"ar trečiosios šalies žmogui, užsiimančiam programų priežiūra, ir pateikite "
+"aukštos kokybės pranešimą apie programos klaidą. Iš pradžių, pažiūrėkite <a "
+"href=\"https://bugs.kde.org/\">KDE pranešimų apie programos klaidas srityje</"
+"a>, ar nebuvo jau pranešta apie tą pačią programos klaidą. Jei ne, "
+"peržiūrėkite visas klaidos atsiradimo aplinkybes, ir parašykite apie tai "
+"pranešime apie programos klaidą, kartu su visomis kitomis detalėmis, kurios "
+"jūsų nuomone gali padėti."
 
 #: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
-msgstr "Galimas dalykas, kad yra problemų su Jūsų prisijungimu prie tinklo."
+msgstr "Gali būti, kad yra problemų su tinklo ryšiu."
 
 #: core/job_error.cpp:415
 #, kde-format
@@ -1005,8 +1006,9 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
-"Gali būti problemų su Jūsų tinklo konfigūracija.  Tačiau jei Jūs nesenai "
-"naudojotės Internetu be problemų, kažin ar taip yra."
+"Gali būti, kad yra problemų su jūsų tinklo konfigūracija. Tačiau, jei "
+"pastaruoju metu naudojotės internetu be problemų, tuomet tai yra mažai "
+"tikėtina."
 
 #: core/job_error.cpp:419
 #, kde-format
@@ -1014,39 +1016,39 @@ msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
 msgstr ""
-"Galimas dalykas, kad yra problemų kažkur kelyje tarp nutolusio serverio ir "
-"šio kompiuterio."
+"Gali būti, kad yra problemų kažkurioje tinklo atkarpoje tarp serverio ir šio "
+"kompiuterio."
 
 #: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr "Pamėginkite vėl, dabar ar vėliau."
+msgstr "Bandykite dar kartą dabar arba vėliau."
 
 #: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
-msgstr "Galbūt įvyko protokolo klaida ar nesuderinamumas."
+msgstr "Galbūt, įvyko protokolo klaida ar nesuderinamumas."
 
 #: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
-msgstr "Įsitikinkite, kad resursas egzistuoja, ir bandykite vėl."
+msgstr "Įsitikinkite, kad išteklius yra ir bandykite dar kartą."
 
 #: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
-msgstr "Nurodytas resursas gali neegzistuoti."
+msgstr "Gali būti, kad nurodyto ištekliaus nėra."
 
 #: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
-"Pakartotinai patikrinkite, ar įvedėte teisingą adresą ir pamėginkite vėl."
+"Pakartotinai patikrinkite, ar įvedėte teisingą vietą ir bandykite dar kartą."
 
 #: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
-msgstr "Patikrinkite savo tinklo prisijungimo būklę."
+msgstr "Patikrinkite tinklo ryšio būseną."
 
 #: core/job_error.cpp:432
 #, kde-format
@@ -1060,17 +1062,17 @@ msgid ""
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
 "Tai reiškia, kad norimo failo ar aplanko <strong>%1</strong> turinio "
-"nepavyko pasiekti, nes negali būti gautas priėjimas skaitymui."
+"nepavyko pasiekti, nes negali būti gauta prieiga skaitymui."
 
 #: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "Galbūt Jūs neturite leidimo skaityti failą ar atverti aplanką."
+msgstr "Galbūt, neturite leidimo skaityti failą ar atverti aplanką."
 
 #: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
-msgstr "Nepavyksta atverti resurso rašymui"
+msgstr "Nepavyksta atverti ištekliaus rašymui"
 
 #: core/job_error.cpp:448
 #, kde-format
@@ -1079,12 +1081,12 @@ msgid ""
 "requested, because access with permission to write could not be obtained."
 msgstr ""
 "Tai reiškia, kad norimo failo <strong>%1</strong> nepavyko įrašyti, nes "
-"negali būti gautas priėjimas su leidimu rašyti."
+"negali būti gauta prieiga su leidimu rašyti."
 
 #: core/job_error.cpp:457
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
-msgstr "Nepavyksta paleisti proceso, kuris reikalingas %1 protokolui"
+msgstr "Nepavyksta paleisti proceso, kurio reikia %1 protokolui"
 
 #: core/job_error.cpp:458
 #, kde-format
@@ -1098,9 +1100,9 @@ msgid ""
 "strong> protocol could not be found or started. This is usually due to "
 "technical reasons."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis <strong>%1</"
-"strong> protokolu nerasta arba negali būti paleista.  Taip paprastai būna "
-"dėl techninių priežasčių."
+"Nepavyko kompiuteryje rasti ar paleisti programos, suteikiančios galimybę "
+"naudotis <strong>%1</strong> protokolu. Taip įprastai būna dėl techninių "
+"priežasčių."
 
 #: core/job_error.cpp:465
 #, kde-format
@@ -1110,8 +1112,8 @@ msgid ""
 "incompatible with the current version and thus not start."
 msgstr ""
 "Programa, suteikianti galimybę naudotis šiuo protokolu, galėjo likti "
-"neatnaujinta, kai Jūs paskutinį kartą atnaujinote KDE.  Dėl to programa "
-"galėjo pasidaryti nesuderinama su dabartine KDE versija ir nepasileisti."
+"neatnaujinta, kai paskutinį kartą atnaujinote KDE. Dėl to, programa galėjo "
+"pasidaryti nesuderinama su dabartine KDE versija ir nepasileisti."
 
 #: core/job_error.cpp:474
 #, kde-format
@@ -1124,8 +1126,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis <strong>%1</"
-"strong>  protokolu, pranešė apie vidinę klaidą."
+"Programa kompiuteryje, suteikianti galimybę naudotis <strong>%1</strong> "
+"protokolu, pranešė apie vidinę klaidą."
 
 #: core/job_error.cpp:484
 #, kde-format
@@ -1141,10 +1143,11 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
-"Jūsų įvesta <b>U</b>niform <b>R</b>esource <b>L</b>ocator (URL) buvo blogai "
+"Jūsų įvestas <b>U</b>niform <b>R</b>esource <b>L</b>ocator (URL) buvo blogai "
 "suformuotas. URL formatas paprastai būna toks: "
-"<blockquote><strong>protocol://user:password@www.example.org:port/folder/"
-"filename.extension?query=value</strong></blockquote>"
+"<blockquote><strong>protokolas://naudotojas:slaptažodis@www.example.org:"
+"prievadas/aplankas/failo_pavadinimas.prievardis?užklausa=reikšmė</strong></"
+"blockquote>"
 
 #: core/job_error.cpp:495
 #, kde-format
@@ -1157,13 +1160,13 @@ msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
 "currently installed on this computer."
 msgstr ""
-"Protokolas <strong>%1</strong> nėra palaikomas KDE programų, šiuo metu "
-"įdiegtų šiame kompiuteryje."
+"Šiuo metu šiame kompiuteryje įdiegtos KDE programos nepalaiko <strong>%1</"
+"strong> protokolo."
 
 #: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
-msgstr "Norimas protokolas gali būti nepalaikomas."
+msgstr "Užklaustas protokolas gali būti nepalaikomas."
 
 #: core/job_error.cpp:502
 #, kde-format
@@ -1194,7 +1197,7 @@ msgstr ""
 #: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
-msgstr "URL nenurodo resurso."
+msgstr "URL nenurodo į išteklių."
 
 #: core/job_error.cpp:515
 #, kde-format
@@ -1207,8 +1210,8 @@ msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr ""
-"Jūsų įvestas <b>U</b>niversal <b>R</b>esource <b>L</b>ocator (URL)nerodo, "
-"kur yra konkretus resursas."
+"Jūsų įvestas <b>U</b>niversal <b>R</b>esource <b>L</b>ocator (URL) adresas "
+"nenurodo, kur yra konkretus išteklius."
 
 #: core/job_error.cpp:521
 #, kde-format
@@ -1218,9 +1221,9 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE sugeba susirišti konkrečiu protokolu tik to protokolo rėmuose, tačiau "
-"protokolas neatitinka konkrečios situacijos.  Tai retas įvykis, ir "
-"greičiausiai rodo programavimo klaidą."
+"KDE geba komunikuoti per protokolą protokole; nurodytas protokolas yra "
+"tinkamas naudoti tik tokiose situacijose, vis dėlto, tai nėra viena iš tų "
+"situacijų. Tai retas įvykis ir, greičiausiai, nurodo į programavimo klaidą."
 
 #: core/job_error.cpp:529
 #, kde-format
@@ -1233,8 +1236,8 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"Norimas veiksmas nėra palaikomas KDE programos, kuri realizuoja <strong>%1</"
-"strong> protokolą."
+"Užklaustas veiksmas nėra palaikomas KDE programos, kuri įgyvendina <strong>"
+"%1</strong> protokolą."
 
 #: core/job_error.cpp:535
 #, kde-format
@@ -1281,7 +1284,7 @@ msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"Paklausus tikėtasi aplanko, bet vietoje to gauta failas <strong>%1</strong>."
+"Paklausus tikėtasi aplanko, bet vietoje to gautas failas <strong>%1</strong>."
 
 #: core/job_error.cpp:564
 #, kde-format
@@ -1291,7 +1294,7 @@ msgstr "Failo ar aplanko nėra"
 #: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "Nurodytas failas ar aplankas <strong>%1</strong> neegzistuoja."
+msgstr "Nurodyto failo ar aplanko <strong>%1</strong> nėra."
 
 #: core/job_error.cpp:576
 #, kde-format
@@ -1299,13 +1302,14 @@ msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr ""
-"Failas negali būti sukurtas, nes kitas failas tuo pačiu vardu jau egzistuoja."
+"Failas negali būti sukurtas, nes jau yra kitas failas tuo pačiu pavadinimu."
 
 #: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
-"Pamėginkite iš pradžių pašalinti egzistuojantį failą, ir bandykite vėl."
+"Pabandykite, iš pradžių, perkelti esamą failą į kitą vietą, o tuomet "
+"bandykite dar kartą."
 
 #: core/job_error.cpp:581
 #, kde-format
@@ -1315,7 +1319,7 @@ msgstr "Ištrinkite esamą failą ir bandykite vėl."
 #: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
-msgstr "Pasirinkite kitą vardą naujam failui."
+msgstr "Pasirinkite kitą pavadinimą naujam failui."
 
 #: core/job_error.cpp:587
 #, kde-format
@@ -1323,13 +1327,15 @@ msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr ""
-"Toks aplankas negali būti sukurtas, nes kitas aplankas tuo pačiu vardu jau "
-"egzistuoja."
+"Toks aplankas negali būti sukurtas, nes jau yra kitas aplankas tuo pačiu "
+"pavadinimu."
 
 #: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
-msgstr "Galite pašalinti ar pervadinti egzistuojantį aplanką, ir bandyti vėl."
+msgstr ""
+"Pabandykite, iš pradžių, perkelti aplanką į kitą vietą, o tuomet bandykite "
+"dar kartą."
 
 #: core/job_error.cpp:592
 #, kde-format
@@ -1339,7 +1345,7 @@ msgstr "Ištrinkite esamą aplanką ir bandykite dar kartą."
 #: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
-msgstr "Pasirinkite kitą vardą naujam aplankui."
+msgstr "Pasirinkite kitą pavadinimą naujam aplankui."
 
 #: core/job_error.cpp:596
 #, kde-format
@@ -1352,36 +1358,38 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"Nežinoma mazgo klaida reiškia, kad serverio, pavadinto <b>%1</b>, nepavyko "
-"rasti Internete."
+"Nežinoma mazgo klaida reiškia, kad serverio, pavadinimu <b>%1</b>, nepavyko "
+"rasti internete."
 
 #: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
-msgstr "Jūsų įvestas vardas %1 gali neegzistuoti: galbūt jis blogai įvestas."
+msgstr ""
+"Gali būti, kad jūsų įrašyto pavadinimo %1 nėra: galbūt, jis neteisingai "
+"įrašytas."
 
 #: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
-msgstr "Priėjimas neleistas"
+msgstr "Prieiga negalima"
 
 #: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
-msgstr "Prieiga prie nurodyto ištekliaus buvo uždrausta, <strong>%1</strong>."
+msgstr "Prieiga prie nurodyto ištekliaus buvo atmesta, <strong>%1</strong>."
 
 #: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
-"Galbūt Jūs pateikėte blogus autentikacijos parametrus arba visai jų "
+"Galbūt, pateikėte neteisingus tapatybės nustatymo duomenis arba visai jų "
 "nepateikėte."
 
 #: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
-msgstr "Jūsų paskyra gali visai neturėti priėjimo prie šio resurso."
+msgstr "Gali būti, kad jūsų paskyra neturi prieigos prie nurodyto ištekliaus."
 
 #: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
@@ -1389,13 +1397,13 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Pamėginkite dar kartą ir įsitikinkite, kad Jūsų autentikacijos detalės "
-"įvestos teisingai."
+"Pabandykite dar kartą ir įsitikinkite, kad jūsų tapatybės nustatymo duomenys "
+"įvesti teisingai."
 
 #: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
-msgstr "Priėjimas rašymui neleistas"
+msgstr "Rašymo prieiga negalima"
 
 #: core/job_error.cpp:634
 #, kde-format
@@ -1416,7 +1424,7 @@ msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr ""
-"Tai reiškia, kad bandymas įeiti į (kitais žodžiais tariant, atidaryti) "
+"Tai reiškia, kad bandymas įeiti į (kitais žodžiais tariant, atverti) "
 "nurodytą aplanką <strong>%1</strong> buvo atmestas."
 
 #: core/job_error.cpp:652
@@ -1442,7 +1450,7 @@ msgstr ""
 #: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
-msgstr "Rasta cikliška nuoroda"
+msgstr "Rasta ciklinė nuoroda"
 
 #: core/job_error.cpp:665
 #, kde-format
@@ -1452,9 +1460,10 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"Unix terpėje paprastai galima sukurti failo ar aplanko nuorodą į kitą vardą "
-"ir/ar vietą. KDE pastebėjo nuorodą ar nuorodų seriją, sukuriančią uždarą "
-"ciklą – pvz. failas buvo (galbūt per tarpinius failus) nuoroda į save patį."
+"Unix aplinkoje, įprastai, galima sukurti failo ar aplanko nuorodą į kitą "
+"pavadinimą ir/ar vietą. KDE pastebėjo nuorodą ar nuorodų seriją, sukuriančią "
+"uždarą ciklą – pvz., buvo sukurta (galbūt, per tarpinius failus) failo "
+"nuoroda į save patį."
 
 #: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
@@ -1463,27 +1472,27 @@ msgid ""
 "loop, and try again."
 msgstr ""
 "Ištrinkite vieną ciklo dalį taip, kad tai nesukurtų begalinio ciklo, ir "
-"mėginkite vėl."
+"bandykite dar kartą."
 
 #: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
-msgstr "Paklausimas nutrauktas naudotojo"
+msgstr "Naudotojas nutraukė užklausą"
 
 #: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
-msgstr "Paklausimas negali būti baigtas, nes jis buvo nutrauktas."
+msgstr "Užklausa nebuvo užbaigta, nes buvo nutraukta."
 
 #: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
-msgstr "Pakartoti paklausimą."
+msgstr "Pakartoti užklausą."
 
 #: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
-msgstr "Kopijuojant pastebėta cikliška jungtis"
+msgstr "Kopijuojant pastebėta ciklinė nuoroda"
 
 #: core/job_error.cpp:690
 #, kde-format
@@ -1493,20 +1502,20 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"Unix terpėje paprastai galima sukurti failo ar aplanko nuorodą į kitą vardą "
-"ir/ar vietą. Nurodytos kopijavimo operacijos metu KDE pastebėjo nuorodą ar "
-"nuorodų seriją, sukuriančią uždarą ciklą – pvz. failas buvo (galbūt per "
-"tarpinius failus) nuoroda į save patį."
+"Unix aplinkoje, įprastai, galima sukurti failo ar aplanko nuorodą į kitą "
+"pavadinimą ir/ar vietą. Nurodytos kopijavimo operacijos metu KDE pastebėjo "
+"nuorodą ar nuorodų seriją, sukuriančią uždarą ciklą – pvz., buvo sukurta "
+"(galbūt per tarpinius failus) failo nuoroda į save patį."
 
 #: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
-msgstr "Nepavyksta sukurti tinklo prisijungimo"
+msgstr "Nepavyko sukurti tinklo ryšio"
 
 #: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
-msgstr "Nepavyksta sukurti lizdo"
+msgstr "Nepavyko sukurti lizdo"
 
 #: core/job_error.cpp:705
 #, kde-format
@@ -1514,8 +1523,8 @@ msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr ""
-"Tai yra techninė klaida, reiškianti, kad įrengimas tinklo komunikacijoms "
-"(socket) negali būti sukurtas."
+"Tai yra techninė klaida, reiškianti, kad nepavyko sukurti tinklo "
+"komunikacijoms reikalingo įrenginio (lizdo)."
 
 #: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
 #: core/job_error.cpp:881
@@ -1524,13 +1533,13 @@ msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr ""
-"Tinklo prisijungimas gali būti neteisingai sukonfigūruotas, ar tinklo ja "
-"gali būti neįjungta."
+"Gali būti, kad tinklo ryšys yra neteisingai sukonfigūruotas arba gali būti "
+"neįjungta tinklo sąsaja."
 
 #: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "Prijungimas prie serverio neleistas"
+msgstr "Prijungimas prie serverio atmestas"
 
 #: core/job_error.cpp:716
 #, kde-format
@@ -1546,8 +1555,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
 msgstr ""
-"Serveris, nors dabar prijungtas prie Interneto, gali būti nesukonfigūruotas "
-"leisti paklausimus."
+"Serveris, nors dabar prijungtas prie interneto, gali būti nesukonfigūruotas "
+"leisti užklausas."
 
 #: core/job_error.cpp:723
 #, kde-format
@@ -1555,7 +1564,7 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"Serveryje, nors dabar prijungtane prie Interneto, gali nebūti paleista "
+"Serveryje, nors dabar prijungtame prie interneto, gali nebūti paleista "
 "reikalinga tarnyba (%1)."
 
 #: core/job_error.cpp:727
@@ -1565,14 +1574,13 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
-"Galbūt įsipainiojo tinklo ungiasienė (įrenginys apribojantis Interneto "
-"paklausimus), arba sauganti Jūsų tinklą, arba serverio tinklą, ir sutrukdė "
-"šį paklausimą."
+"Galbūt, įsivėlė tinklo užkarda (įrenginys, ribojantis interneto užklausas), "
+"kuri saugo arba jūsų tinklą, arba serverio tinklą, ir neleido šios užklausos."
 
 #: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "Prisijungimas prie serverio netikėtai nutrūko"
+msgstr "Ryšys su serveriu netikėtai nutrūko"
 
 #: core/job_error.cpp:736
 #, kde-format
@@ -1580,8 +1588,8 @@ msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
 "was closed at an unexpected point in the communication."
 msgstr ""
-"Nors prisijungti prie <strong>%1</strong> pavyko, prisijungimas nutrūko "
-"netikėtoje komunikavimo vietoje."
+"Nors ryšys su <strong>%1</strong> buvo užmegztas, ryšys nutrūko netikėtame "
+"komunikavimo taške."
 
 #: core/job_error.cpp:742
 #, kde-format
@@ -1589,13 +1597,13 @@ msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
 msgstr ""
-"Galėjo įvykti protokolo klaida, privertusi serverį nutraukti prisijungimą "
-"kaip atsaką į klaidą."
+"Galbūt, įvyko protokolo klaida, privertusi serverį, kaip atsaką į klaidą, "
+"nutraukti ryšį."
 
 #: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
-msgstr "URL resursas neteisingas"
+msgstr "URL išteklius neteisingas"
 
 #: core/job_error.cpp:749
 #, kde-format
@@ -1609,8 +1617,8 @@ msgid ""
 "strong>ocator (URL) that you entered did not refer to a valid mechanism of "
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
-"Jūsų įvestas <b>U</b>niversal <b>R</b>esource <b>L</b>ocator (URL)nenurodo "
-"teisingo mechanizmo specifiniam resursui pasiekti, <strong>%1%2</strong>."
+"Jūsų įvestas <b>U</b>niversal <b>R</b>esource <b>L</b>ocator (URL) nenurodo "
+"teisingo mechanizmo konkrečiam ištekliui pasiekti, <strong>%1%2</strong>."
 
 #: core/job_error.cpp:758
 #, kde-format
@@ -1620,19 +1628,19 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE sugeba susirišti konkrečiu protokolu tik to protokolo rėmuose. "
-"Paklausimas nurodė naudotiną protokolą, tačiau protokolas negali atlikti "
-"tokio veiksmo.  Tai retas įvykis, ir greičiausiai rodo programavimo klaidą."
+"KDE geba komunikuoti per protokolą protokole. Užklausa nurodė naudoti "
+"protokolą būtent taip, vis dėlto, protokolas negali atlikti tokio veiksmo. "
+"Tai retas įvykis, ir greičiausiai nurodo į programavimo klaidą."
 
 #: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
-msgstr "Nepavyksta sužadinti įvedimo/išvedimo įrenginio"
+msgstr "Nepavyksta inicijuoti įvedimo/išvedimo įrenginio"
 
 #: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
-msgstr "Nepavyksta programiškai prijungti įrenginio"
+msgstr "Nepavyko prijungti įrenginio"
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -1640,8 +1648,8 @@ msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
 msgstr ""
-"Nurodytas įrenginys negali būti sužadintas (prijungtas programiškai).  "
-"Klaida buvo: <strong>%1</strong>"
+"Užklaustas įrenginys negali būti inicijuotas (prijungtas). Klaida buvo: "
+"<strong>%1</strong>"
 
 #: core/job_error.cpp:773
 #, kde-format
@@ -1650,9 +1658,10 @@ msgid ""
 "removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
-"Įrenginys gali būti neparuoštas, pavyzdžiui gali nebūti disko keičiamajame "
-"įrenginyje (t.y. Optinio disko grotuve), arba išorinio / nešiojamo įrenginio "
-"atveju įrenginys gali būti neprijungtas tinkamai."
+"Gali būti, kad įrenginys nepasiruošęs, pavyzdžiui, galbūt, nėra disko "
+"keičiamajame įrenginyje (t.y. Optinio disko grotuve), arba išorinio / "
+"nešiojamo įrenginio atveju, gali būti, kad įrenginys nėra tinkamai "
+"prijungtas."
 
 #: core/job_error.cpp:778
 #, kde-format
@@ -1661,9 +1670,9 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Jūs galite neturėti leidimų sužadinti (programiškai prijungti) įrenginį.  "
-"Unix sistemose dažnai reikia administratoriaus privilegijų norint sužadinti "
-"įrenginį."
+"Gali būti, kad neturite leidimų inicijuoti (prijungti) įrenginio. Unix "
+"sistemose įrenginio inicijavimui dažnu atveju reikia administratoriaus "
+"teisių."
 
 #: core/job_error.cpp:783
 #, kde-format
