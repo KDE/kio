@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 1998-2009 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+    SPDX-FileCopyrightText: 2024 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 */
@@ -74,6 +75,34 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
         return false;
     });
 }
+
+namespace
+{
+
+KService::List &replaceAndFilterDuplicatedAliasesIn(KService::List &offers)
+{
+    QStringList seenAliases;
+    const auto [first, last] = std::ranges::remove_if(offers, [&seenAliases](auto &service) {
+        const auto alias = service->aliasFor();
+        if (alias.isEmpty()) {
+            return false;
+        }
+        if (!seenAliases.contains(alias)) {
+            // Replace first alias entry with the actual service
+            qCDebug(KIO_WIDGETS) << "Replacing aliased service " << service->desktopEntryName() << "with" << alias;
+            seenAliases.push_back(alias);
+            service = KService::serviceByDesktopName(alias);
+            return false;
+        }
+        // Drop excess alias entries
+        qCDebug(KIO_WIDGETS) << "Dropping extra service" << service->desktopEntryName() << "already present as" << alias;
+        return true;
+    });
+    offers.erase(first, last);
+    return offers;
+}
+
+} // namespace
 
 // This helper class stores the .desktop-file actions and the servicemenus
 // in order to support X-KDE-Priority and X-KDE-Submenu.
@@ -642,7 +671,8 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
         result << tempRank.service;
     }
 
-    return result;
+    // Filter out aliased services. Such as okular backends that are just association aliases for okular.
+    return replaceAndFilterDuplicatedAliasesIn(result);
 }
 
 void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
