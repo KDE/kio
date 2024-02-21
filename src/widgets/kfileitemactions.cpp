@@ -141,7 +141,8 @@ ServiceList &PopupServices::selectList(const QString &priority, const QString &s
     }
     return user;
 }
-} // namespace
+
+} // namespace KIO
 
 ////
 
