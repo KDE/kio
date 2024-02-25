@@ -4,7 +4,7 @@
 # Copyright (C) 2003, 2004, 2005, 2008 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004, 2005.
 # Sergiu Bivol <sergiu@cip.md>, 2008.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2014, 2020, 2021, 2022.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2014, 2020, 2021, 2022, 2024.
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 #
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2022-12-28 20:58+0000\n"
+"PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -48,10 +48,9 @@ msgstr ""
 "aveți acces suficient la fișier pentru a efectua această modificare."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nu se poate crea io-slave: %1"
+msgstr "Nu se poate crea lucrătorul KIO: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1288
 #, kde-format
@@ -804,10 +803,9 @@ msgid "Communication with the local password server failed"
 msgstr "Comunicarea cu severul local de parole a eșuat"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nu se poate crea io-slave. %1"
+msgstr "Nu se poate crea lucrătorul KIO: %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -831,10 +829,9 @@ msgstr ""
 "Reîncercați după modificarea permisiunilor."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Fișierul e prea mare pentru a fi trimis la gunoi."
+msgstr "Fișierul e prea mare pentru a încăpea la gunoi."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -2362,10 +2359,9 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nu pot iniția protocolul %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nu se poate crea io-slave"
+msgstr "Nu se poate crea lucrătorul KIO"
 
 #: core/job_error.cpp:1250
 #, fuzzy, kde-format
@@ -2381,10 +2377,7 @@ msgstr ""
 "În mod normal acest lucru se întâmplă din cauza unor probleme tehnice."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -3222,12 +3215,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Doar dosarele pot fi adăugate la panoul Locuri."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Elibe&rează"
+msgstr "Se eliberează…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3236,12 +3227,10 @@ msgid "&Release"
 msgstr "Elibe&rează"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Scoate în siguranță"
+msgstr "Se scoate în siguranță…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3250,12 +3239,10 @@ msgid "&Safely Remove"
 msgstr "&Scoate în siguranță"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Demontare"
+msgstr "Se demontează…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3288,6 +3275,8 @@ msgstr "A apărut o eroare la accesarea „%1”"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise într-o "
+"aplicație."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3298,14 +3287,20 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise în aplicația "
+"<application>„%2”</application>."
 msgstr[1] ""
+"Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise în "
+"următoarele aplicații: <application>%2</application>."
 msgstr[2] ""
+"Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise în "
+"următoarele aplicații: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -4031,11 +4026,10 @@ msgid "Launching %1"
 msgstr "Se lansează %1"
 
 #: gui/kprocessrunner.cpp:466
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Fișierul „%1” nu a fost găsit"
+msgstr "Comanda <command>%1</command> nu a fost găsită."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4135,13 +4129,14 @@ msgstr ""
 "%1"
 
 #: ioslaves/file/file.cpp:746
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nu s-a putut schimba proprietarul pentru %1."
+msgstr ""
+"Nu s-a putut schimba proprietarul și grupul pentru\n"
+"%1"
 
 #: ioslaves/file/file.cpp:828
 #, kde-format
@@ -7318,8 +7313,7 @@ msgstr "Șterge definitiv"
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:269
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Șterge definitiv"
@@ -7900,16 +7894,13 @@ msgstr ""
 "„%1” (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "Ține minte asocie&rea de aplicații pentru toate fișierele de tip\n"
-"„%1” (%2)"
+"„%1”"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8139,10 +8130,9 @@ msgstr "Com&entariu:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Utilizează &variabile de mediu proxy pre-setate"
+msgstr "Variabile de mediu:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8196,7 +8186,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Program:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8229,11 +8219,9 @@ msgstr "Cale de &lucru:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Documente"
+msgstr "Argumente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -9478,19 +9466,14 @@ msgstr ""
 "Se abandonează deoarece identitatea gazdei nu a putut fi stabilită."
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Sigur doriți să ștergeți definitiv acest element?<nl/><filename>%1</"
+"Sigur doriți să ștergeți definitiv acest element?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>Această acțiune nu poate fi "
 "desfăcută.</emphasis>"
 
