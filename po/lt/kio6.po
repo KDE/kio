@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-17 00:36+0000\n"
-"PO-Revision-Date: 2024-02-20 01:14+0200\n"
+"PO-Revision-Date: 2024-02-25 01:42+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -459,7 +459,7 @@ msgstr "%1 yra failas, nors tikėtasi aplanko."
 #: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "Failas ar aplankas %1 neegzistuoja."
+msgstr "Failo ar aplanko %1 nėra."
 
 #: core/job_error.cpp:71
 #, kde-format
@@ -1850,7 +1850,8 @@ msgstr ""
 #: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
-msgstr "Nurodytas resursas galėjo neegzistuoti ar būti neprieinamas."
+msgstr ""
+"Gali būti, kad nurodyto ištekliaus niekada nebuvo arba jis yra neprieinamas."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
 #: core/job_error.cpp:925
@@ -1876,7 +1877,7 @@ msgstr "Bandymas sukurti nurodytą aplanką nepavyko."
 #: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr "Vieta, kurioje turėjo būti sukurtas aplankas, gali neegzistuoti."
+msgstr "Gali būti, kad vietos, kurioje turėjo būti sukurtas aplankas, nėra."
 
 #: core/job_error.cpp:943
 #, kde-format
@@ -1891,7 +1892,7 @@ msgstr "Bandymas pašalinti nurodytą aplanką <strong>%1</strong> nepavyko."
 #: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
-msgstr "Nurodytas aplankas gali neegzistuoti."
+msgstr "Gali būti, kad nurodyto aplanko nėra."
 
 #: core/job_error.cpp:948
 #, kde-format
@@ -3662,8 +3663,8 @@ msgid ""
 "The name <filename>%1</filename> starts with a dot, so it will be hidden by "
 "default."
 msgstr ""
-"<filename>%1</filename> pavadinimas prasideda tašku, todėl pagal numatymą, "
-"jis bus paslėptas."
+"Pavadinimas <filename>%1</filename> prasideda tašku, todėl pagal numatymą, "
+"šis failas ar aplankas bus paslėptas."
 
 #: filewidgets/knewfilemenu.cpp:1151
 #, kde-kuit-format

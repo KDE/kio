@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-17 00:36+0000\n"
-"PO-Revision-Date: 2024-02-09 19:26+0300\n"
+"PO-Revision-Date: 2024-02-24 22:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -71,7 +71,7 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
-"\"%1\" sembolik bağlantısı yapılamadı.\n"
+"‘%1’ sembolik bağlantısı yapılamadı.\n"
 "Hedef dosya sistemi (%2), sembolik bağlantıları desteklemiyor."
 
 #: core/copyjob.cpp:178
@@ -83,10 +83,10 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
-"\"%1\" oluşturulamadı.\n"
+"‘%1’ oluşturulamadı.\n"
 "Hedef dosya sistemi (%2), klasör adlarında aşağıdaki karakterlere izin "
 "vermiyor: %3\n"
-"Değiştir'i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
+"Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
 #: core/copyjob.cpp:186
@@ -98,10 +98,10 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
-"\"%1\" oluşturulamadı.\n"
+"‘%1’ oluşturulamadı.\n"
 "Hedef dosya sistemi (%2), dosya adlarında aşağıdaki karakterlere izin "
 "vermiyor: %3\n"
-"Değiştir'i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
+"Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
 #: core/copyjob.cpp:1385 core/job_error.cpp:585
@@ -133,18 +133,18 @@ msgstr "%1 içinde Exec alanı yok"
 #: core/desktopexecparser.cpp:353
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "'%1' programı bulunamadı"
+msgstr "‘%1’ programı bulunamadı"
 
 #: core/desktopexecparser.cpp:356
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "'%1' programı '%2' konumunda bulundu; ancak yürütme izinleri eksik."
+msgstr "‘%1’ programı ‘%2’ konumunda bulundu; ancak yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:358
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "'%1' programında yürütme izinleri eksik."
+msgstr "‘%1’ programında yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:372
 #, kde-format
@@ -436,7 +436,7 @@ msgid ""
 "%1"
 msgstr ""
 "İçsel Hata\n"
-"Lütfen https://bugs.kde.org'a bir hata bildirimi gönderin\n"
+"Lütfen https://bugs.kde.org’a bir hata bildirimi gönderin\n"
 "%1"
 
 #: core/job_error.cpp:49
@@ -511,7 +511,7 @@ msgstr "%1 klasörüne girilemedi."
 #: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "%1 protokolü bir klasör hizmeti tanımlamıyor."
+msgstr "%1 protokolü bir klasör hizmeti gerçeklemiyor."
 
 #: core/job_error.cpp:92
 #, kde-format
@@ -759,7 +759,7 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"\"%1\" sembolik bağlantısı yapılamadı.\n"
+"‘%1’ sembolik bağlantısı yapılamadı.\n"
 "Hedef dosya sistemi, sembolik bağlantıları desteklemiyor."
 
 #: core/job_error.cpp:220
@@ -820,7 +820,7 @@ msgid ""
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
 "<filename>%1</filename> dosyası pek büyük olduğundan aktarılamıyor. Hedef "
-"dosya sistemi yalnızca 4 GiB'a kadar olan dosyaları destekliyor"
+"dosya sistemi yalnızca 4 GiB’a kadar olan dosyaları destekliyor"
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -829,7 +829,7 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"'%1' sahibi geçerli kullanıcı olduğundan \n"
+"‘%1’ sahibi geçerli kullanıcı olduğundan \n"
 "ayrıcalık yükseltmesine gerek yoktur.\n"
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
@@ -990,7 +990,7 @@ msgstr ""
 "üçüncü parti firma tarafından aktarılmış ise lütfen doğrudan bu kurum ile "
 "bağlantıya geçin. Göndereceğiniz hata raporunun daha önce başka bir kişi "
 "tarafından gönderilmediğini araştırmak için <a href=\"https://bugs.kde.org/"
-"\">KDE hata raporlama web sitesi</a>'ne bağlantı kurmanız gerekebilir. Eğer "
+"\">KDE hata raporlama web sitesi</a>’ne bağlantı kurmanız gerekebilir. Eğer "
 "aynı hata başka bir kişi tarafından raporlanmamış ise lütfen raporunuzda bu "
 "hatayı belirtin."
 
@@ -1225,8 +1225,8 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"<strong>%1</strong> protokolünü kullanan eylem KDE programları tarafından "
-"desteklenmiyor."
+"<strong>%1</strong> protokolünü gerçekleyen eylem, KDE programları "
+"tarafından desteklenmiyor."
 
 #: core/job_error.cpp:535
 #, kde-format
@@ -1339,7 +1339,7 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"\"Bilinmeyen makine adı hatası\", istenen <strong>%1</strong> adlı makinenin "
+"“Bilinmeyen makine adı hatası”, istenen <strong>%1</strong> adlı makinenin "
 "İnternet üzerinden ulaşılamadığını gösterir."
 
 #: core/job_error.cpp:603
@@ -1530,7 +1530,7 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"İnternet'e bağlı olan bu sunucu istenen hizmeti (%1) çalıştırmayabilir."
+"İnternet’e bağlı olan bu sunucu istenen hizmeti (%1) çalıştırmayabilir."
 
 #: core/job_error.cpp:727
 #, kde-format
@@ -1768,7 +1768,7 @@ msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr ""
-"Bu hata, gelen ağ bağlantıları'nın kabul edilmesi sırasında oluşan hayli "
+"Bu hata, gelen ağ bağlantılarının kabul edilmesi sırasında oluşan hayli "
 "teknik bir hatadır."
 
 #: core/job_error.cpp:883
@@ -1974,8 +1974,8 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "Tanımlanmış vekil sunucu hakkındaki bilgiye erişirken, <strong>%1</strong> , "
-"sorgulanan adın İnternet üzerinde bulunamadığını belirten 'Bilinmeyen Vekil "
-"Sunucu' hatası oluştu."
+"sorgulanan adın İnternet üzerinde bulunamadığını belirten bilinmeyen vekil "
+"sunucusu hatası oluştu."
 
 #: core/job_error.cpp:1046
 #, kde-format
@@ -2007,8 +2007,8 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "Doğru kimlik doğrulama bilgisi sağlamış olmanıza rağmen, kimlik doğrulama "
-"başarısız oldu; çünkü sunucunun kullandığı yöntem, %1 protokolünü uygulayan "
-"KDE programı tarafından desteklenmiyor."
+"başarısız oldu; çünkü sunucunun kullandığı yöntem, %1 protokolünü "
+"gerçekleyen KDE programı tarafından desteklenmiyor."
 
 #: core/job_error.cpp:1062
 #, kde-format
@@ -2079,7 +2079,7 @@ msgid ""
 msgstr ""
 "Sunucuyla iletişim kurulmuş olsa da, istek için ayrılan süre zarfında bir "
 "yanıt alınamadı. Aşağıda belirtilen zaman ayarları, KDE Sistem Ayarları "
-"altındaki Ağ Ayarları -> Bağlantı Tercihleri modülünden değiştirebilirsiniz: "
+"altındaki Ağ Ayarları → Bağlantı Tercihleri modülünden değiştirebilirsiniz: "
 "<ul><li>Bağlantı kurma zaman aşımı: %1 saniye</li><li>Yanıt alma zaman "
 "aşımı: %2 saniye</li><li>Vekil sunucu erişim zaman aşımı: %3 saniye</li></"
 "ul>."
@@ -2114,8 +2114,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
-"Bilgisayarınızdaki <strong>%1</strong> protokolüne erişim sağlayan program "
-"'Bilinmeyen Kesinti' oluştuğunu bildirdi: %2."
+"Bilgisayarınızdaki <strong>%1</strong> protokolüne erişim sağlayan program, "
+"bilinmeyen bir kesinti oluştuğunu bildirdi: %2."
 
 #: core/job_error.cpp:1142
 #, kde-format
@@ -2145,9 +2145,9 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"İstenilen işlem indirilmekte olan  yeni bir dosya'yı kaydetmek için bir "
-"geçici dosya oluşturulmasını gerektiriyor. Bu geçici dosya <strong>%1</"
-"strong> silinemiyor."
+"İstenilen işlem, indirilmekte olan  yeni bir dosyayı kaydetmek için bir "
+"geçici dosya oluşturulmasını gerektiriyor. Bu <strong>%1</strong> geçici "
+"dosyası silinemiyor."
 
 #: core/job_error.cpp:1165
 #, kde-format
@@ -2470,23 +2470,23 @@ msgstr "%1 protokolü %2 eylemini desteklemiyor."
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
-msgstr "Bilinmeyen protokol '%1'."
+msgstr "Bilinmeyen protokol ‘%1’."
 
 #: core/worker.cpp:345
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "'%1' protokolü için bir KIO işçisi bulunamadı."
+msgstr "‘%1’ protokolü için bir KIO işçisi bulunamadı."
 
 #: core/worker.cpp:353
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"'%1' protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
+"‘%1’ protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
 
 #: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "'%1' konumunda 'kioworker' yürütülebiliri bulunamadı"
+msgstr "‘%1’ konumunda ‘kioworker’ yürütülebiliri bulunamadı"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -2575,7 +2575,7 @@ msgstr "Yeniden Yükle"
 #: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
-msgstr "Yeni Klasör..."
+msgstr "Yeni Klasör…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2723,13 +2723,13 @@ msgstr "&Görünüm Kipi"
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr "Z-A"
+msgstr "Z–A"
 
 #: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
-msgstr "A-Z"
+msgstr "A–Z"
 
 #: filewidgets/kdiroperator.cpp:2279
 #, kde-format
@@ -2802,7 +2802,7 @@ msgstr "Kök Klasör"
 #, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "Göz At..."
+msgstr "Göz At…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -2859,7 +2859,7 @@ msgid ""
 msgstr ""
 "<qt>Bu, Yerler panelinde görünecek olan metindir.<br /><br />Açıklamanız bu "
 "girdinin ne işe yaradığını anımsatmak amacıyla bir veya iki sözcükten "
-"oluşmalıdır. Eğer bir etiket girmezseniz açıklama konumun URL'sinden alınır."
+"oluşmalıdır. Eğer bir etiket girmezseniz açıklama konumun URL’sinden alınır."
 "</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
@@ -2883,7 +2883,7 @@ msgstr ""
 "<qt>Girdi ile ilişkilendirilecek konumdur. Herhangi bir geçerli URL "
 "kullanılabilir. Örneğin:<br /><br />%1<br />http://www.kde.org<br />ftp://"
 "ftp.kde.org/pub/kde/stable<br /><br />Metin düzenleme kutusunun yanındaki "
-"düğmeye tıklayarak uygun bir URL'ye göz atabilirsiniz.</qt>"
+"düğmeye tıklayarak uygun bir URL’ye göz atabilirsiniz.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3090,18 +3090,18 @@ msgstr "Çık&ar"
 #: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr "'%1' aygıtı bir disk değil ve çıkarılamaz."
+msgstr "‘%1’ aygıtı bir disk değil ve çıkarılamaz."
 
 #: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
-"'%1' konumuna erişilirken bir hata oluştu, sistem şu hatayı bildirdi: %2"
+"‘%1’ konumuna erişilirken bir hata oluştu, sistem şu hatayı bildirdi: %2"
 
 #: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr "'%1' konumuna erişilirken bir hata oluştu"
+msgstr "‘%1’ konumuna erişilirken bir hata oluştu"
 
 #: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
@@ -3117,7 +3117,7 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"Bu aygıttaki bir veya daha çok dosya, <application>\"%2\"</application> "
+"Bu aygıttaki bir veya daha çok dosya, <application>‘%2’</application> "
 "uygulamasında açık."
 msgstr[1] ""
 "Bu aygıttaki bir veya daha çok dosya, şu uygulamalarda açık: <application>"
@@ -3192,7 +3192,7 @@ msgstr "&Gizle"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "'%1' Bölümünü Gizle"
+msgstr "‘%1’ Bölümünü Gizle"
 
 #: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
@@ -3316,7 +3316,7 @@ msgstr "Dosyalar ve klasörler seçildi"
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "\"%1\" dosyası bulunamadı"
+msgstr "‘%1’ dosyası bulunamadı"
 
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
@@ -3448,7 +3448,7 @@ msgstr "Yerler"
 #: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "\"%1\" dosyası var. Üzerine yazmak ister misiniz?"
+msgstr "‘%1’ dosyası var. Üzerine yazmak ister misiniz?"
 
 #: filewidgets/kfilewidget.cpp:1591
 #, kde-format
@@ -3520,9 +3520,9 @@ msgstr ""
 "özellikleri etkinleştirir:<br /><ol><li>Kayıt anında dosya türünü "
 "değiştirdiğinizde, <b>%1</b> metin alanı içinde tanımladığınız her uzantı "
 "güncellenir. <br /><br /></li><li>Eğer <b>%2</b> metin alanında hiçbir "
-"uzantı tanımlamamışsanız <b>Kaydet</b>'e tıkladığınızda %3, dosyanın sonuna "
+"uzantı tanımlamamışsanız <b>Kaydet</b>’e tıkladığınızda %3, dosyanın sonuna "
 "eklenir (dosya adı halihazırda yoksa). Bu uzantı, kaydedilen dosya türü "
-"temelinde olacaktır.<br /><br />Eğer KDE'nin dosya adları için bir uzantı "
+"temelinde olacaktır.<br /><br />Eğer KDE’nin dosya adları için bir uzantı "
 "sağlamasını istemiyorsanız bu seçeneği kapatabilir veya dosya adının sonuna "
 "bir nokta (.) ekleyerek susturabilirsiniz (nokta kendiliğinden silinir). </"
 "li></ol> Emin değilseniz bu seçeneği etkin halde tutmak, sizin için daha "
@@ -3578,7 +3578,7 @@ msgstr "Yeni bağlantının adı:"
 #: filewidgets/knewfilemenu.cpp:691
 #, kde-format
 msgid "Create link to URL"
-msgstr "URL'ye bağlantı oluştur"
+msgstr "URL’ye bağlantı oluştur"
 
 #: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
 #, kde-format
@@ -3710,13 +3710,13 @@ msgstr "Yapıştır"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "\"%1\" Ögesini Yeni Sekmede Aç"
+msgstr "‘%1’ Ögesini Yeni Sekmede Aç"
 
 #: filewidgets/kurlnavigator.cpp:553
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "\"%1\" Ögesini Yeni Pencerede Aç"
+msgstr "‘%1’ Ögesini Yeni Pencerede Aç"
 
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
@@ -3865,8 +3865,8 @@ msgid ""
 "is of type Link but has no URL=... entry."
 msgstr ""
 "%1\n"
-"masaüstü giriş dosyası\n"
-"Link türünden ama URL=... girişi yok."
+"bir masaüstü girdisi dosyası\n"
+"Bağlantı türünden; ancak URL=… girdisi yok."
 
 #: gui/openurljob.cpp:374
 #, kde-format
@@ -3874,7 +3874,7 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"\"%1\" yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
+"‘%1’ yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
 "nedenlerinden dolayı başlatılmayacak."
 
 #: gui/openurljob.cpp:410
@@ -3890,7 +3890,8 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "Program \"%1\" başlatılmadan önce yürütme iznine sahip olması gerekir."
+msgstr ""
+"‘%1’ programının başlatılmadan önce yürütme iznine sahip olması gerekir."
 
 #: gui/openurljob.cpp:451
 #, kde-format
@@ -3898,13 +3899,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"\"%1\" dosyası yürütülebilir yapılamıyor.\n"
+"‘%1’ dosyası yürütülebilir yapılamıyor.\n"
 "%2."
 
 #: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "Masaüstü giriş dosyası %1 için Type=... girdisi yok."
+msgstr "Masaüstü girdi dosyası %1 için Type=… girdisi yok."
 
 #: gui/openurljob.cpp:623
 #, kde-format
@@ -3925,7 +3926,7 @@ msgstr "Dosya açılamadı."
 #: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "\"%1\" programı başlatılamadı."
+msgstr "‘%1’ programı başlatılamadı."
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -3968,7 +3969,7 @@ msgid ""
 "is malformed"
 msgstr ""
 "%1\n"
-"URL'si bozuk"
+"URL’si bozuk"
 
 #: kioexec/main.cpp:82
 #, kde-format
@@ -4019,13 +4020,13 @@ msgstr "KIOExec"
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
-"KIO Exec - Uzaktaki dosyaları açar, değişiklikleri izler, karşıya yüklemeyi "
+"KIO Exec — Uzaktaki dosyaları açar, değişiklikleri izler, karşıya yüklemeyi "
 "sorar"
 
 #: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
-msgstr "(c) 1998-2000,2003 The KFM/Konqueror Geliştiricileri"
+msgstr "(c) 1998–2000, 2003 KFM/Konqueror Geliştiricileri"
 
 #: kioexec/main.cpp:291
 #, kde-format
@@ -4055,7 +4056,7 @@ msgstr "Oswald Buddenhagen"
 #: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr "URL'leri yerel dosyalar gibi ele alır ve sonrasında siler"
+msgstr "URL’leri yerel dosyalar gibi ele alır ve sonrasında siler"
 
 #: kioexec/main.cpp:302
 #, kde-format
@@ -4070,7 +4071,7 @@ msgstr "Yürütülecek komut"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "'Komut' için yerel dosya(lar) veya URL('ler)"
+msgstr "‘Komut’ için yerel dosya(lar) veya URL(’ler)"
 
 #: kioworkers/file/file.cpp:166
 #, kde-format
@@ -4099,12 +4100,12 @@ msgstr ""
 #: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
-msgstr "\"mount\" uygulaması bulunamadı"
+msgstr "‘mount’ programı bulunamadı"
 
 #: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
-msgstr "\"umount\" uygulaması bulunamadı"
+msgstr "‘umount’ programı bulunamadı"
 
 #: kioworkers/file/file_unix.cpp:101
 #, kde-format
@@ -4281,7 +4282,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr ""
 "\n"
-"Sunucu dedi ki: \"%1\""
+"Sunucu dedi ki: “%1”"
 
 #: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:311
 #, kde-format
@@ -4582,8 +4583,8 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "KDE çöp kutusuna erişmek için yardımcı uygulama\n"
-"Not: Dosyaları çöp kutusuna taşımak için ktrash kullanmayın, \"kioclient "
-"move'url' trash:/\" kullanın"
+"Not: Dosyaları çöp kutusuna taşımak için ktrash kullanmayın, “kioclient move "
+"‘url’ trash:/” kullanın"
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
@@ -4738,7 +4739,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Beklenen sağlama toplamı (MD5, SHA1, SHA256 veya SHA512)..."
+msgstr "Beklenen sağlama toplamı (MD5, SHA1, SHA256 veya SHA512)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -5009,13 +5010,13 @@ msgstr[1] "Bu %1 ögeyi çöp kutusuna taşımayı gerçekten istiyor musunuz?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Ekle..."
+msgstr "Ekle…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Düzenle..."
+msgstr "Düzenle…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5219,13 +5220,13 @@ msgstr "&Eylemler"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "Klasörü Bi&rlikte Aç..."
+msgstr "Klasörü Bi&rlikte Aç…"
 
 #: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Birlikte Aç..."
+msgstr "&Birlikte Aç…"
 
 #: widgets/kfileitemactions.cpp:714
 #, kde-format
@@ -5253,7 +5254,7 @@ msgstr "Bir&likte Aç"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "Başka &Uygulama..."
+msgstr "Başka &Uygulama…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -5279,7 +5280,7 @@ msgstr "Durdur"
 #: widgets/kfilepropspluginwidget.ui:62
 #, kde-format
 msgid "Explore in Filelight"
-msgstr "Dosya Feneri'nde Araştır"
+msgstr "Dosya Feneri’nde Araştır"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:146
@@ -5315,7 +5316,7 @@ msgstr "Boyut:"
 #: widgets/kfilepropspluginwidget.ui:350
 #, kde-format
 msgid "Change..."
-msgstr "Değiştir..."
+msgstr "Değiştir…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:362
@@ -5387,8 +5388,8 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt><b>%1</b>'i açarken kullanılması gereken programı seçin. Program listede "
-"bulunmuyorsa adını girin ya da Göz At düğmesine tıklayın.</qt>"
+"<qt><b>%1</b> ögesini açarken kullanılması gereken programı seçin. Program "
+"listede bulunmuyorsa adını girin veya Göz At düğmesine tıklayın.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -5464,16 +5465,16 @@ msgid ""
 "%c - the comment"
 msgstr ""
 "Aşağıdaki komutlar ile, güncel program çalıştığında asıl değerleri ile "
-"değiştirilecek çeşitli yer-tutuculara sahip olabilirsiniz :\n"
-"%f - bir tek dosya adı\n"
-"%F - bir dosya listesi; bir kerede birçok dosya açabilen uygulamalar için\n"
-"%u - bir tek URL\n"
-"%U - bir URL listesi\n"
-"%d - açılacak dosyanın dizini\n"
-"%D - dizinler listesi\n"
-"%i - simge\n"
-"%m - mini-simge\n"
-"%c - yorum"
+"değiştirilecek çeşitli yer tutuculara sahip olabilirsiniz:\n"
+"%f — bir tek dosya adı\n"
+"%F — bir dosya listesi; bir kerede birçok dosya açabilen uygulamalar için\n"
+"%u — bir tek URL\n"
+"%U — bir URL listesi\n"
+"%d — açılacak dosyanın dizini\n"
+"%D — dizinler listesi\n"
+"%i — simge\n"
+"%m — mini simge\n"
+"%c — yorum"
 
 #: widgets/kopenwithdialog.cpp:741
 #, kde-format
@@ -5482,7 +5483,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr ""
 "&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
-"\"%1\" (%2)"
+"‘%1’ (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
 #, kde-format
@@ -5491,7 +5492,7 @@ msgid ""
 "\"%1\""
 msgstr ""
 "&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
-"\"%1\""
+"‘%1’"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -5511,7 +5512,7 @@ msgstr "&Komuttan çıkıldığı zaman kapatma"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr "Keşfet'ten Daha Fazla Uygulama Al"
+msgstr "Keşfet’ten Daha Fazla Uygulama Al"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -5519,7 +5520,7 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"'%1'' ögesinden yürütülebilir ad çıkarılamıyor, lütfen geçerli bir uygulama "
+"‘%1’ ögesinden yürütülebilir adı çıkarılamıyor, lütfen geçerli bir uygulama "
 "adı girin."
 
 #: widgets/kopenwithdialog.cpp:1034
@@ -5665,7 +5666,7 @@ msgid ""
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
 "Uygulamanızın başlatıldığını görünür hale getirmek için bu seçeneği "
-"işaretleyin. Bu görsel etkileşim, görev çubuğunda belirecek 'meşgul imleci' "
+"işaretleyin. Bu görsel etkileşim, görev çubuğunda belirecek ‘meşgul imleci’ "
 "ile sağlanacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
@@ -5682,8 +5683,8 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
-"Uygulamaya vermek istediğiniz adı yazın. Uygulamalar menüsünde ve panel'de , "
-"uygulamanız verdiğiniz bu ad ile görüntülenecektir."
+"Uygulamaya vermek istediğiniz adı yazın. Uygulamalar menüsünde ve panelde "
+"uygulamanız, verdiğiniz bu ad ile görüntülenecektir."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -5693,8 +5694,8 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "a dial up application (KPPP) would be \"Dial up tool\"."
 msgstr ""
-"Bu uygulama hakkında, kullanımına uyar şekilde bir açıklama yazın. Örn: "
-"Çevirmeli Ağ Uygulaması (KPPP) için \"Internet'e Bağlantım\"."
+"Bu uygulama hakkında, kullanımına uyar şekilde bir açıklama yazın. Örneğin: "
+"Çevirmeli Ağ Uygulaması (KPPP) için “Çevirmeli Bağlantı Aracı”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:45
@@ -5748,7 +5749,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:120
 #, kde-format
 msgid "&Browse..."
-msgstr "&Göz At..."
+msgstr "&Göz At…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -5773,13 +5774,13 @@ msgstr ""
 "Programın kendisi çalıştığında gerçek değerlerle değiştirilecek birkaç yer "
 "tutucu koyabilirsiniz:\n"
 "\n"
-"%f - tek bir dosya adı\n"
-"%F - bir dosya listesi (aynı anda birkaç dosya açabilen uygulamalar için)\n"
-"%u - tek bir URL\n"
-"%U - bir URL'ler listesi\n"
-"%i - .desktop dosyasının simgesi\n"
-"%c - .desktop dosyasının adı\n"
-"%k - .desktop dosyasının konumu"
+"%f — tek bir dosya adı\n"
+"%F — bir dosya listesi (aynı anda birkaç dosya açabilen uygulamalar için)\n"
+"%u — tek bir URL\n"
+"%U — bir URL’ler listesi\n"
+"%i — .desktop dosyasının simgesi\n"
+"%c — .desktop dosyasının adı\n"
+"%k — .desktop dosyasının konumu"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
@@ -5821,20 +5822,20 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt><p> Uygulamanızın işlem yapacağı bir veya daha fazla dosya türünü "
-"buradan seçebilirsiniz. Bu liste <u>MIME-tipleri</u> tarafından yönetilir.</"
+"buradan seçebilirsiniz. Bu liste <u>MIME türleri</u> tarafından yönetilir.</"
 "p>\n"
-"<p>MIME, Multipurpose Internet (e)Mail Extension, (Çok Amaçlı İnternet e-"
-"Posta Uzantısı) protokolü, dosya adı uzantıları ve  eşdeğer <u>mime-tipleri</"
-"u> temelinde, veri tiplerinin tanımlanması için oluşturulmuş yerleşik bir "
-"protokoldür.Örneğin: 'anadolu.bmp' dosya adı içindeki, noktadan-sonra-gelen  "
-"\"bmp\" kısmı, bu dosyanın bir tür görüntü dosyası (BitMap Image) olduğunu "
-"belirtir. Bunun MIME anlatımı : <u>image/x-bmp</u> şeklinde olacaktır.Her "
-"bir dosya türü'nü hangi uygulamanın açıp-işleyeceğini bilmek için, "
-"sisteminiz, uygulamaların bu uzantıları ve mime-tip'lerini ele alma - işleme "
-"yetenekleri hakkında bilgilendirilmiş olmalıdır.</p>\n"
-"<p>Eğer uygulamayı bu listede bulunmayan bir veya daha fazla mime-türü ile "
+"<p>MIME, Multipurpose Internet (e)Mail Extension, (Çok Amaçlı İnternet E-"
+"posta Uzantısı) protokolü, dosya adı uzantıları ve eşdeğer <u>MIME türleri</"
+"u> temelinde, veri türlerinin tanımlanması için oluşturulmuş yerleşik bir "
+"protokoldür.Örneğin: ‘anadolu.bmp’ dosya adı içindeki, noktadan-sonra-gelen "
+"‘bmp’ kısmı, bu dosyanın bir tür görsel dosyası (Biteşlem Görseli) olduğunu "
+"belirtir. Bunun MIME anlatımı: <u>image/x-bmp</u> şeklinde olacaktır. Her "
+"bir dosya türünü hangi uygulamanın açıp işleyeceğini bilmek için sisteminiz, "
+"uygulamaların bu uzantıları ve MIME türlerini ele alma ve işleme yetenekleri "
+"hakkında bilgilendirilmiş olmalıdır.</p>\n"
+"<p>Eğer uygulamayı bu listede bulunmayan bir veya daha fazla  MIME türü ile "
 "ilişkilendirmek isterseniz <b>Ekle</b>, ilişkiyi kaldırmak için <b>Kaldır</"
-"b>.</p></qt>"
+"b> seçeneklerini kullanın.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:199
@@ -5861,14 +5862,14 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
-"Uygulamanızın işleyebileceği bir dosya tğrğ (mime-türü) eklemek istiyorsanız "
+"Uygulamanızın işleyebileceği bir dosya türü (MIME türü) eklemek istiyorsanız "
 "bu düğmeye tıklayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
-msgstr "Ekle..."
+msgstr "Ekle…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:255
@@ -5877,8 +5878,8 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"Uygulamanızın işleyemeyeceği bir dosya türünü (mime-türü) silmek için "
-"yukarıdaki listeden bir mime-türü seçin ve bu düğmeye tıklayın."
+"Uygulamanızın işleyemeyeceği bir dosya türünü (MIME türü) silmek için "
+"yukarıdaki listeden bir MIME türü seçin ve bu düğmeye tıklayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:258
@@ -5894,7 +5895,7 @@ msgid ""
 "Bus options or to run it as a different user."
 msgstr ""
 "Uygulamanın nasıl çalışacağını ayarlamak için tıklayın, başlatma geri "
-"bildirimi, D-Bus seçenekleri ya da farklı bir kullanıcı olarak çalıştırma "
+"bildirimi, D–Bus seçenekleri veya farklı bir kullanıcı olarak çalıştırma "
 "gibi."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
@@ -5974,7 +5975,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Hesaplanıyor... %1 (%2)\n"
+"Hesaplanıyor… %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:675
@@ -5996,7 +5997,7 @@ msgstr[1] "%1 alt klasör"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Hesaplanıyor...\n"
+msgstr "Hesaplanıyor…\n"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
@@ -6137,7 +6138,7 @@ msgid ""
 msgstr ""
 "Bir klasörün ve içindeki dosyaların yalnızca klasörün sahibi tarafından "
 "silinebilmesini veya adlarının değiştirilebilmesini sağlamak için bu "
-"seçeneği işaretleyin. Diğer kullanıcılar yalnızca 'İçeriği Değiştirme' izni "
+"seçeneği işaretleyin. Diğer kullanıcılar yalnızca ‘İçeriği Değiştirme’ izni "
 "gerektiren bir işlem olan yeni dosya eklemesi yapabilir."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1214
@@ -6405,7 +6406,7 @@ msgstr "&Sağlama Toplamları"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "Hesaplanıyor..."
+msgstr "Hesaplanıyor…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6451,7 +6452,7 @@ msgstr "Hesaplanmış sağlama toplamı ve beklenen sağlama toplamı farklı."
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Sağlama toplamı doğrulanıyor..."
+msgstr "Sağlama toplamı doğrulanıyor…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
@@ -6582,7 +6583,7 @@ msgstr "%1 tarihinden %2 tarihine kadar"
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
 msgid "Search for '%1' with"
-msgstr "'%1' aramasını şununla yap:"
+msgstr "‘%1’ aramasını şununla yap:"
 
 #: widgets/kurifiltersearchprovideractions.cpp:85
 #, kde-format
@@ -6593,7 +6594,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Web Kısayollarını Yapılandır..."
+msgstr "Web Kısayollarını Yapılandır…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6616,9 +6617,9 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
-"Son 'yapıştır' işleminizden bu yana pano içeriği değişti: seçilen veri "
-"biçimi artık uygulanabilir değil. Lütfen yapıştırmak istediğiniz şeyi "
-"yeniden kopyalayın."
+"Son ‘yapıştır’ işleminizden bu yana pano içeriği değişti: Seçili veri biçimi "
+"artık uygulanabilir değil. Lütfen yapıştırmak istediğiniz şeyi yeniden "
+"kopyalayın."
 
 #: widgets/paste.cpp:252
 #, kde-format
@@ -6644,7 +6645,7 @@ msgstr[1] "%1 Ögeyi Yapıştır"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "Pano İçeriğini Yapıştır..."
+msgstr "Pano İçeriğini Yapıştır…"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -6687,7 +6688,7 @@ msgid ""
 msgstr ""
 "Bu işaretlendiğinde, basılan düğme geçerli işin geri kalanındaki tüm sonraki "
 "klasör çakışmalarına uygulanacaktır.\n"
-"Atla'ya basmadığınız sürece, dizindeki var olan bir dosyayla çakışma olması "
+"Atla’ya basmadığınız sürece, dizindeki var olan bir dosyayla çakışma olması "
 "durumunda yine de uyarılacaksınız."
 
 #: widgets/renamedialog.cpp:234
@@ -6769,7 +6770,7 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"Bu eylem, '%1' ögesinin üzerine kendisini yazacak.\n"
+"Bu eylem, ‘%1’ ögesinin üzerine kendisini yazacak.\n"
 "Lütfen yeni bir dosya adı girin:"
 
 #: widgets/renamedialog.cpp:300
@@ -6785,7 +6786,7 @@ msgstr "Hedefin üzerine yazmak ister misiniz?"
 #: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "'%1' içeriğini '%2' ile birleştirmek ister misiniz?"
+msgstr "‘%1’ içeriğini ‘%2’ ile birleştirmek ister misiniz?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6844,17 +6845,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "'%1' adlı daha eski bir öge halihazırda var."
+msgstr "‘%1’ adlı daha eski bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "'%1' adlı bir dosya halihazırda var."
+msgstr "‘%1’ adlı bir dosya halihazırda var."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "'%1' adlı daha yeni bir öge halihazırda var."
+msgstr "‘%1’ adlı daha yeni bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:482
 #, kde-format
@@ -7077,8 +7078,8 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Bu öge çok büyük olduğundan çöp kutusuna taşıma başarısız oldu. Bunun "
-"yerine, kalıcı olarak silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"Bu öge çok büyük olduğundan çöp kutusuna taşıma başarısız oldu. Bunun yerine "
+"kalıcı olarak silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
@@ -7094,11 +7095,11 @@ msgid_plural ""
 "undone.</emphasis>"
 msgstr[0] ""
 "Bu %1 öge çok büyük olduğundan çöp kutusuna taşıma başarısız oldu. Bunun "
-"yerine, kalıcı olarak silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri "
+"yerine kalıcı olarak silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri "
 "alınamaz.</emphasis>"
 msgstr[1] ""
 "Bu %1 öge çok büyük olduğundan çöp kutusuna taşıma başarısız oldu. Bunun "
-"yerine, kalıcı olarak silinsinler mi?<nl/><emphasis strong='true'>Bu eylem "
+"yerine kalıcı olarak silinsinler mi?<nl/><emphasis strong='true'>Bu eylem "
 "geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
@@ -7152,7 +7153,7 @@ msgstr "Bu, uygulamayı başlatır:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal'e tıklayın"
+msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
 
 #~ msgid "Differences"
 #~ msgstr "Farklılıklar"
