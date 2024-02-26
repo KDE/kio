@@ -82,6 +82,7 @@ public:
         , succeeded(false)
         , maximumLocalSize(0)
         , maximumRemoteSize(0)
+        , enableRemoteFolderThumbnail(false)
         , shmid(-1)
         , shmaddr(nullptr)
     {
@@ -130,6 +131,8 @@ public:
     QString tempName;
     KIO::filesize_t maximumLocalSize;
     KIO::filesize_t maximumRemoteSize;
+    // Manage preview for locally mounted remote directories
+    bool enableRemoteFolderThumbnail;
     // Shared memory segment Id. The segment is allocated to a size
     // of extent x extent x 4 (32 bit image) on first need.
     int shmid;
@@ -339,6 +342,7 @@ void PreviewJobPrivate::startPreview()
     KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
     maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
+    enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
     if (bNeedCache) {
         const int longer = std::max(width, height);
@@ -498,7 +502,8 @@ void PreviewJob::slotResult(KJob *job)
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
         } else {
             // For remote items the "IgnoreMaximumSize" plugin property is not respected
-            skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumRemoteSize;
+            // Also we need to check if remote (but locally mounted) folder preview is enabled
+            skipCurrentItem = (!d->ignoreMaximumSize && size > d->maximumRemoteSize) || (d->currentItem.item.isDir() && !d->enableRemoteFolderThumbnail);
         }
         if (skipCurrentItem) {
             d->determineNextFile();
