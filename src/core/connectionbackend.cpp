@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2024 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -19,7 +20,7 @@
 #include <QTemporaryFile>
 #include <cerrno>
 
-#include "kiocoredebug.h"
+#include "kiocoreconnectiondebug.h"
 
 using namespace KIO;
 
@@ -27,8 +28,6 @@ ConnectionBackend::ConnectionBackend(QObject *parent)
     : QObject(parent)
     , state(Idle)
     , socket(nullptr)
-    , len(-1)
-    , cmd(0)
     , signalEmitted(false)
 {
     localServer = nullptr;
@@ -196,11 +195,12 @@ ConnectionBackend *ConnectionBackend::nextPendingConnection()
     Q_ASSERT(localServer);
     Q_ASSERT(!socket);
 
-    // qCDebug(KIO_CORE) << "Got a new connection";
+    qCDebug(KIO_CORE_CONNECTION) << "Got a new connection";
 
     QLocalSocket *newSocket = localServer->nextPendingConnection();
 
     if (!newSocket) {
+        qCDebug(KIO_CORE_CONNECTION) << "... nevermind";
         return nullptr; // there was no connection...
     }
 
@@ -224,8 +224,8 @@ void ConnectionBackend::socketReadyRead()
             return;
         }
 
-        // qCDebug(KIO_CORE) << this << "Got" << socket->bytesAvailable() << "bytes";
-        if (len == -1) {
+        qCDebug(KIO_CORE_CONNECTION) << this << "Got" << socket->bytesAvailable() << "bytes";
+        if (!pendingTask.has_value()) {
             // We have to read the header
             char buffer[HeaderSize];
 
@@ -241,34 +241,31 @@ void ConnectionBackend::socketReadyRead()
             while (*p == ' ') {
                 p++;
             }
-            len = strtol(p, nullptr, 16);
+            auto len = strtol(p, nullptr, 16);
 
             p = buffer + 7;
             while (*p == ' ') {
                 p++;
             }
-            cmd = strtol(p, nullptr, 16);
+            auto cmd = strtol(p, nullptr, 16);
 
-            // qCDebug(KIO_CORE) << this << "Beginning of command" << hex << cmd << "of size" << len;
+            pendingTask = Task{.cmd = static_cast<int>(cmd), .len = len};
+
+            qCDebug(KIO_CORE_CONNECTION) << this << "Beginning of command" << pendingTask->cmd << "of size" << pendingTask->len;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        // qCDebug(KIO_CORE) << socket << "Want to read" << len << "bytes";
-        if (socket->bytesAvailable() >= len) {
-            Task task;
-            task.cmd = cmd;
-            if (len) {
-                task.data = socket->read(len);
-            }
-            len = -1;
+        const auto toRead = std::min<off_t>(socket->bytesAvailable(), pendingTask->len - pendingTask->data.size());
+        qCDebug(KIO_CORE_CONNECTION) << socket << "Want to read" << toRead << "bytes; appending to already existing bytes" << pendingTask->data.size();
+        pendingTask->data += socket->read(toRead);
 
+        if (pendingTask->data.size() == pendingTask->len) { // read all data of this task -> emit it and reset
             signalEmitted = true;
-            Q_EMIT commandReceived(task);
-        } else if (len > StandardBufferSize) {
-            qCDebug(KIO_CORE) << socket << "Jumbo packet of" << len << "bytes";
-            // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
-            socket->setReadBufferSize(len + 1);
+            qCDebug(KIO_CORE_CONNECTION) << "emitting task" << pendingTask->cmd << pendingTask->data.size();
+            Q_EMIT commandReceived(pendingTask.value());
+
+            pendingTask = {};
         }
 
         // If we're dead, better don't try anything.
@@ -277,10 +274,10 @@ void ConnectionBackend::socketReadyRead()
         }
 
         // Do we have enough for an another read?
-        if (len == -1) {
+        if (!pendingTask.has_value()) {
             shouldReadAnother = socket->bytesAvailable() >= HeaderSize;
-        } else {
-            shouldReadAnother = socket->bytesAvailable() >= len;
+        } else { // NOTE: if we don't have data pending we may still have a pendingTask that gets resumed when we get more data!
+            shouldReadAnother = socket->bytesAvailable();
         }
     } while (shouldReadAnother);
 }

@@ -45,6 +45,15 @@ target_link_libraries(threadtest Qt6::Concurrent)
 
 target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
 
+ecm_add_test(
+    connectionbackendtest.cpp
+    ../src/core/connectionbackend.cpp
+    ../src/core/kiocoreconnectiondebug.cpp
+    TEST_NAME connectionbackendtest
+    NAME_PREFIX "kiocore-"
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n
+)
+
 # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     include(FindGem)

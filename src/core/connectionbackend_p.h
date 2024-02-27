@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2024 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -19,7 +20,8 @@ class QTcpServer;
 namespace KIO
 {
 struct Task {
-    int cmd;
+    int cmd = -1;
+    long len = 0;
     QByteArray data;
 };
 
@@ -32,15 +34,14 @@ public:
     QUrl address;
     QString errorString;
 
+    static const int HeaderSize = 10;
+    static const int StandardBufferSize = 32 * 1024;
+
 private:
     QLocalSocket *socket;
     QLocalServer *localServer;
-    long len;
-    int cmd;
+    std::optional<Task> pendingTask = std::nullopt;
     bool signalEmitted;
-
-    static const int HeaderSize = 10;
-    static const int StandardBufferSize = 32 * 1024;
 
 Q_SIGNALS:
     void disconnected();

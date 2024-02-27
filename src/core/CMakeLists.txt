@@ -134,6 +134,15 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
+ecm_qt_declare_logging_category(KF6KIOCore
+    HEADER kiocoreconnectiondebug.h
+    IDENTIFIER KIO_CORE_CONNECTION
+    CATEGORY_NAME kf.kio.core.connection
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "Connection (KIO)"
+    EXPORT KIO
+)
+
 if (UNIX)
    target_sources(KF6KIOCore PRIVATE
       kioglobal_p_unix.cpp
