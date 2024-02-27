@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
-"PO-Revision-Date: 2024-02-25 01:42+0200\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
+"PO-Revision-Date: 2024-02-26 17:08+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -52,10 +52,7 @@ msgid "Unable to create KIO worker: %1"
 msgstr "Nepavyko sukurti KIO darbininko: %1"
 
 #: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
 "secondarg is the filesystem type (e.g. vfat, exfat)"
@@ -63,11 +60,11 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
-"Nepavyksta sukurti simbolinės nuorodos %1.\n"
-"Prašome patikrinti leidimus."
+"Nepavyko sukurti simbolinės nuorodos „%1“.\n"
+"Paskirties failų sistema (%2) nepalaiko simbolinių nuorodų."
 
 #: core/copyjob.cpp:178
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Could not create \"%1\".\n"
 "The destination filesystem (%2) disallows the following characters in folder "
@@ -75,6 +72,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"Nepavyko sukurti „%1“.\n"
+"Paskirties failų sistema (%2) neleidžia aplankų pavadinimuose naudoti šių "
+"simbolių: %3\n"
+"Pasirinkus „Pakeisti“, bet kurie netinkami simboliai (esantys paskirties "
+"aplanko pavadinime) bus pakeisti with an underscore \"_\"."
 
 #: core/copyjob.cpp:186
 #, kde-format
@@ -110,7 +112,7 @@ msgstr "Šiukšlinė"
 #: core/desktopexecparser.cpp:328
 #, kde-format
 msgid "No Exec field in %1"
-msgstr ""
+msgstr "%1 neturi „Exec“ lauko"
 
 #: core/desktopexecparser.cpp:353
 #, kde-format
@@ -132,17 +134,17 @@ msgstr "Programai „%1“ trūksta vykdomojo leidimų."
 #: core/desktopexecparser.cpp:372
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
-msgstr ""
+msgstr "Sintaksės klaida komandoje %1, ateinančioje iš %2"
 
 #: core/desktopexecparser.cpp:501
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr ""
+msgstr "Terminalas %1 nerastas, bandant paleisti %2"
 
 #: core/desktopexecparser.cpp:518
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
-msgstr ""
+msgstr "Sintaksės klaida komandoje %1, bandant paleisti %2"
 
 #: core/global.cpp:81
 #, kde-format
@@ -270,7 +272,7 @@ msgstr "Tyrinėjama"
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
-msgstr "Perkeliama"
+msgstr "Perduodama"
 
 #: core/job.cpp:149
 #, kde-format
@@ -391,12 +393,12 @@ msgstr ""
 "norite tęsti?"
 
 #: core/job.cpp:306
-#, fuzzy, kde-format
+#, kde-format
 msgid "Transfer data"
 msgstr "Perduoti duomenis"
 
 #: core/job.cpp:308
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
@@ -746,16 +748,13 @@ msgstr ""
 "Prašome patikrinti leidimus."
 
 #: core/job_error.cpp:214
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Nepavyksta sukurti simbolinės nuorodos %1.\n"
-"Prašome patikrinti leidimus."
+"Nepavyksta sukurti simbolinės nuorodos ties %1.\n"
+"Paskirties failų sistema nepalaiko simbolinių nuorodų."
 
 #: core/job_error.cpp:220
 #, kde-format
@@ -1178,21 +1177,16 @@ msgstr ""
 "nesuderinamos."
 
 #: core/job_error.cpp:506
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Jūs galite internete paieškoti KDE programos (vadinamos kioslave ar "
-"ioslave), palaikančios šį protokolą. Programų galite ieškoti <a href="
-"\"https://kde-apps.org/\">http://kde-apps.org/</a> ir <a href=\"https://"
-"freshmeat.net/\">http://freshmeat.net/</a>."
+"Internete galite paieškoti programinės įrangos įskiepio (pavadinimu, „KIO "
+"darbininkas“ (angl. KIO worker)), kuris palaiko šį protokolą. Tarp vietų, "
+"kuriose ieškoti, gali būti ir <a href=\"https://store.kde.org/\">https://"
+"store.kde.org</a>."
 
 #: core/job_error.cpp:514
 #, kde-format
@@ -1564,8 +1558,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"Serveryje, nors dabar prijungtame prie interneto, gali nebūti paleista "
-"reikalinga tarnyba (%1)."
+"Gali būti, kad nors serveris šiuo metu prijungtas prie interneto, jame nėra "
+"paleista reikalinga tarnyba (%1)."
 
 #: core/job_error.cpp:727
 #, kde-format
@@ -1687,12 +1681,12 @@ msgstr ""
 #: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
-msgstr "Nepavyko pašalinti sužadinimo įvedimo/išvedimo įrenginiui"
+msgstr "Nepavyko deinicijuoti įvedimo/išvedimo įrenginio"
 
 #: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
-msgstr "Nepavyksta programiškai atjungti įrenginio"
+msgstr "Nepavyko atjungti įrenginio"
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1700,8 +1694,8 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
-"Nurodytam įrenginiui negali būti panaikintas sužadinimas (įrenginio "
-"nepavyksta programiškai atjungti).  Nurodyta klaida buvo: <strong>%1</strong>"
+"Užklausto įrenginio nepavyko deinicijuoti (atjungti). Nurodyta klaida buvo: "
+"<strong>%1</strong>"
 
 #: core/job_error.cpp:797
 #, kde-format
@@ -1710,9 +1704,9 @@ msgid ""
 "user. Even such things as having an open browser window on a location on "
 "this device may cause the device to remain in use."
 msgstr ""
-"Įrenginys gali būti užimtas, tai yra, vis dar naudojamas kitos programos ar "
-"naudotojo.  Netgi tokie dalykai kaip atvertas naršyklės langas šio įrenginio "
-"vietoje gali laikyti įrenginį užimtu."
+"Gali būti, kad įrenginys yra užimtas, tai yra, vis dar naudojamas kitos "
+"programos ar naudotojo. Netgi tokie dalykai, kaip atvertas šiame įrenginyje "
+"naršyklės langas, gali išlaikyti įrenginį užimtą."
 
 #: core/job_error.cpp:802
 #, kde-format
@@ -1721,21 +1715,20 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Jūs galite neturėti leidimų panaikinti įrenginio sužadinimą (programiškai "
-"atjungti).  Unix sistemose dažnai reikia administratoriaus privilegijų "
-"norint nuimti įrenginio sužadinimą."
+"Gali būti, kad neturite leidimų deinicijuoti (atjungti) įrenginio. Unix "
+"sistemose, dažnai, įrenginio deinicijavimui reikia administratoriaus teisių."
 
 #: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Patikrinkite, ar jokia kita programa ar naudotojas nenaudoja įrenginio ir "
-"mėginkite vėl."
+"bandykite dar kartą."
 
 #: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
-msgstr "Negali skaityti iš resurso"
+msgstr "Nepavyksta skaityti iš ištekliaus"
 
 #: core/job_error.cpp:815
 #, kde-format
@@ -1743,18 +1736,18 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
-"Tai reiškia, kad nors resursas <strong>%1</strong> galėjo būti atidarytas, "
-"įvyko klaida skaitant iš jo."
+"Tai reiškia, kad nors išteklius <strong>%1</strong> galėjo būti atvertas, "
+"skaitant jo turinį, įvyko klaida."
 
 #: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "Galbūt Jūs neturite leidimo skaityti iš resurso."
+msgstr "Gali būti, kad neturite leidimo skaityti iš ištekliaus."
 
 #: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
-msgstr "Nepavyksta rašyti į resursą"
+msgstr "Nepavyksta rašyti į išteklių"
 
 #: core/job_error.cpp:834
 #, kde-format
@@ -1762,8 +1755,8 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr ""
-"Tai reiškia, kad nors resursas <strong>%1</strong> galėjo būti atidarytas, "
-"įvyko klaida rašant į jį."
+"Tai reiškia, kad nors išteklius <strong>%1</strong> galėjo būti atvertas, "
+"rašant į jį, įvyko klaida."
 
 #: core/job_error.cpp:837
 #, kde-format
@@ -1773,12 +1766,12 @@ msgstr "Gali būti, kad neturite leidimo rašyti į išteklių."
 #: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
-msgstr "Nepavyksta klausyti laukiant tinklo prisijungimų"
+msgstr "Nepavyksta klausyti laukiant tinklo ryšių"
 
 #: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
-msgstr "Nepavyksta prijungti (bind)"
+msgstr "Nepavyko susieti"
 
 #: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
@@ -1787,9 +1780,8 @@ msgid ""
 "communications (a socket) could not be established to listen for incoming "
 "network connections."
 msgstr ""
-"Tai yra techninė klaida, reiškianti, kad įrenginys tinklo komunikacijoms "
-"(socket) negali būti sukurtas norinti klausyti laukiant įeinančių tinklo "
-"prisijungimų."
+"Tai yra techninė klaida, reiškianti, kad tinklo komunikacijoms reikalingam "
+"įrenginiui (lizdui) nepavyko pradėti klausyti gaunamųjų tinklo ryšių."
 
 #: core/job_error.cpp:864
 #, kde-format
@@ -1799,7 +1791,7 @@ msgstr "Nepavyksta klausyti"
 #: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
-msgstr "Nepavyksta priimti tinklo prisijungimo"
+msgstr "Nepavyksta priimti tinklo ryšio"
 
 #: core/job_error.cpp:878
 #, kde-format
@@ -1807,8 +1799,8 @@ msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr ""
-"Tai yra techninė klaida, reiškianti, kad įvyko klaida bandant priimti "
-"įeinantį tinklo prisijungimą."
+"Tai yra techninė klaida, reiškianti, kad, bandant priimti gaunamą tinklo "
+"ryšį, įvyko klaida."
 
 #: core/job_error.cpp:883
 #, kde-format
@@ -1818,25 +1810,25 @@ msgstr "Galbūt Jūs neturite leidimo priimti prisijungimus."
 #: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
-msgstr "Nepavyksta prisiregistruoti: %1"
+msgstr "Prisijungimas patyrė nesėkmę: %1"
 
 #: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
-"Bandymas prisiregistruoti norint įvykdyti nurodytą operaciją buvo "
+"Bandymas prisijungti, kad galima būtų įvykdyti nurodytą operaciją, buvo "
 "nesėkmingas."
 
 #: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
-msgstr "Nepavyksta nustatyti resurso būklės"
+msgstr "Nepavyko nustatyti ištekliaus būsenos"
 
 #: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
-msgstr "Nepavyksta nustatyti resurso statuso"
+msgstr "Nepavyksta gauti informacijos apie ištekliaus būseną"
 
 #: core/job_error.cpp:909
 #, kde-format
@@ -1844,8 +1836,8 @@ msgid ""
 "An attempt to determine information about the status of the resource <strong>"
 "%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
 msgstr ""
-"Bandymas gauti informaciją apie resurso <strong>%1</strong> būklę, tokią "
-"kaip resurso vardas, tipas, dydis, kt., buvo nesėkmingas."
+"Bandymas nustatyti informaciją apie ištekliaus <strong>%1</strong> būseną, "
+"tokią kaip ištekliaus pavadinimas, tipas, dydis, kt., buvo nesėkmingas."
 
 #: core/job_error.cpp:914
 #, kde-format
@@ -1857,7 +1849,7 @@ msgstr ""
 #: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
-msgstr "Nepavyksta nutraukti sąrašo"
+msgstr "Nepavyksta atsisakyti išvardijimo"
 
 #: core/job_error.cpp:926
 #, kde-format
@@ -1887,7 +1879,8 @@ msgstr "Nepavyksta pašalinti aplanko"
 #: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
-msgstr "Bandymas pašalinti nurodytą aplanką <strong>%1</strong> nepavyko."
+msgstr ""
+"Bandymas pašalinti nurodytą aplanką <strong>%1</strong> patyrė nesėkmę."
 
 #: core/job_error.cpp:948
 #, kde-format
@@ -1897,18 +1890,18 @@ msgstr "Gali būti, kad nurodyto aplanko nėra."
 #: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
-msgstr "Nurodytas aplankas gali būti netuščias."
+msgstr "Gali būti, kad nurodytas aplankas netuščias."
 
 #: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr ""
-"Įsitikinkite, kad aplankas egzistuoja ir yra tuščias, ir bandykite vėl."
+"Įsitikinkite, kad aplankas yra ir, kad jis tuščias, ir bandykite dar kartą."
 
 #: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
-msgstr "Nepavyksta pratęsti failo siuntimo"
+msgstr "Nepavyko pratęsti failo perdavimo"
 
 #: core/job_error.cpp:961
 #, kde-format
@@ -1916,33 +1909,37 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
-"Nurodytas paklausimas paprašė pratęsti failo <strong>%1</strong> siuntimą "
-"nuo nurodyto taško. Tai buvo neįmanoma."
+"Nurodyta užklausa paprašė pratęsti failo <strong>%1</strong> perdavimą nuo "
+"nurodyto taško. Tai buvo neįmanoma."
 
 #: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "Protokolas ar serveris gali nepalaikyti siuntimo tęsimo."
+msgstr ""
+"Gali būti, kad protokolas arba serveris nepalaiko failų persiuntimo "
+"pratęsimo."
 
 #: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr "Bandykite vėl, tik šį kartą be siuntimo pratęsimo nuo nurodyto taško."
+msgstr ""
+"Bandykite dar kartą, tik šį kartą be perdavimo pratęsimo nuo nurodyto taško."
 
 #: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
-msgstr "Nepavyksta pervadinti resurso"
+msgstr "Nepavyko pervadinti ištekliaus"
 
 #: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
-msgstr "Bandymas pervadinti nurodytą resursą <strong>%1</strong> nepavyko."
+msgstr ""
+"Bandymas pervadinti nurodytą išteklių <strong>%1</strong> patyrė nesėkmę."
 
 #: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "Nepavyksta pakeisti resurso leidimų"
+msgstr "Nepavyksta pakeisti ištekliaus leidimų"
 
 #: core/job_error.cpp:989
 #, kde-format
@@ -1950,7 +1947,8 @@ msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Bandymas pakeisti nurodyto resurso <strong>%1</strong> leidimus nepavyko."
+"Bandymas pakeisti nurodyto ištekliaus <strong>%1</strong> leidimus patyrė "
+"nesėkmę."
 
 #: core/job_error.cpp:997
 #, kde-format
@@ -1963,17 +1961,19 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Bandymas pakeisti nurodyto resurso <strong>%1</strong> leidimus nepavyko."
+"Bandymas pakeisti nurodyto ištekliaus <strong>%1</strong> leidimus patyrė "
+"nesėkmę."
 
 #: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
-msgstr "Nepavyksta pašalinti resurso"
+msgstr "Nepavyko ištrinti ištekliaus"
 
 #: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
-msgstr "Bandymas pašalinti nurodytą resursą <strong>%1</strong> nepavyko."
+msgstr ""
+"Bandymas ištrinti nurodytą išteklių <strong>%1</strong> patyrė nesėkmę."
 
 #: core/job_error.cpp:1017
 #, kde-format
@@ -1986,8 +1986,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has unexpectedly terminated."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis <strong>%1</"
-"strong>  protokolu, netikėtai baigė darbą."
+"Jūsų kompiuteryje esanti programa, kuri suteikia galimybę naudotis <strong>"
+"%1</strong> protokolu, netikėtai baigė darbą."
 
 #: core/job_error.cpp:1027
 #, kde-format
@@ -2000,8 +2000,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol could not obtain the memory required to continue."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis %1 protokolu, "
-"negali gauti atminties, reikalingos tolesniam darbui."
+"Jūsų kompiuteryje esanti programa, suteikianti prieigą prie <strong>%1</"
+"strong> protokolo, negali gauti tolesniam darbui reikalingos atminties."
 
 #: core/job_error.cpp:1038
 #, kde-format
@@ -2016,8 +2016,8 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "Gaunant informaciją apie nurodytą įgaliotojo serverio mazgą <strong>%1</"
-"strong>, gauta klaida „nežinomas mazgas“.  Nežinomo mazgo klaida reiškia, "
-"kad nurodytas vardas negali būti rastas internete."
+"strong>, gauta klaida „nežinomas mazgas“. Nežinomo mazgo klaida reiškia, kad "
+"nepavyko rasti internete nurodyto vardo."
 
 #: core/job_error.cpp:1046
 #, kde-format
@@ -2026,20 +2026,20 @@ msgid ""
 "your proxy's hostname. If you have been accessing the Internet with no "
 "problems recently, this is unlikely."
 msgstr ""
-"Gali būti problemų su jūsų tinklo konfigūracija, konkrečiai su įgaliotojo "
-"serverio mazgo vardu. Tačiau jei nesenai naudojotės internetu be problemų, "
-"vargu ar taip yra."
+"Gali būti, kad kilo problemų su jūsų tinklo konfigūracija, konkrečiai su "
+"įgaliotojo serverio mazgo vardu. Tačiau, jei pastaruoju metu naudojotės "
+"internetu be jokių problemų, tuomet tai yra mažai tikėtina."
 
 #: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr ""
-"Pakartotinai patikrinkite įgaliotojo serverio nuostatas ir mėginkite vėl."
+"Dar kartą patikrinkite įgaliotojo serverio nuostatas ir bandykite dar kartą."
 
 #: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Autentikacija nepavyko: metodas %1 nepalaikomas"
+msgstr "Nepavyko nustatyti tapatybės: metodas %1 nepalaikomas"
 
 #: core/job_error.cpp:1056
 #, kde-format
@@ -2048,9 +2048,9 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"Nors Jūs galėjote pateikti teisingas autentikacijos detales, autentikacija "
-"nepavyko, nes serverio naudojamas metodas nėra palaikomas KDE programos, "
-"įgyvendinančios %1 protokolą."
+"Nors, galbūt, pateikėte teisingą tapatybės nustatymo informaciją, nepavyko "
+"suteikti įgaliojimų, nes serverio naudojamas metodas nėra palaikomas KDE "
+"programos, įgyvendinančios %1 protokolą."
 
 #: core/job_error.cpp:1062
 #, kde-format
@@ -2058,19 +2058,19 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
-"Prašome nusiųsti pranešimą apie programos klaidą į <a href=\"https://bugs."
-"kde.org/\">https://bugs.kde.org/</a>, kad informuoti KDE komandą apie "
-"nepalaikomą autentikacijos metodą."
+"Prašome pateikti pranešimą apie programos klaidą, adresu <a href=\"https://"
+"bugs.kde.org/\">https://bugs.kde.org/</a>, kad informuotumėte KDE komandą "
+"apie nepalaikomą tapatybės nustatymo metodą."
 
 #: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
-msgstr "Paklausimas nutrauktas"
+msgstr "Užklausa nutraukta"
 
 #: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
-msgstr "Vidaus klaida serveryje"
+msgstr "Vidinė klaida serveryje"
 
 #: core/job_error.cpp:1079
 #, kde-format
@@ -2078,8 +2078,8 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"Programa serveryje, suteikianti galimybę naudotis <strong>%1</strong> "
-"protokolu, pranešė apie vidinę klaidą: %2."
+"Serveryje esanti programa, suteikianti prieigą prie <strong>%1</strong> "
+"protokolo, pranešė apie vidinę klaidą: %2."
 
 #: core/job_error.cpp:1085
 #, kde-format
@@ -2087,13 +2087,13 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"Greičiausiai tai pačios serverio programos klaida. Pagalvokite apie pilno "
-"klaidos aprašymo nusiuntimą, kaip aprašyta žemiau."
+"Greičiausiai, tai pačios serverio programos klaida. Apsvarstykite galimybę "
+"pateikti visą pranešimą apie klaidą, kaip tai aprašyta žemiau."
 
 #: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr "Kreipkitės į serverio administratorių dėl tolesnės pagalbos."
+msgstr "Susisiekite su serverio administratoriumi dėl tolesnės pagalbos."
 
 #: core/job_error.cpp:1092
 #, kde-format
@@ -2101,8 +2101,8 @@ msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
 msgstr ""
-"Jei žinote serverio programinės įrangos autorius, nusiųskite pranešimą apie "
-"ydą tiesiogiai jiems."
+"Jei žinote, kas yra serverio programinės įrangos autoriai, išsiųskite "
+"pranešimą apie klaidą tiesiogiai jiems."
 
 #: core/job_error.cpp:1097
 #, kde-format
@@ -2110,7 +2110,7 @@ msgid "Timeout Error"
 msgstr "Laiko limito klaida"
 
 #: core/job_error.cpp:1099
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request as follows:"
@@ -2120,19 +2120,19 @@ msgid ""
 "settings in the KDE System Settings, by selecting Network Settings -> "
 "Connection Preferences."
 msgstr ""
-"Nors kontaktas su serveriu ir įvyko, atsakymas nebuvo gautas per laiką, "
-"skirtą paklausimui, kaip nurodyta žemiau: <ul> <li>Laiko limitas sukurti "
-"prisijungimą: %1 sekundžių</li> <li>Laiko limitas gauti atsakymą: %2 "
-"sekundžių</li> <li>Laiko limitas prisijungti prie įgaliotųjų serverių: %3 "
-"sekundžių</li> </ul> Pastaba: Jūs galite pakeisti šiuos laiko limitus KDE "
-"valdymo centre pasirinkę Tinklas -> Pasirinkimai"
+"Nors kontaktas su serveriu buvo užmegztas, atsakymo nebuvo gauta per laiką, "
+"skirtą užklausai, kaip nurodyta žemiau:<ul> <li>Ryšio užmezgimo laiko "
+"limitas: %1 sekundžių</li> <li>Atsakymo gavimo laiko limitas: %2 sekundžių</"
+"li><li>Prieigos prie įgaliotųjų serverių laiko limitas: %3 sekundžių</li> </"
+"ul> Turėkite omenyje, kad šias laiko limitų reikšmes galite keisti KDE "
+"sistemos nuostatose, pasirinkę Tinklo nuostatos -> Ryšio nuostatos."
 
 #: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
-"Serveris buvo pernelyg užimtas atsakinėdamas į kitus paklausimus, kad "
-"atsakyti į Jūsų."
+"Serveris buvo pernelyg užimtas atsakinėdamas į kitas užklausas, kad neatsakė "
+"į jūsų."
 
 #: core/job_error.cpp:1118 core/slavebase.cpp:1524
 #, kde-format
@@ -2145,8 +2145,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis <strong>%1</"
-"strong>  protokolu, pranešė apie nežinomą klaidą: %2."
+"Jūsų kompiuteryje esanti programa, suteikianti prieigą prie <strong>%1</"
+"strong> protokolo, pranešė apie nežinomą klaidą: %2."
 
 #: core/job_error.cpp:1130
 #, kde-format
@@ -2159,13 +2159,13 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
-"Programa Jūsų kompiuteryje, suteikianti galimybę naudotis <strong>%1</"
-"strong>  protokolu, pranešė apie nežinomo tipo pertrauktį: %2."
+"Jūsų kompiuteryje esanti programa, suteikianti prieigą prie <strong>%1</"
+"strong> protokolo, pranešė apie nežinomo tipo pertrauktį: %2."
 
 #: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "Nepavyksta pašalinti originalaus failo"
+msgstr "Nepavyko ištrinti pradinio failo"
 
 #: core/job_error.cpp:1144
 #, kde-format
@@ -2174,14 +2174,14 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"Nurodytai operacijai atlikti reikėjo pašalinti originalią failą, "
-"greičiausiai failo perkėlimo operacijos pabaigoje.  Originali failas <strong>"
-"%1</strong> negali būti pašalinta."
+"Nurodyta operacija reikalavo ištrinti pradinį failą, greičiausiai, failo "
+"perkėlimo operacijos pabaigoje. Nepavyko ištrinti pradinio failo <strong>%1</"
+"strong>."
 
 #: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "Nepavyksta pašalinti laikinos failo"
+msgstr "Nepavyko ištrinti laikinojo failo"
 
 #: core/job_error.cpp:1155
 #, kde-format
@@ -2190,14 +2190,14 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"Nurodytai operacijai atlikti reikėjo sukurti laikiną failą išsaugoti naują "
-"atsisiunčiamą failą.  Ši laikina failas <strong>%1</strong> negali būti "
-"pašalinta."
+"Nurodyta operacija reikalavo sukurti laikinąjį failą, į kurį būtų įrašytas "
+"naujas atsiunčiamas failas. Nepavyko ištrinti šio laikinojo failo <strong>"
+"%1</strong>."
 
 #: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "Nepavyksta pervadinti originalaus failo"
+msgstr "Nepavyko pervadinti pradinio failo"
 
 #: core/job_error.cpp:1167
 #, kde-format
@@ -2205,13 +2205,13 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"Nurodytai operacijai atlikti reikėjo pervadinti originalų failą <strong>%1</"
-"strong>, tačiau jis negalėjo būti pervadintas."
+"Nurodyta operacija reikalavo pervadinti pradinį failą <strong>%1</strong>, "
+"vis dėlto, jo nepavyko pervadinti."
 
 #: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Nepavyksta pervadinti laikinojo failo"
+msgstr "Nepavyko pervadinti laikinojo failo"
 
 #: core/job_error.cpp:1178
 #, kde-format
@@ -2219,23 +2219,23 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
-"Nurodytai operacijai atlikti reikėjo sukurti laikiną failą <strong>%1</"
-"strong>, tačiau jis negalėjo būti sukurtas."
+"Nurodyta operacija reikalavo sukurti laikinąjį failą <strong>%1</strong>, "
+"vis dėlto, jo nepavyko sukurti."
 
 #: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
-msgstr "Nepavyksta sukurti nuorodos"
+msgstr "Nepavyko sukurti nuorodos"
 
 #: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
-msgstr "Nepavyksta sukurti simbolinės nuorodos"
+msgstr "Nepavyko sukurti simbolinės nuorodos"
 
 #: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr "Prašoma simbolinė nuoroda %1 negali būti sukurta."
+msgstr "Nepavyko sukurti užklaustos simbolinės nuorodos %1."
 
 #: core/job_error.cpp:1195
 #, kde-format
@@ -2253,8 +2253,8 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"Į nurodytą failą <strong>%1</strong> negali būti įrašoma, nes nėra "
-"pakankamai vietos diske."
+"Nepavyko rašyti į nurodytą failą <strong>%1</strong>, nes nėra pakankamai "
+"vietos diske."
 
 #: core/job_error.cpp:1206
 #, kde-format
@@ -2263,9 +2263,10 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"Atlaisvinkite užtektinai vietos diske 1) ištrindami nereikalingus ir "
-"laikinus failus; 2) perkeldami failus į keičiamas informacijos saugojimo "
-"laikmenas, tokias kaip CD-rašomi diskai; ar 3) įsigydami daugiau diskų."
+"Atlaisvinkite pakankamai vietos diske 1) ištrindami nereikalingus ir "
+"laikinuosius failus; 2) perkeldami failus į keičiamąsias informacijos "
+"saugojimo laikmenas, tokias kaip CD-rašomi diskai; ar 3) įsigydami didesnės "
+"talpos saugyklą."
 
 #: core/job_error.cpp:1213
 #, kde-format
@@ -2328,19 +2329,19 @@ msgid "Could not communicate with password server"
 msgstr "Nepavyko susisiekti su slaptažodžių serveriu"
 
 #: core/job_error.cpp:1245
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
-"Operacija negali būti įvykdyta, nes išeities ir paskirties failas yra tas "
-"pats."
+"Nepavyko užbaigti operacijos, nes nepavyko susisiekti su slaptažodžių "
+"užklausos tarnyba (kpasswdserver)"
 
 #: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
-"Bandykite iš naujo paleisti seansą arba peržiūrėkite žurnaluse esančias "
+"Bandykite iš naujo paleisti seansą arba peržiūrėkite žurnaluose esančias "
 "klaidas iš kiod."
 
 #: core/job_error.cpp:1251
@@ -2430,6 +2431,31 @@ msgstr ""
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Nepavyko nustatyti %1 failo tipo"
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Nepavyko išskleisti vykdomojo pavadinimo iš „%1“, įrašykite teisingą "
+"programos pavadinimą."
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr "Atrodo, kad <filename>%1</filename> nėra vykdomoji programa."
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
+msgstr ""
+"<filename>%1</filename> nerastas; įveskite tinkamą kelią į vykdomąją "
+"programą."
 
 #: core/slavebase.cpp:845
 #, kde-format
@@ -3095,18 +3121,16 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Tik aplankai gali būti įtraukti į Vietų skydelį."
 
 #: filewidgets/kfileplacesmodel.cpp:1363
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Releasing…"
+msgstr "Atlaisvinama…"
 
 #: filewidgets/kfileplacesmodel.cpp:1365
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "iš&laisvinti „%1“"
+msgstr "A&tlaisvinti"
 
 #: filewidgets/kfileplacesmodel.cpp:1369
 #, kde-format
@@ -4264,7 +4288,7 @@ msgstr "Nepavyko gauti naudotojo id pateiktam naudotojui %1"
 #: kioworkers/file/file_unix.cpp:1358
 #, kde-format
 msgid "Could not get group id for given group name %1"
-msgstr ""
+msgstr "Nepavyko gauti nurodytos grupės pavadinimo %1 grupės ID"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
@@ -4902,8 +4926,7 @@ msgstr "Atšaukti pakeitimus"
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
-"Šio veiksmo atšaukimui reikia pagrindinio naudotojo (root) teisių. Ar norite "
-"tęsti?"
+"Šio veiksmo atšaukimui reikia supernaudotojo (root) teisių. Ar norite tęsti?"
 
 #: widgets/fileundomanager.cpp:132
 #, kde-format
@@ -4938,7 +4961,7 @@ msgstr "Atša&ukti: Kopijuoti"
 #: widgets/fileundomanager.cpp:308
 #, kde-format
 msgid "Und&o: Link"
-msgstr ""
+msgstr "Atša&ukti: Sukurti nuorodą"
 
 #: widgets/fileundomanager.cpp:310
 #, kde-format
@@ -5444,17 +5467,17 @@ msgstr "Naudota:"
 msgid "Open With:"
 msgstr "Atverti naudojant:"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "Žinomos programos"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "Atverti naudojant"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5463,20 +5486,20 @@ msgstr ""
 "<qt>Nurodykite programą, kurią naudosite atverti <b>%1</b>. Jei tokios "
 "programos nėra, įrašykite pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr ""
 "Pasirinkite pavadinimą programos, kurią naudodami atversite pažymėtus failus."
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 "<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti failą<br/>%1</"
 "qt>"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5490,17 +5513,17 @@ msgstr[2] ""
 msgstr[3] ""
 "<qt>Pasirinkite programą, kurią naudodami norėtumėte atverti %1 failą.</qt>"
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "Pasirinkite programą"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Pasirinkite programą, skirtą %1"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5509,7 +5532,7 @@ msgstr ""
 "<qt>Pasirinkite programą, skirtą failo tipui <b>%1</b>. Jei tokios programos "
 "sąraše nėra, įrašykite pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5518,14 +5541,17 @@ msgstr ""
 "<qt>Pasirinkite programą. Jei tokios programos sąraše nėra, įrašykite "
 "vykdomojo failo pavadinimą, arba paspauskite naršymo mygtuką.</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
+"Rašykite, norėdami filtruoti žemiau esančias programas arba nurodyti "
+"komandos pavadinimą.\n"
+"Paspauskite rodyklę žemyn, norėdami naršyti rezultatus."
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5554,7 +5580,7 @@ msgstr ""
 "%m - mini-piktograma\n"
 "%c - komentaras"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5563,7 +5589,7 @@ msgstr ""
 "Į&siminti programos susiejimus su visais failais, kurių tipas\n"
 "„%1“ (%2)"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5572,50 +5598,25 @@ msgstr ""
 "Į&siminti programos susiejimus visiems failams, kurių tipas\n"
 "„%1“"
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
 msgstr "Terminalo parinktys"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Paleisti &terminale"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Neužverti komandai baigus darbą"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Gauti daugiau programų iš Discover"
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr ""
-"Nepavyko išskleisti vykdomojo pavadinimo iš „%1“, įrašykite teisingą "
-"programos pavadinimą."
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "Atrodo, kad <filename>%1</filename> nėra vykdomoji programa."
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
-msgstr ""
-"<filename>%1</filename> nerastas; įveskite tinkamą kelią į vykdomąją "
-"programą."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -6414,7 +6415,7 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"Jei „Lipni“ vėliavėlė nustatyta aplankui, tik savininkas ir administratorius "
+"Jei „Lipni“ vėliavėlė nustatyta aplankui, tik savininkas ir supernaudotojas "
 "(root) galės ištrinti ar pervadinti failus. Kitu atveju visi, turintys "
 "rašymo leidimus, galėtų tai daryti."
 
@@ -7026,7 +7027,7 @@ msgstr "Praleisti visus"
 #: widgets/sslinfo.ui:17
 #, kde-format
 msgid "[padlock]"
-msgstr ""
+msgstr "[spyna]"
 
 #. i18n: ectx: property (text), widget (QLabel, addressTag)
 #: widgets/sslinfo.ui:34
@@ -7101,6 +7102,8 @@ msgid ""
 "The remote host did not send any SSL certificates.\n"
 "Aborting because the identity of the host cannot be established."
 msgstr ""
+"Nuotolinis mazgas neatsiuntė jokių SSL liudijimų.\n"
+"Nutraukiama, nes nepavyko nustatyti mazgo tapatybės."
 
 #: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
 #, kde-format

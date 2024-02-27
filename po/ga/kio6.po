@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2336,6 +2336,28 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
+msgstr ""
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Níorbh fhéidir ainm an chláir inrite a fháil ó '%1'. Cuir ainm bailí isteach."
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr ""
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
 msgstr ""
 
 #: core/slavebase.cpp:845
@@ -5474,17 +5496,17 @@ msgstr "Rochtain:"
 msgid "Open With:"
 msgstr "Oscail Le"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "Feidhmchláir Aitheanta"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "Oscail Le"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5494,17 +5516,17 @@ msgstr ""
 "Mura bhfuil an ríomhchlár sa liosta, cuir an t-ainm isteach nó cliceáil an "
 "cnaipe 'Brabhsáil'.</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "Roghnaigh ainm an chláir lena n-osclófar na comhaid roghnaithe."
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5515,17 +5537,17 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "Roghnaigh Feidhmchlár"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Roghnaigh Feidhmchlár le haghaidh %1"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5535,7 +5557,7 @@ msgstr ""
 "seo a oscailt: <b>%1</b>. Mura bhfuil sé sa liosta, cuir an t-ainm isteach "
 "nó cliceáil an cnaipe 'Brabhsáil'.</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5544,14 +5566,14 @@ msgstr ""
 "<qt>Roghnaigh ríomhchlár. Mura bhfuil an ceann atá uait sa liosta, cuir an t-"
 "ainm isteach nó cliceáil an cnaipe 'Brabhsáil'.</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5581,7 +5603,7 @@ msgstr ""
 "%m - deilbhín beag\n"
 "%c - nóta"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5591,7 +5613,7 @@ msgstr ""
 "&Meabhraigh go bhfuil an feidhmchlár seo comhcheangailte leis an gcineál "
 "comhaid seo"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5601,47 +5623,25 @@ msgstr ""
 "&Meabhraigh go bhfuil an feidhmchlár seo comhcheangailte leis an gcineál "
 "comhaid seo"
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "&Terminal options:"
 msgid "Terminal options"
 msgstr "&Roghanna an teirminéil:"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Rith i d&teirminéal"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "Ná &dún nuair a stopann an t-ordú"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr ""
-"Níorbh fhéidir ainm an chláir inrite a fháil ó '%1'. Cuir ainm bailí isteach."
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)

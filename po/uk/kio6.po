@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2024-01-22 08:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2426,6 +2426,31 @@ msgstr ""
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Не вдалося визначити тип файла %1"
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Неможливо отримати назву програми з «%1», будь ласка, введіть чинну назву "
+"програми."
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr "Здається, <filename>%1</filename> не є виконуваною програмою."
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
+msgstr ""
+"<filename>%1</filename> не знайдено. Будь ласка, вкажіть чинний шлях до "
+"виконуваної програми."
 
 #: core/slavebase.cpp:845
 #, kde-format
@@ -5448,17 +5473,17 @@ msgstr "Останній доступ:"
 msgid "Open With:"
 msgstr "Відкрити за допомогою:"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "Відомі програми"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "Відкрити за допомогою"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5468,19 +5493,19 @@ msgstr ""
 "програми немає у переліку, введіть назву або скористайтеся кнопкою навігації."
 "</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "Виберіть назву програми, якою ви хочете відкрити вибрані файли."
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 "<qt>Виберіть програму, якою ви хочете скористатися для відкриття файла<br/>"
 "%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5497,17 +5522,17 @@ msgstr[2] ""
 msgstr[3] ""
 "<qt>Виберіть програму, якою ви хочете скористатися для відкриття файла.</qt>"
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "Виберіть програму"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Виберіть програму для %1"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5516,7 +5541,7 @@ msgstr ""
 "<qt>Виберіть програму для файлів типу: <b>%1</b>. Якщо програму не наведено "
 "в списку, введіть її назву або скористайтеся кнопкою навігації.</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5525,7 +5550,7 @@ msgstr ""
 "<qt>Виберіть програму. Якщо програму не наведено в списку, введіть її назву "
 "або скористайтеся кнопкою навігації.</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5535,7 +5560,7 @@ msgstr ""
 "команди.\n"
 "Натисніть кнопку зі стрілкою вниз для гортання списку результатів."
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5564,7 +5589,7 @@ msgstr ""
 "%m — міні-піктограма\n"
 "%c — коментар"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5573,7 +5598,7 @@ msgstr ""
 "&Зберегти прив'язку для усіх файлів типу\n"
 "«%1» (%2)"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5582,50 +5607,25 @@ msgstr ""
 "&Зберегти прив'язку для усіх файлів типу\n"
 "«%1»"
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
 msgstr "Параметри термінала"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Запустити у &терміналі"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Не закривати після завершення виконання програми"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Отримати інші програми з Discover"
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr ""
-"Неможливо отримати назву програми з «%1», будь ласка, введіть чинну назву "
-"програми."
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "Здається, <filename>%1</filename> не є виконуваною програмою."
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
-msgstr ""
-"<filename>%1</filename> не знайдено. Будь ласка, вкажіть чинний шлях до "
-"виконуваної програми."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29

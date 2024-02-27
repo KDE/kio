@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2024-02-10 17:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2347,6 +2347,28 @@ msgstr ""
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "غير قادر على تحديد نوع الملف لـ%1"
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr "تعذّر استخراج اسم التّنفيذيّ من ’%1‘، رجاءً اكتب اسم برنامج صالح."
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr "لا يبدو الملف <filename>%1</filename> برنامجا تنفيذيا."
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
+msgstr ""
+"لم يعثر على <filename>%1</filename>، الرجاء إدخال مسار صالح لبرنامج تنفيذي."
 
 #: core/slavebase.cpp:845
 #, kde-format
@@ -5364,17 +5386,17 @@ msgstr "آخر وصول:"
 msgid "Open With:"
 msgstr "افتح باستخدام:"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "التّطبيقات المعروفة"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "افتح باستخدام"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5384,17 +5406,17 @@ msgstr ""
 "البرنامج غير موجود في القائمة، أدخل اسم البرنامج أو أضغط على رز الاستعراض.</"
 "qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "اختر اسم البرنامج الذي تريد فتح الملفات المختارة به."
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr "<qt>اختر اسم البرنامج الذي تريد فتح به.<br/>%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5406,17 +5428,17 @@ msgstr[3] "<qt> اختر اسم البرنامج الذي تريد فتح به %
 msgstr[4] "<qt> اختر اسم البرنامج الذي تريد فتح به %1 ملفا.</qt>"
 msgstr[5] "<qt> اختر اسم البرنامج الذي تريد فتح به %1 ملف.</qt>"
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "اختر تطبيقًا"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "اختر تطبيقًا لِ‍ %1"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5425,7 +5447,7 @@ msgstr ""
 "<qt>اختر البرنامج لنوع الملف :<b>%1</b>. إذا لم يكن البرنامج موجودا في "
 "القائمة، أدخل اسم البرنامج أو أضغط على زر الاستعراض.</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5433,7 +5455,7 @@ msgid ""
 msgstr ""
 "<qt> اختر برنامجا. إذا لم يكن في القائمة، أدخل الاسم أو انقر زر التصفح.</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5442,7 +5464,7 @@ msgstr ""
 "اكتب لتصفية التطبيقات أدناه ، أو حدد اسم الأمر. \n"
 "اضغط على السهم لأسفل للتنقل في النتائج. "
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5470,7 +5492,7 @@ msgstr ""
 "%m - رمز صغير\n"
 "%c - تعليق"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5479,7 +5501,7 @@ msgstr ""
 "&تذكر البرنامج المرفق لهذا النوع من الملفات\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5488,47 +5510,25 @@ msgstr ""
 "&تذكر البرنامج المرفق لهذا النوع من الملفات\n"
 "\"%1\""
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
 msgstr "خيارات  الطرفية"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "شغّل في ال&طّرفيّة"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&لا تُغلق عندما يخرج الأمر"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "احصل على المزيد من التطبيقات على المستكشف"
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr "تعذّر استخراج اسم التّنفيذيّ من ’%1‘، رجاءً اكتب اسم برنامج صالح."
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "لا يبدو الملف <filename>%1</filename> برنامجا تنفيذيا."
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
-msgstr ""
-"لم يعثر على <filename>%1</filename>، الرجاء إدخال مسار صالح لبرنامج تنفيذي."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2024-01-22 16:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2282,6 +2282,27 @@ msgstr ""
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "無法決定 %1 的檔案類型"
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr "<filename>%1</filename> 看來不是可執行的程式。"
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
+msgstr "找不到 <filename>%1</filename>；請輸入指向可執行程式的有效路徑。"
 
 #: core/slavebase.cpp:845
 #, kde-format
@@ -5204,17 +5225,17 @@ msgstr "存取時間："
 msgid "Open With:"
 msgstr "開啟方式："
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "已知的應用程式"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "開啟方式"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5223,34 +5244,34 @@ msgstr ""
 "<qt>選取用來開啟 <b>%1</b> 的程式。如果程式不在清單中，請輸入程式名稱或按一下"
 "瀏覽按鈕。</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "選擇用來開啟選定檔案的程式名稱。"
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr "<qt>選取您想要用於開啟檔案的程式<br/>%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] "<qt>選取您想要用於開啟檔案 %1 的程式。</qt>"
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "選擇應用程式"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "為 %1 選擇應用程式"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5259,7 +5280,7 @@ msgstr ""
 "<qt>選取開啟檔案類型 <b>%1</b> 使用的程式。如果要使用的程式不在清單中，請輸入"
 "程式名稱或按一下瀏覽按鈕。</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5268,7 +5289,7 @@ msgstr ""
 "<qt>請選擇程式。如果所需程式不在清單中，請輸入程式名稱或按一下[瀏覽]按鈕。</"
 "qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5277,7 +5298,7 @@ msgstr ""
 "輸入以過濾以在下方過濾應用程式，或是指定指令名稱。\n"
 "按方向鍵下以查看結果。"
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5304,7 +5325,7 @@ msgstr ""
 "%m - 小型圖示\n"
 "%c - 註解"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5313,53 +5334,32 @@ msgstr ""
 "記住所有檔案類型為「%1」 (%2)應用程式\n"
 "關聯(&R)"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr "為所有以下類型的檔案記住應用程式關聯(&R)\"%1\""
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
 msgstr "終端機選項"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "於終端機執行(&T)"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "當指令存在時不要關閉(&D)"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "從 Discover 取得更多應用程式"
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "<filename>%1</filename> 看來不是可執行的程式。"
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
-msgstr "找不到 <filename>%1</filename>；請輸入指向可執行程式的有效路徑。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29

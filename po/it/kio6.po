@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2024-01-23 21:49+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2455,6 +2455,31 @@ msgstr ""
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Impossibile determinare il tipo di file per %1"
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Impossibile estrarre il nome dell'eseguibile da «%1», digita un nome di "
+"programma valido."
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr "<filename>%1</filename> non sembra essere un programma eseguibile."
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
+msgstr ""
+"<filename>%1</filename> non è stato trovato; inserisci un percorso valido "
+"per un programma eseguibile."
 
 #: core/slavebase.cpp:845
 #, kde-format
@@ -5470,17 +5495,17 @@ msgstr "Ultimo accesso:"
 msgid "Open With:"
 msgstr "Apri con:"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "Applicazioni conosciute"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "Apri con"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5489,18 +5514,18 @@ msgstr ""
 "<qt>Seleziona il programma da usare per aprire <b>%1</b>. Se il programma "
 "non è nella lista, immetti il nome o fai clic sul pulsante sfoglia.</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "Scegli il nome del programma con cui aprire i file selezionati."
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 "<qt>Seleziona il programma che vuoi usare per aprire il file<br/>%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5509,17 +5534,17 @@ msgstr[0] "<qt>Seleziona il programma che vuoi usare per aprire il file.</qt>"
 msgstr[1] ""
 "<qt>Seleziona il programma che vuoi usare per aprire i %1 file.</qt>"
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "Scegli applicazione"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Scegli l'applicazione per %1"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5528,7 +5553,7 @@ msgstr ""
 "<qt>Seleziona il programma per il tipo di file <b>%1</b>. Se il programma "
 "non è nella lista, immetti il nome o fai clic sul pulsante sfoglia.</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5537,7 +5562,7 @@ msgstr ""
 "<qt>Seleziona un programma. Se il programma non è nella lista, immetti il "
 "nome o fai clic sul pulsante sfoglia.</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5547,7 +5572,7 @@ msgstr ""
 "comando.\n"
 "Premi la freccia in basso per navigare tra i risultati."
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5576,7 +5601,7 @@ msgstr ""
 "%m - la mini-icona\n"
 "%c - il commento"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5585,7 +5610,7 @@ msgstr ""
 "&Ricorda l'associazione dell'applicazione per tutti i file di tipo\n"
 "«%1» (%2)"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5594,50 +5619,25 @@ msgstr ""
 "&Ricorda l'associazione dell'applicazione per tutti i file di tipo\n"
 "«%1»"
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
 msgstr "Opzioni del terminale"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Esegui in un &terminale"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Non chiudere quando il comando termina"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Ottieni altre applicazioni tramite Discover"
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr ""
-"Impossibile estrarre il nome dell'eseguibile da «%1», digita un nome di "
-"programma valido."
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "<filename>%1</filename> non sembra essere un programma eseguibile."
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
-msgstr ""
-"<filename>%1</filename> non è stato trovato; inserisci un percorso valido "
-"per un programma eseguibile."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29

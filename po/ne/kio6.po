@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-17 00:36+0000\n"
+"POT-Creation-Date: 2024-02-27 00:35+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2442,6 +2442,27 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
+msgstr ""
+
+#: core/openwith.cpp:88
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+
+#: core/openwith.cpp:140
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> does not appear to be an executable program."
+msgstr ""
+
+#: core/openwith.cpp:141
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<filename>%1</filename> was not found; please enter a valid path to an "
+"executable program."
 msgstr ""
 
 #: core/slavebase.cpp:845
@@ -5650,17 +5671,17 @@ msgstr "पहुँच प्राप्त भयो:"
 msgid "Open With:"
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:298
+#: widgets/kopenwithdialog.cpp:299
 #, kde-format
 msgid "Known Applications"
 msgstr "ज्ञात अनुप्रयोग"
 
-#: widgets/kopenwithdialog.cpp:556
+#: widgets/kopenwithdialog.cpp:557
 #, kde-format
 msgid "Open With"
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:561
+#: widgets/kopenwithdialog.cpp:562
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5669,17 +5690,17 @@ msgstr ""
 "<qt>कार्यक्रम चयन गर्नुहोस् जुन <b>%1</b> खोल्न प्रयोग हुन सक्छ । यदि कार्यक्रम सूचित "
 "नगरेमा, नाम प्रविष्ट गर्नुहोस् वा ब्राउज बटन क्लिक गर्नुहोस् ।</qt>"
 
-#: widgets/kopenwithdialog.cpp:568
+#: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "चयन गरिएका फाइलहरू खोल्नका लागि कार्यक्रमको नाम रोज्नुहोस् ।"
 
-#: widgets/kopenwithdialog.cpp:589
+#: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5687,17 +5708,17 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
+#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
 msgid "Choose Application"
 msgstr "अनुप्रयोग रोज्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:611
+#: widgets/kopenwithdialog.cpp:612
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "%1 का लागि अनुप्रयोग रोज्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:614
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5706,7 +5727,7 @@ msgstr ""
 "<qt>फाइल प्रकार: <b>%1</b> का लागि कार्यक्रम रोज्नुहोस् । यदि कार्यक्रम सूचिकृत गरेको "
 "छैन भने, नाम प्रविष्ट गर्नुहोस् वा ब्राउज बटन क्लिक गर्नुहोस् ।</qt>"
 
-#: widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:630
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5715,14 +5736,14 @@ msgstr ""
 "<qt>कार्यक्रम रोज्नुहोस् । यदि कार्यक्रम सूचीकृत गरिएको छैन भने नाम प्रविष्ट गर्नुहोस् वा "
 "ब्राउज बटन क्लिक गर्नुहोस् ।</qt>"
 
-#: widgets/kopenwithdialog.cpp:675
+#: widgets/kopenwithdialog.cpp:676
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:698
+#: widgets/kopenwithdialog.cpp:699
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5750,7 +5771,7 @@ msgstr ""
 "%m - सानो-प्रतिमा\n"
 "%c -टिप्पणी"
 
-#: widgets/kopenwithdialog.cpp:741
+#: widgets/kopenwithdialog.cpp:742
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5758,7 +5779,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr "यो प्रकारको फाइलका लागि सम्बन्धित अनुप्रयोग स्मरण गर्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:743
+#: widgets/kopenwithdialog.cpp:744
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5766,46 +5787,25 @@ msgid ""
 "\"%1\""
 msgstr "यो प्रकारको फाइलका लागि सम्बन्धित अनुप्रयोग स्मरण गर्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:753
+#: widgets/kopenwithdialog.cpp:754
 #, fuzzy, kde-format
 #| msgid "&Terminal options:"
 msgid "Terminal options"
 msgstr "टर्मिनल विकल्प:"
 
-#: widgets/kopenwithdialog.cpp:758
+#: widgets/kopenwithdialog.cpp:759
 #, kde-format
 msgid "Run in &terminal"
 msgstr "टर्मिनलमा चलाउनुहोस्"
 
-#: widgets/kopenwithdialog.cpp:776
+#: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "आदेशहरू अवस्थित हुँदा बन्द नगर्नुहोस्"
 
-#: widgets/kopenwithdialog.cpp:795
+#: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
-
-#: widgets/kopenwithdialog.cpp:980
-#, kde-format
-msgid ""
-"Could not extract executable name from '%1', please type a valid program "
-"name."
-msgstr ""
-
-#: widgets/kopenwithdialog.cpp:1034
-#, kde-kuit-format
-msgctxt "@info"
-msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
-
-#: widgets/kopenwithdialog.cpp:1035
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<filename>%1</filename> was not found; please enter a valid path to an "
-"executable program."
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
