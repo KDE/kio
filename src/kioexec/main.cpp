@@ -223,6 +223,8 @@ void KIOExec::slotRunApp()
 
     qDebug() << "EXEC done";
 
+    QStringList tempFilesToRemove;
+
     // Test whether one of the files changed
     for (it = fileList.begin(); it != fileList.end(); ++it) {
         QString src = it->path;
@@ -260,13 +262,24 @@ void KIOExec::slotRunApp()
         }
 
         if ((uploadChanges || mTempFiles) && exit_code == 0) {
-            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
-            // it will have time to start up and read the file before it gets deleted. #130709.
-            const int sleepSecs = 180;
-            qDebug() << "sleeping for" << sleepSecs << "seconds before deleting file...";
-            QThread::sleep(sleepSecs);
+            // Note that a temp file needs to be removed later
+            tempFilesToRemove.append(src);
+        }
+    }
+
+    if (!tempFilesToRemove.isEmpty()) {
+        // Wait for a reasonable time so that even if the application forks
+        // on startup (like OOo or amarok) it will have time to start up and
+        // read the file before it gets deleted. #130709.
+        const int sleepSecs = 180;
+        qDebug() << "sleeping for" << sleepSecs << "seconds before deleting" << tempFilesToRemove.count() << "temp files...";
+        QThread::sleep(sleepSecs);
+        qDebug() << sleepSecs << "seconds have passed, deleting temp files";
+
+        for (const QString &src : qAsConst(tempFilesToRemove)) {
+            QFileInfo info(src);
             const QString parentDir = info.path();
-            qDebug() << sleepSecs << "seconds have passed, deleting" << info.filePath();
+            qDebug() << "deleting" << info.filePath();
             QFile(src).remove();
             // NOTE: this is not necessarily a temporary directory.
             if (QDir().rmdir(parentDir)) {
