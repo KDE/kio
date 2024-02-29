@@ -85,8 +85,8 @@ void KIOExecd::slotDirty(const QString &path)
         nullptr,
         xi18nc("@info", "The file <filename>%1</filename><nl/>has been modified. Do you want to upload the changes?", dest.toDisplayString()),
         i18n("File Changed"),
-        KGuiItem(i18n("Upload"), QLatin1String("go-up")),
-        KGuiItem(i18n("Do Not Upload"), QLatin1String("dialog-cancel")));
+        KGuiItem(i18n("Upload"), QLatin1String("cloud-upload-symbolic")),
+        KGuiItem(i18n("Do Not Upload"), QLatin1String("dialog-cancel-symbolic")));
     if (result != KMessageBox::PrimaryAction) {
         return;
     }
