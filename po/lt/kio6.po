@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-27 00:35+0000\n"
-"PO-Revision-Date: 2024-02-26 17:08+0200\n"
+"PO-Revision-Date: 2024-02-28 17:45+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -64,7 +64,7 @@ msgstr ""
 "Paskirties failų sistema (%2) nepalaiko simbolinių nuorodų."
 
 #: core/copyjob.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Could not create \"%1\".\n"
 "The destination filesystem (%2) disallows the following characters in folder "
@@ -76,7 +76,7 @@ msgstr ""
 "Paskirties failų sistema (%2) neleidžia aplankų pavadinimuose naudoti šių "
 "simbolių: %3\n"
 "Pasirinkus „Pakeisti“, bet kurie netinkami simboliai (esantys paskirties "
-"aplanko pavadinime) bus pakeisti with an underscore \"_\"."
+"aplanko pavadinime) bus pakeisti pabraukimo brūkšniu „_“."
 
 #: core/copyjob.cpp:186
 #, kde-format
@@ -87,6 +87,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"Nepavyko sukurti „%1“.\n"
+"Paskirties failų sistema (%2) neleidžia failų pavadinimuose naudoti šių "
+"simbolių: %3\n"
+"Pasirinkus „Pakeisti“, bet kurie netinkami simboliai (esantys paskirties "
+"failo pavadinime) bus pakeisti pabraukimo brūkšniu „_“."
 
 #: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
@@ -824,6 +829,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
+"Teisių iškėlimas nėra būtinas, nes \n"
+"„%1“ priklauso dabartiniam naudotojui.\n"
+"Pakeitę leidimus bandykite dar kartą."
 
 #: core/job_error.cpp:261
 #, kde-format
@@ -3353,9 +3361,13 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"Pasirinktas URL naudoja nepalaikomą schemą. Naudokite šią schemą: %2"
 msgstr[1] ""
+"Pasirinktas URL naudoja nepalaikomą schemą. Naudokite šias schemas: %2"
 msgstr[2] ""
+"Pasirinktas URL naudoja nepalaikomą schemą. Naudokite šias schemas: %2"
 msgstr[3] ""
+"Pasirinktas URL naudoja nepalaikomą schemą. Naudokite šias schemas: %2"
 
 #: filewidgets/kfilewidget.cpp:784
 #, kde-format
@@ -3732,6 +3744,9 @@ msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
+"Nerekomenduojama failo ar aplanko pradžioje rašyti riestinį kirtį (tildę), "
+"nes tai gali būti painu ar pavojingą naudojant terminalą tam tikrų dalykų "
+"ištrynimui."
 
 #: filewidgets/knewfilemenu.cpp:1274
 #, kde-kuit-format
@@ -4535,13 +4550,7 @@ msgstr ""
 "vienas ar daugiau tarpinių rinkinių (aplankų)."
 
 #: kioworkers/http/http.cpp:1350
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element\n"
-#| " or you attempted to overwrite a file while requesting that files are not "
-#| "overwritten.\n"
-#| " %1"
+#, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
 "properties listed in the propertybehavior XML element\n"
@@ -4549,10 +4558,9 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"Serveris nesugebėjo palaikyti savybių, išvardintų savybės elgesio "
-"(propertybehavior) XML elemente, gyvybės \n"
-" arba Jūs pabandėte rašyti ant failo, kai buvote paprašę, kad nebūtų rašoma "
-"ant failų. \n"
+"Serveriui nepavyko palaikyti savybių, išvardytų\n"
+"savybės elgsenos (propertybehavior) XML elemente, gyvybingumo \n"
+"arba bandėte perrašyti failą, paprašę, kad failai nebūtų perrašomi. \n"
 " %1"
 
 #: kioworkers/http/http.cpp:1358
@@ -4757,7 +4765,7 @@ msgstr "Organizacija:"
 #: widgets/certificateparty.ui:58
 #, kde-format
 msgid "Acme Sundry Products Company"
-msgstr ""
+msgstr "Acme Sundry Products Company"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
 #: widgets/certificateparty.ui:68
@@ -6774,6 +6782,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"Kai tai pažymėta, paspaustas mygtukas likusią dabartinės užduoties dalį bus "
+"taikomas visiems tolesniems aplanko konfliktams.\n"
+"Jei nepaspausite „Praleisti“, kas kartą kataloge atsiradus failo konfliktui, "
+"jūsų bus klausiama, ką daryti."
 
 #: widgets/renamedialog.cpp:234
 #, kde-format
@@ -6781,6 +6793,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
+"Kai tai pažymėta, paspaustas mygtukas likusią dabartinės užduoties dalį bus "
+"taikomas visiems tolesniems konfliktams."
 
 #: widgets/renamedialog.cpp:240
 #, kde-format
