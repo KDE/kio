@@ -22,7 +22,7 @@ public:
     QString m_fullCommand; // "xterm -e ls"
     QString m_desktopName;
     QByteArray m_startupId;
-    QProcessEnvironment m_environment;
+    QProcessEnvironment m_environment{QProcessEnvironment::InheritFromParent};
 };
 
 KTerminalLauncherJob::KTerminalLauncherJob(const QString &command, QObject *parent)
