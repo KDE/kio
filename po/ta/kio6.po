@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:35+0000\n"
+"POT-Creation-Date: 2024-03-02 00:35+0000\n"
 "PO-Revision-Date: 2024-02-18 18:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3919,26 +3919,30 @@ msgstr "கோப்பை திறத்தல் தோல்வியடை�
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" என்கிற நிரலை இயக்க முடியவில்லை."
 
-#: kioexec/kioexecd.cpp:85
-#, kde-format
+#: kioexec/kioexecd.cpp:86
+#, fuzzy, kde-kuit-format
+#| msgid ""
+#| "The file %1\n"
+#| "has been modified. Do you want to upload the changes?"
+msgctxt "@info"
 msgid ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 msgstr ""
 "%1 என்கிற கோப்பு \n"
 " மாற்றப்பட்டுள்ளது. மாற்றங்களை பதிவேற்ற விரும்புகிறீர்களா?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "கோப்பு மாறியுள்ளது"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "பதிவேற்று"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "பதிவேற்றாதே"

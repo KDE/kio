@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:35+0000\n"
-"PO-Revision-Date: 2024-01-22 10:55+0100\n"
+"POT-Creation-Date: 2024-03-02 00:35+0000\n"
+"PO-Revision-Date: 2024-03-01 10:51+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1778,7 +1778,7 @@ msgstr "Tu poterea non haber permissiones de scriber sur le ressource."
 #: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
-msgstr "On non poteva ascoltar Copnnexiones de Rete "
+msgstr "On non poteva ascoltar Connexiones de Rete "
 
 #: core/job_error.cpp:851
 #, kde-format
@@ -4021,26 +4021,30 @@ msgstr "Falleva a aperir le file."
 msgid "The program \"%1\" could not be launched."
 msgstr "Le programma \"%1\" non pote esser lanceate."
 
-#: kioexec/kioexecd.cpp:85
-#, kde-format
+#: kioexec/kioexecd.cpp:86
+#, fuzzy, kde-kuit-format
+#| msgid ""
+#| "The file %1\n"
+#| "has been modified. Do you want to upload the changes?"
+msgctxt "@info"
 msgid ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 msgstr ""
 "Le file %1\n"
 "ha essite modificate.Tu vole cargar le modificationes?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "File modificate"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "Carga"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Non Carga"

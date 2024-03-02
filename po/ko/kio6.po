@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:35+0000\n"
+"POT-Creation-Date: 2024-03-02 00:35+0000\n"
 "PO-Revision-Date: 2024-02-09 23:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3882,26 +3882,30 @@ msgstr "파일을 열 수 없습니다."
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
 
-#: kioexec/kioexecd.cpp:85
-#, kde-format
+#: kioexec/kioexecd.cpp:86
+#, fuzzy, kde-kuit-format
+#| msgid ""
+#| "The file %1\n"
+#| "has been modified. Do you want to upload the changes?"
+msgctxt "@info"
 msgid ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 msgstr ""
 "%1 파일이 수정되었습니다.\n"
 "변경 사항을 업로드하시겠습니까?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "파일 변경됨"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "업로드"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "업로드 안 함"

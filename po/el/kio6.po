@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:35+0000\n"
+"POT-Creation-Date: 2024-03-02 00:35+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -4120,33 +4120,34 @@ msgstr "Αδυναμία ανοίγματος αρχείου"
 msgid "The program \"%1\" could not be launched."
 msgstr "Το αρχείο %1 δεν βρέθηκε"
 
-#: kioexec/kioexecd.cpp:85
-#, fuzzy, kde-format
+#: kioexec/kioexecd.cpp:86
+#, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The file\n"
 #| "%1\n"
 #| "has been modified.\n"
 #| "Do you want to upload the changes?"
+msgctxt "@info"
 msgid ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 msgstr ""
 "Το αρχείο\n"
 "%1\n"
 "έχει τροποποιηθεί.\n"
 "Θέλετε να αποστείλετε τις αλλαγές;"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "Το αρχείο άλλαξε"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "Αποστολή"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Να μην αποσταλεί"

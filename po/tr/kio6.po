@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:35+0000\n"
+"POT-Creation-Date: 2024-03-02 00:35+0000\n"
 "PO-Revision-Date: 2024-02-24 22:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3953,26 +3953,30 @@ msgstr "Dosya açılamadı."
 msgid "The program \"%1\" could not be launched."
 msgstr "‘%1’ programı başlatılamadı."
 
-#: kioexec/kioexecd.cpp:85
-#, kde-format
+#: kioexec/kioexecd.cpp:86
+#, fuzzy, kde-kuit-format
+#| msgid ""
+#| "The file %1\n"
+#| "has been modified. Do you want to upload the changes?"
+msgctxt "@info"
 msgid ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 msgstr ""
 "%1 dosyası değiştirildi.\n"
 "Değişiklikleri karşıya yüklemek istiyor musunuz?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "Dosya Değiştirildi"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "Karşıya Yükle"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Karşıya Yükleme"
