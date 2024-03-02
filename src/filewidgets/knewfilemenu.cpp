@@ -1494,10 +1494,9 @@ void KNewFileMenu::setSupportedMimeTypes(const QStringList &mime)
 void KNewFileMenu::slotResult(KJob *job)
 {
     if (job->error()) {
-        if (job->error() == KIO::ERR_DIR_ALREADY_EXIST) {
+        if (job->error() == KIO::ERR_DIR_ALREADY_EXIST && d->m_selectDirWhenAlreadyExists) {
             auto *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job);
             if (simpleJob) {
-                Q_ASSERT(d->m_selectDirWhenAlreadyExists);
                 const QUrl jobUrl = simpleJob->url();
                 // Select the existing dir
                 Q_EMIT selectExistingDir(jobUrl);
