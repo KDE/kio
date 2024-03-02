@@ -10,6 +10,7 @@
 #include "main.h"
 #include "filecopyjob.h"
 #include "kio_version.h"
+#include "kioexecdebug.h"
 #include "kioexecdinterface.h"
 #include "statjob.h"
 
@@ -49,7 +50,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
     , command(args.first())
     , jobCounter(0)
 {
-    qDebug() << "command=" << command << "args=" << args;
+    qCDebug(KIOEXEC) << "command=" << command << "args=" << args;
 
     for (int i = 1; i < args.count(); i++) {
         const QUrl urlArg = QUrl::fromUserInput(args.value(i));
@@ -103,7 +104,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
 
                 expectedCounter++;
                 const QUrl dest = QUrl::fromLocalFile(tmp);
-                qDebug() << "Copying" << url << " to" << dest;
+                qCDebug(KIOEXEC) << "Copying" << url << "to" << dest;
                 KIO::Job *job = KIO::file_copy(url, dest);
                 jobList.append(job);
 
@@ -143,17 +144,17 @@ void KIOExec::slotResult(KJob *job)
             if (it != fileList.end()) {
                 fileList.erase(it);
             } else {
-                qDebug() << path << " not found in list";
+                qCDebug(KIOEXEC) << path << "not found in list";
             }
         } else {
             // Tell kioexecd to watch the file for changes.
             const QString dest = copyJob->srcUrl().toString();
-            qDebug() << "Telling kioexecd to watch path" << path << "dest" << dest;
+            qCDebug(KIOEXEC) << "Telling kioexecd to watch path" << path << "dest" << dest;
             OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd6"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
             kioexecd.watch(path, dest);
             mUseDaemon = !kioexecd.lastError().isValid();
             if (!mUseDaemon) {
-                qDebug() << "Not using kioexecd";
+                qCDebug(KIOEXEC) << "Not using kioexecd";
             }
         }
     }
@@ -164,7 +165,7 @@ void KIOExec::slotResult(KJob *job)
         return;
     }
 
-    qDebug() << "All files downloaded, will call slotRunApp shortly";
+    qCDebug(KIOEXEC) << "All files downloaded, will call slotRunApp shortly";
     // We know we can run the app now - but let's finish the job properly first.
     QTimer::singleShot(0, this, &KIOExec::slotRunApp);
 
@@ -174,7 +175,7 @@ void KIOExec::slotResult(KJob *job)
 void KIOExec::slotRunApp()
 {
     if (fileList.isEmpty()) {
-        qDebug() << "No files downloaded -> exiting";
+        qCDebug(KIOEXEC) << "No files downloaded -> exiting";
         mExited = true;
         QApplication::exit(1);
         return;
@@ -201,7 +202,7 @@ void KIOExec::slotRunApp()
         return;
     }
 
-    qDebug() << "EXEC" << params.join(QLatin1Char(' '));
+    qCDebug(KIOEXEC) << "EXEC" << params.join(QLatin1Char(' '));
 
 #if HAVE_X11
     // propagate the startup identification to the started process
@@ -221,7 +222,7 @@ void KIOExec::slotRunApp()
     KStartupInfo::resetStartupEnv();
 #endif
 
-    qDebug() << "EXEC done";
+    qCDebug(KIOEXEC) << "EXEC done";
 
     QStringList tempFilesToRemove;
 
@@ -250,7 +251,7 @@ void KIOExec::slotRunApp()
                                                     KGuiItem(i18n("Upload")),
                                                     KGuiItem(i18n("Do Not Upload")));
                 if (result == KMessageBox::PrimaryAction) {
-                    qDebug() << "src='" << src << "'  dest='" << dest << "'";
+                    qCDebug(KIOEXEC) << "src=" << src << "dest=" << dest;
                     // Do it the synchronous way.
                     KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), dest);
                     if (!job->exec()) {
@@ -272,18 +273,18 @@ void KIOExec::slotRunApp()
         // on startup (like OOo or amarok) it will have time to start up and
         // read the file before it gets deleted. #130709.
         const int sleepSecs = 180;
-        qDebug() << "sleeping for" << sleepSecs << "seconds before deleting" << tempFilesToRemove.count() << "temp files...";
+        qCDebug(KIOEXEC) << "sleeping for" << sleepSecs << "seconds before deleting" << tempFilesToRemove.count() << "temp files...";
         QThread::sleep(sleepSecs);
-        qDebug() << sleepSecs << "seconds have passed, deleting temp files";
+        qCDebug(KIOEXEC) << sleepSecs << "seconds have passed, deleting temp files";
 
         for (const QString &src : qAsConst(tempFilesToRemove)) {
             QFileInfo info(src);
             const QString parentDir = info.path();
-            qDebug() << "deleting" << info.filePath();
+            qCDebug(KIOEXEC) << "deleting" << info.filePath();
             QFile(src).remove();
             // NOTE: this is not necessarily a temporary directory.
             if (QDir().rmdir(parentDir)) {
-                qDebug() << "Removed empty parent directory" << parentDir;
+                qCDebug(KIOEXEC) << "Removed empty parent directory" << parentDir;
             }
         }
     }

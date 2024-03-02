@@ -34,6 +34,7 @@ qt_add_dbus_interface(kioexec_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOE
 target_sources(kioexec PRIVATE
     ${kioexec_dbus_SRCS}
     main.cpp
+    kioexecdebug.cpp
 )
 
 configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec.h)
