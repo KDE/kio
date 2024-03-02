@@ -926,6 +926,8 @@ bool KOpenWithDialogPrivate::checkAccept()
                                         terminal->isChecked(),
                                         nocloseonexit->isChecked(),
                                         saveNewApps);
+    m_pService = curService;
+
     if (!result.accept) {
         KMessageBox::error(q, result.error);
         return false;
