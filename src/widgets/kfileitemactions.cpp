@@ -492,7 +492,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
 
             ServiceList &list = s.selectList(priority, submenuName);
             std::copy_if(actions.cbegin(), actions.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KDesktopFileAction &srvAction) {
-                return showGroup.readEntry(srvAction.name(), true) && !excludeList.contains(srvAction.name());
+                return showGroup.readEntry(srvAction.actionsKey(), true) && !excludeList.contains(srvAction.actionsKey());
             });
         }
     }
