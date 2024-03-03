@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:35+0000\n"
+"POT-Creation-Date: 2024-03-03 00:35+0000\n"
 "PO-Revision-Date: 2024-02-29 12:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3803,32 +3803,32 @@ msgstr ""
 "文件 %1\n"
 "已被修改。您想要上传更改后的文件吗？"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
 msgstr "文件已更改"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
 msgid "Upload"
 msgstr "上传"
 
-#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:252
 #, kde-format
 msgid "Do Not Upload"
 msgstr "不上传"
 
-#: kioexec/main.cpp:57
+#: kioexec/main.cpp:58
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "无效的 URL：%1"
 
-#: kioexec/main.cpp:63
+#: kioexec/main.cpp:64
 #, kde-format
 msgid "File not found: %1"
 msgstr "找不到文件：%1"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:81
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -3837,7 +3837,7 @@ msgstr ""
 "URL %1\n"
 "的格式不正确"
 
-#: kioexec/main.cpp:82
+#: kioexec/main.cpp:83
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -3846,7 +3846,7 @@ msgstr ""
 "远程 URL %1\n"
 "不能使用 --tempfiles 选项开关"
 
-#: kioexec/main.cpp:236
+#: kioexec/main.cpp:239
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -3859,12 +3859,12 @@ msgstr ""
 "已被修改。\n"
 "您确定要删除它吗？"
 
-#: kioexec/main.cpp:239
+#: kioexec/main.cpp:242
 #, kde-format
 msgid "Do Not Delete"
 msgstr "不删除"
 
-#: kioexec/main.cpp:246
+#: kioexec/main.cpp:249
 #, kde-format
 msgid ""
 "The file\n"
@@ -3877,63 +3877,63 @@ msgstr ""
 "已被修改。\n"
 "您想要上传更改后的文件吗？"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "KIO Exec - 用于提供打开远程文件、监视文件修改情况，提示上传等功能的程序"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:305
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:294
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:295
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "将 URL 视为本地文件，并随后删除"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "下载文件的建议文件名"
 
-#: kioexec/main.cpp:303
+#: kioexec/main.cpp:317
 #, kde-format
 msgid "Command to execute"
 msgstr "要执行的命令"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "命令使用的 URL 或者本地文件"

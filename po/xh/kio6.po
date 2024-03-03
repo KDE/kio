@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:35+0000\n"
+"POT-Creation-Date: 2024-03-03 00:35+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4105,46 +4105,46 @@ msgstr ""
 "Uxwebhu \"%1\" luguqulelwe kancinane.\n"
 "Ufuna ukuligcina?"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, fuzzy, kde-format
 msgid "File Changed"
 msgstr "Ifayile igciniwe."
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, fuzzy, kde-format
 msgid "Upload"
 msgstr "Ulayisho %1"
 
-#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:252
 #, fuzzy, kde-format
 msgid "Do Not Upload"
 msgstr "Iphepha lokuqwalasela izinto ezibhaliweyo"
 
-#: kioexec/main.cpp:57
+#: kioexec/main.cpp:58
 #, fuzzy, kde-format
 msgid "Invalid URL: %1"
 msgstr "URL Eyenziwe kakubi %1"
 
-#: kioexec/main.cpp:63
+#: kioexec/main.cpp:64
 #, fuzzy, kde-format
 msgid "File not found: %1"
 msgstr "Ayinaku bophelela %1"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:81
 #, fuzzy, kde-format
 msgid ""
 "The URL %1\n"
 "is malformed"
 msgstr "Inkonzo '%1' ifomatwe kakubi."
 
-#: kioexec/main.cpp:82
+#: kioexec/main.cpp:83
 #, kde-format
 msgid ""
 "Remote URL %1\n"
 "not allowed with --tempfiles switch"
 msgstr ""
 
-#: kioexec/main.cpp:236
+#: kioexec/main.cpp:239
 #, fuzzy, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -4155,12 +4155,12 @@ msgstr ""
 "Uxwebhu \"%1\" luguqulelwe kancinane.\n"
 "Ufuna ukuligcina?"
 
-#: kioexec/main.cpp:239
+#: kioexec/main.cpp:242
 #, fuzzy, kde-format
 msgid "Do Not Delete"
 msgstr "Akukho nto eza kucinywa"
 
-#: kioexec/main.cpp:246
+#: kioexec/main.cpp:249
 #, fuzzy, kde-format
 msgid ""
 "The file\n"
@@ -4171,62 +4171,62 @@ msgstr ""
 "Uxwebhu \"%1\" luguqulelwe kancinane.\n"
 "Ufuna ukuligcina?"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:300
 #, fuzzy, kde-format
 msgid "KIOExec"
 msgstr "Exec"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr ""
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:305
 #, kde-format
 msgid "David Faure"
 msgstr ""
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "Stephan Kulow"
 msgstr ""
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr ""
 
-#: kioexec/main.cpp:294
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Waldo Bastian"
 msgstr ""
 
-#: kioexec/main.cpp:295
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr ""
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr ""
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:316
 #, fuzzy, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "Khetha igama lefayile elihambiselanayo lefayile entsha."
 
-#: kioexec/main.cpp:303
+#: kioexec/main.cpp:317
 #, fuzzy, kde-format
 msgid "Command to execute"
 msgstr "Igama Lomyalelo"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""

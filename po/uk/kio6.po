@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:35+0000\n"
-"PO-Revision-Date: 2024-01-22 08:58+0200\n"
+"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"PO-Revision-Date: 2024-03-02 09:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -4017,44 +4017,41 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Не вдалося запустити програму «%1»."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"До файла %1\n"
-"було внесено зміни. Хочете вивантажити зміни?"
+"До файла <filename>%1</filename><nl/>було внесено зміни. Хочете вивантажити "
+"зміни?"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
 msgstr "Файл було змінено"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
 msgid "Upload"
 msgstr "Вивантажити"
 
-#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:252
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Не вивантажувати"
 
-#: kioexec/main.cpp:57
+#: kioexec/main.cpp:58
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "Некоректна адреса: %1"
 
-#: kioexec/main.cpp:63
+#: kioexec/main.cpp:64
 #, kde-format
 msgid "File not found: %1"
 msgstr "Файл не знайдено: %1"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:81
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -4063,7 +4060,7 @@ msgstr ""
 "Помилка у адресі\n"
 "%1"
 
-#: kioexec/main.cpp:82
+#: kioexec/main.cpp:83
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -4072,7 +4069,7 @@ msgstr ""
 "Віддалену адресу (URL) %1\n"
 "не можна використовувати, якщо використано параметр --tempfiles"
 
-#: kioexec/main.cpp:236
+#: kioexec/main.cpp:239
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -4085,12 +4082,12 @@ msgstr ""
 "було змінено.\n"
 "Вилучити попри все?"
 
-#: kioexec/main.cpp:239
+#: kioexec/main.cpp:242
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Не вилучати"
 
-#: kioexec/main.cpp:246
+#: kioexec/main.cpp:249
 #, kde-format
 msgid ""
 "The file\n"
@@ -4103,64 +4100,64 @@ msgstr ""
 "було змінено.\n"
 "Хочете вивантажити зміни?"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "KIO Exec — відкриває віддалені файли, наглядає за змінами, дає запит на "
 "вивантаження"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "© 1998-2000,2003 Розробники KFM/Konqueror"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:305
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:294
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:295
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "Розглядати адреси (URL) як локальні файли та вилучити їх пізніше"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "Запропонована назва для отриманого файла"
 
-#: kioexec/main.cpp:303
+#: kioexec/main.cpp:317
 #, kde-format
 msgid "Command to execute"
 msgstr "Команда, яку слід виконати"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "адреси або локальні файли для «команди»"

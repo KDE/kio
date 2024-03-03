@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:35+0000\n"
+"POT-Creation-Date: 2024-03-03 00:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3915,32 +3915,32 @@ msgstr ""
 "सञ्चिका %1\n"
 "परिवर्तनं कृतम् अस्ति। परिवर्तनं उपारोपण कर्तुम् इच्छति वा ?"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
 msgstr "सञ्चिका परिवर्तिता"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
 msgid "Upload"
 msgstr "उपारोप्यतु"
 
-#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:252
 #, kde-format
 msgid "Do Not Upload"
 msgstr "उपारोपण न कुर्वन्तु"
 
-#: kioexec/main.cpp:57
+#: kioexec/main.cpp:58
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "अमान्य URL: %1"
 
-#: kioexec/main.cpp:63
+#: kioexec/main.cpp:64
 #, kde-format
 msgid "File not found: %1"
 msgstr "सञ्चिका न प्राप्ता: %1"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:81
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -3949,7 +3949,7 @@ msgstr ""
 "URL %1 इति\n"
 "विकृतः भवति"
 
-#: kioexec/main.cpp:82
+#: kioexec/main.cpp:83
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -3958,7 +3958,7 @@ msgstr ""
 "दूरस्थं URL %1\n"
 "--tempfiles switch इत्यनेन सह अनुमतं नास्ति"
 
-#: kioexec/main.cpp:236
+#: kioexec/main.cpp:239
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -3971,12 +3971,12 @@ msgstr ""
 "परिवर्तनं कृतम् अस्ति।\n"
 "किं भवन्तः अद्यापि तत् विलोपयितुम् इच्छन्ति ?"
 
-#: kioexec/main.cpp:239
+#: kioexec/main.cpp:242
 #, kde-format
 msgid "Do Not Delete"
 msgstr "न विलोपयतु"
 
-#: kioexec/main.cpp:246
+#: kioexec/main.cpp:249
 #, kde-format
 msgid ""
 "The file\n"
@@ -3989,63 +3989,63 @@ msgstr ""
 "परिवर्तनं कृतम् अस्ति।\n"
 "परिवर्तनं उपारोपण कर्तुम् इच्छति वा ?"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "KIO Exec - दूरस्थसञ्चिकां उद्घाटयति, परिवर्तनं पश्यति, उपारोपण याचते"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) १९९८ - २०००, २००३ KFM/Konqueror विकासकाः"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:305
 #, kde-format
 msgid "David Faure"
 msgstr "डेविड फौरे"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "स्टीफन कुलोव्"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "बर्नहार्ड रोसेन्क्रान्ज़र्"
 
-#: kioexec/main.cpp:294
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "वाल्दो बास्टियन्"
 
-#: kioexec/main.cpp:295
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "ओसवाल्ड बुडेनहेगेन्"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr ""
 "संविदितस्रोतःसूचिका (URL) -इत्येतत् स्थानीयसञ्चिकारूपेण व्यवहरन्तु, तदनन्तरं च तान् विलोपयन्तु"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "अवतरितसञ्चिकायाः सुझातं सञ्चिकानाम"
 
-#: kioexec/main.cpp:303
+#: kioexec/main.cpp:317
 #, kde-format
 msgid "Command to execute"
 msgstr "निष्पादनार्थं आदेशः"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' कृते प्रयुक्ताः URL(s) अथवा स्थानीयसञ्चिका।"

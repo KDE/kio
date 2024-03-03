@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:35+0000\n"
+"POT-Creation-Date: 2024-03-03 00:35+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3881,32 +3881,32 @@ msgstr ""
 "ဖိုင်လ် %1\n"
 "အားမွမ်းမံထားသည်။ ပြောင်းလဲမှုများကို အပ်လုတ်တင်ချင်ပါသလား။"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:237 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
 msgstr "ဖိုင်လ်ပြောင်းလဲသွားသည်"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:248
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
 msgid "Upload"
 msgstr "တင်မည်"
 
-#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:249
+#: kioexec/kioexecd.cpp:89 kioexec/main.cpp:252
 #, kde-format
 msgid "Do Not Upload"
 msgstr "မတင်ပါနှင့်"
 
-#: kioexec/main.cpp:57
+#: kioexec/main.cpp:58
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "မမှန်ကန်သောURL - %1"
 
-#: kioexec/main.cpp:63
+#: kioexec/main.cpp:64
 #, kde-format
 msgid "File not found: %1"
 msgstr "ဖိုင်လ်မတွေ့ပါ - %1"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:81
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -3915,7 +3915,7 @@ msgstr ""
 "ယူအာအယ်လ် %1\n"
 "ပုံပျက်နေသည်"
 
-#: kioexec/main.cpp:82
+#: kioexec/main.cpp:83
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -3924,7 +3924,7 @@ msgstr ""
 "အဝေး ယူအာအယ်လ် %1\n"
 "--tempfiles ဖွင့်/ပိတ်ခလုတ် ဖွင့်ထားလျှင် ခွင့်မပြုပါ"
 
-#: kioexec/main.cpp:236
+#: kioexec/main.cpp:239
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -3937,12 +3937,12 @@ msgstr ""
 "ကို မွမ်းမံထားသည်။\n"
 "၎င်းကို ဖျက်ပစ်ချင်တုန်းလား။"
 
-#: kioexec/main.cpp:239
+#: kioexec/main.cpp:242
 #, kde-format
 msgid "Do Not Delete"
 msgstr "မဖျက်ပါနှင့်"
 
-#: kioexec/main.cpp:246
+#: kioexec/main.cpp:249
 #, kde-format
 msgid ""
 "The file\n"
@@ -3955,62 +3955,62 @@ msgstr ""
 "အားမွမ်းမံထားသည်။\n"
 "ပြောင်းလဲမှုများကို အပ်လုတ်တင်ချင်ပါသလား။"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "KIOExec"
 msgstr "ကေအိုင်အိုအိပ်စ်"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "ကေအိုင်အို အိပ်စ် - အဝေးဖိုင်လ်များ ဖွင့်ရန်၊ မွမ်းမံပြင်ဆင်ချက်များ ကြည့်ရန်၊ အပ်လုတ်တင်ဖို့ တောင်းဆိုရန်"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) ၁၉၉၈-၂၀၀၀၊ ၂၀၀၃ ကေအက်ဖ်အမ်/ကွန်ကွာရာ ဒက်ဗ်ဗလော့ပါများ"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:305
 #, kde-format
 msgid "David Faure"
 msgstr "ဒေးဗစ်ဖော့"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "စတီဖန်ကူလော့"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "ဘမ်ဟာ့ဒ်ရိုဆမ်ခရမ်ဇာ"
 
-#: kioexec/main.cpp:294
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "ဝါလ်ဒိုဘက်စတီရှန်"
 
-#: kioexec/main.cpp:295
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "အော့စဝပ်ဒ်ဘတ်ဒမ်ဟဂမ်"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "ယူအာအယ်လ်များကို စက်တွင်းဖိုင်လ်များအဖြစ် သတ်မှတ်ဆက်ဆံ၍ပြီးလျှင် ဖျက်မည်"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "ဒေါင်းလုတ်ရယူထားသော ဖိုင်လ်အတွက် အကြံပြုထားသည့် အမည်"
 
-#: kioexec/main.cpp:303
+#: kioexec/main.cpp:317
 #, kde-format
 msgid "Command to execute"
 msgstr "ဆောင်ရွက်ရန်အမိန့်"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်လ်"
