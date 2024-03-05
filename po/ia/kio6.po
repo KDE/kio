@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-03 00:35+0000\n"
-"PO-Revision-Date: 2024-03-01 10:51+0100\n"
+"PO-Revision-Date: 2024-03-04 11:31+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -4022,17 +4022,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Le programma \"%1\" non pote esser lanceate."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Le file %1\n"
-"ha essite modificate.Tu vole cargar le modificationes?"
+"Le file <filename>%1</filename> ha essite modificate. Tu vole cargar le "
+"modificationes?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format

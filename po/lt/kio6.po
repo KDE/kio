@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-03 00:35+0000\n"
-"PO-Revision-Date: 2024-02-28 17:45+0200\n"
+"PO-Revision-Date: 2024-03-04 23:43+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -4023,17 +4023,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Nepavyko paleisti programos „%1“."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Failas %1\n"
-"pakeistas. Ar išsiųsti pakeitimus?"
+"Failas <filename>%1</filename><nl/>modifikuotas. Ar norite išsiųsti "
+"pakeitimus?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
