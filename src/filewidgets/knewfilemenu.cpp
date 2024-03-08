@@ -425,7 +425,7 @@ void KNewFileMenuPrivate::initDialog()
     m_fileDialog->setAttribute(Qt::WA_DeleteOnClose);
     m_fileDialog->setModal(m_modal);
     m_fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    m_fileDialog->setWindowTitle(i18nc("@title:window", "New File"));
+    m_fileDialog->setWindowTitle(i18nc("@title:window", "Create New File"));
 
     m_messageWidget = new KMessageWidget(m_fileDialog);
     m_messageWidget->setCloseButtonVisible(false);
@@ -1431,7 +1431,7 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 {
     initDialog();
 
-    m_fileDialog->setWindowTitle(i18nc("@title:window", "New Folder"));
+    m_fileDialog->setWindowTitle(i18nc("@title:window", "Create New Folder"));
 
     m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)));
 
