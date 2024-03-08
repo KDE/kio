@@ -1088,14 +1088,14 @@ bool KUrlNavigator::isPlacesSelectorVisible() const
     return d->m_showPlacesSelector;
 }
 
-void KUrlNavigator::setReadonlyIconEnabled(bool show)
+void KUrlNavigator::setReadonlyIconEnabled(bool enabled)
 {
-    if (show == d->m_enableReadonlyIcon) {
+    if (enabled == d->m_enableReadonlyIcon) {
         return;
     }
 
-    d->m_enableReadonlyIcon = show;
-    if (show) {
+    d->m_enableReadonlyIcon = enabled;
+    if (enabled) {
         d->updateReadonlyIcon();
     } else {
         d->m_readonlyIcon->hide();
