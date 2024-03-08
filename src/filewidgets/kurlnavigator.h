@@ -230,18 +230,18 @@ public:
     bool isPlacesSelectorVisible() const;
 
     /**
-     * Enable the readonly icon, if \a show is true.
+     * Enable the readonly icon, if \a enabled is true.
      * The readonly icon, when enabled, is shown if the current location
      * is not writable.
      */
-    void setShowReadonlyIcon(bool show);
+    void setReadonlyIconEnabled(bool enabled);
 
     /**
      * @return True, if the readonly icon is enabled.
-     * @see    KUrlNavigator::showReadonlyIcon()
+     * @see    KUrlNavigator::setReadonlyIconEnabled()
      * @since  6.1
      */
-    bool showReadonlyIcon() const;
+    bool isReadonlyIconEnabled() const;
 
     /**
      * @return The currently entered, but not accepted URL.

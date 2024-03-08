@@ -185,7 +185,7 @@ public:
     bool m_editable = false;
     bool m_active = true;
     bool m_showPlacesSelector = false;
-    bool m_showReadonlyIcon = false;
+    bool m_enableReadonlyIcon = false;
     bool m_showFullPath = false;
 
     struct {
@@ -647,7 +647,7 @@ void KUrlNavigatorPrivate::updateContent()
         m_pathBox->show();
         m_pathBox->setUrl(currentUrl);
 
-        if (m_showReadonlyIcon) {
+        if (m_enableReadonlyIcon) {
             m_readonlyIcon->hide();
         }
     } else {
@@ -673,7 +673,7 @@ void KUrlNavigatorPrivate::updateContent()
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
 
-        if (m_showReadonlyIcon) {
+        if (m_enableReadonlyIcon) {
             m_readonlyIcon->hide();
             updateReadonlyIcon();
         }
@@ -926,7 +926,7 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
 void KUrlNavigatorPrivate::updateReadonlyIcon()
 {
     QUrl url = q->locationUrl();
-    KIO::StatJob *job = KIO::stat(url);
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatBasic, KIO::HideProgressInfo);
     q->connect(job, &KJob::result, q, [this, job, url]() {
         if (job->error() == 0) {
             if (url != q->locationUrl()) {
@@ -1088,13 +1088,13 @@ bool KUrlNavigator::isPlacesSelectorVisible() const
     return d->m_showPlacesSelector;
 }
 
-void KUrlNavigator::setShowReadonlyIcon(bool show)
+void KUrlNavigator::setReadonlyIconEnabled(bool show)
 {
-    if (show == d->m_showReadonlyIcon) {
+    if (show == d->m_enableReadonlyIcon) {
         return;
     }
 
-    d->m_showReadonlyIcon = show;
+    d->m_enableReadonlyIcon = show;
     if (show) {
         d->updateReadonlyIcon();
     } else {
@@ -1102,9 +1102,9 @@ void KUrlNavigator::setShowReadonlyIcon(bool show)
     }
 }
 
-bool KUrlNavigator::showReadonlyIcon() const
+bool KUrlNavigator::isReadonlyIconEnabled() const
 {
-    return d->m_showReadonlyIcon;
+    return d->m_enableReadonlyIcon;
 }
 
 QUrl KUrlNavigator::uncommittedUrl() const
