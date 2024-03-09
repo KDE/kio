@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"POT-Creation-Date: 2024-03-09 00:35+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -373,7 +373,7 @@ msgstr ""
 "Hak istimewa root diperlukan untuk melengkapi pengubahan nama. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
 #: kioworkers/file/file_unix.cpp:129
 #, kde-format
 msgid "Create Symlink"
@@ -3654,33 +3654,41 @@ msgstr ""
 "memasukkan filter khusus langsung ke area teks.</p><p>Tanda baca seperti * "
 "dan ? adalah dibolehkan.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:467
+#: filewidgets/knewfilemenu.cpp:428
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New File"
+msgstr "Folder Baru"
+
+#: filewidgets/knewfilemenu.cpp:468
 #, kde-format
 msgid "Sorry"
 msgstr "Maaf"
 
-#: filewidgets/knewfilemenu.cpp:478
+#: filewidgets/knewfilemenu.cpp:479
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>berkas templat <b>%1</b> tidak ada.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
+#: filewidgets/knewfilemenu.cpp:623 filewidgets/knewfilemenu.cpp:688
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nama untuk tautan baru:"
 
-#: filewidgets/knewfilemenu.cpp:691
+#: filewidgets/knewfilemenu.cpp:692
 #, kde-format
 msgid "Create link to URL"
 msgstr "Ciptakan tautan ke URL"
 
-#: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
+#: filewidgets/knewfilemenu.cpp:733 filewidgets/knewfilemenu.cpp:788
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1135
+#: filewidgets/knewfilemenu.cpp:1136
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3690,7 +3698,7 @@ msgstr ""
 "Nama <filename>%1</filename> tidak bisa dipakai karena ia dipesan oleh "
 "sistem operasi untuk digunakan."
 
-#: filewidgets/knewfilemenu.cpp:1143
+#: filewidgets/knewfilemenu.cpp:1144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3700,7 +3708,7 @@ msgstr ""
 "Nama <filename>%1</filename> diawali tanda titik, sehingga secara baku ia "
 "akan tersembunyi."
 
-#: filewidgets/knewfilemenu.cpp:1151
+#: filewidgets/knewfilemenu.cpp:1152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3712,30 +3720,30 @@ msgstr ""
 "menjadi ditampilkan sebelum item lainnya ketika pengurutan secara abjad, di "
 "antara potensi keanehan lainnya."
 
-#: filewidgets/knewfilemenu.cpp:1169
+#: filewidgets/knewfilemenu.cpp:1170
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Penggunaan garis miring dalam nama folder akan menciptakan sub-folder, "
 "seperti:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Penggunaan garis miring dalam nama folder akan menciptakan sub-folder."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Garis miring tidak bisa digunakan dalam nama folder dan berkas."
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1197
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Garis miring terbalik tidak bisa digunakan dalam nama folder dan berkas."
 
-#: filewidgets/knewfilemenu.cpp:1206
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3745,41 +3753,41 @@ msgstr ""
 "disarankan karena ia bisa membingungkan atau berbahaya ketika menggunakan "
 "terminal untuk menghapus sesuatu."
 
-#: filewidgets/knewfilemenu.cpp:1274
+#: filewidgets/knewfilemenu.cpp:1275
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Sebuah direktori dengan nama <filename>%1</filename> sudah ada."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1277
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Sebuah berkas dengan nama <filename>%1</filename> sudah ada."
 
-#: filewidgets/knewfilemenu.cpp:1362
+#: filewidgets/knewfilemenu.cpp:1363
 #, kde-format
 msgid "Create New"
 msgstr "Ciptakan Baru"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-format
 msgid "Link to Device"
 msgstr "Tautan ke Peranti"
 
-#: filewidgets/knewfilemenu.cpp:1414
+#: filewidgets/knewfilemenu.cpp:1415
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Folder Baru"
 
-#: filewidgets/knewfilemenu.cpp:1433
+#: filewidgets/knewfilemenu.cpp:1434
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "Folder Baru"
 
-#: filewidgets/knewfilemenu.cpp:1435
+#: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Ciptakan folder baru dalam %1:"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"POT-Creation-Date: 2024-03-09 00:35+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -371,7 +371,7 @@ msgstr ""
 "Nime muutmise sooritamiseks on tarvilikud administraatori õigused. Kas "
 "jätkata?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
 #: kioworkers/file/file_unix.cpp:129
 #, kde-format
 msgid "Create Symlink"
@@ -3612,33 +3612,41 @@ msgstr ""
 "valmis filter või sisestada oma filter otse tekstiväljale.</p><p>Kasutada "
 "võib ka metamärke, nt. * ja ?.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:467
+#: filewidgets/knewfilemenu.cpp:428
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New File"
+msgstr "Uus kataloog"
+
+#: filewidgets/knewfilemenu.cpp:468
 #, kde-format
 msgid "Sorry"
 msgstr "Vabandust"
 
-#: filewidgets/knewfilemenu.cpp:478
+#: filewidgets/knewfilemenu.cpp:479
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Mallifaili <b>%1</b> ei ole olemas.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
+#: filewidgets/knewfilemenu.cpp:623 filewidgets/knewfilemenu.cpp:688
 #, kde-format
 msgid "Name for new link:"
 msgstr "Uue viida nimi:"
 
-#: filewidgets/knewfilemenu.cpp:691
+#: filewidgets/knewfilemenu.cpp:692
 #, kde-format
 msgid "Create link to URL"
 msgstr "Loo viit URL-ile"
 
-#: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
+#: filewidgets/knewfilemenu.cpp:733 filewidgets/knewfilemenu.cpp:788
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1135
+#: filewidgets/knewfilemenu.cpp:1136
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3648,7 +3656,7 @@ msgstr ""
 "Nime <filename>%1</filename> ei saa kasutada, sest see on reserveeritud "
 "operatsioonisüsteemile."
 
-#: filewidgets/knewfilemenu.cpp:1143
+#: filewidgets/knewfilemenu.cpp:1144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3658,7 +3666,7 @@ msgstr ""
 "Nimi <filename>%1</filename> algab punktiga, mistõttu kataloog on  vaikimisi "
 "peidetud."
 
-#: filewidgets/knewfilemenu.cpp:1151
+#: filewidgets/knewfilemenu.cpp:1152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3670,27 +3678,27 @@ msgstr ""
 "iseärasuste kõrval näidatakse seda sortimisel tähestiku järgi enne teisi "
 "elemente."
 
-#: filewidgets/knewfilemenu.cpp:1169
+#: filewidgets/knewfilemenu.cpp:1170
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Kaldkriipsu kasutamine kataloogide nimes loob alamkatalooge:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Kaldkriipsu kasutamine katalooginimes loob alamkatalooge."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Kaldkriipse ei tohi kasutada failide ja kataloogide nimedes."
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1197
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Längkriipse ei tohi kasutada failide ja kataloogide nimedes."
 
-#: filewidgets/knewfilemenu.cpp:1206
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3699,41 +3707,41 @@ msgstr ""
 "Faili või kataloogi nime alustamine tildega ei ole soovitav, sest see ajada "
 "segadusse või olla lausa ohtlik, kui kustutad asju terminalis."
 
-#: filewidgets/knewfilemenu.cpp:1274
+#: filewidgets/knewfilemenu.cpp:1275
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Kataloog nimega <filename>%1</filename> on juba olemas."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1277
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Fail nimega <filename>%1</filename> on juba olemas."
 
-#: filewidgets/knewfilemenu.cpp:1362
+#: filewidgets/knewfilemenu.cpp:1363
 #, kde-format
 msgid "Create New"
 msgstr "Loo uus"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-format
 msgid "Link to Device"
 msgstr "Link seadmele"
 
-#: filewidgets/knewfilemenu.cpp:1414
+#: filewidgets/knewfilemenu.cpp:1415
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Uus kataloog"
 
-#: filewidgets/knewfilemenu.cpp:1433
+#: filewidgets/knewfilemenu.cpp:1434
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "Uus kataloog"
 
-#: filewidgets/knewfilemenu.cpp:1435
+#: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Uus kataloog asukohas %1;"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"POT-Creation-Date: 2024-03-09 00:35+0000\n"
 "PO-Revision-Date: 2024-02-16 01:20\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -387,7 +387,7 @@ msgstr ""
 "Для завяршэння змены назвы патрэбныя правы суперкарыстальніка (root). Хочаце "
 "працягнуць?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
 #: kioworkers/file/file_unix.cpp:129
 #, kde-format
 msgid "Create Symlink"
@@ -3646,33 +3646,41 @@ msgstr ""
 "перадусталяваных фільтраў у выплыўным меню або ўвесці адвольны фільтр "
 "непасрэдна ў тэкставым полі.</p><p >Можна ўжываць сімвалы * і ?.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:467
+#: filewidgets/knewfilemenu.cpp:428
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New File"
+msgstr "Новы каталог"
+
+#: filewidgets/knewfilemenu.cpp:468
 #, kde-format
 msgid "Sorry"
 msgstr "Выбачайце"
 
-#: filewidgets/knewfilemenu.cpp:478
+#: filewidgets/knewfilemenu.cpp:479
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файл шаблона <b>%1</b> не існуе.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
+#: filewidgets/knewfilemenu.cpp:623 filewidgets/knewfilemenu.cpp:688
 #, kde-format
 msgid "Name for new link:"
 msgstr "Назва для новай спасылкі:"
 
-#: filewidgets/knewfilemenu.cpp:691
+#: filewidgets/knewfilemenu.cpp:692
 #, kde-format
 msgid "Create link to URL"
 msgstr "Стварыць спасылку на URL"
 
-#: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
+#: filewidgets/knewfilemenu.cpp:733 filewidgets/knewfilemenu.cpp:788
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1135
+#: filewidgets/knewfilemenu.cpp:1136
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3682,7 +3690,7 @@ msgstr ""
 "Назву <filename>%1</filename> нельга выкарыстоўваць, бо яна зарэзерваваная "
 "для выкарыстання аперацыйнай сістэмай."
 
-#: filewidgets/knewfilemenu.cpp:1143
+#: filewidgets/knewfilemenu.cpp:1144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3692,7 +3700,7 @@ msgstr ""
 "Назва <filename>%1</filename> пачынаецца з кропкі, таму прадвызначана файл "
 "будзе схаваны."
 
-#: filewidgets/knewfilemenu.cpp:1151
+#: filewidgets/knewfilemenu.cpp:1152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3704,32 +3712,32 @@ msgstr ""
 "што пры сартаванні ў алфавітным парадку элемент будзе паказвацца перад "
 "іншымі элементамі."
 
-#: filewidgets/knewfilemenu.cpp:1169
+#: filewidgets/knewfilemenu.cpp:1170
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Пры выкарыстанні касой рысы ў назвах каталогаў будуць стварацца ўкладзеныя "
 "каталогі, напрыклад:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Пры выкарыстанні касой рысы ў назвах каталогаў будуць стварацца ўкладзеныя "
 "каталогі."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Касыя рысы нельга выкарыстоўваць у назвах файлаў і каталогаў."
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1197
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Адваротныя касыя рысы нельга выкарыстоўваць у назвах файлаў і каталогаў."
 
-#: filewidgets/knewfilemenu.cpp:1206
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3738,41 +3746,41 @@ msgstr ""
 "Не рэкамендуецца пачынаць назву файла або каталога з \"~\", бо такая назва "
 "можа канфліктаваць з функцыямі эмулятара тэрмінала."
 
-#: filewidgets/knewfilemenu.cpp:1274
+#: filewidgets/knewfilemenu.cpp:1275
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Каталог з назвай <filename>%1</filename> ужо існуе."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1277
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Файл з назвай <filename>%1</filename> ужо існуе."
 
-#: filewidgets/knewfilemenu.cpp:1362
+#: filewidgets/knewfilemenu.cpp:1363
 #, kde-format
 msgid "Create New"
 msgstr "Стварыць"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-format
 msgid "Link to Device"
 msgstr "Спасылка на прыладу"
 
-#: filewidgets/knewfilemenu.cpp:1414
+#: filewidgets/knewfilemenu.cpp:1415
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Новы каталог"
 
-#: filewidgets/knewfilemenu.cpp:1433
+#: filewidgets/knewfilemenu.cpp:1434
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "Новы каталог"
 
-#: filewidgets/knewfilemenu.cpp:1435
+#: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Стварыць новы каталог у %1:"

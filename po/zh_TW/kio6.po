@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"POT-Creation-Date: 2024-03-09 00:35+0000\n"
 "PO-Revision-Date: 2024-03-06 18:28+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -362,7 +362,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "完成重新命名需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
 #: kioworkers/file/file_unix.cpp:129
 #, kde-format
 msgid "Create Symlink"
@@ -3452,33 +3452,41 @@ msgstr ""
 "以從下拉選單中選擇預設的篩選器，或者直接在文字區域中輸入自訂的篩選器。</p><p>"
 "允許使用 * 和 ? 萬用字元。</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:467
+#: filewidgets/knewfilemenu.cpp:428
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New File"
+msgstr "新資料夾"
+
+#: filewidgets/knewfilemenu.cpp:468
 #, kde-format
 msgid "Sorry"
 msgstr "抱歉"
 
-#: filewidgets/knewfilemenu.cpp:478
+#: filewidgets/knewfilemenu.cpp:479
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>樣本檔 <b>%1</b> 不存在。</qt>"
 
-#: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
+#: filewidgets/knewfilemenu.cpp:623 filewidgets/knewfilemenu.cpp:688
 #, kde-format
 msgid "Name for new link:"
 msgstr "新連結名稱："
 
-#: filewidgets/knewfilemenu.cpp:691
+#: filewidgets/knewfilemenu.cpp:692
 #, kde-format
 msgid "Create link to URL"
 msgstr "建立網址連結"
 
-#: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
+#: filewidgets/knewfilemenu.cpp:733 filewidgets/knewfilemenu.cpp:788
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1135
+#: filewidgets/knewfilemenu.cpp:1136
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3488,7 +3496,7 @@ msgstr ""
 "無法使用 <filename>%1</filename> 名稱，<nl/>因為這個檔案名稱被作業系統作為保"
 "留用途。"
 
-#: filewidgets/knewfilemenu.cpp:1143
+#: filewidgets/knewfilemenu.cpp:1144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3496,7 +3504,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> 名稱是以點 (.) 開頭的，因此預設會被隱藏起來。"
 
-#: filewidgets/knewfilemenu.cpp:1151
+#: filewidgets/knewfilemenu.cpp:1152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3507,27 +3515,27 @@ msgstr ""
 "此名稱 <filename>%1</filename> 以空白字元開頭，會造成它在依名稱排序時出現在其"
 "他項目前，以及其他可能發生的怪現象。"
 
-#: filewidgets/knewfilemenu.cpp:1169
+#: filewidgets/knewfilemenu.cpp:1170
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾，類似："
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾。"
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "斜槓 (/) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1197
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "反斜槓 (\\) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1206
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3536,41 +3544,41 @@ msgstr ""
 "不建議使用波浪號 (~) 作為檔案或資料夾名稱的開頭，因為波浪號可能會在使用終端機"
 "刪除東西時產生誤解及危險。"
 
-#: filewidgets/knewfilemenu.cpp:1274
+#: filewidgets/knewfilemenu.cpp:1275
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的資料夾已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1277
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的檔案已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1362
+#: filewidgets/knewfilemenu.cpp:1363
 #, kde-format
 msgid "Create New"
 msgstr "新增"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-format
 msgid "Link to Device"
 msgstr "連結到裝置"
 
-#: filewidgets/knewfilemenu.cpp:1414
+#: filewidgets/knewfilemenu.cpp:1415
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1433
+#: filewidgets/knewfilemenu.cpp:1434
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1435
+#: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "在 %1 建立新資料夾："

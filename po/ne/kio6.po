@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-03 00:35+0000\n"
+"POT-Creation-Date: 2024-03-09 00:35+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -383,7 +383,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
 #: kioworkers/file/file_unix.cpp:129
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
@@ -3761,13 +3761,20 @@ msgstr ""
 "<p>तपाईँले ड्रप डाउन मेनुको प्रिसेट फिल्टरहरूबाट एक चयन गर्नसक्नुहुन्छ, वा पाठक्षेत्रमा अनुकूल "
 "फिल्टर प्रत्यक्ष प्रविष्ट गर्न सक्नुहुन्छ ।<p>वाइल्डकार्ड जस्तै * र ? हरू स्वीकृत छन्</qt>"
 
-#: filewidgets/knewfilemenu.cpp:467
+#: filewidgets/knewfilemenu.cpp:428
+#, fuzzy, kde-format
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New File"
+msgstr "नयाँ फोल्डर"
+
+#: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "भण्डारण गर्नुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:478
+#: filewidgets/knewfilemenu.cpp:479
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3777,24 +3784,24 @@ msgstr ""
 "<qt>निर्दिष्ट गरिएको आदेश चलाउन असक्षम भयो । फाइल वा फोल्डर <b>%1</b> अवस्थित छैन ।"
 "</qt>"
 
-#: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
+#: filewidgets/knewfilemenu.cpp:623 filewidgets/knewfilemenu.cpp:688
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:691
+#: filewidgets/knewfilemenu.cpp:692
 #, fuzzy, kde-format
 #| msgid "Destination URL"
 msgid "Create link to URL"
 msgstr "गन्तव्य यूआरएल"
 
-#: filewidgets/knewfilemenu.cpp:732 filewidgets/knewfilemenu.cpp:787
+#: filewidgets/knewfilemenu.cpp:733 filewidgets/knewfilemenu.cpp:788
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1135
+#: filewidgets/knewfilemenu.cpp:1136
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3802,7 +3809,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1143
+#: filewidgets/knewfilemenu.cpp:1144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3810,7 +3817,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1151
+#: filewidgets/knewfilemenu.cpp:1152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3819,74 +3826,74 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1169
+#: filewidgets/knewfilemenu.cpp:1170
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1197
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1206
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1274
+#: filewidgets/knewfilemenu.cpp:1275
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'%1' नाम भएको एउटा पुरानो वस्तु पहिले नै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1277
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "%1 नाम गरिएको फाइल पहिल्यै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1362
+#: filewidgets/knewfilemenu.cpp:1363
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "सिर्जना गर्नुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1375
 #, fuzzy, kde-format
 #| msgid "Device"
 msgid "Link to Device"
 msgstr "यन्त्र"
 
-#: filewidgets/knewfilemenu.cpp:1414
+#: filewidgets/knewfilemenu.cpp:1415
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नयाँ फोल्डर"
 
-#: filewidgets/knewfilemenu.cpp:1433
+#: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "नयाँ फोल्डर"
 
-#: filewidgets/knewfilemenu.cpp:1435
+#: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
