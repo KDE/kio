@@ -1236,9 +1236,7 @@ WorkerResult FileProtocol::chown(const QUrl &url, const QString &owner, const QS
         }
         auto result = execWithElevatedPrivilege(CHOWN, {_path, uid, gid}, errCode);
         if (!result.success()) {
-            if (!resultWasCancelled(result)) {
-                return result;
-            }
+            return result;
         }
     }
 
