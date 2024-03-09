@@ -1231,14 +1231,10 @@ WorkerResult FileProtocol::chown(const QUrl &url, const QString &owner, const QS
         case ENOSPC:
             errCode = KIO::ERR_DISK_FULL;
             break;
-        default:
-            errCode = KIO::ERR_CANNOT_CHOWN;
         }
         auto result = execWithElevatedPrivilege(CHOWN, {_path, uid, gid}, errCode);
         if (!result.success()) {
-            if (!resultWasCancelled(result)) {
-                return result;
-            }
+            return result;
         }
     }
 

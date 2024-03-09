@@ -168,8 +168,6 @@ WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
         case ENOSPC:
             errCode = KIO::ERR_DISK_FULL;
             break;
-        default:
-            break;
         }
         auto result = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errCode);
         if (!result.success()) {
@@ -811,8 +809,6 @@ WorkerResult FileProtocol::special(const QByteArray &data)
         stream >> point;
         return unmount(point);
     }
-    default:
-        break;
     }
     return WorkerResult::pass();
 }
