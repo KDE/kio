@@ -1661,7 +1661,9 @@ void KCoreDirListerCache::slotUpdateEntries(KIO::Job *job, const KIO::UDSEntryLi
 
 void KCoreDirListerCache::slotUpdateResult(KJob *j)
 {
-    Q_ASSERT(j);
+    if (!j) {
+        return;
+    }
     KIO::ListJob *job = static_cast<KIO::ListJob *>(j);
 
     QUrl jobUrl(joburl(job));
