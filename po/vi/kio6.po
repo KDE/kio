@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -3592,11 +3592,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Thư mục mới"
+msgid "Create New File"
+msgstr "Tạo kiểu tệp mới"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3715,10 +3714,11 @@ msgid "New Folder"
 msgstr "Thư mục mới"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Thư mục mới"
+msgid "Create New Folder"
+msgstr "Tạo thư mục"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7136,6 +7136,17 @@ msgstr "Việc này sẽ khởi động chương trình đó:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Thư mục mới"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Thư mục mới"
+
 #~ msgid "Differences"
 #~ msgstr "Khác biệt"
 
@@ -8870,9 +8881,6 @@ msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
 #~ msgstr ""
 #~ "Không tạo được thư mục với tên <filename>%1</filename><nl/>vì nó đã được "
 #~ "đặt trước để dùng bởi hệ điều hành."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Tạo kiểu tệp mới"
 
 #~ msgid "File Type Options"
 #~ msgstr "Các lựa chọn kiểu tệp"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3396,11 +3396,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nov fólder"
+msgid "Create New File"
+msgstr "Crear nov"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3519,10 +3518,11 @@ msgid "New Folder"
 msgstr "Nov fólder"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nov fólder"
+msgid "Create New Folder"
+msgstr "Crear un fólder"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -6932,6 +6932,17 @@ msgstr "To va lansar li programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vu ne fide a ti-ci programma, selecte Anullar"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nov fólder"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nov fólder"
 
 #~ msgid "Differences"
 #~ msgstr "Diferenties"

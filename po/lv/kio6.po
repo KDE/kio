@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3657,11 +3657,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Jauna mape"
+msgid "Create New File"
+msgstr "Izveidot jaunu faila tipu"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3779,10 +3778,11 @@ msgid "New Folder"
 msgstr "Jauna mape"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Jauna mape"
+msgid "Create New Folder"
+msgstr "Izveidot mapi"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7347,6 +7347,17 @@ msgstr "Šis palaidīs programmu:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ja neuzticieties šai programmai, spiediet Atcelt"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Jauna mape"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Jauna mape"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Visi Faili"
 
@@ -8910,11 +8921,6 @@ msgstr "Ja neuzticieties šai programmai, spiediet Atcelt"
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Nepareizi failu nosaukumi"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Izveidot jaunu faila tipu"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Rediģēt ierakstu..."

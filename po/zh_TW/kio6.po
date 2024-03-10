@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-03-06 18:28+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3454,11 +3454,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "新資料夾"
+msgid "Create New File"
+msgstr "增加新的檔案類別"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3573,10 +3572,11 @@ msgid "New Folder"
 msgstr "新資料夾"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "新資料夾"
+msgid "Create New Folder"
+msgstr "建立資料夾"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -6910,6 +6910,17 @@ msgstr "這會啟動此程式："
 msgid "If you do not trust this program, click Cancel"
 msgstr "若您不信任此程式，請點擊「取消」"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "新資料夾"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "新資料夾"
+
 #~ msgid "Differences"
 #~ msgstr "差異"
 
@@ -8535,9 +8546,6 @@ msgstr "若您不信任此程式，請點擊「取消」"
 #~ msgstr ""
 #~ "無法建立檔名為 <filename>%1</filename> 的資料夾，<nl/>因為這個檔案名稱被作"
 #~ "業系統作為保留用途。"
-
-#~ msgid "Create New File Type"
-#~ msgstr "增加新的檔案類別"
 
 #~ msgid "File Type Options"
 #~ msgstr "檔案型態選項"

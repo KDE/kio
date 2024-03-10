@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3498,11 +3498,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "C&reate"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Yangi jild"
+msgid "Create New File"
+msgstr "&Yaratish"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3623,10 +3622,11 @@ msgid "New Folder"
 msgstr "Yangi jild"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Yangi jild"
+msgid "Create New Folder"
+msgstr "Jildni yaratib boʻlmadi"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7039,6 +7039,17 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Yangi jild"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Yangi jild"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Hamma fayllar"
 
@@ -7885,11 +7896,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Fayl nomlari notoʻgʻri"
-
-#, fuzzy
-#~| msgid "C&reate"
-#~ msgid "Create New File Type"
-#~ msgstr "&Yaratish"
 
 #, fuzzy
 #~| msgid "File types:"

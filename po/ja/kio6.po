@@ -1,4 +1,5 @@
 # Translation of kio4 into Japanese.
+# SPDX-FileCopyrightText: 2022, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # This file is distributed under the same license as the kdelibs package.
 # Taiki Komoda <kom@kde.gr.jp>, 2002, 2010.
 # Noriko Mizumoto <noriko@redhat.com>, 2004.
@@ -7,16 +8,15 @@
 # Shinichi Tsunoda <tsuno@ngy.1st.ne.jp>, 2005.
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2006, 2007, 2008, 2009, 2010.
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019, 2020.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2006, 2010, 2011, 2019, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2022-08-28 20:43-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-06 17:05+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,10 +55,9 @@ msgstr ""
 "がありません。"
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "io-slave を作成できません: %1"
+msgstr "KIO worker を作成できません: %1"
 
 #: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
 #, kde-format
@@ -780,10 +779,9 @@ msgid "Communication with the local password server failed"
 msgstr ""
 
 #: core/job_error.cpp:249
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "io-slave を作成できません: %1"
+msgstr "KIO worker を作成できません: %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -802,8 +800,7 @@ msgid ""
 msgstr ""
 
 #: core/job_error.cpp:261
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "このファイルは大きすぎてごみ箱に移動できません。"
 
@@ -1148,21 +1145,15 @@ msgstr ""
 "と互換性がない可能性があります。"
 
 #: core/job_error.cpp:506
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"インターネットでこのプロトコルをサポートする KDE プログラム (kioslave または "
-"ioslave と呼ばれています) を検索することもできます。<a href=\"https://kde-"
-"apps.org/\">https://kde-apps.org/</a> や <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/</a> で検索してください。"
+"インターネットでこのプロトコルをサポートするソフトウェアプラグイン (\"KIO "
+"worker\" と呼ばれています) を検索することもできます。<a href=\"https://store."
+"kde.org/\">https://store.kde.org</a> などのサイトを訪れてみてください。"
 
 #: core/job_error.cpp:514
 #, kde-format
@@ -2297,10 +2288,9 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 プロトコルを初期化できません"
 
 #: core/job_error.cpp:1252
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "io-slave を作成できません"
+msgstr "KIO Worker を作成できません"
 
 #: core/job_error.cpp:1254
 #, fuzzy, kde-format
@@ -2535,7 +2525,7 @@ msgstr "このセッションのみ(&C)"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2745,13 +2735,13 @@ msgstr "表示モード(&V)"
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr ""
+msgstr "Z-A"
 
 #: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
-msgstr ""
+msgstr "A-Z"
 
 #: filewidgets/kdiroperator.cpp:2279
 #, kde-format
@@ -3073,12 +3063,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "場所パネルにはフォルダのみが追加できます。"
 
 #: filewidgets/kfileplacesmodel.cpp:1363
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "アンマウント(&R)"
+msgstr "アンマウント中..."
 
 #: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
@@ -3087,12 +3075,10 @@ msgid "&Release"
 msgstr "アンマウント(&R)"
 
 #: filewidgets/kfileplacesmodel.cpp:1369
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "安全に取り外す(&S)"
+msgstr "安全に取り外し中..."
 
 #: filewidgets/kfileplacesmodel.cpp:1371
 #, kde-format
@@ -3101,12 +3087,10 @@ msgid "&Safely Remove"
 msgstr "安全に取り外す(&S)"
 
 #: filewidgets/kfileplacesmodel.cpp:1376
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "アンマウント"
+msgstr "アンマウント中..."
 
 #: filewidgets/kfileplacesmodel.cpp:1378
 #, kde-format
@@ -3491,10 +3475,9 @@ msgid "Remote Files Not Accepted"
 msgstr "リモートファイルは指定できません"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|すべてのフォルダ"
+msgstr "すべてのフォルダ"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -3584,11 +3567,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "新しいフォルダ"
+msgid "Create New File"
+msgstr "新規作成"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3700,10 +3682,11 @@ msgid "New Folder"
 msgstr "新しいフォルダ"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "新しいフォルダ"
+msgid "Create New Folder"
+msgstr "フォルダを作成"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -3866,11 +3849,10 @@ msgid "Launching %1"
 msgstr "%1 を起動中"
 
 #: gui/kprocessrunner.cpp:461
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "ファイル ‘%1’ が見つかりませんでした"
+msgstr "コマンド <command>%1</command> が見つかりませんでした。"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4294,12 +4276,13 @@ msgid "Could not login to %1."
 msgstr "%1 にログインできませんでした。"
 
 #: kioworkers/ftp/ftp.cpp:1032
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgid ""
 "\n"
 "The server said: \"%1\""
-msgstr "%1 を起動中"
+msgstr ""
+"\n"
+"サーバの応答: \"%1\""
 
 #: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:311
 #, kde-format
@@ -4972,8 +4955,7 @@ msgstr "完全に削除"
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:269
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "完全に削除"
@@ -5168,10 +5150,9 @@ msgid "Updating System Configuration"
 msgstr "システムの設定を更新中"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "システムの設定を更新しています。"
+msgstr "システムの設定を更新しています..."
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
@@ -5496,20 +5477,17 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"\"%1\" (%2)の\n"
-"アプリケーション関連付けを保存する"
+"\"%1\" (%2) の\n"
+"アプリケーション関連付けを保存する(&R)"
 
 #: widgets/kopenwithdialog.cpp:744
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"\"%1\" (%2)の\n"
-"アプリケーション関連付けを保存する"
+"\"%1\" の\n"
+"アプリケーション関連付けを保存する(&R)"
 
 #: widgets/kopenwithdialog.cpp:754
 #, kde-format
@@ -5712,7 +5690,7 @@ msgstr "コメント(&E):"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "環境変数:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -5726,7 +5704,7 @@ msgstr "ここでアプリケーションを実行するユーザ名を入力し
 #: widgets/kpropertiesdesktopbase.ui:98
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "プログラム:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:117
@@ -5795,11 +5773,9 @@ msgstr ""
 # xdg-user-dirs 0.17 の翻訳に準拠した表記です。
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "&Arguments:"
-msgstr "ドキュメント"
+msgstr "引数(&A):"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -5933,17 +5909,14 @@ msgid "Share"
 msgstr "共有"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:105
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"<qt>プロパティを保存できませんでした。あなたには ‘%1’ に書き込む権限がありま"
-"せん。</qt>"
+"以下のファイルへの書き込みアクセス権が不足しているため、プロパティを保存でき"
+"ませんでした:<nl/><filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:216
 #, kde-format
@@ -5955,7 +5928,7 @@ msgstr "一般(&G)"
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
-msgstr ""
+msgstr "%1 で探す"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:424
 #: widgets/kpropertiesdialogbuiltin_p.cpp:695
@@ -6814,22 +6787,19 @@ msgid "The source is <b>bigger by %1</b>."
 msgstr "転送先は<b>%1 大きいです</b>。"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "これらのファイルは同一です。"
+msgstr "これらのファイルは<b>同一です。</b>"
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "これらのファイルは同一のようです。"
+msgstr "これらのファイルは<b>同一のようです。</b>"
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "これらのファイルには差異があります。"
+msgstr "これらのファイルには<b>差異があります。</b>"
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -7154,3 +7124,14 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "新しいフォルダ"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "新しいフォルダ"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-12-15 14:19+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -3295,11 +3295,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Carpeta nueva"
+msgid "Create New File"
+msgstr "Crear"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3408,10 +3407,11 @@ msgid "New Folder"
 msgstr "Carpeta nueva"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Carpeta nueva"
+msgid "Create New Folder"
+msgstr "Crear"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -6615,6 +6615,17 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Carpeta nueva"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Carpeta nueva"
 
 #~ msgid "Differences"
 #~ msgstr "Diferencies"

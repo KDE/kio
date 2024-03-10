@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2024-03-02 09:15+0200\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-09 09:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3647,11 +3647,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Нова тека"
+msgid "Create New File"
+msgstr "Створити новий тип файлів"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3775,10 +3774,11 @@ msgid "New Folder"
 msgstr "Нова тека"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Нова тека"
+msgid "Create New Folder"
+msgstr "Створення теки"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7290,6 +7290,16 @@ msgstr "Це запустить програму:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Якщо ви не довіряєте цій програмі, натисніть кнопку «Скасувати»."
 
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Новий файл"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Нова тека"
+
 #~ msgid "Differences"
 #~ msgstr "Відмінності"
 
@@ -9079,9 +9089,6 @@ msgstr "Якщо ви не довіряєте цій програмі, нати�
 #~ msgstr ""
 #~ "Не вдалося створити теку із назвою <filename>%1</filename>,<nl/>оскільки "
 #~ "цю назву зарезервовано для використання операційною системою."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Створити новий тип файлів"
 
 #~ msgid "File Type Options"
 #~ msgstr "Параметри типу файлів"

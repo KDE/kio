@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -3664,11 +3664,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nowy zapisk"
+msgid "Create New File"
+msgstr "Nowu datajowu družinu stworić"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3788,10 +3787,11 @@ msgid "New Folder"
 msgstr "Nowy zapisk..."
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nowy zapisk"
+msgid "Create New Folder"
+msgstr "Zapisk stworić"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7275,6 +7275,17 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nowy zapisk"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nowy zapisk"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Wšitke dataje"
 
@@ -8754,11 +8765,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Njekorektne datajowe mjena"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Nowu datajowu družinu stworić"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Zapis wobdźěłać..."

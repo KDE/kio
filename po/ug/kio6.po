@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3690,11 +3690,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "يېڭى قىسقۇچ"
+msgid "Create New File"
+msgstr "يېڭى ھۆججەت تىپى قۇر"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3809,10 +3808,11 @@ msgid "New Folder"
 msgstr "يېڭى قىسقۇچ"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "يېڭى قىسقۇچ"
+msgid "Create New Folder"
+msgstr "يېنىۋال: قىسقۇچ قۇر(&O)"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7392,6 +7392,17 @@ msgstr "بۇ پروگراممىنى قوزغىتىدۇ:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز كەچنى چېكىڭ"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "يېڭى قىسقۇچ"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "يېڭى قىسقۇچ"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|بارلىق ھۆججەتلەر"
 
@@ -8387,9 +8398,6 @@ msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز �
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "ئىناۋەتسىز ھۆججەت ئاتى"
-
-#~ msgid "Create New File Type"
-#~ msgstr "يېڭى ھۆججەت تىپى قۇر"
 
 #~ msgid "File Type Options"
 #~ msgstr "ھۆججەت تىپى تاللانمىسى"

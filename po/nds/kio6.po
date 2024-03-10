@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -3734,11 +3734,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nieg Orner"
+msgid "Create New File"
+msgstr "Niegen Dateityp opstellen"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3854,10 +3853,11 @@ msgid "New Folder"
 msgstr "Nieg Orner"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nieg Orner"
+msgid "Create New Folder"
+msgstr "&Torüchnehmen: Orner opstellen"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7461,6 +7461,17 @@ msgstr "Dit start dat Programm:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nieg Orner"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nieg Orner"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|All Dateien"
 
@@ -9236,9 +9247,6 @@ msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Dateinaams gellt nich"
-
-#~ msgid "Create New File Type"
-#~ msgstr "Niegen Dateityp opstellen"
 
 #~ msgid "File Type Options"
 #~ msgstr "Dateityp-Optschonen"

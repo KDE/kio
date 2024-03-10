@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -3444,11 +3444,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "ਨਵਾਂ ਫੋਲਡਰ"
+msgid "Create New File"
+msgstr "ਨਵੀਂ ਫਾਈਲ ਕਿਸਮ ਬਣਾਓ"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3558,10 +3557,11 @@ msgid "New Folder"
 msgstr "ਨਵਾਂ ਫੋਲਡਰ"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "ਨਵਾਂ ਫੋਲਡਰ"
+msgid "Create New Folder"
+msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -6903,6 +6903,17 @@ msgstr "ਇਹ ਪਰੋਗਰਾਮ ਨੂੰ ਸ਼ੁਰੂ ਕਰੇਗਾ:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ ਭਰੋਸਾ ਨਹੀਂ ਤਾਂ ਰੱਦ ਕਰੋ ਨੂੰ ਕਲਿੱਕ ਕਰੋ"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "ਨਵਾਂ ਫੋਲਡਰ"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "ਨਵਾਂ ਫੋਲਡਰ"
+
 #~ msgid "Differences"
 #~ msgstr "ਫ਼ਰਕ"
 
@@ -7841,9 +7852,6 @@ msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ �
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "ਗਲਤ ਫਾਈਲ-ਨਾਂ"
-
-#~ msgid "Create New File Type"
-#~ msgstr "ਨਵੀਂ ਫਾਈਲ ਕਿਸਮ ਬਣਾਓ"
 
 #~ msgid "File Type Options"
 #~ msgstr "ਫਾਈਲ ਕਿਸਮ ਚੋਣਾਂ"

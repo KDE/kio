@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-02-16 01:20\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3648,11 +3648,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Новы каталог"
+msgid "Create New File"
+msgstr "Стварыць новы тып файлаў"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3775,10 +3774,11 @@ msgid "New Folder"
 msgstr "Новы каталог"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Новы каталог"
+msgid "Create New Folder"
+msgstr "Стварыць каталог"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7289,6 +7289,17 @@ msgstr "Гэта запусціць праграму:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Новы каталог"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Новы каталог"
+
 #~ msgid "Differences"
 #~ msgstr "Адрозненні"
 
@@ -9071,11 +9082,6 @@ msgstr "Калі вы не давяраеце гэтай праграме, на�
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Няправільныя назвы файлаў"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Стварыць новы тып файлаў"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Змяніць запіс..."

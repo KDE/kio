@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2008-08-06 00:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: Occitan <oc@li.org>\n"
@@ -3332,10 +3332,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Created:"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Repertòri novèl"
+msgid "Create New File"
+msgstr "Creat :"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3450,10 +3450,10 @@ msgstr "Repertòri novèl"
 
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Trash"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Repertòri novèl"
+msgid "Create New Folder"
+msgstr "Banasta"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -6760,6 +6760,18 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Repertòri novèl"
+
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Repertòri novèl"
 
 #, fuzzy
 #~| msgid "Directory"

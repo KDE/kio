@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -3753,11 +3753,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Нова папка"
+msgid "Create New File"
+msgstr "Создај нов тип на папка"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3885,10 +3884,11 @@ msgid "New Folder"
 msgstr "Нова папка"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Нова папка"
+msgid "Create New Folder"
+msgstr "&Отповикај: креирање папка"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7497,6 +7497,17 @@ msgstr "Ова ќе ја стартува програмата:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не ѝ верувате на оваа програма, кликнете „Откажи“"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Нова папка"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Нова папка"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Сите датотеки"
 
@@ -9086,11 +9097,6 @@ msgstr "Ако не ѝ верувате на оваа програма, клик
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Невалидни имиња на датотеки"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Создај нов тип на папка"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Уреди елемент..."

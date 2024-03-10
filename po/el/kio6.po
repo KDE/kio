@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3752,11 +3752,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Νέος φάκελος"
+msgid "Create New File"
+msgstr "Δημιουργία νέου τύπου αρχείου"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3872,10 +3871,11 @@ msgid "New Folder"
 msgstr "Νέος φάκελος"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Νέος φάκελος"
+msgid "Create New Folder"
+msgstr "&Αναίρεση: Δημιουργία φακέλου"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7506,6 +7506,17 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Νέος φάκελος"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Νέος φάκελος"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Όλα τα αρχεία"
 
@@ -9400,9 +9411,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Άκυρα ονόματα αρχείων"
-
-#~ msgid "Create New File Type"
-#~ msgstr "Δημιουργία νέου τύπου αρχείου"
 
 #~ msgid "File Type Options"
 #~ msgstr "Επιλογές τύπου αρχείων"

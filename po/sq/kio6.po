@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2009-08-18 12:07+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -3308,11 +3308,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "&Supported file types:"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Dosje e Re"
+msgid "Create New File"
+msgstr "&Llojet e skedarëve të suportuar:"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3421,9 +3420,11 @@ msgid "New Folder"
 msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Folder"
 msgctxt "@title:window"
-msgid "New Folder"
+msgid "Create New Folder"
 msgstr "Dosje e Re"
 
 #: filewidgets/knewfilemenu.cpp:1436
@@ -6749,6 +6750,17 @@ msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
 #, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Dosje e Re"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Dosje e Re"
+
+#, fuzzy
 #~| msgid "Could not read %1."
 #~ msgid "Could not create directory %1"
 #~ msgstr "Nuk mundëm të lexojmë %1."
@@ -7104,11 +7116,6 @@ msgstr ""
 #~ msgctxt "@action:button"
 #~ msgid "Enter a Different Name"
 #~ msgstr "Ni&se si një përdorues tjetër"
-
-#, fuzzy
-#~| msgid "&Supported file types:"
-#~ msgid "Create New File Type"
-#~ msgstr "&Llojet e skedarëve të suportuar:"
 
 #, fuzzy
 #~| msgid "Launching %1"

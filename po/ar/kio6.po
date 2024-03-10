@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-02-10 17:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3564,11 +3564,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "مجلّد جديد"
+msgid "Create New File"
+msgstr "أنشئ نوع ملفّات جديد"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3684,10 +3683,11 @@ msgid "New Folder"
 msgstr "مجلد جديد"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "مجلّد جديد"
+msgid "Create New Folder"
+msgstr "أنشئ مجلّدًا"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7194,6 +7194,17 @@ msgstr "سيشغّل هذا البرنامج:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ“"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "مجلّد جديد"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "مجلّد جديد"
+
 #~ msgid "Differences"
 #~ msgstr "الفروق"
 
@@ -8934,9 +8945,6 @@ msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ�
 #~ msgstr ""
 #~ "تعذر إنشاء مجلد باسم <filename>%1</filename><nl/> لأنه محجوز للاستخدام "
 #~ "بواسطة نظام التشغيل."
-
-#~ msgid "Create New File Type"
-#~ msgstr "أنشئ نوع ملفّات جديد"
 
 #~ msgid "File Type Options"
 #~ msgstr "خيارات نوع الملفّات"

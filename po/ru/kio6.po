@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-01-27 19:08+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3648,11 +3648,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Создание папки"
+msgid "Create New File"
+msgstr "Создать новый тип файла"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3772,9 +3771,10 @@ msgid "New Folder"
 msgstr "Новая папка"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
+msgid "Create New Folder"
 msgstr "Создание папки"
 
 #: filewidgets/knewfilemenu.cpp:1436
@@ -7265,6 +7265,17 @@ msgid "If you do not trust this program, click Cancel"
 msgstr ""
 "Если вы не уверены в безопасности этой программы, нажмите кнопку «Отмена»."
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Создание папки"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Создание папки"
+
 #~ msgid "Differences"
 #~ msgstr "Различия"
 
@@ -9029,9 +9040,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ошибка создания папки «<filename>%1</filename><nl/>»: такое имя "
 #~ "зарезервировано для использования операционной системой."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Создать новый тип файла"
 
 #~ msgid "File Type Options"
 #~ msgstr "Параметры типа файла"

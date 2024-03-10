@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -3652,11 +3652,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Ny katalog"
+msgid "Create New File"
+msgstr "Skapa ny filtyp"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3776,10 +3775,11 @@ msgid "New Folder"
 msgstr "Ny katalog"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Ny katalog"
+msgid "Create New Folder"
+msgstr "Skapa katalog"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7267,6 +7267,17 @@ msgstr "Detta startar programmet:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Om du inte litar på programmet, klicka på Avbryt"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Ny katalog"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Ny katalog"
+
 #~ msgid "Differences"
 #~ msgstr "Skillnader"
 
@@ -9049,9 +9060,6 @@ msgstr "Om du inte litar på programmet, klicka på Avbryt"
 #~ msgstr ""
 #~ "Kunde inte skapa en katalog vid namn <filename>%1</filename><nl/>eftersom "
 #~ "det är reserverat för användning av operativsystemet."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Skapa ny filtyp"
 
 #~ msgid "File Type Options"
 #~ msgstr "Alternativ för filtyp"

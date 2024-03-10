@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2024-03-03 10:41+0100\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-09 09:52+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -3640,11 +3640,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Novo cartafol"
+msgid "Create New File"
+msgstr "Crear un tipo novo de ficheiro"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3765,10 +3764,11 @@ msgid "New Folder"
 msgstr "Novo cartafol"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Novo cartafol"
+msgid "Create New Folder"
+msgstr "Crear o cartafol"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7216,6 +7216,14 @@ msgstr "Isto iniciará o programa:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se non confía neste programa, prema Cancelar"
 
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Novo ficheiro"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Novo cartafol"
+
 #~ msgid "Differences"
 #~ msgstr "Diferenzas"
 
@@ -9005,9 +9013,6 @@ msgstr "Se non confía neste programa, prema Cancelar"
 #~ msgstr ""
 #~ "Non se puido crear un cartafol co nome <filename>%1</filename><nl/>porque "
 #~ "é un nome reservado polo sistema operativo."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Crear un tipo novo de ficheiro"
 
 #~ msgid "File Type Options"
 #~ msgstr "Opcións do tipo de ficheiro"

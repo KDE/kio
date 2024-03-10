@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3632,11 +3632,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "پوشهٔ جدید"
+msgid "Create New File"
+msgstr "ایجاد نوع پرونده جدید"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3757,10 +3756,11 @@ msgid "New Folder"
 msgstr "پوشهٔ جدید"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "پوشهٔ جدید"
+msgid "Create New Folder"
+msgstr "ایجاد پوشه"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7190,6 +7190,17 @@ msgstr "این برنامه را اجرا خواهد کرد:"
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "پوشهٔ جدید"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "پوشهٔ جدید"
+
 #~ msgid "Differences"
 #~ msgstr "متفاوتند"
 
@@ -8787,11 +8798,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "نام پرونده‌های نا‌‌‌معتبر"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "ایجاد نوع پرونده جدید"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "ویرایش مدخل..."

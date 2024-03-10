@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-03-04 11:31+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3657,11 +3657,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nove dossier"
+msgid "Create New File"
+msgstr "Crea nove typo de file"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3780,10 +3779,11 @@ msgid "New Folder"
 msgstr "Nove dossier"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nove dossier"
+msgid "Create New Folder"
+msgstr "Crea dossier"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7237,6 +7237,17 @@ msgstr "Isto startara le programma:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si tu non ha fide in iste programma, tu pulsa Cancella"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nove dossier"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nove dossier"
+
 #~ msgid "Differences"
 #~ msgstr "Differentias"
 
@@ -9016,9 +9027,6 @@ msgstr "Si tu non ha fide in iste programma, tu pulsa Cancella"
 #~ msgstr ""
 #~ "Non poteva crear un dossier con le nomine <filename>%1</filename><nl/"
 #~ ">proque illo es reservate per uso per le systema operational (o operative)"
-
-#~ msgid "Create New File Type"
-#~ msgstr "Crea nove typo de file"
 
 #~ msgid "File Type Options"
 #~ msgstr "Optiones de typo de file"

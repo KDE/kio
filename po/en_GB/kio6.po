@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-06-17 12:02+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -3616,11 +3616,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "New Folder"
+msgid "Create New File"
+msgstr "Create New File Type"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3738,10 +3737,11 @@ msgid "New Folder"
 msgstr "New Folder"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "New Folder"
+msgid "Create New Folder"
+msgstr "Create Folder"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7183,6 +7183,17 @@ msgstr "This will start the program:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "If you do not trust this program, click Cancel"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "New Folder"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "New Folder"
+
 #~ msgid "Differences"
 #~ msgstr "Differences"
 
@@ -8929,9 +8940,6 @@ msgstr "If you do not trust this program, click Cancel"
 #~ msgstr ""
 #~ "Could not create a folder with the name <filename>%1</filename><nl/"
 #~ ">because it is reserved for use by the operating system."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Create New File Type"
 
 #~ msgid "File Type Options"
 #~ msgstr "File Type Options"

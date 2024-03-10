@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -3850,10 +3850,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nije map"
+msgid "Create New File"
+msgstr "Nij triemtype oanmeitsje"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3975,10 +3975,10 @@ msgstr "Nije map"
 
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nije map"
+msgid "Create New Folder"
+msgstr "Nij&e map oanmeitsje"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7628,6 +7628,18 @@ msgstr "KDE test programma"
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nije map"
+
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nije map"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Alle triemen"
 
@@ -9230,11 +9242,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Unjildige triemnammen"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Nij triemtype oanmeitsje"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Item bewurkje..."

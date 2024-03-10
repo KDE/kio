@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3732,11 +3732,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Novy kataloh"
+msgid "Create New File"
+msgstr "Stvaryć novy typ fajlaŭ"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3859,10 +3858,11 @@ msgid "New Folder"
 msgstr "Novy kataloh"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Novy kataloh"
+msgid "Create New Folder"
+msgstr "Stvaryć kataloh"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7471,6 +7471,17 @@ msgstr "Heta zapuscić prahramu:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Novy kataloh"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Novy kataloh"
+
 #~ msgid "Differences"
 #~ msgstr "Adroznienni"
 
@@ -9436,11 +9447,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Niapraviĺnyja nazvy fajlaŭ"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Stvaryć novy typ fajlaŭ"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Zmianić zapis..."

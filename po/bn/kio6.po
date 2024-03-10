@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -3385,9 +3385,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
+#| msgid "C&reate"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "নতুন ফোল্ডার"
+msgid "Create New File"
+msgstr "তৈরি &করো"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3505,8 +3506,8 @@ msgstr "নতুন ফোল্ডার"
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "নতুন ফোল্ডার"
+msgid "Create New Folder"
+msgstr "ফোল্ডার তৈরি করা যায়নি"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -6836,6 +6837,16 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "নতুন ফোল্ডার"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "নতুন ফোল্ডার"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|সব ফাইল"
 
@@ -7773,11 +7784,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "ফাইলের নাম অবৈধ "
-
-#, fuzzy
-#~| msgid "C&reate"
-#~ msgid "Create New File Type"
-#~ msgstr "তৈরি &করো"
 
 #, fuzzy
 #~| msgid "File types:"

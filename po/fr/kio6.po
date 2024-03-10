@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-03-06 12:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -3710,14 +3710,12 @@ msgstr ""
 "ajouter un filtre personnalisé directement dans la zone de texte.</p><p>Les "
 "caractères génériques tels que « * » et « ? » sont autorisés.</p></qt>"
 
-# unreviewed-context
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nouveau dossier"
+msgid "Create New File"
+msgstr "Créer un nouveau type de fichier"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3843,12 +3841,12 @@ msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nouveau dossier"
 
-# unreviewed-context
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nouveau dossier"
+msgid "Create New Folder"
+msgstr "Créer un dossier"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7334,6 +7332,19 @@ msgstr "Ceci va démarrer le programme :"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
 
+# unreviewed-context
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nouveau dossier"
+
+# unreviewed-context
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nouveau dossier"
+
 #~ msgid "Differences"
 #~ msgstr "Différences"
 
@@ -9167,9 +9178,6 @@ msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
 #~ msgstr ""
 #~ "Impossible de créer un dossier portant le nom <filename>%1</filename><nl/"
 #~ ">car celui-ci est réservé par le système d'exploitation."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Créer un nouveau type de fichier"
 
 #~ msgid "File Type Options"
 #~ msgstr "Options du type de fichier"

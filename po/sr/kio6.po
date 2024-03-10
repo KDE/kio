@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3726,11 +3726,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Нова фасцикла"
+msgid "Create New File"
+msgstr "Направи нови тип фајла"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3850,10 +3849,11 @@ msgid "New Folder"
 msgstr "нова‑фасцикла"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Нова фасцикла"
+msgid "Create New Folder"
+msgstr "О&позови стварање фасцикле"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7537,6 +7537,17 @@ msgstr "Ово ће покренути програм:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не верујете програму, кликните на „Одустани“."
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Нова фасцикла"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Нова фасцикла"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|сви фајлови"
 
@@ -9663,9 +9674,6 @@ msgstr "Ако не верујете програму, кликните на „
 
 #~ msgid "Co&mmand:"
 #~ msgstr "&Наредба:"
-
-#~ msgid "Create New File Type"
-#~ msgstr "Направи нови тип фајла"
 
 #~ msgid "File Type Options"
 #~ msgstr "Опције типа фајла"

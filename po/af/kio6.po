@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3828,10 +3828,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nuwe Gids"
+msgid "Create New File"
+msgstr "Skep nuwe gids lêer tipe"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3952,10 +3952,10 @@ msgstr "Nuwe Gids"
 
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nuwe Gids"
+msgid "Create New Folder"
+msgstr "Kon nie die gids skep nie"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7571,6 +7571,18 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nuwe Gids"
+
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nuwe Gids"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Alle Lêers"
 
@@ -9141,11 +9153,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Ongeldige Lêername"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Skep nuwe gids lêer tipe"
 
 #, fuzzy
 #~| msgid "File types:"

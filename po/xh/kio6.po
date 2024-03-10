@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -3734,8 +3734,8 @@ msgstr ""
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Incwadi enenkcukacha Entsha:"
+msgid "Create New File"
+msgstr "Yenza ulawulo olutsha kwi:"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3851,8 +3851,8 @@ msgstr "Incwadi enenkcukacha Entsha:"
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Incwadi enenkcukacha Entsha:"
+msgid "Create New Folder"
+msgstr "Ayinakwenza Umngxuma"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7242,6 +7242,16 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Incwadi enenkcukacha Entsha:"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Incwadi enenkcukacha Entsha:"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Zonke Iifayile"
 
@@ -8534,10 +8544,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Invalid Directory Name"
 #~ msgstr "I(ama)gama lefayile Engasebenziyo"
-
-#, fuzzy
-#~ msgid "Create New File Type"
-#~ msgstr "Yenza ulawulo olutsha kwi:"
 
 #, fuzzy
 #~| msgid "File types:"

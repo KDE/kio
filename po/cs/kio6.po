@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-02-19 17:11+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3578,11 +3578,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nová složka"
+msgid "Create New File"
+msgstr "Vytvořit nový"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3698,10 +3697,11 @@ msgid "New Folder"
 msgstr "Nová složka"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nová složka"
+msgid "Create New Folder"
+msgstr "Vytvořit složku"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7120,3 +7120,7 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nová složka"

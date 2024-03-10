@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -3406,10 +3406,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Renkell nevez"
+msgid "Create New File"
+msgstr "Krouiñ ur seurt restr nevez"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3527,10 +3527,10 @@ msgstr "Renkell nevez"
 
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
-#| msgid "New Folder"
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Renkell nevez"
+msgid "Create New Folder"
+msgstr "Ne m'eus ket krouet ar renkell"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -6928,6 +6928,18 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Renkell nevez"
+
+#, fuzzy
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Renkell nevez"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Pep restr"
 
@@ -7666,11 +7678,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Anvioù sac'het"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Krouiñ ur seurt restr nevez"
 
 #, fuzzy
 #~| msgid "File types:"

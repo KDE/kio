@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -3660,10 +3660,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgid "New Folder..."
+#| msgid "Detailed View"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nowi katalog..."
+msgid "Create New File"
+msgstr "Detalowi wëzdrzatk"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3780,10 +3780,10 @@ msgstr "Nowi katalog..."
 
 #: filewidgets/knewfilemenu.cpp:1434
 #, fuzzy, kde-format
-#| msgid "New Folder..."
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nowi katalog..."
+msgid "Create New Folder"
+msgstr "Ni mòże ùsôdzëc kataloga"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7169,6 +7169,18 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "New Folder..."
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nowi katalog..."
+
+#, fuzzy
+#~| msgid "New Folder..."
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nowi katalog..."
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Wszëtczé lopczi"
 
@@ -8505,11 +8517,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Lëché miona lopków"
-
-#, fuzzy
-#~| msgid "Detailed View"
-#~ msgid "Create New File Type"
-#~ msgstr "Detalowi wëzdrzatk"
 
 #~ msgid "Custom Path"
 #~ msgstr "Swòjô stegna"

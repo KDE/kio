@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3775,11 +3775,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "C&reate"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Novea ridant"
+msgid "Create New File"
+msgstr "A&hiver"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, fuzzy, kde-format
@@ -3900,10 +3899,11 @@ msgid "New Folder"
 msgstr "Novea ridant"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Could Not Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Novea ridant"
+msgid "Create New Folder"
+msgstr "Dji n' sai fé l' ridant"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7376,6 +7376,17 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Novea ridant"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Novea ridant"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|Tos les fitchîs"
 
@@ -8449,11 +8460,6 @@ msgstr ""
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Måva no(s) di fitchî(s)"
-
-#, fuzzy
-#~| msgid "C&reate"
-#~ msgid "Create New File Type"
-#~ msgstr "A&hiver"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Candjî intrêye..."

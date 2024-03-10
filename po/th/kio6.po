@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -3645,11 +3645,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "โฟลเดอร์ใหม่"
+msgid "Create New File"
+msgstr "สร้างประเภทแฟ้มใหม่"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3765,10 +3764,11 @@ msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "โฟลเดอร์ใหม่"
+msgid "Create New Folder"
+msgstr "เลิก&ทำ: สร้างโฟลเดอร์"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -7298,6 +7298,17 @@ msgstr "จะทำการเรียกใช้โปรแกรม:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "หากคุณไม่เชื่อถือโปรแกรมนี้ โปรดคลิก ยกเลิก"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "โฟลเดอร์ใหม่"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "โฟลเดอร์ใหม่"
+
 #~ msgid "*|All Files"
 #~ msgstr "*|ทุกแฟ้ม"
 
@@ -8824,11 +8835,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "ชื่อแฟ้มใช้ไม่ได้"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "สร้างประเภทแฟ้มใหม่"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "แก้ไขรายการ..."

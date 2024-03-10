@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -3505,8 +3505,8 @@ msgstr ""
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
 msgctxt "@title:window"
-msgid "New File"
-msgstr "പുതിയ ഫോള്‍ഡര്‍"
+msgid "Create New File"
+msgstr "വിശദമായ കാഴ്ച"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3617,10 +3617,11 @@ msgid "New Folder"
 msgstr "പുതിയ ഫോള്‍ഡര്‍"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr ""
+msgid "Create New Folder"
+msgstr "അറ ഉണ്ടാക്കുക"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, fuzzy, kde-format
@@ -6858,6 +6859,11 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില്ലെങ്കിൽ, റദ്ദാക്കുക്ക ക്ലിക്ക് ചെയ്യുക"
 
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "പുതിയ ഫോള്‍ഡര്‍"
+
 #~ msgid ""
 #~ "You are about to leave secure mode. Transmissions will no longer be "
 #~ "encrypted.\n"
@@ -7521,10 +7527,6 @@ msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില�
 #, fuzzy
 #~ msgid "Invalid Directory Name"
 #~ msgstr "അസാധുവായ പ്രോക്സി സജ്ജീകരണം"
-
-#, fuzzy
-#~ msgid "Create New File Type"
-#~ msgstr "വിശദമായ കാഴ്ച"
 
 #, fuzzy
 #~ msgid "unmounting is not supported by wince."

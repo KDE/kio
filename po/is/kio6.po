@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-01-27 14:48+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -3614,11 +3614,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Ný mappa"
+msgid "Create New File"
+msgstr "Búa til nýja skráagerð"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3738,10 +3737,11 @@ msgid "New Folder"
 msgstr "Ný mappa"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Ný mappa"
+msgid "Create New Folder"
+msgstr "Búa til möppu"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7167,6 +7167,17 @@ msgstr "Þetta mun ræsa forritið:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Ný mappa"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Ný mappa"
+
 #~ msgid "Differences"
 #~ msgstr "Frávik"
 
@@ -8892,11 +8903,6 @@ msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Ólögleg skráarnöfn"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Búa til nýja skráagerð"
 
 #~ msgid "Edit Entry..."
 #~ msgstr "Breyta færslu..."

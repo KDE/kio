@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2024-03-02 10:34+0300\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-09 10:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3587,11 +3587,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Yeni Klasör"
+msgid "Create New File"
+msgstr "Yeni Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3712,10 +3711,11 @@ msgid "New Folder"
 msgstr "Yeni Klasör"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Yeni Klasör"
+msgid "Create New Folder"
+msgstr "Klasör Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7163,6 +7163,16 @@ msgstr "Bu, uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
+
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Yeni Dosya"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Yeni Klasör"
 
 #~ msgid "Differences"
 #~ msgstr "Farklılıklar"

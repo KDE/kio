@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2024-03-02 20:07+0200\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-09 17:54+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3525,11 +3525,9 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "תיקייה חדשה"
+msgid "Create New File"
+msgstr "צור סוג קובץ חדש"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3644,10 +3642,11 @@ msgid "New Folder"
 msgstr "תיקייה חדשה"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "תיקייה חדשה"
+msgid "Create New Folder"
+msgstr "יצירת תיקייה"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7070,6 +7069,16 @@ msgstr "יפעיל את התוכנית:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם זאת אינה תוכנית מהימנה, ללחוץ על ביטול"
 
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "קובץ חדש"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "תיקייה חדשה"
+
 #~ msgid "Differences"
 #~ msgstr "הבדלים"
 
@@ -8429,10 +8438,6 @@ msgstr "אם זאת אינה תוכנית מהימנה, ללחוץ על ביטו
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "שמות קבצים לא תקפים"
-
-#, fuzzy
-#~ msgid "Create New File Type"
-#~ msgstr "צור סוג קובץ חדש"
 
 #~ msgid "File Type Options"
 #~ msgstr "אפשרויות של סוגי הקבצים"

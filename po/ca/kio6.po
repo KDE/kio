@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
-"PO-Revision-Date: 2024-03-02 11:22+0100\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"PO-Revision-Date: 2024-03-09 11:19+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3663,11 +3663,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Carpeta nova"
+msgid "Create New File"
+msgstr "Crea nou"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3785,10 +3784,11 @@ msgid "New Folder"
 msgstr "Carpeta nova"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Carpeta nova"
+msgid "Create New Folder"
+msgstr "Crea una carpeta"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7248,3 +7248,13 @@ msgstr "Això iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
+
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Fitxer nou"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Carpeta nova"

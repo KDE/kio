@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-12-12 19:14+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3598,11 +3598,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Nový priečinok"
+msgid "Create New File"
+msgstr "Vytvoriť nový typ súboru"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3721,10 +3720,11 @@ msgid "New Folder"
 msgstr "Nový priečinok"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Nový priečinok"
+msgid "Create New Folder"
+msgstr "Vytvoriť priečinok"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7182,6 +7182,17 @@ msgstr "Spustí sa program:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Nový priečinok"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Nový priečinok"
+
 #~ msgid "Differences"
 #~ msgstr "Rozdiely"
 
@@ -8962,9 +8973,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr ""
 #~ "Nepodarilo sa vytvoriť priečinok s názvom <filename>%1</filename><nl/>, "
 #~ "pretože je vyhradený na použitie operačným systémom."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Vytvoriť nový typ súboru"
 
 #~ msgid "File Type Options"
 #~ msgstr "Možnosti typu súboru"

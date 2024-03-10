@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3656,11 +3656,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Folder Baru"
+msgid "Create New File"
+msgstr "Ciptakan Tipe File Baru"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3782,10 +3781,11 @@ msgid "New Folder"
 msgstr "Folder Baru"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Folder Baru"
+msgid "Create New Folder"
+msgstr "Ciptakan Folder"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7265,6 +7265,17 @@ msgstr "Ini akan menjalankan program:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jika Anda tidak percaya program ini, klik Batal"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Folder Baru"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Folder Baru"
+
 #~ msgid "Differences"
 #~ msgstr "Berbeda"
 
@@ -9021,9 +9032,6 @@ msgstr "Jika Anda tidak percaya program ini, klik Batal"
 #~ msgstr ""
 #~ "Tidak dapat menciptakan sebuah folder dengan nama <filename>%1</"
 #~ "filename><nl/> karena sudah dipesan untuk digunakan oleh sistem operasi."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Ciptakan Tipe File Baru"
 
 #~ msgid "File Type Options"
 #~ msgstr "Opsi Tipe File"

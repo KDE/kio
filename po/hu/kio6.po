@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2024-01-08 13:17+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3624,11 +3624,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create New File Type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Új mappa"
+msgid "Create New File"
+msgstr "Új fájltípus létrehozása"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3745,9 +3744,10 @@ msgid "New Folder"
 msgstr "Új mappa"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
+msgid "Create New Folder"
 msgstr "Új mappa"
 
 #: filewidgets/knewfilemenu.cpp:1436
@@ -7197,6 +7197,17 @@ msgstr "Elindítja a programot:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ha nem bízik meg a programban, kattintson a Mégsem gombra"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Új mappa"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Új mappa"
+
 #~ msgid "Differences"
 #~ msgstr "Különbségek"
 
@@ -8996,9 +9007,6 @@ msgstr "Ha nem bízik meg a programban, kattintson a Mégsem gombra"
 #~ msgstr ""
 #~ "Nem lehet létrehozni <filename>%1</filename> nevű mappát,<nl/>mivel az az "
 #~ "operációs rendszer számára van fenntartva."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Új fájltípus létrehozása"
 
 #~ msgid "File Type Options"
 #~ msgstr "Fájltípus-beállítások"

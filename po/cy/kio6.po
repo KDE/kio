@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-09 00:35+0000\n"
+"POT-Creation-Date: 2024-03-10 00:36+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3660,11 +3660,10 @@ msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Folder"
+#| msgid "Create new file type"
 msgctxt "@title:window"
-msgid "New File"
-msgstr "Plygell Newydd"
+msgid "Create New File"
+msgstr "Creu math ffeil newydd"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3783,10 +3782,11 @@ msgid "New Folder"
 msgstr "Plygell Newydd"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Folder"
 msgctxt "@title:window"
-msgid "New Folder"
-msgstr "Plygell Newydd"
+msgid "Create New Folder"
+msgstr "Creu Plygell"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7299,6 +7299,17 @@ msgstr "Fe fydd hwn yn dechreu y rhaglen:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "New Folder"
+#~ msgctxt "@title:window"
+#~ msgid "New File"
+#~ msgstr "Plygell Newydd"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Folder"
+#~ msgstr "Plygell Newydd"
+
 #~ msgid "Differences"
 #~ msgstr "Gwahaniaethau"
 
@@ -9072,11 +9083,6 @@ msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
 #~| msgid "Invalid Filenames"
 #~ msgid "Invalid Directory Name"
 #~ msgstr "Enwau Ffeil Annilys"
-
-#, fuzzy
-#~| msgid "Create new file type"
-#~ msgid "Create New File Type"
-#~ msgstr "Creu math ffeil newydd"
 
 #, fuzzy
 #~| msgid "File types:"
