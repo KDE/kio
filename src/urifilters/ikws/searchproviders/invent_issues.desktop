@@ -116,3 +116,4 @@ Query[x-test]=xxhttps://invent.kde.org/search?scope=issues&search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[zh_TW]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Type=Service
+Icon=kde

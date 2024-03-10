@@ -118,3 +118,4 @@ Query[x-test]=xxhttps://invent.kde.org/search?search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?search=\\{@}
 Query[zh_TW]=https://invent.kde.org/search?search=\\{@}
 Type=Service
+Icon=kde

@@ -117,3 +117,4 @@ Query[x-test]=xxhttps://store.kde.org/content/search.php?search=Search&name=\\{@
 Query[zh_CN]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Type=Service
+Icon=kde

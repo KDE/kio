@@ -157,3 +157,4 @@ Query[x-test]=xxhttps://api.kde.org/search.html?query=\\{@}xx
 Query[zh_CN]=https://api.kde.org/search.html?query=\\{@}
 Query[zh_TW]=https://api.kde.org/search.html?query=\\{@}
 Type=Service
+Icon=kde

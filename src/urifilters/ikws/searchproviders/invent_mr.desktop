@@ -114,3 +114,4 @@ Query[x-test]=xxhttps://invent.kde.org/search?scope=merge_requests&search=\\{@}x
 Query[zh_CN]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[zh_TW]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Type=Service
+Icon=kde
