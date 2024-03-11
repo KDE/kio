@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-02-18 18:15+0530\n"
+"PO-Revision-Date: 2024-03-10 11:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3558,11 +3558,10 @@ msgstr ""
 "மற்றும் ? போன்ற வைல்டுகார்டுகளையும் இட முடியும்.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "புதிய கோப்பு வகையை உருவாக்கு"
+msgstr "புதிய கோப்பை உருவாக்குவது"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3681,11 +3680,10 @@ msgid "New Folder"
 msgstr "புதிய அடைவு"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "அடைவை உருவாக்குதல்"
+msgstr "புதிய அடைவை உருவாக்குவது"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -3928,17 +3926,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" என்கிற நிரலை இயக்க முடியவில்லை."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"%1 என்கிற கோப்பு \n"
-" மாற்றப்பட்டுள்ளது. மாற்றங்களை பதிவேற்ற விரும்புகிறீர்களா?"
+"<filename>%1</filename><nl/> என்கிற கோப்பு மாற்றப்பட்டுள்ளது. மாற்றங்களை பதிவேற்ற "
+"வேண்டுமா?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format

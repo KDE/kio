@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-09 22:06+0100\n"
+"PO-Revision-Date: 2024-03-10 17:18+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -3617,11 +3617,10 @@ msgstr ""
 "\" и \"?\" са позволени.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Създаване на"
+msgstr "Създаване на нов файл"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3745,11 +3744,10 @@ msgid "New Folder"
 msgstr "Нова папка"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Създаване на папка"
+msgstr "Създаване на нова папка"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format

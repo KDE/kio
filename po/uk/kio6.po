@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-09 09:10+0200\n"
+"PO-Revision-Date: 2024-03-10 09:08+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3646,11 +3646,10 @@ msgstr ""
 "</p><p>Можна користуватися шаблонами * та ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Створити новий тип файлів"
+msgstr "Створення файла"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3774,8 +3773,7 @@ msgid "New Folder"
 msgstr "Нова тека"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Створення теки"

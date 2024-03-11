@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-09 10:22+0300\n"
+"PO-Revision-Date: 2024-03-10 11:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3586,11 +3586,10 @@ msgstr ""
 "genel arama karakterlerini kullanmak da olanaklıdır.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Yeni Oluştur"
+msgstr "Yeni Dosya Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3711,11 +3710,10 @@ msgid "New Folder"
 msgstr "Yeni Klasör"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Klasör Oluştur"
+msgstr "Yeni Klasör Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format

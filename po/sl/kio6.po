@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-09 09:02+0100\n"
+"PO-Revision-Date: 2024-03-10 08:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3630,11 +3630,10 @@ msgstr ""
 "dovoljeni.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Ustvari novo"
+msgstr "Ustvari novo datoteko"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3751,11 +3750,10 @@ msgid "New Folder"
 msgstr "Nova mapa"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Ustvari mapo"
+msgstr "Ustvari novo mapo"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-09 09:22+0100\n"
+"PO-Revision-Date: 2024-03-10 10:31+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3621,11 +3621,10 @@ msgstr ""
 "permesitaj.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Krei Novan"
+msgstr "Krei Novan Dosieron"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3744,11 +3743,10 @@ msgid "New Folder"
 msgstr "Nova Dosierujo"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Krei Dosierujon"
+msgstr "Krei Novan Dosierujon"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7187,11 +7185,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgctxt "@title:window"
-#~ msgid "New File"
-#~ msgstr "Nova Dosiero"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "Nova Dosierujo"
