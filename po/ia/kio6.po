@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-04 11:31+0100\n"
+"PO-Revision-Date: 2024-03-11 11:59+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3656,11 +3656,10 @@ msgstr ""
 "como * e ? es permittite.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Crea nove typo de file"
+msgstr "Crea nove file"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3779,11 +3778,10 @@ msgid "New Folder"
 msgstr "Nove dossier"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Crea dossier"
+msgstr "Crea nove dossier"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format

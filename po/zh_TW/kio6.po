@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-06 18:28+0900\n"
+"PO-Revision-Date: 2024-03-12 02:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3453,11 +3453,10 @@ msgstr ""
 "允許使用 * 和 ? 萬用字元。</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "增加新的檔案類別"
+msgstr "建立新檔案"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3572,11 +3571,10 @@ msgid "New Folder"
 msgstr "新資料夾"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "建立資料夾"
+msgstr "建立新資料夾"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
