@@ -12,12 +12,13 @@
 #include <KSharedConfig>
 #include <QDebug>
 #include <kio/previewjob.h>
+#include <kurlrequester.h>
 
 PreviewTest::PreviewTest()
     : QWidget()
 {
     QGridLayout *layout = new QGridLayout(this);
-    m_url = new QLineEdit(this);
+    m_url = new KUrlRequester(this);
 
     QString path;
     KIconLoader().loadMimeTypeIcon(QStringLiteral("video-x-generic"), KIconLoader::Desktop, 256, KIconLoader::DefaultState, QStringList(), &path);
@@ -45,7 +46,7 @@ PreviewTest::PreviewTest()
 void PreviewTest::slotGenerate()
 {
     KFileItemList items;
-    items.append(KFileItem(QUrl::fromUserInput(m_url->text())));
+    items.append(KFileItem(m_url->url()));
 
     QStringList enabledPlugins;
     const QStringList splittedText = m_plugins->text().split(QLatin1Char(';'));

@@ -8,6 +8,7 @@ class QLabel;
 
 class KFileItem;
 class KJob;
+class KUrlRequester;
 
 class PreviewTest : public QWidget
 {
@@ -22,7 +23,7 @@ private Q_SLOTS:
     void slotFailed();
 
 private:
-    QLineEdit *m_url;
+    KUrlRequester *m_url;
     QLineEdit *m_plugins;
     QLabel *m_preview;
 };
