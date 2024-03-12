@@ -8,7 +8,11 @@
 #ifndef OPENFILEMANAGERWINDOWJOB_P_H
 #define OPENFILEMANAGERWINDOWJOB_P_H
 
-#define USE_DBUS defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#define USE_DBUS 1
+#else
+#define USE_DBUS 0
+#endif
 
 #include <KJob>
 
