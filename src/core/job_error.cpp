@@ -265,6 +265,8 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         break;
     }
 
+    result = result.toHtmlEscaped();
+
     return result;
 }
 
