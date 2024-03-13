@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-06 12:29+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"PO-Revision-Date: 2024-03-11 10:28+0100\n"
+"Last-Translator: xavier <xyz@yahoo.com>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -3711,11 +3711,10 @@ msgstr ""
 "caractères génériques tels que « * » et « ? » sont autorisés.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Créer un nouveau type de fichier"
+msgstr "Créer un nouveau fichier"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3842,11 +3841,10 @@ msgid "New Folder"
 msgstr "Nouveau dossier"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Créer un dossier"
+msgstr "Créer un nouveau dossier"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-02 12:59+0100\n"
+"PO-Revision-Date: 2024-03-12 19:04+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -3630,11 +3630,10 @@ msgstr ""
 "duzuna.</p><p>* edo ? bezalako komodinak ere onartzen dira.</p></qt> "
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Sortu fitxategi mota berria"
+msgstr "Sortu fitxategi berria"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3756,11 +3755,10 @@ msgid "New Folder"
 msgstr "Karpeta berria"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Sortu karpeta"
+msgstr "Sortu karpeta berria"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
