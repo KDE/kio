@@ -9,8 +9,6 @@
 #include "kurifilter.h"
 #include "kurifilterdata_p.h"
 
-#include "hostinfo.h"
-
 #include <KService>
 #include <kio/global.h>
 
@@ -305,6 +303,11 @@ KUriFilterData::SearchFilterOptions KUriFilterData::searchFilteringOptions() con
 
 QString KUriFilterData::iconName()
 {
+    auto foundProvider = d->searchProviderMap.constFind(searchProvider());
+    if (foundProvider != d->searchProviderMap.cend() && !foundProvider.value()->iconName().isEmpty()) {
+        return foundProvider.value()->iconName();
+    }
+
     if (d->wasModified) {
         d->iconName = KUriFilterDataPrivate::lookupIconNameFor(d->url, d->uriType);
         d->wasModified = false;

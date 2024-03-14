@@ -74,7 +74,7 @@ protected:
      * Sets the name of the search provider, the search term and keyword/term
      * separator in @p data.
      */
-    void setSearchProvider(KUriFilterData &data, const QString &provider, const QString &term, const QChar &separator) const;
+    void setSearchProvider(KUriFilterData &data, KUriFilterSearchProvider *provider, const QString &term, const QChar &separator) const;
 
     /**
      * Sets the information about the search @p providers in @p data.

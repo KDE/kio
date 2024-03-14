@@ -83,7 +83,7 @@ bool KAutoWebSearch::filterUri(KUriFilterData &data) const
                 return false;
             }
         } else {
-            setSearchProvider(data, QString(), data.typedString(), QLatin1Char(KURISearchFilterEngine::self()->keywordDelimiter()));
+            setSearchProvider(data, nullptr, data.typedString(), QLatin1Char(KURISearchFilterEngine::self()->keywordDelimiter()));
             setSearchProviders(data, searchProviders);
             return true;
         }
@@ -98,7 +98,7 @@ bool KAutoWebSearch::filterUri(KUriFilterData &data) const
             return false;
         }
 
-        setSearchProvider(data, QString(), data.typedString(), QLatin1Char(KURISearchFilterEngine::self()->keywordDelimiter()));
+        setSearchProvider(data, nullptr, data.typedString(), QLatin1Char(KURISearchFilterEngine::self()->keywordDelimiter()));
         setSearchProviders(data, searchProviders);
         return true;
     }
@@ -110,7 +110,7 @@ bool KAutoWebSearch::filterUri(KUriFilterData &data) const
             const QUrl result = filter->formatResult(provider->query(), provider->charset(), QString(), data.typedString(), true);
             setFilteredUri(data, result);
             setUriType(data, KUriFilterData::NetProtocol);
-            setSearchProvider(data, provider->name(), data.typedString(), QLatin1Char(filter->keywordDelimiter()));
+            setSearchProvider(data, provider, data.typedString(), QLatin1Char(filter->keywordDelimiter()));
 
             QList<KUriFilterSearchProvider *> searchProviders;
             populateProvidersList(searchProviders, data);

@@ -8,6 +8,7 @@
 */
 
 #include "kurisearchfilter.h"
+#include "kurifilterdata_p.h"
 #include "kuriikwsfiltereng_p.h"
 #include "searchprovider.h"
 
@@ -47,7 +48,7 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
     const QUrl result = filter->formatResult(provider->query(), provider->charset(), QString(), searchTerm, true);
     setFilteredUri(data, result);
     setUriType(data, KUriFilterData::NetProtocol);
-    setSearchProvider(data, provider->name(), searchTerm, QLatin1Char(filter->keywordDelimiter()));
+    setSearchProvider(data, provider, searchTerm, QLatin1Char(filter->keywordDelimiter()));
     return true;
 }
 

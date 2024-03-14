@@ -41,9 +41,14 @@ void KUriFilterPlugin::setArguments(KUriFilterData &data, const QString &args) c
     data.d->args = args;
 }
 
-void KUriFilterPlugin::setSearchProvider(KUriFilterData &data, const QString &provider, const QString &term, const QChar &separator) const
+void KUriFilterPlugin::setSearchProvider(KUriFilterData &data, KUriFilterSearchProvider *provider, const QString &term, const QChar &separator) const
 {
-    data.d->searchProvider = provider;
+    if (provider) {
+        data.d->searchProviderMap.insert(provider->name(), provider);
+    } else {
+        data.d->searchProviderMap.remove(data.d->searchProvider);
+    }
+    data.d->searchProvider = provider ? provider->name() : QString();
     data.d->searchTerm = term;
     data.d->searchTermSeparator = separator;
 }
