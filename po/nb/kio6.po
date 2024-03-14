@@ -7008,14 +7008,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk Avbryt"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "New Folder"
-#~ msgctxt "@title:window"
-#~ msgid "New File"
-#~ msgstr "Ny mappe"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "Ny mappe"
