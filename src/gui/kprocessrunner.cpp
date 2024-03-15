@@ -304,31 +304,26 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
         if (!asn.isEmpty()) {
             m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), QString::fromUtf8(asn));
         } else {
-            bool silent;
-            QByteArray wmclass;
-            const bool startup_notify = service && KIOGuiPrivate::checkStartupNotify(service.data(), &silent, &wmclass);
-            if (startup_notify && !silent) {
-                auto window = qGuiApp->focusWindow();
-                if (!window && !qGuiApp->allWindows().isEmpty()) {
-                    window = qGuiApp->allWindows().constFirst();
-                }
-                if (window) {
-                    const int launchedSerial = KWaylandExtras::lastInputSerial(window);
-                    m_waitingForXdgToken = true;
-                    connect(
-                        KWaylandExtras::self(),
-                        &KWaylandExtras::xdgActivationTokenArrived,
-                        m_process.get(),
-                        [this, launchedSerial](int tokenSerial, const QString &token) {
-                            if (tokenSerial == launchedSerial) {
-                                m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
-                                m_waitingForXdgToken = false;
-                                startProcess();
-                            }
-                        },
-                        Qt::SingleShotConnection);
-                    KWaylandExtras::requestXdgActivationToken(window, launchedSerial, resolveServiceAlias());
-                }
+            auto window = qGuiApp->focusWindow();
+            if (!window && !qGuiApp->allWindows().isEmpty()) {
+                window = qGuiApp->allWindows().constFirst();
+            }
+            if (window) {
+                const int launchedSerial = KWaylandExtras::lastInputSerial(window);
+                m_waitingForXdgToken = true;
+                connect(
+                    KWaylandExtras::self(),
+                    &KWaylandExtras::xdgActivationTokenArrived,
+                    m_process.get(),
+                    [this, launchedSerial](int tokenSerial, const QString &token) {
+                        if (tokenSerial == launchedSerial) {
+                            m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
+                            m_waitingForXdgToken = false;
+                            startProcess();
+                        }
+                    },
+                    Qt::SingleShotConnection);
+                KWaylandExtras::requestXdgActivationToken(window, launchedSerial, resolveServiceAlias());
             }
         }
     }
