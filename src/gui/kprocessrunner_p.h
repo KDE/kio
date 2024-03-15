@@ -22,10 +22,7 @@
 
 namespace KIOGuiPrivate
 {
-/**
- * @internal DO NOT USE
- */
-bool KIOGUI_EXPORT checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg);
+bool checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg);
 }
 
 /**

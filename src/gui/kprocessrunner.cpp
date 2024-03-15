@@ -462,7 +462,6 @@ void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus 
     }
 }
 
-// This code is also used in klauncher (and KRun).
 bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg)
 {
     bool silent = false;
