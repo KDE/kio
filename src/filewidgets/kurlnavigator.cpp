@@ -932,6 +932,20 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     return currentUrl;
 }
 
+static const char *const S_READONLY_ENABLED_SCHEMES[] = {
+    "", // ==file
+    "file",
+    // We would like to enable the following, but
+    //
+    // isWritable() always returns true:
+    // "fish",
+    // "smb",
+    // "webdav",
+    //
+    // not supported in KF6
+    // "nfs",
+};
+
 void KUrlNavigatorPrivate::updateReadonlyIcon()
 {
     QUrl url = q->locationUrl();
@@ -947,6 +961,17 @@ void KUrlNavigatorPrivate::updateReadonlyIcon()
     }
 
     m_readonlyIcon->hide();
+
+    bool found = false;
+    for (int i = 0; i < sizeof(S_READONLY_ENABLED_SCHEMES) / sizeof(S_READONLY_ENABLED_SCHEMES[0]); i++) {
+        if (url.scheme() == QLatin1StringView(S_READONLY_ENABLED_SCHEMES[i])) {
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        return;
+    }
 
     KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
     m_readonlyIconData.statJob = job;
