@@ -932,20 +932,6 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     return currentUrl;
 }
 
-static const char *const S_readOnly_ENABLED_SCHEMES[] = {
-    "", // ==file
-    "file",
-    // We would like to enable the following, but
-    //
-    // isWritable() always returns true:
-    // "fish",
-    // "smb",
-    // "webdav",
-    //
-    // not supported in KF6
-    // "nfs",
-};
-
 void KUrlNavigatorPrivate::updateReadOnlyIcon()
 {
     QUrl url = q->locationUrl();
@@ -962,14 +948,7 @@ void KUrlNavigatorPrivate::updateReadOnlyIcon()
 
     m_readOnlyIcon->hide();
 
-    bool found = false;
-    for (int i = 0; i < sizeof(S_readOnly_ENABLED_SCHEMES) / sizeof(S_readOnly_ENABLED_SCHEMES[0]); i++) {
-        if (url.scheme() == QLatin1StringView(S_readOnly_ENABLED_SCHEMES[i])) {
-            found = true;
-            break;
-        }
-    }
-    if (!found) {
+    if (url.scheme().isEmpty() || url.scheme() == QLatin1String("file")) {
         return;
     }
 
