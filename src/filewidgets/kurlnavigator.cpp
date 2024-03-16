@@ -163,9 +163,9 @@ public:
     QUrl retrievePlaceUrl() const;
 
     /**
-     * Show the readonly icon when the current location is readonly.
+     * Show the read-only icon when the current location is read-only.
      */
-    void updateReadonlyIcon();
+    void updateReadOnlyIcon();
 
     KUrlNavigator *const q;
 
@@ -178,14 +178,14 @@ public:
     KUrlComboBox *m_pathBox = nullptr;
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
-    QLabel *m_readonlyIcon = nullptr;
+    QLabel *m_readOnlyIcon = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
     QWidget *m_dropWidget = nullptr;
 
     bool m_editable = false;
     bool m_active = true;
     bool m_showPlacesSelector = false;
-    bool m_enableReadonlyIcon = false;
+    bool m_enableReadOnlyIcon = false;
     bool m_showFullPath = false;
 
     struct {
@@ -196,7 +196,7 @@ public:
     struct {
         QUrl statJobUrl;
         KIO::StatJob *statJob = nullptr;
-    } m_readonlyIconData;
+    } m_readOnlyIconData;
 };
 
 KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, KFilePlacesModel *placesModel)
@@ -274,10 +274,10 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotPathBoxChanged(text);
     });
 
-    m_readonlyIcon = new QLabel(q);
-    m_readonlyIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-locked")).pixmap(16, 16));
-    m_readonlyIcon->setToolTip(i18nc("url navigator", "This folder is not writable."));
-    m_readonlyIcon->hide();
+    m_readOnlyIcon = new QLabel(q);
+    m_readOnlyIcon->setPixmap(QIcon::fromTheme(QStringLiteral("emblem-locked")).pixmap(16, 16));
+    m_readOnlyIcon->setToolTip(i18nc("url navigator", "This folder is not writable."));
+    m_readOnlyIcon->hide();
 
     // create toggle button which allows to switch between
     // the breadcrumb and traditional view
@@ -294,7 +294,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_schemes);
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
-    m_layout->addWidget(m_readonlyIcon);
+    m_layout->addWidget(m_readOnlyIcon);
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -652,12 +652,12 @@ void KUrlNavigatorPrivate::updateContent()
         m_pathBox->show();
         m_pathBox->setUrl(currentUrl);
 
-        if (m_enableReadonlyIcon) {
-            m_readonlyIcon->hide();
-            m_readonlyIconData.statJobUrl.clear();
-            if (m_readonlyIconData.statJob != nullptr) {
-                m_readonlyIconData.statJob->kill();
-                m_readonlyIconData.statJob = nullptr;
+        if (m_enableReadOnlyIcon) {
+            m_readOnlyIcon->hide();
+            m_readOnlyIconData.statJobUrl.clear();
+            if (m_readOnlyIconData.statJob != nullptr) {
+                m_readOnlyIconData.statJob->kill();
+                m_readOnlyIconData.statJob = nullptr;
             }
         }
     } else {
@@ -683,8 +683,8 @@ void KUrlNavigatorPrivate::updateContent()
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
 
-        if (m_enableReadonlyIcon) {
-            updateReadonlyIcon();
+        if (m_enableReadOnlyIcon) {
+            updateReadOnlyIcon();
         }
     }
 }
@@ -932,7 +932,7 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
     return currentUrl;
 }
 
-static const char *const S_READONLY_ENABLED_SCHEMES[] = {
+static const char *const S_readOnly_ENABLED_SCHEMES[] = {
     "", // ==file
     "file",
     // We would like to enable the following, but
@@ -946,25 +946,25 @@ static const char *const S_READONLY_ENABLED_SCHEMES[] = {
     // "nfs",
 };
 
-void KUrlNavigatorPrivate::updateReadonlyIcon()
+void KUrlNavigatorPrivate::updateReadOnlyIcon()
 {
     QUrl url = q->locationUrl();
 
-    if (m_readonlyIconData.statJobUrl == url) {
+    if (m_readOnlyIconData.statJobUrl == url) {
         return;
     }
 
-    m_readonlyIconData.statJobUrl.clear();
-    if (m_readonlyIconData.statJob != nullptr) {
-        m_readonlyIconData.statJob->kill();
-        m_readonlyIconData.statJob = nullptr;
+    m_readOnlyIconData.statJobUrl.clear();
+    if (m_readOnlyIconData.statJob != nullptr) {
+        m_readOnlyIconData.statJob->kill();
+        m_readOnlyIconData.statJob = nullptr;
     }
 
-    m_readonlyIcon->hide();
+    m_readOnlyIcon->hide();
 
     bool found = false;
-    for (int i = 0; i < sizeof(S_READONLY_ENABLED_SCHEMES) / sizeof(S_READONLY_ENABLED_SCHEMES[0]); i++) {
-        if (url.scheme() == QLatin1StringView(S_READONLY_ENABLED_SCHEMES[i])) {
+    for (int i = 0; i < sizeof(S_readOnly_ENABLED_SCHEMES) / sizeof(S_readOnly_ENABLED_SCHEMES[0]); i++) {
+        if (url.scheme() == QLatin1StringView(S_readOnly_ENABLED_SCHEMES[i])) {
             found = true;
             break;
         }
@@ -974,18 +974,18 @@ void KUrlNavigatorPrivate::updateReadonlyIcon()
     }
 
     KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
-    m_readonlyIconData.statJob = job;
-    m_readonlyIconData.statJobUrl = url;
+    m_readOnlyIconData.statJob = job;
+    m_readOnlyIconData.statJobUrl = url;
     q->connect(job, &KJob::result, q, [this, job, url]() {
         if (job->error() == 0) {
             if (url == q->locationUrl()) {
                 // URL has not changed.
                 KFileItem item(job->statResult(), url);
                 if (item.isDir() && !item.isWritable()) {
-                    m_readonlyIcon->show();
+                    m_readOnlyIcon->show();
                 }
             }
-            m_readonlyIconData.statJob = nullptr;
+            m_readOnlyIconData.statJob = nullptr;
         }
     });
 }
@@ -1137,23 +1137,23 @@ bool KUrlNavigator::isPlacesSelectorVisible() const
     return d->m_showPlacesSelector;
 }
 
-void KUrlNavigator::setReadonlyIconEnabled(bool enabled)
+void KUrlNavigator::setReadOnlyIconEnabled(bool enabled)
 {
-    if (enabled == d->m_enableReadonlyIcon) {
+    if (enabled == d->m_enableReadOnlyIcon) {
         return;
     }
 
-    d->m_enableReadonlyIcon = enabled;
+    d->m_enableReadOnlyIcon = enabled;
     if (enabled) {
-        d->updateReadonlyIcon();
+        d->updateReadOnlyIcon();
     } else {
-        d->m_readonlyIcon->hide();
+        d->m_readOnlyIcon->hide();
     }
 }
 
-bool KUrlNavigator::isReadonlyIconEnabled() const
+bool KUrlNavigator::isReadOnlyIconEnabled() const
 {
-    return d->m_enableReadonlyIcon;
+    return d->m_enableReadOnlyIcon;
 }
 
 QUrl KUrlNavigator::uncommittedUrl() const
