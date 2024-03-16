@@ -192,6 +192,11 @@ public:
         bool showHidden = false;
         bool sortHiddenLast = false;
     } m_subfolderOptions;
+
+    struct {
+        QUrl statJobUrl;
+        KIO::StatJob *statJob = nullptr;
+    } m_readonlyIconData;
 };
 
 KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, KFilePlacesModel *placesModel)
@@ -649,6 +654,11 @@ void KUrlNavigatorPrivate::updateContent()
 
         if (m_enableReadonlyIcon) {
             m_readonlyIcon->hide();
+            m_readonlyIconData.statJobUrl.clear();
+            if (m_readonlyIconData.statJob != nullptr) {
+                m_readonlyIconData.statJob->kill();
+                m_readonlyIconData.statJob = nullptr;
+            }
         }
     } else {
         m_pathBox->hide();
@@ -674,7 +684,6 @@ void KUrlNavigatorPrivate::updateContent()
         updateButtons(startIndex);
 
         if (m_enableReadonlyIcon) {
-            m_readonlyIcon->hide();
             updateReadonlyIcon();
         }
     }
@@ -926,17 +935,32 @@ QUrl KUrlNavigatorPrivate::retrievePlaceUrl() const
 void KUrlNavigatorPrivate::updateReadonlyIcon()
 {
     QUrl url = q->locationUrl();
-    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatBasic, KIO::HideProgressInfo);
+
+    if (m_readonlyIconData.statJobUrl == url) {
+        return;
+    }
+
+    m_readonlyIconData.statJobUrl.clear();
+    if (m_readonlyIconData.statJob != nullptr) {
+        m_readonlyIconData.statJob->kill();
+        m_readonlyIconData.statJob = nullptr;
+    }
+
+    m_readonlyIcon->hide();
+
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
+    m_readonlyIconData.statJob = job;
+    m_readonlyIconData.statJobUrl = url;
     q->connect(job, &KJob::result, q, [this, job, url]() {
         if (job->error() == 0) {
-            if (url != q->locationUrl()) {
-                // URL has changed. This result is invalid.
-                return;
+            if (url == q->locationUrl()) {
+                // URL has not changed.
+                KFileItem item(job->statResult(), url);
+                if (item.isDir() && !item.isWritable()) {
+                    m_readonlyIcon->show();
+                }
             }
-            KFileItem item(job->statResult(), url);
-            if (item.isDir() && !item.isWritable()) {
-                m_readonlyIcon->show();
-            }
+            m_readonlyIconData.statJob = nullptr;
         }
     });
 }
