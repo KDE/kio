@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -55,7 +55,7 @@ msgstr ""
 "<qt>Nije moguće promijeniti vlasništvo nad datotekom <b>%1</b>. Nemate "
 "dovoljan pristup datoteci da bi učinili promjene.</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6738,34 +6738,34 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Podržano je pokretanje samo lokalnih izvršnih datoteka."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikacija"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Dodaj tip datoteke za %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Odaberite jedan ili više tipova datoteke koje želite dodati:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Podržano je pokretanje samo lokalnih izvršnih datoteka."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Napredne postavke za %1"

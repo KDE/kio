@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2024-02-10 17:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -51,7 +51,7 @@ msgstr ""
 "تعذّر تغيير ملكيّة الملفّ <filename>%1</filename>. ليس لديك نفاذ كاف إلى الملفّ "
 "لإجراء التّغيير."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "تعذّر إنشاء تابع الدّخل/الخرج: %1"
@@ -6467,33 +6467,33 @@ msgid "URL:"
 msgstr "المسار:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "لا يمكن حفظ الخصائص ، تُدعم فقط المدخلات على أنظمة الملفات  المحلية."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "التّ&طبيق"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "أضف نوع ملفّات لِ‍ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "اختر نوع أو أكثر لإضافتها:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "تُدعم فقط الملفات التنفيذية على أنظمة الملفات المحلية."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "خيارات متقدّمة لِ‍ %1"

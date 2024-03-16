@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 12:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "No s'ha pogut modificar el propietari del fitxer <filename>%1</filename>. No "
 "teniu accés suficient al fitxer per a realitzar el canvi."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "No s'ha pogut crear el procés de treball KIO: %1"
@@ -6557,7 +6557,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6565,27 +6565,27 @@ msgstr ""
 "No s'han pogut desar les propietats. Només s'accepten entrades en el sistema "
 "de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Afegeix un tipus de fitxer per a %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleccioneu un o més tipus de fitxer a afegir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Només s'accepten executables al sistema de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opcions avançades per a %1"

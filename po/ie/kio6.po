@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Ne successat reposseder li file <filename>%1</filename>. Vu non have "
 "sufficent accesse al file por far ti modification."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6238,7 +6238,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6246,27 +6246,27 @@ msgstr ""
 "Ne successat gardar li proprietás. Solmen elementes sur local sistemas de "
 "file es ínsuportat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Application"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Adjunter un tip de file por %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selecte ún o plu tipes de file por adjunter:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Solmen executibiles sur local sistemas de files es suportat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Parametres avansat por %1"

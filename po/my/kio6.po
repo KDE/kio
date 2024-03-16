@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "ဖိုင်လ် <filename>%1</filename> ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ။ ပြောင်းလဲရန် သင်၌ ဖိုင်လ်အသုံးပြုခွင့် "
 "မလုံလောက်ပါ။"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6339,34 +6339,34 @@ msgid "URL:"
 msgstr "ယူအာအယ်လ် -"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်လ်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Aအပ္ပလီကေးရှင်း"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 အတွက်ဖိုင်လ်အမျိုးအစားထည့်မည်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်လ်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်လ်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 အတွက် အဆင့်မြင့်ရွေးချယ်စရာများ"

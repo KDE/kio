@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 "<qt>Ne mogu da promenim vlasništvo nad fajlom <tt>%1</tt>. Nemate dovoljno "
 "dozvola za ovakvu promenu.</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6800,7 +6800,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6808,27 +6808,27 @@ msgstr ""
 "Nije moguće sačuvati svojstva. Podržane su samo stavke na lokalnim fajl "
 "sistemima."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Dodaj tip fajla za %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Odaberite jedan ili više tipova za dodavanje:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Izvršni fajlovi su podržani samo na lokalnom fajl sistemu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Napredne opcije za %1"

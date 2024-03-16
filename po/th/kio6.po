@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "<qt>ไม่สามารถแก้ไขความเป็นเจ้าของ ของแฟ้ม <b>%1</b> ได้ "
 "คุณมีสิทธิ์ไม่เพียงพอในการจะแก้ไขแฟ้ม</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6588,34 +6588,34 @@ msgid "URL:"
 msgstr "ที่อยู่ URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "ใช้ได้เฉพาะแฟ้ม ที่สามารถประมวลผลได้ภายในระบบเท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "โ&ปรแกรม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "เพิ่มชนิดแฟ้มสำหรับ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "เลือกชนิดแฟ้มหนึ่งหรือหลายชนิดเพื่อเพิ่ม:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "ใช้ได้เฉพาะแฟ้ม ที่สามารถประมวลผลได้ภายในระบบเท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "ตัวเลือกขั้นสูงสำหรับ %1"

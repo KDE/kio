@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 07:41+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -55,7 +55,7 @@ msgstr ""
 "לא ניתן להחליף את הבעלות על הקובץ <filename>%1</filename>. רמת הגישה שלך "
 "לקובץ לא מספיקה לביצוע השינוי."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "לא ניתן ליצור : %1"
@@ -6372,34 +6372,34 @@ msgid "URL:"
 msgstr "כתובת:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "אי אפשר לשמור את המאפיינים. יש תמיכה רק ברשומות במערכות הקבצים המקומיות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "יי&שום"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "הוספת סוג קובץ עבור %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "נא לבחור סוג קובץ אחד או יותר להוספה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "יש תמיכה רק בקובצי ההפעלה במערכת המקומית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "אפשרויות מתקדמות עבור %1"

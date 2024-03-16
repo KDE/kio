@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 17:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 "No se ha podido cambiar el propietario del archivo <filename>%1</filename>. "
 "No tiene permisos suficientes para realizar el cambio."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "No se ha podido crear el módulo de trabajo KIO: %1"
@@ -6589,7 +6589,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6597,27 +6597,27 @@ msgstr ""
 "No ha sido posible guardar las propiedades. Solo se permiten entradas en los "
 "sistemas de archivos locales."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicación"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Añadir tipo de archivo para %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleccionar uno o más tipos de archivo a añadir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Solo se permiten ejecutables de sistemas de archivos locales."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opciones avanzadas para %1"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-02 20:50+0100\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
+"PO-Revision-Date: 2024-03-10 23:00+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Impossibile modificare il proprietario del file <filename>%1</filename>. Non "
 "hai accesso sufficiente al file per effettuare la modifica."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Impossibile creare un KIO worker: %1"
@@ -3675,11 +3675,10 @@ msgstr ""
 "caratteri jolly come * e ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Crea un nuovo tipo di file"
+msgstr "Crea un nuovo file"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3805,11 +3804,10 @@ msgid "New Folder"
 msgstr "Nuova cartella"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Crea cartella"
+msgstr "Crea una nuova cartella"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -6582,7 +6580,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6590,27 +6588,27 @@ msgstr ""
 "Impossibile salvare le proprietà. Sono supportati solo i file in filesystem "
 "locali."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Applicazione"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Aggiungi tipo di file per %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleziona uno o più tipi di file da aggiungere:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Sono supportati solo i file eseguibili sui filesystem locali."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opzioni avanzate per %1"

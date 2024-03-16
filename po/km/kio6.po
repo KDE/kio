@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -44,7 +44,7 @@ msgstr ""
 "<qt>មិន​អាច​កែប្រែ​ភាព​ជា​ម្ចាស់​របស់​ឯកសារ <b>%1</b> បានទេ ។ អ្នក​មិន​មាន​សិទ្ធិ​គ្រប់គ្រាន់ ដើម្បី​"
 "ផ្លាស់ប្ដូរ​ឯកសារ​បាន​ឡើយ ។</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6562,34 +6562,34 @@ msgid "URL:"
 msgstr "URL ៖"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ​នលើ​ប្រព័ន្ធ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "កម្មវិធី "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "បន្ថែម​ប្រភេទ​ឯកសារ​ទៅ​ឲ្យ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "ជ្រើស​ប្រភេទ​ឯកសារ​មួយ ឬ​ច្រើន ដើម្បី​បន្ថែម ៖"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ​នលើ​ប្រព័ន្ធ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "ជម្រើស​កម្រិត​ខ្ពស់សម្រាប់ %1"

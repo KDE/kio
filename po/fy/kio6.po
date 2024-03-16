@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "<qt>Koe de eigner fan triem <b>%1</b> net oanpasse. Jo hawwe net de nedige "
 "rjochten foar dizze wiziging.</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -6913,35 +6913,35 @@ msgid "URL:"
 msgstr "URL-adres:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Allinne útfierbere triemen op lokale triemsystemen wurde stipe."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "A&pplikaasje"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Heakje triemtype ta foar %1"
 
 #  i18n: file ./kfile/kpropertiesmimetypebase.ui line 27
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selektearje ien as mear triemtypen om ta te heakjen:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Allinne útfierbere triemen op lokale triemsystemen wurde stipe."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avansearre opsjes foar %1"

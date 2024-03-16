@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "<filename>%1</filename> सञ्चिकायाः स्वामित्वं परिवर्तयितुं न शक्तम्। परिवर्तनं कर्तुं भवतः "
 "सञ्चिकायाः अपर्याप्तप्रवेशः अस्ति ।."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO कार्यकर्ता निर्मातुं असमर्थः: %1"
@@ -6393,33 +6393,33 @@ msgid "URL:"
 msgstr "प्रारूपितं संविदितस्रोतःसूचिका (URL):"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "गुणाः रक्षितुं न शक्तवान् । केवलं स्थानीयसञ्चिकातन्त्रेषु प्रविष्टयः समर्थिताः सन्ति ।."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&अनुप्रयोग"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 कृते सञ्चिकाप्रकारं योजयन्तु"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "योजयितुं एकं वा अधिकं सञ्चिकाप्रकारं चिनोतु:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "केवलं स्थानीयसञ्चिकातन्त्रेषु कार्यान्वयनीयानि (executables) समर्थितानि सन्ति ।."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 कृते उन्नतविकल्पाः"

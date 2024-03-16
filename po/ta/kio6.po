@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 11:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற கோப்பின் உரிமையாளரை மாற்ற முடியவில்லை. அதை "
 "மாற்றுவதற்கு உங்களுக்கு போதுமான உரிமை இல்லை."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
@@ -6410,7 +6410,7 @@ msgid "URL:"
 msgstr "முகவரி:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6418,27 +6418,27 @@ msgstr ""
 "பண்புகளை சேமிக்க முடியவில்லை. உள்ளமை கோப்பு முறைமைகளில் மட்டும்தான் பதிவுகளுக்கு ஆதரவு "
 "உண்டு."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&செயலி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1-க்கு கோப்பு வகையை சேர்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "சேர்க்க வேண்டிய கோப்பு வகைகளை தேர்ந்தெடுக்கவும்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "உள்ளமை கோப்பு முறைமையிலுள்ள இயக்கவல்லவை மட்டும்தான் ஆதரிக்கப்படுகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 -க்கான மேம்பட்ட விருப்பங்கள்"

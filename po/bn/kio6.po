@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<qt><b>%1</b> ফাইলটির মালিকানা পাল্টানো যায়নি, কারণ তার জন্য প্রয়োজনীয় অনুমতি "
 "আপনার নেই।</qt>"
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, fuzzy, kde-format
 #| msgid "Unable to Enter Folder"
 msgid "Unable to create KIO worker: %1"
@@ -6157,34 +6157,34 @@ msgid "URL:"
 msgstr "ইউ-আর-এল:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "শুধুমাত্র স্থানীয় এক্সিকিউটেবল ফাইল সমর্থিত।"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "অ্যা&পলিকেশন"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1-র জন্য ফাইল টাইপ যোগ করো"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "যোগ করার জন্য এক বা একাধিক ফাইল বেছে নিন:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "শুধুমাত্র স্থানীয় এক্সিকিউটেবল ফাইল সমর্থিত।"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1-এর জন্য অগ্রসর অপশন"

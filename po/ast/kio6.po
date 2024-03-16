@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kio package.
 #
-# SPDX-FileCopyrightText: 2022, 2023 enolp <enolp@softastur.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 enolp <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:36+0000\n"
-"PO-Revision-Date: 2023-12-15 14:19+0100\n"
+"POT-Creation-Date: 2024-03-16 00:36+0000\n"
+"PO-Revision-Date: 2024-03-15 01:19+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr ""
 "Nun se pudo modificar el propietariu del ficheru <filename>«%1</filename>. "
 "Nun tienes abondos permisos pa facer el cambéu."
 
-#: core/connectionbackend.cpp:108
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Nun ye posible crear el trabayador de KIO: %1"
@@ -91,18 +91,18 @@ msgstr ""
 #: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "La carpeta xá esiste"
+msgstr "La carpeta yá esiste"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
-msgstr "El ficheru xá esiste"
+msgstr "El ficheru yá esiste"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "Xá esiste como carpeta"
+msgstr "Yá esiste como carpeta"
 
 #: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
 #, kde-format
@@ -438,12 +438,12 @@ msgstr ""
 #: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "Xá esiste un ficheru col nome «%1»."
+msgstr "Yá esiste un ficheru col nome «%1»."
 
 #: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "Xá esiste una carpeta col nome «%1»."
+msgstr "Yá esiste una carpeta col nome «%1»."
 
 #: core/job_error.cpp:77
 #, kde-format
@@ -713,7 +713,7 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
-"L'orixe ya'l destín son el mesmu ficheru.\n"
+"L'orixe y el destín son el mesmu ficheru.\n"
 "%1"
 
 #: core/job_error.cpp:231
@@ -816,7 +816,7 @@ msgstr "<li>Protocolu: %1</li>"
 #: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
-msgstr "<li>Data ya hora: %1</li>"
+msgstr "<li>Data y hora: %1</li>"
 
 #: core/job_error.cpp:311
 #, kde-format
@@ -1260,7 +1260,7 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Volvi probar la solicitú ya asegúrate de qu'introduxesti correutamente los "
+"Volvi probar la solicitú y asegúrate de qu'introduxesti correutamente los "
 "detalles d'autenticación."
 
 #: core/job_error.cpp:632
@@ -2871,7 +2871,7 @@ msgstr ""
 #: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr "El preséu «%1» nun ye un discu ya nun se pue espulsar."
+msgstr "El preséu «%1» nun ye un discu y nun se pue espulsar."
 
 #: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
@@ -3294,11 +3294,10 @@ msgid ""
 msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Crear"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3407,11 +3406,10 @@ msgid "New Folder"
 msgstr "Carpeta nueva"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Crear"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -3786,7 +3784,7 @@ msgid ""
 "Could not change owner and group for\n"
 "%1"
 msgstr ""
-"Nun se pudo camudar el propietariu ya'l grupu de\n"
+"Nun se pudo camudar el propietariu y el grupu de\n"
 "%1"
 
 #: kioworkers/file/file.cpp:853
@@ -4230,7 +4228,7 @@ msgstr ""
 #: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr "Esti ficheru xá ta na papelera."
+msgstr "Esti ficheru yá ta na papelera."
 
 #: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
@@ -4395,7 +4393,7 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"Copia ya apiega una suma de comprobación nel campu d'abaxo.<br/>Normalmente, "
+"Copia y apiega una suma de comprobación nel campu d'abaxo.<br/>Normalmente, "
 "el sitiu web dende'l que baxesti esti ficheru forne una suma de comprobación."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
@@ -5968,33 +5966,33 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicación"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
 #, kde-format
 msgid "Add File Type for %1"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr ""
@@ -6327,7 +6325,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "Xá esiste un elementu antiguu col nome «%1»."
+msgstr "Yá esiste un elementu antiguu col nome «%1»."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
