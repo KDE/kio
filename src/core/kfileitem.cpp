@@ -1227,15 +1227,15 @@ bool KFileItem::isReadable() const
         }
 
 #ifndef Q_OS_WIN
-        const auto uid = userId();
-        if (uid != -1) {
-            if (((uint) uid) == KUserId::currentUserId().nativeId()) {
+        const auto uidOfItem = userId();
+        if (uidOfItem != -1) {
+            const auto currentUser = KUserId::currentUserId();
+            if (((uint)uidOfItem) == currentUser.nativeId()) {
                 return S_IRUSR & d->m_permissions;
             }
-            const auto gid = groupId();
-            if (gid != -1) {
-                const KUser kuser = KUser(uid);
-                if (kuser.groups().contains(KUserGroup(gid))) {
+            const auto gidOfItem = groupId();
+            if (gidOfItem != -1) {
+                if (KUser(currentUser).groups().contains(KUserGroup(gidOfItem))) {
                     return S_IRGRP & d->m_permissions;
                 }
 
@@ -1271,15 +1271,15 @@ bool KFileItem::isWritable() const
         }
 
 #ifndef Q_OS_WIN
-        const auto uid = userId();
-        if (uid != -1) {
-            if (((uint) uid) == KUserId::currentUserId().nativeId()) {
+        const auto uidOfItem = userId();
+        if (uidOfItem != -1) {
+            const auto currentUser = KUserId::currentUserId();
+            if (((uint)uidOfItem) == currentUser.nativeId()) {
                 return S_IWUSR & d->m_permissions;
             }
-            const auto gid = groupId();
-            if (gid != -1) {
-                const KUser kuser = KUser(uid);
-                if (kuser.groups().contains(KUserGroup(gid))) {
+            const auto gidOfItem = groupId();
+            if (gidOfItem != -1) {
+                if (KUser(currentUser).groups().contains(KUserGroup(gidOfItem))) {
                     return S_IWGRP & d->m_permissions;
                 }
 
