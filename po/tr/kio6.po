@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-16 00:36+0000\n"
-"PO-Revision-Date: 2024-03-10 11:05+0300\n"
+"PO-Revision-Date: 2024-03-17 02:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -83,7 +83,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
-"‘%1’ oluşturulamadı.\n"
+"“%1” oluşturulamadı.\n"
 "Hedef dosya sistemi (%2), klasör adlarında aşağıdaki karakterlere izin "
 "vermiyor: %3\n"
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
@@ -98,7 +98,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
-"‘%1’ oluşturulamadı.\n"
+"“%1” oluşturulamadı.\n"
 "Hedef dosya sistemi (%2), dosya adlarında aşağıdaki karakterlere izin "
 "vermiyor: %3\n"
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
@@ -133,18 +133,18 @@ msgstr "%1 içinde Exec alanı yok"
 #: core/desktopexecparser.cpp:353
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "‘%1’ programı bulunamadı"
+msgstr "“%1” programı bulunamadı"
 
 #: core/desktopexecparser.cpp:356
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "‘%1’ programı ‘%2’ konumunda bulundu; ancak yürütme izinleri eksik."
+msgstr "“%1” programı “%2” konumunda bulundu; ancak yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:358
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "‘%1’ programında yürütme izinleri eksik."
+msgstr "“%1” programında yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:372
 #, kde-format
@@ -608,7 +608,7 @@ msgstr "%1 klasörü oluşturulamadı."
 #: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
-msgstr "%1 klasörü silinemedi."
+msgstr "%1 klasörü kaldırılamadı."
 
 #: core/job_error.cpp:146
 #, kde-format
@@ -759,7 +759,7 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"‘%1’ sembolik bağlantısı yapılamadı.\n"
+"“%1” sembolik bağlantısı yapılamadı.\n"
 "Hedef dosya sistemi, sembolik bağlantıları desteklemiyor."
 
 #: core/job_error.cpp:220
@@ -829,7 +829,7 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"‘%1’ sahibi geçerli kullanıcı olduğundan \n"
+"“%1” sahibi geçerli kullanıcı olduğundan \n"
 "ayrıcalık yükseltmesine gerek yoktur.\n"
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
@@ -1846,7 +1846,8 @@ msgstr "Klasör Kaldırılamadı"
 #: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
-msgstr "Belirtilen <strong>%1</strong> klasörü silinemedi."
+msgstr ""
+"Belirtilen <strong>%1</strong> klasörünü kaldırma denemesi başarısız oldu."
 
 #: core/job_error.cpp:948
 #, kde-format
@@ -2386,7 +2387,7 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"‘%1’ ögesinden yürütülebilir adı çıkarılamıyor, lütfen geçerli bir uygulama "
+"“%1” ögesinden yürütülebilir adı çıkarılamıyor, lütfen geçerli bir uygulama "
 "adı girin."
 
 #: core/openwith.cpp:140
@@ -2500,18 +2501,18 @@ msgstr "Bilinmeyen protokol ‘%1’."
 #: core/worker.cpp:345
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "‘%1’ protokolü için bir KIO işçisi bulunamadı."
+msgstr "“%1” protokolü için bir KIO işçisi bulunamadı."
 
 #: core/worker.cpp:353
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"‘%1’ protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
+"“%1” protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
 
 #: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "‘%1’ konumunda ‘kioworker’ yürütülebiliri bulunamadı"
+msgstr "“%1” konumunda ‘kioworker’ yürütülebiliri bulunamadı"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -3115,18 +3116,18 @@ msgstr "Çık&ar"
 #: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr "‘%1’ aygıtı bir disk değil ve çıkarılamaz."
+msgstr "“%1” aygıtı bir disk değil ve çıkarılamaz."
 
 #: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
-"‘%1’ konumuna erişilirken bir hata oluştu, sistem şu hatayı bildirdi: %2"
+"“%1” konumuna erişilirken bir hata oluştu, sistem şu hatayı bildirdi: %2"
 
 #: filewidgets/kfileplacesmodel.cpp:1486
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr "‘%1’ konumuna erişilirken bir hata oluştu"
+msgstr "“%1” konumuna erişilirken bir hata oluştu"
 
 #: filewidgets/kfileplacesmodel.cpp:1512
 #, kde-format
@@ -3217,7 +3218,7 @@ msgstr "&Gizle"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "‘%1’ Bölümünü Gizle"
+msgstr "“%1” Bölümünü Gizle"
 
 #: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
@@ -3341,7 +3342,7 @@ msgstr "Dosyalar ve klasörler seçildi"
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "‘%1’ dosyası bulunamadı"
+msgstr "“%1” dosyası bulunamadı"
 
 #: filewidgets/kfilewidget.cpp:831
 #, kde-format
@@ -3473,7 +3474,7 @@ msgstr "Yerler"
 #: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "‘%1’ dosyası var. Üzerine yazmak ister misiniz?"
+msgstr "“%1” dosyası halihazırda var. Üzerine yazmak ister misiniz?"
 
 #: filewidgets/kfilewidget.cpp:1591
 #, kde-format
@@ -3549,8 +3550,8 @@ msgstr ""
 "eklenir (dosya adı halihazırda yoksa). Bu uzantı, kaydedilen dosya türü "
 "temelinde olacaktır.<br /><br />Eğer KDE’nin dosya adları için bir uzantı "
 "sağlamasını istemiyorsanız bu seçeneği kapatabilir veya dosya adının sonuna "
-"bir nokta (.) ekleyerek susturabilirsiniz (nokta kendiliğinden silinir). </"
-"li></ol> Emin değilseniz bu seçeneği etkin halde tutmak, sizin için daha "
+"bir nokta (.) ekleyerek susturabilirsiniz (nokta kendiliğinden kaldırılır). "
+"</li></ol> Emin değilseniz bu seçeneği etkin halde tutmak, sizin için daha "
 "yararlıdır."
 
 #: filewidgets/kfilewidget.cpp:2770
@@ -3741,13 +3742,13 @@ msgstr "Yapıştır"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "‘%1’ Ögesini Yeni Sekmede Aç"
+msgstr "“%1” Ögesini Yeni Sekmede Aç"
 
 #: filewidgets/kurlnavigator.cpp:553
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "‘%1’ Ögesini Yeni Pencerede Aç"
+msgstr "“%1” Ögesini Yeni Pencerede Aç"
 
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
@@ -3905,7 +3906,7 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"‘%1’ yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
+"“%1” yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
 "nedenlerinden dolayı başlatılmayacak."
 
 #: gui/openurljob.cpp:410
@@ -3922,7 +3923,7 @@ msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
-"‘%1’ programının başlatılmadan önce yürütme iznine sahip olması gerekir."
+"“%1” programının başlatılmadan önce yürütme iznine sahip olması gerekir."
 
 #: gui/openurljob.cpp:451
 #, kde-format
@@ -3930,7 +3931,7 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"‘%1’ dosyası yürütülebilir yapılamıyor.\n"
+"“%1” dosyası yürütülebilir yapılamıyor.\n"
 "%2."
 
 #: gui/openurljob.cpp:537
@@ -3957,7 +3958,7 @@ msgstr "Dosya açılamadı."
 #: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "‘%1’ programı başlatılamadı."
+msgstr "“%1” programı başlatılamadı."
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5378,7 +5379,7 @@ msgstr "Oluşturulma:"
 #: widgets/kfilepropspluginwidget.ui:415
 #, kde-format
 msgid "File System:"
-msgstr "Dosya Sistemi:"
+msgstr "Dosya sistemi:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:445
@@ -5402,7 +5403,7 @@ msgstr "Erişim:"
 #: widgets/kfilepropspluginwidget.ui:498
 #, kde-format
 msgid "Open With:"
-msgstr "Birlikte Aç:"
+msgstr "Birlikte aç:"
 
 #: widgets/kopenwithdialog.cpp:299
 #, kde-format
@@ -5885,7 +5886,7 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"Uygulamanızın işleyemeyeceği bir dosya türünü (MIME türü) silmek için "
+"Uygulamanızın işleyemeyeceği bir dosya türünü (MIME türü) kaldırmak için "
 "yukarıdaki listeden bir MIME türü seçin ve bu düğmeye tıklayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
@@ -6042,31 +6043,31 @@ msgstr "Değiştir…"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "No Access"
-msgstr "Erişim Yok"
+msgstr "Erişim yok"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can Only View"
-msgstr "Yalnızca Görüntüleyebilir"
+msgstr "Yalnızca görüntüleyebilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can View & Modify"
-msgstr "Görüntüleyebilir ve Değiştirebilir"
+msgstr "Görüntüleyebilir ve değiştirebilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can Only View Content"
-msgstr "Yalnızca İçeriği Görüntüleyebilir"
+msgstr "Yalnızca içeriği görüntüleyebilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can View & Modify Content"
-msgstr "İçeriği Görüntüleyebilir ve Değiştirebilir"
+msgstr "İçeriği görüntüleyebilir ve değiştirebilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can Only View/Read Content"
-msgstr "Yalnızca İçeriği Görüntüleyebilir/Okuyabilir"
+msgstr "Yalnızca içeriği görüntüleyebilir/okuyabilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can View/Read & Modify/Write"
-msgstr "Görüntüleyebilir/Okuyabilir ve Değiştirebilir/Yazabilir"
+msgstr "Görüntüleyebilir/okuyabilir ve değiştirebilir/yazabilir"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1153
 #, kde-format
@@ -6590,7 +6591,7 @@ msgstr "%1 tarihinden %2 tarihine kadar"
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
 msgid "Search for '%1' with"
-msgstr "‘%1’ aramasını şununla yap:"
+msgstr "“%1” aramasını şununla yap:"
 
 #: widgets/kurifiltersearchprovideractions.cpp:85
 #, kde-format
@@ -6777,7 +6778,7 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"Bu eylem, ‘%1’ ögesinin üzerine kendisini yazacak.\n"
+"Bu eylem, “%1” ögesinin üzerine kendisini yazacak.\n"
 "Lütfen yeni bir dosya adı girin:"
 
 #: widgets/renamedialog.cpp:300
@@ -6793,7 +6794,7 @@ msgstr "Hedefin üzerine yazmak ister misiniz?"
 #: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "‘%1’ içeriğini ‘%2’ ile birleştirmek ister misiniz?"
+msgstr "“%1” içeriğini “%2” ile birleştirmek ister misiniz?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6852,17 +6853,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "‘%1’ adlı daha eski bir öge halihazırda var."
+msgstr "“%1” adlı daha eski bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "‘%1’ adlı bir dosya halihazırda var."
+msgstr "“%1” adlı bir dosya halihazırda var."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "‘%1’ adlı daha yeni bir öge halihazırda var."
+msgstr "“%1” adlı daha yeni bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:482
 #, kde-format
