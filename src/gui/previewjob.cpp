@@ -362,9 +362,10 @@ void PreviewJobPrivate::startPreview()
             CachePool{QStringLiteral("/large/"), 256},
             CachePool{QStringLiteral("/x-large/"), 512},
             CachePool{QStringLiteral("/xx-large/"), 1024},
+            CachePool{QStringLiteral("/xxx-large/"), 2056},
         };
 
-        QString thumbDir;
+        QString thumbDir = QStringLiteral("/not-standard/");
         int wants = devicePixelRatio * cacheSize;
         for (const auto &p : pools) {
             if (p.minSize < wants) {
