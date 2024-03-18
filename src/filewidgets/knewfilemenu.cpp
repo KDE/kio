@@ -1408,15 +1408,15 @@ void KNewFileMenu::checkUpToDate()
 
 void KNewFileMenu::createDirectory()
 {
-    if (d->m_popupFiles.isEmpty()) {
-        return;
-    }
-
-    QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
-
-    d->m_baseUrl = d->m_popupFiles.first();
-
     if (!m_nameJob) {
+        if (d->m_popupFiles.isEmpty()) {
+            return;
+        }
+
+        QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
+
+        d->m_baseUrl = d->m_popupFiles.first();
+
         m_nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
         connect(m_nameJob, &KJob::result, this, [=]() mutable {
             if (!m_nameJob->error()) {
