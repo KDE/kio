@@ -10,6 +10,7 @@
 #define KNEWFILEMENU_H
 
 #include "kiofilewidgets_export.h"
+#include <kio/namefinderjob.h>
 
 #include <KActionMenu>
 #include <QUrl>
@@ -197,6 +198,7 @@ protected Q_SLOTS:
 private:
     friend class KNewFileMenuPrivate;
     std::unique_ptr<KNewFileMenuPrivate> const d;
+    KIO::NameFinderJob *m_nameJob = nullptr;
 };
 
 #endif

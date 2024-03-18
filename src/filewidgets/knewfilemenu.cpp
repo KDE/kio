@@ -1416,15 +1416,18 @@ void KNewFileMenu::createDirectory()
 
     d->m_baseUrl = d->m_popupFiles.first();
 
-    auto nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
-    connect(nameJob, &KJob::result, this, [=]() mutable {
-        if (!nameJob->error()) {
-            d->m_baseUrl = nameJob->baseUrl();
-            name = nameJob->finalName();
-        }
-        d->showNewDirNameDlg(name);
-    });
-    nameJob->start();
+    if (!m_nameJob) {
+        m_nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
+        connect(m_nameJob, &KJob::result, this, [=]() mutable {
+            if (!m_nameJob->error()) {
+                d->m_baseUrl = m_nameJob->baseUrl();
+                name = m_nameJob->finalName();
+            }
+            d->showNewDirNameDlg(name);
+            m_nameJob = nullptr;
+        });
+        m_nameJob->start();
+    }
 }
 
 void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
