@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:36+0000\n"
+"POT-Creation-Date: 2024-03-18 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 10:31+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2389,17 +2389,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentita Eraro"
 
-#: core/kfileitem.cpp:1395
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbola Ligo al %1)"
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1399
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Ligo al %2)"
 
-#: core/kfileitem.cpp:1400
+#: core/kfileitem.cpp:1402
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(montras al %1)"

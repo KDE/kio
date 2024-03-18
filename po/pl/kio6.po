@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:36+0000\n"
-"PO-Revision-Date: 2024-03-02 12:50+0100\n"
+"POT-Creation-Date: 2024-03-18 00:36+0000\n"
+"PO-Revision-Date: 2024-03-17 11:11+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2368,17 +2368,17 @@ msgstr "Sformatuj napęd docelowy na format, który obsługuje tak duże pliki."
 msgid "Undocumented Error"
 msgstr "Nieudokumentowany błąd"
 
-#: core/kfileitem.cpp:1395
+#: core/kfileitem.cpp:1397
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboliczne dowiązanie do %1)"
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1399
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, dowiązanie do %2)"
 
-#: core/kfileitem.cpp:1400
+#: core/kfileitem.cpp:1402
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Wskazuje na: %1)"
@@ -3609,11 +3609,10 @@ msgstr ""
 "edycyjnym.</p><p>Obsługiwane są znaki wieloznaczne, takie jak * i ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Utwórz nowy rodzaj pliku"
+msgstr "Utwórz nowy plik"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3734,11 +3733,10 @@ msgid "New Folder"
 msgstr "Nowy katalog"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Utwórz katalog"
+msgstr "Utwórz nowy katalog"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
