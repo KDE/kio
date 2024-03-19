@@ -3577,11 +3577,10 @@ msgstr ""
 "editačního pole.</p><p>Jsou povoleny zástupné znaky jako * nebo ?.</p> </qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Vytvořit nový"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3697,11 +3696,10 @@ msgid "New Folder"
 msgstr "Nová složka"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Vytvořit složku"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -7120,7 +7118,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "Nová složka"
