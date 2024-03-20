@@ -2446,7 +2446,11 @@ void KDirOperatorPrivate::writeIconZoomSettingsIfNeeded()
     // must match behavior of iconSizeForViewType
     if (m_configGroup && m_itemView) {
         ZoomSettingsForView zoomSettings = zoomSettingsForView();
-        m_configGroup->writeEntry(zoomSettings.name, m_iconSize);
+        if ((m_iconSize == zoomSettings.defaultValue) && !m_configGroup->hasDefault(zoomSettings.name)) {
+            m_configGroup->revertToDefault(zoomSettings.name);
+        } else {
+            m_configGroup->writeEntry(zoomSettings.name, m_iconSize);
+        }
     }
 }
 
