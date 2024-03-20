@@ -2832,16 +2832,13 @@ KDirOperatorPrivate::ZoomSettingsForView KDirOperatorPrivate::zoomSettingsForVie
 {
     KFile::FileView fv = static_cast<KFile::FileView>(m_viewKind);
 
-    KSharedConfigPtr config = KSharedConfig::openConfig();
     if (KFile::isSimpleView(fv)) {
-        KConfigGroup cg(config, QStringLiteral("DesktopIcons"));
-        const int desktopIconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeHuge));
         if (m_decorationPosition == QStyleOptionViewItem::Top) {
             // Simple view decoration above, aka Icons View
-            return {QStringLiteral("iconViewIconSize"), desktopIconSize};
+            return {QStringLiteral("iconViewIconSize"), static_cast<int>(KIconLoader::SizeHuge)};
         } else {
             // Simple view decoration left, aka compact view
-            return {QStringLiteral("listViewIconSize"), desktopIconSize};
+            return {QStringLiteral("listViewIconSize"), static_cast<int>(KIconLoader::SizeHuge)};
         }
     }
 
