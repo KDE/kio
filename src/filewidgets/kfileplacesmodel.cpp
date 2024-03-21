@@ -108,7 +108,6 @@ static QUrl createTimelineUrl(const QUrl &url)
         const QDate date = QDate::currentDate().addMonths(-1);
         timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
     } else {
-        Q_ASSERT(path.endsWith(QLatin1String("/today")));
         timelineUrl = url;
     }
 
