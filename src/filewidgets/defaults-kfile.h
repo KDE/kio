@@ -10,25 +10,17 @@
 
 #include <QLatin1String>
 
-static constexpr int kfile_area = 250;
-
-static const bool DefaultMixDirsAndFiles = false;
 static const bool DefaultShowHidden = false;
 static const bool DefaultDirsFirst = true;
 static const bool DefaultHiddenFilesLast = false;
 static const bool DefaultSortReversed = false;
 static constexpr int DefaultRecentURLsNumber = 15;
-static const bool DefaultDirectoryFollowing = true;
 static const bool DefaultAutoSelectExtChecked = true;
 static const QLatin1String ConfigGroup("KFileDialog Settings");
 static const QLatin1String RecentURLs("Recent URLs");
 static const QLatin1String RecentFiles("Recent Files");
 static const QLatin1String RecentURLsNumber("Maximum of recent URLs");
 static const QLatin1String RecentFilesNumber("Maximum of recent files");
-static const QLatin1String DialogWidth("Width (%1)");
-static const QLatin1String DialogHeight("Height (%1)");
-static const QLatin1String ConfigShowStatusLine("ShowStatusLine");
-static const QLatin1String AutoDirectoryFollowing("Automatic directory following");
 static const QLatin1String PathComboCompletionMode("PathCombo Completionmode");
 static const QLatin1String LocationComboCompletionMode("LocationCombo Completionmode");
 static const QLatin1String ShowSpeedbar("Show Speedbar");
