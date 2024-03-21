@@ -1,9 +1,9 @@
+# SPDX-FileCopyrightText: 2010, 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Thomas Diehl <thd@kde.org>, 2002, 2003, 2004, 2005.
 # Stephan Johach <hunsum@gmx.de>, 2005, 2006.
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2006, 2007, 2008, 2009.
 # Burkhard Lück <lueck@hube-lueck.de>, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # Stephan Johach <lucardus@onlinehome.de>, 2006.
-# SPDX-FileCopyrightText: 2010, 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2011.
 # Kai Uwe Broulik <kde@privat.broulik.de>, 2021.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-18 00:36+0000\n"
-"PO-Revision-Date: 2023-12-21 17:00+0100\n"
+"PO-Revision-Date: 2024-03-20 21:18+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3705,11 +3705,10 @@ msgstr ""
 "möglich.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Neuen Dateityp erstellen"
+msgstr "Neue Datei erstellen"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3830,11 +3829,10 @@ msgid "New Folder"
 msgstr "Neuer Ordner"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Ordner erstellen"
+msgstr "Neuen Ordner erstellen"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -4083,17 +4081,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Das Programm „%1“ kann nicht gestartet werden."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Die Datei %1\n"
-"wurde geändert. Möchten Sie die Änderungen hochladen?"
+"Die Datei <filename>%1</filename><nl/>wurde geändert. Möchten Sie die "
+"Änderungen hochladen?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -5328,10 +5323,9 @@ msgid "Updating System Configuration"
 msgstr "System-Einrichtung wird aktualisiert"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "System-Einrichtung wird aktualisiert."
+msgstr "System-Einrichtung wird aktualisiert …"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
