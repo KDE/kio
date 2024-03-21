@@ -284,6 +284,7 @@ public:
     // files and urls. Visual settings (view mode, sorting criteria...) are not
     // app-specific and are stored in kdeglobals
     KConfigGroup m_configGroup;
+    KConfigGroup m_stateConfigGroup;
 
     KToggleAction *m_toggleBookmarksAction = nullptr;
     KToggleAction *m_togglePlacesPanelAction = nullptr;
@@ -402,6 +403,20 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     config->reparseConfiguration(); // grab newly added dirs by other processes (#403524)
     KConfigGroup group(config, ConfigGroup);
+
+    d->m_stateConfigGroup = KSharedConfig::openStateConfig()->group(ConfigGroup);
+
+    // migrate existing recent files/urls from main config to state config
+    if (group.hasKey(RecentURLs)) {
+        d->m_stateConfigGroup.writeEntry(RecentURLs, group.readEntry(RecentURLs));
+        group.revertToDefault(RecentURLs);
+    }
+
+    if (group.hasKey(RecentFiles)) {
+        d->m_stateConfigGroup.writeEntry(RecentFiles, group.readEntry(RecentFiles));
+        group.revertToDefault(RecentFiles);
+    }
+
     readConfig(group);
 
     d->m_ops->action(KDirOperator::ShowPreview)->setChecked(d->m_ops->isInlinePreviewShown());
@@ -1969,12 +1984,12 @@ void KFileWidgetPrivate::readRecentFiles()
 
     const bool oldState = m_locationEdit->blockSignals(true);
     m_locationEdit->setMaxItems(m_configGroup.readEntry(RecentFilesNumber, DefaultRecentURLsNumber));
-    m_locationEdit->setUrls(m_configGroup.readPathEntry(RecentFiles, QStringList()), KUrlComboBox::RemoveBottom);
+    m_locationEdit->setUrls(m_stateConfigGroup.readPathEntry(RecentFiles, QStringList()), KUrlComboBox::RemoveBottom);
     m_locationEdit->setCurrentIndex(-1);
     m_locationEdit->blockSignals(oldState);
 
     KUrlComboBox *combo = m_urlNavigator->editor();
-    combo->setUrls(m_configGroup.readPathEntry(RecentURLs, QStringList()), KUrlComboBox::RemoveTop);
+    combo->setUrls(m_stateConfigGroup.readPathEntry(RecentURLs, QStringList()), KUrlComboBox::RemoveTop);
     combo->setMaxItems(m_configGroup.readEntry(RecentURLsNumber, DefaultRecentURLsNumber));
     combo->setUrl(m_ops->url());
     // since we delayed this moment, initialize the directory of the completion object to
@@ -1988,10 +2003,10 @@ void KFileWidgetPrivate::readRecentFiles()
 void KFileWidgetPrivate::saveRecentFiles()
 {
     //     qDebug();
-    m_configGroup.writePathEntry(RecentFiles, m_locationEdit->urls());
+    m_stateConfigGroup.writePathEntry(RecentFiles, m_locationEdit->urls());
 
     KUrlComboBox *pathCombo = m_urlNavigator->editor();
-    m_configGroup.writePathEntry(RecentURLs, pathCombo->urls());
+    m_stateConfigGroup.writePathEntry(RecentURLs, pathCombo->urls());
 }
 
 QPushButton *KFileWidget::okButton() const
