@@ -73,9 +73,11 @@ OpenWith::AcceptResult OpenWith::accept(KService::Ptr &service,
 {
     QString fullExec(typedExec);
 
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
+    const QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
+
     QString serviceName;
     QString initialServiceName;
-    QString preferredTerminal;
     QString configPath;
     QString serviceExec;
     bool rebuildSycoca = false;
