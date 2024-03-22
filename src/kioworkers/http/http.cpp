@@ -132,7 +132,15 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
         return;
     }
 
-    // const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
+    KSslCertificateRule rule = KSslCertificateManager::self()->rule(certs.first(), m_hostName);
+
+    // remove previously seen and acknowledged errors
+    const QList<QSslError> remainingErrors = rule.filterErrors(sslErrors);
+    if (remainingErrors.isEmpty()) {
+        reply->ignoreSslErrors();
+        return;
+    }
+
     // try to fill in the blanks, i.e. missing certificates, and just assume that
     // those belong to the peer (==website or similar) certificate.
     for (int i = 0; i < sslErrors.count(); i++) {
