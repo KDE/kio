@@ -31,6 +31,7 @@
 #include <KLocalizedString>
 
 #include <authinfo.h>
+#include <ksslcertificatemanager.h>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
@@ -123,6 +124,13 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
     }
 
     auto sslErrors = errors;
+
+    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(sslErrors);
+    if (!fatalErrors.isEmpty()) {
+        qCWarning(KIOHTTP_LOG) << "SSL errors that cannot be ignored occured" << fatalErrors;
+        Q_EMIT errorOut(KIO::ERR_CANNOT_CONNECT);
+        return;
+    }
 
     // const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
     // try to fill in the blanks, i.e. missing certificates, and just assume that
