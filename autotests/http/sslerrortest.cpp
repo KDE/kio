@@ -13,7 +13,15 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KIO::get(QUrl("https://expired.badssl.com/"));
+    auto job = KIO::get(QUrl("https://expired.badssl.com/"));
+
+    QObject::connect(job, &KJob::result, &app, [](KJob *job) {
+        if (!job->error()) {
+            qWarning() << "job succeeded";
+        } else {
+            qWarning() << "job error" << job->error() << job->errorString();
+        }
+    });
 
     return app.exec();
 }
