@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:36+0000\n"
+"POT-Creation-Date: 2024-03-22 00:36+0000\n"
 "PO-Revision-Date: 2024-03-11 10:28+0100\n"
 "Last-Translator: xavier <xyz@yahoo.com>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2488,7 +2488,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Impossible de déterminer le type du fichier de %1."
 
-#: core/openwith.cpp:88
+#: core/openwith.cpp:90
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2497,13 +2497,13 @@ msgstr ""
 "Impossible de trouver le nom de l'exécutable dans « %1 ». Donnez un nom de "
 "programme valable s'il-vous-plaît."
 
-#: core/openwith.cpp:140
+#: core/openwith.cpp:142
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ne semble pas être un programme exécutable."
 
-#: core/openwith.cpp:141
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3100,155 +3100,155 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "Étiquettes"
 
-#: filewidgets/kfileplacesmodel.cpp:159
+#: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Toutes les étiquettes"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:255
+#: filewidgets/kfileplacesmodel.cpp:254
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Dossier Personnel"
 
-#: filewidgets/kfileplacesmodel.cpp:264
+#: filewidgets/kfileplacesmodel.cpp:263
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Bureau"
 
-#: filewidgets/kfileplacesmodel.cpp:271
+#: filewidgets/kfileplacesmodel.cpp:270
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Documents"
 
-#: filewidgets/kfileplacesmodel.cpp:278
+#: filewidgets/kfileplacesmodel.cpp:277
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: filewidgets/kfileplacesmodel.cpp:283
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Réseau"
 
-#: filewidgets/kfileplacesmodel.cpp:288
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Corbeille"
 
-#: filewidgets/kfileplacesmodel.cpp:349
+#: filewidgets/kfileplacesmodel.cpp:348
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Musique"
 
-#: filewidgets/kfileplacesmodel.cpp:356
+#: filewidgets/kfileplacesmodel.cpp:355
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Images"
 
-#: filewidgets/kfileplacesmodel.cpp:365
+#: filewidgets/kfileplacesmodel.cpp:364
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Vidéos"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:391
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Fichiers récents"
 
-#: filewidgets/kfileplacesmodel.cpp:397
+#: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Emplacements récents"
 
-#: filewidgets/kfileplacesmodel.cpp:420
+#: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Modifié aujourd'hui"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Modifié hier"
 
-#: filewidgets/kfileplacesmodel.cpp:1092
+#: filewidgets/kfileplacesmodel.cpp:1091
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Impossible d'ajouter au panneau « Emplacements » :%1"
 
-#: filewidgets/kfileplacesmodel.cpp:1099
+#: filewidgets/kfileplacesmodel.cpp:1098
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Seuls des dossiers peuvent être ajoutés au panneau « Emplacements »."
 
-#: filewidgets/kfileplacesmodel.cpp:1363
+#: filewidgets/kfileplacesmodel.cpp:1362
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Publication..."
 
-#: filewidgets/kfileplacesmodel.cpp:1365
+#: filewidgets/kfileplacesmodel.cpp:1364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "Publi&cation"
 
-#: filewidgets/kfileplacesmodel.cpp:1369
+#: filewidgets/kfileplacesmodel.cpp:1368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Suppression en toute sécurité..."
 
-#: filewidgets/kfileplacesmodel.cpp:1371
+#: filewidgets/kfileplacesmodel.cpp:1370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Enlever en toute &sécurité"
 
-#: filewidgets/kfileplacesmodel.cpp:1376
+#: filewidgets/kfileplacesmodel.cpp:1375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Démontage..."
 
-#: filewidgets/kfileplacesmodel.cpp:1378
+#: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Libérer"
 
-#: filewidgets/kfileplacesmodel.cpp:1402
+#: filewidgets/kfileplacesmodel.cpp:1401
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Éj&ecter"
 
-#: filewidgets/kfileplacesmodel.cpp:1449
+#: filewidgets/kfileplacesmodel.cpp:1448
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr ""
 "Le périphérique « %1 » n'est pas un disque et ne peut donc être éjecté."
 
-#: filewidgets/kfileplacesmodel.cpp:1484
+#: filewidgets/kfileplacesmodel.cpp:1483
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Une erreur est survenue en accédant à « %1 ». Message reçu : %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1486
+#: filewidgets/kfileplacesmodel.cpp:1485
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Une erreur s'est produite en accédant à « %1 »"
 
-#: filewidgets/kfileplacesmodel.cpp:1512
+#: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Un ou plusieurs fichiers sur ce périphérique sont ouverts par une "
 "application."
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3263,13 +3263,13 @@ msgstr[1] ""
 "Un ou plusieurs fichiers présents sur ce périphérique sont ouverts dans les "
 "applications suivantes : <application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1517
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1564
+#: filewidgets/kfileplacesmodel.cpp:1563
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

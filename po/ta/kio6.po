@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:36+0000\n"
+"POT-Creation-Date: 2024-03-22 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 11:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2359,7 +2359,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 எந்த வகையான கோப்பு என்பதை தீர்மானிக்க முடியவில்லை"
 
-#: core/openwith.cpp:88
+#: core/openwith.cpp:90
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2368,13 +2368,13 @@ msgstr ""
 "'%1' -இலிருந்து ஒரு இயக்கவல்ல நிரலின் பெயரை கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து ஒரு "
 "சரியான நிரலின் பெயரை உள்ளிடவும்."
 
-#: core/openwith.cpp:140
+#: core/openwith.cpp:142
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ஒரு இயக்கவல்ல நிரல் போல தெரியவில்லை."
 
-#: core/openwith.cpp:141
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2964,152 +2964,152 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "குறிச்சொற்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:159
+#: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "அனைத்து குறிச்சொற்கள்"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:255
+#: filewidgets/kfileplacesmodel.cpp:254
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "முகப்பு"
 
-#: filewidgets/kfileplacesmodel.cpp:264
+#: filewidgets/kfileplacesmodel.cpp:263
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "பணிமேடை"
 
-#: filewidgets/kfileplacesmodel.cpp:271
+#: filewidgets/kfileplacesmodel.cpp:270
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "ஆவணங்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:278
+#: filewidgets/kfileplacesmodel.cpp:277
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "பதிவிறக்கங்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:283
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "பிணையம்"
 
-#: filewidgets/kfileplacesmodel.cpp:288
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "அகற்றிடம்"
 
-#: filewidgets/kfileplacesmodel.cpp:349
+#: filewidgets/kfileplacesmodel.cpp:348
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "பாடல்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:356
+#: filewidgets/kfileplacesmodel.cpp:355
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "படங்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:365
+#: filewidgets/kfileplacesmodel.cpp:364
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ஒளிக்காட்சிகள்"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:391
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "சமீப கோப்புகள்"
 
-#: filewidgets/kfileplacesmodel.cpp:397
+#: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "சமீப இடங்கள்"
 
-#: filewidgets/kfileplacesmodel.cpp:420
+#: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "இன்று மாற்றியவை"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "நேற்று மாற்றியவை"
 
-#: filewidgets/kfileplacesmodel.cpp:1092
+#: filewidgets/kfileplacesmodel.cpp:1091
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "இடங்கள் பலகைக்கு சேர்க்க முடியவில்லை: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1099
+#: filewidgets/kfileplacesmodel.cpp:1098
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "இடங்கள் பலகையில் அடைவுகளை மட்டும்தான் சேர்க்க முடியும்."
 
-#: filewidgets/kfileplacesmodel.cpp:1363
+#: filewidgets/kfileplacesmodel.cpp:1362
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "விடுவிக்கிறது…"
 
-#: filewidgets/kfileplacesmodel.cpp:1365
+#: filewidgets/kfileplacesmodel.cpp:1364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&விடுவி"
 
-#: filewidgets/kfileplacesmodel.cpp:1369
+#: filewidgets/kfileplacesmodel.cpp:1368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "பத்திரமாக கழற்றுகிறது…"
 
-#: filewidgets/kfileplacesmodel.cpp:1371
+#: filewidgets/kfileplacesmodel.cpp:1370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&பத்திரமாக கழற்று"
 
-#: filewidgets/kfileplacesmodel.cpp:1376
+#: filewidgets/kfileplacesmodel.cpp:1375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "இறக்குகிறது…"
 
-#: filewidgets/kfileplacesmodel.cpp:1378
+#: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&இறக்கு"
 
-#: filewidgets/kfileplacesmodel.cpp:1402
+#: filewidgets/kfileplacesmodel.cpp:1401
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "வெ&ளியேற்று"
 
-#: filewidgets/kfileplacesmodel.cpp:1449
+#: filewidgets/kfileplacesmodel.cpp:1448
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' என்ற சாதனம் ஒரு வட்டு இல்லாததால் அதை வெளியேற்ற முடியாது."
 
-#: filewidgets/kfileplacesmodel.cpp:1484
+#: filewidgets/kfileplacesmodel.cpp:1483
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1' -ஐ அணுகும் பொழுது சிக்கல் ஏற்பட்டது, கணினி தெரிவித்தது: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1486
+#: filewidgets/kfileplacesmodel.cpp:1485
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1' -ஐ அணுகுகையில் பிழை ஏற்பட்டது."
 
-#: filewidgets/kfileplacesmodel.cpp:1512
+#: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "இந்த சாதனத்தில் உள்ள ஒரு அல்லது பல கோப்புகள் ஏதோவொரு செயலியில் திறந்துள்ளன."
 
-#: filewidgets/kfileplacesmodel.cpp:1515
+#: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3124,13 +3124,13 @@ msgstr[1] ""
 "இந்த சாதனத்தில் உள்ள ஒரு அல்லது பல கோப்புகள் கீழ்கண்ட செயலிகளில் திறந்துள்ளன: "
 "<application>\"%2\"</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1517
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1564
+#: filewidgets/kfileplacesmodel.cpp:1563
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
