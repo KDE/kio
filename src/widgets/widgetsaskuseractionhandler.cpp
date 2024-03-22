@@ -500,8 +500,6 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const QVariantMap &ssl
         } else if (result == KMessageDialog::Cancel) {
             // cancel();
             Q_EMIT askIgnoreSslErrorsResult(0);
-        } else {
-            Q_UNREACHABLE();
         }
     });
 
