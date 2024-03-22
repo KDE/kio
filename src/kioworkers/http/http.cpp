@@ -180,6 +180,30 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
     int result = sslError(sslData);
 
     if (result == 1) {
+        QDateTime ruleExpiry = QDateTime::currentDateTime();
+
+        const int result = messageBox(WarningTwoActionsCancel,
+                                      i18n("Would you like to accept this "
+                                           "certificate forever without "
+                                           "being prompted?"),
+                                      i18n("Server Authentication"),
+                                      i18n("&Forever"),
+                                      i18n("&Current Session only"));
+        if (result == WorkerBase::PrimaryAction) {
+            // accept forever ("for a very long time")
+            ruleExpiry = ruleExpiry.addYears(1000);
+        } else if (result == WorkerBase::SecondaryAction) {
+            // accept "for a short time", half an hour.
+            ruleExpiry = ruleExpiry.addSecs(30 * 60);
+        } else {
+            Q_EMIT errorOut(KIO::ERR_CANNOT_CONNECT);
+            return;
+        }
+
+        rule.setExpiryDateTime(ruleExpiry);
+        rule.setIgnoredErrors(sslErrors);
+        KSslCertificateManager::self()->setRule(rule);
+
         reply->ignoreSslErrors();
     } else {
         Q_EMIT errorOut(KIO::ERR_CANNOT_CONNECT);
