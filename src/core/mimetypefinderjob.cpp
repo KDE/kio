@@ -130,7 +130,7 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
     }
     job->setUiDelegate(nullptr);
     q->addSubjob(job);
-    QObject::connect(job, &KJob::result, q, [=]() {
+    QObject::connect(job, &KJob::result, q, [=, this]() {
         const int errCode = job->error();
         if (errCode) {
             // ERR_NO_CONTENT is not an error, but an indication no further
@@ -207,7 +207,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
     }
     job->setUiDelegate(nullptr);
     q->addSubjob(job);
-    QObject::connect(job, &KJob::result, q, [=]() {
+    QObject::connect(job, &KJob::result, q, [=, this]() {
         const int errCode = job->error();
         if (errCode) {
             // ERR_NO_CONTENT is not an error, but an indication no further
@@ -226,7 +226,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
             q->emitResult();
         }
     });
-    QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=](KIO::Job *, const QString &mimetype) {
+    QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=, this](KIO::Job *, const QString &mimetype) {
         if (m_followRedirections) { // Update our URL in case of a redirection
             m_url = job->url();
         }

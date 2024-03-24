@@ -1326,7 +1326,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
     auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
-    QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+    QObject::connect(askUserActionInterface, renameSignal, q, [=, this](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
         Q_ASSERT(parentJob == q);
         // Only receive askUserRenameResult once per rename dialog
         QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
@@ -1434,7 +1434,7 @@ void CopyJobPrivate::createNextDir()
                         }
 
                         auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
-                        QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+                        QObject::connect(askUserActionInterface, skipSignal, q, [=, this](SkipDialog_Result result, KJob *parentJob) {
                             Q_ASSERT(parentJob == q);
 
                             // Only receive askUserSkipResult once per skip dialog
@@ -1709,7 +1709,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             const QString title = !isDir ? i18n("File Already Exists") : i18n("Already Exists as Folder");
 
             auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
-            QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+            QObject::connect(askUserActionInterface, renameSignal, q, [=, this](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
                 // Only receive askUserRenameResult once per rename dialog
                 QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);
@@ -1738,7 +1738,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             }
 
             auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
-            QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+            QObject::connect(askUserActionInterface, skipSignal, q, [=, this](SkipDialog_Result result, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
                 // Only receive askUserSkipResult once per skip dialog
                 QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
@@ -1925,7 +1925,7 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
             }
 
             auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
-            QObject::connect(askUserActionInterface, skipSignal, q, [=](SkipDialog_Result result, KJob *parentJob) {
+            QObject::connect(askUserActionInterface, skipSignal, q, [=, this](SkipDialog_Result result, KJob *parentJob) {
                 Q_ASSERT(parentJob == q);
                 // Only receive askUserSkipResult once per skip dialog
                 QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
@@ -2382,7 +2382,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     return;
                 } else {
                     auto renameSignal = &KIO::AskUserActionInterface::askUserRenameResult;
-                    QObject::connect(askUserActionInterface, renameSignal, q, [=](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
+                    QObject::connect(askUserActionInterface, renameSignal, q, [=, this](RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob) {
                         Q_ASSERT(parentJob == q);
                         // Only receive askUserRenameResult once per rename dialog
                         QObject::disconnect(askUserActionInterface, renameSignal, q, nullptr);

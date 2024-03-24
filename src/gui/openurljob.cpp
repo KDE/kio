@@ -441,7 +441,7 @@ void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &fi
         q->emitResult();
         return;
     }
-    QObject::connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, q, [=](bool result) {
+    QObject::connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, q, [=, this](bool result) {
         if (result) {
             QString errorString;
             if (untrustedProgramHandler->setExecuteBit(filePath, errorString)) {

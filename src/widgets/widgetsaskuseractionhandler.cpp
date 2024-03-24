@@ -162,7 +162,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
                                                      const QDateTime &mtimeSrc,
                                                      const QDateTime &mtimeDest)
 {
-    QMetaObject::invokeMethod(qGuiApp, [=] {
+    QMetaObject::invokeMethod(qGuiApp, [=, this] {
         auto *dlg = new KIO::RenameDialog(d->getParentWidget(job), title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
         dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -181,7 +181,7 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
 
 void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText)
 {
-    QMetaObject::invokeMethod(qGuiApp, [=] {
+    QMetaObject::invokeMethod(qGuiApp, [=, this] {
         auto *dlg = new KIO::SkipDialog(d->getParentWidget(job), options, errorText);
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->setWindowModality(Qt::WindowModal);
@@ -331,7 +331,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         return;
     }
 
-    QMetaObject::invokeMethod(qGuiApp, [=] {
+    QMetaObject::invokeMethod(qGuiApp, [=, this] {
         const auto &[prettyList, dialogType, acceptButton, text, icon, title, singleUrl] = processAskDelete(urls, deletionType);
         KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
         dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -345,7 +345,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         // If we get here, !ask must be false
         dlg->setDontAskAgainChecked(!ask);
 
-        connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
+        connect(dlg, &QDialog::finished, this, [=, this](const int buttonCode) {
             const bool isDelete = (buttonCode == KMessageDialog::PrimaryAction);
 
             Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
@@ -421,7 +421,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         return;
     }
 
-    QMetaObject::invokeMethod(qGuiApp, [=]() {
+    QMetaObject::invokeMethod(qGuiApp, [=, this]() {
         auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
         auto *dialog = new KMessageDialog(dlgType, text, d->getParentWidget(parent));
 
@@ -434,7 +434,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         dialog->setDontAskAgainChecked(false);
         dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
 
-        connect(dialog, &QDialog::finished, this, [=](const int result) {
+        connect(dialog, &QDialog::finished, this, [=, this](const int result) {
             KIO::WorkerBase::ButtonCode btnCode;
             switch (result) {
             case KMessageDialog::PrimaryAction:
@@ -522,7 +522,7 @@ void KIO::WidgetsAskUserActionHandler::showSslDetails(const QVariantMap &sslErro
         }
     }
 
-    QMetaObject::invokeMethod(qGuiApp, [=] {
+    QMetaObject::invokeMethod(qGuiApp, [=, this] {
         if (decodedOk) { // Use KSslInfoDialog
             KSslInfoDialog *ksslDlg = new KSslInfoDialog(parentWidget);
             ksslDlg->setSslInfo(

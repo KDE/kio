@@ -403,7 +403,7 @@ void DropJobPrivate::slotAboutToHide()
     // QMenu emits aboutToHide before triggered.
     // So we need to give the menu time in case it needs to emit triggered.
     // If it does, the cleanup will be done by slotTriggered.
-    QTimer::singleShot(0, q, [=]() {
+    QTimer::singleShot(0, q, [=, this]() {
         if (!m_triggered) {
             q->setError(KIO::ERR_USER_CANCELED);
             q->emitResult();

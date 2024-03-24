@@ -206,7 +206,7 @@ void ChmodJobPrivate::chmodNextFile()
                     }
 
                     auto skipSignal = &AskUserActionInterface::askUserSkipResult;
-                    q->connect(askUserActionInterface, skipSignal, q, [=](KIO::SkipDialog_Result result, KJob *parentJob) {
+                    q->connect(askUserActionInterface, skipSignal, q, [=, this](KIO::SkipDialog_Result result, KJob *parentJob) {
                         Q_ASSERT(q == parentJob);
                         q->disconnect(askUserActionInterface, skipSignal, q, nullptr);
 

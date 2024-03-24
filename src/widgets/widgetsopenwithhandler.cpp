@@ -63,7 +63,7 @@ void KIO::WidgetsOpenWithHandler::promptUserForApplication(KJob *job, const QLis
 
     KOpenWithDialog *dialog = new KOpenWithDialog(urls, mimeType, QString(), QString(), parentWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    connect(dialog, &QDialog::accepted, this, [=]() {
+    connect(dialog, &QDialog::accepted, this, [=, this]() {
         KService::Ptr service = dialog->service();
         if (!service) {
             service = KService::Ptr(new KService(QString() /*name*/, dialog->text(), QString() /*icon*/));

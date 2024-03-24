@@ -141,7 +141,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 
         QDBusPendingReply<void> reply = QDBusConnection::sessionBus().asyncCall(msg);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, m_job);
-        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=](QDBusPendingCallWatcher *watcher) {
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=, this](QDBusPendingCallWatcher *watcher) {
             QDBusPendingReply<void> reply = *watcher;
             watcher->deleteLater();
 

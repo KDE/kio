@@ -377,7 +377,7 @@ void FileUndoManager::undo()
         if (askUserInterface) {
             if (!d->m_connectedToAskUserInterface) {
                 d->m_connectedToAskUserInterface = true;
-                QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult, this, [=](bool allowDelete) {
+                QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult, this, [this](bool allowDelete) {
                     if (allowDelete) {
                         d->startUndo();
                     }

@@ -359,7 +359,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             if (!KProtocolManager::autoResume() && !(m_flags & Overwrite) && askUserActionInterface) {
                 auto renameSignal = &AskUserActionInterface::askUserRenameResult;
 
-                q->connect(askUserActionInterface, renameSignal, q, [=](KIO::RenameDialog_Result result, const QUrl &, const KJob *askJob) {
+                q->connect(askUserActionInterface, renameSignal, q, [=, this](KIO::RenameDialog_Result result, const QUrl &, const KJob *askJob) {
                     Q_ASSERT(kioJob == askJob);
 
                     // Only receive askUserRenameResult once per rename dialog

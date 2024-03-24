@@ -194,10 +194,10 @@ DeleteJobIOWorker *DeleteJobPrivate::worker()
         m_ioworker = new DeleteJobIOWorker;
         m_ioworker->moveToThread(m_thread);
         QObject::connect(m_thread, &QThread::finished, m_ioworker, &QObject::deleteLater);
-        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmfileResult, q, [=](bool result, bool isLink) {
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmfileResult, q, [=, this](bool result, bool isLink) {
             this->rmFileResult(result, isLink);
         });
-        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmddirResult, q, [=](bool result) {
+        QObject::connect(m_ioworker, &DeleteJobIOWorker::rmddirResult, q, [=, this](bool result) {
             this->rmdirResult(result);
         });
         m_thread->start();

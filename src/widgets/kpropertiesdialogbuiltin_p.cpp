@@ -1986,7 +1986,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
         }
     };
 
-    auto chmodDirs = [=]() {
+    auto chmodDirs = [=, this]() {
         if (dirs.isEmpty()) {
             setDirty(false);
             Q_EMIT changesApplied();
@@ -2051,7 +2051,7 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     d->m_ui.sha256CopyButton->hide();
     d->m_ui.sha512CopyButton->hide();
 
-    connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
+    connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
         slotVerifyChecksum(text.toLower());
     });
 
@@ -2064,23 +2064,23 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     connect(&d->fileWatcher, &QFileSystemWatcher::fileChanged, this, &KChecksumsPlugin::slotInvalidateCache);
 
     auto clipboard = QApplication::clipboard();
-    connect(d->m_ui.md5CopyButton, &QPushButton::clicked, this, [=]() {
+    connect(d->m_ui.md5CopyButton, &QPushButton::clicked, this, [=, this]() {
         clipboard->setText(d->m_md5);
     });
 
-    connect(d->m_ui.sha1CopyButton, &QPushButton::clicked, this, [=]() {
+    connect(d->m_ui.sha1CopyButton, &QPushButton::clicked, this, [=, this]() {
         clipboard->setText(d->m_sha1);
     });
 
-    connect(d->m_ui.sha256CopyButton, &QPushButton::clicked, this, [=]() {
+    connect(d->m_ui.sha256CopyButton, &QPushButton::clicked, this, [=, this]() {
         clipboard->setText(d->m_sha256);
     });
 
-    connect(d->m_ui.sha512CopyButton, &QPushButton::clicked, this, [=]() {
+    connect(d->m_ui.sha512CopyButton, &QPushButton::clicked, this, [=, this]() {
         clipboard->setText(d->m_sha512);
     });
 
-    connect(d->m_ui.pasteButton, &QPushButton::clicked, this, [=]() {
+    connect(d->m_ui.pasteButton, &QPushButton::clicked, this, [=, this]() {
         d->m_ui.lineEdit->setText(clipboard->text());
     });
 
@@ -2181,7 +2181,7 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
 
     // Calculate checksum in another thread.
     auto futureWatcher = new QFutureWatcher<QString>(this);
-    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=]() {
+    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=, this]() {
         const QString checksum = futureWatcher->result();
         futureWatcher->deleteLater();
 
@@ -2356,7 +2356,7 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLa
 
     // Calculate checksum in another thread.
     auto futureWatcher = new QFutureWatcher<QString>(this);
-    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=]() {
+    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=, this]() {
         const QString checksum = futureWatcher->result();
         futureWatcher->deleteLater();
 
