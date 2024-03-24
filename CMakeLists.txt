@@ -107,7 +107,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to gen
 
 set(REQUIRED_QT_VERSION 6.5.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
-if (NOT ANDROID)
+if (NOT ANDROID AND NOT WINDOWS AND NOT APPLE)
     find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
 endif()
 
