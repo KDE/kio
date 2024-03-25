@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-25 00:36+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -7451,13 +7451,13 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:548
 #, fuzzy, kde-format
 #| msgid "The peer SSL certificate appears to be corrupt."
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "जोडी SSL प्रमाणपत्र बिग्रेको देखिन्छ ।"
 
-#: widgets/widgetsaskuseractionhandler.cpp:553
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

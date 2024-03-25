@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-25 00:36+0000\n"
 "PO-Revision-Date: 2024-02-09 23:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -7004,12 +7004,12 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "이 메시지를 다시 표시하지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:548
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "동료 SSL 인증서 체인이 잘못된 것 같습니다."
 
-#: widgets/widgetsaskuseractionhandler.cpp:553
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:36+0000\n"
-"PO-Revision-Date: 2024-03-17 20:42\n"
+"POT-Creation-Date: 2024-03-25 00:36+0000\n"
+"PO-Revision-Date: 2024-03-24 18:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -6859,12 +6859,12 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "不再显示此消息"
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:548
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "对端的 SSL 证书链似乎已经损坏。"
 
-#: widgets/widgetsaskuseractionhandler.cpp:553
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

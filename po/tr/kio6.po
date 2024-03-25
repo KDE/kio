@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-25 00:36+0000\n"
 "PO-Revision-Date: 2024-03-17 02:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7136,12 +7136,12 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Bu iletiyi bir daha gösterme"
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:548
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Eş SSL sertifika zinciri hasar görmüş gibi görünüyor."
 
-#: widgets/widgetsaskuseractionhandler.cpp:553
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
