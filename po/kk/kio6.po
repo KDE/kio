@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 00:36+0000\n"
+"POT-Creation-Date: 2024-03-26 00:36+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2549,7 +2549,8 @@ msgstr "'%1'деген протоколы үшін io-slave процесі та�
 msgid "&Details"
 msgstr "&Егжей-тегжейі"
 
-#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 kioworkers/http/http.cpp:190
+#: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Үнемі"
@@ -2559,7 +2560,8 @@ msgstr "&Үнемі"
 msgid "Co&ntinue"
 msgstr "&Жалғастыру"
 
-#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 kioworkers/http/http.cpp:191
+#: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "Тек &осы сеанс үшін"
@@ -4379,12 +4381,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:261
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:301
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Бұл сайтқа қатынау үшін атауы мен пароль талап етіледі."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:263
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:303
 #, kde-format
 msgid "Site:"
 msgstr "Сайт:"
@@ -4412,7 +4414,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 дегенді жегу"
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:311
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:351
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4421,7 +4423,7 @@ msgstr ""
 "Осы прокси-сервер арқылы басқа сайттарға  қатынау үшін пайдаланушының атауы "
 "мен паролі қажет."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:315
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:355
 #, kde-format
 msgid "Proxy:"
 msgstr "Прокси:"
@@ -4474,96 +4476,108 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "%1 деген файл оқылмады."
 
-#: kioworkers/http/http.cpp:281 kioworkers/http/http.cpp:320
-#: kioworkers/http/http.cpp:334
+#: kioworkers/http/http.cpp:186 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Куәлік келешекте қосымша сұрақсыз үнемі қабылдансын ба?"
+
+#: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:490
+#, kde-format
+msgid "Server Authentication"
+msgstr "Сервер аутентификациясы"
+
+#: kioworkers/http/http.cpp:321 kioworkers/http/http.cpp:360
+#: kioworkers/http/http.cpp:374
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> / <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1236
+#: kioworkers/http/http.cpp:1276
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Әйтпесе, талап сәтті орындалар еді."
 
-#: kioworkers/http/http.cpp:1239
+#: kioworkers/http/http.cpp:1279
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "қасиет мәндерін алу"
 
-#: kioworkers/http/http.cpp:1241
+#: kioworkers/http/http.cpp:1281
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "қасиет мәндерін орнату"
 
-#: kioworkers/http/http.cpp:1243
+#: kioworkers/http/http.cpp:1283
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "талап етілген қапшықты құру"
 
-#: kioworkers/http/http.cpp:1245
+#: kioworkers/http/http.cpp:1285
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "келтірілген файлды не қапшықты көшірмелеу"
 
-#: kioworkers/http/http.cpp:1247
+#: kioworkers/http/http.cpp:1287
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "келтірілген файлды не қапшықты жылжыту"
 
-#: kioworkers/http/http.cpp:1249
+#: kioworkers/http/http.cpp:1289
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "келтірілген қапшықта іздеу"
 
-#: kioworkers/http/http.cpp:1251
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "келтірілген файлды не қапшықты бұғаттау"
 
-#: kioworkers/http/http.cpp:1253
+#: kioworkers/http/http.cpp:1293
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "келтірілген файл не қапшықтың бұғатын шешу"
 
-#: kioworkers/http/http.cpp:1255
+#: kioworkers/http/http.cpp:1295
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "келтірілген файлды не қапшықты кетіру"
 
-#: kioworkers/http/http.cpp:1257
+#: kioworkers/http/http.cpp:1297
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "сервердің мүмкіндіктерін сұрау"
 
-#: kioworkers/http/http.cpp:1259
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "келтірілген файл не қапшықтың мазмұнын оқу"
 
-#: kioworkers/http/http.cpp:1261
+#: kioworkers/http/http.cpp:1301
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "келтірілген қапшықта есеп беру"
 
-#: kioworkers/http/http.cpp:1269
+#: kioworkers/http/http.cpp:1309
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Күтпеген қате (%1) %2 әрекеті кезінде пайда болды."
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4572,13 +4586,13 @@ msgid ""
 msgstr ""
 "%1 (%2) сұраныс кезінде қате пайда болды. Себептері төменде қорытылған."
 
-#: kioworkers/http/http.cpp:1327 kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1367 kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 сұранысы кезінде қатынауға рұқсат жоқ екені анықталған."
 
-#: kioworkers/http/http.cpp:1341 kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1381 kioworkers/http/http.cpp:1518
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4586,7 +4600,7 @@ msgid ""
 msgstr ""
 "Бір немесе бірнеше аралық жинақ (қапшық) құрылмайынша, ресурс та құрылмайды."
 
-#: kioworkers/http/http.cpp:1350
+#: kioworkers/http/http.cpp:1390
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4602,28 +4616,28 @@ msgstr ""
 "Сервер XML қасиеттер элементіндегі қасиеттер тізімін қолдамайды немесе "
 "файлды қайта жазуға әрекет жасағанда, файлдар жазылмады. %1 "
 
-#: kioworkers/http/http.cpp:1358
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Талап етілген бұғаттау қабылданбаған. %1"
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер сұралған \"body\" элементінің түрін танымайды."
 
-#: kioworkers/http/http.cpp:1369 kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1409 kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 орындалмады, себебі ресурс бұғатталған."
 
-#: kioworkers/http/http.cpp:1373
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Басқа қатенің себебінен әрекет орындалмады."
 
-#: kioworkers/http/http.cpp:1380 kioworkers/http/http.cpp:1493
+#: kioworkers/http/http.cpp:1420 kioworkers/http/http.cpp:1533
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4632,7 +4646,7 @@ msgid ""
 msgstr ""
 "%1 орындалмады, себебі мақсаттаған сервер файлды не қапшықты қабылдамады."
 
-#: kioworkers/http/http.cpp:1389 kioworkers/http/http.cpp:1502
+#: kioworkers/http/http.cpp:1429 kioworkers/http/http.cpp:1542
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4641,18 +4655,18 @@ msgstr ""
 "Осы әдісті орындағаннан кейін мақсатталған ресурсының күйін жазу үшін "
 "жеткілікті орын жоқ."
 
-#: kioworkers/http/http.cpp:1442
+#: kioworkers/http/http.cpp:1482
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Бұл ресурс өшірілмейді."
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1502
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 дегенді жүктеп беру"
 
-#: kioworkers/http/http.cpp:1513
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7222,18 +7236,6 @@ msgid ""
 msgstr ""
 "Сервер шындылық тексеруден өткен жоқ (%1).\n"
 "\n"
-
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
-#, kde-format
-msgid "Server Authentication"
-msgstr "Сервер аутентификациясы"
-
-#: widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Куәлік келешекте қосымша сұрақсыз үнемі қабылдансын ба?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 00:36+0000\n"
+"POT-Creation-Date: 2024-03-26 00:36+0000\n"
 "PO-Revision-Date: 2023-12-12 19:14+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2524,7 +2524,8 @@ msgstr "Nie je možné nájsť spustiteľný súbor 'kioworker' v '%1'"
 msgid "&Details"
 msgstr "&Podrobnosti"
 
-#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 kioworkers/http/http.cpp:190
+#: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "Na&vždy"
@@ -2534,7 +2535,8 @@ msgstr "Na&vždy"
 msgid "Co&ntinue"
 msgstr "&Pokračovať"
 
-#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 kioworkers/http/http.cpp:191
+#: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "Iba pre &aktuálne sedenia"
@@ -4293,12 +4295,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:261
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:301
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Musíte zadať užívateľské meno a heslo pre prístup k tomuto serveru."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:263
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:303
 #, kde-format
 msgid "Site:"
 msgstr "Server:"
@@ -4327,7 +4329,7 @@ msgstr ""
 "\n"
 "Server hlási: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:311
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:351
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4336,7 +4338,7 @@ msgstr ""
 "Musíte zadať užívateľské meno a heslo pre proxy server predtým, ako získate "
 "prístup k akémukoľvek serveru."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:315
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:355
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
@@ -4386,96 +4388,108 @@ msgstr "Hľadanie sekcie"
 msgid "Could not find filename %1 in %2."
 msgstr "Nebolo možné nájsť súbor %1 v %2."
 
-#: kioworkers/http/http.cpp:281 kioworkers/http/http.cpp:320
-#: kioworkers/http/http.cpp:334
+#: kioworkers/http/http.cpp:186 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Chcete navždy akceptovať tento certifikát bez ďalšieho opýtania?"
+
+#: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:490
+#, kde-format
+msgid "Server Authentication"
+msgstr "Overenie servera"
+
+#: kioworkers/http/http.cpp:321 kioworkers/http/http.cpp:360
+#: kioworkers/http/http.cpp:374
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1236
+#: kioworkers/http/http.cpp:1276
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Inak by požiadavka uspela."
 
-#: kioworkers/http/http.cpp:1239
+#: kioworkers/http/http.cpp:1279
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "získať hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1241
+#: kioworkers/http/http.cpp:1281
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "nastaviť hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1243
+#: kioworkers/http/http.cpp:1283
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "vytvoriť požadovaný priečinok"
 
-#: kioworkers/http/http.cpp:1245
+#: kioworkers/http/http.cpp:1285
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopírovať zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1247
+#: kioworkers/http/http.cpp:1287
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "presunúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1249
+#: kioworkers/http/http.cpp:1289
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "hľadať v zadanom priečinku"
 
-#: kioworkers/http/http.cpp:1251
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zamknúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1253
+#: kioworkers/http/http.cpp:1293
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "odomknúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1255
+#: kioworkers/http/http.cpp:1295
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "odstrániť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1257
+#: kioworkers/http/http.cpp:1297
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "zistiť možnosti servera"
 
-#: kioworkers/http/http.cpp:1259
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "získať obsah zadaného súboru alebo priečinka"
 
-#: kioworkers/http/http.cpp:1261
+#: kioworkers/http/http.cpp:1301
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "spustiť správu v zadanom priečinku"
 
-#: kioworkers/http/http.cpp:1269
+#: kioworkers/http/http.cpp:1309
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4483,13 +4497,13 @@ msgid ""
 "below."
 msgstr "Nastala chyba pri pokuse o %1, %2. Nižšie je súhrn dôvodov."
 
-#: kioworkers/http/http.cpp:1327 kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1367 kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Prístup bol zamietnutý pri pokuse o %1."
 
-#: kioworkers/http/http.cpp:1341 kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1381 kioworkers/http/http.cpp:1518
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4497,7 +4511,7 @@ msgid ""
 msgstr ""
 "Zdroj nie je možné vytvoriť na cieli kým nebudú vytvorené potrebné priečinky."
 
-#: kioworkers/http/http.cpp:1350
+#: kioworkers/http/http.cpp:1390
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4512,28 +4526,28 @@ msgstr ""
 "požadovali, aby súbory nebolo možné prepísať.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1358
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Požadovaný zámok sa nepodarilo získať. %1"
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server nepodporuje typ požiadavky v tele."
 
-#: kioworkers/http/http.cpp:1369 kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1409 kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie je možné %1, pretože prostriedok je uzamknutý."
 
-#: kioworkers/http/http.cpp:1373
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Táto akcia bola zablokovaná inou chybou."
 
-#: kioworkers/http/http.cpp:1380 kioworkers/http/http.cpp:1493
+#: kioworkers/http/http.cpp:1420 kioworkers/http/http.cpp:1533
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4543,7 +4557,7 @@ msgstr ""
 "Nie je možné %1, pretože cieľový server odmietol prijať súbor alebo "
 "priečinok."
 
-#: kioworkers/http/http.cpp:1389 kioworkers/http/http.cpp:1502
+#: kioworkers/http/http.cpp:1429 kioworkers/http/http.cpp:1542
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4552,18 +4566,18 @@ msgstr ""
 "Cieľový zdroj neobsahuje dostatok miesta pre uloženie stavu zdroja po "
 "vykonaní tejto metódy."
 
-#: kioworkers/http/http.cpp:1442
+#: kioworkers/http/http.cpp:1482
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Zdroj nie je možné odstrániť."
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1502
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "odoslať %1"
 
-#: kioworkers/http/http.cpp:1513
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7048,18 +7062,6 @@ msgid ""
 msgstr ""
 "Server nesplnil overenie pravosti (%1).\n"
 "\n"
-
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
-#, kde-format
-msgid "Server Authentication"
-msgstr "Overenie servera"
-
-#: widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Chcete navždy akceptovať tento certifikát bez ďalšieho opýtania?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
