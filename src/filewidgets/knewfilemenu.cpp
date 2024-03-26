@@ -401,6 +401,7 @@ public:
     bool m_selectDirWhenAlreadyExists = false;
     bool m_acceptedPressed = false;
     bool m_statRunning = false;
+    bool m_newDirNameJobRunning = false;
 };
 
 void KNewFileMenuPrivate::_k_slotAccepted()
@@ -1423,8 +1424,15 @@ void KNewFileMenu::createDirectory()
             name = nameJob->finalName();
         }
         d->showNewDirNameDlg(name);
+        d->m_newDirNameJobRunning = false;
     });
     nameJob->start();
+    d->m_newDirNameJobRunning = true;
+}
+
+bool KNewFileMenu::isNewDirNameJobRunning()
+{
+    return d->m_newDirNameJobRunning;
 }
 
 void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)

@@ -136,6 +136,15 @@ public:
      */
     void setNewFileShortcutAction(QAction *action);
 
+    /**
+     * Use this to check if namejob for new directory creation still running.
+     * Namejob is what spawns the new directory dialog, which can be slow in,
+     * for example, network folders.
+     *
+     * @since 6.0
+     */
+    bool isNewDirNameJobRunning();
+
 public Q_SLOTS:
     /**
      * Checks if updating the list is necessary
