@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Spletne bližnjice</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske nastavitve</keyword>
+<keyword
+>izboljšano brskanje</keyword>
+<keyword
+>spletne bližnjice</keyword>
+<keyword
+>brsknje</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Spletne bližnjice</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Uvod</title>
+
+<para
+>&konqueror; ponuja nekaj lastnosti za izboljšanje vašega brskanja. Primer takšne lastnosti so <emphasis
+>Spletne bližnjice</emphasis
+>.</para>
+
+<para
+>Kot ste že lahko opazili, je &kde; zelo prijazen internetu. Na primer vi lahko kliknete na menu <guimenuitem
+>Zaženi</guimenuitem
+> ali pa s tipkovnico vtipkate bližnjico določeno za ta ukaz (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> ali <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, če ju niste spremenili) in vtipkate &URI;. <footnote
+><para
+>Uniform Resource Identifier. Standardna pot, ki se nanaša na sredstva, kot so datoteke na vašem računalniku, spletni naslov, e-poštni naslov, &etc;</para
+></footnote
+></para>
+
+<para
+>Na drugi strani vam bodo Spletne bližnjice omogočale ustvariti nove pseudo &URL; sheme ali bližnjice, ki vam bodo omogočale <emphasis
+>parametrirati</emphasis
+> pogosto uporabljene &URI;-je. Na primer, če vam je všeč iskalnik Google, lahko nastavite &kde; tako, da bo pseudo &URL; shema kot je <emphasis
+>gg</emphasis
+> sprožila iskanje na Google. Na ta način bo vnos <userinput
+>gg:<replaceable
+>moja poizvedba</replaceable
+></userinput
+> iskal <replaceable
+>moja poizvedba</replaceable
+> na Google.</para>
+
+<note
+><para
+>Sedaj lahko vidite zakaj lahko kličemo to pseudo &URL; shemo. Uporabljajo se kot &URL; sheme, vendar vstavek ni resnično &URL; enkodiran, zato bo nekdo vtipkal <userinput
+>google:kde aplikacije</userinput
+> in ne <userinput
+>google:kde+aplikacije</userinput
+>.</para
+></note>
+
+<para
+>Spletne bližnjice lahko uporabljate povsod, kjer običajno uporabljate kode &URI;. Bližnjice za več iskalnikov bi morale biti že konfigurirane v vašem sistemu, vendar lahko v tem modulu dodate nove ključne besede ter spremenite ali izbrišete obstoječe.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Ključne besede za spletno iskanje</title>
+
+<para
+>Opisna imena določenih spletnih bližnjic so prikazana v seznamskem polju. Kot tudi pri drugih seznamih v &kde; lahko kliknete na glavo stolpca, da zamenjate vrstni red sortiranja med naraščajočim in padajočim in spremenite velikosti stolpcev.</para>
+
+<para
+>Na dnu seznama mora biti označena možnost <guilabel
+>Omoči spletno iskanje ključnih besed</guilabel
+>, da omogočite to lastnost. Uporabite gumbe na desni, da ustvarite, spremenite ali izbrišete bližnjice.</para>
+
+<para
+>Če je označena možnost <guilabel
+>Uporabi samo prednostne ključne besede</guilabel
+>, se na mestih, kjer je naenkrat mogoče prikazati le nekaj izbranih bližnjic, uporabijo le ključne besede, ki so v drugem stolpcu seznama označene kot prednostne. </para>
+ 
+<para
+>Pod seznamom se nahajata dve dodatni možnosti:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Privzeta ključna beseda spletnega iskanja:</guilabel
+></term>
+<listitem>
+<para
+>Izberite iskalnik, ki se bo uporabljal za vnosna polja, ki zagotavljajo storitve samodejnega iskanja, ko vnesete običajne besede in besedne zveze namesto &URL;. Če želite to funkcijo onemogočiti, s seznama izberite <guilabel
+>Noben</guilabel
+>. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Razmejilnik ključnih besed:</guilabel
+></term>
+<listitem>
+<para
+>Izberite razmejilnik, ki ločuje ključno besedo od fraze oz besede, ki jo želite iskati.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Če dvakrat kliknete na določen vnos v seznamu določenih iskanih bližnjic, se prikažejo podrobnosti za ta vnos v pogovornem oknu. Kot dodatek k opisnemu imenu za določen predmet, lahko vidite tudi &URI;, ki se uporablja, kot tudi asocirane bližnjice, ki jih lahko vtipkate kjerkoli v &kde; kjer se pričakujejo &URI;-ji. Dani ponudnik iskanja ima lahko večkratne bližnjice, ločene z vejico.</para>
+
+<para
+>Besedilna polja se ne uporabljajo le za prikazovanje podatkov o elementih v seznamu spletnih bližnjic, ampak tudi za spreminjanje ali dodajanje novih elementov.</para>
+
+<para
+>Vsebino polij <guilabel
+>Naslov URL</guilabel
+> in <guilabel
+>Bližnjice</guilabel
+> lahko spremenite. Kliknite na gumb <guibutton
+>V redu</guibutton
+>, da shranite spremembe in <guibutton
+>Prekliči</guibutton
+>, da zapustite pogovorno okno brez sprememb.</para>
+
+<para
+>Če proučite vsebino vnosnega polja <guilabel
+>Iskani URI</guilabel
+>, boste videli, da večina, če ne vsi vnosi vsebujejo vnos <option
+>\{@}</option
+>. To zaporedje štirih znakov se odraža kot parameter, ki se nadomesti s karkoli vtipkate za znakom dvopičja, ki stoji med bližnjico in njenim parametrom. Če želite ta vsebnik poizvedbe dodati bližnjici &URL;, kliknite gumb na desni strani besedilnega polja.Poglejmo nekaj primerov, da si razjasnimo to idejo.</para>
+
+<para
+>Predpostavite, da je &URI;<userinput
+>http://www.google.com/search?q=\{@}</userinput
+> in <userinput
+>gg</userinput
+> je bližnjica do tega &URI;-ja. Potem bo, ko boste vtipkali <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+> enakovredno <userinput
+>http://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. Za znakom <userinput
+>:</userinput
+> lahko vtipkate karkoli; karkoli ste vtipkali preprosto nadomesti znaka <option
+>\{@}</option
+> po tem, ko je pretvorjeno v ustrezen nabor znakov za ponudnika iskanja in potem primerno &URL;-enkodirano. Samo <option
+>\{@}</option
+> del iskanega &URI;-ja je prizadet, preostali del se predpostavlja, da je že primerno &URL;-kodiran in ostane nedotaknjen.</para>
+
+<para
+>Lahko pa imate tudi bližnjice brez parametrov. Predpostavite, da je bil &URI; <emphasis
+>file:/home/me/mydocs/kofficefiles/kword</emphasis
+> in da je bila bližnjica <emphasis
+>mojkword</emphasis
+>. Potem bo vtipkanje <userinput
+>mojkword:</userinput
+> enako kot bi vtipkali celoten &URI;. Ko vtipkate bližnjico, ne stoji ničesar za znakom dvopičje, vendar je dvopičje še vedno potrebno za bližnjico, da se jo prepozna kot takšno.</para>
+
+<para
+>Zdaj bi morali razumeti, da čeprav so te bližnjice imenovane spletne bližnjice, so resnično bližnjice k parameteriziranim &URI;-ijem, ki ne samo kažejo na spletne strani, ampak tudi na kaj drugega, ki je lahko določeno z &URI;-ijem. Spletne bližnjice so zelo močna posebnost navigiranja v &kde;.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

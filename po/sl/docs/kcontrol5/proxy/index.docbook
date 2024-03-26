@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>Posredniški strežnik</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske nastavitve</keyword>
+<keyword
+>posrednik</keyword>
+<keyword
+>posredniki</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>Posredniki</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>Uvod</title>
+
+<para
+>Posredniki (proxy-ji) so programi, ki tečejo na računalniku, ki deluje kot strežnik na omrežju, na katerega ste povezani (z modemom ali kako drugače). Ti programi prejemajo zahteve &HTTP; in &FTP;, pridobijo ustrezne datoteke iz interneta in jih pošljejo na odjemalčev računalnik, ki je ustvaril zahtevo.</para>
+
+<para
+>Ko ste nastavili posrednika, so vse zahteve &HTTP; in/ali &FTP; preusmerjene preko računalnika, ki predstavlja posredniški strežnik. Lahko pa izberete določene gostitelje, s katerimi boste povezani neposredno namesto preko posredniškega strežnika. Če ste na krajevnem omrežju, potem npr. dostop do krajevnih gostiteljev ni potreben preko posredniškega strežnika.</para>
+
+<para
+>Posredniški strežnik nastavite samo, če to zahteva vaš vzdrževalec omrežja (če ste klicni uporabnik, bi bil to vaš ponudnik interneta ali <acronym
+>ISP</acronym
+>). V nasprotnem primeru, posebno če se glede posrednikov nekoliko zmedeni, z vašo internetno povezavo pa izgleda, da je vse v redu, potem vam ni potrebno ničesar spreminjati.</para>
+
+<para
+>Prosim vedite, da je uporaba posredniških strežnikov neobvezna. Prednost pa je v hitrejšemu dostopu do podatkov na internetu.</para>
+
+<para
+>Če niste prepričani glede uporabe posredniškega strežinka za povezavo do interneta, potem se obrnite na vašega ponudnika internetnih storitev ali vašega sistemskega skrbnika.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>Uporaba</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Brez posredniškega strežnika</guilabel
+></term>
+<listitem>
+
+<para
+>Izberite to možnost, če <emphasis
+>ne</emphasis
+> želite uporabljati posredniškega strežnika in se neposredno povezovati na splet.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Če ste se odločili za uporabo posredniškega strežnika, potem imate na voljo več načinov za nastavitve.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Samodejno zaznaj nastavitve posredniškega strežnika</guilabel
+></term>
+<listitem>
+
+<para
+>Izberite to možnost, če se naj nastavitvena skriptna datoteka posrednika samodejno zazna in naloži.</para>
+<para
+>Ta možnost se od naslednje loči samo po tem, da <emphasis
+>ne zahteva</emphasis
+> navedbe lokacije nastavitvene skriptne datoteke. Namesto tega bo samodejno prenesena z uporabo protokola <quote
+>Web Access Protocol Discovery</quote
+> (<acronym
+>WAPD</acronym
+>).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Uporabi URL za samodejno nastavitev posredniškega strežnika:</guilabel
+></term>
+<listitem>
+<para
+>Izberite to možnost, če se podpora vašemu posredniku izvaja preko skriptne datoteke na določenem naslovu.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Uporabi sistemske nastavitve posredniškega strežnika:</guilabel
+></term>
+<listitem>
+<para
+>Nekateri sistemi so nastavljeni z $<envar
+>HTTP_PROXY</envar
+>, da se grafični in besedilni programu delijo iste nastavitvene informacije posrednika.</para>
+<para
+>Če veste, da je to pomebno za vas, izberite to možnost in kliknite na gumb <guibutton
+>Samodejno zaznaj</guibutton
+>, kjer boste podali imena okoljskih spremenljivk, uporabljenih za nastavitev naslovov posredniških strežnikov.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>V polje <guilabel
+>Izjeme:</guilabel
+> vnesite spremenljivko okolja, &eg; $<envar
+>NO_PROXY</envar
+>, ki se uporablja za shranjevanje naslovov spletnih mest, za katera se posredniški strežnik ne sme uporabljati.</para>
+<para
+>Uporabite <guilabel
+>Prikaži vrednost spremenljivk okolja</guilabel
+>, če želite prikazati vrednost spremenljivke okolja namesto njenega imena. Vendar v tem modulu ni mogoče urejati vrednosti spremenljivk okolja.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Uporabi ročno nastavljene nastavitve posredniškega strežnika:</guilabel
+></term>
+<listitem>
+
+<para
+>Celotna informacija naslavljanja posrednika vključuje internetni naslov in številko vrat. To bi morali vnesti v ustrezna vnosna polja. Označite <guilabel
+>Uporabi ta posredniški strežnik za vse protokole</guilabel
+>, da prepišete naslove in vrata &HTTP; posredniškega strežnika FTP v vsa druga polja posredniškega strežnika, kar vam skrajša tipkanje.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Izjeme:</guilabel
+></term>
+<listitem>
+<para
+>Vnesite z vejico ločen seznam gostiteljskih imen ali naslovov ip, ki jih je treba izključiti iz uporabe zgornjih nastavitev posredniških strežnikov. Če želite izključiti vse gostitelje za določeno domeno, vnesite ime domene, pred katerim je pika. Če želite na primer izključiti vsa gostiteljska imena za kde.org, vnesite <userinput
+>.kde.org</userinput
+>. Znaki nadomestnih znakov, kot sta <userinput
+>*</userinput
+> ali <userinput
+>?</userinput
+>, niso podprti in nimajo učinka. Poleg tega lahko vnesete tudi naslove IP, &eg; 127.0.0.1 in naslove IP s podomrežjem, &eg; 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Izberete lahko tudi možnost <guilabel
+>Uporabi posredniški strežnik le za vnose v seznam izjem</guilabel
+>.</para>
+
+<para
+>Izberite to možnost, da obrnete uporabo seznama izjem. To pomeni, da bodo posredniški strežniki uporabljeni samo, če se zahtevan &URL; ujema z enim od tukaj navedenih naslovov.</para>
+
+<para
+>Ta možnost je koristna, če potrebujete posrednika za dostop do samo nekaterih strani, npr. za notranji intranet. Če imate bolj zahtevne potrebe, potem uporabite nastavitveni skript.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

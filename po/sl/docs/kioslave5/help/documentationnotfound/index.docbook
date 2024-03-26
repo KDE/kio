@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Dokumentacija ni najdena</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>08.09.2020</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>Dokumentacija, ki ste jo zahtevali, na vašem računalniku ni bila najdena.</para>
+
+<para
+>Dokumentacija morda ne obstaja, ali pa ni bila prenesena skupaj z aplikacijo.</para>
+
+<tip
+><para
+>Prosim, da ne pošiljate e-poštni sporočil avtorju te strani, da bi našli manjkajoči dokument. Vse, kar vam bo povedal je, da sledite navodilom na tej strani. </para
+></tip>
+
+<simplesect>
+<title
+>Kako rešiti problem</title>
+
+<para
+>Če je aplikacija programska oprema &kde;, najprej uporabite funkcijo iskanja v &khelpcenter;. V nekaterih primerih ima dokumentacija drugačno ime, kot ga je uporabila programska oprema, ko jo je poskušala najti. Če to ne deluje, poskusite poiskati zahtevano dokumentacijo na <ulink url="https://docs.kde.org/"
+>strani z dokumentacijo &kde;</ulink
+>. Če najdete dokumentacijo na tem spletnem mestu, lahko vaša distribucija dobavi ločen paket za dokumentacijo (&eg; imenovan plasma-doc za dokumentacijo, povezano s &plasma;). Za iskanje in namestitev manjkajoče dokumentacije uporabite upravitelja paketov svoje distribucije.</para>
+
+<para
+>Če uporabljate distribucijo, ki temelji na izvoru, kot je Gentoo, se prepričajte, da ni nobenih nastavitev prilagoditev (v Gentoo so to oznake USE), ki bi lahko onemogočile namestitev dokumentacije. </para>
+
+<para
+>Če ste to storili, vendar se namesto priročnika za uporabo še vedno prikaže ta stran, ste verjetno našli hrošča v sistemu pomoči. V tem primeru to sporočite v <ulink url="https://bugs.kde.org/"
+>&kde;-jev sledilnik hroščev</ulink
+> v okviru izdelka KIO. </para>
+
+<para
+>Če na spletnem mestu <ulink url="https://docs.kde.org/"
+>&kde; Dokumentacija</ulink
+> ne najdete nobene dokumentacije, aplikacija morda nima dokumentacije, ki bi bila na voljo brez internetne povezave. Prosimo, da o tem poročate na <ulink url="https://bugs.kde.org/"
+>sledilnik hroščev &kde;</ulink
+> pod izdelkom za aplikacijo. </para>
+
+<para
+>Če aplikacija nima dokumentacije brez povezave, lahko za pomoč uporabite spletna vira <ulink url="https://userbase.kde.org/Welcome_to_KDE_UserBase/sl"
+>Baza dokumentacije s strani uporabnikov</ulink
+> in <ulink url="https://forum.kde.org/"
+>Forumi skupnosti &kde;</ulink
+>. </para>
+
+<para
+>Za aplikacije, ki niso del &kde;, se obrnite na avtorja aplikacije, da ugotovite, ali naj bo na voljo dokumentacija brez internetne povezave.</para>
+</simplesect>
+
+</article>

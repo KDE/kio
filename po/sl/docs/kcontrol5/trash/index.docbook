@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Smeti</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>31.05.2018</date>
+<releaseinfo
+>Frameworks 5.28</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske nastavitve</keyword>
+<keyword
+>smeti</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Ta modul vam omogoča upravljanje z nastavitvami za smeti. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Čiščenje:</guilabel
+></term>
+<listitem
+><para
+>Označite to polje, če želite omogočiti samodejno brisanje datotek, ki so starejše od določene vrednosti. Pustite to možnost onemogočeno, če želite, da se vsi elementi <emphasis
+>ne</emphasis
+> izbrišejo samodejono po določenem časovnem obdobju. Nastavite število dni, ko lahko datoteke ostanejo v smeteh. Vse starejše datoteke bodo samodejno izbrisane. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Velikost:</guilabel
+></term>
+<listitem
+><para
+>Označite to polje, da omejite velikost smeti z maksimalno količino prostora na disku, ki jo lahko zaseda in jo določite vi. Če tega ne storite, bo velikost smeti lahko neomejena. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Omeji na</guilabel
+></term>
+<listitem
+><para
+>Gre za največji odstotek prostora na disku, ki se lahko porabi za smeti. Izračunana dovoljena količina je prikazana desno od vrtilnega polja. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Polne smeti:</guilabel
+></term>
+<listitem
+><para
+>Ko je dosežena omejitev velikosti smeti, bo izvedeno izbrano dejanje. Ali bodo samodejno izbrisane najstarejše ali največje datoteke, ali pa boste prejeli opozorilo. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>
