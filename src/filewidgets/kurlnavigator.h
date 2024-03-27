@@ -311,6 +311,27 @@ public:
      */
     bool sortHiddenFoldersLast() const;
 
+    /**
+     * Puts \a widget to the right of the breadcrumb.
+     *
+     * KUrlNavigator takes ownership over \a widget. Any existing badge widget is deleted.
+     *
+     * NOTE: There is no limit to the size of the badge widget. If your badge widget is taller than other
+     * controls in KUrlNavigator, then the whole KUrlNavigator will be resized to accommodate it. Also,
+     * KUrlNavigator has fixed minimumWidth of 100, so if your badge widget is too wide, it might be clipped
+     * when the space is tight. You might want to call KUrlNavigator::setMinimumWidth() with a larger value
+     * in that case.
+     * In general, it is recommended to keep the badge widget small and not expanding, to avoid layout issues.
+     * @since 6.2
+     */
+    void setBadgeWidget(QWidget *widget);
+
+    /**
+     * Returns the badge widget set by setBadgeWidget(). If setBadgeWidget() hasn't been called, returns nullptr.
+     * @since 6.2
+     */
+    QWidget *badgeWidget() const;
+
 public Q_SLOTS:
     /**
      * Sets the location to \a url. The old URL is added to the history.
