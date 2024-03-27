@@ -311,6 +311,22 @@ public:
      */
     bool sortHiddenFoldersLast() const;
 
+    /**
+     * Puts \a widget at the end of the breadcrumb. Any existing badge widget is deleted.
+     *
+     * KUrlNavigator will control the visibility of the badge widget. So if you want to
+     * hide the badge in some cases, you should put the badge widget in a container widget,
+     * and pass the container here.
+     * @since 6.1
+     */
+    void setBadgeWidget(QWidget *widget);
+
+    /**
+     * Returns the badge widget set by setBadgeWidget().
+     * @since 6.1
+     */
+    QWidget *badgeWidget();
+
 public Q_SLOTS:
     /**
      * Sets the location to \a url. The old URL is added to the history.

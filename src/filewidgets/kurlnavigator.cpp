@@ -174,6 +174,7 @@ public:
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
     QWidget *m_dropWidget = nullptr;
+    QWidget *m_badgeWidget = nullptr;
 
     bool m_editable = false;
     bool m_active = true;
@@ -261,6 +262,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotPathBoxChanged(text);
     });
 
+    m_badgeWidget = new QWidget(q);
+
     // create toggle button which allows to switch between
     // the breadcrumb and traditional view
     m_toggleEditableMode = new KUrlNavigatorToggleButton(q);
@@ -276,6 +279,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_schemes);
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
+    m_layout->addWidget(m_badgeWidget);
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -286,7 +290,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
 {
-    m_layout->insertWidget(m_layout->count() - 1, widget, stretch);
+    m_layout->insertWidget(m_layout->count() - 2, widget, stretch);
 }
 
 void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
@@ -625,6 +629,7 @@ void KUrlNavigatorPrivate::updateContent()
     if (m_editable) {
         m_schemes->hide();
         m_dropDownButton->hide();
+        m_badgeWidget->hide();
 
         deleteButtons();
         m_toggleEditableMode->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -634,6 +639,7 @@ void KUrlNavigatorPrivate::updateContent()
         m_pathBox->setUrl(currentUrl);
     } else {
         m_pathBox->hide();
+        m_badgeWidget->show();
 
         m_schemes->hide();
 
@@ -1211,6 +1217,20 @@ void KUrlNavigator::setSortHiddenFoldersLast(bool sortHiddenFoldersLast)
 bool KUrlNavigator::sortHiddenFoldersLast() const
 {
     return d->m_subfolderOptions.sortHiddenLast;
+}
+
+void KUrlNavigator::setBadgeWidget(QWidget *widget)
+{
+    if (widget != d->m_badgeWidget) {
+        d->m_layout->replaceWidget(d->m_badgeWidget, widget);
+        delete d->m_badgeWidget;
+        d->m_badgeWidget = widget;
+    }
+}
+
+QWidget *KUrlNavigator::badgeWidget()
+{
+    return d->m_badgeWidget;
 }
 
 #include "moc_kurlnavigator.cpp"
