@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-01-04 19:44+0100\n"
+"PO-Revision-Date: 2024-03-27 19:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -6309,7 +6309,7 @@ msgstr "Akceptu por ĉi tiu &seanco"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
 msgid "Accept cookie(s) until the end of the current session"
-msgstr "Akceptu kuketon(j)n ĝis la fino de la nuna seanco"
+msgstr "Akceptu kuketo(j)n ĝis la fino de la nuna seanco"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:111
 #, kde-format
