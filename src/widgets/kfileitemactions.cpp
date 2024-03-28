@@ -245,35 +245,32 @@ void KFileItemActions::addActionsTo(QMenu *menu, MenuActionSources sources, cons
 // static
 KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList)
 {
-    return KFileItemActionsPrivate::associatedApplications(mimeTypeList, QString(), QStringList{});
+    return KFileItemActionsPrivate::associatedApplications(mimeTypeList, QStringList{});
 }
 
-static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames, const QString &constraint)
+static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames)
 {
-    KService::List services;
-    if (constraint.isEmpty()) {
-        services = KApplicationTrader::queryByMimeType(mimeType, [&](const KService::Ptr &serv) {
-            return !excludedDesktopEntryNames.contains(serv->desktopEntryName());
-        });
-    }
+    KService::List services = KApplicationTrader::queryByMimeType(mimeType, [&](const KService::Ptr &serv) {
+        return !excludedDesktopEntryNames.contains(serv->desktopEntryName());
+    });
     return services.isEmpty() ? KService::Ptr() : services.first();
 }
 
 void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames)
 {
-    d->insertOpenWithActionsTo(before, topMenu, excludedDesktopEntryNames, QString());
+    d->insertOpenWithActionsTo(before, topMenu, excludedDesktopEntryNames);
 }
 
 void KFileItemActionsPrivate::slotRunPreferredApplications()
 {
     const KFileItemList fileItems = m_fileOpenList;
     const QStringList mimeTypeList = listMimeTypes(fileItems);
-    const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, QStringList(), m_traderConstraint);
+    const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, QStringList());
 
     for (const QString &serviceId : serviceIdList) {
         KFileItemList serviceItems;
         for (const KFileItem &item : fileItems) {
-            const KService::Ptr serv = preferredService(item.mimetype(), QStringList(), m_traderConstraint);
+            const KService::Ptr serv = preferredService(item.mimetype(), QStringList());
             const QString preferredServiceId = serv ? serv->storageId() : QString();
             if (preferredServiceId == serviceId) {
                 serviceItems << item;
@@ -296,7 +293,6 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
 void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList)
 {
     d->m_fileOpenList = fileOpenList;
-    d->m_traderConstraint = QString();
     d->slotRunPreferredApplications();
 }
 
@@ -350,13 +346,12 @@ QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
     return mimeTypeList;
 }
 
-QStringList
-KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint)
+QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames)
 {
     QStringList serviceIdList;
     serviceIdList.reserve(mimeTypeList.size());
     for (const QString &mimeType : mimeTypeList) {
-        const KService::Ptr serv = preferredService(mimeType, excludedDesktopEntryNames, traderConstraint);
+        const KService::Ptr serv = preferredService(mimeType, excludedDesktopEntryNames);
         serviceIdList << (serv ? serv->storageId() : QString()); // empty string means mimetype has no associated apps
     }
     serviceIdList.removeDuplicates();
@@ -570,19 +565,15 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     return itemCount;
 }
 
-KService::List
-KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint, const QStringList &excludedDesktopEntryNames)
+KService::List KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames)
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith")) || mimeTypeList.isEmpty()) {
         return KService::List();
     }
 
-    KService::List firstOffers;
-    if (traderConstraint.isEmpty()) {
-        firstOffers = KApplicationTrader::queryByMimeType(mimeTypeList.first(), [excludedDesktopEntryNames](const KService::Ptr &service) {
-            return !excludedDesktopEntryNames.contains(service->desktopEntryName());
-        });
-    }
+    KService::List firstOffers = KApplicationTrader::queryByMimeType(mimeTypeList.first(), [excludedDesktopEntryNames](const KService::Ptr &service) {
+        return !excludedDesktopEntryNames.contains(service->desktopEntryName());
+    });
 
     QList<KFileItemActionsPrivate::ServiceRank> rankings;
     QStringList serviceList;
@@ -602,13 +593,10 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
     }
 
     for (int j = 1; j < mimeTypeList.count(); ++j) {
-        KService::List offers;
         QStringList subservice; // list of services that support this MIME type
-        if (traderConstraint.isEmpty()) {
-            offers = KApplicationTrader::queryByMimeType(mimeTypeList[j], [excludedDesktopEntryNames](const KService::Ptr &service) {
-                return !excludedDesktopEntryNames.contains(service->desktopEntryName());
-            });
-        }
+        KService::List offers = KApplicationTrader::queryByMimeType(mimeTypeList[j], [excludedDesktopEntryNames](const KService::Ptr &service) {
+            return !excludedDesktopEntryNames.contains(service->desktopEntryName());
+        });
 
         subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
@@ -645,18 +633,14 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
     return result;
 }
 
-void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
-                                                      QMenu *topMenu,
-                                                      const QStringList &excludedDesktopEntryNames,
-                                                      const QString &traderConstraint)
+void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames)
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
         return;
     }
 
-    m_traderConstraint = traderConstraint;
     // TODO Overload with excludedDesktopEntryNames, but this method in public API and will be handled in a new MR
-    KService::List offers = associatedApplications(m_mimeTypeList, traderConstraint, excludedDesktopEntryNames);
+    KService::List offers = associatedApplications(m_mimeTypeList, excludedDesktopEntryNames);
 
     //// Ok, we have everything, now insert
 
@@ -701,7 +685,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
     }
 #endif
 
-    QStringList serviceIdList = listPreferredServiceIds(m_mimeTypeList, excludedDesktopEntryNames, traderConstraint);
+    QStringList serviceIdList = listPreferredServiceIds(m_mimeTypeList, excludedDesktopEntryNames);
 
     // When selecting files with multiple MIME types, offer either "open with <app for all>"
     // or a generic <open> (if there are any apps associated).
@@ -710,7 +694,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
         QAction *runAct = new QAction(this);
         if (serviceIdList.count() == 1) {
-            const KService::Ptr app = preferredService(m_mimeTypeList.first(), excludedDesktopEntryNames, traderConstraint);
+            const KService::Ptr app = preferredService(m_mimeTypeList.first(), excludedDesktopEntryNames);
             runAct->setText(isDir ? i18n("&Open folder with %1", app->name()) : i18n("&Open with %1", app->name()));
             runAct->setIcon(QIcon::fromTheme(app->icon()));
 
@@ -728,7 +712,6 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         QObject::connect(runAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotRunPreferredApplications);
         topMenu->insertAction(before, runAct);
 
-        m_traderConstraint = traderConstraint;
         m_fileOpenList = m_props.items();
     }
 

@@ -35,7 +35,7 @@ public:
     int insertServices(const ServiceList &list, QMenu *menu);
 
     // For "open with"
-    KService::List associatedApplications(const QString &traderConstraint);
+    KService::List associatedApplications();
     QAction *createAppAction(const KService::Ptr &service, bool singleOffer);
 
     struct ServiceRank {
@@ -50,7 +50,7 @@ public:
     }
 
     QStringList listMimeTypes(const KFileItemList &items);
-    QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
+    QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames);
 
     struct ServiceActionInfo {
         int userItemCount = 0;
@@ -58,9 +58,8 @@ public:
     };
     ServiceActionInfo addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList);
     int addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu, const QStringList &excludeList);
-    void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames, const QString &traderConstraint);
-    static KService::List
-    associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint, const QStringList &excludedDesktopEntryNames);
+    void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames);
+    static KService::List associatedApplications(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames);
 
     QStringList serviceMenuFilePaths();
 
@@ -86,7 +85,6 @@ public:
     KFileItemActions *const q;
     KFileItemListProperties m_props;
     QStringList m_mimeTypeList;
-    QString m_traderConstraint;
     KFileItemList m_fileOpenList;
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
