@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-26 00:36+0000\n"
-"PO-Revision-Date: 2024-03-15 01:19+0100\n"
+"PO-Revision-Date: 2024-03-16 22:22+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
 "Language: ast\n"
@@ -4476,7 +4476,7 @@ msgstr ""
 #: widgets/dropjob.cpp:182
 #, kde-format
 msgid "C&ancel"
-msgstr ""
+msgstr "&Encaboxar"
 
 #: widgets/dropjob.cpp:310
 #, kde-format
@@ -4496,17 +4496,17 @@ msgstr ""
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
 msgid "What do you wish to do with this file?"
-msgstr "¿Que quies facer con esti ficheru?"
+msgstr "¿Qué quies facer con esti ficheru?"
 
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
 msgid "Do not ask again"
-msgstr ""
+msgstr "Nun volver entrugar"
 
 #: widgets/executablefileopendialog.cpp:34
 #, kde-format
 msgid "&Execute"
-msgstr ""
+msgstr "&Executar"
 
 #: widgets/fileundomanager.cpp:118
 #, kde-format
