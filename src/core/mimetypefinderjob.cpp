@@ -128,7 +128,6 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
     if (!m_authPrompts) {
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
-    job->setUiDelegate(nullptr);
     q->addSubjob(job);
     QObject::connect(job, &KJob::result, q, [=, this]() {
         const int errCode = job->error();
@@ -205,7 +204,6 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
     if (!m_authPrompts) {
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
-    job->setUiDelegate(nullptr);
     q->addSubjob(job);
     QObject::connect(job, &KJob::result, q, [=, this]() {
         const int errCode = job->error();
