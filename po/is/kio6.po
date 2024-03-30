@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:36+0000\n"
 "PO-Revision-Date: 2024-01-27 14:48+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -2400,7 +2400,7 @@ msgstr ""
 "Gölluð slóð\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:225
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Ekki tókst að ákvarða skrárgerð fyrir %1"
@@ -2885,7 +2885,7 @@ msgid "All Supported Files"
 msgstr "Allar studdar skrár"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1883
+#: filewidgets/kfilewidget.cpp:1898
 #, kde-format
 msgid "All Files"
 msgstr "Allar skrár"
@@ -3293,27 +3293,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Risastór (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:600
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "You can only select one file"
 msgstr "Þú getur aðeins valið eina skrá"
 
-#: filewidgets/kfilewidget.cpp:600
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "More than one file provided"
 msgstr "Fleiri en ein skrá tilgreindar"
 
-#: filewidgets/kfilewidget.cpp:771
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "You can only select local files"
 msgstr "Þú getur aðeins valið skrár á þessu skráakerfi"
 
-#: filewidgets/kfilewidget.cpp:771
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ekki er tekið við fjartengdum skrám"
 
-#: filewidgets/kfilewidget.cpp:778
+#: filewidgets/kfilewidget.cpp:793
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3327,12 +3327,12 @@ msgstr[1] ""
 "Valda slóðin nota skema sem er ekki stutt. Notaðu eitt af eftirfarandi "
 "skemum: %2"
 
-#: filewidgets/kfilewidget.cpp:784
+#: filewidgets/kfilewidget.cpp:799
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Óstutt URL-skema"
 
-#: filewidgets/kfilewidget.cpp:800
+#: filewidgets/kfilewidget.cpp:815
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3343,12 +3343,12 @@ msgstr ""
 "ekki við möppum er ekki hægt að ákveða hverja þeirra eigi að opna. Veldu "
 "aðeins eina þeirra til að sjá innihald hennar."
 
-#: filewidgets/kfilewidget.cpp:802
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Fleiri en ein mappa tilgreindar"
 
-#: filewidgets/kfilewidget.cpp:812
+#: filewidgets/kfilewidget.cpp:827
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3357,22 +3357,22 @@ msgstr ""
 "Að minnsta kosti ein mappa og ein skrá hafa verið valin. Valdar skrár verða "
 "hunsaðar og valda mappan verður opnuð"
 
-#: filewidgets/kfilewidget.cpp:813
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Skrár og möppur valdar"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Skráin \"%1\" fannst ekki"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "Cannot open file"
 msgstr "Tókst ekki að opna skrá"
 
-#: filewidgets/kfilewidget.cpp:1176
+#: filewidgets/kfilewidget.cpp:1191
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3383,45 +3383,45 @@ msgstr ""
 "núverandi staðsetning er file:/home/konqi þá muntu flytjast yfir á file:/"
 "home ef þú smellir á hnappinn.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1180
+#: filewidgets/kfilewidget.cpp:1195
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Smelltu á þennan hnapp til að fara aftur um eitt skref í skoðunarferlinum."
 
-#: filewidgets/kfilewidget.cpp:1181
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Smelltu á þennan hnapp til að fara áfram um eitt skref í skoðunarferlinum."
 
-#: filewidgets/kfilewidget.cpp:1183
+#: filewidgets/kfilewidget.cpp:1198
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Smelltu á þennan hnapp til að lesa aftur innihald núverandi staðsetningar."
 
-#: filewidgets/kfilewidget.cpp:1185
+#: filewidgets/kfilewidget.cpp:1200
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Smelltu á þennan hnapp til að búa til nýja möppu."
 
-#: filewidgets/kfilewidget.cpp:1187
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Sýna svæðið Staðir"
 
-#: filewidgets/kfilewidget.cpp:1194
+#: filewidgets/kfilewidget.cpp:1209
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Sýna bókamerkjahnapp"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Options"
 msgstr "Valkostir"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3437,12 +3437,12 @@ msgstr ""
 "li><li>forskoðun skráa</li> <li>hvernig/hvort möppur og skrár séu aðskildar</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Bookmarks"
 msgstr "Bókamerki"
 
-#: filewidgets/kfilewidget.cpp:1227
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3456,12 +3456,12 @@ msgstr ""
 "öðru leyti eins og bókamerki annars staðar í KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1266 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Heiti:"
 
-#: filewidgets/kfilewidget.cpp:1343
+#: filewidgets/kfilewidget.cpp:1358
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3474,12 +3474,12 @@ msgstr ""
 "eiginleika með því að hægrismella og velja kjörsnið úr valmyndinni "
 "<b>Textaútfylling</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1350
+#: filewidgets/kfilewidget.cpp:1365
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Þetta er heitið sem á að gefa skránni."
 
-#: filewidgets/kfilewidget.cpp:1353
+#: filewidgets/kfilewidget.cpp:1368
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3488,74 +3488,74 @@ msgstr ""
 "Þetta er listi yfir skrár sem á að opna. Tilgreina má fleiri en eina skrá "
 "með því að telja þær upp, með bili á milli."
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Þetta er heitið á skránni sem á að opna."
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Staðir"
 
-#: filewidgets/kfilewidget.cpp:1590
+#: filewidgets/kfilewidget.cpp:1605
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Skráin \"%1\" er þegar til. Viltu skrifa yfir hana?"
 
-#: filewidgets/kfilewidget.cpp:1591
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Skrifa yfir skrá?"
 
-#: filewidgets/kfilewidget.cpp:1787
+#: filewidgets/kfilewidget.cpp:1802
 #, kde-format
 msgid "You can only select local files."
 msgstr "Þú getur aðeins valið skrár á þessu skráakerfi."
 
-#: filewidgets/kfilewidget.cpp:1787
+#: filewidgets/kfilewidget.cpp:1802
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ekki er tekið við fjartengdum skrám"
 
-#: filewidgets/kfilewidget.cpp:1881
+#: filewidgets/kfilewidget.cpp:1896
 #, kde-format
 msgid "All Folders"
 msgstr "Allar möppur"
 
-#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:725
+#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: widgets/kfileitemactions.cpp:709
 #, kde-format
 msgid "&Open"
 msgstr "&Opna"
 
-#: filewidgets/kfilewidget.cpp:2133
+#: filewidgets/kfilewidget.cpp:2148
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Stærð tákna: %1 dílar"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2296
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Velja skráren&dingu sjálfkrafa (%1)"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "endingin <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2288
+#: filewidgets/kfilewidget.cpp:2303
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Velja skráaren&dingu sjálfkrafa"
 
-#: filewidgets/kfilewidget.cpp:2289
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "a suitable extension"
 msgstr "viðeigandi skrárending"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3582,12 +3582,12 @@ msgstr ""
 "sjálfkrafa) eða slökkt á eiginleikanum.</li></ol>Hafðu þessa stillingu á ef "
 "þú ert ekki viss því þá verða skrárnar þínar meðfærilegri."
 
-#: filewidgets/kfilewidget.cpp:2770
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&File type:"
 msgstr "&Skrárgerð:"
 
-#: filewidgets/kfilewidget.cpp:2771
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3596,12 +3596,12 @@ msgstr ""
 "<qt>Þetta er skrárgerðarvalið. Það er notað til að velja sniðið sem er notað "
 "þegar skráin er vistuð.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2773
+#: filewidgets/kfilewidget.cpp:2788
 #, kde-format
 msgid "&Filter:"
 msgstr "&Sía:"
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2790
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -5271,58 +5271,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tegund"
 
-#: widgets/kfileitemactions.cpp:370
+#: widgets/kfileitemactions.cpp:365
 #, kde-format
 msgid "Open &with %1"
 msgstr "O&pna með %1"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:367
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:504
+#: widgets/kfileitemactions.cpp:499
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aðgerðir"
 
-#: widgets/kfileitemactions.cpp:676
+#: widgets/kfileitemactions.cpp:660
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Opna möppu með..."
 
-#: widgets/kfileitemactions.cpp:676
+#: widgets/kfileitemactions.cpp:660
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Opna með..."
 
-#: widgets/kfileitemactions.cpp:714
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Opna möppu með %1"
 
-#: widgets/kfileitemactions.cpp:714
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Opna með %1"
 
-#: widgets/kfileitemactions.cpp:747
+#: widgets/kfileitemactions.cpp:730
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Opna möppu með"
 
-#: widgets/kfileitemactions.cpp:747
+#: widgets/kfileitemactions.cpp:730
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Opna með"
 
-#: widgets/kfileitemactions.cpp:758
+#: widgets/kfileitemactions.cpp:741
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."

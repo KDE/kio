@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -2382,7 +2382,7 @@ msgstr ""
 "รูปแบบที่อยู่ URL ไม่ถูกต้อง\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:225
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr ""
@@ -2888,7 +2888,7 @@ msgid "All Supported Files"
 msgstr "ทุกแฟ้มที่รองรับ"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1883
+#: filewidgets/kfilewidget.cpp:1898
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3323,27 +3323,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:600
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "You can only select one file"
 msgstr "คุณสามารถเลือกได้แฟ้มเดียวเท่านั้น"
 
-#: filewidgets/kfilewidget.cpp:600
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "More than one file provided"
 msgstr "ให้มามากกว่าหนึ่งแฟ้ม"
 
-#: filewidgets/kfilewidget.cpp:771
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "You can only select local files"
 msgstr "คุณสามารถเลือกได้เฉพาะแฟ้มภายในระบบเท่านั้น"
 
-#: filewidgets/kfilewidget.cpp:771
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "ไม่ยอมรับแฟ้มทางไกล"
 
-#: filewidgets/kfilewidget.cpp:778
+#: filewidgets/kfilewidget.cpp:793
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3353,12 +3353,12 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:784
+#: filewidgets/kfilewidget.cpp:799
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:800
+#: filewidgets/kfilewidget.cpp:815
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3369,12 +3369,12 @@ msgstr ""
 "เนื่องจากเป็นไปไม่ได้ที่มันจะตัดสินใจว่าจะเลือกเอาตัวใดกันแน่ ดังนั้น "
 "โปรดเลือกมาจากรายการเพียงหนึ่งโฟลเดอร์เท่านั้น"
 
-#: filewidgets/kfilewidget.cpp:802
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid "More than one folder provided"
 msgstr "ให้มามากกว่าหนึ่งโฟลเดอร์"
 
-#: filewidgets/kfilewidget.cpp:812
+#: filewidgets/kfilewidget.cpp:827
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3383,22 +3383,22 @@ msgstr ""
 "จะต้องเลือกอย่างน้อยหนึ่งโฟลเดอร์และหนึ่งแฟ้ม แฟ้มต่าง ๆ ที่เลือกไว้จะถูกเพิกเฉย "
 "และโฟลเดอร์ที่เลือกไว้จะถูกแสดงรายการ"
 
-#: filewidgets/kfilewidget.cpp:813
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Files and folders selected"
 msgstr "แฟ้มและโฟลเดอร์ต่าง ๆ ที่เลือกไว้"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "ไม่สามารถหาแฟ้ม \"%1\" ได้"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "Cannot open file"
 msgstr "ไม่สามารถเปิดแฟ้มได้"
 
-#: filewidgets/kfilewidget.cpp:1176
+#: filewidgets/kfilewidget.cpp:1191
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3413,44 +3413,44 @@ msgstr ""
 "หากตำแหน่งปัจจุบันคือ file:/home/%1 การคลิกที่ปุ่มนี้ จะเป็นการเรียกไปยังตำแหน่ง file:/home</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1180
+#: filewidgets/kfilewidget.cpp:1195
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "คลิกที่ปุ่มนี้ เพื่อถอยกลับหนึ่งระดับในประวัติการเรียกดู"
 
-#: filewidgets/kfilewidget.cpp:1181
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "คลิกที่ปุ่มนี้ เพื่อไปยังหน้าถัดไปหนึ่งระดับในประวัติการเรียกดู"
 
-#: filewidgets/kfilewidget.cpp:1183
+#: filewidgets/kfilewidget.cpp:1198
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "คลิกที่ปุ่มนี้ เพื่อเรียกโหลดเนื้อหาจากตำแหน่งปัจจุบันใหม่อีกครั้ง"
 
-#: filewidgets/kfilewidget.cpp:1185
+#: filewidgets/kfilewidget.cpp:1200
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "คลิกที่ปุ่มนี้เพื่อสร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/kfilewidget.cpp:1187
+#: filewidgets/kfilewidget.cpp:1202
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "แสดงแถบนำร่องที่หลัก ๆ"
 
-#: filewidgets/kfilewidget.cpp:1194
+#: filewidgets/kfilewidget.cpp:1209
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "แสดงที่คั่นหน้า"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1219
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3471,12 +3471,12 @@ msgstr ""
 "li><li>เรียกใช้ถาดนำร่องอย่างรวดเร็ว</li><li>แสดงตัวอย่างแฟ้ม</"
 "li><li>การแยกโฟลเดอร์ออกจากแฟ้ม</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
-#: filewidgets/kfilewidget.cpp:1227
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3489,12 +3489,12 @@ msgstr ""
 "แต่จะทำงานคล้ายที่คั่นหน้าอื่น ๆ ของ KDE</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1266 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&ชื่อ:"
 
-#: filewidgets/kfilewidget.cpp:1343
+#: filewidgets/kfilewidget.cpp:1358
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3506,12 +3506,12 @@ msgstr ""
 "คุณสามารถควบคุมคุณสมบัตินี้ได้ด้วยการคลิกเมาส์ปุ่มขวา และเลือกโหมดที่ต้องการใช้จากเมนู "
 "<b>เติมข้อความให้สมบูรณ์</b></qt>"
 
-#: filewidgets/kfilewidget.cpp:1350
+#: filewidgets/kfilewidget.cpp:1365
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "นี่เป็นชื่อของแฟ้มที่จะบันทึกไป"
 
-#: filewidgets/kfilewidget.cpp:1353
+#: filewidgets/kfilewidget.cpp:1368
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3520,75 +3520,75 @@ msgstr ""
 "นี่เป็นรายการของแฟ้มที่จะเปิดใช้ ซึ่งสามารถเลือกได้มากกว่าหนึ่งแฟ้ม "
 "โดยการเลือกแฟ้มมากกว่าหนึ่งแฟ้ม ให้แยกแต่ละชื่อแฟ้มด้วยช่องว่าง"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "นี่เป็นชื่อของแฟ้มที่จะเปิด"
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "ที่หลัก ๆ"
 
-#: filewidgets/kfilewidget.cpp:1590
+#: filewidgets/kfilewidget.cpp:1605
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "มีแฟ้มที่ชื่อ \"%1\" อยู่ก่อนแล้ว คุณต้องการจะเขียนทับมันหรือไม่ ?"
 
-#: filewidgets/kfilewidget.cpp:1591
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "Overwrite File?"
 msgstr "เขียนทับแฟ้มหรือไม่ ?"
 
-#: filewidgets/kfilewidget.cpp:1787
+#: filewidgets/kfilewidget.cpp:1802
 #, kde-format
 msgid "You can only select local files."
 msgstr "คุณสามารถเลือกได้เฉพาะแฟ้มภายในระบบเท่านั้น"
 
-#: filewidgets/kfilewidget.cpp:1787
+#: filewidgets/kfilewidget.cpp:1802
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "ไม่ยอมรับแฟ้มระยะไกล"
 
-#: filewidgets/kfilewidget.cpp:1881
+#: filewidgets/kfilewidget.cpp:1896
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|ทุกโฟลเดอร์"
 
-#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:725
+#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: widgets/kfileitemactions.cpp:709
 #, kde-format
 msgid "&Open"
 msgstr "เ&ปิด"
 
-#: filewidgets/kfilewidget.cpp:2133
+#: filewidgets/kfilewidget.cpp:2148
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ขนาดไอคอน: %1 พิกเซล"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2296
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "เลือกส่วนข&ยายชื่อแฟ้ม (%1) อัตโนมัติ"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ส่วนขยายแฟ้ม <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2288
+#: filewidgets/kfilewidget.cpp:2303
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "เลือกส่วนข&ยายแฟ้มอัตโนมัติ"
 
-#: filewidgets/kfilewidget.cpp:2289
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "a suitable extension"
 msgstr "ส่วนขยายแฟ้มที่เหมาะสม"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3614,25 +3614,25 @@ msgstr ""
 "(เครื่องหมายมหัพภาคจะถูกเอาออกเองโดยอัตโนมัติ)</li></ol>หากไม่แน่ใจ "
 "ให้เปิดใช้งานตัวเลือกนี้เอาไว้ เพราะว่ามันจะทำให้แฟ้มของคุณสามารถที่จะจัดการได้ง่าย"
 
-#: filewidgets/kfilewidget.cpp:2770
+#: filewidgets/kfilewidget.cpp:2785
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&กรอง:"
 
-#: filewidgets/kfilewidget.cpp:2771
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2773
+#: filewidgets/kfilewidget.cpp:2788
 #, kde-format
 msgid "&Filter:"
 msgstr "&กรอง:"
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2790
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -5344,24 +5344,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ประเภท"
 
-#: widgets/kfileitemactions.cpp:370
+#: widgets/kfileitemactions.cpp:365
 #, kde-format
 msgid "Open &with %1"
 msgstr "เ&ปิดใช้ด้วย %1"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:367
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:504
+#: widgets/kfileitemactions.cpp:499
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&การกระทำ"
 
-#: widgets/kfileitemactions.cpp:676
+#: widgets/kfileitemactions.cpp:660
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With..."
@@ -5369,24 +5369,24 @@ msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "เปิดใช้&ด้วย..."
 
-#: widgets/kfileitemactions.cpp:676
+#: widgets/kfileitemactions.cpp:660
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "เปิดใช้&ด้วย..."
 
-#: widgets/kfileitemactions.cpp:714
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "เ&ปิดด้วย %1"
 
-#: widgets/kfileitemactions.cpp:714
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgid "&Open with %1"
 msgstr "เ&ปิดด้วย %1"
 
-#: widgets/kfileitemactions.cpp:747
+#: widgets/kfileitemactions.cpp:730
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5394,13 +5394,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "เปิดใช้&ด้วย"
 
-#: widgets/kfileitemactions.cpp:747
+#: widgets/kfileitemactions.cpp:730
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "เปิดใช้&ด้วย"
 
-#: widgets/kfileitemactions.cpp:758
+#: widgets/kfileitemactions.cpp:741
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
