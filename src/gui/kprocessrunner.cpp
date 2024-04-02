@@ -71,6 +71,7 @@ static KProcessRunner *makeInstance()
     }
 }
 
+#ifndef Q_OS_ANDROID
 static void modifyEnv(KProcess &process, QProcessEnvironment mod)
 {
     QProcessEnvironment env = process.processEnvironment();
@@ -80,6 +81,7 @@ static void modifyEnv(KProcess &process, QProcessEnvironment mod)
     env.insert(mod);
     process.setProcessEnvironment(env);
 }
+#endif
 
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &serviceEntryPath,
