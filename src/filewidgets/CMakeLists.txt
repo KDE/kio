@@ -21,7 +21,7 @@ target_sources(KF6KIOFileWidgets PRIVATE
   kdiroperatordetailview.cpp
   kdiroperatoriconview.cpp
   kdirsortfilterproxymodel.cpp #used in combination with kdirmodel.cpp
-  kencodingfiledialog.cpp
+  #kencodingfiledialog.cpp
   kfilebookmarkhandler.cpp
   kfilecopytomenu.cpp
   kfilecustomdialog.cpp
@@ -96,7 +96,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ItemViews     # kdirsortfilterproxymodel
     KF6::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
-    Qt6::Core5Compat
     KF6::GuiAddons    # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::IconWidgets   # KIconButton
@@ -124,7 +123,7 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KUrlNavigator
   KNewFileMenu
   KNameAndUrlInputDialog
-  KEncodingFileDialog
+  #KEncodingFileDialog
 
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )

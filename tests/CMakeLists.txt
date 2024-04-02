@@ -24,7 +24,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     kdirlistertest_gui
     kdirmodeltest_gui
     kemailclientlauncherjobtest_gui
-    kencodingfiledialogtest_gui
+#    kencodingfiledialogtest_gui
     kfilecustomdialogtest_gui
     kfilecustomdialogtest_gui_select_dir_mode
     kfilewidgettest_gui
