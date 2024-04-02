@@ -641,6 +641,7 @@ QColor KFilePlacesViewDelegate::mixedColor(const QColor &c1, const QColor &c2, i
 
 int KFilePlacesViewDelegate::sectionHeaderHeight(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     // Account for the spacing between header and item
     const int spacing = (s_lateralMargin + m_view->spacing());
     int height = m_view->fontMetrics().height() + spacing;

@@ -739,7 +739,7 @@ void KNewFileMenuPrivate::fillMenu()
                         // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
                         act->setShortcutContext(Qt::WidgetShortcut);
                         // We also need to react to shortcut changes.
-                        QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [=]() {
+                        QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [act, this]() {
                             act->setShortcuts(m_newFolderShortcutAction->shortcuts());
                         });
                     }
@@ -813,7 +813,7 @@ void KNewFileMenuPrivate::fillMenu()
                                 // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
                                 act->setShortcutContext(Qt::WidgetShortcut);
                                 // We also need to react to shortcut changes.
-                                QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [=]() {
+                                QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [act, this]() {
                                     act->setShortcuts(m_newFileShortcutAction->shortcuts());
                                 });
                             }
@@ -1417,7 +1417,7 @@ void KNewFileMenu::createDirectory()
     d->m_baseUrl = d->m_popupFiles.first();
 
     auto nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
-    connect(nameJob, &KJob::result, this, [=]() mutable {
+    connect(nameJob, &KJob::result, this, [nameJob, name, this]() mutable {
         if (!nameJob->error()) {
             d->m_baseUrl = nameJob->baseUrl();
             name = nameJob->finalName();
