@@ -96,7 +96,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ItemViews     # kdirsortfilterproxymodel
     KF6::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
-    Qt6::Core5Compat
     KF6::GuiAddons    # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::IconWidgets   # KIconButton
@@ -105,6 +104,13 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ConfigWidgets
     KF6::BookmarksWidgets
 )
+
+if (TARGET Qt6::Core5Compat)
+    target_link_libraries(KF6KIOFileWidgets
+      PRIVATE
+        Qt6::Core5Compat
+    )
+endif()
 
 ecm_generate_headers(KIOFileWidgets_HEADERS
   HEADER_NAMES

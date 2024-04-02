@@ -111,7 +111,10 @@ if (NOT ANDROID)
     find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
 endif()
 
-find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
+message (${Qt6Core_VERSION})
+if (${Qt6Core_VERSION} VERSION_LESS "6.7.0")
+    find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
+endif()
 
 if (NOT APPLE AND NOT WIN32 AND NOT ANDROID)
     option(WITH_X11 "Build with X11 integration" ON)

@@ -10,6 +10,10 @@
 
 #include "kencodingfiledialog.h"
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
+#define USE_QTEXTCODEC
+#endif
+
 #include "kfilewidget.h"
 
 #include <defaults-kfile.h>
@@ -23,7 +27,11 @@
 #include <QBoxLayout>
 #include <QComboBox>
 #include <QPushButton>
+#ifdef USE_QTEXTCODEC
 #include <QTextCodec>
+#else
+#include <QStringConverter>
+#endif
 
 struct KEncodingFileDialogPrivate {
     KEncodingFileDialogPrivate()
@@ -35,6 +43,46 @@ struct KEncodingFileDialogPrivate {
     KFileWidget *w;
     KConfigGroup cfgGroup;
 };
+
+QByteArray systemEncodingName()
+{
+#ifdef USE_QTEXTCODEC
+    return QTextCodec::codecForLocale()->name();
+#else
+    return QStringEncoder::nameForEncoding(QStringEncoder::System);
+#endif
+}
+
+QStringList availableCodecs()
+{
+#ifdef USE_QTEXTCODEC
+    QStringList available;
+    const auto availableBA = QTextCodec::availableCodecs();
+    for (const auto &ba : availableBA) {
+        available.push_back(QString::fromUtf8(ba));
+    }
+    return available;
+#else
+    return QStringConverter::availableCodecs();
+#endif
+}
+
+std::pair<bool, QByteArray> validAndName(const QString &name)
+{
+#ifdef USE_QTEXTCODEC
+    auto textCodec = QTextCodec::codecForName(name.toUtf8());
+    if (textCodec) {
+        return {true, textCodec->name()};
+    }
+    return {false, {}};
+#else
+    QStringEncoder conv = QStringEncoder(name.toUtf8().constData());
+    if (conv.isValid()) {
+        return {true, conv.name()};
+    }
+    return {false, {}};
+#endif
+}
 
 KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
                                          const QString &encoding,
@@ -72,12 +120,12 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
 
     d->encoding->clear();
     QByteArray sEncoding = encoding.toUtf8();
-    auto systemEncoding = QTextCodec::codecForLocale()->name();
+    auto systemEncoding = systemEncodingName();
     if (sEncoding.isEmpty() || sEncoding == "System") {
         sEncoding = systemEncoding;
     }
 
-    auto encodings = QTextCodec::availableCodecs();
+    auto encodings = availableCodecs();
     std::sort(encodings.begin(), encodings.end(), [](auto &a, auto &b) {
         return (a.compare(b, Qt::CaseInsensitive) < 0);
     });
@@ -86,17 +134,16 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     int system = 0;
     bool foundRequested = false;
     for (const auto &encoding : encodings) {
-        QTextCodec *codecForEnc = QTextCodec::codecForName(encoding);
+        auto [valid, codecName] = validAndName(encoding);
 
-        if (codecForEnc) {
-            d->encoding->addItem(QString::fromUtf8(encoding));
-            auto codecName = codecForEnc->name();
-            if ((codecName == sEncoding) || (encoding == sEncoding)) {
+        if (valid) {
+            d->encoding->addItem(encoding);
+            if ((codecName == sEncoding) || (encoding.toUtf8() == sEncoding)) {
                 d->encoding->setCurrentIndex(insert);
                 foundRequested = true;
             }
 
-            if ((codecName == systemEncoding) || (encoding == systemEncoding)) {
+            if ((codecName == systemEncoding) || (encoding.toUtf8() == systemEncoding)) {
                 system = insert;
             }
             insert++;
