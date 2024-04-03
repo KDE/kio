@@ -3582,7 +3582,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr ""
+msgstr "Vytvořit nový soubor"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3701,7 +3701,7 @@ msgstr "Nová složka"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr ""
+msgstr "Vytvořit novou složku"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
