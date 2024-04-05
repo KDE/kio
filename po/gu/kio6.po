@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -3637,7 +3637,7 @@ msgstr "સ્થળ શોધવા ક્લિક કરો"
 msgid "Click to Edit Location"
 msgstr "સ્થળ ફેરફાર કરવા ક્લિક કરો"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "તમે આ ફાઇલ ચલાવવા માટે માન્ય નથી"
@@ -3689,7 +3689,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, fuzzy, kde-format
 #| msgid "The certificate is not valid, yet."
 msgid ""
@@ -3698,12 +3698,12 @@ msgid ""
 "is not valid."
 msgstr "પ્રમાણપત્ર હજી સુધી માન્ય નથી."
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 શરૂ કરે છે"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

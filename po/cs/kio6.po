@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2024-02-19 17:11+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3791,7 +3791,7 @@ msgstr "Klikněte pro navigaci k umístění"
 msgid "Click to Edit Location"
 msgstr "Klikněte pro upravení umístění"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nemáte oprávnění ke spuštění tohoto souboru."
@@ -3842,7 +3842,7 @@ msgstr "Soubor ikony je příliš velký. Stahování bylo přerušeno"
 msgid "No mail client found"
 msgstr "Nebyl nalezen žádný e-mailový klient."
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3853,12 +3853,12 @@ msgstr ""
 "%1\n"
 "je neplatný."
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "Spouštím %1"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

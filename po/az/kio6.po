@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3836,7 +3836,7 @@ msgstr "Məkana Yol Göstərmək üçün kliklə"
 msgid "Click to Edit Location"
 msgstr "Məkana Düzəliş Etmək üçün kliklə"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Bu faylı icra etməyə sizin imtiyazınız yoxdur."
@@ -3887,7 +3887,7 @@ msgstr "İkon faylı çox böyükdür, yükləmə ləğv edildi"
 msgid "No mail client found"
 msgstr "Poçt müştərisi tapılmadı"
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3898,12 +3898,12 @@ msgstr ""
 "masaüstü faylı\n"
 "etibarsızdır."
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "Başladılma %1"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

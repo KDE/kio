@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2024-04-03 19:13\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3650,7 +3650,7 @@ msgstr "点击以切换到位置导航模式"
 msgid "Click to Edit Location"
 msgstr "点击以编辑位置"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "您没有此文件的执行权限。"
@@ -3701,7 +3701,7 @@ msgstr "图标文件太大，下载已中止"
 msgid "No mail client found"
 msgstr "找不到电子邮件客户端"
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3712,12 +3712,12 @@ msgstr ""
 "%1\n"
 "是无效文件。"
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "正在启动 %1"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

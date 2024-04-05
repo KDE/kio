@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3728,7 +3728,7 @@ msgstr "တည်နေရာလမ်းညွှန်စနစ်အတွက
 msgid "Click to Edit Location"
 msgstr "တည်နေရာတည်းဖြတ်ရန် နှိပ်ပါ"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ဤဖိုင်လ်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
@@ -3779,7 +3779,7 @@ msgstr "အိုင်ကွန်ဖိုင်လ် အလွန်ကြ�
 msgid "No mail client found"
 msgstr "မေးလ်ကလိုင်းရန့် မတွေ့ပါ"
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3790,12 +3790,12 @@ msgstr ""
 "%1\n"
 "မမှန်ကန်ပါ။"
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 လွှင်တင်နေသည်"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

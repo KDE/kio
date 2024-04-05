@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:36+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3761,7 +3761,7 @@ msgstr "स्थानस्य मार्गदर्शनार्थं �
 msgid "Click to Edit Location"
 msgstr "स्थानं सम्पादयितुं नुदन्तु"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "एतां सञ्चिकां निष्पादयितुं भवान् अधिकृतः नास्ति ।."
@@ -3812,7 +3812,7 @@ msgstr "चिह्नसञ्चिका अतीव विशाला, �
 msgid "No mail client found"
 msgstr "कोऽपि पत्रग्राहकः न लब्धः"
 
-#: gui/kprocessrunner.cpp:110
+#: gui/kprocessrunner.cpp:112
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3823,12 +3823,12 @@ msgstr ""
 "%1\n"
 "न वैधः ।."
 
-#: gui/kprocessrunner.cpp:274
+#: gui/kprocessrunner.cpp:276
 #, kde-format
 msgid "Launching %1"
 msgstr "प्रक्षेपण %1"
 
-#: gui/kprocessrunner.cpp:461
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
