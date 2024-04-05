@@ -8,6 +8,7 @@
 
 #include "kfileitem.h"
 
+#include "../kioworkers/file/stat_unix.h"
 #include "config-kiocore.h"
 
 #if HAVE_POSIX_ACL
@@ -221,19 +222,25 @@ void KFileItemPrivate::init() const
          * stat("/is/unaccessible/") -> EPERM            H.Z.
          * This is the reason for the StripTrailingSlash
          */
-        QT_STATBUF buf;
+
+#if HAVE_STATX
+        // statx syscall is available
+        struct statx buff;
+#else
+        QT_STATBUF buff;
+#endif
         const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
         const QByteArray pathBA = QFile::encodeName(path);
-        if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
+        if (LSTAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
             m_entry.reserve(9);
-            m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, buf.st_dev);
-            m_entry.replace(KIO::UDSEntry::UDS_INODE, buf.st_ino);
+            m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
+            m_entry.replace(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
 
-            mode_t mode = buf.st_mode;
-            if (Utils::isLinkMask(buf.st_mode)) {
+            mode_t mode = stat_mode(buff);
+            if (Utils::isLinkMask(mode)) {
                 m_bLink = true;
-                if (QT_STAT(pathBA.constData(), &buf) == 0) {
-                    mode = buf.st_mode;
+                if (STAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
+                    mode = stat_mode(buff);
                 } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in kioworkers/file/file.cpp)
                     mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                 }
@@ -241,14 +248,18 @@ void KFileItemPrivate::init() const
 
             const mode_t type = mode & QT_STAT_MASK;
 
-            m_entry.replace(KIO::UDSEntry::UDS_SIZE, buf.st_size);
+            m_entry.replace(KIO::UDSEntry::UDS_SIZE, stat_size(buff));
             m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, type); // extract file type
             m_entry.replace(KIO::UDSEntry::UDS_ACCESS, mode & 07777); // extract permissions
-            m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, buf.st_mtime); // TODO: we could use msecs too...
-            m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
+            m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff)); // TODO: we could use msecs too...
+            m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
+#if HAVE_STATX
+            m_entry.replace(KIO::UDSEntry::UDS_CREATION_TIME, buff.stx_btime.tv_sec);
+#endif
+
 #ifndef Q_OS_WIN
-            const auto uid = buf.st_uid;
-            const auto gid = buf.st_gid;
+            const auto uid = stat_uid(buff);
+            const auto gid = stat_gid(buff);
             m_entry.replace(KIO::UDSEntry::UDS_LOCAL_USER_ID, uid);
             m_entry.replace(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, gid);
 #endif

@@ -4,6 +4,8 @@ configure_file(config-kiocore.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiocore
 
 configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmountpoint.h)
 
+configure_file(../kioworkers/file/config-stat-unix.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-stat-unix.h)
+
 add_library(KF6KIOCore)
 add_library(KF6::KIOCore ALIAS KF6KIOCore)
 
