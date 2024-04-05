@@ -114,7 +114,7 @@ public:
 
     UDSEntryList pendingListEntries;
     QElapsedTimer m_timeSinceLastBatch;
-    Connection appConnection;
+    Connection appConnection{Connection::Type::Worker};
     QString poolSocket;
     bool isConnectedToApp;
 

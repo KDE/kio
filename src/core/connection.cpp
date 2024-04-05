@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2024 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -67,9 +68,10 @@ void ConnectionPrivate::setBackend(ConnectionBackend *b)
     }
 }
 
-Connection::Connection(QObject *parent)
+Connection::Connection(Type type, QObject *parent)
     : QObject(parent)
     , d(new ConnectionPrivate)
+    , m_type(type)
 {
     d->q = this;
 }
@@ -165,6 +167,13 @@ QString Connection::errorString() const
 
 bool Connection::send(int cmd, const QByteArray &data)
 {
+    // Remember that a Connection instance exists in the Application and the Worker. If the application terminates
+    // we potentially get disconnected while looping on data to send in the worker, terminate the worker when this
+    // happens. Specifically while reading a possible answer from the Application we may get socketDisconnected()
+    // we'll never get an answer in that case.
+    if (m_type == Type::Worker && !inited()) {
+        return false;
+    }
     if (!inited() || !d->outgoingTasks.isEmpty()) {
         Task task;
         task.cmd = cmd;

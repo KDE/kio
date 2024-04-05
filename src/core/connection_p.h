@@ -2,6 +2,7 @@
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2024 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -38,11 +39,16 @@ public:
         Polled, /// Any new tasks will be polled
         EventDriven, /// We need to emit signals when we have pending events. Requires a working QEventLoop
     };
+
+    enum class Type {
+        Application, /// This is the connection of the application side
+        Worker, /// This is the connection of the worker side
+    };
     /**
      * Creates a new connection.
      * @see connectToRemote, listenForRemote
      */
-    explicit Connection(QObject *parent = nullptr);
+    explicit Connection(Type type, QObject *parent = nullptr);
     ~Connection() override;
 
     /**
@@ -132,6 +138,7 @@ private:
     friend class ConnectionPrivate;
     friend class ConnectionServer;
     std::unique_ptr<class ConnectionPrivate> const d;
+    Type m_type;
 };
 
 // Separated from Connection only for historical reasons - they are both private now

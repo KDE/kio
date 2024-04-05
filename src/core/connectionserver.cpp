@@ -76,7 +76,7 @@ Connection *ConnectionServer::nextPendingConnection()
         return nullptr; // no new backend...
     }
 
-    Connection *result = new Connection;
+    Connection *result = new Connection(Connection::Type::Application);
     result->d->setBackend(newBackend);
     newBackend->setParent(result);
 

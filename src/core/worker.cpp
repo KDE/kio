@@ -110,7 +110,7 @@ Worker::Worker(const QString &protocol, QObject *parent)
     if (!m_workerConnServer->isListening()) {
         qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
     }
-    m_connection = new Connection(this);
+    m_connection = new Connection(Connection::Type::Application, this);
     connect(m_workerConnServer, &ConnectionServer::newConnection, this, &Worker::accept);
 }
 
