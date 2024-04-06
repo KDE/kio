@@ -218,9 +218,9 @@ public:
 
     /**
      * Returns the current filter as entered by the user or one of the
-     * predefined set via setFilter().
+     * predefined set via setFilters().
      *
-     * @see setFilter()
+     * @see setFilters()
      * @see filterChanged()
      *
      * @since 6.0
@@ -475,12 +475,12 @@ Q_SIGNALS:
 
     /**
      * Emitted when the filter changed, i.e.\ the user entered an own filter
-     * or chose one of the predefined set via setFilter().
+     * or chose one of the predefined set via setFilters().
      *
      * @param filter contains the new filter (only the extension part,
      * not the explanation), i.e. "*.cpp" or "*.cpp *.cc".
      *
-     * @see setFilter()
+     * @see setFilters()
      * @see currentFilter()
      *
      * @since 6.0
