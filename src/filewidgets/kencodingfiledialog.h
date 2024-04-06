@@ -61,9 +61,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -93,9 +92,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -125,9 +123,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -157,9 +154,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -191,9 +187,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -225,9 +220,8 @@ public:
      *             by a filedialog in any application that specified the
      *             same keyword.
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
-     *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
-     *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
+     *    for examples of patterns.
      * @param parent The widget the dialog will be centered on initially.
      * @param title The name of the dialog widget.
      */
@@ -270,7 +264,7 @@ private:
      * @param filter A shell glob or a MIME type filter that specifies which files to display.
      *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
-     *    provide multiple globs, see setFilter() for details.
+     *    provide multiple globs, see setFilters() for details.
      *
      * @param title The title of the dialog
      *
