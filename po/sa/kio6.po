@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:35+0000\n"
+"POT-Creation-Date: 2024-04-06 00:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO कार्यकर्ता निर्मातुं असमर्थः: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -352,7 +352,7 @@ msgid ""
 msgstr ""
 "स्थानान्तरमक्रियायाः पूर्णतायै मूलविशेषाधिकाराः आवश्यकाः सन्ति । किं त्वं प्रगन्तुं इच्छसि ?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:125
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "नामान्तरम्"
@@ -364,7 +364,7 @@ msgid ""
 msgstr "नामान्तरम् पूर्णं कर्तुं मूलविशेषाधिकाराः आवश्यकाः सन्ति । किं त्वं प्रगन्तुं इच्छसि ?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
-#: kioworkers/file/file_unix.cpp:129
+#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "प्रतीकसम्बद्धम् (Symlink) रचयन्तु"
@@ -2321,17 +2321,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेजित त्रुटि"
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1408
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 इत्यनेन सह प्रतीकात्मकं संबन्धम्)"
 
-#: core/kfileitem.cpp:1399
+#: core/kfileitem.cpp:1410
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 इत्यस्य सम्बन्धितुम्)"
 
-#: core/kfileitem.cpp:1402
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 प्रति सूचयति)"
@@ -3682,7 +3682,7 @@ msgstr "%1 मध्ये नूतनं पुटं रचयन्तु:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -4090,82 +4090,82 @@ msgstr "\"mount\" इति कार्यक्रमः न लब्धः �
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file_unix.cpp:101
+#: kioworkers/file/file_unix.cpp:98
 #, kde-format
 msgid "Change File Permissions"
 msgstr "सञ्चिकायाः अनुमतिः परिवर्तयतु"
 
-#: kioworkers/file/file_unix.cpp:102
+#: kioworkers/file/file_unix.cpp:99
 #, kde-format
 msgid "New Permissions: %1"
 msgstr "नवीनाः अनुमतिः: %1"
 
-#: kioworkers/file/file_unix.cpp:105
+#: kioworkers/file/file_unix.cpp:102
 #, kde-format
 msgid "Change File Owner"
 msgstr "सञ्चिकास्वामित्वं परिवर्तयतु"
 
-#: kioworkers/file/file_unix.cpp:106
+#: kioworkers/file/file_unix.cpp:103
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
 msgstr "नवीनः स्वामिः: UID=%1, GID=%2"
 
-#: kioworkers/file/file_unix.cpp:109
+#: kioworkers/file/file_unix.cpp:106
 #, kde-format
 msgid "Remove File"
 msgstr "सञ्चिकां निष्कासयतु"
 
-#: kioworkers/file/file_unix.cpp:112
+#: kioworkers/file/file_unix.cpp:109
 #, kde-format
 msgid "Remove Directory"
 msgstr "पुटं निष्कासयतु"
 
-#: kioworkers/file/file_unix.cpp:115
+#: kioworkers/file/file_unix.cpp:112
 #, kde-format
 msgid "Create Directory"
 msgstr "पुटं सृजतु"
 
-#: kioworkers/file/file_unix.cpp:116
+#: kioworkers/file/file_unix.cpp:113
 #, kde-format
 msgid "Directory Permissions: %1"
 msgstr "पुटम् अनुमतिः: %1"
 
-#: kioworkers/file/file_unix.cpp:119
+#: kioworkers/file/file_unix.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "सञ्चिकां उद्घाटयतु"
 
-#: kioworkers/file/file_unix.cpp:122
+#: kioworkers/file/file_unix.cpp:119
 #, kde-format
 msgid "Open Directory"
 msgstr "पुटं उद्घाटयन्तु"
 
-#: kioworkers/file/file_unix.cpp:126
+#: kioworkers/file/file_unix.cpp:123
 #, kde-format
 msgid "New Filename: %1"
 msgstr "नवीनं सञ्चिकानाम: %1"
 
-#: kioworkers/file/file_unix.cpp:130
+#: kioworkers/file/file_unix.cpp:127
 #, kde-format
 msgid "Target: %1"
 msgstr "लक्ष्यम् : %1"
 
-#: kioworkers/file/file_unix.cpp:133
+#: kioworkers/file/file_unix.cpp:130
 #, kde-format
 msgid "Change Timestamp"
 msgstr "समयमुद्रांक परिवर्तनं कुर्वन्तु"
 
-#: kioworkers/file/file_unix.cpp:137
+#: kioworkers/file/file_unix.cpp:134
 #, kde-format
 msgid "From: %1, To: %2"
 msgstr "तः: %1, प्रति: %2"
 
-#: kioworkers/file/file_unix.cpp:140
+#: kioworkers/file/file_unix.cpp:137
 #, kde-format
 msgid "Unknown Action"
 msgstr "अज्ञात क्रिया"
 
-#: kioworkers/file/file_unix.cpp:145
+#: kioworkers/file/file_unix.cpp:142
 #, kde-format
 msgid ""
 "Action: %1\n"
@@ -4176,22 +4176,22 @@ msgstr ""
 "स्रोतः : %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:833
+#: kioworkers/file/file_unix.cpp:706
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
 
-#: kioworkers/file/file_unix.cpp:1055
+#: kioworkers/file/file_unix.cpp:928
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 इत्यस्य कृते उपकरणे कोऽपि माध्यमः नास्ति"
 
-#: kioworkers/file/file_unix.cpp:1347
+#: kioworkers/file/file_unix.cpp:1220
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "दत्तस्य उपयोक्तृनाम %1 कृते उपयोक्तृ-तादात्म्यम् (user id) प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix.cpp:1358
+#: kioworkers/file/file_unix.cpp:1231
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"

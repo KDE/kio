@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:35+0000\n"
+"POT-Creation-Date: 2024-04-06 00:35+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KCH-sleyvni (%1) yaratib boʻlmadi"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -354,7 +354,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:125
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -367,7 +367,7 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
-#: kioworkers/file/file_unix.cpp:129
+#: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
@@ -2233,19 +2233,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Bu xato uchun koʻllanma yoʻq."
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1408
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ramziy bogʻ"
 
-#: core/kfileitem.cpp:1399
+#: core/kfileitem.cpp:1410
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "%1 bilan bogʻlangan (%2)"
 
-#: core/kfileitem.cpp:1402
+#: core/kfileitem.cpp:1413
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -3644,7 +3644,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -4047,90 +4047,90 @@ msgstr "'mount' dasturini topib boʻlmadi."
 msgid "Could not find program \"umount\""
 msgstr "'umount' dasturini topib boʻlmadi."
 
-#: kioworkers/file/file_unix.cpp:101
+#: kioworkers/file/file_unix.cpp:98
 #, fuzzy, kde-format
 #| msgid "Advanced Permissions"
 msgid "Change File Permissions"
 msgstr "Qoʻshimcha huquqlar"
 
-#: kioworkers/file/file_unix.cpp:102
+#: kioworkers/file/file_unix.cpp:99
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Permissions"
 msgid "New Permissions: %1"
 msgstr "Huquqlar"
 
-#: kioworkers/file/file_unix.cpp:105
+#: kioworkers/file/file_unix.cpp:102
 #, kde-format
 msgid "Change File Owner"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:106
+#: kioworkers/file/file_unix.cpp:103
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:109
+#: kioworkers/file/file_unix.cpp:106
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove File"
 msgstr "Olib tashlash"
 
-#: kioworkers/file/file_unix.cpp:112
+#: kioworkers/file/file_unix.cpp:109
 #, fuzzy, kde-format
 msgid "Remove Directory"
 msgstr "Jild yaratish"
 
-#: kioworkers/file/file_unix.cpp:115
+#: kioworkers/file/file_unix.cpp:112
 #, fuzzy, kde-format
 msgid "Create Directory"
 msgstr "Jild yaratish"
 
-#: kioworkers/file/file_unix.cpp:116
+#: kioworkers/file/file_unix.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Permissions"
 msgid "Directory Permissions: %1"
 msgstr "Huquqlar"
 
-#: kioworkers/file/file_unix.cpp:119
+#: kioworkers/file/file_unix.cpp:116
 #, fuzzy, kde-format
 #| msgid "Open file dialog"
 msgid "Open File"
 msgstr "Faylni tanlash oynasini ochish"
 
-#: kioworkers/file/file_unix.cpp:122
+#: kioworkers/file/file_unix.cpp:119
 #, fuzzy, kde-format
 msgid "Open Directory"
 msgstr "Jild yaratish"
 
-#: kioworkers/file/file_unix.cpp:126
+#: kioworkers/file/file_unix.cpp:123
 #, fuzzy, kde-format
 msgid "New Filename: %1"
 msgstr "Uskuna:"
 
-#: kioworkers/file/file_unix.cpp:130
+#: kioworkers/file/file_unix.cpp:127
 #, fuzzy, kde-format
 msgid "Target: %1"
 msgstr "hajmi %1"
 
-#: kioworkers/file/file_unix.cpp:133
+#: kioworkers/file/file_unix.cpp:130
 #, kde-format
 msgid "Change Timestamp"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:137
+#: kioworkers/file/file_unix.cpp:134
 #, kde-format
 msgid "From: %1, To: %2"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:140
+#: kioworkers/file/file_unix.cpp:137
 #, fuzzy, kde-format
 #| msgid "Unknown Interruption"
 msgid "Unknown Action"
 msgstr "Nomaʼlum toʻxtalish"
 
-#: kioworkers/file/file_unix.cpp:145
+#: kioworkers/file/file_unix.cpp:142
 #, kde-format
 msgid ""
 "Action: %1\n"
@@ -4138,23 +4138,23 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:833
+#: kioworkers/file/file_unix.cpp:706
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1055
+#: kioworkers/file/file_unix.cpp:928
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1347
+#: kioworkers/file/file_unix.cpp:1220
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "%1 jildiga oʻtib boʻlmadi."
 
-#: kioworkers/file/file_unix.cpp:1358
+#: kioworkers/file/file_unix.cpp:1231
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

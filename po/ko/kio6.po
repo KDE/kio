@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:35+0000\n"
+"POT-Creation-Date: 2024-04-06 00:35+0000\n"
 "PO-Revision-Date: 2024-02-09 23:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -344,7 +344,7 @@ msgid ""
 "continue?"
 msgstr "이동 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:125
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "이름 변경"
@@ -356,7 +356,7 @@ msgid ""
 msgstr "이름을 바꾸려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
-#: kioworkers/file/file_unix.cpp:129
+#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "심볼릭 링크 만들기"
@@ -2307,17 +2307,17 @@ msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1408
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(으)로 향한 심볼릭 링크)"
 
-#: core/kfileitem.cpp:1399
+#: core/kfileitem.cpp:1410
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(으)로 향한 링크)"
 
-#: core/kfileitem.cpp:1402
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"
@@ -3662,7 +3662,7 @@ msgstr "%1에 새 폴더 만들기:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -4073,82 +4073,82 @@ msgstr "\"mount\" 프로그램을 찾을 수 없음"
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file_unix.cpp:101
+#: kioworkers/file/file_unix.cpp:98
 #, kde-format
 msgid "Change File Permissions"
 msgstr "파일 권한 변경"
 
-#: kioworkers/file/file_unix.cpp:102
+#: kioworkers/file/file_unix.cpp:99
 #, kde-format
 msgid "New Permissions: %1"
 msgstr "새 권한: %1"
 
-#: kioworkers/file/file_unix.cpp:105
+#: kioworkers/file/file_unix.cpp:102
 #, kde-format
 msgid "Change File Owner"
 msgstr "파일 소유자 변경"
 
-#: kioworkers/file/file_unix.cpp:106
+#: kioworkers/file/file_unix.cpp:103
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
 msgstr "새 소유자: UID=%1, GID=%2"
 
-#: kioworkers/file/file_unix.cpp:109
+#: kioworkers/file/file_unix.cpp:106
 #, kde-format
 msgid "Remove File"
 msgstr "파일 삭제"
 
-#: kioworkers/file/file_unix.cpp:112
+#: kioworkers/file/file_unix.cpp:109
 #, kde-format
 msgid "Remove Directory"
 msgstr "디렉터리 삭제"
 
-#: kioworkers/file/file_unix.cpp:115
+#: kioworkers/file/file_unix.cpp:112
 #, kde-format
 msgid "Create Directory"
 msgstr "디렉터리 만들기"
 
-#: kioworkers/file/file_unix.cpp:116
+#: kioworkers/file/file_unix.cpp:113
 #, kde-format
 msgid "Directory Permissions: %1"
 msgstr "디렉터리 권한: %1"
 
-#: kioworkers/file/file_unix.cpp:119
+#: kioworkers/file/file_unix.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "파일 열기"
 
-#: kioworkers/file/file_unix.cpp:122
+#: kioworkers/file/file_unix.cpp:119
 #, kde-format
 msgid "Open Directory"
 msgstr "디렉터리 열기"
 
-#: kioworkers/file/file_unix.cpp:126
+#: kioworkers/file/file_unix.cpp:123
 #, kde-format
 msgid "New Filename: %1"
 msgstr "새 파일 이름: %1"
 
-#: kioworkers/file/file_unix.cpp:130
+#: kioworkers/file/file_unix.cpp:127
 #, kde-format
 msgid "Target: %1"
 msgstr "대상: %1"
 
-#: kioworkers/file/file_unix.cpp:133
+#: kioworkers/file/file_unix.cpp:130
 #, kde-format
 msgid "Change Timestamp"
 msgstr "타임스탬프 변경"
 
-#: kioworkers/file/file_unix.cpp:137
+#: kioworkers/file/file_unix.cpp:134
 #, kde-format
 msgid "From: %1, To: %2"
 msgstr "원본: %1, 대상: %2"
 
-#: kioworkers/file/file_unix.cpp:140
+#: kioworkers/file/file_unix.cpp:137
 #, kde-format
 msgid "Unknown Action"
 msgstr "알 수 없는 작업"
 
-#: kioworkers/file/file_unix.cpp:145
+#: kioworkers/file/file_unix.cpp:142
 #, kde-format
 msgid ""
 "Action: %1\n"
@@ -4159,22 +4159,22 @@ msgstr ""
 "원본: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:833
+#: kioworkers/file/file_unix.cpp:706
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: kioworkers/file/file_unix.cpp:1055
+#: kioworkers/file/file_unix.cpp:928
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1347
+#: kioworkers/file/file_unix.cpp:1220
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1358
+#: kioworkers/file/file_unix.cpp:1231
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"

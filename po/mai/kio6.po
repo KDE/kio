@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:35+0000\n"
+"POT-Creation-Date: 2024-04-06 00:35+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "आइओ-स्लेव तैआर करब मे अक्षम: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -357,7 +357,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:125
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -370,7 +370,7 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:626
-#: kioworkers/file/file_unix.cpp:129
+#: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
@@ -2280,17 +2280,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "बिनु दस्ताबेज कएल त्रुटि"
 
-#: core/kfileitem.cpp:1397
+#: core/kfileitem.cpp:1408
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एकटा सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1399
+#: core/kfileitem.cpp:1410
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, एहि पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1402
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid " (Points to %1)"
 msgstr ""
@@ -3675,7 +3675,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -4091,95 +4091,95 @@ msgstr "प्रोग्राम \"mount\" नहि भेटल"
 msgid "Could not find program \"umount\""
 msgstr "प्रोग्राम \"umount\" नहि भेटल"
 
-#: kioworkers/file/file_unix.cpp:101
+#: kioworkers/file/file_unix.cpp:98
 #, fuzzy, kde-format
 #| msgid "Advanced Permissions"
 msgid "Change File Permissions"
 msgstr "विस्तृत अनुमतिसभ"
 
-#: kioworkers/file/file_unix.cpp:102
+#: kioworkers/file/file_unix.cpp:99
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Permissions"
 msgid "New Permissions: %1"
 msgstr "अनुमतिसभ"
 
-#: kioworkers/file/file_unix.cpp:105
+#: kioworkers/file/file_unix.cpp:102
 #, kde-format
 msgid "Change File Owner"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:106
+#: kioworkers/file/file_unix.cpp:103
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:109
+#: kioworkers/file/file_unix.cpp:106
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove File"
 msgstr "हटाबू"
 
-#: kioworkers/file/file_unix.cpp:112
+#: kioworkers/file/file_unix.cpp:109
 #, fuzzy, kde-format
 #| msgid "Directory"
 msgid "Remove Directory"
 msgstr "निर्देशिका"
 
-#: kioworkers/file/file_unix.cpp:115
+#: kioworkers/file/file_unix.cpp:112
 #, fuzzy, kde-format
 #| msgid "Creating directory"
 msgid "Create Directory"
 msgstr "निर्देशिका बनाएल जाए रहल अछि"
 
-#: kioworkers/file/file_unix.cpp:116
+#: kioworkers/file/file_unix.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Permissions"
 msgid "Directory Permissions: %1"
 msgstr "अनुमतिसभ"
 
-#: kioworkers/file/file_unix.cpp:119
+#: kioworkers/file/file_unix.cpp:116
 #, fuzzy, kde-format
 #| msgid "Open file dialog"
 msgid "Open File"
 msgstr "फाइल खोलबा क' संवाद"
 
-#: kioworkers/file/file_unix.cpp:122
+#: kioworkers/file/file_unix.cpp:119
 #, fuzzy, kde-format
 #| msgid "Directory"
 msgid "Open Directory"
 msgstr "निर्देशिका"
 
-#: kioworkers/file/file_unix.cpp:126
+#: kioworkers/file/file_unix.cpp:123
 #, fuzzy, kde-format
 #| msgid "Device name"
 msgid "New Filename: %1"
 msgstr "डिवाइस नाम"
 
-#: kioworkers/file/file_unix.cpp:130
+#: kioworkers/file/file_unix.cpp:127
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgid "Target: %1"
 msgstr "ड्राइव: %1"
 
-#: kioworkers/file/file_unix.cpp:133
+#: kioworkers/file/file_unix.cpp:130
 #, kde-format
 msgid "Change Timestamp"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:137
+#: kioworkers/file/file_unix.cpp:134
 #, kde-format
 msgid "From: %1, To: %2"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:140
+#: kioworkers/file/file_unix.cpp:137
 #, fuzzy, kde-format
 #| msgid "Unknown Interruption"
 msgid "Unknown Action"
 msgstr "अनचिन्ह इंटरप्शन"
 
-#: kioworkers/file/file_unix.cpp:145
+#: kioworkers/file/file_unix.cpp:142
 #, kde-format
 msgid ""
 "Action: %1\n"
@@ -4187,22 +4187,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:833
+#: kioworkers/file/file_unix.cpp:706
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "फाइल केँ %1 सँ %2 पर नकल नहि कए सकल. (त्रुटि क्र.: %3)"
 
-#: kioworkers/file/file_unix.cpp:1055
+#: kioworkers/file/file_unix.cpp:928
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 क' लेल अओजार मे कोनो मीडिया नहि "
 
-#: kioworkers/file/file_unix.cpp:1347
+#: kioworkers/file/file_unix.cpp:1220
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "देल गेल प्रयोक्ता नाम %1 क' लेल प्रयोक्ता आईडी प्राप्त नहि कए सकल"
 
-#: kioworkers/file/file_unix.cpp:1358
+#: kioworkers/file/file_unix.cpp:1231
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "देल गेल समूह नाम %1 क' लेल समूह आईडी प्राप्त नहि कए सकल"
