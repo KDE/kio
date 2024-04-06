@@ -840,7 +840,12 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntr
 
             if (property.tagName() == QLatin1String("creationdate")) {
                 // Resource creation date. Should be is ISO 8601 format.
-                entry.replace(KIO::UDSEntry::UDS_CREATION_TIME, parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
+                auto datetime = parseDateTime(property.text(), property.attribute(QStringLiteral("dt")));
+                if (datetime.isValid()) {
+                    entry.replace(KIO::UDSEntry::UDS_CREATION_TIME, datetime.toSecsSinceEpoch());
+                } else {
+                    qWarning() << "Failed to parse creationdate" << property.text() << property.attribute(QStringLiteral("dt"));
+                }
             } else if (property.tagName() == QLatin1String("getcontentlength")) {
                 // Content length (file size)
                 entry.replace(KIO::UDSEntry::UDS_SIZE, property.text().toULong());
@@ -875,8 +880,12 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntr
 
             } else if (property.tagName() == QLatin1String("getlastmodified")) {
                 // Last modification date
-                entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,
-                              parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
+                auto datetime = parseDateTime(property.text(), property.attribute(QStringLiteral("dt")));
+                if (datetime.isValid()) {
+                    entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, datetime.toSecsSinceEpoch());
+                } else {
+                    qWarning() << "Failed to parse getlastmodified" << property.text() << property.attribute(QStringLiteral("dt"));
+                }
             } else if (property.tagName() == QLatin1String("getetag")) {
                 // Entity tag
                 setMetaData(QStringLiteral("davEntityTag"), property.text());
@@ -992,12 +1001,18 @@ QDateTime HTTPProtocol::parseDateTime(const QString &input, const QString &type)
 {
     if (type == QLatin1String("dateTime.tz")) {
         return QDateTime::fromString(input, Qt::ISODate);
-    } else if (type == QLatin1String("dateTime.rfc1123")) {
-        return QDateTime::fromString(input, Qt::RFC2822Date);
+    }
+
+    // Qt decided to no longer support "GMT" for some reason: QTBUG-114681
+    QString inputUtc = input;
+    inputUtc.replace(QLatin1String("GMT"), QLatin1String("+0000"));
+
+    if (type == QLatin1String("dateTime.rfc1123")) {
+        return QDateTime::fromString(inputUtc, Qt::RFC2822Date);
     }
 
     // format not advertised... try to parse anyway
-    QDateTime time = QDateTime::fromString(input, Qt::RFC2822Date);
+    QDateTime time = QDateTime::fromString(inputUtc, Qt::RFC2822Date);
     if (time.isValid()) {
         return time;
     }
