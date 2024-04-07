@@ -26,16 +26,14 @@
 >distribué</emphasis
 > de <emphasis
 >création et de gestion de version</emphasis
-> pour l'Internet. Il permet une gestion aisée des documents et des scripts sur un serveur <ulink url="help:/kioslave/webdav.html"
->&HTTP;</ulink
->. Il possède des fonctionnalités additionnelles conçues pour simplifier la gestion des versions entre des auteurs multiples.</para>
+> (Distributed Authoring Versioning) pour l'Internet. Il permet une gestion aisée des documents et des scripts sur un serveur &HTTP;. Il possède des fonctionnalités additionnelles conçues pour simplifier la gestion des versions entre auteurs multiples.</para>
 
 <para
 >L'utilisation de ce protocole est simple. Saisissez l'emplacement que vous désirez afficher, de la même manière qu'une &URL; &HTTP; sauf en ce qui concerne le nom du protocole « webdav:// », placé au début. Un exemple est <userinput
 >webdav://<replaceable
 >www.nomhote.com/emplacement/</replaceable
 ></userinput
->.  Si vous spécifiez un nom de dossier, une liste des fichiers et des dossiers s'affichera et vous pourrez manipuler ces dossiers et ces fichiers tout comme vous le feriez avec n'importe quel autre système de fichiers.</para>
+>. Si vous spécifiez un nom de dossier, une liste des fichiers et des dossiers s'affichera et vous pourrez manipuler ces dossiers et ces fichiers tout comme vous le feriez avec n'importe quel autre système de fichiers.</para>
 
 <variablelist>
 <title
@@ -69,7 +67,7 @@
 </variablelist>
 
 <para
->Pour tirer profit de ces fonctions additionnelles, il vous faut une application capable de les gérer. Actuellement, aucune application ne les gère au moyen de ce module d'entrée / sortie.</para>
+>Pour tirer profit de ces fonctions additionnelles, il vous faut une application capable de les gérer. Actuellement, aucune application ne les gère au moyen de ce module d'entrées / sorties.</para>
 
 <para
 ><acronym
