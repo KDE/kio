@@ -475,19 +475,14 @@ public:
     {
         Q_UNUSED(size)
         // ideal case
-        // storage.reserve(3);
-        // numberStorage.reserve(5);
-        stringStorage.reserve(size / 3);
-        numberStorage.reserve(size * 2 / 3);
+        stringStorage.reserve(3);
+        numberStorage.reserve(5);
+        // stringStorage.reserve(size / 3);
+        // numberStorage.reserve(size * 2 / 3);
     }
     void insert(uint udsField, const QString &value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-        /*
-        auto it = std::lower_bound(storage.cbegin(), storage.cend(), udsField, less);
-        Q_ASSERT(it == storage.cend() || it->m_index != udsField);
-        storage.emplace(it, udsField, value);
-        */
         stringStorage.emplace_back(udsField, value);
     }
     void replaceOrInsert(uint udsField, const QString &value)
@@ -516,11 +511,6 @@ public:
     void insert(uint udsField, long long value)
     {
         Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-        /*
-        auto it = std::lower_bound(numberStorage.cbegin(), numberStorage.cend(), udsField, less_number);
-        Q_ASSERT(it == numberStorage.end() || it->m_index != udsField);
-        numberStorage.emplace(it, udsField, value);
-        */
         numberStorage.emplace_back(udsField, value);
     }
     void replaceOrInsert(uint udsField, long long value)
