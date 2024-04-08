@@ -1653,3 +1653,4 @@ QByteArray HTTPProtocol::methodToString(KIO::HTTP_METHOD method)
 }
 
 #include "http.moc"
+#include "moc_http.cpp"
