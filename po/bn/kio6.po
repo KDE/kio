@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:35+0000\n"
+"POT-Creation-Date: 2024-04-08 00:36+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -4182,90 +4182,90 @@ msgstr "সার্ভারের সত্যতা প্রমাণ (Authe
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> at <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1276
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "না হলে অনুরোধটি সফল হত।"
 
-#: kioworkers/http/http.cpp:1279
+#: kioworkers/http/http.cpp:1294
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1281
+#: kioworkers/http/http.cpp:1296
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1283
+#: kioworkers/http/http.cpp:1298
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "উল্লিখিত ফোল্ডার তৈরি করো"
 
-#: kioworkers/http/http.cpp:1285
+#: kioworkers/http/http.cpp:1300
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডার কপি করো"
 
-#: kioworkers/http/http.cpp:1287
+#: kioworkers/http/http.cpp:1302
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডার সরাও"
 
-#: kioworkers/http/http.cpp:1289
+#: kioworkers/http/http.cpp:1304
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "নির্বাচিত ফোল্ডারে সন্ধান করো"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1306
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডার লক করো"
 
-#: kioworkers/http/http.cpp:1293
+#: kioworkers/http/http.cpp:1308
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডার আনলক করো"
 
-#: kioworkers/http/http.cpp:1295
+#: kioworkers/http/http.cpp:1310
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডার মুছে ফেল"
 
-#: kioworkers/http/http.cpp:1297
+#: kioworkers/http/http.cpp:1312
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "সার্ভারের ক্ষমতা যাচাই করো"
 
-#: kioworkers/http/http.cpp:1299
+#: kioworkers/http/http.cpp:1314
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "নির্বাচিত ফাইল বা ফোল্ডারের বিষয়বস্তু উদ্ধার করো"
 
-#: kioworkers/http/http.cpp:1301
+#: kioworkers/http/http.cpp:1316
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "নির্বাচিত ফোল্ডারে সন্ধান করো"
 
-#: kioworkers/http/http.cpp:1309
+#: kioworkers/http/http.cpp:1324
 #, fuzzy, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 করার চেষ্টা চলাকালীন অপ্রত্যাশিত সমস্যা (%1) দেখা দিয়েছে।"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1364
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4273,20 +4273,20 @@ msgid ""
 "below."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1367 kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1-এ অধিকার প্রত্যাখ্যান করা হয়েছে।"
 
-#: kioworkers/http/http.cpp:1381 kioworkers/http/http.cpp:1518
+#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1390
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4296,28 +4296,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1409 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 করা যায়নি কারণ রিসোর্সটি লক করা রয়েছে।"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "অন্য একটি সমস্যার দরুন এই কাজটি করা যায়নি।"
 
-#: kioworkers/http/http.cpp:1420 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4325,25 +4325,25 @@ msgid ""
 "folder."
 msgstr "%1 করা যায়নি কারণ রিসোর্সটি লক করা রয়েছে।"
 
-#: kioworkers/http/http.cpp:1429 kioworkers/http/http.cpp:1542
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1482
+#: kioworkers/http/http.cpp:1497
 #, fuzzy, kde-format
 msgid "The resource cannot be deleted."
 msgstr "নির্বাচিত রিসোর্সটি না থাকতে পারে।"
 
-#: kioworkers/http/http.cpp:1502
+#: kioworkers/http/http.cpp:1517
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 আপলোড করো"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1568
 #, fuzzy, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
