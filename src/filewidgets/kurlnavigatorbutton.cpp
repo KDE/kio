@@ -320,8 +320,10 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
         if (m_openSubDirsTimer->isActive()) {
             cancelSubDirsRequest();
         }
-        m_subDirsMenu->deleteLater();
-        m_subDirsMenu = nullptr;
+        if (m_subDirsMenu) {
+            m_subDirsMenu->deleteLater();
+            m_subDirsMenu = nullptr;
+        }
         m_hoverArrow = false;
         update();
     }
