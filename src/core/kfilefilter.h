@@ -64,7 +64,7 @@ public:
     QStringList mimePatterns() const;
 
     /**
-     * Converts this filter to a string representation understood by KFileWidget.
+     * Converts this filter to a string representation
      */
     QString toFilterString() const;
 
