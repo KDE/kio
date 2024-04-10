@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:36+0000\n"
+"POT-Creation-Date: 2024-04-10 00:36+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3839,7 +3839,7 @@ msgstr "Môrlwywio"
 msgid "Show Full Path"
 msgstr "Dangos Llwybr Llawn"
 
-#: filewidgets/kurlnavigatorbutton.cpp:699
+#: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

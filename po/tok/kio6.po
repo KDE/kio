@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:36+0000\n"
+"POT-Creation-Date: 2024-04-10 00:36+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -3596,7 +3596,7 @@ msgstr "o tawa"
 msgid "Show Full Path"
 msgstr "o lukin e nasin tawa suli"
 
-#: filewidgets/kurlnavigatorbutton.cpp:699
+#: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

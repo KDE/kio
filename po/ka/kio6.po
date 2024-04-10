@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:36+0000\n"
+"POT-Creation-Date: 2024-04-10 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 02:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3765,7 +3765,7 @@ msgstr "ნავიგაცია"
 msgid "Show Full Path"
 msgstr "მთლიანი ბილიკის ჩვენება"
 
-#: filewidgets/kurlnavigatorbutton.cpp:699
+#: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

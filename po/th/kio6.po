@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:36+0000\n"
+"POT-Creation-Date: 2024-04-10 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -3828,7 +3828,7 @@ msgstr "นำทาง"
 msgid "Show Full Path"
 msgstr "แสดงพาธที่สมบูรณ์"
 
-#: filewidgets/kurlnavigatorbutton.cpp:699
+#: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
