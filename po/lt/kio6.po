@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:36+0000\n"
-"PO-Revision-Date: 2024-03-04 23:43+0200\n"
+"PO-Revision-Date: 2024-04-10 16:25+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -3659,11 +3659,10 @@ msgstr ""
 "pakaitos simbolius * ir ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Sukurti naują failo tipą"
+msgstr "Sukurti naują failą"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3786,11 +3785,10 @@ msgid "New Folder"
 msgstr "Naujas aplankas"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Sukurti aplanką"
+msgstr "Sukurti naują aplanką"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
