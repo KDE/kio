@@ -53,15 +53,17 @@
 >.</para>
 
 <para
->Vous avez sans doute déjà remarqué que &kde; est particulièrement adapté à l'utilisation d'Internet. Par exemple, en cliquant sur l'élément de menu <guimenuitem
+>Vous avez sans doute déjà remarqué que &kde; est particulièrement adapté à l'utilisation d'Internet. Par exemple, vous pouvez cliquer sur l'élément de menu <guimenuitem
 >Exécuter</guimenuitem
-> ou en utilisant le raccourci clavier assigné à cette commande (<keycombo action="simul"
+> ou saisir le raccourci clavier assigné à cette commande (<keycombo action="simul"
 >&Alt;<keycap
->Espace</keycap
+>F2</keycap
 ></keycombo
->, à moins que vous ne l'ayez modifié), vous pouvez y saisir une &URI;. <footnote
+> ou <keycombo action="simul"
+>&Alt; &Space;</keycombo
+>, à moins que vous ne l'ayez modifié), et saisir une &URI;. <footnote
 ><para
->Uniform Resource Identifier. Une manière standard d'appeler une ressource telle qu'un fichier sur votre ordinateur, une adresse internet, une adresse électronique, &etc;</para
+>URL (« Uniform Resource Identifier ») : une manière standardisé pour référencer une ressource telle qu'un fichier sur votre ordinateur, une adresse Internet, une adresse de courriel, &etc;</para
 ></footnote
 ></para>
 
@@ -90,27 +92,27 @@
 ></note>
 
 <para
->Ces raccourcis web sont utilisable partout où vous emploieriez normalement des &URI;. Des mots clés pour plusieurs moteurs de recherche devraient déjà être configurés sur votre système, mais vous pouvez en ajouter, les modifier ou encore supprimer ceux qui existent à l'aide de ce module. </para>
+>Ces raccourcis web sont utilisable partout où vous emploieriez normalement des &URI;. Des mots clés pour plusieurs moteurs de recherche devraient déjà être configurés sur votre système, mais vous pouvez en ajouter, les modifier ou encore supprimer ceux qui existent à l'aide de ce module.</para>
 
 </sect2>
 
 <sect2 id="ebrowse-use">
 
 <title
->Raccourcis Web</title>
+>Mots clé de recherche sur Internet</title>
 
 <para
 >Les intitulés des raccourcis web sont affichés dans une liste déroulante. Comme d'autres listes dans &kde;, il est possible de redimensionner les colonnes ou de cliquer sur un en-tête de colonne pour inverser l'ordre de tri (ascendant / descendant).</para>
 
 <para
->En dessous de la liste, l'option <guilabel
->Activer les raccourcis web</guilabel
-> doit être cochée pour en bénéficier. Utilisez les boutons à droite pour créer, modifier ou supprimer des raccourcis.</para>
+>Au bas de la liste, l'option <guilabel
+>Activer les mots clé de recherche sur Internet</guilabel
+> doit être cochée pour bénéficier de cette fonctionnalité. Veuillez utiliser les boutons sur la droite pour créer, modifier ou supprimer des raccourcis.</para>
 
 <para
->Si <guilabel
->Utiliser seulement les raccourcis sélectionnés</guilabel
-> est cochée, seuls les raccourcis web marqués comme préféré dans la troisième colonne seront utilisés dans les cas où peu des raccourcis sélectionnés pourraient être affichés. </para>
+>Si l'option <guilabel
+>N'utiliser que les mots clé favoris</guilabel
+> est cochée, seuls les mots clé marqués comme favoris dans la seconde colonne de la liste seront utilisés dans les cas où peu des raccourcis sélectionnés pourraient être affichés à ce moment. </para>
  
 <para
 >Toujours sous la liste, vous trouverez deux options supplémentaires :</para>
@@ -118,7 +120,7 @@
 <varlistentry
 ><term
 ><guilabel
->Raccourcis Web par défaut</guilabel
+>Mot clé de recherche par défaut sur Internet :</guilabel
 ></term>
 <listitem>
 <para
@@ -130,7 +132,7 @@
 <varlistentry
 ><term
 ><guilabel
->Délimiteur du mot clé</guilabel
+>Délimiteur du mot clé :</guilabel
 ></term>
 <listitem>
 <para
@@ -140,51 +142,51 @@
 </variablelist>
 
 <para
->En double-cliquant sur une entrée spécifique de la liste des moteurs de recherche ou en cliquant sur le bouton <guibutton
->Changer</guibutton
->, les détails de cette entrée s'afficheront dans une boîte de dialogue contextuelle. En plus de l'intitulé de l'entrée, vous verrez également l'&URI; utilisée mais aussi les raccourcis que vous pouvez saisir à tout endroit de &kde; où l'on attend une &URI;. Un moteur de recherche donné peut avoir plusieurs raccourcis, séparés par des virgules.</para>
+>Si vous effectuez un double clic sur une entrée spécifique de la liste des moteurs proposés de recherche ou un simple clic sur le bouton <guibutton
+>Modifier...</guibutton
+>, les détails de cette entrée seront affichés dans une boîte de dialogue contextuelle. En plus de l'intitulé de l'entrée, vous verrez également l'&URI; utilisée mais aussi les raccourcis que vous pouvez saisir à tout endroit de &kde; où l'on attend une &URI;. Un moteur de recherche donné peut avoir plusieurs raccourcis, séparés par des virgules.</para>
 
 <para
 >Les champs de texte sont utilisés non seulement pour afficher des informations sur une entrée de la liste des raccourcis web mais aussi pour les modifier ou en ajouter.</para>
 
 <para
->Vous pouvez modifier le contenu des champs de texte <guilabel
->l'URL du raccourci</guilabel
-> et <guilabel
->Raccourcis</guilabel
->. Cliquez sur <guibutton
+>Vous pouvez modifier le contenu des champs de texte soit de <guilabel
+>l'URL du raccourci :</guilabel
+> soit les <guilabel
+>Raccourcis : </guilabel
+>. Veuillez cliquer sur le bouton <guibutton
 >Ok</guibutton
-> pour enregistrer vos modifications ou <guibutton
+> pour enregistrer vos modifications ou sur le bouton <guibutton
 >Annuler</guibutton
-> pour quitter la boîte de dialogue et ignorer les modifications.</para>
+> pour quitter la boîte de dialogue sans faire de modifications.</para>
 
 <para
->En examinant le contenu du champ <guilabel
+>Si vous examinez le contenu du champ <guilabel
 >URL du raccourci</guilabel
 >, vous constaterez que la plupart des éléments contiennent les caractères <option
 >\{@}</option
->. Cette chaîne agit comme un paramètre devant être remplacé par ce que vous saisirez après le délimiteur du mot clé. Pour ajouter cette marque substitutive à l'URL du raccourci, cliquez sur le bouton situé à droite de la zone de texte. Voyons quelques exemples pour clarifier l'utilisation des raccourcis web.</para>
+>. Cette chaîne de quatre caractères agit comme un paramètre indiquant que ceux-ci doivent être remplacés par ce que vous saisirez après le caractère « deux points », situé entre le raccourci et son paramètre. Pour ajouter cette marque substitutive à l'&URL; du raccourci, veuillez cliquer sur le bouton situé à droite de la zone de texte. Voyons quelques exemples pour clarifier l'utilisation des raccourcis Internet.</para>
 
 <para
 >Supposons que l'&URI; soit <userinput
 >http://www.google.fr/search?q=\{@}</userinput
->, et que <userinput
+> et que <userinput
 >gg</userinput
-> en soit le raccourci. Saisir <userinput
->gg:<replaceable
+> en soit le raccourci. Alors, la saisie de <userinput
+>gg :<replaceable
 >alpha</replaceable
 ></userinput
 > équivaut à <userinput
-><replaceable
->http://www.google.fr/search?q=alpha</replaceable
+>https://www.google.com/search?q=<replaceable
+>alpha</replaceable
 ></userinput
 >. Vous pourriez saisir n'importe quoi après le caractère <userinput
 >:</userinput
->, cela remplacera simplement <option
+>. Tout ce que vous pourriez avoir saisi, remplacera simplement les caractères <option
 >\{@}</option
-> après avoir été converti en chaîne de caractères pour le moteur de recherche et encodé correctement en &URL;. Seule la partie <option
+> après avoir été converti en chaîne appropriée de caractères pour le moteur de recherche et encodé correctement en &URL;. Seule la partie <option
 >\{@}</option
-> de l'&URI; recherchée est concernée, le reste étant supposé proprement encodée comme &URL; et laissé tel quel.</para>
+> de l'&URI; de recherche est concernée. Le reste est supposé déjà être correctement encodé comme &URL; et laissé tel quel.</para>
 
 <para
 >Vous pouvez aussi avoir des raccourcis sans paramètre. Supposons que l'&URI; soit <emphasis
