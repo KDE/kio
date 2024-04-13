@@ -211,33 +211,37 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path
 
 static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QString &fullPath)
 {
-    assert(entry.count() == 0); // by contract :-)
-    int entries = 0;
+    assert(entry.count() == 0); // by contract :-)    assert(entry.count() == 0); // by contract :-)
+    int numberEntries = 0;
+    int stringEntries = 0;
     if (details & KIO::StatBasic) {
         // filename, access, type, size, linkdest
-        entries += 5;
+        numberEntries += 3;
+        stringEntries += 2;
     }
     if (details & KIO::StatUser) {
         // uid, gid
-        entries += 2;
+        numberEntries += 2;
     }
     if (details & KIO::StatTime) {
         // atime, mtime, btime
-        entries += 3;
+        numberEntries += 3;
     }
     if (details & KIO::StatAcl) {
         // acl data
-        entries += 3;
+        numberEntries += 1;
+        stringEntries += 2;
     }
     if (details & KIO::StatInode) {
         // dev, inode
-        entries += 2;
+        numberEntries += 2;
     }
     if (details & KIO::StatMimeType) {
         // mimetype
-        entries += 1;
+        stringEntries += 1;
     }
-    entry.reserve(entries);
+    entry.reserveNumbers(numberEntries);
+    entry.reserveStrings(stringEntries);
 
     if (details & KIO::StatBasic) {
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);

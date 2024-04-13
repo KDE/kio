@@ -27,12 +27,18 @@ using namespace KIO;
 class KIO::UDSEntryPrivate : public QSharedData
 {
 public:
-    void reserve(int size);
+    void reserveNumbers(int size);
+    void reserveStrings(int size);
+    void reserve(std::initializer_list<uint> fields);
+    void insert(std::initializer_list<std::pair<uint, long long>> fields);
     void insert(uint udsField, const QString &value);
     void replace(uint udsField, const QString &value);
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
     void insert(uint udsField, long long value);
     void replace(uint udsField, long long value);
     int count() const;
+    int numbersCount() const;
+    int stringsCount() const;
     QString stringValue(uint udsField) const;
     long long numberValue(uint udsField, long long defaultValue = -1) const;
     QList<uint> fields() const;
@@ -48,94 +54,142 @@ public:
     static QString nameOfUdsField(uint field);
 
 private:
-    struct Field {
-        inline Field()
-        {
-        }
-        inline Field(const uint index, const QString &value)
+    struct StringField {
+        inline StringField(const uint index, const QString &value)
             : m_str(value)
-            , m_index(index)
-        {
-        }
-        inline Field(const uint index, long long value = 0)
-            : m_long(value)
             , m_index(index)
         {
         }
 
         QString m_str;
+        uint m_index = 0;
+    };
+
+    struct NumberField {
+        inline NumberField(const uint index, long long value = 0)
+            : m_long(value)
+            , m_index(index)
+        {
+        }
+
         long long m_long = LLONG_MIN;
         uint m_index = 0;
     };
-    std::vector<Field> storage;
+
+    std::vector<StringField> stringStorage;
+    std::vector<NumberField> numberStorage;
 };
 
-void UDSEntryPrivate::reserve(int size)
+void UDSEntryPrivate::reserve(std::initializer_list<uint> fields)
 {
-    storage.reserve(size);
+    int stringSize = 0;
+    int numberSize = 0;
+    for (const auto f : fields) {
+        if (f & UDSEntry::UDS_NUMBER) {
+            numberSize += 1;
+        } else {
+            stringSize += 1;
+        }
+    }
+    reserveStrings(stringSize);
+    reserveNumbers(numberSize);
+}
+
+void UDSEntryPrivate::reserveStrings(int size)
+{
+    stringStorage.reserve(size);
+}
+
+void UDSEntryPrivate::reserveNumbers(int size)
+{
+    numberStorage.reserve(size);
+}
+
+void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs)
+{
+    stringStorage.reserve(fieldValuePairs.size() + stringStorage.size());
+    for (const auto &f : fieldValuePairs) {
+        insert(f.first, f.second);
+    }
 }
 
 void UDSEntryPrivate::insert(uint udsField, const QString &value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-    Q_ASSERT(std::find_if(storage.cbegin(),
-                          storage.cend(),
-                          [udsField](const Field &entry) {
+    Q_ASSERT(std::find_if(stringStorage.cbegin(),
+                          stringStorage.cend(),
+                          [udsField](const StringField &entry) {
                               return entry.m_index == udsField;
                           })
-             == storage.cend());
-    storage.emplace_back(udsField, value);
+             == stringStorage.cend());
+    stringStorage.emplace_back(udsField, value);
 }
 
 void UDSEntryPrivate::replace(uint udsField, const QString &value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-    auto it = std::find_if(storage.begin(), storage.end(), [udsField](const Field &entry) {
+    auto it = std::find_if(stringStorage.begin(), stringStorage.end(), [udsField](const StringField &entry) {
         return entry.m_index == udsField;
     });
-    if (it != storage.end()) {
+    if (it != stringStorage.end()) {
         it->m_str = value;
         return;
     }
-    storage.emplace_back(udsField, value);
+    stringStorage.emplace(it, udsField, value);
+}
+
+void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs)
+{
+    numberStorage.reserve(fieldValuePairs.size() + numberStorage.size());
+    for (const auto &f : fieldValuePairs) {
+        insert(f.first, f.second);
+    }
 }
 
 void UDSEntryPrivate::insert(uint udsField, long long value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-    Q_ASSERT(std::find_if(storage.cbegin(),
-                          storage.cend(),
-                          [udsField](const Field &entry) {
+    Q_ASSERT(std::find_if(numberStorage.cbegin(),
+                          numberStorage.cend(),
+                          [udsField](const NumberField &entry) {
                               return entry.m_index == udsField;
                           })
-             == storage.cend());
-    storage.emplace_back(udsField, value);
+             == numberStorage.cend());
+    numberStorage.emplace_back(udsField, value);
 }
 
 void UDSEntryPrivate::replace(uint udsField, long long value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-    auto it = std::find_if(storage.begin(), storage.end(), [udsField](const Field &entry) {
+    auto it = std::find_if(numberStorage.begin(), numberStorage.end(), [udsField](const NumberField &entry) {
         return entry.m_index == udsField;
     });
-    if (it != storage.end()) {
+    if (it != numberStorage.end()) {
         it->m_long = value;
         return;
     }
-    storage.emplace_back(udsField, value);
+    numberStorage.emplace(it, udsField, value);
 }
 
 int UDSEntryPrivate::count() const
 {
-    return storage.size();
+    return stringStorage.size() + numberStorage.size();
+}
+int UDSEntryPrivate::numbersCount() const
+{
+    return numberStorage.size();
+}
+int UDSEntryPrivate::stringsCount() const
+{
+    return stringStorage.size();
 }
 
 QString UDSEntryPrivate::stringValue(uint udsField) const
 {
-    auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &entry) {
+    auto it = std::find_if(stringStorage.cbegin(), stringStorage.cend(), [udsField](const StringField &entry) {
         return entry.m_index == udsField;
     });
-    if (it != storage.cend()) {
+    if (it != stringStorage.cend()) {
         return it->m_str;
     }
     return QString();
@@ -143,10 +197,10 @@ QString UDSEntryPrivate::stringValue(uint udsField) const
 
 long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) const
 {
-    auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &entry) {
+    auto it = std::find_if(numberStorage.cbegin(), numberStorage.cend(), [udsField](const NumberField &entry) {
         return entry.m_index == udsField;
     });
-    if (it != storage.cend()) {
+    if (it != numberStorage.cend()) {
         return it->m_long;
     }
     return defaultValue;
@@ -155,8 +209,11 @@ long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) co
 QList<uint> UDSEntryPrivate::fields() const
 {
     QList<uint> res;
-    res.reserve(storage.size());
-    for (const Field &field : storage) {
+    res.reserve(stringStorage.size() + numberStorage.size());
+    for (const StringField &field : stringStorage) {
+        res.append(field.m_index);
+    }
+    for (const NumberField &field : numberStorage) {
         res.append(field.m_index);
     }
     return res;
@@ -164,28 +221,46 @@ QList<uint> UDSEntryPrivate::fields() const
 
 bool UDSEntryPrivate::contains(uint udsField) const
 {
-    auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &entry) {
-        return entry.m_index == udsField;
-    });
-    return (it != storage.cend());
+    if (udsField & KIO::UDSEntry::UDS_NUMBER) {
+        auto it = std::find_if(numberStorage.cbegin(), numberStorage.cend(), [udsField](const NumberField &entry) {
+            return entry.m_index == udsField;
+        });
+        return (it != numberStorage.cend());
+
+    } else {
+        auto it = std::find_if(stringStorage.cbegin(), stringStorage.cend(), [udsField](const StringField &entry) {
+            return entry.m_index == udsField;
+        });
+        return (it != stringStorage.cend());
+    }
 }
 
 void UDSEntryPrivate::clear()
 {
-    storage.clear();
+    stringStorage.clear();
+    numberStorage.clear();
 }
 
 void UDSEntryPrivate::save(QDataStream &s) const
 {
-    s << static_cast<quint32>(storage.size());
+    s << static_cast<quint32>(stringStorage.size() + numberStorage.size());
 
-    for (const Field &field : storage) {
+    for (const StringField &field : stringStorage) {
         uint uds = field.m_index;
         s << uds;
 
-        if (uds & KIO::UDSEntry::UDS_STRING) {
+        if (uds & KIO::UDSEntry::UDS_STRING) [[likely]] {
             s << field.m_str;
-        } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
+        } else {
+            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
+        }
+    }
+
+    for (const NumberField &field : numberStorage) {
+        uint uds = field.m_index;
+        s << uds;
+
+        if (uds & KIO::UDSEntry::UDS_NUMBER) [[likely]] {
             s << field.m_long;
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
@@ -199,7 +274,8 @@ void UDSEntryPrivate::load(QDataStream &s)
 
     quint32 size;
     s >> size;
-    reserve(size);
+    reserveStrings(size / 3);
+    reserveNumbers(size * 2 / 3);
 
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
@@ -225,12 +301,13 @@ void UDSEntryPrivate::load(QDataStream &s)
             }
 
             insert(uds, cachedStrings.at(i));
+
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
             insert(uds, value);
         } else {
-            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
+            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an unexpected type");
         }
     }
 }
@@ -311,11 +388,17 @@ void UDSEntryPrivate::debugUDSEntry(QDebug &stream) const
 {
     QDebugStateSaver saver(stream);
     stream.nospace() << "[";
-    for (const Field &field : storage) {
+    for (const StringField &field : stringStorage) {
         stream << " " << nameOfUdsField(field.m_index) << "=";
         if (field.m_index & KIO::UDSEntry::UDS_STRING) {
             stream << field.m_str;
-        } else if (field.m_index & KIO::UDSEntry::UDS_NUMBER) {
+        } else {
+            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
+        }
+    }
+    for (const NumberField &field : numberStorage) {
+        stream << " " << nameOfUdsField(field.m_index) << "=";
+        if (field.m_index & KIO::UDSEntry::UDS_NUMBER) {
             stream << field.m_long;
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
@@ -337,10 +420,11 @@ UDSEntry::UDSEntry()
 UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
 {
+    d->reserveNumbers(7);
 #ifndef Q_OS_WIN
-    d->reserve(10);
+    d->reserveStrings(3);
 #else
-    d->reserve(8);
+    d->reserveStrings(1);
 #endif
     d->insert(UDS_NAME, name);
     d->insert(UDS_SIZE, buff.st_size);
@@ -382,9 +466,14 @@ bool UDSEntry::isLink() const
     return !stringValue(UDS_LINK_DEST).isEmpty();
 }
 
-void UDSEntry::reserve(int size)
+void KIO::UDSEntry::reserveStrings(int size)
 {
-    d->reserve(size);
+    d->reserveStrings(size);
+}
+
+void KIO::UDSEntry::reserveNumbers(int size)
+{
+    d->reserveNumbers(size);
 }
 
 void UDSEntry::fastInsert(uint field, const QString &value)
@@ -417,6 +506,16 @@ int UDSEntry::count() const
     return d->count();
 }
 
+int KIO::UDSEntry::stringsCount() const
+{
+    return d->stringsCount();
+}
+
+int KIO::UDSEntry::numbersCount() const
+{
+    return d->numbersCount();
+}
+
 bool UDSEntry::contains(uint field) const
 {
     return d->contains(field);
@@ -425,6 +524,27 @@ bool UDSEntry::contains(uint field) const
 void UDSEntry::clear()
 {
     d->clear();
+}
+
+void UDSEntry::reserve(int size)
+{
+    d->reserveStrings(size / 3);
+    d->reserveNumbers(size * 2 / 3);
+}
+
+void UDSEntry::reserve(std::initializer_list<uint> fields)
+{
+    d->reserve(fields);
+}
+
+void UDSEntry::insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs)
+{
+    d->insert(fieldValuePairs);
+}
+
+void UDSEntry::insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs)
+{
+    d->insert(fieldValuePairs);
 }
 // END UDSEntry
 
