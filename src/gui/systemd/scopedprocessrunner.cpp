@@ -47,7 +47,8 @@ void ScopedProcessRunner::startProcess()
                                     {} // aux is currently unused and should be passed as empty array.
         );
 
-    connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, [serviceName, efd](QDBusPendingCallWatcher *watcher) {
+    m_transientUnitStartupwatcher = new QDBusPendingCallWatcher(startReply, this);
+    connect(m_transientUnitStartupwatcher, &QDBusPendingCallWatcher::finished, [serviceName, efd](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         watcher->deleteLater();
         if (reply.isError()) {
@@ -60,6 +61,18 @@ void ScopedProcessRunner::startProcess()
         eventfd_write(efd, 1);
         close(efd);
     });
+}
+
+bool ScopedProcessRunner::waitForStarted(int timeout)
+{
+    if (m_process->state() == QProcess::NotRunning || m_waitingForXdgToken || !m_transientUnitStartupwatcher->isFinished()) {
+        QEventLoop loop;
+        QObject::connect(m_process.get(), &QProcess::stateChanged, &loop, &QEventLoop::quit);
+        QObject::connect(m_transientUnitStartupwatcher, &QDBusPendingCallWatcher::finished, &loop, &QEventLoop::quit);
+        QTimer::singleShot(timeout, &loop, &QEventLoop::quit);
+        loop.exec();
+    }
+    return m_process->waitForStarted(timeout);
 }
 
 #include "moc_scopedprocessrunner_p.cpp"
