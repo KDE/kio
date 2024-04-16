@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:36+0000\n"
-"PO-Revision-Date: 2024-01-27 14:48+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-04-10 11:52+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -3615,11 +3615,10 @@ msgstr ""
 "Hægt er að nota algildistákn eins og '*' og '?'.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:428
-#, fuzzy, kde-format
-#| msgid "Create new file type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Búa til nýja skráagerð"
+msgstr "Búa til nýja skrá"
 
 #: filewidgets/knewfilemenu.cpp:468
 #, kde-format
@@ -3739,11 +3738,10 @@ msgid "New Folder"
 msgstr "Ný mappa"
 
 #: filewidgets/knewfilemenu.cpp:1434
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Búa til möppu"
+msgstr "Búa til nýja möppu"
 
 #: filewidgets/knewfilemenu.cpp:1436
 #, kde-format
@@ -3988,17 +3986,13 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Ekki var hægt að ræsa forritið \"%1\"."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Skránni %1\n"
-"hefur verið breytt. Viltu senda breytingarnar?"
+"Skránni <filename>%1</filename><nl/>var breytt. Viltu hlaða upp breytingunum?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -6368,9 +6362,9 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"Ef festibitinn er valinn á möppu, getur aðeins eigandi hennar og "
-"rótarnotandinn eytt eða endurnefnt skrár.  Annars geta allir með "
-"skrifréttindi gert það."
+"Ef festibitinn er stilltur á möppu getur aðeins eigandi hennar og "
+"rótarnotandinn eytt skránni eða endurnefnt hana. Að öðrum kosti geta allir "
+"með skrifréttindi gert það."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
@@ -6394,7 +6388,7 @@ msgstr "Stilla GID"
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
-msgstr "Loðir við"
+msgstr "Fest"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1642
 #, kde-format
