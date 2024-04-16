@@ -117,7 +117,10 @@ QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(KJob *job)
     QPointer<QWidget> parentWidget = nullptr;
 
     if (job) {
-        parentWidget = KJobWidgets::window(job);
+        auto parentWindow = KJobWidgets::window(job);
+        if (parentWindow) {
+            parentWidget = parentWindow;
+        }
     }
 
     return getParentWidget(parentWidget);
