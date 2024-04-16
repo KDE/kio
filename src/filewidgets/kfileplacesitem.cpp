@@ -43,6 +43,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_isTeardownOverlayRecommended(false)
     , m_isTeardownInProgress(false)
     , m_isSetupInProgress(false)
+    , m_isEjectInProgress(false)
     , m_isReadOnly(false)
 {
     updateDeviceInfo(udi);
@@ -126,7 +127,7 @@ bool KFilePlacesItem::isDevice() const
 
 KFilePlacesModel::DeviceAccessibility KFilePlacesItem::deviceAccessibility() const
 {
-    if (m_isTeardownInProgress) {
+    if (m_isTeardownInProgress || m_isEjectInProgress) {
         return KFilePlacesModel::TeardownInProgress;
     } else if (m_isSetupInProgress) {
         return KFilePlacesModel::SetupInProgress;
@@ -488,6 +489,10 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_access->disconnect(this);
     }
 
+    if (m_opticalDrive) {
+        m_opticalDrive->disconnect(this);
+    }
+
     m_device = Solid::Device(udi);
     if (m_device.isValid()) {
         m_access = m_device.as<Solid::StorageAccess>();
@@ -499,9 +504,12 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_emblems = m_device.emblems();
 
         m_drive = nullptr;
+        m_opticalDrive = nullptr;
+
         Solid::Device parentDevice = m_device;
         while (parentDevice.isValid() && !m_drive) {
             m_drive = parentDevice.as<Solid::StorageDrive>();
+            m_opticalDrive = parentDevice.as<Solid::OpticalDrive>();
             parentDevice = parentDevice.parent();
         }
 
@@ -527,12 +535,24 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
             connect(m_access.data(), &Solid::StorageAccess::accessibilityChanged, this, &KFilePlacesItem::onAccessibilityChanged);
             onAccessibilityChanged(m_access->isAccessible());
         }
+
+        if (m_opticalDrive) {
+            connect(m_opticalDrive.data(), &Solid::OpticalDrive::ejectRequested, this, [this] {
+                m_isEjectInProgress = true;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+            connect(m_opticalDrive.data(), &Solid::OpticalDrive::ejectDone, this, [this] {
+                m_isEjectInProgress = false;
+                Q_EMIT itemChanged(id(), {KFilePlacesModel::DeviceAccessibilityRole});
+            });
+        }
     } else {
         m_access = nullptr;
         m_volume = nullptr;
         m_disc = nullptr;
         m_player = nullptr;
         m_drive = nullptr;
+        m_opticalDrive = nullptr;
         m_networkShare = nullptr;
         m_deviceIconName.clear();
         m_emblems.clear();
@@ -544,8 +564,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
 void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
 {
     m_isAccessible = isAccessible;
-    m_isCdrom =
-        m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>() || (m_volume && m_volume->fsType() == QLatin1String("iso9660"));
+    m_isCdrom = m_device.is<Solid::OpticalDrive>() || m_opticalDrive || (m_volume && m_volume->fsType() == QLatin1String("iso9660"));
     m_emblems = m_device.emblems();
 
     if (auto generic = m_device.as<Solid::GenericInterface>()) {

@@ -24,6 +24,7 @@ class StorageAccess;
 class StorageVolume;
 class StorageDrive;
 class NetworkShare;
+class OpticalDrive;
 class OpticalDisc;
 class PortableMediaPlayer;
 }
@@ -89,12 +90,14 @@ private:
     bool m_isTeardownOverlayRecommended;
     bool m_isTeardownInProgress;
     bool m_isSetupInProgress;
+    bool m_isEjectInProgress;
     bool m_isReadOnly;
     QString m_text;
     Solid::Device m_device;
     QPointer<Solid::StorageAccess> m_access;
     QPointer<Solid::StorageVolume> m_volume;
     QPointer<Solid::StorageDrive> m_drive;
+    QPointer<Solid::OpticalDrive> m_opticalDrive;
     QPointer<Solid::OpticalDisc> m_disc;
     QPointer<Solid::PortableMediaPlayer> m_player;
     QPointer<Solid::NetworkShare> m_networkShare;
