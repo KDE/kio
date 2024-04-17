@@ -57,7 +57,7 @@
 >kcookiejar5</command
 ></refname>
 <refpurpose
->Interface en ligne de commandes au démon de gestion des « cookies HTTP » de &kde;</refpurpose>
+>Interface en ligne de commandes pour le démon de gestion des cookies &HTTP; de &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -75,7 +75,7 @@
 >--shutdown</arg
 > <arg choice="opt"
 >--remove<replaceable
-> domain</replaceable
+> domaine</replaceable
 ></arg
 > <arg choice="opt"
 >--remove-all</arg
@@ -90,8 +90,8 @@
 
 <para
 ><command
->kcookiejcar5</command
-> est une interface en ligne de commandes pour l'ensemble des cookies « HTTP » utilisé par KDE, un service « D-BUS » permettant de stocker / retrouver / nettoyer les cookies. </para>
+>kcookiejar5</command
+> est une interface en ligne de commandes pour l'ensemble des cookies &HTTP;  utilisé par &kde;, un service &DBus; permettant d'enregistrer / de retrouver / de nettoyer les cookies. </para>
 </refsect1>
 
 <refsect1>
@@ -122,7 +122,7 @@
 ></term>
 <listitem>
 <para
->Affiche des informations sur la version</para>
+>Afficher les informations de version</para>
 </listitem>
 </varlistentry>
 
@@ -133,7 +133,7 @@
 ></term>
 <listitem>
 <para
->Coupe la boîte à cookies et le service D-BUS. </para>
+>Arrêter la boîte à cookies et le service &DBus;. </para>
 </listitem>
 </varlistentry>
 
@@ -185,11 +185,9 @@
 <para
 ><command
 >kcookiejar5</command
-> est un outil en ligne de commandes pour accéder au module « kded » pour la gestion des cookies dans <command
->Konqueror</command
-> et d'autres applications KDE.</para>
+> est un outil en ligne de commandes pour accéder au module « kded » gérant les cookies dans &konqueror; et d'autres applications de &kde;.</para>
 <para
->Lors d'un démarrage sans paramètre, il charge le module « kded » pour fournir un interface « D-bus » pour enregistrer les cookies. </para>
+>Lors d'un démarrage sans paramètre, il charge le module « kded » pour fournir un interface &DBus; pour enregistrer les cookies. </para>
 <para
 >Lorsque <command
 >kcookiejar5</command
@@ -214,8 +212,8 @@
 <title
 >Bogues</title>
 <para
->Veuillez utiliser <ulink url="https://bugs.kde.org"
->bugs.kde.org</ulink
+>Veuillez utiliser le <ulink url="https://bugs.kde.org"
+>traqueur de bogues de &kde;</ulink
 > pour signaler les bogues.</para>
 </refsect1>
 
