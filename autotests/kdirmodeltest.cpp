@@ -1621,7 +1621,7 @@ void KDirModelTest::testDeleteFiles()
         for (int sigNum = 0; sigNum < spyRowsRemoved.count(); ++sigNum) {
             numRowsRemoved += spyRowsRemoved[sigNum][2].toInt() - spyRowsRemoved[sigNum][1].toInt() + 1;
         }
-        qDebug() << "numRowsRemoved=" << numRowsRemoved;
+        // qDebug() << "numRowsRemoved=" << numRowsRemoved;
     }
 
     const int topLevelRowCount = m_dirModel->rowCount();
