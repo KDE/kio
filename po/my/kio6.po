@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:36+0000\n"
+"POT-Creation-Date: 2024-04-18 00:36+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2889,43 +2889,43 @@ msgstr ""
 "<qt>လက်ရှိအပ္ပလီကေးရှင်း (%1) ကိုသုံးနေစဥ် စာရင်းမှတ်ချက်ကို ပြချင်ပါက ဤသတ်မှတ်ချက်ကို ရွေးပါ။<br /"
 "><br />မရွေးထားလျှင် အပ္ပလီကေးရှင်းအားလုံးတွင် ပြမည်။</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:185
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "နေရာများ"
 
-#: filewidgets/kfileplacesitem.cpp:188
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "အဝေး"
 
-#: filewidgets/kfileplacesitem.cpp:191
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "လတ်တလော"
 
-#: filewidgets/kfileplacesitem.cpp:194
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "ရှာရန်"
 
-#: filewidgets/kfileplacesitem.cpp:197
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "စက်များ"
 
-#: filewidgets/kfileplacesitem.cpp:200
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "ဖြုတ်လို့ရသော စက်များ"
 
-#: filewidgets/kfileplacesitem.cpp:203
+#: filewidgets/kfileplacesitem.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3649,7 +3649,7 @@ msgstr "%1တွင် ဖိုလ်ဒါအသစ်တည်ဆောက်
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3657,34 +3657,34 @@ msgid "Copy"
 msgstr "ကူးယူရန်"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "ပွား"
 
-#: filewidgets/kurlnavigator.cpp:545
+#: filewidgets/kurlnavigator.cpp:552
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "\"%1\"ကို တပ်ဘ်အသစ်တွင်ဖွင့်"
 
-#: filewidgets/kurlnavigator.cpp:553
+#: filewidgets/kurlnavigator.cpp:560
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "\"%1\"ကိုဝင်းဒိုးအသစ်တွင်ဖွင့်မည်"
 
-#: filewidgets/kurlnavigator.cpp:562
+#: filewidgets/kurlnavigator.cpp:569
 #, kde-format
 msgid "Edit"
 msgstr "တည်းဖြတ်"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:572
 #, kde-format
 msgid "Navigate"
 msgstr "လမ်းညွှန်မည်"
 
-#: filewidgets/kurlnavigator.cpp:580
+#: filewidgets/kurlnavigator.cpp:587
 #, kde-format
 msgid "Show Full Path"
 msgstr "လမ်းကြောင်းအပြည့်အစုံပြမည်"

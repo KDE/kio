@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:36+0000\n"
+"POT-Creation-Date: 2024-04-18 00:36+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3054,47 +3054,47 @@ msgstr ""
 "यो सेटिङ चयन गर्नुहोस् ।<p>यदि यो सेटिङ चयन नगरिएमा, सबै अनुप्रयोगहरूमा प्रविष्टि उपलब्ध "
 "हुनेछ ।</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:185
+#: filewidgets/kfileplacesitem.cpp:186
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@item"
 msgid "Places"
 msgstr "राख्दछ"
 
-#: filewidgets/kfileplacesitem.cpp:188
+#: filewidgets/kfileplacesitem.cpp:189
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@item"
 msgid "Remote"
 msgstr "हटाउनुहोस्"
 
-#: filewidgets/kfileplacesitem.cpp:191
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:194
+#: filewidgets/kfileplacesitem.cpp:195
 #, fuzzy, kde-format
 #| msgid "&Search:"
 msgctxt "@item"
 msgid "Search For"
 msgstr "खोज्नुहोस्:"
 
-#: filewidgets/kfileplacesitem.cpp:197
+#: filewidgets/kfileplacesitem.cpp:198
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgctxt "@item"
 msgid "Devices"
 msgstr "यन्त्र"
 
-#: filewidgets/kfileplacesitem.cpp:200
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:203
+#: filewidgets/kfileplacesitem.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3909,7 +3909,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3917,36 +3917,36 @@ msgid "Copy"
 msgstr "प्रतिलिपि बनाउनुहोस्"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "टाँस्नुहोस्"
 
-#: filewidgets/kurlnavigator.cpp:545
+#: filewidgets/kurlnavigator.cpp:552
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "यससँग खोल्नुहोस्"
 
-#: filewidgets/kurlnavigator.cpp:553
+#: filewidgets/kurlnavigator.cpp:560
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "यससँग खोल्नुहोस्"
 
-#: filewidgets/kurlnavigator.cpp:562
+#: filewidgets/kurlnavigator.cpp:569
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादन गर्नुहोस्"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:572
 #, kde-format
 msgid "Navigate"
 msgstr "नेभिगेट गर्नुहोस्"
 
-#: filewidgets/kurlnavigator.cpp:580
+#: filewidgets/kurlnavigator.cpp:587
 #, kde-format
 msgid "Show Full Path"
 msgstr ""

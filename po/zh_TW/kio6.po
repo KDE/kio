@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:36+0000\n"
+"POT-Creation-Date: 2024-04-18 00:36+0000\n"
 "PO-Revision-Date: 2024-04-04 19:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2840,43 +2840,43 @@ msgstr ""
 "<qt>如果您希望這個項目只在使用目前的應用程式 (%1) 時顯示，請選擇此設定。\n"
 "<br /><br />如果沒有選取這項設定，該項目將在所有應用程式中顯示。</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:185
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "快速存取"
 
-#: filewidgets/kfileplacesitem.cpp:188
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "遠端"
 
-#: filewidgets/kfileplacesitem.cpp:191
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "最近項目"
 
-#: filewidgets/kfileplacesitem.cpp:194
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "搜尋"
 
-#: filewidgets/kfileplacesitem.cpp:197
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "裝置"
 
-#: filewidgets/kfileplacesitem.cpp:200
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "可移除裝置"
 
-#: filewidgets/kfileplacesitem.cpp:203
+#: filewidgets/kfileplacesitem.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3587,7 +3587,7 @@ msgstr "在 %1 建立新資料夾："
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3595,34 +3595,34 @@ msgid "Copy"
 msgstr "複製"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "貼上"
 
-#: filewidgets/kurlnavigator.cpp:545
+#: filewidgets/kurlnavigator.cpp:552
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新分頁開啟「%1」"
 
-#: filewidgets/kurlnavigator.cpp:553
+#: filewidgets/kurlnavigator.cpp:560
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新視窗開啟「%1」"
 
-#: filewidgets/kurlnavigator.cpp:562
+#: filewidgets/kurlnavigator.cpp:569
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:572
 #, kde-format
 msgid "Navigate"
 msgstr "導覽"
 
-#: filewidgets/kurlnavigator.cpp:580
+#: filewidgets/kurlnavigator.cpp:587
 #, kde-format
 msgid "Show Full Path"
 msgstr "顯示完整路徑"
