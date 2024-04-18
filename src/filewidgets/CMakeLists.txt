@@ -76,6 +76,16 @@ ecm_qt_declare_logging_category(KF6KIOFileWidgets
     EXPORT KIO
 )
 
+ecm_qt_declare_logging_category(KF6KIOFileWidgets
+    HEADER kfilewidgets_debug.h
+    IDENTIFIER KFILEWIDGETS_LOG
+    CATEGORY_NAME kf.kio.filewidgets.kfilewidgets
+    OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilewidgets
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "KFileWidgets (KIO)"
+    EXPORT KIO
+)
+
 ecm_generate_export_header(KF6KIOFileWidgets
     BASE_NAME KIOFileWidgets
     GROUP_BASE_NAME KF

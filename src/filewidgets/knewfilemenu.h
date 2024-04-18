@@ -136,6 +136,21 @@ public:
      */
     void setNewFileShortcutAction(QAction *action);
 
+    /**
+     * Use this to check if namejob for new directory creation still running.
+     * Namejob is what spawns the new directory dialog, which can be slow in,
+     * for example, network folders.
+     *
+     * @since 6.1
+     */
+    bool isCreateDirectoryRunning();
+
+    /**
+     * Use this to check if the file creation process is still running.
+     * @since 6.1
+     */
+    bool isCreateFileRunning();
+
 public Q_SLOTS:
     /**
      * Checks if updating the list is necessary
@@ -165,15 +180,36 @@ public Q_SLOTS:
     void createFile();
 
 Q_SIGNALS:
+
+    /**
+     * Emitted once the creation job for file @p url has been started
+     */
+    void fileCreationStarted(const QUrl &url);
+
     /**
      * Emitted once the file (or symlink) @p url has been successfully created
      */
     void fileCreated(const QUrl &url);
 
     /**
+     * Emitted once the creation for file @p url has been rejected
+     */
+    void fileCreationRejected(const QUrl &url);
+
+    /**
+     * Emitted once the creation job for directory @p url has been started
+     */
+    void directoryCreationStarted(const QUrl &url);
+
+    /**
      * Emitted once the directory @p url has been successfully created
      */
     void directoryCreated(const QUrl &url);
+
+    /**
+     * Emitted once the creation for directory @p url has been rejected
+     */
+    void directoryCreationRejected(const QUrl &url);
 
     /**
      * Emitted when trying to create a new directory that has the same name as

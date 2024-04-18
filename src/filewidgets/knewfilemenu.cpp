@@ -8,6 +8,7 @@
 
 #include "knewfilemenu.h"
 #include "../utils_p.h"
+#include "kfilewidgets_debug.h"
 #include "knameandurlinputdialog.h"
 
 #include <kdirnotify.h>
@@ -43,6 +44,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QList>
+#include <QLoggingCategory>
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QPushButton>
@@ -401,6 +403,8 @@ public:
     bool m_selectDirWhenAlreadyExists = false;
     bool m_acceptedPressed = false;
     bool m_statRunning = false;
+    bool m_isCreateDirectoryRunning = false;
+    bool m_isCreateFileRunning = false;
 };
 
 void KNewFileMenuPrivate::_k_slotAccepted()
@@ -545,6 +549,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
 
 void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entry &entry)
 {
+    Q_EMIT q->fileCreationStarted(QUrl(entry.filePath));
+
     initDialog();
 
     const auto getSelectionLength = [](const QString &text) {
@@ -862,6 +868,11 @@ QUrl KNewFileMenuPrivate::mostLocalUrl(const QUrl &url)
 void KNewFileMenuPrivate::slotAbortDialog()
 {
     m_text = QString();
+    if (m_creatingDirectory) {
+        Q_EMIT q->directoryCreationRejected(m_baseUrl);
+    } else {
+        Q_EMIT q->fileCreationRejected(m_baseUrl);
+    }
 }
 
 void KNewFileMenuPrivate::slotActionTriggered(QAction *action)
@@ -1369,6 +1380,29 @@ KNewFileMenu::KNewFileMenu(QObject *parent)
     connect(d->m_newMenuGroup, &QActionGroup::triggered, this, [this](QAction *action) {
         d->slotActionTriggered(action);
     });
+
+    // Connect directory creation signals
+    connect(this, &KNewFileMenu::directoryCreationStarted, this, [this] {
+        d->m_isCreateDirectoryRunning = true;
+    });
+    connect(this, &KNewFileMenu::directoryCreated, this, [this] {
+        d->m_isCreateDirectoryRunning = false;
+    });
+    connect(this, &KNewFileMenu::directoryCreationRejected, this, [this] {
+        d->m_isCreateDirectoryRunning = false;
+    });
+
+    // Connect file creation signals
+    connect(this, &KNewFileMenu::fileCreationStarted, this, [this] {
+        d->m_isCreateFileRunning = true;
+    });
+    connect(this, &KNewFileMenu::fileCreated, this, [this] {
+        d->m_isCreateFileRunning = false;
+    });
+    connect(this, &KNewFileMenu::fileCreationRejected, this, [this] {
+        d->m_isCreateFileRunning = false;
+    });
+
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
 
@@ -1412,9 +1446,13 @@ void KNewFileMenu::createDirectory()
         return;
     }
 
-    QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
-
     d->m_baseUrl = d->m_popupFiles.first();
+
+    if (d->m_isCreateDirectoryRunning) {
+        qCWarning(KFILEWIDGETS_LOG) << "Directory creation is already running for " << d->m_baseUrl;
+    }
+
+    QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
 
     auto nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
     connect(nameJob, &KJob::result, this, [nameJob, name, this]() mutable {
@@ -1425,6 +1463,12 @@ void KNewFileMenu::createDirectory()
         d->showNewDirNameDlg(name);
     });
     nameJob->start();
+    Q_EMIT directoryCreationStarted(d->m_baseUrl);
+}
+
+bool KNewFileMenu::isCreateDirectoryRunning()
+{
+    return d->m_isCreateDirectoryRunning;
 }
 
 void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
@@ -1461,15 +1505,26 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 void KNewFileMenu::createFile()
 {
     if (d->m_popupFiles.isEmpty()) {
+        Q_EMIT fileCreationRejected(QUrl());
         return;
     }
 
     checkUpToDate();
     if (!d->m_firstFileEntry) {
+        Q_EMIT fileCreationRejected(QUrl());
         return;
     }
 
-    d->executeRealFileOrDir(*d->m_firstFileEntry);
+    if (!d->m_isCreateFileRunning) {
+        d->executeRealFileOrDir(*d->m_firstFileEntry);
+    } else {
+        qCWarning(KFILEWIDGETS_LOG) << "File creation is already running for " << d->m_firstFileEntry;
+    }
+}
+
+bool KNewFileMenu::isCreateFileRunning()
+{
+    return d->m_isCreateFileRunning;
 }
 
 bool KNewFileMenu::isModal() const
