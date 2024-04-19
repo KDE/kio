@@ -22,7 +22,7 @@ namespace KIO
 struct Task {
     int cmd = -1;
     long len = 0;
-    QByteArray data;
+    QByteArray data{};
 };
 
 class ConnectionBackend : public QObject

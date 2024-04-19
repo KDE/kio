@@ -1201,7 +1201,7 @@ bool HTTPProtocol::davDestinationExists(const QUrl &url)
 KIO::WorkerResult HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD method, qint64 size)
 {
     // TODO what about size?
-
+    Q_UNUSED(size)
     QMap<QByteArray, QByteArray> extraHeaders;
 
     if (method == KIO::DAV_PROPFIND || method == KIO::DAV_REPORT) {

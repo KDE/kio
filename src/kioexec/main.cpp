@@ -277,7 +277,7 @@ void KIOExec::slotRunApp()
         QThread::sleep(sleepSecs);
         qCDebug(KIOEXEC) << sleepSecs << "seconds have passed, deleting temp files";
 
-        for (const QString &src : qAsConst(tempFilesToRemove)) {
+        for (const QString &src : std::as_const(tempFilesToRemove)) {
             QFileInfo info(src);
             const QString parentDir = info.path();
             qCDebug(KIOEXEC) << "deleting" << info.filePath();
