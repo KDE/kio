@@ -257,7 +257,7 @@ void KFileItemTest::testMimeTypeCtor()
     QVERIFY(!fileItem.isMimeTypeKnown());
 }
 
-void KFileItemTest::testBasic()
+void KFileItemTest::testBasicFile()
 {
     QTemporaryFile file;
     QVERIFY(file.open());
@@ -277,11 +277,39 @@ void KFileItemTest::testBasic()
     QVERIFY(fileItem.isReadable());
     QVERIFY(fileItem.isWritable());
     QVERIFY(fileItem.isFile());
+    QVERIFY(fileItem.isRegularFile());
     QVERIFY(!fileItem.isDir());
     QVERIFY(!fileItem.isDesktopFile());
+    QCOMPARE(fileItem.mimetype(), "text/plain");
+    // StatMimeType was not requested
+    QVERIFY(!fileItem.entry().contains(KIO::UDSEntry::UDS_MIME_TYPE));
 #ifndef Q_OS_WIN
     QCOMPARE(fileItem.user(), KUser().loginName());
 #endif
+    // TODO test date fields
+}
+
+void KFileItemTest::testBasicDirectory()
+{
+    QTemporaryDir dir;
+    QUrl dirUrl = QUrl::fromLocalFile(dir.path());
+    KFileItem dirItem(dirUrl, QString(), KFileItem::Unknown);
+    QCOMPARE(dirItem.text(), dirUrl.fileName());
+    QVERIFY(dirItem.isLocalFile());
+    QCOMPARE(dirItem.localPath(), dirUrl.toLocalFile());
+    QCOMPARE(dirItem.size(), KIO::filesize_t(40));
+    QVERIFY(dirItem.linkDest().isEmpty());
+    QVERIFY(!dirItem.isHidden());
+    QVERIFY(dirItem.isReadable());
+    QVERIFY(dirItem.isWritable());
+    QVERIFY(!dirItem.isFile());
+    QVERIFY(!dirItem.isRegularFile());
+    QVERIFY(dirItem.isDir());
+    QCOMPARE(dirItem.mimetype(), "inode/directory");
+    // StatMimeType was not requested
+    QVERIFY(!dirItem.entry().contains(KIO::UDSEntry::UDS_MIME_TYPE));
+    QVERIFY(!dirItem.isDesktopFile());
+    // TODO test date fields
 }
 
 void KFileItemTest::testRootDirectory()

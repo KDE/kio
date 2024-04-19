@@ -21,7 +21,8 @@ private Q_SLOTS:
     void testDetach();
     void testMove();
     void testMimeTypeCtor();
-    void testBasic();
+    void testBasicFile();
+    void testBasicDirectory();
     void testRootDirectory();
     void testHiddenFile();
     void testMimeTypeOnDemand();
