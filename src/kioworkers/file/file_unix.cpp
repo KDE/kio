@@ -346,8 +346,13 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 
     if (details & KIO::StatMimeType) {
-        QMimeDatabase db;
-        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath).name());
+        if (type == 0 || type != S_IFDIR) {
+            QMimeDatabase db;
+            entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath).name());
+        } else {
+            // fast path for directories
+            entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+        }
     }
 
     return true;
