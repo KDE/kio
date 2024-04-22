@@ -185,7 +185,7 @@ KFileFilter KFileFilter::fromMimeType(const QString &mimeType)
     static QMimeDatabase db;
     const QMimeType type = db.mimeTypeForName(mimeType);
 
-    if (type.isValid()) {
+    if (type.isValid() || mimeType.endsWith(QLatin1String("/*"))) {
         KFileFilter filter(type.comment(), {}, {mimeType});
         return filter;
     } else {
