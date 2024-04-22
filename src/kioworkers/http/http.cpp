@@ -1599,6 +1599,10 @@ KIO::WorkerResult HTTPProtocol::sendHttpError(const QUrl &url, KIO::HTTP_METHOD 
     }
 
     if (errorCode) {
+        if (errorCode == KIO::ERR_DOES_NOT_EXIST) {
+            errorString = url.toDisplayString();
+        }
+
         return KIO::WorkerResult::fail(errorCode, errorString);
     }
 
