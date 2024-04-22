@@ -232,7 +232,7 @@ const char *FtpInternal::ftpResponse(int iOffset)
         // "nnn-text" we loop here until a final "nnn text" line is
         // reached. Only data from the final line will be stored.
         do {
-            while (!m_control->canReadLine() && m_control->waitForReadyRead((q->readTimeout() * 1000))) { }
+            while (!m_control->canReadLine() && m_control->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000))) { }
             m_lastControlLine = m_control->readLine();
             pTxt = m_lastControlLine.data();
             int iCode = atoi(pTxt);
@@ -1040,7 +1040,7 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
 
         if (m_server && !m_data) {
             qCDebug(KIO_FTP) << "waiting for connection from remote.";
-            m_server->waitForNewConnection(q->connectTimeout() * 1000);
+            m_server->waitForNewConnection(DEFAULT_CONNECT_TIMEOUT * 1000);
             m_data = m_server->nextPendingConnection();
         }
 
@@ -1566,7 +1566,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
 
     // get a line from the data connection ...
     while (true) {
-        while (!m_data->canReadLine() && m_data->waitForReadyRead((q->readTimeout() * 1000))) { }
+        while (!m_data->canReadLine() && m_data->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000))) { }
         QByteArray data = m_data->readLine();
         if (data.size() == 0) {
             break;
@@ -1891,7 +1891,7 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
             iBlockSize = sizeof(buffer) - iBufferCur;
         }
         if (m_data->bytesAvailable() == 0) {
-            m_data->waitForReadyRead((q->readTimeout() * 1000));
+            m_data->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000));
         }
         int n = m_data->read(buffer + iBufferCur, iBlockSize);
         if (n <= 0) {
@@ -2392,7 +2392,7 @@ Result FtpInternal::ftpSendMimeType(const QUrl &url)
 
     while (true) {
         // Wait for content to be available...
-        if (m_data->bytesAvailable() == 0 && !m_data->waitForReadyRead((q->readTimeout() * 1000))) {
+        if (m_data->bytesAvailable() == 0 && !m_data->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000))) {
             return Result::fail(ERR_CANNOT_READ, url.toString());
         }
 
@@ -2475,7 +2475,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
     QTcpSocket *socket = new QSslSocket;
     socket->setProxy(proxy);
     socket->connectToHost(host, port);
-    socket->waitForConnected(q->connectTimeout() * 1000);
+    socket->waitForConnected(DEFAULT_CONNECT_TIMEOUT * 1000);
     const auto socketError = socket->error();
     if (socketError == QAbstractSocket::ProxyAuthenticationRequiredError) {
         AuthInfo info;
@@ -2505,7 +2505,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
         socket = new QSslSocket;
         socket->setProxy(proxy);
         socket->connectToHost(host, port);
-        socket->waitForConnected(q->connectTimeout() * 1000);
+        socket->waitForConnected(DEFAULT_CONNECT_TIMEOUT * 1000);
 
         if (socket->state() == QAbstractSocket::ConnectedState) {
             // reconnect with credentials was successful -> save data
