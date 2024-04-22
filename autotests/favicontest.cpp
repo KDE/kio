@@ -67,6 +67,7 @@ void FavIconTest::initTestCase()
     qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
     // To get KJob::errorString() in English
     qputenv("LC_ALL", "en_US.UTF-8");
+    qputenv("LANGUAGE", "en");
 
     if (!checkNetworkAccess()) {
         QSKIP("no network access", SkipAll);

@@ -29,6 +29,7 @@ void MimeTypeFinderJobTest::cleanupTestCase()
 
 void MimeTypeFinderJobTest::init()
 {
+    qputenv("LANGUAGE", "en");
 }
 
 static void createSrcFile(const QString &path)

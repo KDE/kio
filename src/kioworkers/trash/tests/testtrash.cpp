@@ -48,6 +48,7 @@ int initLocale()
 #ifdef UTF8TEST
     // Assume utf8 system
     setenv("LC_ALL", "C.utf-8", 1);
+    setenv("LANGUAGE", "en", 1);
     setenv("KDE_UTF8_FILENAMES", "true", 1);
 #else
     // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
