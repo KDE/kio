@@ -437,10 +437,10 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
         }
         jobWorker(m_putJob)->setOffset(offset);
 
-        m_putJob->d_func()->internalSuspend();
+        // m_putJob->d_func()->internalSuspend();
         q->addSubjob(m_getJob);
         connectSubjob(m_getJob); // Progress info depends on get
-        m_getJob->d_func()->internalResume(); // Order a beer
+        // m_getJob->d_func()->internalResume(); // Order a beer
 
         q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
             slotData(job, data);
@@ -458,8 +458,8 @@ void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
     if (!m_putJob) {
         return; // Don't crash
     }
-    m_getJob->d_func()->internalSuspend();
-    m_putJob->d_func()->internalResume(); // Drink the beer
+    // m_getJob->d_func()->internalSuspend();
+    // m_putJob->d_func()->internalResume(); // Drink the beer
     m_buffer += data;
 
     // On the first set of data incoming, we tell the "put" worker about our
@@ -486,8 +486,8 @@ void FileCopyJobPrivate::slotDataReq(KIO::Job *, QByteArray &data)
         return;
     }
     if (m_getJob) {
-        m_getJob->d_func()->internalResume(); // Order more beer
-        m_putJob->d_func()->internalSuspend();
+        // m_getJob->d_func()->internalResume(); // Order more beer
+        // m_putJob->d_func()->internalSuspend();
     }
     data = m_buffer;
     m_buffer = QByteArray();
@@ -576,7 +576,7 @@ void FileCopyJob::slotResult(KJob *job)
         // qDebug() << "m_getJob finished";
         d->m_getJob = nullptr; // No action required
         if (d->m_putJob) {
-            d->m_putJob->d_func()->internalResume();
+            // d->m_putJob->d_func()->internalResume();
         }
     }
 
@@ -586,7 +586,7 @@ void FileCopyJob::slotResult(KJob *job)
         if (d->m_getJob) {
             // The get job is still running, probably after emitting data(QByteArray())
             // and before we receive its finished().
-            d->m_getJob->d_func()->internalResume();
+            // d->m_getJob->d_func()->internalResume();
         }
         if (d->m_move) {
             d->m_delJob = file_delete(d->m_src, HideProgressInfo /*no GUI*/); // Delete source
