@@ -141,13 +141,13 @@ public:
      * Namejob is what spawns the new directory dialog, which can be slow in,
      * for example, network folders.
      *
-     * @since 6.1
+     * @since 6.2
      */
     bool isCreateDirectoryRunning();
 
     /**
      * Use this to check if the file creation process is still running.
-     * @since 6.1
+     * @since 6.2
      */
     bool isCreateFileRunning();
 
@@ -183,6 +183,7 @@ Q_SIGNALS:
 
     /**
      * Emitted once the creation job for file @p url has been started
+     * @since 6.2
      */
     void fileCreationStarted(const QUrl &url);
 
@@ -193,11 +194,13 @@ Q_SIGNALS:
 
     /**
      * Emitted once the creation for file @p url has been rejected
+     * @since 6.2
      */
     void fileCreationRejected(const QUrl &url);
 
     /**
      * Emitted once the creation job for directory @p url has been started
+     * @since 6.2
      */
     void directoryCreationStarted(const QUrl &url);
 
@@ -208,6 +211,7 @@ Q_SIGNALS:
 
     /**
      * Emitted once the creation for directory @p url has been rejected
+     * @since 6.2
      */
     void directoryCreationRejected(const QUrl &url);
 
