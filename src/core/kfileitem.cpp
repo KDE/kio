@@ -1401,7 +1401,7 @@ QString KFileItem::getStatusBarInfo() const
     if (d->m_bLink) {
         auto linkText = linkDest();
         if (!linkText.startsWith(QStringLiteral("anon_inode:"))) {
-            linkText = toDisplayUrl(d->m_url.resolved(QUrl::fromUserInput(linkText)));
+            linkText = toDisplayUrl(d->m_url.resolved(QUrl(linkText)));
         }
         text += QLatin1Char(' ');
         if (comment.isEmpty()) {

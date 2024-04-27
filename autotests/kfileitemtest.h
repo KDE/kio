@@ -15,6 +15,7 @@ class KFileItemTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void testPermissionsString();
+    void testRelativeSymlinkGetStatusBarInfo();
     void testNull();
     void testDoesNotExist();
     void testDetach();

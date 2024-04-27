@@ -118,6 +118,51 @@ void KFileItemTest::testPermissionsString()
     QCOMPARE(unkwnownfileItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("unkwnown_file (Unknown)")));
 }
 
+// https://bugs.kde.org/475422
+void KFileItemTest::testRelativeSymlinkGetStatusBarInfo()
+{
+#ifdef Q_OS_UNIX
+    QTemporaryDir tempDir;
+
+    // relative symlink to a file
+    {
+        KIO::UDSEntry entry;
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("afile.relative"));
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("afile"));
+
+        KFileItem symlinkItem(entry, QUrl::fromLocalFile(tempDir.path()), true, true);
+        QCOMPARE(symlinkItem.getStatusBarInfo(),
+                 CaseInsensitiveStringCompareHelper(QStringLiteral("afile.relative (Unknown, Link to %1/afile)").arg(tempDir.path())));
+    }
+
+    // relative symlink to a file, name has spaces
+    {
+        KIO::UDSEntry entry;
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("a file with spaces.relative"));
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("a file with spaces"));
+
+        KFileItem symlinkItem(entry, QUrl::fromLocalFile(tempDir.path()), true, true);
+        QCOMPARE(
+            symlinkItem.getStatusBarInfo(),
+            CaseInsensitiveStringCompareHelper(QStringLiteral("a file with spaces.relative (Unknown, Link to %1/a file with spaces)").arg(tempDir.path())));
+    }
+
+    // relative symlink in remote
+    {
+        KIO::UDSEntry entry;
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("afile.relative"));
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("afile"));
+
+        QString remotePath = QStringLiteral("fish://192.168.1.1/tmp");
+
+        KFileItem symlinkItem(entry, QUrl(remotePath), true, true);
+        QCOMPARE(symlinkItem.getStatusBarInfo(),
+                 CaseInsensitiveStringCompareHelper(QStringLiteral("afile.relative (Unknown, Link to %1/afile)").arg(remotePath)));
+    }
+
+#endif
+}
+
 void KFileItemTest::testNull()
 {
     KFileItem null;
