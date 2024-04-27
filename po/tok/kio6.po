@@ -1,19 +1,18 @@
-# Janet Blackquill <uhhadd@gmail.com>, 2022.
+# Janet Blackquill <uhhadd@gmail.com>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-19 00:36+0000\n"
-"PO-Revision-Date: 2022-06-20 03:30+0000\n"
-"Last-Translator: Weblate Admin <admin@example.com>\n"
-"Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
-"ilo-kde/base/tok/>\n"
+"PO-Revision-Date: 2024-04-26 14:54-0400\n"
+"Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
+"Language-Team: C <kde-i18n-doc@kde.org>\n"
 "Language: tok\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : 3;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Lokalize 22.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2895,7 +2894,7 @@ msgstr "lipu pi tenpo poka"
 #: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
-msgstr "ma pi tenpo poka"
+msgstr "poki pi tenpo poka"
 
 #: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
