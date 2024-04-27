@@ -162,13 +162,39 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
 
 int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu)
 {
-    ServiceList sortedList = list;
-    std::sort(sortedList.begin(), sortedList.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
-        return a1.name() < a2.name();
-    });
-    int count = 0;
-    for (const KDesktopFileAction &serviceAction : std::as_const(sortedList)) {
+    // Temporary storage for current group and all groups
+    ServiceList currentGroup;
+    std::vector<ServiceList> allGroups;
+
+    // Grouping
+    for (const KDesktopFileAction &serviceAction : std::as_const(list)) {
         if (serviceAction.isSeparator()) {
+            if (!currentGroup.empty()) {
+                allGroups.push_back(currentGroup);
+                currentGroup.clear();
+            }
+            // Push back a dummy list to represent a separator for later
+            allGroups.push_back(ServiceList());
+        } else {
+            currentGroup.push_back(serviceAction);
+        }
+    }
+    // Don't forget to add the last group if it exists
+    if (!currentGroup.empty()) {
+        allGroups.push_back(currentGroup);
+    }
+
+    // Sort each group
+    for (ServiceList &group : allGroups) {
+        std::sort(group.begin(), group.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
+            return a1.name() < a2.name();
+        });
+    }
+
+    int count = 0;
+    for (const ServiceList &group : allGroups) {
+        // Check if the group is a separator
+        if (group.empty()) {
             const QList<QAction *> actions = menu->actions();
             if (!actions.isEmpty() && !actions.last()->isSeparator()) {
                 menu->addSeparator();
@@ -176,19 +202,22 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
             continue;
         }
 
-        QAction *act = new QAction(q);
-        act->setObjectName(QStringLiteral("menuaction")); // for the unittest
-        QString text = serviceAction.name();
-        text.replace(QLatin1Char('&'), QLatin1String("&&"));
-        act->setText(text);
-        if (!serviceAction.icon().isEmpty()) {
-            act->setIcon(QIcon::fromTheme(serviceAction.icon()));
+        // Insert sorted actions for current group
+        for (const KDesktopFileAction &serviceAction : group) {
+            QAction *act = new QAction(q);
+            act->setObjectName(QStringLiteral("menuaction")); // for the unittest
+            QString text = serviceAction.name();
+            text.replace(QLatin1Char('&'), QLatin1String("&&"));
+            act->setText(text);
+            if (!serviceAction.icon().isEmpty()) {
+                act->setIcon(QIcon::fromTheme(serviceAction.icon()));
+            }
+            act->setData(QVariant::fromValue(serviceAction));
+            m_executeServiceActionGroup.addAction(act);
+            
+            menu->addAction(act); // Add to toplevel menu
+            ++count;
         }
-        act->setData(QVariant::fromValue(serviceAction));
-        m_executeServiceActionGroup.addAction(act);
-
-        menu->addAction(act); // Add to toplevel menu
-        ++count;
     }
 
     return count;
