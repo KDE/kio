@@ -40,13 +40,13 @@ KProcessRunner::LaunchMode calculateLaunchMode()
     QDBusReply<QDBusVariant> reply = bus.call(queryVersionMessage);
     QVersionNumber systemdVersion = QVersionNumber::fromString(reply.value().variant().toString());
     if (systemdVersion.isNull()) {
+        qCWarning(KIO_GUI) << "Failed to determine systemd version, falling back to extremely legacy forking mode.";
         return KProcessRunner::Forking;
     }
-    if (systemdVersion.majorVersion() >= 250) { // first version with ExitType=cgroup, which won't cleanup when the first process exits
-        return KProcessRunner::SystemdAsService;
-    } else {
+    if (systemdVersion.majorVersion() < 250) { // first version with ExitType=cgroup, which won't cleanup when the first process exits
         return KProcessRunner::SystemdAsScope;
     }
+    return KProcessRunner::SystemdAsService;
 }
 
 KProcessRunner::LaunchMode SystemdProcessRunner::modeAvailable()
