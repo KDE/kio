@@ -22,14 +22,14 @@ using namespace Qt::Literals::StringLiterals;
 
 KProcessRunner::LaunchMode calculateLaunchMode()
 {
-    // overrides for unit test purposes
-    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE"))) {
+    // overrides for unit test purposes. These are considered internal, private and may change in the future.
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("_KDE_APPLICATIONS_AS_SERVICE"))) {
         return KProcessRunner::SystemdAsService;
     }
-    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE"))) {
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("_KDE_APPLICATIONS_AS_SCOPE"))) {
         return KProcessRunner::SystemdAsScope;
     }
-    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_FORKING"))) {
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("_KDE_APPLICATIONS_AS_FORKING"))) {
         return KProcessRunner::Forking;
     }
 
