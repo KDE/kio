@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 00:36+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -3337,7 +3337,7 @@ msgid "All Folders"
 msgstr "*|poki ale"
 
 #: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:709
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "o kama e &lipu"
@@ -5035,58 +5035,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "poki"
 
-#: widgets/kfileitemactions.cpp:365
+#: widgets/kfileitemactions.cpp:394
 #, kde-format
 msgid "Open &with %1"
 msgstr "o open &kepeken %1"
 
-#: widgets/kfileitemactions.cpp:367
+#: widgets/kfileitemactions.cpp:396
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "ilo %1"
 
-#: widgets/kfileitemactions.cpp:499
+#: widgets/kfileitemactions.cpp:528
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&ken pali"
 
-#: widgets/kfileitemactions.cpp:660
+#: widgets/kfileitemactions.cpp:689
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "o &open e poki kepeken..."
 
-#: widgets/kfileitemactions.cpp:660
+#: widgets/kfileitemactions.cpp:689
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "o &open kepeken..."
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "o &open e poki kepeken %1"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open with %1"
 msgstr "o &open kepeken %1"
 
-#: widgets/kfileitemactions.cpp:730
+#: widgets/kfileitemactions.cpp:759
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "o &open e poki kepeken"
 
-#: widgets/kfileitemactions.cpp:730
+#: widgets/kfileitemactions.cpp:759
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "o &lukin e ni kepeken"
 
-#: widgets/kfileitemactions.cpp:741
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
