@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 00:36+0000\n"
-"PO-Revision-Date: 2024-03-27 14:47+0300\n"
+"PO-Revision-Date: 2024-04-30 00:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -71,7 +71,7 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
-"‘%1’ sembolik bağlantısı yapılamadı.\n"
+"“%1” sembolik bağlantısı yapılamadı.\n"
 "Hedef dosya sistemi (%2), sembolik bağlantıları desteklemiyor."
 
 #: core/copyjob.cpp:178
@@ -2496,7 +2496,7 @@ msgstr "%1 protokolü %2 eylemini desteklemiyor."
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
-msgstr "Bilinmeyen protokol ‘%1’."
+msgstr "Bilinmeyen protokol “%1”."
 
 #: core/worker.cpp:345
 #, kde-format
@@ -3145,7 +3145,7 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"Bu aygıttaki bir veya daha çok dosya, <application>‘%2’</application> "
+"Bu aygıttaki bir veya daha çok dosya, <application>“%2”</application> "
 "uygulamasında açık."
 msgstr[1] ""
 "Bu aygıttaki bir veya daha çok dosya, şu uygulamalarda açık: <application>"
@@ -5531,7 +5531,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr ""
 "&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
-"‘%1’ (%2)"
+"“%1” (%2)"
 
 #: widgets/kopenwithdialog.cpp:744
 #, kde-format
@@ -5540,7 +5540,7 @@ msgid ""
 "\"%1\""
 msgstr ""
 "&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
-"‘%1’"
+"“%1”"
 
 #: widgets/kopenwithdialog.cpp:754
 #, kde-format
