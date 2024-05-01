@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:36+0000\n"
+"POT-Creation-Date: 2024-05-01 00:36+0000\n"
 "PO-Revision-Date: 2024-03-23 13:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2349,17 +2349,17 @@ msgstr "Prøv å reformatera til eit filsystem som støttar så store filer."
 msgid "Undocumented Error"
 msgstr "Udokumentert feil"
 
-#: core/kfileitem.cpp:1408
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(symbolsk lenkje til %1)"
 
-#: core/kfileitem.cpp:1410
+#: core/kfileitem.cpp:1415
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, lenkje til %2)"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1418
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(Peikar til %1)"

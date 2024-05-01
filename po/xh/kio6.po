@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:36+0000\n"
+"POT-Creation-Date: 2024-05-01 00:36+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2429,18 +2429,18 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Impazamo Engababhalwanga"
 
-#: core/kfileitem.cpp:1408
+#: core/kfileitem.cpp:1413
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ikhonkco olunophawu"
 
-#: core/kfileitem.cpp:1410
+#: core/kfileitem.cpp:1415
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Ikhonkco kwi %1"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1418
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"

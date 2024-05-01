@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:36+0000\n"
+"POT-Creation-Date: 2024-05-01 00:36+0000\n"
 "PO-Revision-Date: 2024-02-16 01:20\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2398,17 +2398,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Незадакументаваная памылка"
 
-#: core/kfileitem.cpp:1408
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Сімвалічная спасылка на %1)"
 
-#: core/kfileitem.cpp:1410
+#: core/kfileitem.cpp:1415
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, спасылка на %2)"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1418
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Спасылаецца на %1)"

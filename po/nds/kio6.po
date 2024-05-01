@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:36+0000\n"
+"POT-Creation-Date: 2024-05-01 00:36+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2437,17 +2437,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nich dokmenteert Fehler"
 
-#: core/kfileitem.cpp:1408
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboolsch Link op \"%1\")"
 
-#: core/kfileitem.cpp:1410
+#: core/kfileitem.cpp:1415
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Link op \"%2\")"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1418
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (wiest op %1)"

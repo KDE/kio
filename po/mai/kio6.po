@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:36+0000\n"
+"POT-Creation-Date: 2024-05-01 00:36+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -2280,17 +2280,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "बिनु दस्ताबेज कएल त्रुटि"
 
-#: core/kfileitem.cpp:1408
+#: core/kfileitem.cpp:1413
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एकटा सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1410
+#: core/kfileitem.cpp:1415
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, एहि पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1418
 #, kde-format
 msgid " (Points to %1)"
 msgstr ""
