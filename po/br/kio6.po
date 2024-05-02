@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:36+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Divarrek da grouiñ restr gwareziñ"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -2314,7 +2314,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ne m'eus ket gallet kas ar c'hemennad."
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:492
+#: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "&Munudoù"
@@ -2410,7 +2410,7 @@ msgstr "Renkell nevez ..."
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "Fiñval d'ar pod-lastez"
@@ -4049,23 +4049,23 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:706
+#: kioworkers/file/file_unix.cpp:711
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:928
+#: kioworkers/file/file_unix.cpp:933
 #, kde-format
 msgid "No media in device for %1"
 msgstr "N'eus media ebet en trobarzhell evit %1"
 
-#: kioworkers/file/file_unix.cpp:1220
+#: kioworkers/file/file_unix.cpp:1225
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "N'hellan ket mont er renkell %1."
 
-#: kioworkers/file/file_unix.cpp:1231
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4202,7 +4202,7 @@ msgid ""
 msgstr ""
 
 #: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
+#: widgets/widgetsaskuseractionhandler.cpp:493
 #, fuzzy, kde-format
 msgid "Server Authentication"
 msgstr "Dibaboù"
@@ -4814,15 +4814,15 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Lemel ar bouetadur"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:269
+#: widgets/widgetsaskuseractionhandler.cpp:250
+#: widgets/widgetsaskuseractionhandler.cpp:272
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -4841,7 +4841,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4849,14 +4849,14 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Pod-lastez"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -6824,14 +6824,14 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
 "\n"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:238
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6840,7 +6840,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6852,7 +6852,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:254
+#: widgets/widgetsaskuseractionhandler.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6861,7 +6861,7 @@ msgid ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:261
+#: widgets/widgetsaskuseractionhandler.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6875,7 +6875,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -6885,30 +6885,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ha fellout a ra deoc'h da vat lemel an %1 dra dibabet ?"
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:344
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:413
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:548
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:554
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

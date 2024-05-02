@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:36+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "无法创建 KIO 工作程序：%1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2396,7 +2396,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "无法在“%1”中找到“kioworker”可执行程序"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:492
+#: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "详情(&D)"
@@ -2488,7 +2488,7 @@ msgstr "新建文件夹..."
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "移动到回收站"
@@ -4061,22 +4061,22 @@ msgstr ""
 "来源：%2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:706
+#: kioworkers/file/file_unix.cpp:711
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
-#: kioworkers/file/file_unix.cpp:928
+#: kioworkers/file/file_unix.cpp:933
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 设备中没有媒体"
 
-#: kioworkers/file/file_unix.cpp:1220
+#: kioworkers/file/file_unix.cpp:1225
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "无法获取给定的用户名 %1 的用户 ID"
 
-#: kioworkers/file/file_unix.cpp:1231
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "无法获取给定的用户组名 %1 的用户组 ID"
@@ -4216,7 +4216,7 @@ msgid ""
 msgstr "您想要总是接受此证书而不进行提示吗？"
 
 #: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
+#: widgets/widgetsaskuseractionhandler.cpp:493
 #, kde-format
 msgid "Server Authentication"
 msgstr "服务器真实性验证"
@@ -4809,14 +4809,14 @@ msgstr ""
 "strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
 #, kde-format
 msgid "Delete Permanently"
 msgstr "彻底删除"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:269
+#: widgets/widgetsaskuseractionhandler.cpp:250
+#: widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -4835,7 +4835,7 @@ msgstr[0] ""
 "您确定要彻底删除这 %1 个项目吗？<nl/><nl/><emphasis strong='true'>此操作无法"
 "撤销。</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4845,13 +4845,13 @@ msgstr ""
 "您确定要彻底删除回收站中的所有项目吗？<nl/><nl/><emphasis strong='true'>此操"
 "作无法撤销。</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "清空回收站"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6777,7 +6777,7 @@ msgstr ""
 "远程主机没有发送任何 SSL 证书。\n"
 "由于无法确定主机的真实身份，操作将被取消。"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -6786,7 +6786,7 @@ msgstr ""
 "服务器真实性验证失败 (%1)。\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:238
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6797,7 +6797,7 @@ msgstr ""
 "您确定要彻底删除这个项目吗？<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6810,7 +6810,7 @@ msgstr[0] ""
 "您确定要删除这 %1 个项目吗？<nl/><nl/><emphasis strong='true'>此操作无法撤"
 "销。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:254
+#: widgets/widgetsaskuseractionhandler.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6821,7 +6821,7 @@ msgstr ""
 "这个项目太大，无法移动到回收站。您想要彻底删除它吗？<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:261
+#: widgets/widgetsaskuseractionhandler.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6836,37 +6836,37 @@ msgstr[0] ""
 "这 %1 个项目太大，无法移动到回收站。您想要彻底删除它们吗？<nl/><nl/"
 "><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "您确定要将这 %1 个项目移动到回收站吗？"
 
-#: widgets/widgetsaskuseractionhandler.cpp:344
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "不再询问"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "不再询问"
 
-#: widgets/widgetsaskuseractionhandler.cpp:413
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "不再显示此消息"
 
-#: widgets/widgetsaskuseractionhandler.cpp:548
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "对端的 SSL 证书链似乎已经损坏。"
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:554
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:36+0000\n"
 "PO-Revision-Date: 2023-12-12 19:14+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie je možné vytvoriť obsluhu KIO: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2519,7 +2519,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nie je možné nájsť spustiteľný súbor 'kioworker' v '%1'"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:492
+#: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "&Podrobnosti"
@@ -2611,7 +2611,7 @@ msgstr "Nový priečinok..."
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "Presunúť do koša"
@@ -4238,22 +4238,22 @@ msgstr ""
 "Zdroj: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:706
+#: kioworkers/file/file_unix.cpp:711
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie je možné skopírovať súbor z %1 do %2. (Číslo chyby: %3)"
 
-#: kioworkers/file/file_unix.cpp:928
+#: kioworkers/file/file_unix.cpp:933
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Chýba médium v zariadení pre %1"
 
-#: kioworkers/file/file_unix.cpp:1220
+#: kioworkers/file/file_unix.cpp:1225
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nepodarilo sa získať ID užívateľa pre užívateľa %1"
 
-#: kioworkers/file/file_unix.cpp:1231
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nepodarilo sa získať ID skupiny pre skupinu %1"
@@ -4395,7 +4395,7 @@ msgid ""
 msgstr "Chcete navždy akceptovať tento certifikát bez ďalšieho opýtania?"
 
 #: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
+#: widgets/widgetsaskuseractionhandler.cpp:493
 #, kde-format
 msgid "Server Authentication"
 msgstr "Overenie servera"
@@ -4996,14 +4996,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Trvalé odstránenie"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:269
+#: widgets/widgetsaskuseractionhandler.cpp:250
+#: widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5028,7 +5028,7 @@ msgstr[2] ""
 "Naozaj chcete natrvalo odstrániť tieto položky %1?<nl/><nl/><emphasis "
 "strong='true'>Táto akcia sa nedá vrátiť.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5038,13 +5038,13 @@ msgstr ""
 "Naozaj chcete natrvalo odstrániť všetky položky z koša?<nl/><nl/><emphasis "
 "strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Vyprázdniť kôš"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7054,7 +7054,7 @@ msgstr ""
 "Vzdialený hostiteľ neposlal žiadne SSL certifikáty.\n"
 "Ruší sa, pretože sa nepodarilo zistiť identitu hostiteľa."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7063,7 +7063,7 @@ msgstr ""
 "Server nesplnil overenie pravosti (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:238
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7075,7 +7075,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7094,7 +7094,7 @@ msgstr[2] ""
 "Naozaj chcete natrvalo odstrániť týchto %1 položiek?<nl/><nl/><emphasis "
 "strong='true'>Táto akcia sa nedá vrátiť.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:254
+#: widgets/widgetsaskuseractionhandler.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7106,7 +7106,7 @@ msgstr ""
 "Vymazať ju namiesto toho natrvalo?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:261
+#: widgets/widgetsaskuseractionhandler.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7130,7 +7130,7 @@ msgstr[2] ""
 "veľké. Vymazať ich namiesto toho natrvalo?<nl/><emphasis strong='true'>Táto "
 "akcia sa nedá vrátiť späť.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7139,30 +7139,30 @@ msgstr[0] "Naozaj chcete presunúť túto %1 položku do koša?"
 msgstr[1] "Naozaj chcete presunúť tieto %1 položky do koša?"
 msgstr[2] "Naozaj chcete presunúť týchto %1 položiek do koša?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:344
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Viac sa nepýtať"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Viac sa nepýtať"
 
-#: widgets/widgetsaskuseractionhandler.cpp:413
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Túto správu znovu nezobrazovať"
 
-#: widgets/widgetsaskuseractionhandler.cpp:548
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Reťazec SSL certifikátu druhej strany sa zdá byť poškodený."
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:554
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

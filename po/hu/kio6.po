@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:36+0000\n"
 "PO-Revision-Date: 2024-01-08 13:17+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2549,7 +2549,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nem található a „kioworker” végrehajtható itt: „%1”"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:492
+#: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "&Részletek"
@@ -2641,7 +2641,7 @@ msgstr "Új mappa…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "Áthelyezés a Kukába"
@@ -4267,22 +4267,22 @@ msgstr ""
 "Forrás: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:706
+#: kioworkers/file/file_unix.cpp:711
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:928
+#: kioworkers/file/file_unix.cpp:933
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1220
+#: kioworkers/file/file_unix.cpp:1225
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1231
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
@@ -4428,7 +4428,7 @@ msgstr ""
 "El szeretné fogadni ezt a tanúsítványt rákérdezés nélkül a továbbiakban?"
 
 #: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
+#: widgets/widgetsaskuseractionhandler.cpp:493
 #, kde-format
 msgid "Server Authentication"
 msgstr "A kiszolgáló ellenőrzése"
@@ -5032,14 +5032,14 @@ msgstr ""
 "><emphasis strong='true'>A művelet nem vonható vissza.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Végleges törlés"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:269
+#: widgets/widgetsaskuseractionhandler.cpp:250
+#: widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5061,7 +5061,7 @@ msgstr[1] ""
 "Véglegesen törli ezt a(z) %1 elemet?<nl/><nl/><emphasis strong='true'>A "
 "művelet nem vonható vissza.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5071,13 +5071,13 @@ msgstr ""
 "Véglegesen töröl minden elemet a Kukából?<nl/><nl/><emphasis strong='true'>A "
 "művelet nem visszavonható.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Kiürítés"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7078,7 +7078,7 @@ msgstr ""
 "A távoli gép nem küldött egy SSL-tanúsítványt sem.\n"
 "A művelet megszakad, mert a gép nem azonosítható hitelesen."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7087,7 +7087,7 @@ msgstr ""
 "A kiszolgáló biztonsági ellenőrzése nem sikerült (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:238
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7098,7 +7098,7 @@ msgstr ""
 "Véglegesen törli ezt az elemet?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>A művelet nem vonható vissza.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7114,7 +7114,7 @@ msgstr[1] ""
 "Véglegesen törli ezt a(z) %1 elemet?<nl/><nl/><emphasis strong='true'>A "
 "művelet nem vonható vissza.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:254
+#: widgets/widgetsaskuseractionhandler.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7126,7 +7126,7 @@ msgstr ""
 "véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>A művelet nem vonható vissza.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:261
+#: widgets/widgetsaskuseractionhandler.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7146,7 +7146,7 @@ msgstr[1] ""
 "helyette véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>A művelet nem vonható vissza.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7154,30 +7154,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Biztosan a Kukába szeretné mozgatni ezt a(z) %1 elemet?"
 msgstr[1] "Biztosan a Kukába szeretné mozgatni ezt a(z) %1 elemet?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:344
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ne kérdezzen rá többször"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ne kérdezzen rá többször"
 
-#: widgets/widgetsaskuseractionhandler.cpp:413
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Ne jelenjen meg többször ez az üzenet"
 
-#: widgets/widgetsaskuseractionhandler.cpp:548
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "A partner SSL tanúsítványlánca hibás."
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:554
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

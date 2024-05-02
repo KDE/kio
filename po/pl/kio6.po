@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:36+0000\n"
 "PO-Revision-Date: 2024-03-17 11:11+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie można utworzyć pracownika KIO: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1130
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2532,7 +2532,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nie można znaleźć pliku wykonywalnego 'kioworker' w '%1'"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:492
+#: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "&Szczegóły"
@@ -2624,7 +2624,7 @@ msgstr "Nowy katalog..."
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "Wyrzuć do kosza"
@@ -4246,22 +4246,22 @@ msgstr ""
 "Źródło: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:706
+#: kioworkers/file/file_unix.cpp:711
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie można skopiować pliku z %1 do %2. (Błąd: %3)"
 
-#: kioworkers/file/file_unix.cpp:928
+#: kioworkers/file/file_unix.cpp:933
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Brak nośnika w urządzeniu %1"
 
-#: kioworkers/file/file_unix.cpp:1220
+#: kioworkers/file/file_unix.cpp:1225
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nie można pobrać identyfikatora użytkownika dla danej nazwy %1"
 
-#: kioworkers/file/file_unix.cpp:1231
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nie można pobrać identyfikatora grupy dla danej nazwy %1"
@@ -4406,7 +4406,7 @@ msgstr ""
 "potwierdzania?"
 
 #: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:490
+#: widgets/widgetsaskuseractionhandler.cpp:493
 #, kde-format
 msgid "Server Authentication"
 msgstr "Uwierzytelnianie serwera"
@@ -5012,14 +5012,14 @@ msgstr ""
 "><emphasis strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Trwałe usuwanie"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:269
+#: widgets/widgetsaskuseractionhandler.cpp:250
+#: widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5044,7 +5044,7 @@ msgstr[2] ""
 "Czy na pewno trwale usunąć te %1 rzeczy?<nl/><nl/><emphasis "
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5054,13 +5054,13 @@ msgstr ""
 "Czy na pewno trwale usunąć wszystkie rzeczy z kosza?<nl/><nl/><emphasis "
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Opróżnij kosz"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7070,7 +7070,7 @@ msgstr ""
 "Zdalny usługodawca nie przysłał żadnych certyfikatów SSL.\n"
 "Następuje przerwanie akcji, bo nie można potwierdzić tożsamości usługodawcy."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7079,7 +7079,7 @@ msgstr ""
 "Serwer nie przeszedł testu uwierzytelnienia (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:238
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7091,7 +7091,7 @@ msgstr ""
 "><nl/><emphasis strong='true'>Nie można będzie cofnąć tego działania.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7110,7 +7110,7 @@ msgstr[2] ""
 "Czy na pewno trwale usunąć te %1 rzeczy?<nl/><nl/><emphasis "
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:254
+#: widgets/widgetsaskuseractionhandler.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7122,7 +7122,7 @@ msgstr ""
 "tego usunąć go trwale?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:261
+#: widgets/widgetsaskuseractionhandler.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7146,7 +7146,7 @@ msgstr[2] ""
 "tego usunąć je trwale?<nl/><emphasis strong='true'>Nie można będzie cofnąć "
 "tego działania.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7155,30 +7155,30 @@ msgstr[0] "Czy chcesz przenieść ten %1 element do kosza?"
 msgstr[1] "Czy chcesz przenieść ten %1 elementy do kosza?"
 msgstr[2] "Czy chcesz przenieść ten %1 elementów do kosza?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:344
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Nie pytaj ponownie"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Nie pytaj ponownie"
 
-#: widgets/widgetsaskuseractionhandler.cpp:413
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Nie wyświetlaj więcej tej wiadomości"
 
-#: widgets/widgetsaskuseractionhandler.cpp:548
+#: widgets/widgetsaskuseractionhandler.cpp:551
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Wygląda na to, że ciąg certyfikatów SSL jest przekłamany."
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:554
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
