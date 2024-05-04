@@ -8,7 +8,7 @@
 	
 <article lang="&language;" id="webdav">
 <title
->webdav / webdavs</title>
+>WebDAV / WebDAVS</title>
 <articleinfo>
 <authorgroup>
 <author
@@ -74,6 +74,6 @@
 >WebDAVS</acronym
 > est le protocole <acronym
 >WebDAV</acronym
-> chiffré via SSL.</para>
+> chiffré avec SSL.</para>
 
 </article>
