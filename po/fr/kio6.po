@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:36+0000\n"
-"PO-Revision-Date: 2024-03-11 10:28+0100\n"
-"Last-Translator: xavier <xyz@yahoo.com>\n"
+"PO-Revision-Date: 2024-05-02 15:38+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -325,8 +325,8 @@ msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour modifier les "
-"attributs de ce fichier. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour modifier "
+"les attributs de ce fichier. Voulez-vous continuer ?"
 
 #: core/job.cpp:270
 #, kde-format
@@ -340,8 +340,8 @@ msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour effectuer cette "
-"copie. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour effectuer "
+"cette copie. Voulez-vous continuer ?"
 
 #: core/job.cpp:276
 #, kde-format
@@ -355,9 +355,9 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour effectuer cette "
-"suppression. Toutefois, cela pourrait endommager votre système. Voulez-vous "
-"continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour effectuer "
+"cette suppression. Toutefois, cela pourrait endommager votre système. Voulez-"
+"vous continuer ?"
 
 #: core/job.cpp:282
 #, kde-format
@@ -370,7 +370,7 @@ msgstr "Créer un dossier"
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour créer ce "
+"Vous devez disposer des privilèges du compte administrateur pour créer ce "
 "dossier. Voulez-vous continuer ?"
 
 #: core/job.cpp:288
@@ -385,8 +385,8 @@ msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour effectuer ce "
-"déplacement. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour effectuer "
+"ce déplacement. Voulez-vous continuer ?"
 
 #: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
@@ -399,8 +399,8 @@ msgstr "Renommer"
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour effectuer ce "
-"renommage. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour effectuer "
+"ce renommage. Voulez-vous continuer ?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:632
 #: kioworkers/file/file_unix.cpp:126
@@ -414,8 +414,8 @@ msgstr "Créer un lien symbolique"
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour créer un lien "
-"symbolique. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour créer un "
+"lien symbolique. Voulez-vous continuer ?"
 
 #: core/job.cpp:306
 #, kde-format
@@ -429,8 +429,8 @@ msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour effectuer ce "
-"transfert de données. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour effectuer "
+"ce transfert de données. Voulez-vous continuer ?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -5034,8 +5034,8 @@ msgstr "Annuler les modifications"
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
-"Vous devez disposer des privilèges du superutilisateur pour annuler cette "
-"opération. Voulez-vous continuer ?"
+"Vous devez disposer des privilèges du compte administrateur pour annuler "
+"cette opération. Voulez-vous continuer ?"
 
 # unreviewed-context
 #: widgets/fileundomanager.cpp:132
@@ -6523,7 +6523,7 @@ msgid ""
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
 "Si le drapeau « Sticky » (collant) est positionné sur un dossier, seul "
-"l'utilisateur et le superutilisateur peuvent supprimer ou renommer les "
+"l'utilisateur et l'administrateur peuvent supprimer ou renommer les "
 "fichiers. Sinon, toute personne avec des permissions d'écriture peuvent "
 "faire ceci."
 
