@@ -91,7 +91,7 @@ void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
 
             if (!QStandardPaths::findExecutable(QStringLiteral("kcmshell6")).isEmpty()) {
                 webShortcutsMenu->addSeparator();
-                QAction *action = new QAction(i18n("Configure Web Shortcuts..."), webShortcutsMenu);
+                QAction *action = new QAction(i18nc("@action:inmenu", "Configure Web Shortcuts…"), webShortcutsMenu);
                 action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
                 connect(action, &QAction::triggered, this, &KUriFilterSearchProviderActions::slotConfigureWebShortcuts);
                 webShortcutsMenu->addAction(action);

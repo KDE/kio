@@ -686,7 +686,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 
     const auto makeOpenWithAction = [this, isDir] {
         auto action = new QAction(this);
-        action->setText(isDir ? i18nc("@title:menu", "&Open Folder With...") : i18nc("@title:menu", "&Open With..."));
+        action->setText(isDir ? i18nc("@action:inmenu", "&Open Folder With…") : i18nc("@action:inmenu", "&Open With…"));
         action->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
         action->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
         return action;
@@ -767,7 +767,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 
             subMenu->addSeparator();
 
-            openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application..."));
+            openWithAct->setText(i18nc("@action:inmenu Open With", "&Other Application…"));
             subMenu->addAction(openWithAct);
 
             topMenu->insertMenu(before, subMenu);

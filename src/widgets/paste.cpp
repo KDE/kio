@@ -253,7 +253,7 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
         } else if (!urls.isEmpty()) {
             text = i18ncp("@action:inmenu", "Paste One Item", "Paste %1 Items", urls.count());
         } else {
-            text = i18nc("@action:inmenu", "Paste Clipboard Contents...");
+            text = i18nc("@action:inmenu", "Paste Clipboard Contents…");
         }
     } else {
         *enable = false;

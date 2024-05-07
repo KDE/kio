@@ -143,7 +143,7 @@ void KFileCopyToMainMenu::slotAboutToShow()
 #endif
 
     // Browse... action, shows a file dialog
-    QAction *browseAction = new QAction(i18nc("@title:menu in Copy To or Move To submenu", "Browse..."), this);
+    auto *browseAction = new QAction(i18nc("@action:inmenu in Copy To or Move To submenu", "Browse…"), this);
     browseAction->setObjectName(QStringLiteral("browse"));
     connect(browseAction, &QAction::triggered, this, &KFileCopyToMainMenu::slotBrowse);
     addAction(browseAction);

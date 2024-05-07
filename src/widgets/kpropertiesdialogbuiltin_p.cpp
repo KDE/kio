@@ -2109,7 +2109,7 @@ void KChecksumsPlugin::slotInvalidateCache()
 
 void KChecksumsPlugin::slotShowMd5()
 {
-    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
@@ -2120,7 +2120,7 @@ void KChecksumsPlugin::slotShowMd5()
 
 void KChecksumsPlugin::slotShowSha1()
 {
-    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
@@ -2131,7 +2131,7 @@ void KChecksumsPlugin::slotShowSha1()
 
 void KChecksumsPlugin::slotShowSha256()
 {
-    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
@@ -2142,7 +2142,7 @@ void KChecksumsPlugin::slotShowSha256()
 
 void KChecksumsPlugin::slotShowSha512()
 {
-    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha512Button, label);
@@ -2340,7 +2340,7 @@ void KChecksumsPlugin::setVerifyState()
     // Users can paste a checksum at any time, so reset to default.
     setDefaultState();
 
-    d->m_ui.feedbackLabel->setText(i18nc("notify the user about a computation in the background", "Verifying checksum..."));
+    d->m_ui.feedbackLabel->setText(i18nc("@info:progress computation in the background", "Verifying checksum…"));
     d->m_ui.feedbackLabel->show();
 }
 

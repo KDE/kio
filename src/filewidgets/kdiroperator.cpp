@@ -1954,7 +1954,7 @@ void KDirOperator::setupActions()
     reloadAction->setText(i18n("Reload"));
     reloadAction->setShortcuts(KStandardShortcut::shortcut(KStandardShortcut::Reload));
 
-    QAction *mkdirAction = new QAction(i18n("New Folder..."), this);
+    auto *mkdirAction = new QAction(i18nc("@action", "New Folder…"), this);
     d->m_actions[NewFolder] = mkdirAction;
     mkdirAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-new")));
     connect(mkdirAction, &QAction::triggered, this, [this]() {
