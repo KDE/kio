@@ -445,7 +445,8 @@ QString KProcessRunner::resolveServiceAlias() const
 
 void KProcessRunner::emitDelayedError(const QString &errorMsg)
 {
-    qCWarning(KIO_GUI) << errorMsg;
+    qCWarning(KIO_GUI) << name() << errorMsg;
+
     terminateStartupNotification();
     // Use delayed invocation so the caller has time to connect to the signal
     auto func = [this, errorMsg]() {
@@ -458,8 +459,6 @@ void KProcessRunner::emitDelayedError(const QString &errorMsg)
 void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
     qCDebug(KIO_GUI) << name() << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
-    terminateStartupNotification();
-    deleteLater();
 #ifdef Q_OS_UNIX
     if (exitCode == 127) {
 #else
@@ -467,6 +466,9 @@ void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus 
 #endif
         const QStringList args = m_cmd.split(QLatin1Char(' '));
         emitDelayedError(xi18nc("@info", "The command <command>%1</command> could not be found.", args[0]));
+    } else {
+        terminateStartupNotification();
+        deleteLater();
     }
 }
 
