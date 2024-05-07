@@ -101,6 +101,13 @@ void KIO::CommandLauncherJob::start()
         }
     }
 
+    if (d->m_executable.isEmpty()) {
+        setError(KJob::UserDefinedError);
+        setErrorText(i18nc("An error message", "Empty command provided"));
+        emitResult();
+        return;
+    }
+
     QString displayName = d->m_executable;
     KService::Ptr service = KService::serviceByDesktopName(d->m_desktopName);
     if (service) {

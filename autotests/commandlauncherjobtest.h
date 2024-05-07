@@ -30,7 +30,7 @@ private Q_SLOTS:
     void startProcessWithEnvironmentVariables();
 
     void doesNotFailOnNonExistingExecutable();
-    void shouldDoNothingOnEmptyCommand();
+    void shouldErrorOnEmptyCommand();
 };
 
 #endif /* COMMANDLAUNCHERJOBTEST_H */
