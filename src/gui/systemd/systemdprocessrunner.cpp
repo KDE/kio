@@ -78,7 +78,7 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
     }
     QEventLoop loop;
     bool success = false;
-    loop.connect(this, &KProcessRunner::processStarted, [&loop, &success]() {
+    loop.connect(this, &KProcessRunner::processStarted, this, [&loop, &success]() {
         loop.quit();
         success = true;
     });
