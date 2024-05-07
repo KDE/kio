@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:36+0000\n"
-"PO-Revision-Date: 2024-04-12 08:39+0300\n"
+"PO-Revision-Date: 2024-05-05 11:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -4824,52 +4824,52 @@ msgstr "מחיקה"
 #: widgets/fileundomanager.cpp:300
 #, kde-format
 msgid "Und&o"
-msgstr "ה&חזרה"
+msgstr "ה&סגה"
 
 #: widgets/fileundomanager.cpp:306
 #, kde-format
 msgid "Und&o: Copy"
-msgstr "ה&חזרה: העתקה"
+msgstr "ה&סגה: העתקה"
 
 #: widgets/fileundomanager.cpp:308
 #, kde-format
 msgid "Und&o: Link"
-msgstr "ה&חזרה: קישור"
+msgstr "ה&סגה: קישור"
 
 #: widgets/fileundomanager.cpp:310
 #, kde-format
 msgid "Und&o: Move"
-msgstr "ה&חזרה: העברה"
+msgstr "ה&סגה: העברה"
 
 #: widgets/fileundomanager.cpp:312
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "ה&חזרה: שינוי שם"
+msgstr "ה&סגה: שינוי שם"
 
 #: widgets/fileundomanager.cpp:314
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "ה&חזרה: העברה לאשפה"
+msgstr "ה&סגה: העברה לאשפה"
 
 #: widgets/fileundomanager.cpp:316
 #, kde-format
 msgid "Und&o: Create Folder"
-msgstr "ה&חזרה: יצירת תיקייה"
+msgstr "ה&סגה: יצירת תיקייה"
 
 #: widgets/fileundomanager.cpp:318
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "ה&חזרה: יצירת תיקייה/ות"
+msgstr "ה&סגה: יצירת תיקייה/ות"
 
 #: widgets/fileundomanager.cpp:320
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "ה&חזרה: יצירת קובץ"
+msgstr "ה&סגה: יצירת קובץ"
 
 #: widgets/fileundomanager.cpp:322
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "ה&חזרה: שינוי שם במרוכז"
+msgstr "ה&סגה: שינוי שם במרוכז"
 
 #: widgets/fileundomanager.cpp:721
 #, kde-format
@@ -4880,8 +4880,8 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 "הקובץ %1 הועתק מ־%2, אבל הוא כנראה שונה ב־%3.\n"
-"ביטול הפעולה תעתיק את הקובץ, וכל השינויים יעלמו.\n"
-"האם אתה בטוח שאתה רוצה למחוק את %4?"
+"ביטול ההעתקה תמחק את הקובץ, וכל השינויים יעלמו.\n"
+"למחוק את %4?"
 
 #: widgets/fileundomanager.cpp:731
 #, kde-format
