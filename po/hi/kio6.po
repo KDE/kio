@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -2538,9 +2538,11 @@ msgid "Reload"
 msgstr "री-लोड"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "नया फ़ोल्डर..."
+#, fuzzy, kde-format
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "नया फ़ोल्डर"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2783,8 +2785,8 @@ msgstr "कोई फ़ोल्डर नहीं."
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "ब्राउज... (&B)"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5059,17 +5061,16 @@ msgstr[0] "क्या आप सचमुच इस वस्तु को म
 msgstr[1] "क्या आप सचमुच इस वस्तु को मिटाना चाहते हैं?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "जोड़ें..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "संपादन"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5285,15 +5286,15 @@ msgstr "क्रियाएं"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
 msgstr "के साथ खोलें"
 
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open With..."
+msgctxt "@action:inmenu"
+msgid "&Open With…"
 msgstr "के साथ खोलें"
 
 #: widgets/kfileitemactions.cpp:727
@@ -5326,7 +5327,7 @@ msgstr "के साथ खोलें"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "अनुप्रयोग (&A)"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6422,8 +6423,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "गणना में... "
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6464,8 +6465,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6610,7 +6611,8 @@ msgstr ""
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Change &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "पॉलिसी बदलें.... (&P)"
 
 #: widgets/kurlrequester.cpp:329
@@ -6665,7 +6667,7 @@ msgstr[1] "%1 वस्तुएँ"
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "क्लिपबोर्ड सामग्री को चिपकाएँ (&P)"
 
 #: widgets/paste.cpp:260
@@ -7176,6 +7178,39 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "New Folder..."
+#~ msgstr "नया फ़ोल्डर..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "जोड़ें..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "संपादन"
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "के साथ खोलें"
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "के साथ खोलें"
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "क्लिपबोर्ड सामग्री को चिपकाएँ (&P)"
 
 #, fuzzy
 #~| msgid "New Folder"
@@ -8259,9 +8294,6 @@ msgstr ""
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "यूआरएल पेस्ट करें (&P)"
 #~ msgstr[1] "%1 यूआरएल पेस्ट करें (&P)"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "क्लिपबोर्ड सामग्री को चिपकाएँ (&P)"
 
 #~ msgid "None"
 #~ msgstr "कुछ नहीं"

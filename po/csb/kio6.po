@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -2605,8 +2605,10 @@ msgid "Reload"
 msgstr "Zladëjë znowa"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
+#, fuzzy, kde-format
+#| msgid "New Folder..."
+msgctxt "@action"
+msgid "New Folder…"
 msgstr "Nowi katalog..."
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
@@ -2849,8 +2851,8 @@ msgstr "Felënk katalogów"
 
 #: filewidgets/kfilecopytomenu.cpp:146
 #, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr ""
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5110,14 +5112,14 @@ msgstr[2] "Na gwës rëmnąc nen element do kòsza?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
+msgid "Add…"
 msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Editëjë"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5323,16 +5325,17 @@ msgstr "&Dzejania"
 
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
-#| msgid "New Folder..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Nowi katalog..."
+#| msgid "File"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Lopk"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "File"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "Lopk"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5365,7 +5368,7 @@ msgstr ""
 #: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr ""
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6416,10 +6419,11 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&Remove '%1'"
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "&Rëmôj '%1'"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6459,8 +6463,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6603,7 +6607,8 @@ msgstr ""
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Change &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Zmieni &pòlitikã..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6662,7 +6667,7 @@ msgstr[2] "%1 elementów"
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "&Wlepi zamkłosc tacnika"
 
 #: widgets/paste.cpp:260
@@ -7170,6 +7175,27 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "New Folder..."
+#~ msgstr "Nowi katalog..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Editëjë"
+
+#, fuzzy
+#~| msgid "New Folder..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Nowi katalog..."
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "&Wlepi zamkłosc tacnika"
 
 #, fuzzy
 #~| msgid "New Folder..."
@@ -8472,9 +8498,6 @@ msgstr ""
 #~ msgstr[0] "&Wlepi URL"
 #~ msgstr[1] "&Wlepi %1 URL-e"
 #~ msgstr[2] "&Wlepi %1 URL-ów"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Wlepi zamkłosc tacnika"
 
 #, fuzzy
 #~| msgctxt "The destination of a file operation"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 12:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2668,9 +2668,12 @@ msgid "Reload"
 msgstr "Torna a carregar"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Carpeta nova..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Carpeta nova"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2894,9 +2897,11 @@ msgid "Root Folder"
 msgstr "Carpeta arrel"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Navega..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5134,14 +5139,16 @@ msgstr[1] "Esteu segur que voleu moure aquests %1 elements a la paperera?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Afegeix..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Edita..."
+msgid "Edit…"
+msgstr "&Edita…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5342,16 +5349,20 @@ msgid "&Actions"
 msgstr "&Accions"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Obre la carpeta amb..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Obre la carpeta amb"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Obre amb..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Obre amb"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5376,9 +5387,11 @@ msgid "&Open With"
 msgstr "&Obre amb"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Altres aplicacions..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6509,9 +6522,11 @@ msgstr "Sumes de verifi&cació"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "S'està calculant..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6555,9 +6570,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "La suma de verificació calculada i l'esperada difereixen."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "S'està comprovant la suma de verificació..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6698,8 +6715,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Configura les dreceres web..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6747,9 +6766,11 @@ msgstr[0] "Enganxa un element"
 msgstr[1] "Enganxa %1 elements"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "Enganxa el contingut del porta-retalls..."
 
 #: widgets/paste.cpp:260
@@ -7248,6 +7269,25 @@ msgstr "Això iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
+
+#~ msgid "New Folder..."
+#~ msgstr "Carpeta nova..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Afegeix..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Edita..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Obre la carpeta amb..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Obre amb..."
 
 #~| msgctxt "@title:window"
 #~| msgid "New Folder"

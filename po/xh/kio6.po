@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2680,7 +2680,8 @@ msgstr "Funda"
 
 #: filewidgets/kdiroperator.cpp:1957
 #, fuzzy, kde-format
-msgid "New Folder..."
+msgctxt "@action"
+msgid "New Folder…"
 msgstr "Incwadi enenkcukacha Entsha:"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
@@ -2918,8 +2919,8 @@ msgstr "%1 ifayile"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "&Khangela incwadi..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5194,16 +5195,16 @@ msgstr[0] "Ufuna ngokwenene ukucima lomba "
 msgstr[1] "Ufuna ngokwenene ukucima lomba "
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "&Yongeza..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "&Hlela..."
 
 #: widgets/kacleditwidget.cpp:79
@@ -5419,15 +5420,15 @@ msgstr "Iintshukumo"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
 msgstr "Vula Nge"
 
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open With..."
+msgctxt "@action:inmenu"
+msgid "&Open With…"
 msgstr "Vula Nge"
 
 #: widgets/kfileitemactions.cpp:727
@@ -5460,7 +5461,7 @@ msgstr "Vula Nge"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Isicelo"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6517,8 +6518,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Iyabala..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6559,8 +6560,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6705,7 +6706,8 @@ msgstr "%1 B"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Tshintsha Inkqubo ye Cookie"
 
 #: widgets/kurlrequester.cpp:329
@@ -6753,7 +6755,7 @@ msgstr[1] "%1 Imiba"
 #: widgets/paste.cpp:256
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "Igama lefayile yomxholo webhodi eqhotyoshwayo:"
 
 #: widgets/paste.cpp:260
@@ -7243,6 +7245,38 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgid "New Folder..."
+#~ msgstr "Incwadi enenkcukacha Entsha:"
+
+#, fuzzy
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "&Yongeza..."
+
+#, fuzzy
+#~| msgid "&Edit..."
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "&Hlela..."
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Vula Nge"
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "Vula Nge"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Igama lefayile yomxholo webhodi eqhotyoshwayo:"
 
 #, fuzzy
 #~ msgctxt "@title:window"
@@ -8455,10 +8489,6 @@ msgstr ""
 #~ msgid_plural "&Paste %1 Files"
 #~ msgstr[0] "%1 ifayile"
 #~ msgstr[1] "%1 iifayile"
-
-#, fuzzy
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "Igama lefayile yomxholo webhodi eqhotyoshwayo:"
 
 #~ msgid "None"
 #~ msgstr "Akukho nanye"

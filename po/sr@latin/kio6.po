@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2668,9 +2668,12 @@ msgid "Reload"
 msgstr "Učitaj ponovo"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Nova fascikla..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "nova‑fascikla"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2917,9 +2920,11 @@ msgstr "korenu fasciklu"
 
 # >> @action:inmenu
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Pregledaj..."
 
 # >> @action:inmenu
@@ -5301,17 +5306,16 @@ msgstr[2] "Želite li zaista da bacite ovih %1 stavki u smeće?"
 msgstr[3] "Želite li zaista da bacite ovu stavku u smeće?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Dodaj..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Uredi"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5525,16 +5529,18 @@ msgstr "&Radnje"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Otvori pomoću..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Otvori pomoću"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Otvori pomoću..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Otvori pomoću"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5565,7 +5571,7 @@ msgstr "&Otvori pomoću"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Program"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6753,9 +6759,11 @@ msgstr "&Kontrolne sume"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Računam..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6798,9 +6806,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Izračunata kontrolna suma razlikuje se od očekivane."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Overavam kontrolnu sumu..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6941,8 +6951,10 @@ msgid "%1"
 msgstr "%1|/|$[gen %1]"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Podesi veb prečice..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6993,10 +7005,11 @@ msgstr[2] "Nalepi %1 stavki"
 msgstr[3] "Nalepi jednu stavku"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Nalepi sadržaj klipborda..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Nalepi sadržaj klipborda"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7542,6 +7555,36 @@ msgstr "Ovo će pokrenuti program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ako ne verujete programu, kliknite na „Odustani“."
+
+#~ msgid "New Folder..."
+#~ msgstr "Nova fascikla..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Dodaj..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Uredi"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Otvori pomoću..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Otvori pomoću..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Nalepi sadržaj klipborda..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -9734,9 +9777,6 @@ msgstr "Ako ne verujete programu, kliknite na „Odustani“."
 #~ msgstr[1] "&Nalepi %1 URL‑a"
 #~ msgstr[2] "&Nalepi %1 URL‑ova"
 #~ msgstr[3] "&Nalepi URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Nalepi sadržaj klipborda"
 
 #~ msgid "&Overwrite"
 #~ msgstr "&Prebriši"

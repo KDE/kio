@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2699,9 +2699,12 @@ msgid "Reload"
 msgstr "Επαναφόρτωση"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Νέος φάκελος..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Νέος φάκελος"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2940,9 +2943,11 @@ msgid "Root Folder"
 msgstr "Ριζικός φάκελος"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Περιήγηση..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5269,17 +5274,16 @@ msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Προσθήκη..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Επεξεργασία"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5491,16 +5495,18 @@ msgstr "&Ενέργειες"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Ά&νοιγμα με..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Άνοιγμα &με"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "Ά&νοιγμα με..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "Άνοιγμα &με"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5531,7 +5537,7 @@ msgstr "Άνοιγμα &με"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Εφαρμογή"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6732,9 +6738,11 @@ msgstr "&Αθροίσματα ελέγχου"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Υπολογισμός..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6778,9 +6786,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Το υπολογισμένο και το αναμενόμενο άθροισμα ελέγχου διαφέρουν."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Επαλήθευση αθροίσματος ελέγχου..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6921,8 +6931,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Διαμόρφωση συντομεύσεων ιστού..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6971,10 +6983,11 @@ msgstr[0] "Επικόλληση ενός αντικειμένου"
 msgstr[1] "Επικόλληση %1 αντικειμένων"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Επικόλληση των περιεχομένων του πρόχειρου..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Επικόλληση των περιεχομένων του πρόχειρου"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7507,6 +7520,36 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#~ msgid "New Folder..."
+#~ msgstr "Νέος φάκελος..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Προσθήκη..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Επεξεργασία"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Ά&νοιγμα με..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "Ά&νοιγμα με..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Επικόλληση των περιεχομένων του πρόχειρου..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -9302,9 +9345,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "&Επικόλληση URL"
 #~ msgstr[1] "&Επικόλληση %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Επικόλληση των περιεχομένων του πρόχειρου"
 
 #~ msgid "None"
 #~ msgstr "Κανένα"

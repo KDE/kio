@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -2509,9 +2509,12 @@ msgid "Reload"
 msgstr "Viečča fas"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Ođđa máhppa …"
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Ođđa máhppa"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2735,10 +2738,11 @@ msgid "Root Folder"
 msgstr ""
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
+msgstr "&Bláđđe …"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -4896,14 +4900,15 @@ msgstr[1] ""
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
+msgid "Add…"
 msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr ""
+msgid "Edit…"
+msgstr "Doaimmat"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5105,16 +5110,20 @@ msgid "&Actions"
 msgstr "&Doaimmat"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Raba geavahettiin"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Raba geavahettiin …"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Raba geavahettiin"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5139,10 +5148,11 @@ msgid "&Open With"
 msgstr "&Raba geavahettiin"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
-msgstr ""
+msgid "&Other Application…"
+msgstr "&Prográmma"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6250,10 +6260,11 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Calculate"
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "Rehkenastte"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6293,8 +6304,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6435,7 +6446,8 @@ msgstr ""
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr ""
 
 #: widgets/kurlrequester.cpp:329
@@ -6483,10 +6495,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Filename for clipboard content:"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr ""
+msgid "Paste Clipboard Contents…"
+msgstr "Čuohppusbeavddi sisdoalu fiilanamma:"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -6954,3 +6967,10 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
+
+#~ msgid "New Folder..."
+#~ msgstr "Ođđa máhppa …"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Raba geavahettiin …"

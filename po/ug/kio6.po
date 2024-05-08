@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2642,9 +2642,12 @@ msgid "Reload"
 msgstr "قايتا يۈكلە"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "يېڭى قىسقۇچ…"
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "يېڭى قىسقۇچ"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2890,8 +2893,8 @@ msgstr "%1 قىسقۇچ"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "كۆز يۈگۈرت(&B)…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5197,17 +5200,16 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "سىز راستلا %1 تۈرنى ئەخلەتخانىغا يۆتكەمسىز؟"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "قوش…"
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "تەھرىرلەش"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5419,16 +5421,18 @@ msgstr "مەشغۇلاتلار(&A)"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "بۇنىڭدا ئاچ(&O)…"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "بۇنىڭدا ئاچ(&O)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "بۇنىڭدا ئاچ(&O)…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "بۇنىڭدا ئاچ(&O)"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5459,7 +5463,7 @@ msgstr "بۇنىڭدا ئاچ(&O)"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "پروگرامما(&A)"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6628,8 +6632,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "ھېسابلاۋاتىدۇ…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6670,8 +6674,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6814,7 +6818,8 @@ msgstr "%1"
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "سەپلە…"
 
 #: widgets/kurlrequester.cpp:329
@@ -6868,7 +6873,7 @@ msgstr[0] ""
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "چاپلاش تاختىسىدىكى مەزمۇنلارنى چاپلا(&P)"
 
 #: widgets/paste.cpp:260
@@ -7393,6 +7398,38 @@ msgstr "بۇ پروگراممىنى قوزغىتىدۇ:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز كەچنى چېكىڭ"
+
+#~ msgid "New Folder..."
+#~ msgstr "يېڭى قىسقۇچ…"
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "قوش…"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "تەھرىرلەش"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "بۇنىڭدا ئاچ(&O)…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "بۇنىڭدا ئاچ(&O)…"
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "چاپلاش تاختىسىدىكى مەزمۇنلارنى چاپلا(&P)"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8295,9 +8332,6 @@ msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز �
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "%1 URL چاپلا(&P)"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "چاپلاش تاختىسىدىكى مەزمۇنلارنى چاپلا(&P)"
 
 #~ msgid "None"
 #~ msgstr "يوق"

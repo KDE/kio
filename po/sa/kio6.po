@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2565,9 +2565,11 @@ msgid "Reload"
 msgstr "पुनः सम्प्रेषयति"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "नूतनं पुटम्..."
+#, fuzzy, kde-format
+#| msgid "New Folder…"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "नूतनं पुटम्…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2791,9 +2793,11 @@ msgid "Root Folder"
 msgstr "मूलपुटम्"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "अन्वेषय..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4998,14 +5002,14 @@ msgstr[1] "किं भवान् वास्तवमेव एतानि
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "योजयतु..."
+msgid "Add…"
+msgstr "संयोजयति…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "सम्पादयतु..."
+msgid "Edit…"
+msgstr "सम्पादयतु…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5207,16 +5211,20 @@ msgid "&Actions"
 msgstr "&क्रियाः"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&एतेन सह पुटं उद्घाटयन्तु..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With…"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&एतेन सह पुटं उद्घाटयन्तु…"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&एतेन उद्घाटयन्तु..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With…"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&एतेन उद्घाटयन्तु…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5241,9 +5249,11 @@ msgid "&Open With"
 msgstr "&एतेन उद्घाटयन्तु"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&अन्य अनुप्रयोग..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6346,9 +6356,11 @@ msgstr "C&hecksums"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "गणनां कुर्वन्..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6391,9 +6403,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "गणितं चेकसमं (checksum) अपेक्षितं चेकसमं (checksum) च भिन्नं भवति ।."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Checksum सत्यापनम्..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6528,8 +6542,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "जालसंक्षिप्तमार्गः विन्यस्तं कुर्वन्तु..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6577,9 +6593,11 @@ msgstr[0] "एकं द्रव्यं संस्थापयतु"
 msgstr[1] "%1 द्रव्यं संस्थापयन्तु"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु..."
 
 #: widgets/paste.cpp:260
@@ -7085,6 +7103,25 @@ msgstr "एतेन कार्यक्रमः आरभ्यते :"
 msgid "If you do not trust this program, click Cancel"
 msgstr "यदि भवान् अस्मिन् कार्यक्रमे विश्वासं न करोति तर्हि रद्द (Cancel) नुदतु"
 
+#~ msgid "New Folder..."
+#~ msgstr "नूतनं पुटम्..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "योजयतु..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "सम्पादयतु..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&एतेन सह पुटं उद्घाटयन्तु..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&एतेन उद्घाटयन्तु..."
+
 #, fuzzy
 #~| msgctxt "@title:window"
 #~| msgid "New Folder"
@@ -7213,25 +7250,6 @@ msgstr "यदि भवान् अस्मिन् कार्यक्र
 
 #~ msgid "Got an invalid reply when calling %1 -> %2"
 #~ msgstr "%1 -> %2 आह्वयन् अमान्यम् उत्तरं प्राप्तवान्"
-
-#~ msgid "New Folder…"
-#~ msgstr "नूतनं पुटम्…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add…"
-#~ msgstr "संयोजयति…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit…"
-#~ msgstr "सम्पादयतु…"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With…"
-#~ msgstr "&एतेन सह पुटं उद्घाटयन्तु…"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With…"
-#~ msgstr "&एतेन उद्घाटयन्तु…"
 
 #~ msgid "Add…"
 #~ msgstr "संयोजयति…"

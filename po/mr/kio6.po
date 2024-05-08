@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -2349,9 +2349,12 @@ msgid "Reload"
 msgstr "पुन्हा दाखल करा"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "नवीन संचयीका..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "नवीन संचयीका"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2597,8 +2600,8 @@ msgstr "1 संचयीका"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "संचार करा (&B)..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4775,17 +4778,16 @@ msgstr[0] "हा घटक तुम्हाला काढून टाक�
 msgstr[1] "हा घटक तुम्हाला काढून टाकायचा आहे का?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "जोडा..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "संपादित करा"
 
 #: widgets/kacleditwidget.cpp:79
@@ -4997,16 +4999,18 @@ msgstr "क्रिया (&A)"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "यामध्ये उघडा (&O)..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "यामध्ये उघडा (&O)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "यामध्ये उघडा (&O)..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "यामध्ये उघडा (&O)"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5037,7 +5041,7 @@ msgstr "यामध्ये उघडा (&O)"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "अनुप्रयोग (&A)"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6090,8 +6094,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "मोजत आहे..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6132,8 +6136,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6272,7 +6276,8 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Configure &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "धोरण बदला (&P)..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6324,7 +6329,7 @@ msgstr[1] ""
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "क्लिपबोर्ड मजकूर चिटकवा (&P)"
 
 #: widgets/paste.cpp:260
@@ -6811,6 +6816,38 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "New Folder..."
+#~ msgstr "नवीन संचयीका..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "जोडा..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "संपादित करा"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "यामध्ये उघडा (&O)..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "यामध्ये उघडा (&O)..."
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "क्लिपबोर्ड मजकूर चिटकवा (&P)"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -7446,9 +7483,6 @@ msgstr ""
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "URL चिकटवा (&P)"
 #~ msgstr[1] "%1 URL चिकटवा (&P)"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "क्लिपबोर्ड मजकूर चिटकवा (&P)"
 
 #~ msgid "None"
 #~ msgstr "काही नाही"

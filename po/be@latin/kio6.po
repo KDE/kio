@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2714,9 +2714,12 @@ msgid "Reload"
 msgstr "Pierazahruzić"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Novy kataloh..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Novy kataloh"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2940,9 +2943,11 @@ msgid "Root Folder"
 msgstr "Karaniovy kataloh"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Ahliad..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5241,14 +5246,16 @@ msgstr[3] "Sapraŭdy chočacie pieramiascić hetyja %1 eliemienty ŭ smietnicu?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Dadać..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Redahavannie..."
+msgid "Edit…"
+msgstr "&Redahavannie…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5450,16 +5457,20 @@ msgid "&Actions"
 msgstr "&Dziejanni"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Adkryć &kataloh z dapamohaj..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Adkryć &kataloh z dapamohaj"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Adkryć z dapamohaj..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Adkryć z dapamohaj"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5484,9 +5495,11 @@ msgid "&Open With"
 msgstr "&Adkryć z dapamohaj"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Inšaja prahrama..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6663,9 +6676,11 @@ msgstr "&Kantroĺnyja sumy"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Padlik..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6708,9 +6723,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Padličanaja i čakanaja kantroĺnaja suma nie supadajuć."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Praviarannie kantroĺnaj sumy..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6858,8 +6875,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Naladžvannie sieciŭnych skarotaŭ..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6916,10 +6935,11 @@ msgstr[2] "Ustavić %1 eliemientaŭ"
 msgstr[3] "Ustavić %1 eliemienty"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Ustavić zmiesciva bufiera abmienu..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Ustavić zmiesciva bufiera abmienu"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7472,6 +7492,29 @@ msgstr "Heta zapuscić prahramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
+
+#~ msgid "New Folder..."
+#~ msgstr "Novy kataloh..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Dadać..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Redahavannie..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Adkryć &kataloh z dapamohaj..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Adkryć z dapamohaj..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Ustavić zmiesciva bufiera abmienu..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -9349,9 +9392,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~ msgstr[1] "&Ustavić %1 URL-adrasy"
 #~ msgstr[2] "&Ustavić %1 URL-adrasoŭ"
 #~ msgstr[3] "&Ustavić %1 URL-adrasy"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Ustavić zmiesciva bufiera abmienu"
 
 #~ msgid "None"
 #~ msgstr "Niama"

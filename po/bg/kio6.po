@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 17:18+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2624,9 +2624,12 @@ msgid "Reload"
 msgstr "Презареждане"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Нова директория..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Нова папка"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2850,9 +2853,11 @@ msgid "Root Folder"
 msgstr "Root папка"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Преглед..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5091,14 +5096,16 @@ msgstr[1] "Наистина ли искате да преместите тези
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Добавяне..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Редактиране..."
+msgid "Edit…"
+msgstr "&Редактиране…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5299,16 +5306,20 @@ msgid "&Actions"
 msgstr "&Действия"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Отваряне на папка с..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Отваряне на папка с"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "Отваряне &с..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "Отваряне &с"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5333,9 +5344,11 @@ msgid "&Open With"
 msgstr "Отваряне &с"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Друго приложение..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6456,9 +6469,11 @@ msgstr "Контролна сума"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Изчисляване..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6501,9 +6516,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Изчислената контролна сума и очакваната контролна сума се различават."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Проверка на контролната сума..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6642,8 +6659,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Настройки на уеб-препратки..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6692,9 +6711,11 @@ msgstr[0] "Поставяне на един елемент"
 msgstr[1] "Поставяне на %1 елемента"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "Поставяне на съдържанието на клипборда..."
 
 #: widgets/paste.cpp:260
@@ -7194,6 +7215,25 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
+
+#~ msgid "New Folder..."
+#~ msgstr "Нова директория..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Добавяне..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Редактиране..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Отваряне на папка с..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "Отваряне &с..."
 
 #~| msgctxt "@title:window"
 #~| msgid "New Folder"

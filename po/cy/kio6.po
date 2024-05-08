@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2665,9 +2665,12 @@ msgid "Reload"
 msgstr "Adlwytho"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Plygell Newydd..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Plygell Newydd"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2892,9 +2895,11 @@ msgid "Root Folder"
 msgstr "Plygell Gwreiddyn"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Pori..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5137,14 +5142,16 @@ msgstr[1] "Ydych wir eisiau dileu y %1 eitem yma?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Ychwanegu..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Golygu..."
+msgid "Edit…"
+msgstr "&Golygu…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5346,16 +5353,20 @@ msgid "&Actions"
 msgstr "Gweithredi&adau"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Ag&or Plygell Efo..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Ag&or Plygell Efo"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "Ag&or Efo..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "Ag&or Efo"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5380,9 +5391,11 @@ msgid "&Open With"
 msgstr "Ag&or Efo"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Cymhwysiad Arall..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6526,9 +6539,11 @@ msgstr "G%wiriogyfansymiau"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Cyfrifo..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6576,9 +6591,11 @@ msgstr ""
 "gwahaniaethu."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Gwirio gwiriogyfanswm..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6720,8 +6737,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Ffurweddu Llygatlwybrau Gwefan..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6770,10 +6789,11 @@ msgstr[0] "Gludo Un Eitem"
 msgstr[1] "Gludo %1 o Eitemau"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Gludo Cynhwysiadau Gludfwrdd..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Gludo Cynhwysiadau Gludfwrdd"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7300,6 +7320,29 @@ msgstr "Fe fydd hwn yn dechreu y rhaglen:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
+
+#~ msgid "New Folder..."
+#~ msgstr "Plygell Newydd..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Ychwanegu..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Golygu..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Ag&or Plygell Efo..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "Ag&or Efo..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Gludo Cynhwysiadau Gludfwrdd..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8980,9 +9023,6 @@ msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "&Gludo URL"
 #~ msgstr[1] "&Gludo %1 URLau"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Gludo Cynhwysiadau Gludfwrdd"
 
 #~ msgid "None"
 #~ msgstr "Diddiim"

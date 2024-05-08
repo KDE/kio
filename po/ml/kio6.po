@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -2555,9 +2555,10 @@ msgid "Reload"
 msgstr "വീണ്ടും ലഭ്യമാക്കുക"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "പുതിയ ഫോള്‍ഡര്‍..."
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "പുതിയ ഫോള്‍ഡര്‍"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2783,9 +2784,11 @@ msgid "Root Folder"
 msgstr "റൂട്ട് അറ"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "ബ്രൗസ് ചെയ്യുക..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4882,14 +4885,14 @@ msgstr[1] "നിങ്ങള്‍ക്കു് ഈ വസ്തു ചവറ
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
+msgid "Add…"
 msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "മാറ്റം വരുത്തുക"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5094,16 +5097,15 @@ msgstr ""
 
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
-#| msgid "New Folder..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "പുതിയ ഫോള്‍ഡര്‍..."
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "1 ഫയല്‍"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr ""
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "1 ഫയല്‍"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5132,7 +5134,7 @@ msgstr ""
 #: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr ""
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6162,10 +6164,11 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Calculate"
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "കണക്കുകൂട്ടുക"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6205,8 +6208,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6342,7 +6345,8 @@ msgstr ""
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "നയം മാറ്റുക..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6389,8 +6393,9 @@ msgstr[1] "%1 വസ്തുക്കള്‍"
 
 #: widgets/paste.cpp:256
 #, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "ക്ലിപ്ബോര്‍ഡിലുള്ളവ &ഒട്ടിക്കുക"
 
 #: widgets/paste.cpp:260
@@ -6860,6 +6865,26 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില്ലെങ്കിൽ, റദ്ദാക്കുക്ക ക്ലിക്ക് ചെയ്യുക"
+
+#~ msgid "New Folder..."
+#~ msgstr "പുതിയ ഫോള്‍ഡര്‍..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "മാറ്റം വരുത്തുക"
+
+#, fuzzy
+#~| msgid "New Folder..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "പുതിയ ഫോള്‍ഡര്‍..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "ക്ലിപ്ബോര്‍ഡിലുള്ളവ &ഒട്ടിക്കുക"
 
 #, fuzzy
 #~ msgctxt "@title:window"
@@ -7495,9 +7520,6 @@ msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില�
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "യുആര്‍എല്‍ &ഒട്ടിക്കുക"
 #~ msgstr[1] "%1 യുആര്‍എല്‍സ് &ഒട്ടിക്കുക"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "ക്ലിപ്ബോര്‍ഡിലുള്ളവ &ഒട്ടിക്കുക"
 
 #, fuzzy
 #~ msgid "D-Bus registration:"

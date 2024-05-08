@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -2661,9 +2661,12 @@ msgid "Reload"
 msgstr "Muat ulang"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Folder Baru..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Folder Baru"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2887,9 +2890,11 @@ msgid "Root Folder"
 msgstr "Folder Root"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Telusuri..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5138,14 +5143,16 @@ msgstr[1] ""
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Tambah..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Sunting..."
+msgid "Edit…"
+msgstr "&Sunting…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5347,16 +5354,20 @@ msgid "&Actions"
 msgstr "&Aksi"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Buka Folder Dengan..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Buka Folder Dengan"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Buka Dengan..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "Buka &Dengan"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5381,9 +5392,11 @@ msgid "&Open With"
 msgstr "Buka &Dengan"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Aplikasi Lain..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6513,9 +6526,11 @@ msgstr "C&hecksums"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Menghitung..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6560,9 +6575,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Menghitung checksum dan diharapkan checksum berbeda."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Memverifikasi checksum..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6703,8 +6720,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Konfigurasikan Pintasan Web..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6753,10 +6772,11 @@ msgstr[0] "Tempel Satu Item"
 msgstr[1] "Tempel %1 Item"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Tempel Isi Papan Klip..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Tempel Isi Papan Klip"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7266,6 +7286,29 @@ msgstr "Ini akan menjalankan program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jika Anda tidak percaya program ini, klik Batal"
+
+#~ msgid "New Folder..."
+#~ msgstr "Folder Baru..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Tambah..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Sunting..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Buka Folder Dengan..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Buka Dengan..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Tempel Isi Papan Klip..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8923,9 +8966,6 @@ msgstr "Jika Anda tidak percaya program ini, klik Batal"
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "&Tempel URL"
 #~ msgstr[1] "&Tempel %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Tempel Isi Papan Klip"
 
 #~ msgid "None"
 #~ msgstr "Nihil"

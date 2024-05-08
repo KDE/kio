@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-04-10 16:25+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2659,9 +2659,12 @@ msgid "Reload"
 msgstr "Įkelti iš naujo"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Naujas aplankas..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Naujas aplankas"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2885,9 +2888,11 @@ msgid "Root Folder"
 msgstr "Šakninis aplankas"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Naršyti..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5132,14 +5137,16 @@ msgstr[3] "Ar tikrai norite perkelti %1 elementą į šiukšlinę?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Pridėti..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Taisyti..."
+msgid "Edit…"
+msgstr "&Taisyti…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5340,16 +5347,20 @@ msgid "&Actions"
 msgstr "&Veiksmai"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Atverti aplanką naudojant..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Atverti aplanką naudojant"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Atverti naudojant..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Atverti naudojant"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5374,9 +5385,11 @@ msgid "&Open With"
 msgstr "&Atverti naudojant"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Kita programa..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6517,9 +6530,11 @@ msgstr "&Kontrolinės sumos"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Skaičiuojama..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6564,9 +6579,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Apskaičiuotoji kontrolinė suma skiriasi nuo tos, kurios tikėtasi."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Tikrinama kontrolinė suma..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6708,8 +6725,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Konfigūruoti saityno trumpinius..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6760,10 +6779,11 @@ msgstr[2] "Įdėti %1 elementų"
 msgstr[3] "Įdėti %1 elementą"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Įdėti iškarpinės turinį..."
+msgid "Paste Clipboard Contents…"
+msgstr "Į&dėti iškarpinės turinį"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7278,6 +7298,29 @@ msgstr "Tai paleis programą:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
+
+#~ msgid "New Folder..."
+#~ msgstr "Naujas aplankas..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Pridėti..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Taisyti..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Atverti aplanką naudojant..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Atverti naudojant..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Įdėti iškarpinės turinį..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8856,9 +8899,6 @@ msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
 #~ msgstr[1] "Į&dėti %1 URL"
 #~ msgstr[2] "Į&dėti %1 URL"
 #~ msgstr[3] "Į&dėti %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "Į&dėti iškarpinės turinį"
 
 #~ msgid "None"
 #~ msgstr "Nieko"

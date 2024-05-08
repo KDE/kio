@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-04-04 17:42+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -2650,9 +2650,12 @@ msgid "Reload"
 msgstr "Обновить"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Создать папку…"
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Новая папка"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2876,9 +2879,11 @@ msgid "Root Folder"
 msgstr "Корневая папка"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Обзор…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5117,14 +5122,16 @@ msgstr[3] "Удалить %1 объект в корзину?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Добавить…"
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Изменить…"
+msgid "Edit…"
+msgstr "&Изменить…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5325,15 +5332,19 @@ msgid "&Actions"
 msgstr "&Действия"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Открыть папку в приложении…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Открыть папку в приложении"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
 msgstr "&Открыть с помощью…"
 
 #: widgets/kfileitemactions.cpp:727
@@ -5359,9 +5370,11 @@ msgid "&Open With"
 msgstr "&Открыть с помощью…"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Другое приложение…"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6498,9 +6511,11 @@ msgstr "&Контрольные суммы"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Вычисление…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6543,9 +6558,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Вычисленная контрольная сумма не совпадает с ожидаемой."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Проверяется контрольная сумма…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6689,8 +6706,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Настроить веб-сокращения…"
 
 #: widgets/kurlrequester.cpp:329
@@ -6741,10 +6760,11 @@ msgstr[2] "Вставить %1 объектов"
 msgstr[3] "Вставить %1 объект"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Вставить из буфера обмена…"
+msgid "Paste Clipboard Contents…"
+msgstr "&Вставить содержимое буфера обмена"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7260,6 +7280,29 @@ msgstr "Запуск программы:"
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 "Если вы не уверены в безопасности этой программы, нажмите кнопку «Отмена»."
+
+#~ msgid "New Folder..."
+#~ msgstr "Создать папку…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Добавить…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Изменить…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Открыть папку в приложении…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Открыть с помощью…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Вставить из буфера обмена…"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8906,9 +8949,6 @@ msgstr ""
 #~ msgstr[1] "&Вставить %1 ссылки"
 #~ msgstr[2] "&Вставить %1 ссылок"
 #~ msgstr[3] "&Вставить %1 ссылку"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Вставить содержимое буфера обмена"
 
 #~ msgid "None"
 #~ msgstr "Нет"

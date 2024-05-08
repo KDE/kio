@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-03-23 13:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2598,9 +2598,12 @@ msgid "Reload"
 msgstr "Oppdater"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Ny mappe …"
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Ny mappe"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2824,9 +2827,11 @@ msgid "Root Folder"
 msgstr "Rotmappa"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Bla gjennom …"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5046,14 +5051,16 @@ msgstr[1] "Er du sikker på at du vil flytta desse %1 elementa til papirkorga?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Legg til …"
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Rediger …"
+msgid "Edit…"
+msgstr "&Rediger …"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5254,16 +5261,20 @@ msgid "&Actions"
 msgstr "&Handlingar"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Opna mappa med …"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Opna mappa med"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "O&pna med …"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Opna med"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5288,9 +5299,11 @@ msgid "&Open With"
 msgstr "&Opna med"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Anna program …"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6405,9 +6418,11 @@ msgstr "&Sjekksummar"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Reknar ut …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6450,9 +6465,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Den utrekna sjekksummen og den oppgjevne sjekksummen er ikkje like."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Stadfestar sjekksum …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6592,8 +6609,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Set opp vevsnarvegar …"
 
 #: widgets/kurlrequester.cpp:329
@@ -6641,9 +6660,11 @@ msgstr[0] "Lim inn eitt element"
 msgstr[1] "Lim inn %1 element"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "Lim inn frå utklippstavla …"
 
 #: widgets/paste.cpp:260
@@ -7143,3 +7164,22 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
+
+#~ msgid "New Folder..."
+#~ msgstr "Ny mappe …"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Legg til …"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Rediger …"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Opna mappa med …"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "O&pna med …"

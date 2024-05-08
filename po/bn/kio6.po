@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -2416,9 +2416,11 @@ msgid "Reload"
 msgstr "হ্যাঁ"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "নতুন ফোল্ডার..."
+#, fuzzy, kde-format
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "নতুন ফোল্ডার"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2657,8 +2659,8 @@ msgstr "%1-টি ফোল্ডার"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "ব্রাউ&জ..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4818,16 +4820,15 @@ msgstr[0] "translators: not called for n == 1"
 msgstr[1] "translators: not called for n == 1"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "যোগ করো..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "&সম্পাদন করো..."
 
 #: widgets/kacleditwidget.cpp:79
@@ -5038,15 +5039,15 @@ msgstr "কাজ"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
 msgstr "খুলতে ব্যবহার করো"
 
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgctxt "@title:menu"
-msgid "&Open With..."
+msgctxt "@action:inmenu"
+msgid "&Open With…"
 msgstr "খুলতে ব্যবহার করো"
 
 #: widgets/kfileitemactions.cpp:727
@@ -5079,7 +5080,7 @@ msgstr "খুলতে ব্যবহার করো"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "অ্যা&পলিকেশন"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6115,8 +6116,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "গণনা চলছে..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6157,8 +6158,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6299,7 +6300,8 @@ msgstr "%1 বাইট"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Change &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "পলিসি &বদলাও..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6348,7 +6350,7 @@ msgstr[1] "%1-টি বস্তু"
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "ক্লিপবোর্ড-এর বিষয়&বস্তু পেস্ট করো"
 
 #: widgets/paste.cpp:260
@@ -6838,6 +6840,38 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "New Folder..."
+#~ msgstr "নতুন ফোল্ডার..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "যোগ করো..."
+
+#, fuzzy
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "&সম্পাদন করো..."
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "খুলতে ব্যবহার করো"
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "খুলতে ব্যবহার করো"
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "ক্লিপবোর্ড-এর বিষয়&বস্তু পেস্ট করো"
 
 #, fuzzy
 #~ msgctxt "@title:window"
@@ -7705,9 +7739,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Could not find any application or handler for %1"
 #~ msgstr "%1-এর অনুমতি বদলানো যায়নি।"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "ক্লিপবোর্ড-এর বিষয়&বস্তু পেস্ট করো"
 
 #~ msgid "None"
 #~ msgstr "একটিও না"

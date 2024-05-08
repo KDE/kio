@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2641,9 +2641,12 @@ msgid "Reload"
 msgstr "Pārielādēt"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Jauna mape..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Jauna mape"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2869,9 +2872,11 @@ msgid "Root Folder"
 msgstr "Saknes mape"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Pārlūkot..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5158,17 +5163,16 @@ msgstr[1] "Vai tiešām vēlaties izmest miskastē šo %1 vienību?"
 msgstr[2] "Vai tiešām vēlaties izmest miskastē šo %1 vienību?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Pievienot..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Rediģēt"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5374,16 +5378,18 @@ msgstr "D&arbības"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Atvērt ar..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Atvērt ar"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Atvērt ar..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Atvērt ar"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5414,7 +5420,7 @@ msgstr "&Atvērt ar"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Programma"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6578,9 +6584,11 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Aprēķina..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6624,8 +6632,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6769,7 +6777,8 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Change &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Mainīt &noteikumus..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6818,10 +6827,11 @@ msgstr[1] "Ielīmēt %1 vienumus"
 msgstr[2] "Ielīmēt %1 vienumu"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Ielīmēt starpliktuves saturu..."
+msgid "Paste Clipboard Contents…"
+msgstr "&Ielīmēt starpliktuves saturu"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7348,6 +7358,36 @@ msgstr "Šis palaidīs programmu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ja neuzticieties šai programmai, spiediet Atcelt"
+
+#~ msgid "New Folder..."
+#~ msgstr "Jauna mape..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Pievienot..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Rediģēt"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Atvērt ar..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Atvērt ar..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Ielīmēt starpliktuves saturu..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8817,9 +8857,6 @@ msgstr "Ja neuzticieties šai programmai, spiediet Atcelt"
 #~ msgstr[0] "&Ielīmēt %1 URL"
 #~ msgstr[1] "&Ielīmēt %1 URL"
 #~ msgstr[2] "&Ielīmēt %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Ielīmēt starpliktuves saturu"
 
 #~ msgid "None"
 #~ msgstr "Nav"

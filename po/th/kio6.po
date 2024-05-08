@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -2603,9 +2603,12 @@ msgid "Reload"
 msgstr "โหลดใหม่"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "โฟลเดอร์ใหม่..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "โฟลเดอร์ใหม่"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2851,8 +2854,8 @@ msgstr "%1 โฟลเดอร์"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "เลือ&ก..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5142,17 +5145,16 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "คุณต้องการทิ้ง %1 รายการนี้ลงถังขยะจริงหรือไม่ ?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "เพิ่ม..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "แก้ไข"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5364,16 +5366,18 @@ msgstr "&การกระทำ"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "เปิดใช้&ด้วย..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "เปิดใช้&ด้วย"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "เปิดใช้&ด้วย..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "เปิดใช้&ด้วย"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5404,7 +5408,7 @@ msgstr "เปิดใช้&ด้วย"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "โ&ปรแกรม"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6545,8 +6549,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "กำลังคำนวณ..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6587,8 +6591,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6726,7 +6730,8 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Change &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "เปลี่ยน&ข้อกำหนด..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6779,7 +6784,7 @@ msgstr[0] ""
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "ว&างเนื้อหาจากคลิปบอร์ด"
 
 #: widgets/paste.cpp:260
@@ -7299,6 +7304,38 @@ msgstr "จะทำการเรียกใช้โปรแกรม:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "หากคุณไม่เชื่อถือโปรแกรมนี้ โปรดคลิก ยกเลิก"
+
+#~ msgid "New Folder..."
+#~ msgstr "โฟลเดอร์ใหม่..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "เพิ่ม..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "แก้ไข"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "เปิดใช้&ด้วย..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "เปิดใช้&ด้วย..."
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "ว&างเนื้อหาจากคลิปบอร์ด"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8727,9 +8764,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "ว&างที่อยู่ URL %1 ตำแหน่ง"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "ว&างเนื้อหาจากคลิปบอร์ด"
 
 #~ msgid "None"
 #~ msgstr "ไม่มี"

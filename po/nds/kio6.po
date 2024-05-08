@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2686,9 +2686,12 @@ msgid "Reload"
 msgstr "Nieg laden"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Nieg Orner..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Nieg Orner"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2934,8 +2937,8 @@ msgstr "1 Orner"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "&Utsöken..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5250,17 +5253,16 @@ msgstr[0] "Wullt Du dissen Indrag redig na de Affalltünn verschuven?"
 msgstr[1] "Wullt Du dissen Indrag redig na de Affalltünn verschuven?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Tofögen..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Bewerken"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5472,16 +5474,18 @@ msgstr "&Akschonen"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Opmaken mit..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Opmaken mit"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Opmaken mit..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Opmaken mit"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5512,7 +5516,7 @@ msgstr "&Opmaken mit"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Programm"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6684,8 +6688,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "An't Utreken..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6726,8 +6730,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6870,7 +6874,8 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Web Shortcuts"
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Söökafkörten"
 
 #: widgets/kurlrequester.cpp:329
@@ -6928,7 +6933,7 @@ msgstr[1] "%1 Indrääg"
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "Twischenaflaag-Inholt &infögen"
 
 #: widgets/paste.cpp:260
@@ -7462,6 +7467,38 @@ msgstr "Dit start dat Programm:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
+
+#~ msgid "New Folder..."
+#~ msgstr "Nieg Orner..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Tofögen..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Bewerken"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Opmaken mit..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Opmaken mit..."
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Twischenaflaag-Inholt &infögen"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -9138,9 +9175,6 @@ msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "URL &infögen"
 #~ msgstr[1] "%1 URLs &infögen"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "Twischenaflaag-Inholt &infögen"
 
 #~ msgid "None"
 #~ msgstr "Keen"

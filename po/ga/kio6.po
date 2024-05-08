@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2555,9 +2555,12 @@ msgid "Reload"
 msgstr "Athluchtaigh"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Fillteán Nua..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Fillteán Nua"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2803,8 +2806,8 @@ msgstr "1 Fhillteán"
 #: filewidgets/kfilecopytomenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "&Browse..."
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "&Brabhsáil..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5127,17 +5130,16 @@ msgstr[3] "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 msgstr[4] "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Cuir Leis..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
-msgid "Edit..."
+msgid "Edit…"
 msgstr "Eagar"
 
 #: widgets/kacleditwidget.cpp:79
@@ -5349,16 +5351,18 @@ msgstr "Gníomh&artha"
 #: widgets/kfileitemactions.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
-#| msgid "&Open With..."
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&Oscail Le..."
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&Oscail Le"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Oscail Le..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Oscail Le"
 
 #: widgets/kfileitemactions.cpp:727
 #, fuzzy, kde-format
@@ -5389,7 +5393,7 @@ msgstr "&Oscail Le"
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Feidhmchlár"
 
 # need not all be files, so use "mír" vs. "comhad"
@@ -6557,8 +6561,8 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Calculating..."
-msgctxt "@action:button"
-msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Á Áireamh..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6599,8 +6603,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6746,7 +6750,8 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, fuzzy, kde-format
 #| msgid "Configure &Policy..."
-msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Cumraigh &Polasaí..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6807,7 +6812,7 @@ msgstr[4] "%1 Mír"
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "&Greamaigh Inneachar na Gearrthaisce"
 
 #: widgets/paste.cpp:260
@@ -7318,6 +7323,38 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
+
+#~ msgid "New Folder..."
+#~ msgstr "Fillteán Nua..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Cuir Leis..."
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Eagar"
+
+#, fuzzy
+#~| msgctxt "@title:menu"
+#~| msgid "&Open With..."
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&Oscail Le..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Oscail Le..."
+
+#, fuzzy
+#~| msgid "&Paste Clipboard Contents"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "&Greamaigh Inneachar na Gearrthaisce"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8650,9 +8687,6 @@ msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
 #~ msgstr[2] "&Greamaigh %1 URL"
 #~ msgstr[3] "&Greamaigh %1 URL"
 #~ msgstr[4] "&Greamaigh %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Greamaigh Inneachar na Gearrthaisce"
 
 #~ msgid "None"
 #~ msgstr "Neamhní"

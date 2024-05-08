@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-03-06 17:05+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2587,9 +2587,12 @@ msgid "Reload"
 msgstr "再読み込み"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "新しいフォルダ..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "新しいフォルダ"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2813,9 +2816,11 @@ msgid "Root Folder"
 msgstr "ルートフォルダ"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "ブラウズ..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5020,14 +5025,16 @@ msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しま�
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "追加..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "編集..."
+msgid "Edit…"
+msgstr "編集(&E)..."
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5228,16 +5235,20 @@ msgid "&Actions"
 msgstr "アクション(&A)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "アプリケーションでフォルダを開く(&O)..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "アプリケーションでフォルダを開く(&O)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "アプリケーションで開く(&O)..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "アプリケーションで開く(&O)"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5262,9 +5273,11 @@ msgid "&Open With"
 msgstr "アプリケーションで開く(&O)"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "その他のアプリケーション(&O)..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6389,9 +6402,11 @@ msgstr "チェックサム(&H)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "計算中..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6435,8 +6450,8 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6572,8 +6587,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "ウェブショートカットを設定..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6621,9 +6638,11 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "%1個のアイテムを貼り付け"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "クリップボードの内容を貼り付け..."
 
 #: widgets/paste.cpp:260
@@ -7126,6 +7145,25 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
+
+#~ msgid "New Folder..."
+#~ msgstr "新しいフォルダ..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "追加..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "編集..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "アプリケーションでフォルダを開く(&O)..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "アプリケーションで開く(&O)..."
 
 #, fuzzy
 #~| msgctxt "@title:window"

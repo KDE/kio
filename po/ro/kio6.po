@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2668,9 +2668,12 @@ msgid "Reload"
 msgstr "Reîncarcă"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "Dosar nou..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "Dosar nou"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2894,9 +2897,11 @@ msgid "Root Folder"
 msgstr "Dosar rădăcină"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "Răsfoiește…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5147,14 +5152,16 @@ msgstr[2] "Sigur doriți să mutați aceste %1 de elemente la gunoi?"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "Adaugă…"
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "Modifică…"
+msgid "Edit…"
+msgstr "&Modifică…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5355,16 +5362,20 @@ msgid "&Actions"
 msgstr "&Acțiuni"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "Deschide d&osarul cu…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "Deschide d&osarul cu"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Deschide cu..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Deschide cu"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5389,9 +5400,11 @@ msgid "&Open With"
 msgstr "&Deschide cu"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Altă aplicație..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6549,9 +6562,11 @@ msgstr "S&ume de control"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "Se calculează..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6595,9 +6610,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Suma de control calculată diferă de cea așteptată."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "Se verifică suma de control..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6741,8 +6758,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "Configurare scurtături web..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6792,10 +6811,11 @@ msgstr[1] "Lipește %1 elemente"
 msgstr[2] "Lipește %1 de elemente"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "Lipire conținut clipboard..."
+msgid "Paste Clipboard Contents…"
+msgstr "Li&pește conținutul clipboard-ului"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7309,6 +7329,29 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgid "New Folder..."
+#~ msgstr "Dosar nou..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "Adaugă…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "Modifică…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "Deschide d&osarul cu…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Deschide cu..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "Lipire conținut clipboard..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8843,9 +8886,6 @@ msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
 #~ msgstr[0] "Li&pește URL"
 #~ msgstr[1] "Li&pește %1 URL-uri"
 #~ msgstr[2] "Li&pește %1 de URL-uri"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "Li&pește conținutul clipboard-ului"
 
 #~ msgid "None"
 #~ msgstr "Nimic"

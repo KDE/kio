@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2482,9 +2482,12 @@ msgid "Reload"
 msgstr "重新加载"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "新建文件夹..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "新建文件夹"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2708,9 +2711,11 @@ msgid "Root Folder"
 msgstr "根文件夹"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "浏览..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4868,14 +4873,16 @@ msgstr[0] "您确定要将这 %1 个项目移动到回收站吗？"
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "添加..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "编辑..."
+msgid "Edit…"
+msgstr "编辑(&E)…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5076,16 +5083,20 @@ msgid "&Actions"
 msgstr "操作(&A)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "打开文件夹方式(&O)..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "打开文件夹方式(&O)"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "打开方式(&O)..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "打开方式(&O)"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5110,9 +5121,11 @@ msgid "&Open With"
 msgstr "打开方式(&O)"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "其他应用程序(&O)..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6181,9 +6194,11 @@ msgstr "校验和(&H)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "正在计算..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6225,9 +6240,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "计算出的校验和与预期的校验和不一致。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "正在验证校验和..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6360,8 +6377,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "配置网页搜索缩略词..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6408,9 +6427,11 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "粘贴 %1 个项目"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents..."
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
+msgid "Paste Clipboard Contents…"
 msgstr "粘贴剪贴板内容..."
 
 #: widgets/paste.cpp:260
@@ -6887,3 +6908,22 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "New Folder..."
+#~ msgstr "新建文件夹..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "添加..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "编辑..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "打开文件夹方式(&O)..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "打开方式(&O)..."

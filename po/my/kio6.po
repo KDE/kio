@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2545,9 +2545,12 @@ msgid "Reload"
 msgstr "ပြန်တွန်းတင်"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "ဖိုလ်ဒါအသစ်…"
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "ဖိုလ်ဒါအသစ်"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2771,9 +2774,11 @@ msgid "Root Folder"
 msgstr "Root ဖိုလ်ဒါ"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "ရှောက်ကြည့်…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -4954,14 +4959,16 @@ msgstr[0] "ဤအိုင်တမ် %1ခုကို အမှိုက်�
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "ထည့်…"
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "တည်းဖြတ်"
+msgid "Edit…"
+msgstr "&Eတည်းဖြတ်…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5163,16 +5170,20 @@ msgid "&Actions"
 msgstr "&Aလုပ်ဆောင်ချက်များ"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&Oဖြင့်ဖွင့်ရန်…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&Oဖြင့်ဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5197,9 +5208,11 @@ msgid "&Open With"
 msgstr "&Oဖြင့်ဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&Oအခြားအပ္ပလီကေးရှင်း…"
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6293,9 +6306,11 @@ msgstr "&hပေါင်းလဒ်စစ်တမ်းများ"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "တွက်နေသည်…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6337,9 +6352,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကွဲပြားသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6475,8 +6492,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ ပြင်ဆင်မည်…"
 
 #: widgets/kurlrequester.cpp:329
@@ -6523,10 +6542,11 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "အိုင်တမ် %1ခုပွား"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "ကလစ်ဘုတ်ကအရာများ ပွားမည်…"
+msgid "Paste Clipboard Contents…"
+msgstr "&Pကလစ်ဘုတ်ရှိဒေတာများ ပွားမည်"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7034,6 +7054,29 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "New Folder..."
+#~ msgstr "ဖိုလ်ဒါအသစ်…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "ထည့်…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "တည်းဖြတ်"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&Oဖြင့်ဖွင့်ရန်…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "ကလစ်ဘုတ်ကအရာများ ပွားမည်…"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -8614,9 +8657,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "&Pယူအာအယ်လ် %1ခုပွား"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Pကလစ်ဘုတ်ရှိဒေတာများ ပွားမည်"
 
 #~ msgid "None"
 #~ msgstr "မသတ်မှတ်ထား"

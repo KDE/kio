@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:36+0000\n"
+"POT-Creation-Date: 2024-05-08 00:36+0000\n"
 "PO-Revision-Date: 2024-03-10 02:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2604,9 +2604,12 @@ msgid "Reload"
 msgstr "თავიდან ჩატვირთვა"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, kde-format
-msgid "New Folder..."
-msgstr "ახალი საქაღალდე..."
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
+msgctxt "@action"
+msgid "New Folder…"
+msgstr "ახალი საქაღალდე"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2830,9 +2833,11 @@ msgid "Root Folder"
 msgstr "Root საქაღალდე"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
-msgctxt "@title:menu in Copy To or Move To submenu"
-msgid "Browse..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse..."
+msgctxt "@action:inmenu in Copy To or Move To submenu"
+msgid "Browse…"
 msgstr "მოძებნა..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
@@ -5045,14 +5050,16 @@ msgstr[1] ""
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
 msgctxt "@action:button"
-msgid "Add..."
-msgstr "დამატება..."
+msgid "Add…"
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Edit…"
 msgctxt "@action:button"
-msgid "Edit..."
-msgstr "ჩასწორება..."
+msgid "Edit…"
+msgstr "&ჩასწორება…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5253,16 +5260,20 @@ msgid "&Actions"
 msgstr "&ქმედებები"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open Folder With..."
-msgstr "&საქაღალდის პროგრამით გახსნა..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
+msgctxt "@action:inmenu"
+msgid "&Open Folder With…"
+msgstr "&საქაღალდის პროგრამით გახსნა"
 
 #: widgets/kfileitemactions.cpp:689
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Open With..."
-msgstr "&გამხსნელი პროგრამა..."
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
+msgctxt "@action:inmenu"
+msgid "&Open With…"
+msgstr "&გამხსნელი პროგრამა"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5287,9 +5298,11 @@ msgid "&Open With"
 msgstr "&გამხსნელი პროგრამა"
 
 #: widgets/kfileitemactions.cpp:770
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application..."
 msgctxt "@action:inmenu Open With"
-msgid "&Other Application..."
+msgid "&Other Application…"
 msgstr "&სხვა აპლიკაცია..."
 
 #: widgets/kfileitemdelegate.cpp:209
@@ -6414,9 +6427,11 @@ msgstr "&საკონტროლო ჯამები"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, kde-format
-msgctxt "@action:button"
-msgid "Calculating..."
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
 msgstr "გაანგარიშება..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
@@ -6460,9 +6475,11 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "გამოთვლილი და მოსალოდნელი საკონტროლო ჯამები განსხვავდება."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, kde-format
-msgctxt "notify the user about a computation in the background"
-msgid "Verifying checksum..."
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum..."
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum…"
 msgstr "საკონტროლო ჯამის შემოწმება..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
@@ -6601,8 +6618,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgctxt "@action:inmenu"
+msgid "Configure Web Shortcuts…"
 msgstr "ვებ მალსახმობების მორგება..."
 
 #: widgets/kurlrequester.cpp:329
@@ -6651,10 +6670,11 @@ msgstr[0] "ჩანაწერის ჩასმა"
 msgstr[1] "%1 ჩანაწერის ჩასმა"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
-msgid "Paste Clipboard Contents..."
-msgstr "ბაფერის ჩასმა..."
+msgid "Paste Clipboard Contents…"
+msgstr "&მიმოცვლის ბაფერის შემცველობის ჩასმა"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7149,6 +7169,29 @@ msgstr "ეს გაუშვებს პროგრამას:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "თუ ამ პროგრამას არ ენდობით, გაუქმებას დააწექით"
+
+#~ msgid "New Folder..."
+#~ msgstr "ახალი საქაღალდე..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Add..."
+#~ msgstr "დამატება..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit..."
+#~ msgstr "ჩასწორება..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With..."
+#~ msgstr "&საქაღალდის პროგრამით გახსნა..."
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With..."
+#~ msgstr "&გამხსნელი პროგრამა..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Paste Clipboard Contents..."
+#~ msgstr "ბაფერის ჩასმა..."
 
 #~ msgctxt "@title:window"
 #~ msgid "New File"
@@ -7898,9 +7941,6 @@ msgstr "თუ ამ პროგრამას არ ენდობით, 
 #~ msgid_plural "&Paste %1 URLs"
 #~ msgstr[0] "URL-ის ჩასმა"
 #~ msgstr[1] "%1 URL-ის ჩასმა"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&მიმოცვლის ბაფერის შემცველობის ჩასმა"
 
 #~ msgid "None"
 #~ msgstr "არაფერი"
