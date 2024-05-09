@@ -91,7 +91,7 @@
 <para
 ><command
 >kcookiejar5</command
-> est une interface en ligne de commandes pour l'ensemble des cookies &HTTP;  utilisé par &kde;, un service &DBus; permettant d'enregistrer / de retrouver / de nettoyer les cookies. </para>
+> est une interface en ligne de commandes pour l'ensemble des cookies &HTTP; utilisé par &kde;, un service &DBus; permettant d'enregistrer / de retrouver / de nettoyer les cookies. </para>
 </refsect1>
 
 <refsect1>
