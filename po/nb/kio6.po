@@ -7026,10 +7026,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk Avbryt"
-
-#~ msgid "New Folder..."
-#~ msgstr "Ny mappe …"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "Å&pne med …"

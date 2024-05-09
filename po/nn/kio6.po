@@ -7164,22 +7164,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "New Folder..."
-#~ msgstr "Ny mappe …"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add..."
-#~ msgstr "Legg til …"
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit..."
-#~ msgstr "Rediger …"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With..."
-#~ msgstr "&Opna mappa med …"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "O&pna med …"

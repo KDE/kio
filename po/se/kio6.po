@@ -6967,10 +6967,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "New Folder..."
-#~ msgstr "Ođđa máhppa …"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "&Raba geavahettiin …"
