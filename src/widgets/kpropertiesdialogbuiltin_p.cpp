@@ -2430,7 +2430,7 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
     l = new QLabel(d->m_frame);
     l->setObjectName(QStringLiteral("Label_1"));
     l->setText(i18n("URL:"));
-    layout->addWidget(l, Qt::AlignRight);
+    layout->addWidget(l);
 
     d->URLEdit = new KUrlRequester(d->m_frame);
     layout->addWidget(d->URLEdit);
