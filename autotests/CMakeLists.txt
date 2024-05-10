@@ -147,8 +147,8 @@ ecm_add_tests(
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus
 )
 
-set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR}")
-target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR=${_libexec_dir_kf}")
+set(_libexec_dir "${KDE_INSTALL_FULL_LIBEXECDIR}")
+target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR=${_libexec_dir}")
 
 set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus)
 
