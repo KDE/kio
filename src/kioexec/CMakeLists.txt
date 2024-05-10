@@ -21,7 +21,7 @@ ecm_qt_declare_logging_category(kioexecd
 
 target_link_libraries(kioexecd KF6::I18n KF6::DBusAddons KF6::WidgetsAddons KF6::KIOCore)
 
-kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kioexecd6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
+kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kioexecd6 ${KDE_INSTALL_FULL_LIBEXECDIR})
 
 # next target
 
@@ -52,5 +52,5 @@ if (HAVE_X11)
     target_link_libraries(kioexec Qt6::GuiPrivate) # qtx11extras_p.h
 endif()
 
-install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
+install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR} )
 

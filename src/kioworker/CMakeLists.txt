@@ -10,4 +10,4 @@ target_link_libraries(kioworker
    KF6::KIOCore
 )
 
-install(TARGETS kioworker DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
+install(TARGETS kioworker DESTINATION ${KDE_INSTALL_LIBEXECDIR})

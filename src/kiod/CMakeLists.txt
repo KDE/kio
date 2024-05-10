@@ -36,7 +36,7 @@ if (APPLE)
     ecm_mark_nongui_executable(kiod6)
 endif ()
 
-install(TARGETS kiod6 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
+install(TARGETS kiod6 DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
-kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kiod6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
+kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kiod6 ${KDE_INSTALL_FULL_LIBEXECDIR})
 

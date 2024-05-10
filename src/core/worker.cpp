@@ -30,7 +30,7 @@
 #include "connectionserver.h"
 #include "dataprotocol_p.h"
 #include "kioglobal_p.h"
-#include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF
+#include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR
 #include <kprotocolinfo.h>
 
 #include "kiocoredebug.h"
@@ -381,7 +381,7 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
 
     // search paths
     QStringList searchPaths = KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf6"));
-    searchPaths.append(QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF)); // look at our installation location
+    searchPaths.append(QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR)); // look at our installation location
     QString kioworkerExecutable = QStandardPaths::findExecutable(QStringLiteral("kioworker"), searchPaths);
     if (kioworkerExecutable.isEmpty()) {
         // Fallback to PATH. On win32 we install to bin/ which tests outside
