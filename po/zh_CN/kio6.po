@@ -2485,7 +2485,7 @@ msgstr "重新加载"
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr ""
+msgstr "新建文件夹…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2712,7 +2712,7 @@ msgstr "根文件夹"
 #, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr ""
+msgstr "浏览…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -4870,13 +4870,13 @@ msgstr[0] "您确定要将这 %1 个项目移动到回收站吗？"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "添加…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr ""
+msgstr "编辑…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5080,13 +5080,13 @@ msgstr "操作(&A)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr ""
+msgstr "打开文件夹方式(&O)…"
 
 #: widgets/kfileitemactions.cpp:689
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr ""
+msgstr "打开方式(&O)…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5114,7 +5114,7 @@ msgstr "打开方式(&O)"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr ""
+msgstr "其他应用程序(&O)…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6185,7 +6185,7 @@ msgstr "校验和(&H)"
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr ""
+msgstr "正在计算…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6229,7 +6229,7 @@ msgstr "计算出的校验和与预期的校验和不一致。"
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr ""
+msgstr "正在验证校验和…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
@@ -6364,7 +6364,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr ""
+msgstr "配置网页搜索缩略词…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6413,7 +6413,7 @@ msgstr[0] "粘贴 %1 个项目"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr ""
+msgstr "粘贴剪贴板内容…"
 
 #: widgets/paste.cpp:260
 #, kde-format

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:36+0000\n"
-"PO-Revision-Date: 2024-03-30 10:44+0400\n"
+"PO-Revision-Date: 2024-05-09 09:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2562,12 +2562,10 @@ msgid "Reload"
 msgstr "أعِد التّحميل"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "مجلد جديد"
+msgstr "مجلّد جديد…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2791,12 +2789,10 @@ msgid "Root Folder"
 msgstr "مجلّد الجذر"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "تصفّح..."
+msgstr "تصفّح…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -5044,15 +5040,13 @@ msgstr[5] "أمتأكّد من نقل هذا %1 عنصر إلى المهملات
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "أضف…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&حرّر…"
+msgstr "حرّر…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5253,20 +5247,16 @@ msgid "&Actions"
 msgstr "إ&جراءات"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "ا&فتح المجلد بـ"
+msgstr "ا&فتح المجلد بـ…"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "ا&فتح في"
+msgstr "اف&تح ب‍…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5291,12 +5281,10 @@ msgid "&Open With"
 msgstr "ا&فتح في"
 
 #: widgets/kfileitemactions.cpp:770
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&تطبيق آخر..."
+msgstr "&تطبيق آخر…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6427,12 +6415,10 @@ msgstr "تد&قيقات المجموع"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "يحسب..."
+msgstr "يحسب…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6473,12 +6459,10 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "تدقيقا المجموع المحسوب والمتوقّع مختلفان."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "يتحقّق من تدقيق المجموع..."
+msgstr "يتحقّق من تدقيق المجموع…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
@@ -6622,11 +6606,10 @@ msgid "%1"
 msgstr "‏%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "اضبط اختصارات الوبّ..."
+msgstr "اضبط اختصارات الوبّ…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6677,11 +6660,10 @@ msgstr[4] "ألصِق %1 عنصرًا"
 msgstr[5] "ألصِق %1 عنصر"
 
 #: widgets/paste.cpp:256
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "أل&صِق محتويات الحافظة"
+msgstr "أل&صق محتويات الحافظة…"
 
 #: widgets/paste.cpp:260
 #, kde-format

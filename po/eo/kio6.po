@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-08 00:36+0000\n"
-"PO-Revision-Date: 2024-03-10 10:31+0100\n"
+"PO-Revision-Date: 2024-05-09 22:01+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2635,12 +2635,10 @@ msgid "Reload"
 msgstr "Reŝargi"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "Nova Dosierujo"
+msgstr "Nova Dosierujo…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2864,12 +2862,10 @@ msgid "Root Folder"
 msgstr "Radika Dosierujo"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "Foliumi..."
+msgstr "Foliumi…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -5089,15 +5085,13 @@ msgstr[1] "Ĉu vi vere volas movi ĉi %1 objektojn al rubujo?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "Aldoni…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "R&edakti…"
+msgstr "Redakti…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5298,50 +5292,44 @@ msgid "&Actions"
 msgstr "&Agoj"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Malfermi dosierujon Kun"
+msgstr "&Malfermi Dosierujon Per…"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Malfermi kun"
+msgstr "&Malfermi Per…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Malfermi dosierujon kun %1"
+msgstr "&Malfermi dosierujon per %1"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open with %1"
-msgstr "&Malfermi kun %1"
+msgstr "&Malfermi per %1"
 
 #: widgets/kfileitemactions.cpp:759
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Malfermi dosierujon Kun"
+msgstr "&Malfermi Dosierujon Per"
 
 #: widgets/kfileitemactions.cpp:759
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
-msgstr "&Malfermi kun"
+msgstr "&Malfermi Per"
 
 #: widgets/kfileitemactions.cpp:770
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "Alia Aplik&o..."
+msgstr "Alia Aplik&o…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6464,12 +6452,10 @@ msgstr "&Kontrolsumoj"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Kalkulante..."
+msgstr "Kalkulante…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6511,12 +6497,10 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "La kalkulita kontrolsumo kaj la atendata kontrolsumo malsamas."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "Kontrolante kontrolsumon..."
+msgstr "Konfirmante kontrolsumon…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
@@ -6656,11 +6640,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "Agordi Retajn Ŝparvojojn..."
+msgstr "Agordi Retajn Ŝparvojojn…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6707,12 +6690,10 @@ msgstr[0] "Alglui unu eron"
 msgstr[1] "Alglui%1 erojn"
 
 #: widgets/paste.cpp:256
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "Algluu enhavon de la tondujo..."
+msgstr "Alglui Tondujan Enhavon…"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7208,22 +7189,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgid "New Folder..."
-#~ msgstr "Nova dosierujo..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Add..."
-#~ msgstr "Aldoni..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit..."
-#~ msgstr "Redaktu..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With..."
-#~ msgstr "&Malfermi dosierujon kun..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "&Malfermi Kun..."
