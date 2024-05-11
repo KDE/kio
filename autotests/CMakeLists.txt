@@ -193,7 +193,7 @@ ecm_add_tests(
  kurlrequestertest.cpp
  kfilefiltercombotest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n
+ LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n KF6::WindowSystem
 )
 
 # TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage
