@@ -2747,7 +2747,7 @@ msgstr "Torna a carregar"
 #: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
-msgstr "Carpeta nova..."
+msgstr "Carpeta nova…"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
@@ -2974,7 +2974,7 @@ msgstr "Carpeta arrel"
 #, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "Navega..."
+msgstr "Navega…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3698,10 +3698,10 @@ msgstr ""
 "clicar <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el fitxer "
 "encara no existix). Esta extensió està basada en el tipus de fitxer que heu "
 "triat per a guardar.<br /><br />Si no voleu que KDE proporcione una extensió "
-"per al nom de fitxer, podeu desseleccionar esta opció o bé podeu suprimir-la "
+"per al nom de fitxer, podeu desmarcar esta opció o bé podeu suprimir-la "
 "afegint un punt «.» al final del nom de fitxer (al final el punt s'eliminarà "
-"automàticament).</li></ol>Si no esteu segur, deixeu l'opció seleccionada, ja "
-"que farà més manejables els vostres fitxers."
+"automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
+"farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2946
 #, kde-format
@@ -4048,7 +4048,7 @@ msgid ""
 msgstr ""
 "El fitxer d'entrada «desktop»\n"
 "%1\n"
-"és de tipus «Link» però no té cap entrada URL=..."
+"és de tipus «Link» però no té cap entrada URL=…"
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -4088,7 +4088,7 @@ msgstr ""
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "El fitxer d'entrades «desktop» %1 no té cap entrada Type=..."
+msgstr "El fitxer d'entrades «desktop» %1 no té cap entrada Type=…"
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -4304,7 +4304,7 @@ msgid ""
 "disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
 "items after a certain timespan</para>"
 msgstr ""
-"<para>Seleccioneu esta casella per a permetre la <emphasis "
+"<para>Marqueu esta casella per a permetre la <emphasis "
 "strong='true'>supressió automàtica</emphasis> dels fitxers més antics que el "
 "valor indicat. Deixeu-ho desmarcat per a <emphasis strong='true'>no</"
 "emphasis> suprimir automàticament cap element després d'un lapse de temps "
@@ -4345,9 +4345,9 @@ msgid ""
 "<para>Check this box to limit the trash to the maximum amount of disk space "
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
-"<para>Seleccioneu esta casella per a limitar la paperera a la quantitat "
-"màxima d'espai en disc que indiqueu seguidament. En cas contrari, serà sense "
-"límit.</para>"
+"<para>Marqueu esta casella per a limitar la paperera a la quantitat màxima "
+"d'espai en disc que indiqueu seguidament. En cas contrari, serà sense límit."
+"</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
 #: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
@@ -4607,7 +4607,7 @@ msgstr "Suprimix-ho &tot"
 #: kcms/cookies/kcookiesmanagement.ui:70
 #, kde-format
 msgid "Configure &Policy..."
-msgstr "Configura la &política..."
+msgstr "Configura la &política…"
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
@@ -4820,7 +4820,7 @@ msgstr ""
 "sessió actual. Estes galetes no es guardaran en el disc dur o dispositiu "
 "d'emmagatzematge. En comptes d'açò, se suprimiran quan tanqueu totes les "
 "aplicacions que les utilitzen (p. ex., el navegador).</p><p><u>NOTA:</u> Si "
-"seleccioneu esta opció, s'anul·laran les polítiques de galetes de sessió "
+"marqueu esta opció, s'anul·laran les polítiques de galetes de sessió "
 "predeterminades i específiques de lloc.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
@@ -4909,9 +4909,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Per a afegir una política nova, senzillament cliqueu en el botó <b>Afig...</"
-"b> i proporcioneu la informació necessària. Per a canviar una política "
-"existent, cliqueu en el botó <b>Canvia...</b> i trieu la política nova del "
+"Per a afegir una política nova, senzillament cliqueu en el botó <b>Afig…</b> "
+"i proporcioneu la informació necessària. Per a canviar una política "
+"existent, cliqueu en el botó <b>Canvia…</b> i trieu la política nova del "
 "diàleg de polítiques. Clicant en el botó <b>Suprimix</b> s'eliminarà la "
 "política seleccionada, fent que per a este domini s'utilitze la política "
 "predeterminada, mentre que <b>Suprimix-ho tot</b> eliminarà totes les "
@@ -4934,7 +4934,7 @@ msgstr "Busca dominis interactivament"
 #: kcms/cookies/kcookiespolicies.ui:138
 #, kde-format
 msgid "Search..."
-msgstr "Busca..."
+msgstr "Busca…"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -4967,13 +4967,13 @@ msgstr "Política"
 #: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
 #, kde-format
 msgid "&New..."
-msgstr "&Nova..."
+msgstr "&Nova…"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "&Canvia..."
+msgstr "&Canvia…"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
@@ -5198,9 +5198,9 @@ msgid ""
 "complete.</p>"
 msgstr ""
 "<p>Marca els fitxers carregats parcialment per a SMB, SFTP i altres "
-"protocols.</p><p>Quan se selecciona esta opció, els fitxers carregats "
-"parcialment tindran una extensió «.part». Esta extensió s'eliminarà una "
-"vegada s'haja completat la transferència.</p>"
+"protocols.</p><p>Quan es marca esta opció, els fitxers carregats parcialment "
+"tindran una extensió «.part». Esta extensió s'eliminarà una vegada s'haja "
+"completat la transferència.</p>"
 
 #: kcms/netpref/netpref.cpp:90
 #, kde-format
@@ -5244,10 +5244,9 @@ msgid ""
 "partially uploaded files will have a \".part\" extension. This extension "
 "will be removed once the transfer is complete.</p>"
 msgstr ""
-"<p>Marca els fitxers carregats parcialment per FTP.</p><p>Quan se selecciona "
-"esta opció, els fitxers carregats parcialment tindran una extensió «.part». "
-"Esta extensió serà eliminada una vegada s'haja completat la transferència.</"
-"p>"
+"<p>Marca els fitxers carregats parcialment per FTP.</p><p>Quan es marca esta "
+"opció, els fitxers carregats parcialment tindran una extensió «.part». Esta "
+"extensió serà eliminada una vegada s'haja completat la transferència.</p>"
 
 #: kcms/netpref/netpref.cpp:186
 #, kde-format
@@ -5636,7 +5635,7 @@ msgstr "Utilitza la configuració de l'intermediari especificada manualment:"
 #: kcms/proxy/kproxydlg.ui:398
 #, kde-format
 msgid "Enter the address of the HTTP proxy server."
-msgstr "Introduïu l'adreça del servidor intermediari HTTP."
+msgstr "Introduïu l'adreça de l'amfitrió intermediari HTTP."
 
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
@@ -5664,7 +5663,7 @@ msgstr "Utilitza &este mateix servidor intermediari per a tots els protocols"
 #: kcms/proxy/kproxydlg.ui:464
 #, kde-format
 msgid "Enter the address of the HTTPS proxy server."
-msgstr "Introduïu l'adreça del servidor intermediari HTTPS."
+msgstr "Introduïu l'adreça de l'amfitrió intermediari HTTPS."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
 #: kcms/proxy/kproxydlg.ui:481
@@ -5676,7 +5675,7 @@ msgstr "Introduïu el número de port del servidor intermediari HTTPS."
 #: kcms/proxy/kproxydlg.ui:517
 #, kde-format
 msgid "Enter the address of the FTP proxy server."
-msgstr "Introduïu l'adreça del servidor intermediari FTP."
+msgstr "Introduïu l'adreça de l'amfitrió intermediari FTP."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
 #: kcms/proxy/kproxydlg.ui:534
@@ -5688,7 +5687,7 @@ msgstr "Introduïu el número de port del servidor intermediari FTP."
 #: kcms/proxy/kproxydlg.ui:567
 #, kde-format
 msgid "Enter the address of the SOCKS proxy server."
-msgstr "Introduïu l'adreça del servidor intermediari SOCKS."
+msgstr "Introduïu l'adreça de l'amfitrió intermediari SOCKS."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
 #: kcms/proxy/kproxydlg.ui:584
@@ -5733,9 +5732,9 @@ msgid ""
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
 "<qt>\n"
-"Seleccioneu esta casella si voleu que la configuració del servidor "
-"intermediari anterior s'aplique només per a les adreces de la llista "
-"d'<i>excepcions</i>.</qt>"
+"Marqueu esta casella si voleu que la configuració del servidor intermediari "
+"anterior s'aplique només per a les adreces de la llista d'<i>excepcions</i>."
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:642
@@ -6282,7 +6281,7 @@ msgstr "S'ha produït un error inesperat (%1) en intentar %2."
 #: kioworkers/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
-msgstr "S'ha contactat amb %1. S'està esperant la resposta..."
+msgstr "S'ha contactat amb %1. S'està esperant la resposta…"
 
 #: kioworkers/http/http.cpp:2985
 #, kde-format
@@ -6300,12 +6299,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
-msgstr "Confirmació d'accés al lloc web"
+msgstr "Confirmeu l'accés al lloc web"
 
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "El servidor està processant la petició, espereu..."
+msgstr "El servidor està processant la petició, espereu…"
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
@@ -6315,7 +6314,7 @@ msgstr "S'estan enviant les dades a %1"
 #: kioworkers/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "S'està recuperant %1 des de %2..."
+msgstr "S'està recuperant %1 des de %2…"
 
 #: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
 #, kde-format
@@ -6652,8 +6651,8 @@ msgid ""
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
-"Seleccioneu esta casella per a seleccionar la paraula clau de busca en la "
-"web ressaltada com a preferida.<nl/>Les paraules clau de busca en la web "
+"Marqueu esta casella per a seleccionar la paraula clau de busca en la web "
+"ressaltada com a preferida.<nl/>Les paraules clau de busca en la web "
 "preferides s'utilitzen en llocs a on només es poden mostrar simultàniament "
 "poques paraules clau de selecció."
 
@@ -6889,7 +6888,7 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
-"L'URL de la drecera no conté cap text variable \\{...} per a la consulta de "
+"L'URL de la drecera no conté cap text variable \\{…} per a la consulta de "
 "l'usuari.\n"
 "Açò significa que sempre es visitarà la mateixa pàgina, independentment del "
 "que teclege l'usuari."
@@ -6939,14 +6938,14 @@ msgstr ""
 ">\n"
 "Es recomana \\{@}, ja que elimina totes les variables de consulta "
 "(nom=valor) de la cadena resultant, mentre que \\{0} se substituirà amb la "
-"cadena de consulta sense modificar.<br/>Podeu utilitzar \\{1}... \\{n} per a "
+"cadena de consulta sense modificar.<br/>Podeu utilitzar \\{1}… \\{n} per a "
 "indicar certes paraules de la consulta i \\{nom} per a indicar un valor "
 "donat per «nom=valor» en la consulta de l'usuari.<br/>De manera addicional, "
 "és possible indicar referències múltiples (noms, nombres i cadenes) a la "
-"vegada (\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelle (des "
-"de l'esquerra) s'utilitzarà com a valor de substitució en l'URI resultant."
-"<br/>Es pot utilitzar una cadena entre cometes com a valor predeterminat si "
-"no hi ha cap aparellament des de l'esquerra de la llista de referències.\n"
+"vegada (\\{nom1,nom2…,«cadena»}).<br/>El primer valor que aparelle (des de "
+"l'esquerra) s'utilitzarà com a valor de substitució en l'URI resultant.<br/"
+">Es pot utilitzar una cadena entre cometes com a valor predeterminat si no "
+"hi ha cap aparellament des de l'esquerra de la llista de referències.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbQuery)
@@ -7129,7 +7128,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)..."
+msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7324,7 +7323,7 @@ msgstr ""
 #: widgets/fileundomanager.cpp:736
 #, kde-format
 msgid "Undo File Copy Confirmation"
-msgstr "Confirmació de desfer la còpia del fitxer"
+msgstr "Confirmeu el desfer la còpia del fitxer"
 
 #: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
@@ -7415,13 +7414,13 @@ msgstr "SSL"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7583,7 +7582,7 @@ msgid ""
 msgstr ""
 "El fitxer d'entrada «desktop»\n"
 "%1\n"
-"és de tipus «FSDevice» però no té cap entrada Dev=..."
+"és de tipus «FSDevice» però no té cap entrada Dev=…"
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7658,13 +7657,13 @@ msgstr "&Accions"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "Obri la carpeta amb..."
+msgstr "Obri la carpeta amb…"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "O&bri amb..."
+msgstr "O&bri amb…"
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
@@ -7692,7 +7691,7 @@ msgstr "O&bri amb"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "Al&tres aplicacions..."
+msgstr "Al&tres aplicacions…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -7748,7 +7747,7 @@ msgstr "Ubicació:"
 #: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
-msgstr "Canvia..."
+msgstr "Canvia…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:347
@@ -7995,7 +7994,7 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Seleccioneu esta opció si l'aplicació que voleu executar és una aplicació en "
+"Marqueu esta opció si l'aplicació que voleu executar és una aplicació en "
 "mode text o si voleu la informació proporcionada per la finestra d'emulació "
 "de terminal."
 
@@ -8019,9 +8018,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Seleccioneu esta opció si l'aplicació de mode text oferix informació "
-"apropiada en acabar. Deixar obert l'emulador de terminal us permet recuperar "
-"esta informació."
+"Marqueu esta opció si l'aplicació de mode text oferix informació apropiada "
+"en acabar. Deixar obert l'emulador de terminal us permet recuperar esta "
+"informació."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
@@ -8047,7 +8046,7 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Seleccioneu esta opció si voleu executar esta aplicació amb un ID d'usuari "
+"Marqueu esta opció si voleu executar esta aplicació amb un ID d'usuari "
 "diferent. Cada procés té associat un ID d'usuari diferent. Este codi "
 "d'identificador determina l'accés al fitxer i altres permisos. Cal la "
 "contrasenya de l'usuari per a utilitzar esta opció."
@@ -8104,7 +8103,7 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Seleccioneu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
+"Marqueu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
 "confirmació visual pot aparéixer com un cursor ocupat o en la barra de "
 "tasques."
 
@@ -8213,7 +8212,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
-msgstr "&Navega..."
+msgstr "&Navega…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -8302,7 +8301,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -8366,7 +8365,7 @@ msgstr[1] "Propietats per als %1 elements seleccionats"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Share"
-msgstr "Compartició"
+msgstr "Compartiu"
 
 #: widgets/kpropertiesdialog.cpp:920
 #, kde-format
@@ -8408,7 +8407,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"S'està calculant... %1 (%2)\n"
+"S'està calculant… %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
@@ -8428,7 +8427,7 @@ msgstr[1] "%1 subcarpetes"
 #: widgets/kpropertiesdialog.cpp:1405
 #, kde-format
 msgid "Calculating...\n"
-msgstr "S'està calculant...\n"
+msgstr "S'està calculant…\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
 #, kde-format
@@ -8565,10 +8564,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"Seleccioneu esta opció per a permetre només al propietari de la carpeta "
-"suprimir o canviar de nom els fitxers i carpetes que conté. Els altres "
-"usuaris només podran afegir fitxers nous, el qual requerix permís de "
-"«Modifica el contingut»."
+"Marqueu esta opció per a permetre només al propietari de la carpeta suprimir "
+"o canviar de nom els fitxers i carpetes que conté. Els altres usuaris només "
+"podran afegir fitxers nous, el qual requerix permís de «Modifica el "
+"contingut»."
 
 #: widgets/kpropertiesdialog.cpp:1922
 #, kde-format
@@ -8576,7 +8575,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Seleccioneu esta opció per a marcar el fitxer com executable. Açò només té "
+"Marqueu esta opció per a marcar el fitxer com executable. Açò només té "
 "sentit per a programes i scripts. Cal quan els voleu executar."
 
 #: widgets/kpropertiesdialog.cpp:1929
@@ -8832,7 +8831,7 @@ msgstr "Sumes de verifi&cació"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "S'està calculant..."
+msgstr "S'està calculant…"
 
 #: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
@@ -8878,7 +8877,7 @@ msgstr "La suma de verificació calculada i l'esperada diferixen."
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "S'està comprovant la suma de verificació..."
+msgstr "S'està comprovant la suma de verificació…"
 
 #: widgets/kpropertiesdialog.cpp:3148
 #, kde-format
@@ -9033,7 +9032,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Configura les dreceres web..."
+msgstr "Configura les dreceres web…"
 
 #: widgets/kurlrequester.cpp:395
 #, kde-format
@@ -9102,7 +9101,7 @@ msgstr[1] "Apega %1 elements"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "Apega el contingut del porta-retalls..."
+msgstr "Apega el contingut del porta-retalls…"
 
 #: widgets/paste.cpp:339
 #, kde-format
@@ -9143,7 +9142,7 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Quan està seleccionada, el botó premut s'aplicarà a tots els conflictes de "
+"Quan està marcada, el botó premut s'aplicarà a tots els conflictes de "
 "carpeta següents per a la resta del treball actual.\n"
 "A menys que premeu «Omet», també se vos preguntarà en cas de conflicte amb "
 "un fitxer existent en un directori."
@@ -9154,7 +9153,7 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Quan està seleccionada, el botó premut s'aplicarà a tots els conflictes de "
+"Quan està marcada, el botó premut s'aplicarà a tots els conflictes de "
 "carpeta següents per a la resta del treball actual."
 
 #: widgets/renamedialog.cpp:237
