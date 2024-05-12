@@ -10,8 +10,6 @@
 #include <KLocalizedString>
 #include <KSycoca>
 
-#include <QDBusConnection>
-#include <QDBusInterface>
 #include <QDialogButtonBox>
 #include <QProcess>
 #include <QStandardPaths>
