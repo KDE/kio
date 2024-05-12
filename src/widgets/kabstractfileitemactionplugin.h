@@ -95,6 +95,7 @@ public:
      * @return A list of actions to be added to a contextual menu for the file
      *         items.
      */
+    // TODO KF7: add QUrl currentdir as second argument
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
 
 Q_SIGNALS:
