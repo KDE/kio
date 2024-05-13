@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -5274,12 +5274,12 @@ msgstr "k"
 msgid "Effective"
 msgstr "Verklig"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "Uppdaterar systeminställning."
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Updating system configuration."
 msgid "Updating system configuration…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -5527,12 +5527,12 @@ msgstr "x"
 msgid "Effective"
 msgstr "Effektief"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "Besig om Stelsel Opstelling Op te dateer"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Updating system configuration."
 msgid "Updating system configuration…"

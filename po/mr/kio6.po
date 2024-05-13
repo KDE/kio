@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -4926,12 +4926,12 @@ msgstr "x"
 msgid "Effective"
 msgstr ""
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr ""
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Use system proxy configuration:"
 msgid "Updating system configuration…"

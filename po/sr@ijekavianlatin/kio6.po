@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -5459,13 +5459,13 @@ msgid "Effective"
 msgstr "Efektivni"
 
 # >> @title:window
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "Ažuriranje postave sistema"
 
 # >> @info:progress
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Updating system configuration."
 msgid "Updating system configuration…"

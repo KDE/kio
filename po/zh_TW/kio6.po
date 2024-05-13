@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 07:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -5021,12 +5021,12 @@ msgstr "x"
 msgid "Effective"
 msgstr "有效"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "更新系統組態"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating system configuration…"
 msgstr "正在更新系統設定…"

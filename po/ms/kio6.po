@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -5179,12 +5179,12 @@ msgstr "Mengubah kebenaran zonmasa: %s"
 msgid "Effective"
 msgstr "Lokaliti Tapisan Efektif"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "Mengemaskini Konfigurasi Sistem"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Updating system configuration."
 msgid "Updating system configuration…"

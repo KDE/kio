@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-08 00:36+0000\n"
-"PO-Revision-Date: 2024-03-10 11:16+0530\n"
+"POT-Creation-Date: 2024-05-13 00:36+0000\n"
+"PO-Revision-Date: 2024-05-12 15:08+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2578,12 +2578,10 @@ msgid "Reload"
 msgstr "மீளேற்று"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "புதிய அடைவு"
+msgstr "புதிய அடைவு…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2807,12 +2805,10 @@ msgid "Root Folder"
 msgstr "ரூட் அடைவு"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "உலாவு..."
+msgstr "உலாவு…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -5017,15 +5013,13 @@ msgstr[1] "உறுதியாக இந்த %1 உருப்படிக�
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "சேர்…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&திருத்து…"
+msgstr "திருத்து…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5156,12 +5150,12 @@ msgstr "x"
 msgid "Effective"
 msgstr "விளைவு"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating System Configuration"
 msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது"
 
-#: widgets/kbuildsycocaprogressdialog.cpp:32
+#: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating system configuration…"
 msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது…"
@@ -5226,20 +5220,16 @@ msgid "&Actions"
 msgstr "&செயல்கள்"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&அடைவை இதனால் திற"
+msgstr "&அடைவை செயலியில் திற…"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&இதனால் திற"
+msgstr "&செயலியில் திற…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5264,12 +5254,10 @@ msgid "&Open With"
 msgstr "&இதனால் திற"
 
 #: widgets/kfileitemactions.cpp:770
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&வேறு செயலி..."
+msgstr "&வேறு செயலி…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6376,12 +6364,10 @@ msgstr "&சரிகாண்தொகைகள்"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2134
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "கணிக்கப்படுகிறது..."
+msgstr "கணிக்கப்படுகிறது…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
@@ -6423,12 +6409,10 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "கணிக்கப்பட்ட சரிகாண்தொகையும் எதிர்பார்க்கப்பட்டதும் ஒன்றாக இல்லை."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2343
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "சரிகாண்தொகை சரிபார்க்கப்படுகிறது..."
+msgstr "சரிகாண்தொகை சரிபார்க்கப்படுகிறது…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
@@ -6568,11 +6552,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "இணைய சுருக்குவழிகளை அமை..."
+msgstr "இணைய சுருக்குவழிகளை அமை…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6619,11 +6602,10 @@ msgstr[0] "ஒரு உருப்படியை ஒட்டு"
 msgstr[1] "%1 உருப்படிகளை ஒட்டு"
 
 #: widgets/paste.cpp:256
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "&பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு"
+msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு…"
 
 #: widgets/paste.cpp:260
 #, kde-format
