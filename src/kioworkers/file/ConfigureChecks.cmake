@@ -18,19 +18,3 @@ check_function_exists(copy_file_range HAVE_COPY_FILE_RANGE)
 check_function_exists(posix_fadvise    HAVE_FADVISE)                  # KIO worker
 
 check_struct_has_member("struct dirent" d_type dirent.h HAVE_DIRENT_D_TYPE LANGUAGE CXX)
-
-check_symbol_exists("__GLIBC__" "stdlib.h" LIBC_IS_GLIBC)
-if (LIBC_IS_GLIBC)
-    check_cxx_source_compiles("
-        #include <fcntl.h>
-        #include <sys/stat.h>
-
-        int main() {
-            struct statx buf;
-            statx(AT_FDCWD, \"/foo\", AT_EMPTY_PATH, STATX_BASIC_STATS, &buf);
-            return 0;
-        }
-    " HAVE_STATX)
-else()
-    set(HAVE_STATX 0)
-endif()

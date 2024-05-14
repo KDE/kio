@@ -24,3 +24,19 @@ check_cxx_source_compiles("
     return getmntinfo(&mntbufp, flags);
   }
 " GETMNTINFO_USES_STATVFS )
+
+check_symbol_exists("__GLIBC__" "stdlib.h" LIBC_IS_GLIBC)
+if (LIBC_IS_GLIBC)
+    check_cxx_source_compiles("
+        #include <fcntl.h>
+        #include <sys/stat.h>
+
+        int main() {
+            struct statx buf;
+            statx(AT_FDCWD, \"/foo\", AT_EMPTY_PATH, STATX_BASIC_STATS, &buf);
+            return 0;
+        }
+    " HAVE_STATX)
+else()
+    set(HAVE_STATX 0)
+endif()
