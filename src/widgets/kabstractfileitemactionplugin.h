@@ -86,9 +86,6 @@ public:
     /**
      * Implement the actions method in the plugin in order to create actions.
      *
-     * The returned actions should have the KAbstractFileItemActionPlugin object
-     * as their parent.
-     *
      * @param fileItemInfos  Information about the selected file items.
      * @param parentWidget   To be used as parent for the returned QActions
      *
