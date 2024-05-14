@@ -21,7 +21,7 @@
    <item row="0" column="1" colspan="2">
     <widget class="QLabel" name="explanation">
      <property name="text">
-      <string comment="KDE::DoNotExtract">Bruce Schneier secure</string>
+      <string notr="true">Bruce Schneier secure</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -41,7 +41,7 @@
    <item row="1" column="1">
     <widget class="KSqueezedTextLabel" name="address">
      <property name="text">
-      <string comment="KDE::DoNotExtract">KSqueezedTextLabel</string>
+      <string notr="true">KSqueezedTextLabel</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -61,7 +61,7 @@
    <item row="2" column="1">
     <widget class="QLabel" name="ip">
      <property name="text">
-      <string comment="KDE::DoNotExtract">is not there</string>
+      <string notr="true">is not there</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -81,7 +81,7 @@
    <item row="3" column="1" colspan="2">
     <widget class="QLabel" name="encryption">
      <property name="text">
-      <string comment="KDE::DoNotExtract">SnakeOilCrypt 3000</string>
+      <string notr="true">SnakeOilCrypt 3000</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -101,7 +101,7 @@
    <item row="4" column="1" colspan="2">
     <widget class="QLabel" name="details">
      <property name="text">
-      <string comment="KDE::DoNotExtract">Kx = DH, Auth = RSA, MAC = SHA1</string>
+      <string notr="true">Kx = DH, Auth = RSA, MAC = SHA1</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -121,7 +121,7 @@
    <item row="5" column="1">
     <widget class="QLabel" name="sslVersion">
      <property name="text">
-      <string comment="KDE::DoNotExtract">ElboniaTLS v0.0.0</string>
+      <string notr="true">ElboniaTLS v0.0.0</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -170,7 +170,7 @@
    <item row="8" column="1">
     <widget class="QLabel" name="trusted">
      <property name="text">
-      <string comment="KDE::DoNotExtract">Maybe... no.</string>
+      <string notr="true">Maybe... no.</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -190,7 +190,7 @@
    <item row="9" column="1" colspan="2">
     <widget class="QLabel" name="validityPeriod">
      <property name="text">
-      <string comment="KDE::DoNotExtract">August 34 2004 to Undecimber 0 2008</string>
+      <string notr="true">August 34 2004 to Undecimber 0 2008</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -210,7 +210,7 @@
    <item row="10" column="1">
     <widget class="QLabel" name="serial">
      <property name="text">
-      <string comment="KDE::DoNotExtract">23</string>
+      <string notr="true">23</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
@@ -250,7 +250,7 @@
    <item row="12" column="1">
     <widget class="QLabel" name="sha1Digest">
      <property name="text">
-      <string comment="KDE::DoNotExtract">B4:DB:00:2E</string>
+      <string notr="true">B4:DB:00:2E</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByMouse</set>
