@@ -8179,8 +8179,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用“粘性”标记加以"
-"限制。"
+"此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用“粘滞位”标记加"
+"以限制。"
 
 #: widgets/kpropertiesdialog.cpp:2099
 #, kde-format
@@ -8275,7 +8275,7 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"勾选文件夹的“粘性”标记后，只有所有者和根用户可以删除或者重命名文件。不勾选"
+"勾选文件夹的“粘滞位”标记后，只有所有者和根用户可以删除或者重命名文件。不勾选"
 "时，拥有写入权限的所有用户均可删除或者重命名文件。"
 
 #: widgets/kpropertiesdialog.cpp:2174
@@ -8284,7 +8284,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"文件的“粘性”标记在 Linux 系统中会被忽略，但是它们可能会在其他系统中生效"
+"文件的“粘滞位”标记在 Linux 系统中会被忽略，但是它们可能会在其他系统中生效"
 
 #: widgets/kpropertiesdialog.cpp:2235
 #, kde-format
@@ -8300,7 +8300,7 @@ msgstr "设置 GID"
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
-msgstr "粘性"
+msgstr "粘滞位"
 
 #: widgets/kpropertiesdialog.cpp:2350
 #, kde-format
