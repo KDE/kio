@@ -858,7 +858,15 @@ QString KFileItem::group() const
 #ifdef Q_OS_UNIX
         auto gid = entry().numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1);
         if (gid != -1) {
-            return KUserGroup(gid).name();
+            // We cache the group name strings.
+            // will often be the same for many entries in a row. Caching them
+            // permits to use implicit sharing to save memory.
+            thread_local static QMap<quint64, QString> cachedStrings;
+            if (!cachedStrings.contains(gid)) {
+                const auto groupName = KUserGroup(gid).name();
+                cachedStrings.insert(gid, groupName);
+            }
+            return cachedStrings.value(gid);
         }
 #endif
     }
