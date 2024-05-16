@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-13 00:36+0000\n"
+"POT-Creation-Date: 2024-05-16 00:36+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2297,17 +2297,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "မှတ်တမ်းမပြုစုထားသော အမှား"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1421
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1သို့ အထိမ်းအမှတ်လင့်ခ်ချိတ်)"
 
-#: core/kfileitem.cpp:1415
+#: core/kfileitem.cpp:1423
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1၊ %2သို့လင့်ခ်ချိတ်)"
 
-#: core/kfileitem.cpp:1418
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 သို့ညွှန်ပြသည်)"

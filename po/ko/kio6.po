@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-13 00:36+0000\n"
+"POT-Creation-Date: 2024-05-16 00:36+0000\n"
 "PO-Revision-Date: 2024-02-09 23:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2307,17 +2307,17 @@ msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1421
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(으)로 향한 심볼릭 링크)"
 
-#: core/kfileitem.cpp:1415
+#: core/kfileitem.cpp:1423
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(으)로 향한 링크)"
 
-#: core/kfileitem.cpp:1418
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"

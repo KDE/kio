@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-13 00:36+0000\n"
+"POT-Creation-Date: 2024-05-16 00:36+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2415,17 +2415,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Gwall Heb ei Ddogfennu"
 
-#: core/kfileitem.cpp:1413
+#: core/kfileitem.cpp:1421
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Cyswllt Symbolaidd i %1)"
 
-#: core/kfileitem.cpp:1415
+#: core/kfileitem.cpp:1423
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Cyswllt i %2)"
 
-#: core/kfileitem.cpp:1418
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Cyfeirio at %1)"
