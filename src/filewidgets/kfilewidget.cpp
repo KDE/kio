@@ -402,22 +402,23 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // read our configuration
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     config->reparseConfiguration(); // grab newly added dirs by other processes (#403524)
-    KConfigGroup group(config, ConfigGroup);
+    d->m_configGroup = KConfigGroup(config, ConfigGroup);
 
     d->m_stateConfigGroup = KSharedConfig::openStateConfig()->group(ConfigGroup);
 
     // migrate existing recent files/urls from main config to state config
-    if (group.hasKey(RecentURLs)) {
-        d->m_stateConfigGroup.writeEntry(RecentURLs, group.readEntry(RecentURLs));
-        group.revertToDefault(RecentURLs);
+    if (d->m_configGroup.hasKey(RecentURLs)) {
+        d->m_stateConfigGroup.writeEntry(RecentURLs, d->m_configGroup.readEntry(RecentURLs));
+        d->m_configGroup.revertToDefault(RecentURLs);
     }
 
-    if (group.hasKey(RecentFiles)) {
-        d->m_stateConfigGroup.writeEntry(RecentFiles, group.readEntry(RecentFiles));
-        group.revertToDefault(RecentFiles);
+    if (d->m_configGroup.hasKey(RecentFiles)) {
+        d->m_stateConfigGroup.writeEntry(RecentFiles, d->m_configGroup.readEntry(RecentFiles));
+        d->m_configGroup.revertToDefault(RecentFiles);
     }
 
-    readConfig(group);
+    d->readViewConfig();
+    d->readRecentFiles();
 
     d->m_ops->action(KDirOperator::ShowPreview)->setChecked(d->m_ops->isInlinePreviewShown());
     d->slotDirOpIconSizeChanged(d->m_ops->iconSize());
@@ -2840,12 +2841,14 @@ KDirOperator *KFileWidget::dirOperator()
     return d->m_ops;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 3)
 void KFileWidget::readConfig(KConfigGroup &group)
 {
     d->m_configGroup = group;
     d->readViewConfig();
     d->readRecentFiles();
 }
+#endif
 
 QString KFileWidgetPrivate::locationEditCurrentText() const
 {

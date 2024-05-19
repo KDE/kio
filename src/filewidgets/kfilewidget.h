@@ -499,11 +499,16 @@ public:
      */
     KDirOperator *dirOperator();
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 3)
     /**
      * reads the configuration for this widget from the given config group
      * @param group the KConfigGroup to read from
+     *
+     * @deprecated since 6.3, no known use case.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 3, "No known use case")
     void readConfig(KConfigGroup &group);
+#endif
 
 private:
     friend class KFileWidgetPrivate;
