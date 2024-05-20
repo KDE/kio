@@ -452,6 +452,12 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, reply, dataMode, url, method]() {
         handleRedirection(method, url, reply);
 
+        int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+
+        if (statusCode == 206) {
+            canResume();
+        }
+
         if (!mimeTypeEmitted) {
             mimeType(readMimeType(reply));
             mimeTypeEmitted = true;
@@ -529,7 +535,21 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 {
     QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_GET, inputData, DataMode::Emit);
+
+    QString start = metaData(QStringLiteral("range-start"));
+
+    if (start.isEmpty()) {
+        // old name
+        start = metaData(QStringLiteral("resume"));
+    }
+
+    QMap<QByteArray, QByteArray> headers;
+
+    if (!start.isEmpty()) {
+        headers.insert("Range", "bytes=" + start.toUtf8() + "-");
+    }
+
+    Response response = makeRequest(url, KIO::HTTP_GET, inputData, DataMode::Emit, headers);
 
     return sendHttpError(url, KIO::HTTP_GET, response);
 }
