@@ -1740,10 +1740,12 @@ bool KFileItem::exists() const
     if (!d) {
         return false;
     }
+
     if (!d->m_bInitCalled) {
-        qCWarning(KIO_CORE) << "KFileItem: exists called when not initialised" << d->m_url;
-        return false;
+        qCWarning(KIO_CORE) << "KFileItem: exists called when not initialised, ensuring initialisation " << d->m_url;
+        d->ensureInitialized();
     }
+
     return d->m_fileMode != KFileItem::Unknown;
 }
 
