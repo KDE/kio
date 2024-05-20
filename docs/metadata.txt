@@ -54,8 +54,6 @@ cookies         "manual"        Cookies set in "setcookies" are send, received c
 
 setcookies      string          Used to send/receive HTTP cookies when "cookies" is set to "manual".
 
-errorPage       bool            Flag that indicates that an errorPage() is preferred over an error().                                      (default:true)
-
 no-www-auth     bool            Flag that indicates that no HTTP WWW authentication attempts should be made.
 no-proxy-auth   bool            Flag that indicates that no HTTP proxy authentication attempts should be made.
 no-auth-prompt  bool            Flag that indicates that only cached authentication tokens should be used.

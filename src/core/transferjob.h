@@ -35,14 +35,19 @@ public:
      */
     void setModificationTime(const QDateTime &mtime);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 3)
     /**
      * Checks whether we got an error page. This currently only happens
      * with HTTP urls. Call this from your slot connected to result().
      *
      * @return true if we got an (HTML) error page from the server
      * instead of what we asked for.
+     *
+     * @deprecated since 6.3, not implemented
      */
+    KIOCORE_DEPRECATED_VERSION(6, 3, "Not implemented")
     bool isErrorPage() const;
+#endif
 
     /**
      * Enable the async data mode.

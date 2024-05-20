@@ -691,11 +691,6 @@ void SlaveBase::redirection(const QUrl &_url)
     send(INF_REDIRECTION, data);
 }
 
-void SlaveBase::errorPage()
-{
-    send(INF_ERROR_PAGE);
-}
-
 static bool isSubCommand(int cmd)
 {
     /* clang-format off */

@@ -419,7 +419,6 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
         m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
         m_getJob->setParentJob(q);
         // qDebug() << "m_getJob=" << m_getJob << m_src;
-        m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
         m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
         // Set size in subjob. This helps if the worker doesn't emit totalSize.
         if (m_sourceSize != (KIO::filesize_t)-1) {

@@ -262,10 +262,12 @@ bool TransferJob::doResume()
     return true;
 }
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 3)
 bool TransferJob::isErrorPage() const
 {
-    return d_func()->m_errorPage;
+    return false;
 }
+#endif
 
 void TransferJobPrivate::start(Worker *worker)
 {
@@ -304,10 +306,6 @@ void TransferJobPrivate::start(Worker *worker)
     q->connect(worker, &WorkerInterface::redirection, q, &TransferJob::slotRedirection);
 
     q->connect(worker, &WorkerInterface::mimeType, q, &TransferJob::slotMimetype);
-
-    q->connect(worker, &WorkerInterface::errorPage, q, [this]() {
-        m_errorPage = true;
-    });
 
     q->connect(worker, &WorkerInterface::canResume, q, [q](KIO::filesize_t offset) {
         Q_EMIT q->canResume(q, offset);

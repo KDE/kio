@@ -254,7 +254,6 @@ public:
     inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
         : SimpleJobPrivate(url, command, packedArgs)
         , m_internalSuspended(false)
-        , m_errorPage(false)
         , staticData(_staticData)
         , m_isMimetypeEmitted(false)
         , m_closedBeforeStart(false)
@@ -264,7 +263,6 @@ public:
     inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice)
         : SimpleJobPrivate(url, command, packedArgs)
         , m_internalSuspended(false)
-        , m_errorPage(false)
         , m_isMimetypeEmitted(false)
         , m_closedBeforeStart(false)
         , m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
@@ -272,7 +270,6 @@ public:
     }
 
     bool m_internalSuspended;
-    bool m_errorPage;
     QByteArray staticData;
     QUrl m_redirectionURL;
     QList<QUrl> m_redirectionList;

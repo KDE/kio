@@ -211,7 +211,6 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT speed(ul);
         break;
     case INF_ERROR_PAGE:
-        Q_EMIT errorPage();
         break;
     case INF_REDIRECTION: {
         QUrl url;

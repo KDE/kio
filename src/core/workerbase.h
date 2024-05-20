@@ -188,12 +188,17 @@ public:
      */
     void redirection(const QUrl &_url);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 3)
     /**
      * Tell that we will only get an error page here.
      * This means: the data you'll get isn't the data you requested,
      * but an error page (usually HTML) that describes an error.
+     *
+     * @deprecated since 6.3, not implemented/used
      */
+    KIOCORE_DEPRECATED_VERSION(6, 3, "Not implemented/used")
     void errorPage();
+#endif
 
     /**
      * Call this in mimetype() and in get(), when you know the MIME type.

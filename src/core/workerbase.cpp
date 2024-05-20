@@ -152,10 +152,11 @@ void WorkerBase::redirection(const QUrl &_url)
     d->bridge.redirection(_url);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 3)
 void WorkerBase::errorPage()
 {
-    d->bridge.errorPage();
 }
+#endif
 
 void WorkerBase::mimeType(const QString &_type)
 {

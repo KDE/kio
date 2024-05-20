@@ -119,7 +119,6 @@ void FavIconRequestJob::doStart()
     metaData.insert(QStringLiteral("UseCache"), QStringLiteral("false"));
     metaData.insert(QStringLiteral("cookies"), QStringLiteral("none"));
     metaData.insert(QStringLiteral("no-www-auth"), QStringLiteral("true"));
-    metaData.insert(QStringLiteral("errorPage"), QStringLiteral("false"));
     job->addMetaData(metaData);
     QObject::connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
         d->slotData(job, data);

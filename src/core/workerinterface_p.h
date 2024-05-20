@@ -136,7 +136,6 @@ Q_SIGNALS:
     void truncated(KIO::filesize_t);
 
     void speed(unsigned long);
-    void errorPage();
     void mimeType(const QString &);
     void warning(const QString &);
     void infoMessage(const QString &);
