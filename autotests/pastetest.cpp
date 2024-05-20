@@ -95,7 +95,7 @@ void KIOPasteTest::testPasteActionText_data()
     QTest::newRow("one_file") << urlFile << false << true << "Paste One File";
     QTest::newRow("one_url") << urlRemote << false << true << "Paste One Item";
     QTest::newRow("two_urls") << urls << false << true << "Paste 2 Items";
-    QTest::newRow("data") << QList<QUrl>() << true << true << "Paste Clipboard Contents...";
+    QTest::newRow("data") << QList<QUrl>() << true << true << "Paste Clipboard Contents…";
 }
 
 void KIOPasteTest::testPasteActionText()

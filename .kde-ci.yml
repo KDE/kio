@@ -33,6 +33,7 @@ Dependencies:
 
 Options:
   test-before-installing: True
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
   cmake-options: -DUSE_FTPD_WSGIDAV_UNITTEST=ON
   cppcheck-arguments: '--enable=warning,style,performance --suppress-xml=cppcheck-suppressions.xml'
   cppcheck-ignore-files:

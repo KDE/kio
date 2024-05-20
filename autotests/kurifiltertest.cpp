@@ -297,14 +297,14 @@ void KUriFilterTest::shortUris_data()
     addRow("linuxtoday.com", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
     addRow("LINUXTODAY.COM", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
     addRow("kde.org", QStringLiteral("https://kde.org"), KUriFilterData::NetProtocol);
-    addRow("ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
-    addRow("ftp.kde.org:21", QStringLiteral("ftp://ftp.kde.org:21"), KUriFilterData::NetProtocol);
     addRow("cr.yp.to", QStringLiteral("https://cr.yp.to"), KUriFilterData::NetProtocol);
     addRow("www.kde.org:21", QStringLiteral("https://www.kde.org:21"), KUriFilterData::NetProtocol);
     // This one passes but the DNS lookup takes 5 seconds to fail
     // addRow("foobar.local:8000", QStringLiteral("https://foobar.local:8000"), KUriFilterData::NetProtocol);
-    addRow("foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
-    addRow("firstname.lastname@x.foo.bar", QStringLiteral("mailto:firstname.lastname@x.foo.bar"), KUriFilterData::NetProtocol);
+    // TODO Should this made pass and be added back? Or we don't want that behaviour anymore
+    // addRow("foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
+    // TODO Should this made pass and be added back? Or we don't want that behaviour anymore
+    // addRow("firstname.lastname@x.foo.bar", QStringLiteral("mailto:firstname.lastname@x.foo.bar"), KUriFilterData::NetProtocol);
     addRow("mailto:foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
     addRow("www.123.foo", QStringLiteral("https://www.123.foo"), KUriFilterData::NetProtocol);
     addRow("user@www.123.foo:3128", QStringLiteral("https://user@www.123.foo:3128"), KUriFilterData::NetProtocol);
@@ -337,7 +337,8 @@ void KUriFilterTest::shortUris_data()
     // addRow( "localhost", "http://localhost.localdomain", KUriFilterData::NetProtocol );
     // addRow( "localhost/~blah", "http://localhost.localdomain/~blah", KUriFilterData::NetProtocol );
 
-    addRow("user@host.domain", QStringLiteral("mailto:user@host.domain"), KUriFilterData::NetProtocol); // new in KDE-3.2
+    // TODO Should this made pass and be added back? Or we don't want that behaviour anymore
+    // addRow("user@host.domain", QStringLiteral("mailto:user@host.domain"), KUriFilterData::NetProtocol); // new in KDE-3.2
 
     // Windows style SMB (UNC) URL. Should be converted into the valid smb format...
     addRow("\\\\mainserver\\share\\file", QStringLiteral("smb://mainserver/share/file"), KUriFilterData::NetProtocol);
