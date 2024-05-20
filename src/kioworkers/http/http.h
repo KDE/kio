@@ -100,6 +100,7 @@ private:
     KIO::MetaData sslMetaData;
     KIO::Error lastError = (KIO::Error)KJob::NoError;
     QString m_hostName;
+    KIO::filesize_t m_offset = 0;
 };
 
 #endif

@@ -441,12 +441,15 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     qint64 lastTotalSize = -1;
 
     QObject::connect(reply, &QNetworkReply::downloadProgress, this, [this, &lastTotalSize](qint64 received, qint64 total) {
-        if (total != lastTotalSize) {
-            lastTotalSize = total;
-            totalSize(total);
+        qint64 realTotal = total + m_offset;
+        qint64 realReceived = received + m_offset;
+
+        if (realTotal != lastTotalSize) {
+            lastTotalSize = realTotal;
+            totalSize(realTotal);
         }
 
-        processedSize(received);
+        processedSize(realReceived);
     });
 
     QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, reply, dataMode, url, method]() {
@@ -534,6 +537,8 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
 KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 {
+    QMap<QByteArray, QByteArray> headers;
+
     QByteArray inputData = getData();
 
     QString start = metaData(QStringLiteral("range-start"));
@@ -543,10 +548,15 @@ KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
         start = metaData(QStringLiteral("resume"));
     }
 
-    QMap<QByteArray, QByteArray> headers;
+    bool ok;
+    m_offset = start.toULongLong(&ok);
 
-    if (!start.isEmpty()) {
-        headers.insert("Range", "bytes=" + start.toUtf8() + "-");
+    if (ok) {
+        if (!start.isEmpty()) {
+            headers.insert("Range", "bytes=" + start.toUtf8() + "-");
+        }
+    } else {
+        m_offset = 0;
     }
 
     Response response = makeRequest(url, KIO::HTTP_GET, inputData, DataMode::Emit, headers);
