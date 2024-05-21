@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2974,7 +2974,7 @@ msgid "All Supported Files"
 msgstr "All ünnerstütt Dateien"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, kde-format
 msgid "All Files"
 msgstr "All Dateien"
@@ -3411,27 +3411,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "You can only select one file"
 msgstr "Du muttst bloots een Datei utsöken"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr "Mehr as een Datei praatstellt"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "You can only select local files"
 msgstr "Du muttst bloots lokale Dateien utsöken"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Keen feern Dateien tolaten"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3442,12 +3442,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3457,12 +3457,12 @@ msgstr ""
 "Du hest mehr as een Orner utsöcht, un disse Dialoog bruukt keen Ornern, "
 "dorüm lett sik de richtige nich rutfinnen. Söök bitte bloots een Orner ut."
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Mehr as een Orner angeven"
 
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3471,22 +3471,22 @@ msgstr ""
 "Du hest tominnst een Orner un een Datei utsöcht. Utsöcht Dateien warrt "
 "övergahn, de utsöchte Orner warrt oplist"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Dateien un Ornern utsöcht"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "De Datei \"%1\" lett sik nich finnen"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Datei lett sik nich opmaken"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3501,44 +3501,44 @@ msgstr ""
 ">Wenn de aktuelle Steed a.B. \"file:/home/%1\" is, bringt de Knoop Di na "
 "\"file:/home\".</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Mit dissen Knoop kannst Du een Schritt in de Vörgeschicht torüchgahn."
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Mit dissen Knoop kannst Du een Schritt in de Vörgeschicht vörgahn."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Mit dissen Knoop kannst Du de aktuelle Steed nieg laden."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Mit dissen Knoop kannst Du en nieg Orner opstellen."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Stedenpaneel wiesen"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Leestekens wiesen"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Options"
 msgstr "Optschonen"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3559,12 +3559,12 @@ msgstr ""
 "versteken Dateien</li><li>dat Stedenpaneel</li><li>Vöransichten vun Dateien</"
 "li><li>Scheden vun Ornern un Dateien</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "Leestekens"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3578,12 +3578,12 @@ msgstr ""
 "Leestekens överall in KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Naam:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3596,12 +3596,12 @@ msgstr ""
 "klickst un en anner Bedriefoort in't Menü <b>Text kompletteren</b> utsöchst."
 "</qt>"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Mit dissen Naam warrt de Datei sekert."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3610,75 +3610,75 @@ msgstr ""
 "Dit is de List vun Dateien, de Du opmaken wullt. Du kannst mehr as een Datei "
 "angeven, wenn Du se mit Freetekens trennen deist."
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dat is de Naam vun de Datei, de opmaakt warrn schall."
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Steden"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Dat gifft de Datei \"%1\" al. Wullt Du ehr överschrieven?"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Datei överschrieven?"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "Du kannst bloots lokale Dateien utsöken."
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Frömddateien nich tolaten"
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|All Ornern"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "&Opmaken"
 
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Lüttbildgrött: %1 Pixels"
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Datei&ennen automaatsch utsöken (%1)"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "de Ennen <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Datei&ennen automaatsch utsöken"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "en passen Ennen"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3706,25 +3706,25 @@ msgstr ""
 "ol>Wenn Du nich seker büst, laat de Optschoon an, Dien Dateien sünd denn "
 "lichter to plegen."
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4571,90 +4571,90 @@ msgstr "Server-Identiteetprööv"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> op <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Anners harr dat keen Fehler bi de Anfraag geven."
 
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "Halen vun de Egenschap-Weerten"
 
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "Fastleggen vun de Egenschap-Weerten"
 
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "Opstellen vun den angeven Orner"
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "Koperen vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "Ümnömen vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "Söken binnen den angeven Orner"
 
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "Afsluten vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "Opsluten vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "Wegdoon vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "Fragen na't Könen vun den Server"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "Halen vun de Inholden vun disse Datei oder dissen Orner"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "En Bericht binnen den angeven Orner utföhren"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Dat geev en nich verwacht Fehler (%1) bi't %2."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4663,13 +4663,13 @@ msgid ""
 msgstr ""
 "Dat geev en Fehler bi't %1: %2. En Tosamenfaten vun de Grünn steiht nerrn."
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Togriep wöör bi't %1 torüchwiest."
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4678,7 +4678,7 @@ msgstr ""
 "En Ressource lett sik op't Teel nich opstellen, ehr nich en oder mehr "
 "Twischenelementen (Ornern) opstellt wöörn."
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4695,28 +4695,28 @@ msgstr ""
 "\"propertybehavior\"-XML-Element oplist sünd, nich oprechthollen, oder Du "
 "hest angeven, dat keen Dateien överschreven warrt un dat liekers versöcht. %1"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Dat anfraagte Afsluten weer nich mööglich. %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "De Server ünnerstütt den Anfraag-Typ nich."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Dat %1 is nich mööglich, de Ressource is afslaten."
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "De Akschoon wöör dör en anner Fehler verhöödt."
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4725,7 +4725,7 @@ msgid ""
 msgstr ""
 "Dat %1 is nich mööglich, de Teelserver nimmt de Datei oder den Orner nich an."
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4734,18 +4734,18 @@ msgstr ""
 "De Teel-Ressource hett nich noog Platz, ehren Tostand na dat Utföhren vun "
 "disse Metood to sekern."
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "De Ressource lett sik nich wegdoon."
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "Hoochladen vun %1"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

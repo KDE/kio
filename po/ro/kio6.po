@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2934,7 +2934,7 @@ msgid "All Supported Files"
 msgstr "Toate fișierele susținute"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, kde-format
 msgid "All Files"
 msgstr "Toate fișierele"
@@ -3347,27 +3347,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Foarte mare (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "You can only select one file"
 msgstr "Puteți selecta numai un fișier"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr "Mai mult de un fișier oferit"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "You can only select local files"
 msgstr "Puteți selecta numai fișiere locale"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Fișierele distante nu sunt acceptate"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3382,12 +3382,12 @@ msgstr[1] ""
 msgstr[2] ""
 "URL-ul ales folosește o schemă nesusținută. Folosiți următoarele scheme: %2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Schemă URL nesusținută"
 
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3398,12 +3398,12 @@ msgstr ""
 "se poate decide în care dintre ele să se intre. Alegeți doar un dosar pentru "
 "a-i enumera conținutul."
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Mai mult de un dosar furnizat"
 
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3412,22 +3412,22 @@ msgstr ""
 "Au fost alese cel puțin un dosar și un fișier. Fișierele alese vor fi "
 "ignorate iar conținutul dosarului ales va fi enumerat."
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Fișiere și dosare alese"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Fișierul „%1” nu a fost găsit"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nu se poate deschide fișierul"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3438,44 +3438,44 @@ msgstr ""
 "exemplu, dacă amplasarea curentă este file:/home/konqi, apăsând acest buton "
 "veți ajunge în file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Apăsați acest buton pentru a merge cu un pas înapoi în istoricul navigării."
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Apăsați acest buton pentru a merge cu un pas înainte în istoricul navigării."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Apăsați acest buton pentru a reîncărca conținutul amplasării curente."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Apăsați acest buton pentru a crea un dosar nou."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Arată panoul cu locuri"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Arată butonul cu semne de carte"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Options"
 msgstr "Opțiuni"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3491,12 +3491,12 @@ msgstr ""
 "„Locuri”</li><li>previzualizarea fișierelor</li><li>separarea fișierelor de "
 "dosare</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3511,12 +3511,12 @@ msgstr ""
 "întâlnite în alte părți ale KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "De&numire:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3528,12 +3528,12 @@ msgstr ""
 "dacă există. Această caracteristică poate fi controlată dând clic dreapta și "
 "selectând modul preferat din meniul <b>Completare text</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Aceasta e denumirea cu care va fi salvat fișierul."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3542,74 +3542,74 @@ msgstr ""
 "Aceasta este lista fișierelor de deschis. Poate fi specificat mai mult de un "
 "fișier, separându-le prin spații."
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Aceasta e denumirea fișierului de deschis."
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Locuri"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fișierul „%1” există deja. Doriți să îl suprascrieți?"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Suprascrieți fișierul?"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "Puteți selecta numai fișiere locale."
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fișierele distante nu sunt acceptate."
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, kde-format
 msgid "All Folders"
 msgstr "Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
 
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Dimensiune pictogramă: %1 pixeli"
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Selectează automat e&xtensia fișierului (%1)"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "extensia <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Selectează automat e&xtensia fișierului"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "o extensie corespunzătoare"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3637,12 +3637,12 @@ msgstr ""
 "</li></ol> Dacă nu sunteți sigur, lăsați activată această opțiune deoarece "
 "face ca fișierele să fie mult mai ușor de administrat."
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid "&File type:"
 msgstr "Tip &fișier:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3651,12 +3651,12 @@ msgstr ""
 "<qt>Acesta e selectorul tipului de fișier, folosit pentru a alege formatul "
 "în care va fi salvat fișierul.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtru:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4486,90 +4486,90 @@ msgstr "Autentificare server"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> la <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Altfel, cererea ar fi reușit."
 
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "obține valorile proprietății"
 
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "stabili valorile proprietății"
 
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea dosarul cerut"
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia fișierul sau dosarul specificat"
 
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "muta fișierul sau dosarul specificat"
 
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "căuta în dosarul specificat"
 
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloca fișierul sau dosarul specificat"
 
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "debloca fișierul sau dosarul specificat"
 
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "șterge fișierul sau dosarul specificat"
 
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "determina capabilitățile serverului"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "obține conținutul fișierului sau dosarului specificat"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "rulează un raport în dosarul specificat"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "A apărut o eroare neașteptată (%1) la încercarea de a %2."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4578,13 +4578,13 @@ msgid ""
 msgstr ""
 "A apărut o eroare la %1, %2. Un sumar al motivelor posibile este dat mai jos."
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Acces refuzat la încercarea de a %1."
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4593,7 +4593,7 @@ msgstr ""
 "O resursă nu poate fi creată la destinație până când nu vor fi create una "
 "sau mai multe colecții (dosare) intermediare."
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4608,28 +4608,28 @@ msgstr ""
 "fișierele să nu fie suprascrise.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Lacătul cerut nu poate fi onorat. %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Serverul nu susține tipul de cerere specificat pentru conținut."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nu s-a putut %1 deoarece resursa este blocată."
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Această acțiune a fost oprită de altă eroare."
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4639,7 +4639,7 @@ msgstr ""
 "Nu se poate %1 deoarece serverul-destinație refuză să accepte fișierul sau "
 "dosarul."
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4648,18 +4648,18 @@ msgstr ""
 "Resursa destinație nu are suficient spațiu pentru a înregistra starea "
 "resursei după execuția metodei."
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resursa nu poate fi ștearsă."
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "încărca %1"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

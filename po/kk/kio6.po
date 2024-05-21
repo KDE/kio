@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2918,7 +2918,7 @@ msgid "All Supported Files"
 msgstr "Барлық қолдайтын файлдар"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, kde-format
 msgid "All Files"
 msgstr "Бүкіл файлдар"
@@ -3354,27 +3354,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "You can only select one file"
 msgstr "Бір файлды ғана таңдауға болады"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr "Бірнеше файл берілген"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "You can only select local files"
 msgstr "Жергілікті файлды ғана таңдауға болады"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Қашықтағы файл қабылданбайды"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3384,12 +3384,12 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3399,12 +3399,12 @@ msgstr ""
 "Бірнеше қапшық таңдалған, бірақ бұл диалог біреуін ғана қабылдайды. Қайсын "
 "қалдыратынын таңдаңыз."
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Бірнеше қапшық берілген"
 
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3413,22 +3413,22 @@ msgstr ""
 "Кемінде бір қапшық пен бір файл таңдалған. Таңдалған файлдарды елемей қапшық "
 "тізімделеді"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Файлдар мен қапшықтар таңдалған"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" файлы табылмады"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Файл ашылмады"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3443,44 +3443,44 @@ msgstr ""
 "егер назардағы орын file:/home/%1 болса, бұл батырманы басқанда назар file:/"
 "home деген орынға ауыстырылады.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Журнал бойынша бір қадам артқа ауысу үшін осы батырманы басыңыз."
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Журнал бойынша бір қадам алға ауысу үшін осы батырманы басыңыз."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Назардағы орынның мазмұнын жаңарту үшін осы батырманы басыңыз."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Жаңа қапшықты құру үшін осы батырманы басыңыз."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Орындарды шарлау панелін көрсету"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Бетбелгілер көрсетілсін"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Options"
 msgstr "Параметрлер"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3501,12 +3501,12 @@ msgstr ""
 "файлдарды көрсетуі</li><li>жедел қатынау панелі</li><li>файлдарды алдын-ала "
 "қарауы</li><li>файлдардан қапшықтарды бөлуі</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "Бетбелгілер"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3520,12 +3520,12 @@ msgstr ""
 "бетбелгілерге ұқсас.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Атауы:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3537,12 +3537,12 @@ msgstr ""
 "тышқанның оң батырмасын басып, шыққан мәзіріндегі <b>Мәтінді толтыру</b> "
 "арқылы керек күйін таңдап, басқаруға болады.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Осы атауымен файл сақталады."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3551,75 +3551,75 @@ msgstr ""
 "Бұл ашылатын файлдардың тізімі. Егер бірнеше файлдар керек болса, оларды бос "
 "орынмен бөліктеп келтіріңіз."
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Бұл ашылатын файлдың атауы."
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Орындар"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" деген файл бар екен. Оның үстінен жаза берелік бе?"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Үстінен жазбақсыз ба?"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "Тек жергілікті файлды ғана таңдауға болады."
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Қашықтағы файл қабылданбайды"
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Барлық қапшықтар"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "&Ашу"
 
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Таңбаша өлшемі: %1 пиксел"
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Файл жұ&рнағын (%1) автоматты түрде таңдау"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "жұрнағы <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Файл жұ&рнағын автоматты түрде таңдау"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "лайықты жұрнақ"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3646,25 +3646,25 @@ msgstr ""
 "тасталады).</li></ol>Күмәндансаңыз, бұл параметрді қосылған күйінде "
 "қалдырыңыз, ол файлыңызды басқаруға ыңғайлы."
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Сүзгі:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "&Сүзгі:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4497,90 +4497,90 @@ msgstr "Сервер аутентификациясы"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> / <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Әйтпесе, талап сәтті орындалар еді."
 
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "қасиет мәндерін алу"
 
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "қасиет мәндерін орнату"
 
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "талап етілген қапшықты құру"
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "келтірілген файлды не қапшықты көшірмелеу"
 
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "келтірілген файлды не қапшықты жылжыту"
 
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "келтірілген қапшықта іздеу"
 
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "келтірілген файлды не қапшықты бұғаттау"
 
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "келтірілген файл не қапшықтың бұғатын шешу"
 
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "келтірілген файлды не қапшықты кетіру"
 
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "сервердің мүмкіндіктерін сұрау"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "келтірілген файл не қапшықтың мазмұнын оқу"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "келтірілген қапшықта есеп беру"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Күтпеген қате (%1) %2 әрекеті кезінде пайда болды."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4589,13 +4589,13 @@ msgid ""
 msgstr ""
 "%1 (%2) сұраныс кезінде қате пайда болды. Себептері төменде қорытылған."
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 сұранысы кезінде қатынауға рұқсат жоқ екені анықталған."
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4603,7 +4603,7 @@ msgid ""
 msgstr ""
 "Бір немесе бірнеше аралық жинақ (қапшық) құрылмайынша, ресурс та құрылмайды."
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4619,28 +4619,28 @@ msgstr ""
 "Сервер XML қасиеттер элементіндегі қасиеттер тізімін қолдамайды немесе "
 "файлды қайта жазуға әрекет жасағанда, файлдар жазылмады. %1 "
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Талап етілген бұғаттау қабылданбаған. %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер сұралған \"body\" элементінің түрін танымайды."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 орындалмады, себебі ресурс бұғатталған."
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Басқа қатенің себебінен әрекет орындалмады."
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4649,7 +4649,7 @@ msgid ""
 msgstr ""
 "%1 орындалмады, себебі мақсаттаған сервер файлды не қапшықты қабылдамады."
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4658,18 +4658,18 @@ msgstr ""
 "Осы әдісті орындағаннан кейін мақсатталған ресурсының күйін жазу үшін "
 "жеткілікті орын жоқ."
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Бұл ресурс өшірілмейді."
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 дегенді жүктеп беру"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

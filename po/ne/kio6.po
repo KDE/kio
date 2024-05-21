@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2951,7 +2951,7 @@ msgid "All Supported Files"
 msgstr "सबै समर्थित फाइलहरू"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3414,30 +3414,30 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "तपाईँ स्थानीय फाइलहरू मात्र चयन गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "तपाईँ स्थानीय फाइलहरू मात्र चयन गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, fuzzy, kde-format
 #| msgid "Remote Files Not Accepted"
 msgid "Remote files not accepted"
 msgstr "टाढाको फाइल स्वीकार गरिएन"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3448,12 +3448,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3461,36 +3461,36 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, fuzzy, kde-format
 #| msgid "%1 is a file, but a folder was expected."
 msgid "Files and folders selected"
 msgstr "%1 फाइल हो, तर फोल्डर अपेक्षित थियो ।"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The file \"%1\" could not be found"
 msgstr "अनुरोध गरिएको ताल्चा निकासा गर्न सकेन । %1"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<p>For instance, if the "
@@ -3504,45 +3504,45 @@ msgstr ""
 "<qt>प्यारेन्ट फोल्डर प्रविष्ट गर्न यो बटन क्लिक गर्नुहोस् ।<p> यदि हालको स्थान भएमा "
 "फाइल:/गृह/%1 यो बटन क्लिक गर्दा दृष्टान्तका लागि, तपाईँलाई फाइल:/गृहमा लैजान्छ ।</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ब्राउज गर्ने इतिहासमा एक चरण पछाडि सर्नका लागि यो बटन क्लिक गर्नुहोस् ।"
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ब्राउज गर्ने इतिहासमा एक चरण अगाडि सर्नका लागि यो बटन क्लिक गर्नुहोस् ।"
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "हालको स्थानको सामाग्रीहरू पुन: लोड गर्न यो बटन क्लिक गर्नुहोस् ।"
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "नयाँ फोल्डर सिर्जना गर्न यो बटन क्लिक गर्नुहोस् ।"
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, fuzzy, kde-format
 #| msgid "Show Quick Access Navigation Panel"
 msgid "Show Places Panel"
 msgstr "छिटो पहुँच नेभिगेसन प्यानल देखाउनुहोस्"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "पुस्तकचिनोहरू देखाउनुहोस्"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgid "Options"
 msgstr "कार्य"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the configuration menu for the file dialog. Various options "
@@ -3563,12 +3563,12 @@ msgstr ""
 "फोल्डरहरू विभाजन गर्दै </li></ul> यो मेनु समावेशबाट बिभिन्न विकल्प पहुँच प्राप्त गर्न सकिने "
 "छ:</qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "पुस्तकचिनो"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3587,12 +3587,12 @@ msgstr ""
 "रूपमा सञ्चालन हुन्छ ।</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "नाम:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3609,12 +3609,12 @@ msgstr ""
 "आकृति दायाँ माउस बटनसँग क्लिक गरेर र रुचाइएका मोड <b>पाठ समाप्ति</b> मेनुबाट चयन गरेर "
 "नियन्त्रण गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "यस रूपमा बचत गरिने फाइलको नाम यो हो ।"
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3623,77 +3623,77 @@ msgstr ""
 "यो खोलिने फाइलहरूको सूची हो । विभिन्न फाइलहरू सूची अनुरुप, खाली ठाउँद्वारा विभाजित एक "
 "भन्दा बढी फाइल निर्दिष्ट गर्न सकिनेछ ।"
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "यो खोलिने फाइलको नाम हो ।"
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "राख्दछ"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "सबै अधिलेखन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "तपाईँ स्थानीय फाइलहरू मात्र चयन गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "टाढाको फाइल स्वीकार गरिएन"
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|सबै फोल्डर"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "खोल्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "(%1) फाइलनाम विस्तार स्वचालित रूपमा चयन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "विस्तार <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "फाइलनाम विस्तार स्वचालित तरिकाले चयन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "उचित विस्तार"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3730,25 +3730,25 @@ msgstr ""
 "गरि यो थिच्न सक्नुहुन्छ (अवधि स्वत: हट्नेछ).</li></ol>यदि अनिश्चित भएमा, यो विकल्प "
 "यसको रूपमा सक्षम राख्नुहोस् तपाईँको फाइलहरू बढी व्यवस्थित पार्दछ ।"
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "फिल्टर:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "फिल्टर:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4596,103 +4596,103 @@ msgstr "सर्भर प्रमाणीकरण"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> मा <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "अन्यथा, अनुरोध सफल भएको हुनेछ ।"
 
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "विशेषता मानहरू पुन: प्राप्त गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "विशेषता मानहरू सेट गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, fuzzy, kde-format
 #| msgid "create the requested folder"
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "अनुरोध गरिएको फोल्डर सिर्जना गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर प्रतिलिपि गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, fuzzy, kde-format
 #| msgid "move the specified file or folder"
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर सार्नुहोस्"
 
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "निर्दिष्ट गरिएको फोल्डरमा खोजी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, fuzzy, kde-format
 #| msgid "lock the specified file or folder"
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरमा ताल्चा लगाउनुहोस्"
 
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, fuzzy, kde-format
 #| msgid "unlock the specified file or folder"
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरमा ताल्चा खोल्नुहोस्"
 
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, fuzzy, kde-format
 #| msgid "delete the specified file or folder"
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर मेट्नुहोस्"
 
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "सर्भरको क्षमता क्वेरी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, fuzzy, kde-format
 #| msgid "retrieve the contents of the specified file or folder"
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरको सामाग्री पुन: प्राप्त गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "निर्दिष्ट गरिएको फोल्डरमा खोजी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 मा प्रयास गर्दा अनपेक्षित त्रुटि (%1) देखापर्यो ।"
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4703,21 +4703,21 @@ msgid ""
 "below."
 msgstr "%1, %2 मा प्रयास गर्दा एउटा त्रुटि देखापर्यो । कारणहरूको सार तल छ ।<ul>"
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 मा प्रयास गर्दा पहुँच अस्वीकार गरियो ।"
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr "एक वा धरै आपसी सङ्ग्रहहरू (फोल्डरहरू) सिर्जना नभएसम्म संसाधन सिर्जना गर्न सकिँदैन ।"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4733,29 +4733,29 @@ msgstr ""
 "विशेषता व्यवहार XML तत्वमा सूचिकृत गरिएका गुणहरूको अस्तित्व सम्भार गर्न वा तपाईँले अनुरोध "
 "गर्दा फाइलहरू अधिलेखन नभएको बेलामा अधिलेखन गर्ने प्रयास गर्दा सर्भर अक्षम भयो । %1"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "अनुरोध गरिएको ताल्चा निकासा गर्न सकेन । %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "सर्भरले अनुरोध गरिएको प्रकारको मुख्य भाग समर्थन गर्दैन ।"
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "संसाधनमा ताल्चा लगाएको हुनाले %1 अक्षम भयो ।"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "अन्य त्रुटिद्वारा यो कार्य निषेध गरिएको थियो ।"
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unable to %1 because the destination server refuses to accept the file or "
@@ -4766,7 +4766,7 @@ msgid ""
 "folder."
 msgstr "गन्तव्य सर्भरले फाइल वा फोल्डर स्वीकार गर्न अस्वीकार गर्नाले %1 मा अक्षम भयो ।"
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4775,20 +4775,20 @@ msgstr ""
 "यो विधिको कार्यान्वयन पछि संसाधनको स्थिति रेकर्ड गर्न गन्तव्य संसाधनमा प्रयाप्त खाली ठाउँ "
 "छैन ।"
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "निर्दिष्ट गरिएको संसाधन अवस्थित हुन सक्दैन ।"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, fuzzy, kde-format
 #| msgid "upload %1"
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 अपलोड गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"

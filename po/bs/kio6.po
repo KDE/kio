@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -2932,7 +2932,7 @@ msgid "All Supported Files"
 msgstr "Svi podrÅ¾ani tipovi datoteka"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, kde-format
 msgid "All Files"
 msgstr "Sve datoteke"
@@ -3352,29 +3352,29 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Ogromna (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "You can only select one file"
 msgstr "MoÅ¾ete izabrati samo jednu datoteku."
 
 # >> @title:window
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr "Zadato viÅ¡e od jedne datoteke"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "You can only select local files"
 msgstr "MoÅ¾ete birati samo lokalne datoteke."
 
 # >> @title:window
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Udaljene datoteke se ne prihvataju"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3391,13 +3391,13 @@ msgstr[2] ""
 "Odabrani URL koristi nepodržanu šemu. Molimo koristite jedno od "
 "sljedećegšeme: %2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Nepodržana URL šema"
 
 # skip-rule: list, list3
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3409,13 +3409,13 @@ msgstr ""
 "da ga izlistate."
 
 # >> @title:window
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Zadato viÅ¡e od jednog direktorija"
 
 # skip-rule: list, list3
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3425,22 +3425,22 @@ msgstr ""
 "ignorisane, a direktorij izlistan"
 
 # >> @title:window
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Izabrane datoteke i direktoriji"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Ne mogu da naÄ‘em datoteku <filename>%1</filename>"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ne mogu da otvorim datoteku"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3451,43 +3451,43 @@ msgstr ""
 "primer, ako je trenutna lokacija file:/home/konki, klik na ovo dugme će vas "
 "odvesti do file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Kliknite ovdje da odete jedan korak unazad u istorijatu pregledanja."
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Kliknite ovdje da odete jedan korak unaprijed u istorijatu pregledanja."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Kliknite ovdje da ponovo uÄitate sadrÅ¾aj tekuÄ‡e lokacije."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Kliknite ovdje da napravite novi direktorij."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Prikaži navigacioni panel Mjesta"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Prikaži dugme za obeleživače"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Options"
 msgstr "Opcije"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3503,12 +3503,12 @@ msgstr ""
 "li><li>pregledi datoteka</li><li>odvajanje fascikli od datoteka</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "ZabiljeÅ¡ke"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3522,12 +3522,12 @@ msgstr ""
 "datoteka, ali se inaÄe ponaÅ¡aju kao bilo gdje drugdje u KDEâ€‘u.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Ime:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3539,12 +3539,12 @@ msgstr ""
 "poklapanja. Ovu moguÄ‡nost moÅ¾ete kontrolisati desnim klikom i izborom "
 "poÅ¾eljnog reÅ¾ima iz menija <interface>Dopuna teksta</interface>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ovo je ime pod kojim Ä‡e se datoteka saÄuvati."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3553,77 +3553,77 @@ msgstr ""
 "Ovo je spisak datoteka za otvaranje. ViÅ¡e datoteka se moÅ¾e zadati "
 "navoÄ‘enjem njihovih imena razdvojenih razmacima."
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ovo je ime datoteke koji treba otvoriti."
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Mjesta"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 "Datoteka <filename>%1</filename> veÄ‡ postoji. Å½elite li da je prebriÅ¡ete?"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Prebrisati datoteku?"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "MoÅ¾ete birati samo lokalne datoteke."
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Udaljene datoteke se ne prihvataju"
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Svi direktoriji"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "&Otvori"
 
 # >! Needs plurals.
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "VeliÄina ikona: %1 piksela"
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatski izaberi &nastavak imena datoteke (%1)"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "nastavak <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatski izaberi &nastavak imena datoteke"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "prikladan nastavak"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3650,12 +3650,12 @@ msgstr ""
 "niste sigurni, ostavite ovu opciju ukljuÄenom jer je tako lakÅ¡e rukovati "
 "datotekama.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid "&File type:"
 msgstr "&Tip fajla:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3664,12 +3664,12 @@ msgstr ""
 "<qt>Ovo je birač tipa datoteke. Koristi se za odabir formata koji ćedatoteka "
 "će biti sačuvana kao.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4497,102 +4497,102 @@ msgstr "Autentifikacija servera"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "InaÄe, zahtjev bi uspio."
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "dobave vrijednosti svojstva"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "postavi vrijednosti svojstva"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "napravi zahtijevani direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopira navedenu datoteku ili direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pomjeri navedenu datoteku ili direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "traÅ¾i u navedenom direktoriju"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zakljuÄa navedenu datoteku ili direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "otkljuÄa navedenu datoteku ili direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "obriÅ¡e navedenu datoteku ili direktorij"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "upita server za sposobnosti"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "dobavi sadrÅ¾aj navedene datoteke ili direktorija"
 
 # U sklopu reÄenice: â€ž...pri pokuÅ¡aju da se ...â€œ ili â€žNe moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "izvrÅ¡i izvjeÅ¡taj u navedenom direktoriju"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "NeoÄekivana greÅ¡ka (%1) pri pokuÅ¡aju da se %2."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4600,13 +4600,13 @@ msgid ""
 "below."
 msgstr "GreÅ¡ka pri pokuÅ¡aju da se %1, %2. SaÅ¾etak razloga je dat ispod."
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Odbijen je pristup pri pokuÅ¡aju da se %1."
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4615,7 +4615,7 @@ msgstr ""
 "Resurs ne moÅ¾e biti napravljen na odrediÅ¡tu sve dok se jedna ili viÅ¡e "
 "posrediÅ¡nih zbirki (direktorija) ne napravi."
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4630,28 +4630,28 @@ msgstr ""
 " da se datoteke ne prepisuju.\n"
 " %1."
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "TraÅ¾eno zakljuÄavanje nije bilo odobreno. %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server ne podrÅ¾ava tip zahtijeva u tijelu."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ne moÅ¾e da se %1 zato Å¡to je resurs zakljuÄan."
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ova radnja je sprijeÄena drugom greÅ¡kom."
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4661,7 +4661,7 @@ msgstr ""
 "Ne moÅ¾e da se %1 zato Å¡to odrediÅ¡ni server odbija da prihvati datoteku "
 "ili direktorij."
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4670,19 +4670,19 @@ msgstr ""
 "OdrediÅ¡ni resurs nema dovoljno prostora da zapiÅ¡e stanje resursa poslije "
 "izvrÅ¡enja ove metode."
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resurs se ne moÅ¾e obrisati."
 
 # U sklopu reÄenice: â€žpri pokuÅ¡aju da se ...â€œ ili â€žne moÅ¾e ...â€œ
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "okaÄi %1"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

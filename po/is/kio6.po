@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:36+0000\n"
+"POT-Creation-Date: 2024-05-21 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 12:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2886,7 +2886,7 @@ msgid "All Supported Files"
 msgstr "Allar studdar skrár"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, kde-format
 msgid "All Files"
 msgstr "Allar skrár"
@@ -3294,27 +3294,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Risastór (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "You can only select one file"
 msgstr "Þú getur aðeins valið eina skrá"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:616
 #, kde-format
 msgid "More than one file provided"
 msgstr "Fleiri en ein skrá tilgreindar"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "You can only select local files"
 msgstr "Þú getur aðeins valið skrár á þessu skráakerfi"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:787
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ekki er tekið við fjartengdum skrám"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3328,12 +3328,12 @@ msgstr[1] ""
 "Valda slóðin nota skema sem er ekki stutt. Notaðu eitt af eftirfarandi "
 "skemum: %2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Óstutt URL-skema"
 
-#: filewidgets/kfilewidget.cpp:815
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3344,12 +3344,12 @@ msgstr ""
 "ekki við möppum er ekki hægt að ákveða hverja þeirra eigi að opna. Veldu "
 "aðeins eina þeirra til að sjá innihald hennar."
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Fleiri en ein mappa tilgreindar"
 
-#: filewidgets/kfilewidget.cpp:827
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3358,22 +3358,22 @@ msgstr ""
 "Að minnsta kosti ein mappa og ein skrá hafa verið valin. Valdar skrár verða "
 "hunsaðar og valda mappan verður opnuð"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Skrár og möppur valdar"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Skráin \"%1\" fannst ekki"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Tókst ekki að opna skrá"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1192
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3384,45 +3384,45 @@ msgstr ""
 "núverandi staðsetning er file:/home/konqi þá muntu flytjast yfir á file:/"
 "home ef þú smellir á hnappinn.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1196
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Smelltu á þennan hnapp til að fara aftur um eitt skref í skoðunarferlinum."
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Smelltu á þennan hnapp til að fara áfram um eitt skref í skoðunarferlinum."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Smelltu á þennan hnapp til að lesa aftur innihald núverandi staðsetningar."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Smelltu á þennan hnapp til að búa til nýja möppu."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Sýna svæðið Staðir"
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Sýna bókamerkjahnapp"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Options"
 msgstr "Valkostir"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3438,12 +3438,12 @@ msgstr ""
 "li><li>forskoðun skráa</li> <li>hvernig/hvort möppur og skrár séu aðskildar</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Bookmarks"
 msgstr "Bókamerki"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1243
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3457,12 +3457,12 @@ msgstr ""
 "öðru leyti eins og bókamerki annars staðar í KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1281 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Heiti:"
 
-#: filewidgets/kfilewidget.cpp:1358
+#: filewidgets/kfilewidget.cpp:1359
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3475,12 +3475,12 @@ msgstr ""
 "eiginleika með því að hægrismella og velja kjörsnið úr valmyndinni "
 "<b>Textaútfylling</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1365
+#: filewidgets/kfilewidget.cpp:1366
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Þetta er heitið sem á að gefa skránni."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3489,74 +3489,74 @@ msgstr ""
 "Þetta er listi yfir skrár sem á að opna. Tilgreina má fleiri en eina skrá "
 "með því að telja þær upp, með bili á milli."
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Þetta er heitið á skránni sem á að opna."
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Staðir"
 
-#: filewidgets/kfilewidget.cpp:1605
+#: filewidgets/kfilewidget.cpp:1606
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Skráin \"%1\" er þegar til. Viltu skrifa yfir hana?"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Skrifa yfir skrá?"
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "You can only select local files."
 msgstr "Þú getur aðeins valið skrár á þessu skráakerfi."
 
-#: filewidgets/kfilewidget.cpp:1802
+#: filewidgets/kfilewidget.cpp:1803
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ekki er tekið við fjartengdum skrám"
 
-#: filewidgets/kfilewidget.cpp:1896
+#: filewidgets/kfilewidget.cpp:1897
 #, kde-format
 msgid "All Folders"
 msgstr "Allar möppur"
 
-#: filewidgets/kfilewidget.cpp:2048 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "&Opna"
 
-#: filewidgets/kfilewidget.cpp:2148
+#: filewidgets/kfilewidget.cpp:2149
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Stærð tákna: %1 dílar"
 
-#: filewidgets/kfilewidget.cpp:2296
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Velja skráren&dingu sjálfkrafa (%1)"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "endingin <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2303
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Velja skráaren&dingu sjálfkrafa"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "a suitable extension"
 msgstr "viðeigandi skrárending"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3583,12 +3583,12 @@ msgstr ""
 "sjálfkrafa) eða slökkt á eiginleikanum.</li></ol>Hafðu þessa stillingu á ef "
 "þú ert ekki viss því þá verða skrárnar þínar meðfærilegri."
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid "&File type:"
 msgstr "&Skrárgerð:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3597,12 +3597,12 @@ msgstr ""
 "<qt>Þetta er skrárgerðarvalið. Það er notað til að velja sniðið sem er notað "
 "þegar skráin er vistuð.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid "&Filter:"
 msgstr "&Sía:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4419,90 +4419,90 @@ msgstr "Auðkenning þjóns"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> á <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1311
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars hefði beiðnin tekist."
 
-#: kioworkers/http/http.cpp:1294
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "sækja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1296
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "velja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1298
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "búa til umbeðna möppu"
 
-#: kioworkers/http/http.cpp:1300
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "afrita umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1302
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "færa umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1304
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "leita í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1306
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "læsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1308
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "aflæsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1310
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "eyða umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1312
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "spyrja um getu þjónsins"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "sækja innihald umbeðinnar skrár eða möppu"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "keyra skýrslu í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að framkvæma %2."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4512,13 +4512,13 @@ msgstr ""
 "Villa kom upp þegar reynt var að %1, %2. Yfirlit yfir ástæður er hér fyrir "
 "neðan."
 
-#: kioworkers/http/http.cpp:1382 kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Aðgangi var hafnað þegar reynt var að %1."
 
-#: kioworkers/http/http.cpp:1396 kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4527,7 +4527,7 @@ msgstr ""
 "Ekki er hægt að búa til tilfang á áfangastaðnum fyrr en búið er að búa til "
 "eitt eða fleiri söfn (möppur) á slóðinni."
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1425
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4541,28 +4541,28 @@ msgstr ""
 "að skrifa yfir skrá á meðan þú baðst um að ekki væri\n"
 "skrifað yfir skrár. %1"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ekki tókst að að útvega umbeðna læsingu. %1"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1439
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Þjónninn styður ekki gerð beiðninnar."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 gengur ekki vegna þess að tilfang er læst."
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Þessi aðgerð var stöðvuð vegna annarrar villu."
 
-#: kioworkers/http/http.cpp:1435 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4571,7 +4571,7 @@ msgid ""
 msgstr ""
 "%1 gengur ekki því viðtakandinn neitar að taka við skránni eða möppunni."
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1557
+#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4580,18 +4580,18 @@ msgstr ""
 "Viðtökutilfangið hefur ekki nægjanlegt pláss til að skrá ástand tilfangsins "
 "eftir keyrslu þessarar aðgerðar."
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ekki er hægt að eyða þessu tilfangi."
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "hleð upp %1"
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1588
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
