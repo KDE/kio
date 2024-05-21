@@ -50,7 +50,8 @@
 #include <KMessageWidget>
 #include <KSharedConfig>
 #include <KShell>
-#include <KStandardAction>
+#include <KStandardActions>
+#include <KToggleAction>
 
 #include <QAbstractProxyModel>
 #include <QApplication>
@@ -1153,8 +1154,8 @@ void KFileWidgetPrivate::initZoomWidget()
         slotDirOpIconSizeChanged(iconSize);
     });
 
-    m_zoomOutAction = KStandardAction::create(
-        KStandardAction::ZoomOut,
+    m_zoomOutAction = KStandardActions::create(
+        KStandardActions::ZoomOut,
         q,
         [this]() {
             changeIconsSize(ZoomOut);
@@ -1163,8 +1164,8 @@ void KFileWidgetPrivate::initZoomWidget()
 
     q->addAction(m_zoomOutAction);
 
-    m_zoomInAction = KStandardAction::create(
-        KStandardAction::ZoomIn,
+    m_zoomInAction = KStandardActions::create(
+        KStandardActions::ZoomIn,
         q,
         [this]() {
             changeIconsSize(ZoomIn);

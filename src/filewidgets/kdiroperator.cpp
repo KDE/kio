@@ -34,7 +34,8 @@
 #include <KMessageBox>
 #include <KProtocolManager>
 #include <KSharedConfig>
-#include <KStandardAction>
+#include <KStandardActions>
+#include <KToggleAction>
 #include <KUrlMimeData>
 #include <kfileitemdelegate.h>
 #include <kfilepreviewgenerator.h>
@@ -1930,26 +1931,26 @@ void KDirOperator::setupActions()
     d->m_actionMenu = new KActionMenu(i18n("Menu"), this);
     d->m_actions[PopupMenu] = d->m_actionMenu;
 
-    QAction *upAction = KStandardAction::create(KStandardAction::Up, this, SLOT(cdUp()), this);
+    QAction *upAction = KStandardActions::create(KStandardActions::Up, this, &KDirOperator::cdUp, this);
     d->m_actions[Up] = upAction;
     upAction->setText(i18n("Parent Folder"));
 
-    QAction *backAction = KStandardAction::create(KStandardAction::Back, this, SLOT(back()), this);
+    QAction *backAction = KStandardActions::create(KStandardActions::Back, this, &KDirOperator::back, this);
     d->m_actions[Back] = backAction;
     auto backShortcuts = backAction->shortcuts();
     backShortcuts << Qt::Key_Backspace;
     backAction->setShortcuts(backShortcuts);
     backAction->setToolTip(i18nc("@info", "Go back"));
 
-    QAction *forwardAction = KStandardAction::create(KStandardAction::Forward, this, SLOT(forward()), this);
+    QAction *forwardAction = KStandardActions::create(KStandardActions::Forward, this, &KDirOperator::forward, this);
     d->m_actions[Forward] = forwardAction;
     forwardAction->setToolTip(i18nc("@info", "Go forward"));
 
-    QAction *homeAction = KStandardAction::create(KStandardAction::Home, this, SLOT(home()), this);
+    QAction *homeAction = KStandardActions::create(KStandardActions::Home, this, &KDirOperator::home, this);
     d->m_actions[Home] = homeAction;
     homeAction->setText(i18n("Home Folder"));
 
-    QAction *reloadAction = KStandardAction::create(KStandardAction::Redisplay, this, SLOT(rereadDir()), this);
+    QAction *reloadAction = KStandardActions::create(KStandardActions::Redisplay, this, &KDirOperator::rereadDir, this);
     d->m_actions[Reload] = reloadAction;
     reloadAction->setText(i18n("Reload"));
     reloadAction->setShortcuts(KStandardShortcut::shortcut(KStandardShortcut::Reload));
@@ -1961,7 +1962,7 @@ void KDirOperator::setupActions()
         mkdir();
     });
 
-    QAction *rename = KStandardAction::renameFile(this, &KDirOperator::renameSelected, this);
+    QAction *rename = KStandardActions::renameFile(this, &KDirOperator::renameSelected, this);
     d->m_actions[Rename] = rename;
 
     QAction *trash = new QAction(i18n("Move to Trash"), this);
