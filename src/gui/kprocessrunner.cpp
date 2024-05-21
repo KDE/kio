@@ -13,7 +13,6 @@
 #endif
 
 #include "config-kiogui.h"
-#include "dbusactivationrunner_p.h"
 #include "kiogui_debug.h"
 
 #include "desktopexecparser.h"
@@ -27,11 +26,14 @@
 #include <KWaylandExtras>
 #endif
 
-#ifndef Q_OS_ANDROID
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+
+#include "dbusactivationrunner_p.h"
 #endif
+
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -57,7 +59,7 @@ KProcessRunner::KProcessRunner()
 
 static KProcessRunner *makeInstance()
 {
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX) && defined(WITH_QTDBUS)
     switch (SystemdProcessRunner::modeAvailable()) {
     case KProcessRunner::SystemdAsService:
         return new SystemdProcessRunner();
@@ -90,13 +92,14 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &suggestedFileName,
                                                 const QByteArray &asn)
 {
-    KProcessRunner *instance;
+#ifdef WITH_QTDBUS
     // special case for applicationlauncherjob
     // FIXME: KProcessRunner is currently broken and fails to prepare the m_urls member
     // DBusActivationRunner uses, which then only calls "Activate", not "Open".
     // Possibly will need some special mode of DesktopExecParser
     // for the D-Bus activation call scenario to handle URLs with protocols
     // the invoked service/executable might not support.
+    KProcessRunner *instance;
     const bool notYetSupportedOpenActivationNeeded = !urls.isEmpty();
     if (!notYetSupportedOpenActivationNeeded && DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
         const auto actions = service->actions();
@@ -107,6 +110,9 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     } else {
         instance = makeInstance();
     }
+#else
+    KProcessRunner *instance = makeInstance();
+#endif
 
     if (!service->isValid()) {
         instance->emitDelayedError(i18n("The desktop entry file\n%1\nis not valid.", serviceEntryPath));

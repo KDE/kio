@@ -31,8 +31,11 @@
 #include <KService>
 #include <KUrlMimeData>
 
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+#endif
+
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QMenu>
@@ -241,6 +244,7 @@ void DropJobPrivate::slotStart()
 {
     Q_Q(DropJob);
 
+#ifdef WITH_QTDBUS
     if (m_hasArkFormat) {
         QDBusMessage message = QDBusMessage::createMethodCall(m_remoteArkDBusClient,
                                                               m_remoteArkDBusPath,
@@ -260,6 +264,7 @@ void DropJobPrivate::slotStart()
 
         return;
     }
+#endif
 
     if (!m_urls.isEmpty()) {
         if (destIsDirectory()) {

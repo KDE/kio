@@ -1611,7 +1611,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
             // required for the undo feature
             Q_EMIT q->copyingDone(q, (*it).uSource, finalUrl, (*it).mtime, false, false);
             if (m_mode == CopyJob::Move) {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
                 org::kde::KDirNotify::emitFileMoved((*it).uSource, finalUrl);
 #endif
             }
@@ -2172,13 +2172,13 @@ void CopyJob::emitResult()
             url = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
         }
         qCDebug(KIO_COPYJOB_DEBUG) << "KDirNotify'ing FilesAdded" << url;
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesAdded(url);
 #endif
 
         if (d->m_mode == CopyJob::Move && !d->m_successSrcList.isEmpty()) {
             qCDebug(KIO_COPYJOB_DEBUG) << "KDirNotify'ing FilesRemoved" << d->m_successSrcList;
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
             org::kde::KDirNotify::emitFilesRemoved(d->m_successSrcList);
 #endif
         }

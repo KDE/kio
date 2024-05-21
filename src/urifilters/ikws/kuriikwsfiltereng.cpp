@@ -17,7 +17,10 @@
 #include <KConfigGroup>
 #include <kprotocolinfo.h>
 
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
+#endif
+
 #include <QLoggingCategory>
 #include <QRegularExpression>
 #include <QStringEncoder>
@@ -36,8 +39,11 @@ KURISearchFilterEngine::KURISearchFilterEngine()
     // Only after initial load, we would want to reparse the files on config changes.
     // When the registry is constructed, it automatically loads the searchproviders
     m_reloadRegistry = true;
+
+#ifdef WITH_QTDBUS
     QDBusConnection::sessionBus()
         .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
+#endif
 }
 
 KURISearchFilterEngine::~KURISearchFilterEngine() = default;

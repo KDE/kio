@@ -28,7 +28,7 @@
 
 #include <QCache>
 #include <QCoreApplication>
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include <QDBusInterface>
 #include <QDBusReply>
 #endif
@@ -408,7 +408,7 @@ QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
             const QString protocol = adjustProtocol(u.scheme());
             u.setScheme(protocol);
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
             if (protocol.startsWith(QLatin1String("http")) || protocol.startsWith(QLatin1String("ftp"))) {
                 QDBusReply<QStringList> reply =
                     QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"))

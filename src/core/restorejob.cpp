@@ -75,7 +75,7 @@ void RestoreJobPrivate::slotStart()
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Files, q->processedAmount(KJob::Files) + 1);
     } else {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesRemoved(m_urls);
 #endif
         q->emitResult();

@@ -8,15 +8,16 @@
 #include "ksslcertificatemanager.h"
 #include "ksslcertificatemanager_p.h"
 
+#ifdef WITH_QTDBUS
 #include "kssld_interface.h"
+#endif
+
 #include "ksslerroruidata_p.h"
 
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <QDBusConnection>
-#include <QDBusConnectionInterface>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -156,7 +157,9 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
     : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig)
+#ifdef WITH_QTDBUS
     , iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld6"), QStringLiteral("/modules/kssld"), QDBusConnection::sessionBus()))
+#endif
     , isCertListLoaded(false)
     , userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
 {
@@ -164,8 +167,10 @@ KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
 
 KSslCertificateManagerPrivate::~KSslCertificateManagerPrivate()
 {
+#ifdef WITH_QTDBUS
     delete iface;
     iface = nullptr;
+#endif
 }
 
 void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
@@ -396,22 +401,32 @@ KSslCertificateManager *KSslCertificateManager::self()
 
 void KSslCertificateManager::setRule(const KSslCertificateRule &rule)
 {
+#ifdef WITH_QTDBUS
     d->iface->setRule(rule);
+#endif
 }
 
 void KSslCertificateManager::clearRule(const KSslCertificateRule &rule)
 {
+#ifdef WITH_QTDBUS
     d->iface->clearRule(rule);
+#endif
 }
 
 void KSslCertificateManager::clearRule(const QSslCertificate &cert, const QString &hostName)
 {
+#ifdef WITH_QTDBUS
     d->iface->clearRule(cert, hostName);
+#endif
 }
 
 KSslCertificateRule KSslCertificateManager::rule(const QSslCertificate &cert, const QString &hostName) const
 {
+#ifdef WITH_QTDBUS
     return d->iface->rule(cert, hostName);
+#else
+    return KSslCertificateRule();
+#endif
 }
 
 QList<QSslCertificate> KSslCertificateManager::caCertificates() const
@@ -443,4 +458,6 @@ void _setAllKsslCaCertificates(KSslCertificateManager *cm, const QList<KSslCaCer
     KSslCertificateManagerPrivate::get(cm)->setAllCertificates(certsIn);
 }
 
+#ifdef WITH_QTDBUS
 #include "moc_kssld_interface.cpp"
+#endif

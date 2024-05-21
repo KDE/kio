@@ -434,7 +434,9 @@ bool TrashImpl::move(const QString &src, const QString &dest)
     if (directRename(src, dest)) {
         // This notification is done by KIO::moveAs when using the code below
         // But if we do a direct rename we need to do the notification ourselves
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(dest));
+#endif
         return true;
     }
     if (m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION) {
@@ -855,7 +857,9 @@ void TrashImpl::fileRemoved()
         KConfigGroup group = m_config.group(QStringLiteral("Status"));
         group.writeEntry("Empty", true);
         m_config.sync();
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesChanged({QUrl::fromEncoded("trash:/")});
+#endif
     }
     // The apps showing the trash (e.g. kdesktop) will be notified
     // of this change when KDirNotify::FilesRemoved(...) is emitted,

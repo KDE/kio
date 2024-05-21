@@ -14,7 +14,6 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDBusConnection>
 #include <QLoggingCategory>
 
 using namespace KIO;

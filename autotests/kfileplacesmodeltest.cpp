@@ -5,7 +5,10 @@
     SPDX-License-Identifier: GPL-2.0-only
 */
 
+#ifdef WITH_QTDBUS
 #include <QDBusInterface>
+#endif
+
 #include <QDebug>
 #include <QObject>
 #include <QSignalSpy>
@@ -75,16 +78,20 @@ private Q_SLOTS:
 
 private:
     QStringList placesUrls(KFilePlacesModel *model = nullptr) const;
+#ifdef WITH_QTDBUS
     QDBusInterface *fakeManager();
     QDBusInterface *fakeDevice(const QString &udi);
+#endif
     void createPlacesModels();
 
     KFilePlacesModel *m_places;
     KFilePlacesModel *m_places2; // To check that they always stay in sync
     // actually supposed to work across processes,
     // but much harder to test
-
+#ifdef WITH_QTDBUS
     QMap<QString, QDBusInterface *> m_interfacesMap;
+#endif
+
     QTemporaryDir m_tmpHome;
     bool m_hasRecentlyUsedKio;
 };
@@ -142,7 +149,9 @@ void KFilePlacesModelTest::cleanupTestCase()
 {
     delete m_places;
     delete m_places2;
+#ifdef WITH_QTDBUS
     qDeleteAll(m_interfacesMap);
+#endif
     QFile::remove(bookmarksFile());
 }
 
@@ -182,6 +191,7 @@ QStringList KFilePlacesModelTest::placesUrls(KFilePlacesModel *model) const
     } \
 /*clang-format on */
 
+#ifdef WITH_QTDBUS
 QDBusInterface *KFilePlacesModelTest::fakeManager()
 {
     return fakeDevice(QStringLiteral("/org/kde/solid/fakehw"));
@@ -199,6 +209,7 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 
     return iface;
 }
+#endif
 
 static const QStringList initialListOfPlaces()
 {
@@ -703,6 +714,7 @@ void KFilePlacesModelTest::testDevicePlugging()
 {
     QSKIP("TODO testDevicePlugging doesn't pass FIXME");
 
+#ifdef WITH_QTDBUS
     QList<QVariant> args;
     QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
     QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
@@ -813,10 +825,12 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
     QCOMPARE(args.at(1).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
     QCOMPARE(args.at(2).toInt(), m_hasRecentlyUsedKio ? 7 : 5);
+#endif
 }
 
 void KFilePlacesModelTest::testDeviceSetupTeardown()
 {
+#ifdef WITH_QTDBUS
     QList<QVariant> args;
     QSignalSpy spy_changed(m_places, &QAbstractItemModel::dataChanged);
 
@@ -833,6 +847,7 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
     args = spy_changed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
     QCOMPARE(args.at(1).toModelIndex().row(), m_hasRecentlyUsedKio ? 8 : 6);
+#endif
 }
 
 void KFilePlacesModelTest::testEnableBaloo()

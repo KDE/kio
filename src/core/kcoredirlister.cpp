@@ -56,7 +56,7 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(KDirWatch::self(), &KDirWatch::created, this, &KCoreDirListerCache::slotFileCreated);
     connect(KDirWatch::self(), &KDirWatch::deleted, this, &KCoreDirListerCache::slotFileDeleted);
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
     connect(kdirnotify, &org::kde::KDirNotify::FileRenamedWithLocalPath, this, &KCoreDirListerCache::slotFileRenamed);
     connect(kdirnotify, &org::kde::KDirNotify::FilesAdded, this, &KCoreDirListerCache::slotFilesAdded);

@@ -6,7 +6,10 @@
 */
 
 #include "joburlcache_p.h"
+
+#ifdef WITH_QTDBUS
 #include "kuiserver_interface.h"
+#endif
 
 class JobUrlCacheSingleton
 {
@@ -24,6 +27,7 @@ JobUrlCache &JobUrlCache::instance()
 JobUrlCache::JobUrlCache()
     : QObject(nullptr)
 {
+#ifdef WITH_QTDBUS
     org::kde::kuiserver *interface =
         new org::kde::kuiserver(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
 
@@ -32,6 +36,7 @@ JobUrlCache::JobUrlCache()
 
     // force signal emission
     interface->emitJobUrlsChanged();
+#endif
 }
 
 JobUrlCache::~JobUrlCache()

@@ -170,7 +170,9 @@ KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, 
             return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
         const QUrl finalUrl = TrashImpl::makeURL(oldTrashId, newFileId, QString());
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFileRenamed(oldURL, finalUrl);
+#endif
         return KIO::WorkerResult::pass();
     }
 

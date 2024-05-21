@@ -40,7 +40,6 @@ else()
         ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
         ${kio_trash_PART_DEBUG_SRCS}
     )
     target_link_libraries(kio_trash trash_common_unix)
@@ -54,7 +53,7 @@ target_link_libraries(kio_trash
   KF6::ConfigCore
   KF6::Solid
   KF6::KIOCore
-  Qt6::DBus
+  ${DBUS_LIB}
   Qt6::Network
   KF6::I18n
   KF6::ConfigCore

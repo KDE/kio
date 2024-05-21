@@ -724,7 +724,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 return WorkerResult::pass();
             }
         }
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
+#endif
     }
 
     // set final permissions

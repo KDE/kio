@@ -48,7 +48,7 @@
 
 #include <KConfigGroup>
 #include <assert.h>
-#ifndef KIO_ANDROID_STUB
+#ifndef Q_OS_ANDROID
 #include <kbuildsycocaprogressdialog.h>
 #endif
 #include <stdlib.h>
@@ -933,7 +933,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         return false;
     }
 
-#ifndef KIO_ANDROID_STUB
+#ifndef Q_OS_ANDROID
     if (result.rebuildSycoca) {
         KBuildSycocaProgressDialog::rebuildKSycoca(q);
     }

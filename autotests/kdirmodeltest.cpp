@@ -769,6 +769,7 @@ void KDirModelTest::testRenameDirectoryInCache() // #188807
 
 void KDirModelTest::testChmodDirectory() // #53397
 {
+#ifdef WITH_QTDBUS
     QSignalSpy spyDataChanged(m_dirModel, &QAbstractItemModel::dataChanged);
     const QString path = m_tempDir->path() + '/';
     KFileItem rootItem = m_dirModel->itemForIndex(QModelIndex());
@@ -781,6 +782,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     KIO::Job *job = KIO::chmod({rootItem}, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString(), QString(), false, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
+
     // ChmodJob doesn't talk to KDirNotify, kpropertiesdialog does.
     // [this allows to group notifications after all the changes one can make in the dialog]
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
@@ -798,6 +800,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     const KFileItem newRootItem = m_dirModel->itemForIndex(QModelIndex());
     QVERIFY(!newRootItem.isNull());
     QCOMPARE(QString::number(newRootItem.permissions(), 16), QString::number(newPerm, 16));
+#endif
 }
 
 enum {

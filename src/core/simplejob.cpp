@@ -202,7 +202,7 @@ void SimpleJob::slotFinished()
         if (!error() && (d->m_command == CMD_MKDIR || d->m_command == CMD_RENAME)) {
             if (d->m_command == CMD_MKDIR) {
                 const QUrl urlDir = url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
                 org::kde::KDirNotify::emitFilesAdded(urlDir);
 #endif
             } else { /*if ( m_command == CMD_RENAME )*/
@@ -213,12 +213,12 @@ void SimpleJob::slotFinished()
                 if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't
                                                                                              // renaming. Only renaming is.
                 ) {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
                     org::kde::KDirNotify::emitFileRenamed(src, dst);
 #endif
                 }
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
                 org::kde::KDirNotify::emitFileMoved(src, dst);
 #endif
                 if (d->m_uiDelegateExtension) {

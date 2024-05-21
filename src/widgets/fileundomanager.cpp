@@ -9,7 +9,9 @@
 #include "fileundomanager.h"
 #include "askuseractioninterface.h"
 #include "clipboardupdater_p.h"
+#ifdef WITH_QTDBUS
 #include "fileundomanager_adaptor.h"
+#endif
 #include "fileundomanager_p.h"
 #include "kio_widgets_debug.h"
 #include <job_p.h>
@@ -27,7 +29,10 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
+#endif
+
 #include <QDateTime>
 #include <QFileInfo>
 #include <QLocale>
@@ -236,7 +241,7 @@ FileUndoManagerPrivate::FileUndoManagerPrivate(FileUndoManager *qq)
     , m_nextCommandIndex(1000)
     , q(qq)
 {
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#ifdef WITH_QTDBUS
     (void)new KIOFileUndoManagerAdaptor(this);
     const QString dbusPath = QStringLiteral("/FileUndoManager");
     const QString dbusInterface = QStringLiteral("org.kde.kio.FileUndoManager");
@@ -627,10 +632,12 @@ void FileUndoManagerPrivate::stepRemovingDirectories()
             m_undoJob->emitResult();
             m_undoJob = nullptr;
         }
+#ifdef WITH_QTDBUS
         for (const QUrl &url : std::as_const(m_dirsToUpdate)) {
             // qDebug() << "Notifying FilesAdded for " << url;
             org::kde::KDirNotify::emitFilesAdded(url);
         }
+#endif
         Q_EMIT q->undoJobFinished();
         slotUnlock();
     }

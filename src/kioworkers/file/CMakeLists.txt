@@ -29,7 +29,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_file KF6::KIOCore KF6::I18n KF6::ConfigCore Qt6::DBus Qt6::Network)
+target_link_libraries(kio_file KF6::KIOCore KF6::I18n KF6::ConfigCore ${DBUS_LIB} Qt6::Network)
 
 if(UNIX)
   target_link_libraries(kio_file Qt6::Network KF6::AuthCore)

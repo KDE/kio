@@ -23,12 +23,12 @@ Dependencies:
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
     'frameworks/kcrash' : '@same'
-    'frameworks/kdbusaddons' : '@same'
     'frameworks/kdoctools' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
     'frameworks/kauth': '@same'
+    'frameworks/kdbusaddons' : '@same'
     'frameworks/kwallet' : '@same'
 
 Options:

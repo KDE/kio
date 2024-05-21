@@ -13,7 +13,6 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashsizecache.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../kinterprocesslock.cpp
     ${kio_trash_PART_test_DEBUG_SRCS}
 )
 
@@ -24,7 +23,7 @@ ecm_add_test(${testtrash_SRCS}
     LINK_LIBRARIES
         KF6::ConfigCore
         KF6::I18n
-        Qt6::DBus
+        ${DBUS_LIB}
         KF6::KIOCore
         KF6::Solid
         Qt6::Test
@@ -37,10 +36,3 @@ endif(APPLE)
 
 # other tests like dropjob and fileundomanager use the trash in ~/.qttest, which this test cleans up
 set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
-
-### next target ###
-
-add_executable(lockingtest lockingtest.cpp ../kinterprocesslock.cpp)
-ecm_mark_nongui_executable(lockingtest)
-
-target_link_libraries(lockingtest Qt6::Core Qt6::DBus)

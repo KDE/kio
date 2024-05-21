@@ -66,7 +66,6 @@ find_package(KF6DocTools ${KF_DEP_VERSION})
 find_package(KF6Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
 if (NOT ANDROID)
     find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
-    find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 if (NOT KIOCORE_ONLY)
@@ -107,8 +106,14 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to gen
 
 set(REQUIRED_QT_VERSION 6.5.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
-if (NOT ANDROID)
+
+set(DBUS_LIB)
+if(UNIX AND NOT APPLE AND NOT ANDROID)
+    find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
     find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+    set(HAVE_QTDBUS ${Qt6DBus_FOUND})
+    add_definitions(-DWITH_QTDBUS)
+    set(DBUS_LIB Qt6::DBus)
 endif()
 
 find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
@@ -133,12 +138,6 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     find_package(LibMount REQUIRED)
     set(HAVE_LIB_MOUNT ${LibMount_FOUND})
-endif()
-
-if (ANDROID)
-    # used to mark code that is just stubbed out on Android for now
-    # and that would still need a decision on how to deal with that
-    add_definitions(-DKIO_ANDROID_STUB)
 endif()
 
 ecm_set_disabled_deprecation_versions(

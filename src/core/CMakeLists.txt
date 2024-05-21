@@ -86,17 +86,16 @@ target_sources(KF6KIOCore PRIVATE
   kfilefilter.cpp
   koverlayiconplugin.cpp
   openwith.cpp
+  ksslcertificatemanager.cpp
+  ksslerroruidata.cpp
 )
 
-if (NOT ANDROID)
+if (HAVE_QTDBUS)
 target_sources(KF6KIOCore PRIVATE
   kpasswdserverloop.cpp
   kpasswdserverclient.cpp
   kdirnotify.cpp
   forwardingworkerbase.cpp
-
-  ksslcertificatemanager.cpp
-  ksslerroruidata.cpp
 )
 endif()
 
@@ -157,7 +156,7 @@ if (WIN32)
 endif()
 
 set(kiocore_dbus_SRCS)
-if (TARGET Qt6::DBus)
+if (HAVE_QTDBUS)
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
     set_source_files_properties(org.kde.KPasswdServer.xml
@@ -206,11 +205,8 @@ if (NOT ANDROID)
     target_link_libraries(KF6KIOCore PRIVATE KF6::Crash)
 endif()
 
-if (TARGET Qt6::DBus)
-    target_link_libraries(KF6KIOCore
-    PUBLIC
-        Qt6::DBus
-    )
+if (HAVE_QTDBUS)
+    target_link_libraries(KF6KIOCore PUBLIC ${DBUS_LIB})
 endif()
 
 if (TARGET KF6::AuthCore)

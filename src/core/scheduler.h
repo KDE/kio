@@ -122,7 +122,7 @@ private:
     KIOCORE_NO_EXPORT static Scheduler *self();
 
     // connected to D-Bus signal:
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))
 #endif
 

@@ -21,15 +21,19 @@ target_sources(KF6KIOGui PRIVATE
    kprocessrunner.cpp
    kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
-   dbusactivationrunner.cpp
    previewjob.cpp
    thumbnailcreator.cpp
    gpudetection.cpp
    kurifilter.cpp
    kurifilterplugin.cpp
+   openfilemanagerwindowjob.cpp
 )
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if (HAVE_QTDBUS)
+    target_sources(KF6KIOGui PRIVATE dbusactivationrunner.cpp)
+endif ()
+
+if (HAVE_QTDBUS AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(SYSTEMD_DBUS_XMLS
         systemd/org.freedesktop.systemd1.Manager.xml
         systemd/org.freedesktop.systemd1.Unit.xml
@@ -46,10 +50,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
         systemd/scopedprocessrunner.cpp
     )
 endif ()
-
-if (NOT ANDROID)
-  target_sources(KF6KIOGui PRIVATE openfilemanagerwindowjob.cpp)
-endif()
 
 ecm_qt_declare_logging_category(KF6KIOGui
     HEADER kiogui_debug.h

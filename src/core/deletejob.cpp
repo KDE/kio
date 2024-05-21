@@ -462,7 +462,7 @@ void DeleteJobPrivate::deleteNextDir()
     // Finished - tell the world
     if (!m_srcList.isEmpty()) {
         // qDebug() << "KDirNotify'ing FilesRemoved" << m_srcList;
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesRemoved(m_srcList);
 #endif
     }

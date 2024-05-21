@@ -141,7 +141,7 @@ public:
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     std::unique_ptr<KPasswdServerClient> m_passwdServerClient;
 #endif
     bool m_rootEntryListed = false;
@@ -227,7 +227,7 @@ public:
                                             .arg(QCoreApplication::applicationName())));
     }
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     KPasswdServerClient *passwdServerClient()
     {
         if (!m_passwdServerClient) {
@@ -992,7 +992,7 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
     // it to ensure it is valid.
     dlgInfo.setExtraField(QStringLiteral("skip-caching-on-query"), true);
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     const int errCode = passwdServerClient->queryAuthInfo(&dlgInfo, errorMessage, windowId, userTimestamp);
     if (errCode == KJob::NoError) {
@@ -1351,7 +1351,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(), metaData(QStringLiteral("user-timestamp")).toULong()));
 #else
@@ -1401,7 +1401,7 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 
 bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     passwdServerClient->addAuthInfo(info, metaData(QStringLiteral("window-id")).toLongLong());
 #endif

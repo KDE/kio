@@ -18,7 +18,7 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
   endforeach()
 endmacro(KIOWIDGETS_EXECUTABLE_TESTS)
 
-if (NOT ANDROID)
+if (HAVE_QTDBUS)
 KIOWIDGETS_EXECUTABLE_TESTS(
     getalltest
     kdirlistertest_gui

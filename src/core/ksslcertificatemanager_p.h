@@ -78,7 +78,10 @@ public:
     QList<KSslCaCertificate> allCertificates() const;
 
     KConfig config;
+
+#ifdef WITH_QTDBUS
     org::kde::KSSLDInterface *iface;
+#endif
 
     QList<QSslCertificate> defaultCaCertificates;
 

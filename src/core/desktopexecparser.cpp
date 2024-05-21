@@ -8,7 +8,8 @@
 */
 
 #include "desktopexecparser.h"
-#ifndef Q_OS_ANDROID
+
+#ifdef WITH_QTDBUS
 #include "kiofuse_interface.h"
 #endif
 
@@ -22,7 +23,7 @@
 #include <KShell>
 #include <kprotocolinfo.h> // KF6 TODO remove after moving hasSchemeHandler to OpenUrlJob
 
-#ifndef Q_OS_ANDROID
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusReply>
 #endif
@@ -388,6 +389,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         return result;
     }
 
+#ifdef WITH_QTDBUS
     // Return true for non-KIO desktop files with explicit X-KDE-Protocols list, like vlc, for the special case below
     auto isNonKIO = [this]() {
         const QStringList protocols = d->service.property<QStringList>(QStringLiteral("X-KDE-Protocols"));
@@ -396,7 +398,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
-#ifndef Q_OS_ANDROID
+
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
     struct MountRequest {
         QDBusPendingReply<QString> reply;

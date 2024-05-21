@@ -144,13 +144,13 @@ ecm_add_tests(
  pastetest.cpp
  kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus
+ LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
 )
 
 set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
 target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
 
-set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus)
+set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB})
 
 set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
 ecm_add_test(kurifiltertest.cpp

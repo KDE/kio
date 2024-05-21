@@ -14,7 +14,10 @@
 
 #include <KPluginFactory>
 
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
+#endif
+
 #include <QLoggingCategory>
 
 K_PLUGIN_CLASS_WITH_JSON(KUriSearchFilter, "kurisearchfilter.json")

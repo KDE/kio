@@ -70,6 +70,8 @@ class KIOCORE_EXPORT KSslCertificateManager
 {
 public:
     static KSslCertificateManager *self();
+
+    // TODO: the rule functions are not working if there is no DBus with a working kiod
     void setRule(const KSslCertificateRule &rule);
     void clearRule(const KSslCertificateRule &rule);
     void clearRule(const QSslCertificate &cert, const QString &hostName);

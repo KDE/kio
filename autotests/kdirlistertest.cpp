@@ -24,8 +24,6 @@
 
 QTEST_MAIN(KDirListerTest)
 
-static constexpr bool s_workaroundBrokenInotify = false;
-
 GlobalInits::GlobalInits()
 {
     // Must be done before the QSignalSpys connect
@@ -391,10 +389,6 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     const QString fileName = QStringLiteral("toplevelfile_newinlink");
     createSimpleFile(path + fileName);
 
-    if (s_workaroundBrokenInotify) {
-        org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(path));
-    }
-
     // Give time for KDirWatch to notify us
     QTRY_COMPARE(m_items2.count(), origItemCount + 1);
     QTRY_COMPARE(m_items.count(), origItemCount + 1);
@@ -487,6 +481,7 @@ void KDirListerTest::testRefreshItems()
 // Refresh the root item, plus a hidden file, e.g. changing its icon. #190535
 void KDirListerTest::testRefreshRootItem()
 {
+#ifdef WITH_QTDBUS
     // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
     m_refreshedItems.clear();
     m_refreshedItems2.clear();
@@ -556,6 +551,7 @@ void KDirListerTest::testRefreshRootItem()
 
     // Note: this test leaves the .directory file as a side effect.
     // Hidden though, shouldn't matter.
+#endif
 }
 
 void KDirListerTest::testDeleteItem()
@@ -652,10 +648,6 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     const QString dirPath = tempPath();
     const QString path = dirPath + "toplevelfile_2";
     createTestFile(path);
-
-    if (s_workaroundBrokenInotify) {
-        org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(dirPath));
-    }
 
     KFileItem existingItem;
     while (existingItem.isNull()) {
@@ -1083,6 +1075,7 @@ void KDirListerTest::testBug211472()
 
 void KDirListerTest::testRenameCurrentDir() // #294445
 {
+#ifdef WITH_QTDBUS
     m_items.clear();
 
     const QString path = tempPath() + "newsubdir-1";
@@ -1108,6 +1101,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
 
     disconnect(&secondDirLister, nullptr, this, nullptr);
     QDir().rmdir(newPath);
+#endif
 }
 
 void KDirListerTest::slotOpenUrlOnRename(const QUrl &newUrl)
@@ -1120,6 +1114,7 @@ void KDirListerTest::slotOpenUrlOnRename(const QUrl &newUrl)
 // Matches usage in gwenview.
 void KDirListerTest::testRenameCurrentDirOpenUrl()
 {
+#ifdef WITH_QTDBUS
     m_items.clear();
     const QString path = tempPath() + "newsubdir-1/";
     QVERIFY(QDir().mkdir(path));
@@ -1145,6 +1140,7 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
     QTRY_VERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, nullptr, this, nullptr);
     QDir().rmdir(newPath);
+#endif
 }
 
 void KDirListerTest::testRedirection()

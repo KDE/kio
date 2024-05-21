@@ -1,4 +1,7 @@
-add_subdirectory( kdedmodule ) 
+if (HAVE_QTDBUS)
+    add_subdirectory( kdedmodule )
+endif()
+
 kcoreaddons_add_plugin(kio_remote
     INSTALL_NAMESPACE kf6/kio
 )

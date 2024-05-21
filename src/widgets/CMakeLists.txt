@@ -14,7 +14,7 @@ set_target_properties(KF6KIOWidgets PROPERTIES
 )
 
 set(kiowidgets_dbus_SRCS)
-if(TARGET Qt6::DBus)
+if(HAVE_QTDBUS)
     qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
     qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
 endif()
@@ -46,31 +46,27 @@ target_sources(KF6KIOWidgets PRIVATE
   widgetsopenwithhandler.cpp
   widgetsopenorexecutefilehandler.cpp
   widgetsaskuseractionhandler.cpp
-)
-
-if(NOT ANDROID)
-target_sources(KF6KIOWidgets PRIVATE
-  ${kiowidgets_dbus_SRCS}
   deleteortrashjob.cpp
   fileundomanager.cpp
-  kpropertiesdialog.cpp
-  kpropertiesdialogplugin.cpp
-  kpropertiesdialogbuiltin_p.cpp
-  delegateanimationhandler.cpp
-  kfileitemdelegate.cpp
   paste.cpp
-  kbuildsycocaprogressdialog.cpp
-  sslui.cpp
-  dropjob.cpp
   pastejob.cpp
   joburlcache.cpp
   kdirmodel.cpp
+  dropjob.cpp
+  kbuildsycocaprogressdialog.cpp
   renamefiledialog.cpp
+  kfileitemdelegate.cpp
+  delegateanimationhandler.cpp
+  kpropertiesdialog.cpp
+  kpropertiesdialogplugin.cpp
+  kpropertiesdialogbuiltin_p.cpp
+  sslui.cpp
 )
-endif()
-if (NOT ANDROID)
+
+if (HAVE_QTDBUS)
     target_sources(KF6KIOWidgets PRIVATE
         kdynamicjobtracker.cpp
+        ${kiowidgets_dbus_SRCS}
     )
 endif()
 
@@ -133,11 +129,8 @@ target_link_libraries(KF6KIOWidgets
     KF6::WindowSystem # KStartupInfo
     KF6::ColorScheme
 )
-if (TARGET Qt6::DBus)
-    target_link_libraries(KF6KIOWidgets
-        PRIVATE
-            Qt6::DBus
-    )
+if (HAVE_QTDBUS)
+    target_link_libraries(KF6KIOWidgets PRIVATE ${DBUS_LIB})
 endif()
 
 if(ACL_FOUND)

@@ -20,7 +20,7 @@
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusMessage>
 #endif
@@ -95,7 +95,7 @@ public:
 
     void slotWorkerDied(KIO::Worker *worker);
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
 #endif
 
@@ -580,7 +580,7 @@ Scheduler::Scheduler()
 {
     setObjectName(QStringLiteral("scheduler"));
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     const QString dbusPath = QStringLiteral("/KIO/Scheduler");
     const QString dbusInterface = QStringLiteral("org.kde.KIO.Scheduler");
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -638,7 +638,7 @@ void Scheduler::updateInternalMetaData(SimpleJob *job)
 
 void Scheduler::emitReparseSlaveConfiguration()
 {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     // Do it immediately in this process, otherwise we might send a request before reparsing
     // (e.g. when changing useragent in the plugin)
     schedulerPrivate()->slotReparseSlaveConfiguration(QString(), QDBusMessage());
@@ -648,7 +648,7 @@ void Scheduler::emitReparseSlaveConfiguration()
     Q_EMIT self()->reparseSlaveConfiguration(QString());
 }
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const QDBusMessage &)
 {
     if (m_ignoreConfigReparse) {

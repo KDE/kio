@@ -10,17 +10,14 @@
 #include "kiogui_debug.h"
 #include <KWindowSystem>
 
-#ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
-#endif
 #include <QTimer>
 
 bool DBusActivationRunner::activationPossible(const KService::Ptr service, KIO::ApplicationLauncherJob::RunFlags flags, const QString &suggestedFileName)
 {
-#if defined Q_OS_UNIX && !defined Q_OS_ANDROID
     if (!service->isApplication()) {
         return false;
     }
@@ -39,7 +36,6 @@ bool DBusActivationRunner::activationPossible(const KService::Ptr service, KIO::
         }
         return true;
     }
-#endif
     return false;
 }
 
@@ -51,7 +47,6 @@ DBusActivationRunner::DBusActivationRunner(const QString &action)
 
 void DBusActivationRunner::startProcess()
 {
-#ifndef Q_OS_ANDROID
     // DBusActivatable as per https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#dbus
     const QString objectPath = QStringLiteral("/%1").arg(m_desktopName).replace(QLatin1Char('.'), QLatin1Char('/')).replace(QLatin1Char('-'), QLatin1Char('_'));
     const QString interface = QStringLiteral("org.freedesktop.Application");
@@ -99,12 +94,10 @@ void DBusActivationRunner::startProcess()
             deleteLater();
         });
     });
-#endif
 }
 
 bool DBusActivationRunner::waitForStarted(int timeout)
 {
-#ifndef Q_OS_ANDROID
     if (m_finished) {
         return m_pid != 0;
     }
@@ -119,9 +112,6 @@ bool DBusActivationRunner::waitForStarted(int timeout)
     QTimer::singleShot(timeout, &loop, &QEventLoop::quit);
     loop.exec();
     return success;
-#else
-    return false;
-#endif
 }
 
 #include "moc_dbusactivationrunner_p.cpp"

@@ -17,7 +17,7 @@ PRIVATE
    KF6::CoreAddons  # kpluginfactory
    KF6::ConfigCore
    Qt6::Network
-   Qt6::DBus
+   ${DBUS_LIB}
 )
 
 kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kssld6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

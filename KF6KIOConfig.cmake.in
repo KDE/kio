@@ -21,8 +21,11 @@ if (NOT @KIOCORE_ONLY@)
         find_dependency(KF6GuiAddons "@KF_DEP_VERSION@")
         find_dependency(KF6IconThemes "@KF_DEP_VERSION@")
 
-        if (NOT ANDROID)
+        if (@HAVE_QTDBUS@)
             find_dependency(KF6DBusAddons "@KF_DEP_VERSION@")
+        endif()
+
+        if (NOT ANDROID)
             find_dependency(KF6Crash "@KF_DEP_VERSION@")
         endif()
 
@@ -37,7 +40,7 @@ else()
 endif()
 
 find_dependency(Qt6Network "@REQUIRED_QT_VERSION@")
-if (NOT ANDROID)
+if (@HAVE_QTDBUS@)
     find_dependency(Qt6DBus "@REQUIRED_QT_VERSION@")
 endif()
 

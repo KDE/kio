@@ -84,7 +84,9 @@ static KIO::Job *putDataAsyncTo(const QUrl &url, const QByteArray &data, QWidget
     KIO::Job *job = KIO::storedPut(data, url, -1, flags);
     QObject::connect(job, &KIO::Job::result, [url](KJob *job) {
         if (job->error() == KJob::NoError) {
+#ifdef WITH_QTDBUS
             org::kde::KDirNotify::emitFilesAdded(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+#endif
         }
     });
     KJobWidgets::setWindow(job, widget);

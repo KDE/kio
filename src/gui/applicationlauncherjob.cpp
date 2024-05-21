@@ -7,13 +7,16 @@
 
 #include "applicationlauncherjob.h"
 #include "../core/global.h"
-#include "dbusactivationrunner_p.h"
 #include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
 #include "kprocessrunner_p.h"
 #include "mimetypefinderjob.h"
 #include "openwithhandlerinterface.h"
 #include "untrustedprogramhandlerinterface.h"
+
+#ifdef WITH_QTDBUS
+#include "dbusactivationrunner_p.h"
+#endif
 
 #include <KAuthorized>
 #include <KDesktopFile>
@@ -180,8 +183,11 @@ void KIO::ApplicationLauncherJob::start()
 
 void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
 {
-    if (d->m_urls.count() > 1 && !DBusActivationRunner::activationPossible(d->m_service, d->m_runFlags, d->m_suggestedFileName)
-        && !d->m_service->allowMultipleFiles()) {
+    bool startNTimesCondition = d->m_urls.count() > 1 && !d->m_service->allowMultipleFiles();
+#ifdef WITH_QTDBUS
+    startNTimesCondition = startNTimesCondition && !DBusActivationRunner::activationPossible(d->m_service, d->m_runFlags, d->m_suggestedFileName);
+#endif
+    if (startNTimesCondition) {
         // We need to launch the application N times.
         // We ignore the result for application 2 to N.
         // For the first file we launch the application in the

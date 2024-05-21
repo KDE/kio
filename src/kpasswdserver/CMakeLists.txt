@@ -41,7 +41,7 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kiod_kpasswdserver
    KF6::DBusAddons    # KDED Module
-   Qt6::DBus
+   ${DBUS_LIB}
    KF6::KIOCore
    KF6::WidgetsAddons # KPasswordDialog
    KF6::I18n

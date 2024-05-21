@@ -31,7 +31,7 @@
 #include <QMimeDatabase>
 #include <QtAlgorithms>
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
@@ -692,7 +692,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         return action;
     };
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     if (KSandbox::isInside() && !m_fileOpenList.isEmpty()) {
         auto openWithAction = makeOpenWithAction();
         QObject::connect(openWithAction, &QAction::triggered, this, [this] {

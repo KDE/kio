@@ -10,7 +10,7 @@
 
 #include "kfileitem.h"
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include "kdirnotify.h"
 #endif
 
@@ -406,7 +406,7 @@ private:
         {
             // Note that "entering" means "start watching", and "leaving" means "stop watching"
             // (i.e. it's not when the user leaves the directory, it's when the directory is removed from the cache)
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
             if (entering) {
                 org::kde::KDirNotify::emitEnteredDirectory(url);
             } else {
@@ -534,8 +534,10 @@ private:
     // this is why we need to remember those files here.
     std::set<KFileItem> pendingRemoteUpdates;
 
+#ifdef WITH_QTDBUS
     // the KDirNotify signals
     OrgKdeKDirNotifyInterface *kdirnotify;
+#endif
 
     struct ItemInUseChange;
 };

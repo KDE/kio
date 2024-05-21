@@ -7,7 +7,7 @@
 
 #include "authinfo.h"
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include <QDBusArgument>
 #include <QDBusMetaType>
 #endif
@@ -69,7 +69,7 @@ static QDataStream &operator>>(QDataStream &s, ExtraField &extraField)
     return s;
 }
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 static QDBusArgument &operator<<(QDBusArgument &argument, const ExtraField &extraField)
 {
     argument.beginStructure();
@@ -183,7 +183,7 @@ void AuthInfo::registerMetaTypes()
 {
     qRegisterMetaType<ExtraField>();
     qRegisterMetaType<KIO::AuthInfo>();
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     qDBusRegisterMetaType<ExtraField>();
     qDBusRegisterMetaType<KIO::AuthInfo>();
 #endif
@@ -206,7 +206,7 @@ QDataStream &KIO::operator>>(QDataStream &s, AuthInfo &a)
     return s;
 }
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 QDBusArgument &KIO::operator<<(QDBusArgument &argument, const AuthInfo &a)
 {
     argument.beginStructure();

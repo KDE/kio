@@ -11,7 +11,10 @@
 #include "kshorturifilter.h"
 #include "../utils_p.h"
 
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
+#endif
+
 #include <QDir>
 #include <QLoggingCategory>
 #include <qplatformdefs.h>
@@ -85,8 +88,11 @@ static bool isKnownProtocol(const QString &protocol)
 KShortUriFilter::KShortUriFilter(QObject *parent, const KPluginMetaData &data)
     : KUriFilterPlugin(parent, data)
 {
+#ifdef WITH_QTDBUS
     QDBusConnection::sessionBus()
         .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
+#endif
+
     configure();
 }
 

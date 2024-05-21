@@ -25,7 +25,7 @@ target_link_libraries(kiod6
    KF6::DBusAddons  # kdedmodule
    KF6::CoreAddons  # kpluginfactory
    Qt6::Network
-   Qt6::DBus
+   ${DBUS_LIB}
    Qt6::Widgets     # QApplication
 )
 

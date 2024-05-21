@@ -7,7 +7,7 @@
 
 #include "gpudetection_p.h"
 
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -44,7 +44,7 @@ static void checkGpu()
 
 static bool checkGpuWithSwitcheroo()
 {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     QDBusInterface switcheroo(QStringLiteral("net.hadess.SwitcherooControl"),
                               QStringLiteral("/net/hadess/SwitcherooControl"),
                               QStringLiteral("org.freedesktop.DBus.Properties"),
@@ -82,7 +82,7 @@ static bool checkGpuWithSwitcheroo()
 
 static void checkGpuWithSolid()
 {
-#ifndef KIO_ANDROID_STUB
+#ifdef WITH_QTDBUS
     // TODO: Consider moving this check into kio, instead of using Solid
     QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
                          QStringLiteral("/org/kde/Solid/PowerManagement"),

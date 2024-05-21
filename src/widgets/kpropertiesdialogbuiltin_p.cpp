@@ -59,9 +59,13 @@
 #include <QCheckBox>
 #include <QClipboard>
 #include <QComboBox>
+
+#ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#endif
+
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QFileDialog>
@@ -996,9 +1000,11 @@ void KFilePropsPlugin::postApplyChanges()
     // Save the icon only after applying the permissions changes (#46192)
     applyIconChanges();
 
+#ifdef WITH_QTDBUS
     const KFileItemList items = properties->items();
     const QList<QUrl> lst = items.urlList();
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>(lst));
+#endif
 }
 
 class KFilePermissionsPropsPlugin::KFilePermissionsPropsPluginPrivate

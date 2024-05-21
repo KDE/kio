@@ -3,19 +3,26 @@ add_subdirectory(core)
 # KIOCore-only executables
 if (NOT ANDROID)
     add_subdirectory(kioworkers)
+    add_subdirectory(schemehandlers)
+endif()
+
+if (HAVE_QTDBUS)
     add_subdirectory(kiod)
     add_subdirectory(kssld)
-    add_subdirectory(schemehandlers)
 endif()
 add_subdirectory(kioworker)
 
 if (NOT KIOCORE_ONLY)
 add_subdirectory(gui)
 add_subdirectory(widgets)
-if (NOT ANDROID)
+
+if (HAVE_QTDBUS)
     add_subdirectory(kpasswdserver)
-    add_subdirectory(filewidgets)
     add_subdirectory(kioexec)
+endif()
+
+if (NOT ANDROID)
+    add_subdirectory(filewidgets)
     add_subdirectory(urifilters)
 endif()
 
@@ -31,7 +38,7 @@ set(NON_KIOCORE_LINK_QCHS
     KF6WindowSystem_QCH
 )
 
-if(BUILD_DESIGNERPLUGIN AND NOT ANDROID)
+if(BUILD_DESIGNERPLUGIN AND HAVE_QTDBUS)
     add_subdirectory(designer)
 endif()
 
