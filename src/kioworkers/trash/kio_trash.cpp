@@ -10,7 +10,10 @@
 #include "kiotrashdebug.h"
 #include "transferjob.h"
 
+#ifdef WITH_QTDBUS
 #include <KDirNotify>
+#endif
+
 #include <kio/jobuidelegateextension.h>
 
 #include <KLocalizedString>

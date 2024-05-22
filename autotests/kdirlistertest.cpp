@@ -15,7 +15,10 @@
 #include <kio/simplejob.h>
 #include <kprotocolinfo.h>
 
+#ifdef WITH_QTDBUS
 #include <KDirNotify>
+#endif
+
 #include <KDirWatch>
 
 #include <QDebug>

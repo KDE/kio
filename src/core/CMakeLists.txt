@@ -90,13 +90,15 @@ target_sources(KF6KIOCore PRIVATE
   ksslerroruidata.cpp
 )
 
+set(KIOCore_HEADERS_dbus)
 if (HAVE_QTDBUS)
-target_sources(KF6KIOCore PRIVATE
-  kpasswdserverloop.cpp
-  kpasswdserverclient.cpp
-  kdirnotify.cpp
-  forwardingworkerbase.cpp
-)
+  target_sources(KF6KIOCore PRIVATE
+    kpasswdserverloop.cpp
+    kpasswdserverclient.cpp
+    kdirnotify.cpp
+    forwardingworkerbase.cpp
+  )
+  set(KIOCore_HEADERS_dbus KDirNotify)
 endif()
 
 ecm_qt_declare_logging_category(KF6KIOCore
@@ -302,7 +304,6 @@ ecm_generate_headers(KIOCore_HEADERS
   KUrlAuthorized
   KCoreDirLister
   KRemoteEncoding
-  KDirNotify
   KFileItem
   KFileItemListProperties
   KMountPoint
@@ -316,6 +317,7 @@ ecm_generate_headers(KIOCore_HEADERS
   KSslErrorUiData
   KFileFilter
   KOverlayIconPlugin
+  ${KIOCore_HEADERS_dbus}
 
   REQUIRED_HEADERS KIOCore_HEADERS
 )
