@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:36+0000\n"
+"POT-Creation-Date: 2024-05-22 00:36+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -99,43 +99,43 @@ msgstr "Файл аллакай вуҷуд дорад"
 msgid "Already Exists as Folder"
 msgstr "Аллакай ҳамчун ҷузвадон вуҷуд дорад"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
 #, kde-format
 msgid "Trash"
 msgstr "Сабад"
 
-#: core/desktopexecparser.cpp:328
+#: core/desktopexecparser.cpp:329
 #, kde-format
 msgid "No Exec field in %1"
 msgstr ""
 
-#: core/desktopexecparser.cpp:353
+#: core/desktopexecparser.cpp:354
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Барномаи '%1' -ро ёфта натавонист"
 
-#: core/desktopexecparser.cpp:356
+#: core/desktopexecparser.cpp:357
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 
-#: core/desktopexecparser.cpp:358
+#: core/desktopexecparser.cpp:359
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr ""
 
-#: core/desktopexecparser.cpp:372
+#: core/desktopexecparser.cpp:373
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr ""
 
-#: core/desktopexecparser.cpp:501
+#: core/desktopexecparser.cpp:503
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr ""
 
-#: core/desktopexecparser.cpp:518
+#: core/desktopexecparser.cpp:520
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr ""
@@ -199,14 +199,14 @@ msgid "Moving"
 msgstr "Дар ҳоли интиқолдиҳӣ"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Манбаъ"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:138
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -231,7 +231,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Дар ҳоли эҷодкунии ҷузвадон"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:132
+#: core/job.cpp:122 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Дар ҳоли несткунӣ"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
@@ -2101,7 +2101,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер ба улти посух додан ба дархостҳои дигар машғул мебошад."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1524
+#: core/job_error.cpp:1118 core/slavebase.cpp:1519
 #, kde-format
 msgid "Unknown Error"
 msgstr "Хатои ношинос"
@@ -2411,87 +2411,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Кушодани алоқаҳо ҳамроҳи протоколи %1 дастгирӣ карда намешавад."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Пӯшидани алоқаҳо ҳамроҳи протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Даромадани файлҳо ҳамроҳи протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Навиштан ба %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Амалиётҳои дастрасии маҳсус барои протоколи %1 вуҷуд надорад."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Феҳристҳои додашуда барои протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Бозёфти додаҳо аз %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Бозёфти ахбороти намуди mime аз %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Таъғири ном ё ҷобаҷоии файлҳои дарунии %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Эҷоди пайванди миҷози бо протокори %1 пуштибонӣ намешавад"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Нусха бардоштани файлҳо дар %1 дастгирӣ .надорад"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Нест кардани файлҳо аз %1 дастгирӣ надорад."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Сохтани феҳристҳо ҳамроҳи протоколи %1 дастгирӣ надорад."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Таъғири мушахасотҳои файлҳо бо протоколи %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколи %1 амали %2-ро дастгирӣ намекунад."
@@ -2519,24 +2519,24 @@ msgstr "io-slave барои протоколи '%1' ёфта натавонис�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "io-slave барои протоколи '%1' ёфта натавонист."
 
-#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "&Тафсилот"
 
-#: core/workerinterface.cpp:363 kioworkers/http/http.cpp:190
+#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:190
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Ҳамеша"
 
-#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Идома"
 
-#: core/workerinterface.cpp:369 kioworkers/http/http.cpp:191
+#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:191
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3784,31 +3784,31 @@ msgstr "Барои паймудани ҷойгиршавӣ зер кунед"
 msgid "Click to Edit Location"
 msgstr "Барои таҳрир кардани ҷойгиршавӣ зер кунед"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Шумо иҷозати иҷроии ин файлро надоред."
 
-#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Оғози %1"
 
-#: gui/applicationlauncherjob.cpp:167
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:290
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3819,12 +3819,12 @@ msgstr ""
 msgid "No favicon found for %1"
 msgstr ""
 
-#: gui/faviconrequestjob.cpp:157
+#: gui/faviconrequestjob.cpp:156
 #, kde-format
 msgid "Error saving image to %1"
 msgstr ""
 
-#: gui/faviconrequestjob.cpp:167
+#: gui/faviconrequestjob.cpp:166
 #, kde-format
 msgid "Icon file too big, download aborted"
 msgstr ""
@@ -3834,7 +3834,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr ""
 
-#: gui/kprocessrunner.cpp:112
+#: gui/kprocessrunner.cpp:118
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3842,12 +3842,12 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:276
+#: gui/kprocessrunner.cpp:282
 #, kde-format
 msgid "Launching %1"
 msgstr "Оғози %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:469
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4086,7 +4086,7 @@ msgstr "URL(s) ёфаӣл(ҳои) маҳалӣ барои 'фармон' ист�
 msgid "Setting ACL for %1"
 msgstr ""
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:739
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4095,7 +4095,7 @@ msgstr ""
 "Наметавонам ҳуқуқи дастрасиро барои\n"
 "%1, тағйир диҳам"
 
-#: kioworkers/file/file.cpp:747
+#: kioworkers/file/file.cpp:749
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4104,12 +4104,12 @@ msgid ""
 "%1"
 msgstr "Соҳибиро барои %1 тағйир дода натавонист."
 
-#: kioworkers/file/file.cpp:853
+#: kioworkers/file/file.cpp:855
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr ""
 
-#: kioworkers/file/file.cpp:927
+#: kioworkers/file/file.cpp:929
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr ""
@@ -4556,9 +4556,9 @@ msgid "Network"
 msgstr "Шабака"
 
 #: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
-#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
+#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
+#: kioworkers/trash/kio_trash.cpp:598
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Шакли нишонии URL %1 нодуруст аст"
@@ -4572,12 +4572,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
+#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr ""
@@ -4610,7 +4610,7 @@ msgstr "Муҳтавои сабадро холӣ кардан"
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1328
+#: kioworkers/trash/trashimpl.cpp:1332
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4646,22 +4646,22 @@ msgstr "Дастрасӣ манъ аст"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Шумо барои пайдо кардани дастрасӣ ба протоколи %1 иҷозат надоред."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:82
+#: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:97
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:241
+#: urifilters/shorturi/kshorturifilter.cpp:247
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:243
+#: urifilters/shorturi/kshorturifilter.cpp:249
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr ""
@@ -4809,22 +4809,22 @@ msgstr "Ҳисоб кардан"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:182
+#: widgets/dropjob.cpp:185
 #, kde-format
 msgid "C&ancel"
 msgstr "&Бекор кардан"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Move Here"
 msgstr "&Ба ин ҷо интиқол додан"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:320
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Ба ин ҷо нусха бардоштан"
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:325
 #, kde-format
 msgid "&Link Here"
 msgstr "&Бо ин ҷо пайвастан"
@@ -4845,12 +4845,12 @@ msgstr "Дигар пурсида нашавад"
 msgid "&Execute"
 msgstr "&Иҷро кардан"
 
-#: widgets/fileundomanager.cpp:118
+#: widgets/fileundomanager.cpp:123
 #, kde-format
 msgid "Undo Changes"
 msgstr "Тағйиротро ботил сохтан"
 
-#: widgets/fileundomanager.cpp:119
+#: widgets/fileundomanager.cpp:124
 #, kde-format
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
@@ -4858,78 +4858,78 @@ msgstr ""
 "Барои ботил сохтани ин амал имтиёзҳои корбари root лозиманд. Шумо мехоҳед, "
 "ки идома диҳед?"
 
-#: widgets/fileundomanager.cpp:132
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgid "Creating directory"
 msgstr "Дар ҳоли эҷодкунии ҷузвадон"
 
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:146
 #, kde-format
 msgid "Moving"
 msgstr "Дар ҳоли интиқолдиҳӣ"
 
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:146
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Renaming"
 msgstr "Номро иваз кардан"
 
-#: widgets/fileundomanager.cpp:148
+#: widgets/fileundomanager.cpp:153
 #, kde-format
 msgid "Deleting"
 msgstr "Дар ҳоли несткунӣ"
 
-#: widgets/fileundomanager.cpp:300
+#: widgets/fileundomanager.cpp:305
 #, kde-format
 msgid "Und&o"
 msgstr "&Ботил сохтан"
 
-#: widgets/fileundomanager.cpp:306
+#: widgets/fileundomanager.cpp:311
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Ботил сохтан: Нусхабардорӣ"
 
-#: widgets/fileundomanager.cpp:308
+#: widgets/fileundomanager.cpp:313
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Ботил сохтан: Пайвастшавӣ"
 
-#: widgets/fileundomanager.cpp:310
+#: widgets/fileundomanager.cpp:315
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Ботил сохтан: Интиқолдиҳӣ"
 
-#: widgets/fileundomanager.cpp:312
+#: widgets/fileundomanager.cpp:317
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Ботил сохтан: Ивазкунии ном"
 
-#: widgets/fileundomanager.cpp:314
+#: widgets/fileundomanager.cpp:319
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Ботил сохтан: Интиқол ба сабад"
 
-#: widgets/fileundomanager.cpp:316
+#: widgets/fileundomanager.cpp:321
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Ботил сохтан: Эҷодкунии ҷузвадон"
 
-#: widgets/fileundomanager.cpp:318
+#: widgets/fileundomanager.cpp:323
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Ботил сохтан: Эҷодкунии ҷузвадон(ҳо)"
 
-#: widgets/fileundomanager.cpp:320
+#: widgets/fileundomanager.cpp:325
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Ботил сохтан: Эҷодкунии файл"
 
-#: widgets/fileundomanager.cpp:322
+#: widgets/fileundomanager.cpp:327
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Ботил сохтан: Ивазкунии якчанд ном"
 
-#: widgets/fileundomanager.cpp:721
+#: widgets/fileundomanager.cpp:728
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4938,7 +4938,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:731
+#: widgets/fileundomanager.cpp:738
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr ""
@@ -5101,7 +5101,7 @@ msgstr "Соҳиб"
 msgid "Owning Group"
 msgstr "Соҳиби гурӯҳ"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1432
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1438
 #, kde-format
 msgid "Others"
 msgstr "Дигарон"
@@ -5955,7 +5955,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:105
+#: widgets/kpropertiesdialogbuiltin_p.cpp:109
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<qt>Could not save properties. You do not have sufficient access to write "
@@ -5968,44 +5968,44 @@ msgstr ""
 "<qt>Натавонистам хусусиятро нигоҳ дорам. Шумо ҳуқуқи қайд кардан ба <b>%1</"
 "b>-ро надоред.</qt>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:220
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Умумӣ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:417
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:424
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
 #, kde-format
 msgid "Refresh"
 msgstr "Нав кардан"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:545
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu Create New"
 #| msgid "%1"
 msgid "%1:"
 msgstr "%1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:655
+#: widgets/kpropertiesdialogbuiltin_p.cpp:659
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:666
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:672
+#: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6014,143 +6014,143 @@ msgstr ""
 "Ҳисоб карда истодаам... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:675
-#: widgets/kpropertiesdialogbuiltin_p.cpp:690
+#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:694
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 файлҳо"
 msgstr[1] "%1 файлҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
-#: widgets/kpropertiesdialogbuiltin_p.cpp:691
+#: widgets/kpropertiesdialogbuiltin_p.cpp:680
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 зер-феҳрист"
 msgstr[1] "%1 зер-феҳристҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:704
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgid "Calculating...\n"
 msgstr "Ҳисоб карда истодаам..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:727
+#: widgets/kpropertiesdialogbuiltin_p.cpp:731
 #, kde-format
 msgid "At least %1\n"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:777
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Номи файли нав холӣ мебошад !"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:971
+#: widgets/kpropertiesdialogbuiltin_p.cpp:975
 #, fuzzy, kde-format
 #| msgid "&Supported file types:"
 msgid "No registered file type"
 msgstr "&Навъҳои файли пуштибонӣ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:973
+#: widgets/kpropertiesdialogbuiltin_p.cpp:977
 #, fuzzy, kde-format
 #| msgid "Choose Application"
 msgid "No associated application"
 msgstr "Интихоби барнома"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:979
+#: widgets/kpropertiesdialogbuiltin_p.cpp:983
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Эҷод шуд:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:982
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, fuzzy, kde-format
 #| msgid "C&hange..."
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "&Тағирдиҳӣ..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "No Access"
 msgstr "Дастнорас аст"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
 msgid "Can Only View"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
 msgid "Can View & Modify"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
 msgid "Can Only View Content"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
 msgid "Can View & Modify Content"
 msgstr "Метавонад оканотро намоиш ва тағйир низ диҳад"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can Only View/Read Content"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View/Read & Modify/Write"
 msgstr "Метавонад, Дида баромадан/Хондан & Намоиш додан/Навиштан"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1153
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1159
 #, kde-format
 msgid "&Permissions"
 msgstr "&Иҷозатҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1165
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1171
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
 #, kde-format
 msgid "Access Permissions"
 msgstr "Ҳуқуқи дастрасӣ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1174
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Ин файл пайванд мебошад иҷозатномаҳоро надорад."
 msgstr[1] "Ҳамаи файлҳо пайвандҳо мебошанд ва иҷозатномаҳоро надоранд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1176
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Танҳо соҳиб метавонад дастрасӣ дигаргун кунад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
 #, kde-format
 msgid "O&wner:"
 msgstr "&Соҳиб"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Муаян кардани ҳаракате, ки соҳиб бояд ин ҳаракатро кар"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Gro&up:"
 msgstr "Гур&ӯҳ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Муаян кардани ҳаракате, ки аъзо бояд ин ҳаракатро кар "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "O&thers:"
 msgstr "Д&игар:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6159,17 +6159,17 @@ msgstr ""
 "Муаян кардани ҳаракате, ки ҳамаи истифодабарандагон кадомҳое, ки  не соҳиб "
 "ва не дар гурӯҳ мавҷуданд барои кор кардан иҷозат дода шудааст"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "Танҳо соҳ&иб метавонад номи феҳристи оканаро тағир диҳад ё нест кунад"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Is &executable"
 msgstr "&Иҷрошаванда"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6181,7 +6181,7 @@ msgstr ""
 "танҳо метавонанд файлҳои наве,ки иҷозати Матни Иваз талаб мекунад,илова "
 "кунанд. "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1214
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6191,42 +6191,42 @@ msgstr ""
 "барои программаҳо ва намоиши матнҳо маънӣ дорад. Ин вақте ки шумо ба охир "
 "расондани онҳоро мехоҳед,талаб карда мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
 #, kde-format
 msgid "Ownership"
 msgstr "Соҳиб ва гурӯҳ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "Истифодакунанда:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1275
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
 #, kde-format
 msgid "Group:"
 msgstr "Гурӯҳ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1310
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Истифодоти таъғирот ба тамоми зеркаталогҳо ва оканоти онҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1352
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Имконпазирҳои иловагӣ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1375
 #, kde-format
 msgid "Class"
 msgstr "Синф"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1382
 #, kde-format
 msgid ""
 "Show\n"
@@ -6235,22 +6235,22 @@ msgstr ""
 "Намоиши\n"
 "Вурудҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ин баирақ имконият медиҳад, ки оканаи феҳристро дида бароед."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid "Read"
 msgstr "Хондан"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Баирақи хондан имконият медиҳад, ки оконаи фаӣлро дида бароем."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid ""
 "Write\n"
@@ -6259,7 +6259,7 @@ msgstr ""
 "Навиштан\n"
 "Вурудҳо"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6269,44 +6269,44 @@ msgstr ""
 "гиред,ки азнавномгузорӣ ва несткунӣ метавонанд бо истифодаи байрақи Часпон "
 "маҳдуд карда шаванд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1391
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "Write"
 msgstr "Навиштан"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr ""
 "Баӣрақи навиштан имконият медиҳад, ки оконаи фаил шаклашро тағир диҳад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Даромадан"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Имконият диҳед, ки ин баӣрақ ба феҳрист даромаданро иҷозат диҳад"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid "Exec"
 msgstr "Exec"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Имконият диҳед, ки ин баӣрақ  фаилро ҳамчун программа иҷро кунад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
 #, kde-format
 msgid "Special"
 msgstr "Махсус"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1415
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6315,7 +6315,7 @@ msgstr ""
 "Байракӣ махсус. Эътибор барои тамоми пӯша,маънои дақиқи байрақ дар сутуни "
 "тарафи рост дида мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6323,17 +6323,17 @@ msgid ""
 msgstr ""
 "Байрақи махсус.Маънои аниқи ин байрақ дар тарафи рости сутун дида мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "User"
 msgstr "Истифодакунанда"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
 #, kde-format
 msgid "Group"
 msgstr "Гурӯҳ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6342,7 +6342,7 @@ msgstr ""
 "Агар ин байрақ таъсис дода шавад,соҳиби ин пӯша,соҳиби ҳамаи  файлҳои нав "
 "мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6351,7 +6351,7 @@ msgstr ""
 "Агар ин файл иҷрошаванда бошад ва байрақ таъсис дода шавад, вай бо иҷозати "
 "соҳиб анҷом дода мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6359,7 +6359,7 @@ msgstr ""
 "Агар ин байрақ таъсис дода шавад,гурӯҳи ин пӯша барои ҳамаи файлҳои нав "
 "таъсис дода мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1454
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6368,7 +6368,7 @@ msgstr ""
 "Агар ин байрақ иҷрошаванда бошад ва байрақ таъин шуда бошад,вай "
 "иҷозатномаҳои гурӯҳ иҷро карда мешавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6378,7 +6378,7 @@ msgstr ""
 "метавонад нест кунад ё номҳои файлҳоро дигар кунад. Аз тарафи дигар ҳар як "
 "кас бо иҷозатномаҳои дуруст метавонанд ин ин корро иҷро кунанд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6387,90 +6387,90 @@ msgstr ""
 "Байрақи Часпон дар файл дар Линукс инкор карда мешавад,лекин мумкин дар "
 "баъзе низомҳо истифода бурда шавад."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1527
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
 #, kde-format
 msgid "Set UID"
 msgstr "Бити SUID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1531
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
 #, kde-format
 msgid "Set GID"
 msgstr "Бити SGID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1642
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1648
 #, kde-format
 msgid "Link"
 msgstr "Алоқа"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Тағирот (Тағир нашудааст)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1779
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Ин файл дастрасҳои иловагӣ истифода мекунад."
 msgstr[1] "Ин файлҳо дастрасҳои иловагӣ истифода мекунанд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1795
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1801
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Ин феҳрист дастрасҳои иловагӣ истифода мекунад."
 msgstr[1] "Ин феҳристҳо дастрасҳои иловагӣ истифода мекунанд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1809
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1815
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Ин файлҳо дастрасҳои иловагӣ истифода мекунанд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2047
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2053
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2112
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2123
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2134
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2145
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2118
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2129
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2140
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2151
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Ҳисоб карда истодаам..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2301
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2307
 #, kde-format
 msgid "Invalid checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2304
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2315
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2321
 #, kde-format
 msgid "Checksums match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2318
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2324
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2336
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6478,57 +6478,57 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2335
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2349
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2432
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2507
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2778
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2578
 #, kde-format
 msgid "&Application"
 msgstr "&Барнома"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2718
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Илова кардани навъи файл барои %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2719
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Барои илова кардан як ё зиёдтар намуди файлҳоро интихоб кунед."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Файлҳои иҷрошаванда танҳо дар низоми файлии локалӣ низ дастгирӣ мешаванд."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Интихоботҳои иловагӣ барои %1"
@@ -6635,36 +6635,36 @@ msgstr "Миёнбури нави сомона"
 msgid "Open file dialog"
 msgstr "Кушодани равзанаи гуфтугӯ"
 
-#: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:69 widgets/paste.cpp:120 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Номи файл барои нигоҳ доштани буфери иввазот:"
 
-#: widgets/paste.cpp:110
+#: widgets/paste.cpp:112
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/paste.cpp:130
+#: widgets/paste.cpp:132
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Гузоштани як ҷузвадон"
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Гузоштани як файл"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6672,14 +6672,14 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Гузоштани як ҷузъ"
 msgstr[1] "Гузоштани %1 ҷузъ"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Гузоштани муҳтавои ҳофизаи муваққатӣ"
 
-#: widgets/paste.cpp:260
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

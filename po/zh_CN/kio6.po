@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:36+0000\n"
+"POT-Creation-Date: 2024-05-22 00:36+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -104,43 +104,43 @@ msgstr "文件已存在"
 msgid "Already Exists as Folder"
 msgstr "已存在同名文件夹"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
 #, kde-format
 msgid "Trash"
 msgstr "回收站"
 
-#: core/desktopexecparser.cpp:328
+#: core/desktopexecparser.cpp:329
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1 没有 Exec 字段"
 
-#: core/desktopexecparser.cpp:353
+#: core/desktopexecparser.cpp:354
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "无法找到程序“%1”"
 
-#: core/desktopexecparser.cpp:356
+#: core/desktopexecparser.cpp:357
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "程序“%1”已在“%2”中找到，但它缺少可执行权限。"
 
-#: core/desktopexecparser.cpp:358
+#: core/desktopexecparser.cpp:359
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "程序“%1”缺少可执行权限。"
 
-#: core/desktopexecparser.cpp:372
+#: core/desktopexecparser.cpp:373
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 的命令 %1 有语法错误"
 
-#: core/desktopexecparser.cpp:501
+#: core/desktopexecparser.cpp:503
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "尝试运行 %2 时找不到终端 %1"
 
-#: core/desktopexecparser.cpp:518
+#: core/desktopexecparser.cpp:520
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "尝试运行 %2 时在命令 %1 中遇到语法错误"
@@ -200,14 +200,14 @@ msgid "Moving"
 msgstr "正在移动"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "来源"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:138
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -231,7 +231,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "正在创建目录"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:132
+#: core/job.cpp:122 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "正在删除"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
@@ -1994,7 +1994,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "服务器正忙于响应其他请求，无法对该请求做出响应。"
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1524
+#: core/job_error.cpp:1118 core/slavebase.cpp:1519
 #, kde-format
 msgid "Unknown Error"
 msgstr "未知错误"
@@ -2290,87 +2290,87 @@ msgid ""
 "executable program."
 msgstr "找不到 <filename>%1</filename>；请输入一个可执行程序的有效路径。"
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持打开连接。"
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持关闭连接。"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "协议 %1 不支持访问文件。"
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "不支持写入 %1。"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "协议 %1 没有可用的特殊操作。"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "协议 %1 不支持列出文件夹内容。"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "不支持从 %1 获取数据。"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "对不起，程序不支持从 %1 获取 MIME 类型信息。"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "不支持在 %1 中重命名或者移动文件。"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "协议 %1 不支持创建符号链接。"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "不支持在 %1 中复制文件。"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "不支持从 %1 删除文件。"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "协议 %1 不支持创建文件夹。"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件属性。"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件所有者。"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "协议 %1 不支持打开文件。"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "协议 %1 不支持操作 %2。"
@@ -2395,24 +2395,24 @@ msgstr "无法创建用于为协议“%1”启动 KIO 工作程序的套接字�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "无法在“%1”中找到“kioworker”可执行程序"
 
-#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid "&Details"
 msgstr "详情(&D)"
 
-#: core/workerinterface.cpp:363 kioworkers/http/http.cpp:190
+#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:190
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "总是(&F)"
 
-#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "继续(&N)"
 
-#: core/workerinterface.cpp:369 kioworkers/http/http.cpp:191
+#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:191
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3651,18 +3651,18 @@ msgstr "点击以切换到位置导航模式"
 msgid "Click to Edit Location"
 msgstr "点击以编辑位置"
 
-#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:229
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "您没有此文件的执行权限。"
 
-#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "正在启动 %1"
 
-#: gui/applicationlauncherjob.cpp:167
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3671,12 +3671,12 @@ msgstr ""
 "无法将 %1 服务设置为可执行，放弃执行操作。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您没有选择此文件的打开程序的权限。"
 
-#: gui/applicationlauncherjob.cpp:290
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3687,12 +3687,12 @@ msgstr "内部错误：无法提示用户启动哪一个应用程序"
 msgid "No favicon found for %1"
 msgstr "找不到 %1 的图标"
 
-#: gui/faviconrequestjob.cpp:157
+#: gui/faviconrequestjob.cpp:156
 #, kde-format
 msgid "Error saving image to %1"
 msgstr "保存图像到 %1 时出错"
 
-#: gui/faviconrequestjob.cpp:167
+#: gui/faviconrequestjob.cpp:166
 #, kde-format
 msgid "Icon file too big, download aborted"
 msgstr "图标文件太大，下载已中止"
@@ -3702,7 +3702,7 @@ msgstr "图标文件太大，下载已中止"
 msgid "No mail client found"
 msgstr "找不到电子邮件客户端"
 
-#: gui/kprocessrunner.cpp:112
+#: gui/kprocessrunner.cpp:118
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3713,12 +3713,12 @@ msgstr ""
 "%1\n"
 "是无效文件。"
 
-#: gui/kprocessrunner.cpp:276
+#: gui/kprocessrunner.cpp:282
 #, kde-format
 msgid "Launching %1"
 msgstr "正在启动 %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:469
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -3947,7 +3947,7 @@ msgstr "命令使用的 URL 或者本地文件"
 msgid "Setting ACL for %1"
 msgstr "正在为 %1 设置 ACL"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:739
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -3956,7 +3956,7 @@ msgstr ""
 "无法为 %1\n"
 "更改权限"
 
-#: kioworkers/file/file.cpp:747
+#: kioworkers/file/file.cpp:749
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3966,12 +3966,12 @@ msgstr ""
 "无法更改 %1 的\n"
 "所有者和组"
 
-#: kioworkers/file/file.cpp:853
+#: kioworkers/file/file.cpp:855
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "找不到程序“mount”"
 
-#: kioworkers/file/file.cpp:927
+#: kioworkers/file/file.cpp:929
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "找不到程序“umount”"
@@ -4406,9 +4406,9 @@ msgid "Network"
 msgstr "网络"
 
 #: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
-#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
+#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
+#: kioworkers/trash/kio_trash.cpp:598
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 格式错误"
@@ -4424,12 +4424,12 @@ msgstr ""
 "目录 %1 已经不存在，所以无法将此项目恢复到原始位置。您可以重新创建该目录，然"
 "后重新进行恢复；也可以将项目拖放到其他位置进行恢复。"
 
-#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
+#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "无效协议组合。"
 
-#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "此文件已经位于回收站。"
@@ -4465,7 +4465,7 @@ msgstr "清空回收站内容"
 msgid "Restore a trashed file to its original location"
 msgstr "将回收站中的文件恢复到原始位置"
 
-#: kioworkers/trash/trashimpl.cpp:1328
+#: kioworkers/trash/trashimpl.cpp:1332
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "回收站已满。请手动移除其中项目或清空回收站。"
@@ -4501,22 +4501,22 @@ msgstr "拒绝访问"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "您没有访问 %1 协议的权限。"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:82
+#: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "找不到首选的搜索服务提供商。"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:97
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No search providers were found."
 msgstr "找不到搜索服务提供商。"
 
-#: urifilters/shorturi/kshorturifilter.cpp:241
+#: urifilters/shorturi/kshorturifilter.cpp:247
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b> 没有主文件夹。</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:243
+#: urifilters/shorturi/kshorturifilter.cpp:249
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>没有名为 <b>%1</b> 的用户。</qt>"
@@ -4665,22 +4665,22 @@ msgstr "计算"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "点击以将校验和复制到剪贴板。"
 
-#: widgets/dropjob.cpp:182
+#: widgets/dropjob.cpp:185
 #, kde-format
 msgid "C&ancel"
 msgstr "取消(&A)"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Move Here"
 msgstr "移动到此位置(&M)"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:320
 #, kde-format
 msgid "&Copy Here"
 msgstr "复制到此位置(&C)"
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:325
 #, kde-format
 msgid "&Link Here"
 msgstr "链接到此位置(&L)"
@@ -4700,88 +4700,88 @@ msgstr "不再询问"
 msgid "&Execute"
 msgstr "执行(&E)"
 
-#: widgets/fileundomanager.cpp:118
+#: widgets/fileundomanager.cpp:123
 #, kde-format
 msgid "Undo Changes"
 msgstr "撤销更改"
 
-#: widgets/fileundomanager.cpp:119
+#: widgets/fileundomanager.cpp:124
 #, kde-format
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "撤销此操作需要 Root 权限。您想要继续吗？"
 
-#: widgets/fileundomanager.cpp:132
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgid "Creating directory"
 msgstr "正在创建目录"
 
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:146
 #, kde-format
 msgid "Moving"
 msgstr "正在移动"
 
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:146
 #, kde-format
 msgid "Renaming"
 msgstr "正在重命名"
 
-#: widgets/fileundomanager.cpp:148
+#: widgets/fileundomanager.cpp:153
 #, kde-format
 msgid "Deleting"
 msgstr "正在删除"
 
-#: widgets/fileundomanager.cpp:300
+#: widgets/fileundomanager.cpp:305
 #, kde-format
 msgid "Und&o"
 msgstr "撤销(&O)"
 
-#: widgets/fileundomanager.cpp:306
+#: widgets/fileundomanager.cpp:311
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "撤销：复制(&O)"
 
-#: widgets/fileundomanager.cpp:308
+#: widgets/fileundomanager.cpp:313
 #, kde-format
 msgid "Und&o: Link"
 msgstr "撤销：链接(&O)"
 
-#: widgets/fileundomanager.cpp:310
+#: widgets/fileundomanager.cpp:315
 #, kde-format
 msgid "Und&o: Move"
 msgstr "撤销：移动(&O)"
 
-#: widgets/fileundomanager.cpp:312
+#: widgets/fileundomanager.cpp:317
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "撤销：重命名(&O)"
 
-#: widgets/fileundomanager.cpp:314
+#: widgets/fileundomanager.cpp:319
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "撤销：移动到回收站(&O)"
 
-#: widgets/fileundomanager.cpp:316
+#: widgets/fileundomanager.cpp:321
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:318
+#: widgets/fileundomanager.cpp:323
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:320
+#: widgets/fileundomanager.cpp:325
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "撤销：创建文件(&O)"
 
-#: widgets/fileundomanager.cpp:322
+#: widgets/fileundomanager.cpp:327
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "撤销(&O)：批量重命名"
 
-#: widgets/fileundomanager.cpp:721
+#: widgets/fileundomanager.cpp:728
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4793,7 +4793,7 @@ msgstr ""
 "撤销该复制操作将会删除该文件，所有的修改都将丢失。\n"
 "您确定要删除 %4 吗？"
 
-#: widgets/fileundomanager.cpp:731
+#: widgets/fileundomanager.cpp:738
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "确认撤销文件复制"
@@ -4944,7 +4944,7 @@ msgstr "所有者"
 msgid "Owning Group"
 msgstr "所有组"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1432
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1438
 #, kde-format
 msgid "Others"
 msgstr "其他"
@@ -5732,7 +5732,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr "共享"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:105
+#: widgets/kpropertiesdialogbuiltin_p.cpp:109
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5740,42 +5740,42 @@ msgid ""
 "%1</filename>."
 msgstr "无法保存属性，因为写入权限不足：<nl/><filename>%1</filename>。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:220
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "常规(&G)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:417
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "使用 %1 浏览"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:424
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
 #, kde-format
 msgid "Refresh"
 msgstr "刷新"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:545
 #, kde-format
 msgid "%1:"
 msgstr "%1："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:655
+#: widgets/kpropertiesdialogbuiltin_p.cpp:659
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "总共 %2，剩余 %1 (已用 %3%)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:666
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:672
+#: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -5784,152 +5784,152 @@ msgstr ""
 "正在计算... %1 (%2)\n"
 "%3，%4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:675
-#: widgets/kpropertiesdialogbuiltin_p.cpp:690
+#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:694
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 个文件"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
-#: widgets/kpropertiesdialogbuiltin_p.cpp:691
+#: widgets/kpropertiesdialogbuiltin_p.cpp:680
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 个子文件夹"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:704
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, kde-format
 msgid "Calculating...\n"
 msgstr "正在计算...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:727
+#: widgets/kpropertiesdialogbuiltin_p.cpp:731
 #, kde-format
 msgid "At least %1\n"
 msgstr "至少 %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:777
 #, kde-format
 msgid "The new file name is empty."
 msgstr "新文件名为空。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:971
+#: widgets/kpropertiesdialogbuiltin_p.cpp:975
 #, kde-format
 msgid "No registered file type"
 msgstr "没有已注册的文件类型"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:973
+#: widgets/kpropertiesdialogbuiltin_p.cpp:977
 #, kde-format
 msgid "No associated application"
 msgstr "没有已关联的应用程序"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:979
+#: widgets/kpropertiesdialogbuiltin_p.cpp:983
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "创建…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:982
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "更改…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "No Access"
 msgstr "禁止访问"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
 msgid "Can Only View"
 msgstr "可查看"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
 msgid "Can View & Modify"
 msgstr "可查看、修改"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
 msgid "Can Only View Content"
 msgstr "可查看内容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
 msgid "Can View & Modify Content"
 msgstr "可查看、修改内容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can Only View/Read Content"
 msgstr "可查看/读取内容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View/Read & Modify/Write"
 msgstr "可查看/读取、修改/写入内容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1153
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1159
 #, kde-format
 msgid "&Permissions"
 msgstr "权限(&P)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1165
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1171
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
 #, kde-format
 msgid "Access Permissions"
 msgstr "访问权限"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1174
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "文件为链接，且不具备所需权限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1176
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "只有所有者可以更改权限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
 #, kde-format
 msgid "O&wner:"
 msgstr "所有者(&W)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "指定允许所有者执行的操作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Gro&up:"
 msgstr "所有组(&U)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "指定允许所有组用户执行的操作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "O&thers:"
 msgstr "其他(&T)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "指定允许其他用户 (所有者和所有组成员之外的所有用户) 执行的操作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "只允许所有者重命名、删除文件夹内容(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Is &executable"
 msgstr "可执行(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -5939,7 +5939,7 @@ msgstr ""
 "勾选此项后，只有文件夹的所有者才能重命名、删除此文件夹中的文件和子文件夹。具"
 "备“修改内容”权限的用户只能新增文件。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1214
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -5948,42 +5948,42 @@ msgstr ""
 "勾选此项后，此文件将被标记为可执行。程序和脚本必须勾选此项才能执行。您不应在"
 "程序和脚本之外的文件上勾选此项。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "高级权限(&D)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
 #, kde-format
 msgid "Ownership"
 msgstr "所有者"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "用户："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1275
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
 #, kde-format
 msgid "Group:"
 msgstr "用户组："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1310
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "应用更改到所有的子文件夹和其中的文件"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1352
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "高级权限"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1375
 #, kde-format
 msgid "Class"
 msgstr "类"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1382
 #, kde-format
 msgid ""
 "Show\n"
@@ -5992,22 +5992,22 @@ msgstr ""
 "显示\n"
 "项目"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "此标记允许查看文件夹的内容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid "Read"
 msgstr "读取"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "此标记允许查看文件的内容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid ""
 "Write\n"
@@ -6016,7 +6016,7 @@ msgstr ""
 "写入\n"
 "项目"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6025,94 +6025,94 @@ msgstr ""
 "此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用“粘滞位”标记加"
 "以限制。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1391
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "Write"
 msgstr "写入"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "此标记允许修改文件内容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "进入"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "此标记允许进入文件夹。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid "Exec"
 msgstr "执行"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "此标记允许将文件作为程序执行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
 #, kde-format
 msgid "Special"
 msgstr "特殊"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1415
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr "特殊标记。对整个文件夹有效，您可以在右侧一列中查看该标记的具体含义。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "特殊标记。您可以在右侧一列中查看该标记的具体含义。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "User"
 msgstr "用户"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
 #, kde-format
 msgid "Group"
 msgstr "用户组"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr "勾选此标记后，此文件夹的所有者将成为所有新文件的所有者。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有者的权限执行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr "勾选此标记后，此文件夹的所有组将成为所有新文件的所有组。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1454
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有组的权限执行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6121,7 +6121,7 @@ msgstr ""
 "勾选文件夹的“粘滞位”标记后，只有所有者和根用户可以删除或者重命名文件。不勾选"
 "时，拥有写入权限的所有用户均可删除或者重命名文件。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6129,87 +6129,87 @@ msgid ""
 msgstr ""
 "文件的“粘滞位”标记在 Linux 系统中会被忽略，但是它们可能会在其他系统中生效"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1527
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
 #, kde-format
 msgid "Set UID"
 msgstr "设置 UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1531
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
 #, kde-format
 msgid "Set GID"
 msgstr "设置 GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "粘滞位"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1642
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1648
 #, kde-format
 msgid "Link"
 msgstr "链接"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "多种情况 (无更改)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1773
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1779
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "文件使用了高级权限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1795
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1801
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "文件夹使用了高级权限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1809
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1815
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "文件使用了高级权限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2047
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2053
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "校验和(&H)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2112
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2123
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2134
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2145
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2118
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2129
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2140
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2151
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "正在计算…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2301
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2307
 #, kde-format
 msgid "Invalid checksum."
 msgstr "无效的校验和。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2304
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "输入的内容并非有效的 MD5、SHA1 或者 SHA256 校验和。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2315
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2321
 #, kde-format
 msgid "Checksums match."
 msgstr "校验和一致。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2318
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2324
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "计算出的校验和与预期的校验和一致。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2336
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6219,56 +6219,56 @@ msgstr ""
 "<p>校验和不一致。</p>这可能是因为文件在下载过程中发生了错误。请尝试重新下载该"
 "文件。<br/>如果仍然无法通过一致性验证，请联系该文件的提供者。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2335
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "计算出的校验和与预期的校验和不一致。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2349
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "正在验证校验和…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2432
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
 #, kde-format
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2772
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2507
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2778
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "无法保存属性。只支持本地文件系统中的项目。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2572
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2578
 #, kde-format
 msgid "&Application"
 msgstr "应用程序(&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2712
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2718
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "添加文件类型到 %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2719
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "选择要添加的文件类型："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支持本地文件系统中的可执行文件。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2865
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的高级选项"
@@ -6371,17 +6371,17 @@ msgstr "配置网页搜索缩略词…"
 msgid "Open file dialog"
 msgstr "打开文件对话框"
 
-#: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:69 widgets/paste.cpp:120 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "剪贴板内容的文件名："
 
-#: widgets/paste.cpp:110
+#: widgets/paste.cpp:112
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/paste.cpp:130
+#: widgets/paste.cpp:132
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6390,32 +6390,32 @@ msgstr ""
 "剪贴板中的内容在上次“粘贴”之后已经改变：所选的数据格式不再适用。请重新复制您"
 "想要粘贴的内容。"
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "粘贴 1 个文件夹"
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "粘贴 1 个文件"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "粘贴 %1 个项目"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "粘贴剪贴板内容…"
 
-#: widgets/paste.cpp:260
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
