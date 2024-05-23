@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:36+0000\n"
+"POT-Creation-Date: 2024-05-23 00:36+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -104,7 +104,7 @@ msgstr "सञ्चिका पूर्वमेव विद्यते"
 msgid "Already Exists as Folder"
 msgstr "पूर्वमेव पुटं इति रूपेण विद्यते"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "पुनःप्रयोगस्य कूपः"
@@ -4527,15 +4527,15 @@ msgstr "%2 इत्यस्य प्रयासे अप्रत्या�
 msgid "Network"
 msgstr "संजालम्"
 
-#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
-#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
-#: kioworkers/trash/kio_trash.cpp:598
+#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
+#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
+#: kioworkers/trash/kio_trash.cpp:601
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "विकृतम् URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:132
+#: kioworkers/trash/kio_trash.cpp:135
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4547,12 +4547,12 @@ msgstr ""
 "पुनः निर्माय पुनः पुनर्स्थापनक्रियायाः उपयोगं कर्तुं शक्नोति, अथवा पुनर्स्थापनार्थं अन्यत्र "
 "द्रव्यं कर्षितुं शक्नोति ।."
 
-#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
+#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "संविदस्य अमान्यसंयोजनम्।."
 
-#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "इयं सञ्चिका पूर्वमेव पुनःप्रयोगस्य कूपे अस्ति ।."

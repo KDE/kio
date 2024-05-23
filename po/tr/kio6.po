@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:36+0000\n"
+"POT-Creation-Date: 2024-05-23 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 18:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -120,7 +120,7 @@ msgstr "Dosya Halihazırda Var"
 msgid "Already Exists as Folder"
 msgstr "Klasör Olarak Halihazırda Var"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Çöp Kutusu"
@@ -4583,15 +4583,15 @@ msgstr "%2 yapılmaya çalışılırken beklenmedik bir hata oluştu (%1)."
 msgid "Network"
 msgstr "Ağ"
 
-#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
-#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
-#: kioworkers/trash/kio_trash.cpp:598
+#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
+#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
+#: kioworkers/trash/kio_trash.cpp:601
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Hatalı URL: %1"
 
-#: kioworkers/trash/kio_trash.cpp:132
+#: kioworkers/trash/kio_trash.cpp:135
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4604,12 +4604,12 @@ msgstr ""
 "yeniden yapabilirsiniz veya bu ögeleri fare ile tutup istediğiniz yere "
 "taşıyabilirsiniz."
 
-#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
+#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Geçersiz protokol kombinasyonu."
 
-#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Dosya zaten çöp kutusunda."

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:36+0000\n"
+"POT-Creation-Date: 2024-05-23 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 07:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -113,7 +113,7 @@ msgstr "檔案已存在"
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"
@@ -4418,15 +4418,15 @@ msgstr "在連線到 %2 發生了無預期的錯誤 (%1)。"
 msgid "Network"
 msgstr "網路"
 
-#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
-#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
-#: kioworkers/trash/kio_trash.cpp:598
+#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
+#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
+#: kioworkers/trash/kio_trash.cpp:601
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "不正確的 URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:132
+#: kioworkers/trash/kio_trash.cpp:135
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4437,12 +4437,12 @@ msgstr ""
 "目錄 %1 不存在，所以無法回復這個檔案。您可以重新建立該目錄，或是把這個檔案拖"
 "曳到別處去存放。"
 
-#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
+#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "無效的通訊協定結合。"
 
-#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "檔案已經在垃圾桶內了。"

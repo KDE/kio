@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:36+0000\n"
+"POT-Creation-Date: 2024-05-23 00:36+0000\n"
 "PO-Revision-Date: 2023-12-27 11:50+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -119,7 +119,7 @@ msgstr "Tiedosto on jo olemassa"
 msgid "Already Exists as Folder"
 msgstr "On jo olemassa kansiona"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Roskakori"
@@ -4616,15 +4616,15 @@ msgstr "Odottamaton virhe (%1) tapahtui yritettäessä %2"
 msgid "Network"
 msgstr "Verkko"
 
-#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
-#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
-#: kioworkers/trash/kio_trash.cpp:598
+#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
+#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
+#: kioworkers/trash/kio_trash.cpp:601
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Virheellinen URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:132
+#: kioworkers/trash/kio_trash.cpp:135
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4636,12 +4636,12 @@ msgstr ""
 "alkuperäiseen paikkaansa. Kansion voi luoda uudelleen ja käyttää "
 "palautustoimintoa sitten. Kohteen voi myös vetää hiirellä toisaalle."
 
-#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
+#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Virheellinen yhteyskäytäntöjoukko."
 
-#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Tiedosto on jo roskakorissa."

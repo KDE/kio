@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:36+0000\n"
+"POT-Creation-Date: 2024-05-23 00:36+0000\n"
 "PO-Revision-Date: 2024-05-08 09:12+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -114,7 +114,7 @@ msgstr "הקובץ כבר קיים"
 msgid "Already Exists as Folder"
 msgstr "כבר קיים בתור תיקייה"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:291
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "אשפה"
@@ -4494,15 +4494,15 @@ msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון ל�
 msgid "Network"
 msgstr "רשת"
 
-#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
-#: kioworkers/trash/kio_trash.cpp:217 kioworkers/trash/kio_trash.cpp:380
-#: kioworkers/trash/kio_trash.cpp:412 kioworkers/trash/kio_trash.cpp:588
-#: kioworkers/trash/kio_trash.cpp:598
+#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
+#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
+#: kioworkers/trash/kio_trash.cpp:601
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "הכתובת %1 משובשת"
 
-#: kioworkers/trash/kio_trash.cpp:132
+#: kioworkers/trash/kio_trash.cpp:135
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4514,12 +4514,12 @@ msgstr ""
 "ליצור את התיקייה הזאת מחדש ולהשתמש בפעולת השחזור שוב או לגרור את הפריט למקום "
 "אחר כדי לשחזר אותו."
 
-#: kioworkers/trash/kio_trash.cpp:185 kioworkers/trash/kio_trash.cpp:206
+#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "שילוב שגוי של פרוטוקולים."
 
-#: kioworkers/trash/kio_trash.cpp:197 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "הקובץ הזה כבר נמצא באשפה."
