@@ -3,13 +3,13 @@
 #
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2002,2003, 2004, 2008.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2009, 2010.
-# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-23 00:36+0000\n"
-"PO-Revision-Date: 2023-06-17 12:02+0100\n"
+"PO-Revision-Date: 2024-05-23 19:55+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2567,7 +2567,7 @@ msgstr "&Current Session only"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2627,12 +2627,10 @@ msgid "Reload"
 msgstr "Reload"
 
 #: filewidgets/kdiroperator.cpp:1957
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "New Folder"
+msgstr "New Folder…"
 
 #: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2856,12 +2854,10 @@ msgid "Root Folder"
 msgstr "Root Folder"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "Browse..."
+msgstr "Browse…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3235,11 +3231,10 @@ msgid "&Edit…"
 msgstr "&Edit…"
 
 #: filewidgets/kfileplacesview.cpp:1176
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Remove File"
+msgstr "Remove from Places"
 
 #: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
@@ -3526,10 +3521,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Remote Files Not Accepted"
 
 #: filewidgets/kfilewidget.cpp:1897
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|All Folders"
+msgstr "All Folders"
 
 #: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
@@ -3622,11 +3616,10 @@ msgstr ""
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt> "
 
 #: filewidgets/knewfilemenu.cpp:432
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Create New File Type"
+msgstr "Create New File"
 
 #: filewidgets/knewfilemenu.cpp:472
 #, kde-format
@@ -3744,11 +3737,10 @@ msgid "New Folder"
 msgstr "New Folder"
 
 #: filewidgets/knewfilemenu.cpp:1478
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Create Folder"
+msgstr "Create New Folder"
 
 #: filewidgets/knewfilemenu.cpp:1480
 #, kde-format
@@ -3994,17 +3986,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "The program \"%1\" could not be launched."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"The file %1\n"
-"has been modified. Do you want to upload the changes?"
+"The file <filename>%1</filename><nl/>has been modified. Do you want to "
+"upload the changes?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -4155,13 +4144,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:749
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Could not change permissions for %1."
+msgstr ""
+"Could not change owner and group for\n"
+"%1"
 
 #: kioworkers/file/file.cpp:855
 #, kde-format
@@ -5090,15 +5080,13 @@ msgstr[1] "Do you really want to move these %1 items to the Wastebin?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "Add…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&Edit…"
+msgstr "Edit…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5235,10 +5223,9 @@ msgid "Updating System Configuration"
 msgstr "Updating System Configuration"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "Updating system configuration."
+msgstr "Updating system configuration…"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
@@ -5300,20 +5287,16 @@ msgid "&Actions"
 msgstr "&Actions"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Open Folder With"
+msgstr "&Open Folder With…"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Open With"
+msgstr "&Open With…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5338,12 +5321,10 @@ msgid "&Open With"
 msgstr "&Open With"
 
 #: widgets/kfileitemactions.cpp:770
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Other Application..."
+msgstr "&Other Application…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6456,12 +6437,10 @@ msgstr "C&hecksums"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2129
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2140
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2151
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Calculating..."
+msgstr "Calculating…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2307
 #, kde-format
@@ -6503,12 +6482,10 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "The computed checksum and the expected checksum differ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2349
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "Verifying checksum..."
+msgstr "Verifying checksum…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #, kde-format
@@ -6644,11 +6621,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "Configure Web Shortcuts..."
+msgstr "Configure Web Shortcuts…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6695,11 +6671,10 @@ msgstr[0] "Paste One Item"
 msgstr[1] "Paste %1 Items"
 
 #: widgets/paste.cpp:258
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "&Paste Clipboard Contents"
+msgstr "Paste Clipboard Contents…"
 
 #: widgets/paste.cpp:262
 #, kde-format
@@ -6833,16 +6808,14 @@ msgid "C&ontinue"
 msgstr "C&ontinue"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "This action will overwrite the destination."
+msgstr "Would you like to overwrite the destination?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "This action will overwrite the destination."
+msgstr "Would you like to merge the contents of '%1' into '%2'?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6855,46 +6828,39 @@ msgid "Destination"
 msgstr "Destination"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "The destination is <b>smaller by %1</b>"
+msgstr "The source is <b>more recent</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "The destination is <b>smaller by %1</b>"
+msgstr "The source is <b>older</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "The destination is <b>smaller by %1</b>"
+msgstr "The source is <b>smaller by %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "The destination is <b>bigger by %1</b>"
+msgstr "The source is <b>bigger by %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "The files are identical."
+msgstr "The files are <b>identical</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "The files seem identical."
+msgstr "The files <b>seem identical</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "The files are different."
+msgstr "The files are <b>different</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
