@@ -5,7 +5,7 @@
 # Stéphane Fillod <f8cfe@free.fr>, 2007.
 # Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>, 2007.
 # Cindy McKee <cfmckee@gmail.com>, 2007.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 # Minuskloj: ĉ ĝ ĵ ĥ ŝ ŭ   Majuskloj: Ĉ Ĝ Ĵ Ĥ Ŝ Ŭ
 #
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-03-27 19:34+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-30 22:41+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "wolfram@steloj.de,Steffen.Pietsch@BerlinOnline.de, f8cfe@free.fr,"
-"pedrotpmx@wanadoo.fr,cfmckee@gmail.com,okellogg@users.sourceforge.net"
+"pedrotpmx@wanadoo.fr,cfmckee@gmail.com,olivermkellogg@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -3545,7 +3545,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt>Dum tajpado en la teksta areo, vi eble prezentiĝos kun eblaj kongruoj. "
-"Ĉi tiu funkcio povas esti kontrolita klakante per la dekstra musbutono kaj "
+"Ĉi tiu funkcio povas esti mastrumita klakante per la dekstra musbutono kaj "
 "elektante preferatan reĝimon el la menuo <b>Tekstokompletigo</b>.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1502
@@ -3612,7 +3612,7 @@ msgstr "&Malfermi"
 #: filewidgets/kfilewidget.cpp:2324
 #, kde-format
 msgid "Icon size: %1 pixels"
-msgstr "Grando de piktogramoj: %1 pikseloj"
+msgstr "Grando de piktogramoj: %1 rastrumeroj"
 
 #: filewidgets/kfilewidget.cpp:2472
 #, kde-format
@@ -4539,20 +4539,20 @@ msgstr "Kuketa Nomo"
 #: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
 #, kde-format
 msgid "D&elete"
-msgstr "D&forigi"
+msgstr "&Forigi"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
 #. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
 #: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
 #, kde-format
 msgid "Delete A&ll"
-msgstr "Forigi A&ll"
+msgstr "Forigi Ĉ&iujn"
 
 #. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
 #: kcms/cookies/kcookiesmanagement.ui:70
 #, kde-format
 msgid "Configure &Policy..."
-msgstr "Agordi &politikon..."
+msgstr "Agordi &Politikon..."
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
@@ -4714,7 +4714,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "Ebligu kuketojn"
+msgstr "Ebligi &kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4742,7 +4742,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "Nur akceptu kuketojn de devena servilo"
+msgstr "Nur akce&pti kuketojn de devena servilo"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4815,7 +4815,7 @@ msgstr "Defaŭlta Politiko"
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "Akceptu ĉiujn kuketojn"
+msgstr "Akcep&ti ĉiujn kuketojn"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
@@ -4827,13 +4827,13 @@ msgstr "Akceptu &ĝis fino de la seanco"
 #: kcms/cookies/kcookiespolicies.ui:91
 #, kde-format
 msgid "Ask &for confirmation"
-msgstr "Petu konfirmon"
+msgstr "Peti kon&firmon"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "Malakcepti ĉiujn kuketojn"
+msgstr "Malakcepti ĉiu&jn kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -5110,7 +5110,7 @@ msgstr "Pro&xy-konekto:"
 #: kcms/netpref/netpref.cpp:59
 #, kde-format
 msgid "Server co&nnect:"
-msgstr "Servilo-konekto:"
+msgstr "Servilo-ko&nekto:"
 
 #: kcms/netpref/netpref.cpp:65
 #, kde-format
@@ -5378,7 +5378,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:130
 #, kde-format
 msgid "Auto D&etect"
-msgstr "Aŭtomata Detekti"
+msgstr "Aŭtomate D&etekti"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
@@ -5581,7 +5581,7 @@ msgstr "Enigu la pordan numeron de la HTTP prokura servilo."
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "Uzu ĉi tiun prokurilon por ĉiuj protokoloj"
+msgstr "Uzi ĉi tiun prokuri&lon por ĉiuj protokoloj"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -6657,7 +6657,7 @@ msgstr "Forigu la emfazitan TTT-serĉan ŝlosilvorton"
 #: urifilters/ikws/ikwsopts_ui.ui:100
 #, kde-format
 msgid "De&lete"
-msgstr "Forigi"
+msgstr "For&igi"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:138
@@ -8038,13 +8038,13 @@ msgstr "Tajpu ĉi tie ajnan komenton, kiun vi opinias utila."
 #: widgets/kpropertiesdesktopbase.ui:65
 #, kde-format
 msgid "Comm&ent:"
-msgstr "Komentu:"
+msgstr "Kom&ento:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr "Mediaj Variaĵoj:"
+msgstr "Mediaj Variabloj:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8218,7 +8218,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr "Altnivelaj Opcioj"
+msgstr "Altni&velaj Elektebloj"
 
 #: widgets/kpropertiesdialog.cpp:177
 #, kde-kuit-format
@@ -9011,7 +9011,7 @@ msgstr "Grandeco: %1"
 #: widgets/renamedialog.cpp:226
 #, kde-format
 msgid "Appl&y to All"
-msgstr "Apliki al Ĉiuj"
+msgstr "Aplik&i al Ĉiuj"
 
 #: widgets/renamedialog.cpp:227
 #, kde-format
@@ -9021,7 +9021,7 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Kiam ĉi tio estas kontrolita, la premata butono aplikiĝos al ĉiuj postaj "
+"Kiam ĉi tio estas markita, la premata butono aplikiĝos al ĉiuj postaj "
 "dosierujoj por la resto de la nuna laboro.\n"
 "Krom se vi premas Salti, vi ankoraŭ estos petita en kazo de konflikto kun "
 "ekzistanta dosiero en la dosierujo."
@@ -9032,8 +9032,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Kiam ĉi tio estas kontrolita, la butono premita estos aplikita al ĉiuj "
-"postaj konfliktoj por la resto de la nuna laboro."
+"Kiam ĉi tio estas markita, la butono premita estos aplikita al ĉiuj postaj "
+"konfliktoj por la resto de la nuna laboro."
 
 #: widgets/renamedialog.cpp:237
 #, kde-format
@@ -9043,7 +9043,7 @@ msgstr "&Alinomi"
 #: widgets/renamedialog.cpp:239
 #, kde-format
 msgid "Suggest New &Name"
-msgstr "Proponu Novan Nomon"
+msgstr "Proponi Novan &Nomon"
 
 #: widgets/renamedialog.cpp:245
 #, kde-format
