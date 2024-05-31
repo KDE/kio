@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-23 00:36+0000\n"
-"PO-Revision-Date: 2024-05-13 22:47+0200\n"
+"PO-Revision-Date: 2024-05-30 20:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2095,12 +2095,12 @@ msgid ""
 "Connection Preferences."
 msgstr ""
 "Въпреки че е осъществен контакт със сървъра, отговор не е получен в рамките "
-"на времето, определено за заявката, както следва:<ul> <li> Време за "
-"изчакване за установяване на връзка: %1 секунди </li> <li> Време за "
-"изчакване за получаване на отговор: %2 секунди </li> <li> Време за изчакване "
-"за достъп до прокси сървъри: %3 секунди </li> </ul> Моля, обърнете внимание, "
-"че можете да промените тези настройки в KDE Системни настройки, като "
-"изберете Настройки на Мрежа ->Предпочитания за връзка."
+"на времето, определено за заявката, както следва:<ul><li> Време за изчакване "
+"за установяване на връзка: %1 секунди </li><li> Време за изчакване за "
+"получаване на отговор: %2 секунди </li><li> Време за изчакване за достъп до "
+"прокси сървъри: %3 секунди </li></ul> Моля, обърнете внимание, че можете да "
+"промените тези настройки в KDE Системни настройки, като изберете Настройки "
+"на Мрежа ->Предпочитания за връзка."
 
 #: core/job_error.cpp:1112
 #, kde-format
@@ -2909,10 +2909,10 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
-"<qt> Това е текстът, който ще се появи в панела Места. <br /> <br />етикетът "
+"<qt>Това е текстът, който ще се появи в панела Места. <br /><br />етикетът "
 "трябва да се състои от една или две думи, които ще ви помогнат да запомните, "
 "за какво се отнася този запис. Ако не въведете етикет, той ще бъде получен "
-"от URL адреса на местоположението. </qt>"
+"от URL адреса на местоположението.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
@@ -3382,9 +3382,9 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt> Щракнете върху този бутон, за да влезете в родителската папка. <br /> "
+"<qt>Щракнете върху този бутон, за да влезете в родителската папка. <br /> "
 "<br /> Например,ако текущото местоположение е файл:/home/konqi, кликването "
-"върху този бутон трябва да ви заведе до file:/home. </qt>"
+"върху този бутон трябва да ви заведе до file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1196
 #, kde-format
@@ -3434,12 +3434,12 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
-"<qt> Това е менюто с предпочитания за файловия диалогов прозорец. Различни "
-"опции могат да бъдат достъпни от това меню, включително: <ul> <li> как се "
-"сортират файловете в списъка </li> <li> видове изглед, включително икони и "
-"списък </li> <li> показване на скрити файлове </li> <li> панел Места </li> "
-"<li> визуализации на файлове </li> <li> разделяне на папки от файлове </li> "
-"</ul> </qt>"
+"<qt>Това е менюто с предпочитания за файловия диалогов прозорец. Различни "
+"опции могат да бъдат достъпни от това меню, включително: <ul><li> как се "
+"сортират файловете в списъка </li><li> видове изглед, включително икони и "
+"списък </li><li> показване на скрити файлове </li><li> панел Места </li> "
+"<li> визуализации на файлове </li><li> разделяне на папки от файлове </li> </"
+"ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1239
 #, kde-format
@@ -3598,8 +3598,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
-"<qt> Това е селекторът за тип файл. Използва се за избор на формата, в който "
-"файлът ще бъде запазен. </qt>"
+"<qt>Това е селекторът за тип файл. Използва се за избор на формата, в който "
+"файлът ще бъде запазен.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2789
 #, kde-format
@@ -3633,7 +3633,7 @@ msgstr "Съжалявам"
 #: filewidgets/knewfilemenu.cpp:483
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt> Файлът на шаблона <b>%1</b> не съществува. </qt>"
+msgstr "<qt>Файлът на шаблона <b>%1</b> не съществува.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
 #, kde-format
@@ -4727,12 +4727,12 @@ msgstr "Не бяха намерени търсачки."
 #: urifilters/shorturi/kshorturifilter.cpp:247
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
-msgstr "<qt> <b>%1</b> няма домашна папка. </qt>"
+msgstr "<qt><b>%1</b> няма домашна папка.</qt>"
 
 #: urifilters/shorturi/kshorturifilter.cpp:249
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
-msgstr "<qt> Няма потребител, наречен <b>%1</b>. </qt>"
+msgstr "<qt>Няма потребител, наречен <b>%1</b>.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, commonNameTag)
 #: widgets/certificateparty.ui:28
@@ -5483,8 +5483,8 @@ msgstr "Изберете името на програма, с която да о
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
-"<qt> Изберете програмата, която искате да използвате, за да отворите файла "
-"<br/> %1 </qt>"
+"<qt>Изберете програмата, която искате да използвате, за да отворите файла "
+"<br/> %1</qt>"
 
 #: widgets/kopenwithdialog.cpp:592
 #, kde-format
@@ -5492,11 +5492,11 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
-"<qt> Изберете програмата, която искате да използвате, за да отворите файла. "
-"</qt>"
+"<qt>Изберете програмата, която искате да използвате, за да отворите файла. </"
+"qt>"
 msgstr[1] ""
-"<qt> Изберете програмата, която искате да използвате, за да отворите %1 "
-"файла. </qt>"
+"<qt>Изберете програмата, която искате да използвате, за да отворите %1 файла."
+"</qt>"
 
 #: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
@@ -5888,7 +5888,7 @@ msgid ""
 msgstr ""
 "<qt><p>Изберете един или няколко файлови типа, които програмата може да "
 "обслужва. Този списък е организиран по типове на файлове (<u>mimetypes</u>)."
-"</p> \n"
+"</p>\n"
 "<p>Multipurpose Internet Mail Extension (MIME) означава многоцелеви "
 "разширения за електронна поща. Това е стандарт за определяне типа на данните "
 "въз основа на разширенията на файловете. Например разширението \"jpg\", "
@@ -5896,7 +5896,7 @@ msgstr ""
 "специфичен вид изображение. Въз основа на тази информация системата решава "
 "коя програма да се използва за отварянето на този файл. Разбира се преди "
 "това тази информация трябва да е налична в системата. Т.е. трябва да е "
-"въведено коя програма какви типове от файлове може да обслужва.</p> <p>Ако "
+"въведено коя програма какви типове от файлове може да обслужва.</p><p>Ако "
 "искате да асоциирате програмата с файлови типове, които не са в списъка, "
 "използвайте бутона \"Добавяне\". За изтриване на добавени типове използвайте "
 "бутона \"Изтриване\".</p></qt>"
@@ -6491,7 +6491,7 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
-"<p>Контролните суми не съвпадат.</p> Това може да се дължи на грешно "
+"<p>Контролните суми не съвпадат.</p>Това може да се дължи на грешно "
 "изтегляне. Опитайте отново да изтеглите файла. <br/> Ако проверката все още "
 "не успее, свържете се с източника на файла."
 
@@ -7196,32 +7196,3 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
-
-#~ msgid "New Folder..."
-#~ msgstr "Нова директория..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Add..."
-#~ msgstr "Добавяне..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit..."
-#~ msgstr "Редактиране..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With..."
-#~ msgstr "&Отваряне на папка с..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "Отваряне &с..."
-
-#~| msgctxt "@title:window"
-#~| msgid "New Folder"
-#~ msgctxt "@title:window"
-#~ msgid "New File"
-#~ msgstr "Нов файл"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "Нова директория"
