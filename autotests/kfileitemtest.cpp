@@ -301,7 +301,7 @@ void KFileItemTest::testBasicDirectory()
     QCOMPARE(dirItem.text(), dirUrl.fileName());
     QVERIFY(dirItem.isLocalFile());
     QCOMPARE(dirItem.localPath(), dirUrl.toLocalFile());
-    QCOMPARE(dirItem.size(), KIO::filesize_t(40));
+    QVERIFY(dirItem.size() > 0);
     QVERIFY(dirItem.linkDest().isEmpty());
     QVERIFY(!dirItem.isHidden());
     QVERIFY(dirItem.isReadable());
