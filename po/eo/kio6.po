@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2024-05-15 23:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3844,7 +3844,7 @@ msgstr "Klaku por Redakti Lokon"
 msgid "You are not authorized to execute this file."
 msgstr "Vi ne rajtas plenumi ĉi tiun dosieron."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3869,6 +3869,12 @@ msgstr "Vi ne rajtas elekti aplikaĵon por malfermi ĉi tiun dosieron."
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "Interna eraro: ne povis peti la uzanton pri kiu aplikaĵo komenci"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

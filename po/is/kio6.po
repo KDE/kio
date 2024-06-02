@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 12:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -3837,7 +3837,7 @@ msgstr "Smelltu til að breyta staðsetningu"
 msgid "You are not authorized to execute this file."
 msgstr "Þú hefur ekki leyfi til að keyra þessa skrá."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3863,6 +3863,12 @@ msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
 "Innri villa: ekki tókst að spyrja notandann um hvaða forrit eigi að ræsa"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

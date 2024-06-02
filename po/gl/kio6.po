@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2024-05-09 19:28+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -3864,7 +3864,7 @@ msgstr "Premer para editar o lugar"
 msgid "You are not authorized to execute this file."
 msgstr "Non está autorizado para executar este ficheiro."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3892,6 +3892,12 @@ msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
 "Erro interno: non se puido preguntar á persoa usuaria que aplicación iniciar"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

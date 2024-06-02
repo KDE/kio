@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4088,7 +4088,7 @@ msgstr "Keppeling nei lokaasje (URL-adres)..."
 msgid "You are not authorized to execute this file."
 msgstr "Jo binne net autorisearre om dizze triem út te fieren."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
@@ -4112,6 +4112,12 @@ msgstr "Jo hawwe net de rjochten om dizze triem te iepenjen."
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
+msgstr ""
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
 msgstr ""
 
 #: gui/faviconrequestjob.cpp:108

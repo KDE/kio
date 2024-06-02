@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3696,7 +3696,7 @@ msgstr "Coahkkal jus háliidat báikki doaimmahit"
 msgid "You are not authorized to execute this file."
 msgstr "Dus ii leat lohpi vuodjit dán fiilla."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3718,6 +3718,12 @@ msgstr "Dus ii leat lohpi válljet prográmma mii galgá rahpat dán fiilla."
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
+msgstr ""
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
 msgstr ""
 
 #: gui/faviconrequestjob.cpp:108

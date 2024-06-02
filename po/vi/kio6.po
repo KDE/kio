@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -3820,7 +3820,7 @@ msgstr "Bấm để sửa địa điểm"
 msgid "You are not authorized to execute this file."
 msgstr "Bạn không có quyền thực thi tệp này."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3845,6 +3845,12 @@ msgstr "Bạn không có quyền chọn ứng dụng để mở tệp này."
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "Lỗi nội bộ: không hỏi được người dùng về ứng dụng để khởi động"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

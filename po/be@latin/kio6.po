@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3964,7 +3964,7 @@ msgstr "Nacisnicie, kab redahavać razmiaščennie"
 msgid "You are not authorized to execute this file."
 msgstr "Vy nie aŭtaryzavanyja dlia vykanannia hetaha fajla."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3993,6 +3993,12 @@ msgid ""
 msgstr ""
 "Unutranaja pamylka: nie ŭdalosia padkazać karystaĺniku, jakuju prahramu "
 "zapuscić"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

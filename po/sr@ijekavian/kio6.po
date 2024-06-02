@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3961,7 +3961,7 @@ msgstr "Кликните за уређивање локације"
 msgid "You are not authorized to execute this file."
 msgstr "Нисте овлашћени да извршите овај фајл."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
@@ -3985,6 +3985,12 @@ msgstr "Нисте овлашћени да изаберете програм з�
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
+msgstr ""
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
 msgstr ""
 
 #: gui/faviconrequestjob.cpp:108

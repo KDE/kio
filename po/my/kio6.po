@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3738,7 +3738,7 @@ msgstr "တည်နေရာတည်းဖြတ်ရန် နှိပ်�
 msgid "You are not authorized to execute this file."
 msgstr "ဤဖိုင်လ်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3763,6 +3763,12 @@ msgstr "ဤဖိုင်လ်ကိုဖွင့်ရန် အပ္ပ�
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "စနစ်အတွင်းပိုင်းအမှား - ဘယ်အပ္ပလီကေးရှင်းစတင်ရမည်ဆိုသည်ကို အသုံးပြုသူထံ မမေးနိုင်ခဲ့ပါ"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

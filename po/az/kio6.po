@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3846,7 +3846,7 @@ msgstr "Məkana Düzəliş Etmək üçün kliklə"
 msgid "You are not authorized to execute this file."
 msgstr "Bu faylı icra etməyə sizin imtiyazınız yoxdur."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3871,6 +3871,12 @@ msgstr "Bu faylı açmaq üçün bir tətbiq seçmək səlahiyyətiniz yoxdur."
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "Daxili xəta: istifadəçiyə hansı tətbiqi başladacağı sorğusu verilmədi"
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format

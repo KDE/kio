@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:36+0000\n"
+"POT-Creation-Date: 2024-06-02 00:36+0000\n"
 "PO-Revision-Date: 2024-05-12 15:08+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3781,7 +3781,7 @@ msgstr "இடத்தைத் திருத்த க்ளிக் செ
 msgid "You are not authorized to execute this file."
 msgstr "இந்த கோப்பை இயக்க உங்களுக்கு அதிகாரம் இல்லை."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3806,6 +3806,12 @@ msgstr "இக்கோப்பினைத் திறப்பதற்க�
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "உள்ளக பிழை: எந்த செயலியை இயக்க வேண்டும் என்று பயனரிடம் கேட்க முடியவில்லை."
+
+#: gui/commandlauncherjob.cpp:106
+#, kde-format
+msgctxt "An error message"
+msgid "Empty command provided"
+msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
