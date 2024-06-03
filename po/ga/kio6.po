@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 00:36+0000\n"
+"POT-Creation-Date: 2024-06-03 00:37+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -4411,13 +4411,13 @@ msgstr "Fíordheimhniú den Fhreastalaí"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> ag <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1311
+#: kioworkers/http/http.cpp:1319
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr ""
 
 # SEE BELOW - all "attempting to...", or "unable to..."
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
@@ -4427,7 +4427,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
@@ -4437,7 +4437,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a shocrú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
@@ -4447,7 +4447,7 @@ msgstr ""
 "             unable-to 'an fillteán iarrtha a chruthú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
@@ -4457,7 +4457,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chóipeáil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
@@ -4467,7 +4467,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a bhogadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
@@ -4477,7 +4477,7 @@ msgstr ""
 "             unable-to 'an fillteán sonraithe a chuardach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
@@ -4487,7 +4487,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chur faoi ghlas'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
@@ -4498,7 +4498,7 @@ msgstr ""
 "oscailt'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1338
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
@@ -4508,7 +4508,7 @@ msgstr ""
 "             unable-to 'an comhad nó an fillteán sonraithe a scriosadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1340
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
@@ -4518,7 +4518,7 @@ msgstr ""
 "             unable-to 'cumas an fhreastalaí a fháil amach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1342
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
@@ -4528,13 +4528,13 @@ msgstr ""
 "             unable-to 'inneachar an comhad nó fillteán sonraithe a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1344
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1344
+#: kioworkers/http/http.cpp:1352
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4542,7 +4542,7 @@ msgstr ""
 "Tharla earráid gan súil léi (%1) nuair a bhíothas ag iarraidh %2.|/|Tharla "
 "earráid gan súil léi (%1) agus $[attempting-to %2]."
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4552,7 +4552,7 @@ msgstr ""
 "Tharla earráid nuair a bhíothas ag iarraidh %1, %2.  Achoimre thíos.|/|"
 "Tharla earráid agus $[attempting-to %1], %2.  Achoimre thíos."
 
-#: kioworkers/http/http.cpp:1402 kioworkers/http/http.cpp:1546
+#: kioworkers/http/http.cpp:1410 kioworkers/http/http.cpp:1554
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
@@ -4560,14 +4560,14 @@ msgstr ""
 "Rochtain diúltaithe nuair a bhíothas ag iarraidh %1.|/|Rochtain diúltaithe "
 "agus $[attempting-to %1]."
 
-#: kioworkers/http/http.cpp:1416 kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1561
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1425
+#: kioworkers/http/http.cpp:1433
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4577,17 +4577,17 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1433
+#: kioworkers/http/http.cpp:1441
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1439
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1444 kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1569
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
@@ -4595,12 +4595,12 @@ msgstr ""
 "Ní féidir %1 toisc go bhfuil an acmhainn faoi ghlas.|/|Ní féidir $[unable-to "
 "%1] toisc go bhfuil an acmhainn faoi ghlas."
 
-#: kioworkers/http/http.cpp:1448
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1455 kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1463 kioworkers/http/http.cpp:1576
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4611,19 +4611,19 @@ msgstr ""
 "leis an bhfillteán.|/|Ní féidir $[unable-to %1] toisc nach nglacann an "
 "freastalaí sprice leis an gcomhad nó leis an bhfillteán."
 
-#: kioworkers/http/http.cpp:1464 kioworkers/http/http.cpp:1577
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ní féidir an acmhainn a scriosadh."
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1545
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
@@ -4632,7 +4632,7 @@ msgstr ""
 "             unable-to %1' a uasluchtú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1588
+#: kioworkers/http/http.cpp:1596
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
