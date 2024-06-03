@@ -3,6 +3,19 @@
 [Desktop Entry]
 Type=Application
 Name=KIO
+Name[bg]=KIO
+Name[ca]=KIO
+Name[ca@valencia]=KIO
+Name[en_GB]=KIO
+Name[eo]=KIO
+Name[es]=KIO
+Name[he]=KIO
+Name[ka]=KIO
+Name[nl]=KIO
+Name[sl]=KIO
+Name[uk]=KIO
+Name[x-test]=xxKIOxx
+Name[zh_TW]=KIO
 NoDisplay=true
 Icon=dialog-password
 Exec=kiod6
