@@ -3686,7 +3686,7 @@ msgstr "内部错误：无法提示用户启动哪一个应用程序"
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "提供的命令为空"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
