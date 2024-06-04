@@ -335,6 +335,11 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     }
 
     m_iconName.clear();
+
+    // If filemode is not unknown, set fileItem to initialised
+    if (m_fileMode != KFileItem::Unknown) {
+        m_bInitCalled = true;
+    }
 }
 
 // Inlined because it is used only in one place
