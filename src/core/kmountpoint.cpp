@@ -343,7 +343,13 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         // if "/etc/mtab" is a regular file,
         // "/etc/mtab" is used by default instead of "/proc/self/mountinfo" file.
         // This leads to NTFS mountpoints being hidden.
-        if (mnt_table_parse_mtab(table, "/proc/self/mountinfo") == 0) {
+        if (
+#if QT_VERSION_CHECK(LIBMOUNT_MAJOR_VERSION, LIBMOUNT_MINOR_VERSION, LIBMOUNT_PATCH_VERSION) >= QT_VERSION_CHECK(2, 39, 0)
+            mnt_table_parse_mtab(table, nullptr)
+#else // backwards compat, the documentation advises to use nullptr so lets do that whenever possible
+            mnt_table_parse_mtab(table, "/proc/self/mountinfo")
+#endif
+            == 0) {
             struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_FORWARD);
             struct libmnt_fs *fs;
 
