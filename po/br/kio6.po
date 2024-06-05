@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:37+0000\n"
+"POT-Creation-Date: 2024-06-05 00:36+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -2154,19 +2154,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "War-nij"
 
-#: core/kfileitem.cpp:1421
+#: core/kfileitem.cpp:1426
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Arouezere"
 
-#: core/kfileitem.cpp:1423
+#: core/kfileitem.cpp:1428
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "Liammañ ouzh %1 (%2)"
 
-#: core/kfileitem.cpp:1426
+#: core/kfileitem.cpp:1431
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"

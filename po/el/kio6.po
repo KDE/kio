@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:37+0000\n"
+"POT-Creation-Date: 2024-06-05 00:36+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2448,17 +2448,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Μη τεκμηριωμένο σφάλμα"
 
-#: core/kfileitem.cpp:1421
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Συμβολικός δεσμός στο %1)"
 
-#: core/kfileitem.cpp:1423
+#: core/kfileitem.cpp:1428
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, δεσμός στο %2)"
 
-#: core/kfileitem.cpp:1426
+#: core/kfileitem.cpp:1431
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Δείκτης στο %1)"

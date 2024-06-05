@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:37+0000\n"
-"PO-Revision-Date: 2024-05-15 20:28+0200\n"
+"POT-Creation-Date: 2024-06-05 00:36+0000\n"
+"PO-Revision-Date: 2024-06-01 11:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -2349,17 +2349,17 @@ msgstr "Prøv å reformatera til eit filsystem som støttar så store filer."
 msgid "Undocumented Error"
 msgstr "Udokumentert feil"
 
-#: core/kfileitem.cpp:1421
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(symbolsk lenkje til %1)"
 
-#: core/kfileitem.cpp:1423
+#: core/kfileitem.cpp:1428
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, lenkje til %2)"
 
-#: core/kfileitem.cpp:1426
+#: core/kfileitem.cpp:1431
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(Peikar til %1)"
@@ -2713,7 +2713,7 @@ msgstr "Detaljert trevising"
 #: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
-msgstr "Tillat utviding i detaljvising"
+msgstr "Tillat mappeutviding i detaljvising"
 
 #: filewidgets/kdiroperator.cpp:2135
 #, kde-format

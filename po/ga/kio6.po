@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:37+0000\n"
+"POT-Creation-Date: 2024-06-05 00:36+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2308,17 +2308,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Earráid Gan Doiciméadú"
 
-#: core/kfileitem.cpp:1421
+#: core/kfileitem.cpp:1426
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Nasc Siombalach le %1)"
 
-#: core/kfileitem.cpp:1423
+#: core/kfileitem.cpp:1428
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Nasc le %2)"
 
-#: core/kfileitem.cpp:1426
+#: core/kfileitem.cpp:1431
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Dírithe ar %1)"
