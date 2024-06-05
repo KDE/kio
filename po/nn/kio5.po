@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-05-15 20:28+0200\n"
+"PO-Revision-Date: 2024-06-01 11:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -2787,7 +2787,7 @@ msgstr "Detaljert trevising"
 #: filewidgets/kdiroperator.cpp:2308
 #, kde-format
 msgid "Allow Expansion in Details View"
-msgstr "Tillat utviding i detaljvising"
+msgstr "Tillat mappeutviding i detaljvising"
 
 #: filewidgets/kdiroperator.cpp:2317
 #, kde-format
