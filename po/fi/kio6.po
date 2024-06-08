@@ -12,14 +12,14 @@
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
 # Teemu Rytilahti <tpr@d5k.net>, 2008.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2008.
-# Tommi Nieminen <translator@legisign.org>, 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-05 00:36+0000\n"
-"PO-Revision-Date: 2023-12-27 11:50+0200\n"
+"PO-Revision-Date: 2024-04-08 20:00+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -3999,17 +3999,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Ohjelmaa ”%1” ei voitu käynnistää."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Tiedostoa %1\n"
-"on muutettu. Haluatko lähettää muutokset palvelimeen?"
+"Tiedostoa <filename>%1</filename><nl/>on muutettu. Haluatko lähettää "
+"muutokset?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -5242,10 +5239,9 @@ msgid "Updating System Configuration"
 msgstr "Päivitetään järjestelmän asetuksia"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "Päivitetään järjestelmän asetuksia"
+msgstr "Päivitetään järjestelmän asetuksia…"
 
 #: widgets/kdirmodel.cpp:1223
 #, kde-format
@@ -6859,16 +6855,14 @@ msgid "Destination"
 msgstr "Kohde"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Kohde on <b>%1 pienempi</b>"
+msgstr "Lähde on <b>uudempi</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Kohde on <b>%1 pienempi</b>"
+msgstr "Lähde on <b>vanhempi</b>."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format
