@@ -85,13 +85,8 @@ public:
     bool isWorkerOnHoldFor(const QUrl &url);
     void updateInternalMetaData(SimpleJob *job);
 
-    MetaData metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url);
-    void setupWorker(KIO::Worker *worker,
-                     const QUrl &url,
-                     const QString &protocol,
-                     const QStringList &proxyList,
-                     bool newWorker,
-                     const KIO::MetaData *config = nullptr);
+    MetaData metaDataFor(const QString &protocol, const QUrl &url);
+    void setupWorker(KIO::Worker *worker, const QUrl &url, const QString &protocol, bool newWorker, const KIO::MetaData *config = nullptr);
 
     void slotWorkerDied(KIO::Worker *worker);
 
@@ -553,7 +548,7 @@ void ProtoQueue::startAJob()
 
         if (worker) {
             jobPriv->m_worker = worker;
-            schedulerPrivate()->setupWorker(worker, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewWorker);
+            schedulerPrivate()->setupWorker(worker, jobPriv->m_url, jobPriv->m_protocol, isNewWorker);
             startJob(startingJob, worker);
         } else {
             // dispose of our records about the job and mark the job as unknown
@@ -689,8 +684,7 @@ void SchedulerPrivate::doJob(SimpleJob *job)
 {
     // qDebug() << job;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
-    jobPriv->m_proxyList.clear();
-    jobPriv->m_protocol = KProtocolManagerPrivate::workerProtocol(job->url(), jobPriv->m_proxyList);
+    jobPriv->m_protocol = job->url().scheme();
 
     ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
     proto->queueJob(job);
@@ -750,7 +744,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *worker)
                 const QList<Worker *> workers = queue->allWorkers();
                 for (auto *runningWorker : workers) {
                     if (worker->host() == runningWorker->host()) {
-                        worker->setConfig(metaDataFor(worker->protocol(), jobPriv->m_proxyList, job->url()));
+                        worker->setConfig(metaDataFor(worker->protocol(), job->url()));
                         /*qDebug() << "Updated configuration of" << worker->protocol()
                                      << "KIO worker, pid=" << worker->worker_pid();*/
                     }
@@ -767,28 +761,16 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *worker)
     jobPriv->m_internalMetaData.clear();
 }
 
-MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url)
+MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QUrl &url)
 {
     const QString host = url.host();
     MetaData configData = WorkerConfig::self()->configData(protocol, host);
     sessionData.configDataFor(configData, protocol, host);
-    if (proxyList.isEmpty()) {
-        configData.remove(QStringLiteral("UseProxy"));
-        configData.remove(QStringLiteral("ProxyUrls"));
-    } else {
-        configData[QStringLiteral("UseProxy")] = proxyList.first();
-        configData[QStringLiteral("ProxyUrls")] = proxyList.join(QLatin1Char(','));
-    }
 
     return configData;
 }
 
-void SchedulerPrivate::setupWorker(KIO::Worker *worker,
-                                   const QUrl &url,
-                                   const QString &protocol,
-                                   const QStringList &proxyList,
-                                   bool newWorker,
-                                   const KIO::MetaData *config)
+void SchedulerPrivate::setupWorker(KIO::Worker *worker, const QUrl &url, const QString &protocol, bool newWorker, const KIO::MetaData *config)
 {
     int port = url.port();
     if (port == -1) { // no port is -1 in QUrl, but in kde3 we used 0 and the KIO workers assume that.
@@ -799,7 +781,7 @@ void SchedulerPrivate::setupWorker(KIO::Worker *worker,
     const QString passwd = url.password();
 
     if (newWorker || worker->host() != host || worker->port() != port || worker->user() != user || worker->passwd() != passwd) {
-        MetaData configData = metaDataFor(protocol, proxyList, url);
+        MetaData configData = metaDataFor(protocol, url);
         if (config) {
             configData += *config;
         }

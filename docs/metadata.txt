@@ -67,9 +67,6 @@ HTTP-Headers		string	The HTTP headers, concatenated, \n delimited (set by http)
 
 customHTTPHeader	string	Custom HTTP headers to add to the request (read by http)
 
-UseProxy		string	URL representing the proxy settings (read by http)
-ProxyUrls               string  a comma separated list of proxy urls. The first url in this list matches one set in "UseProxy".
-
 textmode		bool	When true, switches FTP up/downloads to ascii transfer mode (read by ftp)
 
 recurse                 bool    When true, del() will be able to delete non-empty directories.  (read by file)

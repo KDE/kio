@@ -24,96 +24,20 @@
 
 #include "kprotocolmanager.h"
 
-class KProxyData : public QObject
-{
-    Q_OBJECT
-public:
-    KProxyData(const QString &workerProtocol, const QStringList &proxyAddresses)
-        : protocol(workerProtocol)
-        , proxyList(proxyAddresses)
-    {
-    }
-
-    void removeAddress(const QString &address)
-    {
-        proxyList.removeAll(address);
-    }
-
-    QString protocol;
-    QStringList proxyList;
-};
-
 class KIOCORE_EXPORT KProtocolManagerPrivate
 {
 public:
-    using SubnetPair = QPair<QHostAddress, int>;
-
-    /**
-     * Types of proxy configuration
-     * @li NoProxy     - No proxy is used
-     * @li ManualProxy - Proxies are manually configured
-     * @li PACProxy    - A Proxy configuration URL has been given
-     * @li WPADProxy   - A proxy should be automatically discovered
-     * @li EnvVarProxy - Use the proxy values set through environment variables.
-     */
-    enum ProxyType {
-        NoProxy,
-        ManualProxy,
-        PACProxy,
-        WPADProxy,
-        EnvVarProxy,
-    };
-
     KProtocolManagerPrivate();
     ~KProtocolManagerPrivate();
-    bool shouldIgnoreProxyFor(const QUrl &url);
     void sync();
-    ProxyType proxyType();
-    bool useReverseProxy();
-    QString readNoProxyFor();
-    QString proxyFor(const QString &protocol);
-    QStringList getSystemProxyFor(const QUrl &url);
 
     QMutex mutex; // protects all member vars
     KSharedConfig::Ptr configPtr;
     KSharedConfig::Ptr http_config;
     QString modifiers;
     QString useragent;
-    QString noProxyFor;
-    QList<SubnetPair> noProxySubnets;
-    QCache<QString, KProxyData> cachedProxyData;
 
     QMap<QString /*mimetype*/, QString /*protocol*/> protocolForArchiveMimetypes;
-
-    /**
-     * Return the protocol to use in order to handle the given @p url
-     * It's usually the same, except that FTP, when handled by a proxy,
-     * needs an HTTP KIO worker.
-     *
-     * When a proxy is to be used, proxy contains the URL for the proxy.
-     * @param url the url to check
-     * @param proxy the URL of the proxy to use
-     * @return the worker protocol (e.g. 'http'), can be null if unknown
-     *
-     */
-    static QString workerProtocol(const QUrl &url, QStringList &proxy);
-
-    /**
-     * Returns all the possible proxy server addresses for @p url.
-     *
-     * If the selected proxy type is @ref PACProxy or @ref WPADProxy, then a
-     * helper kded module, proxyscout, is used to determine the proxy information.
-     * Otherwise, @ref proxyFor is used to find the proxy to use for the given url.
-     *
-     * If this function returns empty list, then the request is to a proxy server
-     * must be denied. For a direct connection, this function will return a single
-     * entry of "DIRECT".
-     *
-     *
-     * @param url the URL whose proxy info is needed
-     * @returns the proxy server address if one is available, otherwise an empty list .
-     */
-    static QStringList proxiesForUrl(const QUrl &url);
 
     /**
      * Returns the default user-agent value used for web browsing, for example

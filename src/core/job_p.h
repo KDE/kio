@@ -145,7 +145,6 @@ public:
     // We schedule workers based on (2) but tell the worker about (1) via
     // Worker::setProtocol().
     QString m_protocol;
-    QStringList m_proxyList;
     int m_schedSerial;
     bool m_redirectionHandlingEnabled;
 
