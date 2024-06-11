@@ -658,11 +658,6 @@ static KProtocolInfoPrivate *findProtocol(const QUrl &url)
         return nullptr;
     }
     QString protocol = url.scheme();
-    if (!KProtocolInfo::proxiedBy(protocol).isEmpty()) {
-        QStringList dummy;
-        protocol = KProtocolManagerPrivate::workerProtocol(url, dummy);
-    }
-
     return KProtocolInfoFactory::self()->findProtocol(protocol);
 }
 
