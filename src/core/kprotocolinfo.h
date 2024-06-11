@@ -307,6 +307,7 @@ public:
      */
     static QStringList archiveMimetypes(const QString &protocol);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 4)
     /**
      * Returns the name of the protocol through which the request
      * will be routed if proxy support is enabled.
@@ -315,8 +316,12 @@ public:
      * support is commonly handled by the http protocol.
      *
      * This corresponds to the "ProxiedBy=" in the protocol description file.
+     *
+     * @deprecated since 6.4, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 4, "Not used")
     static QString proxiedBy(const QString &protocol);
+#endif
 
     typedef enum { Name, FromUrl, DisplayName } FileNameUsedForCopying;
 

@@ -286,6 +286,7 @@ QStringList KProtocolInfo::archiveMimetypes(const QString &protocol)
     return prot->m_archiveMimeTypes;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 4)
 QString KProtocolInfo::proxiedBy(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
@@ -295,6 +296,7 @@ QString KProtocolInfo::proxiedBy(const QString &_protocol)
 
     return prot->m_proxyProtocol;
 }
+#endif
 
 bool KProtocolInfo::isFilterProtocol(const QUrl &url)
 {
