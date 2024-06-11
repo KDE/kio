@@ -29,6 +29,7 @@ Name[nn]=openSUSE-Bugzilla
 Name[pa]=openSUSE ਬੱਗਜ਼ੀਲਾ
 Name[pl]=openSUSE Bugzilla
 Name[pt_BR]=Bugzilla do openSUSE
+Name[ro]=openSUSE Bugzilla
 Name[ru]=openSUSE Bugzilla
 Name[sk]=openSUSE Bugzilla
 Name[sl]=openSUSE Bugzilla
@@ -65,6 +66,7 @@ Query[nn]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[pa]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[pl]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[pt_BR]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[ro]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ru]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[sk]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[sl]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
