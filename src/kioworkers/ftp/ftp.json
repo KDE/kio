@@ -3,7 +3,6 @@
         "ftp": {
             "Class": ":internet",
             "Icon": "folder-remote",
-            "ProxiedBy": "http",
             "X-DocPath": "kioworker6/ftp/index.html",
             "copyFromFile": true,
             "copyToFile": true,
