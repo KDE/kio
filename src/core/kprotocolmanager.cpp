@@ -59,9 +59,6 @@ KProtocolManagerPrivate::~KProtocolManagerPrivate()
 void KProtocolManagerPrivate::sync()
 {
     QMutexLocker lock(&mutex);
-    if (http_config) {
-        http_config->sync();
-    }
     if (configPtr) {
         configPtr->sync();
     }
@@ -71,9 +68,6 @@ void KProtocolManager::reparseConfiguration()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    if (d->http_config) {
-        d->http_config->reparseConfiguration();
-    }
     if (d->configPtr) {
         d->configPtr->reparseConfiguration();
     }

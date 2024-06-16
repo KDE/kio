@@ -33,7 +33,6 @@ public:
 
     QMutex mutex; // protects all member vars
     KSharedConfig::Ptr configPtr;
-    KSharedConfig::Ptr http_config;
     QString modifiers;
     QString useragent;
 
