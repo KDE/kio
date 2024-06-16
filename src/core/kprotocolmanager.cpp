@@ -16,11 +16,7 @@
 #include <config-kiocore.h>
 
 #include <qplatformdefs.h>
-#ifdef Q_OS_WIN
-#include <qt_windows.h>
-#include <string.h>
-#undef interface // windows.h defines this, breaks QtDBus since it has parameters named interface
-#else
+#ifndef Q_OS_WIN
 #include <sys/utsname.h>
 #endif
 
@@ -150,44 +146,25 @@ static QString platform()
 #endif
 }
 
-QString KProtocolManagerPrivate::defaultUserAgent(const QString &_modifiers)
+QString KProtocolManagerPrivate::defaultUserAgent()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    QString modifiers = _modifiers.toLower();
-    if (modifiers.isEmpty()) {
-        modifiers = QStringLiteral("om"); // Show OS, Machine
-    }
 
-    if (d->modifiers == modifiers && !d->useragent.isEmpty()) {
+    if (!d->useragent.isEmpty()) {
         return d->useragent;
     }
 
-    d->modifiers = modifiers;
-
     QString systemName;
-    QString systemVersion;
     QString machine;
     QString supp;
-    const bool sysInfoFound = KProtocolManagerPrivate::getSystemNameVersionAndMachine(systemName, systemVersion, machine);
+    const bool sysInfoFound = KProtocolManagerPrivate::getSystemNameVersionAndMachine(systemName, machine);
 
     supp += platform();
 
     if (sysInfoFound) {
-        if (modifiers.contains(QLatin1Char('o'))) {
-            supp += QLatin1String("; ") + systemName;
-            if (modifiers.contains(QLatin1Char('v'))) {
-                supp += QLatin1Char(' ') + systemVersion;
-            }
-
-            if (modifiers.contains(QLatin1Char('m'))) {
-                supp += QLatin1Char(' ') + machine;
-            }
-        }
-
-        if (modifiers.contains(QLatin1Char('l'))) {
-            supp += QLatin1String("; ") + QLocale::languageToString(QLocale().language());
-        }
+        supp += QLatin1String("; ") + systemName;
+        supp += QLatin1Char(' ') + machine;
     }
 
     QString appName = QCoreApplication::applicationName();
@@ -207,33 +184,16 @@ QString KProtocolManagerPrivate::defaultUserAgent(const QString &_modifiers)
     return d->useragent;
 }
 
-bool KProtocolManagerPrivate::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
+bool KProtocolManagerPrivate::getSystemNameVersionAndMachine(QString &systemName, QString &machine)
 {
 #if defined(Q_OS_WIN)
-    // we do not use unameBuf.sysname information constructed in kdewin32
-    // because we want to get separate name and version
     systemName = QStringLiteral("Windows");
-    OSVERSIONINFOEX versioninfo;
-    ZeroMemory(&versioninfo, sizeof(OSVERSIONINFOEX));
-    // try calling GetVersionEx using the OSVERSIONINFOEX, if that fails, try using the OSVERSIONINFO
-    versioninfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-    bool ok = GetVersionEx((OSVERSIONINFO *)&versioninfo);
-    if (!ok) {
-        versioninfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        ok = GetVersionEx((OSVERSIONINFO *)&versioninfo);
-    }
-    if (ok) {
-        systemVersion = QString::number(versioninfo.dwMajorVersion);
-        systemVersion += QLatin1Char('.');
-        systemVersion += QString::number(versioninfo.dwMinorVersion);
-    }
 #else
     struct utsname unameBuf;
     if (0 != uname(&unameBuf)) {
         return false;
     }
     systemName = QString::fromUtf8(unameBuf.sysname);
-    systemVersion = QString::fromUtf8(unameBuf.release);
     machine = QString::fromUtf8(unameBuf.machine);
 #endif
     return true;

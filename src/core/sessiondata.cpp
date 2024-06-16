@@ -57,7 +57,7 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
             configData[QStringLiteral("CacheDir")] = httpCacheDir;
         }
         if (configData[QStringLiteral("UserAgent")].isEmpty()) {
-            configData[QStringLiteral("UserAgent")] = KProtocolManagerPrivate::defaultUserAgent(QString());
+            configData[QStringLiteral("UserAgent")] = KProtocolManagerPrivate::defaultUserAgent();
         }
     }
 }
