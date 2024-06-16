@@ -13,28 +13,19 @@
 #include "kprotocolinfo_p.h"
 #include "kprotocolmanager_p.h"
 
-#include "hostinfo.h"
-
 #include <config-kiocore.h>
 
 #include <qplatformdefs.h>
-#include <string.h>
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
+#include <string.h>
 #undef interface // windows.h defines this, breaks QtDBus since it has parameters named interface
 #else
 #include <sys/utsname.h>
 #endif
 
-#include <QCache>
 #include <QCoreApplication>
-#include <QHostAddress>
-#include <QHostInfo>
 #include <QLocale>
-#include <QMimeDatabase>
-#include <QRegularExpression>
-#include <QSslSocket>
-#include <QStandardPaths>
 #include <QUrl>
 
 #include <KConfigGroup>
