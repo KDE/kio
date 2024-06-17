@@ -9,6 +9,7 @@
 #include "thumbnailcreator.h"
 
 #include <QImage>
+#include <qdebug.h>
 
 namespace KIO
 {
@@ -40,6 +41,7 @@ ThumbnailRequest &ThumbnailRequest::operator=(const ThumbnailRequest &other)
 ThumbnailRequest::ThumbnailRequest(const QUrl &url, const QSize &targetSize, const QString &mimeType, qreal dpr, float sequenceIndex)
     : d(new ThumbnailRequestPrivate)
 {
+    qWarning() << "thumbnailrequest";
     d->url = url;
     d->targetSize = targetSize;
     d->mimeType = mimeType;

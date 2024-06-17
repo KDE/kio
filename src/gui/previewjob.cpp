@@ -295,7 +295,7 @@ void PreviewJobPrivate::startPreview()
     }
 
     // Look for images and store the items in our todo list :)
-    bool bNeedCache = false;
+    bool bNeedCache = true;
     for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem item;
         item.item = fileItem;
@@ -304,11 +304,11 @@ void PreviewJobPrivate::startPreview()
         KPluginMetaData plugin;
 
         // check if we have a thumbnailer for this item in /usr/share/thumbnailers
-        if (standardThumbnailers.contains(mimeType))
-        {
-            //TODO if this is the case, handle it with a standard thumbnailer instead
-            qWarning() << "This mimetype " <<mimeType << " has a standard thumbnailer!";
-        }
+        // TODO if this is the case, handle it with a standard thumbnailer instead
+        //  1. skip the following queue of stuff, we probably need a thumbnailer plugin called "standard" that just exists and is pretty
+        //  2. create the thumbnail using the thumbnailer, in get or create thumbnail thing
+        //  3. we can probably reuse the standardThumbnailers contains blabla
+        //  4. move the thumbnail data to right places after creation
 
         // look for protocol-specific thumbnail plugins first
         auto it = protocolMap.constFind(item.item.url().scheme());
@@ -353,7 +353,7 @@ void PreviewJobPrivate::startPreview()
         if (plugin.isValid()) {
             item.plugin = plugin;
             items.push_back(item);
-            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
+            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), false)) { // false for debug
                 const QUrl url = fileItem.targetUrl();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
                     bNeedCache = true;
@@ -480,8 +480,10 @@ void PreviewJobPrivate::cleanupTempFile()
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
+    qWarning() << "determine next file";
     if (!currentItem.item.isNull()) {
         if (!succeeded) {
+            qWarning() << "failed";
             Q_EMIT q->failed(currentItem.item);
         }
     }
@@ -505,12 +507,14 @@ void PreviewJobPrivate::determineNextFile()
 void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
+    qWarning() << "slotResult";
 
     removeSubjob(job);
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
     switch (d->state) {
     case PreviewJobPrivate::STATE_STATORIG: {
         if (job->error()) { // that's no good news...
+            qWarning() << "job error " << job->error();
             // Drop this one and move on to the next one
             d->determineNextFile();
             return;
@@ -585,6 +589,7 @@ void PreviewJob::slotResult(KJob *job)
 
 bool PreviewJobPrivate::statResultThumbnail()
 {
+    qWarning() << "statResult thumbnail";
     if (thumbPath.isEmpty()) {
         return false;
     }
@@ -663,6 +668,7 @@ bool PreviewJobPrivate::statResultThumbnail()
 void PreviewJobPrivate::getOrCreateThumbnail()
 {
     Q_Q(PreviewJob);
+    qWarning() << "Get or create thumbnail";
     // We still need to load the orig file ! (This is getting tedious) :)
     const KFileItem &item = currentItem.item;
     const QString localPath = item.localPath();
@@ -790,6 +796,7 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
+    qWarning() << "createThumbnail";
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
@@ -859,12 +866,13 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
+    qWarning() << "slotthumbdata";
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
                       && !sequenceIndex
                       && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
+                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), false)
                       && (!currentItem.item.targetUrl().isLocalFile()
                           || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
     /* clang-format on */
@@ -878,16 +886,22 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     qreal imgDevicePixelRatio;
     // TODO KF6: add a version number as first parameter
     str >> width >> height >> format >> imgDevicePixelRatio;
-#if WITH_SHM
-    if (shmaddr != nullptr) {
-        thumb = QImage(shmaddr, width, height, format).copy();
+    auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+    if (!standardThumbnailer.key().isNull()) {
+        qWarning() << " yep we are doing standard thumbnail things";
+        // TODO create a process that creates an image then give it to QImage
     } else {
-#endif
-        str >> thumb;
 #if WITH_SHM
-    }
+        if (shmaddr != nullptr) {
+            thumb = QImage(shmaddr, width, height, format).copy();
+        } else {
 #endif
-    thumb.setDevicePixelRatio(imgDevicePixelRatio);
+            str >> thumb;
+#if WITH_SHM
+        }
+#endif
+        thumb.setDevicePixelRatio(imgDevicePixelRatio);
+    }
 
     if (thumb.isNull()) {
         QDataStream s(data);
