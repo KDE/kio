@@ -10,10 +10,7 @@
 #include "scheduler.h"
 #include "scheduler_p.h"
 
-#include "connection_p.h"
 #include "job_p.h"
-#include "kprotocolmanager_p.h"
-#include "sessiondata_p.h"
 #include "worker_p.h"
 #include "workerconfig.h"
 
@@ -72,8 +69,6 @@ public:
     Worker *m_workerOnHold = nullptr;
     QUrl m_urlOnHold;
     bool m_ignoreConfigReparse = false;
-
-    SessionData sessionData;
 
     void doJob(SimpleJob *job);
     void setJobPriority(SimpleJob *job, int priority);
@@ -655,7 +650,6 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
     // qDebug() << "proto=" << proto;
     KProtocolManager::reparseConfiguration();
     WorkerConfig::self()->reset();
-    sessionData.reset();
 
     QHash<QString, ProtoQueue *>::ConstIterator it = proto.isEmpty() ? m_protocols.constBegin() : m_protocols.constFind(proto);
     QHash<QString, ProtoQueue *>::ConstIterator endIt = m_protocols.constEnd();
@@ -765,7 +759,6 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QUrl &url)
 {
     const QString host = url.host();
     MetaData configData = WorkerConfig::self()->configData(protocol, host);
-    sessionData.configDataFor(configData, protocol, host);
 
     return configData;
 }
