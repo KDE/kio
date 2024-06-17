@@ -14,8 +14,6 @@
 
 #include <kiocore_export.h>
 
-#include <QCache>
-#include <QHostAddress>
 #include <QMutex>
 #include <QString>
 #include <QUrl>
