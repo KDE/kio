@@ -12,6 +12,7 @@
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
 #include "statjob.h"
+#include <qprocess.h>
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -353,7 +354,7 @@ void PreviewJobPrivate::startPreview()
         if (plugin.isValid()) {
             item.plugin = plugin;
             items.push_back(item);
-            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), false)) { // false for debug
+            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
                 const QUrl url = fileItem.targetUrl();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
                     bNeedCache = true;
@@ -872,7 +873,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     const bool save = bSave
                       && !sequenceIndex
                       && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), false)
+                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
                       && (!currentItem.item.targetUrl().isLocalFile()
                           || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
     /* clang-format on */
@@ -888,8 +889,11 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     str >> width >> height >> format >> imgDevicePixelRatio;
     auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
     if (!standardThumbnailer.key().isNull()) {
-        qWarning() << " yep we are doing standard thumbnail things";
         // TODO create a process that creates an image then give it to QImage
+        QProcess proc;
+        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
+        qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
+        thumb = QImage(thumbPath + thumbName).copy();
     } else {
 #if WITH_SHM
         if (shmaddr != nullptr) {
@@ -900,8 +904,9 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 #if WITH_SHM
         }
 #endif
-        thumb.setDevicePixelRatio(imgDevicePixelRatio);
     }
+
+    thumb.setDevicePixelRatio(imgDevicePixelRatio);
 
     if (thumb.isNull()) {
         QDataStream s(data);
@@ -932,6 +937,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
             }
         }
     }
+
     emitPreview(thumb);
     succeeded = true;
 }
