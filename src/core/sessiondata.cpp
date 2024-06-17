@@ -43,10 +43,6 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
         if (!d->initDone) {
             reset();
         }
-
-        if (configData[QStringLiteral("UserAgent")].isEmpty()) {
-            configData[QStringLiteral("UserAgent")] = KProtocolManagerPrivate::defaultUserAgent();
-        }
     }
 }
 

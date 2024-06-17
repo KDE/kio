@@ -67,8 +67,6 @@ void KProtocolManager::reparseConfiguration()
     if (d->configPtr) {
         d->configPtr->reparseConfiguration();
     }
-    d->modifiers.clear();
-    d->useragent.clear();
     lock.unlock();
 
     // Force the slave config to re-read its config...
@@ -128,75 +126,6 @@ int KProtocolManager::responseTimeout()
     KConfigGroup cg(config(), QString());
     int val = cg.readEntry("ResponseTimeout", DEFAULT_RESPONSE_TIMEOUT);
     return qMax(MIN_TIMEOUT_VALUE, val);
-}
-
-/*================================= USER-AGENT SETTINGS =====================*/
-
-// This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
-static QString platform()
-{
-#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
-    return QStringLiteral("X11");
-#elif defined(Q_OS_MAC)
-    return QStringLiteral("Macintosh");
-#elif defined(Q_OS_WIN)
-    return QStringLiteral("Windows");
-#else
-    return QStringLiteral("Unknown");
-#endif
-}
-
-QString KProtocolManagerPrivate::defaultUserAgent()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-
-    if (!d->useragent.isEmpty()) {
-        return d->useragent;
-    }
-
-    QString systemName;
-    QString machine;
-    QString supp;
-    const bool sysInfoFound = KProtocolManagerPrivate::getSystemNameVersionAndMachine(systemName, machine);
-
-    supp += platform();
-
-    if (sysInfoFound) {
-        supp += QLatin1String("; ") + systemName;
-        supp += QLatin1Char(' ') + machine;
-    }
-
-    QString appName = QCoreApplication::applicationName();
-    if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
-        appName = QStringLiteral("KDE");
-    }
-    QString appVersion = QCoreApplication::applicationVersion();
-    if (appVersion.isEmpty()) {
-        appVersion += QLatin1String(KIO_VERSION_STRING);
-    }
-
-    d->useragent = QLatin1String("Mozilla/5.0 (%1) ").arg(supp)
-        + QLatin1String("KIO/%1.%2 ").arg(QString::number(KIO_VERSION_MAJOR), QString::number(KIO_VERSION_MINOR))
-        + QLatin1String("%1/%2").arg(appName, appVersion);
-
-    // qDebug() << "USERAGENT STRING:" << d->useragent;
-    return d->useragent;
-}
-
-bool KProtocolManagerPrivate::getSystemNameVersionAndMachine(QString &systemName, QString &machine)
-{
-#if defined(Q_OS_WIN)
-    systemName = QStringLiteral("Windows");
-#else
-    struct utsname unameBuf;
-    if (0 != uname(&unameBuf)) {
-        return false;
-    }
-    systemName = QString::fromUtf8(unameBuf.sysname);
-    machine = QString::fromUtf8(unameBuf.machine);
-#endif
-    return true;
 }
 
 /*==================================== OTHERS ===============================*/
