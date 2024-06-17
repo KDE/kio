@@ -15,18 +15,11 @@
 
 #include <config-kiocore.h>
 
-#include <qplatformdefs.h>
-#ifndef Q_OS_WIN
-#include <sys/utsname.h>
-#endif
-
 #include <QCoreApplication>
-#include <QLocale>
 #include <QUrl>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <kio_version.h>
 
 #include <kprotocolinfofactory_p.h>
 
