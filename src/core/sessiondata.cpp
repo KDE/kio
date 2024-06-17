@@ -28,7 +28,6 @@ public:
     }
 
     bool initDone;
-    QString charsets;
 };
 
 SessionData::SessionData()
@@ -55,7 +54,6 @@ void SessionData::reset()
 {
     d->initDone = true;
 
-    d->charsets = QStringLiteral("utf-8");
     KProtocolManager::reparseConfiguration();
 }
 
