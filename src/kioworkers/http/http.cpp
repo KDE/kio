@@ -33,6 +33,10 @@
 #include <authinfo.h>
 #include <ksslcertificatemanager.h>
 
+#ifndef Q_OS_WIN
+#include <sys/utsname.h>
+#endif
+
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
 {
@@ -398,10 +402,11 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         request.setRawHeader("Referer" /* sic! */, referrer.toUtf8());
     }
 
-    const QString userAgent = metaData(QStringLiteral("UserAgent"));
-    if (!userAgent.isEmpty()) {
-        request.setHeader(QNetworkRequest::UserAgentHeader, userAgent.toUtf8());
+    QString userAgent = metaData(QStringLiteral("UserAgent"));
+    if (userAgent.isEmpty()) {
+        userAgent = defaultUserAgent();
     }
+    request.setHeader(QNetworkRequest::UserAgentHeader, userAgent.toUtf8());
 
     const QString accept = metaData(QStringLiteral("accept"));
     if (!accept.isEmpty()) {
@@ -1682,6 +1687,69 @@ QByteArray HTTPProtocol::methodToString(KIO::HTTP_METHOD method)
         Q_ASSERT(false);
         return QByteArray();
     }
+}
+
+// This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
+static QString platform()
+{
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+    return QStringLiteral("X11");
+#elif defined(Q_OS_MAC)
+    return QStringLiteral("Macintosh");
+#elif defined(Q_OS_WIN)
+    return QStringLiteral("Windows");
+#else
+    return QStringLiteral("Unknown");
+#endif
+}
+
+QString HTTPProtocol::defaultUserAgent()
+{
+    if (!m_defaultUserAgent.isEmpty()) {
+        return m_defaultUserAgent;
+    }
+
+    QString systemName;
+    QString machine;
+    QString supp;
+    const bool sysInfoFound = getSystemNameVersionAndMachine(systemName, machine);
+
+    supp += platform();
+
+    if (sysInfoFound) {
+        supp += QLatin1String("; ") + systemName;
+        supp += QLatin1Char(' ') + machine;
+    }
+
+    QString appName = QCoreApplication::applicationName();
+    if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
+        appName = QStringLiteral("KDE");
+    }
+    QString appVersion = QCoreApplication::applicationVersion();
+    if (appVersion.isEmpty()) {
+        appVersion += QLatin1String(KIO_VERSION_STRING);
+    }
+
+    m_defaultUserAgent = QLatin1String("Mozilla/5.0 (%1) ").arg(supp)
+        + QLatin1String("KIO/%1.%2 ").arg(QString::number(KIO_VERSION_MAJOR), QString::number(KIO_VERSION_MINOR))
+        + QLatin1String("%1/%2").arg(appName, appVersion);
+
+    return m_defaultUserAgent;
+}
+
+bool HTTPProtocol::getSystemNameVersionAndMachine(QString &systemName, QString &machine)
+{
+#if defined(Q_OS_WIN)
+    systemName = QStringLiteral("Windows");
+#else
+    struct utsname unameBuf;
+    if (0 != uname(&unameBuf)) {
+        return false;
+    }
+    systemName = QString::fromUtf8(unameBuf.sysname);
+    machine = QString::fromUtf8(unameBuf.machine);
+#endif
+    return true;
 }
 
 #include "http.moc"
