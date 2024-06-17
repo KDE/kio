@@ -45,17 +45,6 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
             reset();
         }
 
-        // These might have already been set so check first
-        // to make sure that we do not trumpt settings sent
-        // by apps or end-user.
-        if (configData[QStringLiteral("Charsets")].isEmpty()) {
-            configData[QStringLiteral("Charsets")] = d->charsets;
-        }
-        if (configData[QStringLiteral("CacheDir")].isEmpty()) {
-            const QString httpCacheDir = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http");
-            QDir().mkpath(httpCacheDir);
-            configData[QStringLiteral("CacheDir")] = httpCacheDir;
-        }
         if (configData[QStringLiteral("UserAgent")].isEmpty()) {
             configData[QStringLiteral("UserAgent")] = KProtocolManagerPrivate::defaultUserAgent();
         }
