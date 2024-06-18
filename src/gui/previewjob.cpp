@@ -950,10 +950,15 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
 
     if (save) {
         // auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+        const auto path = thumbPath + thumbName;
         QProcess proc;
-        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
-        qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
-        thumb = QImage(thumbPath + thumbName).copy();
+        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), path};
+        // This needs to be async somehow
+        // tried connect here but it didnt seem to work, i guess this job needs to spawn another job,
+        // then wait for it to finish?
+        // SELinux also gets very notification heavy about this
+        proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
+        thumb = QImage(path);
 
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
@@ -965,7 +970,7 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
             signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
         }
         thumb.setText(QStringLiteral("Software"), signature);
-        QSaveFile saveFile(thumbPath + thumbName);
+        QSaveFile saveFile(path);
         if (saveFile.open(QIODevice::WriteOnly)) {
             if (thumb.save(&saveFile, "PNG")) {
                 saveFile.commit();
