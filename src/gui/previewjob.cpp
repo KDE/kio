@@ -168,6 +168,7 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
+    void slotStandardThumbData(KIO::Job *);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -816,7 +817,15 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
     q->addSubjob(job);
     q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
-        slotThumbData(job, data);
+        auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+        if (!standardThumbnailer.key().isNull()) {
+            qWarning() << "Using slotStandardThumbData";
+            slotStandardThumbData(job);
+        } else {
+            qWarning() << "Using slotThumbData";
+
+            slotThumbData(job, data);
+        }
     });
 
     int thumb_width = width;
@@ -887,24 +896,15 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     qreal imgDevicePixelRatio;
     // TODO KF6: add a version number as first parameter
     str >> width >> height >> format >> imgDevicePixelRatio;
-    auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
-    if (!standardThumbnailer.key().isNull()) {
-        // TODO create a process that creates an image then give it to QImage
-        QProcess proc;
-        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
-        qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
-        thumb = QImage(thumbPath + thumbName).copy();
+#if WITH_SHM
+    if (shmaddr != nullptr) {
+        thumb = QImage(shmaddr, width, height, format).copy();
     } else {
-#if WITH_SHM
-        if (shmaddr != nullptr) {
-            thumb = QImage(shmaddr, width, height, format).copy();
-        } else {
 #endif
-            str >> thumb;
+        str >> thumb;
 #if WITH_SHM
-        }
-#endif
     }
+#endif
 
     thumb.setDevicePixelRatio(imgDevicePixelRatio);
 
@@ -920,6 +920,58 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     }
 
     if (save) {
+        auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+        if (!standardThumbnailer.key().isNull()) {
+            // TODO create a process that creates an image then give it to QImage
+            QProcess proc;
+            QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
+            qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
+            thumb = QImage(thumbPath + thumbName).copy();
+        }
+        thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
+        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
+        thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
+        thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
+        QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
+        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
+        if (!thumbnailerVersion.isEmpty()) {
+            signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
+        }
+        thumb.setText(QStringLiteral("Software"), signature);
+        QSaveFile saveFile(thumbPath + thumbName);
+        if (saveFile.open(QIODevice::WriteOnly)) {
+            if (thumb.save(&saveFile, "PNG")) {
+                saveFile.commit();
+            }
+        }
+    }
+
+    emitPreview(thumb);
+    succeeded = true;
+}
+
+void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
+{
+    qWarning() << "slotStandardThumbData";
+    thumbnailWorkerMetaData = job->metaData();
+    /* clang-format off */
+    const bool save = bSave
+                      && !sequenceIndex
+                      && currentDeviceCachePolicy == CachePolicy::Allow
+                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
+                      && (!currentItem.item.targetUrl().isLocalFile()
+                          || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+    /* clang-format on */
+
+    QImage thumb;
+
+    if (save) {
+        // auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+        QProcess proc;
+        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
+        qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
+        thumb = QImage(thumbPath + thumbName).copy();
+
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
