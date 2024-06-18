@@ -482,10 +482,8 @@ void PreviewJobPrivate::cleanupTempFile()
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
-    qWarning() << "determine next file";
     if (!currentItem.item.isNull()) {
         if (!succeeded) {
-            qWarning() << "failed";
             Q_EMIT q->failed(currentItem.item);
         }
     }
@@ -509,14 +507,12 @@ void PreviewJobPrivate::determineNextFile()
 void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
-    qWarning() << "slotResult";
 
     removeSubjob(job);
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
     switch (d->state) {
     case PreviewJobPrivate::STATE_STATORIG: {
         if (job->error()) { // that's no good news...
-            qWarning() << "job error " << job->error();
             // Drop this one and move on to the next one
             d->determineNextFile();
             return;
@@ -591,7 +587,6 @@ void PreviewJob::slotResult(KJob *job)
 
 bool PreviewJobPrivate::statResultThumbnail()
 {
-    qWarning() << "statResult thumbnail";
     if (thumbPath.isEmpty()) {
         return false;
     }
@@ -670,7 +665,6 @@ bool PreviewJobPrivate::statResultThumbnail()
 void PreviewJobPrivate::getOrCreateThumbnail()
 {
     Q_Q(PreviewJob);
-    qWarning() << "Get or create thumbnail";
     // We still need to load the orig file ! (This is getting tedious) :)
     const KFileItem &item = currentItem.item;
     const QString localPath = item.localPath();
@@ -798,7 +792,6 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
-    qWarning() << "createThumbnail";
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
@@ -876,7 +869,6 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
-    qWarning() << "slotthumbdata";
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
@@ -920,14 +912,6 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     }
 
     if (save) {
-        auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
-        if (!standardThumbnailer.key().isNull()) {
-            // TODO create a process that creates an image then give it to QImage
-            QProcess proc;
-            QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), thumbPath + thumbName};
-            qWarning() << proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
-            thumb = QImage(thumbPath + thumbName).copy();
-        }
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
@@ -952,7 +936,6 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 
 void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
 {
-    qWarning() << "slotStandardThumbData";
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
