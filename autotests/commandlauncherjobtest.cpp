@@ -39,8 +39,6 @@ void CommandLauncherJobTest::startProcessAsCommand_data()
 
 void CommandLauncherJobTest::startProcessAsCommand()
 {
-    QSKIP("TODO startProcessAsCommand doesn't pass FIXME");
-
     QFETCH(bool, useExec);
 
     // Given a command
@@ -61,6 +59,15 @@ void CommandLauncherJobTest::startProcessAsCommand()
     // When running a CommandLauncherJob
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(command, this);
     job->setWorkingDirectory(srcDir);
+
+#if defined(Q_OS_LINUX)
+    // KDECI_PLATFORM_PATH is one of the environment variables set when running on the KDE CI
+    // CMake/CTest set _KDE_APPLICATIONS_AS_(SERVICE|SCOPE|FORKING) to select which variant KProcessRunner uses
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
+
     if (useExec) {
         QVERIFY(job->exec());
     } else {
@@ -91,8 +98,6 @@ void CommandLauncherJobTest::startProcessWithArgs_data()
 
 void CommandLauncherJobTest::startProcessWithArgs()
 {
-    QSKIP("TODO startProcessWithArgs doesn't pass FIXME");
-
     QFETCH(QString, srcName);
     QFETCH(QString, destName);
 
@@ -114,6 +119,11 @@ void CommandLauncherJobTest::startProcessWithArgs()
     job->setWorkingDirectory(srcDir);
 
     job->start();
+#if defined(Q_OS_LINUX)
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
     QVERIFY(job->waitForStarted());
 
     const qint64 pid = job->pid();
@@ -139,8 +149,6 @@ void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath_data()
 
 void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
 {
-    QSKIP("TODO startProcessWithSpacesInExecutablePath doesn't pass FIXME");
-
     QFETCH(QString, srcName);
     QFETCH(QString, destName);
 
@@ -175,6 +183,11 @@ void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
     job->setWorkingDirectory(srcDir);
 
     job->start();
+#if defined(Q_OS_LINUX)
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
     QVERIFY(job->waitForStarted());
 
     const qint64 pid = job->pid();
@@ -194,8 +207,6 @@ void CommandLauncherJobTest::startProcessWithSpacesInExecutablePath()
 
 void CommandLauncherJobTest::startProcessWithEnvironmentVariables()
 {
-    QSKIP("TODO startProcessWithEnvironmentVariables doesn't pass FIXME");
-
     // Given an env var and a command that uses it
     QProcessEnvironment env;
     env.insert("MYVAR", "myvalue");
@@ -213,6 +224,11 @@ void CommandLauncherJobTest::startProcessWithEnvironmentVariables()
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(command, this);
     job->setWorkingDirectory(srcDir);
     job->setProcessEnvironment(env);
+#if defined(Q_OS_LINUX)
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
     QVERIFY(job->exec());
 
     // Then the env var was visible
@@ -225,8 +241,6 @@ void CommandLauncherJobTest::startProcessWithEnvironmentVariables()
 
 void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
 {
-    QSKIP("TODO doesNotFailOnNonExistingExecutable doesn't pass FIXME");
-
     // Given a command that uses an executable that doesn't exist
     const QString command = "does_not_exist foo bar";
 
@@ -234,6 +248,11 @@ void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(command, this);
     job->setExecutable("really_does_not_exist");
 
+#if defined(Q_OS_LINUX)
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
     // Then it doesn't actually fail. QProcess is starting /bin/sh, which works...
     QVERIFY(job->exec());
 
