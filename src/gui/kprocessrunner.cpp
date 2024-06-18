@@ -199,7 +199,7 @@ KProcessRunner *KProcessRunner::fromExecutable(const QString &executable,
     auto instance = makeInstance();
 
     instance->m_executable = KIO::DesktopExecParser::executablePath(executable);
-    instance->m_process->setProgram(executable, args);
+    instance->m_process->setProgram(actualExec, args);
     instance->initFromDesktopName(desktopName, executable, asn, workingDirectory, environment);
     return instance;
 }

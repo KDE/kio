@@ -276,4 +276,31 @@ void CommandLauncherJobTest::shouldErrorOnEmptyCommand()
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
+void CommandLauncherJobTest::runExecutableInLocalPath()
+{
+    QTemporaryDir tempDir;
+    const QString srcDir = tempDir.path();
+    const QString srcPath = srcDir + '/' + "srcFile";
+    const QString destPath = srcDir + '/' + "dstFile";
+    createSrcFile(srcPath);
+#ifdef Q_OS_WIN
+    auto command = QStandardPaths::findExecutable("copy.exe");
+#else
+    auto command = QStandardPaths::findExecutable("cp");
+#endif
+    const QString linkedCpCommand = "command_launcher_test_cp";
+    QVERIFY(QFile::link(command, srcDir + '/' + linkedCpCommand));
+    qputenv("PATH", srcDir.toLocal8Bit());
+
+    auto *job = new KIO::CommandLauncherJob(linkedCpCommand, {srcPath, destPath}, this);
+#if defined(Q_OS_LINUX)
+    if (qEnvironmentVariableIsSet("KDECI_PLATFORM_PATH") && qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1") {
+        QEXPECT_FAIL("", "SystemdProcessRunner does not work on CI", Abort);
+    }
+#endif
+    QVERIFY(job->exec());
+
+    QTRY_VERIFY2(QFileInfo::exists(destPath), qPrintable(destPath));
+}
+
 #include "moc_commandlauncherjobtest.cpp"

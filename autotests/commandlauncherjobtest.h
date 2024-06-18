@@ -31,6 +31,8 @@ private Q_SLOTS:
 
     void doesNotFailOnNonExistingExecutable();
     void shouldErrorOnEmptyCommand();
+
+    void runExecutableInLocalPath();
 };
 
 #endif /* COMMANDLAUNCHERJOBTEST_H */
