@@ -968,7 +968,7 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &d
         runCmd.replace(QStringLiteral("%u"), currentItem.item.localPath());
         runCmd.replace(QStringLiteral("%o"), path);
 
-        QProcess *proc = new QProcess();
+        QProcess *proc = new QProcess(job);
         // This needs to be async somehow
         // tried connect here but it didnt seem to work, i guess this job needs to spawn another job,
         // then wait for it to finish?
@@ -979,7 +979,7 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &d
         }
         auto bin = args.first();
         args.removeFirst();
-        QProcess::connect(proc, &QProcess::finished, [=, this](int exitCode, QProcess::ExitStatus exitStatus){
+        QProcess::connect(proc, &QProcess::finished, job, [=, this](int exitCode, QProcess::ExitStatus exitStatus) {
             if (exitCode != 0)
             {
                 qWarning() << "thumbnail process failed " << exitStatus;
