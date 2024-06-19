@@ -168,7 +168,7 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
-    void slotStandardThumbData(KIO::Job *, const QByteArray &);
+    void slotStandardThumbData(KIO::Job *, const QByteArray &, const StandardThumbnailerData &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -205,9 +205,9 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     }
 
     const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(QStringLiteral("/usr/share/thumbnailers/gdk-pixbuf-thumbnailer.thumbnailer")), QStringLiteral("Thumbnailer Entry"));
-    auto mimetypes = thumbnailerConfig.readEntry("MimeType", QString()).split(QStringLiteral(";"));
-    auto tryExec = thumbnailerConfig.readEntry("TryExec", QString());
-    auto exec = thumbnailerConfig.readEntry("Exec", QString());
+    auto mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
+    auto tryExec = thumbnailerConfig.readEntry("TryExec", QStringLiteral(""));
+    auto exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
     for (auto mimetype : mimetypes)
     {
         if (!mimetype.isEmpty())
@@ -813,7 +813,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
         if (!standardThumbnailer.key().isNull()) {
             qWarning() << "Using slotStandardThumbData";
-            slotStandardThumbData(job, data);
+            slotStandardThumbData(job, data, standardThumbnailer.value());
         } else {
             qWarning() << "Using slotThumbData";
 
@@ -934,8 +934,11 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     succeeded = true;
 }
 
-void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &data)
+void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &data, const StandardThumbnailerData &thumbnailer)
 {
+    if (thumbnailer.exec.isEmpty()) {
+        return;
+    }
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
@@ -950,15 +953,25 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &d
     QDataStream str(data);
 
     if (save) {
-        // auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
+        auto runCmd = thumbnailer.exec;
         const auto path = thumbPath + thumbName;
+
+        runCmd.replace(QStringLiteral("%s"), QString::number(width));
+        runCmd.replace(QStringLiteral("%u"), currentItem.item.localPath());
+        runCmd.replace(QStringLiteral("%o"), path);
+
         QProcess proc;
-        QStringList args = {QStringLiteral("-s"), QString::number(width), currentItem.item.localPath(), path};
         // This needs to be async somehow
         // tried connect here but it didnt seem to work, i guess this job needs to spawn another job,
         // then wait for it to finish?
         // SELinux also gets very notification heavy about this
-        proc.execute(QStringLiteral("/usr/bin/gdk-pixbuf-thumbnailer"), args);
+        auto args = QProcess::splitCommand(runCmd);
+        if (args.isEmpty()) {
+            return;
+        }
+        auto bin = args.first();
+        args.removeFirst();
+        proc.execute(bin, args);
         thumb = QImage(path);
 
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
