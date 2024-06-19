@@ -14,6 +14,7 @@
 
 #include <QTimer>
 
+#include <algorithm>
 #include <mutex>
 #include <signal.h>
 
@@ -88,6 +89,21 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
     return success;
 }
 
+static QStringList prepareEnvironment(const QProcessEnvironment &environment)
+{
+    QProcessEnvironment allowedEnvironment = environment;
+    auto allowedBySystemd = [](const QChar c) {
+        return c.isDigit() || c.isLetter() || c == u'_';
+    };
+    for (const auto variables = environment.keys(); const auto &variable : variables) {
+        if (!std::ranges::all_of(variable, allowedBySystemd)) {
+            qCWarning(KIO_GUI) << "Not passing environment variable" << variable << "to systemd because its name contains illegal characters";
+            allowedEnvironment.remove(variable);
+        }
+    }
+    return allowedEnvironment.toStringList();
+}
+
 void SystemdProcessRunner::startProcess()
 {
     // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
@@ -126,7 +142,7 @@ void SystemdProcessRunner::startProcess()
             {QStringLiteral("SourcePath"), m_desktopFilePath},
             {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
                                               // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
-            {QStringLiteral("Environment"), m_process->environment()},
+            {QStringLiteral("Environment"), prepareEnvironment(m_process->processEnvironment())},
             {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
             {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), m_process->program(), false}})},
         },
