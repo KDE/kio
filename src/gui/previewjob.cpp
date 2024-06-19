@@ -1015,6 +1015,8 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &d
             proc->deleteLater();
         });
         proc->start(bin, args);
+        // uncomment this for working but slow solution
+        // proc->waitForFinished();
     }
     else {
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
