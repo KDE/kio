@@ -91,11 +91,11 @@ bool SystemdProcessRunner::waitForStarted(int timeout)
 
 static QStringList prepareEnvironment(const QProcessEnvironment &environment)
 {
-    QProcessEnvironment allowedEnvironment = environment;
+    QProcessEnvironment allowedEnvironment = environment.inheritsFromParent() ? QProcessEnvironment::systemEnvironment() : environment;
     auto allowedBySystemd = [](const QChar c) {
         return c.isDigit() || c.isLetter() || c == u'_';
     };
-    for (const auto variables = environment.keys(); const auto &variable : variables) {
+    for (const auto variables = allowedEnvironment.keys(); const auto &variable : variables) {
         if (!std::ranges::all_of(variable, allowedBySystemd)) {
             qCWarning(KIO_GUI) << "Not passing environment variable" << variable << "to systemd because its name contains illegal characters";
             allowedEnvironment.remove(variable);
