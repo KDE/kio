@@ -168,7 +168,7 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
-    void slotStandardThumbData(KIO::Job *);
+    void slotStandardThumbData(KIO::Job *, const QByteArray &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -813,7 +813,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
         if (!standardThumbnailer.key().isNull()) {
             qWarning() << "Using slotStandardThumbData";
-            slotStandardThumbData(job);
+            slotStandardThumbData(job, data);
         } else {
             qWarning() << "Using slotThumbData";
 
@@ -934,7 +934,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     succeeded = true;
 }
 
-void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
+void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &data)
 {
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
@@ -947,6 +947,7 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
     /* clang-format on */
 
     QImage thumb;
+    QDataStream str(data);
 
     if (save) {
         // auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
@@ -976,8 +977,16 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job)
                 saveFile.commit();
             }
         }
+    } else {
+        QDataStream s(data);
+        s >> thumb;
     }
 
+    if (thumb.isNull()) {
+        // let succeeded in false state
+        // failed will get called in determineNextFile()
+        return;
+    }
     emitPreview(thumb);
     succeeded = true;
 }
