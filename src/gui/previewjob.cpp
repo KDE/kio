@@ -810,9 +810,9 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     }
 
     qWarning() << thumbURL;
-    auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
-    if (!standardThumbnailer.key().isNull()) {
-        auto runCmd = standardThumbnailer.value().exec;
+    auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
+    if (it != standardThumbnailers.constEnd()) {
+        auto runCmd = it.value().exec;
         const auto path = thumbPath + thumbName;
 
         runCmd.replace(QStringLiteral("%s"), QString::number(width));
