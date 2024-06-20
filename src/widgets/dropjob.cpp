@@ -42,6 +42,7 @@
 #include <QMimeData>
 #include <QProcess>
 #include <QTimer>
+#include <QWindow>
 
 using namespace KIO;
 
@@ -381,6 +382,11 @@ void DropJob::showMenu(const QPoint &p, QAction *atAction)
     }
 
     for (KIO::DropMenu *menu : std::as_const(d->m_menus)) {
+        if (QWindow *transientParent = KJobWidgets::windowHandle(this)) {
+            if (menu->winId()) {
+                menu->windowHandle()->setTransientParent(transientParent);
+            }
+        }
         menu->popup(p, atAction);
     }
 }
@@ -530,6 +536,11 @@ void DropJobPrivate::slotDropActionDetermined(int error)
         });
 
         if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
+            if (QWindow *transientParent = KJobWidgets::windowHandle(q)) {
+                if (menu->winId()) {
+                    menu->windowHandle()->setTransientParent(transientParent);
+                }
+            }
             menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
         }
         m_menus.insert(menu);
