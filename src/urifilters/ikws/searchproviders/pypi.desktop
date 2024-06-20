@@ -32,6 +32,7 @@ Name[ro]=PyPI
 Name[ru]=PyPI
 Name[sk]=PyPI
 Name[sl]=PyPI
+Name[sv]=PyPI
 Name[tr]=PyPI
 Name[uk]=PyPI
 Name[x-test]=xxPyPIxx
@@ -69,6 +70,7 @@ Query[ro]=https://pypi.org/search/?q=\\{@}
 Query[ru]=https://pypi.org/search/?q=\\{@}
 Query[sk]=https://pypi.org/search/?q=\\{@}
 Query[sl]=https://pypi.org/search/?q=\\{@}
+Query[sv]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}
 Query[uk]=https://pypi.org/search/?q=\\{@}
 Query[x-test]=xxhttps://pypi.org/search/?q=\\{@}xx
