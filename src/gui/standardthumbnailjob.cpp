@@ -17,6 +17,7 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(QString processName, QStringList
         }
         Q_EMIT data(this, QImage(m_path));
         proc->deleteLater();
+        emitResult();
     });
     proc->start(m_processName, m_processArgs);
 }
