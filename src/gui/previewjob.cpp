@@ -171,7 +171,7 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
-    void slotStandardThumbData(KIO::Job *, const QByteArray &, const StandardThumbnailerData &);
+    void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -809,6 +809,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         return;
     }
 
+    qWarning() << thumbURL;
     auto standardThumbnailer = standardThumbnailers.find(currentItem.item.mimetype());
     if (!standardThumbnailer.key().isNull()) {
         auto runCmd = standardThumbnailer.value().exec;
@@ -826,6 +827,28 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         args.removeFirst();
         KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(bin, args, path);
         q->addSubjob(job);
+        q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
+            qWarning() << "Using slotStandardThumbData";
+            slotStandardThumbData(job, thumb);
+        });
+        // only emits one preview and then stops?
+        int thumb_width = width;
+        int thumb_height = height;
+        if (save) {
+            thumb_width = thumb_height = cacheSize;
+        }
+
+        job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
+        job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
+        job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+        job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
+        job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
+        job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
+        job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
+        if (sequenceIndex) {
+            job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
+        }
+
     } else {
         KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
         q->addSubjob(job);
@@ -880,6 +903,43 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 #endif
     }
 }
+
+void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumbData)
+{
+    thumbnailWorkerMetaData = job->metaData();
+
+    QImage thumb = thumbData;
+
+    if (thumb.isNull()) {
+        qWarning() << "thumb is null";
+        // let succeeded in false state
+        // failed will get called in determineNextFile()
+        return;
+    }
+
+    qWarning() << "saving";
+    thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
+    thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
+    thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
+    thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
+    QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
+    QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
+    if (!thumbnailerVersion.isEmpty()) {
+        signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
+    }
+    thumb.setText(QStringLiteral("Software"), signature);
+    QSaveFile saveFile(thumbPath + thumbName);
+    if (saveFile.open(QIODevice::WriteOnly)) {
+        if (thumb.save(&saveFile, "PNG")) {
+            saveFile.commit();
+        }
+    }
+
+
+    emitPreview(thumb);
+    succeeded = true;
+}
+
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
@@ -946,104 +1006,6 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 
     emitPreview(thumb);
     succeeded = true;
-}
-
-void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QByteArray &data, const StandardThumbnailerData &thumbnailer)
-{
-    if (thumbnailer.exec.isEmpty()) {
-        return;
-    }
-    thumbnailWorkerMetaData = job->metaData();
-    /* clang-format off */
-    const bool save = bSave
-                      && !sequenceIndex
-                      && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
-                      && (!currentItem.item.targetUrl().isLocalFile()
-                          || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
-    /* clang-format on */
-
-    QImage thumb;
-    QDataStream str(data);
-    int width;
-    int height;
-    QImage::Format format;
-    qreal imgDevicePixelRatio;
-    // TODO KF6: add a version number as first parameter
-    str >> width >> height >> format >> imgDevicePixelRatio;
-
-    if (save) {
-        auto runCmd = thumbnailer.exec;
-        const auto path = thumbPath + thumbName;
-
-        runCmd.replace(QStringLiteral("%s"), QString::number(width));
-        runCmd.replace(QStringLiteral("%u"), currentItem.item.localPath());
-        runCmd.replace(QStringLiteral("%o"), path);
-
-        QProcess *proc = new QProcess(job);
-        // This needs to be async somehow
-        // tried connect here but it didnt seem to work, i guess this job needs to spawn another job,
-        // then wait for it to finish?
-        // SELinux also gets very notification heavy about this
-        auto args = QProcess::splitCommand(runCmd);
-        if (args.isEmpty()) {
-            return;
-        }
-        auto bin = args.first();
-        args.removeFirst();
-        QProcess::connect(proc, &QProcess::finished, job, [=, this](int exitCode, QProcess::ExitStatus exitStatus) {
-            if (exitCode != 0) {
-                qWarning() << "thumbnail process failed " << exitStatus;
-                return;
-            }
-            const auto filepath = path;
-            QImage thumb(filepath);
-
-            thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
-            thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
-            thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
-            thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
-            QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
-            QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
-            if (!thumbnailerVersion.isEmpty()) {
-                signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
-            }
-            thumb.setText(QStringLiteral("Software"), signature);
-            qWarning() << "savefile";
-            QSaveFile saveFile(filepath);
-            if (saveFile.open(QIODevice::WriteOnly)) {
-                if (thumb.save(&saveFile, "PNG")) {
-                    if (!saveFile.commit()) {
-                        qWarning() << "save fail";
-                        return;
-                    }
-                }
-            }
-            qWarning() << "emitting preview";
-            emitPreview(thumb);
-            qWarning() << "success?";
-            succeeded = true;
-            proc->deleteLater();
-        });
-        proc->start(bin, args);
-        // uncomment this for working but slow solution
-        // proc->waitForFinished();
-    } else {
-        thumb.setDevicePixelRatio(imgDevicePixelRatio);
-
-        if (thumb.isNull()) {
-            QDataStream s(data);
-            s >> thumb;
-        }
-
-        if (thumb.isNull()) {
-            // let succeeded in false state
-            // failed will get called in determineNextFile()
-            return;
-        }
-        emitPreview(thumb);
-        succeeded = true;
-    }
 }
 
 void PreviewJobPrivate::emitPreview(const QImage &thumb)

@@ -15,7 +15,8 @@ class KIOGUI_EXPORT StandardThumbnailJob : public KIO::Job
 
 public:
     StandardThumbnailJob(QString processName, QStringList processArgs, QString path);
-    void start() override;
+Q_SIGNALS:
+    void data(KIO::Job *job, const QImage &thumb);
 };
 
 }
