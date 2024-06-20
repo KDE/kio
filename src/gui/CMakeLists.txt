@@ -27,6 +27,7 @@ target_sources(KF6KIOGui PRIVATE
    kurifilter.cpp
    kurifilterplugin.cpp
    openfilemanagerwindowjob.cpp
+   standardthumbnailjob.cpp
 )
 
 if (HAVE_QTDBUS)
@@ -107,6 +108,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   OpenWithHandlerInterface
   PreviewJob
   ThumbnailCreator
+  StandardThumbnailJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS
