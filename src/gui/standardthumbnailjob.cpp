@@ -9,6 +9,9 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(QString processName, QStringList
     m_processName = processName;
     m_processArgs = processArgs;
     m_path = path;
+    qWarning() << processName;
+    qWarning() << processArgs;
+    qWarning() << path;
     QProcess *proc = new QProcess();
     connect(proc, &QProcess::finished, this, [=, this](int exitCode, QProcess::ExitStatus exitStatus) {
         if (exitCode != 0) {
