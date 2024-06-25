@@ -280,6 +280,9 @@ void PreviewJobPrivate::startPreview()
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
     // Skip plugins, we have a standard thumbnailer
+    // TODO: check if plugin is enabled or not, then generate previews only for enabled ones mimetypes in the plugin
+    // using standardthumbnailer
+    // if mimetype is from thumbnailers, just generate preview anyway
     bool bNeedCache = true;
     auto stdThumb = standardThumbnailers.constFind(initialItems.front().mimetype());
     if (stdThumb == standardThumbnailers.constEnd()) {
@@ -315,13 +318,6 @@ void PreviewJobPrivate::startPreview()
 
             const QString mimeType = item.item.mimetype();
             KPluginMetaData plugin;
-
-            // check if we have a thumbnailer for this item in /usr/share/thumbnailers
-            // TODO if this is the case, handle it with a standard thumbnailer instead
-            //  1. skip the following queue of stuff, we probably need a thumbnailer plugin called "standard" that just exists and is pretty
-            //  2. create the thumbnail using the thumbnailer, in get or create thumbnail thing
-            //  3. we can probably reuse the standardThumbnailers contains blabla
-            //  4. move the thumbnail data to right places after creation
 
             // look for protocol-specific thumbnail plugins first
             auto it = protocolMap.constFind(item.item.url().scheme());
