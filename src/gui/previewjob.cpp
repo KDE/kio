@@ -30,6 +30,7 @@
 #include <limits>
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QImage>
 #include <QObject>
@@ -207,14 +208,19 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
     }
 
-    const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(QStringLiteral("/usr/share/thumbnailers/gdk-pixbuf-thumbnailer.thumbnailer")),
-                                         QStringLiteral("Thumbnailer Entry"));
-    auto mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
-    auto tryExec = thumbnailerConfig.readEntry("TryExec", QStringLiteral(""));
-    auto exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
-    for (auto mimetype : mimetypes) {
-        if (!mimetype.isEmpty()) {
-            d->standardThumbnailers.insert(mimetype, KIO::PreviewJobPrivate::StandardThumbnailerData{tryExec, exec});
+    QDirIterator it(QStringLiteral("/usr/share/thumbnailers/"), QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        QFile f(it.next());
+        if (QFileInfo(f).suffix() == QStringLiteral("thumbnailer")) {
+            const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(f.fileName()), QStringLiteral("Thumbnailer Entry"));
+            auto mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
+            auto tryExec = thumbnailerConfig.readEntry("TryExec", QStringLiteral(""));
+            auto exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
+            for (auto mimetype : mimetypes) {
+                if (!mimetype.isEmpty()) {
+                    d->standardThumbnailers.insert(mimetype, KIO::PreviewJobPrivate::StandardThumbnailerData{tryExec, exec});
+                }
+            }
         }
     }
 
@@ -816,6 +822,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         const auto path = thumbPath + thumbName;
 
         runCmd.replace(QStringLiteral("%s"), QString::number(width));
+        runCmd.replace(QStringLiteral("%i"), currentItem.item.localPath());
         runCmd.replace(QStringLiteral("%u"), currentItem.item.localPath());
         runCmd.replace(QStringLiteral("%o"), path);
 
