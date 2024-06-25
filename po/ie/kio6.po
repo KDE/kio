@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:36+0000\n"
+"POT-Creation-Date: 2024-06-25 00:36+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -4654,22 +4654,22 @@ msgstr "Calcular"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Fa un clic por copiar li summa al Paperiere."
 
-#: widgets/dropjob.cpp:185
+#: widgets/dropjob.cpp:186
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anullar"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mover ad ci"
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:321
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copiar ad ci"
 
-#: widgets/dropjob.cpp:325
+#: widgets/dropjob.cpp:326
 #, kde-format
 msgid "&Link Here"
 msgstr "&Ligar ad ci"

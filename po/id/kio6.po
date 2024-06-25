@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:36+0000\n"
+"POT-Creation-Date: 2024-06-25 00:36+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -4932,22 +4932,22 @@ msgstr "Menghitung"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klik untuk menyalin checksum ke papan klip."
 
-#: widgets/dropjob.cpp:185
+#: widgets/dropjob.cpp:186
 #, kde-format
 msgid "C&ancel"
 msgstr "&Batal"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pindah Sini"
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:321
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Salin Sini"
 
-#: widgets/dropjob.cpp:325
+#: widgets/dropjob.cpp:326
 #, kde-format
 msgid "&Link Here"
 msgstr "&Taut Sini"

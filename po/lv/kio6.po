@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:36+0000\n"
+"POT-Creation-Date: 2024-06-25 00:36+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4943,22 +4943,22 @@ msgstr "Aprēķināt"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:185
+#: widgets/dropjob.cpp:186
 #, kde-format
 msgid "C&ancel"
 msgstr "At&celt"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pārvietot šeit"
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:321
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopēt šeit"
 
-#: widgets/dropjob.cpp:325
+#: widgets/dropjob.cpp:326
 #, kde-format
 msgid "&Link Here"
 msgstr "&Saitēt šeit"

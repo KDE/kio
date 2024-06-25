@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:36+0000\n"
+"POT-Creation-Date: 2024-06-25 00:36+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -4549,22 +4549,22 @@ msgstr "Tê Hesibandin..."
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:185
+#: widgets/dropjob.cpp:186
 #, kde-format
 msgid "C&ancel"
 msgstr ""
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:320
+#: widgets/dropjob.cpp:321
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:325
+#: widgets/dropjob.cpp:326
 #, kde-format
 msgid "&Link Here"
 msgstr ""
