@@ -177,6 +177,7 @@ public:
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
+    bool isMimeTypeIgnored(const QString &mimeType);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -270,6 +271,18 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
         return d->bSave ? ScaledAndCached : Scaled;
     }
     return Unscaled;
+}
+
+bool PreviewJobPrivate::isMimeTypeIgnored(const QString &mimeType)
+{
+    for (auto mime : disabledMimetypes) {
+        QRegularExpression re(QRegularExpression::anchoredPattern(QRegularExpression::wildcardToRegularExpression(mime)),
+                              QRegularExpression::CaseInsensitiveOption);
+        if (re.match(mimeType).hasMatch()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void PreviewJobPrivate::startPreview()
@@ -383,8 +396,8 @@ void PreviewJobPrivate::startPreview()
         }
     } else {
         for (const auto &fileItem : std::as_const(initialItems)) {
-            if (!disabledMimetypes.contains(fileItem.mimetype()))
-            {
+            // TODO compare if mimetype is img/* and img/somethign so that it applies
+            if (!isMimeTypeIgnored(fileItem.mimetype())) {
                 PreviewItem item;
                 item.item = fileItem;
                 items.push_back(item);
@@ -818,6 +831,9 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
+    if (isMimeTypeIgnored(currentItem.item.mimetype())) {
+        return;
+    }
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
