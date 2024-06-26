@@ -104,6 +104,7 @@ public:
 
     KFileItemList initialItems;
     QStringList enabledPlugins;
+    QStringList disabledMimetypes;
     // Some plugins support remote URLs, <protocol, mimetypes>
     QHash<QString, QStringList> m_remoteProtocolPlugins;
     // Our todo list :)
@@ -284,6 +285,14 @@ void PreviewJobPrivate::startPreview()
     // using standardthumbnailer
     // if mimetype is from thumbnailers, just generate preview anyway
     bool bNeedCache = true;
+    for (auto plug :plugins)
+    {
+        if (!enabledPlugins.contains(plug.pluginId()))
+        {
+            disabledMimetypes.append(plug.mimeTypes());
+        }
+    }
+    qWarning() << disabledMimetypes;
     auto stdThumb = standardThumbnailers.constFind(initialItems.front().mimetype());
     if (stdThumb == standardThumbnailers.constEnd()) {
         for (const KPluginMetaData &plugin : plugins) {
@@ -374,9 +383,12 @@ void PreviewJobPrivate::startPreview()
         }
     } else {
         for (const auto &fileItem : std::as_const(initialItems)) {
-            PreviewItem item;
-            item.item = fileItem;
-            items.push_back(item);
+            if (!disabledMimetypes.contains(fileItem.mimetype()))
+            {
+                PreviewItem item;
+                item.item = fileItem;
+                items.push_back(item);
+            }
         }
     }
     KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
