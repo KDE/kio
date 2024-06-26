@@ -179,6 +179,7 @@ public:
     int getDeviceId(const QString &path);
     bool isMimeTypeIgnored(const QString &mimeType);
     void addCreateThumbnailJobMetadata(KIO::Job *job, const bool save, const CachePolicy cachePolicy);
+    void saveThumbnailData(QImage &thumb);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -309,6 +310,7 @@ void PreviewJobPrivate::startPreview()
 
     auto stdThumb = standardThumbnailers.constFind(initialItems.front().mimetype());
     if (stdThumb == standardThumbnailers.constEnd()) {
+        // Using thumbnailer plugin
         for (const KPluginMetaData &plugin : plugins) {
             QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
             const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
@@ -396,8 +398,8 @@ void PreviewJobPrivate::startPreview()
             }
         }
     } else {
+        // Using /usr/share/thumbnailers
         for (const auto &fileItem : std::as_const(initialItems)) {
-            // TODO compare if mimetype is img/* and img/somethign so that it applies
             if (!isMimeTypeIgnored(fileItem.mimetype())) {
                 PreviewItem item;
                 item.item = fileItem;
@@ -854,7 +856,6 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         // Using /usr/share/thumbnailers
         auto runCmd = it.value().exec;
         const auto path = thumbPath + thumbName;
-
         auto localPath = QStringLiteral("\"%1\"").arg(currentItem.item.localPath());
         runCmd.replace(QStringLiteral("%s"), QString::number(width));
         runCmd.replace(QStringLiteral("%i"), localPath);
@@ -945,23 +946,7 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumb
         return;
     }
 
-    thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
-    thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
-    thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
-    thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
-    QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
-    QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
-    if (!thumbnailerVersion.isEmpty()) {
-        signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
-    }
-    thumb.setText(QStringLiteral("Software"), signature);
-    QSaveFile saveFile(thumbPath + thumbName);
-    if (saveFile.open(QIODevice::WriteOnly)) {
-        if (thumb.save(&saveFile, "PNG")) {
-            saveFile.commit();
-        }
-    }
-
+    saveThumbnailData(thumb);
 
     emitPreview(thumb);
     succeeded = true;
@@ -1013,26 +998,31 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     }
 
     if (save) {
-        thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
-        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
-        thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
-        thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
-        QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
-        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
-        if (!thumbnailerVersion.isEmpty()) {
-            signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
-        }
-        thumb.setText(QStringLiteral("Software"), signature);
-        QSaveFile saveFile(thumbPath + thumbName);
-        if (saveFile.open(QIODevice::WriteOnly)) {
-            if (thumb.save(&saveFile, "PNG")) {
-                saveFile.commit();
-            }
-        }
+        saveThumbnailData(thumb);
     }
 
     emitPreview(thumb);
     succeeded = true;
+}
+
+void PreviewJobPrivate::saveThumbnailData(QImage &thumb)
+{
+    thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
+    thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
+    thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
+    thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
+    QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
+    QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
+    if (!thumbnailerVersion.isEmpty()) {
+        signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
+    }
+    thumb.setText(QStringLiteral("Software"), signature);
+    QSaveFile saveFile(thumbPath + thumbName);
+    if (saveFile.open(QIODevice::WriteOnly)) {
+        if (thumb.save(&saveFile, "PNG")) {
+            saveFile.commit();
+        }
+    }
 }
 
 void PreviewJobPrivate::emitPreview(const QImage &thumb)
