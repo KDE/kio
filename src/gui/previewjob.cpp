@@ -104,7 +104,6 @@ public:
 
     KFileItemList initialItems;
     QStringList enabledPlugins;
-    QStringList disabledMimetypes;
     // Some plugins support remote URLs, <protocol, mimetypes>
     QHash<QString, QStringList> m_remoteProtocolPlugins;
     // Our todo list :)
@@ -163,6 +162,7 @@ public:
         QString exec;
     };
     QMap<QString, StandardThumbnailerData> standardThumbnailers;
+    QMap<QString, bool> mimeTypeStatus;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -177,9 +177,9 @@ public:
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
-    bool isMimeTypeIgnored(const QString &mimeType);
     void addCreateThumbnailJobMetadata(KIO::Job *job, const bool save, const CachePolicy cachePolicy);
     void saveThumbnailData(QImage &thumb);
+    bool isMimeTypeEnabled(const QString &mimeType);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -275,15 +275,18 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
     return Unscaled;
 }
 
-bool PreviewJobPrivate::isMimeTypeIgnored(const QString &mimeType)
+bool PreviewJobPrivate::isMimeTypeEnabled(const QString &mimeType)
 {
-    for (auto mime : disabledMimetypes) {
-        QRegularExpression re(QRegularExpression::anchoredPattern(QRegularExpression::wildcardToRegularExpression(mime)),
-                              QRegularExpression::CaseInsensitiveOption);
-        if (re.match(mimeType).hasMatch()) {
-            return true;
-        }
+    auto it = mimeTypeStatus.constFind(mimeType);
+    if (it == mimeTypeStatus.constEnd()) {
+        // We do not have a plugin but possibly have a thumbnailer
+        // qWarning() << "Mimetype not found in list, so it probably uses thumbnailer: " << mimeType;
+        return true;
+    } else {
+        // If the mimeType is enabled
+        return it.value();
     }
+    qWarning() << "something went wrong";
     return false;
 }
 
@@ -296,15 +299,16 @@ void PreviewJobPrivate::startPreview()
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
     bool bNeedCache = true;
-    disabledMimetypes.clear();
-    for (auto plug : plugins) {
-        if (!enabledPlugins.contains(plug.pluginId())) {
-            disabledMimetypes.append(plug.mimeTypes());
+    mimeTypeStatus.clear();
+    for (auto plugin : plugins) {
+        const auto mimeTypes = plugin.mimeTypes();
+        for (const QString &mimeType : mimeTypes) {
+            mimeTypeStatus.insert(mimeType, enabledPlugins.contains(plugin.pluginId()));
         }
     }
 
     auto stdThumb = standardThumbnailers.constFind(initialItems.front().mimetype());
-    if (stdThumb == standardThumbnailers.constEnd()) {
+    if (stdThumb != standardThumbnailers.constEnd()) {
         // Using thumbnailer plugin
         for (const KPluginMetaData &plugin : plugins) {
             QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
@@ -323,9 +327,9 @@ void PreviewJobPrivate::startPreview()
                     }
                 }
             }
-            if (enabledPlugins.contains(plugin.pluginId())) {
-                const auto mimeTypes = plugin.mimeTypes();
-                for (const QString &mimeType : mimeTypes) {
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &mimeType : mimeTypes) {
+                if (isMimeTypeEnabled(mimeType)) {
                     mimeMap.insert(mimeType, plugin);
                 }
             }
@@ -395,7 +399,7 @@ void PreviewJobPrivate::startPreview()
     } else {
         // Using /usr/share/thumbnailers
         for (const auto &fileItem : std::as_const(initialItems)) {
-            if (!isMimeTypeIgnored(fileItem.mimetype())) {
+            if (isMimeTypeEnabled(fileItem.mimetype())) {
                 PreviewItem item;
                 item.item = fileItem;
                 items.push_back(item);
@@ -846,9 +850,10 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
     if (it != standardThumbnailers.constEnd()) {
         // Using /usr/share/thumbnailers
-        if (isMimeTypeIgnored(currentItem.item.mimetype())) {
+        if (!isMimeTypeEnabled(currentItem.item.mimetype())) {
             return;
         }
+
         auto runCmd = it.value().exec;
         const auto path = thumbPath + thumbName;
         auto localPath = QStringLiteral("\"%1\"").arg(currentItem.item.localPath());
