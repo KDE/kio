@@ -295,15 +295,10 @@ void PreviewJobPrivate::startPreview()
     QMap<QString, KPluginMetaData> mimeMap;
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
-    // Skip plugins, we have a standard thumbnailer
-    // TODO: check if plugin is enabled or not, then generate previews only for enabled ones mimetypes in the plugin
-    // using standardthumbnailer
-    // if mimetype is from thumbnailers, just generate preview anyway
     bool bNeedCache = true;
-    for (auto plug :plugins)
-    {
-        if (!enabledPlugins.contains(plug.pluginId()))
-        {
+    disabledMimetypes.clear();
+    for (auto plug : plugins) {
+        if (!enabledPlugins.contains(plug.pluginId())) {
             disabledMimetypes.append(plug.mimeTypes());
         }
     }
@@ -833,9 +828,6 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
-    if (isMimeTypeIgnored(currentItem.item.mimetype())) {
-        return;
-    }
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
@@ -854,6 +846,9 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
     if (it != standardThumbnailers.constEnd()) {
         // Using /usr/share/thumbnailers
+        if (isMimeTypeIgnored(currentItem.item.mimetype())) {
+            return;
+        }
         auto runCmd = it.value().exec;
         const auto path = thumbPath + thumbName;
         auto localPath = QStringLiteral("\"%1\"").arg(currentItem.item.localPath());
@@ -952,18 +947,9 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumb
     succeeded = true;
 }
 
-
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
     thumbnailWorkerMetaData = job->metaData();
-    /* clang-format off */
-    const bool save = bSave
-                      && !sequenceIndex
-                      && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
-                      && (!currentItem.item.targetUrl().isLocalFile()
-                          || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
-    /* clang-format on */
 
     QImage thumb;
     // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
@@ -997,9 +983,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         return;
     }
 
-    if (save) {
-        saveThumbnailData(thumb);
-    }
+    saveThumbnailData(thumb);
 
     emitPreview(thumb);
     succeeded = true;
@@ -1007,20 +991,26 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 
 void PreviewJobPrivate::saveThumbnailData(QImage &thumb)
 {
-    thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
-    thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
-    thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
-    thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
-    QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
-    QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
-    if (!thumbnailerVersion.isEmpty()) {
-        signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
-    }
-    thumb.setText(QStringLiteral("Software"), signature);
-    QSaveFile saveFile(thumbPath + thumbName);
-    if (saveFile.open(QIODevice::WriteOnly)) {
-        if (thumb.save(&saveFile, "PNG")) {
-            saveFile.commit();
+    const bool save = bSave && !sequenceIndex && currentDeviceCachePolicy == CachePolicy::Allow
+        && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
+        && (!currentItem.item.targetUrl().isLocalFile() || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+
+    if (save) {
+        thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
+        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
+        thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
+        thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
+        QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
+        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin.name();
+        if (!thumbnailerVersion.isEmpty()) {
+            signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
+        }
+        thumb.setText(QStringLiteral("Software"), signature);
+        QSaveFile saveFile(thumbPath + thumbName);
+        if (saveFile.open(QIODevice::WriteOnly)) {
+            if (thumb.save(&saveFile, "PNG")) {
+                saveFile.commit();
+            }
         }
     }
 }
