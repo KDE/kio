@@ -70,6 +70,7 @@ using namespace KIO;
 struct KIO::PreviewItem {
     KFileItem item;
     KPluginMetaData plugin;
+    bool standardThumbnailer = false;
 };
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
@@ -162,7 +163,6 @@ public:
         QString exec;
     };
     QMap<QString, StandardThumbnailerData> standardThumbnailers;
-    QMap<QString, bool> mimeTypeStatus;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -179,7 +179,6 @@ public:
     int getDeviceId(const QString &path);
     void addCreateThumbnailJobMetadata(KIO::Job *job, const bool save, const CachePolicy cachePolicy);
     void saveThumbnailData(QImage &thumb);
-    bool isMimeTypeEnabled(const QString &mimeType);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -275,21 +274,6 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
     return Unscaled;
 }
 
-bool PreviewJobPrivate::isMimeTypeEnabled(const QString &mimeType)
-{
-    auto it = mimeTypeStatus.constFind(mimeType);
-    if (it == mimeTypeStatus.constEnd()) {
-        // We do not have a plugin but possibly have a thumbnailer
-        // qWarning() << "Mimetype not found in list, so it probably uses thumbnailer: " << mimeType;
-        return true;
-    } else {
-        // If the mimeType is enabled
-        return it.value();
-    }
-    qWarning() << "something went wrong";
-    return false;
-}
-
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
@@ -298,114 +282,103 @@ void PreviewJobPrivate::startPreview()
     QMap<QString, KPluginMetaData> mimeMap;
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
-    bool bNeedCache = true;
-    mimeTypeStatus.clear();
-    for (auto plugin : plugins) {
-        const auto mimeTypes = plugin.mimeTypes();
-        for (const QString &mimeType : mimeTypes) {
-            mimeTypeStatus.insert(mimeType, enabledPlugins.contains(plugin.pluginId()));
+    // Using thumbnailer plugin
+    for (const KPluginMetaData &plugin : plugins) {
+        QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
+        const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
+        if (!p.isEmpty()) {
+            protocols.append(p);
+        }
+        for (const QString &protocol : std::as_const(protocols)) {
+            // Add supported MIME type for this protocol
+            QStringList &_ms = m_remoteProtocolPlugins[protocol];
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &_m : mimeTypes) {
+                protocolMap[protocol].insert(_m, plugin);
+                if (!_ms.contains(_m)) {
+                    _ms.append(_m);
+                }
+            }
+        }
+        if (enabledPlugins.contains(plugin.pluginId())) {
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &mimeType : mimeTypes) {
+                mimeMap.insert(mimeType, plugin);
+            }
         }
     }
 
-    auto stdThumb = standardThumbnailers.constFind(initialItems.front().mimetype());
-    if (stdThumb != standardThumbnailers.constEnd()) {
-        // Using thumbnailer plugin
-        for (const KPluginMetaData &plugin : plugins) {
-            QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
-            const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
-            if (!p.isEmpty()) {
-                protocols.append(p);
-            }
-            for (const QString &protocol : std::as_const(protocols)) {
-                // Add supported MIME type for this protocol
-                QStringList &_ms = m_remoteProtocolPlugins[protocol];
-                const auto mimeTypes = plugin.mimeTypes();
-                for (const QString &_m : mimeTypes) {
-                    protocolMap[protocol].insert(_m, plugin);
-                    if (!_ms.contains(_m)) {
-                        _ms.append(_m);
+    // Look for images and store the items in our todo list :)
+    bool bNeedCache = false;
+    for (const auto &fileItem : std::as_const(initialItems)) {
+        PreviewItem item;
+        item.item = fileItem;
+        item.standardThumbnailer = false;
+
+        const QString mimeType = item.item.mimetype();
+        KPluginMetaData plugin;
+
+        // look for protocol-specific thumbnail plugins first
+        auto it = protocolMap.constFind(item.item.url().scheme());
+        if (it != protocolMap.constEnd()) {
+            plugin = it.value().value(mimeType);
+        }
+
+        if (!plugin.isValid()) {
+            auto pluginIt = mimeMap.constFind(mimeType);
+            if (pluginIt == mimeMap.constEnd()) {
+                // check MIME type inheritance, resolve aliases
+                QMimeDatabase db;
+                const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
+                if (mimeInfo.isValid()) {
+                    const QStringList parentMimeTypes = mimeInfo.allAncestors();
+                    for (const QString &parentMimeType : parentMimeTypes) {
+                        pluginIt = mimeMap.constFind(parentMimeType);
+                        if (pluginIt != mimeMap.constEnd()) {
+                            break;
+                        }
                     }
                 }
-            }
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &mimeType : mimeTypes) {
-                if (isMimeTypeEnabled(mimeType)) {
-                    mimeMap.insert(mimeType, plugin);
+
+                if (pluginIt == mimeMap.constEnd()) {
+                    // Check the wildcards last, see BUG 453480
+                    QString groupMimeType = mimeType;
+                    const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
+                    if (slashIdx != -1) {
+                        // Replace everything after '/' with '*'
+                        groupMimeType.truncate(slashIdx + 1);
+                        groupMimeType += QLatin1Char('*');
+                    }
+                    pluginIt = mimeMap.constFind(groupMimeType);
                 }
+            }
+
+            if (pluginIt != mimeMap.constEnd()) {
+                plugin = *pluginIt;
             }
         }
 
-        // Look for images and store the items in our todo list :)
-        for (const auto &fileItem : std::as_const(initialItems)) {
-            PreviewItem item;
-            item.item = fileItem;
-
-            const QString mimeType = item.item.mimetype();
-            KPluginMetaData plugin;
-
-            // look for protocol-specific thumbnail plugins first
-            auto it = protocolMap.constFind(item.item.url().scheme());
-            if (it != protocolMap.constEnd()) {
-                plugin = it.value().value(mimeType);
-            }
-
-            if (!plugin.isValid()) {
-                auto pluginIt = mimeMap.constFind(mimeType);
-                if (pluginIt == mimeMap.constEnd()) {
-                    // check MIME type inheritance, resolve aliases
-                    QMimeDatabase db;
-                    const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
-                    if (mimeInfo.isValid()) {
-                        const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                        for (const QString &parentMimeType : parentMimeTypes) {
-                            pluginIt = mimeMap.constFind(parentMimeType);
-                            if (pluginIt != mimeMap.constEnd()) {
-                                break;
-                            }
-                        }
-                    }
-
-                    if (pluginIt == mimeMap.constEnd()) {
-                        // Check the wildcards last, see BUG 453480
-                        QString groupMimeType = mimeType;
-                        const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
-                        if (slashIdx != -1) {
-                            // Replace everything after '/' with '*'
-                            groupMimeType.truncate(slashIdx + 1);
-                            groupMimeType += QLatin1Char('*');
-                        }
-                        pluginIt = mimeMap.constFind(groupMimeType);
-                    }
-                }
-
-                if (pluginIt != mimeMap.constEnd()) {
-                    plugin = *pluginIt;
+        if (plugin.isValid()) {
+            item.plugin = plugin;
+            items.push_back(item);
+            if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
+                const QUrl url = fileItem.targetUrl();
+                if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
+                    bNeedCache = true;
                 }
             }
-
-            if (plugin.isValid()) {
-                item.plugin = plugin;
+        } else {
+            auto stdThumb = standardThumbnailers.constFind(fileItem.mimetype());
+            if (stdThumb != standardThumbnailers.constEnd()) {
+                bNeedCache = true;
+                item.standardThumbnailer = true;
                 items.push_back(item);
-                if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-                    const QUrl url = fileItem.targetUrl();
-                    if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
-                        bNeedCache = true;
-                    }
-                }
             } else {
                 Q_EMIT q->failed(fileItem);
             }
         }
-    } else {
-        // Using /usr/share/thumbnailers
-        for (const auto &fileItem : std::as_const(initialItems)) {
-            if (isMimeTypeEnabled(fileItem.mimetype())) {
-                PreviewItem item;
-                item.item = fileItem;
-                items.push_back(item);
-            }
-        }
     }
+
     KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
     maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
@@ -847,28 +820,14 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         return;
     }
 
-    auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
-    if (it != standardThumbnailers.constEnd()) {
+    if (currentItem.standardThumbnailer) {
         // Using /usr/share/thumbnailers
-        if (!isMimeTypeEnabled(currentItem.item.mimetype())) {
+        auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
+        if (it == standardThumbnailers.constEnd()) {
             return;
         }
-
-        auto runCmd = it.value().exec;
-        const auto path = thumbPath + thumbName;
-        auto localPath = QStringLiteral("\"%1\"").arg(currentItem.item.localPath());
-        runCmd.replace(QStringLiteral("%s"), QString::number(width));
-        runCmd.replace(QStringLiteral("%i"), localPath);
-        runCmd.replace(QStringLiteral("%u"), localPath);
-        runCmd.replace(QStringLiteral("%o"), path);
-
-        auto args = QProcess::splitCommand(runCmd);
-        if (args.isEmpty()) {
-            return;
-        }
-        auto bin = args.first();
-        args.removeFirst();
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(bin, args, path);
+        const auto outputPath = thumbPath + thumbName;
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value().exec, width, currentItem.item.localPath(), outputPath);
         q->addSubjob(job);
         q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);

@@ -9,12 +9,9 @@ namespace KIO
 class KIOGUI_EXPORT StandardThumbnailJob : public KIO::Job
 {
     Q_OBJECT
-    QString m_processName;
-    QStringList m_processArgs;
-    QString m_path;
 
 public:
-    StandardThumbnailJob(QString processName, QStringList processArgs, QString path);
+    StandardThumbnailJob(const QString execString, const int width, const QString inputFile, const QString outputFile);
 Q_SIGNALS:
     void data(KIO::Job *job, const QImage &thumb);
 };
