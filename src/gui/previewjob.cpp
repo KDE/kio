@@ -163,6 +163,7 @@ public:
         QString exec;
     };
     QMap<QString, StandardThumbnailerData> standardThumbnailers;
+    QStringList disabledMimetypes;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -179,6 +180,7 @@ public:
     int getDeviceId(const QString &path);
     void addCreateThumbnailJobMetadata(KIO::Job *job, const bool save, const CachePolicy cachePolicy);
     void saveThumbnailData(QImage &thumb);
+    bool isMimeTypeEnabled(const QString &mimeType);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -274,6 +276,19 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
     return Unscaled;
 }
 
+bool PreviewJobPrivate::isMimeTypeEnabled(const QString &mimeType)
+{
+    for (auto mime : disabledMimetypes) {
+        // Check for mimetype wildcards such as image/*
+        QRegularExpression re(QRegularExpression::anchoredPattern(QRegularExpression::wildcardToRegularExpression(mime)),
+                              QRegularExpression::CaseInsensitiveOption);
+        if (re.match(mimeType).hasMatch()) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
@@ -304,6 +319,11 @@ void PreviewJobPrivate::startPreview()
             const auto mimeTypes = plugin.mimeTypes();
             for (const QString &mimeType : mimeTypes) {
                 mimeMap.insert(mimeType, plugin);
+            }
+        } else {
+            const auto mimeTypes = plugin.mimeTypes();
+            for (const QString &mimeType : mimeTypes) {
+                disabledMimetypes.append(mimeType);
             }
         }
     }
@@ -359,6 +379,7 @@ void PreviewJobPrivate::startPreview()
         }
 
         if (plugin.isValid()) {
+            // Using KIO thumbnailer plugin
             item.plugin = plugin;
             items.push_back(item);
             if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
@@ -368,8 +389,10 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         } else {
-            auto stdThumb = standardThumbnailers.constFind(fileItem.mimetype());
-            if (stdThumb != standardThumbnailers.constEnd()) {
+            // Using a thumbnailer from /usr/share/thumbnailers
+            auto stdThumb = standardThumbnailers.constFind(mimeType);
+            // NOTE This still doesnt work in cases where image/jpeg mimetype is allowed but image/* is not
+            if (stdThumb != standardThumbnailers.constEnd() && isMimeTypeEnabled(mimeType)) {
                 bNeedCache = true;
                 item.standardThumbnailer = true;
                 items.push_back(item);
