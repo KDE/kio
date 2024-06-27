@@ -13,7 +13,6 @@
 #include "kiogui_debug.h"
 #include "standardthumbnailjob.h"
 #include "statjob.h"
-#include <qprocess.h>
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -35,7 +34,6 @@
 #include <QImage>
 #include <QObject>
 #include <QPixmap>
-#include <QProcess>
 #include <QRegularExpression>
 #include <QSaveFile>
 #include <QTemporaryFile>
