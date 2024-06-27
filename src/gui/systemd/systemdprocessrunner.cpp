@@ -104,6 +104,17 @@ static QStringList prepareEnvironment(const QProcessEnvironment &environment)
     return allowedEnvironment.toStringList();
 }
 
+// systemd performs substitution of $ variables, we don't want this
+// $ should be replaced with $$
+static QStringList escapeArguments(const QStringList &in)
+{
+    QStringList escaped = in;
+    std::transform(escaped.begin(), escaped.end(), escaped.begin(), [](QString &item) {
+        return item.replace(QLatin1Char('$'), QLatin1String("$$"));
+    });
+    return escaped;
+}
+
 void SystemdProcessRunner::startProcess()
 {
     // As specified in "XDG standardization for applications" in https://systemd.io/DESKTOP_ENVIRONMENTS/
@@ -129,25 +140,27 @@ void SystemdProcessRunner::startProcess()
                 }
             });
 
+    const QStringList argv = escapeArguments(m_process->program());
+
     // Ask systemd for a new transient service
-    const auto startReply = m_manager->StartTransientUnit(
-        m_serviceName,
-        QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
-        {
-            // Properties of the transient service unit
-            {QStringLiteral("Type"), QStringLiteral("simple")},
-            {QStringLiteral("ExitType"), QStringLiteral("cgroup")},
-            {QStringLiteral("Slice"), QStringLiteral("app.slice")},
-            {QStringLiteral("Description"), m_description},
-            {QStringLiteral("SourcePath"), m_desktopFilePath},
-            {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
-                                              // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
-            {QStringLiteral("Environment"), prepareEnvironment(m_process->processEnvironment())},
-            {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
-            {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), m_process->program(), false}})},
-        },
-        {} // aux is currently unused and should be passed as empty array.
-    );
+    const auto startReply =
+        m_manager->StartTransientUnit(m_serviceName,
+                                      QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
+                                      {
+                                          // Properties of the transient service unit
+                                          {QStringLiteral("Type"), QStringLiteral("simple")},
+                                          {QStringLiteral("ExitType"), QStringLiteral("cgroup")},
+                                          {QStringLiteral("Slice"), QStringLiteral("app.slice")},
+                                          {QStringLiteral("Description"), m_description},
+                                          {QStringLiteral("SourcePath"), m_desktopFilePath},
+                                          {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
+                                                                            // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
+                                          {QStringLiteral("Environment"), prepareEnvironment(m_process->processEnvironment())},
+                                          {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
+                                          {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), argv, false}})},
+                                      },
+                                      {} // aux is currently unused and should be passed as empty array.
+        );
     connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         watcher->deleteLater();
