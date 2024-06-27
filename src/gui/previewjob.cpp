@@ -312,14 +312,12 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         }
-        if (enabledPlugins.contains(plugin.pluginId())) {
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &mimeType : mimeTypes) {
+        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
+        const auto mimeTypes = plugin.mimeTypes();
+        for (const QString &mimeType : mimeTypes) {
+            if (pluginIsEnabled) {
                 mimeMap.insert(mimeType, plugin);
-            }
-        } else {
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &mimeType : mimeTypes) {
+            } else {
                 disabledMimetypes.append(mimeType);
             }
         }
