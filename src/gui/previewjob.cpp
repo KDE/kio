@@ -42,6 +42,7 @@
 #include <QCryptographicHash>
 
 #include <KConfigGroup>
+#include <KFileUtils>
 #include <KMountPoint>
 #include <KPluginMetaData>
 #include <KService>
@@ -187,27 +188,17 @@ public:
 
     static QMap<QString, QString> standardThumbnailers()
     {
-        //          mimetype, exec
+        //         mimetype, exec
         static QMap<QString, QString> standardThumbs;
         if (standardThumbs.empty()) {
-            QStringList thumbnailerPaths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-            for (QString thumbnailerPath : thumbnailerPaths) {
-                QString path = QStringLiteral("%1/thumbnailers").arg(thumbnailerPath);
-                if (!QUrl(path).isValid()) {
-                    continue;
-                }
-                QDirIterator it(path, QDirIterator::Subdirectories);
-                while (it.hasNext()) {
-                    QFile f(it.next());
-                    if (QFileInfo(f).suffix() == QStringLiteral("thumbnailer")) {
-                        const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(f.fileName()), QStringLiteral("Thumbnailer Entry"));
-                        QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
-                        QString exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
-                        for (QString mimetype : mimetypes) {
-                            if (!mimetype.isEmpty()) {
-                                standardThumbs.insert(mimetype, exec);
-                            }
-                        }
+            QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
+            for (QString thumbnailerPath : KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")})) {
+                const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
+                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
+                QString exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
+                for (QString mimetype : mimetypes) {
+                    if (!mimetype.isEmpty()) {
+                        standardThumbs.insert(mimetype, exec);
                     }
                 }
             }
