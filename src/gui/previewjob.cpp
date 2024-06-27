@@ -156,11 +156,6 @@ public:
     QMap<QString, int> deviceIdMap;
     enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
 
-    struct StandardThumbnailerData {
-        QString tryExec;
-        QString exec;
-    };
-    QMap<QString, StandardThumbnailerData> standardThumbnailers;
     QStringList disabledMimetypes;
 
     void getOrCreateThumbnail();
@@ -189,6 +184,36 @@ public:
         }
         return jsonMetaDataPlugins;
     }
+
+    static QMap<QString, QString> standardThumbnailers()
+    {
+        //          mimetype, exec
+        static QMap<QString, QString> standardThumbs;
+        if (standardThumbs.empty()) {
+            QStringList thumbnailerPaths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+            for (QString thumbnailerPath : thumbnailerPaths) {
+                QString path = QStringLiteral("%1/thumbnailers").arg(thumbnailerPath);
+                if (!QUrl(path).isValid()) {
+                    continue;
+                }
+                QDirIterator it(path, QDirIterator::Subdirectories);
+                while (it.hasNext()) {
+                    QFile f(it.next());
+                    if (QFileInfo(f).suffix() == QStringLiteral("thumbnailer")) {
+                        const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(f.fileName()), QStringLiteral("Thumbnailer Entry"));
+                        QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
+                        QString exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
+                        for (QString mimetype : mimetypes) {
+                            if (!mimetype.isEmpty()) {
+                                standardThumbs.insert(mimetype, exec);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return standardThumbs;
+    }
 };
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
@@ -208,22 +233,6 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
         d->enabledPlugins =
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
-    }
-
-    QDirIterator it(QStringLiteral("/usr/share/thumbnailers/"), QDirIterator::Subdirectories);
-    while (it.hasNext()) {
-        QFile f(it.next());
-        if (QFileInfo(f).suffix() == QStringLiteral("thumbnailer")) {
-            const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(f.fileName()), QStringLiteral("Thumbnailer Entry"));
-            auto mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
-            auto tryExec = thumbnailerConfig.readEntry("TryExec", QStringLiteral(""));
-            auto exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
-            for (auto mimetype : mimetypes) {
-                if (!mimetype.isEmpty()) {
-                    d->standardThumbnailers.insert(mimetype, KIO::PreviewJobPrivate::StandardThumbnailerData{tryExec, exec});
-                }
-            }
-        }
     }
 
     // Return to event loop first, determineNextFile() might delete this;
@@ -385,9 +394,9 @@ void PreviewJobPrivate::startPreview()
             }
         } else {
             // Using a thumbnailer from /usr/share/thumbnailers
-            auto stdThumb = standardThumbnailers.constFind(mimeType);
+            auto stdThumb = standardThumbnailers().constFind(mimeType);
             // NOTE This still doesnt work in cases where image/jpeg mimetype is allowed but image/* is not
-            if (stdThumb != standardThumbnailers.constEnd() && isMimeTypeEnabled(mimeType)) {
+            if (stdThumb != standardThumbnailers().constEnd() && isMimeTypeEnabled(mimeType)) {
                 bNeedCache = true;
                 item.standardThumbnailer = true;
                 items.push_back(item);
@@ -840,12 +849,12 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
     if (currentItem.standardThumbnailer) {
         // Using /usr/share/thumbnailers
-        auto it = standardThumbnailers.constFind(currentItem.item.mimetype());
-        if (it == standardThumbnailers.constEnd()) {
+        auto it = standardThumbnailers().constFind(currentItem.item.mimetype());
+        if (it == standardThumbnailers().constEnd()) {
             return;
         }
         const auto outputPath = thumbPath + thumbName;
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value().exec, width, currentItem.item.localPath(), outputPath);
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value(), width, currentItem.item.localPath(), outputPath);
         q->addSubjob(job);
         q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
