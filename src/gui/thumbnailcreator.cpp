@@ -9,7 +9,6 @@
 #include "thumbnailcreator.h"
 
 #include <QImage>
-#include <qdebug.h>
 
 namespace KIO
 {
