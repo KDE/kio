@@ -23,6 +23,7 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const 
     connect(proc, &QProcess::finished, this, [=, this](int exitCode, QProcess::ExitStatus exitStatus) {
         if (exitCode != 0) {
             qWarning() << "Standard Thumbnail Job failed with ExitStatus: " << exitStatus << " - ExitCode: " << exitCode;
+            emitResult();
             return;
         }
         Q_EMIT data(this, QImage(outputFile));
