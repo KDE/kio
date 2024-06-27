@@ -14,6 +14,7 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const 
     runCmd.replace(QStringLiteral("%o"), outputFile);
     auto args = QProcess::splitCommand(runCmd);
     if (args.isEmpty()) {
+        emitResult();
         return;
     }
     auto bin = args.first();
