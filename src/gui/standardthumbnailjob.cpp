@@ -31,5 +31,10 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const 
         proc->deleteLater();
         emitResult();
     });
+    connect(proc, &QProcess::errorOccurred, this, [=, this](QProcess::ProcessError error) {
+        qWarning() << "Standard Thumbnail Job had an error:" << error;
+        proc->deleteLater();
+        emitResult();
+    });
     proc->start(bin, args);
 }
