@@ -1,3 +1,8 @@
+/*
+    SPDX-FileCopyrightText: 2024 Akseli Lahtinen <akselmo@akselmo.dev>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
 #include "standardthumbnailjob_p.h"
 #include <KMacroExpander>
 #include <QImage>
