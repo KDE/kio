@@ -1,4 +1,4 @@
-#include "standardthumbnailjob.h"
+#include "standardthumbnailjob_p.h"
 #include <KMacroExpander>
 #include <QImage>
 #include <QProcess>

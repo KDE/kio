@@ -11,7 +11,7 @@
 #include "previewjob.h"
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
-#include "standardthumbnailjob.h"
+#include "standardthumbnailjob_p.h"
 #include "statjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
