@@ -30,6 +30,7 @@
 #include <QDir>
 #include <QFile>
 #include <QImage>
+#include <QImageReader>
 #include <QPixmap>
 #include <QRegularExpression>
 #include <QSaveFile>
@@ -583,9 +584,12 @@ bool PreviewJobPrivate::statResultThumbnail()
     md5.addData(origName);
     thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
-    QImage thumb;
     QFile thumbFile(thumbPath + thumbName);
-    if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
+    if (!thumbFile.open(QIODevice::ReadOnly)) {
+        return false;
+    }
+    QImageReader thumb(&thumbFile, QByteArrayLiteral("png"));
+    if (!thumb.canRead()) {
         return false;
     }
 
@@ -599,10 +603,6 @@ bool PreviewJobPrivate::statResultThumbnail()
         // Thumb::Size is not required, but if it is set it should match
         return false;
     }
-
-    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
-    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
-    thumb.setDevicePixelRatio(devicePixelRatio);
 
     QString thumbnailerVersion = currentItem.plugin.value(QStringLiteral("ThumbnailerVersion"));
 
@@ -628,8 +628,12 @@ bool PreviewJobPrivate::statResultThumbnail()
         }
     }
 
+    QImage thumbImage = thumb.read();
+    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
+    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
+    thumbImage.setDevicePixelRatio(devicePixelRatio);
     // Found it, use it
-    emitPreview(thumb);
+    emitPreview(thumbImage);
     succeeded = true;
     determineNextFile();
     return true;
