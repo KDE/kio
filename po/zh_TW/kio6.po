@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:36+0000\n"
-"PO-Revision-Date: 2024-06-02 17:57+0900\n"
+"PO-Revision-Date: 2024-06-30 11:28+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3311,7 +3311,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
-msgstr "名稱(&N):"
+msgstr "名稱(&N)："
 
 #: filewidgets/kfilewidget.cpp:1359
 #, kde-format
@@ -4146,7 +4146,7 @@ msgstr "您必須提供一組使用者名稱和密碼來存取這個網站。"
 #: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:303
 #, kde-format
 msgid "Site:"
-msgstr "網站:"
+msgstr "網站："
 
 #: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
@@ -4183,7 +4183,7 @@ msgstr ""
 #: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:355
 #, kde-format
 msgid "Proxy:"
-msgstr "代理伺服器:"
+msgstr "代理伺服器："
 
 #: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
@@ -4544,7 +4544,7 @@ msgstr "<qt>沒有叫做 <b>%1</b> 的使用者。</qt>"
 #: widgets/certificateparty.ui:28
 #, kde-format
 msgid "Common name:"
-msgstr "一般名稱:"
+msgstr "一般名稱："
 
 #. i18n: ectx: property (text), widget (QLabel, commonName)
 #: widgets/certificateparty.ui:38
@@ -4556,7 +4556,7 @@ msgstr "Acme Co."
 #: widgets/certificateparty.ui:48
 #, kde-format
 msgid "Organization:"
-msgstr "組織:"
+msgstr "組織："
 
 #. i18n: ectx: property (text), widget (QLabel, organization)
 #: widgets/certificateparty.ui:58
@@ -4568,7 +4568,7 @@ msgstr "Acme Sundry Products Company"
 #: widgets/certificateparty.ui:68
 #, kde-format
 msgid "Organizational unit:"
-msgstr "組織單位:"
+msgstr "組織單位："
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
 #: widgets/certificateparty.ui:78
@@ -4580,7 +4580,7 @@ msgstr "Fraud Department"
 #: widgets/certificateparty.ui:88
 #, kde-format
 msgid "Country:"
-msgstr "國家:"
+msgstr "國家："
 
 #. i18n: ectx: property (text), widget (QLabel, country)
 #: widgets/certificateparty.ui:98
@@ -5434,7 +5434,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, kde-format
 msgid "Do not close when command exits"
-msgstr "當指令存在時不要關閉"
+msgstr "當指令離開時不要關閉"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
 #: widgets/kpropertiesdesktopadvbase.ui:87
@@ -5474,7 +5474,7 @@ msgstr "輸入你想要在這個應用程式使用的使用者名稱。"
 #: widgets/kpropertiesdesktopadvbase.ui:122
 #, kde-format
 msgid "Username:"
-msgstr "使用者名稱:"
+msgstr "使用者名稱："
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
 #: widgets/kpropertiesdesktopadvbase.ui:132
@@ -5558,7 +5558,7 @@ msgstr "在這裡輸入任何您認為有幫助的註解。"
 #: widgets/kpropertiesdesktopbase.ui:65
 #, kde-format
 msgid "Comm&ent:"
-msgstr "備註(&E):"
+msgstr "備註(&E)："
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
@@ -5640,7 +5640,7 @@ msgstr "設定您的應用程式的工作目錄。"
 #: widgets/kpropertiesdesktopbase.ui:172
 #, kde-format
 msgid "&Work path:"
-msgstr "工作路徑(&W):"
+msgstr "工作路徑(&W)："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -5677,7 +5677,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
-msgstr "支援的檔案類型(&S):"
+msgstr "支援的檔案類型(&S)："
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:230
@@ -5916,7 +5916,7 @@ msgstr "只有擁有者可以變更權限。"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1186
 #, kde-format
 msgid "O&wner:"
-msgstr "擁有者(&W):"
+msgstr "擁有者(&W)："
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1192
 #, kde-format
@@ -5926,7 +5926,7 @@ msgstr "指定擁有者被允許進行的動作。"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Gro&up:"
-msgstr "群組(&U):"
+msgstr "群組(&U)："
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
@@ -5936,7 +5936,7 @@ msgstr "指定群組的成員被允許進行的動作。"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "O&thers:"
-msgstr "其他(&T):"
+msgstr "其他(&T)："
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
 #, kde-format
@@ -6450,7 +6450,7 @@ msgstr "貼上"
 #: widgets/pastedialog.cpp:43
 #, kde-format
 msgid "Data format:"
-msgstr "資料格式:"
+msgstr "資料格式："
 
 #: widgets/pastejob.cpp:71
 #, kde-format
