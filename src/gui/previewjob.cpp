@@ -848,7 +848,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
             return;
         }
         const auto outputPath = thumbPath + thumbName;
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value(), width, currentItem.item.localPath(), outputPath);
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value(), width * devicePixelRatio, currentItem.item.localPath(), outputPath);
         q->addSubjob(job);
         q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
