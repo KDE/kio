@@ -275,7 +275,7 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 
 bool PreviewJobPrivate::isMimeTypeEnabled(const QString &mimeType)
 {
-    for (auto mime : disabledMimetypes) {
+    for (const auto &mime : disabledMimetypes) {
         // Check for mimetype wildcards such as image/*
         QRegularExpression re(QRegularExpression::anchoredPattern(QRegularExpression::wildcardToRegularExpression(mime)),
                               QRegularExpression::CaseInsensitiveOption);
