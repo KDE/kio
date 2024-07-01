@@ -46,11 +46,11 @@ private:
     const QString m_outputFile;
     QString m_binary;
     QStringList m_args;
-    void subst(int option, QStringList &ret);
 };
 
-void ThumbnailerExpander::subst(int option, QStringList &ret)
+int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 {
+    uint option = str[pos + 1].unicode();
     switch (option) {
     case 's':
         ret << QString::number(m_width);
@@ -61,24 +61,6 @@ void ThumbnailerExpander::subst(int option, QStringList &ret)
         break;
     case 'o':
         ret << QStringLiteral(R"("%1")").arg(m_outputFile);
-        break;
-    }
-    return;
-}
-
-int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
-{
-    uint option = str[pos + 1].unicode();
-    switch (option) {
-    case 's':
-        subst(option, ret);
-        break;
-    case 'i':
-    case 'u':
-        subst(option, ret);
-        break;
-    case 'o':
-        subst(option, ret);
         break;
     case '%':
         ret = QStringList(QStringLiteral("%"));
