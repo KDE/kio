@@ -706,20 +706,23 @@ void PreviewJobPrivate::getOrCreateThumbnail()
 
     // heuristics for remote URL support
     const QUrl fileUrl = item.targetUrl();
-    bool supportsProtocol = false;
-    if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
-        // There's a plugin supporting this protocol and MIME type
-        supportsProtocol = true;
-    } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
-        // Assume KIO understands any URL, ThumbCreator workers who have
-        // X-KDE-Protocols=KIO will get fed the remote URL directly.
-        supportsProtocol = true;
+    if (!currentItem.standardThumbnailer) {
+        bool supportsProtocol = false;
+        if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
+            // There's a plugin supporting this protocol and MIME type
+            supportsProtocol = true;
+        } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
+            // Assume KIO understands any URL, ThumbCreator workers who have
+            // X-KDE-Protocols=KIO will get fed the remote URL directly.
+            supportsProtocol = true;
+        }
+
+        if (supportsProtocol) {
+            createThumbnail(fileUrl.toString());
+            return;
+        }
     }
 
-    if (supportsProtocol) {
-        createThumbnail(fileUrl.toString());
-        return;
-    }
     if (item.isDir()) {
         // Skip remote dirs (bug 208625)
         cleanupTempFile();
