@@ -3,6 +3,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "global.h"
 #include "standardthumbnailjob_p.h"
 #include <KMacroExpander>
 #include <QImage>
@@ -94,19 +95,21 @@ KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const 
     ThumbnailerExpander thumbnailer(execString, width, inputFile, outputFile);
     // Emit data on command exit
     QProcess *proc = new QProcess();
-    connect(proc, &QProcess::finished, this, [=, this](int exitCode, QProcess::ExitStatus exitStatus) {
+    connect(proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus exitStatus) {
+        proc->deleteLater();
         if (exitCode != 0) {
-            qWarning() << "Standard Thumbnail Job failed with ExitStatus: " << exitStatus << " - ExitCode: " << exitCode;
+            setErrorText(QStringLiteral("Standard Thumbnail Job failed with exit code: %1 ").arg(exitCode));
+            setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
             emitResult();
             return;
         }
         Q_EMIT data(this, QImage(outputFile));
-        proc->deleteLater();
         emitResult();
     });
-    connect(proc, &QProcess::errorOccurred, this, [=, this](QProcess::ProcessError error) {
-        qWarning() << "Standard Thumbnail Job had an error:" << error;
+    connect(proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
         proc->deleteLater();
+        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: %1").arg(error));
+        setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
         emitResult();
     });
     proc->start(thumbnailer.binary(), thumbnailer.args());
