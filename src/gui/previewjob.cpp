@@ -36,6 +36,7 @@
 #include <QPixmap>
 #include <QRegularExpression>
 #include <QSaveFile>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTimer>
 
@@ -847,7 +848,8 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         if (it == standardThumbnailers().constEnd()) {
             return;
         }
-        const auto outputPath = thumbPath + thumbName;
+        const auto outputPath = QTemporaryDir().path() + thumbName;
+
         KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(it.value(), width * devicePixelRatio, currentItem.item.localPath(), outputPath);
         q->addSubjob(job);
         q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
