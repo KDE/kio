@@ -99,6 +99,7 @@ public:
 
     KFileItemList initialItems;
     QStringList enabledPlugins;
+    QStringList enabledMimetypes;
     // Some plugins support remote URLs, <protocol, mimetypes>
     QHash<QString, QStringList> m_remoteProtocolPlugins;
     // Our todo list :)
@@ -187,15 +188,11 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 {
     Q_D(PreviewJob);
 
-    if (enabledPlugins) {
-        d->enabledPlugins = *enabledPlugins;
-    } else {
-        const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-        d->enabledPlugins =
-            globalConfig.readEntry("Plugins",
-                                   QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
-    }
-
+    const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+    qWarning() <<globalConfig.config()->name();
+    d->enabledMimetypes =
+        globalConfig.readEntry("EnabledMimetypes",
+                                QStringList{QStringLiteral("audio/*"), QStringLiteral("image/*"), QStringLiteral("video/*"), QStringLiteral("inode/directory")});
     // Return to event loop first, determineNextFile() might delete this;
     QTimer::singleShot(0, this, [d]() {
         d->startPreview();
@@ -268,12 +265,22 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         }
-        if (enabledPlugins.contains(plugin.pluginId())) {
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &mimeType : mimeTypes) {
+
+        //if (enabledPlugins.contains(plugin.pluginId())) {
+        //    const auto mimeTypes = plugin.mimeTypes();
+        //    for (const QString &mimeType : mimeTypes) {
+        //        mimeMap.insert(mimeType, plugin);
+        //    }
+        //}
+        for (const auto &mimeType :enabledMimetypes)
+        {
+            if (plugin.supportsMimeType(mimeType))
+            {
+                qWarning() << mimeType << " uses " << plugin;
                 mimeMap.insert(mimeType, plugin);
             }
         }
+
     }
 
     // Look for images and store the items in our todo list :)
