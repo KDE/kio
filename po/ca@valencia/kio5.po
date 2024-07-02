@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-01-29 15:24+0100\n"
+"PO-Revision-Date: 2024-06-27 13:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1148,7 +1148,7 @@ msgstr ""
 "L'<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) que heu introduït no té un format correcte. El format "
 "d'un URL generalment és així:<blockquote><strong>protocol://usuari:"
-"contrasenya@www.exemple.org:port/carpeta/nomfitxer.extensio?query=valor</"
+"contrasenya@www.example.org:port/carpeta/nomfitxer.extensio?query=valor</"
 "strong></blockquote>"
 
 #: core/job_error.cpp:491
@@ -1396,7 +1396,7 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Torneu a provar la petició i assegureu-vos que els detalls d'autenticació "
+"Torneu-ho a provar la petició i assegureu-vos que els detalls d'autenticació "
 "s'introduïxen correctament."
 
 #: core/job_error.cpp:628
@@ -1490,7 +1490,7 @@ msgstr "La petició no s'ha completat perquè s'ha interromput."
 #: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
-msgstr "Torneu a provar la petició."
+msgstr "Torneu-ho a provar la petició."
 
 #: core/job_error.cpp:684
 #, kde-format
@@ -1937,7 +1937,8 @@ msgstr ""
 #: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr "Torneu a provar la petició sense intentar continuar la transferència."
+msgstr ""
+"Torneu-ho a provar la petició sense intentar continuar la transferència."
 
 #: core/job_error.cpp:970
 #, kde-format
@@ -3940,7 +3941,7 @@ msgstr "Altres"
 #: filewidgets/kurlnavigatortogglebutton.cpp:28
 #, kde-format
 msgid "Edit mode"
-msgstr "Mode d'edició"
+msgstr "Mode edició"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:89
 #, kde-format
