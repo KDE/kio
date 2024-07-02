@@ -176,6 +176,15 @@ public:
         }
         return jsonMetaDataPlugins;
     }
+
+    static QStringList loadAvailableMimetypes()
+    {
+        static QStringList availableMimetypes;
+        for (const auto &plugin : loadAvailablePlugins()) {
+            availableMimetypes.append(plugin.mimeTypes());
+        }
+        return availableMimetypes;
+    }
 };
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
@@ -190,6 +199,8 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     qWarning() <<globalConfig.config()->name();
+
+    // NOTE: we can use most mimetype wildcards, but application specific mimetypes do not work
     d->enabledMimetypes =
         globalConfig.readEntry("EnabledMimetypes",
                                 QStringList{QStringLiteral("audio/*"), QStringLiteral("image/*"), QStringLiteral("video/*"), QStringLiteral("inode/directory")});
@@ -272,15 +283,13 @@ void PreviewJobPrivate::startPreview()
         //        mimeMap.insert(mimeType, plugin);
         //    }
         //}
-        for (const auto &mimeType :enabledMimetypes)
-        {
+        for (const auto &mimeType : enabledMimetypes) {
             if (plugin.supportsMimeType(mimeType))
             {
                 qWarning() << mimeType << " uses " << plugin;
                 mimeMap.insert(mimeType, plugin);
             }
         }
-
     }
 
     // Look for images and store the items in our todo list :)
