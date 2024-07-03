@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<def format="2">
+   <define name="Q_DISABLE_COPY_MOVE(class)" value=""/>
+   <define name="Q_SLOT" value=""/>
+</def>
+
+

@@ -3,8 +3,14 @@
 <suppress>
 <!-- d_func() in hierachies -->
 <id>duplInheritedMember</id>
-<fileName>src/*</fileName>
 <symbolName>d_func</symbolName>
+</suppress>
+<suppress>
+<id>unusedPrivateFunction</id>
+<symbolName>*::d_func</symbolName>
+</suppress>
+<suppress>
+<id>constParameterPointer</id>
 </suppress>
 <!-- generic -->
 <suppress>

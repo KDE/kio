@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<def format="2">
+   <define name="KIOWIDGETS_DEPRECATED_VERSION" value=""/>
+   <define name="KIOCORE_DEPRECATED_VERSION_BELATED" value=""/>
+</def>
+
+
