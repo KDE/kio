@@ -54,9 +54,7 @@ KIOCORE_EXPORT QString KIO::convertSizeFromKiB(KIO::filesize_t kibSize)
 
 KIOCORE_EXPORT QString KIO::number(KIO::filesize_t size)
 {
-    char charbuf[256];
-    sprintf(charbuf, "%lld", size);
-    return QLatin1String(charbuf);
+    return QString::number(size);
 }
 
 KIOCORE_EXPORT unsigned int KIO::calculateRemainingSeconds(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed)
