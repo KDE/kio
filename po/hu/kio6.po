@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:36+0000\n"
+"POT-Creation-Date: 2024-07-05 00:37+0000\n"
 "PO-Revision-Date: 2024-06-20 22:17+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -149,53 +149,53 @@ msgstr "A(z) %1 terminál nem található a(z) %2 futtatásához."
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Szintaktikai hiba a(z) %1 parancsban a(z) %2 futtatásakor"
 
-#: core/global.cpp:81
+#: core/global.cpp:79
 #, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
 msgstr[0] "1 nap %2"
 msgstr[1] "%1 nap %2"
 
-#: core/global.cpp:90 core/global.cpp:106
+#: core/global.cpp:88 core/global.cpp:104
 #, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
 msgstr[0] "%1 elem"
 msgstr[1] "%1 elem"
 
-#: core/global.cpp:94
+#: core/global.cpp:92
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
 msgstr[0] "1 mappa"
 msgstr[1] "%1 mappa"
 
-#: core/global.cpp:95
+#: core/global.cpp:93
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
 msgstr[0] "1 fájl"
 msgstr[1] "%1 fájl"
 
-#: core/global.cpp:97
+#: core/global.cpp:95
 #, kde-format
 msgctxt "folders, files (size)"
 msgid "%1, %2 (%3)"
 msgstr "%1, %2 (%3)"
 
-#: core/global.cpp:98
+#: core/global.cpp:96
 #, kde-format
 msgctxt "folders, files"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: core/global.cpp:100
+#: core/global.cpp:98
 #, kde-format
 msgctxt "files (size)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: core/global.cpp:107
+#: core/global.cpp:105
 #, kde-format
 msgctxt "items: folders, files (size)"
 msgid "%1: %2"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:36+0000\n"
+"POT-Creation-Date: 2024-07-05 00:37+0000\n"
 "PO-Revision-Date: 2024-05-12 08:40+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -150,7 +150,7 @@ msgstr "Nie znaleziono terminalu %1 podczas próby uruchomienia %2"
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Błąd składni w poleceniu %1 podczas próby uruchomienia %2"
 
-#: core/global.cpp:81
+#: core/global.cpp:79
 #, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
@@ -158,7 +158,7 @@ msgstr[0] "%1 dzień %2"
 msgstr[1] "%1 dni %2"
 msgstr[2] "%1 dni %2"
 
-#: core/global.cpp:90 core/global.cpp:106
+#: core/global.cpp:88 core/global.cpp:104
 #, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
@@ -166,7 +166,7 @@ msgstr[0] "%1 element"
 msgstr[1] "%1 elementy"
 msgstr[2] "%1 elementów"
 
-#: core/global.cpp:94
+#: core/global.cpp:92
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
@@ -174,7 +174,7 @@ msgstr[0] "1 katalog"
 msgstr[1] "%1 katalogi"
 msgstr[2] "%1 katalogów"
 
-#: core/global.cpp:95
+#: core/global.cpp:93
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
@@ -182,25 +182,25 @@ msgstr[0] "%1 plik"
 msgstr[1] "%1 pliki"
 msgstr[2] "%1 plików"
 
-#: core/global.cpp:97
+#: core/global.cpp:95
 #, kde-format
 msgctxt "folders, files (size)"
 msgid "%1, %2 (%3)"
 msgstr "%1, %2 (%3)"
 
-#: core/global.cpp:98
+#: core/global.cpp:96
 #, kde-format
 msgctxt "folders, files"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: core/global.cpp:100
+#: core/global.cpp:98
 #, kde-format
 msgctxt "files (size)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: core/global.cpp:107
+#: core/global.cpp:105
 #, kde-format
 msgctxt "items: folders, files (size)"
 msgid "%1: %2"

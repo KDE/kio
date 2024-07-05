@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:36+0000\n"
+"POT-Creation-Date: 2024-07-05 00:37+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -146,14 +146,14 @@ msgstr ""
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr ""
 
-#: core/global.cpp:81
+#: core/global.cpp:79
 #, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
 msgstr[0] "१ दिन %2"
 msgstr[1] "%1 दिन %2"
 
-#: core/global.cpp:90 core/global.cpp:106
+#: core/global.cpp:88 core/global.cpp:104
 #, fuzzy, kde-format
 #| msgctxt "Items in a folder"
 #| msgid "1 item"
@@ -163,7 +163,7 @@ msgid_plural "%1 Items"
 msgstr[0] "1 वस्तु"
 msgstr[1] "%1 वस्तुहरू"
 
-#: core/global.cpp:94
+#: core/global.cpp:92
 #, fuzzy, kde-format
 #| msgid "Folders"
 msgid "1 Folder"
@@ -171,7 +171,7 @@ msgid_plural "%1 Folders"
 msgstr[0] "फोल्डर"
 msgstr[1] "फोल्डर"
 
-#: core/global.cpp:95
+#: core/global.cpp:93
 #, fuzzy, kde-format
 #| msgid "1 file"
 #| msgid_plural "%1 files"
@@ -180,7 +180,7 @@ msgid_plural "%1 Files"
 msgstr[0] "1 फाइल"
 msgstr[1] "%1 फाइलहरू"
 
-#: core/global.cpp:97
+#: core/global.cpp:95
 #, fuzzy, kde-format
 #| msgctxt "Items (Folders, Files)"
 #| msgid "%1 (%2, %3)"
@@ -188,21 +188,21 @@ msgctxt "folders, files (size)"
 msgid "%1, %2 (%3)"
 msgstr "%1 (%2, %3)"
 
-#: core/global.cpp:98
+#: core/global.cpp:96
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "folders, files"
 msgid "%1, %2"
 msgstr "%1 (%2)"
 
-#: core/global.cpp:100
+#: core/global.cpp:98
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "files (size)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: core/global.cpp:107
+#: core/global.cpp:105
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "items: folders, files (size)"
