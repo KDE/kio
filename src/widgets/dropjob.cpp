@@ -300,9 +300,18 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     KFileItemList fileItems;
     fileItems.reserve(m_urls.size());
     for (const QUrl &url : m_urls) {
-        fileItems.append(KFileItem(url));
+        if (url.isValid()) {
+            fileItems.append(KFileItem(url));
+        }
     }
     const KFileItemListProperties itemProps(fileItems);
+
+    // If this item has no urls, return and do nothing.
+    // Otherwise plasmashell will crash.
+    // BUG:484674
+    if (itemProps.items().isEmpty()) {
+        return;
+    }
 
     Q_EMIT q->popupMenuAboutToShow(itemProps);
 
