@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:37+0000\n"
-"PO-Revision-Date: 2024-05-16 21:24+0300\n"
+"PO-Revision-Date: 2024-07-05 23:13+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -3914,7 +3914,7 @@ msgstr "Vidinė klaida: nepavyko paklausti naudotojo, kurią programą paleisti"
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Pateikta tuščia komanda"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
