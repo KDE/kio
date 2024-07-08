@@ -17,6 +17,8 @@
 class KFileFilterPrivate;
 
 /**
+ * @class KFileFilter kfilefilter.h <KFileFilter>
+ *
  * Encapsulates rules to filter a list of files.
  * Files can be filtered based on name patterns (e.g. *.cpp), MIME types, or both.
  * Filters also optionally have a user-facing label.
