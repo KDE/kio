@@ -71,7 +71,7 @@ public:
     QString toFilterString() const;
 
     /**
-     * Whether the filer is empty, i.e. matches all files.
+     * Whether the filer is empty, i.e.\ matches all files.
      */
     bool isEmpty() const;
 
