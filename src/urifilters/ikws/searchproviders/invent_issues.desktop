@@ -11,6 +11,7 @@ Name[bs]=KDE Izum Problemi
 Name[ca]=Incidències de KDE Invent
 Name[ca@valencia]=Incidències de KDE Invent
 Name[cy]=Dillyngiadau KDE Llifento
+Name[da]=KDE Invent-problemer
 Name[de]=KDE Invent Issues
 Name[en_GB]=KDE Invent Issues
 Name[eo]=KDE Invent Issues
@@ -62,6 +63,7 @@ Query[ca]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[cs]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[cy]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[da]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[eo]=https://invent.kde.org/search?scope=issues&search=\\{@}

@@ -108,6 +108,7 @@ Query[ca]=https://api.kde.org/search.html?query=\\{@}
 Query[ca@valencia]=https://api.kde.org/search.html?query=\\{@}
 Query[cs]=https://api.kde.org/search.html?query=\\{@}
 Query[cy]=https://api.kde.org/search.html?query=\\{@}
+Query[da]=https://api.kde.org/search.html?query=\\{@}
 Query[de]=https://api.kde.org/search.html?query=\\{@}
 Query[en_GB]=https://api.kde.org/search.html?query=\\{@}
 Query[eo]=https://api.kde.org/search.html?query=\\{@}

@@ -10,6 +10,7 @@ Name[ca]=openSUSE Software
 Name[ca@valencia]=openSUSE Software
 Name[cs]=Software openSUSE
 Name[cy]=meddalwedd openSUSE
+Name[da]=openSUSE Software
 Name[de]=openSUSE-Software
 Name[en_GB]=openSUSE Software
 Name[eo]=OpenSUSE Programaro
@@ -62,6 +63,7 @@ Query[ca]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ca@valencia]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[cs]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[cy]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[da]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[de]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[en_GB]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[eo]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

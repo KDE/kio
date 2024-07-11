@@ -11,6 +11,7 @@ Name[ca]=Yandex
 Name[ca@valencia]=Yandex
 Name[cs]=Yandex
 Name[cy]=Yandex
+Name[da]=Yandex
 Name[de]=Yandex
 Name[en_GB]=Yandex
 Name[eo]=Yandex
@@ -61,6 +62,7 @@ Query[ca]=https://yandex.ru/search/?text=\\{@}
 Query[ca@valencia]=https://yandex.ru/search/?text=\\{@}
 Query[cs]=https://yandex.ru/search/?text=\\{@}
 Query[cy]=https://yandex.ru/search/?text=\\{@}
+Query[da]=https://yandex.ru/search/?text=\\{@}
 Query[de]=https://yandex.ru/search/?text=\\{@}
 Query[en_GB]=https://yandex.ru/search/?text=\\{@}
 Query[eo]=https://yandex.ru/search/?text=\\{@}

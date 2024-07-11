@@ -11,6 +11,7 @@ Name[bs]=KDE Izum Zahtjevi za spajanje
 Name[ca]=Peticions de fusió de KDE Invent
 Name[ca@valencia]=Peticions de fusió de KDE Invent
 Name[cy]=Erfyniadau Cydlifo KDE Llifento
+Name[da]=Sammenlægningsanmodninger for KDE Invent
 Name[de]=Merge-Requests auf KDE Invent
 Name[en_GB]=KDE Invent Merge Requests
 Name[eo]=KDE Invent Kunfandopetoj
@@ -60,6 +61,7 @@ Query[ca]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ca@valencia]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[cs]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[cy]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[da]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[eo]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

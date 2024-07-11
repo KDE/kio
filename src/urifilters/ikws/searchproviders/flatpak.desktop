@@ -11,6 +11,7 @@ Name[ca]=Documentació del Flatpak
 Name[ca@valencia]=Documentació de Flatpak
 Name[cs]=Dokumentace Flatpak
 Name[cy]=Dogfennaeth Flatpak
+Name[da]=Flatpak-dokumentation
 Name[de]=Flatpak-Dokumentation
 Name[en_GB]=Flatpak Documentation
 Name[eo]=Flatpak Dokumentado
@@ -64,6 +65,7 @@ Query[ca]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[ca@valencia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[cs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[cy]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[da]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[de]=https://docs.flatpak.org/de/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[en_GB]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[eo]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

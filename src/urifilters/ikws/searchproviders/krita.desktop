@@ -11,6 +11,7 @@ Name[ca]=Manual del Krita
 Name[ca@valencia]=Manual de Krita
 Name[cs]=Příručka Krita
 Name[cy]=Canllaw Krita
+Name[da]=Krita-manual
 Name[de]=Krita-Handbuch
 Name[en_GB]=Krita Manual
 Name[eo]=Krita Manlibro
@@ -64,6 +65,7 @@ Query[ca]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[ca@valencia]=https://docs.krita.org/ca/search.html?q=\\{@}
 Query[cs]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[cy]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[da]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[de]=https://docs.krita.org/de/search.html?q=\\{@}
 Query[en_GB]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[eo]=https://docs.krita.org/en/search.html?q=\\{@}

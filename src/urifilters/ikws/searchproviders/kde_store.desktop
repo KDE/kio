@@ -13,6 +13,7 @@ Name[ca]=KDE Store
 Name[ca@valencia]=KDE Store
 Name[cs]=Obchod KDE
 Name[cy]=Ystorfa KDE
+Name[da]=KDE Butik
 Name[de]=KDE Store
 Name[en_GB]=KDE Store
 Name[eo]=KDE-Vendejo
@@ -63,6 +64,7 @@ Query[ca]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[cs]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[cy]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[da]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[en_GB]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[eo]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
