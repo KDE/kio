@@ -9,6 +9,7 @@
 #define KCOREDIRLISTER_P_H
 
 #include "kfileitem.h"
+#include "kmountpoint.h"
 
 #ifdef WITH_QTDBUS
 #include "kdirnotify.h"
@@ -211,7 +212,7 @@ public:
     void setAutoUpdate(KCoreDirLister *lister, bool enable);
 
     void forgetDirs(KCoreDirLister *lister);
-    void forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify);
+    void forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify, const KMountPoint::List &possibleMountPoints);
 
     KFileItem findByName(const KCoreDirLister *lister, const QString &_name) const;
     // findByUrl returns a pointer so that it's possible to modify the item.

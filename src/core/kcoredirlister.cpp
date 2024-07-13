@@ -128,7 +128,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         lister->d->lstDirs.removeAll(_url);
 
         // clear _url for lister
-        forgetDirs(lister, _url, true);
+        forgetDirs(lister, _url, true, KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions));
 
         if (lister->d->url == _url) {
             lister->d->rootFileItem = KFileItem();
@@ -464,8 +464,9 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister)
     lister->d->lstDirs.clear();
 
     qCDebug(KIO_CORE_DIRLISTER) << "Iterating over dirs" << lstDirsCopy;
+    const auto possibleMountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions);
     for (const QUrl &dir : lstDirsCopy) {
-        forgetDirs(lister, dir, false);
+        forgetDirs(lister, dir, false, possibleMountPoints);
     }
 }
 
@@ -482,7 +483,7 @@ static bool manually_mounted(const QString &path, const KMountPoint::List &possi
     return mp->mountOptions().contains(QLatin1String("noauto"));
 }
 
-void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify)
+void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify, const KMountPoint::List &possibleMountPoints)
 {
     qCDebug(KIO_CORE_DIRLISTER) << lister << " _url: " << _url;
 
@@ -536,7 +537,6 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
             // 1) find Volume for the local path "item->url.toLocalFile()" (which could be anywhere
             // under the mount point) -- probably needs a new operator in libsolid query parser
             // 2) [**] becomes: if (Drive is hotpluggable or Volume is removable) "set to dirty" else "keep watch"
-            const KMountPoint::List possibleMountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions);
 
             // Should we forget the dir for good, or keep a watch on it?
             // Generally keep a watch, except when it would prevent
@@ -1942,6 +1942,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
         }
     }
 
+    const auto possibleMountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions);
     for (const QUrl &deletedUrl : std::as_const(affectedItems)) {
         // stop all jobs for deletedUrlStr
         auto dit = directoryData.constFind(deletedUrl);
@@ -1974,7 +1975,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
                         kdl->d->lstDirs.removeAll(deletedUrl);
                     }
 
-                    forgetDirs(kdl, deletedUrl, treeview);
+                    forgetDirs(kdl, deletedUrl, treeview, possibleMountPoints);
                 }
             }
         }
@@ -2144,7 +2145,7 @@ void KCoreDirLister::stop(const QUrl &_url)
 
 void KCoreDirLister::forgetDirs(const QUrl &_url)
 {
-    s_kDirListerCache.localData().forgetDirs(this, _url, true);
+    s_kDirListerCache.localData().forgetDirs(this, _url, true, KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions));
 }
 
 bool KCoreDirLister::autoUpdate() const
