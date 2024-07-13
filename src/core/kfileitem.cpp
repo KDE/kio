@@ -67,6 +67,7 @@ public:
         , m_delayedMimeTypes(delayedMimeTypes)
         , m_useIconNameCache(false)
         , m_hidden(Auto)
+        , m_hiddenCache(HiddenUncached)
         , m_slow(SlowUnknown)
         , m_bSkipMimeTypeFromContent(mimeTypeDetermination == KFileItem::SkipMimeTypeFromContent)
         , m_bInitCalled(false)
@@ -182,6 +183,7 @@ public:
 
     // Auto: check leading dot.
     enum { Auto, Hidden, Shown } m_hidden : 3;
+    mutable enum { HiddenUncached, HiddenCached, ShownCached } m_hiddenCache : 3;
 
     // Slow? (nfs/smb/ssh)
     mutable enum { SlowUnknown, Fast, Slow } m_slow : 3;
@@ -324,6 +326,7 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
 
     const int hiddenVal = m_entry.numberValue(KIO::UDSEntry::UDS_HIDDEN, -1);
     m_hidden = hiddenVal == 1 ? Hidden : (hiddenVal == 0 ? Shown : Auto);
+    m_hiddenCache = HiddenUncached;
 
     if (_urlIsDirectory && !UDS_URL_seen && !m_strName.isEmpty() && m_strName != QLatin1String(".")) {
         auto path = m_url.path();
@@ -639,6 +642,7 @@ void KFileItem::refresh()
     d->m_fileMode = KFileItem::Unknown;
     d->m_permissions = KFileItem::Unknown;
     d->m_hidden = KFileItemPrivate::Auto;
+    d->m_hiddenCache = KFileItemPrivate::HiddenUncached;
     refreshMimeType();
 
 #if HAVE_POSIX_ACL
@@ -710,6 +714,7 @@ void KFileItem::setName(const QString &name)
     if (d->m_entry.contains(KIO::UDSEntry::UDS_NAME)) {
         d->m_entry.replace(KIO::UDSEntry::UDS_NAME, d->m_strName); // #195385
     }
+    d->m_hiddenCache = KFileItemPrivate::HiddenUncached;
 }
 
 QString KFileItem::linkDest() const
@@ -1341,13 +1346,19 @@ bool KFileItem::isHidden() const
     if (d->m_hidden != KFileItemPrivate::Auto) {
         return d->m_hidden == KFileItemPrivate::Hidden;
     }
+    if (d->m_hiddenCache != KFileItemPrivate::HiddenUncached) {
+        return d->m_hiddenCache == KFileItemPrivate::HiddenCached;
+    }
 
     // Prefer the filename that is part of the URL, in case the display name is different.
     QString fileName = d->m_url.fileName();
     if (fileName.isEmpty()) { // e.g. "trash:/"
         fileName = d->m_strName;
     }
-    return fileName.length() > 1 && fileName[0] == QLatin1Char('.'); // Just "." is current directory, not hidden.
+
+    // Just "." is current directory, not hidden.
+    d->m_hiddenCache = fileName.length() > 1 && fileName[0] == QLatin1Char('.') ? KFileItemPrivate::HiddenCached : KFileItemPrivate::ShownCached;
+    return d->m_hiddenCache == KFileItemPrivate::HiddenCached;
 }
 
 void KFileItem::setHidden()
