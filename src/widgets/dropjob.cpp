@@ -520,8 +520,7 @@ void DropJobPrivate::slotDropActionDetermined(int error)
 
     // There was an error, handle it
     if (error == KIO::ERR_UNKNOWN) {
-        auto *window = KJobWidgets::window(q);
-        KIO::DropMenu *menu = new KIO::DropMenu(window);
+        KIO::DropMenu *menu = new KIO::DropMenu();
         QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
 
         // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
@@ -541,6 +540,7 @@ void DropJobPrivate::slotDropActionDetermined(int error)
                     menu->windowHandle()->setTransientParent(transientParent);
                 }
             }
+            auto *window = KJobWidgets::window(q);
             menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
         }
         m_menus.insert(menu);
