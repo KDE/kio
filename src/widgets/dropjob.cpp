@@ -24,6 +24,7 @@
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
 #include <KJobWidgets>
+#include <KJobWindows>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
@@ -143,6 +144,8 @@ public:
     void fillPopupMenu(KIO::DropMenu *popup);
     void addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps);
     void doCopyToDirectory();
+
+    QWindow *transientParent();
 
     QPointer<const QMimeData> m_mimeData;
     const QList<QUrl> m_urls;
@@ -382,7 +385,7 @@ void DropJob::showMenu(const QPoint &p, QAction *atAction)
     }
 
     for (KIO::DropMenu *menu : std::as_const(d->m_menus)) {
-        if (QWindow *transientParent = KJobWidgets::windowHandle(this)) {
+        if (QWindow *transientParent = d->transientParent()) {
             if (menu->winId()) {
                 menu->windowHandle()->setTransientParent(transientParent);
             }
@@ -509,6 +512,23 @@ void DropJobPrivate::handleCopyToDirectory()
     slotDropActionDetermined(err);
 }
 
+QWindow *DropJobPrivate::transientParent()
+{
+    Q_Q(DropJob);
+
+    if (QWidget *widget = KJobWidgets::window(q)) {
+        QWidget *window = widget->window();
+        Q_ASSERT(window);
+        return window->windowHandle();
+    }
+
+    if (QWindow *window = KJobWindows::window(q)) {
+        return window;
+    }
+
+    return nullptr;
+}
+
 void DropJobPrivate::slotDropActionDetermined(int error)
 {
     Q_Q(DropJob);
@@ -535,9 +555,9 @@ void DropJobPrivate::slotDropActionDetermined(int error)
         });
 
         if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
-            if (QWindow *transientParent = KJobWidgets::windowHandle(q)) {
+            if (QWindow *parent = transientParent()) {
                 if (menu->winId()) {
-                    menu->windowHandle()->setTransientParent(transientParent);
+                    menu->windowHandle()->setTransientParent(parent);
                 }
             }
             auto *window = KJobWidgets::window(q);
