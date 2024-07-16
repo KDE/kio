@@ -623,8 +623,7 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
     if (m_hasCutSelection && isCutItem(item)) {
         // apply the disabled effect to the icon for marking it as "cut item"
         // and apply the icon to the item
-        KIconEffect *iconEffect = KIconLoader::global()->iconEffect();
-        icon = iconEffect->apply(icon, KIconLoader::Desktop, KIconLoader::DisabledState);
+        KIconEffect::toDisabled(icon);
     }
 
     KIconLoader::global()->drawOverlays(item.overlays(), icon, KIconLoader::Desktop);
@@ -884,7 +883,6 @@ void KFilePreviewGeneratorPrivate::applyCutItemEffect(const KFileItemList &items
     const QSet<QUrl> cutUrls(urlsList.begin(), urlsList.end());
 
     DataChangeObtainer obt(this);
-    KIconEffect *iconEffect = KIconLoader::global()->iconEffect();
     for (const KFileItem &item : items) {
         if (cutUrls.contains(item.url())) {
             const QModelIndex index = dirModel->indexForItem(item);
@@ -896,7 +894,7 @@ void KFilePreviewGeneratorPrivate::applyCutItemEffect(const KFileItemList &items
 
                 const auto cacheIt = m_cutItemsCache.constFind(item.url());
                 if ((cacheIt == m_cutItemsCache.constEnd()) || (cacheIt->cacheKey() != pixmap.cacheKey())) {
-                    pixmap = iconEffect->apply(pixmap, KIconLoader::Desktop, KIconLoader::DisabledState);
+                    KIconEffect::toDisabled(pixmap);
                     dirModel->setData(index, QIcon(pixmap), Qt::DecorationRole);
 
                     m_cutItemsCache.insert(item.url(), pixmap);
