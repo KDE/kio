@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:37+0000\n"
+"POT-Creation-Date: 2024-07-17 00:37+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -2208,17 +2208,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "pakala pi sona ala"
 
-#: core/kfileitem.cpp:1426
+#: core/kfileitem.cpp:1437
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(nasin tawa %1)"
 
-#: core/kfileitem.cpp:1428
+#: core/kfileitem.cpp:1439
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, nasin tawa %2)"
 
-#: core/kfileitem.cpp:1431
+#: core/kfileitem.cpp:1442
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (li tawa %1)"
