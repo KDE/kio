@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-04-04 19:52+0900\n"
+"PO-Revision-Date: 2024-07-17 02:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -5947,7 +5947,7 @@ msgstr "確認網站存取"
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "伺服器產生請求中，請稍後..."
+msgstr "伺服器產生請求中，請稍候..."
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
