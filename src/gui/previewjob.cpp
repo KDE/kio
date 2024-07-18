@@ -533,7 +533,8 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job = KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+        KIO::Job *job =
+            KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode | KIO::StatMimeType, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
@@ -602,9 +603,11 @@ void PreviewJob::slotResult(KJob *job)
         QString mimeType = statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
         if (mimeType.isEmpty()) {
             QMimeDatabase db;
-            QMimeType mime = db.mimeTypeForFile(d->currentItem.item.url().fileName(), QMimeDatabase::MatchExtension);
-            if (mime.isDefault() && d->currentItem.item.url().isLocalFile()) {
-                mime = db.mimeTypeForFile(d->currentItem.item.url().toLocalFile(), QMimeDatabase::MatchContent);
+            QMimeType mime;
+            if (d->currentItem.item.targetUrl().isLocalFile()) {
+                mime = db.mimeTypeForFile(d->currentItem.item.targetUrl().toLocalFile());
+            } else {
+                mime = db.mimeTypeForFile(d->currentItem.item.targetUrl().fileName(), QMimeDatabase::MatchExtension);
             }
             mimeType = mime.name();
         }
