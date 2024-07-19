@@ -5,7 +5,6 @@
 */
 
 #include "kiocoredebug.h"
-#include "slavebase.h"
 #include "workerbase.h"
 #include "workerbase_p.h"
 #include "workerfactory.h"
@@ -39,17 +38,16 @@ void WorkerThread::run()
     qCDebug(KIO_CORE) << QThread::currentThreadId() << "Creating threaded worker";
 
     auto worker = m_factory->createWorker({}, m_appSocket);
-    SlaveBase *base = &(worker->d->bridge);
 
-    base->setRunInThread(true);
-    setWorker(base);
+    worker->setRunInThread(true);
+    setWorker(worker.get());
 
-    base->dispatchLoop();
+    worker->dispatchLoop();
 
     setWorker(nullptr); // before the actual deletion
 }
 
-void WorkerThread::setWorker(SlaveBase *worker)
+void WorkerThread::setWorker(WorkerBase *worker)
 {
     QMutexLocker locker(&m_workerMutex);
     m_worker = worker;

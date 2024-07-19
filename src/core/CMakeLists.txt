@@ -36,7 +36,6 @@ target_sources(KF6KIOCore PRIVATE
   mkdirjob.cpp
   mkpathjob.cpp
   kremoteencoding.cpp
-  slavebase.cpp
   workerbase.cpp
   dataworker.cpp
   dataprotocol.cpp

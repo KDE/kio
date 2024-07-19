@@ -890,6 +890,15 @@ public:
     void setIncomingMetaData(const KIO::MetaData &metaData);
 
 private:
+    void dispatchOpenCommand(int command, const QByteArray &data);
+    void dispatch(int command, const QByteArray &data);
+    void send(int cmd, const QByteArray &arr = QByteArray());
+    void setRunInThread(bool b);
+
+public:
+    void setKillFlag();
+
+private:
     std::unique_ptr<WorkerBasePrivate> d;
     Q_DISABLE_COPY_MOVE(WorkerBase)
     friend class WorkerSlaveBaseBridge;

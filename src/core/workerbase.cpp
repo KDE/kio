@@ -8,148 +8,358 @@
 */
 
 #include "workerbase.h"
+#include "authinfo.h"
+#include "ioworker_defaults.h"
+#include "kremoteencoding.h"
 #include "workerbase_p.h"
+#include "workerinterface_p.h"
 
 #include <commands_p.h>
+
+#include <QThread>
+
+#ifndef Q_OS_ANDROID
+#include <KCrash>
+#endif
+
+#include <KLocalizedString>
+
+extern "C" {
+static void sigpipe_handler(int sig);
+}
+
+static volatile bool slaveWriteError = false;
+
+#ifdef Q_OS_UNIX
+static KIO::WorkerBase *globalSlave;
+
+extern "C" {
+static void genericsig_handler(int sigNumber)
+{
+    ::signal(sigNumber, SIG_IGN);
+    // WABA: Don't do anything that requires malloc, we can deadlock on it since
+    // a SIGTERM signal can come in while we are in malloc/free.
+    // qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
+    // set the flag which will be checked in dispatchLoop() and which *should* be checked
+    // in lengthy operations in the various slaves
+    if (globalSlave != nullptr) {
+        globalSlave->setKillFlag();
+    }
+    ::signal(SIGALRM, SIG_DFL);
+    alarm(5); // generate an alarm signal in 5 seconds, in this time the slave has to exit
+}
+}
+#endif
 
 namespace KIO
 {
 
 WorkerBase::WorkerBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket)
-    : d(new WorkerBasePrivate(protocol, poolSocket, appSocket, this))
+    : d(new WorkerBasePrivate(/*protocol, poolSocket, appSocket,*/ this))
 {
+    d->mProtocol = protocol;
+    Q_ASSERT(!appSocket.isEmpty());
+    d->poolSocket = QFile::decodeName(poolSocket);
+
+    if (QThread::currentThread() == qApp->thread()) {
+#ifndef Q_OS_ANDROID
+        KCrash::initialize();
+#endif
+
+#ifdef Q_OS_UNIX
+        struct sigaction act;
+        act.sa_handler = sigpipe_handler;
+        sigemptyset(&act.sa_mask);
+        act.sa_flags = 0;
+        sigaction(SIGPIPE, &act, nullptr);
+
+        ::signal(SIGINT, &genericsig_handler);
+        ::signal(SIGQUIT, &genericsig_handler);
+        ::signal(SIGTERM, &genericsig_handler);
+
+        globalSlave = this;
+#endif
+    }
+
+    d->isConnectedToApp = true;
+
+    // by kahl for netmgr (need a way to identify slaves)
+    d->slaveid = QString::fromUtf8(protocol) + QString::number(getpid());
+    d->resume = false;
+    d->needSendCanResume = false;
+    d->mapConfig = QMap<QString, QVariant>();
+    d->onHold = false;
+    //    d->processed_size = 0;
+    d->totalSize = 0;
+    connectWorker(QFile::decodeName(appSocket));
+
+    d->remotefile = nullptr;
+    d->inOpenLoop = false;
 }
 
 WorkerBase::~WorkerBase() = default;
 
 void WorkerBase::dispatchLoop()
 {
-    d->bridge.dispatchLoop();
+    while (!d->exit_loop) {
+        if (d->nextTimeout.isValid() && (d->nextTimeout.hasExpired(d->nextTimeoutMsecs))) {
+            QByteArray data = d->timeoutData;
+            d->nextTimeout.invalidate();
+            d->timeoutData = QByteArray();
+            d->m_state = d->InsideTimeoutSpecial;
+            special(data);
+            d->m_state = d->Idle;
+        }
+
+        Q_ASSERT(d->appConnection.inited());
+
+        int ms = -1;
+        if (d->nextTimeout.isValid()) {
+            ms = qMax<int>(d->nextTimeoutMsecs - d->nextTimeout.elapsed(), 1);
+        }
+
+        int ret = -1;
+        if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(ms)) {
+            // dispatch application messages
+            int cmd;
+            QByteArray data;
+            ret = d->appConnection.read(&cmd, data);
+
+            if (ret != -1) {
+                if (d->inOpenLoop) {
+                    dispatchOpenCommand(cmd, data);
+                } else {
+                    dispatch(cmd, data);
+                }
+            }
+        } else {
+            ret = d->appConnection.isConnected() ? 0 : -1;
+        }
+
+        if (ret == -1) { // some error occurred, perhaps no more application
+            // When the app exits, should the slave be put back in the pool ?
+            if (!d->exit_loop && d->isConnectedToApp && !d->poolSocket.isEmpty()) {
+                disconnectWorker();
+                d->isConnectedToApp = false;
+                closeConnection();
+                d->updateTempAuthStatus();
+                connectWorker(d->poolSocket);
+            } else {
+                break;
+            }
+        }
+
+        // I think we get here when we were killed in dispatch() and not in select()
+        if (wasKilled()) {
+            // qDebug() << "worker was killed, returning";
+            break;
+        }
+
+        // execute deferred deletes
+        QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
+    }
+
+    // execute deferred deletes
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
 void WorkerBase::connectWorker(const QString &address)
 {
-    d->bridge.connectSlave(address);
+    d->appConnection.connectToRemote(QUrl(address));
+
+    if (!d->appConnection.inited()) {
+        /*qDebug() << "failed to connect to" << address << endl
+                      << "Reason:" << d->appConnection.errorString();*/
+        exit();
+    }
+
+    d->inOpenLoop = false;
 }
 
 void WorkerBase::disconnectWorker()
 {
-    d->bridge.disconnectSlave();
+    d->appConnection.close();
 }
 
 void WorkerBase::setMetaData(const QString &key, const QString &value)
 {
-    d->bridge.setMetaData(key, value);
+    d->mOutgoingMetaData.insert(key, value); // replaces existing key if already there
 }
 
 QString WorkerBase::metaData(const QString &key) const
 {
-    return d->bridge.metaData(key);
+    auto it = d->mIncomingMetaData.find(key);
+    if (it != d->mIncomingMetaData.end()) {
+        return *it;
+    }
+    return d->configData.value(key);
 }
 
 MetaData WorkerBase::allMetaData() const
 {
-    return d->bridge.allMetaData();
+    return d->mIncomingMetaData;
 }
 
 bool WorkerBase::hasMetaData(const QString &key) const
 {
-    return d->bridge.hasMetaData(key);
+    if (d->mIncomingMetaData.contains(key)) {
+        return true;
+    }
+    if (d->configData.contains(key)) {
+        return true;
+    }
+    return false;
 }
 
 QMap<QString, QVariant> WorkerBase::mapConfig() const
 {
-    return d->bridge.mapConfig();
+    return d->mapConfig;
 }
 
 bool WorkerBase::configValue(const QString &key, bool defaultValue) const
 {
-    return d->bridge.configValue(key, defaultValue);
+    return d->mapConfig.value(key, defaultValue).toBool();
 }
 
 int WorkerBase::configValue(const QString &key, int defaultValue) const
 {
-    return d->bridge.configValue(key, defaultValue);
+    return d->mapConfig.value(key, defaultValue).toInt();
 }
 
 QString WorkerBase::configValue(const QString &key, const QString &defaultValue) const
 {
-    return d->bridge.configValue(key, defaultValue);
+    return d->mapConfig.value(key, defaultValue).toString();
 }
 
 KConfigGroup *WorkerBase::config()
 {
-    return d->bridge.config();
+    if (!d->config) {
+        d->config = new KConfig(QString(), KConfig::SimpleConfig);
+
+        d->configGroup = new KConfigGroup(d->config, QString());
+
+        auto end = d->mapConfig.cend();
+        for (auto it = d->mapConfig.cbegin(); it != end; ++it) {
+            d->configGroup->writeEntry(it.key(), it->toString().toUtf8(), KConfigGroup::WriteConfigFlags());
+        }
+    }
+
+    return d->configGroup;
 }
 
 void WorkerBase::sendMetaData()
 {
-    d->bridge.sendMetaData();
+    sendAndKeepMetaData();
+    d->mOutgoingMetaData.clear();
 }
 
 void WorkerBase::sendAndKeepMetaData()
 {
-    d->bridge.sendAndKeepMetaData();
+    if (!d->mOutgoingMetaData.isEmpty()) {
+        KIO_DATA << d->mOutgoingMetaData;
+
+        send(INF_META_DATA, data);
+    }
 }
 
 KRemoteEncoding *WorkerBase::remoteEncoding()
 {
-    return d->bridge.remoteEncoding();
+    if (d->remotefile) {
+        return d->remotefile;
+    }
+
+    const QByteArray charset(metaData(QStringLiteral("Charset")).toLatin1());
+    return (d->remotefile = new KRemoteEncoding(charset.constData()));
 }
 
 void WorkerBase::data(const QByteArray &data)
 {
-    d->bridge.data(data);
+    sendMetaData();
+    send(MSG_DATA, data);
 }
 
 void WorkerBase::dataReq()
 {
-    d->bridge.dataReq();
+    // sendMetaData();
+    if (d->needSendCanResume) {
+        canResume(0);
+    }
+    send(MSG_DATA_REQ);
 }
 
 void WorkerBase::workerStatus(const QString &host, bool connected)
 {
-    d->bridge.slaveStatus(host, connected);
+    qint64 pid = getpid();
+    qint8 b = connected ? 1 : 0;
+    KIO_DATA << pid << d->mProtocol << host << b << d->onHold << d->onHoldUrl << d->hasTempAuth();
+    send(MSG_WORKER_STATUS, data);
 }
 
 void WorkerBase::canResume()
 {
-    d->bridge.canResume();
+    send(MSG_CANRESUME);
 }
 
 void WorkerBase::totalSize(KIO::filesize_t _bytes)
 {
-    d->bridge.totalSize(_bytes);
+    KIO_DATA << static_cast<quint64>(_bytes);
+    send(INF_TOTAL_SIZE, data);
+
+    // this one is usually called before the first item is listed in listDir()
+    d->totalSize = _bytes;
 }
 
 void WorkerBase::processedSize(KIO::filesize_t _bytes)
 {
-    d->bridge.processedSize(_bytes);
+    bool emitSignal = false;
+
+    if (_bytes == d->totalSize) {
+        emitSignal = true;
+    } else {
+        if (d->lastTimeout.isValid()) {
+            emitSignal = d->lastTimeout.hasExpired(100); // emit size 10 times a second
+        } else {
+            emitSignal = true;
+        }
+    }
+
+    if (emitSignal) {
+        KIO_DATA << static_cast<quint64>(_bytes);
+        send(INF_PROCESSED_SIZE, data);
+        d->lastTimeout.start();
+    }
+
+    //    d->processed_size = _bytes;
 }
 
 void WorkerBase::written(KIO::filesize_t _bytes)
 {
-    d->bridge.written(_bytes);
+    KIO_DATA << static_cast<quint64>(_bytes);
+    send(MSG_WRITTEN, data);
 }
 
 void WorkerBase::position(KIO::filesize_t _pos)
 {
-    d->bridge.position(_pos);
+    KIO_DATA << static_cast<quint64>(_pos);
+    send(INF_POSITION, data);
 }
 
 void WorkerBase::truncated(KIO::filesize_t _length)
 {
-    d->bridge.truncated(_length);
+    KIO_DATA << static_cast<quint64>(_length);
+    send(INF_TRUNCATED, data);
 }
 
 void WorkerBase::speed(unsigned long _bytes_per_second)
 {
-    d->bridge.speed(_bytes_per_second);
+    KIO_DATA << static_cast<quint32>(_bytes_per_second);
+    send(INF_SPEED, data);
 }
 
 void WorkerBase::redirection(const QUrl &_url)
 {
-    d->bridge.redirection(_url);
+    KIO_DATA << _url;
+    send(INF_REDIRECTION, data);
 }
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 3)
@@ -158,39 +368,126 @@ void WorkerBase::errorPage()
 }
 #endif
 
-void WorkerBase::mimeType(const QString &_type)
+static bool isSubCommand(int cmd)
 {
-    d->bridge.mimeType(_type);
+    /* clang-format off */
+    return cmd == CMD_REPARSECONFIGURATION
+        || cmd == CMD_META_DATA
+        || cmd == CMD_CONFIG
+        || cmd == CMD_WORKER_STATUS;
+    /* clang-format on */
 }
 
-void WorkerBase::exit()
+void WorkerBase::mimeType(const QString &_type)
 {
-    d->bridge.exit();
+    qCDebug(KIO_CORE) << "detected mimetype" << _type;
+    int cmd = CMD_NONE;
+    do {
+        if (wasKilled()) {
+            break;
+        }
+
+        // Send the meta-data each time we send the MIME type.
+        if (!d->mOutgoingMetaData.isEmpty()) {
+            qCDebug(KIO_CORE) << "sending mimetype meta data";
+            KIO_DATA << d->mOutgoingMetaData;
+            send(INF_META_DATA, data);
+        }
+        KIO_DATA << _type;
+        send(INF_MIME_TYPE, data);
+        while (true) {
+            cmd = 0;
+            int ret = -1;
+            if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
+                ret = d->appConnection.read(&cmd, data);
+            }
+            if (ret == -1) {
+                qCDebug(KIO_CORE) << "read error on app connection while sending mimetype";
+                exit();
+                break;
+            }
+            qCDebug(KIO_CORE) << "got reply after sending mimetype" << cmd;
+            if (cmd == CMD_HOST) { // Ignore.
+                continue;
+            }
+            if (!isSubCommand(cmd)) {
+                break;
+            }
+
+            dispatch(cmd, data);
+        }
+    } while (cmd != CMD_NONE);
+    d->mOutgoingMetaData.clear();
+}
+
+void WorkerBase::exit() // possibly called from another thread, only use atomics in here
+{
+    d->exit_loop = true;
+    if (d->runInThread) {
+        d->wasKilled = true;
+    } else {
+        // Using ::exit() here is too much (crashes in qdbus's qglobalstatic object),
+        // so let's cleanly exit dispatchLoop() instead.
+        // Update: we do need to call exit(), otherwise a long download (get()) would
+        // keep going until it ends, even though the application exited.
+        ::exit(255);
+    }
 }
 
 void WorkerBase::warning(const QString &_msg)
 {
-    d->bridge.warning(_msg);
+    KIO_DATA << _msg;
+    send(INF_WARNING, data);
 }
 
 void WorkerBase::infoMessage(const QString &_msg)
 {
-    d->bridge.infoMessage(_msg);
+    KIO_DATA << _msg;
+    send(INF_INFOMESSAGE, data);
 }
 
 void WorkerBase::statEntry(const UDSEntry &entry)
 {
-    d->bridge.statEntry(entry);
+    KIO_DATA << entry;
+    send(MSG_STAT_ENTRY, data);
 }
 
 void WorkerBase::listEntry(const UDSEntry &entry)
 {
-    d->bridge.listEntry(entry);
+    // #366795: many slaves don't create an entry for ".", so we keep track if they do
+    // and we provide a fallback in finished() otherwise.
+    if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1Char('.')) {
+        d->m_rootEntryListed = true;
+    }
+
+    // We start measuring the time from the point we start filling the list
+    if (d->pendingListEntries.isEmpty()) {
+        d->m_timeSinceLastBatch.restart();
+    }
+
+    d->pendingListEntries.append(entry);
+
+    // If more then KIO_MAX_SEND_BATCH_TIME time is passed, emit the current batch
+    // Also emit if we have piled up a large number of entries already, to save memory (and time)
+    if (d->m_timeSinceLastBatch.elapsed() > KIO_MAX_SEND_BATCH_TIME || d->pendingListEntries.size() > KIO_MAX_ENTRIES_PER_BATCH) {
+        listEntries(d->pendingListEntries);
+        d->pendingListEntries.clear();
+
+        // Restart time
+        d->m_timeSinceLastBatch.restart();
+    }
 }
 
 void WorkerBase::listEntries(const UDSEntryList &list)
 {
-    d->bridge.listEntries(list);
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    for (const UDSEntry &entry : list) {
+        stream << entry;
+    }
+
+    send(MSG_LIST_ENTRIES, data);
 }
 
 void WorkerBase::appConnectionMade()
@@ -327,7 +624,33 @@ void WorkerBase::reparseConfiguration()
 
 int WorkerBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
 {
-    return d->bridge.openPasswordDialogV2(info, errorMsg);
+    const long windowId = metaData(QStringLiteral("window-id")).toLong();
+    const unsigned long userTimestamp = metaData(QStringLiteral("user-timestamp")).toULong();
+    QString errorMessage;
+    if (metaData(QStringLiteral("no-auth-prompt")).compare(QLatin1String("true"), Qt::CaseInsensitive) == 0) {
+        errorMessage = QStringLiteral("<NoAuthPrompt>");
+    } else {
+        errorMessage = errorMsg;
+    }
+
+    AuthInfo dlgInfo(info);
+    // Make sure the modified flag is not set.
+    dlgInfo.setModified(false);
+    // Prevent queryAuthInfo from caching the user supplied password since
+    // we need the ioslaves to first authenticate against the server with
+    // it to ensure it is valid.
+    dlgInfo.setExtraField(QStringLiteral("skip-caching-on-query"), true);
+
+#ifdef WITH_QTDBUS
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    const int errCode = passwdServerClient->queryAuthInfo(&dlgInfo, errorMessage, windowId, userTimestamp);
+    if (errCode == KJob::NoError) {
+        info = dlgInfo;
+    }
+    return errCode;
+#else
+    return KJob::NoError;
+#endif
 }
 
 int WorkerBase::messageBox(MessageBoxType type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
@@ -342,87 +665,232 @@ int WorkerBase::messageBox(const QString &text,
                            const QString &secondaryActionText,
                            const QString &dontAskAgainName)
 {
-    return d->bridge.messageBox(text, static_cast<SlaveBase::MessageBoxType>(type), title, primaryActionText, secondaryActionText, dontAskAgainName);
+    KIO_DATA << static_cast<qint32>(type) << text << title << primaryActionText << secondaryActionText << dontAskAgainName;
+    send(INF_MESSAGEBOX, data);
+    if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
+        QDataStream stream(data);
+        int answer;
+        stream >> answer;
+        return answer;
+    } else {
+        return 0; // communication failure
+    }
 }
 
 int WorkerBase::sslError(const QVariantMap &sslData)
 {
-    return d->bridge.sslError(sslData);
+    KIO_DATA << sslData;
+    send(INF_SSLERROR, data);
+    if (waitForAnswer(CMD_SSLERRORANSWER, 0, data) != -1) {
+        QDataStream stream(data);
+        int answer;
+        stream >> answer;
+        return answer;
+    } else {
+        return 0; // communication failure
+    }
 }
 
 bool WorkerBase::canResume(KIO::filesize_t offset)
 {
-    return d->bridge.canResume(offset);
+    // qDebug() << "offset=" << KIO::number(offset);
+    d->needSendCanResume = false;
+    KIO_DATA << static_cast<quint64>(offset);
+    send(MSG_RESUME, data);
+    if (offset) {
+        int cmd;
+        if (waitForAnswer(CMD_RESUMEANSWER, CMD_NONE, data, &cmd) != -1) {
+            // qDebug() << "returning" << (cmd == CMD_RESUMEANSWER);
+            return cmd == CMD_RESUMEANSWER;
+        } else {
+            return false;
+        }
+    } else { // No resuming possible -> no answer to wait for
+        return true;
+    }
 }
 
 int WorkerBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd)
 {
-    return d->bridge.waitForAnswer(expected1, expected2, data, pCmd);
+    int cmd = 0;
+    int result = -1;
+    for (;;) {
+        if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
+            result = d->appConnection.read(&cmd, data);
+        }
+        if (result == -1) {
+            // qDebug() << "read error.";
+            return -1;
+        }
+
+        if (cmd == expected1 || cmd == expected2) {
+            if (pCmd) {
+                *pCmd = cmd;
+            }
+            return result;
+        }
+        if (isSubCommand(cmd)) {
+            dispatch(cmd, data);
+        } else {
+            qFatal("Fatal Error: Got cmd %d, while waiting for an answer!", cmd);
+        }
+    }
 }
 
 int WorkerBase::readData(QByteArray &buffer)
 {
-    return d->bridge.readData(buffer);
+    int result = waitForAnswer(MSG_DATA, 0, buffer);
+    // qDebug() << "readData: length = " << result << " ";
+    return result;
 }
 
 void WorkerBase::setTimeoutSpecialCommand(int timeout, const QByteArray &data)
 {
-    d->bridge.setTimeoutSpecialCommand(timeout, data);
+    if (timeout > 0) {
+        d->nextTimeoutMsecs = timeout * 1000; // from seconds to milliseconds
+        d->nextTimeout.start();
+    } else if (timeout == 0) {
+        d->nextTimeoutMsecs = 1000; // Immediate timeout
+        d->nextTimeout.start();
+    } else {
+        d->nextTimeout.invalidate(); // Canceled
+    }
+
+    d->timeoutData = data;
 }
 
 bool WorkerBase::checkCachedAuthentication(AuthInfo &info)
 {
-    return d->bridge.checkCachedAuthentication(info);
+#ifdef WITH_QTDBUS
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(), metaData(QStringLiteral("user-timestamp")).toULong()));
+#else
+    return false;
+#endif
 }
 
 bool WorkerBase::cacheAuthentication(const AuthInfo &info)
 {
-    return d->bridge.cacheAuthentication(info);
+#ifdef WITH_QTDBUS
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    passwdServerClient->addAuthInfo(info, metaData(QStringLiteral("window-id")).toLongLong());
+#endif
+    return true;
 }
 
 int WorkerBase::connectTimeout()
 {
-    return d->bridge.connectTimeout();
+    bool ok;
+    QString tmp = metaData(QStringLiteral("ConnectTimeout"));
+    int result = tmp.toInt(&ok);
+    if (ok) {
+        return result;
+    }
+    return DEFAULT_CONNECT_TIMEOUT;
 }
 
 int WorkerBase::proxyConnectTimeout()
 {
-    return d->bridge.proxyConnectTimeout();
+    bool ok;
+    QString tmp = metaData(QStringLiteral("ProxyConnectTimeout"));
+    int result = tmp.toInt(&ok);
+    if (ok) {
+        return result;
+    }
+    return DEFAULT_PROXY_CONNECT_TIMEOUT;
 }
 
 int WorkerBase::responseTimeout()
 {
-    return d->bridge.responseTimeout();
+    bool ok;
+    QString tmp = metaData(QStringLiteral("ResponseTimeout"));
+    int result = tmp.toInt(&ok);
+    if (ok) {
+        return result;
+    }
+    return DEFAULT_RESPONSE_TIMEOUT;
 }
 
 int WorkerBase::readTimeout()
 {
-    return d->bridge.readTimeout();
+    bool ok;
+    QString tmp = metaData(QStringLiteral("ReadTimeout"));
+    int result = tmp.toInt(&ok);
+    if (ok) {
+        return result;
+    }
+    return DEFAULT_READ_TIMEOUT;
 }
 
 bool WorkerBase::wasKilled() const
 {
-    return d->bridge.wasKilled();
+    return d->wasKilled;
 }
 
 void WorkerBase::lookupHost(const QString &host)
 {
-    return d->bridge.lookupHost(host);
+    KIO_DATA << host;
+    send(MSG_HOST_INFO_REQ, data);
 }
 
 int WorkerBase::waitForHostInfo(QHostInfo &info)
 {
-    return d->bridge.waitForHostInfo(info);
+    QByteArray data;
+    int result = waitForAnswer(CMD_HOST_INFO, 0, data);
+
+    if (result == -1) {
+        info.setError(QHostInfo::UnknownError);
+        info.setErrorString(i18n("Unknown Error"));
+        return result;
+    }
+
+    QDataStream stream(data);
+    QString hostName;
+    QList<QHostAddress> addresses;
+    int error;
+    QString errorString;
+
+    stream >> hostName >> addresses >> error >> errorString;
+
+    info.setHostName(hostName);
+    info.setAddresses(addresses);
+    info.setError(QHostInfo::HostInfoError(error));
+    info.setErrorString(errorString);
+
+    return result;
 }
 
 PrivilegeOperationStatus WorkerBase::requestPrivilegeOperation(const QString &operationDetails)
 {
-    return d->bridge.requestPrivilegeOperation(operationDetails);
+    if (d->m_privilegeOperationStatus == OperationNotAllowed) {
+        QByteArray buffer;
+        send(MSG_PRIVILEGE_EXEC);
+        waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
+        QDataStream ds(buffer);
+        ds >> d->m_privilegeOperationStatus >> d->m_warningTitle >> d->m_warningMessage;
+    }
+
+    if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
+        // WORKER_MESSAGEBOX_DETAILS_HACK
+        // SlaveBase::messageBox() overloads miss a parameter to pass an details argument.
+        // As workaround details are passed instead via metadata before and then cached by the WorkerInterface,
+        // to be used in the upcoming messageBox call (needs WarningContinueCancelDetailed type)
+        // TODO: add a messageBox() overload taking details and use here,
+        // then remove or adapt all code marked with WORKER_MESSAGEBOX_DETAILS
+        setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
+        sendMetaData();
+
+        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed, d->m_warningTitle, QString(), QString(), QString());
+        d->m_privilegeOperationStatus = result == Continue ? OperationAllowed : OperationCanceled;
+        d->m_confirmationAsked = true;
+    }
+
+    return KIO::PrivilegeOperationStatus(d->m_privilegeOperationStatus);
 }
 
 void WorkerBase::addTemporaryAuthorization(const QString &action)
 {
-    d->bridge.addTemporaryAuthorization(action);
+    d->m_tempAuths.insert(action);
 }
 
 class WorkerResultPrivate
@@ -484,6 +952,364 @@ WorkerResult::WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr)
 
 void WorkerBase::setIncomingMetaData(const KIO::MetaData &metaData)
 {
-    d->bridge.setIncomingMetaData(metaData);
+    d->mIncomingMetaData = metaData;
 }
+
+void WorkerBase::dispatchOpenCommand(int command, const QByteArray &data)
+{
+    QDataStream stream(data);
+
+    switch (command) {
+    case CMD_READ: {
+        KIO::filesize_t bytes;
+        stream >> bytes;
+        read(bytes);
+        break;
+    }
+    case CMD_WRITE: {
+        write(data);
+        break;
+    }
+    case CMD_SEEK: {
+        KIO::filesize_t offset;
+        stream >> offset;
+        seek(offset);
+        break;
+    }
+    case CMD_TRUNCATE: {
+        KIO::filesize_t length;
+        stream >> length;
+        truncate(length);
+        break;
+    }
+    case CMD_NONE:
+        break;
+    case CMD_CLOSE:
+        close(); // must call finish(), which will set d->inOpenLoop=false
+        break;
+    default:
+        // Some command we don't understand.
+        // Just ignore it, it may come from some future version of KIO.
+        break;
+    }
+}
+
+void WorkerBase::dispatch(int command, const QByteArray &data)
+{
+    QDataStream stream(data);
+
+    QUrl url;
+    int i;
+
+    d->m_finalityCommand = true; // default
+
+    switch (command) {
+    case CMD_HOST: {
+        QString passwd;
+        QString host;
+        QString user;
+        quint16 port;
+        stream >> host >> port >> user >> passwd;
+        d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
+        setHost(host, port, user, passwd);
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_CONNECT: {
+        openConnection();
+        break;
+    }
+    case CMD_DISCONNECT: {
+        closeConnection();
+        break;
+    }
+    case CMD_WORKER_STATUS: {
+        d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
+        workerStatus(QString(), false);
+        // TODO verify that the slave has called slaveStatus()?
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_REPARSECONFIGURATION: {
+        d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
+        reparseConfiguration();
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_CONFIG: {
+        stream >> d->configData;
+        d->rebuildConfig();
+        delete d->remotefile;
+        d->remotefile = nullptr;
+        break;
+    }
+    case CMD_GET: {
+        stream >> url;
+        d->m_state = d->InsideMethod;
+        get(url);
+        d->verifyState("get()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_OPEN: {
+        stream >> url >> i;
+        QIODevice::OpenMode mode = QFlag(i);
+        d->m_state = d->InsideMethod;
+        open(url, mode); // krazy:exclude=syscalls
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_PUT: {
+        int permissions;
+        qint8 iOverwrite;
+        qint8 iResume;
+        stream >> url >> iOverwrite >> iResume >> permissions;
+        JobFlags flags;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
+        if (iResume != 0) {
+            flags |= Resume;
+        }
+
+        // Remember that we need to send canResume(), TransferJob is expecting
+        // it. Well, in theory this shouldn't be done if resume is true.
+        //   (the resume bool is currently unused)
+        d->needSendCanResume = true /* !resume */;
+
+        d->m_state = d->InsideMethod;
+        put(url, permissions, flags);
+        d->verifyState("put()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_STAT: {
+        stream >> url;
+        d->m_state = d->InsideMethod;
+        stat(url); // krazy:exclude=syscalls
+        d->verifyState("stat()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_MIMETYPE: {
+        stream >> url;
+        d->m_state = d->InsideMethod;
+        mimetype(url);
+        d->verifyState("mimetype()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_LISTDIR: {
+        stream >> url;
+        d->m_state = d->InsideMethod;
+        listDir(url);
+        d->verifyState("listDir()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_MKDIR: {
+        stream >> url >> i;
+        d->m_state = d->InsideMethod;
+        mkdir(url, i); // krazy:exclude=syscalls
+        d->verifyState("mkdir()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_RENAME: {
+        qint8 iOverwrite;
+        QUrl url2;
+        stream >> url >> url2 >> iOverwrite;
+        JobFlags flags;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
+        d->m_state = d->InsideMethod;
+        rename(url, url2, flags); // krazy:exclude=syscalls
+        d->verifyState("rename()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_SYMLINK: {
+        qint8 iOverwrite;
+        QString target;
+        stream >> target >> url >> iOverwrite;
+        JobFlags flags;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
+        d->m_state = d->InsideMethod;
+        symlink(target, url, flags);
+        d->verifyState("symlink()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_COPY: {
+        int permissions;
+        qint8 iOverwrite;
+        QUrl url2;
+        stream >> url >> url2 >> permissions >> iOverwrite;
+        JobFlags flags;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
+        d->m_state = d->InsideMethod;
+        copy(url, url2, permissions, flags);
+        d->verifyState("copy()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_DEL: {
+        qint8 isFile;
+        stream >> url >> isFile;
+        d->m_state = d->InsideMethod;
+        del(url, isFile != 0);
+        d->verifyState("del()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_CHMOD: {
+        stream >> url >> i;
+        d->m_state = d->InsideMethod;
+        chmod(url, i);
+        d->verifyState("chmod()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_CHOWN: {
+        QString owner;
+        QString group;
+        stream >> url >> owner >> group;
+        d->m_state = d->InsideMethod;
+        chown(url, owner, group);
+        d->verifyState("chown()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_SETMODIFICATIONTIME: {
+        QDateTime dt;
+        stream >> url >> dt;
+        d->m_state = d->InsideMethod;
+        setModificationTime(url, dt);
+        d->verifyState("setModificationTime()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_SPECIAL: {
+        d->m_state = d->InsideMethod;
+        special(data);
+        d->verifyState("special()");
+        d->m_state = d->Idle;
+        break;
+    }
+    case CMD_META_DATA: {
+        // qDebug() << "(" << getpid() << ") Incoming meta-data...";
+        stream >> d->mIncomingMetaData;
+        d->rebuildConfig();
+        break;
+    }
+    case CMD_NONE: {
+        qCWarning(KIO_CORE) << "Got unexpected CMD_NONE!";
+        break;
+    }
+    case CMD_FILESYSTEMFREESPACE: {
+        stream >> url;
+
+        d->m_state = d->InsideMethod;
+        fileSystemFreeSpace(url);
+        d->verifyState("fileSystemFreeSpace()");
+        d->m_state = d->Idle;
+        break;
+    }
+    default: {
+        // Some command we don't understand.
+        // Just ignore it, it may come from some future version of KIO.
+        break;
+    }
+    }
+}
+
+void WorkerBase::send(int cmd, const QByteArray &arr)
+{
+    if (d->runInThread) {
+        if (!d->appConnection.send(cmd, arr)) {
+            exit();
+        }
+    } else {
+        slaveWriteError = false;
+        if (!d->appConnection.send(cmd, arr))
+        // Note that slaveWriteError can also be set by sigpipe_handler
+        {
+            slaveWriteError = true;
+        }
+        if (slaveWriteError) {
+            qCWarning(KIO_CORE) << "An error occurred during write. The worker terminates now.";
+            exit();
+        }
+    }
+}
+
+void WorkerBase::setKillFlag()
+{
+    d->wasKilled = true;
+}
+
+void WorkerBase::setRunInThread(bool b)
+{
+    d->runInThread = b;
+}
+
+KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd)
+{
+    switch (cmd) {
+    case CMD_CONNECT:
+        return i18n("Opening connections is not supported with the protocol %1.", protocol);
+    case CMD_DISCONNECT:
+        return i18n("Closing connections is not supported with the protocol %1.", protocol);
+    case CMD_STAT:
+        return i18n("Accessing files is not supported with the protocol %1.", protocol);
+    case CMD_PUT:
+        return i18n("Writing to %1 is not supported.", protocol);
+    case CMD_SPECIAL:
+        return i18n("There are no special actions available for protocol %1.", protocol);
+    case CMD_LISTDIR:
+        return i18n("Listing folders is not supported for protocol %1.", protocol);
+    case CMD_GET:
+        return i18n("Retrieving data from %1 is not supported.", protocol);
+    case CMD_MIMETYPE:
+        return i18n("Retrieving mime type information from %1 is not supported.", protocol);
+    case CMD_RENAME:
+        return i18n("Renaming or moving files within %1 is not supported.", protocol);
+    case CMD_SYMLINK:
+        return i18n("Creating symlinks is not supported with protocol %1.", protocol);
+    case CMD_COPY:
+        return i18n("Copying files within %1 is not supported.", protocol);
+    case CMD_DEL:
+        return i18n("Deleting files from %1 is not supported.", protocol);
+    case CMD_MKDIR:
+        return i18n("Creating folders is not supported with protocol %1.", protocol);
+    case CMD_CHMOD:
+        return i18n("Changing the attributes of files is not supported with protocol %1.", protocol);
+    case CMD_CHOWN:
+        return i18n("Changing the ownership of files is not supported with protocol %1.", protocol);
+    case CMD_OPEN:
+        return i18n("Opening files is not supported with protocol %1.", protocol);
+    default:
+        return i18n("Protocol %1 does not support action %2.", protocol, cmd);
+    } /*end switch*/
+}
+
 } // namespace KIO
+
+static void sigpipe_handler(int)
+{
+    // We ignore a SIGPIPE in slaves.
+    // A SIGPIPE can happen in two cases:
+    // 1) Communication error with application.
+    // 2) Communication error with network.
+    slaveWriteError = true;
+
+    // Don't add anything else here, especially no debug output
+}

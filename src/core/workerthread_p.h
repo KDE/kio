@@ -12,7 +12,7 @@
 namespace KIO
 {
 
-class SlaveBase;
+class WorkerBase;
 class WorkerFactory;
 class WorkerThread : public QThread
 {
@@ -27,13 +27,13 @@ protected:
     void run() override;
 
 private:
-    void setWorker(KIO::SlaveBase *worker);
+    void setWorker(KIO::WorkerBase *worker);
 
     WorkerFactory *m_factory; // set by constructor, no mutex needed
     QByteArray m_appSocket; // set by constructor, no mutex needed
 
     QMutex m_workerMutex; // protects m_worker, accessed by both threads
-    KIO::SlaveBase *m_worker = nullptr;
+    KIO::WorkerBase *m_worker = nullptr;
 };
 
 } // namespace KIO

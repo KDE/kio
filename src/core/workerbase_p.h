@@ -12,212 +12,214 @@
 
 #include "workerbase.h"
 
+#include <config-kiocore.h>
+
+#include "connection_p.h"
+#include "kiocoredebug.h"
+#include "kpasswdserverclient.h"
 #include <commands_p.h>
-#include <slavebase.h>
+
+#include <QCoreApplication>
+#include <QElapsedTimer>
+#include <QStandardPaths>
+
+#include <KConfig>
+#include <KConfigGroup>
+
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+#include <KAuth/Action>
+#endif
+
+/* clang-format off */
+#define KIO_DATA \
+    QByteArray data; \
+    QDataStream stream(&data, QIODevice::WriteOnly); \
+    stream
+/* clang-format on */
+
+static constexpr int KIO_MAX_ENTRIES_PER_BATCH = 200;
+static constexpr int KIO_MAX_SEND_BATCH_TIME = 300;
+
+// TODO: Enable once file KIO worker is ported away and add endif, similar in the header file
+// #if KIOCORE_BUILD_DEPRECATED_SINCE(version where file:/ KIO worker was ported)
+
+#if KIO_ASSERT_WORKER_STATES
+#define KIO_STATE_ASSERT(cond, where, what) Q_ASSERT_X(cond, where, what)
+#else
+/* clang-format off */
+#define KIO_STATE_ASSERT(cond, where, what) \
+    do { \
+        if (!(cond)) { \
+            qCWarning(KIO_CORE) << what; \
+        } \
+    } while (false)
+#endif
+/* clang-format on */
 
 namespace KIO
 {
 
-// Bridges new worker API to legacy slave API. Overrides all SlaveBase virtual functions and redirects them at the
-// fronting WorkerBase implementation. The WorkerBase implementation then returns Result objects which we translate
-// back to the appropriate signal calls (error, finish, opened, etc.).
-// When starting the dispatchLoop it actually runs inside the SlaveBase, so the SlaveBase is in the driver seat
-// until KF6 when we can fully remove the SlaveBase in favor of the WorkerBase (means moving the dispatch and
-// dispatchLoop functions into the WorkerBase and handling the signaling in the dispatch function rather than
-// this intermediate Bridge object).
-class WorkerSlaveBaseBridge : public SlaveBase
-{
-    void finalize(const WorkerResult &result)
-    {
-        if (!result.success()) {
-            error(result.error(), result.errorString());
-            return;
-        }
-        finished();
-    }
-
-    void maybeError(const WorkerResult &result)
-    {
-        if (!result.success()) {
-            error(result.error(), result.errorString());
-        }
-    }
-
-public:
-    using SlaveBase::SlaveBase;
-
-    void setHost(const QString &host, quint16 port, const QString &user, const QString &pass) final
-    {
-        base->setHost(host, port, user, pass);
-    }
-
-    void openConnection() final
-    {
-        const WorkerResult result = base->openConnection();
-        if (!result.success()) {
-            error(result.error(), result.errorString());
-            return;
-        }
-        connected();
-    }
-
-    void closeConnection() final
-    {
-        base->closeConnection(); // not allowed to error but also not finishing
-    }
-
-    void get(const QUrl &url) final
-    {
-        finalize(base->get(url));
-    }
-
-    void open(const QUrl &url, QIODevice::OpenMode mode) final
-    {
-        const WorkerResult result = base->open(url, mode);
-        if (!result.success()) {
-            error(result.error(), result.errorString());
-            return;
-        }
-        opened();
-    }
-
-    void read(KIO::filesize_t size) final
-    {
-        maybeError(base->read(size));
-    }
-
-    void write(const QByteArray &data) final
-    {
-        maybeError(base->write(data));
-    }
-
-    void seek(KIO::filesize_t offset) final
-    {
-        maybeError(base->seek(offset));
-    }
-
-    void close() final
-    {
-        finalize(base->close());
-    }
-
-    void put(const QUrl &url, int permissions, JobFlags flags) final
-    {
-        finalize(base->put(url, permissions, flags));
-    }
-
-    void stat(const QUrl &url) final
-    {
-        finalize(base->stat(url));
-    }
-
-    void mimetype(const QUrl &url) final
-    {
-        finalize(base->mimetype(url));
-    }
-
-    void listDir(const QUrl &url) final
-    {
-        finalize(base->listDir(url));
-    }
-
-    void mkdir(const QUrl &url, int permissions) final
-    {
-        finalize(base->mkdir(url, permissions));
-    }
-
-    void rename(const QUrl &src, const QUrl &dest, JobFlags flags) final
-    {
-        finalize(base->rename(src, dest, flags));
-    }
-
-    void symlink(const QString &target, const QUrl &dest, JobFlags flags) final
-    {
-        finalize(base->symlink(target, dest, flags));
-    }
-
-    void chmod(const QUrl &url, int permissions) final
-    {
-        finalize(base->chmod(url, permissions));
-    }
-
-    void chown(const QUrl &url, const QString &owner, const QString &group) final
-    {
-        finalize(base->chown(url, owner, group));
-    }
-
-    void setModificationTime(const QUrl &url, const QDateTime &mtime) final
-    {
-        finalize(base->setModificationTime(url, mtime));
-    }
-
-    void copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags) final
-    {
-        finalize(base->copy(src, dest, permissions, flags));
-    }
-
-    void del(const QUrl &url, bool isfile) final
-    {
-        finalize(base->del(url, isfile));
-    }
-
-    void special(const QByteArray &data) final
-    {
-        finalize(base->special(data));
-    }
-
-    void slave_status() final
-    {
-        base->worker_status(); // this only requests an update and isn't able to error or finish whatsoever
-    }
-
-    void reparseConfiguration() final
-    {
-        base->reparseConfiguration();
-        SlaveBase::reparseConfiguration();
-    }
-
-    void setIncomingMetaData(const KIO::MetaData &metaData)
-    {
-        mIncomingMetaData = metaData;
-    }
-
-    WorkerBase *base = nullptr;
-
-protected:
-    void virtual_hook(int id, void *data) override
-    {
-        switch (id) {
-        case SlaveBase::AppConnectionMade:
-            base->appConnectionMade();
-            return;
-        case SlaveBase::GetFileSystemFreeSpace:
-            finalize(base->fileSystemFreeSpace(*static_cast<QUrl *>(data)));
-            return;
-        case SlaveBase::Truncate:
-            maybeError(base->truncate(*static_cast<KIO::filesize_t *>(data)));
-            return;
-        }
-
-        maybeError(WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), id)));
-    }
-};
-
 class WorkerBasePrivate
 {
 public:
-    WorkerBasePrivate(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket, WorkerBase *base)
-        : bridge(protocol, poolSocket, appSocket)
-    {
-        bridge.base = base;
-    }
-
-    WorkerSlaveBaseBridge bridge;
-
     inline QString protocolName() const
     {
-        return bridge.protocolName();
+        return QString::fromUtf8(mProtocol);
     }
+
+    WorkerBase *const q;
+
+    explicit WorkerBasePrivate(WorkerBase *owner)
+        : q(owner)
+        , nextTimeoutMsecs(0)
+        , m_confirmationAsked(false)
+        , m_privilegeOperationStatus(OperationNotAllowed)
+    {
+        if (!qEnvironmentVariableIsEmpty("KIOWORKER_ENABLE_TESTMODE")) {
+            QStandardPaths::setTestModeEnabled(true);
+        } else if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
+            QStandardPaths::setTestModeEnabled(true);
+            qCWarning(KIO_CORE)
+                << "KIOSLAVE_ENABLE_TESTMODE is deprecated for KF6, and will be unsupported soon. Please use KIOWORKER_ENABLE_TESTMODE with KF6.";
+        }
+        pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
+        appConnection.setReadMode(Connection::ReadMode::Polled);
+    }
+    // ~SlaveBasePrivate() = default;
+
+    UDSEntryList pendingListEntries;
+    QElapsedTimer m_timeSinceLastBatch;
+    Connection appConnection{Connection::Type::Worker};
+    QString poolSocket;
+    bool isConnectedToApp;
+
+    QString slaveid;
+    bool resume : 1;
+    bool needSendCanResume : 1;
+    bool onHold : 1;
+    bool inOpenLoop : 1;
+    std::atomic<bool> wasKilled = false;
+    std::atomic<bool> exit_loop = false;
+    std::atomic<bool> runInThread = false;
+    MetaData configData;
+    KConfig *config = nullptr;
+    KConfigGroup *configGroup = nullptr;
+    QMap<QString, QVariant> mapConfig;
+    QUrl onHoldUrl;
+
+    QElapsedTimer lastTimeout;
+    QElapsedTimer nextTimeout;
+    qint64 nextTimeoutMsecs;
+    KIO::filesize_t totalSize;
+    KRemoteEncoding *remotefile = nullptr;
+    enum { Idle, InsideMethod, InsideTimeoutSpecial, FinishedCalled, ErrorCalled } m_state;
+    bool m_finalityCommand = true; // whether finished() or error() may/must be called
+    QByteArray timeoutData;
+
+#ifdef WITH_QTDBUS
+    std::unique_ptr<KPasswdServerClient> m_passwdServerClient;
+#endif
+    bool m_rootEntryListed = false;
+
+    bool m_confirmationAsked;
+    QSet<QString> m_tempAuths;
+    QString m_warningTitle;
+    QString m_warningMessage;
+    int m_privilegeOperationStatus;
+
+    /**
+     * Name of the protocol supported by this slave
+     */
+    QByteArray mProtocol;
+    // Often used by TcpSlaveBase and unlikely to change
+    MetaData mOutgoingMetaData;
+    MetaData mIncomingMetaData;
+
+    void updateTempAuthStatus()
+    {
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+        QSet<QString>::iterator it = m_tempAuths.begin();
+        while (it != m_tempAuths.end()) {
+            KAuth::Action action(*it);
+            if (action.status() != KAuth::Action::AuthorizedStatus) {
+                it = m_tempAuths.erase(it);
+            } else {
+                ++it;
+            }
+        }
+#endif
+    }
+
+    bool hasTempAuth() const
+    {
+        return !m_tempAuths.isEmpty();
+    }
+
+    // Reconstructs configGroup from configData and mIncomingMetaData
+    void rebuildConfig()
+    {
+        mapConfig.clear();
+
+        // mIncomingMetaData cascades over config, so we write config first,
+        // to let it be overwritten
+        MetaData::ConstIterator end = configData.constEnd();
+        for (MetaData::ConstIterator it = configData.constBegin(); it != end; ++it) {
+            mapConfig.insert(it.key(), it->toUtf8());
+        }
+
+        end = mIncomingMetaData.constEnd();
+        for (MetaData::ConstIterator it = mIncomingMetaData.constBegin(); it != end; ++it) {
+            mapConfig.insert(it.key(), it->toUtf8());
+        }
+
+        delete configGroup;
+        configGroup = nullptr;
+        delete config;
+        config = nullptr;
+    }
+
+    bool finalState() const
+    {
+        return ((m_state == FinishedCalled) || (m_state == ErrorCalled));
+    }
+
+    void verifyState(const char *cmdName)
+    {
+        Q_UNUSED(cmdName)
+        // KIO_STATE_ASSERT(finalState(),
+        // Q_FUNC_INFO,
+        // // qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO worker.")
+        // .arg(QLatin1String(cmdName))
+        // .arg(QCoreApplication::applicationName())));
+        // Force the command into finished state. We'll not reach this for Debug builds
+        // that fail the assertion. For Release builds we'll have made sure that the
+        // command is actually finished after the verification regardless of what
+        // the slave did.
+        // if (!finalState()) {
+        //     q->finished();
+        // }
+    }
+
+    void verifyErrorFinishedNotCalled(const char *cmdName)
+    {
+        Q_UNUSED(cmdName)
+        KIO_STATE_ASSERT(!finalState(),
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO worker.")
+                                            .arg(QLatin1String(cmdName))
+                                            .arg(QCoreApplication::applicationName())));
+    }
+
+#ifdef WITH_QTDBUS
+    KPasswdServerClient *passwdServerClient()
+    {
+        if (!m_passwdServerClient) {
+            m_passwdServerClient = std::make_unique<KPasswdServerClient>();
+        }
+
+        return m_passwdServerClient.get();
+    }
+#endif
 };
 
 } // namespace KIO
