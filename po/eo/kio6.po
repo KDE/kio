@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-17 00:37+0000\n"
+"POT-Creation-Date: 2024-07-19 00:37+0000\n"
 "PO-Revision-Date: 2024-06-02 21:57+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2554,7 +2554,7 @@ msgstr "Ne povas trovi 'kioworker' ruleblan ĉe '%1'"
 msgid "&Details"
 msgstr "&Detaloj"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:190
+#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2565,7 +2565,7 @@ msgstr "&Eterne"
 msgid "Co&ntinue"
 msgstr "Daŭr&igi"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:191
+#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -4322,12 +4322,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:301
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Vi devas provizi uzantnomon kaj pasvorton por aliri ĉi tiun retejon."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:303
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Site:"
 msgstr "Retejo:"
@@ -4356,7 +4356,7 @@ msgstr ""
 "\n"
 "La servilo diris: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:351
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4365,7 +4365,7 @@ msgstr ""
 "Vi devas provizi uzantnomon kaj pasvorton por la prokura servilo listigita "
 "malsupre antaŭ ol vi rajtas aliri ajnajn retejojn."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
 #, kde-format
 msgid "Proxy:"
 msgstr "Prokurilo:"
@@ -4415,108 +4415,108 @@ msgstr "Serĉante sekcion"
 msgid "Could not find filename %1 in %2."
 msgstr "Ne eblis trovi dosiernomon %1 en %2."
 
-#: kioworkers/http/http.cpp:186 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Ĉu vi ŝatus akcepti ĉi tiun atestilon por ĉiam sen instigi?"
 
-#: kioworkers/http/http.cpp:189 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:493
 #, kde-format
 msgid "Server Authentication"
 msgstr "Servila Aŭtentikigo"
 
-#: kioworkers/http/http.cpp:321 kioworkers/http/http.cpp:360
-#: kioworkers/http/http.cpp:374
+#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
+#: kioworkers/http/http.cpp:378
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> ĉe <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1319
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Alie, la peto estus sukcesinta."
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1327
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "retrovi proprecvalorojn"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1329
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "agordi proprecvalorojn"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1331
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "krei la petitan dosierujon"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1333
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopii la specifitan dosieron aŭ dosierujon"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1335
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "movi la specifitan dosieron aŭ dosierujon"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "serĉi en la specifita dosierujo"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ŝlosi la specifitan dosieron aŭ dosierujon"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "malŝlosi la specifitan dosieron aŭ dosierujon"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "forigi la specifitan dosieron aŭ dosierujon"
 
-#: kioworkers/http/http.cpp:1340
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "pridemandi la kapablojn de la servilo"
 
-#: kioworkers/http/http.cpp:1342
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "retrovi la enhavon de la specifita dosiero aŭ dosierujo"
 
-#: kioworkers/http/http.cpp:1344
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "ruli raporton en la specifita dosierujo"
 
-#: kioworkers/http/http.cpp:1352
+#: kioworkers/http/http.cpp:1357
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Neatendita eraro (%1) okazis dum provado al %2."
 
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4524,13 +4524,13 @@ msgid ""
 "below."
 msgstr "Eraro okazis dum provado al %1, %2. Resumo de la kialoj estas sube."
 
-#: kioworkers/http/http.cpp:1410 kioworkers/http/http.cpp:1554
+#: kioworkers/http/http.cpp:1415 kioworkers/http/http.cpp:1559
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Aliro estis rifuzita dum provado al %1."
 
-#: kioworkers/http/http.cpp:1424 kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1429 kioworkers/http/http.cpp:1566
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4539,7 +4539,7 @@ msgstr ""
 "Rimedo ne povas esti kreita ĉe la celo ĝis unu aŭ pluraj mezaj kolektoj "
 "(dosierujoj) estas kreitaj."
 
-#: kioworkers/http/http.cpp:1433
+#: kioworkers/http/http.cpp:1438
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4554,28 +4554,28 @@ msgstr ""
 "ke dosieroj ne estu anstataŭitaj.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1446
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "La petita seruro ne povis esti donita. %1"
 
-#: kioworkers/http/http.cpp:1447
+#: kioworkers/http/http.cpp:1452
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "La servilo ne subtenas la peton de la korpo."
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1569
+#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1574
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ne eblas al %1 ĉar la rimedo estas ŝlosita."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ĉi tiu ago estis malhelpita de alia eraro."
 
-#: kioworkers/http/http.cpp:1463 kioworkers/http/http.cpp:1576
+#: kioworkers/http/http.cpp:1468 kioworkers/http/http.cpp:1581
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4584,7 +4584,7 @@ msgid ""
 msgstr ""
 "Ne eblas al %1 ĉar la celservilo rifuzas akcepti la dosieron aŭ dosierujon."
 
-#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
+#: kioworkers/http/http.cpp:1477 kioworkers/http/http.cpp:1590
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4593,18 +4593,18 @@ msgstr ""
 "La cela rimedo ne havas sufiĉan spacon por registri la staton de la rimedo "
 "post la plenumo de ĉi tiu metodo."
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1530
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "La rimedo ne povas esti forigita."
 
-#: kioworkers/http/http.cpp:1545
+#: kioworkers/http/http.cpp:1550
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "alŝuti %1"
 
-#: kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4877,22 +4877,22 @@ msgstr "Kalkuli"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klaku por kopii la kontrolsumon al la tondujo."
 
-#: widgets/dropjob.cpp:186
+#: widgets/dropjob.cpp:189
 #, kde-format
 msgid "C&ancel"
 msgstr "N&uligi"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:319
 #, kde-format
 msgid "&Move Here"
 msgstr "&Movi ĉi tien"
 
-#: widgets/dropjob.cpp:321
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopii ĉi tien"
 
-#: widgets/dropjob.cpp:326
+#: widgets/dropjob.cpp:329
 #, kde-format
 msgid "&Link Here"
 msgstr "&Ligi ĉi tien"
