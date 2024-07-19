@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "6.4.0") # handled by release scripts
+set(KF_VERSION "6.4.1") # handled by release scripts
 set(KF_DEP_VERSION "6.4.0") # handled by release scripts
 
 project(KIO VERSION ${KF_VERSION})
