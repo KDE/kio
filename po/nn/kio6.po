@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:37+0000\n"
+"POT-Creation-Date: 2024-07-20 00:37+0000\n"
 "PO-Revision-Date: 2024-07-06 14:34+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3875,7 +3875,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Startar %1"
 
-#: gui/kprocessrunner.cpp:469
+#: gui/kprocessrunner.cpp:468
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

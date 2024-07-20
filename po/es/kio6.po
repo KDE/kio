@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:37+0000\n"
+"POT-Creation-Date: 2024-07-20 00:37+0000\n"
 "PO-Revision-Date: 2024-06-02 12:27+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3974,7 +3974,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Lanzando %1"
 
-#: gui/kprocessrunner.cpp:469
+#: gui/kprocessrunner.cpp:468
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
