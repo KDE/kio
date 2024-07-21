@@ -25,6 +25,12 @@
 
 #include "kioglobal_p.h"
 
+// to be used in QTemporaryDir constructor, will ensure absolute path temporary directory
+QString tmpDirTemplate()
+{
+    return QDir::tempPath() + QStringLiteral("/kiotests_XXXXXX");
+}
+
 QString homeTmpDir()
 {
     const QString dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kiotests/"));
