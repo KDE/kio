@@ -123,6 +123,7 @@ void KDirListerTest::testOpenUrl()
 
     // then wait for completed
     qDebug("waiting for completed");
+    QTRY_VERIFY(m_dirLister.isFinished());
     QTRY_COMPARE(m_dirLister.spyStarted.count(), 1);
     QTRY_COMPARE(m_dirLister.spyCompleted.count(), 1);
     QCOMPARE(m_dirLister.spyCompletedQUrl.count(), 1);
