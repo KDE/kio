@@ -1327,6 +1327,10 @@ void KDirListerTest::testDirPermissionChange()
     const QString subdir = path + QLatin1String("subdir");
     QVERIFY(QDir().mkdir(subdir));
 
+    // ensure initial permissions are different to the ones we set below
+    const mode_t initPermissions = (S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP);
+    QVERIFY(KIO::chmod(QUrl::fromLocalFile(path), initPermissions)->exec());
+
     MyDirLister mylister;
     mylister.openUrl(QUrl::fromLocalFile(tempDir.path()));
     QSignalSpy spyCompleted(&mylister, qOverload<>(&KCoreDirLister::completed));
