@@ -1329,7 +1329,7 @@ void KDirListerTest::testDirPermissionChange()
 
     // ensure initial permissions are different to the ones we set below
     const mode_t initPermissions = (S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP);
-    QVERIFY(KIO::chmod(QUrl::fromLocalFile(path), initPermissions)->exec());
+    QVERIFY(KIO::chmod(QUrl::fromLocalFile(subdir), initPermissions)->exec());
 
     MyDirLister mylister;
     mylister.openUrl(QUrl::fromLocalFile(tempDir.path()));
