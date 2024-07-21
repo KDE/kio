@@ -1321,8 +1321,6 @@ void KDirListerTest::testRemoveWatchedDirectory()
 
 void KDirListerTest::testDirPermissionChange()
 {
-    QSKIP("TODO testDirPermissionChange doesn't pass FIXME");
-
     QTemporaryDir tempDir(tmpDirTemplate());
 
     const QString path = tempDir.path() + '/';
