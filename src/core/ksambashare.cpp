@@ -285,7 +285,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &ac
 {
     // NOTE: capital D is not missing from the regex net usershare will in fact refuse to consider it valid
     //   - verified 2020-08-20
-    static const auto pattern = uR"--((?:(?:(\w(\w|\s)*)\\|)(\w+\s*):([fFrRd]{1})(?:,|))*)--";
+    static const auto pattern = uR"--((?:(?:(\w[-.\w\s]*)\\|)(\w+[-.\w\s]*):([fFrRd]{1})(?:,|))*)--";
     static const QRegularExpression aclRx(QRegularExpression::anchoredPattern(pattern));
     // TODO: check if user is a valid smb user
     return aclRx.match(acl).hasMatch() ? KSambaShareData::UserShareAclOk : KSambaShareData::UserShareAclInvalid;
