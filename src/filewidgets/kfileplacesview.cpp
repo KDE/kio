@@ -339,6 +339,24 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
                 }
             }
 
+            if (index.data(KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
+                const auto info = m_freeSpaceInfo.value(index);
+
+                if (info.size > 0) {
+                    const quint64 available = info.size - info.used;
+                    const int percentUsed = qRound(100.0 * qreal(info.used) / qreal(info.size));
+
+                    if (!toolTipText.isEmpty()) {
+                        toolTipText.append(QLatin1Char('\n'));
+                    }
+                    toolTipText.append(i18nc("Available space out of total partition size (percent used)",
+                                             "%1 free of %2 (%3% used)",
+                                             KIO::convertSize(available),
+                                             KIO::convertSize(info.size),
+                                             percentUsed));
+                }
+            }
+
             if (!toolTipText.isEmpty()) {
                 // FIXME remove once we depend on Qt 6.8
                 // Qt Wayland before 6.8 doesn't support popup repositioning, causing the tooltips
