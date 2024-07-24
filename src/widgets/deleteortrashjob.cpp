@@ -56,6 +56,8 @@ public:
 void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &urls, AskIface::DeletionType delType, QWidget *parentWindow)
 {
     if (!allowDelete) {
+        q->setError(KIO::ERR_USER_CANCELED);
+        q->emitResult();
         return;
     }
 
