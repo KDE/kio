@@ -80,7 +80,7 @@ inline static uint64_t stat_ino(const struct statx &buf)
 {
     return buf.stx_ino;
 }
-inline static uint64_t stat_size(const struct statx &buf)
+inline static size_t stat_size(const struct statx &buf)
 {
     return buf.stx_size;
 }
