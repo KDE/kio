@@ -894,6 +894,10 @@ private:
     void dispatch(int command, const QByteArray &data);
     void send(int cmd, const QByteArray &arr = QByteArray());
     void setRunInThread(bool b);
+    void error(int _errid, const QString &_text);
+    void finished();
+    void finalize(const WorkerResult &result);
+    void maybeError(const WorkerResult &result);
 
 public:
     void setKillFlag();
