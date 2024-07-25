@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-20 00:37+0000\n"
+"POT-Creation-Date: 2024-07-25 00:37+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -2555,7 +2555,7 @@ msgstr "Diskouez ar rakgwell"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Perzhioù"
@@ -2819,6 +2819,13 @@ msgctxt "@item"
 msgid "Tags"
 msgstr ""
 
+#: filewidgets/kfileplacesitem.cpp:340
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "@info:tooltip path (mounted from)"
+msgid "%1 (from %2)"
+msgstr "%1 (%2)"
+
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
@@ -3009,92 +3016,106 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesview.cpp:336
+#, fuzzy, kde-format
+#| msgid "%1 %"
+msgctxt "@info:tooltip full display text since it is elided: original tooltip"
+msgid "%1: %2"
+msgstr "%1 %"
+
+#: filewidgets/kfileplacesview.cpp:353
+#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr ""
+
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1122
+#: filewidgets/kfileplacesview.cpp:1183
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Pod-lastez"
 
-#: filewidgets/kfileplacesview.cpp:1147
+#: filewidgets/kfileplacesview.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Marc'hañ"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1214
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Digeriñ gant"
 
-#: filewidgets/kfileplacesview.cpp:1156
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Ouzhpennañ ur bouetadur ..."
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1232
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Aozañ ..."
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Lemel"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "&Ouzhpennañ ur bouetadur ..."
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "&Ouzhpennañ ur bouetadur ..."
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1257
 #, fuzzy, kde-format
 msgid "&Show All Entries"
 msgstr ""
 "Diskouez\n"
 "ar bouetaduroù"
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Gwell berr"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3103,25 +3124,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "&Dinoiñ dre ardivink"
 
-#: filewidgets/kfileplacesview.cpp:1341
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1344
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1347
+#: filewidgets/kfileplacesview.cpp:1408
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ment %1"
 
-#: filewidgets/kfileplacesview.cpp:1350
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5773,12 +5794,6 @@ msgstr "Adtresañ"
 #| msgid "%1 B"
 msgid "%1:"
 msgstr "%1 O"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
-#, kde-format
-msgctxt "Available space out of total partition size (percent used)"
-msgid "%1 free of %2 (%3% used)"
-msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:666
 #, fuzzy, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-20 00:37+0000\n"
+"POT-Creation-Date: 2024-07-25 00:37+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -2693,7 +2693,7 @@ msgstr "അച്ചടിക്കുന്നതിനുമുമ്പ് �
 msgid "Open Containing Folder"
 msgstr "അടങ്ങുന്ന അറ തുറക്കുക"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "ഗുണഗണങ്ങൾ"
@@ -2936,6 +2936,12 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "ടാഗുകൾ"
 
+#: filewidgets/kfileplacesitem.cpp:340
+#, fuzzy, kde-format
+msgctxt "@info:tooltip path (mounted from)"
+msgid "%1 (from %2)"
+msgstr "%1 (%2)"
+
 #: filewidgets/kfileplacesmodel.cpp:158
 #, fuzzy
 #| msgid "All tags"
@@ -3120,87 +3126,102 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesview.cpp:336
+#, fuzzy, kde-format
+#| msgctxt "items: folders, files (size)"
+#| msgid "%1: %2"
+msgctxt "@info:tooltip full display text since it is elided: original tooltip"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: filewidgets/kfileplacesview.cpp:353
+#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr ""
+
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1122
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ചവറ്റുക്കുട്ട ശൂന്യമാക്കുക"
 
-#: filewidgets/kfileplacesview.cpp:1147
+#: filewidgets/kfileplacesview.cpp:1208
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "മൌണ്ടു് ചെയ്യുന്നു"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1156
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Add Places Entry"
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "സ്ഥലങ്ങള്‍ക്കുള്ള എന്‍ട്രിയില്‍ ചേർക്കുക"
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1232
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "മാറ്റം വരുത്തുക"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ഫയലുകള്‍ വെട്ടിമാറ്റുക"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "വിഭാഗം മറയ്ക്കുക"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "വിഭാഗം മറയ്ക്കുക"
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ലഘുകാഴ്ച"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1382
 #, fuzzy, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3208,25 +3229,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "തനിയെ &കണ്ടുപിടിക്കുക"
 
-#: filewidgets/kfileplacesview.cpp:1341
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "ചെറുത് (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1344
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "ഇടത്തരം (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1347
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "വലുത് (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1350
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5759,12 +5780,6 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "%1:"
 msgstr "%1 (%2)"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
-#, kde-format
-msgctxt "Available space out of total partition size (percent used)"
-msgid "%1 free of %2 (%3% used)"
-msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:666
 #, fuzzy, kde-format

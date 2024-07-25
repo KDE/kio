@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-20 00:37+0000\n"
+"POT-Creation-Date: 2024-07-25 00:37+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -2628,7 +2628,7 @@ msgstr "ਝਲਕ ਵੇਖਾਓ"
 msgid "Open Containing Folder"
 msgstr "ਰੱਖਣ ਵਾਲਾ ਫੋਲਡਰ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ"
@@ -2881,6 +2881,13 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "ਟੈਗ"
 
+#: filewidgets/kfileplacesitem.cpp:340
+#, fuzzy, kde-format
+#| msgid "%1 (Error %2)"
+msgctxt "@info:tooltip path (mounted from)"
+msgid "%1 (from %2)"
+msgstr "%1 (ਗ਼ਲਤੀ %2)"
+
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
@@ -3053,83 +3060,98 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "ਪਾਰਟੀਸ਼ਨ ਮੈਨੇਜਰ ਨਾਲ ਮੁੜ-ਫਾਰਮੈਟ ਕਰੋ ਜਾਂ ਸੋਧੋ"
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesview.cpp:336
+#, fuzzy, kde-format
+#| msgctxt "items: folders, files (size)"
+#| msgid "%1: %2"
+msgctxt "@info:tooltip full display text since it is elided: original tooltip"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: filewidgets/kfileplacesview.cpp:353
+#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%2 ਵਿੱਚੋਂ %1 ਖਾਲੀ (%3% ਵਰਤੀ)"
+
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ਲੁਕਵਾਂ)"
 
-#: filewidgets/kfileplacesview.cpp:1122
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ਰੱਦੀ ਖਾਲੀ ਕਰੋ"
 
-#: filewidgets/kfileplacesview.cpp:1147
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "ਮਾਊਂਟ"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kfileplacesview.cpp:1156
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "ਐਂਟਰੀ ਜੋੜੋ…"
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "ਸੋਧੋ(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ਥਾਵਾਂ ਵਿੱਚੋਂ ਹਟਾਓ"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "ਓਹਲੇ(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "ਭਾਗ '%1' ਓਹਲੇ"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "ਭਾਗ ਓਹਲੇ"
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "ਸਭ ਐਂਟਰੀ ਵੇਖੋ(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1201
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ਆਈਕਾਨ ਆਕਾਰ"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3137,25 +3159,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ਆਪੇ ਮੁੜ-ਆਕਾਰ"
 
-#: filewidgets/kfileplacesview.cpp:1341
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "ਛੋਟਾ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1344
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "ਮੱਧਮ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1347
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ਵੱਡਾ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1350
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5775,12 +5797,6 @@ msgstr "ਤਾਜ਼ਾ"
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
-#, kde-format
-msgctxt "Available space out of total partition size (percent used)"
-msgid "%1 free of %2 (%3% used)"
-msgstr "%2 ਵਿੱਚੋਂ %1 ਖਾਲੀ (%3% ਵਰਤੀ)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:666
 #, kde-format
