@@ -161,8 +161,8 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
         org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
 
-        QDBusReply<bool> reply = interface.requiresJobTracker();
-        if (!reply.isValid() || reply.value()) {
+        QDBusReply<bool> requiresTrackerReply = interface.requiresJobTracker();
+        if (!requiresTrackerReply.isValid() || requiresTrackerReply.value()) {
             d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
         }
 
