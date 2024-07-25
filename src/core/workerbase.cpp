@@ -106,9 +106,11 @@ void WorkerBase::dispatchLoop()
             QByteArray data = d->timeoutData;
             d->nextTimeout.invalidate();
             d->timeoutData = QByteArray();
-            d->m_state = d->InsideTimeoutSpecial;
-            special(data);
-            d->m_state = d->Idle;
+            // do *not* finalize here
+            WorkerResult result = special(data);
+            if (!result.success()) {
+                qWarning(KIO_CORE) << "TimeoutSpecialCommand failed with" << result.error() << result.errorString();
+            }
         }
 
         Q_ASSERT(d->appConnection.inited());
@@ -1017,8 +1019,6 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
     QUrl url;
     int i;
 
-    d->m_finalityCommand = true; // default
-
     switch (command) {
     case CMD_HOST: {
         QString passwd;
@@ -1026,10 +1026,7 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         QString user;
         quint16 port;
         stream >> host >> port >> user >> passwd;
-        d->m_state = d->InsideMethod;
-        d->m_finalityCommand = false;
         setHost(host, port, user, passwd);
-        d->m_state = d->Idle;
         break;
     }
     case CMD_CONNECT: {
@@ -1046,18 +1043,12 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_WORKER_STATUS: {
-        d->m_state = d->InsideMethod;
-        d->m_finalityCommand = false;
         workerStatus(QString(), false);
         // TODO verify that the slave has called slaveStatus()?
-        d->m_state = d->Idle;
         break;
     }
     case CMD_REPARSECONFIGURATION: {
-        d->m_state = d->InsideMethod;
-        d->m_finalityCommand = false;
         reparseConfiguration();
-        d->m_state = d->Idle;
         break;
     }
     case CMD_CONFIG: {
@@ -1069,23 +1060,18 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
     }
     case CMD_GET: {
         stream >> url;
-        d->m_state = d->InsideMethod;
         finalize(get(url));
-        d->verifyState("get()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_OPEN: {
         stream >> url >> i;
         QIODevice::OpenMode mode = QFlag(i);
-        d->m_state = d->InsideMethod;
         const WorkerResult result = open(url, mode);
         if (!result.success()) {
             error(result.error(), result.errorString());
             return;
         }
 
-        d->m_state = d->Idle;
         break;
     }
     case CMD_PUT: {
@@ -1106,42 +1092,27 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         //   (the resume bool is currently unused)
         d->needSendCanResume = true /* !resume */;
 
-        d->m_state = d->InsideMethod;
         finalize(put(url, permissions, flags));
-        d->verifyState("put()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_STAT: {
         stream >> url;
-        d->m_state = d->InsideMethod;
         finalize(stat(url));
-        d->verifyState("stat()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_MIMETYPE: {
         stream >> url;
-        d->m_state = d->InsideMethod;
         finalize(mimetype(url));
-        d->verifyState("mimetype()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_LISTDIR: {
         stream >> url;
-        d->m_state = d->InsideMethod;
         finalize(listDir(url));
-        d->verifyState("listDir()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_MKDIR: {
         stream >> url >> i;
-        d->m_state = d->InsideMethod;
         finalize(mkdir(url, 0 /*permissions TODO*/));
-        d->verifyState("mkdir()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_RENAME: {
@@ -1152,10 +1123,7 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         if (iOverwrite != 0) {
             flags |= Overwrite;
         }
-        d->m_state = d->InsideMethod;
         finalize(rename(url, url2, flags));
-        d->verifyState("rename()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_SYMLINK: {
@@ -1166,10 +1134,7 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         if (iOverwrite != 0) {
             flags |= Overwrite;
         }
-        d->m_state = d->InsideMethod;
         finalize(symlink(target, url, flags));
-        d->verifyState("symlink()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_COPY: {
@@ -1181,53 +1146,35 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
         if (iOverwrite != 0) {
             flags |= Overwrite;
         }
-        d->m_state = d->InsideMethod;
         finalize(copy(url, url2, permissions, flags));
-        d->verifyState("copy()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_DEL: {
         qint8 isFile;
         stream >> url >> isFile;
-        d->m_state = d->InsideMethod;
         finalize(del(url, isFile != 0));
-        d->verifyState("del()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_CHMOD: {
         stream >> url >> i;
-        d->m_state = d->InsideMethod;
         finalize(chmod(url, i));
-        d->verifyState("chmod()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_CHOWN: {
         QString owner;
         QString group;
         stream >> url >> owner >> group;
-        d->m_state = d->InsideMethod;
         finalize(chown(url, owner, group));
-        d->verifyState("chown()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_SETMODIFICATIONTIME: {
         QDateTime dt;
         stream >> url >> dt;
-        d->m_state = d->InsideMethod;
         finalize(setModificationTime(url, dt));
-        d->verifyState("setModificationTime()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_SPECIAL: {
-        d->m_state = d->InsideMethod;
         finalize(special(data));
-        d->verifyState("special()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_META_DATA: {
@@ -1243,10 +1190,7 @@ void WorkerBase::dispatch(int command, const QByteArray &data)
     case CMD_FILESYSTEMFREESPACE: {
         stream >> url;
 
-        d->m_state = d->InsideMethod;
         finalize(fileSystemFreeSpace(url));
-        d->verifyState("fileSystemFreeSpace()");
-        d->m_state = d->Idle;
         break;
     }
     default: {
@@ -1289,30 +1233,6 @@ void WorkerBase::setRunInThread(bool b)
 
 void WorkerBase::error(int _errid, const QString &_text)
 {
-    if (d->m_state == d->InsideTimeoutSpecial) {
-        qWarning(KIO_CORE) << "TimeoutSpecialCommand failed with" << _errid << _text;
-        return;
-    }
-
-    KIO_STATE_ASSERT(
-        d->m_finalityCommand,
-        Q_FUNC_INFO,
-        qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
-
-    if (d->m_state == d->ErrorCalled) {
-        KIO_STATE_ASSERT(false,
-                         Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
-        return;
-    } else if (d->m_state == d->FinishedCalled) {
-        KIO_STATE_ASSERT(
-            false,
-            Q_FUNC_INFO,
-            qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
-        return;
-    }
-
-    d->m_state = d->ErrorCalled;
     d->mIncomingMetaData.clear(); // Clear meta data
     d->rebuildConfig();
     d->mOutgoingMetaData.clear();
@@ -1328,10 +1248,6 @@ void WorkerBase::error(int _errid, const QString &_text)
 
 void WorkerBase::finished()
 {
-    if (d->m_state == d->InsideTimeoutSpecial) {
-        return;
-    }
-
     if (!d->pendingListEntries.isEmpty()) {
         if (!d->m_rootEntryListed) {
             qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO worker.";
@@ -1348,26 +1264,6 @@ void WorkerBase::finished()
         d->pendingListEntries.clear();
     }
 
-    KIO_STATE_ASSERT(
-        d->m_finalityCommand,
-        Q_FUNC_INFO,
-        qUtf8Printable(
-            QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO worker.").arg(QCoreApplication::applicationName())));
-
-    if (d->m_state == d->FinishedCalled) {
-        KIO_STATE_ASSERT(false,
-                         Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
-        return;
-    } else if (d->m_state == d->ErrorCalled) {
-        KIO_STATE_ASSERT(
-            false,
-            Q_FUNC_INFO,
-            qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
-        return;
-    }
-
-    d->m_state = d->FinishedCalled;
     d->mIncomingMetaData.clear(); // Clear meta data
     d->rebuildConfig();
     sendMetaData();

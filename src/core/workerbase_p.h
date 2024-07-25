@@ -112,8 +112,6 @@ public:
     qint64 nextTimeoutMsecs;
     KIO::filesize_t totalSize;
     KRemoteEncoding *remotefile = nullptr;
-    enum { Idle, InsideMethod, InsideTimeoutSpecial, FinishedCalled, ErrorCalled } m_state;
-    bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
 #ifdef WITH_QTDBUS
@@ -176,38 +174,6 @@ public:
         configGroup = nullptr;
         delete config;
         config = nullptr;
-    }
-
-    bool finalState() const
-    {
-        return ((m_state == FinishedCalled) || (m_state == ErrorCalled));
-    }
-
-    void verifyState(const char *cmdName)
-    {
-        Q_UNUSED(cmdName)
-        // KIO_STATE_ASSERT(finalState(),
-        // Q_FUNC_INFO,
-        // // qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO worker.")
-        // .arg(QLatin1String(cmdName))
-        // .arg(QCoreApplication::applicationName())));
-        // Force the command into finished state. We'll not reach this for Debug builds
-        // that fail the assertion. For Release builds we'll have made sure that the
-        // command is actually finished after the verification regardless of what
-        // the slave did.
-        // if (!finalState()) {
-        //     q->finished();
-        // }
-    }
-
-    void verifyErrorFinishedNotCalled(const char *cmdName)
-    {
-        Q_UNUSED(cmdName)
-        KIO_STATE_ASSERT(!finalState(),
-                         Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO worker.")
-                                            .arg(QLatin1String(cmdName))
-                                            .arg(QCoreApplication::applicationName())));
     }
 
 #ifdef WITH_QTDBUS
