@@ -54,6 +54,7 @@ public Q_SLOTS:
 
 private:
     std::unique_ptr<KDynamicJobTrackerPrivate> const d;
+    Q_SLOT void handleRequiresJobTrackerChanged(bool);
 };
 
 #endif

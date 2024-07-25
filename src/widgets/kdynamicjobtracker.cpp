@@ -112,6 +112,9 @@ void KDynamicJobTracker::registerJob(KJob *job)
         }
     };
 
+    useWidgetsFallback();
+    return;
+
     // do not try to use kuiserver on Windows/macOS
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     useWidgetsFallback();
@@ -125,15 +128,6 @@ void KDynamicJobTracker::registerJob(KJob *job)
     }
 
     const QString kuiserverService = QStringLiteral("org.kde.kuiserver");
-
-    if (canHaveWidgets) {
-        org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
-        QDBusReply<bool> reply = interface.requiresJobTracker();
-        if (!reply.isValid() || reply.value()) {
-            useWidgetsFallback();
-            return;
-        }
-    }
 
     if (!d->jobViewServerWatcher) {
         d->jobViewServerWatcher = new QDBusServiceWatcher(kuiserverService,
@@ -164,6 +158,15 @@ void KDynamicJobTracker::registerJob(KJob *job)
                 d->jobViewServerSupport = KDynamicJobTrackerPrivate::V2NotSupported;
             }
         }
+
+        org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
+
+        QDBusReply<bool> reply = interface.requiresJobTracker();
+        if (!reply.isValid() || reply.value()) {
+            d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
+        }
+
+        QDBusConnection::sessionBus().connect(kuiserverService, QStringLiteral("/JobViewServer"), QStringLiteral("org.kde.kuiserver"), QStringLiteral("requiresJobTrackerChanged"), this, SLOT(handleRequiresJobTrackerChanged));
     }
 
     if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::V2Supported) {
@@ -222,6 +225,15 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
     }
 
     d->trackers.erase(it);
+}
+
+void KDynamicJobTracker::handleRequiresJobTrackerChanged(bool req)
+{
+    if (req) {
+        d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
+    } else {
+        d->jobViewServerSupport = KDynamicJobTrackerPrivate::V2Supported;
+    }
 }
 
 Q_GLOBAL_STATIC(KDynamicJobTracker, globalJobTracker)
