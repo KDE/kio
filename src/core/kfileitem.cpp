@@ -733,8 +733,45 @@ QString KFileItem::linkDest() const
 
     // If not in the KIO::UDSEntry, or if UDSEntry empty, use readlink() [if local URL]
     if (d->m_bIsLocalUrl) {
+        // Use QFileInfo::readSymlink once we depend on Qt 6.6+
+#ifdef Q_OS_UNIX
+        // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#456198)
+        // implementation following file_unix.cpp readlinkToBuffer()
+#if HAVE_STATX
+        using SizeType = size_t;
+#else
+        using SizeType = off_t;
+#endif
+        SizeType linkSize = size();
+        const QString path = d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+        if (linkSize > SIZE_MAX) {
+            qCWarning(KIO_CORE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
+            return {};
+        }
+        SizeType lowerBound = 256;
+        SizeType higherBound = 1024;
+        SizeType bufferSize = qBound(lowerBound, linkSize + 1, higherBound);
+        QByteArray linkTargetBuffer(bufferSize, Qt::Initialization::Uninitialized);
+        const QByteArray pathBA = QFile::encodeName(path);
+        while (true) {
+            ssize_t n = readlink(pathBA.constData(), linkTargetBuffer.data(), linkTargetBuffer.size());
+            if (n < 0 && errno != ERANGE) {
+                qCWarning(KIO_CORE) << "readlink failed!" << pathBA;
+                return {};
+            } else if (n > 0 && static_cast<SizeType>(n) != bufferSize) {
+                // the buffer was not filled in the last iteration
+                // we are finished reading, break the loop
+                linkTargetBuffer.truncate(n);
+                break;
+            }
+            linkTargetBuffer.resize(linkTargetBuffer.size() * 2);
+        }
+        return QString::fromUtf8(linkTargetBuffer);
+#else
         return QFile::symLinkTarget(d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
+#endif
     }
+
     return QString();
 }
 
@@ -1430,7 +1467,15 @@ QString KFileItem::getStatusBarInfo() const
     if (d->m_bLink) {
         auto linkText = linkDest();
         if (!linkText.startsWith(QStringLiteral("anon_inode:"))) {
-            linkText = toDisplayUrl(d->m_url.resolved(QUrl(linkText)));
+            auto url = QUrl(linkText).adjusted(QUrl::StripTrailingSlash);
+            if (d->m_url.isLocalFile()) {
+                if (url.scheme().isEmpty()) {
+                    url.setScheme(QStringLiteral("file"));
+                }
+            } else {
+                url = d->m_url.resolved(url);
+            }
+            linkText = toDisplayUrl(url);
         }
         text += QLatin1Char(' ');
         if (comment.isEmpty()) {

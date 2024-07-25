@@ -48,8 +48,6 @@ void KFileItemTest::initTestCase()
 
 void KFileItemTest::testPermissionsString()
 {
-    QSKIP("TODO testPermissionsString doesn't pass FIXME");
-
     // Directory
     QTemporaryDir tempDir;
     KFileItem dirItem(QUrl::fromLocalFile(tempDir.path() + '/'));
@@ -73,7 +71,12 @@ void KFileItemTest::testPermissionsString()
                        QFile::ReadOwner | QFile::WriteOwner | QFile::ExeUser | QFile::ReadGroup | QFile::ExeGroup | QFile::ReadOther | QFile::ExeOther));
     QFile folderFile(tempDir.path() + "/afolder");
     KFileItem folderItem(QUrl::fromLocalFile(folderFile.fileName()), QString(), KFileItem::Unknown);
-    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxr-xr-x")); // 655
+#ifdef Q_OS_FREEBSD
+    // QDir::mkdir does not apply permissions correctly on FreeBSD
+    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwx------")); // 700
+#else
+    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxr-xr-x")); // 755
+#endif
     QVERIFY(folderItem.isReadable());
     QCOMPARE(folderItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("afolder (Folder)")));
 
@@ -91,8 +94,17 @@ void KFileItemTest::testPermissionsString()
              CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Empty document, Link to %1/afile)").arg(tempDir.path())));
 
 #ifdef Q_OS_UNIX
+    // changing home temporarly
+    auto home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+    setenv("HOME", tempDir.path().toLatin1(), 1);
+
+    QCOMPARE(symlinkItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Empty document, Link to ~/afile)")));
+
+    setenv("HOME", home.toLatin1(), 1);
+#endif
+
+#ifdef Q_OS_UNIX
     // relative Symlink to a file
-    QFile relativeFile("../afile");
     QString relativeSymlink = tempDir.path() + "/afolder/relative-symlink";
     QVERIFY(::symlink("../afile", relativeSymlink.toLatin1()) == 0);
     QUrl relativeSymlinkUrl = QUrl::fromLocalFile(relativeSymlink);
@@ -102,8 +114,7 @@ void KFileItemTest::testPermissionsString()
     // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
     QCOMPARE(relativeSymlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
     QVERIFY(relativeSymlinkItem.isReadable());
-    QCOMPARE(relativeSymlinkItem.getStatusBarInfo(),
-             CaseInsensitiveStringCompareHelper(QStringLiteral("relative-symlink (Empty document, Link to %1/afile)").arg(tempDir.path())));
+    QCOMPARE(relativeSymlinkItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("relative-symlink (Empty document, Link to ../afile)")));
 #endif
 
     // Symlink to directory (#162544)
@@ -134,7 +145,18 @@ void KFileItemTest::testRelativeSymlinkGetStatusBarInfo()
 
         KFileItem symlinkItem(entry, QUrl::fromLocalFile(tempDir.path()), true, true);
         QCOMPARE(symlinkItem.getStatusBarInfo(),
-                 CaseInsensitiveStringCompareHelper(QStringLiteral("afile.relative (Unknown, Link to %1/afile)").arg(tempDir.path())));
+                 CaseInsensitiveStringCompareHelper(QStringLiteral("afile.relative (Unknown, Link to afile)").arg(tempDir.path())));
+    }
+
+    // relative symlink to a file in a different directory
+    {
+        KIO::UDSEntry entry;
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("afile.relative"));
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("../afile"));
+
+        KFileItem symlinkItem(entry, QUrl::fromLocalFile(tempDir.path()), true, true);
+        QCOMPARE(symlinkItem.getStatusBarInfo(),
+                 CaseInsensitiveStringCompareHelper(QStringLiteral("afile.relative (Unknown, Link to ../afile)").arg(tempDir.path())));
     }
 
     // relative symlink to a file, name has spaces
@@ -144,9 +166,8 @@ void KFileItemTest::testRelativeSymlinkGetStatusBarInfo()
         entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("a file with spaces"));
 
         KFileItem symlinkItem(entry, QUrl::fromLocalFile(tempDir.path()), true, true);
-        QCOMPARE(
-            symlinkItem.getStatusBarInfo(),
-            CaseInsensitiveStringCompareHelper(QStringLiteral("a file with spaces.relative (Unknown, Link to %1/a file with spaces)").arg(tempDir.path())));
+        QCOMPARE(symlinkItem.getStatusBarInfo(),
+                 CaseInsensitiveStringCompareHelper(QStringLiteral("a file with spaces.relative (Unknown, Link to a file with spaces)").arg(tempDir.path())));
     }
 
     // relative symlink in remote
