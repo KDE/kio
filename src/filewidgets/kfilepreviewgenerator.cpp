@@ -10,6 +10,7 @@
 #include <KConfigGroup>
 #include <KIconEffect>
 #include <KIconLoader>
+#include <KIconUtils>
 #include <KSharedConfig>
 #include <KUrlMimeData>
 #include <imagefilter_p.h> // from kiowidgets
@@ -626,7 +627,8 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
         KIconEffect::toDisabled(icon);
     }
 
-    KIconLoader::global()->drawOverlays(item.overlays(), icon, KIconLoader::Desktop);
+    const QSize size = icon.size();
+    icon = KIconUtils::addOverlays(icon, item.overlays()).pixmap(size);
 
     // remember the preview and URL, so that it can be applied to the model
     // in KFilePreviewGenerator::dispatchIconUpdateQueue()
