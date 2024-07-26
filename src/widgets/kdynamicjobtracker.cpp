@@ -112,9 +112,6 @@ void KDynamicJobTracker::registerJob(KJob *job)
         }
     };
 
-    useWidgetsFallback();
-    return;
-
     // do not try to use kuiserver on Windows/macOS
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     useWidgetsFallback();
