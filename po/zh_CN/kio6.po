@@ -2869,11 +2869,10 @@ msgid "Tags"
 msgstr "标签"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (错误 %2)"
+msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3043,12 +3042,10 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "用分区管理器格式化或编辑"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
-msgstr "%1：%2"
+msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:659
