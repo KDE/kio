@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:37+0000\n"
+"POT-Creation-Date: 2024-07-27 00:38+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "%1 ഐഒ സ്ലേവ് നിര്‍മ്മിക്കാന്‍ സാധ്യമല്ല"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1142
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4125,22 +4125,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:711
+#: kioworkers/file/file_unix.cpp:718
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:933
+#: kioworkers/file/file_unix.cpp:940
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1225
+#: kioworkers/file/file_unix.cpp:1232
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

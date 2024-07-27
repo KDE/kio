@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 00:37+0000\n"
+"POT-Creation-Date: 2024-07-27 00:38+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nevar izveidot IO apstrādātāju: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1135
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1142
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4345,22 +4345,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:711
+#: kioworkers/file/file_unix.cpp:718
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nevar kopēt failu no %1 uz %2. (Kļūda: %3)"
 
-#: kioworkers/file/file_unix.cpp:933
+#: kioworkers/file/file_unix.cpp:940
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nav atrasts datu nesējs iekš %1"
 
-#: kioworkers/file/file_unix.cpp:1225
+#: kioworkers/file/file_unix.cpp:1232
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nevar atrast lietotāja id lietotājvārdam %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nevar atrast grupas id grupas vārdam %1"
