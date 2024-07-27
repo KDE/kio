@@ -609,12 +609,25 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
 
     // I assume all items are from the same directory.
     // From KDirLister's code, this should be the case, except maybe emitChanges?
-    const KFileItem item = items.first();
-    Q_ASSERT(!item.isNull());
-    QUrl url = item.url();
-    KDirModelNode *node = nodeForUrl(url); // O(depth)
+
+    // We need to find first item with existing node
+    // because the first deleted item could be a hidden file not belonging to any node.
+    auto findFirstNodeAndUrl = [this](const KFileItemList &items) -> QPair<KDirModelNode *, QUrl> {
+        for (const KFileItem &item : items) {
+            Q_ASSERT(!item.isNull());
+            const QUrl url = item.url();
+            KDirModelNode *node = nodeForUrl(url); // O(depth)
+            if (node) {
+                return {node, url};
+            } else {
+                qCWarning(category) << "No node found for item that was just removed:" << url;
+            }
+        }
+        return {nullptr, QUrl()};
+    };
+
+    auto [node, url] = findFirstNodeAndUrl(items);
     if (!node) {
-        qCWarning(category) << "No node found for item that was just removed:" << url;
         return;
     }
 
@@ -640,22 +653,19 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     const int childCount = dirNode->m_childNodes.count();
     QBitArray rowNumbers(childCount, false);
     for (const KFileItem &item : items) {
-        if (!node) { // don't lookup the first item twice
-            url = item.url();
-            node = nodeForUrl(url);
-            if (!node) {
-                qCWarning(category) << "No node found for item that was just removed:" << url;
-                continue;
-            }
-            if (!node->parent()) {
-                // The root node has been deleted, but it was not first in the list 'items'.
-                // see https://bugs.kde.org/show_bug.cgi?id=196695
-                return;
-            }
+        url = item.url();
+        node = nodeForUrl(url);
+        if (!node) {
+            qCWarning(category) << "No node found for item that was just removed:" << url;
+            continue;
+        }
+        if (!node->parent()) {
+            // The root node has been deleted, but it was not first in the list 'items'.
+            // see https://bugs.kde.org/show_bug.cgi?id=196695
+            return;
         }
         rowNumbers.setBit(node->rowNumber(), 1); // O(n)
         removeFromNodeHash(node, url);
-        node = nullptr;
     }
 
     int start = -1;
