@@ -19,6 +19,9 @@ private Q_SLOTS:
     void cleanup();
     void testXbelBookmark();
     void testXbelBookmarkMaxEntries();
+    void testRemoveUrl();
+    void testRemoveApplication();
+    void testRemoveBookmarksModifiedSince();
 
 private:
     QString m_xbelPath;
