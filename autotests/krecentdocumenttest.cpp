@@ -27,7 +27,6 @@ void KRecentDocumentTest::initTestCase()
         qFatal("Can't create %s", qPrintable(tempFile.fileName()));
     }
     m_testFile = tempFile.fileName();
-    //qDebug() << "test file" << m_testFile;
 }
 
 void KRecentDocumentTest::cleanupTestCase()
@@ -46,7 +45,7 @@ void KRecentDocumentTest::cleanup()
 void KRecentDocumentTest::testXbelBookmark()
 {
     const auto url = QUrl::fromLocalFile(m_testFile);
-    // qDebug() << "url=" << url;
+
     KRecentDocument::add(url, QStringLiteral("my-application"));
     KRecentDocument::add(url, QStringLiteral("my-application-2"));
     KRecentDocument::add(url, QStringLiteral("my-application"));
@@ -152,6 +151,91 @@ void KRecentDocumentTest::testXbelBookmarkMaxEntries()
     for (auto &f: tempFiles) {
         f->remove();
     }
+}
+
+void KRecentDocumentTest::testRemoveUrl()
+{
+    const auto url = QUrl::fromLocalFile(m_testFile);
+
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+    KRecentDocument::add(url, QStringLiteral("my-application-2"));
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+
+    // remove the url from the history
+    KRecentDocument::removeFile(url);
+
+    auto xbelFile = QFile(m_xbelPath);
+    QVERIFY(xbelFile.open(QIODevice::OpenModeFlag::ReadOnly));
+    auto xbelContent = xbelFile.readAll();
+    xbelFile.close();
+
+    QDomDocument reader;
+    QVERIFY(reader.setContent(xbelContent));
+
+    auto bookmarks = reader.elementsByTagName("bookmark");
+    // check there isn't any bookmark left
+    QCOMPARE(bookmarks.length(), 0);
+}
+
+void KRecentDocumentTest::testRemoveApplication()
+{
+    const auto url = QUrl::fromLocalFile(m_testFile);
+
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+    KRecentDocument::add(url, QStringLiteral("my-application-2"));
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+
+    auto checkNumberOfApplication = [this](int numberBookmarks, int numberApplications) {
+        auto xbelFile = QFile(m_xbelPath);
+        QVERIFY(xbelFile.open(QIODevice::OpenModeFlag::ReadOnly));
+        auto xbelContent = xbelFile.readAll();
+        xbelFile.close();
+
+        QDomDocument reader;
+        QVERIFY(reader.setContent(xbelContent));
+
+        auto bookmarks = reader.elementsByTagName("bookmark");
+        QCOMPARE(bookmarks.length(), numberBookmarks);
+
+        auto applications = reader.elementsByTagName("bookmark:application");
+        QCOMPARE(applications.length(), numberApplications);
+    };
+
+    // precondition, one bookmark with two applications
+    checkNumberOfApplication(1, 2);
+
+    // remove the application from the history
+    KRecentDocument::removeApplication(QStringLiteral("my-application"));
+
+    checkNumberOfApplication(1, 1);
+
+    // remove the last application from the history
+    KRecentDocument::removeApplication(QStringLiteral("my-application-2"));
+
+    checkNumberOfApplication(0, 0);
+}
+
+void KRecentDocumentTest::testRemoveBookmarksModifiedSince()
+{
+    const auto url = QUrl::fromLocalFile(m_testFile);
+
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+    KRecentDocument::add(url, QStringLiteral("my-application-2"));
+    KRecentDocument::add(url, QStringLiteral("my-application"));
+
+    KRecentDocument::removeBookmarksModifiedSince(QDateTime::currentDateTime().addSecs(-10));
+
+    auto xbelFile = QFile(m_xbelPath);
+    QVERIFY(xbelFile.open(QIODevice::OpenModeFlag::ReadOnly));
+    auto xbelContent = xbelFile.readAll();
+    xbelFile.close();
+
+    QDomDocument reader;
+    QVERIFY(reader.setContent(xbelContent));
+
+    auto bookmarks = reader.elementsByTagName("bookmark");
+    // check there isn't any bookmark left
+    QCOMPARE(bookmarks.length(), 0);
 }
 
 QTEST_MAIN(KRecentDocumentTest)

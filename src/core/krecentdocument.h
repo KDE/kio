@@ -10,6 +10,7 @@
 
 #include "kiocore_export.h"
 
+#include <QDateTime>
 #include <QString>
 #include <QUrl>
 
@@ -101,6 +102,16 @@ public:
 
     static bool clearEntriesOldestEntries(int maxEntries);
 
+    /// @since 6.6
+    static void removeFile(const QUrl &url);
+    /// @since 6.6
+    static void removeApplication(const QString &desktopEntryName);
+    /**
+     * Remove bookmarks whose modification date is after since parameter.
+     *
+     * @since 6.6
+     */
+    static void removeBookmarksModifiedSince(const QDateTime &since);
     /**
      * Clear the recent document menu of all entries.
      */

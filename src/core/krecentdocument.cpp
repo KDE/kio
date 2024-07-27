@@ -22,6 +22,8 @@
 #include <KService>
 #include <KSharedConfig>
 
+using namespace Qt::StringLiterals;
+
 static QString xbelPath()
 {
     return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/recently-used.xbel");
@@ -31,37 +33,37 @@ static inline QString stringForRecentDocumentGroup(int val)
 {
     switch (val) {
     case KRecentDocument::RecentDocumentGroup::Development:
-        return QStringLiteral("Development");
+        return "Development"_L1;
     case KRecentDocument::RecentDocumentGroup::Office:
-        return QStringLiteral("Office");
+        return "Office"_L1;
     case KRecentDocument::RecentDocumentGroup::Database:
-        return QStringLiteral("Database");
+        return "Database"_L1;
     case KRecentDocument::RecentDocumentGroup::Email:
-        return QStringLiteral("Email");
+        return "Email"_L1;
     case KRecentDocument::RecentDocumentGroup::Presentation:
-        return QStringLiteral("Presentation");
+        return "Presentation"_L1;
     case KRecentDocument::RecentDocumentGroup::Spreadsheet:
-        return QStringLiteral("Spreadsheet");
+        return "Spreadsheet"_L1;
     case KRecentDocument::RecentDocumentGroup::WordProcessor:
-        return QStringLiteral("WordProcessor");
+        return "WordProcessor"_L1;
     case KRecentDocument::RecentDocumentGroup::Graphics:
-        return QStringLiteral("Graphics");
+        return "Graphics"_L1;
     case KRecentDocument::RecentDocumentGroup::TextEditor:
-        return QStringLiteral("TextEditor");
+        return "TextEditor"_L1;
     case KRecentDocument::RecentDocumentGroup::Viewer:
-        return QStringLiteral("Viewer");
+        return "Viewer"_L1;
     case KRecentDocument::RecentDocumentGroup::Archive:
-        return QStringLiteral("Archive");
+        return "Archive"_L1;
     case KRecentDocument::RecentDocumentGroup::Multimedia:
-        return QStringLiteral("Multimedia");
+        return "Multimedia"_L1;
     case KRecentDocument::RecentDocumentGroup::Audio:
-        return QStringLiteral("Audio");
+        return "Audio"_L1;
     case KRecentDocument::RecentDocumentGroup::Video:
-        return QStringLiteral("Video");
+        return "Video"_L1;
     case KRecentDocument::RecentDocumentGroup::Photo:
-        return QStringLiteral("Photo");
+        return "Photo"_L1;
     case KRecentDocument::RecentDocumentGroup::Application:
-        return QStringLiteral("Application");
+        return "Application"_L1;
     };
     Q_UNREACHABLE();
 }
@@ -69,13 +71,13 @@ static inline QString stringForRecentDocumentGroup(int val)
 static KRecentDocument::RecentDocumentGroups groupsForMimeType(const QString mimeType)
 {
     // simple heuristics, feel free to expand as needed
-    if (mimeType.startsWith(QStringLiteral("image/"))) {
+    if (mimeType.startsWith("image/"_L1)) {
         return KRecentDocument::RecentDocumentGroups{KRecentDocument::RecentDocumentGroup::Graphics};
     }
-    if (mimeType.startsWith(QStringLiteral("video/"))) {
+    if (mimeType.startsWith("video/"_L1)) {
         return KRecentDocument::RecentDocumentGroups{KRecentDocument::RecentDocumentGroup::Video};
     }
-    if (mimeType.startsWith(QStringLiteral("audio/"))) {
+    if (mimeType.startsWith("audio/"_L1)) {
         return KRecentDocument::RecentDocumentGroups{KRecentDocument::RecentDocumentGroup::Audio};
     }
     return KRecentDocument::RecentDocumentGroups{};
@@ -132,10 +134,10 @@ static bool removeOldestEntries(int &maxEntries)
 
     auto xbelTags = document.elementsByTagName(xbelTag);
     if (xbelTags.length() != 1) {
-        qCWarning(KIO_CORE) << "Invalid Xbel file" << input.errorString();
+        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel element";
         return false;
     }
-    auto xbelElement = document.elementsByTagName(xbelTag).item(0);
+    auto xbelElement = xbelTags.item(0);
     auto bookmarkList = xbelElement.childNodes();
     if (bookmarkList.length() <= maxEntries) {
         return true;
@@ -161,10 +163,8 @@ static bool removeOldestEntries(int &maxEntries)
     }
 
     if (input.open(QIODevice::WriteOnly) && input.write(document.toByteArray(2)) != -1) {
-        input.close();
         return true;
     }
-    input.close();
     return false;
 }
 
@@ -219,11 +219,11 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
     output.writeStartElement(xbelTag);
 
     output.writeAttribute(versionAttribute, expectedVersion);
-    output.writeNamespace(QStringLiteral("http://www.freedesktop.org/standards/desktop-bookmarks"), QStringLiteral("bookmark"));
-    output.writeNamespace(QStringLiteral("http://www.freedesktop.org/standards/shared-mime-info"), QStringLiteral("mime"));
+    output.writeNamespace("http://www.freedesktop.org/standards/desktop-bookmarks"_L1, bookmarkTag);
+    output.writeNamespace("http://www.freedesktop.org/standards/shared-mime-info"_L1, "mime"_L1);
 
     const QString newUrl = QString::fromLatin1(url.toEncoded());
-    const QString currentTimestamp = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs).chopped(1) + QStringLiteral("000Z");
+    const QString currentTimestamp = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs).chopped(1) + "000Z"_L1;
 
     auto addApplicationTag = [&output, desktopEntryName, currentTimestamp, url]() {
         output.writeEmptyElement(applicationBookmarkTag);
@@ -248,7 +248,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         }
         output.writeAttribute(execAttribute, exec);
         output.writeAttribute(modifiedAttribute, currentTimestamp);
-        output.writeAttribute(countAttribute, QStringLiteral("1"));
+        output.writeAttribute(countAttribute, "1"_L1);
     };
 
     bool foundExistingApp = false;
@@ -355,9 +355,9 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
     if (!foundMatchingBookmark) {
         // must create new bookmark tag
         if (firstBookmark) {
-            output.writeCharacters(QStringLiteral("\n"));
+            output.writeCharacters("\n"_L1);
         }
-        output.writeCharacters(QStringLiteral("  "));
+        output.writeCharacters("  "_L1);
         output.writeStartElement(bookmarkTag);
 
         output.writeAttribute(hrefAttribute, newUrl);
@@ -509,10 +509,10 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
     }
 
     // qDebug() << "KRecentDocument::add for " << openStr;
-    KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("RecentDocuments"));
-    bool useRecent = config.readEntry(QStringLiteral("UseRecent"), true);
-    int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 300);
-    bool ignoreHidden = config.readEntry(QStringLiteral("IgnoreHidden"), true);
+    KConfigGroup config = KSharedConfig::openConfig()->group("RecentDocuments"_L1);
+    bool useRecent = config.readEntry("UseRecent"_L1, true);
+    int maxEntries = config.readEntry("MaxEntries"_L1, 300);
+    bool ignoreHidden = config.readEntry("IgnoreHidden"_L1, true);
 
     if (!useRecent || maxEntries == 0) {
         clear();
@@ -534,6 +534,187 @@ void KRecentDocument::clear()
 
 int KRecentDocument::maximumItems()
 {
-    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("RecentDocuments"));
-    return cg.readEntry(QStringLiteral("MaxEntries"), 10);
+    KConfigGroup cg(KSharedConfig::openConfig(), "RecentDocuments"_L1);
+    return cg.readEntry("MaxEntries"_L1, 300);
+}
+
+void KRecentDocument::removeFile(const QUrl &url)
+{
+    QFile input(xbelPath());
+    if (!input.exists()) {
+        return;
+    }
+
+    // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
+    QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
+    lockFile.setStaleLockTime(0);
+    if (!lockFile.tryLock(100)) { // give it 100ms
+        qCWarning(KIO_CORE) << "Failed to lock recently used";
+        return;
+    }
+
+    if (!input.open(QIODevice::ReadOnly)) {
+        qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
+        return;
+    }
+
+    QDomDocument document;
+    document.setContent(&input);
+    input.close();
+
+    auto xbelTags = document.elementsByTagName(xbelTag);
+    if (xbelTags.length() != 1) {
+        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel elememt";
+        return;
+    }
+    auto xbelElement = xbelTags.item(0);
+    auto bookmarkList = xbelElement.childNodes();
+
+    bool fileChanged = false;
+    for (int i = 0; i < bookmarkList.length(); ++i) {
+        const auto node = bookmarkList.item(i);
+
+        const auto hrefValue = node.attributes().namedItem(hrefAttribute);
+        if (!hrefValue.isAttr() || hrefValue.nodeValue().isEmpty()) {
+            qCInfo(KIO_CORE) << "Invalid bookmark in" << input.fileName() << "invalid href attribute";
+            continue;
+        }
+
+        const QUrl hrefUrl = QUrl::fromEncoded(hrefValue.nodeValue().toLatin1());
+        if (hrefUrl == url) {
+            xbelElement.removeChild(node);
+            fileChanged = true;
+        }
+    }
+
+    if (fileChanged) {
+        if (!input.open(QIODevice::WriteOnly) || (input.write(document.toByteArray(2)) < 0)) {
+            qCWarning(KIO_CORE) << "Couldn't save bookmark file " << input.fileName();
+        }
+    }
+}
+
+void KRecentDocument::removeApplication(const QString &desktopEntryName)
+{
+    QFile input(xbelPath());
+    if (!input.exists()) {
+        return;
+    }
+
+    // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
+    QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
+    lockFile.setStaleLockTime(0);
+    if (!lockFile.tryLock(100)) { // give it 100ms
+        qCWarning(KIO_CORE) << "Failed to lock recently used";
+        return;
+    }
+
+    if (!input.open(QIODevice::ReadOnly)) {
+        qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
+        return;
+    }
+
+    QDomDocument document;
+    document.setContent(&input);
+    input.close();
+
+    auto xbelTags = document.elementsByTagName(xbelTag);
+    if (xbelTags.length() != 1) {
+        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel element";
+        return;
+    }
+    auto xbelElement = xbelTags.item(0);
+    auto bookmarkList = xbelElement.childNodes();
+
+    bool fileChanged = false;
+    for (int i = 0; i < bookmarkList.length(); ++i) {
+        const auto bookmarkNode = bookmarkList.item(i);
+        const auto infoNode = bookmarkNode.firstChild();
+        if (!infoNode.isElement()) {
+            qCWarning(KIO_CORE) << "Invalid Xbel file, missing info element";
+            return;
+        }
+        const auto metadataElement = infoNode.firstChild();
+        if (!metadataElement.isElement()) {
+            qCWarning(KIO_CORE) << "Invalid Xbel file, missing metadata element";
+            return;
+        }
+
+        auto bookmarksElement = metadataElement.firstChildElement(applicationsBookmarkTag);
+        if (!bookmarksElement.isElement()) {
+            qCWarning(KIO_CORE) << "Invalid Xbel file, missing bookmarks element";
+            return;
+        }
+
+        auto applicationList = bookmarksElement.childNodes();
+        for (int i = 0; i < applicationList.length(); ++i) {
+            auto appNode = applicationList.item(i);
+            const auto appName = appNode.attributes().namedItem(nameAttribute).nodeValue();
+
+            if (appName == desktopEntryName) {
+                bookmarksElement.removeChild(appNode);
+                fileChanged = true;
+            }
+        }
+        if (bookmarksElement.childNodes().length() == 0) {
+            // no more application associated with the file
+            xbelElement.removeChild(bookmarkNode);
+        }
+    }
+
+    if (fileChanged) {
+        if (!input.open(QIODevice::WriteOnly) || (input.write(document.toByteArray(2)) < 0)) {
+            qCWarning(KIO_CORE) << "Couldn't save bookmark file " << input.fileName();
+        }
+    }
+}
+
+void KRecentDocument::removeBookmarksModifiedSince(const QDateTime &since)
+{
+    QFile input(xbelPath());
+    if (!input.exists()) {
+        return;
+    }
+
+    // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
+    QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
+    lockFile.setStaleLockTime(0);
+    if (!lockFile.tryLock(100)) { // give it 100ms
+        qCWarning(KIO_CORE) << "Failed to lock recently used";
+        return;
+    }
+
+    if (!input.open(QIODevice::ReadOnly)) {
+        qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
+        return;
+    }
+
+    QDomDocument document;
+    document.setContent(&input);
+    input.close();
+
+    auto xbelTags = document.elementsByTagName(xbelTag);
+    if (xbelTags.length() != 1) {
+        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel element";
+        return;
+    }
+    auto xbelElement = xbelTags.item(0);
+    auto bookmarkList = xbelElement.childNodes();
+
+    bool fileChanged = false;
+    for (int i = 0; i < bookmarkList.length(); ++i) {
+        const auto node = bookmarkList.item(i);
+        const auto modifiedString = node.attributes().namedItem(modifiedAttribute);
+        const auto modifiedTime = QDateTime::fromString(modifiedString.nodeValue(), Qt::ISODate);
+
+        if (modifiedTime >= since) {
+            fileChanged = true;
+            xbelElement.removeChild(node);
+        }
+    }
+    if (fileChanged) {
+        if (!input.open(QIODevice::WriteOnly) || (input.write(document.toByteArray(2)) < 0)) {
+            qCWarning(KIO_CORE) << "Couldn't save bookmark file " << input.fileName();
+        }
+    }
 }
