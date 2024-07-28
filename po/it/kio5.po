@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2023-07-10 23:10+0200\n"
+"PO-Revision-Date: 2024-07-25 15:33+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3506,7 +3506,7 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 "<qt>Fai clic su questo pulsante per entrare nella cartella superiore.<br /"
-"><br />Per esempio, se la cartella attuale è file:/home/konqi, facendo clic "
+"><br />Per esempio, se la posizione attuale è file:/home/konqi, facendo clic "
 "su questo pulsante entrerai nella cartella file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1318
@@ -3527,7 +3527,7 @@ msgstr ""
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
-"Fai clic su questo pulsante per ricaricare il contenuto dell'indirizzo "
+"Fai clic su questo pulsante per ricaricare il contenuto del percorso "
 "corrente."
 
 #: filewidgets/kfilewidget.cpp:1323
