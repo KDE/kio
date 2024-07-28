@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
 "PO-Revision-Date: 2024-07-25 13:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2351,17 +2351,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Belgelenmeyen Hata"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 Konumuna Sembolik Bağlantı)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 Konumuna Bağlantı)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 konumuna işaret ediyor)"
@@ -5231,43 +5231,43 @@ msgstr "Sistem Yapılandırmasını Güncelle"
 msgid "Updating system configuration…"
 msgstr "Sistem yapılandırması güncelleniyor…"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ad"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Boyut"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarih"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "İzinler"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Sahip"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grup"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

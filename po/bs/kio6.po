@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -2411,17 +2411,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentovana greÅ¡ka"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(simboliÄka veza ka %1)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, veza ka %2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (pokazuje na %1)"
@@ -5368,43 +5368,43 @@ msgstr "AÅ¾uriranje postave sistema"
 msgid "Updating system configuration…"
 msgstr "AÅ¾uriram postavu sistema..."
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ime"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "veliÄina"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "datum"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "dozvole"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "vlasnik"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "grupa"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

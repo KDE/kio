@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2379,17 +2379,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumenteerimata viga"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Nimeviit asukohale %1)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, viit asukohale %2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"
@@ -5263,43 +5263,43 @@ msgstr "Süsteemi seadistuse uuendamine"
 msgid "Updating system configuration…"
 msgstr "Süsteemi seadistuse uuendamine."
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nimi"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Suurus"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Kuupäev"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Õigused"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Omanik"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupp"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

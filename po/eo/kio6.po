@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
-"PO-Revision-Date: 2024-06-02 21:57+0200\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
+"PO-Revision-Date: 2024-07-27 14:20+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2389,17 +2389,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentita Eraro"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbola Ligo al %1)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Ligo al %2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(montras al %1)"
@@ -3025,11 +3025,10 @@ msgid "Tags"
 msgstr "Etikedoj"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Eraro %2)"
+msgstr "%1 (de %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3205,9 +3204,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Reformati aŭ Redakti per Subdiskadministrilo"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -5260,43 +5257,43 @@ msgstr "Ĝisdatigo de Sistema Agordo"
 msgid "Updating system configuration…"
 msgstr "Ĝisdatigante sisteman agordon…"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nomo"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Grandeco"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dato"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permesoj"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Posedanto"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupo"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

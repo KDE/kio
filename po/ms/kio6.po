@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2396,17 +2396,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ralat Tidak Didokumentasikan"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, fuzzy, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "Pautan Simbolik"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Pautan ke %1 (%2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, fuzzy, kde-format
 msgid " (Points to %1)"
 msgstr "Tuding ke:"
@@ -5217,43 +5217,43 @@ msgstr "Mengemaskini Konfigurasi Sistem"
 msgid "Updating system configuration…"
 msgstr "Mengemaskini Konfigurasi Sistem."
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nama"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Saiz"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarikh"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Keizinan"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Pemilik"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Kumpulan"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Type"

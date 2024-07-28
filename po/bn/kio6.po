@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -2172,17 +2172,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr ""
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, fuzzy, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, fuzzy, kde-format
 msgid " (Points to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
@@ -5000,43 +5000,43 @@ msgstr "সিস্টেম কনফিগারেশন আপডেট ক
 msgid "Updating system configuration…"
 msgstr "সিস্টেম কনফিগারেশন আপডেট করা হচ্ছে।"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "নাম"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "মাপ"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "তারিখ"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "অনুমতি"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "মালিক"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "গ্রুপ"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Type"

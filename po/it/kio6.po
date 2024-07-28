@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:38+0000\n"
-"PO-Revision-Date: 2024-06-02 19:10+0200\n"
+"POT-Creation-Date: 2024-07-28 00:37+0000\n"
+"PO-Revision-Date: 2024-07-25 15:33+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2426,17 +2426,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Errore non documentato"
 
-#: core/kfileitem.cpp:1437
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Collegamento simbolico a %1)"
 
-#: core/kfileitem.cpp:1439
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, collegamento a %2)"
 
-#: core/kfileitem.cpp:1442
+#: core/kfileitem.cpp:1487
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Punta a %1)"
@@ -3069,11 +3069,10 @@ msgid "Tags"
 msgstr "Etichette"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (errore %2)"
+msgstr "%1 (da %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3250,9 +3249,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Riformatta o modifica con il gestore delle partizioni"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3459,7 +3456,7 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 "<qt>Fai clic su questo pulsante per entrare nella cartella superiore.<br /"
-"><br />Per esempio, se la cartella attuale è file:/home/konqi, facendo clic "
+"><br />Per esempio, se la posizione attuale è file:/home/konqi, facendo clic "
 "su questo pulsante entrerai nella cartella file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1196
@@ -3480,7 +3477,7 @@ msgstr ""
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
-"Fai clic su questo pulsante per ricaricare il contenuto dell'indirizzo "
+"Fai clic su questo pulsante per ricaricare il contenuto del percorso "
 "corrente."
 
 #: filewidgets/kfilewidget.cpp:1201
@@ -5332,43 +5329,43 @@ msgstr "Aggiornamento della configurazione di sistema"
 msgid "Updating system configuration…"
 msgstr "Aggiornamento della configurazione di sistema…"
 
-#: widgets/kdirmodel.cpp:1223
+#: widgets/kdirmodel.cpp:1233
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
-#: widgets/kdirmodel.cpp:1225
+#: widgets/kdirmodel.cpp:1235
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Dimensione"
 
-#: widgets/kdirmodel.cpp:1227
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1229
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permessi"
 
-#: widgets/kdirmodel.cpp:1231
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Proprietario"
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Gruppo"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
