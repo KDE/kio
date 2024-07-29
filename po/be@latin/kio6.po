@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-28 00:37+0000\n"
+"POT-Creation-Date: 2024-07-29 00:37+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4058,7 +4058,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Zapusk %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

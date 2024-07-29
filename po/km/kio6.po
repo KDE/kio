@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-28 00:37+0000\n"
+"POT-Creation-Date: 2024-07-29 00:37+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3950,7 +3950,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "បើក %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

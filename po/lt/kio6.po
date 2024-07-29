@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-28 00:37+0000\n"
-"PO-Revision-Date: 2024-07-05 23:13+0300\n"
+"POT-Creation-Date: 2024-07-29 00:37+0000\n"
+"PO-Revision-Date: 2024-07-28 15:12+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -3049,11 +3049,10 @@ msgid "Tags"
 msgstr "Žymės"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (klaida %2)"
+msgstr "%1 (iš %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3235,9 +3234,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Formatuoti iš naujo ar taisyti naudojant skaidinių tvarkytuvę"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3974,7 +3971,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Paleidžiama %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
