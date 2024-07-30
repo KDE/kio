@@ -1294,6 +1294,19 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
         break;
     }
+    case QEvent::HoverLeave: {
+        if (d->m_preview && !d->m_preview->isHidden()) {
+            const QModelIndex currentIndex = d->m_itemView->selectionModel() ? d->m_itemView->selectionModel()->currentIndex() : QModelIndex();
+
+            if (currentIndex.isValid() && d->m_itemView->selectionModel()->isSelected(currentIndex)) {
+                const KFileItem item = d->m_itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
+                if (!item.isNull()) {
+                    d->m_preview->showPreview(item.url());
+                }
+            }
+        }
+        break;
+    }
     case QEvent::Wheel: {
         QWheelEvent *evt = static_cast<QWheelEvent *>(event);
         if (evt->modifiers() & Qt::ControlModifier) {
