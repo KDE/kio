@@ -258,20 +258,18 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
     }
     // qCDebug(KIO_TRASH) << "trashing to" << trashId;
 
-    // Grab original filename
     auto url = QUrl::fromLocalFile(origPath);
     url = url.adjusted(QUrl::StripTrailingSlash);
-    const QString origFileName = url.fileName();
 
     // Make destination file in info/
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
 #endif
-    url.setPath(infoPath(trashId, origFileName)); // we first try with origFileName
+    QString fileName = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    url.setPath(infoPath(trashId, fileName));
     QUrl baseDirectory = QUrl::fromLocalFile(url.path());
     // Here we need to use O_EXCL to avoid race conditions with other kioworker processes
     int fd = 0;
-    QString fileName;
     do {
         // qCDebug(KIO_TRASH) << "trying to create" << url.path();
         fd = ::open(QFile::encodeName(url.path()).constData(), O_WRONLY | O_CREAT | O_EXCL, 0600);
