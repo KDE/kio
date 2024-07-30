@@ -442,7 +442,7 @@ KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
         entry.clear();
         TrashedFileInfo infoForItem(info);
         infoForItem.origPath += QLatin1Char('/') + fileName;
-        if (createUDSEntry(filePath, fileName, fileName, entry, infoForItem)) {
+        if (createUDSEntry(filePath, QFileInfo(infoForItem.origPath).fileName(), fileName, entry, infoForItem)) {
             listEntry(entry);
         }
     }
@@ -518,7 +518,7 @@ KIO::WorkerResult TrashProtocol::listRoot()
         entry.clear();
         const QString fileDisplayName = fileInfo.fileId;
 
-        if (createUDSEntry(fileInfo.physicalPath, fileDisplayName, url.fileName(), entry, fileInfo)) {
+        if (createUDSEntry(fileInfo.physicalPath,  QFileInfo(fileInfo.origPath).fileName(), url.fileName(), entry, fileInfo)) {
             listEntry(entry);
         }
     }
