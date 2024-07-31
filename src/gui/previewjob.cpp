@@ -659,7 +659,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     }
 
     if (supportsProtocol) {
-        createThumbnail(fileUrl.toString());
+        createThumbnail(fileUrl.toLocalFile());
         return;
     }
     if (item.isDir()) {
