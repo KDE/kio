@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-29 00:37+0000\n"
-"PO-Revision-Date: 2024-07-25 09:23+0200\n"
+"PO-Revision-Date: 2024-07-31 12:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3774,7 +3774,7 @@ msgid ""
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 "No es recomana iniciar el nom d'un fitxer o una carpeta amb una titlla "
-"perquè pot ser confús o perillós en usar el terminal per a eliminar coses."
+"perquè pot ser confús o perillós en usar el terminal per a suprimir coses."
 
 #: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
