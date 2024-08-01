@@ -184,6 +184,10 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
         socket->waitForBytesWritten(-1);
     }
 
+    if (socket->state() != QLocalSocket::LocalSocketState::ConnectedState) {
+        qCWarning(KIO_CORE_CONNECTION) << "Socket not connected" << socket->error();
+    }
+
     return socket->state() == QLocalSocket::LocalSocketState::ConnectedState;
 }
 

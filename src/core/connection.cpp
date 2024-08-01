@@ -172,6 +172,7 @@ bool Connection::send(int cmd, const QByteArray &data)
     // happens. Specifically while reading a possible answer from the Application we may get socketDisconnected()
     // we'll never get an answer in that case.
     if (m_type == Type::Worker && !inited()) {
+        qCWarning(KIO_CORE) << "Connection::send() called with connection not inited";
         return false;
     }
     if (!inited() || !d->outgoingTasks.isEmpty()) {
@@ -187,7 +188,18 @@ bool Connection::send(int cmd, const QByteArray &data)
 
 bool Connection::sendnow(int cmd, const QByteArray &data)
 {
-    if (!d->backend || data.size() > 0xffffff || !isConnected()) {
+    if (!d->backend) {
+        qCWarning(KIO_CORE) << "Connection::sendnow has no backend";
+        return false;
+    }
+
+    if (data.size() > 0xffffff) {
+        qCWarning(KIO_CORE) << "Connection::sendnow too much data";
+        return false;
+    }
+
+    if (!isConnected()) {
+        qCWarning(KIO_CORE) << "Connection::sendnow not connected";
         return false;
     }
 
