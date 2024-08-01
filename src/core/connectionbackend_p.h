@@ -52,9 +52,14 @@ public:
     explicit ConnectionBackend(QObject *parent = nullptr);
     ~ConnectionBackend() override;
 
+    struct ConnectionResult {
+        bool success = true;
+        QString error;
+    };
+
     void setSuspended(bool enable);
     bool connectToRemote(const QUrl &url);
-    bool listenForRemote();
+    ConnectionResult listenForRemote();
     bool waitForIncomingTask(int ms);
     bool sendCommand(int command, const QByteArray &data) const;
     ConnectionBackend *nextPendingConnection();

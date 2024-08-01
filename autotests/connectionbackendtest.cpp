@@ -19,7 +19,7 @@ private Q_SLOTS:
         KIO::ConnectionBackend server;
         KIO::ConnectionBackend clientConnection;
 
-        QVERIFY(server.listenForRemote());
+        QVERIFY(server.listenForRemote().success);
         auto spy = std::make_unique<QSignalSpy>(&server, &KIO::ConnectionBackend::newConnection);
         QVERIFY(clientConnection.connectToRemote(server.address));
         spy->wait();

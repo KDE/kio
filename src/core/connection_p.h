@@ -60,8 +60,6 @@ public:
     /// Closes the connection.
     void close();
 
-    QString errorString() const;
-
     bool isConnected() const;
 
     /**

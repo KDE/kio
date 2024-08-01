@@ -157,14 +157,6 @@ void Connection::connectToRemote(const QUrl &address)
     d->dequeue();
 }
 
-QString Connection::errorString() const
-{
-    if (d->backend) {
-        return d->backend->errorString;
-    }
-    return QString();
-}
-
 bool Connection::send(int cmd, const QByteArray &data)
 {
     // Remember that a Connection instance exists in the Application and the Worker. If the application terminates

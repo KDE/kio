@@ -92,7 +92,7 @@ void ConnectionBackend::socketDisconnected()
     Q_EMIT disconnected();
 }
 
-bool ConnectionBackend::listenForRemote()
+ConnectionBackend::ConnectionResult ConnectionBackend::listenForRemote()
 {
     Q_ASSERT(state == Idle);
     Q_ASSERT(!socket);
@@ -104,8 +104,7 @@ bool ConnectionBackend::listenForRemote()
     appName.replace(QLatin1Char('/'), QLatin1Char('_')); // #357499
     QTemporaryFile socketfile(prefix + QLatin1Char('/') + appName + QStringLiteral("XXXXXX.%1.kioworker.socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
     if (!socketfile.open()) {
-        errorString = i18n("Unable to create KIO worker: %1", QString::fromUtf8(strerror(errno)));
-        return false;
+        return {false, i18n("Unable to create KIO worker: %1", QString::fromUtf8(strerror(errno)))};
     }
 
     QString sockname = socketfile.fileName();
@@ -120,13 +119,13 @@ bool ConnectionBackend::listenForRemote()
         errorString = localServer->errorString();
         delete localServer;
         localServer = nullptr;
-        return false;
+        return {false, localServer->errorString()};
     }
 
     connect(localServer, &QLocalServer::newConnection, this, &ConnectionBackend::newConnection);
 
     state = Listening;
-    return true;
+    return {true, QString()};
 }
 
 bool ConnectionBackend::waitForIncomingTask(int ms)

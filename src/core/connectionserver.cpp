@@ -9,6 +9,7 @@
 #include "connectionserver.h"
 #include "connection_p.h"
 #include "connectionbackend_p.h"
+#include "kiocoredebug.h"
 
 using namespace KIO;
 
@@ -36,7 +37,8 @@ ConnectionServer::~ConnectionServer() = default;
 void ConnectionServer::listenForRemote()
 {
     d->backend = new ConnectionBackend(this);
-    if (!d->backend->listenForRemote()) {
+    if (auto result = d->backend->listenForRemote(); !result.success) {
+        qCWarning(KIO_CORE) << "ConnectionServer::listenForRemote failed:" << result.error;
         delete d->backend;
         d->backend = nullptr;
         return;
