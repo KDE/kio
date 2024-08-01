@@ -35,8 +35,6 @@ public:
      */
     void listenForRemote();
     bool isListening() const;
-    /// Closes the connection.
-    void close();
 
     /**
      * Returns the address for this connection if it is listening, an empty
@@ -44,7 +42,6 @@ public:
      */
     QUrl address() const;
 
-    Connection *nextPendingConnection();
     void setNextPendingConnection(Connection *conn);
 
 Q_SIGNALS:

@@ -47,30 +47,6 @@ bool ConnectionServer::isListening() const
     return backend && backend->state == ConnectionBackend::Listening;
 }
 
-void ConnectionServer::close()
-{
-    delete backend;
-    backend = nullptr;
-}
-
-Connection *ConnectionServer::nextPendingConnection()
-{
-    if (!isListening()) {
-        return nullptr;
-    }
-
-    ConnectionBackend *newBackend = backend->nextPendingConnection();
-    if (!newBackend) {
-        return nullptr; // no new backend...
-    }
-
-    Connection *result = new Connection(Connection::Type::Application);
-    result->d->setBackend(newBackend);
-    newBackend->setParent(result);
-
-    return result;
-}
-
 void ConnectionServer::setNextPendingConnection(Connection *conn)
 {
     ConnectionBackend *newBackend = backend->nextPendingConnection();
