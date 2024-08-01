@@ -13,58 +13,44 @@
 
 using namespace KIO;
 
-class KIO::ConnectionServerPrivate
-{
-public:
-    inline ConnectionServerPrivate()
-        : backend(nullptr)
-    {
-    }
-
-    ConnectionServer *q;
-    ConnectionBackend *backend;
-};
-
 ConnectionServer::ConnectionServer(QObject *parent)
     : QObject(parent)
-    , d(new ConnectionServerPrivate)
 {
-    d->q = this;
 }
 
 ConnectionServer::~ConnectionServer() = default;
 
 void ConnectionServer::listenForRemote()
 {
-    d->backend = new ConnectionBackend(this);
-    if (auto result = d->backend->listenForRemote(); !result.success) {
+    backend = new ConnectionBackend(this);
+    if (auto result = backend->listenForRemote(); !result.success) {
         qCWarning(KIO_CORE) << "ConnectionServer::listenForRemote failed:" << result.error;
-        delete d->backend;
-        d->backend = nullptr;
+        delete backend;
+        backend = nullptr;
         return;
     }
 
-    connect(d->backend, &ConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
+    connect(backend, &ConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
     // qDebug() << "Listening on" << d->backend->address;
 }
 
 QUrl ConnectionServer::address() const
 {
-    if (d->backend) {
-        return d->backend->address;
+    if (backend) {
+        return backend->address;
     }
     return QUrl();
 }
 
 bool ConnectionServer::isListening() const
 {
-    return d->backend && d->backend->state == ConnectionBackend::Listening;
+    return backend && backend->state == ConnectionBackend::Listening;
 }
 
 void ConnectionServer::close()
 {
-    delete d->backend;
-    d->backend = nullptr;
+    delete backend;
+    backend = nullptr;
 }
 
 Connection *ConnectionServer::nextPendingConnection()
@@ -73,7 +59,7 @@ Connection *ConnectionServer::nextPendingConnection()
         return nullptr;
     }
 
-    ConnectionBackend *newBackend = d->backend->nextPendingConnection();
+    ConnectionBackend *newBackend = backend->nextPendingConnection();
     if (!newBackend) {
         return nullptr; // no new backend...
     }
@@ -87,7 +73,7 @@ Connection *ConnectionServer::nextPendingConnection()
 
 void ConnectionServer::setNextPendingConnection(Connection *conn)
 {
-    ConnectionBackend *newBackend = d->backend->nextPendingConnection();
+    ConnectionBackend *newBackend = backend->nextPendingConnection();
     Q_ASSERT(newBackend);
 
     conn->d->setBackend(newBackend);

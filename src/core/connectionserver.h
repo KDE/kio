@@ -9,11 +9,10 @@
 #ifndef KIO_CONNECTIONSERVER_H
 #define KIO_CONNECTIONSERVER_H
 
-#include "kiocore_export.h"
-
 #include <QObject>
 #include <QUrl>
-#include <memory>
+
+#include "connectionbackend_p.h"
 
 namespace KIO
 {
@@ -52,8 +51,7 @@ Q_SIGNALS:
     void newConnection();
 
 private:
-    friend class ConnectionServerPrivate;
-    std::unique_ptr<ConnectionServerPrivate> const d;
+    ConnectionBackend *backend = nullptr;
 };
 
 } // namespace KIO
