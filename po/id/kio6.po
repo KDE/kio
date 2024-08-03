@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-29 00:37+0000\n"
+"POT-Creation-Date: 2024-08-03 00:37+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -2628,39 +2628,39 @@ msgstr "Tak Ada Yang Akan Dibuang"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Folder yang ditentukan tidak ada atau tidak dapat dibaca."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1943
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1948
 #, kde-format
 msgid "Parent Folder"
 msgstr "Folder Induk"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1955
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Mundur"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1959
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Maju"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1963
 #, kde-format
 msgid "Home Folder"
 msgstr "Folder Beranda"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1967
 #, kde-format
 msgid "Reload"
 msgstr "Muat ulang"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1970
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2668,179 +2668,179 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "Folder Baru"
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
 #, kde-format
 msgid "Move to Trash"
 msgstr "Pindah ke Tong Sampah"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1986
 #, kde-format
 msgid "Delete"
 msgstr "Hapus"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1993
 #, kde-format
 msgid "Sorting"
 msgstr "Pengurutan"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1998
 #, kde-format
 msgid "Sort by Name"
 msgstr "Urutkan berdasarkan Nama"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:2004
 #, kde-format
 msgid "Sort by Size"
 msgstr "Urutkan berdasarkan Ukuran"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:2010
 #, kde-format
 msgid "Sort by Date"
 msgstr "Urutkan berdasarkan Tanggal"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2016
 #, kde-format
 msgid "Sort by Type"
 msgstr "Urutkan berdasarkan Tipe"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Ascending"
 msgstr "Menaik"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Descending"
 msgstr "Menurun"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Folders First"
 msgstr "Folder Dulu"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Sembunyikan Berkas Terakhir"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Icons View"
 msgstr "Tampilan Ikon"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Compact View"
 msgstr "Tampilan Ringkas"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "Details View"
 msgstr "Tampilan Perinci"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2085
 #, kde-format
 msgid "Icon Position"
 msgstr "Posisi Ikon"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2088
 #, kde-format
 msgid "Next to File Name"
 msgstr "Lanjutkan ke Nama berkas"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Above File Name"
 msgstr "Bagian Atas Nama berkas"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Short View"
 msgstr "Tampilan Singkat"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed View"
 msgstr "Tampilan Terperinci"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2122
 #, kde-format
 msgid "Tree View"
 msgstr "Tampilan Ranting"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Tampilan Ranting Terperinci"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Izinkan Pembentangan dalam Tampilan Perincian"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Tampilkan berkas Tersembunyi"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Tampilkan Panel Pratinjau"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Show Preview"
 msgstr "Tampilkan Pratinjau"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Buka Folder Yang Mengandungnya"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Properti"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2185
 #, kde-format
 msgid "&View Mode"
 msgstr "Mode &Tampilan"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2288 filewidgets/kdiroperator.cpp:2300
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2289 filewidgets/kdiroperator.cpp:2301
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2292
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Yang Paling Baru Dulu"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2293
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Yang Paling Lawas Dulu"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2296
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Yang Paling Besar Dulu"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2297
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
