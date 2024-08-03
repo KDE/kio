@@ -140,7 +140,8 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
 
     QString workingDir(service->workingDirectory());
     if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
-        workingDir = urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
+        // systemd requires working directory to be normalized, or '~'
+        workingDir = QFileInfo(urls.first().toLocalFile()).canonicalPath();
     }
     instance->m_process->setWorkingDirectory(workingDir);
 
