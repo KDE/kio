@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-03 00:37+0000\n"
-"PO-Revision-Date: 2024-07-25 09:59+0200\n"
+"PO-Revision-Date: 2024-08-03 10:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6230,7 +6230,7 @@ msgstr "Kan bekijken/lezen en wijzigen/schrijven"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1159
 #, kde-format
 msgid "&Permissions"
-msgstr "&Rechten"
+msgstr "Toegangs&rechten"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1171
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1367

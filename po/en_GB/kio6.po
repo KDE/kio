@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-03 00:37+0000\n"
-"PO-Revision-Date: 2024-06-02 11:35+0100\n"
+"PO-Revision-Date: 2024-08-03 13:08+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3018,11 +3018,10 @@ msgid "Tags"
 msgstr "Tags"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Error %2)"
+msgstr "%1 (from %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3197,9 +3196,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Reformat or Edit with Partition Manager"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
