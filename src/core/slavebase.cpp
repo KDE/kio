@@ -29,6 +29,7 @@
 #include <QSsl>
 #include <QtGlobal>
 
+#include <KAboutData>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -44,6 +45,7 @@
 #include "commands_p.h"
 #include "connection_p.h"
 #include "ioworker_defaults.h"
+#include "kio_version.h"
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 #include "kpasswdserverclient.h"
@@ -276,7 +278,12 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
 
     if (QThread::currentThread() == qApp->thread()) {
 #ifndef Q_OS_ANDROID
-        KCrash::initialize();
+        // Setup KCrash for crash reports, but not when running the worker in-app
+        if (QCoreApplication::arguments()[0].endsWith(QLatin1String("kioworker"))) {
+            KAboutData about(QStringLiteral("kioworker"), QString(), QStringLiteral(KIO_VERSION_STRING));
+            KAboutData::setApplicationData(about);
+            KCrash::initialize();
+        }
 #endif
 
 #ifdef Q_OS_UNIX
