@@ -11,6 +11,7 @@
 #include "previewjob.h"
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
+#include "standardthumbnailjob_p.h"
 #include "statjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
@@ -27,27 +28,33 @@
 #include <algorithm>
 #include <limits>
 
+#include <QCryptographicHash>
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QImage>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QMimeDatabase>
+#include <QObject>
 #include <QPixmap>
 #include <QRegularExpression>
 #include <QSaveFile>
+#include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTimer>
 
-#include <QCryptographicHash>
-
 #include <KConfigGroup>
+#include <KFileUtils>
+#include <KLocalizedString>
 #include <KMountPoint>
 #include <KPluginMetaData>
+#include <KProtocolInfo>
 #include <KService>
 #include <KSharedConfig>
-#include <QMimeDatabase>
-#include <QStandardPaths>
 #include <Solid/Device>
 #include <Solid/StorageAccess>
-#include <kprotocolinfo.h>
 
 #include "job_p.h"
 
@@ -65,6 +72,7 @@ using namespace KIO;
 struct KIO::PreviewItem {
     KFileItem item;
     KPluginMetaData plugin;
+    bool standardThumbnailer = false;
 };
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
@@ -161,19 +169,87 @@ public:
 
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
+    void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
+    void saveThumbnailData(QImage &thumb);
 
     Q_DECLARE_PUBLIC(PreviewJob)
+
+    struct StandardThumbnailerData {
+        QString exec;
+        QStringList mimetypes;
+    };
 
     static QList<KPluginMetaData> loadAvailablePlugins()
     {
         static QList<KPluginMetaData> jsonMetaDataPlugins;
         if (jsonMetaDataPlugins.isEmpty()) {
             jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
+            for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
+                // Check if our own plugins support the mimetype. If so, we use the plugin instead
+                // and ignore the standard thumbnailer
+                auto handledMimes = thumbnailer.second.mimetypes;
+                for (const auto &plugin : jsonMetaDataPlugins) {
+                    for (const auto &mime : handledMimes) {
+                        if (plugin.supportsMimeType(mime)) {
+                            handledMimes.removeOne(mime);
+                        }
+                    }
+                }
+                if (handledMimes.isEmpty()) {
+                    continue;
+                }
+
+                QMimeDatabase db;
+                // We only need the first mimetype since the names/comments are often shared between multiple types
+                auto mime = db.mimeTypeForName(handledMimes.first());
+                auto name = mime.name().isEmpty() ? handledMimes.first() : mime.name();
+                if (!mime.comment().isEmpty()) {
+                    name = mime.comment();
+                }
+                if (name.isEmpty()) {
+                    continue;
+                }
+                // the plugin metadata
+                QJsonObject kplugin;
+                kplugin[QStringLiteral("MimeTypes")] = QJsonValue::fromVariant(handledMimes);
+                kplugin[QStringLiteral("Name")] = name;
+                kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
+
+                QJsonObject root;
+                root[QStringLiteral("CacheThumbnail")] = true;
+                root[QStringLiteral("KPlugin")] = kplugin;
+
+                KPluginMetaData standardThumbnailerPlugin(root, thumbnailer.first);
+                jsonMetaDataPlugins.append(standardThumbnailerPlugin);
+            }
         }
         return jsonMetaDataPlugins;
+    }
+
+    static QMap<QString, StandardThumbnailerData> standardThumbnailers()
+    {
+        //         mimetype, exec
+        static QMap<QString, StandardThumbnailerData> standardThumbs;
+        if (standardThumbs.empty()) {
+            QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
+            for (const QString &thumbnailerPath : KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")})) {
+                const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
+                StandardThumbnailerData data;
+                QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
+                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
+                mimetypes.removeAll(QStringLiteral(""));
+                QString exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
+                if (!exec.isEmpty() && !mimetypes.isEmpty()) {
+                    data.exec = exec;
+                    data.mimetypes = mimetypes;
+                    standardThumbs.insert(thumbnailerName, data);
+                }
+            }
+        }
+        return standardThumbs;
     }
 };
 
@@ -187,10 +263,10 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 {
     Q_D(PreviewJob);
 
+    const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
         d->enabledPlugins =
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
@@ -251,6 +327,7 @@ void PreviewJobPrivate::startPreview()
     QMap<QString, KPluginMetaData> mimeMap;
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
+    // Using thumbnailer plugin
     for (const KPluginMetaData &plugin : plugins) {
         QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
         const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
@@ -268,9 +345,10 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         }
-        if (enabledPlugins.contains(plugin.pluginId())) {
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &mimeType : mimeTypes) {
+        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
+        const auto mimeTypes = plugin.mimeTypes();
+        for (const QString &mimeType : mimeTypes) {
+            if (pluginIsEnabled) {
                 mimeMap.insert(mimeType, plugin);
             }
         }
@@ -281,6 +359,7 @@ void PreviewJobPrivate::startPreview()
     for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem item;
         item.item = fileItem;
+        item.standardThumbnailer = false;
 
         const QString mimeType = item.item.mimetype();
         KPluginMetaData plugin;
@@ -326,8 +405,10 @@ void PreviewJobPrivate::startPreview()
         }
 
         if (plugin.isValid()) {
+            item.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             item.plugin = plugin;
             items.push_back(item);
+
             if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
                 const QUrl url = fileItem.targetUrl();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
@@ -648,20 +729,23 @@ void PreviewJobPrivate::getOrCreateThumbnail()
 
     // heuristics for remote URL support
     const QUrl fileUrl = item.targetUrl();
-    bool supportsProtocol = false;
-    if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
-        // There's a plugin supporting this protocol and MIME type
-        supportsProtocol = true;
-    } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
-        // Assume KIO understands any URL, ThumbCreator workers who have
-        // X-KDE-Protocols=KIO will get fed the remote URL directly.
-        supportsProtocol = true;
+    if (!currentItem.standardThumbnailer) {
+        bool supportsProtocol = false;
+        if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
+            // There's a plugin supporting this protocol and MIME type
+            supportsProtocol = true;
+        } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
+            // Assume KIO understands any URL, ThumbCreator workers who have
+            // X-KDE-Protocols=KIO will get fed the remote URL directly.
+            supportsProtocol = true;
+        }
+
+        if (supportsProtocol) {
+            createThumbnail(fileUrl.toString());
+            return;
+        }
     }
 
-    if (supportsProtocol) {
-        createThumbnail(fileUrl.toString());
-        return;
-    }
     if (item.isDir()) {
         // Skip remote dirs (bug 208625)
         cleanupTempFile();
@@ -780,69 +864,104 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         return;
     }
 
-    KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
-    q->addSubjob(job);
-    q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
-        slotThumbData(job, data);
-    });
-
-    int thumb_width = width;
-    int thumb_height = height;
-    if (save) {
-        thumb_width = thumb_height = cacheSize;
-    }
-
-    job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
-    job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
-    job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
-    job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
-    job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
-    job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
-    job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
-    if (sequenceIndex) {
-        job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
-    }
-
-#if WITH_SHM
-    size_t requiredSize = thumb_width * devicePixelRatio * thumb_height * devicePixelRatio * 4;
-    if (shmid == -1 || shmsize < requiredSize) {
-        if (shmaddr) {
-            // clean previous shared memory segment
-            shmdt((char *)shmaddr);
-            shmaddr = nullptr;
-            shmctl(shmid, IPC_RMID, nullptr);
-            shmid = -1;
-        }
-        if (requiredSize > 0) {
-            shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
-            if (shmid != -1) {
-                shmsize = requiredSize;
-                shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
-                if (shmaddr == (uchar *)-1) {
-                    shmctl(shmid, IPC_RMID, nullptr);
-                    shmaddr = nullptr;
-                    shmid = -1;
+    if (currentItem.standardThumbnailer) {
+        // Using /usr/share/thumbnailers
+        QString exec;
+        for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
+            for (const auto &mimetype : thumbnailer.second.mimetypes) {
+                if (currentItem.plugin.supportsMimeType(mimetype)) {
+                    exec = thumbnailer.second.exec;
                 }
             }
         }
-    }
-    if (shmid != -1) {
-        job->addMetaData(QStringLiteral("shmid"), QString::number(shmid));
-    }
+        if (exec.isEmpty()) {
+            qCWarning(KIO_GUI) << "The exec entry for standard thumbnailer " << currentItem.plugin.name() << " was empty!";
+            return;
+        }
+
+        const QString outputPath = QTemporaryDir().path() + thumbName;
+
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, width * devicePixelRatio, currentItem.item.localPath(), outputPath);
+        q->addSubjob(job);
+        q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
+            slotStandardThumbData(job, thumb);
+        });
+
+    } else {
+        // Using thumbnailer plugin
+        KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
+        q->addSubjob(job);
+        q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
+            slotThumbData(job, data);
+        });
+        int thumb_width = width;
+        int thumb_height = height;
+        if (save) {
+            thumb_width = thumb_height = cacheSize;
+        }
+
+        job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
+        job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
+        job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+        job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
+        job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
+        job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
+        job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
+        if (sequenceIndex) {
+            job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
+        }
+
+#if WITH_SHM
+        size_t requiredSize = thumb_width * devicePixelRatio * thumb_height * devicePixelRatio * 4;
+        if (shmid == -1 || shmsize < requiredSize) {
+            if (shmaddr) {
+                // clean previous shared memory segment
+                shmdt((char *)shmaddr);
+                shmaddr = nullptr;
+                shmctl(shmid, IPC_RMID, nullptr);
+                shmid = -1;
+            }
+            if (requiredSize > 0) {
+                shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
+                if (shmid != -1) {
+                    shmsize = requiredSize;
+                    shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
+                    if (shmaddr == (uchar *)-1) {
+                        shmctl(shmid, IPC_RMID, nullptr);
+                        shmaddr = nullptr;
+                        shmid = -1;
+                    }
+                }
+            }
+        }
+        if (shmid != -1) {
+            job->addMetaData(QStringLiteral("shmid"), QString::number(shmid));
+        }
 #endif
+    }
+}
+
+void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumbData)
+{
+    thumbnailWorkerMetaData = job->metaData();
+
+    QImage thumb = thumbData;
+
+    if (thumb.isNull()) {
+        // let succeeded in false state
+        // failed will get called in determineNextFile()
+        return;
+    }
+
+    saveThumbnailData(thumb);
+
+    emitPreview(thumb);
+    succeeded = true;
 }
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
     thumbnailWorkerMetaData = job->metaData();
-    /* clang-format off */
-    const bool save = bSave
-                      && !sequenceIndex
-                      && currentDeviceCachePolicy == CachePolicy::Allow
-                      && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
-                      && (!currentItem.item.targetUrl().isLocalFile()
-                          || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
-    /* clang-format on */
 
     QImage thumb;
     // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
@@ -875,6 +994,18 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         return;
     }
 
+    saveThumbnailData(thumb);
+
+    emitPreview(thumb);
+    succeeded = true;
+}
+
+void PreviewJobPrivate::saveThumbnailData(QImage &thumb)
+{
+    const bool save = bSave && !sequenceIndex && currentDeviceCachePolicy == CachePolicy::Allow
+        && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
+        && (!currentItem.item.targetUrl().isLocalFile() || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+
     if (save) {
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
@@ -893,8 +1024,6 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
             }
         }
     }
-    emitPreview(thumb);
-    succeeded = true;
 }
 
 void PreviewJobPrivate::emitPreview(const QImage &thumb)

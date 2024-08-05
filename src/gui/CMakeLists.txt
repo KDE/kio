@@ -27,6 +27,7 @@ target_sources(KF6KIOGui PRIVATE
    kurifilter.cpp
    kurifilterplugin.cpp
    openfilemanagerwindowjob.cpp
+   standardthumbnailjob.cpp
 )
 
 if (HAVE_QTDBUS)
