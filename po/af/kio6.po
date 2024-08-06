@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-03 00:37+0000\n"
+"POT-Creation-Date: 2024-08-06 00:37+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -2182,7 +2182,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Die bediener was te besig reageer na ander versoeke na antwoord."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1526
 #, kde-format
 msgid "Unknown Error"
 msgstr "Onbekende Fout"
@@ -2516,90 +2516,90 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Om koppelinge met dié protokol %1 te maak word nie aangeraai nie."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Toemaak van koppelinge met protokol %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Toegang na lêers met protokol %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Skryf na %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Daar is geen spesiale aksies beskikbaar vir protokol %1 nie."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "'Luister gidse' word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Onttrekking van data van %1 word nie ondersteun nie"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Onttrekking van mime tipe informasie van %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Herbenaming of skuif van lêers binne in %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Skep van simboliese skakels word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiëer van lêers binne in %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Uitvee van lêers binne in %1 word nie ondersteun nie."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Skep van gidse word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Verandering van lêer eienskappe word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:875
 #, fuzzy, kde-format
 #| msgid "Changing the attributes of files is not supported with protocol %1."
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Verandering van lêer eienskappe word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:877
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Skep van gidse word nie deur protokol %1 ondersteun nie."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Die protokol %1 laat nie aksie %2 toe nie."

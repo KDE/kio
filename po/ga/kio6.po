@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-03 00:37+0000\n"
+"POT-Creation-Date: 2024-08-06 00:37+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2051,7 +2051,7 @@ msgstr ""
 "Bhí an freastalaí gafa le hiarratais eile agus ní raibh sé in ann freagra a "
 "thabhairt."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1526
 #, kde-format
 msgid "Unknown Error"
 msgstr "Earráid Anaithnid"
@@ -2360,87 +2360,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ní thacaítear le hoscailt ceangal le prótacal %1."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ní thacaítear le dúnadh ceangal le prótacal %1."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ní thacaítear le rochtain comhad le prótacal %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ní thacaítear le scríobh chuig %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Níl aon ghníomhartha speisialta ar fáil le haghaidh phrótacal %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ní thacaítear le taispeáint fillteán le prótacal %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ní féidir sonraí a fháil ó %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ní féidir faisnéis faoi chineálacha MIME a fháil ó %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ní thacaítear le hathainmniú nó bogadh comhad i %1."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ní féidir naisc shiombalacha a chruthú le prótacal %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ní féidir comhaid a oscailt i %1."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ní féidir comhaid a scriosadh ó %1."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ní féidir fillteáin a chruthú le prótacal %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ní féidir tréithe comhad a athrú le prótacal %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ní féidir úinéir comhaid a athrú le prótacal %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ní féidir comhaid a oscailt le prótacal %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."

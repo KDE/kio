@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-03 00:37+0000\n"
+"POT-Creation-Date: 2024-08-06 00:37+0000\n"
 "PO-Revision-Date: 2024-07-27 21:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2107,7 +2107,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сървърът е претоварен и затова не може да отговори на заявката."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1519
+#: core/job_error.cpp:1118 core/slavebase.cpp:1526
 #, kde-format
 msgid "Unknown Error"
 msgstr "Неизвестна грешка"
@@ -2431,87 +2431,87 @@ msgstr ""
 "<filename>%1</filename> не е намерен; моля въведете валиден път до изпълнима "
 "програма."
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа отваряне на връзка."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа затваряне на връзка."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа достъп до файлове."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Протоколът %1 не поддържа запис."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Няма налично действие за протокола %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Протоколът \"%1\" не поддържа показване на съдържанието на директории."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на данни."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на информация за типа MIME."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа преименуване и преместване на файлове."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа създаване на символна връзка."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа копиране на файлове."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Протоколът %1 не поддържа изтриване на файлове."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Протоколът \"%1\" не поддържа създаване на директории."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Протоколът \"%1\" не поддържа създаване на директории."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколът %1 не поддържа операцията %2."
