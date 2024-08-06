@@ -127,6 +127,7 @@ KIOCORE_EXPORT QString KIO::decodeFileName(const QString &_str)
  *
  ***************************************************************/
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 6)
 KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)
 {
     QString tmp = cacheControl.toLower();
@@ -150,7 +151,9 @@ KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)
     qCDebug(KIO_CORE) << "unrecognized Cache control option:" << cacheControl;
     return KIO::CC_Verify;
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 6)
 QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
 {
     if (cacheControl == KIO::CC_CacheOnly) {
@@ -171,6 +174,7 @@ QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
     qCDebug(KIO_CORE) << "unrecognized Cache control enum value:" << cacheControl;
     return QString();
 }
+#endif
 
 QString KIO::favIconForUrl(const QUrl &url)
 {

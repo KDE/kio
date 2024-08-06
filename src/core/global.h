@@ -215,11 +215,14 @@ enum Error {
     ERR_TRASH_FILE_TOO_LARGE = KJob::UserDefinedError + 79,
 };
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
 /**
  * Specifies how to use the cache.
  * @see parseCacheControl()
  * @see getCacheControlString()
+ * @deprecated since 6.6, not used
  */
+KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 enum CacheControl {
     CC_CacheOnly, ///< Fail request if not in cache
     CC_Cache, ///< Use cached entry if available
@@ -227,6 +230,7 @@ enum CacheControl {
     CC_Refresh, ///< Always validate cached entry with remote site
     CC_Reload, ///< Always fetch from remote site.
 };
+#endif
 
 /**
  * Specifies privilege file operation status.
@@ -277,23 +281,31 @@ Q_DECLARE_FLAGS(StatDetails, StatDetail)
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
 /**
  * Parses the string representation of the cache control option.
  *
  * @param cacheControl the string representation
  * @return the cache control value
  * @see getCacheControlString()
+ * @deprecated since 6.6, not used
  */
-KIOCORE_EXPORT KIO::CacheControl parseCacheControl(const QString &cacheControl);
 
+KIOCORE_EXPORT KIO::CacheControl parseCacheControl(const QString &cacheControl);
+#endif
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
 /**
  * Returns a string representation of the given cache control method.
  *
  * @param cacheControl the cache control method
  * @return the string representation
  * @see parseCacheControl()
+ * @deprecated since 6.6, not used
  */
+KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
+#endif
 
 /**
  * Return the "favicon" (see http://www.favicon.com) for the given @p url,
