@@ -847,7 +847,7 @@ QString KUrlNavigatorPrivate::firstButtonText() const
     if (text.isEmpty()) {
         if (currentUrl.path().isEmpty() || currentUrl.path() == QLatin1Char('/')) {
             QUrlQuery query(currentUrl);
-            text = query.queryItemValue(QStringLiteral("title"));
+            text = query.queryItemValue(QStringLiteral("title"), QUrl::FullyDecoded);
         }
     }
 
