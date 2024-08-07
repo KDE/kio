@@ -1,0 +1,17 @@
+include($QT_INSTALL_DOCS/global/qt-module-defaults-online.qdocconf)
+
+project = KIO
+description = Additions to Qt Core
+
+documentationinheaders = true
+
+headerdirs = .
+
+headers.fileextensions = "*.qdoc *.h"
+
+outputdir  = doc/html
+outputformats = HTML
+
+depends += \
+    qtcore \
+    kcoreaddons

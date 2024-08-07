@@ -23,7 +23,7 @@ class QTime;
 typedef SSIZE_T ssize_t;
 #endif
 
-/**
+/*!
  * @short A namespace for KIO globals
  *
  */
