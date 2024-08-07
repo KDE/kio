@@ -124,6 +124,8 @@ ecm_generate_headers(KIOGui_HEADERS
   REQUIRED_HEADERS KIOGui_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOGui kiogui.qdocconf)
+
 install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
 
 install(TARGETS KF6KIOGui EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
@@ -136,7 +138,3 @@ install(FILES
   ${KIOGui_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiogui_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui COMPONENT Devel)
-
-# make available to ecm_add_qch in parent folder
-set(KIOGui_QCH_SOURCES ${KIOGui_HEADERS} ${KIO_namespaced_gui_HEADERS} PARENT_SCOPE)
-

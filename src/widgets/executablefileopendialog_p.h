@@ -14,8 +14,10 @@
 
 class QMimeType;
 
-/**
- * @brief Dialog shown when opening an executable file
+/*!
+ * Dialog shown when opening an executable file
+ *
+ * \internal
  */
 class ExecutableFileOpenDialog : public QDialog
 {

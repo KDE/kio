@@ -339,9 +339,7 @@ bool KACL::setMaskPermissions(unsigned short v)
 using unique_ptr_acl_free = std::unique_ptr<void, int (*)(void *)>;
 #endif
 
-/**************************
- * Deal with named users  *
- **************************/
+// Deal with named users
 unsigned short KACL::namedUserPermissions(const QString &name, bool *exists) const
 {
 #if HAVE_POSIX_ACL
@@ -528,9 +526,7 @@ bool KACL::setAllUserPermissions(const ACLUserPermissionsList &users)
 #endif
 }
 
-/**************************
- * Deal with named groups  *
- **************************/
+// Deal with named groups
 
 unsigned short KACL::namedGroupPermissions(const QString &name, bool *exists) const
 {
@@ -601,9 +597,7 @@ bool KACL::setAllGroupPermissions(const ACLGroupPermissionsList &groups)
 #endif
 }
 
-/**************************
- * from and to string     *
- **************************/
+// from and to string
 
 bool KACL::setACL(const QString &aclStr)
 {

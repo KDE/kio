@@ -25,7 +25,7 @@ Q_SIGNALS:
 
 private:
     class Private;
-    std::unique_ptr<Private> const d; /// @internal
+    std::unique_ptr<Private> const d;
     Q_DISABLE_COPY(StandardThumbnailJob)
 };
 

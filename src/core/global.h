@@ -23,9 +23,10 @@ class QTime;
 typedef SSIZE_T ssize_t;
 #endif
 
-/**
- * @short A namespace for KIO globals
- *
+/*!
+ * \namespace KIO
+ * \inmodule KIOCore
+ * \brief A namespace for KIO globals.
  */
 namespace KIO
 {
@@ -34,79 +35,175 @@ typedef qlonglong fileoffset_t;
 /// 64-bit file size
 typedef qulonglong filesize_t;
 
-/**
- * Converts @p size from bytes to the string representation.
+/*!
+ * Converts \a size from bytes to the string representation.
  *
- * @param  size  size in bytes
- * @return converted size as a string - e.g. 123.4 KiB , 12.0 MiB
+ * \a size  size in bytes
+ *
+ * Returns converted size as a string - e.g. 123.4 KiB , 12.0 MiB
  */
 KIOCORE_EXPORT QString convertSize(KIO::filesize_t size);
 
-/**
+/*!
  * Converts a size to a string representation
  * Not unlike QString::number(...)
  *
- * @param size size in bytes
- * @return  converted size as a string - e.g. 123456789
+ * \a size size in bytes
+ *
+ * Returns converted size as a string - e.g. 123456789
  */
 KIOCORE_EXPORT QString number(KIO::filesize_t size);
 
-/**
+/*!
  * Converts size from kibi-bytes (2^10) to the string representation.
  *
- * @param  kibSize  size in kibi-bytes (2^10)
- * @return converted size as a string - e.g. 123.4 KiB , 12.0 MiB
+ * \a kibSize  size in kibi-bytes (2^10)
+ *
+ * Returns converted size as a string - e.g. 123.4 KiB , 12.0 MiB
  */
 KIOCORE_EXPORT QString convertSizeFromKiB(KIO::filesize_t kibSize);
 
-/**
+/*!
  * Calculates remaining time in seconds from total size, processed size and speed.
  *
- * @param  totalSize      total size in bytes
- * @param  processedSize  processed size in bytes
- * @param  speed          speed in bytes per second
- * @return calculated remaining time in seconds
+ * \a totalSize      total size in bytes
+ *
+ * \a processedSize  processed size in bytes
+ *
+ * \a speed          speed in bytes per second
+ *
+ * Returns calculated remaining time in seconds
  */
 KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 
-/**
+/*!
  * Convert @p seconds to a string representing number of days, hours, minutes and seconds
  *
- * @param  seconds number of seconds to convert
- * @return string representation in a locale depending format
+ * \a seconds number of seconds to convert
+ *
+ * Returns string representation in a locale depending format
  */
 KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
 
-/**
+/*!
  * Helper for showing information about a set of files and directories
- * @param items the number of items (= @p files + @p dirs + number of symlinks :)
- * @param files the number of files
- * @param dirs the number of dirs
- * @param size the sum of the size of the @p files
- * @param showSize whether to show the size in the result
- * @return the summary string
+ * \a items the number of items (= @p files + @p dirs + number of symlinks :)
+ *
+ * \a files the number of files
+ *
+ * \a dirs the number of dirs
+ *
+ * \a size the sum of the size of the @p files
+ *
+ * \a showSize whether to show the size in the result
+ *
+ * Returns the summary string
  */
 KIOCORE_EXPORT QString itemsSummaryString(uint items, uint files, uint dirs, KIO::filesize_t size, bool showSize);
 
-/**
+/*!
  * Encodes (from the text displayed to the real filename)
  * This translates '/' into a "unicode fraction slash", QChar(0x2044).
  * Used by KIO::link, for instance.
- * @param str the file name to encode
- * @return the encoded file name
+ *
+ * \a str the file name to encode
+ *
+ * Returns the encoded file name
  */
 KIOCORE_EXPORT QString encodeFileName(const QString &str);
-/**
+/*!
  * Decodes (from the filename to the text displayed)
  * This doesn't do anything anymore, it used to do the opposite of encodeFileName
  * when encodeFileName was using %2F for '/'.
- * @param str the file name to decode
- * @return the decoded file name
+ *
+ * \a str the file name to decode
+ *
+ * Returns the decoded file name
  */
 KIOCORE_EXPORT QString decodeFileName(const QString &str);
 
-/**
+/*!
  * Error codes that can be emitted by KIO.
+ *
+ * \value ERR_CANNOT_OPEN_FOR_READING
+ * \value ERR_CANNOT_OPEN_FOR_WRITING
+ * \value ERR_CANNOT_LAUNCH_PROCESS
+ * \value ERR_INTERNAL
+ * \value ERR_MALFORMED_URL
+ * \value ERR_UNSUPPORTED_PROTOCOL
+ * \value ERR_NO_SOURCE_PROTOCOL
+ * \value ERR_UNSUPPORTED_ACTION
+ * \value ERR_IS_DIRECTORY ... where a file was expected
+ * \value ERR_IS_FILE ... where a directory was expected (e.g.\ listing)
+ * \value ERR_DOES_NOT_EXIST
+ * \value ERR_FILE_ALREADY_EXIST
+ * \value ERR_DIR_ALREADY_EXIST
+ * \value ERR_UNKNOWN_HOST
+ * \value ERR_ACCESS_DENIED
+ * \value ERR_WRITE_ACCESS_DENIED
+ * \value ERR_CANNOT_ENTER_DIRECTORY
+ * \value ERR_PROTOCOL_IS_NOT_A_FILESYSTEM
+ * \value ERR_CYCLIC_LINK
+ * \value ERR_USER_CANCELED
+ * \value ERR_CYCLIC_COPY
+ * \value ERR_CANNOT_CREATE_SOCKET
+ * \value ERR_CANNOT_CONNECT
+ * \value ERR_CONNECTION_BROKEN
+ * \value ERR_NOT_FILTER_PROTOCOL
+ * \value ERR_CANNOT_MOUNT
+ * \value ERR_CANNOT_UNMOUNT
+ * \value ERR_CANNOT_READ
+ * \value ERR_CANNOT_WRITE
+ * \value ERR_CANNOT_BIND
+ * \value ERR_CANNOT_LISTEN
+ * \value ERR_CANNOT_ACCEPT
+ * \value ERR_CANNOT_LOGIN
+ * \value ERR_CANNOT_STAT
+ * \value ERR_CANNOT_CLOSEDIR
+ * \value ERR_CANNOT_MKDIR
+ * \value ERR_CANNOT_RMDIR
+ * \value ERR_CANNOT_RESUME
+ * \value ERR_CANNOT_RENAME
+ * \value ERR_CANNOT_CHMOD
+ * \value ERR_CANNOT_DELETE
+ * \value [since 5.96] ERR_WORKER_DIED The text argument is the protocol that the dead worker supported. This means for example: file, ftp, http, ...
+ * \value ERR_OUT_OF_MEMORY
+ * \value ERR_UNKNOWN_PROXY_HOST
+ * \value ERR_CANNOT_AUTHENTICATE
+ * \value ERR_ABORTED Action got aborted from application side
+ * \value ERR_INTERNAL_SERVER
+ * \value ERR_SERVER_TIMEOUT
+ * \value ERR_SERVICE_NOT_AVAILABLE
+ * \value ERR_UNKNOWN
+ * \value ERR_UNKNOWN_INTERRUPT
+ * \value ERR_CANNOT_DELETE_ORIGINAL
+ * \value ERR_CANNOT_DELETE_PARTIAL
+ * \value ERR_CANNOT_RENAME_ORIGINAL
+ * \value ERR_CANNOT_RENAME_PARTIAL
+ * \value ERR_NEED_PASSWD
+ * \value ERR_CANNOT_SYMLINK
+ * \value ERR_NO_CONTENT Action succeeded but no content will follow
+ * \value ERR_DISK_FULL
+ * \value ERR_IDENTICAL_FILES src==dest when moving/copying
+ * \value [since 5.96] ERR_WORKER_DEFINED For worker specified errors that can be rich text. Email links will be handled by the standard email app and all hrefs
+ * will be handled by the standard browser. <a href="exec:/khelpcenter ?"> will be forked.
+ * \value ERR_UPGRADE_REQUIRED A transport upgrade is required to access this object. For instance, TLS is demanded by the server in order to continue
+ * \value ERR_POST_DENIED Issued when trying to POST data to a certain Ports
+ * \value ERR_CANNOT_SEEK
+ * \value ERR_CANNOT_SETTIME Emitted by setModificationTime
+ * \value ERR_CANNOT_CHOWN
+ * \value ERR_POST_NO_SIZE
+ * \value [since 5.6] ERR_DROP_ON_ITSELF from KIO::DropJob
+ * \value [since 5.18] ERR_CANNOT_MOVE_INTO_ITSELF emitted by KIO::move
+ * \value [since 5.24] ERR_PASSWD_SERVER returned by WorkerBase::openPasswordDialog
+ * \value [since 5.96] ERR_CANNOT_CREATE_WORKER used by Worker::createWorker
+ * \value [since 5.54] ERR_FILE_TOO_LARGE_FOR_FAT32
+ * \value [since 5.54] ERR_OWNER_DIED Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers
+ * \value [since 5.60] ERR_PRIVILEGE_NOT_REQUIRED used by file ioworker
+ * \value [since 5.66] ERR_CANNOT_TRUNCATE used by FileJob::truncate
+ * \value [since 5.88] ERR_SYMLINKS_NOT_SUPPORTED Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT) not supporting them. Used
+ * by e.g. CopyJob
+ * \value [since 5.100] ERR_TRASH_FILE_TOO_LARGE Moving files/dirs to the Trash failed due to size constraints
  */
 enum Error {
     ERR_CANNOT_OPEN_FOR_READING = KJob::UserDefinedError + 1,
@@ -117,8 +214,8 @@ enum Error {
     ERR_UNSUPPORTED_PROTOCOL = KJob::UserDefinedError + 6,
     ERR_NO_SOURCE_PROTOCOL = KJob::UserDefinedError + 7,
     ERR_UNSUPPORTED_ACTION = KJob::UserDefinedError + 8,
-    ERR_IS_DIRECTORY = KJob::UserDefinedError + 9, ///< ... where a file was expected
-    ERR_IS_FILE = KJob::UserDefinedError + 10, ///< ... where a directory was expected (e.g.\ listing)
+    ERR_IS_DIRECTORY = KJob::UserDefinedError + 9,
+    ERR_IS_FILE = KJob::UserDefinedError + 10,
     ERR_DOES_NOT_EXIST = KJob::UserDefinedError + 11,
     ERR_FILE_ALREADY_EXIST = KJob::UserDefinedError + 12,
     ERR_DIR_ALREADY_EXIST = KJob::UserDefinedError + 13,
@@ -150,13 +247,11 @@ enum Error {
     ERR_CANNOT_RENAME = KJob::UserDefinedError + 40,
     ERR_CANNOT_CHMOD = KJob::UserDefinedError + 41,
     ERR_CANNOT_DELETE = KJob::UserDefinedError + 42,
-    // The text argument is the protocol that the dead worker supported.
-    // This means for example: file, ftp, http, ...
-    ERR_WORKER_DIED = KJob::UserDefinedError + 43, ///< @since 5.96
+    ERR_WORKER_DIED = KJob::UserDefinedError + 43,
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
     ERR_CANNOT_AUTHENTICATE = KJob::UserDefinedError + 46,
-    ERR_ABORTED = KJob::UserDefinedError + 47, ///< Action got aborted from application side
+    ERR_ABORTED = KJob::UserDefinedError + 47,
     ERR_INTERNAL_SERVER = KJob::UserDefinedError + 48,
     ERR_SERVER_TIMEOUT = KJob::UserDefinedError + 49,
     ERR_SERVICE_NOT_AVAILABLE = KJob::UserDefinedError + 50,
@@ -169,72 +264,58 @@ enum Error {
     ERR_CANNOT_RENAME_PARTIAL = KJob::UserDefinedError + 57,
     ERR_NEED_PASSWD = KJob::UserDefinedError + 58,
     ERR_CANNOT_SYMLINK = KJob::UserDefinedError + 59,
-    ERR_NO_CONTENT = KJob::UserDefinedError + 60, ///< Action succeeded but no content will follow.
+    ERR_NO_CONTENT = KJob::UserDefinedError + 60,
     ERR_DISK_FULL = KJob::UserDefinedError + 61,
-    ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, ///< src==dest when moving/copying
-    /**
-     * For worker specified errors that can be
-     * rich text.  Email links will be handled
-     * by the standard email app and all hrefs
-     * will be handled by the standard browser.
-     * <a href="exec:/khelpcenter ?" will be
-     * forked.
-     * @since 5.96
-     */
+    ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62,
     ERR_WORKER_DEFINED = KJob::UserDefinedError + 63,
-    ERR_UPGRADE_REQUIRED = KJob::UserDefinedError + 64, ///< A transport upgrade is required to access this
-    ///< object.  For instance, TLS is demanded by
-    ///< the server in order to continue.
-    ERR_POST_DENIED = KJob::UserDefinedError + 65, ///< Issued when trying to POST data to a certain Ports
-    // see job.cpp
+    ERR_UPGRADE_REQUIRED = KJob::UserDefinedError + 64,
+    ERR_POST_DENIED = KJob::UserDefinedError + 65,
     ERR_CANNOT_SEEK = KJob::UserDefinedError + 66,
-    ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67, ///< Emitted by setModificationTime
+    ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67,
     ERR_CANNOT_CHOWN = KJob::UserDefinedError + 68,
     ERR_POST_NO_SIZE = KJob::UserDefinedError + 69,
-    ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, ///< from KIO::DropJob, @since 5.6
-    ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
-    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by WorkerBase::openPasswordDialog, @since 5.24
-    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Worker::createWorker, @since 5.96
-    ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
-    ERR_OWNER_DIED ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers. @since 5.54
-        = KJob::UserDefinedError + 75,
-    ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioworker, @since 5.60
-    ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
-    /**
-     * Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT)
-     * not supporting them. Used by e.g. CopyJob.
-     * @since 5.88
-     */
+    ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70,
+    ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71,
+    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72,
+    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73,
+    ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74,
+    ERR_OWNER_DIED = KJob::UserDefinedError + 75,
+    ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76,
+    ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77,
     ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78,
-
-    /**
-     * Moving files/dirs to the Trash failed due to size constraints.
-     *
-     * @since 5.100
-     */
     ERR_TRASH_FILE_TOO_LARGE = KJob::UserDefinedError + 79,
 };
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Specifies how to use the cache.
- * @see parseCacheControl()
- * @see getCacheControlString()
- * @deprecated since 6.6, not used
+ * \sa parseCacheControl()
+ * \sa getCacheControlString()
+ * \deprecated[6.6]
+ * Not used
+ * \value CC_CacheOnly Fail request if not in cache
+ * \value CC_Cache Use cached entry if available
+ * \value CC_Verify Validate cached entry with remote site if expired
+ * \value CC_Refresh Always validate cached entry with remote site
+ * \value CC_Reload Always fetch from remote site
  */
 KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 enum CacheControl {
-    CC_CacheOnly, ///< Fail request if not in cache
-    CC_Cache, ///< Use cached entry if available
-    CC_Verify, ///< Validate cached entry with remote site if expired
-    CC_Refresh, ///< Always validate cached entry with remote site
-    CC_Reload, ///< Always fetch from remote site.
+    CC_CacheOnly,
+    CC_Cache,
+    CC_Verify,
+    CC_Refresh,
+    CC_Reload,
 };
 #endif
 
-/**
+/*!
  * Specifies privilege file operation status.
- * @since 5.43
+ * \since 5.43
+ *
+ * \value OperationAllowed
+ * \value OperationCanceled
+ * \value OperationNotAllowed
  */
 enum PrivilegeOperationStatus {
     OperationAllowed = 1,
@@ -242,73 +323,74 @@ enum PrivilegeOperationStatus {
     OperationNotAllowed,
 };
 
-/**
+/*!
  * Describes the fields that a stat command will retrieve
- * @see UDSEntry
- * @see StatDetails
- * @since 5.69
+ * \sa UDSEntry
+ * \since 5.69
+ *
+ * \value StatNoDetails No field returned, useful to check if a file exists
+ * \value StatBasic Filename, access, type, size, linkdest
+ * \value StatUser uid, gid
+ * \value StatTime
+ * \value StatResolveSymlink Resolve symlinks
+ * \value StatAcl ACL data
+ * \value StatInode dev, inode
+ * \value [since 5.70] StatRecursiveSize Recursive size
+ * \value [since 5.82] StatMimeType MIME type
+ * \value StatDefaultDetails Default StatDetail flag when creating a StatJob. Equivalent to setting \c{StatBasic | StatUser | StatTime | StatAcl |
+ * StatResolveSymlink}
  */
 enum StatDetail {
-    /// No field returned, useful to check if a file exists
     StatNoDetails = 0x0,
-    /// Filename, access, type, size, linkdest
     StatBasic = 0x1,
-    /// uid, gid
     StatUser = 0x2,
-    /// atime, mtime, btime
     StatTime = 0x4,
-    /// Resolve symlinks
     StatResolveSymlink = 0x8,
-    /// ACL data
     StatAcl = 0x10,
-    /// dev, inode
     StatInode = 0x20,
-    /// Recursive size
-    /// @since 5.70
     StatRecursiveSize = 0x40,
-    /// MIME type
-    /// @since 5.82
     StatMimeType = 0x80,
-
-    /// Default StatDetail flag when creating a @c StatJob.
-    /// Equivalent to setting <tt>StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink</tt>
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,
 };
-/**
- * Stores a combination of #StatDetail values.
- */
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Parses the string representation of the cache control option.
  *
- * @param cacheControl the string representation
- * @return the cache control value
- * @see getCacheControlString()
- * @deprecated since 6.6, not used
+ * \a cacheControl the string representation
+ *
+ * Returns the cache control value.
+ *
+ * Not used
+ *
+ * \sa getCacheControlString()
+ * \deprecated[6.6]
  */
-
 KIOCORE_EXPORT KIO::CacheControl parseCacheControl(const QString &cacheControl);
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Returns a string representation of the given cache control method.
  *
- * @param cacheControl the cache control method
- * @return the string representation
- * @see parseCacheControl()
- * @deprecated since 6.6, not used
+ * \a cacheControl the cache control method
+ *
+ * Returns the string representation
+ *
+ * Not used.
+ *
+ * \sa parseCacheControl()
+ * \deprecated[6.6]
  */
 KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
 #endif
 
-/**
- * Return the "favicon" (see http://www.favicon.com) for the given @p url,
+/*!
+ * Return the "favicon" (see http://www.favicon.com) for the given \a url,
  * if available. Does NOT attempt to download the favicon, it only returns
  * one that is already available.
  *
@@ -316,42 +398,43 @@ KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
  * Use KIO::FavIconRequestJob instead of this method if you can wait
  * for the favicon to be downloaded.
  *
- * @param url the URL of the favicon
- * @return the path to the icon (to be passed to QIcon()), or QString()
+ * \a url the URL of the favicon
  *
- * @since 5.0
+ * Returns the path to the icon (to be passed to QIcon()), or QString()
+ *
+ * \since 5.0
  */
 KIOCORE_EXPORT QString favIconForUrl(const QUrl &url);
 
-/**
+/*!
  * Converts KIO file permissions from mode_t to QFile::Permissions format.
  *
  * This is a convenience function for converting KIO permissions parameter from
  * mode_t to QFile::Permissions.
  *
- * @param permissions KIO file permissions.
+ * \a permissions KIO file permissions.
  *
- * @return -1 if @p permissions is -1, otherwise its OR'ed QFile::Permission equivalent.
+ * Returns -1 if \a permissions is -1, otherwise its OR'ed QFile::Permission equivalent.
  */
 KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
 
-/**
+/*!
  * Return the icon name for a URL.
  * Most of the time this returns the MIME type icon,
  * but also has fallback to favicon and protocol-specific icon.
  *
  * Pass this to QIcon::fromTheme().
  *
- * @since 5.0
+ * \since 5.0
  */
 KIOCORE_EXPORT QString iconNameForUrl(const QUrl &url);
 
-/**
+/*!
  * This function is useful to implement the "Up" button in a file manager for example.
  *
- * @return a URL that is a level higher
+ * Returns a URL that is a level higher
  *
- * @since 5.0
+ * \since 5.0
  */
 KIOCORE_EXPORT QUrl upUrl(const QUrl &url);
 

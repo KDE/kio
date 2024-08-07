@@ -425,8 +425,8 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         // NOTE: Some non-KIO apps may support the URLs (e.g. VLC supports smb://)
         // but will not have the password if they are not in the URL itself.
         // Hence convert URL to KIOFuse equivalent in case there is a password.
-        // @see https://pointieststick.com/2018/01/17/videos-on-samba-shares/
-        // @see https://bugs.kde.org/show_bug.cgi?id=330192
+        // \sa https://pointieststick.com/2018/01/17/videos-on-samba-shares/
+        // \sa https://bugs.kde.org/show_bug.cgi?id=330192
         if (!supported || (!url.userName().isEmpty() && url.password().isEmpty() && isNonKIO())) {
             requests.push_back({kiofuse_iface.mountUrl(url.toString()), i});
         }

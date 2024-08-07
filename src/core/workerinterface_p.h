@@ -26,7 +26,7 @@ namespace KIO
 
 // Definition of enum Command has been moved to global.h
 
-/**
+/*!
  * Identifiers for KIO informational messages.
  */
 enum Info {
@@ -47,7 +47,7 @@ enum Info {
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
-/**
+/*!
  * Identifiers for KIO data messages.
  */
 enum Message {
@@ -69,9 +69,7 @@ enum Message {
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
-/**
- * @class KIO::WorkerInterface workerinterface_p.h <KIO/WorkerInterface>
- *
+/*
  * There are two classes that specifies the protocol between application
  * ( KIO::Job) and kioworker. WorkerInterface is the class to use on the application
  * end, WorkerBase is the one to use on the worker end.
@@ -92,7 +90,7 @@ public:
     // (to tell the "put" job whether to resume or not)
     void sendResumeAnswer(bool resume);
 
-    /**
+    /*!
      * Sends our answer for the INF_MESSAGEBOX request.
      *
      */

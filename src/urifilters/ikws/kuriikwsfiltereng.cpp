@@ -28,7 +28,7 @@
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 using namespace KIO;
 
-/**
+/*!
  * IMPORTANT: If you change anything here, make sure kiowidgets-kurifiltertest-{colon,space}-separator
  * unit tests still pass (they're usually run as part of "make test").
  */

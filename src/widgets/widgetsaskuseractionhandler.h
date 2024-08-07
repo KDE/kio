@@ -19,31 +19,31 @@ namespace KIO
 {
 // TODO KF6: Handle this the same way we end up handling WidgetsUntrustedProgramHandler.
 
-/**
- * @class KIO::WidgetsAskUserActionHandler widgetsaskuseractionhandler.h <KIO/WidgetsAskUserActionHandler>
+/*!
+ * \class KIO::WidgetsAskUserActionHandler
+ * \inheaderfile KIO/WidgetsAskUserActionHandler
+ * \inmodule KIOWidgets
  *
  * This implements KIO::AskUserActionInterface.
- * @see KIO::AskUserActionInterface()
  *
- * @sa KIO::JobUiDelegateExtension()
+ * \sa KIO::AskUserActionInterface
+ * \sa KIO::JobUiDelegateExtension
  *
- * @since 5.78
- * @note This header wasn't installed until 5.98
+ * \since 5.78
  */
-
 class WidgetsAskUserActionHandlerPrivate;
 
 class KIOWIDGETS_EXPORT WidgetsAskUserActionHandler : public AskUserActionInterface
 {
     Q_OBJECT
 public:
+    /*!
+     *
+     */
     explicit WidgetsAskUserActionHandler(QObject *parent = nullptr);
 
     ~WidgetsAskUserActionHandler() override;
 
-    /**
-     * @copydoc KIO::AskUserActionInterface::askUserRename()
-     */
     void askUserRename(KJob *job,
                        const QString &title,
                        const QUrl &src,
@@ -56,19 +56,10 @@ public:
                        const QDateTime &mtimeSrc = {},
                        const QDateTime &mtimeDest = {}) override;
 
-    /**
-     * @copydoc KIO::AskUserActionInterface::askUserSkip()
-     */
     void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override;
 
-    /**
-     * @copydoc KIO::AskUserActionInterface::askUserDelete()
-     */
     void askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent = nullptr) override;
 
-    /**
-     * @copydoc KIO::AskUserActionInterface::requestUserMessageBox()
-     */
     void requestUserMessageBox(MessageDialogType type,
                                const QString &text,
                                const QString &title,
@@ -82,6 +73,9 @@ public:
 
     void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) override;
 
+    /*!
+     *
+     */
     void setWindow(QWidget *window);
 
 private:

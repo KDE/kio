@@ -127,33 +127,33 @@ public:
     QString findMatchingFilter(const QString &filter, const QString &filename) const;
     void updateFilter();
     void updateFilterText();
-    /**
+    /*
      * Parses the string "line" for files. If line doesn't contain any ", the
      * whole line will be interpreted as one file. If the number of " is odd,
      * an empty list will be returned. Otherwise, all items enclosed in " "
      * will be returned as correct urls.
      */
     QList<QUrl> tokenize(const QString &line) const;
-    /**
+    /*
      * Reads the recent used files and inserts them into the location combobox
      */
     void readRecentFiles();
-    /**
+    /*
      * Saves the entries from the location combobox.
      */
     void saveRecentFiles();
-    /**
+    /*
      * called when an item is highlighted/selected in multiselection mode.
      * handles setting the m_locationEdit.
      */
     void multiSelectionChanged();
 
-    /**
+    /*
      * Returns the absolute version of the URL specified in m_locationEdit.
      */
     QUrl getCompleteUrl(const QString &) const;
 
-    /**
+    /*
      * Asks for overwrite confirmation using a KMessageBox and returns
      * true if the user accepts.
      *
@@ -194,7 +194,7 @@ public:
     QString locationEditCurrentText() const;
     void updateNameFilter(const KFileFilter &);
 
-    /**
+    /*
      * KIO::NetAccess::mostLocalUrl local replacement.
      * This method won't show any progress dialogs for stating, since
      * they are very annoying when stating.
@@ -582,7 +582,7 @@ QSize KFileWidget::sizeHint() const
 
 static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url);
 
-/**
+/*
  * Escape the given Url so that is fit for use in the selected list of file. This
  * mainly handles double quote (") characters. These are used to separate entries
  * in the list, however, if `"` appears in the filename (or path), this will be
@@ -627,7 +627,7 @@ void KFileWidget::slotOk()
             return;
         }
 
-        /**
+        /*
          * Logic of the next part of code (ends at "end multi relative urls").
          *
          * We allow for instance to be at "/" and insert '"home/foo/bar.txt" "boot/grub/menu.lst"'.
@@ -711,7 +711,7 @@ void KFileWidget::slotOk()
             slotOk();
             return;
         }
-        /**
+        /*
          * end multi relative urls
          */
     } else if (!locationEditCurrentTextList.isEmpty()) {

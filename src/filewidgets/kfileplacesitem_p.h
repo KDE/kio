@@ -56,8 +56,8 @@ public:
 
     static KBookmark
     createBookmark(KBookmarkManager *manager, const QString &label, const QUrl &url, const QString &iconName, KFilePlacesItem *after = nullptr);
-    /**
-     * @param untranslatedLabel text for label. If to be translated, should be set by kli18nc("KFile System Bookmarks", "Label text").untranslatedText().
+    /*!
+     * \a untranslatedLabel text for label. If to be translated, should be set by kli18nc("KFile System Bookmarks", "Label text").untranslatedText().
      */
     static KBookmark createSystemBookmark(KBookmarkManager *manager,
                                           const char *untranslatedLabel,

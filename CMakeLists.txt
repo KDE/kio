@@ -22,11 +22,11 @@ include(ECMGenerateExportHeader)
 include(ECMMarkAsTest)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
-include(ECMAddQch)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSourceVersionControl)
 include(ECMDeprecationSettings)
+include(ECMGenerateQDoc)
 
 ecm_setup_version(
   PROJECT
@@ -48,9 +48,6 @@ endif()
 option(KIO_ASSERT_WORKER_STATES
     "Used to control whether worker state assertions are enabled. When not enabled only warnings are generated."
     ${ASSERT_WORKER_STATES_DEFAULT})
-
-option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
-add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 option(BUILD_DESIGNERPLUGIN "Build plugin for Qt Designer" ON)
 add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Designer")
@@ -178,16 +175,6 @@ add_subdirectory(templates)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6KIO")
-
-if (BUILD_QCH)
-    ecm_install_qch_export(
-        TARGETS KF6KIO_QCH
-        FILE KF6KIOQchTargets.cmake
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel
-    )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6KIOQchTargets.cmake\")")
-endif()
 
 include(CMakePackageConfigHelpers)
 

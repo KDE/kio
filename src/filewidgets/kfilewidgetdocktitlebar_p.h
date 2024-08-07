@@ -11,8 +11,9 @@
 
 namespace KDEPrivate
 {
-/**
- * @brief An empty title bar for the Places dock widget
+/*!
+ * An empty title bar for the Places dock widget
+ * \internal
  */
 class KFileWidgetDockTitleBar : public QWidget
 {

@@ -1,0 +1,21 @@
+/*!
+    \module KIOFileWidgets
+    \title KIO FileWidgets C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KF6::KIOFileWidgets
+
+    \brief Widgets for File Management.
+
+    The KIOFileWidgets library provides the file selection dialog and its components.
+
+    The file dialog is available to all KDE applications by using the QFileDialog class.
+    The KDE QPA theme plugin uses a KFileDialog automatically.
+
+    The KIOFileWidgets library provides KFileWidget, which is the main widget in the file dialog, as well as
+    the KDirOperator widget which contains the file views, and other components of the file dialog.
+    Applications only need to link to KIOFileWidgets if they need direct access to KFileWidget
+    or KDirOperator or to the other widgets used by the file dialog, either in order to
+    modify the behavior of the file dialog, or to reuse its components into the application itself.
+*/

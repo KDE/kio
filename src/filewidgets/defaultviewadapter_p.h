@@ -14,9 +14,11 @@ class QAbstractItemView;
 
 namespace KIO
 {
-/**
+/*!
  * Implementation of the view adapter for the default case when
  * an instance of QAbstractItemView is used as view.
+ *
+ * \internal
  */
 class KIOFILEWIDGETS_EXPORT DefaultViewAdapter : public KAbstractViewAdapter
 {

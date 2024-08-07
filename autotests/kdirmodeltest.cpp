@@ -390,7 +390,7 @@ void KDirModelTest::testData()
 
 void KDirModelTest::testIcon()
 {
-    /**
+    /*!
      * Create test data only used in testIcon()
      * PATH/subdirwithcustomicon
      * PATH/subdirwithcustomicon/.directory

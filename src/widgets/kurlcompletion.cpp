@@ -252,11 +252,10 @@ private:
     QAtomicInt m_terminationRequested; // used as a bool
 };
 
-/**
+/*
  * A simple thread that fetches a list of tilde-completions and returns this
  * to the caller via the completionThreadDone signal.
  */
-
 class UserListThread : public CompletionThread
 {
     Q_OBJECT

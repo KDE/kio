@@ -93,7 +93,7 @@ public:
         delete templatesList;
     }
 
-    /**
+    /*
      * Opens the desktop files and completes the Entry list
      * Input: the entry list. Output: the entry list ;-)
      */
@@ -120,20 +120,20 @@ public:
     };
     // NOTE: only filePath is known before we call parseFiles
 
-    /**
+    /*
      * List of all template files. It is important that they are in
      * the same order as the 'New' menu.
      */
     typedef QList<Entry> EntryList;
 
-    /**
+    /*
      * Set back to false each time new templates are found,
      * and to true on the first call to parseFiles
      */
     bool filesParsed;
     EntryList *templatesList;
 
-    /**
+    /*
      * Is increased when templatesList has been updated and
      * menu needs to be re-filled. Menus have their own version and compare it
      * to templatesVersion before showing up
@@ -247,113 +247,113 @@ public:
 
     bool checkSourceExists(const QString &src);
 
-    /**
+    /*
      * The strategy used for other desktop files than Type=Link. Example: Application, Device.
      */
     void executeOtherDesktopFile(const KNewFileMenuSingleton::Entry &entry);
 
-    /**
+    /*
      * The strategy used for "real files or directories" (the common case)
      */
     void executeRealFileOrDir(const KNewFileMenuSingleton::Entry &entry);
 
-    /**
+    /*
      * Actually performs file handling. Reads in m_copyData for needed data, that has been collected by execute*() before
      */
     void executeStrategy();
 
-    /**
+    /*
      * The strategy used when creating a symlink
      */
     void executeSymLink(const KNewFileMenuSingleton::Entry &entry);
 
-    /**
+    /*
      * The strategy used for "url" desktop files
      */
     void executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry);
 
-    /**
+    /*
      * Fills the menu from the templates list.
      */
     void fillMenu();
 
-    /**
+    /*
      * Tries to map a local URL for the given URL.
      */
     QUrl mostLocalUrl(const QUrl &url);
 
-    /**
+    /*
      * Just clears the string buffer d->m_text, but I need a slot for this to occur
      */
     void slotAbortDialog();
 
-    /**
+    /*
      * Called when New->* is clicked
      */
     void slotActionTriggered(QAction *action);
 
-    /**
+    /*
      * Shows a dialog asking the user to enter a name when creating a new folder.
      */
     void showNewDirNameDlg(const QString &name);
 
-    /**
+    /*
      * Callback function that reads in directory name from dialog and processes it
      */
     void slotCreateDirectory();
 
-    /**
+    /*
      * Fills the templates list.
      */
     void slotFillTemplates();
 
-    /**
+    /*
      * Called when accepting the KPropertiesDialog (for "other desktop files")
      */
     void _k_slotOtherDesktopFile(KPropertiesDialog *sender);
 
-    /**
+    /*
      * Called when closing the KPropertiesDialog is closed (whichever way, accepted and rejected)
      */
     void slotOtherDesktopFileClosed();
 
-    /**
+    /*
      * Callback in KNewFileMenu for the RealFile Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
     void slotRealFileOrDir();
 
-    /**
+    /*
      * Delay calls to _k_slotTextChanged
      */
     void _k_delayedSlotTextChanged();
 
-    /**
+    /*
      * Dialogs use this slot to write the changed string into KNewFile menu when the user
      * changes touches them
      */
     void _k_slotTextChanged(const QString &text);
 
-    /**
+    /*
      * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
     void slotSymLink();
 
-    /**
+    /*
      * Callback in KNewFileMenu for the Url/Desktop Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
     void slotUrlDesktopFile();
 
-    /**
+    /*
      * Callback to check if a file/directory with the same name as the one being created, exists
      */
     void _k_slotStatResult(KJob *job);
 
     void _k_slotAccepted();
 
-    /**
+    /*
      * Initializes m_fileDialog and the other widgets that are included in it. Mainly to reduce
      * code duplication in showNewDirNameDlg() and executeRealFileOrDir().
      */
@@ -376,13 +376,13 @@ public:
     bool m_creatingDirectory = false;
     bool m_modal = true;
 
-    /**
+    /*
      * The action group that our actions belong to
      */
     QActionGroup *m_newMenuGroup = nullptr;
     QWidget *m_parentWidget = nullptr;
 
-    /**
+    /*
      * When the user pressed the right mouse button over an URL a popup menu
      * is displayed. The URL belonging to this popup menu is stored here.
      * For all intents and purposes this is the current directory where the menu is
@@ -402,7 +402,7 @@ public:
 
     KNewFileMenuCopyData m_copyData;
 
-    /**
+    /*
      * Use to delay a bit feedback to user
      */
     QTimer *m_delayedSlotTextChangedTimer;

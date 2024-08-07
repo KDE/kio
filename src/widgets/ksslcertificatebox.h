@@ -18,10 +18,18 @@ class QSslCertificate;
 
 class KSslCertificateBoxPrivate;
 
+/*!
+ * \class KSslCertificateBox
+ * \inmodule KIOWidgets
+ */
 class KIOWIDGETS_EXPORT KSslCertificateBox : public QWidget
 {
     Q_OBJECT
 public:
+    /*!
+     * \value Subject
+     * \value Issuer
+     */
     enum CertificateParty {
         Subject = 0,
         Issuer,
@@ -30,7 +38,14 @@ public:
     explicit KSslCertificateBox(QWidget *parent = nullptr);
     ~KSslCertificateBox() override;
 
+    /*!
+     *
+     */
     void setCertificate(const QSslCertificate &cert, CertificateParty party);
+
+    /*!
+     *
+     */
     void clear();
 
     std::unique_ptr<KSslCertificateBoxPrivate> const d;

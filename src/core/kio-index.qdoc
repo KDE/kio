@@ -1,0 +1,23 @@
+/*!
+    \page kio-index.html
+    \title KIO
+
+    Resource and network access abstraction
+
+    \section1 Using the Module
+
+    \include {module-use.qdocinc} {using the c++ api}
+
+    \section2 Building with CMake
+
+    \include {module-use.qdocinc} {building with cmake} {KF6} {KIO} {KF6::KIOCore}
+
+    \section1 API Reference
+
+    \list
+        \li \l{KIO Core C++ Classes}
+        \li \l{KIO Gui C++ Classes}
+        \li \l{KIO Widgets C++ Classes}
+        \li \l{KIO FileWidgets C++ Classes}
+    \endlist
+*/

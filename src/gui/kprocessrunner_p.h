@@ -25,8 +25,8 @@ namespace KIOGuiPrivate
 bool checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg);
 }
 
-/**
- * @internal  (exported for KIO GUI job unit tests)
+/*!
+ * \internal  (exported for KIO GUI job unit tests)
  * This class runs a KService or a shell command, using QProcess internally.
  * It creates a startup notification and finishes it on success or on error (for the taskbar)
  * It also shows an error message if necessary (e.g. "program not found").
@@ -43,16 +43,22 @@ public:
     };
     Q_ENUM(LaunchMode)
 
-    /**
-     * Run a KService (application desktop file) to open @p urls.
-     * @param service the service to run
-     * @param urls the list of URLs, can be empty
-     * @param flags various flags
-     * @param suggestedFileName see KRun::setSuggestedFileName
-     * @param asn Application startup notification id, if any (otherwise "")
-     * @param serviceEntryPath the KService entryPath(), passed as an argument
+    /*!
+     * Run a KService (application desktop file) to open \a urls.
+     *
+     * \a service the service to run
+     *
+     * \a urls the list of URLs, can be empty
+     *
+     * \a flags various flags
+     *
+     * \a suggestedFileName see KRun::setSuggestedFileName
+     *
+     * \a asn Application startup notification id, if any (otherwise "")
+     *
+     * \a serviceEntryPath the KService entryPath(), passed as an argument
      * because in some cases it could become an empty string, e.g. if an
-     * ApplicationLauncherJob is created from a @c KServiceAction, the
+     * ApplicationLauncherJob is created from a KServiceAction, the
      * ApplicationLauncherJob will call KService::setExec() which clears the
      * entryPath() of the KService
      */
@@ -64,13 +70,18 @@ public:
                                            const QString &suggestedFileName = {},
                                            const QByteArray &asn = {});
 
-    /**
+    /*!
      * Run a shell command
-     * @param cmd must be a shell command. No need to append "&" to it.
-     * @param desktopName name of the desktop file, if known.
-     * @param execName the name of the executable, if known.
-     * @param asn Application startup notification id, if any (otherwise "").
-     * @param workingDirectory the working directory for the started process. The default
+     *
+     * \a cmd must be a shell command. No need to append "&" to it.
+     *
+     * \a desktopName name of the desktop file, if known.
+     *
+     * \a execName the name of the executable, if known.
+     *
+     * \a asn Application startup notification id, if any (otherwise "").
+     *
+     * \a workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
@@ -81,17 +92,21 @@ public:
                                        const QString &workingDirectory,
                                        const QProcessEnvironment &environment);
 
-    /**
+    /*!
      * Run an executable with arguments (without invoking a shell, by starting a new process).
      *
-     * @note: Starting from 5.92, if an actual executable named @p executable cannot be found
+     * \note: Starting from 5.92, if an actual executable named \a executable cannot be found
      * in PATH, this will return a nullptr.
      *
-     * @param executable the name of (or full path to) the executable, mandatory
-     * @param args the arguments to pass to the executable
-     * @param desktopName name of the desktop file, if known.
-     * @param asn Application startup notification id, if any (otherwise "").
-     * @param workingDirectory the working directory for the started process. The default
+     * \a executable the name of (or full path to) the executable, mandatory
+     *
+     * \a args the arguments to pass to the executable
+     *
+     * \a desktopName name of the desktop file, if known.
+     *
+     * \a asn Application startup notification id, if any (otherwise "").
+     *
+     * \a workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
@@ -102,7 +117,7 @@ public:
                                           const QString &workingDirectory,
                                           const QProcessEnvironment &environment);
 
-    /**
+    /*!
      * Blocks until the process has started. Only exists for KRun via Command/ApplicationLauncherJob, will disappear in KF6.
      */
     virtual bool waitForStarted(int timeout = 30000) = 0;
@@ -112,15 +127,17 @@ public:
     static int instanceCount(); // for the unittest
 
 Q_SIGNALS:
-    /**
-     * @brief Emitted on error. In that case, finished() is not emitted.
-     * @param errorString the error message
+    /*!
+     * Emitted on error. In that case, finished() is not emitted.
+     *
+     * \a errorString the error message
      */
     void error(const QString &errorString);
 
-    /**
-     * @brief emitted when the process was successfully started
-     * @param pid PID of the process that was started
+    /*!
+     * Emitted when the process was successfully started
+     *
+     * \a pid PID of the process that was started
      */
     void processStarted(qint64 pid);
 
