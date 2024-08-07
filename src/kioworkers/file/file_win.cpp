@@ -263,7 +263,7 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &dest, KIO:
 WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
 {
     QString _path(url.toLocalFile());
-    /*****
+    /*!***
      * Delete files
      *****/
 

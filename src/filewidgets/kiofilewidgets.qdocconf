@@ -1,0 +1,26 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = KIOFileWidgets
+description = Network transparent access to files and data
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+outputformats = HTML
+
+depends += \
+    kde \
+    qtcore \
+    qtgui \
+    qtwidgets \
+    kcoreaddons \
+    kjobwidgets \
+    kiocore \
+    kiogui \
+    kiowidgets \
+    kbookmarks \
+    solid \
+    kcompletion \
+    kconfigcore

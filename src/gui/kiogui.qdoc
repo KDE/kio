@@ -1,0 +1,10 @@
+/*!
+    \module KIOGui
+    \title KIO Gui C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KIOGui
+
+    \brief GUI-related functionality for KIO.
+*/

@@ -43,149 +43,149 @@ public:
     KFilePreviewGeneratorPrivate(KFilePreviewGenerator *qq, KAbstractViewAdapter *viewAdapter, QAbstractItemModel *model);
 
     ~KFilePreviewGeneratorPrivate();
-    /**
-     * Requests a new icon for the item \a index.
-     * @param sequenceIndex If this is zero, the standard icon is requested, else another one.
+    /*
+     * Requests a new icon for the item index.
+     * sequenceIndex If this is zero, the standard icon is requested, else another one.
      */
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
 
-    /**
-     * Generates previews for the items \a items asynchronously.
+    /*
+     * Generates previews for the items items asynchronously.
      */
     void updateIcons(const KFileItemList &items);
 
-    /**
-     * Generates previews for the indices within \a topLeft
-     * and \a bottomRight asynchronously.
+    /*
+     * Generates previews for the indices within topLeft
+     * and bottomRight asynchronously.
      */
     void updateIcons(const QModelIndex &topLeft, const QModelIndex &bottomRight);
 
-    /**
-     * Adds the preview \a pixmap for the item \a item to the preview
+    /*
+     * Adds the preview pixmap for the item item to the preview
      * queue and starts a timer which will dispatch the preview queue
      * later.
      */
     void addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap, KIO::PreviewJob *job);
 
-    /**
+    /*
      * Is invoked when the preview job has been finished and
      * removes the job from the m_previewJobs list.
      */
     void slotPreviewJobFinished(KJob *job);
 
-    /** Synchronizes the icon of all items with the clipboard of cut items. */
+    /* Synchronizes the icon of all items with the clipboard of cut items. */
     void updateCutItems();
 
-    /**
+    /*
      * Reset all icons of the items from m_cutItemsCache and clear
      * the cache.
      */
     void clearCutItemsCache();
 
-    /**
+    /*
      * Dispatches the preview queue  block by block within
      * time slices.
      */
     void dispatchIconUpdateQueue();
 
-    /**
+    /*
      * Pauses all icon updates and invokes KFilePreviewGenerator::resumeIconUpdates()
      * after a short delay. Is invoked as soon as the user has moved
      * a scrollbar.
      */
     void pauseIconUpdates();
 
-    /**
+    /*
      * Resumes the icons updates that have been paused after moving the
      * scrollbar. The previews for the current visible area are
      * generated first.
      */
     void resumeIconUpdates();
 
-    /**
+    /*
      * Starts the resolving of the MIME types from
      * the m_pendingItems queue.
      */
     void startMimeTypeResolving();
 
-    /**
+    /*
      * Resolves the MIME type for exactly one item of the
      * m_pendingItems queue.
      */
     void resolveMimeType();
 
-    /**
-     * Returns true, if the item \a item has been cut into
+    /*
+     * Returns true, if the item item has been cut into
      * the clipboard.
      */
     bool isCutItem(const KFileItem &item) const;
 
-    /**
-     * Applies a cut-item effect to all given \a items, if they
+    /*
+     * Applies a cut-item effect to all given items, if they
      * are marked as cut in the clipboard.
      */
     void applyCutItemEffect(const KFileItemList &items);
 
-    /**
+    /*
      * Applies a frame around the icon. False is returned if
      * no frame has been added because the icon is too small.
      */
     bool applyImageFrame(QPixmap &icon);
 
-    /**
-     * Resizes the icon to \a maxSize if the icon size does not
+    /*
+     * Resizes the icon to maxSize if the icon size does not
      * fit into the maximum size. The aspect ratio of the icon
      * is kept.
      */
     void limitToSize(QPixmap &icon, const QSize &maxSize);
 
-    /**
+    /*
      * Creates previews by starting new preview jobs for the items
      * and triggers the preview timer.
      */
     void createPreviews(const KFileItemList &items);
 
-    /**
+    /*
      * Helper method for createPreviews(): Starts a preview job for the given
      * items. For each returned preview addToPreviewQueue() will get invoked.
      */
     void startPreviewJob(const KFileItemList &items, int width, int height);
 
-    /** Kills all ongoing preview jobs. */
+    /* Kills all ongoing preview jobs. */
     void killPreviewJobs();
 
-    /**
-     * Orders the items \a items in a way that the visible items
+    /*
+     * Orders the items items in a way that the visible items
      * are moved to the front of the list. When passing this
      * list to a preview job, the visible items will get generated
      * first.
      */
     void orderItems(KFileItemList &items);
 
-    /**
+    /*
      * Helper method for KFilePreviewGenerator::updateIcons(). Adds
-     * recursively all items from the model to the list \a list.
+     * recursively all items from the model to the list list.
      */
     void addItemsToList(const QModelIndex &index, KFileItemList &list);
 
-    /**
+    /*
      * Updates the icons of files that are constantly changed due to a copy
      * operation. See m_changedItems and m_changedItemsTimer for details.
      */
     void delayedIconUpdate();
 
-    /**
+    /*
      * Any items that are removed from the model are also removed from m_changedItems.
      */
     void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end);
 
-    /** Remembers the pixmap for an item specified by an URL. */
+    /* Remembers the pixmap for an item specified by an URL. */
     struct ItemInfo {
         QUrl url;
         QPixmap pixmap;
     };
 
-    /**
+    /*
      * During the lifetime of a DataChangeObtainer instance changing
      * the data of the model won't trigger generating a preview.
      */
@@ -211,24 +211,24 @@ public:
 
     bool m_previewShown = true;
 
-    /**
+    /*
      * True, if m_pendingItems and m_dispatchedItems should be
      * cleared when the preview jobs have been finished.
      */
     bool m_clearItemQueues = true;
 
-    /**
+    /*
      * True if a selection has been done which should cut items.
      */
     bool m_hasCutSelection = false;
 
-    /**
+    /*
      * True if the updates of icons has been paused by pauseIconUpdates().
      * The value is reset by resumeIconUpdates().
      */
     bool m_iconUpdatesPaused = false;
 
-    /**
+    /*
      * If the value is 0, the slot
      * updateIcons(const QModelIndex&, const QModelIndex&) has
      * been triggered by an external data change.
@@ -245,7 +245,7 @@ public:
     QPointer<KDirModel> m_dirModel;
     QAbstractProxyModel *m_proxyModel = nullptr;
 
-    /**
+    /*
      * Set of all items that already have the 'cut' effect applied, together with the pixmap it was applied to
      * This is used to make sure that the 'cut' effect is applied max. once for each pixmap
      *
@@ -256,7 +256,7 @@ public:
     QList<ItemInfo> m_previews;
     QMap<QUrl, int> m_sequenceIndices;
 
-    /**
+    /*
      * When huge items are copied, it must be prevented that a preview gets generated
      * for each item size change. m_changedItems keeps track of the changed items and it
      * is assured that a final preview is only done if an item does not change within
@@ -265,13 +265,13 @@ public:
     QHash<QUrl, bool> m_changedItems;
     QTimer *m_changedItemsTimer = nullptr;
 
-    /**
+    /*
      * Contains all items where a preview must be generated, but
      * where the preview job has not dispatched the items yet.
      */
     KFileItemList m_pendingItems;
 
-    /**
+    /*
      * Contains all items, where a preview has already been
      * generated by the preview jobs.
      */
@@ -284,7 +284,7 @@ public:
     std::unique_ptr<TileSet> m_tileSet;
 };
 
-/**
+/*
  * If the passed item view is an instance of QListView, expensive
  * layout operations are blocked in the constructor and are unblocked
  * again in the destructor.
@@ -331,7 +331,7 @@ private:
     QListView *m_view = nullptr;
 };
 
-/** Helper class for drawing frames for image previews. */
+/* Helper class for drawing frames for image previews. */
 class KFilePreviewGeneratorPrivate::TileSet
 {
 public:

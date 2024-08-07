@@ -28,8 +28,10 @@ class KSqueezedTextLabel;
 
 namespace KIO
 {
-/**
- * @class KIO::RenameDialog renamedialog.h <KIO/RenameDialog>
+/*!
+ * \class KIO::RenameDialog
+ * \inheaderfile KIO/RenameDialog
+ * \inmodule KIOWidgets
  *
  * The dialog shown when a CopyJob realizes that a destination file already exists,
  * and wants to offer the user with the choice to either Rename, Overwrite, Skip;
@@ -40,20 +42,30 @@ class KIOWIDGETS_EXPORT RenameDialog : public QDialog
 {
     Q_OBJECT
 public:
-    /**
-     * Construct a "rename" dialog to let the user know that @p src is about to overwrite @p dest.
+    /*!
+     * Construct a "rename" dialog to let the user know that \a src is about to overwrite \a dest.
      *
-     * @param parent parent widget (often 0)
-     * @param title the title for the dialog box
-     * @param src the url to the file/dir we're trying to copy, as it's part of the text message
-     * @param dest the path to destination file/dir, i.e. the one that already exists
-     * @param options parameters for the dialog (which buttons to show...),
-     * @param sizeSrc size of source file
-     * @param sizeDest size of destination file
-     * @param ctimeSrc creation time of source file
-     * @param ctimeDest creation time of destination file
-     * @param mtimeSrc modification time of source file
-     * @param mtimeDest modification time of destination file
+     * \a parent parent widget (often 0)
+     *
+     * \a title the title for the dialog box
+     *
+     * \a src the url to the file/dir we're trying to copy, as it's part of the text message
+     *
+     * \a dest the path to destination file/dir, i.e. the one that already exists
+     *
+     * \a options parameters for the dialog (which buttons to show...),
+     *
+     * \a sizeSrc size of source file
+     *
+     * \a sizeDest size of destination file
+     *
+     * \a ctimeSrc creation time of source file
+     *
+     * \a ctimeDest creation time of destination file
+     *
+     * \a mtimeSrc modification time of source file
+     *
+     * \a mtimeDest modification time of destination file
      */
     RenameDialog(QWidget *parent,
                  const QString &title,
@@ -68,27 +80,62 @@ public:
                  const QDateTime &mtimeDest = QDateTime());
     ~RenameDialog() override;
 
-    /**
-     * @return the new destination
+    /*!
+     * Returns the new destination
      * valid only if RENAME was chosen
      */
     QUrl newDestUrl();
 
-    /**
-     * @return an automatically renamed destination
+    /*!
+     * Returns an automatically renamed destination
      * valid always
      */
     QUrl autoDestUrl() const;
 
 public Q_SLOTS:
+    /*!
+     *
+     */
     void cancelPressed();
+
+    /*!
+     *
+     */
     void renamePressed();
+
+    /*!
+     *
+     */
     void skipPressed();
+
+    /*!
+     *
+     */
     void overwritePressed();
+
+    /*!
+     *
+     */
     void overwriteAllPressed();
+
+    /*!
+     *
+     */
     void overwriteWhenOlderPressed();
+
+    /*!
+     *
+     */
     void resumePressed();
+
+    /*!
+     *
+     */
     void resumeAllPressed();
+
+    /*!
+     *
+     */
     void suggestNewNamePressed();
 
 protected Q_SLOTS:

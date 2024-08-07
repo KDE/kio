@@ -21,31 +21,35 @@ class QWidget;
 
 namespace KIO
 {
-/**
- * @class KIO::JobUiDelegateFactory jobuidelegatefactory.h <KIO/JobUiDelegateFactory>
+/*!
+ * \class KIO::JobUiDelegateFactory
+ * \inheaderfile KIO/JobUiDelegateFactory
+ * \inmodule KIOCore
  *
- * A factory for creating job ui delegates.
+ * \brief A factory for creating job ui delegates.
+ *
  * Every KIO job will get a delegate from this factory.
+ *
  * \since 5.0
  */
 class KIOCORE_EXPORT JobUiDelegateFactory
 {
 protected:
-    /**
+    /*!
      * Constructor
      */
     JobUiDelegateFactory();
 
-    /**
-     * Destructor
-     */
     virtual ~JobUiDelegateFactory();
 
 public:
+    /*!
+     *
+     */
     virtual KJobUiDelegate *createDelegate() const = 0;
 
-    /**
-     * @since 6.0
+    /*!
+     * \since 6.0
      */
     virtual KJobUiDelegate *createDelegate(KJobUiDelegate::Flags flags, QWidget *window) const = 0;
 
@@ -54,36 +58,45 @@ private:
     Private *const d;
 };
 
-/**
+/*!
+ * \relates KIO::JobUiDelegateFactory
  * Convenience method: use default factory, if there's one, to create a delegate and return it.
  */
 KIOCORE_EXPORT KJobUiDelegate *createDefaultJobUiDelegate();
 
-/**
+/*!
+ * \relates KIO::JobUiDelegateFactory
+ *
  * Convenience method: use default factory, if there's one, to create a delegate and return it.
  *
- * @since 5.98
+ * \since 5.98
  */
 KIOCORE_EXPORT KJobUiDelegate *createDefaultJobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
 
-/**
+/*!
+ * \relates KIO::JobUiDelegateFactory
+ *
  * Returns the default job UI delegate factory to be used by all KIO jobs (in which HideProgressInfo is not set)
  * Can return nullptr, if no kio GUI library is loaded.
- * @since 6.0
+ * \since 6.0
  */
 KIOCORE_EXPORT JobUiDelegateFactory *defaultJobUiDelegateFactory();
 
-/**
+/*!
+ * \relates KIO::JobUiDelegateFactory
+ *
  * Internal. Allows the KIO widgets library to register its widget-based job UI delegate factory
  * automatically.
- * @since 6.0
+ * \since 6.0
  */
 KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory);
 
-/**
+/*!
+ * \relates KIO::JobUiDelegateFactory
+ *
  * Returns the child of the job's uiDelegate() that implements the given extension,
  * or nullptr if none was found (or if the job had no uiDelegate).
- * @since 5.78
+ * \since 5.78
  */
 template<typename T>
 inline T delegateExtension(KJob *job)

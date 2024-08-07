@@ -14,10 +14,12 @@
 namespace KIO
 {
 class StoredTransferJobPrivate;
-/**
- * @class KIO::StoredTransferJob storedtransferjob.h <KIO/StoredTransferJob>
+/*!
+ * \class KIO::StoredTransferJob
+ * \inheaderfile KIO/StoredTransferJob
+ * \inmodule KIOCore
  *
- * StoredTransferJob is a TransferJob (for downloading or uploading data) that
+ * \brief StoredTransferJob is a TransferJob (for downloading or uploading data) that
  * also stores a QByteArray with the data, making it simpler to use than the
  * standard TransferJob.
  *
@@ -41,14 +43,14 @@ class KIOCORE_EXPORT StoredTransferJob : public KIO::TransferJob
 public:
     ~StoredTransferJob() override;
 
-    /**
+    /*!
      * Set data to be uploaded. This is for put jobs.
      * Automatically called by KIO::storedPut(const QByteArray &, ...),
      * do not call this yourself.
      */
     void setData(const QByteArray &arr);
 
-    /**
+    /*!
      * Get hold of the downloaded data. This is for get jobs.
      * You're supposed to call this only from the slot connected to the result() signal.
      */
@@ -61,64 +63,88 @@ private:
     Q_DECLARE_PRIVATE(StoredTransferJob)
 };
 
-/**
- * Get (means: read), into a single QByteArray.
- * @see StoredTransferJob
+/*!
+ * \relates KIO::StoredTransferJob
  *
- * @param url the URL of the file
- * @param reload Reload to reload the file, NoReload if it can be taken from the cache
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
+ * Get (means: read), into a single QByteArray.
+ *
+ * \a url the URL of the file
+ *
+ * \a reload Reload to reload the file, NoReload if it can be taken from the cache
+ *
+ * \a flags Can be HideProgressInfo here
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
-/**
+/*!
+ * \relates KIO::StoredTransferJob
+ *
  * Put (means: write) data from a QIODevice.
- * @see StoredTransferJob
  *
- * @param input The data to write, a device to read from. Must be open for reading (data will be read from the current position).
- * @param url Where to write data.
- * @param permissions May be -1. In this case no special permission mode is set.
- * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
- * Setting Resume means that the data will be appended to @p dest if @p dest exists.
- * @return the job handling the operation.
+ * \a input The data to write, a device to read from. Must be open for reading (data will be read from the current position).
  *
- * @since 5.10
+ * \a url Where to write data.
+ *
+ * \a permissions May be -1. In this case no special permission mode is set.
+ *
+ * \a flags Can be HideProgressInfo, Overwrite and Resume here.
+ * WARNING: Setting Resume means that the data will be appended to \a dest if \a dest exists.
+ *
+ * Returns the job handling the operation.
+ *
+ * \since 5.10
  */
 KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice *input, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
-/**
- * Put (means: write) data from a single QByteArray.
- * @see StoredTransferJob
+/*!
+ * \relates KIO::StoredTransferJob
  *
- * @param arr The data to write
- * @param url Where to write data.
- * @param permissions May be -1. In this case no special permission mode is set.
- * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
- * Setting Resume means that the data will be appended to @p dest if @p dest exists.
- * @return the job handling the operation.
+ * Put (means: write) data from a single QByteArray.
+ *
+ * \a arr The data to write
+ *
+ * \a url Where to write data.
+ *
+ * \a permissions May be -1. In this case no special permission mode is set.
+ *
+ * \a flags Can be HideProgressInfo, Overwrite and Resume here.
+ * WARNING: Setting Resume means that the data will be appended to \a url if \a url exists.
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
-/**
- * HTTP POST (means: write) data from a single QByteArray.
- * @see StoredTransferJob
+/*!
+ * \relates KIO::StoredTransferJob
  *
- * @param arr The data to write
- * @param url Where to write data.
- * @param flags Can be HideProgressInfo here.
- * @return the job handling the operation.
+ * HTTP POST (means: write) data from a single QByteArray.
+ *
+ * \a arr The data to write
+ *
+ * \a url Where to write data.
+ *
+ * \a flags Can be HideProgressInfo here.
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url, JobFlags flags = DefaultFlags);
-/**
- * HTTP POST (means: write) data from the given IO device.
- * @see StoredTransferJob
+
+/*!
+ * \relates KIO::StoredTransferJob
  *
- * @param device Device from which the encoded data to be posted is read. Must be open for reading.
- * @param url Where to write data.
- * @param size Size of the encoded data to be posted.
- * @param flags Can be HideProgressInfo here.
- * @return the job handling the operation.
+ * HTTP POST (means: write) data from the given IO device.
+ *
+ * \a device Device from which the encoded data to be posted is read. Must be open for reading.
+ *
+ * \a url Where to write data.
+ *
+ * \a size Size of the encoded data to be posted.
+ *
+ * \a flags Can be HideProgressInfo here.
+ *
+ * Returns the job handling the operation.
  *
  */
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(QIODevice *device, const QUrl &url, qint64 size = -1, JobFlags flags = DefaultFlags);

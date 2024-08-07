@@ -37,17 +37,17 @@ public:
     {
     }
 
-    /**
+    /*
      * Returns true, if the MIME type of the path represents a
-     * compressed file like TAR or ZIP, as listed in @p archiveMimetypes
+     * compressed file like TAR or ZIP, as listed in archiveMimetypes
      */
     bool isCompressedPath(const QUrl &path, const QStringList &archiveMimetypes) const;
 
-    /**
-     * Returns the current history index, if \a historyIndex is
-     * smaller than 0. If \a historyIndex is greater or equal than
+    /*
+     * Returns the current history index, if historyIndex is
+     * smaller than 0. If historyIndex is greater or equal than
      * the number of available history items, the largest possible
-     * history index is returned. For the other cases just \a historyIndex
+     * history index is returned. For the other cases just historyIndex
      * is returned.
      */
     int adjustedHistoryIndex(int historyIndex) const;

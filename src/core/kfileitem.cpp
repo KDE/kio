@@ -81,12 +81,12 @@ public:
         }
     }
 
-    /**
+    /*
      * Call init() if not yet done.
      */
     void ensureInitialized() const;
 
-    /**
+    /*
      * Computes the text and mode from the UDSEntry.
      */
     void init() const;
@@ -101,76 +101,76 @@ public:
     void printCompareDebug(const KFileItemPrivate &item) const;
     bool isSlow() const;
 
-    /**
+    /*
      * Extracts the data from the UDSEntry member and updates the KFileItem
      * accordingly.
      */
     void readUDSEntry(bool _urlIsDirectory);
 
-    /**
+    /*
      * Parses the given permission set and provides it for access()
      */
     QString parsePermissions(mode_t perm) const;
 
-    /**
+    /*
      * Mime type helper
      */
     void determineMimeTypeHelper(const QUrl &url) const;
 
-    /**
+    /*
      * The UDSEntry that contains the data for this fileitem, if it came from a directory listing.
      */
     mutable KIO::UDSEntry m_entry;
-    /**
+    /*
      * The url of the file
      */
     QUrl m_url;
 
-    /**
+    /*
      * The text for this item, i.e. the file name without path,
      */
     QString m_strName;
 
-    /**
+    /*
      * The text for this item, i.e. the file name without path, decoded
      * ('%%' becomes '%', '%2F' becomes '/')
      */
     QString m_strText;
 
-    /**
+    /*
      * The icon name for this item.
      */
     mutable QString m_iconName;
 
-    /**
+    /*
      * The filename in lower case (to speed up sorting)
      */
     mutable QString m_strLowerCaseName;
 
-    /**
+    /*
      * The MIME type of the file
      */
     mutable QMimeType m_mimeType;
 
-    /**
+    /*
      * The file mode
      */
     mutable mode_t m_fileMode;
-    /**
+    /*
      * The permissions
      */
     mutable mode_t m_permissions;
 
-    /**
+    /*
      * Whether the UDSEntry ACL fields should be added to m_entry.
      */
     mutable bool m_addACL : 1;
 
-    /**
+    /*
      * Whether the file is a link
      */
     mutable bool m_bLink : 1;
-    /**
+    /*
      * True if local file
      */
     bool m_bIsLocalUrl : 1;
@@ -178,7 +178,7 @@ public:
     mutable bool m_bMimeTypeKnown : 1;
     mutable bool m_delayedMimeTypes : 1;
 
-    /** True if m_iconName should be used as cache. */
+    /* True if m_iconName should be used as cache. */
     mutable bool m_useIconNameCache : 1;
 
     // Auto: check leading dot.
@@ -200,12 +200,12 @@ public:
         Slow
     } m_slow : 3;
 
-    /**
+    /*
      * True if MIME type determination by content should be skipped
      */
     bool m_bSkipMimeTypeFromContent : 1;
 
-    /**
+    /*
      * True if init() was called on demand
      */
     mutable bool m_bInitCalled : 1;
@@ -1207,7 +1207,7 @@ QString KFileItem::iconName() const
     return d->m_iconName;
 }
 
-/**
+/*
  * Returns true if this is a desktop file.
  * MIME type determination is optional.
  */

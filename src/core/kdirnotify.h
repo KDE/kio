@@ -23,8 +23,10 @@
 
 class QDBusConnection;
 
-/**
- * \class OrgKdeKDirNotifyInterface kdirnotify.h KDirNotify
+/*!
+ * \class OrgKdeKDirNotifyInterface
+ * \inheaderfile KDirNotify
+ * \inmodule KIOCore
  *
  * \brief Proxy class for interface org.kde.KDirNotify.
  *
@@ -49,7 +51,7 @@ class QDBusConnection;
  *         this, [this](const QStringList &fileList) { slotFilesRemoved(fileList); });
  * \endcode
  *
- * Especially noteworthy are the empty strings for both \p service and \p path. That
+ * Especially noteworthy are the empty strings for both service and path. That
  * way the client will connect to signals emitted by any application.
  *
  * The second usage is to actually emit the signals. For that emitFileRenamed() and friends are
@@ -65,14 +67,17 @@ public:
     }
 
 public:
-    /**
+    /*!
      * Create a new KDirNotify interface.
      *
      * \param service The service whose signals one wants to listed to. Use an empty
      * string to connect to all services/applications.
+     *
      * \param path The path to the D-Bus object whose signals one wants to listed to.
      * Use an empty string to connect to signals from all objects.
+     *
      * \param connection Typically QDBusConnection::sessionBus().
+     *
      * \param parent The parent QObject.
      */
     OrgKdeKDirNotifyInterface(const QString &service,
@@ -80,37 +85,65 @@ public:
                               const QDBusConnection &connection = QDBusConnection::sessionBus(),
                               QObject *parent = nullptr);
 
-    /**
-     * Destructor.
-     */
     ~OrgKdeKDirNotifyInterface() override;
 
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
+    /*!
+     */
     void FileRenamed(const QString &src, const QString &dst);
+    /*!
+     */
     void FileRenamedWithLocalPath(const QString &src, const QString &dst, const QString &dstPath);
+    /*!
+     */
     void FileMoved(const QString &src, const QString &dst);
+    /*!
+     */
     void FilesAdded(const QString &directory);
+    /*!
+     */
     void FilesChanged(const QStringList &fileList);
+    /*!
+     */
     void FilesRemoved(const QStringList &fileList);
+    /*!
+     */
     void enteredDirectory(const QString &url);
+    /*!
+     */
     void leftDirectory(const QString &url);
 
 public:
     static void emitFileRenamed(const QUrl &src, const QUrl &dst);
-    /**
+    /*!
      * \param src The old URL of the file that has been renamed.
+     *
      * \param dst The new URL of the file after it was renamed.
+     *
      * \param dstPath The local path of the file after it was renamed. This may be empty
      * and should otherwise be used to update UDS_LOCAL_PATH.
-     * @since 5.20
+     *
+     * \since 5.20
      */
     static void emitFileRenamedWithLocalPath(const QUrl &src, const QUrl &dst, const QString &dstPath);
+    /*!
+     */
     static void emitFileMoved(const QUrl &src, const QUrl &dst);
+    /*!
+     */
     static void emitFilesAdded(const QUrl &directory);
+    /*!
+     */
     static void emitFilesChanged(const QList<QUrl> &fileList);
+    /*!
+     */
     static void emitFilesRemoved(const QList<QUrl> &fileList);
+    /*!
+     */
     static void emitEnteredDirectory(const QUrl &url);
+    /*!
+     */
     static void emitLeftDirectory(const QUrl &url);
 };
 

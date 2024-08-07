@@ -159,7 +159,7 @@ public:
         return combo ? combo->currentText() : edit->text();
     }
 
-    /**
+    /*
      * replaces ~user or $FOO, if necessary
      * if text() is a relative path, make it absolute using startDir()
      */

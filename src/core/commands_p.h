@@ -12,8 +12,8 @@
 
 namespace KIO
 {
-/**
- * @internal
+/*!
+ * \internal
  * Commands that can be invoked by a job.
  */
 enum Command {

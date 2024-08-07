@@ -20,8 +20,12 @@ namespace KIO
 {
 class ForwardingWorkerBasePrivate;
 
-/**
- * @class KIO::ForwardingWorkerBase forwardingworkerbase.h <KIO/ForwardingWorkerBase>
+/*!
+ * \class KIO::ForwardingWorkerBase
+ * \inheaderfile KIO/ForwardingWorkerBase
+ * \inmodule KIOCore
+ *
+ * \brief Worker that forwards to other workers.
  *
  * This class should be used as a base for KIO workers acting as a
  * forwarder to other KIO workers. It has been designed to support only
@@ -65,9 +69,8 @@ class ForwardingWorkerBasePrivate;
  * something changes on a forwarded URL, you'll need a companion kded
  * module to emit the KDirNotify Files*() D-Bus signals.
  *
- * @see ForwardingWorkerBase::rewriteUrl()
- * @author Kevin Ottens <ervin@ipsquad.net>
- * @since 5.101
+ * \sa ForwardingWorkerBase::rewriteUrl()
+ * \since 5.101
  */
 class KIOCORE_EXPORT ForwardingWorkerBase : public QObject, public WorkerBase
 {
@@ -91,7 +94,7 @@ public:
     WorkerResult del(const QUrl &url, bool isfile) override;
 
 protected:
-    /**
+    /*!
      * Rewrite an url to its forwarded counterpart. It should return
      * true if everything was ok, and false otherwise.
      *
@@ -99,35 +102,42 @@ protected:
      * before returning. Returning false silently cancels the current
      * KIO worker operation.
      *
-     * @param url The URL as given during the KIO worker call
-     * @param newURL The new URL to forward the KIO worker call to
-     * @return true if the given url could be correctly rewritten
+     * \a url The URL as given during the KIO worker call
+     *
+     * \a newURL The new URL to forward the KIO worker call to
+     *
+     * Returns true if the given url could be correctly rewritten
      */
     virtual bool rewriteUrl(const QUrl &url, QUrl &newURL) = 0;
 
+    /*!
+     * \value UDSEntryCreationInStat The entry is created during a stat operation.
+     * \value UDSEntryCreationInListDir The entry is created during a listDir operation.
+     */
     enum UDSEntryCreationMode {
-        UDSEntryCreationInStat, ///< The entry is created during a stat operation.
-        UDSEntryCreationInListDir, ///<  The entry is created during a listDir operation.
+        UDSEntryCreationInStat,
+        UDSEntryCreationInListDir,
     };
 
-    /**
+    /*!
      * Adjusts a UDSEntry before it's sent in the reply to the KIO worker endpoint.
      * This is the default implementation working in most cases, but sometimes
      * you could make use of more forwarding black magic (for example
      * dynamically transform any desktop file into a fake directory...)
      *
-     * @param entry the UDSEntry to adjust
-     * @param creationMode the operation for which this entry is created
+     * \a entry the UDSEntry to adjust
+     *
+     * \a creationMode the operation for which this entry is created
      */
     virtual void adjustUDSEntry(KIO::UDSEntry &entry, UDSEntryCreationMode creationMode) const;
 
-    /**
+    /*!
      * Return the URL being processed by the KIO worker
      * Only access it inside adjustUDSEntry()
      */
     QUrl processedUrl() const;
 
-    /**
+    /*!
      * Return the URL asked to the KIO worker
      * Only access it inside adjustUDSEntry()
      */

@@ -1163,7 +1163,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
 {
     const QString path = url.toLocalFile();
     const QByteArray _path(QFile::encodeName(path));
-    /*****
+    /*!***
      * Delete files
      *****/
 
@@ -1188,7 +1188,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
             return WorkerResult::pass();
         }
     } else {
-        /*****
+        /*!***
          * Delete empty directory
          *****/
 

@@ -28,8 +28,13 @@ class AuthInfo;
 class WorkerBasePrivate;
 class WorkerResultPrivate;
 
-/**
- * @brief The result of a worker call
+/*!
+ * \class KIO::WorkerResult
+ * \inheaderfile KIO/WorkerBase
+ * \inmodule KIOCore
+ *
+ * \brief The result of a worker call.
+ *
  * When using the Result type always mark the function Q_REQUIRED_RESULT to enforce handling of the Result.
  */
 class KIOCORE_EXPORT WorkerResult
@@ -43,16 +48,26 @@ public:
     WorkerResult(WorkerResult &&) noexcept;
     WorkerResult &operator=(WorkerResult &&) noexcept;
 
-    /// Whether or not the result was a success.
+    /*!
+     * Whether or not the result was a success.
+     */
     bool success() const;
-    /// The error code (or ERR_UNKNOWN) of the result.
+    /*!
+     * The error code (or ERR_UNKNOWN) of the result.
+     */
     int error() const;
-    /// The localized error description if applicable.
+    /*!
+     * The localized error description if applicable.
+     */
     QString errorString() const;
 
-    /// Constructs a failure results.
+    /*!
+     * Constructs a failure results.
+     */
     Q_REQUIRED_RESULT static WorkerResult fail(int _error = KIO::ERR_UNKNOWN, const QString &_errorString = QString());
-    /// Constructs a success result.
+    /*!
+     * Constructs a success result.
+     */
     Q_REQUIRED_RESULT static WorkerResult pass();
 
 private:
@@ -60,10 +75,12 @@ private:
     std::unique_ptr<WorkerResultPrivate> d;
 };
 
-/**
- * @class KIO::WorkerBase workerbase.h <KIO/WorkerBase>
+/*!
+ * \class KIO::WorkerBase
+ * \inheaderfile KIO/WorkerBase
+ * \inmodule KIOCore
  *
- * WorkerBase is the class to use to implement a worker - simply inherit WorkerBase in your worker.
+ * \brief WorkerBase is the class to use to implement a worker - simply inherit WorkerBase in your worker.
  *
  * A call to foo() results in a call to slotFoo() on the other end.
  *
@@ -76,7 +93,7 @@ private:
  * If a kioworker needs a Qt event loop within the implementation of one method, e.g. to
  * wait for an asynchronous operation to finish, that is possible, using QEventLoop.
  *
- * @since 5.96
+ * \since 5.96
  */
 class KIOCORE_EXPORT WorkerBase
 {
@@ -84,14 +101,14 @@ public:
     WorkerBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket);
     virtual ~WorkerBase();
 
-    /**
-     * @internal
+    /*!
+     * \internal
      * Terminate the worker by calling the destructor and then ::exit()
      */
     void exit();
 
-    /**
-     * @internal
+    /*!
+     * \internal
      */
     void dispatchLoop();
 
@@ -99,55 +116,59 @@ public:
     // Message Signals to send to the job
     ///////////
 
-    /**
+    /*!
      * Sends data in the worker to the job (i.e.\ in get).
      *
      * To signal end of data, simply send an empty
      * QByteArray().
      *
-     * @param data the data read by the worker
+     * \a data the data read by the worker
      */
     void data(const QByteArray &data);
 
-    /**
+    /*!
      * Asks for data from the job.
-     * @see readData
+     * \sa readData
      */
     void dataReq();
 
-    /**
+    /*!
      * Used to report the status of the worker.
-     * @param host the worker is currently connected to. (Should be
+     *
+     * \a host the worker is currently connected to. (Should be
      *        empty if not connected)
-     * @param connected Whether an actual network connection exists.
+     *
+     * \a connected Whether an actual network connection exists.
      **/
     void workerStatus(const QString &host, bool connected);
 
-    /**
+    /*!
      * Call this from stat() to express details about an object, the
      * UDSEntry customarily contains the atoms describing file name, size,
      * MIME type, etc.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     *
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void statEntry(const UDSEntry &_entry);
 
-    /**
+    /*!
      * Call this in listDir, each time you have a bunch of entries
      * to report.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     *
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void listEntries(const UDSEntryList &_entry);
 
-    /**
+    /*!
      * Call this at the beginning of put(), to give the size of the existing
-     * partial file, if there is one. The @p offset argument notifies the
+     * partial file, if there is one. The \a offset argument notifies the
      * other job (the one that gets the data) about the offset to use.
      * In this case, the boolean returns whether we can indeed resume or not
      * (we can't if the protocol doing the get() doesn't support setting an offset)
      */
     bool canResume(KIO::filesize_t offset);
 
-    /**
+    /*!
      * Call this at the beginning of get(), if the "range-start" metadata was set
      * and returning byte ranges is implemented by this protocol.
      */
@@ -157,102 +178,132 @@ public:
     // Info Signals to send to the job
     ///////////
 
-    /**
+    /*!
      * Call this in get and copy, to give the total size
      * of the file.
      */
     void totalSize(KIO::filesize_t _bytes);
-    /**
+    /*!
      * Call this during get and copy, once in a while,
      * to give some info about the current state.
      * Don't emit it in listDir, listEntries speaks for itself.
      */
     void processedSize(KIO::filesize_t _bytes);
 
+    /*!
+     *
+     */
     void position(KIO::filesize_t _pos);
 
+    /*!
+     *
+     */
     void written(KIO::filesize_t _bytes);
 
+    /*!
+     *
+     */
     void truncated(KIO::filesize_t _length);
 
-    /**
+    /*!
      * Call this in get and copy, to give the current transfer
      * speed, but only if it can't be calculated out of the size you
      * passed to processedSize (in most cases you don't want to call it)
      */
     void speed(unsigned long _bytes_per_second);
 
-    /**
+    /*!
      * Call this to signal a redirection.
      * The job will take care of going to that url.
      */
     void redirection(const QUrl &_url);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 3)
-    /**
+    /*!
      * Tell that we will only get an error page here.
      * This means: the data you'll get isn't the data you requested,
      * but an error page (usually HTML) that describes an error.
      *
-     * @deprecated since 6.3, not implemented/used
+     * Not implemented.
+     *
+     * \deprecated[6.3]
      */
     KIOCORE_DEPRECATED_VERSION(6, 3, "Not implemented/used")
     void errorPage();
 #endif
 
-    /**
+    /*!
      * Call this in mimetype() and in get(), when you know the MIME type.
      * See mimetype() about other ways to implement it.
      */
     void mimeType(const QString &_type);
 
-    /**
+    /*!
      * Call to signal a warning, to be displayed in a dialog box.
      */
     void warning(const QString &msg);
 
-    /**
+    /*!
      * Call to signal a message, to be displayed if the application wants to,
      * for instance in a status bar. Usual examples are "connecting to host xyz", etc.
      */
     void infoMessage(const QString &msg);
 
-    /**
+    /*!
      * Type of message box. Should be kept in sync with KMessageBox::DialogType.
+     *
+     * \value[since 5.100] QuestionTwoActions
+     * \value[since 5.100] WarningTwoActions
+     * \value WarningContinueCancel
+     * \value[since 5.100] WarningTwoActionsCancel
+     * \value Information
+     * \value WarningContinueCancelDetailed
      */
     enum MessageBoxType {
-        QuestionTwoActions = 1, ///< @since 5.100
-        WarningTwoActions = 2, ///< @since 5.100
+        QuestionTwoActions = 1,
+        WarningTwoActions = 2,
         WarningContinueCancel = 3,
-        WarningTwoActionsCancel = 4, ///< @since 5.100
+        WarningTwoActionsCancel = 4,
         Information = 5,
         // In KMessageBox::DialogType; <unused> = 7, Error = 8,
         // QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
     };
 
-    /**
+    /*!
      * Button codes. Should be kept in sync with KMessageBox::ButtonCode
+     *
+     * \value Ok
+     * \value Cancel
+     * \value[since 5.100] PrimaryAction
+     * \value[since 5.100] SecondaryAction
+     * \value Continue
      */
     enum ButtonCode {
         Ok = 1,
         Cancel = 2,
-        PrimaryAction = 3, ///< @since 5.100
-        SecondaryAction = 4, ///< @since 5.100
+        PrimaryAction = 3,
+        SecondaryAction = 4,
         Continue = 5,
     };
 
-    /**
+    /*!
      * Call this to show a message box from the worker
-     * @param type type of message box
-     * @param text Message string. May contain newlines.
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
-     *                          Ignored for @p type Information.
-     * @param secondaryActionText the text for the second button.
-     *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
+     *
+     * \a type type of message box
+     *
+     * \a text Message string. May contain newlines.
+     *
+     * \a title Message box title.
+     *
+     * \a primaryActionText the text for the first button.
+     *                          Ignored for \a type Information.
+     *
+     * \a secondaryActionText the text for the second button.
+     *                            Ignored for \a type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     *
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
                    const QString &text,
@@ -260,18 +311,24 @@ public:
                    const QString &primaryActionText = QString(),
                    const QString &secondaryActionText = QString());
 
-    /**
+    /*!
      * Call this to show a message box from the worker
-     * @param text Message string. May contain newlines.
-     * @param type type of message box
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
-     *                          Ignored for @p type Information.
-     * @param secondaryActionText the text for the second button.
-     *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
+     *
+     * \a text Message string. May contain newlines.
+     *
+     * \a type type of message box
+     *
+     * \a title Message box title.
+     *
+     * \a primaryActionText the text for the first button.
+     *                          Ignored for \a type Information.
+     *
+     * \a secondaryActionText the text for the second button.
+     *                            Ignored for \a type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information.
-     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     *
+     * \a dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(const QString &text,
                    MessageBoxType type,
@@ -280,32 +337,36 @@ public:
                    const QString &secondaryActionText = QString(),
                    const QString &dontAskAgainName = QString());
 
+    /*!
+     *
+     */
     int sslError(const QVariantMap &sslData);
 
-    /**
+    /*!
      * Sets meta-data to be send to the application before the first
      * data() or finished() signal.
      */
     void setMetaData(const QString &key, const QString &value);
 
-    /**
+    /*!
      * Queries for the existence of a certain config/meta-data entry
      * send by the application to the worker.
      */
     bool hasMetaData(const QString &key) const;
 
-    /**
+    /*!
      * Queries for config/meta-data send by the application to the worker.
      */
     QString metaData(const QString &key) const;
 
-    /**
-     * @internal for ForwardingWorkerBase
+    /*!
+     * \internal
+     * for ForwardingWorkerBase
      * Contains all metadata (but no config) sent by the application to the worker.
      */
     MetaData allMetaData() const;
 
-    /**
+    /*!
      * Returns a map to query config/meta-data information from.
      *
      * The application provides the worker with all configuration information
@@ -315,35 +376,35 @@ public:
      */
     QMap<QString, QVariant> mapConfig() const;
 
-    /**
+    /*!
      * Returns a bool from the config/meta-data information.
      */
     bool configValue(const QString &key, bool defaultValue) const;
 
-    /**
+    /*!
      * Returns an int from the config/meta-data information.
      */
     int configValue(const QString &key, int defaultValue) const;
 
-    /**
+    /*!
      * Returns a QString from the config/meta-data information.
      */
     QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
-    /**
+    /*!
      * Returns a configuration object to query config/meta-data information
      * from.
      *
      * The application provides the worker with all configuration information
      * relevant for the current protocol and host.
      *
-     * @note Since 5.64 prefer to use mapConfig() or one of the configValue(...) overloads.
-     * @todo Find replacements for the other current usages of this method.
+     * \note Since 5.64 prefer to use mapConfig() or one of the configValue(...) overloads.
      */
     KConfigGroup *config();
+    // TODO: Find replacements for the other current usages of this method.
     // KF6: perhaps rename mapConfig() to config() when removing this
 
-    /**
+    /*!
      * Returns an object that can translate remote filenames into proper
      * Unicode forms. This encoding can be set by the user.
      */
@@ -354,15 +415,15 @@ public:
     // override what it wants to implement
     ///////////
 
-    /**
-     * @brief Application connected to the worker.
+    /*!
+     * Application connected to the worker.
      *
      * Called when an application has connected to the worker. Mostly only useful
      * when you want to e.g. send metadata to the application once it connects.
      */
     virtual void appConnectionMade();
 
-    /**
+    /*!
      * Set the host
      *
      * Called directly by createWorker and not via the interface.
@@ -371,7 +432,7 @@ public:
      */
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
 
-    /**
+    /*!
      * Opens the connection (forced).
      * When this function gets called the worker is operating in
      * connection-oriented mode.
@@ -382,7 +443,7 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult openConnection();
 
-    /**
+    /*!
      * Closes the connection (forced).
      * Called when the application disconnects the worker to close
      * any open network connections.
@@ -392,9 +453,10 @@ public:
      */
     virtual void closeConnection();
 
-    /**
+    /*!
      * get, aka read.
-     * @param url the full url for this request. Host, port and user of the URL
+     *
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
      *
      * The worker should first "emit" the MIME type by calling mimeType(),
@@ -413,50 +475,63 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult get(const QUrl &url);
 
-    /**
+    /*!
      * open.
-     * @param url the full url for this request. Host, port and user of the URL
+     *
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
-     * @param mode see \ref QIODevice::OpenMode
+     *
+     * \a mode see QIODevice::OpenMode
      */
     Q_REQUIRED_RESULT virtual WorkerResult open(const QUrl &url, QIODevice::OpenMode mode);
 
-    /**
+    /*!
      * read.
-     * @param size the requested amount of data to read
-     * @see KIO::FileJob::read()
+     *
+     * \a size the requested amount of data to read
+     *
+     * \sa KIO::FileJob::read()
      */
     Q_REQUIRED_RESULT virtual WorkerResult read(KIO::filesize_t size);
-    /**
+    /*!
      * write.
-     * @param data the data to write
-     * @see KIO::FileJob::write()
+     *
+     * \a data the data to write
+     *
+     * \sa KIO::FileJob::write()
      */
     Q_REQUIRED_RESULT virtual WorkerResult write(const QByteArray &data);
-    /**
+    /*!
      * seek.
-     * @param offset the requested amount of data to read
-     * @see KIO::FileJob::read()
+     *
+     * \a offset the requested amount of data to read
+     *
+     * \sa KIO::FileJob::read()
      */
     Q_REQUIRED_RESULT virtual WorkerResult seek(KIO::filesize_t offset);
-    /**
+    /*!
      * truncate
-     * @param size size to truncate the file to
-     * @see KIO::FileJob::truncate()
+     *
+     * \a size size to truncate the file to
+     *
+     * \sa KIO::FileJob::truncate()
      */
     Q_REQUIRED_RESULT virtual WorkerResult truncate(KIO::filesize_t size);
-    /**
+    /*!
      * close.
-     * @see KIO::FileJob::close()
+     *
+     * \sa KIO::FileJob::close()
      */
     Q_REQUIRED_RESULT virtual WorkerResult close();
 
-    /**
+    /*!
      * put, i.e.\ write data into a file.
      *
-     * @param url where to write the file
-     * @param permissions may be -1. In this case no special permission mode is set.
-     * @param flags We support Overwrite here. Hopefully, we're going to
+     * \a url where to write the file
+     *
+     * \a permissions may be -1. In this case no special permission mode is set.
+     *
+     * \a flags We support Overwrite here. Hopefully, we're going to
      * support Resume in the future, too.
      * If the file indeed already exists, the worker should NOT apply the
      * permissions change to it.
@@ -464,11 +539,11 @@ public:
      *
      * IMPORTANT: Use the "modified" metadata in order to set the modification time of the file.
      *
-     * @see canResume()
+     * \sa canResume()
      */
     Q_REQUIRED_RESULT virtual WorkerResult put(const QUrl &url, int permissions, JobFlags flags);
 
-    /**
+    /*!
      * Finds all details for one file or directory.
      * The information returned is the same as what listDir returns,
      * but only for one file or directory.
@@ -485,7 +560,7 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult stat(const QUrl &url);
 
-    /**
+    /*!
      * Finds MIME type for one file or directory.
      *
      * This method should either emit 'mimeType' or it
@@ -499,26 +574,30 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult mimetype(const QUrl &url);
 
-    /**
-     * Lists the contents of @p url.
+    /*!
+     * Lists the contents of \a url.
      * The worker should emit ERR_CANNOT_ENTER_DIRECTORY if it doesn't exist,
      * if we don't have enough permissions.
-     * You should not list files if the path in @p url is empty, but redirect
+     * You should not list files if the path in \a url is empty, but redirect
      * to a non-empty path instead.
      */
     Q_REQUIRED_RESULT virtual WorkerResult listDir(const QUrl &url);
 
-    /**
+    /*!
      * Create a directory
-     * @param url path to the directory to create
-     * @param permissions the permissions to set after creating the directory
+     *
+     * \a url path to the directory to create
+     *
+     * \a permissions the permissions to set after creating the directory
      * (-1 if no permissions to be set)
+     *
      * The worker emits ERR_CANNOT_MKDIR if failure.
      */
     Q_REQUIRED_RESULT virtual WorkerResult mkdir(const QUrl &url, int permissions);
 
-    /**
-     * Rename @p oldname into @p newname.
+    /*!
+     * Rename \a oldname into \a newname.
+     *
      * If the worker returns an error ERR_UNSUPPORTED_ACTION, the job will
      * ask for copy + del instead.
      *
@@ -539,35 +618,41 @@ public:
      * moving a file from yourproto: to file:.
      * See KProtocolManager::canRenameToFile() for more details.
      *
-     * @param src where to move the file from
-     * @param dest where to move the file to
-     * @param flags We support Overwrite here
+     * \a src where to move the file from
+     *
+     * \a dest where to move the file to
+     *
+     * \a flags We support Overwrite here
      */
     Q_REQUIRED_RESULT virtual WorkerResult rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
-    /**
-     * Creates a symbolic link named @p dest, pointing to @p target, which
+    /*!
+     * Creates a symbolic link named \a dest, pointing to \a target, which
      * may be a relative or an absolute path.
-     * @param target The string that will become the "target" of the link (can be relative)
-     * @param dest The symlink to create.
-     * @param flags We support Overwrite here
+     *
+     * \a target The string that will become the "target" of the link (can be relative)
+     *
+     * \a dest The symlink to create.
+     *
+     * \a flags We support Overwrite here
      */
     Q_REQUIRED_RESULT virtual WorkerResult symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
-    /**
-     * Change permissions on @p url.
+    /*!
+     * Change permissions on \a url.
      * The worker emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
      */
     Q_REQUIRED_RESULT virtual WorkerResult chmod(const QUrl &url, int permissions);
 
-    /**
-     * Change ownership of @p url.
+    /*!
+     * Change ownership of \a url.
      * The worker emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
      */
     Q_REQUIRED_RESULT virtual WorkerResult chown(const QUrl &url, const QString &owner, const QString &group);
 
-    /**
-     * Sets the modification time for @url.
+    /*!
+     * Sets the modification time for url.
+     *
      * For instance this is what CopyJob uses to set mtime on dirs at the end of a copy.
      * It could also be used to set the mtime on any file, in theory.
      * The usual implementation on unix is to call utime(path, &myutimbuf).
@@ -575,8 +660,8 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult setModificationTime(const QUrl &url, const QDateTime &mtime);
 
-    /**
-     * Copy @p src into @p dest.
+    /*!
+     * Copy \a src into \a dest.
      *
      * By default, copy() is only called when copying a file from
      * yourproto://host/path to yourproto://host/otherpath.
@@ -596,20 +681,25 @@ public:
      * If the worker returns an error ERR_FILE_ALREADY_EXIST, the job will
      * ask for a different destination filename.
      *
-     * @param src where to copy the file from (decoded)
-     * @param dest where to copy the file to (decoded)
-     * @param permissions may be -1. In this case no special permission mode is set,
-     *        and the owner and group permissions are not preserved.
-     * @param flags We support Overwrite here
+     * \a src where to copy the file from (decoded)
      *
-     * Don't forget to set the modification time of @p dest to be the modification time of @p src.
+     * \a dest where to copy the file to (decoded)
+     *
+     * \a permissions may be -1. In this case no special permission mode is set,
+     *        and the owner and group permissions are not preserved.
+     *
+     * \a flags We support Overwrite here
+     *
+     * Don't forget to set the modification time of \a dest to be the modification time of \a src.
      */
     Q_REQUIRED_RESULT virtual WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags);
 
-    /**
+    /*!
      * Delete a file or directory.
-     * @param url file/directory to delete
-     * @param isfile if true, a file should be deleted.
+     *
+     * \a url file/directory to delete
+     *
+     * \a isfile if true, a file should be deleted.
      *               if false, a directory should be deleted.
      *
      * By default, del() on a directory should FAIL if the directory is not empty.
@@ -618,79 +708,88 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult del(const QUrl &url, bool isfile);
 
-    /**
+    /*!
      * Used for any command that is specific to this worker (protocol).
      * Examples are : HTTP POST, mount and unmount (kio_file)
      *
-     * @param data packed data; the meaning is completely dependent on the
+     * \a data packed data; the meaning is completely dependent on the
      *        worker, but usually starts with an int for the command number.
+     *
      * Document your worker's commands, at least in its header file.
      */
     Q_REQUIRED_RESULT virtual WorkerResult special(const QByteArray &data);
 
-    /**
+    /*!
      * Get a filesystem's total and available space.
      *
-     * @param url Url to the filesystem
+     * \a url Url to the filesystem
      */
     Q_REQUIRED_RESULT virtual WorkerResult fileSystemFreeSpace(const QUrl &url);
 
-    /**
+    /*!
      * Called to get the status of the worker. Worker should respond
      * by calling workerStatus(...)
      */
     virtual void worker_status();
 
-    /**
+    /*!
      * Called by the scheduler to tell the worker that the configuration
      * changed (i.e.\ proxy settings) .
      */
     virtual void reparseConfiguration();
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for connecting to remote host.
+    /*!
+     * Returns timeout value for connecting to remote host.
      *
-     * @deprecated since 6.11, not used.
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int connectTimeout();
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for connecting to proxy in secs.
+    /*!
+     * Returns the timeout value for connecting to proxy in secs.
      *
-     * @deprecated since 6.11, not used.
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int proxyConnectTimeout();
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for read from first data from
+    /*!
+     * Returns the timeout value for read from first data from
      * remote host in seconds.
      *
-     * @deprecated since 6.11, not used.
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int responseTimeout();
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for read from subsequent data from
+    /*!
+     * Returns the timeout value for read from subsequent data from
      * remote host in secs.
      *
-     * @deprecated since 6.11, not used.
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int readTimeout();
 #endif
 
-    /**
-     * This function sets a timeout of @p timeout seconds and calls
+    /*!
+     * This function sets a timeout of \a timeout seconds and calls
      * special(data) when the timeout occurs as if it was called by the
      * application.
      *
@@ -704,34 +803,40 @@ public:
      */
     void setTimeoutSpecialCommand(int timeout, const QByteArray &data = QByteArray());
 
-    /**
+    /*!
      * Read data sent by the job, after a dataReq
      *
-     * @param buffer buffer where data is stored
-     * @return 0 on end of data,
+     * \a buffer buffer where data is stored
+     *
+     * Returns 0 on end of data,
      *         > 0 bytes read
      *         < 0 error
      **/
     int readData(QByteArray &buffer);
 
-    /**
+    /*!
      * It collects entries and emits them via listEntries
      * when enough of them are there or a certain time
      * frame exceeded (to make sure the app gets some
      * items in time but not too many items one by one
      * as this will cause a drastic performance penalty).
-     * @param entry The UDSEntry containing all of the object attributes.
+     *
+     * \a entry The UDSEntry containing all of the object attributes.
      */
     void listEntry(const UDSEntry &entry);
 
-    /**
+    /*!
      * internal function to connect a worker to/ disconnect from
      * either the worker pool or the application
      */
     void connectWorker(const QString &path);
+
+    /*!
+     *
+     */
     void disconnectWorker();
 
-    /**
+    /*!
      * Prompt the user for Authorization info (login & password).
      *
      * Use this function to request authorization information from
@@ -766,30 +871,33 @@ public:
      * see if the password is available in kpasswdserver before calling
      * this function.
      *
-     * \note A call to this function can fail and return @p false,
+     * \note A call to this function can fail and return \c false,
      * if the password server could not be started for whatever reason.
      *
      * \note This function does not store the password information
      * automatically (and has not since kdelibs 4.7). If you want to
      * store the password information in a persistent storage like
-     * KWallet, then you MUST call @ref cacheAuthentication.
+     * KWallet, then you MUST call cacheAuthentication.
      *
-     * @see checkCachedAuthentication
-     * @param info  See AuthInfo.
-     * @param errorMsg Error message to show
-     * @return a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
+     * \sa checkCachedAuthentication
+     *
+     * \a info  See AuthInfo.
+     *
+     * \a errorMsg Error message to show
+     *
+     * Returns a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
      */
     int openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
-    /**
+    /*!
      * Checks for cached authentication based on parameters
-     * given by @p info.
+     * given by \a info.
      *
      * Use this function to check if any cached password exists
-     * for the URL given by @p info.  If @p AuthInfo::realmValue
-     * and/or @p AuthInfo::verifyPath flag is specified, then
+     * for the URL given by \a info. If AuthInfo::realmValue
+     * and/or AuthInfo::verifyPath flag is specified, then
      * they will also be factored in determining the presence
-     * of a cached password.  Note that @p Auth::url is a required
+     * of a cached password.  Note that Auth::url is a required
      * parameter when attempting to check for cached authorization
      * info. Here is a simple example:
      *
@@ -805,13 +913,13 @@ public:
      * }
      * \endcode
      *
-     * @param       info See AuthInfo.
-     * @return      @p true if cached Authorization is found, false otherwise.
+     * \a info see AuthInfo.
+     * Returns \c true if cached Authorization is found, false otherwise.
      */
     bool checkCachedAuthentication(AuthInfo &info);
 
-    /**
-     * Caches @p info in a persistent storage like KWallet.
+    /*!
+     * Caches \a info in a persistent storage like KWallet.
      *
      * Note that calling openPasswordDialogV2 does not store passwords
      * automatically for you (and has not since kdelibs 4.7).
@@ -833,32 +941,35 @@ public:
      * }
      * \endcode
      *
-     * @param info See AuthInfo.
-     * @return @p true if @p info was successfully cached.
+     * \a info See AuthInfo.
+     * Returns \c true if \a info was successfully cached.
      */
     bool cacheAuthentication(const AuthInfo &info);
 
-    /**
-     * Wait for an answer to our request, until we get @p expected1 or @p expected2
-     * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
+    /*!
+     * Wait for an answer to our request, until we get \a expected1 or \a expected2
+     *
+     * Returns the result from readData, as well as the cmd in *pCmd if set, and the data in \a data
      */
     int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = nullptr);
 
-    /**
+    /*!
      * Internal function to transmit meta data to the application.
+     *
      * m_outgoingMetaData will be cleared; this means that if the worker is for
      * example put on hold and picked up by a different KIO::Job later the new
      * job will not see the metadata sent before.
      * See kio/DESIGN.krun for an overview of the state
      * progression of a job/worker.
-     * @warning calling this method may seriously interfere with the operation
+     *
+     * \warning calling this method may seriously interfere with the operation
      * of KIO which relies on the presence of some metadata at some points in time.
      * You should not use it if you are not familiar with KIO and not before
      * the worker is connected to the last job before returning to idle state.
      */
     void sendMetaData();
 
-    /**
+    /*!
      * Internal function to transmit meta data to the application.
      * Like sendMetaData() but m_outgoingMetaData will not be cleared.
      * This method is mainly useful in code that runs before the worker is connected
@@ -866,46 +977,46 @@ public:
      */
     void sendAndKeepMetaData();
 
-    /** If your ioworker was killed by a signal, wasKilled() returns true.
+    /*! If your ioworker was killed by a signal, wasKilled() returns true.
      Check it regularly in lengthy functions (e.g. in get();) and return
      as fast as possible from this function if wasKilled() returns true.
      This will ensure that your worker destructor will be called correctly.
      */
     bool wasKilled() const;
 
-    /** Internally used
-     * @internal
+    /*! Internally used
+     * \internal
      */
     void lookupHost(const QString &host);
 
-    /** Internally used
-     * @internal
+    /*! Internally used
+     * \internal
      */
     int waitForHostInfo(QHostInfo &info);
 
-    /**
+    /*!
      * Checks with job if privilege operation is allowed.
-     * @return privilege operation status.
-     * @see PrivilegeOperationStatus
+     * Returns privilege operation status.
+     * \sa PrivilegeOperationStatus
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
-    /**
-     * Adds @p action to the list of PolicyKit actions which the
+    /*!
+     * Adds \a action to the list of PolicyKit actions which the
      * worker is authorized to perform.
      *
-     * @param action the PolicyKit action
+     * \a action the PolicyKit action
      */
     void addTemporaryAuthorization(const QString &action);
 
-    /**
-     * @brief Set the Incoming Meta Data
+    /*!
+     * Set the Incoming Meta Data
      * This is only really useful if your worker wants to overwrite the
      * metadata for consumption in other worker functions; this overwrites
      * existing metadata set by the client!
      *
-     * @param metaData metadata to set
-     * @since 5.99
+     * \a metaData metadata to set
+     * \since 5.99
      */
     void setIncomingMetaData(const KIO::MetaData &metaData);
 
@@ -931,12 +1042,13 @@ private:
 namespace KIO
 {
 
-/**
- * Returns an appropriate error message if the given command @p cmd
+/*!
+ * Returns an appropriate error message if the given command \a cmd
  * is an unsupported action (ERR_UNSUPPORTED_ACTION).
- * @param protocol name of the protocol
- * @param cmd given command
- * @see enum Command
+ *
+ * \a protocol name of the protocol
+ *
+ * \a cmd given command
  */
 KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 

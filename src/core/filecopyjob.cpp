@@ -26,7 +26,6 @@ static inline Worker *jobWorker(SimpleJob *job)
     return SimpleJobPrivate::get(job)->m_worker;
 }
 
-/** @internal */
 class KIO::FileCopyJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -77,10 +76,10 @@ public:
     void slotData(KIO::Job *, const QByteArray &data);
     void slotDataReq(KIO::Job *, QByteArray &data);
     void slotMimetype(KIO::Job *, const QString &type);
-    /**
+    /*
      * Forward signal from subjob
-     * @param job the job that emitted this signal
-     * @param offset the offset to resume from
+     * job the job that emitted this signal
+     * offset the offset to resume from
      */
     void slotCanResume(KIO::Job *job, KIO::filesize_t offset);
     void processCanResumeResult(KIO::Job *job, RenameDialog_Result result, KIO::filesize_t offset);

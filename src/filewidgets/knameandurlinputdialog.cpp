@@ -25,15 +25,15 @@ public:
     void slotNameTextChanged(const QString &);
     void slotURLTextChanged(const QString &);
 
-    /**
+    /*
      * The line edit widget for the fileName
      */
     QLineEdit *m_leName;
-    /**
+    /*
      * The URL requester for the URL :)
      */
     KUrlRequester *m_urlRequester;
-    /**
+    /*
      * True if the filename was manually edited.
      */
     bool m_fileNameEdited;

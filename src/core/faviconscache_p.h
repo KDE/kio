@@ -18,8 +18,8 @@ namespace KIO
 {
 class FavIconsCachePrivate;
 
-/**
- * @internal
+/*!
+ * \internal
  * Singleton handling the cache (memory + disk) for favicons.
  * Exported for KIOGui's FavIconsManager
  */

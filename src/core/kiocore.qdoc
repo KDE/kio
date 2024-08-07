@@ -1,0 +1,10 @@
+/*!
+    \module KIOCore
+    \title KIO Core C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KF6::KIOCore
+
+    \brief Resource and network access abstraction.
+*/

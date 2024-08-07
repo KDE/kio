@@ -62,7 +62,7 @@ private:
         int kioCode = 0;
     };
 
-    /**
+    /*!
      * Handles file -> webdav put requests.
      */
     [[nodiscard]] KIO::WorkerResult copyPut(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
@@ -94,19 +94,19 @@ private:
     QString davProcessLocks();
     static QByteArray methodToString(KIO::HTTP_METHOD method);
 
-    /**
+    /*!
      * Returns the default user-agent value used for web browsing, for example
      * "Mozilla/5.0 (compatible; Konqueror/4.0; Linux; X11; i686; en_US) KHTML/4.0.1 (like Gecko)"
      */
     QString defaultUserAgent();
 
-    /**
+    /*!
      * Returns system name and machine type, for example "Windows", "i686".
      *
-     * @param systemName system name
-     * @param machine machine type
+     * \a systemName system name
+     * \a machine machine type
 
-     * @return true if system name and machine type has been provided
+     * Returns true if system name and machine type has been provided
      */
     bool getSystemNameVersionAndMachine(QString &systemName, QString &machine);
 

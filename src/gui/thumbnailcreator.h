@@ -26,61 +26,68 @@ class ThumbnailCreatorPrivate;
 class ThumbnailRequestPrivate;
 class ThumbnailResultPrivate;
 
-/**
- * Encapsulates the input data for a thumbnail request.
+/*!
+ * \class KIO::ThumbnailRequest
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
+ *
+ * \brief Encapsulates the input data for a thumbnail request.
+ *
  * This includes the URL of the target file as well as additional
  * data such as the target size
  *
- * @since 5.100
- *
+ * \since 5.100
  */
 class KIOGUI_EXPORT ThumbnailRequest
 {
 public:
-    /**
+    /*!
      * Contruct a new ThumbnailRequest for a given file.
      *
-     * @param url URL of the relevant file.
-     * @param targetSize A size hint for the result image.
+     * \a url URL of the relevant file.
+     *
+     * \a targetSize A size hint for the result image.
      * The actual result size may be different. This already
      * accounts for highdpi scaling, i.e. if a 500x500px thumbnail
      * with a DPR of 2 is requested 1000x1000 is passed here.
-     * @param mimeType The MIME type of the target file.
-     * @param dpr The device pixle ratio for this request. This can
+     *
+     * \a mimeType The MIME type of the target file.
+     *
+     * \a dpr The device pixle ratio for this request. This can
      * be used to adjust the level of detail rendered. For example
      * a thumbnail for text of size 1000x1000 and DPR 1 should have
      * the name number of text lines as for a request of size 2000x2000
      * and DPR 2.
-     * @param sequenceIndex If the thumbnailer supports sequences this
-     * determines which sequence frame is used. Pass 0 otherwise.
      *
+     * \a sequenceIndex If the thumbnailer supports sequences this
+     * determines which sequence frame is used. Pass 0 otherwise.
      */
     explicit ThumbnailRequest(const QUrl &url, const QSize &targetSize, const QString &mimeType, qreal dpr, float sequenceIndex);
     ThumbnailRequest(const ThumbnailRequest &);
     ThumbnailRequest &operator=(const ThumbnailRequest &);
     ~ThumbnailRequest();
 
-    /**
+    /*!
      * URL of the relevant file
      */
     QUrl url() const;
 
-    /**
+    /*!
      * The target thumbnail size
      */
     QSize targetSize() const;
 
-    /**
+    /*!
      * The target file's MIME type
      */
     QString mimeType() const;
 
-    /**
+    /*!
      * The device Pixel Ratio used for thumbnail creation
      */
     qreal devicePixelRatio() const;
 
-    /**
+    /*!
      * If the thumb-creator can create a sequence of thumbnails,
      * it should use this to decide what sequence item to use.
      *
@@ -101,14 +108,19 @@ private:
     std::unique_ptr<ThumbnailRequestPrivate> d;
 };
 
-/**
- * Encapsulates the output of a thumbnail request.
+/*!
+ * \class KIO::ThumbnailResult
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
+ *
+ * \brief Encapsulates the output of a thumbnail request.
+ *
  * It contains information on whether the request was successful and,
  * if successful, the requested thumbnail
  *
  * To create a result use KIO::ThumbnailResult::pass(image) or KIO::ThumbnailResult::fail()
  *
- * @since 5.100
+ * \since 5.100
  */
 class KIOGUI_EXPORT ThumbnailResult
 {
@@ -117,19 +129,19 @@ public:
     ThumbnailResult &operator=(const ThumbnailResult &);
     ~ThumbnailResult();
 
-    /**
+    /*!
      * The requested thumbnail.
      *
      * If the request failed the image is null
      */
     QImage image() const;
 
-    /**
+    /*!
      * Whether the request was successful.
      */
     bool isValid() const;
 
-    /**
+    /*!
      * Returns the point at which this thumb-creator's sequence indices
      * will wrap around (loop).
      *
@@ -156,20 +168,20 @@ public:
      */
     float sequenceIndexWraparoundPoint() const;
 
-    /**
+    /*!
      * Sets the point at which this thumb-creator's sequence indices
      * will wrap around.
      *
-     * @see sequenceIndexWraparoundPoint()
+     * \sa sequenceIndexWraparoundPoint()
      */
     void setSequenceIndexWraparoundPoint(float wraparoundPoint);
 
-    /**
+    /*!
      * Create a successful result with a given image
      */
     static ThumbnailResult pass(const QImage &image);
 
-    /**
+    /*!
      * Create an error result, i.e. the thumbnail creation failed
      */
     static ThumbnailResult fail();
@@ -179,10 +191,12 @@ private:
     std::unique_ptr<ThumbnailResultPrivate> d;
 };
 
-/**
- * @class ThumbnailCreator thumbnailcreator.h <KIO/ThumbnailCreator>
+/*!
+ * \class KIO::ThumbnailCreator
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
  *
- * Base class for thumbnail generator plugins.
+ * \brief Base class for thumbnail generator plugins.
  *
  * KIO::PreviewJob, via the "thumbnail" KIO worker, uses instances of this class
  * to generate the thumbnail previews.
@@ -211,8 +225,7 @@ private:
  * \endcode
  *
  * MIME types can also use
- * simple wildcards, like
- * \htmlonly "text/&#42;".\endhtmlonly\latexonly text/$\ast$.\endlatexonly
+ * simple wildcards, like "text/\*"
  *
  * If the thumbnail creation is cheap (such as text previews), you can set
  * \code
@@ -229,7 +242,7 @@ private:
  * previously-cached thumbnails for this creator will be discarded.  You should
  * increase the version if and only if old thumbnails need to be regenerated.
  *
- * @since 5.100
+ * \since 5.100
  */
 class KIOGUI_EXPORT ThumbnailCreator : public QObject
 {
@@ -238,7 +251,7 @@ public:
     explicit ThumbnailCreator(QObject *parent, const QVariantList &args);
     virtual ~ThumbnailCreator();
 
-    /**
+    /*!
      * Creates a thumbnail for a given request
      */
     virtual ThumbnailResult create(const ThumbnailRequest &request) = 0;

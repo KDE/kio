@@ -24,8 +24,6 @@
 #include <kfileitem.h>
 #include <kio/previewjob.h>
 
-/**** KImageFilePreview ****/
-
 class KImageFilePreviewPrivate
 {
 public:
