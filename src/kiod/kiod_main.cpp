@@ -10,10 +10,14 @@
 #include <QDBusMessage>
 #include <QHash>
 
+#include <KAboutData>
+#include <KCrash>
 #include <KDBusService>
 #include <KDEDModule>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+
+#include <kio_version.h>
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY)
@@ -86,9 +90,13 @@ int main(int argc, char *argv[])
     qunsetenv("SESSION_MANAGER"); // disable session management
 
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
-    app.setApplicationName(QStringLiteral("kiod6"));
-    app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setQuitOnLastWindowClosed(false);
+
+    KAboutData about(QStringLiteral("kiod6"), QString(), QStringLiteral(KIO_VERSION_STRING));
+    KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
+
     KDBusService service(KDBusService::Unique);
 
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();

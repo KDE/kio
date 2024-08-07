@@ -24,6 +24,7 @@ target_link_libraries(kiod6
    KF6::KIOCore     # ksslcertificatemanager
    KF6::DBusAddons  # kdedmodule
    KF6::CoreAddons  # kpluginfactory
+   KF6::Crash
    Qt6::Network
    ${DBUS_LIB}
    Qt6::Widgets     # QApplication
