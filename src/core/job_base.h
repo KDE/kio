@@ -17,8 +17,10 @@ namespace KIO
 class JobUiDelegateExtension;
 
 class JobPrivate;
-/**
- * @class KIO::Job job_base.h <KIO/Job>
+/*!
+ * \class KIO::Job
+ * \inheaderfile KIO/Job
+ * \inmodule KIO
  *
  * The base class for all jobs.
  * For all jobs created in an application, the code looks like
@@ -39,7 +41,6 @@ class JobPrivate;
  *   }
  * }
  * \endcode
- * @see KIO::Scheduler
  */
 class KIOCORE_EXPORT Job : public KCompositeJob
 {
@@ -56,40 +57,40 @@ public:
     {
     } // Since KIO autostarts its jobs
 
-    /**
+    /*!
      * Retrieves the UI delegate extension used by this job.
      * @since 5.0
      */
     JobUiDelegateExtension *uiDelegateExtension() const;
 
-    /**
+    /*!
      * Sets the UI delegate extension to be used by this job.
      * The default UI delegate extension is KIO::defaultJobUiDelegateExtension()
      */
     void setUiDelegateExtension(JobUiDelegateExtension *extension);
 
 protected:
-    /**
+    /*!
      * Abort this job.
      * This kills all subjobs and deletes the job.
      *
      */
     bool doKill() override;
 
-    /**
+    /*!
      * Suspend this job
      * @see resume
      */
     bool doSuspend() override;
 
-    /**
+    /*!
      * Resume this job
      * @see suspend
      */
     bool doResume() override;
 
 public:
-    /**
+    /*!
      * Converts an error code and a non-i18n error message into an
      * error message in the current language. The low level (non-i18n)
      * error message (usually a url) is put into the translated error
@@ -108,7 +109,7 @@ public:
      */
     QString errorString() const override;
 
-    /**
+    /*!
      * Converts an error code and a non-i18n error message into i18n
      * strings suitable for presentation in a detailed error message box.
      *
@@ -120,7 +121,7 @@ public:
      */
     QStringList detailedErrorStrings(const QUrl *reqUrl = nullptr, int method = -1) const;
 
-    /**
+    /*!
      * Set the parent Job.
      * One example use of this is when FileCopyJob calls RenameDialog::open,
      * it must pass the correct progress ID of the parent CopyJob
@@ -131,14 +132,14 @@ public:
      */
     void setParentJob(Job *parentJob);
 
-    /**
+    /*!
      * Returns the parent job, if there is one.
      * @return the parent job, or @c nullptr if there is none
      * @see setParentJob
      */
     Job *parentJob() const;
 
-    /**
+    /*!
      * Set meta data to be sent to the worker, replacing existing
      * meta data.
      * @param metaData the meta data to set
@@ -147,7 +148,7 @@ public:
      */
     void setMetaData(const KIO::MetaData &metaData);
 
-    /**
+    /*!
      * Add key/value pair to the meta data that is sent to the worker.
      * @param key the key of the meta data
      * @param value the value of the meta data
@@ -156,7 +157,7 @@ public:
      */
     void addMetaData(const QString &key, const QString &value);
 
-    /**
+    /*!
      * Add key/value pairs to the meta data that is sent to the worker.
      * If a certain key already existed, it will be overridden.
      * @param values the meta data to add
@@ -165,7 +166,7 @@ public:
      */
     void addMetaData(const QMap<QString, QString> &values);
 
-    /**
+    /*!
      * Add key/value pairs to the meta data that is sent to the worker.
      * If a certain key already existed, it will remain unchanged.
      * @param values the meta data to merge
@@ -174,19 +175,19 @@ public:
      */
     void mergeMetaData(const QMap<QString, QString> &values);
 
-    /**
+    /*!
      * @internal. For the scheduler. Do not use.
      */
     MetaData outgoingMetaData() const;
 
-    /**
+    /*!
      * Get meta data received from the worker.
      * (Valid when first data is received and/or worker is finished)
      * @return the job's meta data
      */
     MetaData metaData() const;
 
-    /**
+    /*!
      * Query meta data received from the worker.
      * (Valid when first data is received and/or worker is finished)
      * @param key the key of the meta data to retrieve
@@ -197,7 +198,7 @@ public:
 
 protected:
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when the worker successfully connected to the host.
      * There is no guarantee the worker will send this, and this is
      * currently unused (in the applications).
@@ -206,7 +207,7 @@ Q_SIGNALS:
     void connected(KIO::Job *job);
 
 protected:
-    /**
+    /*!
      * Add a job that has to be finished before a result
      * is emitted. This has obviously to be called before
      * the finish signal is emitted by the worker.
@@ -215,7 +216,7 @@ protected:
      */
     bool addSubjob(KJob *job) override;
 
-    /**
+    /*!
      * Mark a sub job as being done.
      *
      * Note that this does not terminate the parent job, even if @p job
@@ -233,24 +234,24 @@ private:
     Q_DECLARE_PRIVATE(Job)
 };
 
-/**
+/*!
  * Flags for the job properties.
  * Not all flags are supported in all cases. Please see documentation of
  * the calling function!
  * @see JobFlags
  */
 enum JobFlag {
-    /**
+    /*!
      * Show the progress info GUI, no Resume and no Overwrite
      */
     DefaultFlags = 0,
 
-    /**
+    /*!
      * Hide progress information dialog, i.e.\ don't show a GUI.
      */
     HideProgressInfo = 1,
 
-    /**
+    /*!
      * When set, automatically append to the destination file if it exists already.
      * WARNING: this is NOT the builtin support for offering the user to resume a previous
      * partial download. The Resume option is much less used, it allows to append
@@ -259,14 +260,14 @@ enum JobFlag {
      */
     Resume = 2,
 
-    /**
+    /*!
      * When set, automatically overwrite the destination if it exists already.
      * This is used by KIO::rename(), KIO::put(), KIO::file_copy(), KIO::file_move(), KIO::symlink().
      * Otherwise the operation will fail with ERR_FILE_ALREADY_EXIST or ERR_DIR_ALREADY_EXIST.
      */
     Overwrite = 4,
 
-    /**
+    /*!
      * When set, notifies the worker that application/job does not want privilege execution.
      * So in case of failure due to insufficient privileges show an error without attempting
      * to run the operation as root first.
@@ -275,9 +276,7 @@ enum JobFlag {
      */
     NoPrivilegeExecution = 8,
 };
-/**
- * Stores a combination of #JobFlag values.
- */
+
 Q_DECLARE_FLAGS(JobFlags, JobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(JobFlags)
 

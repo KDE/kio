@@ -15,8 +15,9 @@
 namespace KIO
 {
 class SimpleJobPrivate;
-/**
- * @class KIO::SimpleJob simplejob.h <KIO/SimpleJob>
+/*!
+ * \class KIO::SimpleJob
+ * \inheaderfile KIO/SimpleJob
  *
  * A simple job (one url and one command).
  * This is the base class for all jobs that are scheduled.
@@ -31,49 +32,49 @@ public:
     ~SimpleJob() override;
 
 protected:
-    /**
+    /*!
      * Suspend this job
      * @see resume
      */
     bool doSuspend() override;
 
-    /**
+    /*!
      * Resume this job
      * @see suspend
      */
     bool doResume() override;
 
-    /**
+    /*!
      * Abort job.
      * This kills all subjobs and deletes the job.
      */
     bool doKill() override;
 
 public:
-    /**
+    /*!
      * Returns the SimpleJob's URL
      * @return the url
      */
     const QUrl &url() const;
 
-    /**
+    /*!
      * Abort job.
      * Suspends worker to be reused by another job for the same request.
      */
     virtual void putOnHold();
 
-    /**
+    /*!
      * Discard suspended worker.
      */
     static void removeOnHold();
 
-    /**
+    /*!
      * Returns true when redirections are handled internally, the default.
      *
      */
     bool isRedirectionHandlingEnabled() const;
 
-    /**
+    /*!
      * Set @p handle to false to prevent the internal handling of redirections.
      *
      * When this flag is set, redirection requests are simply forwarded to the
@@ -83,7 +84,7 @@ public:
     void setRedirectionHandlingEnabled(bool handle);
 
 public Q_SLOTS:
-    /**
+    /*!
      * @internal
      * Called on a worker's error.
      * Made public for the scheduler.
@@ -91,19 +92,19 @@ public Q_SLOTS:
     void slotError(int, const QString &);
 
 protected Q_SLOTS:
-    /**
+    /*!
      * Called when the worker marks the job
      * as finished.
      */
     virtual void slotFinished();
 
-    /**
+    /*!
      * @internal
      * Called on a worker's warning.
      */
     virtual void slotWarning(const QString &);
 
-    /**
+    /*!
      * MetaData from the worker is received.
      * @param _metaData the meta data
      * @see metaData()
@@ -111,7 +112,7 @@ protected Q_SLOTS:
     virtual void slotMetaData(const KIO::MetaData &_metaData);
 
 protected:
-    /**
+    /*!
      * Creates a new simple job. You don't need to use this constructor,
      * unless you create a new job that inherits from SimpleJob.
      */
@@ -121,7 +122,7 @@ private:
     Q_DECLARE_PRIVATE(SimpleJob)
 };
 
-/**
+/*!
  * Removes a single directory.
  *
  * The directory is assumed to be empty.
@@ -133,7 +134,7 @@ private:
  */
 KIOCORE_EXPORT SimpleJob *rmdir(const QUrl &url);
 
-/**
+/*!
  * Changes permissions on a file or directory.
  * See the other chmod in chmodjob.h for changing many files
  * or directories.
@@ -144,7 +145,7 @@ KIOCORE_EXPORT SimpleJob *rmdir(const QUrl &url);
  */
 KIOCORE_EXPORT SimpleJob *chmod(const QUrl &url, int permissions);
 
-/**
+/*!
  * Changes ownership and group of a file or directory.
  *
  * @param url The URL of file or directory.
@@ -154,7 +155,7 @@ KIOCORE_EXPORT SimpleJob *chmod(const QUrl &url, int permissions);
  */
 KIOCORE_EXPORT SimpleJob *chown(const QUrl &url, const QString &owner, const QString &group);
 
-/**
+/*!
  * Changes the modification time on a file or directory.
  *
  * @param url The URL of file or directory.
@@ -163,7 +164,7 @@ KIOCORE_EXPORT SimpleJob *chown(const QUrl &url, const QString &owner, const QSt
  */
 KIOCORE_EXPORT SimpleJob *setModificationTime(const QUrl &url, const QDateTime &mtime);
 
-/**
+/*!
  * Rename a file or directory.
  * Warning: this operation fails if a direct renaming is not
  * possible (like with files or dirs on separate partitions)
@@ -176,7 +177,7 @@ KIOCORE_EXPORT SimpleJob *setModificationTime(const QUrl &url, const QDateTime &
  */
 KIOCORE_EXPORT SimpleJob *rename(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Create or move a symlink.
  * This is the lowlevel operation, similar to file_copy and file_move.
  * It doesn't do any check (other than those the worker does)
@@ -188,7 +189,7 @@ KIOCORE_EXPORT SimpleJob *rename(const QUrl &src, const QUrl &dest, JobFlags fla
  */
 KIOCORE_EXPORT SimpleJob *symlink(const QString &target, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Execute any command that is specific to one worker (protocol).
  *
  * Examples are : HTTP POST, mount and unmount (kio_file)
@@ -202,7 +203,7 @@ KIOCORE_EXPORT SimpleJob *symlink(const QString &target, const QUrl &dest, JobFl
  */
 KIOCORE_EXPORT SimpleJob *special(const QUrl &url, const QByteArray &data, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Mount filesystem.
  *
  * Special job for @p kio_file.
@@ -216,7 +217,7 @@ KIOCORE_EXPORT SimpleJob *special(const QUrl &url, const QByteArray &data, JobFl
  */
 KIOCORE_EXPORT SimpleJob *mount(bool ro, const QByteArray &fstype, const QString &dev, const QString &point, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Unmount filesystem.
  *
  * Special job for @p kio_file.
@@ -227,7 +228,7 @@ KIOCORE_EXPORT SimpleJob *mount(bool ro, const QByteArray &fstype, const QString
  */
 KIOCORE_EXPORT SimpleJob *unmount(const QString &point, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * HTTP cache update
  *
  * @param url Url to update, protocol must be "http".
@@ -238,7 +239,7 @@ KIOCORE_EXPORT SimpleJob *unmount(const QString &point, JobFlags flags = Default
  */
 KIOCORE_EXPORT SimpleJob *http_update_cache(const QUrl &url, bool no_cache, const QDateTime &expireDate);
 
-/**
+/*!
  * Delete a single file.
  *
  * @param src File to delete.

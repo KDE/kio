@@ -14,8 +14,9 @@
 namespace KIO
 {
 class TransferJobPrivate;
-/**
- * @class KIO::TransferJob transferjob.h <KIO/TransferJob>
+/*!
+ * \class KIO::TransferJob
+ * \inheaderfile <KIO/TransferJob>
  *
  * The transfer job pumps data into and/or out of a KIO worker.
  * Data is sent to the worker on request of the worker ( dataReq).
@@ -29,27 +30,27 @@ class KIOCORE_EXPORT TransferJob : public SimpleJob
 public:
     ~TransferJob() override;
 
-    /**
+    /*!
      * Sets the modification time of the file to be created (by KIO::put)
      * Note that some KIO workers might ignore this.
      */
     void setModificationTime(const QDateTime &mtime);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 3)
-    /**
+    /*!
      * Checks whether we got an error page. This currently only happens
      * with HTTP urls. Call this from your slot connected to result().
      *
      * @return true if we got an (HTML) error page from the server
      * instead of what we asked for.
      *
-     * @deprecated since 6.3, not implemented
+     * \deprecated [6.3] Not implemented
      */
     KIOCORE_DEPRECATED_VERSION(6, 3, "Not implemented")
     bool isErrorPage() const;
 #endif
 
-    /**
+    /*!
      * Enable the async data mode.
      * When async data is enabled, data should be provided to the job by
      * calling sendAsyncData() instead of returning data in the
@@ -57,21 +58,21 @@ public:
      */
     void setAsyncDataEnabled(bool enabled);
 
-    /**
+    /*!
      * Provide data to the job when async data is enabled.
      * Should be called exactly once after receiving a dataReq signal
      * Sending an empty block indicates end of data.
      */
     void sendAsyncData(const QByteArray &data);
 
-    /**
+    /*!
      * Call this in the slot connected to result,
      * and only after making sure no error happened.
      * @return the MIME type of the URL
      */
     QString mimetype() const;
 
-    /**
+    /*!
      * After the job has finished, it will return the final url in case a redirection
      * has happened.
      * @return the final url that can be empty in case no redirection has happened.
@@ -79,7 +80,7 @@ public:
      */
     QUrl redirectUrl() const;
 
-    /**
+    /*!
      * Set the total size of data that we are going to send
      * in a put job. Helps getting proper progress information.
      * @since 4.2.1
@@ -87,13 +88,13 @@ public:
     void setTotalSize(KIO::filesize_t bytes);
 
 protected:
-    /**
+    /*!
      * Reimplemented for internal reasons
      */
     bool doResume() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Data from the worker has arrived.
      * @param job the job that emitted this signal
      * @param data data received from the worker.
@@ -104,7 +105,7 @@ Q_SIGNALS:
      */
     void data(KIO::Job *job, const QByteArray &data);
 
-    /**
+    /*!
      * Request for data.
      * Please note, that you shouldn't put too large chunks
      * of data in it as this requires copies within the frame
@@ -117,7 +118,7 @@ Q_SIGNALS:
      */
     void dataReq(KIO::Job *job, QByteArray &data);
 
-    /**
+    /*!
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
@@ -126,7 +127,7 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
      * @param job the job that emitted this signal
@@ -135,7 +136,7 @@ Q_SIGNALS:
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
-    /**
+    /*!
      * MIME type determined.
      * @param job the job that emitted this signal
      * @param mimeType the MIME type
@@ -143,7 +144,7 @@ Q_SIGNALS:
      */
     void mimeTypeFound(KIO::Job *job, const QString &mimeType);
 
-    /**
+    /*!
      * @internal
      * Emitted if the "put" job found an existing partial file
      * (in which case offset is the size of that file)
@@ -170,7 +171,7 @@ private:
     friend class FileCopyJobPrivate;
 };
 
-/**
+/*!
  * Get (means: read).
  * This is the job to use in order to "download" a file into memory.
  * The worker emits the data through the data() signal.
@@ -195,7 +196,7 @@ private:
  */
 KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Put (means: write)
  *
  * @param url Where to write data.
@@ -207,7 +208,7 @@ KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, Job
  */
 KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * HTTP POST (for form data).
  *
  * Example:
@@ -236,7 +237,7 @@ KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags
  */
 KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postData, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * HTTP POST.
  *
  * This function, unlike the one that accepts a QByteArray, accepts an IO device
@@ -253,7 +254,7 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postDat
  */
 KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device, qint64 size = -1, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * HTTP DELETE.
  *
  * Though this function servers the same purpose as KIO::file_delete, unlike
