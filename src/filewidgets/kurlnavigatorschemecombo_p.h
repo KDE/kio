@@ -16,13 +16,15 @@ class QMenu;
 
 namespace KDEPrivate
 {
-/**
- * @brief A combobox listing available schemes.
+/*!
+ * A combobox listing available schemes.
  *
  * The widget is used by the URL navigator for offering the available
  * schemes for non-local URLs.
  *
- * @see KUrlNavigator
+ * \internal
+ *
+ * \sa KUrlNavigator
  */
 class KUrlNavigatorSchemeCombo : public KUrlNavigatorButtonBase
 {

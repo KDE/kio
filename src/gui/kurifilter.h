@@ -29,31 +29,30 @@ class KUriFilterPrivate;
 class KUriFilterDataPrivate;
 class QHostInfo;
 
-/**
- * @class KUriFilterSearchProvider kurifilter.h <KUriFilter>
+/*!
+ * \class KUriFilterSearchProvider
+ * \inheaderfile KUriFilter
+ * \inmodule KIOGui
  *
- * Class that holds information about a search provider.
+ * \brief Class that holds information about a search provider.
  *
  */
 class KIOGUI_EXPORT KUriFilterSearchProvider
 {
 public:
-    /**
+    /*!
      * Default constructor.
      */
     KUriFilterSearchProvider();
 
-    /**
+    /*!
      * Copy constructor.
      */
     KUriFilterSearchProvider(const KUriFilterSearchProvider &);
 
-    /**
-     * Destructor.
-     */
     virtual ~KUriFilterSearchProvider();
 
-    /**
+    /*!
      * Returns the desktop filename of the search provider without any extension.
      *
      * For example, if the desktop filename of the search provider was
@@ -61,7 +60,7 @@ public:
      */
     QString desktopEntryName() const;
 
-    /**
+    /*!
      * Returns the descriptive name of the search provider, e.g.\ "Google News".
      *
      * This name comes from the "Name=" property entry in the desktop file that
@@ -69,37 +68,49 @@ public:
      */
     QString name() const;
 
-    /**
+    /*!
      * Returns the icon name associated with the search provider when available.
      */
     virtual QString iconName() const;
 
-    /**
+    /*!
      * Returns all the web shortcut keys associated with this search provider.
      *
-     * @see defaultKey
+     * \sa defaultKey
      */
     QStringList keys() const;
 
-    /**
+    /*!
      * Returns the default web shortcut key for this search provider.
      *
      * Right now this is the same as doing keys().first(), it might however
      * change based on what the backend plugins do.
      *
-     * @see keys
+     * \sa keys
      */
     QString defaultKey() const;
 
-    /**
-     * Assignment operator.
-     */
     KUriFilterSearchProvider &operator=(const KUriFilterSearchProvider &);
 
 protected:
+    /*!
+     *
+     */
     void setDesktopEntryName(const QString &);
+
+    /*!
+     *
+     */
     void setIconName(const QString &);
+
+    /*!
+     *
+     */
     void setKeys(const QStringList &);
+
+    /*!
+     *
+     */
     void setName(const QString &);
 
 private:
@@ -108,8 +119,12 @@ private:
     std::unique_ptr<KUriFilterSearchProviderPrivate> const d;
 };
 
-/**
- * @class KUriFilterData kurifilter.h <KUriFilter>
+/*!
+ * \class KUriFilterData
+ * \inheaderfile KUriFilter
+ * \inmodule KIOGui
+ *
+ * \brief A class for exchanging filtering information.
  *
  * This class is a basic messaging class used to exchange filtering information
  * between the filter plugins and the application requesting the filtering
@@ -120,16 +135,16 @@ private:
  * it to KUriFilter to have the plugins fill out all possible information about
  * the URI.
  *
- * On successful filtering you can use @ref uriType() to determine what type
- * of resource the request was filtered into. See @ref KUriFilter::UriTypes for
- * details. If an error is encountered, then @ref KUriFilter::Error is returned.
- * You can use @ref errorMsg to obtain the error information.
+ * On successful filtering you can use uriType() to determine what type
+ * of resource the request was filtered into. See KUriFilter::UriTypes for
+ * details. If an error is encountered, then KUriFilter::Error is returned.
+ * You can use errorMsg to obtain the error information.
  *
  * The functions in this class are not reentrant.
  *
- * \b Example
+ * Example:
  *
- * Here is a basic example of how this class is used with @ref KUriFilter:
+ * Here is a basic example of how this class is used with KUriFilter:
  * \code
  *   KUriFilterData filterData (QLatin1String("kde.org"));
  *   bool filtered = KUriFilter::self()->filterUri(filterData);
@@ -141,54 +156,52 @@ private:
  * \code
  * KUriFilterData data;
  * data.setData("<text-to-search-for>");
- * data.setSearchFilteringOption(KUriFilterData::RetrievePreferredSearchProvidersOnly);
+ * data.setSearchFilteringOptions(KUriFilterData::RetrievePreferredSearchProvidersOnly);
  * bool filtered = KUriFilter::self()->filterSearchUri(data, KUriFilter::NormalTextFilter);
  * \endcode
- *
- * @short A class for exchanging filtering information.
- * @author Dawit Alemayehu <adawit at kde.org>
  */
 
 class KIOGUI_EXPORT KUriFilterData
 {
 public:
-    /**
+    /*!
      * Describes the type of the URI that was filtered.
+     *
+     * \value NetProtocol Any network protocol: http, ftp, nttp, pop3, etc...
+     * \value LocalFile A local file whose executable flag is not set
+     * \value LocalDir A local directory
+     * \value Executable A local file whose executable flag is set
+     * \value Help A man or info page
+     * \value Shell A shell executable (ex: echo "Test..." >> ~/testfile)
+     * \value Blocked A URI that should be blocked/filtered (ex: ad filtering)
+     * \value Error An incorrect URI (ex: "~johndoe" when user johndoe does not exist in that system)
+     * \value Unknown A URI that is not identified. Default value when a KUriFilterData is first created.
      */
     enum UriTypes {
-        NetProtocol = 0, ///< Any network protocol: http, ftp, nttp, pop3, etc...
-        LocalFile, ///< A local file whose executable flag is not set
-        LocalDir, ///< A local directory
-        Executable, ///< A local file whose executable flag is set
-        Help, ///< A man or info page
-        Shell, ///< A shell executable (ex: echo "Test..." >> ~/testfile)
-        Blocked, ///< A URI that should be blocked/filtered (ex: ad filtering)
-        Error, ///< An incorrect URI (ex: "~johndoe" when user johndoe does not exist in that system)
-        Unknown, ///< A URI that is not identified. Default value when a KUriFilterData is first created.
+        NetProtocol = 0,
+        LocalFile,
+        LocalDir,
+        Executable,
+        Help,
+        Shell,
+        Blocked,
+        Error,
+        Unknown,
     };
 
-    /**
+    /*!
      * This enum describes the search filtering options to be used.
      *
-     * @li SearchFilterOptionNone
-     *     No search filter options are set and normal filtering is performed
-     *     on the input data.
-     * @li RetrieveSearchProvidersOnly
-     *     If set, the list of all available search providers are returned without
-     *     any input filtering. This flag only applies when used in conjunction
-     *     with the @ref KUriFilter::NormalTextFilter flag.
-     * @li RetrievePreferredSearchProvidersOnly
-     *     If set, the list of preferred search providers are returned without
-     *     any input filtering. This flag only applies when used in conjunction
-     *     with the @ref KUriFilter::NormalTextFilter flag.
-     * @li RetrieveAvailableSearchProvidersOnly
-     *     Same as doing RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly,
-     *     where all available search providers are returned if no preferred ones
-     *     ones are available. No input filtering will be performed.
+     * \value SearchFilterOptionNone No search filter options are set and normal filtering is performed on the input data.
+     * \value RetrieveSearchProvidersOnly If set, the list of all available search providers are returned without any input filtering. This flag only applies
+     * when used in conjunction with the KUriFilter::NormalTextFilter flag.
+     * \value RetrievePreferredSearchProvidersOnly If set, the list of preferred search providers are returned without any input filtering. This flag only
+     * applies when used in conjunction with the KUriFilter::NormalTextFilter flag.
+     * \value RetrieveAvailableSearchProvidersOnly Same as doing RetrievePreferredSearchProvidersOnly |  RetrieveSearchProvidersOnly, where all available search
+     * providers are returned if no preferred ones are available. No input filtering will be performed.
      *
-     * @see setSearchFilteringOptions
-     * @see KUriFilter::filterSearchUri
-     * @see SearchFilterOptions
+     * \sa setSearchFilteringOptions
+     * \sa KUriFilter::filterSearchUri
      */
     enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
@@ -196,269 +209,262 @@ public:
         RetrievePreferredSearchProvidersOnly = 0x02,
         RetrieveAvailableSearchProvidersOnly = (RetrievePreferredSearchProvidersOnly | RetrieveSearchProvidersOnly),
     };
-    /**
-     * Stores a combination of #SearchFilterOption values.
-     */
     Q_DECLARE_FLAGS(SearchFilterOptions, SearchFilterOption)
 
-    /**
+    /*!
      * Default constructor.
      *
      * Creates a UriFilterData object.
      */
     KUriFilterData();
 
-    /**
+    /*!
      * Creates a KUriFilterData object from the given URL.
      *
-     * @param url is the URL to be filtered.
+     * \a url is the URL to be filtered.
      */
     explicit KUriFilterData(const QUrl &url);
 
-    /**
+    /*!
      * Creates a KUriFilterData object from the given string.
      *
-     * @param url is the string to be filtered.
+     * \a url is the string to be filtered.
      */
     explicit KUriFilterData(const QString &url);
 
-    /**
+    /*!
      * Copy constructor.
      *
      * Creates a KUriFilterData object from another KURIFilterData object.
      *
-     * @param other the uri filter data to be copied.
+     * \a other the uri filter data to be copied.
      */
     KUriFilterData(const KUriFilterData &other);
 
-    /**
-     * Destructor.
-     */
     ~KUriFilterData();
 
-    /**
+    /*!
      * Returns the filtered or the original URL.
      *
      * If one of the plugins successfully filtered the original input, this
      * function returns it. Otherwise, it will return the input itself.
      *
-     * @return the filtered or original url.
+     * Returns the filtered or original url.
      */
     QUrl uri() const;
 
-    /**
+    /*!
      * Returns an error message.
      *
      * This functions returns the error message set by the plugin whenever the
      * uri type is set to KUriFilterData::ERROR. Otherwise, it returns a nullptr
      * string.
      *
-     * @return the error message or a nullptr when there is none.
+     * Returns the error message or a nullptr when there is none.
      */
     QString errorMsg() const;
 
-    /**
+    /*!
      * Returns the URI type.
      *
      * This method always returns KUriFilterData::UNKNOWN if the given URL was
      * not filtered.
      *
-     * @return the type of the URI
+     * Returns the type of the URI
      */
     UriTypes uriType() const;
 
-    /**
+    /*!
      * Returns the absolute path if one has already been set.
      *
-     * @return the absolute path, or QString()
+     * Returns the absolute path, or QString()
      *
-     * @see hasAbsolutePath()
+     * \sa hasAbsolutePath()
      */
     QString absolutePath() const;
 
-    /**
+    /*!
      * Checks whether the supplied data had an absolute path.
      *
-     * @return true if the supplied data has an absolute path
+     * Returns true if the supplied data has an absolute path
      *
-     * @see absolutePath()
+     * \sa absolutePath()
      */
     bool hasAbsolutePath() const;
 
-    /**
+    /*!
      * Returns the command line options and arguments for a local resource
      * when present.
      *
-     * @return options and arguments when present, otherwise QString()
+     * Returns options and arguments when present, otherwise QString()
      */
     QString argsAndOptions() const;
 
-    /**
+    /*!
      * Checks whether the current data is a local resource with command line
      * options and arguments.
      *
-     * @return true if the current data has command line options and arguments
+     * Returns true if the current data has command line options and arguments
      */
     bool hasArgsAndOptions() const;
 
-    /**
-     * @return true if the filters should attempt to check whether the
+    /*!
+     * Returns true if the filters should attempt to check whether the
      * supplied uri is an executable. False otherwise.
      */
     bool checkForExecutables() const;
 
-    /**
+    /*!
      * The string as typed by the user, before any URL processing is done.
      */
     QString typedString() const;
 
-    /**
+    /*!
      * Returns the search term portion of the typed string.
      *
-     * If the @ref typedString was not filtered by a search filter plugin, this
+     * If the typedString was not filtered by a search filter plugin, this
      * function returns an empty string.
      *
-     * @see typedString
+     * \sa typedString
      */
     QString searchTerm() const;
 
-    /**
+    /*!
      * Returns the character that is used to separate the search term from the
      * keyword.
      *
-     * If @ref typedString was not filtered by a search filter plugin, this
+     * If typedString was not filtered by a search filter plugin, this
      * function returns a null character.
      *
-     * @see typedString
+     * \sa typedString
      */
     QChar searchTermSeparator() const;
 
-    /**
+    /*!
      * Returns the name of the search service provider, e.g.\ Google.
      *
-     * If @ref typedString was not filtered by a search filter plugin, this
+     * If typedString was not filtered by a search filter plugin, this
      * function returns an empty string.
      *
-     * @see typedString
+     * \sa typedString
      */
     QString searchProvider() const;
 
-    /**
+    /*!
      * Returns a list of the names of preferred or available search providers.
      *
      * This function returns the list of providers marked as preferred whenever
-     * the input data, i.e. @ref typedString, is successfully filtered.
+     * the input data, i.e. typedString, is successfully filtered.
      *
      * If no default search provider has been selected prior to a filter request,
      * this function will return an empty list. To avoid this problem you must
-     * either set an alternate default search provider using @ref setAlternateDefaultSearchProvider
-     * or set one of the @ref SearchFilterOption flags if you are only interested
+     * either set an alternate default search provider using setAlternateDefaultSearchProvider
+     * or set one of the SearchFilterOption flags if you are only interested
      * in getting the list of providers and not filtering the input.
      *
      * Additionally, you can also provide alternate search providers in case
      * there are no preferred ones already selected.
      *
-     * You can use @ref queryForPreferredServiceProvider to obtain the query
+     * You can use queryForPreferredServiceProvider to obtain the query
      * associated with the list of search providers returned by this function.
      *
-     * @see setAlternateSearchProviders
-     * @see setAlternateDefaultSearchProvider
-     * @see setSearchFilteringOption
-     * @see queryForPreferredServiceProvider
+     * \sa setAlternateSearchProviders()
+     * \sa setAlternateDefaultSearchProvider()
+     * \sa setSearchFilteringOptions()
+     * \sa queryForPreferredSearchProvider()
      */
     QStringList preferredSearchProviders() const;
 
-    /**
-     * Returns information about @p provider.
+    /*!
+     * Returns information about \a provider.
      *
      * You can use this function to obtain the more information about the search
-     * providers returned by @ref preferredSearchProviders.
+     * providers returned by preferredSearchProviders.
      *
-     * @see preferredSearchProviders
-     * @see KUriFilterSearchProvider
+     * \sa preferredSearchProviders()
      */
     KUriFilterSearchProvider queryForSearchProvider(const QString &provider) const;
 
-    /**
+    /*!
      * Returns the web shortcut url for the given preferred search provider.
      *
      * You can use this function to obtain the query for the preferred search
-     * providers returned by @ref preferredSearchProviders.
+     * providers returned by preferredSearchProviders.
      *
      * The query returned by this function is in web shortcut format, i.e.
      * "gg:foo bar", and must be re-filtered through KUriFilter to obtain a
      * valid url.
      *
-     * @see preferredSearchProviders
+     * \sa preferredSearchProviders
      */
     QString queryForPreferredSearchProvider(const QString &provider) const;
 
-    /**
+    /*!
      * Returns all the query urls for the given search provider.
      *
      * Use this function to obtain all the different queries that can be used
      * for the given provider. For example, if a search engine provider named
      * "foobar" has web shortcuts named "foobar", "foo" and "bar", then this
-     * function, unlike @ref queryForPreferredSearchProvider, will return a
+     * function, unlike queryForPreferredSearchProvider, will return a
      * a query for each and every web shortcut.
      *
-     * @see queryForPreferredSearchProvider
+     * \sa queryForPreferredSearchProvider
      */
     QStringList allQueriesForSearchProvider(const QString &provider) const;
 
-    /**
+    /*!
      * Returns the icon associated with the given preferred search provider.
      *
      * You can use this function to obtain the icon names associated with the
-     * preferred search providers returned by @ref preferredSearchProviders.
+     * preferred search providers returned by preferredSearchProviders.
      *
-     * @see preferredSearchProviders
+     * \sa preferredSearchProviders
      */
     QString iconNameForPreferredSearchProvider(const QString &provider) const;
 
-    /**
+    /*!
      * Returns the list of alternate search providers.
      *
-     * This function returns an empty list if @ref setAlternateSearchProviders
+     * This function returns an empty list if setAlternateSearchProviders
      * was not called to set the alternate search providers to be when no
      * preferred providers have been chosen by the user through the search
      * configuration module.
      *
-     * @see setAlternatteSearchProviders
-     * @see preferredSearchProviders
+     * \sa setAlternateSearchProviders
+     * \sa preferredSearchProviders
      */
     QStringList alternateSearchProviders() const;
 
-    /**
+    /*!
      * Returns the search provider to use when a default provider is not available.
      *
-     * This function returns an empty string if @ref setAlternateDefaultSearchProvider
+     * This function returns an empty string if setAlternateDefaultSearchProvider
      * was not called to set the default search provider to be used when none has been
      * chosen by the user through the search configuration module.
      *
-     * @see setAlternateDefaultSearchProvider
+     * \sa setAlternateDefaultSearchProvider
      */
     QString alternateDefaultSearchProvider() const;
 
-    /**
+    /*!
      * Returns the default protocol to use when filtering potentially valid url inputs.
      *
      * By default this function will return an empty string.
      *
-     * @see setDefaultUrlScheme
+     * \sa setDefaultUrlScheme
      */
     QString defaultUrlScheme() const;
 
-    /**
+    /*!
      * Returns the specified search filter options.
      *
-     * By default this function returns @ref SearchFilterOptionNone.
+     * By default this function returns SearchFilterOptionNone.
      *
-     * @see setSearchFilteringOptions
+     * \sa setSearchFilteringOptions
      */
     SearchFilterOptions searchFilteringOptions() const;
 
-    /**
+    /*!
      * The name of the icon that matches the current filtered URL.
      *
      * This function returns a null string by default and when no icon is found
@@ -466,7 +472,7 @@ public:
      */
     QString iconName();
 
-    /**
+    /*!
      * Check whether the provided uri is executable or not.
      *
      * Setting this to false ensures that typing the name of an executable does
@@ -475,44 +481,44 @@ public:
      */
     void setCheckForExecutables(bool check);
 
-    /**
+    /*!
      * Same as above except the argument is a URL.
      *
      * Use this function to set the string to be filtered when you construct an
      * empty filter object.
      *
-     * @param url the URL to be filtered.
+     * \a url the URL to be filtered.
      */
     void setData(const QUrl &url);
 
-    /**
+    /*!
      * Sets the URL to be filtered.
      *
      * Use this function to set the string to be
      * filtered when you construct an empty filter
      * object.
      *
-     * @param url the string to be filtered.
+     * \a url the string to be filtered.
      */
     void setData(const QString &url);
 
-    /**
+    /*!
      * Sets the absolute path to be used whenever the supplied data is a
      * relative local URL.
      *
-     * NOTE: This function should only be used for local resources, i.e. the
+     * \note This function should only be used for local resources, i.e. the
      * "file:/" protocol. It is useful for specifying the absolute path in
      * cases where the actual URL might be relative. If deriving the path from
      * a QUrl, make sure you set the argument for this function to the result
      * of calling path () instead of url ().
      *
-     * @param abs_path  the absolute path to the local resource.
+     * \a abs_path  the absolute path to the local resource.
      *
-     * @return true if absolute path is successfully set. Otherwise, false.
+     * Returns true if absolute path is successfully set. Otherwise, false.
      */
     bool setAbsolutePath(const QString &abs_path);
 
-    /**
+    /*!
      * Sets a list of search providers to use in case no preferred search
      * providers are available.
      *
@@ -521,12 +527,12 @@ public:
      * selected by the user. Otherwise, the providers specified through this
      * function will be ignored.
      *
-     * @see alternateSearchProviders
-     * @see preferredSearchProviders
+     * \sa alternateSearchProviders
+     * \sa preferredSearchProviders
      */
     void setAlternateSearchProviders(const QStringList &providers);
 
-    /**
+    /*!
      * Sets the search provider to use in case no default provider is available.
      *
      * The default search provider set using this function will only be used if
@@ -534,12 +540,12 @@ public:
      * the user. Otherwise, the default provider specified by through function
      * will be ignored.
      *
-     * @see alternateDefaultSearchProvider
-     * @see preferredSearchProviders
+     * \sa alternateDefaultSearchProvider
+     * \sa preferredSearchProviders
      */
     void setAlternateDefaultSearchProvider(const QString &provider);
 
-    /**
+    /*!
      * Sets the default scheme used when filtering potentially valid url inputs.
      *
      * Use this function to change the default protocol used when filtering
@@ -550,43 +556,43 @@ public:
      * simply set to "ftp", then a potentially valid url input such as "kde.org"
      * will be filtered to "ftp://kde.org".
      *
-     * @see defaultUrlScheme
+     * \sa defaultUrlScheme
      */
     void setDefaultUrlScheme(const QString &);
 
-    /**
+    /*!
      * Sets the options used by search filter plugins to filter requests.
      *
-     * The default search filter option is @ref SearchFilterOptionNone. See
-     * @ref SearchFilterOption for the description of the other flags.
+     * The default search filter option is SearchFilterOptionNone. See
+     * SearchFilterOption for the description of the other flags.
      *
      * It is important to note that the options set through this function can
      * prevent any filtering from being performed by search filter plugins.
-     * As such, @ref uriTypes can return KUriFilterData::Unknown and @ref uri
+     * As such, uriTypes can return KUriFilterData::Unknown and uri
      * can return an invalid url even though the filtering request returned
      * a successful response.
      *
-     * @see searchFilteringOptions
+     * \sa searchFilteringOptions
      */
     void setSearchFilteringOptions(SearchFilterOptions options);
 
-    /**
+    /*!
      * Overloaded assignment operator.
      *
      * This function allows you to easily assign a QUrl
      * to a KUriFilterData object.
      *
-     * @return an instance of a KUriFilterData object.
+     * Returns an instance of a KUriFilterData object.
      */
     KUriFilterData &operator=(const QUrl &url);
 
-    /**
+    /*!
      * Overloaded assignment operator.
      *
      * This function allows you to easily assign a QString to a KUriFilterData
      * object.
      *
-     * @return an instance of a KUriFilterData object.
+     * Returns an instance of a KUriFilterData object.
      */
     KUriFilterData &operator=(const QString &url);
 
@@ -595,20 +601,23 @@ private:
     std::unique_ptr<KUriFilterDataPrivate> d;
 };
 
-/**
- * @class KUriFilter kurifilter.h <KUriFilter>
+/*!
+ * \class KUriFilter
+ * \inmodule KIOGui
+ *
+ * \brief Filters the given input into a valid url whenever possible.
  *
  * KUriFilter applies a number of filters to a URI and returns a filtered version if any
  * filter matches.
  * A simple example is "kde.org" to "http://www.kde.org", which is commonplace in web browsers.
  *
- * The filters are implemented as plugins in @ref KUriFilterPlugin subclasses.
+ * The filters are implemented as plugins in KUriFilterPlugin subclasses.
  *
  * KUriFilter is a singleton object: obtain the instance by calling
- * @p KUriFilter::self() and use the public member functions to
+ * KUriFilter::self() and use the public member functions to
  * perform the filtering.
  *
- * \b Example
+ * Example:
  *
  * To simply filter a given string:
  *
@@ -680,144 +689,139 @@ private:
  * \endcode
  *
  * Additionally if you only want to do search related filtering, you can use the
- * search specific function, @ref filterSearchUri, that is available in KDE
+ * search specific function, filterSearchUri, that is available in KDE
  * 4.5 and higher. For example, to search for a given input on the web you
  * can do the following:
  *
  * KUriFilterData filterData ("foo");
  * bool filtered = KUriFilter::self()->filterSearchUri(filterData, KUriFilterData::NormalTextFilter);
  *
- * KUriFilter converts all filtering requests to use @ref KUriFilterData
+ * KUriFilter converts all filtering requests to use KUriFilterData
  * internally. The use of this bi-directional class allows you to send specific
  * instructions to the filter plugins as well as receive detailed information
  * about the filtered request from them. See the documentation of KUriFilterData
  * class for more examples and details.
  *
  * All functions in this class are thread safe and reentrant.
- *
- * @short Filters the given input into a valid url whenever possible.
  */
 class KIOGUI_EXPORT KUriFilter
 {
 public:
-    /**
+    /*!
      * This enum describes the types of search plugin filters available.
      *
-     * @li NormalTextFilter      The plugin used to filter normal text, e.g. "some term to search".
-     * @li WebShortcutFilter     The plugin used to filter web shortcuts, e.g. gg:KDE.
-     *
-     * @see SearchFilterTypes
+     * \value NormalTextFilter The plugin used to filter normal text, e.g. "some term to search".
+     * \value WebShortcutFilter The plugin used to filter web shortcuts, e.g. gg:KDE.
      */
     enum SearchFilterType {
         NormalTextFilter = 0x01,
         WebShortcutFilter = 0x02,
     };
-    /**
-     * Stores a combination of #SearchFilterType values.
-     */
     Q_DECLARE_FLAGS(SearchFilterTypes, SearchFilterType)
 
-    /**
-     *  Destructor
-     */
     ~KUriFilter();
 
-    /**
+    /*!
      * Returns an instance of KUriFilter.
      */
     static KUriFilter *self();
 
-    /**
-     * Filters @p data using the specified @p filters.
+    /*!
+     * Filters \a data using the specified \a filters.
      *
      * If no named filters are specified, the default, then all the
      * URI filter plugins found will be used.
      *
-     * @param data object that contains the URI to be filtered.
-     * @param filters specify the list of filters to be used.
+     * \a data object that contains the URI to be filtered.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * \a filters specify the list of filters to be used.
+     *
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(KUriFilterData &data, const QStringList &filters = QStringList());
 
-    /**
+    /*!
      * Filters the URI given by the URL.
      *
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri the URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri the URI to filter.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * \a filters specify the list of filters to be used.
+     *
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(QUrl &uri, const QStringList &filters = QStringList());
 
-    /**
+    /*!
      * Filters a string representing a URI.
      *
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri The URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri The URI to filter.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * \a filters specify the list of filters to be used.
+     *
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(QString &uri, const QStringList &filters = QStringList());
 
-    /**
+    /*!
      * Returns the filtered URI.
      *
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri The URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri The URI to filter.
      *
-     * @return the filtered URI or null if it cannot be filtered
+     * \a filters specify the list of filters to be used.
+     *
+     * Returns the filtered URI or null if it cannot be filtered
      */
     QUrl filteredUri(const QUrl &uri, const QStringList &filters = QStringList());
 
-    /**
+    /*!
      * Return a filtered string representation of a URI.
      *
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri the URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri the URI to filter.
      *
-     * @return the filtered URI or null if it cannot be filtered
+     * \a filters specify the list of filters to be used.
+     *
+     * Returns the filtered URI or null if it cannot be filtered
      */
     QString filteredUri(const QString &uri, const QStringList &filters = QStringList());
 
-    /**
-     * Filter @p data using the criteria specified by @p types.
+    /*!
+     * Filter \a data using the criteria specified by \a types.
      *
-     * The search filter type can be individual value of @ref SearchFilterTypes
+     * The search filter type can be individual value of SearchFilterTypes
      * or a combination of those types using the bitwise OR operator.
      *
-     * You can also use the flags from @ref KUriFilterData::SearchFilterOption
+     * You can also use the flags from KUriFilterData::SearchFilterOption
      * to alter the filtering mechanisms of the search filter providers.
      *
-     * @param data object that contains the URI to be filtered.
-     * @param types the search filters used to filter the request.
-     * @return true if the specified @p data was successfully filtered.
+     * \a data object that contains the URI to be filtered.
      *
-     * @see KUriFilterData::setSearchFilteringOptions
+     * \a types the search filters used to filter the request.
+     *
+     * Returns \c true if the specified \a data was successfully filtered.
+     *
+     * \sa KUriFilterData::setSearchFilteringOptions
      */
     bool filterSearchUri(KUriFilterData &data, SearchFilterTypes types);
 
-    /**
+    /*!
      * Return a list of the names of all loaded plugins.
-     *
-     * @return a QStringList of plugin names
      */
     QStringList pluginNames() const;
 
 protected:
-    /**
+    /*!
      * Constructor.
      *
      * Creates a KUriFilter object and calls loads all available URI filter plugins.

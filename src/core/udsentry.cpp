@@ -22,7 +22,6 @@
 using namespace KIO;
 
 // BEGIN UDSEntryPrivate
-/* ---------- UDSEntryPrivate ------------ */
 
 class KIO::UDSEntryPrivate : public QSharedData
 {
@@ -41,9 +40,9 @@ public:
     void save(QDataStream &s) const;
     void load(QDataStream &s);
     void debugUDSEntry(QDebug &stream) const;
-    /**
-     * @param field numeric UDS field id
-     * @return the name of the field
+    /*
+     * \a field numeric UDS field id
+     * Returns the name of the field
      */
     static QString nameOfUdsField(uint field);
 

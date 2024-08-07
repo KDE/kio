@@ -19,25 +19,28 @@
 
 #include <memory>
 
-/**
- * @class KDirSortFilterProxyModel kdirsortfilterproxymodel.h <KDirSortFilterProxyModel>
+/*!
+ * \class KDirSortFilterProxyModel
+ * \inmodule KIOFileWidgets
  *
- * @brief Acts as proxy model for KDirModel to sort and filter
+ * \brief Acts as proxy model for KDirModel to sort and filter
  *        KFileItems.
  *
  * A natural sorting is done. This means that items like:
- * - item_10.png
- * - item_1.png
- * - item_2.png
+ * \list
+ * \li item_10.png
+ * \li item_1.png
+ * \li item_2.png
+ * \endlist
  *
  * are sorted like
- * - item_1.png
- * - item_2.png
- * - item_10.png
+ * \list
+ * \li item_1.png
+ * \li item_2.png
+ * \li item_10.png
+ * \endlist
  *
  * Don't use it with non-KDirModel derivatives.
- *
- * @author Dominic Battre, Martin Pool and Peter Penz
  */
 class KIOFILEWIDGETS_EXPORT KDirSortFilterProxyModel : public KCategorizedSortFilterProxyModel
 {
@@ -47,44 +50,50 @@ public:
     explicit KDirSortFilterProxyModel(QObject *parent = nullptr);
     ~KDirSortFilterProxyModel() override;
 
-    /** Reimplemented from QAbstractItemModel. Returns true for directories. */
+    /*!
+     * \reimp
+     * Returns true for directories.
+     */
     bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
 
-    /**
-     * Reimplemented from QAbstractItemModel.
+    /*!
+     * \reimp
      * Returns true for 'empty' directories so they can be populated later.
      */
     bool canFetchMore(const QModelIndex &parent) const override;
 
-    /**
+    /*!
      * Returns the permissions in "points". This is useful for sorting by
      * permissions.
      */
     static int pointsForPermissions(const QFileInfo &info);
 
-    /**
+    /*!
      * Choose if files and folders are sorted separately (with folders first) or not.
      */
     void setSortFoldersFirst(bool foldersFirst);
 
-    /**
+    /*!
      * Returns if files and folders are sorted separately (with folders first) or not.
      */
     bool sortFoldersFirst() const;
 
-    /**
+    /*!
      * Sets a separate sorting with hidden files and folders last (true) or not (false).
-     * @since 5.95
+     * \since 5.95
      */
     void setSortHiddenFilesLast(bool hiddenFilesLast);
+    /*!
+     *
+     */
     bool sortHiddenFilesLast() const;
 
+    /*!
+     *
+     */
     Qt::DropActions supportedDragOptions() const;
 
 protected:
-    /**
-     * Reimplemented from KCategorizedSortFilterProxyModel.
-     */
     bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:

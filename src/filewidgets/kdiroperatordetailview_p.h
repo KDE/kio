@@ -14,9 +14,10 @@
 
 class QAbstractItemModel;
 
-/**
+/*!
  * Default detail view for KDirOperator using
  * custom resizing options and columns.
+ * \internal
  */
 class KDirOperatorDetailView : public QTreeView
 {
@@ -26,7 +27,7 @@ public:
     explicit KDirOperatorDetailView(KDirOperator *dirOperator, QWidget *parent = nullptr);
     ~KDirOperatorDetailView() override;
 
-    /**
+    /*!
      * Displays either Detail, Tree or DetailTree modes.
      */
     virtual bool setViewMode(KFile::FileView viewMode);

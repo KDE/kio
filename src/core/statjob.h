@@ -16,17 +16,24 @@
 namespace KIO
 {
 class StatJobPrivate;
-/**
- * @class KIO::StatJob statjob.h <KIO/StatJob>
+/*!
+ * \class KIO::StatJob
+ * \inheaderfile KIO/StatJob
+ * \inmodule KIOCore
  *
- * A KIO job that retrieves information about a file or directory.
- * @see KIO::stat()
+ * \brief A KIO job that retrieves information about a file or directory.
+ *
+ * \sa KIO::stat()
  */
 class KIOCORE_EXPORT StatJob : public SimpleJob
 {
     Q_OBJECT
 
 public:
+    /*!
+     * \value SourceSide
+     * \value DestinationSide
+     */
     enum StatSide {
         SourceSide,
         DestinationSide,
@@ -34,32 +41,36 @@ public:
 
     ~StatJob() override;
 
-    /**
+    /*!
      * A stat() can have two meanings. Either we want to read from this URL,
      * or to check if we can write to it. First case is "source", second is "dest".
      * It is necessary to know what the StatJob is for, to tune the KIO worker's behavior
      * (e.g. with FTP).
+     *
      * By default it is SourceSide.
-     * @param side SourceSide or DestinationSide
+     *
+     * \a side SourceSide or DestinationSide
      */
     void setSide(StatSide side);
 
-    /**
-     * Selects the level of @p details we want.
-     * @since 5.69
+    /*!
+     * Selects the level of \a details we want.
+     * \since 5.69
      */
     void setDetails(KIO::StatDetails details);
 
-    /**
-     * @brief Result of the stat operation.
+    /*!
+     * \brief Result of the stat operation.
+     *
      * Call this in the slot connected to result,
      * and only after making sure no error happened.
-     * @return the result of the stat
+     *
+     * Returns the result of the stat
      */
     const UDSEntry &statResult() const;
 
-    /**
-     * @brief most local URL
+    /*!
+     * \brief most local URL
      *
      * Since this method depends on UDSEntry::UDS_LOCAL_PATH having been previously set
      * by a KIO worker, ideally you should first check that the protocol Class of the URL
@@ -69,11 +80,11 @@ public:
      * Call this in a slot connected to the result signal, and only after making sure no error
      * happened.
      *
-     * @return the most local URL for the URL we were stat'ing
+     * Returns the most local URL for the URL we were stat'ing
      *
      * Sample usage:
      *
-     * @code
+     * \code
      * auto *job = KIO::mostLocalUrl("desktop:/foo");
      * job->uiDelegate()->setWindow(this);
      * connect(job, &KJob::result, this, &MyClass::slotMostLocalUrlResult);
@@ -86,28 +97,35 @@ public:
      *    // localUrl = file:///$HOME/Desktop/foo
      *    [...]
      * }
-     * @endcode
+     * \endcode
      *
      * \since 4.4
      */
     QUrl mostLocalUrl() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals a redirection.
+     *
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
-     * @param job the job that is redirected
-     * @param url the new url
+     *
+     * \a job the job that is redirected
+     *
+     * \a url the new url
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
+     *
      * The redirection itself is handled internally.
-     * @param job the job that is redirected
-     * @param fromUrl the original URL
-     * @param toUrl the new URL
+     *
+     * \a job the job that is redirected
+     *
+     * \a fromUrl the original URL
+     *
+     * \a toUrl the new URL
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
@@ -122,41 +140,56 @@ private:
     friend KIOCORE_EXPORT StatJob *mostLocalUrl(const QUrl &url, JobFlags flags);
 };
 
-/**
+/*!
+ * \relates KIO::StatJob
+ *
  * Find all details for one file or directory.
  *
- * @param url the URL of the file
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
+ * \a url the URL of the file
+ *
+ * \a flags Can be HideProgressInfo here
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
-/**
- * Find all details for one file or directory.
- * This version of the call includes two additional booleans, @p sideIsSource and @p details.
+
+/*!
+ * \relates KIO::StatJob
  *
- * @param url the URL of the file
- * @param side is SourceSide when stating a source file (we will do a get on it if
+ * Find all details for one file or directory.
+ * This version of the call includes two additional booleans, \a sideIsSource and \a details.
+ *
+ * \a url the URL of the file
+ *
+ * \a side is SourceSide when stating a source file (we will do a get on it if
  * the stat works) and DestinationSide when stating a destination file (target of a copy).
  * The reason for this parameter is that in some cases the KIO worker might not
  * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
  * has issues with case-sensitivity on some systems).
  * When the worker can't reliably determine the existence of a file, it will:
- * @li be optimistic if SourceSide, i.e. it will assume the file exists,
+ * \list
+ * \li be optimistic if SourceSide, i.e. it will assume the file exists,
  * and if it doesn't this will appear when actually trying to download it
- * @li be pessimistic if DestinationSide, i.e. it will assume the file
+ * \li be pessimistic if DestinationSide, i.e. it will assume the file
  * doesn't exist, to prevent showing "about to overwrite" errors to the user.
  * If you simply want to check for existence without downloading/uploading afterwards,
  * then you should use DestinationSide.
+ * \endlist
  *
- * @param details selects the level of details we want.
+ * \a details selects the level of details we want.
  * You should minimize the detail level for better performance.
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
- * @since 6.0
+ *
+ * \a flags Can be HideProgressInfo here
+ *
+ * Returns the job handling the operation.
+ *
+ * \since 6.0
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
-/**
+/*!
+ * \relates KIO::StatJob
+ *
  * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for
  * protocols that have Class ":local" (such protocols most likely have KIO workers that set
  * UDSEntry::UDS_LOCAL_PATH); ideally you should check the URL protocol Class before creating
@@ -165,17 +198,17 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::
  * Starts a (stat) job for determining the "most local URL" for a given URL.
  * Retrieve the result with StatJob::mostLocalUrl in the result slot.
  *
- * @param url The URL we are stat'ing.
- *
+ * \a url The URL we are stat'ing.
  *
  * Sample usage:
  *
  * Here the KIO worker name is "foo", which for example could be:
- *  - "desktop", "fonts", "kdeconnect", these have class ":local"
- *  - "ftp", "sftp", "smb", these have class ":internet"
+ * \list
+ * \li "desktop", "fonts", "kdeconnect", these have class ":local"
+ * \li "ftp", "sftp", "smb", these have class ":internet"
+ * \endlist
  *
- * @code
- *
+ * \code
  * QUrl url(QStringLiteral("foo://bar/");
  * if (url.isLocalFile()) { // If it's a local URL, there is no need to stat
  *    [...]
@@ -195,8 +228,7 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::
  *         [...]
  *     }
  * }
- *
- * @endcode
+ * \endcode
  *
  */
 KIOCORE_EXPORT StatJob *mostLocalUrl(const QUrl &url, JobFlags flags = DefaultFlags);

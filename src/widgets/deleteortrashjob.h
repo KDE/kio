@@ -20,10 +20,12 @@ namespace KIO
 
 class DeleteOrTrashJobPrivate;
 
-/**
- * @class DeleteOrTrashJob deleteortrashjob.h <KIO/DeleteOrTrashJob>
+/*!
+ * \class KIO::DeleteOrTrashJob
+ * \inheaderfile KIO/DeleteOrTrashJob
+ * \inmodule KIOWidgets
  *
- * This job asks the user for confirmation to delete or move to Trash
+ * \brief This job asks the user for confirmation to delete or move to Trash
  * a list of URLs; or if the job is constructed with
  * AskUserActionInterface::EmptyTrash, to empty the Trash.
  *
@@ -36,34 +38,38 @@ class DeleteOrTrashJobPrivate;
  *
  * To start the job after constructing it, you must call start().
  *
- * @since 5.100
+ * \since 5.100
  */
 class KIOWIDGETS_EXPORT DeleteOrTrashJob : public KCompositeJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a DeleteOrTrashJob.
-     * @param urls the list of urls to delete, move to Trash, or an empty list
+     *
+     * \a urls the list of urls to delete, move to Trash, or an empty list
      * in the case of AskUserActionInterface::EmptyTrash (in the latter case,
      * the list of urls is ignored)
-     * @param deletionType one of AskUserActionInterface::DeletionType
-     * @param confirm one of AskUserActionInterface::ConfirmationType
-     * @param parent parent object, e.g. a QWidget for widget-based applications
+     *
+     * \a deletionType one of AskUserActionInterface::DeletionType
+     *
+     * \a confirm one of AskUserActionInterface::ConfirmationType
+     *
+     * \a parent parent object, e.g. a QWidget for widget-based applications
      */
     explicit DeleteOrTrashJob(const QList<QUrl> &urls,
                               AskUserActionInterface::DeletionType deletionType,
                               AskUserActionInterface::ConfirmationType confirm,
                               QObject *parent);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that jobs auto-delete themselves after emitting result
      */
     ~DeleteOrTrashJob() override;
 
-    /**
+    /*!
      * You must call this to actually start the job.
      */
     void start() override;

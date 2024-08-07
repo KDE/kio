@@ -34,11 +34,11 @@ public:
     void slotStatEntry(const KIO::UDSEntry &entry);
     void slotRedirection(const QUrl &url);
 
-    /**
-     * @internal
+    /*!
+     * \internal
      * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param worker the worker that starts working on this job
+     * \a worker the worker that starts working on this job
      */
     void start(Worker *worker) override;
 

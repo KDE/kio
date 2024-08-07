@@ -17,12 +17,15 @@
 namespace KIO
 {
 class ChmodJobPrivate;
-/**
- * @class KIO::ChmodJob chmodjob.h <KIO/ChmodJob>
+/*!
+ * \class KIO::ChmodJob
+ * \inheaderfile KIO/ChmodJob
+ * \inmodule KIOCore
  *
- * This job changes permissions on a list of files or directories,
+ * \brief This job changes permissions on a list of files or directories,
  * optionally in a recursive manner.
- * @see KIO::chmod()
+ *
+ * \sa KIO::chmod()
  */
 class KIOCORE_EXPORT ChmodJob : public KIO::Job
 {
@@ -40,7 +43,9 @@ private:
     Q_DECLARE_PRIVATE(ChmodJob)
 };
 
-/**
+/*!
+ * \relates KIO::ChmodJob
+ *
  * Creates a job that changes permissions/ownership on several files or directories,
  * optionally recursively.
  * This version of chmod uses a KFileItemList so that it directly knows
@@ -53,16 +58,23 @@ private:
  * at least one "x" bit before, and for directories.
  * This emulates the behavior of chmod +X.
  *
- * @param lstItems The file items representing several files or directories.
- * @param permissions the permissions we want to set
- * @param mask the bits we are allowed to change.
+ * \a lstItems The file items representing several files or directories.
+ *
+ * \a permissions the permissions we want to set
+ *
+ * \a mask the bits we are allowed to change.
  * For instance, if mask is 0077, we don't change
  * the "user" bits, only "group" and "others".
- * @param newOwner If non-empty, the new owner for the files
- * @param newGroup If non-empty, the new group for the files
- * @param recursive whether to open directories recursively
- * @param flags We support HideProgressInfo here
- * @return The job handling the operation.
+ *
+ * \a newOwner If non-empty, the new owner for the files
+ *
+ * \a newGroup If non-empty, the new group for the files
+ *
+ * \a recursive whether to open directories recursively
+ *
+ * \a flags We support HideProgressInfo here
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT ChmodJob *chmod(const KFileItemList &lstItems,
                                int permissions,

@@ -11,12 +11,12 @@
 
 namespace KDEPrivate
 {
-/**
- * @brief Provides drop-down menus for the URL navigator.
+/*!
+ * Provides drop-down menus for the URL navigator.
  *
  * The implementation extends QMenu with drag & drop support.
  *
- * @internal
+ * \internal
  */
 class KUrlNavigatorMenu : public QMenu
 {
@@ -27,13 +27,13 @@ public:
     ~KUrlNavigatorMenu() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Is emitted when drop event occurs.
      */
     void urlsDropped(QAction *action, QDropEvent *event);
 
-    /**
-     * Is emitted, if the action \p action has been clicked.
+    /*!
+     * Is emitted, if the action \a action has been clicked.
      */
     void mouseButtonClicked(QAction *action, Qt::MouseButton button);
 

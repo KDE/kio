@@ -19,10 +19,11 @@ class QMenu;
 class QWidget;
 class KFileItemListProperties;
 
-/**
- * @class KAbstractFileItemActionPlugin kabstractfileitemactionplugin.h <KAbstractFileItemActionPlugin>
+/*!
+ * \class KAbstractFileItemActionPlugin
+ * \inmodule KIOWidgets
  *
- * @brief Base class for KFileItemAction plugins.
+ * \brief Base class for KFileItemAction plugins.
  *
  * KFileItemAction plugins allow dynamic features to be added to the context
  * menus for files and directories when browsing.
@@ -52,9 +53,9 @@ class KFileItemListProperties;
  * MimeType=some/mimetype;
  * \endcode
  *
- * Note the \p KFileItemAction/Plugin service type which is used by
+ * Note the KFileItemAction/Plugin service type which is used by
  * KFileItemActions::addServicePluginActionsTo() to load all available plugins
- * and the \p MimeType field which specifies for which types of file items
+ * and the MimeType field which specifies for which types of file items
  * the setup() method should be called.
  *
  * The desktop file contents must also be compiled into the plugin as JSON data.
@@ -66,40 +67,42 @@ class KFileItemListProperties;
  * target_link_libraries(myactionplugin KF5::KIOWidgets)
  * \endcode
  *
- * @note the plugin should be installed in the "kf5/kfileitemaction" subfolder of $QT_PLUGIN_PATH.
- * @note If the plugin has a lower priority and should show up in the "Actions" submenu,
+ * \note The plugin should be installed in the "kf5/kfileitemaction" subfolder of $QT_PLUGIN_PATH.
+ *
+ * \note If the plugin has a lower priority and should show up in the "Actions" submenu,
  * you can set the X-KDE-Show-In-Submenu property to true.
  *
- * @author Sebastian Trueg <trueg@kde.org>
- *
- * @since 4.6.1
+ * \since 4.6.1
  */
 class KIOWIDGETS_EXPORT KAbstractFileItemActionPlugin : public QObject
 {
     Q_OBJECT
 
 public:
+    /*!
+     *
+     */
     explicit KAbstractFileItemActionPlugin(QObject *parent);
 
     ~KAbstractFileItemActionPlugin() override;
 
-    /**
-     * Implement the actions method in the plugin in order to create actions.
-     *
-     * @param fileItemInfos  Information about the selected file items.
-     * @param parentWidget   To be used as parent for the returned QActions
-     *
-     * @return A list of actions to be added to a contextual menu for the file
-     *         items.
-     */
     // TODO KF7 make this asynchronous and stoppable, so a bad plugin cannot impact too much the application process
     // KIO could enforce a timeout and run it in a Thread
+    /*!
+     * Implement the actions method in the plugin in order to create actions.
+     *
+     * \a fileItemInfos  Information about the selected file items.
+     *
+     * \a parentWidget   To be used as parent for the returned QActions
+     *
+     * Returns a list of actions to be added to a contextual menu for the file items.
+     */
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emits an error which will be displayed to the user
-     * @since 5.82
+     * \since 5.82
      */
     void error(const QString &errorMessage);
 };

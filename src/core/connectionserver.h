@@ -29,14 +29,14 @@ public:
     explicit ConnectionServer(QObject *parent = nullptr);
     ~ConnectionServer() override;
 
-    /**
+    /*!
      * Sets this connection to listen mode. Use address() to obtain the
      * address this is listening on.
      */
     void listenForRemote();
     bool isListening() const;
 
-    /**
+    /*!
      * Returns the address for this connection if it is listening, an empty
      * address if not.
      */

@@ -30,10 +30,10 @@ class Job;
 
 namespace KDEPrivate
 {
-/**
+/*!
  * 'General' plugin
  *  This plugin displays the name of the file, its size and access times.
- * @internal
+ * \internal
  */
 class KFilePropsPlugin : public KPropertiesDialogPlugin
 {
@@ -42,19 +42,19 @@ public:
     explicit KFilePropsPlugin(KPropertiesDialog *_props);
     ~KFilePropsPlugin() override;
 
-    /**
+    /*!
      * Applies all changes made.  This plugin must be always the first
      * plugin in the dialog, since this function may rename the file which
      * may confuse other applyChanges functions.
      */
     void applyChanges() override;
 
-    /**
+    /*!
      * Tests whether the files specified by _items need a 'General' plugin.
      */
     static bool supports(const KFileItemList &_items);
 
-    /**
+    /*!
      * Called after all plugins applied their changes
      */
     void postApplyChanges();
@@ -89,11 +89,11 @@ private:
     std::unique_ptr<KFilePropsPluginPrivate> d;
 };
 
-/**
+/*!
  * 'Permissions' plugin
  * In this plugin you can modify permissions and change
  * the owner of a file.
- * @internal
+ * \internal
  */
 class KFilePermissionsPropsPlugin : public KPropertiesDialogPlugin
 {
@@ -117,7 +117,7 @@ public:
 
     void applyChanges() override;
 
-    /**
+    /*!
      * Tests whether the file specified by _items needs a 'Permissions' plugin.
      */
     static bool supports(const KFileItemList &_items);
@@ -159,7 +159,7 @@ private Q_SLOTS:
     void slotShowSha1();
     void slotShowSha256();
     void slotShowSha512();
-    /**
+    /*!
      * Compare @p input (required to be lowercase) with the checksum in cache.
      */
     void slotVerifyChecksum(const QString &input);
@@ -186,13 +186,13 @@ private:
     std::unique_ptr<KChecksumsPluginPrivate> d;
 };
 
-/**
+/*!
  * Used to edit the files containing
  * [Desktop Entry]
  * URL=....
  *
  * Such files are used to represent a program in kicker and konqueror.
- * @internal
+ * \internal
  */
 class KUrlPropsPlugin : public KPropertiesDialogPlugin
 {
@@ -212,13 +212,13 @@ private:
     std::unique_ptr<KUrlPropsPluginPrivate> d;
 };
 
-/**
+/*!
  * Used to edit the files containing
  * [Desktop Entry]
  * Type=Application
  *
  * Such files are used to represent a program in kicker and konqueror.
- * @internal
+ * \internal
  */
 class KDesktopPropsPlugin : public KPropertiesDialogPlugin
 {

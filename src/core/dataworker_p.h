@@ -23,14 +23,13 @@ class QTimer;
 
 namespace KIO
 {
-/**
+/*!
  * This class provides a high performance implementation for the data
  * url scheme (rfc2397).
  *
- * @internal
+ * \internal
  * Do not use this class in external applications. It is an implementation
  * detail of KIO and subject to change without notice.
- * @author Leo Savernik
  */
 class DataWorker : public KIO::Worker
 {
@@ -53,19 +52,19 @@ public:
     virtual void mimetype(const QUrl &url) = 0;
 
 protected:
-    /**
+    /*!
      * Sets metadata
-     * @internal
+     * \internal
      */
     void setAllMetaData(const MetaData &);
-    /**
+    /*!
      * Sends metadata set with setAllMetaData
-     * @internal
+     * \internal
      */
     void sendMetaData();
 
     // queuing methods
-    /** identifiers of functions to be queued */
+    /*! identifiers of functions to be queued */
     enum QueueType {
         Queue_mimeType = 1,
         Queue_totalSize,
@@ -73,7 +72,7 @@ protected:
         Queue_data,
         Queue_finished,
     };
-    /** structure for queuing. It is very primitive, it doesn't
+    /*! structure for queuing. It is very primitive, it doesn't
      * even try to conserve memory.
      */
     struct QueueStruct {
@@ -100,7 +99,7 @@ protected:
     DISPATCH_DECL(finished)
 
 protected Q_SLOTS:
-    /** dispatches next queued method. Does nothing if there are no
+    /*! dispatches next queued method. Does nothing if there are no
      * queued methods.
      */
     void dispatchNext();

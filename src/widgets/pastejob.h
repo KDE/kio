@@ -19,17 +19,19 @@ namespace KIO
 {
 class CopyJob;
 class PasteJobPrivate;
-/**
- * @class KIO::PasteJob pastejob.h <KIO/PasteJob>
+/*!
+ * \class KIO::PasteJob
+ * \inheaderfile KIO/PasteJob
+ * \inmodule KIOWidgets
  *
- * A KIO job that handles pasting the clipboard contents.
+ * \brief A KIO job that handles pasting the clipboard contents.
  *
  * If the clipboard contains URLs, they are copied to the destination URL.
  * If the clipboard contains data, it is saved into a file after asking
  * the user to choose a filename and the preferred data format.
  *
- * @see KIO::pasteClipboard
- * @since 5.4
+ * \sa KIO::paste
+ * \since 5.4
  */
 class KIOWIDGETS_EXPORT PasteJob : public Job
 {
@@ -39,19 +41,19 @@ public:
     ~PasteJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a file or directory was created.
      */
     void itemCreated(const QUrl &url);
 
-    /**
+    /*!
      * Emitted when a copy job was started as subjob as part of pasting. Note that a
      * CopyJob isn't always started by PasteJob. For instance pasting image content will create a file.
      *
-     * You can use @p job to monitor the progress of the copy/move/link operation.
+     * You can use \a job to monitor the progress of the copy/move/link operation.
      *
-     * @param job the job started for moving, copying or symlinking files
-     * @since 6.0
+     * \a job the job started for moving, copying or symlinking files
+     * \since 6.0
      */
     void copyJobStarted(KIO::CopyJob *job);
 
@@ -65,7 +67,9 @@ private:
     Q_DECLARE_PRIVATE(PasteJob)
 };
 
-/**
+/*!
+ * \relates KIO::PasteJob
+ *
  * Pastes the clipboard contents.
  *
  * If the clipboard contains URLs, they are copied (or moved) to the destination URL,
@@ -77,12 +81,14 @@ private:
  * itemCreated for every file or directory being created, so that the view can select
  * these items.
  *
- * @param mimeData the MIME data to paste, usually QApplication::clipboard()->mimeData()
- * @param destDir The URL of the target directory
- * @param flags passed to the sub job
+ * \a mimeData the MIME data to paste, usually QApplication::clipboard()->mimeData()
  *
- * @return A pointer to the job handling the operation.
- * @since 5.4
+ * \a destDir The URL of the target directory
+ *
+ * \a flags passed to the sub job
+ *
+ * Returns a pointer to the job handling the operation.
+ * \since 5.4
  */
 KIOWIDGETS_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
 

@@ -17,8 +17,8 @@
 
 class KApplicationModelPrivate;
 
-/**
- * @internal
+/*!
+ * \internal
  */
 class KApplicationModel : public QAbstractItemModel
 {
@@ -50,8 +50,8 @@ private:
     Q_DISABLE_COPY(KApplicationModel)
 };
 
-/**
- * @internal
+/*!
+ * \internal
  */
 class QTreeViewProxyFilter : public QSortFilterProxyModel
 {
@@ -64,8 +64,8 @@ public:
 
 class KApplicationViewPrivate;
 
-/**
- * @internal
+/*!
+ * \internal
  */
 class KApplicationView : public QTreeView
 {

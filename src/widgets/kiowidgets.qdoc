@@ -1,0 +1,10 @@
+/*!
+    \module KIOWidgets
+    \title KIO Widgets C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KF6::KIOWidgets
+
+    \brief Network transparent access to files and data.
+*/

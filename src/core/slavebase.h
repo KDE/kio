@@ -30,7 +30,7 @@ class SlaveBasePrivate;
 // TODO: Enable once file KIO worker is ported away and add endif, similar in the cpp file
 // #if KIOCORE_ENABLE_DEPRECATED_SINCE(version where file:/ KIO worker was ported)
 
-/**
+/*
  * @class KIO::SlaveBase slavebase.h <KIO/SlaveBase>
  *
  * There are two classes that specifies the protocol between application (job)
@@ -59,14 +59,14 @@ public:
     SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
     virtual ~SlaveBase();
 
-    /**
-     * @internal
+    /*
+     * \internal
      * Terminate the slave by calling the destructor and then ::exit()
      */
     void exit();
 
-    /**
-     * @internal
+    /*
+     * \internal
      */
     void dispatchLoop();
 
@@ -74,29 +74,29 @@ public:
     // Message Signals to send to the job
     ///////////
 
-    /**
+    /*
      * Sends data in the slave to the job (i.e.\ in get).
      *
      * To signal end of data, simply send an empty
      * QByteArray().
      *
-     * @param data the data read by the slave
+     * \a data the data read by the slave
      */
     void data(const QByteArray &data);
 
-    /**
+    /*
      * Asks for data from the job.
-     * @see readData
+     * \sa readData
      */
     void dataReq();
 
-    /**
+    /*
      * open succeeds
-     * @see open()
+     * \sa open()
      */
     void opened();
 
-    /**
+    /*
      * Call to signal an error.
      * This also finishes the job, so you must not call
      * finished() after calling this.
@@ -119,49 +119,49 @@ public:
      * You can add rich text markup to the message, the places where the
      * error message will be displayed are rich text aware.
      *
-     * @see KIO::Error
-     * @see KIO::buildErrorString
-     * @param _errid the error code from KIO::Error
-     * @param _text the rich text error message
+     * \sa KIO::Error
+     * \sa KIO::buildErrorString
+     * \a _errid the error code from KIO::Error
+     * \a _text the rich text error message
      */
     void error(int _errid, const QString &_text);
 
-    /**
+    /*
      * Call in openConnection, if you reimplement it, when you're done.
      */
     void connected();
 
-    /**
+    /*
      * Call to signal successful completion of any command
      * besides openConnection and closeConnection. Do not
      * call this after calling error().
      */
     void finished();
 
-    /**
+    /*
      * Used to report the status of the slave.
-     * @param host the slave is currently connected to. (Should be
+     * \a host the slave is currently connected to. (Should be
      *        empty if not connected)
-     * @param connected Whether an actual network connection exists.
+     * \a connected Whether an actual network connection exists.
      **/
     void slaveStatus(const QString &host, bool connected);
 
-    /**
+    /*
      * Call this from stat() to express details about an object, the
      * UDSEntry customarily contains the atoms describing file name, size,
      * MIME type, etc.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void statEntry(const UDSEntry &_entry);
 
-    /**
+    /*
      * Call this in listDir, each time you have a bunch of entries
      * to report.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void listEntries(const UDSEntryList &_entry);
 
-    /**
+    /*
      * Call this at the beginning of put(), to give the size of the existing
      * partial file, if there is one. The @p offset argument notifies the
      * other job (the one that gets the data) about the offset to use.
@@ -170,7 +170,7 @@ public:
      */
     bool canResume(KIO::filesize_t offset);
 
-    /**
+    /*
      * Call this at the beginning of get(), if the "range-start" metadata was set
      * and returning byte ranges is implemented by this protocol.
      */
@@ -180,12 +180,12 @@ public:
     // Info Signals to send to the job
     ///////////
 
-    /**
+    /*
      * Call this in get and copy, to give the total size
      * of the file.
      */
     void totalSize(KIO::filesize_t _bytes);
-    /**
+    /*
      * Call this during get and copy, once in a while,
      * to give some info about the current state.
      * Don't emit it in listDir, listEntries speaks for itself.
@@ -196,12 +196,12 @@ public:
 
     void written(KIO::filesize_t _bytes);
 
-    /**
-     * @since 5.66
+    /*
+     * \since 5.66
      */
     void truncated(KIO::filesize_t _length);
 
-    /**
+    /*
      * Only use this if you can't know in advance the size of the
      * copied data. For example, if you're doing variable bitrate
      * compression of the source.
@@ -214,71 +214,71 @@ public:
      */
     void processedPercent(float percent); // KF6 TODO REMOVE
 
-    /**
+    /*
      * Call this in get and copy, to give the current transfer
      * speed, but only if it can't be calculated out of the size you
      * passed to processedSize (in most cases you don't want to call it)
      */
     void speed(unsigned long _bytes_per_second);
 
-    /**
+    /*
      * Call this to signal a redirection.
      * The job will take care of going to that url.
      */
     void redirection(const QUrl &_url);
 
-    /**
+    /*
      * Call this in mimetype() and in get(), when you know the MIME type.
      * See mimetype() about other ways to implement it.
      */
     void mimeType(const QString &_type);
 
-    /**
+    /*
      * Call to signal a warning, to be displayed in a dialog box.
      */
     void warning(const QString &msg);
 
-    /**
+    /*
      * Call to signal a message, to be displayed if the application wants to,
      * for instance in a status bar. Usual examples are "connecting to host xyz", etc.
      */
     void infoMessage(const QString &msg);
 
-    /**
+    /*
      * Type of message box. Should be kept in sync with KMessageBox::DialogType.
      */
     enum MessageBoxType {
-        QuestionTwoActions = 1, ///< @since 5.100
-        WarningTwoActions = 2, ///< @since 5.100
+        QuestionTwoActions = 1, ///< \since 5.100
+        WarningTwoActions = 2, ///< \since 5.100
         WarningContinueCancel = 3,
-        WarningTwoActionsCancel = 4, ///< @since 5.100
+        WarningTwoActionsCancel = 4, ///< \since 5.100
         Information = 5,
         // In KMessageBox::DialogType; <unused> = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
     };
 
-    /**
+    /*
      * Button codes. Should be kept in sync with KMessageBox::ButtonCode
      */
     enum ButtonCode {
         Ok = 1,
         Cancel = 2,
-        PrimaryAction = 3, ///< @since 5.100
-        SecondaryAction = 4, ///< @since 5.100
+        PrimaryAction = 3, ///< \since 5.100
+        SecondaryAction = 4, ///< \since 5.100
         Continue = 5,
     };
 
-    /**
+    /*
      * Call this to show a message box from the slave
-     * @param type type of message box: QuestionTwoActions, WarningTwoActions, WarningContinueCancel...
-     * @param text Message string. May contain newlines.
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
+     * \a type type of message box: QuestionTwoActions, WarningTwoActions, WarningContinueCancel...
+     * \a text Message string. May contain newlines.
+     * \a title Message box title.
+     * \a primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     * @param secondaryActionText the text for the second button.
+     * \a secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
                    const QString &text,
@@ -288,18 +288,18 @@ public:
 
     int sslError(const QVariantMap &sslData);
 
-    /**
+    /*
      * Call this to show a message box from the slave
-     * @param text Message string. May contain newlines.
-     * @param type type of message box: QuestionTwoActions, WarningTwoActions, WarningContinueCancel...
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
+     * \a text Message string. May contain newlines.
+     * \a type type of message box: QuestionTwoActions, WarningTwoActions, WarningContinueCancel...
+     * \a title Message box title.
+     * \a primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     * @param secondaryActionText the text for the second button.
+     * \a secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     * \a dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(const QString &text,
                    MessageBoxType type,
@@ -308,59 +308,59 @@ public:
                    const QString &secondaryActionText = QString(),
                    const QString &dontAskAgainName = QString());
 
-    /**
+    /*
      * Sets meta-data to be send to the application before the first
      * data() or finished() signal.
      */
     void setMetaData(const QString &key, const QString &value);
 
-    /**
+    /*
      * Queries for the existence of a certain config/meta-data entry
      * send by the application to the slave.
      */
     bool hasMetaData(const QString &key) const;
 
-    /**
+    /*
      * Queries for config/meta-data send by the application to the slave.
      */
     QString metaData(const QString &key) const;
 
-    /**
-     * @internal for ForwardingSlaveBase
+    /*
+     * \internal for ForwardingSlaveBase
      * Contains all metadata (but no config) sent by the application to the slave.
      */
     MetaData allMetaData() const;
 
-    /**
+    /*
      * Returns a map to query config/meta-data information from.
      *
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      *
      * Use configValue() as shortcut.
-     * @since 5.64
+     * \since 5.64
      */
     QMap<QString, QVariant> mapConfig() const;
 
-    /**
+    /*
      * Returns a bool from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     bool configValue(const QString &key, bool defaultValue) const;
 
-    /**
+    /*
      * Returns an int from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     int configValue(const QString &key, int defaultValue) const;
 
-    /**
+    /*
      * Returns a QString from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
-    /**
+    /*
      * Returns a configuration object to query config/meta-data information
      * from.
      *
@@ -373,7 +373,7 @@ public:
     KConfigGroup *config();
     // KF6: perhaps rename mapConfig() to config() when removing this
 
-    /**
+    /*
      * Returns an object that can translate remote filenames into proper
      * Unicode forms. This encoding can be set by the user.
      */
@@ -384,7 +384,7 @@ public:
     // override what it wants to implement
     ///////////
 
-    /**
+    /*
      * Set the host
      *
      * Called directly by createWorker, this is why there is no equivalent in
@@ -394,7 +394,7 @@ public:
      */
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
 
-    /**
+    /*
      * Opens the connection (forced).
      *
      * When this function gets called the slave is operating in
@@ -406,7 +406,7 @@ public:
      */
     virtual void openConnection();
 
-    /**
+    /*
      * Closes the connection (forced).
      *
      * Called when the application disconnects the slave to close
@@ -417,9 +417,9 @@ public:
      */
     virtual void closeConnection();
 
-    /**
+    /*
      * get, aka read.
-     * @param url the full url for this request. Host, port and user of the URL
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
      *
      * The slave should first "emit" the MIME type by calling mimeType(),
@@ -438,44 +438,44 @@ public:
      */
     virtual void get(const QUrl &url);
 
-    /**
+    /*
      * open.
-     * @param url the full url for this request. Host, port and user of the URL
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
-     * @param mode see \ref QIODevice::OpenMode
+     * \a mode see \ref QIODevice::OpenMode
      */
     virtual void open(const QUrl &url, QIODevice::OpenMode mode);
 
-    /**
+    /*
      * read.
-     * @param size the requested amount of data to read
-     * @see KIO::FileJob::read()
+     * \a size the requested amount of data to read
+     * \sa KIO::FileJob::read()
      */
     virtual void read(KIO::filesize_t size);
-    /**
+    /*
      * write.
-     * @param data the data to write
-     * @see KIO::FileJob::write()
+     * \a data the data to write
+     * \sa KIO::FileJob::write()
      */
     virtual void write(const QByteArray &data);
-    /**
+    /*
      * seek.
-     * @param offset the requested amount of data to read
-     * @see KIO::FileJob::read()
+     * \a offset the requested amount of data to read
+     * \sa KIO::FileJob::read()
      */
     virtual void seek(KIO::filesize_t offset);
-    /**
+    /*
      * close.
-     * @see KIO::FileJob::close()
+     * \sa KIO::FileJob::close()
      */
     virtual void close();
 
-    /**
+    /*
      * put, i.e.\ write data into a file.
      *
-     * @param url where to write the file
-     * @param permissions may be -1. In this case no special permission mode is set.
-     * @param flags We support Overwrite here. Hopefully, we're going to
+     * \a url where to write the file
+     * \a permissions may be -1. In this case no special permission mode is set.
+     * \a flags We support Overwrite here. Hopefully, we're going to
      * support Resume in the future, too.
      * If the file indeed already exists, the slave should NOT apply the
      * permissions change to it.
@@ -483,11 +483,11 @@ public:
      *
      * IMPORTANT: Use the "modified" metadata in order to set the modification time of the file.
      *
-     * @see canResume()
+     * \sa canResume()
      */
     virtual void put(const QUrl &url, int permissions, JobFlags flags);
 
-    /**
+    /*
      * Finds all details for one file or directory.
      * The information returned is the same as what listDir returns,
      * but only for one file or directory.
@@ -504,7 +504,7 @@ public:
      */
     virtual void stat(const QUrl &url);
 
-    /**
+    /*
      * Finds MIME type for one file or directory.
      *
      * This method should either emit 'mimeType' or it
@@ -518,7 +518,7 @@ public:
      */
     virtual void mimetype(const QUrl &url);
 
-    /**
+    /*
      * Lists the contents of @p url.
      * The slave should emit ERR_CANNOT_ENTER_DIRECTORY if it doesn't exist,
      * if we don't have enough permissions.
@@ -527,16 +527,16 @@ public:
      */
     virtual void listDir(const QUrl &url);
 
-    /**
+    /*
      * Create a directory
-     * @param url path to the directory to create
-     * @param permissions the permissions to set after creating the directory
+     * \a url path to the directory to create
+     * \a permissions the permissions to set after creating the directory
      * (-1 if no permissions to be set)
      * The slave emits ERR_CANNOT_MKDIR if failure.
      */
     virtual void mkdir(const QUrl &url, int permissions);
 
-    /**
+    /*
      * Rename @p oldname into @p newname.
      * If the slave returns an error ERR_UNSUPPORTED_ACTION, the job will
      * ask for copy + del instead.
@@ -558,36 +558,36 @@ public:
      * moving a file from yourproto: to file:.
      * See KProtocolManager::canRenameToFile() for more details.
      *
-     * @param src where to move the file from
-     * @param dest where to move the file to
-     * @param flags We support Overwrite here
+     * \a src where to move the file from
+     * \a dest where to move the file to
+     * \a flags We support Overwrite here
      */
     virtual void rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
-    /**
+    /*
      * Creates a symbolic link named @p dest, pointing to @p target, which
      * may be a relative or an absolute path.
-     * @param target The string that will become the "target" of the link (can be relative)
-     * @param dest The symlink to create.
-     * @param flags We support Overwrite here
+     * \a target The string that will become the "target" of the link (can be relative)
+     * \a dest The symlink to create.
+     * \a flags We support Overwrite here
      */
     virtual void symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
-    /**
+    /*
      * Change permissions on @p url.
      *
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
      */
     virtual void chmod(const QUrl &url, int permissions);
 
-    /**
+    /*
      * Change ownership of @p url.
      *
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
      */
     virtual void chown(const QUrl &url, const QString &owner, const QString &group);
 
-    /**
+    /*
      * Sets the modification time for @p url.
      *
      * For instance this is what CopyJob uses to set mtime on dirs at the end of a copy.
@@ -597,7 +597,7 @@ public:
      */
     virtual void setModificationTime(const QUrl &url, const QDateTime &mtime);
 
-    /**
+    /*
      * Copy @p src into @p dest.
      *
      * By default, copy() is only called when copying a file from
@@ -618,20 +618,20 @@ public:
      * If the slave returns an error ERR_FILE_ALREADY_EXIST, the job will
      * ask for a different destination filename.
      *
-     * @param src where to copy the file from (decoded)
-     * @param dest where to copy the file to (decoded)
-     * @param permissions may be -1. In this case no special permission mode is set,
+     * \a src where to copy the file from (decoded)
+     * \a dest where to copy the file to (decoded)
+     * \a permissions may be -1. In this case no special permission mode is set,
      *        and the owner and group permissions are not preserved.
-     * @param flags We support Overwrite here
+     * \a flags We support Overwrite here
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.
      */
     virtual void copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags);
 
-    /**
+    /*
      * Delete a file or directory.
-     * @param url file/directory to delete
-     * @param isfile if true, a file should be deleted.
+     * \a url file/directory to delete
+     * \a isfile if true, a file should be deleted.
      *               if false, a directory should be deleted.
      *
      * By default, del() on a directory should FAIL if the directory is not empty.
@@ -640,67 +640,83 @@ public:
      */
     virtual void del(const QUrl &url, bool isfile);
 
-    /**
+    /*
      * Change the destination of a symlink
-     * @param url the url of the symlink to modify
-     * @param target the new destination (target) of the symlink
+     * \a url the url of the symlink to modify
+     * \a target the new destination (target) of the symlink
      */
     virtual void setLinkDest(const QUrl &url, const QString &target);
 
-    /**
+    /*
      * Used for any command that is specific to this slave (protocol).
      *
      * Examples are : HTTP POST, mount and unmount (kio_file)
      *
-     * @param data packed data; the meaning is completely dependent on the
+     * \a data packed data; the meaning is completely dependent on the
      *        slave, but usually starts with an int for the command number.
      * Document your slave's commands, at least in its header file.
      */
     virtual void special(const QByteArray &data);
 
-    /**
+    /*
      * Called to get the status of the slave. Slave should respond
      * by calling slaveStatus(...)
      */
     virtual void slave_status();
 
-    /**
+    /*
      * Called by the scheduler to tell the slave that the configuration
      * changed (i.e.\ proxy settings).
      */
     virtual void reparseConfiguration();
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for connecting to remote host.
+    /*!
+     * Returns timeout value for connecting to remote host.
+     *
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     int connectTimeout();
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for connecting to proxy in secs.
+    /*!
+     * Returns timeout value for connecting to proxy in secs.
+     *
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     int proxyConnectTimeout();
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for read from first data from
+    /*!
+     * Returns timeout value for read from first data from
      * remote host in seconds.
+     *
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     int responseTimeout();
 #endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
-    /**
-     * @return timeout value for read from subsequent data from
+    /*!
+     * Returns timeout value for read from subsequent data from
      * remote host in secs.
+     *
+     * This is not used.
+     *
+     * \deprecated[6.11]
      */
     int readTimeout();
 #endif
 
-    /**
+    /*
      * This function sets a timeout of @p timeout seconds and calls
      * special(data) when the timeout occurs as if it was called by the
      * application.
@@ -719,45 +735,45 @@ public:
     // Dispatching (internal)
     ////////////////
 
-    /**
-     * @internal
+    /*
+     * \internal
      */
     virtual void dispatch(int command, const QByteArray &data);
 
-    /**
-     * @internal
+    /*
+     * \internal
      */
     virtual void dispatchOpenCommand(int command, const QByteArray &data);
 
-    /**
+    /*
      * Read data sent by the job, after a dataReq
      *
-     * @param buffer buffer where data is stored
-     * @return 0 on end of data,
+     * \a buffer buffer where data is stored
+     * Returns 0 on end of data,
      *         > 0 bytes read
      *         < 0 error
      **/
     int readData(QByteArray &buffer);
 
-    /**
+    /*
      * It collects entries and emits them via listEntries
      * when enough of them are there or a certain time
      * frame exceeded (to make sure the app gets some
      * items in time but not too many items one by one
      * as this will cause a drastic performance penalty).
-     * @param entry The UDSEntry containing all of the object attributes.
-     * @since 5.0
+     * \a entry The UDSEntry containing all of the object attributes.
+     * \since 5.0
      */
     void listEntry(const UDSEntry &entry);
 
-    /**
+    /*
      * internal function to connect a slave to/ disconnect from
      * either the slave pool or the application
      */
     void connectSlave(const QString &path);
     void disconnectSlave();
 
-    /**
+    /*
      * Prompt the user for Authorization info (login & password).
      *
      * Use this function to request authorization information from
@@ -800,14 +816,14 @@ public:
      * store the password information in a persistent storage like
      * KWallet, then you MUST call @ref cacheAuthentication.
      *
-     * @see checkCachedAuthentication
-     * @param info  See AuthInfo.
-     * @param errorMsg Error message to show
-     * @return a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
+     * \sa checkCachedAuthentication
+     * \a info  See AuthInfo.
+     * \a errorMsg Error message to show
+     * Returns a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
      */
     int openPasswordDialogV2(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
-    /**
+    /*
      * Checks for cached authentication based on parameters
      * given by @p info.
      *
@@ -831,12 +847,12 @@ public:
      * }
      * \endcode
      *
-     * @param       info See AuthInfo.
-     * @return      @p true if cached Authorization is found, false otherwise.
+     * \a       info See AuthInfo.
+     * Returns      @p true if cached Authorization is found, false otherwise.
      */
     bool checkCachedAuthentication(AuthInfo &info);
 
-    /**
+    /*
      * Caches @p info in a persistent storage like KWallet.
      *
      * Note that calling openPasswordDialogV2 does not store passwords
@@ -859,18 +875,18 @@ public:
      * }
      * \endcode
      *
-     * @param info See AuthInfo.
-     * @return @p true if @p info was successfully cached.
+     * \a info See AuthInfo.
+     * Returns @p true if @p info was successfully cached.
      */
     bool cacheAuthentication(const AuthInfo &info);
 
-    /**
+    /*
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
-     * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
+     * Returns the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
      */
     int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = nullptr);
 
-    /**
+    /*
      * Internal function to transmit meta data to the application.
      * m_outgoingMetaData will be cleared; this means that if the slave is for
      * example put on hold and picked up by a different KIO::Job later the new
@@ -884,7 +900,7 @@ public:
      */
     void sendMetaData();
 
-    /**
+    /*
      * Internal function to transmit meta data to the application.
      * Like sendMetaData() but m_outgoingMetaData will not be cleared.
      * This method is mainly useful in code that runs before the slave is connected
@@ -892,47 +908,47 @@ public:
      */
     void sendAndKeepMetaData();
 
-    /** If your ioslave was killed by a signal, wasKilled() returns true.
+    /* If your ioslave was killed by a signal, wasKilled() returns true.
      Check it regularly in lengthy functions (e.g. in get();) and return
      as fast as possible from this function if wasKilled() returns true.
      This will ensure that your slave destructor will be called correctly.
      */
     bool wasKilled() const;
 
-    /** Internally used.
-     * @internal
+    /* Internally used.
+     * \internal
      */
     void setKillFlag();
 
-    /** Internally used
-     * @internal
+    /* Internally used
+     * \internal
      */
     void lookupHost(const QString &host);
 
-    /** Internally used
-     * @internal
+    /* Internally used
+     * \internal
      */
     int waitForHostInfo(QHostInfo &info);
 
-    /**
+    /*
      * Checks with job if privilege operation is allowed.
-     * @return privilege operation status.
-     * @see PrivilegeOperationStatus
-     * @since 5.66
+     * Returns privilege operation status.
+     * \sa PrivilegeOperationStatus
+     * \since 5.66
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
-    /**
+    /*
      * Adds @p action to the list of PolicyKit actions which the
      * slave is authorized to perform.
      *
-     * @param action the PolicyKit action
-     * @since 5.45
+     * \a action the PolicyKit action
+     * \since 5.45
      */
     void addTemporaryAuthorization(const QString &action);
 
 protected:
-    /**
+    /*
      * Name of the protocol supported by this slave
      */
     QByteArray mProtocol;
@@ -978,12 +994,12 @@ private:
 namespace KIO
 {
 
-/**
+/*
  * Returns an appropriate error message if the given command @p cmd
  * is an unsupported action (ERR_UNSUPPORTED_ACTION).
- * @param protocol name of the protocol
- * @param cmd given command
- * @see enum Command
+ * \a protocol name of the protocol
+ * \a cmd given command
+ * \sa enum Command
  */
 KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 }

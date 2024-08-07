@@ -15,12 +15,14 @@ namespace KIO
 {
 class BatchRenameJobPrivate;
 
-/**
- * @class KIO::BatchRenameJob batchrenamejob.h <KIO/BatchRenameJob>
+/*!
+ * \class KIO::BatchRenameJob
+ * \inheaderfile KIO/BatchRenameJob
+ * \inmodule KIOCore
  *
- * A KIO job that renames multiple files in one go.
+ * \brief A KIO job that renames multiple files in one go.
  *
- * @since 5.42
+ * \since 5.42
  */
 class KIOCORE_EXPORT BatchRenameJob : public Job
 {
@@ -30,41 +32,52 @@ public:
     ~BatchRenameJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a file was renamed.
      */
     void fileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
 
 protected Q_SLOTS:
+    /*!
+     * \reimp
+     */
     void slotResult(KJob *job) override;
 
 protected:
-    /// @internal
+    /*!
+     * \internal
+     */
     KIOCORE_NO_EXPORT explicit BatchRenameJob(BatchRenameJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(BatchRenameJob)
 };
 
-/**
+/*!
+ * \relates KIO::BatchRenameJob
+ *
  * Renames multiple files at once.
  *
  * The new filename is obtained by replacing the characters represented by
- * @p placeHolder by the index @p index.
+ * \a placeHolder by the index \a index.
+ *
  * E.g. Calling batchRename({"file:///Test.jpg"}, "Test #" 12, '#') renames
  * the file to "Test 12.jpg". A connected sequence of placeholders results in
  * leading zeros. batchRename({"file:///Test.jpg"}, "Test ####" 12, '#') renames
- * the file to "Test 0012.jpg". And if no placeholder is there then @p index is
- * appended to @p newName. Calling batchRename({"file:///Test.jpg"}, "NewTest" 12, '#')
+ * the file to "Test 0012.jpg". And if no placeholder is there then \a index is
+ * appended to \a newName. Calling batchRename({"file:///Test.jpg"}, "NewTest" 12, '#')
  * renames the file to "NewTest12.jpg".
  *
- * @param src The list of items to rename.
- * @param newName The base name to use in all new filenames.
- * @param index The integer(incremented after renaming a file) to add to the base name.
- * @param placeHolder The character(s) which @p index will replace.
+ * \a src The list of items to rename.
  *
- * @return A pointer to the job handling the operation.
- * @since 5.42
+ * \a newName The base name to use in all new filenames.
+ *
+ * \a index The integer(incremented after renaming a file) to add to the base name.
+ *
+ * \a placeHolder The character(s) which \a index will replace.
+ *
+ * Returns a pointer to the job handling the operation.
+ * \since 5.42
  */
 KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags = DefaultFlags);
 

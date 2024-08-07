@@ -121,11 +121,7 @@ KIOCORE_EXPORT QString KIO::decodeFileName(const QString &_str)
     return _str;
 }
 
-/***************************************************************
- *
- * Utility functions
- *
- ***************************************************************/
+// Utility functions
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(6, 6)
 KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)

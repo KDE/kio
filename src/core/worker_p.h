@@ -38,15 +38,15 @@ public:
 
     ~Worker() override;
 
-    /**
+    /*!
      * Sends the given command to the KIO worker.
      * Called by the jobs.
-     * @param cmd command id
-     * @param arr byte array containing data
+     * \a cmd command id
+     * \a arr byte array containing data
      */
     virtual void send(int cmd, const QByteArray &arr = QByteArray());
 
-    /**
+    /*!
      * The actual protocol used to handle the request.
      *
      * This method will return a different protocol than
@@ -56,58 +56,61 @@ public:
      * when the actual request was to retrieve a resource
      * from an "ftp" server by going through a proxy server.
      *
-     * @return the actual protocol (KIO worker) that handled the request
+     * Returns the actual protocol (KIO worker) that handled the request
      */
     QString workerProtocol() const;
 
-    /**
-     * @return Host this worker is (was?) connected to
+    /*!
+     * Returns Host this worker is (was?) connected to
      */
     QString host() const;
 
-    /**
-     * @return port this worker is (was?) connected to
+    /*!
+     * Returns port this worker is (was?) connected to
      */
     quint16 port() const;
 
-    /**
-     * @return User this worker is (was?) logged in as
+    /*!
+     * Returns User this worker is (was?) logged in as
      */
     QString user() const;
 
-    /**
-     * @return Passwd used to log in
+    /*!
+     * Returns Passwd used to log in
      */
     QString passwd() const;
 
-    /**
+    /*!
      * Creates a new worker.
      *
-     * @param protocol the protocol
-     * @param url is the url
-     * @param error is the error code on failure and undefined else.
-     * @param error_text is the error text on failure and undefined else.
+     * \a protocol the protocol
      *
-     * @return 0 on failure, or a pointer to a worker otherwise.
+     * \a url is the url
+     *
+     * \a error is the error code on failure and undefined else.
+     *
+     * \a error_text is the error text on failure and undefined else.
+     *
+     * Returns 0 on failure, or a pointer to a worker otherwise.
      */
     static Worker *createWorker(const QString &protocol, const QUrl &url, int &error, QString &error_text);
 
     // == communication with connected kioworker ==
     // whenever possible prefer these methods over the respective
     // methods in connection()
-    /**
+    /*!
      * Suspends the operation of the attached kioworker.
      */
     virtual void suspend();
 
-    /**
+    /*!
      * Resumes the operation of the attached kioworker.
      */
     virtual void resume();
 
-    /**
+    /*!
      * Tells whether the kioworker is suspended.
-     * @return true if the kioworker is suspended.
+     * Returns true if the kioworker is suspended.
      */
     virtual bool suspended();
 
@@ -126,50 +129,54 @@ private:
     void setJob(KIO::SimpleJob *job);
     KIO::SimpleJob *job() const;
 
-    /**
+    /*!
      * Force termination
      */
     void kill();
 
-    /**
-     * @return true if the worker survived the last mission.
+    /*!
+     * Returns true if the worker survived the last mission.
      */
     bool isAlive() const;
 
-    /**
+    /*!
      * Set host for url
-     * @param host to connect to.
-     * @param port to connect to.
-     * @param user to login as
-     * @param passwd to login with
+     *
+     * \a host to connect to.
+     *
+     * \a port to connect to.
+     *
+     * \a user to login as
+     *
+     * \a passwd to login with
      */
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd);
 
-    /**
+    /*!
      * Clear host info.
      */
     void resetHost();
 
-    /**
+    /*!
      * Configure worker
      */
     virtual void setConfig(const MetaData &config);
 
-    /**
+    /*!
      * The protocol this worker handles.
      *
-     * @return name of protocol handled by this worker, as seen by the user
+     * Returns name of protocol handled by this worker, as seen by the user
      */
     QString protocol() const;
 
     void setProtocol(const QString &protocol);
 
-    /**
-     * @return The number of seconds this worker has been idle.
+    /*!
+     * Returns The number of seconds this worker has been idle.
      */
     int idleTime() const;
 
-    /**
+    /*!
      * Marks this worker as idle.
      */
     void setIdle();

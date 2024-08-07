@@ -326,13 +326,11 @@ ecm_generate_headers(KIOCore_HEADERS
   REQUIRED_HEADERS KIOCore_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOCore kiocore.qdocconf)
+
 install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ${KIOCore_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
-
-# make available to ecm_add_qch in parent folder
-set(KIOCore_QCH_SOURCES ${KIOCore_HEADERS} ${KIO_namespaced_HEADERS} PARENT_SCOPE)
-

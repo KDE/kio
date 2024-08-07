@@ -161,7 +161,7 @@ public:
     QString m_sRelativePath;
     bool m_bFromTemplate;
 
-    /**
+    /*
      * The initial filename
      */
     QString oldName;

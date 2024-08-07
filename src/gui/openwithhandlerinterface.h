@@ -19,37 +19,40 @@ namespace KIO
 {
 class OpenWithHandlerInterfacePrivate;
 
-/**
- * @class OpenWithHandlerInterface openwithhandlerinterface.h <KIO/OpenWithHandlerInterface>
- * @brief The OpenWithHandlerInterface class allows OpenUrlJob to
+/*!
+ * \class KIO::OpenWithHandlerInterface
+ * \inheaderfile KIO/OpenWithHandlerInterface
+ * \inmodule KIOGui
+ *
+ * \brief The OpenWithHandlerInterface class allows OpenUrlJob to
  * prompt the user about which application to use to open URLs that do not
  * have an associated application (via the "Open With" dialog).
  *
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension
  * and UntrustedProgramHandlerInterface.
  *
- * @since 5.71
+ * \since 5.71
  */
 class KIOGUI_EXPORT OpenWithHandlerInterface : public QObject
 {
     Q_OBJECT
 protected:
-    /**
+    /*!
      * Constructor
      */
     explicit OpenWithHandlerInterface(QObject *parent = nullptr);
 
-    /**
-     * Destructor
-     */
     ~OpenWithHandlerInterface() override;
 
 public:
-    /**
+    /*!
      * Show the "Open With" dialog.
-     * @param job the job calling this. Useful to get all its properties
-     * @param urls the URLs to open
-     * @param mimeType the MIME type of the URLs, if known. Can be empty otherwise.
+     *
+     * \a job the job calling this. Useful to get all its properties
+     *
+     * \a urls the URLs to open
+     *
+     * \a mimeType the MIME type of the URLs, if known. Can be empty otherwise.
      *
      * Implementations of this method must emit either serviceSelected or canceled.
      *
@@ -60,18 +63,19 @@ public:
     virtual void promptUserForApplication(KJob *job, const QList<QUrl> &urls, const QString &mimeType);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted by promptUserForApplication() once the user chooses an application.
-     * @param service the application chosen by the user
+     *
+     * \a service the application chosen by the user
      */
     void serviceSelected(const KService::Ptr &service);
 
-    /**
+    /*!
      * Emitted by promptUserForApplication() if the user canceled the application selection dialog.
      */
     void canceled();
 
-    /**
+    /*!
      * Emitted by promptUserForApplication() if it fully handled it including launching the app.
      * This is a special case for the native Windows open-with dialog.
      */

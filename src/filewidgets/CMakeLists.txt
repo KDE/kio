@@ -142,14 +142,13 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOFileWidgets kiofilewidgets.qdocconf)
+
 install(TARGETS KF6KIOFileWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets COMPONENT Devel)
-
-# make available to ecm_add_qch in parent folder
-set(KIOFileWidgets_QCH_SOURCES ${KIOFileWidgets_HEADERS} PARENT_SCOPE)
 
 add_subdirectory(dropIntoNewFolder)

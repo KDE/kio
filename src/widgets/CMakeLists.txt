@@ -163,6 +163,8 @@ ecm_generate_headers(KIOWidgets_HEADERS
   REQUIRED_HEADERS KIOWidgets_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOWidgets kiowidgets.qdocconf)
+
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES
@@ -194,7 +196,3 @@ install(FILES
   ${KIOWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
-
-# make available to ecm_add_qch in parent folder
-set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)
-

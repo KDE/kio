@@ -11,9 +11,11 @@
 #include <KDirOperator>
 #include <QListView>
 
-/**
+/*!
  * Default icon view for KDirOperator using
  * custom view options.
+ *
+ * \internal
  */
 class KDirOperatorIconView : public QListView
 {

@@ -55,8 +55,8 @@ public:
      * Called by the public matchesMimeFilter() to do the
      * actual filtering. Those methods may be reimplemented to customize
      * filtering.
-     * @param mimeType the MIME type to filter
-     * @param filters the list of MIME types to filter
+     * \a mimeType the MIME type to filter
+     * \a filters the list of MIME types to filter
      */
     bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
     bool doMimeExcludeFilter(const QString &mimeExclude, const QStringList &filters) const;
@@ -75,11 +75,11 @@ public:
      * filtering.
      * The default implementation filters out ".." and everything not matching
      * the name filter(s)
-     * @return @c true if the item is "ok".
+     * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching a pattern *.cpp ( KFileItem::isHidden())
-     * @see matchesFilter
-     * @see setNameFilter
+     * \sa matchesFilter
+     * \sa setNameFilter
      */
     bool matchesFilter(const KFileItem &) const;
 
@@ -89,22 +89,22 @@ public:
      * filtering.
      * The default implementation filters out everything not matching
      * the mime filter(s)
-     * @return @c true if the item is "ok".
+     * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching the mime filter
-     * @see matchesMimeFilter
-     * @see setMimeFilter
+     * \sa matchesMimeFilter
+     * \sa setMimeFilter
      */
     bool matchesMimeFilter(const KFileItem &) const;
 
-    /**
+    /*!
      * Redirect this dirlister from oldUrl to newUrl.
-     * @param keepItems if true, keep the fileitems (e.g. when renaming an existing dir);
+     * \a keepItems if true, keep the fileitems (e.g. when renaming an existing dir);
      * if false, clear out everything (e.g. when redirecting during listing).
      */
     void redirect(const QUrl &oldUrl, const QUrl &newUrl, bool keepItems);
 
-    /**
+    /*!
      * Should this item be visible according to the current filter settings?
      */
     bool isItemVisible(const KFileItem &item) const;
@@ -124,7 +124,7 @@ public:
 
     KCoreDirLister *const q;
 
-    /**
+    /*!
      * List of dirs handled by this dirlister. The first entry is the base URL.
      * For a tree view, it contains all the dirs shown.
      */
@@ -179,7 +179,7 @@ public:
     friend class KCoreDirListerCache;
 };
 
-/**
+/*!
  * Design of the cache:
  * There is a single KCoreDirListerCache for the whole process.
  * It holds all the items used by the dir listers (itemsInUse)
@@ -191,6 +191,8 @@ public:
  * For faster lookups, it also stores a hash table, which gives for a directory URL:
  * - the dirlisters holding that URL (listersCurrentlyHolding)
  * - the dirlisters currently listing that URL (listersCurrentlyListing)
+ *
+ * \internal
  */
 class KCoreDirListerCache : public QObject
 {
@@ -219,7 +221,7 @@ public:
     KFileItem findByName(const KCoreDirLister *lister, const QString &_name) const;
     // findByUrl returns a pointer so that it's possible to modify the item.
     // See itemForUrl for the version that returns a readonly kfileitem.
-    // @param lister can be 0. If set, it is checked that the url is held by the lister
+    // \a lister can be 0. If set, it is checked that the url is held by the lister
     KFileItem findByUrl(const KCoreDirLister *lister, const QUrl &url) const;
 
     // Called by CachedItemsJob:
@@ -229,7 +231,7 @@ public:
     void forgetCachedItemsJob(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister, const QUrl &url);
 
 public Q_SLOTS:
-    /**
+    /*!
      * Notify that files have been added in @p directory
      * The receiver will list that directory again to find
      * the new items (since it needs more than just the names anyway).
@@ -237,7 +239,7 @@ public Q_SLOTS:
      */
     void slotFilesAdded(const QString &urlDirectory);
 
-    /**
+    /*!
      * Notify that files have been deleted.
      * This call passes the exact urls of the deleted files
      * so that any view showing them can simply remove them
@@ -246,7 +248,7 @@ public Q_SLOTS:
      */
     void slotFilesRemoved(const QStringList &fileList);
 
-    /**
+    /*!
      * Notify that files have been changed.
      * At the moment, this is only used for new icon, but it could be
      * used for size etc. as well.
@@ -307,18 +309,18 @@ private:
     // helper for renameDir
     void emitRedirections(const QUrl &oldUrl, const QUrl &url);
 
-    /**
+    /*!
      * Emits refreshItem() in the directories that cared for oldItem.
      * The caller has to remember to call emitItems in the set of dirlisters returned
      * (but this allows to buffer change notifications)
      */
     std::set<KCoreDirLister *> emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem);
 
-    /**
+    /*!
      * Remove the item from the sorted by url list matching @p oldUrl,
      * that is in the wrong place (because its url has changed) and insert @p item in the right place.
-     * @param oldUrl the previous url of the @p item
-     * @param item the modified item to be inserted
+     * \a oldUrl the previous url of the @p item
+     * \a item the modified item to be inserted
      */
     void reinsert(const KFileItem &item, const QUrl &oldUrl)
     {
@@ -345,7 +347,7 @@ private:
         }
     }
 
-    /**
+    /*!
      * When KDirWatch tells us that something changed in "dir", we need to
      * also notify the dirlisters that are listing a symlink to "dir" (#213799)
      */
@@ -362,13 +364,13 @@ private:
         std::set<QString> listedFiles;
     };
 
-    /**
+    /*!
      * Returns the names listed in dir's ".hidden" file, if it exists.
      * If a file named ".hidden" exists in the @p dir directory, this method
      * returns all the file names listed in that file. If it doesn't exist, an
      * empty set is returned.
-     * @param dir path to the target directory.
-     * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
+     * \a dir path to the target directory.
+     * Returns names listed in the directory's ".hidden" file (empty if it doesn't exist).
      */
     CacheHiddenFile *cachedDotHiddenForDir(const QString &dir);
 
