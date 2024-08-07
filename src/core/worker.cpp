@@ -314,8 +314,8 @@ void Worker::setConfig(const MetaData &config)
     m_connection->send(CMD_CONFIG, data);
 }
 
-/**
- * @returns true if the worker should not be created because it would insecurely ask users for a password.
+/*
+ * Returns true if the worker should not be created because it would insecurely ask users for a password.
  *          false is returned when the worker is either safe because only the root user can write to it, or if this kio binary is already not secure.
  */
 bool isWorkerSecurityCompromised(const QString &workerPath, const QString &protocolName, int &error, QString &error_text)

@@ -25,32 +25,42 @@ namespace KIO
 {
 class RenameFileDialogPrivate;
 
-/**
- * @class KIO::RenameFileDialog renamefiledialog.h <KIO/RenameFileDialog>
+// TODO KF6  : rename the class RenameFileDialog to RenameDialog and the class RenameDialog to RenameFileOverwrittenDialog or similar.
+/*!
+ * \class KIO::RenameFileDialog
+ * \inheaderfile KIO/RenameFileDialog
+ * \inmodule KIOWidgets
  *
- * @brief Dialog for renaming a variable number of files.
+ * \brief Dialog for renaming a variable number of files.
  *
  * The dialog deletes itself when accepted or rejected.
  *
- * @since 5.67
+ * \since 5.67
  */
-// TODO KF6  : rename the class RenameFileDialog to RenameDialog and the class RenameDialog to RenameFileOverwrittenDialog or similar.
 class KIOWIDGETS_EXPORT RenameFileDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructs the Dialog to rename file(s)
      *
-     * @param parent the parent QWidget
-     * @param items a non-empty list of items to rename
+     * \a parent the parent QWidget
+     *
+     * \a items a non-empty list of items to rename
      */
     explicit RenameFileDialog(const KFileItemList &items, QWidget *parent);
     ~RenameFileDialog() override;
 
 Q_SIGNALS:
+    /*!
+     *
+     */
     void renamingFinished(const QList<QUrl> &urls);
+
+    /*!
+     *
+     */
     void error(KJob *error);
 
 private Q_SLOTS:

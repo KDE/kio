@@ -93,11 +93,11 @@ public:
         qDeleteAll(m_pages);
     }
 
-    /**
+    /*
      * Common initialization for all constructors
      */
     void init();
-    /**
+    /*
      * Inserts all pages in the dialog.
      */
     void insertPages();
@@ -118,21 +118,21 @@ public:
     KDesktopPropsPlugin *m_desktopPropsPlugin = nullptr;
     KUrlPropsPlugin *m_urlPropsPlugin = nullptr;
 
-    /**
+    /*
      * The URL of the props dialog (when shown for only one file)
      */
     QUrl m_singleUrl;
-    /**
+    /*
      * List of items this props dialog is shown for
      */
     KFileItemList m_items;
-    /**
+    /*
      * For templates
      */
     QString m_defaultName;
     QUrl m_currentDir;
 
-    /**
+    /*
      * List of all plugins inserted ( first one first )
      */
     std::vector<KPropertiesDialogPlugin *> m_pages;

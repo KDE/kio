@@ -14,7 +14,7 @@
 #include <QTreeView>
 #include <kdiroperator.h>
 
-/**
+/*!
  * Unit test for KDirOperator
  */
 class KDirOperatorTest : public QObject
@@ -61,7 +61,7 @@ private Q_SLOTS:
         delete dirOp;
     }
 
-    /**
+    /*!
      * testBug187066 does the following:
      *
      * 1. Open a KDirOperator in kdelibs/kfile
@@ -254,10 +254,10 @@ private Q_SLOTS:
         QVERIFY(dirOp.selectedItems().isEmpty());
     }
 
-    /**
+    /*!
      * If one copies the location of a file and then paste that into the location bar,
      * the directory browser should show the directory of the file instead of showing an error.
-     * @see https://bugs.kde.org/459900
+     * \sa https://bugs.kde.org/459900
      */
     void test_bug459900()
     {

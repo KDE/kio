@@ -1,0 +1,25 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = KIOFileWidgets
+description = Additions to Qt Core
+
+documentationinheaders = true
+
+headerdirs = .
+sourcedirs = .
+
+outputformats = HTML
+
+depends += \
+    qtcore \
+    qtgui \
+    qtwidgets \
+    kcoreaddons \
+    kjobwidgets \
+    kiocore \
+    kiogui \
+    kiowidgets \
+    kbookmarks \
+    solid \
+    kcompletion \
+    kconfigcore

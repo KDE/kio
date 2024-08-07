@@ -17,9 +17,12 @@ namespace KIO
 {
 class OpenOrExecuteFileInterfacePrivate;
 
-/**
- * @class OpenOrExecuteFileInterface openorexecutefileinterface.h <KIO/OpenOrExecuteFileInterface>
- * @brief The OpenOrExecuteFileInterface class allows OpenUrlJob to ask
+/*!
+ * \class KIO::OpenOrExecuteFileInterface
+ * \inheaderfile KIO/OpenOrExecuteFileInterface
+ * \inmodule KIOGui
+ *
+ * \brief The OpenOrExecuteFileInterface class allows OpenUrlJob to ask
  * the user about how to handle various types of executable files, basically
  * whether to run/execute the file, or in the case of text-based ones (shell
  * scripts and .desktop files) open them as text.
@@ -27,31 +30,29 @@ class OpenOrExecuteFileInterfacePrivate;
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension,
  * OpenWithHandlerInterface and UntrustedProgramHandlerInterface.
  *
- * @since 5.73
+ * \since 5.73
  */
 class KIOGUI_EXPORT OpenOrExecuteFileInterface : public QObject
 {
     Q_OBJECT
 protected:
-    /**
+    /*!
      * Constructor
      */
     explicit OpenOrExecuteFileInterface(QObject *parent = nullptr);
 
-    /**
-     * Destructor
-     */
     ~OpenOrExecuteFileInterface() override;
 
 public:
-    /**
+    /*!
      * Show a dialog to ask the user how to handle various types of executable
      * files, basically whether to run/execute the file, or in the case of text-based
      * ones (shell scripts and .desktop files) open them as text.
      *
-     * @param job the job calling this. This is useful if you need to
+     * \a job the job calling this. This is useful if you need to
      * get any of its properties
-     * @param mimetype the MIME type of the file being handled
+     *
+     * \a mimetype the MIME type of the file being handled
      *
      * Implementations of this method must emit either executeFile or canceled.
      *
@@ -63,15 +64,16 @@ public:
     virtual void promptUserOpenOrExecute(KJob *job, const QString &mimetype);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted by promptUserOpenOrExecute() once the user chooses an action.
-     * @param enable \c true if the user selected to execute/run the file or
+     *
+     * \a enable \c true if the user selected to execute/run the file or
      * \c false if the user selected to open the file as text (the latter is
      * only valid for shell scripts and .desktop files)
      */
     void executeFile(bool enable);
 
-    /**
+    /*!
      * Emitted by promptUserOpenOrExecute() if user selects cancel.
      */
     void canceled();

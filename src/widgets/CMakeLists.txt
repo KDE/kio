@@ -161,6 +161,8 @@ ecm_generate_headers(KIOWidgets_HEADERS
   REQUIRED_HEADERS KIOWidgets_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOWidgets kiowidgets.qdocconf)
+
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES

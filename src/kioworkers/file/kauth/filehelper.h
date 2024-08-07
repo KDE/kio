@@ -11,7 +11,7 @@
 
 using namespace KAuth;
 
-/**
+/*!
  * This KAuth helper is responsible for performing file operations with
  * root privileges.
  */
@@ -20,7 +20,7 @@ class FileHelper : public QObject
     Q_OBJECT
 
 public Q_SLOTS:
-    /**
+    /*!
      * Execute action with root privileges.
      **/
     KAuth::ActionReply exec(const QVariantMap &args);

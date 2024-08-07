@@ -51,7 +51,7 @@ public:
 
     virtual ~JobPrivate();
 
-    /**
+    /*!
      * Some extra storage space for jobs that don't have their own
      * private d pointer.
      */
@@ -108,11 +108,11 @@ public:
 class SimpleJobPrivate : public JobPrivate
 {
 public:
-    /**
+    /*!
      * Creates a new simple job.
-     * @param url the url of the job
-     * @param command the command of the job
-     * @param packedArgs the arguments
+     * \a url the url of the job
+     * \a command the command of the job
+     * \a packedArgs the arguments
      */
     SimpleJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : m_worker(nullptr)
@@ -150,56 +150,56 @@ public:
 
     void simpleJobInit();
 
-    /**
+    /*!
      * Called on a worker's connected signal.
-     * @see connected()
+     * \sa connected()
      */
     void slotConnected();
-    /**
+    /*!
      * Forward signal from the worker.
-     * @param data_size the processed size in bytes
-     * @see processedSize()
+     * \a data_size the processed size in bytes
+     * \sa processedSize()
      */
     void slotProcessedSize(KIO::filesize_t data_size);
-    /**
+    /*!
      * Forward signal from the worker.
-     * @param speed the speed in bytes/s
-     * @see speed()
+     * \a speed the speed in bytes/s
+     * \sa speed()
      */
     void slotSpeed(unsigned long speed);
-    /**
+    /*!
      * Forward signal from the worker.
      * Can also be called by the parent job, when it knows the size.
-     * @param data_size the total size
+     * \a data_size the total size
      */
     void slotTotalSize(KIO::filesize_t data_size);
 
-    /**
+    /*!
      * Called on a worker's info message.
-     * @param s the info message
-     * @see infoMessage()
+     * \a s the info message
+     * \sa infoMessage()
      */
     void _k_slotWorkerInfoMessage(const QString &s);
 
-    /**
+    /*!
      * Called when privilegeOperationRequested() is emitted by worker.
      */
     void slotPrivilegeOperationRequested();
 
-    /**
-     * @internal
+    /*!
+     * \internal
      * Called by the scheduler when a worker gets to
      * work on this job.
      **/
     virtual void start(KIO::Worker *worker);
 
-    /**
-     * @internal
+    /*!
+     * \internal
      * Called to detach a worker from a job.
      **/
     void workerDone();
 
-    /**
+    /*!
      * Called by subclasses to restart the job after a redirection was signalled.
      * The m_redirectionURL data member can appear in several subclasses, so we have it
      * passed in. The regular URL will be set to the redirection URL which is then cleared.
@@ -278,23 +278,23 @@ public:
     QPointer<QIODevice> m_outgoingDataSource;
     QMetaObject::Connection m_readChannelFinishedConnection;
 
-    /**
+    /*!
      * Flow control. Suspend data processing from the worker.
      */
     void internalSuspend();
-    /**
+    /*!
      * Flow control. Resume data processing from the worker.
      */
     void internalResume();
-    /**
-     * @internal
+    /*!
+     * \internal
      * Called by the scheduler when a worker gets to
      * work on this job.
-     * @param worker the worker that works on the job
+     * \a worker the worker that works on the job
      */
     void start(KIO::Worker *worker) override;
-    /**
-     * @internal
+    /*!
+     * \internal
      * Called when the KIO worker needs the data to send the server. This slot
      * is invoked when the data is to be sent is read from a QIODevice rather
      * instead of a QByteArray buffer.
@@ -337,8 +337,8 @@ public:
 };
 
 class DirectCopyJobPrivate;
-/**
- * @internal
+/*!
+ * \internal
  * Used for direct copy from or to the local filesystem (i.e.\ WorkerBase::copy())
  */
 class DirectCopyJob : public SimpleJob
@@ -353,8 +353,8 @@ public Q_SLOTS:
     void slotCanResume(KIO::filesize_t offset);
 
 Q_SIGNALS:
-    /**
-     * @internal
+    /*!
+     * \internal
      * Emitted if the job found an existing partial file
      * and supports resuming. Used by FileCopyJob.
      */

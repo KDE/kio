@@ -27,6 +27,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSourceVersionControl)
 include(ECMDeprecationSettings)
+include(ECMGenerateQDoc)
 
 ecm_setup_version(
   PROJECT

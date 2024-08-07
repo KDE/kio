@@ -141,6 +141,8 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOFileWidgets kiofilewidgets.qdocconf)
+
 install(TARGETS KF6KIOFileWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES

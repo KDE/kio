@@ -15,23 +15,51 @@ class KSambaShare;
 class KSambaSharePrivate;
 class KSambaShareDataPrivate;
 
-/**
- * @class KSambaShareData ksambasharedata.h <KSambaShareData>
+/*!
+ * \class KSambaShareData
+ * \inmodule KIOCore
  *
- * This class represents a Samba user share. It is possible to share a directory with one or more
+ * \brief This class represents a Samba user share.
+ *
+ * It is possible to share a directory with one or more
  * different names, update the share details or remove.
  *
- * @author Rodrigo Belem <rclbelem@gmail.com>
- * @since  4.7
+ * \since 4.7
+ * \sa KSambaShare
  */
 class KIOCORE_EXPORT KSambaShareData
 {
 public:
+    /*!
+     * \value GuestsNotAllowed
+     * \value GuestsAllowed
+     */
     enum GuestPermission {
         GuestsNotAllowed,
         GuestsAllowed,
     };
 
+    /*!
+     * \value UserShareOk
+     * \value UserShareExceedMaxShares
+     * \value UserShareNameOk
+     * \value UserShareNameInvalid
+     * \value UserShareNameInUse
+     * \value UserSharePathOk
+     * \value UserSharePathInvalid
+     * \value UserSharePathNotExists
+     * \value UserSharePathNotDirectory
+     * \value UserSharePathNotAbsolute
+     * \value UserSharePathNotAllowed
+     * \value UserShareAclOk
+     * \value UserShareAclInvalid
+     * \value UserShareAclUserNotValid
+     * \value UserShareCommentOk
+     * \value UserShareGuestsOk
+     * \value UserShareGuestsInvalid
+     * \value UserShareGuestsNotAllowed
+     * \value UserShareSystemError A system error occurred; check KSambaShare::lastSystemErrorString
+     */
     enum UserShareError {
         UserShareOk,
         UserShareExceedMaxShares,
@@ -51,7 +79,7 @@ public:
         UserShareGuestsOk,
         UserShareGuestsInvalid,
         UserShareGuestsNotAllowed,
-        UserShareSystemError, /* < A system error occurred; check KSambaShare::lastSystemErrorString */
+        UserShareSystemError,
     };
 
     KSambaShareData();
@@ -59,107 +87,113 @@ public:
 
     ~KSambaShareData();
 
-    /**
-     * @return @c the share name.
+    /*!
+     * Returns the share name.
      */
     QString name() const;
 
-    /**
-     * @return @c the share path.
+    /*!
+     * Returns the share path.
      */
     QString path() const;
 
-    /**
-     * @return @c the share comment.
+    /*!
+     * Returns the share comment.
      */
     QString comment() const;
 
-    /**
-     * Returns a @c containing a string describing the permission added to the users, such as
+    /*!
+     * Containing a string describing the permission added to the users, such as
      * "[DOMAIN\]username1:X,[DOMAIN\]username2:X,...". X stands for "F" (full control), "R"
      * (read-only) and "D" (deny). By default the acl is Everyone:R.
      *
-     * @return @c the share acl.
+     * Returns the share acl.
      */
     QString acl() const;
 
-    /**
-     * @return @c whether guest access to the share is allowed or not.
+    /*!
+     * Returns whether guest access to the share is allowed or not.
      */
     KSambaShareData::GuestPermission guestPermission() const;
 
-    /**
+    /*!
      * Sets the share name. If the share name is changed and valid it will remove the existing
      * share and will create a new share.
      * The share name cannot use a name of a system user or containing the forbidden characters
      * '%, <, >, *, ?, |, /, \, +, =, ;, :, ",,. To check if the name is available or valid use
      * the method KSambaShare::isShareNameAvailable().
      *
-     * @param name the name that will be given to the share.
+     * \a name the name that will be given to the share.
      *
-     * @return @c UserShareNameOk if the name is valid.
-     * @return @c UserShareNameInvalid if the name contains invalid characters.
-     * @return @c UserShareNameInUse if the name is already in use by another shared folder or a
-     *            by a system user.
+     * Returns UserShareNameOk if the name is valid, UserShareNameInvalid if the name contains invalid characters, UserShareNameInUse if the name is already in
+     * use by another shared folder or a by a system user.
      */
     KSambaShareData::UserShareError setName(const QString &name);
 
-    /**
+    /*!
      * Set the path for the share.
      *
-     * @param path the path that will be given to the share.
+     * \a path the path that will be given to the share.
      *
-     * @return @c UserSharePathOk if valid.
-     * @return @c UserSharePathInvalid if the path is in invalid format.
-     * @return @c UserSharePathNotExists if the path does not exists.
-     * @return @c UserSharePathNotDirectory if the path points to file instead of a directory.
-     * @return @c UserSharePathNotAbsolute if the path is not is absolute form.
-     * @return @c UserSharePathNotAllowed if the path is not owner by the user.
+     * Returns UserSharePathOk if valid.
+     *
+     * Returns UserSharePathInvalid if the path is in invalid format.
+     *
+     * Returns UserSharePathNotExists if the path does not exists.
+     *
+     * Returns UserSharePathNotDirectory if the path points to file instead of a directory.
+     *
+     * Returns UserSharePathNotAbsolute if the path is not is absolute form.
+     *
+     * Returns UserSharePathNotAllowed if the path is not owner by the user.
      */
     KSambaShareData::UserShareError setPath(const QString &path);
 
-    /**
+    /*!
      * Sets the comment for the share.
      *
-     * @param comment the comment that will be given to the share.
+     * \a comment the comment that will be given to the share.
      *
-     * @return @c UserShareCommentOk always.
+     * Returns UserShareCommentOk always.
      */
     KSambaShareData::UserShareError setComment(const QString &comment);
 
-    /**
+    /*!
      * Sets the acl to the share.
      *
-     * @param acl the acl that will be given to the share.
+     * \a acl the acl that will be given to the share.
      *
-     * @return @c UserShareAclOk if the acl is valid.
-     * @return @c UserShareAclInvalid if the acl has invalid format.
-     * @return @c UserShareAclUserNotValid if one of the users in the acl is invalid.
+     * Returns UserShareAclOk if the acl is valid.
+     *
+     * Returns UserShareAclInvalid if the acl has invalid format.
+     *
+     * Returns UserShareAclUserNotValid if one of the users in the acl is invalid.
      */
     KSambaShareData::UserShareError setAcl(const QString &acl);
 
-    /**
+    /*!
      * Flags if guest is allowed or not to access the share.
      *
-     * @param permission the permission that will be given to the share.
+     * \a permission the permission that will be given to the share.
      *
-     * @return @c UserShareGuestsOk if the permission was set.
-     * @return @c UserShareGuestsNotAllowed if the system does not allow guest access to the
+     * Returns UserShareGuestsOk if the permission was set.
+     *
+     * Returns UserShareGuestsNotAllowed if the system does not allow guest access to the
      *            shares.
      */
     KSambaShareData::UserShareError setGuestPermission(const GuestPermission &permission = KSambaShareData::GuestsNotAllowed);
 
-    /**
+    /*!
      * Share the folder with the information that has been set.
      *
-     * @return @c UserShareOk if the share was added or other errors as applicable. Also see UserShareSystemError.
+     * Returns UserShareOk if the share was added or other errors as applicable. Also see UserShareSystemError.
      */
     KSambaShareData::UserShareError save();
 
-    /**
+    /*!
      * Unshare the folder held by the object.
      *
-     * @return @c UserShareOk if the share was removed or other errors as applicable. Also see UserShareSystemError.
+     * Returns UserShareOk if the share was removed or other errors as applicable. Also see UserShareSystemError.
      */
     KSambaShareData::UserShareError remove();
 
