@@ -22,8 +22,8 @@ namespace KIO
 {
 class ConnectionServer;
 class ConnectionPrivate;
-/**
- * @private
+/*!
+ * \internal
  *
  * This class provides a simple means for IPC between two applications
  * via a pipe.
@@ -44,16 +44,16 @@ public:
         Application, /// This is the connection of the application side
         Worker, /// This is the connection of the worker side
     };
-    /**
+    /*!
      * Creates a new connection.
-     * @see connectToRemote, listenForRemote
+     * \sa connectToRemote, listenForRemote
      */
     explicit Connection(Type type, QObject *parent = nullptr);
     ~Connection() override;
 
-    /**
+    /*!
      * Connects to the remote address.
-     * @param address a local:// or tcp:// URL.
+     * \a address a local:// or tcp:// URL.
      */
     void connectToRemote(const QUrl &address);
 
@@ -62,68 +62,68 @@ public:
 
     bool isConnected() const;
 
-    /**
+    /*!
      * Checks whether the connection has been initialized.
-     * @return true if the initialized
-     * @see init()
+     * Returns true if the initialized
+     * \sa init()
      */
     bool inited() const;
 
-    /**
+    /*!
      * Sends/queues the given command to be sent.
-     * @param cmd the command to set
-     * @param arr the bytes to send
-     * @return true if successful, false otherwise
+     * \a cmd the command to set
+     * \a arr the bytes to send
+     * Returns true if successful, false otherwise
      */
     bool send(int cmd, const QByteArray &arr = QByteArray());
 
-    /**
+    /*!
      * Sends the given command immediately.
-     * @param _cmd the command to set
-     * @param data the bytes to send
-     * @return true if successful, false otherwise
+     * \a _cmd the command to set
+     * \a data the bytes to send
+     * Returns true if successful, false otherwise
      */
     bool sendnow(int _cmd, const QByteArray &data);
 
-    /**
+    /*!
      * Returns true if there are packets to be read immediately,
      * false if waitForIncomingTask must be called before more data
      * is available.
      */
     bool hasTaskAvailable() const;
 
-    /**
+    /*!
      * Waits for one more command to be handled and ready.
      *
-     * @param ms   the time to wait in milliseconds
-     * @returns true if one command can be read, false if we timed out
+     * \a ms   the time to wait in milliseconds
+     * Returns true if one command can be read, false if we timed out
      */
     bool waitForIncomingTask(int ms = 30000);
 
-    /**
+    /*!
      * Receive data.
      *
-     * @param _cmd the received command will be written here
-     * @param data the received data will be written here
+     * \a _cmd the received command will be written here
+     * \a data the received data will be written here
 
-     * @return >=0 indicates the received data size upon success
+     * Returns >=0 indicates the received data size upon success
      *         -1  indicates error
      */
     int read(int *_cmd, QByteArray &data);
 
-    /**
+    /*!
      * Don't handle incoming data until resumed.
      */
     void suspend();
 
-    /**
+    /*!
      * Resume handling of incoming data.
      */
     void resume();
 
-    /**
+    /*!
      * Returns status of connection.
-     * @return true if suspended, false otherwise
+     * Returns true if suspended, false otherwise
      */
     bool suspended() const;
 

@@ -31,8 +31,10 @@ class FileUndoManager;
 
 class Job;
 
-/**
- * @class KIO::JobUiDelegate jobuidelegate.h <KIO/JobUiDelegate>
+/*!
+ * \class KIO::JobUiDelegate
+ * \inmodule KIOWidgets
+ * \inheaderfile KIO/JobUiDelegate
  *
  * A UI delegate tuned to be used with KIO Jobs.
  */
@@ -47,58 +49,65 @@ class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobU
 protected:
     friend class ::KDirOperator;
 
-    /**
+    /*!
      * Constructs a new KIO Job UI delegate.
-     * @param flags allows to enable automatic error/warning handling
-     * @param window the window associated with this delegate, see setWindow.
-     * @param ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
-     * @since 5.98
+     *
+     * \a flags allows to enable automatic error/warning handling
+     *
+     * \a window the window associated with this delegate, see setWindow.
+     *
+     * \a ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
+     *
+     * \since 5.98
      */
     explicit JobUiDelegate(KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
 
 public:
-    /**
-     * Destroys the KIO Job UI delegate.
-     */
     ~JobUiDelegate() override;
 
 public:
-    /**
-     * Associate this job with a window given by @p window.
-     * @param window the window to associate to
-     * @see window()
+    /*!
+     * Associate this job with a window given by \a window.
+     *
+     * \a window the window to associate to
+     *
+     * \sa window()
      */
     void setWindow(QWidget *window) override;
 
-    /**
+    /*!
      * Unregister the given window from kded.
      * This is normally done automatically when the window is destroyed.
      *
      * This method is useful for instance when keeping a hidden window
      * around to make it faster to reuse later.
-     * @since 5.2
+     * \since 5.2
      */
     static void unregisterWindow(QWidget *window);
 
-    /**
-     * Ask for confirmation before deleting/trashing @p urls.
+    /*!
+     * Ask for confirmation before deleting/trashing \a urls.
      *
      * Note that this method is not called automatically by KIO jobs. It's the application's
      * responsibility to ask the user for confirmation before calling KIO::del() or KIO::trash().
      *
-     * @param urls the urls about to be deleted/trashed
-     * @param deletionType the type of deletion (Delete for real deletion, Trash otherwise)
-     * @param confirmation see ConfirmationType. Normally set to DefaultConfirmation.
-     * Note: the window passed to setWindow is used as the parent for the message box.
-     * @return true if confirmed
+     * \a urls the urls about to be deleted/trashed
+     *
+     * \a deletionType the type of deletion (Delete for real deletion, Trash otherwise)
+     *
+     * \a confirmation see ConfirmationType. Normally set to DefaultConfirmation.
+     *
+     * \note The window passed to setWindow is used as the parent for the message box.
+     *
+     * Returns true if confirmed
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
 
-    /**
+    /*!
      * Creates a clipboard updater
      */
     ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode) override;
-    /**
+    /*!
      * Update URL in clipboard, if present
      */
     void updateUrlInClipboard(const QUrl &src, const QUrl &dest) override;

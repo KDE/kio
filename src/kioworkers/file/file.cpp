@@ -942,7 +942,7 @@ WorkerResult FileProtocol::unmount(const QString &_point)
     }
 }
 
-/*************************************
+/*!***********************************
  *
  * Utilities
  *

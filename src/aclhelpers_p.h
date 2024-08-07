@@ -7,7 +7,7 @@
 #ifndef ACLHELPERS_P_H
 #define ACLHELPERS_P_H
 
-/*************************************
+/*!***********************************
  *
  * ACL handling helpers
  *
@@ -29,13 +29,13 @@
 
 namespace KIO
 {
-/**
- * @internal
+/*!
+ * \internal
  * WARNING: DO NOT USE outside KIO Framework
  */
 namespace ACLPortability
 {
-/// @internal
+/// \internal
 __attribute__((unused)) static inline int acl_cmp(acl_t acl1, acl_t acl2)
 {
 #ifdef Q_OS_FREEBSD
@@ -45,7 +45,7 @@ __attribute__((unused)) static inline int acl_cmp(acl_t acl1, acl_t acl2)
 #endif
 }
 
-/// @internal
+/// \internal
 __attribute__((unused)) static inline acl_t acl_from_mode(const mode_t mode)
 {
 #ifdef Q_OS_FREEBSD
@@ -55,7 +55,7 @@ __attribute__((unused)) static inline acl_t acl_from_mode(const mode_t mode)
 #endif
 }
 
-/// @internal
+/// \internal
 static inline int acl_equiv_mode(acl_t acl, mode_t *mode_p)
 {
 #ifdef Q_OS_FREEBSD
@@ -65,7 +65,7 @@ static inline int acl_equiv_mode(acl_t acl, mode_t *mode_p)
 #endif
 }
 
-/// @internal
+/// \internal
 __attribute__((unused)) static inline int acl_get_perm(acl_permset_t permset_d, acl_perm_t perm)
 {
 #ifdef Q_OS_FREEBSD
@@ -75,7 +75,7 @@ __attribute__((unused)) static inline int acl_get_perm(acl_permset_t permset_d, 
 #endif
 }
 
-/// @internal
+/// \internal
 __attribute__((unused)) static inline int acl_extended_file(const char *path_p)
 {
 #ifdef Q_OS_FREEBSD

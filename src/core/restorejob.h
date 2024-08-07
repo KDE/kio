@@ -17,15 +17,18 @@
 namespace KIO
 {
 class RestoreJobPrivate;
-/**
- * @class KIO::RestoreJob restorejob.h <KIO/RestoreJob>
+/*!
+ * \class KIO::RestoreJob
+ * \inheaderfile KIO/RestoreJob
+ * \inmodule KIOCore
  *
- * RestoreJob is used to restore files from the trash.
+ * \brief RestoreJob is used to restore files from the trash.
+ *
  * Don't create the job directly, but use KIO::restoreFromTrash().
  *
- * @see KIO::trash()
- * @see KIO::copy()
- * @since 5.2
+ * \sa KIO::trash()
+ * \sa KIO::copy()
+ * \since 5.2
  */
 class KIOCORE_EXPORT RestoreJob : public Job
 {
@@ -34,7 +37,7 @@ class KIOCORE_EXPORT RestoreJob : public Job
 public:
     ~RestoreJob() override;
 
-    /**
+    /*!
      * Returns the list of trash URLs to restore.
      */
     QList<QUrl> trashUrls() const;
@@ -51,17 +54,20 @@ private:
     Q_DECLARE_PRIVATE(RestoreJob)
 };
 
-/**
- * Restore a set of trashed files or directories.
- * @since 5.2
+/*!
+ * \relates KIO::RestoreJob
  *
- * @param urls the trash:/ URLs to restore. The trash implementation
+ * Restore a set of trashed files or directories.
+ *
+ * \since 5.2
+ *
+ * \a urls the trash:/ URLs to restore. The trash implementation
  * will know where the files came from and will restore them to their
  * original location.
  *
- * @param flags restoreFromTrash() supports HideProgressInfo.
+ * \a flags restoreFromTrash() supports HideProgressInfo.
  *
- * @return the job handling the operation
+ * Returns the job handling the operation
  */
 KIOCORE_EXPORT RestoreJob *restoreFromTrash(const QList<QUrl> &urls, JobFlags flags = DefaultFlags);
 

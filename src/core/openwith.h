@@ -19,26 +19,38 @@
 namespace KIO
 {
 
-/**
- * Core class for open with style dialog handling. This only implements core functionality. For an actual open with
+/*!
+ * \class KIO::OpenWith
+ * \inheaderfile KIO/OpenWith
+ *
+ * \brief Core class for open with style dialog handling.
+ *
+ * This only implements core functionality. For an actual open with
  * implementation see KOpenWithDialog. For a way to trigger open with dialogs see OpenUrlJob and OpenWithHandlerInterface.
  */
 class KIOCORE_EXPORT OpenWith
 {
 public:
     struct [[nodiscard]] AcceptResult {
-        /// Whether the accept was successful (if not error is set)
+        /*!
+         * Whether the accept was successful (if not error is set)
+         */
         bool accept;
-        /// The error message if the acccept failed
+        /*!
+         * The error message if the acccept failed
+         */
         QString error;
-        /// Whether the sycoca needs rebuilding (e.g. call KBuildSycocaProgressDialog::rebuildKSycoca)
+        /*!
+         * Whether the sycoca needs rebuilding (e.g. call KBuildSycocaProgressDialog::rebuildKSycoca)
+         */
         bool rebuildSycoca = false;
     };
-    /**
+    /*!
      * Accept an openwith request with the provided arguments as context.
      * This function may have side effects to do with accepting, such as setting the default application for the
-     * mimetype if @p remember is true.
-     * @returns an AcceptResult
+     * mimetype if \a remember is true.
+     *
+     * Returns an AcceptResult
      */
     static AcceptResult accept(KService::Ptr &service,
                                const QString &typedExec,

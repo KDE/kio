@@ -65,10 +65,10 @@ TrashImpl::TrashImpl()
     }
 }
 
-/**
+/*!
  * Test if a directory exists, create otherwise
- * @param _name full path of the directory
- * @return errorcode, or 0 if the dir was created or existed already
+ * \a _name full path of the directory
+ * Returns errorcode, or 0 if the dir was created or existed already
  * Warning, don't use return value like a bool
  */
 int TrashImpl::testDir(const QString &_name) const

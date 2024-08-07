@@ -34,9 +34,8 @@ class QUrl;
 
 namespace KIO
 {
-/** This KIO worker provides support of data urls as specified by rfc 2397
- * @see https://www.ietf.org/rfc/rfc2397.txt
- * @author Leo Savernik
+/* This KIO worker provides support of data urls as specified by rfc 2397
+ * See https://www.ietf.org/rfc/rfc2397.txt
  */
 #if defined(TESTKIO)
 class DataProtocol : public TestWorker

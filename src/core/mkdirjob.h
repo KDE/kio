@@ -15,11 +15,13 @@
 namespace KIO
 {
 class MkdirJobPrivate;
-/**
- * @class KIO::MkdirJob mkdirjob.h <KIO/MkdirJob>
+/*!
+ * \class KIO::MkdirJob
+ * \inheaderfile KIO/MkdirJob
+ * \inmodule KIOCore
  *
  * A KIO job that creates a directory
- * @see KIO::mkdir()
+ * \sa KIO::mkdir()
  */
 class KIOCORE_EXPORT MkdirJob : public SimpleJob
 {
@@ -29,21 +31,26 @@ public:
     ~MkdirJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
-     * @param job the job that is redirected
-     * @param url the new url
+     *
+     * \a job the job that is redirected
+     *
+     * \a url the new url
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
-     * @param job the job that is redirected
-     * @param fromUrl the original URL
-     * @param toUrl the new URL
+     *
+     * \a job the job that is redirected
+     *
+     * \a fromUrl the original URL
+     *
+     * \a toUrl the new URL
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
@@ -57,13 +64,16 @@ private:
     Q_DECLARE_PRIVATE(MkdirJob)
 };
 
-/**
+/*!
+ * \relates KIO::MkdirJob
+ *
  * Creates a single directory.
  *
- * @param url The URL of the directory to create.
- * @param permissions The permissions to set after creating the
+ * \a url The URL of the directory to create.
+ *
+ * \a permissions The permissions to set after creating the
  *                    directory (unix-style), -1 for default permissions.
- * @return A pointer to the job handling the operation.
+ * Returns a pointer to the job handling the operation.
  */
 KIOCORE_EXPORT MkdirJob *mkdir(const QUrl &url, int permissions = -1);
 

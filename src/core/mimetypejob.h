@@ -15,13 +15,16 @@
 namespace KIO
 {
 class MimetypeJobPrivate;
-/**
- * @class KIO::MimetypeJob mimetypejob.h <KIO/MimetypeJob>
+/*!
+ * \class KIO::MimetypeJob
+ * \inheaderfile KIO/MimetypeJob
+ * \inmodule KIOCore
  *
  * A MimetypeJob is a TransferJob that  allows you to get
  * the MIME type of a URL. Don't create directly,
  * but use KIO::mimetype() instead.
- * @see KIO::mimetype()
+ *
+ * \sa KIO::mimetype()
  */
 class KIOCORE_EXPORT MimetypeJob : public TransferJob
 {
@@ -40,16 +43,20 @@ private:
     Q_DECLARE_PRIVATE(MimetypeJob)
 };
 
-/**
+/*!
+ * \relates KIO::MimetypeJob
+ *
  * Find MIME type for one file or directory.
  *
  * If you are going to download the file right after determining its MIME type,
  * then don't use this, prefer using a KIO::get() job instead. See the note
  * about putting the job on hold once the MIME type is determined.
  *
- * @param url the URL of the file
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
+ * \a url the URL of the file
+ *
+ * \a flags Can be HideProgressInfo here
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT MimetypeJob *mimetype(const QUrl &url, JobFlags flags = DefaultFlags);
 

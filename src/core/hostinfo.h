@@ -15,8 +15,8 @@ class QHostInfo;
 
 namespace KIO
 {
-/**
- * @internal
+/*!
+ * \internal
  * WARNING: this could disappear at some point in time.
  * DO NOT USE outside KDE Frameworks
  */
@@ -27,13 +27,13 @@ namespace KIO
  */
 namespace HostInfo
 {
-/// @internal
+/// \internal
 void lookupHost(const QString &hostName, QObject *receiver, const char *member);
-/// @internal
+/// \internal
 KIOCORE_EXPORT QHostInfo lookupHost(const QString &hostName, unsigned long timeout);
-/// @internal
+/// \internal
 KIOCORE_EXPORT QHostInfo lookupCachedHostInfoFor(const QString &hostName);
-/// @internal
+/// \internal
 KIOCORE_EXPORT void cacheLookup(const QHostInfo &info);
 }
 }

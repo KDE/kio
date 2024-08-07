@@ -13,8 +13,12 @@
 #include <kpropertiesdialog.h>
 
 class KPropertiesDialogPluginPrivate;
-/**
- * A Plugin in the Properties dialog
+/*!
+ * \class KPropertiesDialogPlugin
+ * \inmodule KIOWidgets
+ *
+ * \brief A Plugin in the Properties dialog.
+ *
  * This is an abstract class. You must inherit from this class
  * to build a new kind of tabbed page for the KPropertiesDialog.
  * A plugin in itself is just a library containing code, not a dialog's page.
@@ -26,14 +30,14 @@ class KPropertiesDialogPluginPrivate;
  *
  * The metadata can contain the MIME types for which the plugin should be created.
  * For instance:
- * @verbatim
-   {
-       "KPlugin": {
-           "MimeTypes": ["text/html", "application/x-mymimetype"]
-       },
-       "X-KDE-Protocols": ["file"]
-   }
-   @endverbatim
+ * \badcode
+ * {
+ *     "KPlugin": {
+ *         "MimeTypes": ["text/html", "application/x-mymimetype"]
+ *     },
+ *     "X-KDE-Protocols": ["file"]
+ * }
+ * \endcode
  * If the MIME types are empty or not specified, the plugin will be created for all MIME types.
  *
  * You can also include "X-KDE-Protocols" if you want that plugin for instance
@@ -43,7 +47,7 @@ class KIOWIDGETS_EXPORT KPropertiesDialogPlugin : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Constructor whos parent will be cast to KPropertiesDialog
      * To insert tabs into the properties dialog, use the add methods provided by
      * KPageDialog (the properties dialog is a KPageDialog).
@@ -51,18 +55,25 @@ public:
     KPropertiesDialogPlugin(QObject *parent);
     ~KPropertiesDialogPlugin() override;
 
-    /**
+    /*!
      * Applies all changes to the file.
      * This function is called when the user presses 'Ok'. The last plugin inserted
      * is called first.
      */
     virtual void applyChanges();
 
+    /*!
+     *
+     */
     void setDirty(bool b = true);
+
+    /*!
+     *
+     */
     bool isDirty() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emit this signal when the user changed anything in the plugin's tabs.
      * The hosting PropertiesDialog will call applyChanges only if the
      * PropsPlugin has emitted this signal or if you have called setDirty() before.
@@ -70,12 +81,12 @@ Q_SIGNALS:
     void changed();
 
 protected:
-    /**
+    /*!
      * Pointer to the dialog
      */
     KPropertiesDialog *const properties;
 
-    /**
+    /*!
      * Returns the font height.
      */
     int fontHeight() const;

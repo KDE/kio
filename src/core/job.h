@@ -15,30 +15,37 @@
 #include <QUrl>
 namespace KIO
 {
-/**
- * Returns a translated error message for @p errorCode using the
- * additional error information provided by @p errorText.
- * @param errorCode the error code
- * @param errorText the additional error text
- * @return the created error string
+/*!
+ * Returns a translated error message for \a errorCode using the
+ * additional error information provided by \a errorText.
+ *
+ * \a errorCode the error code
+ *
+ * \a errorText the additional error text
  */
 KIOCORE_EXPORT QString buildErrorString(int errorCode, const QString &errorText);
 
-/**
- * Returns translated error details for @p errorCode using the
- * additional error information provided by @p errorText , @p reqUrl
- * (the request URL), and the KIO worker @p method .
+/*!
+ * Returns translated error details for \a errorCode using the
+ * additional error information provided by \a errorText , \a reqUrl
+ * (the request URL), and the KIO worker \a method .
  *
- * @param errorCode the error code
- * @param errorText the additional error text
- * @param reqUrl the request URL
- * @param method the KIO worker method
- * @return the following data:
- * @li QString errorName - the name of the error
- * @li QString techName - if not null, the more technical name of the error
- * @li QString description - a description of the error
- * @li QStringList causes - a list of possible causes of the error
- * @li QStringList solutions - a liso of solutions for the error
+ * \a errorCode the error code
+ *
+ * \a errorText the additional error text
+ *
+ * \a reqUrl the request URL
+ *
+ * \a method the KIO worker method
+ *
+ * Returns the following data:
+ * \list
+ * \li QString errorName - the name of the error
+ * \li QString techName - if not null, the more technical name of the error
+ * \li QString description - a description of the error
+ * \li QStringList causes - a list of possible causes of the error
+ * \li QStringList solutions - a liso of solutions for the error
+ * \endlist
  */
 KIOCORE_EXPORT QByteArray rawErrorDetail(int errorCode, const QString &errorText, const QUrl *reqUrl = nullptr, int method = -1);
 }

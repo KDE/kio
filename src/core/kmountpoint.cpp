@@ -100,7 +100,7 @@ KMountPoint::~KMountPoint() = default;
 #ifdef MNTOPT_NAMES
 static struct mntoptnames bsdOptionNames[] = {MNTOPT_NAMES};
 
-/** @brief Get mount options from @p flags and puts human-readable version in @p list
+/*! @brief Get mount options from @p flags and puts human-readable version in @p list
  *
  * Appends all positive options found in @p flags to the @p list
  * This is roughly paraphrased from FreeBSD's mount.c, prmount().
@@ -121,7 +121,7 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
     }
 }
 #else
-/** @brief Get mount options from @p flags and puts human-readable version in @p list
+/*! @brief Get mount options from @p flags and puts human-readable version in @p list
  *
  * This default version just puts the hex representation of @p flags
  * in the list, because there is no human-readable version.
