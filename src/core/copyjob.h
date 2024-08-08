@@ -23,8 +23,8 @@ namespace KIO
 {
 
 class CopyJobPrivate;
-/**
- * @class KIO::CopyJob copyjob.h <KIO/CopyJob>
+/*!
+ * \class KIO::CopyJob
  *
  * CopyJob is used to move, copy or symlink files and directories.
  * Don't create the job directly, but use KIO::copy(),
@@ -42,7 +42,7 @@ class KIOCORE_EXPORT CopyJob : public Job
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Defines the mode of the operation
      */
     enum CopyMode {
@@ -53,25 +53,25 @@ public:
 
     ~CopyJob() override;
 
-    /**
+    /*!
      * Returns the mode of the operation (copy, move, or link),
      * depending on whether KIO::copy(), KIO::move() or KIO::link() was called.
      */
     CopyMode operationMode() const;
 
-    /**
+    /*!
      * Returns the list of source URLs.
      * @return the list of source URLs.
      */
     QList<QUrl> srcUrls() const;
 
-    /**
+    /*!
      * Returns the destination URL.
      * @return the destination URL
      */
     QUrl destUrl() const;
 
-    /**
+    /*!
      * By default the permissions of the copied files will be those of the source files.
      *
      * But when copying "template" files to "new" files, people prefer the umask
@@ -80,7 +80,7 @@ public:
      */
     void setDefaultPermissions(bool b);
 
-    /**
+    /*!
      * Skip copying or moving any file when the destination already exists,
      * instead of the default behavior (interactive mode: showing a dialog to the user,
      * non-interactive mode: aborting with an error).
@@ -89,7 +89,7 @@ public:
      */
     void setAutoSkip(bool autoSkip);
 
-    /**
+    /*!
      * Rename files automatically when the destination already exists,
      * instead of the default behavior (interactive mode: showing a dialog to the user,
      * non-interactive mode: aborting with an error).
@@ -98,7 +98,7 @@ public:
      */
     void setAutoRename(bool autoRename);
 
-    /**
+    /*!
      * Reuse any directory that already exists, instead of the default behavior
      * (interactive mode: showing a dialog to the user,
      * non-interactive mode: aborting with an error).
@@ -106,31 +106,31 @@ public:
      */
     void setWriteIntoExistingDirectories(bool overwriteAllDirs);
 
-    /**
+    /*!
      * Reimplemented for internal reasons
      */
     bool doSuspend() override;
 
-    /**
+    /*!
      * Reimplemented for internal reasons
      */
     bool doResume() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Sends the number of processed files.
      * @param job the job that emitted this signal
      * @param files the number of processed files
      */
     void processedFiles(KIO::Job *job, unsigned long files);
-    /**
+    /*!
      * Sends the number of processed directories.
      * @param job the job that emitted this signal
      * @param dirs the number of processed dirs
      */
     void processedDirs(KIO::Job *job, unsigned long dirs);
 
-    /**
+    /*!
      * The job is copying a file or directory.
      *
      * Note: This signal is used for progress dialogs, it's not emitted for
@@ -142,7 +142,7 @@ Q_SIGNALS:
      * @param dest the destination of the current operation
      */
     void copying(KIO::Job *job, const QUrl &src, const QUrl &dest);
-    /**
+    /*!
      * The job is creating a symbolic link.
      *
      * Note: This signal is used for progress dialogs, it's not emitted for
@@ -154,7 +154,7 @@ Q_SIGNALS:
      * @param to the destination of the current operation
      */
     void linking(KIO::Job *job, const QString &target, const QUrl &to);
-    /**
+    /*!
      * The job is moving a file or directory.
      *
      * Note: This signal is used for progress dialogs, it's not emitted for
@@ -166,7 +166,7 @@ Q_SIGNALS:
      * @param to the destination of the current operation
      */
     void moving(KIO::Job *job, const QUrl &from, const QUrl &to);
-    /**
+    /*!
      * The job is creating the directory @p dir.
      *
      * This signal is emitted for every directory being created.
@@ -175,7 +175,7 @@ Q_SIGNALS:
      * @param dir the directory that is currently being created
      */
     void creatingDir(KIO::Job *job, const QUrl &dir);
-    /**
+    /*!
      * The user chose to rename @p from to @p to.
      *
      * @param job the job that emitted this signal
@@ -184,7 +184,7 @@ Q_SIGNALS:
      */
     void renamed(KIO::Job *job, const QUrl &from, const QUrl &to);
 
-    /**
+    /*!
      * The job emits this signal when copying or moving a file or directory successfully finished.
      * This signal is mainly for the Undo feature.
      * If you simply want to know when a copy job is done, use result().
@@ -200,7 +200,7 @@ Q_SIGNALS:
      * rename operation (i.e. fast directory moving). true if is has been renamed
      */
     void copyingDone(KIO::Job *job, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed);
-    /**
+    /*!
      * The job is copying or moving a symbolic link, that points to target.
      * The new link is created in @p to. The existing one is/was in @p from.
      * This signal is mainly for the Undo feature.
@@ -221,7 +221,7 @@ private:
     Q_DECLARE_PRIVATE(CopyJob)
 };
 
-/**
+/*!
  * Copy a file or directory @p src into the destination @p dest,
  * which can be a file (including the final filename) or a directory
  * (into which @p src will be copied).
@@ -240,7 +240,7 @@ private:
  */
 KIOCORE_EXPORT CopyJob *copy(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Copy a file or directory @p src into the destination @p dest,
  * which is the destination name in any case, even for a directory.
  *
@@ -259,7 +259,7 @@ KIOCORE_EXPORT CopyJob *copy(const QUrl &src, const QUrl &dest, JobFlags flags =
  */
 KIOCORE_EXPORT CopyJob *copyAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Copy a list of file/dirs @p src into a destination directory @p dest.
  *
  * @param src the list of files and/or directories
@@ -272,7 +272,7 @@ KIOCORE_EXPORT CopyJob *copyAs(const QUrl &src, const QUrl &dest, JobFlags flags
  */
 KIOCORE_EXPORT CopyJob *copy(const QList<QUrl> &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Moves a file or directory @p src to the given destination @p dest.
  *
  * @param src the file or directory to copy
@@ -286,7 +286,7 @@ KIOCORE_EXPORT CopyJob *copy(const QList<QUrl> &src, const QUrl &dest, JobFlags 
  * @see moveAs()
  */
 KIOCORE_EXPORT CopyJob *move(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
-/**
+/*!
  * Moves a file or directory @p src to the given destination @p dest. Unlike move()
  * this operation will not move @p src into @p dest when @p dest exists: it will
  * either fail, or move the contents of @p src into it if Overwrite is set.
@@ -300,7 +300,7 @@ KIOCORE_EXPORT CopyJob *move(const QUrl &src, const QUrl &dest, JobFlags flags =
  * @see copyAs()
  */
 KIOCORE_EXPORT CopyJob *moveAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
-/**
+/*!
  * Moves a list of files or directories @p src to the given destination @p dest.
  *
  * @param src the list of files or directories to copy
@@ -314,7 +314,7 @@ KIOCORE_EXPORT CopyJob *moveAs(const QUrl &src, const QUrl &dest, JobFlags flags
  */
 KIOCORE_EXPORT CopyJob *move(const QList<QUrl> &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Create a link.
  * If the protocols and hosts are the same, a Unix symlink will be created.
  * Otherwise, a .desktop file of Type Link and pointing to the src URL will be created.
@@ -326,7 +326,7 @@ KIOCORE_EXPORT CopyJob *move(const QList<QUrl> &src, const QUrl &dest, JobFlags 
  */
 KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Create several links
  * If the protocols and hosts are the same, a Unix symlink will be created.
  * Otherwise, a .desktop file of Type Link and pointing to the src URL will be created.
@@ -339,7 +339,7 @@ KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flag
  */
 KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Create a link. Unlike link() this operation will fail when @p dest is an existing
  * directory rather than the final name for the link.
  * If the protocols and hosts are the same, a Unix symlink will be created.
@@ -354,7 +354,7 @@ KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFla
  */
 KIOCORE_EXPORT CopyJob *linkAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Trash a file or directory.
  * This is currently only supported for local files and directories.
  * Use QUrl::fromLocalFile to create a URL from a local file path.
@@ -365,7 +365,7 @@ KIOCORE_EXPORT CopyJob *linkAs(const QUrl &src, const QUrl &dest, JobFlags flags
  */
 KIOCORE_EXPORT CopyJob *trash(const QUrl &src, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Trash a list of files or directories.
  * This is currently only supported for local files and directories.
  *
