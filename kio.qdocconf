@@ -9,7 +9,6 @@ headerdirs = .
 
 headers.fileextensions = "*.qdoc *.h"
 
-outputdir  = doc/html
 outputformats = HTML
 
 depends += \
