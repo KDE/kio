@@ -27,6 +27,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSourceVersionControl)
 include(ECMDeprecationSettings)
+include(ECMGenerateQDoc)
 
 ecm_setup_version(
   PROJECT
@@ -174,45 +175,6 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(templates)
-
-function(ecm_generate_qdoc)
-
-    find_package(Qt6Tools REQUIRED)
-
-    set(target ${ARGV0})
-    set(doc_project ${ARGV1})
-
-    set(target_include_dirs_file ${CMAKE_CURRENT_BINARY_DIR}/qdocincludes.txt)
-
-    set(include_paths_property "$<TARGET_PROPERTY:${target},INCLUDE_DIRECTORIES>")
-    file(GENERATE
-        OUTPUT ${target_include_dirs_file}
-        CONTENT "$<$<BOOL:${include_paths_property}>:-I$<JOIN:${include_paths_property},\n-I>>"
-    )
-    set(include_path_args "@${target_include_dirs_file}")
-
-    ecm_query_qt(docs_dir QT_INSTALL_DOCS)
-
-    set(qdoc_env_args
-        "QT_INSTALL_DOCS=${docs_dir}"
-        "QT_VERSION=${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}"
-        "QT_VER=${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
-        "QT_VERSION_TAG=${PROJECT_VERSION_MAJOR}${PROJECT_VERSION_MINOR}${PROJECT_VERSION_PATCH}"
-        "BUILDDIR=${CMAKE_CURRENT_BINARY_DIR}"
-    )
-
-    get_target_property(qdoc_bin Qt6::qdoc LOCATION)
-
-    add_custom_target(docs
-            COMMAND ${CMAKE_COMMAND} -E env ${qdoc_env_args}
-            ${qdoc_bin}
-            # ${qdoc_args}
-            -indexdir=/usr/share/doc/qt6
-            ${CMAKE_CURRENT_SOURCE_DIR}/${doc_project}
-            ${include_path_args}
-            --log-progress
-        )
-endfunction()
 
 ecm_generate_qdoc(KF6KIOCore kio.qdocconf)
 
