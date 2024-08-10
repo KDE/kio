@@ -25,7 +25,7 @@ namespace KIOGuiPrivate
 bool checkStartupNotify(const KService *service, bool *silent_arg, QByteArray *wmclass_arg);
 }
 
-/**
+/*!
  * @internal  (exported for KIO GUI job unit tests)
  * This class runs a KService or a shell command, using QProcess internally.
  * It creates a startup notification and finishes it on success or on error (for the taskbar)
@@ -43,7 +43,7 @@ public:
     };
     Q_ENUM(LaunchMode)
 
-    /**
+    /*!
      * Run a KService (application desktop file) to open @p urls.
      * @param service the service to run
      * @param urls the list of URLs, can be empty
@@ -63,7 +63,7 @@ public:
                                            const QString &suggestedFileName = {},
                                            const QByteArray &asn = {});
 
-    /**
+    /*!
      * Run a shell command
      * @param cmd must be a shell command. No need to append "&" to it.
      * @param desktopName name of the desktop file, if known.
@@ -80,7 +80,7 @@ public:
                                        const QString &workingDirectory,
                                        const QProcessEnvironment &environment);
 
-    /**
+    /*!
      * Run an executable with arguments (without invoking a shell, by starting a new process).
      *
      * @note: Starting from 5.92, if an actual executable named @p executable cannot be found
@@ -101,7 +101,7 @@ public:
                                           const QString &workingDirectory,
                                           const QProcessEnvironment &environment);
 
-    /**
+    /*!
      * Blocks until the process has started. Only exists for KRun via Command/ApplicationLauncherJob, will disappear in KF6.
      */
     virtual bool waitForStarted(int timeout = 30000) = 0;
@@ -111,13 +111,13 @@ public:
     static int instanceCount(); // for the unittest
 
 Q_SIGNALS:
-    /**
+    /*!
      * @brief Emitted on error. In that case, finished() is not emitted.
      * @param errorString the error message
      */
     void error(const QString &errorString);
 
-    /**
+    /*!
      * @brief emitted when the process was successfully started
      * @param pid PID of the process that was started
      */

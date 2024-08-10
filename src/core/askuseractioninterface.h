@@ -24,7 +24,7 @@ namespace KIO
 {
 class AskUserActionInterfacePrivate;
 
-/**
+/*!
  * @class KIO::AskUserActionInterface askuseractioninterface.h <KIO/AskUserActionInterface>
  *
  * @brief The AskUserActionInterface class allows a KIO::Job to prompt the user
@@ -45,18 +45,18 @@ class KIOCORE_EXPORT AskUserActionInterface : public QObject
     Q_OBJECT
 
 protected:
-    /**
+    /*!
      * Constructor
      */
     explicit AskUserActionInterface(QObject *parent = nullptr);
 
 public:
-    /**
+    /*!
      * Destructor
      */
     ~AskUserActionInterface() override;
 
-    /**
+    /*!
      * @relates KIO::RenameDialog
      *
      * Constructs a modal, parent-less "rename" dialog, to prompt the user for a decision
@@ -92,7 +92,7 @@ public:
                                const QDateTime &mtimeSrc = {},
                                const QDateTime &mtimeDest = {}) = 0;
 
-    /**
+    /*!
      * @relates KIO::SkipDialog
      *
      * You need to connect to the askUserSkipResult signal to get the dialog's
@@ -106,7 +106,7 @@ public:
      */
     virtual void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText) = 0;
 
-    /**
+    /*!
      * The type of deletion.
      *
      * Used by askUserDelete().
@@ -115,7 +115,7 @@ public:
         Delete, /// Delete the files/directories directly, i.e. without moving them to Trash
         Trash, /// Move the files/directories to Trash
         EmptyTrash, /// Empty the Trash
-        /**
+        /*!
          * This is the same as Delete, but more text is added to the message to inform
          * the user that moving to Trash was tried but failed due to size constraints.
          * Typical use case is re-asking the user about deleting instead of Trashing.
@@ -124,7 +124,7 @@ public:
         DeleteInsteadOfTrash,
     };
 
-    /**
+    /*!
      * Deletion confirmation type.
      *
      * Used by askUserDelete().
@@ -135,7 +135,7 @@ public:
         ForceConfirmation, ///< Always ask the user for confirmation
     };
 
-    /**
+    /*!
      * Ask for confirmation before moving @p urls (files/directories) to the Trash,
      * emptying the Trash, or directly deleting files (i.e. without moving to Trash).
      *
@@ -168,7 +168,7 @@ public:
         Error = 9,
     };
 
-    /**
+    /*!
      * This function allows for the delegation of user prompts from the KIO worker.
      *
      * @param type the desired type of message box, see the MessageDialogType enum
@@ -197,7 +197,7 @@ public:
     virtual void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) = 0;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Implementations of this interface must emit this signal when the rename dialog
      * finishes, to notify the caller of the dialog's result.
      *
@@ -208,7 +208,7 @@ Q_SIGNALS:
      */
     void askUserRenameResult(KIO::RenameDialog_Result result, const QUrl &newUrl, KJob *parentJob);
 
-    /**
+    /*!
      * Implementations of this interface must emit this signal when the skip dialog
      * finishes, to notify the caller of the dialog's result.
      *
@@ -217,7 +217,7 @@ Q_SIGNALS:
      */
     void askUserSkipResult(KIO::SkipDialog_Result result, KJob *parentJob);
 
-    /**
+    /*!
      * Implementations of this interface must emit this signal when the dialog invoked
      * by askUserDelete() finishes, to notify the caller of the user's decision.
      *
@@ -232,7 +232,7 @@ Q_SIGNALS:
                              KIO::AskUserActionInterface::DeletionType deletionType,
                              QWidget *parent); // TODO KF6: replace QWidget* with QObject*
 
-    /**
+    /*!
      * Implementations of this interface must emit this signal when the dialog invoked
      * by requestUserMessageBox() finishes, to notify the caller of the dialog's result
      * (exit code).

@@ -20,7 +20,7 @@ namespace KIO
 {
 class ForwardingWorkerBasePrivate;
 
-/**
+/*!
  * @class KIO::ForwardingWorkerBase forwardingworkerbase.h <KIO/ForwardingWorkerBase>
  *
  * This class should be used as a base for KIO workers acting as a
@@ -91,7 +91,7 @@ public:
     WorkerResult del(const QUrl &url, bool isfile) override;
 
 protected:
-    /**
+    /*!
      * Rewrite an url to its forwarded counterpart. It should return
      * true if everything was ok, and false otherwise.
      *
@@ -110,7 +110,7 @@ protected:
         UDSEntryCreationInListDir, ///<  The entry is created during a listDir operation.
     };
 
-    /**
+    /*!
      * Adjusts a UDSEntry before it's sent in the reply to the KIO worker endpoint.
      * This is the default implementation working in most cases, but sometimes
      * you could make use of more forwarding black magic (for example
@@ -121,13 +121,13 @@ protected:
      */
     virtual void adjustUDSEntry(KIO::UDSEntry &entry, UDSEntryCreationMode creationMode) const;
 
-    /**
+    /*!
      * Return the URL being processed by the KIO worker
      * Only access it inside adjustUDSEntry()
      */
     QUrl processedUrl() const;
 
-    /**
+    /*!
      * Return the URL asked to the KIO worker
      * Only access it inside adjustUDSEntry()
      */

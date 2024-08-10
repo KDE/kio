@@ -16,7 +16,7 @@
 
 class KOpenWithDialogPrivate;
 
-/**
+/*!
  * @class KOpenWithDialog kopenwithdialog.h <KOpenWithDialog>
  *
  * "Open With" dialog box.
@@ -34,7 +34,7 @@ class KIOWIDGETS_EXPORT KOpenWithDialog : public QDialog
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Create a dialog that asks for a application to open a given
      * URL(s) with.
      *
@@ -44,7 +44,7 @@ public:
      */
     explicit KOpenWithDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Create a dialog that asks for a application to open a given
      * URL(s) with.
      *
@@ -55,7 +55,7 @@ public:
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Create a dialog to select a service for a given MIME type.
      * Note that this dialog doesn't apply to URLs.
      *
@@ -65,7 +65,7 @@ public:
      */
     KOpenWithDialog(const QString &mimeType, const QString &value, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Create a dialog that asks for a application for opening a given
      * URL (or more than one), when we already know the MIME type of the URL(s).
      *
@@ -78,7 +78,7 @@ public:
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType, const QString &text, const QString &value, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Create a dialog to select an application
      * Note that this dialog doesn't apply to URLs.
      *
@@ -86,29 +86,29 @@ public:
      */
     KOpenWithDialog(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      */
     ~KOpenWithDialog() override;
 
-    /**
+    /*!
      * @return the text the user entered
      */
     QString text() const;
-    /**
+    /*!
      * Hide the "Do not &close when command exits" Checkbox
      */
     void hideNoCloseOnExit();
-    /**
+    /*!
      * Hide the "Run in &terminal" Checkbox
      */
     void hideRunInTerminal();
-    /**
+    /*!
      * @return the chosen service in the application tree
      * Can be null, if the user typed some text and didn't select a service.
      */
     KService::Ptr service() const;
-    /**
+    /*!
      * Set whether a new .desktop file should be created if the user selects an
      * application for which no corresponding .desktop file can be found.
      *
@@ -126,7 +126,7 @@ public Q_SLOTS: // TODO KDE5: move all those slots to the private class!
     void slotTerminalToggled(bool);
 
 protected Q_SLOTS:
-    /**
+    /*!
      * Reimplemented from QDialog::accept()
      */
     void accept() override;

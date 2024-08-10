@@ -29,7 +29,7 @@ class QCheckBox;
 class QAbstractButton;
 class QColorGroup;
 
-/**
+/*!
 @author Sean Harmer
 */
 class KACLListView : public QTreeWidget

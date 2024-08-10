@@ -25,7 +25,7 @@ class KUrlComboBox;
 
 class KUrlNavigatorPrivate;
 
-/**
+/*!
  * @class KUrlNavigator kurlnavigator.h <KUrlNavigator>
  *
  * @brief Widget that allows to navigate through the paths of an URL.
@@ -71,10 +71,10 @@ class KIOFILEWIDGETS_EXPORT KUrlNavigator : public QWidget
     Q_OBJECT
 
 public:
-    /** @since 4.5 */
+    /*! @since 4.5 */
     KUrlNavigator(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * @param placesModel    Model for the places which are selectable inside a
      *                       menu. A place can be a bookmark or a device. If it is 0,
      *                       no places selector is displayed.
@@ -84,14 +84,14 @@ public:
     KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent);
     ~KUrlNavigator() override;
 
-    /**
+    /*!
      * @return URL of the location given by the \a historyIndex. If \a historyIndex
      *         is smaller than 0, the URL of the current location is returned.
      * @since  4.5
      */
     QUrl locationUrl(int historyIndex = -1) const;
 
-    /**
+    /*!
      * Saves the location state described by \a state for the current location. It is recommended
      * that at least the scroll position of a view is remembered and restored when traversing
      * through the history. Saving the location state should be done when the signal
@@ -112,7 +112,7 @@ public:
      */
     void saveLocationState(const QByteArray &state);
 
-    /**
+    /*!
      * @return Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
      * @see    KUrlNavigator::saveLocationState()
@@ -120,7 +120,7 @@ public:
      */
     QByteArray locationState(int historyIndex = -1) const;
 
-    /**
+    /*!
      * Goes back one step in the URL history. The signals
      * KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged() and
      * KUrlNavigator::historyChanged() are emitted if true is returned. False is returned
@@ -130,7 +130,7 @@ public:
      */
     bool goBack();
 
-    /**
+    /*!
      * Goes forward one step in the URL history. The signals
      * KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged() and
      * KUrlNavigator::historyChanged() are emitted if true is returned. False is returned
@@ -140,7 +140,7 @@ public:
      */
     bool goForward();
 
-    /**
+    /*!
      * Goes up one step of the URL path and remembers the old path
      * in the history. The signals KUrlNavigator::urlAboutToBeChanged(),
      * KUrlNavigator::urlChanged() and KUrlNavigator::historyChanged() are
@@ -149,7 +149,7 @@ public:
      */
     bool goUp();
 
-    /**
+    /*!
      * Goes to the home URL and remembers the old URL in the history.
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
      * and KUrlNavigator::historyChanged() are emitted.
@@ -160,7 +160,7 @@ public:
     // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     void goHome();
 
-    /**
+    /*!
      * Sets the home URL used by KUrlNavigator::goHome(). If no
      * home URL is set, the default home path of the user is used.
      */
@@ -170,7 +170,7 @@ public:
 
     QUrl homeUrl() const;
 
-    /**
+    /*!
      * Allows to edit the URL of the navigation bar if \a editable
      * is true, and sets the focus accordingly.
      * If \a editable is false, each part of
@@ -178,14 +178,14 @@ public:
      */
     void setUrlEditable(bool editable);
 
-    /**
+    /*!
      * @return True, if the URL is editable within a line editor.
      *         If false is returned, each part of the URL is presented by a button
      *         for fast navigation ("breadcrumb view").
      */
     bool isUrlEditable() const;
 
-    /**
+    /*!
      * Shows the full path of the URL even if a place represents a part of the URL.
      * Assuming that a place called "Pictures" uses the URL /home/user/Pictures.
      * An URL like /home/user/Pictures/2008 is shown as [Pictures] > [2008]
@@ -195,13 +195,13 @@ public:
      */
     void setShowFullPath(bool show);
 
-    /**
+    /*!
      * @return True, if the full path of the URL should be shown in the breadcrumb view.
      * @since  4.2
      */
     bool showFullPath() const;
 
-    /**
+    /*!
      * Set the URL navigator to the active mode, if \a active
      * is true. The active mode is default. The inactive mode only differs
      * visually from the active mode, no change of the behavior is given.
@@ -212,13 +212,13 @@ public:
      */
     void setActive(bool active);
 
-    /**
+    /*!
      * @return True, if the URL navigator is in the active mode.
      * @see    KUrlNavigator::setActive()
      */
     bool isActive() const;
 
-    /**
+    /*!
      * Sets the places selector visible, if \a visible is true.
      * The places selector allows to select the places provided
      * by the places model passed in the constructor. Per default
@@ -226,36 +226,36 @@ public:
      */
     void setPlacesSelectorVisible(bool visible);
 
-    /** @return True, if the places selector is visible. */
+    /*! @return True, if the places selector is visible. */
     bool isPlacesSelectorVisible() const;
 
-    /**
+    /*!
      * @return The currently entered, but not accepted URL.
      *         It is possible that the returned URL is not valid.
      */
     QUrl uncommittedUrl() const;
 
-    /**
+    /*!
      * @return The amount of locations in the history. The data for each
      *         location can be retrieved by KUrlNavigator::locationUrl() and
      *         KUrlNavigator::locationState().
      */
     int historySize() const;
 
-    /**
+    /*!
      * @return  The history index of the current location, where
      *          0 <= history index < KUrlNavigator::historySize(). 0 is the most
      *          recent history entry.
      */
     int historyIndex() const;
 
-    /**
+    /*!
      * @return The used editor when the navigator is in the edit mode
      * @see    KUrlNavigator::setUrlEditable()
      */
     KUrlComboBox *editor() const;
 
-    /**
+    /*!
      * Set the URL schemes that the navigator should allow navigating to.
      *
      * If the passed list is empty, all schemes are supported. Examples for
@@ -266,7 +266,7 @@ public:
      */
     void setSupportedSchemes(const QStringList &schemes);
 
-    /**
+    /*!
      * Returns the URL schemes that the navigator should allow navigating to.
      *
      * If the returned list is empty, all schemes are supported.
@@ -276,7 +276,7 @@ public:
      */
     QStringList supportedSchemes() const;
 
-    /**
+    /*!
      * The child widget that received the QDropEvent when dropping on the URL
      * navigator. You can pass this widget to KJobWidgets::setWindow()
      * if you need to show a drop menu with KIO::drop().
@@ -287,31 +287,31 @@ public:
      */
     QWidget *dropWidget() const;
 
-    /**
+    /*!
      * Sets whether to show hidden folders in the subdirectories popup.
      * @since 5.87
      */
     void setShowHiddenFolders(bool showHiddenFolders);
 
-    /**
+    /*!
      * Returns whether to show hidden folders in the subdirectories popup.
      * @since 5.87
      */
     bool showHiddenFolders() const;
 
-    /**
+    /*!
      * Sets whether to sort hidden folders in the subdirectories popup last.
      * @since 5.87
      */
     void setSortHiddenFoldersLast(bool sortHiddenFoldersLast);
 
-    /**
+    /*!
      * Returns whether to sort hidden folders in the subdirectories popup last.
      * @since 5.87
      */
     bool sortHiddenFoldersLast() const;
 
-    /**
+    /*!
      * Puts \a widget to the right of the breadcrumb.
      *
      * KUrlNavigator takes ownership over \a widget. Any existing badge widget is deleted.
@@ -326,14 +326,14 @@ public:
      */
     void setBadgeWidget(QWidget *widget);
 
-    /**
+    /*!
      * Returns the badge widget set by setBadgeWidget(). If setBadgeWidget() hasn't been called, returns nullptr.
      * @since 6.2
      */
     QWidget *badgeWidget() const;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Sets the location to \a url. The old URL is added to the history.
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
      * and KUrlNavigator::historyChanged() are emitted. Use
@@ -341,7 +341,7 @@ public Q_SLOTS:
      */
     void setLocationUrl(const QUrl &url);
 
-    /**
+    /*!
      * Activates the URL navigator (KUrlNavigator::isActive() will return true)
      * and emits the signal KUrlNavigator::activated().
      * @see KUrlNavigator::setActive()
@@ -354,21 +354,21 @@ public Q_SLOTS:
 #endif
 
 Q_SIGNALS:
-    /**
+    /*!
      * Is emitted, if the URL navigator has been activated by
      * an user interaction
      * @see KUrlNavigator::setActive()
      */
     void activated();
 
-    /**
+    /*!
      * Is emitted, if the location URL has been changed e. g. by
      * the user.
      * @see KUrlNavigator::setUrl()
      */
     void urlChanged(const QUrl &url);
 
-    /**
+    /*!
      * Is emitted, before the location URL is going to be changed to \a newUrl.
      * The signal KUrlNavigator::urlChanged() will be emitted after the change
      * has been done. Connecting to this signal is useful to save the state
@@ -376,31 +376,31 @@ Q_SIGNALS:
      */
     void urlAboutToBeChanged(const QUrl &newUrl);
 
-    /**
+    /*!
      * Is emitted, if the editable state for the URL has been changed
      * (see KUrlNavigator::setUrlEditable()).
      */
     void editableStateChanged(bool editable);
 
-    /**
+    /*!
      * Is emitted, if the history has been changed. Usually
      * the history is changed if a new URL has been selected.
      */
     void historyChanged();
 
-    /**
+    /*!
      * Is emitted if a dropping has been done above the destination
      * \a destination. The receiver must accept the drop event if
      * the dropped data can be handled.
      */
     void urlsDropped(const QUrl &destination, QDropEvent *event);
 
-    /**
+    /*!
      * This signal is emitted when the Return or Enter key is pressed.
      */
     void returnPressed();
 
-    /**
+    /*!
      * Is emitted if the URL \a url should be opened in a new inactive tab because
      * the user clicked on a breadcrumb with the middle mouse button or
      * left-clicked with the ctrl modifier pressed or pressed return with
@@ -408,7 +408,7 @@ Q_SIGNALS:
      */
     void tabRequested(const QUrl &url);
 
-    /**
+    /*!
      * Is emitted if the URL \a url should be opened in a new active tab because
      * the user clicked on a breadcrumb with the middle mouse button with
      * the shift modifier pressed or left-clicked with both the ctrl and shift
@@ -418,7 +418,7 @@ Q_SIGNALS:
      */
     void activeTabRequested(const QUrl &url);
 
-    /**
+    /*!
      * Is emitted if the URL \a url should be opened in a new window because
      * the user left-clicked on a breadcrumb with the shift modifier pressed
      * or pressed return with the shift modifier pressed.
@@ -426,7 +426,7 @@ Q_SIGNALS:
      */
     void newWindowRequested(const QUrl &url);
 
-    /**
+    /*!
      * When the URL is changed and the new URL (e.g.\ /home/user1/)
      * is a parent of the previous URL (e.g.\ /home/user1/data/stuff),
      * then this signal is emitted and \p url is set to the child
@@ -440,26 +440,26 @@ Q_SIGNALS:
 
 protected:
 #if !defined(K_DOXYGEN)
-    /**
+    /*!
      * If the Escape key is pressed, the navigation bar should switch
      * to the breadcrumb view.
      * @see QWidget::keyPressEvent()
      */
     void keyPressEvent(QKeyEvent *event) override;
 
-    /**
+    /*!
      * Reimplemented for internal purposes.
      */
     void keyReleaseEvent(QKeyEvent *event) override;
 
-    /**
+    /*!
      * Paste the clipboard content as URL, if the middle mouse
      * button has been clicked.
      * @see QWidget::mouseReleaseEvent()
      */
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-    /**
+    /*!
      * Reimplemented to activate on middle mousse button click
      */
     void mousePressEvent(QMouseEvent *event) override;

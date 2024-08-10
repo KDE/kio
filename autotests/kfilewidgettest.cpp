@@ -51,7 +51,7 @@ static QWidget *findLocationLabel(QWidget *parent)
     return nullptr;
 }
 
-/**
+/*!
  * Unit test for KFileWidget
  */
 class KFileWidgetTest : public QObject

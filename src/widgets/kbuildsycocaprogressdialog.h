@@ -15,7 +15,7 @@
 #include <memory>
 
 class KBuildSycocaProgressDialogPrivate;
-/**
+/*!
  * @class KBuildSycocaProgressDialog kbuildsycocaprogressdialog.h <KBuildSycocaProgressDialog>
  *
  * Progress dialog while ksycoca is being rebuilt (by kbuildsycoca).
@@ -25,7 +25,7 @@ class KIOWIDGETS_EXPORT KBuildSycocaProgressDialog : public QProgressDialog
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Rebuild KSycoca and show a progress dialog while doing so.
      * @param parent Parent widget for the progress dialog
      */

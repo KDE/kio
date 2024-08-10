@@ -13,7 +13,7 @@
 #include "kurifilterplugin_p.h"
 #include <QRegularExpression>
 
-/**
+/*!
  This filter takes care of hostnames in the local search domain.
  If you're in domain domain.org which has a host intranet.domain.org
  and the typed URI is just intranet, check if there's a host

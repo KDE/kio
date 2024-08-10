@@ -15,7 +15,7 @@
 namespace KIO
 {
 class DirectorySizeJobPrivate;
-/**
+/*!
  * @class KIO::DirectorySizeJob directorysizejob.h <KIO/DirectorySizeJob>
  *
  * Computes a directory size (similar to "du", but doesn't give the same results
@@ -31,18 +31,18 @@ public:
     ~DirectorySizeJob() override;
 
 public:
-    /**
+    /*!
      * @return the size we found
      */
     KIO::filesize_t totalSize() const;
 
-    /**
+    /*!
      * @return the total number of files (counting symlinks to files, sockets
      * and character devices as files) in this directory and all sub-directories
      */
     KIO::filesize_t totalFiles() const;
 
-    /**
+    /*!
      * @return the total number of sub-directories found (not including the
      * directory the search started from and treating symlinks to directories
      * as directories)
@@ -59,7 +59,7 @@ private:
     Q_DECLARE_PRIVATE(DirectorySizeJob)
 };
 
-/**
+/*!
  * Computes a directory size (by doing a recursive listing).
  * Connect to the result signal (this is the preferred solution to avoid blocking the GUI),
  * or use exec() for a synchronous (blocking) calculation.
@@ -68,7 +68,7 @@ private:
  */
 KIOCORE_EXPORT DirectorySizeJob *directorySize(const QUrl &directory);
 
-/**
+/*!
  * Computes a directory size (by doing a recursive listing).
  * Connect to the result signal (this is the preferred solution to avoid blocking the GUI),
  * or use exec() for a synchronous (blocking) calculation.

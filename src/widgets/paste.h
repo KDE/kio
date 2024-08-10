@@ -20,14 +20,14 @@ namespace KIO
 class Job;
 class CopyJob;
 
-/**
+/*!
  * Returns true if pasteMimeData will find any interesting format in @p data.
  * You can use this method to enable/disable the paste action appropriately.
  * @since 5.0 (was called canPasteMimeSource before)
  */
 KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 
-/**
+/*!
  * Returns the text to use for the Paste action, when the application supports
  * pasting files, urls, and clipboard data, using pasteClipboard().
  * @param mimeData the mime data, usually QApplication::clipboard()->mimeData().
@@ -40,7 +40,7 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
  */
 KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem);
 
-/**
+/*!
  * Add the information whether the files were cut, into the mimedata.
  * @param mimeData pointer to the mimeData object to be populated. Must not be null.
  * @param cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
@@ -48,7 +48,7 @@ KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enabl
  */
 KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData *mimeData, bool cut);
 
-/**
+/*!
  * Returns true if the URLs in @p mimeData were cut by the user.
  * This should be called when pasting, to choose between moving and copying.
  * @since 5.2

@@ -25,7 +25,7 @@ namespace KIO
 class PreviewJob;
 }
 
-/**
+/*!
  * @class KImageFilePreview kimagefilepreview.h <KImageFilePreview>
  *
  * Image preview widget for the file dialog.
@@ -35,30 +35,30 @@ class KIOFILEWIDGETS_EXPORT KImageFilePreview : public KPreviewWidgetBase
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Creates a new image file preview.
      *
      * @param parent The parent widget.
      */
     explicit KImageFilePreview(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Destroys the image file preview.
      */
     ~KImageFilePreview() override;
 
-    /**
+    /*!
      * Returns the size hint for this widget.
      */
     QSize sizeHint() const override;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Shows a preview for the given @p url.
      */
     void showPreview(const QUrl &url) override;
 
-    /**
+    /*!
      * Clears the preview.
      */
     void clearPreview() override;

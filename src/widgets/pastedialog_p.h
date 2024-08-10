@@ -16,7 +16,7 @@ class QLabel;
 
 namespace KIO
 {
-/**
+/*!
  * @internal
  * Internal class used by paste.h. DO NOT USE.
  */

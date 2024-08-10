@@ -7,7 +7,7 @@
 #ifndef ACLHELPERS_P_H
 #define ACLHELPERS_P_H
 
-/*************************************
+/*!***********************************
  *
  * ACL handling helpers
  *
@@ -29,7 +29,7 @@
 
 namespace KIO
 {
-/**
+/*!
  * @internal
  * WARNING: DO NOT USE outside KIO Framework
  */

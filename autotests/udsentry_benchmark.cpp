@@ -8,7 +8,7 @@
 
 #include <QTest>
 
-/**
+/*!
  * This benchmarks tests four typical uses of UDSEntry:
  *
  * (a)  Store data in UDSEntries using

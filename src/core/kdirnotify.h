@@ -23,7 +23,7 @@
 
 class QDBusConnection;
 
-/**
+/*!
  * \class OrgKdeKDirNotifyInterface kdirnotify.h KDirNotify
  *
  * \brief Proxy class for interface org.kde.KDirNotify.
@@ -65,7 +65,7 @@ public:
     }
 
 public:
-    /**
+    /*!
      * Create a new KDirNotify interface.
      *
      * \param service The service whose signals one wants to listed to. Use an empty
@@ -80,7 +80,7 @@ public:
                               const QDBusConnection &connection = QDBusConnection::sessionBus(),
                               QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor.
      */
     ~OrgKdeKDirNotifyInterface() override;
@@ -98,7 +98,7 @@ Q_SIGNALS: // SIGNALS
 
 public:
     static void emitFileRenamed(const QUrl &src, const QUrl &dst);
-    /**
+    /*!
      * \param src The old URL of the file that has been renamed.
      * \param dst The new URL of the file after it was renamed.
      * \param dstPath The local path of the file after it was renamed. This may be empty

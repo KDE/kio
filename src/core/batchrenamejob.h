@@ -15,7 +15,7 @@ namespace KIO
 {
 class BatchRenameJobPrivate;
 
-/**
+/*!
  * @class KIO::BatchRenameJob batchrenamejob.h <KIO/BatchRenameJob>
  *
  * A KIO job that renames multiple files in one go.
@@ -30,7 +30,7 @@ public:
     ~BatchRenameJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a file was renamed.
      */
     void fileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
@@ -46,7 +46,7 @@ private:
     Q_DECLARE_PRIVATE(BatchRenameJob)
 };
 
-/**
+/*!
  * Renames multiple files at once.
  *
  * The new filename is obtained by replacing the characters represented by

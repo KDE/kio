@@ -15,8 +15,9 @@
 class QWidget;
 class KDirListerPrivate;
 
-/**
- * @class KDirLister kdirlister.h <KDirLister>
+/*!
+ * \class KDirLister
+ * \inmodule KIOWidgets
  *
  * Subclass of KCoreDirLister which uses QWidgets to show error messages
  * and to associate jobs with windows.
@@ -26,17 +27,17 @@ class KIOWIDGETS_EXPORT KDirLister : public KCoreDirLister
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Create a directory lister.
      */
     explicit KDirLister(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destroy the directory lister.
      */
     ~KDirLister() override;
 
-    /**
+    /*!
      * Check whether auto error handling is enabled.
      * If enabled, it will show an error dialog to the user when an
      * error occurs. It is turned on by default.
@@ -45,21 +46,21 @@ public:
      */
     bool autoErrorHandlingEnabled() const; // KF6 remove, already provided by KCoreDirLister
 
-    /**
+    /*!
      * Pass the main window this object is associated with
      * this is used for caching authentication data
      * @param window the window to associate with, @c nullptr to disassociate
      */
     void setMainWindow(QWidget *window);
 
-    /**
+    /*!
      * Returns the main window associated with this object.
      * @return the associated main window, or @c nullptr if there is none
      */
     QWidget *mainWindow();
 
 protected:
-    /**
+    /*!
      * Reimplemented to associate a window with new jobs
      * @reimp
      */

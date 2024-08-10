@@ -47,7 +47,7 @@ class Scheduler : public QObject
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KIO.Scheduler")
 public:
-    /**
+    /*!
      * Register @p job with the scheduler.
      * The default is to create a new worker for the job if no worker
      * is available.
@@ -55,20 +55,20 @@ public:
      */
     static void doJob(SimpleJob *job);
 
-    /**
+    /*!
      * Stop the execution of a job.
      * @param job the job to cancel
      */
     static void cancelJob(SimpleJob *job);
 
-    /**
+    /*!
      * Called when a job is done.
      * @param job the finished job
      * @param worker the worker that executed the @p job
      */
     static void jobFinished(KIO::SimpleJob *job, KIO::Worker *worker);
 
-    /**
+    /*!
      * Puts a worker on notice. A next job may reuse this worker if it
      * requests the same URL.
      *
@@ -83,7 +83,7 @@ public:
      */
     static void putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url);
 
-    /**
+    /*!
      * Removes any worker that might have been put on hold. If a worker
      * was put on hold it will be killed.
      *
@@ -94,14 +94,14 @@ public:
     static void emitReparseSlaveConfiguration();
     // KF6 TODO: rename to emitReparseWorkerConfiguration. See also T15956.
 
-    /**
+    /*!
      * Returns true if there is a worker on hold for @p url.
      *
      * @since 5.101
      */
     static bool isWorkerOnHoldFor(const QUrl &url);
 
-    /**
+    /*!
      * Updates the internal metadata from job.
      *
      * @since 4.6.5
