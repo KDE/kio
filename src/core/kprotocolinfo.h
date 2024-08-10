@@ -14,7 +14,7 @@
 #include <QMetaType>
 #include <QStringList>
 
-/**
+/*!
  * \class KProtocolInfo kprotocolinfo.h <KProtocolInfo>
  *
  * Information about I/O (Internet, etc.) protocols supported by KDE.
@@ -37,13 +37,13 @@ public:
     // Static functions:
     //
 
-    /**
+    /*!
      * Returns list of all known protocols.
      * @return a list of all known protocols
      */
     static QStringList protocols();
 
-    /**
+    /*!
      * Returns whether a protocol is installed that is able to handle @p url.
      *
      * @param url the url to check
@@ -52,13 +52,13 @@ public:
      */
     static bool isKnownProtocol(const QUrl &url);
 
-    /**
+    /*!
      * Same as above except you can supply just the protocol instead of
      * the whole URL.
      */
     static bool isKnownProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
-    /**
+    /*!
      * Returns the library / executable to open for the protocol @p protocol
      * Example : "kio_ftp", meaning either the executable "kio_ftp" or
      * the library "kio_ftp.la" (recommended), whichever is available.
@@ -71,7 +71,7 @@ public:
      */
     static QString exec(const QString &protocol);
 
-    /**
+    /*!
      * Describes the type of a protocol.
      * For instance ftp:// appears as a filesystem with folders and files,
      * while bzip2:// appears as a single file (a stream of data),
@@ -85,7 +85,7 @@ public:
         T_ERROR, ///< used to signal an error
     };
 
-    /**
+    /*!
      * Definition of an extra field in the UDS entries, returned by a listDir operation.
      *
      * The name is the name of the column, translated.
@@ -113,7 +113,7 @@ public:
         Type type;
     };
     typedef QList<ExtraField> ExtraFieldList;
-    /**
+    /*!
      * Definition of extra fields in the UDS entries, returned by a listDir operation.
      *
      * This corresponds to the "ExtraNames=" and "ExtraTypes=" fields in the protocol description file.
@@ -122,7 +122,7 @@ public:
      */
     static ExtraFieldList extraFields(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can act as a helper protocol.
      * A helper protocol invokes an external application and does not return
      * a file or stream.
@@ -136,13 +136,13 @@ public:
      */
     static bool isHelperProtocol(const QUrl &url);
 
-    /**
+    /*!
      * Same as above except you can supply just the protocol instead of
      * the whole URL.
      */
     static bool isHelperProtocol(const QString &protocol);
 
-    /**
+    /*!
      * Returns whether the protocol can act as a filter protocol.
      *
      * A filter protocol can operate on data that is passed to it
@@ -160,13 +160,13 @@ public:
      */
     static bool isFilterProtocol(const QUrl &url);
 
-    /**
+    /*!
      * Same as above except you can supply just the protocol instead of
      * the whole URL.
      */
     static bool isFilterProtocol(const QString &protocol);
 
-    /**
+    /*!
      * Returns the name of the icon, associated with the specified protocol.
      *
      * This corresponds to the "Icon=" field in the protocol description file.
@@ -176,7 +176,7 @@ public:
      */
     static QString icon(const QString &protocol);
 
-    /**
+    /*!
      * Returns the name of the config file associated with the
      * specified protocol. This is useful if two similar protocols
      * need to share a single config file, e.g. http and https.
@@ -189,7 +189,7 @@ public:
      */
     static QString config(const QString &protocol);
 
-    /**
+    /*!
      * Returns the soft limit on the number of KIO workers for this protocol.
      * This limits the number of workers used for a single operation, note
      * that multiple operations may result in a number of instances that
@@ -205,7 +205,7 @@ public:
      */
     static int maxWorkers(const QString &protocol);
 
-    /**
+    /*!
      * Returns the limit on the number of KIO workers for this protocol per host.
      *
      * This corresponds to the "maxInstancesPerHost=" field in the protocol's worker metadata.
@@ -218,7 +218,7 @@ public:
      */
     static int maxWorkersPerHost(const QString &protocol);
 
-    /**
+    /*!
      * Returns whether MIME types can be determined based on extension for this
      * protocol. For some protocols, e.g. http, the filename extension in the URL
      * can not be trusted to truly reflect the file type.
@@ -231,7 +231,7 @@ public:
      */
     static bool determineMimetypeFromExtension(const QString &protocol);
 
-    /**
+    /*!
      * Returns the default MIME type for the specified protocol, if one exists.
      *
      * This corresponds to the "defaultMimetype=" field in the protocol description file.
@@ -242,7 +242,7 @@ public:
      */
     static QString defaultMimetype(const QString &protocol);
 
-    /**
+    /*!
      * Returns the documentation path for the specified protocol.
      *
      * This corresponds to the "X-DocPath=" or "DocPath=" field in the protocol description file.
@@ -252,7 +252,7 @@ public:
      */
     static QString docPath(const QString &protocol);
 
-    /**
+    /*!
      * Returns the protocol class for the specified protocol.
      *
      * This corresponds to the "Class=" field in the protocol description file.
@@ -269,7 +269,7 @@ public:
      */
     static QString protocolClass(const QString &protocol);
 
-    /**
+    /*!
      * Returns whether file previews should be shown for the specified protocol.
      *
      * This corresponds to the "ShowPreviews=" field in the protocol description file.
@@ -281,7 +281,7 @@ public:
      */
     static bool showFilePreview(const QString &protocol);
 
-    /**
+    /*!
      * Returns the list of capabilities provided by the KIO worker implementing
      * this protocol.
      *
@@ -299,7 +299,7 @@ public:
      */
     static QStringList capabilities(const QString &protocol);
 
-    /**
+    /*!
      * Returns the list of archive MIME types handled by the KIO worker implementing
      * this protocol.
      *
@@ -312,7 +312,7 @@ public:
     static QStringList archiveMimetypes(const QString &protocol);
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 4)
-    /**
+    /*!
      * Returns the name of the protocol through which the request
      * will be routed if proxy support is enabled.
      *

@@ -17,7 +17,7 @@
 
 class KShellCompletionPrivate;
 
-/**
+/*!
  * @class KShellCompletion kshellcompletion.h <KShellCompletion>
  *
  * This class does shell-like completion of file names.
@@ -34,13 +34,13 @@ class KIOWIDGETS_EXPORT KShellCompletion : public KUrlCompletion
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructs a KShellCompletion object.
      */
     KShellCompletion();
     ~KShellCompletion() override;
 
-    /**
+    /*!
      * Finds completions to the given text.
      * The first match is returned and emitted in the signal match().
      * @param text the text to complete

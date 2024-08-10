@@ -18,7 +18,7 @@ namespace KIO
 {
 class MimeTypeFinderJobPrivate;
 
-/**
+/*!
  * @class MimeTypeFinderJob MimeTypeFinderjob.h <KIO/MimeTypeFinderJob>
  *
  * @brief MimeTypeFinderJob finds out the MIME type of a URL.
@@ -29,27 +29,27 @@ class KIOCORE_EXPORT MimeTypeFinderJob : public KCompositeJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * @brief Creates an MimeTypeFinderJob for a URL.
      * @param url the URL of the file/directory to examine
      */
     explicit MimeTypeFinderJob(const QUrl &url, QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that by default jobs auto-delete themselves after emitting result.
      */
     ~MimeTypeFinderJob() override;
 
-    /**
+    /*!
      * Sets whether the job should follow URL redirections.
      * This is enabled by default.
      * @param b whether to follow redirections or not
      */
     void setFollowRedirections(bool b);
 
-    /**
+    /*!
      * Sets the file name to use in the case of downloading the file to a tempfile,
      * in order to give it to a non-URL-aware application.
      * Some apps rely on the extension to determine the MIME type of the file.
@@ -59,13 +59,13 @@ public:
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
-    /**
+    /*!
      * Returns the suggested filename, either set by setSuggestedFileName
      * or returned by the KIO::get job
      */
     QString suggestedFileName() const;
 
-    /**
+    /*!
      * Enable/disable authentication prompt, if the URL requires one.
      * They are enabled by default.
      * This method allows to disable such prompts for jobs that should
@@ -76,19 +76,19 @@ public:
      */
     void setAuthenticationPromptEnabled(bool enable);
 
-    /**
+    /*!
      * Returns where authentication prompts are enabled or disabled.
      * @see setAuthenticationPromptEnabled
      */
     bool isAuthenticationPromptEnabled() const;
 
-    /**
+    /*!
      * Starts the job.
      * You must call this, after having called all the needed setters.
      */
     void start() override;
 
-    /**
+    /*!
      * @return the MIME type. Only valid after the result() signal has been emitted.
      */
     QString mimeType() const;

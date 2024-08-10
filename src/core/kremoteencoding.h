@@ -16,7 +16,7 @@
 
 class QUrl;
 class KRemoteEncodingPrivate;
-/**
+/*!
  * @class KRemoteEncoding kremoteencoding.h <KRemoteEncoding>
  *
  * Allows encoding and decoding properly remote filenames into Unicode.
@@ -36,7 +36,7 @@ class KRemoteEncodingPrivate;
 class KIOCORE_EXPORT KRemoteEncoding
 {
 public:
-    /**
+    /*!
      * Constructor.
      *
      * Constructs this object to use the given encoding name.
@@ -44,31 +44,31 @@ public:
      */
     explicit KRemoteEncoding(const char *name = nullptr);
 
-    /**
+    /*!
      * Destructor
      */
     virtual ~KRemoteEncoding();
 
-    /**
+    /*!
      * Converts the given full pathname or filename to Unicode.
      * This function is supposed to work for dirnames, filenames
      * or a full pathname.
      */
     QString decode(const QByteArray &name) const;
 
-    /**
+    /*!
      * Converts the given name from Unicode.
      * This function is supposed to work for dirnames, filenames
      * or a full pathname.
      */
     QByteArray encode(const QString &name) const;
 
-    /**
+    /*!
      * Converts the given URL into its 8-bit components
      */
     QByteArray encode(const QUrl &url) const;
 
-    /**
+    /*!
      * Converts the given URL into 8-bit form and separate the
      * dirname from the filename. This is useful for worker functions
      * like stat or get.
@@ -77,17 +77,17 @@ public:
      */
     QByteArray directory(const QUrl &url, bool ignore_trailing_slash = true) const;
 
-    /**
+    /*!
      * Converts the given URL into 8-bit form and retrieve the filename.
      */
     QByteArray fileName(const QUrl &url) const;
 
-    /**
+    /*!
      * Returns the encoding being used.
      */
     const char *encoding() const;
 
-    /**
+    /*!
      * Sets the encoding being used.
      * This function does not change the global configuration.
      *

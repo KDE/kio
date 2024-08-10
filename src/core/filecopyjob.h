@@ -15,7 +15,7 @@
 namespace KIO
 {
 class FileCopyJobPrivate;
-/**
+/*!
  * @class KIO::FileCopyJob filecopyjob.h <KIO/FileCopyJob>
  *
  * The FileCopyJob copies data from one place to another.
@@ -28,14 +28,14 @@ class KIOCORE_EXPORT FileCopyJob : public Job
 
 public:
     ~FileCopyJob() override;
-    /**
+    /*!
      * If you know the size of the source file, call this method
      * to inform this job. It will be displayed in the "resume" dialog.
      * @param size the size of the source file
      */
     void setSourceSize(KIO::filesize_t size);
 
-    /**
+    /*!
      * Sets the modification time of the file
      *
      * Note that this is ignored if a direct copy (WorkerBase::copy) can be done,
@@ -44,13 +44,13 @@ public:
      */
     void setModificationTime(const QDateTime &mtime);
 
-    /**
+    /*!
      * Returns the source URL.
      * @return the source URL
      */
     QUrl srcUrl() const;
 
-    /**
+    /*!
      * Returns the destination URL.
      * @return the destination URL
      */
@@ -61,7 +61,7 @@ public:
     bool doKill() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * MIME type determined during a file copy.
      * This is never emitted during a move, and might not be emitted during
      * a file copy, depending on the worker. But when a get and a put are
@@ -75,7 +75,7 @@ Q_SIGNALS:
     void mimeTypeFound(KIO::Job *job, const QString &mimeType);
 
 protected Q_SLOTS:
-    /**
+    /*!
      * Called whenever a subjob finishes.
      * @param job the job that emitted this signal
      */
@@ -88,7 +88,7 @@ private:
     Q_DECLARE_PRIVATE(FileCopyJob)
 };
 
-/**
+/*!
  * Copy a single file.
  *
  * Uses either WorkerBase::copy() if the worker supports that
@@ -107,13 +107,13 @@ private:
  */
 KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  */
 FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 
-/**
+/*!
  * Move a single file.
  *
  * Use either WorkerBase::rename() if the worker supports that,
@@ -132,7 +132,7 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  */
 KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  */

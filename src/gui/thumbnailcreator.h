@@ -37,7 +37,7 @@ class ThumbnailResultPrivate;
 class KIOGUI_EXPORT ThumbnailRequest
 {
 public:
-    /**
+    /*!
      * Contruct a new ThumbnailRequest for a given file.
      *
      * @param url URL of the relevant file.
@@ -60,27 +60,27 @@ public:
     ThumbnailRequest &operator=(const ThumbnailRequest &);
     ~ThumbnailRequest();
 
-    /**
+    /*!
      * URL of the relevant file
      */
     QUrl url() const;
 
-    /**
+    /*!
      * The target thumbnail size
      */
     QSize targetSize() const;
 
-    /**
+    /*!
      * The target file's MIME type
      */
     QString mimeType() const;
 
-    /**
+    /*!
      * The device Pixel Ratio used for thumbnail creation
      */
     qreal devicePixelRatio() const;
 
-    /**
+    /*!
      * If the thumb-creator can create a sequence of thumbnails,
      * it should use this to decide what sequence item to use.
      *
@@ -101,7 +101,7 @@ private:
     std::unique_ptr<ThumbnailRequestPrivate> d;
 };
 
-/**
+/*!
  * Encapsulates the output of a thumbnail request.
  * It contains information on whether the request was successful and,
  * if successful, the requested thumbnail
@@ -117,19 +117,19 @@ public:
     ThumbnailResult &operator=(const ThumbnailResult &);
     ~ThumbnailResult();
 
-    /**
+    /*!
      * The requested thumbnail.
      *
      * If the request failed the image is null
      */
     QImage image() const;
 
-    /**
+    /*!
      * Whether the request was successful.
      */
     bool isValid() const;
 
-    /**
+    /*!
      * Returns the point at which this thumb-creator's sequence indices
      * will wrap around (loop).
      *
@@ -156,7 +156,7 @@ public:
      */
     float sequenceIndexWraparoundPoint() const;
 
-    /**
+    /*!
      * Sets the point at which this thumb-creator's sequence indices
      * will wrap around.
      *
@@ -164,12 +164,12 @@ public:
      */
     void setSequenceIndexWraparoundPoint(float wraparoundPoint);
 
-    /**
+    /*!
      * Create a successful result with a given image
      */
     static ThumbnailResult pass(const QImage &image);
 
-    /**
+    /*!
      * Create an error result, i.e. the thumbnail creation failed
      */
     static ThumbnailResult fail();
@@ -179,7 +179,7 @@ private:
     std::unique_ptr<ThumbnailResultPrivate> d;
 };
 
-/**
+/*!
  * @class ThumbnailCreator thumbnailcreator.h <KIO/ThumbnailCreator>
  *
  * Base class for thumbnail generator plugins.
@@ -238,7 +238,7 @@ public:
     explicit ThumbnailCreator(QObject *parent, const QVariantList &args);
     virtual ~ThumbnailCreator();
 
-    /**
+    /*!
      * Creates a thumbnail for a given request
      */
     virtual ThumbnailResult create(const ThumbnailRequest &request) = 0;

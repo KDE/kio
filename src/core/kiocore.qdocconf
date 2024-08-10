@@ -1,6 +1,6 @@
 include($QT_INSTALL_DOCS/global/qt-module-defaults-online.qdocconf)
 
-project = KIO
+project = KIOCore
 description = Additions to Qt Core
 
 documentationinheaders = true

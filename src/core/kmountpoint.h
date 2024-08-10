@@ -19,7 +19,7 @@
 
 class KMountPointPrivate;
 
-/**
+/*!
  * @class KMountPoint kmountpoint.h <KMountPoint>
  *
  * The KMountPoint class provides information about mounted and unmounted disks.
@@ -32,14 +32,14 @@ class KIOCORE_EXPORT KMountPoint : public QSharedData
 public:
     using Ptr = QExplicitlySharedDataPointer<KMountPoint>;
 
-    /**
+    /*!
      * List of mount points.
      */
     class KIOCORE_EXPORT List : public QList<Ptr>
     {
     public:
         List();
-        /**
+        /*!
          * Find the mountpoint on which resides @p path
          * For instance if /home is a separate partition, findByPath("/home/user/blah")
          * will return /home
@@ -48,7 +48,7 @@ public:
          */
         Ptr findByPath(const QString &path) const;
 
-        /**
+        /*!
          * Returns the mount point associated with @p device,
          * i.e. the one where mountedFrom() == @p device
          * (after symlink resolution).
@@ -58,37 +58,37 @@ public:
     };
 
 public:
-    /**
+    /*!
      * Flags that specify which additional details should be fetched for each mountpoint.
      * @see DetailsNeededFlags
      */
     enum DetailsNeededFlag {
-        /**
+        /*!
          * Only the basic details: mountedFrom, mountPoint, mountType.
          */
         BasicInfoNeeded = 0,
-        /**
+        /*!
          * Also fetch the options used when mounting, see KMountPoint::mountOptions().
          */
         NeedMountOptions = 1,
-        /**
+        /*!
          * Also fetch the device name (with symlinks resolved), see KMountPoint::realDeviceName().
          */
         NeedRealDeviceName = 2,
     };
-    /**
+    /*!
      * Stores a combination of #DetailsNeededFlag values.
      */
     Q_DECLARE_FLAGS(DetailsNeededFlags, DetailsNeededFlag)
 
-    /**
+    /*!
      * This function gives a list of all possible mountpoints. (fstab)
      * @param infoNeeded Flags that specify which additional information
      * should be fetched.
      */
     static List possibleMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
-    /**
+    /*!
      * Returns a list of all current mountpoints.
      *
      * @param infoNeeded Flags that specify which additional information
@@ -98,13 +98,13 @@ public:
      */
     static List currentMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
-    /**
+    /*!
      * Where this filesystem gets mounted from.
      * This can refer to a device, a remote server or something else.
      */
     QString mountedFrom() const;
 
-    /**
+    /*!
      * Returns @c true if this mount point represents a network filesystem (e.g.\ NFS,
      * CIFS, etc.), otherwise returns @c false.
      *
@@ -112,7 +112,7 @@ public:
      */
     bool isOnNetwork() const;
 
-    /**
+    /*!
      * Returns the device ID (dev_t, major, minor) of this mount point. This
      * ID is unique per device (including network mounts).
      *
@@ -120,31 +120,31 @@ public:
      */
     dev_t deviceId() const;
 
-    /**
+    /*!
      * Canonical name of the device where the filesystem got mounted from.
      * (Or empty, if not a device)
      * Only available when the NeedRealDeviceName flag was set.
      */
     QString realDeviceName() const;
 
-    /**
+    /*!
      * Path where the filesystem is mounted (if you used @ref currentMountPoints()),
      * or can be mounted (if you used @ref possibleMountPoints()).
      */
     QString mountPoint() const;
 
-    /**
+    /*!
      * Type of filesystem
      */
     QString mountType() const;
 
-    /**
+    /*!
      * Options used to mount the filesystem.
      * Only available if the @ref NeedMountOptions flag was set.
      */
     QStringList mountOptions() const;
 
-    /**
+    /*!
      * Returns @c true if the filesystem is "probably" slow, e.g.\ a network mount,
      * @c false otherwise.
      */
@@ -158,7 +158,7 @@ public:
         CaseInsensitive,
     };
 
-    /**
+    /*!
      * Checks the capabilities of the filesystem.
      * @param flag the flag to check
      * @return true if the filesystem has that flag, false if not
@@ -178,13 +178,13 @@ public:
      */
     bool testFileSystemFlag(FileSystemFlag flag) const;
 
-    /**
+    /*!
      * Destructor
      */
     ~KMountPoint();
 
 private:
-    /**
+    /*!
      * Constructor
      */
     KIOCORE_NO_EXPORT KMountPoint();

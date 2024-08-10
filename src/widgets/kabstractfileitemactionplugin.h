@@ -19,7 +19,7 @@ class QMenu;
 class QWidget;
 class KFileItemListProperties;
 
-/**
+/*!
  * @class KAbstractFileItemActionPlugin kabstractfileitemactionplugin.h <KAbstractFileItemActionPlugin>
  *
  * @brief Base class for KFileItemAction plugins.
@@ -83,7 +83,7 @@ public:
 
     ~KAbstractFileItemActionPlugin() override;
 
-    /**
+    /*!
      * Implement the actions method in the plugin in order to create actions.
      *
      * @param fileItemInfos  Information about the selected file items.
@@ -95,7 +95,7 @@ public:
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emits an error which will be displayed to the user
      * @since 5.82
      */

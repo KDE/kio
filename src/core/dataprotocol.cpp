@@ -16,7 +16,7 @@
 
 using namespace KIO;
 
-/** structure containing header information */
+/*! structure containing header information */
 struct DataHeader {
     QString mime_type; // MIME type of content (lowercase)
     MetaData attributes; // attribute/value pairs (attribute lowercase,
@@ -28,7 +28,7 @@ struct DataHeader {
     // the end to indicate that there is no data
 };
 
-/** returns the position of the first occurrence of any of the given
+/*! returns the position of the first occurrence of any of the given
  * characters @p c1 or comma (',') or semicolon (';') or buf.length()
  * if none is contained.
  *
@@ -52,7 +52,7 @@ static int find(const QByteArray &buf, int begin, const char c1)
     return pos;
 }
 
-/** extracts the string between the current position @p pos and the first
+/*! extracts the string between the current position @p pos and the first
  * occurrence of either @p c1 or comma (',') or semicolon (';') exclusively
  * and updates @p pos to point at the found delimiter or at the end of the
  * buffer if neither character occurred.
@@ -67,7 +67,7 @@ static inline QString extract(const QByteArray &buf, int &pos, const char c1 = '
     return QString::fromLatin1(buf.mid(oldpos, pos - oldpos));
 }
 
-/** ignores all whitespaces
+/*! ignores all whitespaces
  * @param buf buffer to operate on
  * @param pos position to shift to first non-whitespace character
  *  Upon return @p pos will either point to the first non-whitespace
@@ -81,7 +81,7 @@ static inline void ignoreWS(const QByteArray &buf, int &pos)
     }
 }
 
-/** parses a quoted string as per rfc 822.
+/*! parses a quoted string as per rfc 822.
  *
  * If trailing quote is missing, the whole rest of the buffer is returned.
  * @param buf buffer to operate on
@@ -120,7 +120,7 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
     return res;
 }
 
-/** parses the header of a data url
+/*! parses the header of a data url
  * @param url the data url
  * @param mimeOnly if the only interesting information is the MIME type
  * @return DataHeader structure with the header information

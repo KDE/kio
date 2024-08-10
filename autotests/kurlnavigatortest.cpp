@@ -156,7 +156,7 @@ void KUrlNavigatorTest::testHistoryInsert()
     QCOMPARE(m_navigator->historySize(), 4);
 }
 
-/**
+/*!
  * When the current URL is inside an archive and the user goes "up", it is expected
  * that the new URL is that of the folder containing the archive (unless the URL was
  * in a subfolder inside the archive). Furthermore, the protocol should be "file".

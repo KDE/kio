@@ -19,7 +19,7 @@ class QUrl;
 namespace KIO
 {
 class FavIconRequestJobPrivate;
-/**
+/*!
  * @class FavIconRequestJob faviconrequestjob.h <KIO/FavIconRequestJob>
  *
  * FavIconRequestJob handles the retrieval of a favicon (either from the local cache or from the internet)
@@ -61,7 +61,7 @@ class KIOGUI_EXPORT FavIconRequestJob : public KCompositeJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * @brief FavIconRequestJob constructor
      * @param hostUrl The web page URL. We only use the scheme and host.
      * @param reload set this to reload to skip the cache and force a refresh of the favicon.
@@ -69,13 +69,13 @@ public:
      */
     explicit FavIconRequestJob(const QUrl &hostUrl, KIO::LoadType reload = KIO::NoReload, QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor. You do not need to delete the job, it will delete automatically,
      * unless you call setAutoDelete(false).
      */
     ~FavIconRequestJob() override;
 
-    /**
+    /*!
      * @brief setIconUrl allows to set, for a specific URL, a different icon URL
      * than the default one for the host (http://host/favicon.ico)
      *
@@ -87,20 +87,20 @@ public:
      */
     void setIconUrl(const QUrl &iconUrl);
 
-    /**
+    /*!
      * Returns the full local path to the icon from the cache.
      * Only call this in the slot connected to the result(KJob*) signal.
      * @return the path to the icon file
      */
     QString iconFile() const;
 
-    /**
+    /*!
      * Returns the URL passed to the constructor
      * @since 5.20
      */
     QUrl hostUrl() const;
 
-    /**
+    /*!
      * @internal
      * Do not call start(), KIO jobs are autostarted
      */

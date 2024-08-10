@@ -156,7 +156,7 @@ static CompareFilesResult compareFiles(const QString &filepath, const QString &s
     }
 }
 
-/** @internal */
+/*! @internal */
 class Q_DECL_HIDDEN RenameDialog::RenameDialogPrivate
 {
 public:
