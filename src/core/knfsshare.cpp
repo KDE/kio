@@ -43,7 +43,7 @@ KNFSShare::KNFSSharePrivate::KNFSSharePrivate(KNFSShare *parent)
     }
 }
 
-/**
+/*!
  * Try to find the nfs config file path
  * First tries the kconfig, then checks
  * several well-known paths
@@ -70,7 +70,7 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
     return true;
 }
 
-/**
+/*!
  * Reads all paths from the exports file
  * and fills the sharedPaths dict with the values
  */

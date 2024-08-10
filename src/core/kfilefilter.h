@@ -16,7 +16,7 @@
 
 class KFileFilterPrivate;
 
-/**
+/*!
  * @class KFileFilter kfilefilter.h <KFileFilter>
  *
  * Encapsulates rules to filter a list of files.
@@ -28,12 +28,12 @@ class KFileFilterPrivate;
 class KIOCORE_EXPORT KFileFilter
 {
 public:
-    /**
+    /*!
      * Creates an empty filter.
      */
     explicit KFileFilter();
 
-    /**
+    /*!
      * Creates a filter with a given label, name patterns, and MIME types.
      *
      * @param label The user-facing label for this filter.
@@ -48,34 +48,34 @@ public:
     ~KFileFilter();
     bool operator==(const KFileFilter &other) const;
 
-    /**
+    /*!
      * The user-facing label for this filter.
      *
      * If no label is passed on creation one is created based on the patterns.
      */
     QString label() const;
 
-    /**
+    /*!
      * List of file name patterns that are included by this filter.
      */
     QStringList filePatterns() const;
 
-    /**
+    /*!
      * List of MIME types that are included by this filter;
      */
     QStringList mimePatterns() const;
 
-    /**
+    /*!
      * Converts this filter to a string representation
      */
     QString toFilterString() const;
 
-    /**
+    /*!
      * Whether the filer is empty, i.e.\ matches all files.
      */
     bool isEmpty() const;
 
-    /**
+    /*!
      * Whether the filter is valid.
      *
      * Creating a filter from an invalid/unkown MIME type will result in an invalid filter.
@@ -90,7 +90,7 @@ public:
      */
     static KFileFilter fromMimeType(const QString &mimeType);
 
-    /**
+    /*!
      * Creates filters from a list of MIME types.
      * The user-facing label is automatically determined from the MIME type.
      *
@@ -99,7 +99,7 @@ public:
     static QList<KFileFilter> fromMimeTypes(const QStringList &mimeTypes);
 
 private:
-    /**
+    /*!
      * Convert a filter string understood by KFileWidget to a list of KFileFilters.
      */
     static QList<KFileFilter> fromFilterString(const QString &filterString);

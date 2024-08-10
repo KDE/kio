@@ -18,7 +18,7 @@ class KUrlNavigator;
 
 namespace KDEPrivate
 {
-/**
+/*!
  * @brief Base class for buttons of the URL navigator.
  *
  * Buttons of the URL navigator offer an active/inactive
@@ -32,7 +32,7 @@ public:
     explicit KUrlNavigatorButtonBase(KUrlNavigator *parent);
     ~KUrlNavigatorButtonBase() override;
 
-    /**
+    /*!
      * When having several URL navigator instances, it is important
      * to provide a visual difference to indicate which URL navigator
      * is active (usecase: split view in Dolphin). The activation state
@@ -62,11 +62,11 @@ protected:
 
     void drawHoverBackground(QPainter *painter);
 
-    /** Returns the foreground color by respecting the current display hint. */
+    /*! Returns the foreground color by respecting the current display hint. */
     QColor foregroundColor() const;
 
 private Q_SLOTS:
-    /** Invokes setActive(true). */
+    /*! Invokes setActive(true). */
     void activate();
 
 private:

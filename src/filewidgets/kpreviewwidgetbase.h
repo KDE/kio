@@ -17,7 +17,7 @@
 
 class QUrl;
 
-/**
+/*!
  * @class KPreviewWidgetBase kpreviewwidgetbase.h <KPreviewWidgetBase>
  *
  * Abstract baseclass for all preview widgets which shall be used via
@@ -37,7 +37,7 @@ class KIOFILEWIDGETS_EXPORT KPreviewWidgetBase : public QWidget
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructor. Construct the user interface of your preview widget here
      * and pass the KFileDialog this preview widget is going to be used in as
      * the parent.
@@ -50,7 +50,7 @@ public:
     QStringList supportedMimeTypes() const;
 
 public Q_SLOTS:
-    /**
+    /*!
      * This slot is called every time the user selects another file in the
      * file dialog. Implement the stuff necessary to reflect the change here.
      *
@@ -58,7 +58,7 @@ public Q_SLOTS:
      */
     virtual void showPreview(const QUrl &url) = 0;
 
-    /**
+    /*!
      * Reimplement this to clear the preview. This is called when e.g. the
      * selection is cleared or when multiple selections exist, or the directory
      * is changed.

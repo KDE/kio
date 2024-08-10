@@ -12,7 +12,7 @@
 
 namespace KIO
 {
-/**
+/*!
  * @internal
  * Commands that can be invoked by a job.
  */

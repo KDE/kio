@@ -18,10 +18,11 @@ class KDirLister;
 class KDirModelPrivate;
 class JobUrlCache;
 
-/**
- * @class KDirModel kdirmodel.h <KDirModel>
+/*!
+ * \class KDirModel
+ * \inmodule KIOWidgets
  *
- * @short A model for a KIO-based directory tree.
+ * \brief A model for a KIO-based directory tree.
  *
  * KDirModel implements the QAbstractItemModel interface (for use with Qt's model/view widgets)
  * around the directory listing for one directory or a tree of directories.
@@ -33,23 +34,21 @@ class JobUrlCache;
  * the index (along with any stored children) will become invalid even though it is still in the model. The reason
  * for this is that moves of files and directories are treated as separate insert and remove actions.
  *
- * @see KDirSortFilterProxyModel
+ * \sa KDirSortFilterProxyModel
  *
- * @author David Faure
- * Based on work by Hamish Rodda and Pascal Letourneau
  */
 class KIOWIDGETS_EXPORT KDirModel : public QAbstractItemModel
 {
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * @param parent parent qobject
      */
     explicit KDirModel(QObject *parent = nullptr);
     ~KDirModel() override;
 
-    /**
+    /*!
      * Flags for the openUrl() method
      * @see OpenUrlFlags
      * @since 5.69
@@ -62,13 +61,13 @@ public:
                       ///< without using the cache. Otherwise use dirLister()->updateDirectory().
         ShowRoot = 0x2, ///< Display a root node for the URL being opened.
     };
-    /**
+    /*!
      * Stores a combination of #OpenUrlFlag values.
      */
     Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
     Q_FLAG(OpenUrlFlags)
 
-    /**
+    /*!
      * Display the contents of @p url in the model.
      * Apart from the support for the ShowRoot flag, this is equivalent to dirLister()->openUrl(url, flags)
      * @param url   the URL of the directory whose contents should be listed.
@@ -78,33 +77,33 @@ public:
      */
     Q_INVOKABLE void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
 
-    /**
+    /*!
      * Set the directory lister to use by this model, instead of the default KDirLister created internally.
      * The model takes ownership.
      */
     void setDirLister(KDirLister *dirLister);
 
-    /**
+    /*!
      * Return the directory lister used by this model.
      */
     KDirLister *dirLister() const;
 
-    /**
+    /*!
      * Return the fileitem for a given index. This is O(1), i.e. fast.
      */
     KFileItem itemForIndex(const QModelIndex &index) const;
 
-    /**
+    /*!
      * Return the index for a given kfileitem. This can be slow.
      */
     Q_INVOKABLE QModelIndex indexForItem(const KFileItem &) const;
 
-    /**
+    /*!
      * Return the index for a given url. This can be slow.
      */
     Q_INVOKABLE QModelIndex indexForUrl(const QUrl &url) const;
 
-    /**
+    /*!
      * @short Lists subdirectories using fetchMore() as needed until the given @p url exists in the model.
      *
      * When the model is used by a treeview, call KDirLister::openUrl with the base url of the tree,
@@ -119,7 +118,7 @@ public:
      */
     Q_INVOKABLE void expandToUrl(const QUrl &url);
 
-    /**
+    /*!
      * Notify the model that the item at this index has changed.
      * For instance because KMimeTypeResolver called determineMimeType on it.
      * This makes the model emit its dataChanged signal at this index, so that views repaint.
@@ -127,14 +126,14 @@ public:
      */
     Q_INVOKABLE void itemChanged(const QModelIndex &index);
 
-    /**
+    /*!
      * Forget all previews (optimization for turning previews off).
      * The items will again have their default appearance (not controlled by the model).
      * @since 5.28
      */
     Q_INVOKABLE void clearAllPreviews();
 
-    /**
+    /*!
      * Useful "default" columns. Views can use a proxy to have more control over this.
      */
     enum ModelColumns {
@@ -160,7 +159,7 @@ public:
         HasJobRole = 0x01E555A5, ///< returns whether or not there is a job on an item (file/directory). roleName is "hasJob".
     };
 
-    /**
+    /*!
      * @see DropsAllowed
      */
     enum DropsAllowedFlag {
@@ -169,7 +168,7 @@ public:
         DropOnAnyFile = 2, ///< allow drops on any file
         DropOnLocalExecutable = 4, ///< allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
     };
-    /**
+    /*!
      * Stores a combination of #DropsAllowedFlag values.
      */
     Q_DECLARE_FLAGS(DropsAllowed, DropsAllowedFlag)
@@ -216,7 +215,7 @@ public:
     /// @see AdditionalRoles
     QHash<int, QByteArray> roleNames() const override;
 
-    /**
+    /*!
      * Remove urls from the list if an ancestor is present on the list. This can
      * be used to delete only the ancestor url and skip a potential error of a non-existent url.
      *
@@ -227,7 +226,7 @@ public:
      */
     static QList<QUrl> simplifiedUrlList(const QList<QUrl> &urls);
 
-    /**
+    /*!
      * This emits the needSequenceIcon signal, requesting another sequence icon
      *
      * If there is a KFilePreviewGenerator attached to this model, that generator will care
@@ -239,7 +238,7 @@ public:
      */
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
 
-    /**
+    /*!
      * Enable/Disable the displaying of an animated overlay that is shown for any destination
      * urls (in the view). When enabled, the animations (if any) will be drawn automatically.
      *
@@ -255,7 +254,7 @@ public:
      */
     void setJobTransfersVisible(bool show);
 
-    /**
+    /*!
      * Returns whether or not displaying job transfers has been enabled.
      */
     bool jobTransfersVisible() const;
@@ -263,14 +262,14 @@ public:
     Qt::DropActions supportedDropActions() const override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted for each subdirectory that is a parent of a url passed to expandToUrl
      * This allows to asynchronously open a tree view down to a given directory.
      * Also emitted for the final file, if expandToUrl is called with a file
      * (for instance so that it can be selected).
      */
     void expand(const QModelIndex &index);
-    /**
+    /*!
      * Emitted when another icon sequence index is requested
      * @param index Index of the item that should get another icon
      * @param sequenceIndex Index in the sequence. If it is zero, the standard icon should be assigned.

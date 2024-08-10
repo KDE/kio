@@ -34,7 +34,7 @@ typedef qlonglong fileoffset_t;
 /// 64-bit file size
 typedef qulonglong filesize_t;
 
-/**
+/*!
  * Converts @p size from bytes to the string representation.
  *
  * @param  size  size in bytes
@@ -42,7 +42,7 @@ typedef qulonglong filesize_t;
  */
 KIOCORE_EXPORT QString convertSize(KIO::filesize_t size);
 
-/**
+/*!
  * Converts a size to a string representation
  * Not unlike QString::number(...)
  *
@@ -51,7 +51,7 @@ KIOCORE_EXPORT QString convertSize(KIO::filesize_t size);
  */
 KIOCORE_EXPORT QString number(KIO::filesize_t size);
 
-/**
+/*!
  * Converts size from kibi-bytes (2^10) to the string representation.
  *
  * @param  kibSize  size in kibi-bytes (2^10)
@@ -59,7 +59,7 @@ KIOCORE_EXPORT QString number(KIO::filesize_t size);
  */
 KIOCORE_EXPORT QString convertSizeFromKiB(KIO::filesize_t kibSize);
 
-/**
+/*!
  * Calculates remaining time in seconds from total size, processed size and speed.
  *
  * @param  totalSize      total size in bytes
@@ -69,7 +69,7 @@ KIOCORE_EXPORT QString convertSizeFromKiB(KIO::filesize_t kibSize);
  */
 KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 
-/**
+/*!
  * Convert @p seconds to a string representing number of days, hours, minutes and seconds
  *
  * @param  seconds number of seconds to convert
@@ -77,7 +77,7 @@ KIOCORE_EXPORT unsigned int calculateRemainingSeconds(KIO::filesize_t totalSize,
  */
 KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
 
-/**
+/*!
  * Helper for showing information about a set of files and directories
  * @param items the number of items (= @p files + @p dirs + number of symlinks :)
  * @param files the number of files
@@ -88,7 +88,7 @@ KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
  */
 KIOCORE_EXPORT QString itemsSummaryString(uint items, uint files, uint dirs, KIO::filesize_t size, bool showSize);
 
-/**
+/*!
  * Encodes (from the text displayed to the real filename)
  * This translates '/' into a "unicode fraction slash", QChar(0x2044).
  * Used by KIO::link, for instance.
@@ -96,7 +96,7 @@ KIOCORE_EXPORT QString itemsSummaryString(uint items, uint files, uint dirs, KIO
  * @return the encoded file name
  */
 KIOCORE_EXPORT QString encodeFileName(const QString &str);
-/**
+/*!
  * Decodes (from the filename to the text displayed)
  * This doesn't do anything anymore, it used to do the opposite of encodeFileName
  * when encodeFileName was using %2F for '/'.
@@ -105,7 +105,7 @@ KIOCORE_EXPORT QString encodeFileName(const QString &str);
  */
 KIOCORE_EXPORT QString decodeFileName(const QString &str);
 
-/**
+/*!
  * Error codes that can be emitted by KIO.
  */
 enum Error {
@@ -172,7 +172,7 @@ enum Error {
     ERR_NO_CONTENT = KJob::UserDefinedError + 60, ///< Action succeeded but no content will follow.
     ERR_DISK_FULL = KJob::UserDefinedError + 61,
     ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, ///< src==dest when moving/copying
-    /**
+    /*!
      * For worker specified errors that can be
      * rich text.  Email links will be handled
      * by the standard email app and all hrefs
@@ -200,14 +200,14 @@ enum Error {
     = KJob::UserDefinedError + 75,
     ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioworker, @since 5.60
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
-    /**
+    /*!
      * Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT)
      * not supporting them. Used by e.g. CopyJob.
      * @since 5.88
      */
     ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78,
 
-    /**
+    /*!
      * Moving files/dirs to the Trash failed due to size constraints.
      *
      * @since 5.100
@@ -216,7 +216,7 @@ enum Error {
 };
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Specifies how to use the cache.
  * @see parseCacheControl()
  * @see getCacheControlString()
@@ -232,7 +232,7 @@ enum CacheControl {
 };
 #endif
 
-/**
+/*!
  * Specifies privilege file operation status.
  * @since 5.43
  */
@@ -242,7 +242,7 @@ enum PrivilegeOperationStatus {
     OperationNotAllowed,
 };
 
-/**
+/*!
  * Describes the fields that a stat command will retrieve
  * @see UDSEntry
  * @see StatDetails
@@ -274,7 +274,7 @@ enum StatDetail {
     /// Equivalent to setting <tt>StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink</tt>
     StatDefaultDetails = StatBasic | StatUser | StatTime | StatAcl | StatResolveSymlink,
 };
-/**
+/*!
  * Stores a combination of #StatDetail values.
  */
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
@@ -282,7 +282,7 @@ Q_DECLARE_FLAGS(StatDetails, StatDetail)
 Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Parses the string representation of the cache control option.
  *
  * @param cacheControl the string representation
@@ -295,7 +295,7 @@ KIOCORE_EXPORT KIO::CacheControl parseCacheControl(const QString &cacheControl);
 #endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)
-/**
+/*!
  * Returns a string representation of the given cache control method.
  *
  * @param cacheControl the cache control method
@@ -307,7 +307,7 @@ KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
 #endif
 
-/**
+/*!
  * Return the "favicon" (see http://www.favicon.com) for the given @p url,
  * if available. Does NOT attempt to download the favicon, it only returns
  * one that is already available.
@@ -323,7 +323,7 @@ KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
  */
 KIOCORE_EXPORT QString favIconForUrl(const QUrl &url);
 
-/**
+/*!
  * Converts KIO file permissions from mode_t to QFile::Permissions format.
  *
  * This is a convenience function for converting KIO permissions parameter from
@@ -335,7 +335,7 @@ KIOCORE_EXPORT QString favIconForUrl(const QUrl &url);
  */
 KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
 
-/**
+/*!
  * Return the icon name for a URL.
  * Most of the time this returns the MIME type icon,
  * but also has fallback to favicon and protocol-specific icon.
@@ -346,7 +346,7 @@ KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
  */
 KIOCORE_EXPORT QString iconNameForUrl(const QUrl &url);
 
-/**
+/*!
  * This function is useful to implement the "Up" button in a file manager for example.
  *
  * @return a URL that is a level higher

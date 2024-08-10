@@ -99,13 +99,13 @@ public:
 private:
     // -- testcase related members
     QString mime_type_expected; // expected MIME type
-    /** contains all attributes and values the testcase has to set */
+    /*! contains all attributes and values the testcase has to set */
     KIO::MetaData attributes_expected;
-    /** contains the content as it is expected to be returned */
+    /*! contains the content as it is expected to be returned */
     QByteArray content_expected;
 
 public:
-    /**
+    /*!
      * sets the MIME type that this testcase is expected to return
      */
     void setExpectedMimeType(const QString &mime_type)
@@ -113,7 +113,7 @@ public:
         mime_type_expected = mime_type;
     }
 
-    /**
+    /*!
      * sets all attribute-value pairs the testcase must deliver.
      */
     void setExpectedAttributes(const KIO::MetaData &attres)
@@ -121,7 +121,7 @@ public:
         attributes_expected = attres;
     }
 
-    /**
+    /*!
      * sets content as expected to be delivered by the testcase.
      */
     void setExpectedContent(const QByteArray &content)

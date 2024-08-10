@@ -15,7 +15,7 @@
 namespace KIO
 {
 class MimetypeJobPrivate;
-/**
+/*!
  * @class KIO::MimetypeJob mimetypejob.h <KIO/MimetypeJob>
  *
  * A MimetypeJob is a TransferJob that  allows you to get
@@ -40,7 +40,7 @@ private:
     Q_DECLARE_PRIVATE(MimetypeJob)
 };
 
-/**
+/*!
  * Find MIME type for one file or directory.
  *
  * If you are going to download the file right after determining its MIME type,

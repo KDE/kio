@@ -15,7 +15,7 @@ class QString;
 
 namespace KIO
 {
-/**
+/*!
  * @brief The UntrustedProgramHandlerInterface class allows ApplicationLauncherJob to
  * prompt the user about an untrusted executable or desktop file.
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension.
@@ -28,18 +28,18 @@ class KIOCORE_EXPORT UntrustedProgramHandlerInterface : public QObject
 {
     Q_OBJECT
 protected:
-    /**
+    /*!
      * Constructor
      */
     explicit UntrustedProgramHandlerInterface(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      */
     ~UntrustedProgramHandlerInterface() override;
 
 public:
-    /**
+    /*!
      * Show a warning to the user about the program not being trusted for execution.
      * This could be an executable which is not a script and without the execute bit.
      * Or it could be a desktop file outside the standard locations, without the execute bit.
@@ -56,7 +56,7 @@ public:
      */
     virtual void showUntrustedProgramWarning(KJob *job, const QString &programName);
 
-    /**
+    /*!
      * Helper function that attempts to make a desktop file executable.
      * In addition to the execute bit, this includes fixing its first line to ensure that
      * it says #!/usr/bin/env xdg-open.
@@ -66,7 +66,7 @@ public:
      */
     bool makeServiceFileExecutable(const QString &fileName, QString &errorString);
 
-    /**
+    /*!
      * Helper function that attempts to set execute bit for given file.
      * @param fileName the full path to the file
      * @param errorString output parameter so the method can return an error message
@@ -75,7 +75,7 @@ public:
     bool setExecuteBit(const QString &fileName, QString &errorString);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Implementations of this interface must emit result in showUntrustedProgramWarning.
      * @param confirmed true if the user confirms running this program, false on cancel
      */

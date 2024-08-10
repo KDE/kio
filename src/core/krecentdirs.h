@@ -11,7 +11,7 @@
 
 #include "kiocore_export.h"
 
-/**
+/*!
  * The goal of this namespace is to make sure that, when the user needs to
  * specify a file via the file selection dialog, this dialog will start
  * in the directory most likely to contain the desired files.
@@ -28,18 +28,18 @@
  */
 namespace KRecentDirs
 {
-/**
+/*!
  * Returns a list of directories associated with this file-class.
  * The most recently used directory is at the front of the list.
  */
 KIOCORE_EXPORT QStringList list(const QString &fileClass);
 
-/**
+/*!
  * Returns the most recently used directory associated with this file-class.
  */
 KIOCORE_EXPORT QString dir(const QString &fileClass);
 
-/**
+/*!
  * Associates @p directory with @p fileClass
  */
 KIOCORE_EXPORT void add(const QString &fileClass, const QString &directory);

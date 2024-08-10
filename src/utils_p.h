@@ -31,7 +31,7 @@ inline bool isAbsoluteLocalPath(const QString &path)
     return !path.startsWith(QLatin1Char(':')) && QDir::isAbsolutePath(path);
 }
 
-/**
+/*!
  * Appends a slash to @p path if it's not empty, and doesn't already end with a '/'.
  * This method modifies its arg directly:
  * QString p = "foo";
@@ -89,7 +89,7 @@ inline QString trailingSlashRemoved(const QString &s)
     return path;
 }
 
-/**
+/*!
  * Appends a slash '/' to @p url path, if url.path() isn't empty and doesn't already
  * end with a slash.
  */

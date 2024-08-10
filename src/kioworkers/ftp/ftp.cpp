@@ -106,17 +106,17 @@ static bool supportedProxyScheme(const QString &scheme)
 namespace KIO
 {
 enum buffersizes {
-    /**
+    /*!
      * largest buffer size that should be used to transfer data between
      * KIO workers using the data() function
      */
     maximumIpcSize = 32 * 1024,
-    /**
+    /*!
      * this is a reasonable value for an initial read() that a KIO worker
      * can do to obtain data via a slow network connection.
      */
     initialIpcSize = 2 * 1024,
-    /**
+    /*!
      * recommended size of a data block passed to findBufferFileType()
      */
     minimumMimeSize = 1024,
@@ -124,7 +124,7 @@ enum buffersizes {
 
 // JPF: this helper was derived from write_all in file.cc (FileProtocol).
 static // JPF: in ftp.cc we make it static
-    /**
+    /*!
      * This helper handles some special issues (blocking and interrupted
      * system call) when writing to a file handle.
      *
@@ -184,7 +184,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 // FtpInternal
 //===============================================================================
 
-/**
+/*!
  * This closes a data connection opened by ftpOpenDataConnection().
  */
 void FtpInternal::ftpCloseDataConnection()
@@ -195,7 +195,7 @@ void FtpInternal::ftpCloseDataConnection()
     m_server = nullptr;
 }
 
-/**
+/*!
  * This closes a control connection opened by ftpOpenControlConnection() and reinits the
  * related states.  This method gets called from the constructor with m_control = nullptr.
  */
@@ -210,7 +210,7 @@ void FtpInternal::ftpCloseControlConnection()
     m_bBusy = false;
 }
 
-/**
+/*!
  * Returns the last response from the server (iOffset >= 0)  -or-  reads a new response
  * (iOffset < 0). The result is returned (with iOffset chars skipped for iOffset > 0).
  */
@@ -405,7 +405,7 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
     return Result::pass();
 }
 
-/**
+/*!
  * Called by @ref openConnection. It opens the control connection to the ftp server.
  *
  * @return true on success.
@@ -495,7 +495,7 @@ Result FtpInternal::ftpOpenControlConnection(const QString &host, int port)
     return Result::fail(iErrorCode, sErrorMsg);
 }
 
-/**
+/*!
  * Called by @ref openConnection. It logs us in.
  * @ref m_initialPath is set to the current working directory
  * if logging on was successful.
@@ -695,7 +695,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     return Result::pass();
 }
 
-/**
+/*!
  * ftpSendCmd - send a command (@p cmd) and read response
  *
  * @param maxretries number of time it should retry. Since it recursively
@@ -2109,7 +2109,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
     return Result::pass();
 }
 
-/** Use the SIZE command to get the file size.
+/*! Use the SIZE command to get the file size.
     Warning : the size depends on the transfer mode, hence the second arg. */
 bool FtpInternal::ftpSize(const QString &path, char mode)
 {

@@ -5,7 +5,7 @@
 
 QString lookForCache(const QString &filename);
 
-/**
+/*!
  * Compares two files and returns true if @param newer exists and is newer than
  * @param older
  **/

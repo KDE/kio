@@ -17,7 +17,7 @@ class QWidget;
 namespace KIO
 {
 class SkipDialogPrivate;
-/**
+/*!
  * @internal
  */
 class KIOWIDGETS_EXPORT SkipDialog : public QDialog

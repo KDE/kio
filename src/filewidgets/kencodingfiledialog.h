@@ -19,7 +19,7 @@
 
 struct KEncodingFileDialogPrivate;
 
-/**
+/*!
  * @class KEncodingFileDialog kencodingfiledialog.h <KEncodingFileDialog>
  *
  * Provides a user (and developer) friendly way to select files with support for
@@ -40,7 +40,7 @@ public:
         QString encoding;
     };
 
-    /**
+    /*!
      * Creates a modal file dialog and return the selected
      * filename or an empty string if none was chosen additionally a chosen
      * encoding value is returned.
@@ -72,7 +72,7 @@ public:
                                                                    QWidget *parent = nullptr,
                                                                    const QString &title = QString());
 
-    /**
+    /*!
      * Creates a modal file dialog and returns the selected encoding and the selected
      * filenames or an empty list if none was chosen.
      *
@@ -103,7 +103,7 @@ public:
                                                                     QWidget *parent = nullptr,
                                                                     const QString &title = QString());
 
-    /**
+    /*!
      * Creates a modal file dialog and returns the selected encoding and
      * URL or an empty string if none was chosen.
      *
@@ -134,7 +134,7 @@ public:
                                                               QWidget *parent = nullptr,
                                                               const QString &title = QString());
 
-    /**
+    /*!
      * Creates a modal file dialog and returns the selected encoding
      * URLs or an empty list if none was chosen.
      *
@@ -165,7 +165,7 @@ public:
                                                                QWidget *parent = nullptr,
                                                                const QString &title = QString());
 
-    /**
+    /*!
      * Creates a modal file dialog and returns the selected encoding and
      * filename or an empty string if none was chosen.
      *
@@ -198,7 +198,7 @@ public:
                                                                    QWidget *parent = nullptr,
                                                                    const QString &title = QString());
 
-    /**
+    /*!
      * Creates a modal file dialog and returns the selected encoding and
      * filename or an empty string if none was chosen.
      *
@@ -243,7 +243,7 @@ private Q_SLOTS:
     void slotCancel();
 
 private:
-    /**
+    /*!
      * Constructs a file dialog for text files with encoding selection possibility.
      *
      * @param startDir This can either be
@@ -279,12 +279,12 @@ private:
                         const QString &title = QString(),
                         QFileDialog::AcceptMode type = QFileDialog::AcceptOpen,
                         QWidget *parent = nullptr);
-    /**
+    /*!
      * Destructs the file dialog.
      */
     ~KEncodingFileDialog() override;
 
-    /**
+    /*!
      * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
      */
     QString selectedEncoding() const;
