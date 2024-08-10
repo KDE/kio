@@ -14,7 +14,7 @@
 
 #include <memory>
 
-/**
+/*!
  * @class KNFSShare knfsshare.h <KNFSShare>
  *
  * Similar functionality like KFileShare,
@@ -27,40 +27,40 @@ class KNFSShare : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Returns the one and only instance of KNFSShare
      */
     static KNFSShare *instance();
 
-    /**
+    /*!
      * Whether or not the given path is shared by NFS.
      * @param path the path to check if it is shared by NFS.
      * @return whether the given path is shared by NFS.
      */
     bool isDirectoryShared(const QString &path) const;
 
-    /**
+    /*!
      * Returns a list of all directories shared by NFS.
      * The resulting list is not sorted.
      * @return a list of all directories shared by NFS.
      */
     QStringList sharedDirectories() const;
 
-    /**
+    /*!
      * KNFSShare destructor.
      * Do not call!
      * The instance is destroyed automatically!
      */
     ~KNFSShare() override;
 
-    /**
+    /*!
      * Returns the path to the used exports file,
      * or null if no exports file was found
      */
     QString exportsPath() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when the /etc/exports file has changed
      */
     void changed();

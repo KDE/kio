@@ -19,7 +19,7 @@
 namespace KIO
 {
 
-/**
+/*!
  * Core class for open with style dialog handling. This only implements core functionality. For an actual open with
  * implementation see KOpenWithDialog. For a way to trigger open with dialogs see OpenUrlJob and OpenWithHandlerInterface.
  */
@@ -34,7 +34,7 @@ public:
         /// Whether the sycoca needs rebuilding (e.g. call KBuildSycocaProgressDialog::rebuildKSycoca)
         bool rebuildSycoca = false;
     };
-    /**
+    /*!
      * Accept an openwith request with the provided arguments as context.
      * This function may have side effects to do with accepting, such as setting the default application for the
      * mimetype if @p remember is true.

@@ -12,7 +12,7 @@
 
 namespace KDEPrivate
 {
-/**
+/*!
  * @brief Represents the button of the URL navigator to switch to
  *        the editable mode.
  *
@@ -26,7 +26,7 @@ public:
     explicit KUrlNavigatorToggleButton(KUrlNavigator *parent);
     ~KUrlNavigatorToggleButton() override;
 
-    /** @see QWidget::sizeHint() */
+    /*! @see QWidget::sizeHint() */
     QSize sizeHint() const override;
 
 protected:

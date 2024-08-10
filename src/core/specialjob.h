@@ -15,7 +15,7 @@ namespace KIO
 {
 class SpecialJobPrivate;
 
-/**
+/*!
  * @class KIO::SpecialJob specialjob.h <KIO/SpecialJob>
  *
  * A class that sends a special command to a KIO worker.
@@ -32,7 +32,7 @@ class KIOCORE_EXPORT SpecialJob : public TransferJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a KIO::SpecialJob.
      *
      * @param url the URL to be passed to the worker
@@ -40,13 +40,13 @@ public:
      */
     explicit SpecialJob(const QUrl &url, const QByteArray &data = QByteArray());
 
-    /**
+    /*!
      * Sets the QByteArray that is passed to WorkerBase::special() on
      * the worker.
      */
     void setArguments(const QByteArray &data);
 
-    /**
+    /*!
      * Returns the QByteArray data that will be sent (or has been sent) to the
      * worker.
      */

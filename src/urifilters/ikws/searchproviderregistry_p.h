@@ -17,18 +17,18 @@ class SearchProvider;
 namespace KIO
 {
 
-/**
+/*!
  * Memory cache for search provider desktop files
  */
 class KURIIKWSFILTERENG_PRIVATE_EXPORT SearchProviderRegistry
 {
 public:
-    /**
+    /*!
      * Default constructor
      */
     SearchProviderRegistry();
 
-    /**
+    /*!
      * Destructor
      */
     ~SearchProviderRegistry();

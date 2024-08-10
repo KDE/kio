@@ -1,0 +1,10 @@
+/*!
+    \module KIOWidgets
+    \title KIO Widgets
+    \ingroup modules
+    \qtcmakepackage KIOWidgets
+
+    \brief IO
+
+    Stuff
+*/

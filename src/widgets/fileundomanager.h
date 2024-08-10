@@ -28,7 +28,7 @@ class CommandRecorder;
 class UndoCommand;
 class UndoJob;
 
-/**
+/*!
  * @class KIO::FileUndoManager fileundomanager.h <KIO/FileUndoManager>
  *
  * FileUndoManager: makes it possible to undo kio jobs.
@@ -38,12 +38,12 @@ class KIOWIDGETS_EXPORT FileUndoManager : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * @return the FileUndoManager instance
      */
     static FileUndoManager *self();
 
-    /**
+    /*!
      * Interface for the gui handling of FileUndoManager.
      * This includes three events currently:
      * - error when undoing a job
@@ -59,31 +59,31 @@ public:
         UiInterface();
         virtual ~UiInterface();
 
-        /**
+        /*!
          * Sets whether to show progress info when running the KIO jobs for undoing.
          */
         void setShowProgressInfo(bool b);
-        /**
+        /*!
          * @returns whether progress info dialogs are shown while undoing.
          */
         bool showProgressInfo() const;
 
-        /**
+        /*!
          * Sets the parent widget to use for message boxes.
          */
         void setParentWidget(QWidget *parentWidget);
 
-        /**
+        /*!
          * @return the parent widget passed to the last call to undo(parentWidget), or @c nullptr.
          */
         QWidget *parentWidget() const;
 
-        /**
+        /*!
          * Called when an undo job errors; default implementation displays a message box.
          */
         virtual void jobError(KIO::Job *job);
 
-        /**
+        /*!
          * Called when dest was modified since it was copied from src.
          * Note that this is called after confirmDeletion.
          * Return true if we should proceed with deleting dest.
@@ -92,7 +92,7 @@ public:
 
         // TODO KF6 replace hook with virtual AskUserActionInterface* askUserActionInterface(); // (does not take ownership)
         enum { HookGetAskUserActionInterface = 1 };
-        /**
+        /*!
          * \internal, for future extensions
          */
         virtual void virtual_hook(int id, void *data);
@@ -102,20 +102,20 @@ public:
         UiInterfacePrivate *d;
     };
 
-    /**
+    /*!
      * Set a new UiInterface implementation.
      * This deletes the previous one.
      * @param ui the UiInterface instance, which becomes owned by the undo manager.
      */
     void setUiInterface(UiInterface *ui);
 
-    /**
+    /*!
      * @return the UiInterface instance passed to setUiInterface.
      * This is useful for calling setParentWidget on it. Never delete it!
      */
     UiInterface *uiInterface() const;
 
-    /**
+    /*!
      * The type of job.
      */
     enum CommandType {
@@ -130,7 +130,7 @@ public:
         BatchRename ///< Represents a KIO::batchRename() job. Used when renaming multiple files. @since 5.42
     };
 
-    /**
+    /*!
      * Record this job while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
      * @param op the type of job - which is also the type of command that will be created for it
@@ -140,25 +140,25 @@ public:
      */
     void recordJob(CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
 
-    /**
+    /*!
      * Record this CopyJob while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
      */
     void recordCopyJob(KIO::CopyJob *copyJob);
 
-    /**
+    /*!
      * @return true if undo is possible. Usually used for enabling/disabling the undo action.
      *
      * @since 5.79
      */
     bool isUndoAvailable() const;
 
-    /**
+    /*!
      * @return the current text for the undo action.
      */
     QString undoText() const;
 
-    /**
+    /*!
      * These two functions are useful when wrapping FileUndoManager and adding custom commands.
      * Each command has a unique ID. You can get a new serial number for a custom command
      * with newCommandSerialNumber(), and then when you want to undo, check if the command
@@ -168,7 +168,7 @@ public:
     quint64 currentCommandSerialNumber() const;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Undoes the last command
      * Remember to call uiInterface()->setParentWidget(parentWidget) first,
      * if you have multiple mainwindows.
@@ -188,14 +188,14 @@ Q_SIGNALS:
     /// Emitted when an undo job finishes. Used for unit testing.
     void undoJobFinished();
 
-    /**
+    /*!
      * Emitted when a job recording has been started by FileUndoManager::recordJob()
      * or FileUndoManager::recordCopyJob(). After the job recording has been finished,
      * the signal jobRecordingFinished() will be emitted.
      */
     void jobRecordingStarted(CommandType op);
 
-    /**
+    /*!
      * Emitted when a job that has been recorded by FileUndoManager::recordJob()
      * or FileUndoManager::recordCopyJob has been finished. The command
      * is now available for an undo-operation.

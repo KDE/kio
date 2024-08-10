@@ -18,7 +18,7 @@ class KUrlRequester;
 class QFileDialog;
 class KUrlRequesterDialogPrivate;
 
-/**
+/*!
  * @class KUrlRequesterDialog kurlrequesterdialog.h <KUrlRequesterDialog>
  *
  * Dialog in which a user can enter a filename or url. It is a dialog
@@ -32,7 +32,7 @@ class KIOWIDGETS_EXPORT KUrlRequesterDialog : public QDialog
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructs a KUrlRequesterDialog.
      *
      * @param url    The url of the directory to start in. Use QString()
@@ -42,7 +42,7 @@ public:
      */
     explicit KUrlRequesterDialog(const QUrl &url, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Constructs a KUrlRequesterDialog.
      *
      * @param url    The url of the directory to start in. Use QString()
@@ -52,17 +52,17 @@ public:
      * @param parent The parent object of this widget.
      */
     KUrlRequesterDialog(const QUrl &url, const QString &text, QWidget *parent);
-    /**
+    /*!
      * Destructs the dialog.
      */
     ~KUrlRequesterDialog() override;
 
-    /**
+    /*!
      * Returns the fully qualified filename.
      */
     QUrl selectedUrl() const;
 
-    /**
+    /*!
      * Creates a modal dialog, executes it and returns the selected URL.
      *
      * @param url This specifies the initial path of the input line.
@@ -71,7 +71,7 @@ public:
      */
     static QUrl getUrl(const QUrl &url = QUrl(), QWidget *parent = nullptr, const QString &title = QString());
 
-    /**
+    /*!
      * Returns a pointer to the KUrlRequester.
      */
     KUrlRequester *urlRequester();

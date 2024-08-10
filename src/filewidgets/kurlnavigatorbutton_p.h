@@ -29,7 +29,7 @@ class Job;
 
 namespace KDEPrivate
 {
-/**
+/*!
  * @brief Button of the URL navigator which contains one part of an URL.
  *
  * It is possible to drop a various number of items to an UrlNavigatorButton. In this case
@@ -57,14 +57,14 @@ public:
      */
     void setText(const QString &text);
 
-    /**
+    /*!
      * Sets the name of the sub directory that should be marked when
      * opening the sub directories popup.
      */
     void setActiveSubDirectory(const QString &subDir);
     QString activeSubDirectory() const;
 
-    /** @see QWidget::sizeHint() */
+    /*! @see QWidget::sizeHint() */
     QSize sizeHint() const override;
 
     void setShowMnemonic(bool show);
@@ -76,7 +76,7 @@ public:
     };
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when URLs are dropped on the KUrlNavigatorButton associated with
      * the URL @p destination.
      */
@@ -84,7 +84,7 @@ Q_SIGNALS:
 
     void navigatorButtonActivated(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
 
-    /**
+    /*!
      * Is emitted, if KUrlNavigatorButton::setUrl() cannot resolve
      * the text synchronously and KUrlNavigator::text() will return
      * an empty string in this case. The signal finishedTextResolving() is
@@ -92,7 +92,7 @@ Q_SIGNALS:
      */
     void startedTextResolving();
 
-    /**
+    /*!
      * Is emitted, if the asynchronous resolving of the text has
      * been finished (see startTextResolving()).
      * KUrlNavigatorButton::text() contains the resolved text.
@@ -115,32 +115,32 @@ protected:
     void wheelEvent(QWheelEvent *event) override;
 
 private Q_SLOTS:
-    /**
+    /*!
      * Requests to load the sub-directories after a short delay.
      * startSubDirsJob() is invoked if the delay is exceeded.
      */
     void requestSubDirs();
 
-    /**
+    /*!
      * Starts to load the sub directories asynchronously. The directories
      * are stored in m_subDirs by addEntriesToSubDirs().
      */
     void startSubDirsJob();
 
-    /**
+    /*!
      * Adds the entries from the sub-directories job to m_subDirs. The entries
      * will be shown if the job has been finished in openSubDirsMenu() or
      * replaceButton().
      */
     void addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntryList &entries);
 
-    /**
+    /*!
      * Is called after the sub-directories job has been finished and opens a menu
      * showing all sub directories.
      */
     void openSubDirsMenu(KJob *job);
 
-    /**
+    /*!
      * Is called after the sub-directories job has been finished and replaces
      * the button content by the current sub directory (triggered by
      * the scroll wheel).
@@ -149,7 +149,7 @@ private Q_SLOTS:
 
     void slotUrlsDropped(QAction *action, QDropEvent *event);
 
-    /**
+    /*!
      * Is called, if an action of a sub-menu has been triggered by
      * a click.
      */
@@ -158,12 +158,12 @@ private Q_SLOTS:
     void statFinished(KJob *);
 
 private:
-    /**
+    /*!
      * Cancels any request done by requestSubDirs().
      */
     void cancelSubDirsRequest();
 
-    /**
+    /*!
      * @return Text without mnemonic characters.
      */
     QString plainText() const;

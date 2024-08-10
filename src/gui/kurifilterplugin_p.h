@@ -10,7 +10,7 @@
 
 #include <KPluginMetaData>
 
-/**
+/*!
  * @class KUriFilterPlugin kurifilter.h <KUriFilter>
  *
  * Base class for URI filter plugins.
@@ -29,7 +29,7 @@ class KIOGUI_EXPORT KUriFilterPlugin : public QObject
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructs a filter plugin with a given name
      *
      * @param parent the parent object, or @c nullptr for no parent
@@ -40,7 +40,7 @@ public:
     ~KUriFilterPlugin() override;
 
 public:
-    /**
+    /*!
      * Filters a URI.
      *
      * @param data the URI data to be filtered.
@@ -49,44 +49,44 @@ public:
     virtual bool filterUri(KUriFilterData &data) const = 0;
 
 protected:
-    /**
+    /*!
      * Sets the URL in @p data to @p uri.
      */
     void setFilteredUri(KUriFilterData &data, const QUrl &uri) const;
 
-    /**
+    /*!
      * Sets the error message in @p data to @p errormsg.
      */
     void setErrorMsg(KUriFilterData &data, const QString &errmsg) const;
 
-    /**
+    /*!
      * Sets the URI type in @p data to @p type.
      */
     void setUriType(KUriFilterData &data, KUriFilterData::UriTypes type) const;
 
-    /**
+    /*!
      * Sets the arguments and options string in @p data to @p args if any were
      * found during filtering.
      */
     void setArguments(KUriFilterData &data, const QString &args) const;
 
-    /**
+    /*!
      * Sets the name of the search provider, the search term and keyword/term
      * separator in @p data.
      */
     void setSearchProvider(KUriFilterData &data, KUriFilterSearchProvider *provider, const QString &term, const QChar &separator) const;
 
-    /**
+    /*!
      * Sets the information about the search @p providers in @p data.
      */
     void setSearchProviders(KUriFilterData &data, const QList<KUriFilterSearchProvider *> &providers) const;
 
-    /**
+    /*!
      * Returns the icon name for the given @p url and URI @p type.
      */
     QString iconNameFor(const QUrl &url, KUriFilterData::UriTypes type) const;
 
-    /**
+    /*!
      * Performs a DNS lookup for @p hostname and returns the result.
      *
      * This function uses the KIO DNS cache to speed up the

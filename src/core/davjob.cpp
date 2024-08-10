@@ -16,7 +16,7 @@
 
 using namespace KIO;
 
-/** @internal */
+/*! @internal */
 class KIO::DavJobPrivate : public KIO::TransferJobPrivate
 {
 public:

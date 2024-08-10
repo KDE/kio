@@ -255,7 +255,7 @@ public:
 
     QUrl urlForNode(KDirModelNode *node) const
     {
-        /**
+        /*!
          * Queries and fragments are removed from the URL, so that the URL of
          * child items really starts with the URL of the parent.
          *

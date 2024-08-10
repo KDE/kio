@@ -374,7 +374,7 @@ KUriFilterData &KUriFilterData::operator=(const QString &url)
     return *this;
 }
 
-/*******************************  KUriFilter ******************************/
+/*!*****************************  KUriFilter ******************************/
 
 class KUriFilterPrivate
 {

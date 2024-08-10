@@ -160,7 +160,7 @@ public:
     QString m_sRelativePath;
     bool m_bFromTemplate;
 
-    /**
+    /*!
      * The initial filename
      */
     QString oldName;
@@ -1233,14 +1233,14 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         d->extraCheckbox = nullptr;
     }
 
-    /**** Group: Ownership ****/
+    /*!** Group: Ownership ****/
     gb = new QGroupBox(i18n("Ownership"), d->m_frame);
     box->addWidget(gb);
 
     gl = new QGridLayout(gb);
     gl->addItem(new QSpacerItem(0, 10), 0, 0);
 
-    /*** Set Owner ***/
+    /*!* Set Owner ***/
     l = new QLabel(i18n("User:"), gb);
     gl->addWidget(l, 1, 0, Qt::AlignRight);
 
@@ -1269,7 +1269,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         gl->addWidget(l, 1, 1);
     }
 
-    /*** Set Group ***/
+    /*!* Set Group ***/
     QStringList groupList = myself.groupNames();
     const bool isMyGroup = groupList.contains(d->strGroup);
 

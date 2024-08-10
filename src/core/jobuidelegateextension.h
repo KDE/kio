@@ -20,7 +20,7 @@ namespace KIO
 class Job;
 class ClipboardUpdater;
 
-/**
+/*!
  * @see RenameDialog_Options
  * @since 5.0
  */
@@ -35,23 +35,23 @@ enum RenameDialog_Option {
     RenameDialog_DestIsDirectory = 128, ///< The destination is a directory, the dialog updates labels and tooltips accordingly. @since 5.78
     RenameDialog_SourceIsDirectory = 256, ///< The source is a directory, the dialog updates labels and tooltips accordingly. @since 5.78
 };
-/**
+/*!
  * Stores a combination of #RenameDialog_Option values.
  */
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
 Q_DECLARE_OPERATORS_FOR_FLAGS(RenameDialog_Options)
 
-/**
+/*!
  * @see SkipDialog_Options
  * @since 5.0
  */
 enum SkipDialog_Option {
-    /**
+    /*!
      * Set if the current operation concerns multiple files, so it makes sense
      * to offer buttons that apply the user's choice to all files/folders.
      */
     SkipDialog_MultipleItems = 8,
-    /**
+    /*!
      * Set if the current operation involves copying files/folders with certain
      * characters in their names that are not supported by the destination
      * filesystem (e.g.\ VFAT and NTFS disallow "*" in file/folder names).
@@ -64,7 +64,7 @@ enum SkipDialog_Option {
      */
     SkipDialog_Replace_Invalid_Chars = 16,
 
-    /**
+    /*!
      * Set if the current operation @e cannot be retried.
      *
      * For example if there is an issue that involves the destination filesystem
@@ -75,13 +75,13 @@ enum SkipDialog_Option {
      */
     SkipDialog_Hide_Retry = 32,
 };
-/**
+/*!
  * Stores a combination of #SkipDialog_Option values.
  */
 Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
 Q_DECLARE_OPERATORS_FOR_FLAGS(SkipDialog_Options)
 
-/**
+/*!
  * The result of a rename or skip dialog
  */
 enum RenameDialog_Result {
@@ -95,13 +95,13 @@ enum RenameDialog_Result {
     Result_ResumeAll = 7,
     Result_AutoRename = 8,
     Result_Retry = 9,
-    /**
+    /*!
      * Can be returned only when multiple files are passed, Option overwrite is passed
      * And files modification times are valid
      * @since 5.77
      */
     Result_OverwriteWhenOlder = 10,
-    /**
+    /*!
      * Can be returned if the user selects to replace any character disallowed
      * by the destination filesystem with an underscore "_".
      *
@@ -110,7 +110,7 @@ enum RenameDialog_Result {
      * @since 5.86
      */
     Result_ReplaceInvalidChars = 11,
-    /**
+    /*!
      * The same as @c Result_ReplaceInvalidChars, but the user selected to
      * automatically replace any invalid character, without being asked about
      * every file/folder.
@@ -121,8 +121,10 @@ enum RenameDialog_Result {
 };
 typedef RenameDialog_Result SkipDialog_Result;
 
-/**
- * @class KIO::JobUiDelegateExtension jobuidelegateextension.h <KIO/JobUiDelegateExtension>
+/*!
+ * \class KIO::JobUiDelegateExtension
+ * \inmodule KIOCore
+ * \inheaderfile KIO/JobUiDelegateExtension
  *
  * An abstract class defining interaction with users from KIO jobs:
  * \li asking for confirmation before deleting files or directories
@@ -131,31 +133,31 @@ typedef RenameDialog_Result SkipDialog_Result;
 class KIOCORE_EXPORT JobUiDelegateExtension
 {
 protected:
-    /**
+    /*!
      * Constructor
      */
     JobUiDelegateExtension();
 
-    /**
+    /*!
      * Destructor
      */
     virtual ~JobUiDelegateExtension();
 
 public:
-    /**
+    /*!
      * The type of deletion: real deletion, moving the files to the trash
      * or emptying the trash
      * Used by askDeleteConfirmation.
      */
     enum DeletionType { Delete, Trash, EmptyTrash };
-    /**
+    /*!
      * ForceConfirmation: always ask the user for confirmation
      * DefaultConfirmation: don't ask the user if he/she said "don't ask again".
      *
      * Used by askDeleteConfirmation.
      */
     enum ConfirmationType { DefaultConfirmation, ForceConfirmation };
-    /**
+    /*!
      * Ask for confirmation before deleting/trashing @p urls.
      *
      * Note that this method is not called automatically by KIO jobs. It's the application's
@@ -175,11 +177,11 @@ public:
         RemoveContent,
     };
 
-    /**
+    /*!
      * Creates a clipboard updater as a child of the given job.
      */
     virtual ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode);
-    /**
+    /*!
      * Update URL in clipboard, if present
      */
     virtual void updateUrlInClipboard(const QUrl &src, const QUrl &dest);
@@ -191,14 +193,14 @@ private:
     Private *const d;
 };
 
-/**
+/*!
  * Returns the default job UI delegate extension to be used by all KIO jobs (in which HideProgressInfo is not set)
  * Can return nullptr, if no kio GUI library is loaded.
  * @since 5.0
  */
 KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();
 
-/**
+/*!
  * Internal. Allows the KIO widgets library to register its widget-based job UI delegate extension
  * automatically.
  * @since 5.0

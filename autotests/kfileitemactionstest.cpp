@@ -14,7 +14,7 @@
 #include <QStandardPaths>
 #include <QTest>
 
-/**
+/*!
  * In KDE 4.x, calling KFileItemActions::setParentWidget(QWidget *widget) would
  * result in 'widget' not only being the parent of any dialogs created by,
  * KFileItemActions, but also of the actions. Nevertheless, the destructor of

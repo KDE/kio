@@ -14,7 +14,7 @@
 
 class KEMailClientLauncherJobPrivate;
 
-/**
+/*!
  * @class KEMailClientLauncherJob kemailclientlauncherjob.h <KEMailClientLauncherJob>
  *
  * @brief KEMailClientLauncherJob starts a mail client in order to compose a new mail.
@@ -35,53 +35,53 @@ class KIOGUI_EXPORT KEMailClientLauncherJob : public KJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a KEMailClientLauncherJob.
      * @param parent the parent QObject
      */
     explicit KEMailClientLauncherJob(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that jobs auto-delete themselves after emitting result
      */
     ~KEMailClientLauncherJob() override;
 
-    /**
+    /*!
      * Sets the email address(es) that will be used in the To field for the email
      * @param to recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
      */
     void setTo(const QStringList &to);
-    /**
+    /*!
      * Sets the email address(es) that will be used in the CC field for the email
      * @param cc recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
      */
     void setCc(const QStringList &cc);
-    /**
+    /*!
      * Sets the email address(es) that will be used in the Bcc field for the email
      * @param bcc recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
      * @since 5.96
      */
     void setBcc(const QStringList &bcc);
-    /**
+    /*!
      * Sets the subject for the email
      * @param subject the email subject
      */
     void setSubject(const QString &subject);
-    /**
+    /*!
      * Sets the body for the email
      * @param body the email body
      */
     void setBody(const QString &body);
-    /**
+    /*!
      * Sets attachments for the email
      * @param urls URLs of the attachments for the email
      * Remember to use QUrl::fromLocalFile() to construct those URLs from local file paths.
      */
     void setAttachments(const QList<QUrl> &urls);
 
-    /**
+    /*!
      * Sets the platform-specific startup id of the mail client launch.
      * @param startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
@@ -89,7 +89,7 @@ public:
      */
     void setStartupId(const QByteArray &startupId);
 
-    /**
+    /*!
      * Starts the job.
      * You must call this, after having called all the necessary setters.
      */

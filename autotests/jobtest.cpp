@@ -89,7 +89,7 @@ void JobTest::initTestCase()
         }
     }
 
-    /*****
+    /*!***
      * Set platform xattr related commands.
      * Linux commands: setfattr, getfattr
      * BSD commands: setextattr, getextattr
