@@ -16,6 +16,7 @@ Name[es]=PyPI
 Name[eu]=PyPI
 Name[fi]=PyPI
 Name[fr]=PyPI
+Name[gl]=PyPI
 Name[he]=PyPI
 Name[hu]=PyPI
 Name[ia]=PyPI
@@ -55,6 +56,7 @@ Query[es]=https://pypi.org/search/?q=\\{@}
 Query[eu]=https://pypi.org/search/?q=\\{@}
 Query[fi]=https://pypi.org/search/?q=\\{@}
 Query[fr]=https://pypi.org/search/?q=\\{@}
+Query[gl]=https://pypi.org/search/?q=\\{@}
 Query[he]=https://pypi.org/search/?q=\\{@}
 Query[hu]=https://pypi.org/search/?q=\\{@}
 Query[ia]=https://pypi.org/search/?q=\\{@}
