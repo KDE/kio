@@ -13,7 +13,7 @@ namespace KIO
 {
 namespace UrlUtil
 {
-/**
+/*!
  * Given that @p lastUrl is a child of @p currentUrl
  * or put in other words:
  * @p currentUrl is a parent in the hierarchy of @p lastUrl,

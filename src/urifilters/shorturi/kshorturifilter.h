@@ -17,7 +17,7 @@
 #include "kurifilterplugin_p.h"
 #include <kurifilter.h>
 
-/**
+/*!
  * This is short URL filter class.
  *
  * @short A filter that converts short URLs into fully qualified ones.
@@ -31,7 +31,7 @@ class KShortUriFilter : public KUriFilterPlugin
 public:
     explicit KShortUriFilter(QObject *parent, const KPluginMetaData &data);
 
-    /**
+    /*!
      * Converts short URIs into fully qualified valid URIs
      * whenever possible.
      *

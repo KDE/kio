@@ -20,7 +20,7 @@ namespace KIO
 
 class DeleteOrTrashJobPrivate;
 
-/**
+/*!
  * @class DeleteOrTrashJob deleteortrashjob.h <KIO/DeleteOrTrashJob>
  *
  * This job asks the user for confirmation to delete or move to Trash
@@ -42,7 +42,7 @@ class KIOWIDGETS_EXPORT DeleteOrTrashJob : public KCompositeJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a DeleteOrTrashJob.
      * @param urls the list of urls to delete, move to Trash, or an empty list
      * in the case of AskUserActionInterface::EmptyTrash (in the latter case,
@@ -56,14 +56,14 @@ public:
                               AskUserActionInterface::ConfirmationType confirm,
                               QObject *parent);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that jobs auto-delete themselves after emitting result
      */
     ~DeleteOrTrashJob() override;
 
-    /**
+    /*!
      * You must call this to actually start the job.
      */
     void start() override;

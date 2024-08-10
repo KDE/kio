@@ -19,7 +19,7 @@ namespace KIO
 {
 // TODO KF6: Handle this the same way we end up handling WidgetsUntrustedProgramHandler.
 
-/**
+/*!
  * @class KIO::WidgetsAskUserActionHandler widgetsaskuseractionhandler.h <KIO/WidgetsAskUserActionHandler>
  *
  * This implements KIO::AskUserActionInterface.
@@ -41,7 +41,7 @@ public:
 
     ~WidgetsAskUserActionHandler() override;
 
-    /**
+    /*!
      * @copydoc KIO::AskUserActionInterface::askUserRename()
      */
     void askUserRename(KJob *job,
@@ -56,17 +56,17 @@ public:
                        const QDateTime &mtimeSrc = {},
                        const QDateTime &mtimeDest = {}) override;
 
-    /**
+    /*!
      * @copydoc KIO::AskUserActionInterface::askUserSkip()
      */
     void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override;
 
-    /**
+    /*!
      * @copydoc KIO::AskUserActionInterface::askUserDelete()
      */
     void askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent = nullptr) override;
 
-    /**
+    /*!
      * @copydoc KIO::AskUserActionInterface::requestUserMessageBox()
      */
     void requestUserMessageBox(MessageDialogType type,

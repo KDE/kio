@@ -16,7 +16,7 @@
 class QUrl;
 class QString;
 
-/**
+/*!
  * The functions in this namespace allow actions to be restricted based
  * on the URL they operate on (see the KAuthorized namespace in
  * KConfig).
@@ -91,7 +91,7 @@ class QString;
 */
 namespace KUrlAuthorized
 {
-/**
+/*!
  * Returns whether a certain URL related action is authorized.
  *
  * @param action   The name of the action, typically one of "list",
@@ -106,7 +106,7 @@ namespace KUrlAuthorized
  */
 KIOCORE_EXPORT bool authorizeUrlAction(const QString &action, const QUrl &baseUrl, const QUrl &destUrl);
 
-/**
+/*!
  * Override Kiosk restrictions to allow a given URL action.
  *
  * This can be useful if your application needs to ensure access to an

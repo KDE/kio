@@ -23,7 +23,7 @@
 
 class KPropertiesDialogPrivate;
 
-/**
+/*!
  * @class KPropertiesDialog kpropertiesdialog.h <KPropertiesDialog>
  *
  * The main properties dialog class.
@@ -51,7 +51,7 @@ class KIOWIDGETS_EXPORT KPropertiesDialog : public KPageDialog
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Determine whether there are any property pages available for the
      * given file items.
      * @param _items the list of items to check.
@@ -59,7 +59,7 @@ public:
      */
     static bool canDisplay(const KFileItemList &_items);
 
-    /**
+    /*!
      * Brings up a Properties dialog, as shown above.
      * This is the normal constructor for
      * file-manager type applications, where you have a KFileItem instance
@@ -71,7 +71,7 @@ public:
      */
     explicit KPropertiesDialog(const KFileItem &item, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * \overload
      *
      * You use this constructor for cases where you have a number of items,
@@ -84,7 +84,7 @@ public:
      */
     explicit KPropertiesDialog(const KFileItemList &_items, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Brings up a Properties dialog. Convenience constructor for
      * non-file-manager applications, where you have a QUrl rather than a
      * KFileItem or KFileItemList.
@@ -97,7 +97,7 @@ public:
      */
     explicit KPropertiesDialog(const QUrl &url, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Brings up a Properties dialog. Convenience constructor for
      * non-file-manager applications, where you have a list of QUrls rather
      * than a KFileItemList.
@@ -113,7 +113,7 @@ public:
      */
     explicit KPropertiesDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Creates a properties dialog for a new .desktop file (whose name
      * is not known yet), based on a template. Special constructor for
      * "File / New" in file-manager type applications.
@@ -126,7 +126,7 @@ public:
      */
     KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir, const QString &_defaultName, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Creates an empty properties dialog (for applications that want use
      * a standard dialog, but for things not doable via the plugin-mechanism).
      *
@@ -135,14 +135,14 @@ public:
      */
     explicit KPropertiesDialog(const QString &title, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Cleans up the properties dialog and frees any associated resources,
      * including the dialog itself. Note that when a properties dialog is
      * closed it cleans up and deletes itself.
      */
     ~KPropertiesDialog() override;
 
-    /**
+    /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
      * On MS Windows, if @p item points to a local file, native (non modal) property
@@ -152,7 +152,7 @@ public:
      */
     static bool showDialog(const KFileItem &item, QWidget *parent = nullptr, bool modal = true);
 
-    /**
+    /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
      * On MS Windows, if @p _url points to a local file, native (non modal) property
@@ -162,7 +162,7 @@ public:
      */
     static bool showDialog(const QUrl &_url, QWidget *parent = nullptr, bool modal = true);
 
-    /**
+    /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
      * On MS Windows, if @p _items has one element and this element points
@@ -173,7 +173,7 @@ public:
      */
     static bool showDialog(const KFileItemList &_items, QWidget *parent = nullptr, bool modal = true);
 
-    /**
+    /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
      *
@@ -192,7 +192,7 @@ public:
      */
     static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr, bool modal = true);
 
-    /**
+    /*!
      * The URL of the file that has its properties being displayed.
      * This is only valid if the KPropertiesDialog was created/shown
      * for one file or URL.
@@ -201,7 +201,7 @@ public:
      */
     QUrl url() const;
 
-    /**
+    /*!
      * @return the file item for which the dialog is shown
      *
      * Warning: this method returns the first item of the list.
@@ -210,12 +210,12 @@ public:
      */
     KFileItem &item();
 
-    /**
+    /*!
      * @return the items for which the dialog is shown
      */
     KFileItemList items() const;
 
-    /**
+    /*!
      * If the dialog is being built from a template, this method
      * returns the current directory. If no template, it returns QString().
      * See the template form of the constructor.
@@ -224,7 +224,7 @@ public:
      */
     QUrl currentDir() const;
 
-    /**
+    /*!
      * If the dialog is being built from a template, this method
      * returns the default name. If no template, it returns QString().
      * See the template form of the constructor.
@@ -232,7 +232,7 @@ public:
      */
     QString defaultName() const;
 
-    /**
+    /*!
      * Updates the item URL (either called by rename or because
      * a global apps/mimelnk desktop file is being saved)
      * Can only be called if the dialog applies to a single file or URL.
@@ -240,7 +240,7 @@ public:
      */
     void updateUrl(const QUrl &newUrl);
 
-    /**
+    /*!
      * Renames the item to the specified name. This can only be called if
      * the dialog applies to a single file or URL.
      * @param _name new filename, encoded.
@@ -248,12 +248,12 @@ public:
      */
     void rename(const QString &_name);
 
-    /**
+    /*!
      * To abort applying changes.
      */
     void abortApplying();
 
-    /**
+    /*!
      * Shows the page that was previously set by
      * setFileSharingPage(), or does nothing if no page
      * was set yet.
@@ -261,7 +261,7 @@ public:
      */
     void showFileSharingPage();
 
-    /**
+    /*!
      * Sets the file sharing page.
      * This page is shown when calling showFileSharingPage().
      *
@@ -272,7 +272,7 @@ public:
      */
     void setFileSharingPage(QWidget *page);
 
-    /**
+    /*!
      * Call this to make the filename lineedit readonly, to prevent the user
      * from renaming the file.
      * \param ro true if the lineedit should be read only
@@ -282,37 +282,37 @@ public:
     using KPageDialog::buttonBox;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Called when the user presses 'Ok'.
      * @since 5.25
      */
     void accept() override;
-    /**
+    /*!
      * Called when the user presses 'Cancel' or Esc.
      * @since 5.25
      */
     void reject() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * This signal is emitted when the Properties Dialog is closed (for
      * example, with OK or Cancel buttons)
      */
     void propertiesClosed();
 
-    /**
+    /*!
      * This signal is emitted when the properties changes are applied (for
      * example, with the OK button)
      */
     void applied();
 
-    /**
+    /*!
      * This signal is emitted when the properties changes are aborted (for
      * example, with the Cancel button)
      */
     void canceled();
 
-    /**
+    /*!
      * Emitted before changes to @p oldUrl are saved as @p newUrl.
      * The receiver may change @p newUrl to point to an alternative
      * save location.

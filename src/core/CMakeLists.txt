@@ -323,6 +323,8 @@ ecm_generate_headers(KIOCore_HEADERS
   REQUIRED_HEADERS KIOCore_HEADERS
 )
 
+ecm_generate_qdoc(KF6KIOCore kiocore.qdocconf)
+
 install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES

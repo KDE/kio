@@ -1,0 +1,20 @@
+include($QT_INSTALL_DOCS/global/qt-module-defaults-online.qdocconf)
+
+project = KIOGui
+description = Additions to Qt Core
+
+documentationinheaders = true
+
+headerdirs = .
+
+headers.fileextensions = "*.qdoc *.h"
+
+outputformats = HTML
+
+depends += \
+    qtcore \
+    qtgui \
+    kcoreaddons \
+    kconfigcore \
+    kiocore \
+    kservice

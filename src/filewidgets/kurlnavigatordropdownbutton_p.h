@@ -13,7 +13,7 @@ class KUrlNavigator;
 
 namespace KDEPrivate
 {
-/**
+/*!
  * @brief Button of the URL navigator which offers a drop down menu
  *        of hidden paths.
  *
@@ -28,7 +28,7 @@ public:
     explicit KUrlNavigatorDropDownButton(KUrlNavigator *parent);
     ~KUrlNavigatorDropDownButton() override;
 
-    /** @see QWidget::sizeHint() */
+    /*! @see QWidget::sizeHint() */
     QSize sizeHint() const override;
 
 protected:

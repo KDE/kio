@@ -21,7 +21,7 @@ namespace KIO
 {
 class OpenFileManagerWindowJobPrivate;
 
-/**
+/*!
  * @class KIO::OpenFileManagerWindowJob openfilemanagerwindowjob.h <KIO/OpenFileManagerWindowJob>
  *
  * @brief Open a File Manager Window
@@ -49,17 +49,17 @@ class KIOGUI_EXPORT OpenFileManagerWindowJob : public KJob
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Creates an OpenFileManagerWindowJob
      */
     explicit OpenFileManagerWindowJob(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destroys the OpenFileManagerWindowJob
      */
     ~OpenFileManagerWindowJob() override;
 
-    /**
+    /*!
      * Errors the job may emit
      */
     enum Errors {
@@ -67,22 +67,22 @@ public:
         LaunchFailedError, ///< Failed to launch the file manager
     };
 
-    /**
+    /*!
      * The files and/or folders to highlight
      */
     QList<QUrl> highlightUrls() const;
 
-    /**
+    /*!
      * Set the files and/or folders to highlight
      */
     void setHighlightUrls(const QList<QUrl> &highlightUrls);
 
-    /**
+    /*!
      * The Startup ID
      */
     QByteArray startupId() const;
 
-    /**
+    /*!
      * Sets the platform-specific startup id of the file manager launch.
      * @param startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
@@ -90,7 +90,7 @@ public:
      */
     void setStartupId(const QByteArray &startupId);
 
-    /**
+    /*!
      * Starts the job
      */
     void start() override;
@@ -103,7 +103,7 @@ private:
     std::unique_ptr<OpenFileManagerWindowJobPrivate> const d;
 };
 
-/**
+/*!
  * Convenience method for creating a job to highlight a certain file or folder.
  *
  * It will create a job for a given URL(s) and automatically start it.

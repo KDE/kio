@@ -1,0 +1,21 @@
+include($QT_INSTALL_DOCS/global/qt-module-defaults-online.qdocconf)
+
+project = KIOWidgets
+description = Additions to Qt Core
+
+documentationinheaders = true
+
+headerdirs = .
+
+headers.fileextensions = "*.qdoc *.h"
+
+outputformats = HTML
+
+depends += \
+    qtcore \
+    qtgui \
+    qtwidgets \
+    kcoreaddons \
+    kjobwidgets \
+    kiocore \
+    kiogui

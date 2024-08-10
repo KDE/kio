@@ -14,12 +14,12 @@ class KJobTrackerInterface;
 
 namespace KIO
 {
-/**
+/*!
  * Returns the job tracker to be used by all KIO jobs (in which HideProgressInfo is not set)
  */
 KIOCORE_EXPORT KJobTrackerInterface *getJobTracker();
 
-/**
+/*!
  * @internal
  * Allows the KIO widgets library to register its widget-based job tracker automatically.
  * @since 5.0

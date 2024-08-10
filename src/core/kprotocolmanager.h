@@ -27,7 +27,7 @@ namespace KIO
 class WorkerConfigPrivate;
 } // namespace KIO
 
-/**
+/*!
  * @class KProtocolManager kprotocolmanager.h <KProtocolManager>
  *
  * Provides information about I/O (Internet, etc.) settings chosen/set
@@ -55,7 +55,7 @@ class KIOCORE_EXPORT KProtocolManager
 public:
     /*=========================== TIMEOUT CONFIG ================================*/
 
-    /**
+    /*!
      * Returns the preferred timeout value for reading from
      * remote connections in seconds.
      *
@@ -63,7 +63,7 @@ public:
      */
     static int readTimeout();
 
-    /**
+    /*!
      * Returns the preferred timeout value for remote connections
      * in seconds.
      *
@@ -71,7 +71,7 @@ public:
      */
     static int connectTimeout();
 
-    /**
+    /*!
      * Returns the preferred timeout value for proxy connections
      * in seconds.
      *
@@ -79,7 +79,7 @@ public:
      */
     static int proxyConnectTimeout();
 
-    /**
+    /*!
      * Returns the preferred response timeout value for
      * remote connecting in seconds.
      *
@@ -89,21 +89,21 @@ public:
 
     /*============================ DOWNLOAD CONFIG ==============================*/
 
-    /**
+    /*!
      * Returns true if partial downloads should be
      * automatically resumed.
      * @return true to resume partial downloads
      */
     static bool autoResume();
 
-    /**
+    /*!
      * Returns true if partial downloads should be marked
      * with a ".part" extension.
      * @return true if partial downloads should get an ".part" extension
      */
     static bool markPartial();
 
-    /**
+    /*!
      * Returns the minimum file size for keeping aborted
      * downloads.
      *
@@ -117,7 +117,7 @@ public:
 
     /*===================== PROTOCOL CAPABILITIES ===============================*/
 
-    /**
+    /*!
      * Returns whether the protocol can list files/objects.
      * If a protocol supports listing it can be browsed in e.g. file-dialogs
      * and konqueror.
@@ -134,7 +134,7 @@ public:
      */
     static bool supportsListing(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can retrieve data from URLs.
      *
      * This corresponds to the "reading=" field in the protocol description file.
@@ -145,7 +145,7 @@ public:
      */
     static bool supportsReading(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can store data to URLs.
      *
      * This corresponds to the "writing=" field in the protocol description file.
@@ -156,7 +156,7 @@ public:
      */
     static bool supportsWriting(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can create directories/folders.
      *
      * This corresponds to the "makedir=" field in the protocol description file.
@@ -167,7 +167,7 @@ public:
      */
     static bool supportsMakeDir(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can delete files/objects.
      *
      * This corresponds to the "deleting=" field in the protocol description file.
@@ -178,7 +178,7 @@ public:
      */
     static bool supportsDeleting(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can create links between files/objects.
      *
      * This corresponds to the "linking=" field in the protocol description file.
@@ -189,7 +189,7 @@ public:
      */
     static bool supportsLinking(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can move files/objects between different
      * locations.
      *
@@ -201,7 +201,7 @@ public:
      */
     static bool supportsMoving(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can be opened using KIO::open(const QUrl&).
      *
      * This corresponds to the "opening=" field in the protocol description file.
@@ -212,7 +212,7 @@ public:
      */
     static bool supportsOpening(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can be truncated with FileJob::truncate(KIO::filesize_t length).
      *
      * This corresponds to the "truncating=" field in the protocol description file.
@@ -224,7 +224,7 @@ public:
      */
     static bool supportsTruncating(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can copy files/objects directly from the
      * filesystem itself. If not, the application will read files from the
      * filesystem using the file-protocol and pass the data on to the destination
@@ -238,7 +238,7 @@ public:
      */
     static bool canCopyFromFile(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can copy files/objects directly to the
      * filesystem itself. If not, the application will receive the data from
      * the source protocol and store it in the filesystem using the
@@ -252,7 +252,7 @@ public:
      */
     static bool canCopyToFile(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can rename (i.e. move fast) files/objects
      * directly from the filesystem itself. If not, the application will read
      * files from the filesystem using the file-protocol and pass the data on
@@ -266,7 +266,7 @@ public:
      */
     static bool canRenameFromFile(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can rename (i.e. move fast) files/objects
      * directly to the filesystem itself. If not, the application will receive
      * the data from the source protocol and store it in the filesystem using the
@@ -280,7 +280,7 @@ public:
      */
     static bool canRenameToFile(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can recursively delete directories by itself.
      * If not (the usual case) then KIO will list the directory and delete files
      * and empty directories one by one.
@@ -293,7 +293,7 @@ public:
      */
     static bool canDeleteRecursive(const QUrl &url);
 
-    /**
+    /*!
      * This setting defines the strategy to use for generating a filename, when
      * copying a file or directory to another directory. By default the destination
      * filename is made out of the filename in the source URL. However if the
@@ -310,7 +310,7 @@ public:
      */
     static KProtocolInfo::FileNameUsedForCopying fileNameUsedForCopying(const QUrl &url);
 
-    /**
+    /*!
      * Returns default MIME type for this URL based on the protocol.
      *
      * This corresponds to the "defaultMimetype=" field in the protocol description file.
@@ -320,7 +320,7 @@ public:
      */
     static QString defaultMimetype(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol should be treated as a filesystem
      * or as a stream when reading from it.
      *
@@ -332,7 +332,7 @@ public:
      */
     static KProtocolInfo::Type inputType(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol should be treated as a filesystem
      * or as a stream when writing to it.
      *
@@ -344,7 +344,7 @@ public:
      */
     static KProtocolInfo::Type outputType(const QUrl &url);
 
-    /**
+    /*!
      * Returns the list of fields this protocol returns when listing
      * The current possibilities are
      * Name, Type, Size, Date, AccessDate, Access, Owner, Group, Link, URL, MimeType
@@ -358,7 +358,7 @@ public:
      */
     static QStringList listing(const QUrl &url);
 
-    /**
+    /*!
      * Returns whether the protocol can act as a source protocol.
      *
      * A source protocol retrieves data from or stores data to the
@@ -373,7 +373,7 @@ public:
      */
     static bool isSourceProtocol(const QUrl &url);
 
-    /**
+    /*!
      * Returns which protocol handles this MIME type, if it's an archive MIME type.
      * For instance zip:/ handles application/x-zip.
      *
@@ -387,19 +387,19 @@ public:
 
     /*=============================== OTHERS ====================================*/
 
-    /**
+    /*!
      * Force a reload of the general config file of
      * KIO workers ( kioslaverc).
      */
     static void reparseConfiguration();
 
-    /**
+    /*!
      * Returns the charset to use for the specified @ref url.
      *
      */
     static QString charsetFor(const QUrl &url);
 
-    /**
+    /*!
      * @brief Returns whether the protocol suppports KIO/POSIX permissions handling.
      *
      * When this is false the Permissions properties tab may be hidden, for example. The protocol may still support
@@ -414,7 +414,7 @@ public:
 private:
     friend class KIO::WorkerConfigPrivate;
 
-    /**
+    /*!
      * @internal
      * (Shared with WorkerConfig)
      */

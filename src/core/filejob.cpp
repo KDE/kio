@@ -34,7 +34,7 @@ public:
     void slotTruncated(KIO::filesize_t);
     void slotTotalSize(KIO::filesize_t);
 
-    /**
+    /*!
      * @internal
      * Called by the scheduler when a @p worker gets to
      * work on this job.

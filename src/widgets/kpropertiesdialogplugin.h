@@ -13,7 +13,7 @@
 #include <kpropertiesdialog.h>
 
 class KPropertiesDialogPluginPrivate;
-/**
+/*!
  * A Plugin in the Properties dialog
  * This is an abstract class. You must inherit from this class
  * to build a new kind of tabbed page for the KPropertiesDialog.
@@ -43,7 +43,7 @@ class KIOWIDGETS_EXPORT KPropertiesDialogPlugin : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Constructor whos parent will be cast to KPropertiesDialog
      * To insert tabs into the properties dialog, use the add methods provided by
      * KPageDialog (the properties dialog is a KPageDialog).
@@ -51,7 +51,7 @@ public:
     KPropertiesDialogPlugin(QObject *parent);
     ~KPropertiesDialogPlugin() override;
 
-    /**
+    /*!
      * Applies all changes to the file.
      * This function is called when the user presses 'Ok'. The last plugin inserted
      * is called first.
@@ -62,7 +62,7 @@ public:
     bool isDirty() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emit this signal when the user changed anything in the plugin's tabs.
      * The hosting PropertiesDialog will call applyChanges only if the
      * PropsPlugin has emitted this signal or if you have called setDirty() before.
@@ -70,12 +70,12 @@ Q_SIGNALS:
     void changed();
 
 protected:
-    /**
+    /*!
      * Pointer to the dialog
      */
     KPropertiesDialog *const properties;
 
-    /**
+    /*!
      * Returns the font height.
      */
     int fontHeight() const;

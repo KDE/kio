@@ -14,7 +14,7 @@
 namespace KIO
 {
 class EmptyTrashJobPrivate;
-/**
+/*!
  * @class KIO::EmptyTrashJob emptytrashjob.h <KIO/EmptyTrashJob>
  *
  * A KIO job for emptying the trash
@@ -39,7 +39,7 @@ private:
     Q_DECLARE_PRIVATE(EmptyTrashJob)
 };
 
-/**
+/*!
  * Empties the trash.
  *
  * @return A pointer to the job handling the operation.

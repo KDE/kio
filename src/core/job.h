@@ -15,7 +15,7 @@
 #include <QUrl>
 namespace KIO
 {
-/**
+/*!
  * Returns a translated error message for @p errorCode using the
  * additional error information provided by @p errorText.
  * @param errorCode the error code
@@ -24,7 +24,7 @@ namespace KIO
  */
 KIOCORE_EXPORT QString buildErrorString(int errorCode, const QString &errorText);
 
-/**
+/*!
  * Returns translated error details for @p errorCode using the
  * additional error information provided by @p errorText , @p reqUrl
  * (the request URL), and the KIO worker @p method .

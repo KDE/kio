@@ -22,7 +22,7 @@ namespace Solid
 class Device;
 }
 
-/**
+/*!
  * Implementation of all low-level operations done by kio_trash.
  * The structure of the trash directory follows the freedesktop.org standard:
  * https://specifications.freedesktop.org/trash-spec/trashspec-1.0.html

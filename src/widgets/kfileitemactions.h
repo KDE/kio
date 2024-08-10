@@ -19,7 +19,7 @@ class QAction;
 class QMenu;
 class KFileItemActionsPrivate;
 
-/**
+/*!
  * @class KFileItemActions kfileitemactions.h <KFileItemActions>
  *
  * This class creates and handles the actions for a url (or urls) in a popupmenu.
@@ -50,25 +50,25 @@ class KIOWIDGETS_EXPORT KFileItemActions : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a KFileItemActions instance.
      * Note that this instance must stay alive for at least as long as the popupmenu;
      * it has the slots for the actions created by addOpenWithActionsTo/addServiceActionsTo.
      */
     KFileItemActions(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      */
     ~KFileItemActions() override;
 
-    /**
+    /*!
      * Sets all the data for the next instance of the popupmenu.
      * @see KFileItemListProperties
      */
     void setItemListProperties(const KFileItemListProperties &itemList);
 
-    /**
+    /*!
      * Set the parent widget for any dialogs being shown.
      *
      * This should normally be your mainwindow, not a popup menu,
@@ -78,7 +78,7 @@ public:
      */
     void setParentWidget(QWidget *widget);
 
-    /**
+    /*!
      * Generates the "Open With <Application>" actions, and inserts them in @p menu,
      * before action @p before. If @p before is nullptr or doesn't exist in the menu
      * the actions will be appended to the menu.
@@ -97,7 +97,7 @@ public:
      */
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames);
 
-    /**
+    /*!
      * Returns the applications associated with all the given MIME types.
      *
      * This is basically a KApplicationTrader::query, but it supports multiple MIME types, and
@@ -129,7 +129,7 @@ public:
     };
     Q_DECLARE_FLAGS(MenuActionSources, MenuActionSource)
 
-    /**
+    /*!
      * This methods adds additional actions to the menu.
      * @param menu Menu to which the actions/submenus will be added.
      * @param sources sources from which the actions should be fetched. By default all sources are used.
@@ -144,21 +144,21 @@ public:
                       const QStringList &excludeList = {});
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted before the "Open With" dialog is shown
      * This is used e.g in folderview to close the folder peek popups on invoking the "Open With" menu action
      * @since 4.8.2
      */
     void openWithDialogAboutToBeShown();
 
-    /**
+    /*!
      * Forwards the errors from the KAbstractFileItemActionPlugin instances
      * @since 5.82
      */
     void error(const QString &errorMessage);
 
 public Q_SLOTS:
-    /**
+    /*!
      * Slot used to execute a list of files in their respective preferred application.
      * @param fileOpenList the list of KFileItems to open.
      * @since 5.83

@@ -14,12 +14,12 @@ class QProcessEnvironment;
 namespace KIO
 {
 
-/**
+/*!
  * Detects whether the system has a discrete GPU.
  */
 KIOGUI_EXPORT bool hasDiscreteGpu();
 
-/**
+/*!
  * Environment variables that make a process run with the discrete GPU.
  */
 KIOGUI_NO_EXPORT QProcessEnvironment discreteGpuEnvironment();

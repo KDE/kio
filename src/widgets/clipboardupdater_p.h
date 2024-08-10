@@ -19,7 +19,7 @@ namespace KIO
 class Job;
 class JobUiDelegate;
 
-/**
+/*!
  * Updates the clipboard when it is affected by KIO operations.
  *
  * UpdateContent updates clipboard urls that were modified. This mode should
@@ -42,12 +42,12 @@ class ClipboardUpdater : public QObject
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Convenience function that allows renaming of a single url in the clipboard.
      */
     static void update(const QUrl &srcUrl, const QUrl &destUrl);
 
-    /**
+    /*!
      * Sets the mode.
      */
     void setMode(JobUiDelegateExtension::ClipboardUpdaterMode m);

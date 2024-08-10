@@ -17,7 +17,7 @@ namespace KIO
 {
 class OpenOrExecuteFileInterfacePrivate;
 
-/**
+/*!
  * @class OpenOrExecuteFileInterface openorexecutefileinterface.h <KIO/OpenOrExecuteFileInterface>
  * @brief The OpenOrExecuteFileInterface class allows OpenUrlJob to ask
  * the user about how to handle various types of executable files, basically
@@ -33,18 +33,18 @@ class KIOGUI_EXPORT OpenOrExecuteFileInterface : public QObject
 {
     Q_OBJECT
 protected:
-    /**
+    /*!
      * Constructor
      */
     explicit OpenOrExecuteFileInterface(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      */
     ~OpenOrExecuteFileInterface() override;
 
 public:
-    /**
+    /*!
      * Show a dialog to ask the user how to handle various types of executable
      * files, basically whether to run/execute the file, or in the case of text-based
      * ones (shell scripts and .desktop files) open them as text.
@@ -63,7 +63,7 @@ public:
     virtual void promptUserOpenOrExecute(KJob *job, const QString &mimetype);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted by promptUserOpenOrExecute() once the user chooses an action.
      * @param enable \c true if the user selected to execute/run the file or
      * \c false if the user selected to open the file as text (the latter is
@@ -71,7 +71,7 @@ Q_SIGNALS:
      */
     void executeFile(bool enable);
 
-    /**
+    /*!
      * Emitted by promptUserOpenOrExecute() if user selects cancel.
      */
     void canceled();

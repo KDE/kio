@@ -28,7 +28,7 @@ class Job;
 
 class KUrlCompletionPrivate;
 
-/**
+/*!
  * @class KUrlCompletion kurlcompletion.h <KUrlCompletion>
  *
  * This class does completion of URLs including user directories (~user)
@@ -42,7 +42,7 @@ class KIOWIDGETS_EXPORT KUrlCompletion : public KCompletion
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Determines how completion is done.
      * @li ExeCompletion - executables in $PATH or with full path.
      * @li FileCompletion - all files with full path or in dir(), URLs
@@ -51,21 +51,21 @@ public:
      */
     enum Mode { ExeCompletion = 1, FileCompletion, DirCompletion };
 
-    /**
+    /*!
      * Constructs a KUrlCompletion object in FileCompletion mode.
      */
     KUrlCompletion();
-    /**
+    /*!
      * This overloaded constructor allows you to set the Mode to ExeCompletion
      * or FileCompletion without using setMode. Default is FileCompletion.
      */
     KUrlCompletion(Mode);
-    /**
+    /*!
      * Destructs the KUrlCompletion object.
      */
     ~KUrlCompletion() override;
 
-    /**
+    /*!
      * Finds completions to the given text.
      *
      * Remote URLs are listed with KIO. For performance reasons, local files
@@ -80,43 +80,43 @@ public:
      */
     QString makeCompletion(const QString &text) override;
 
-    /**
+    /*!
      * Sets the current directory (used as base for completion).
      * Default = $HOME.
      * @param dir the current directory, as a URL (use QUrl::fromLocalFile for local paths)
      */
     virtual void setDir(const QUrl &dir);
 
-    /**
+    /*!
      * Returns the current directory, as it was given in setDir
      * @return the current directory, as a URL (use QUrl::toLocalFile for local paths)
      */
     virtual QUrl dir() const;
 
-    /**
+    /*!
      * Check whether asynchronous completion is in progress.
      * @return true if asynchronous completion is in progress
      */
     virtual bool isRunning() const;
 
-    /**
+    /*!
      * Stops asynchronous completion.
      */
     virtual void stop();
 
-    /**
+    /*!
      * Returns the completion mode: exe or file completion (default FileCompletion).
      * @return the completion mode
      */
     virtual Mode mode() const;
 
-    /**
+    /*!
      * Changes the completion mode: exe or file completion
      * @param mode the new completion mode
      */
     virtual void setMode(Mode mode);
 
-    /**
+    /*!
      * Checks whether environment variables are completed and
      * whether they are replaced internally while finding completions.
      * Default is enabled.
@@ -124,14 +124,14 @@ public:
      */
     virtual bool replaceEnv() const;
 
-    /**
+    /*!
      * Enables/disables completion and replacement (internally) of
      * environment variables in URLs. Default is enabled.
      * @param replace true to replace environment variables
      */
     virtual void setReplaceEnv(bool replace);
 
-    /**
+    /*!
      * Returns whether ~username is completed and whether ~username
      * is replaced internally with the user's home directory while
      * finding completions. Default is enabled.
@@ -139,7 +139,7 @@ public:
      */
     virtual bool replaceHome() const;
 
-    /**
+    /*!
      * Enables/disables completion of ~username and replacement
      * (internally) of ~username with the user's home directory.
      * Default is enabled.
@@ -147,7 +147,7 @@ public:
      */
     virtual void setReplaceHome(bool replace);
 
-    /**
+    /*!
      * Replaces username and/or environment variables, depending on the
      * current settings and returns the filtered url. Only works with
      * local files, i.e. returns back the original string for non-local
@@ -158,19 +158,19 @@ public:
      */
     QString replacedPath(const QString &text) const;
 
-    /**
+    /*!
      * @internal I'll let ossi add a real one to KShell :)
      */
     static QString replacedPath(const QString &text, bool replaceHome, bool replaceEnv = true);
 
-    /**
+    /*!
      * Sets the MIME type filters for the file dialog.
      * @see QFileDialog::setMimeTypeFilters()
      * @since 5.38
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
 
-    /**
+    /*!
      * Returns the MIME type filters for the file dialog.
      * @see QFileDialog::mimeTypeFilters()
      * @since 5.38

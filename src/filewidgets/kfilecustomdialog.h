@@ -18,7 +18,7 @@
 class KFileWidget;
 class KFileCustomDialogPrivate;
 
-/**
+/*!
  * This class implement a custom file dialog.
  * It uses a KFileWidget and allows the application to provide a custom widget.
  * @since 5.42
@@ -27,12 +27,12 @@ class KIOFILEWIDGETS_EXPORT KFileCustomDialog : public QDialog
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Constructs a custom file dialog
      */
     explicit KFileCustomDialog(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Constructs a custom file dialog
      * @param startDir see the KFileWidget constructor for documentation
      * @since 5.67
@@ -41,14 +41,14 @@ public:
 
     ~KFileCustomDialog() override;
 
-    /**
+    /*!
      * Sets the directory to view.
      *
      * @param url URL to show.
      */
     void setUrl(const QUrl &url);
 
-    /**
+    /*!
      * Set a custom widget that should be added to the file dialog.
      * @param widget A widget, or a widget of widgets, for displaying custom
      *               data in the file widget. This can be used, for example, to
@@ -58,13 +58,13 @@ public:
      */
     void setCustomWidget(QWidget *widget);
 
-    /**
+    /*!
      * @brief fileWidget
      * @return the filewidget used inside this dialog
      */
     KFileWidget *fileWidget() const;
 
-    /**
+    /*!
      * Sets the operational mode of the filedialog to @p Saving, @p Opening
      * or @p Other. This will set some flags that are specific to loading
      * or saving files. E.g. setKeepLocation() makes mostly sense for

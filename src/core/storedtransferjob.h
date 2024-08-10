@@ -14,7 +14,7 @@
 namespace KIO
 {
 class StoredTransferJobPrivate;
-/**
+/*!
  * @class KIO::StoredTransferJob storedtransferjob.h <KIO/StoredTransferJob>
  *
  * StoredTransferJob is a TransferJob (for downloading or uploading data) that
@@ -41,14 +41,14 @@ class KIOCORE_EXPORT StoredTransferJob : public KIO::TransferJob
 public:
     ~StoredTransferJob() override;
 
-    /**
+    /*!
      * Set data to be uploaded. This is for put jobs.
      * Automatically called by KIO::storedPut(const QByteArray &, ...),
      * do not call this yourself.
      */
     void setData(const QByteArray &arr);
 
-    /**
+    /*!
      * Get hold of the downloaded data. This is for get jobs.
      * You're supposed to call this only from the slot connected to the result() signal.
      */
@@ -61,7 +61,7 @@ private:
     Q_DECLARE_PRIVATE(StoredTransferJob)
 };
 
-/**
+/*!
  * Get (means: read), into a single QByteArray.
  * @see StoredTransferJob
  *
@@ -72,7 +72,7 @@ private:
  */
 KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Put (means: write) data from a QIODevice.
  * @see StoredTransferJob
  *
@@ -87,7 +87,7 @@ KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = N
  */
 KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice *input, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Put (means: write) data from a single QByteArray.
  * @see StoredTransferJob
  *
@@ -100,7 +100,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice *input, const QUrl &url, i
  */
 KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * HTTP POST (means: write) data from a single QByteArray.
  * @see StoredTransferJob
  *
@@ -110,7 +110,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &u
  * @return the job handling the operation.
  */
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url, JobFlags flags = DefaultFlags);
-/**
+/*!
  * HTTP POST (means: write) data from the given IO device.
  * @see StoredTransferJob
  *

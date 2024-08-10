@@ -42,7 +42,7 @@ struct UDSTestField {
     long long m_long;
 };
 
-/**
+/*!
  * Test that storing UDSEntries to a stream and then re-loading them works.
  */
 void UDSEntryTest::testSaveLoad()
@@ -192,7 +192,7 @@ void UDSEntryTest::testSaveLoad()
     }
 }
 
-/**
+/*!
  * Test to verify that move semantics work. This is only useful when ran through callgrind.
  */
 void UDSEntryTest::testMove()
@@ -239,7 +239,7 @@ void UDSEntryTest::testMove()
     }
 }
 
-/**
+/*!
  * Test to verify that equal semantics work.
  */
 void UDSEntryTest::testEquality()

@@ -25,7 +25,7 @@ struct BasicOperation {
         File,
         Link,
         Directory,
-        /**
+        /*!
          * Used with BatchRenameJob, it doesn't stat the files/dirs it's renaming,
          * so the file/dir distinction isn't available
          */

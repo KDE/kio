@@ -22,7 +22,7 @@ namespace KIO
 {
 class ConnectionServer;
 class ConnectionPrivate;
-/**
+/*!
  * @private
  *
  * This class provides a simple means for IPC between two applications
@@ -44,14 +44,14 @@ public:
         Application, /// This is the connection of the application side
         Worker, /// This is the connection of the worker side
     };
-    /**
+    /*!
      * Creates a new connection.
      * @see connectToRemote, listenForRemote
      */
     explicit Connection(Type type, QObject *parent = nullptr);
     ~Connection() override;
 
-    /**
+    /*!
      * Connects to the remote address.
      * @param address a local:// or tcp:// URL.
      */
@@ -62,14 +62,14 @@ public:
 
     bool isConnected() const;
 
-    /**
+    /*!
      * Checks whether the connection has been initialized.
      * @return true if the initialized
      * @see init()
      */
     bool inited() const;
 
-    /**
+    /*!
      * Sends/queues the given command to be sent.
      * @param cmd the command to set
      * @param arr the bytes to send
@@ -77,7 +77,7 @@ public:
      */
     bool send(int cmd, const QByteArray &arr = QByteArray());
 
-    /**
+    /*!
      * Sends the given command immediately.
      * @param _cmd the command to set
      * @param data the bytes to send
@@ -85,14 +85,14 @@ public:
      */
     bool sendnow(int _cmd, const QByteArray &data);
 
-    /**
+    /*!
      * Returns true if there are packets to be read immediately,
      * false if waitForIncomingTask must be called before more data
      * is available.
      */
     bool hasTaskAvailable() const;
 
-    /**
+    /*!
      * Waits for one more command to be handled and ready.
      *
      * @param ms   the time to wait in milliseconds
@@ -100,7 +100,7 @@ public:
      */
     bool waitForIncomingTask(int ms = 30000);
 
-    /**
+    /*!
      * Receive data.
      *
      * @param _cmd the received command will be written here
@@ -111,17 +111,17 @@ public:
      */
     int read(int *_cmd, QByteArray &data);
 
-    /**
+    /*!
      * Don't handle incoming data until resumed.
      */
     void suspend();
 
-    /**
+    /*!
      * Resume handling of incoming data.
      */
     void resume();
 
-    /**
+    /*!
      * Returns status of connection.
      * @return true if suspended, false otherwise
      */

@@ -17,7 +17,7 @@
 namespace KIO
 {
 class RestoreJobPrivate;
-/**
+/*!
  * @class KIO::RestoreJob restorejob.h <KIO/RestoreJob>
  *
  * RestoreJob is used to restore files from the trash.
@@ -34,7 +34,7 @@ class KIOCORE_EXPORT RestoreJob : public Job
 public:
     ~RestoreJob() override;
 
-    /**
+    /*!
      * Returns the list of trash URLs to restore.
      */
     QList<QUrl> trashUrls() const;
@@ -51,7 +51,7 @@ private:
     Q_DECLARE_PRIVATE(RestoreJob)
 };
 
-/**
+/*!
  * Restore a set of trashed files or directories.
  * @since 5.2
  *

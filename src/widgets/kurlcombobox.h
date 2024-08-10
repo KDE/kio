@@ -22,7 +22,7 @@
 class QUrl;
 class KUrlComboBoxPrivate;
 
-/**
+/*!
  * @class KUrlComboBox kurlcombobox.h <KUrlComboBox>
  *
  * This combobox shows a number of recent URLs/directories, as well as some
@@ -46,11 +46,11 @@ class KIOWIDGETS_EXPORT KUrlComboBox : public KComboBox
     Q_PROPERTY(int maxItems READ maxItems WRITE setMaxItems DESIGNABLE true)
 
 public:
-    /**
+    /*!
      * This enum describes which kind of items is shown in the combo box.
      */
     enum Mode { Files = -1, Directories = 1, Both = 0 };
-    /**
+    /*!
      * This Enumeration is used in setUrl() to determine which items
      * will be removed when the given list is larger than maxItems().
      *
@@ -59,7 +59,7 @@ public:
      */
     enum OverLoadResolving { RemoveTop, RemoveBottom };
 
-    /**
+    /*!
      * Constructs a KUrlComboBox.
      * @param mode is either Files, Directories or Both and controls the
      * following behavior:
@@ -75,12 +75,12 @@ public:
      */
     explicit KUrlComboBox(Mode mode, QWidget *parent = nullptr);
     KUrlComboBox(Mode mode, bool rw, QWidget *parent = nullptr);
-    /**
+    /*!
      * Destructs the combo box.
      */
     ~KUrlComboBox() override;
 
-    /**
+    /*!
      * Sets the current url. This combo handles exactly one url additionally
      * to the default items and those set via setUrls(). So you can call
      * setUrl() as often as you want, it will always replace the previous one
@@ -94,7 +94,7 @@ public:
      */
     void setUrl(const QUrl &url);
 
-    /**
+    /*!
      * Inserts @p urls into the combobox below the "default urls" (see
      * addDefaultUrl).
      *
@@ -103,7 +103,7 @@ public:
      */
     void setUrls(const QStringList &urls);
 
-    /**
+    /*!
      * Inserts @p urls into the combobox below the "default urls" (see
      * addDefaultUrl).
      *
@@ -112,7 +112,7 @@ public:
      */
     void setUrls(const QStringList &urls, OverLoadResolving remove);
 
-    /**
+    /*!
      * @returns a list of all urls currently handled. The list contains at most
      * maxItems() items.
      * Use this to save the list of urls in a config-file and reinsert them
@@ -124,19 +124,19 @@ public:
      */
     QStringList urls() const;
 
-    /**
+    /*!
      * Sets how many items should be handled and displayed by the combobox.
      * @see maxItems
      */
     void setMaxItems(int);
 
-    /**
+    /*!
      * @returns the maximum of items the combobox handles.
      * @see setMaxItems
      */
     int maxItems() const;
 
-    /**
+    /*!
      * Adds a url that will always be shown in the combobox, it can't be
      * "rotated away". Default urls won't be returned in urls() and don't
      * have to be set via setUrls().
@@ -146,7 +146,7 @@ public:
      */
     void addDefaultUrl(const QUrl &url, const QString &text = QString());
 
-    /**
+    /*!
      * Adds a url that will always be shown in the combobox, it can't be
      * "rotated away". Default urls won't be returned in urls() and don't
      * have to be set via setUrls().
@@ -156,27 +156,27 @@ public:
      */
     void addDefaultUrl(const QUrl &url, const QIcon &icon, const QString &text = QString());
 
-    /**
+    /*!
      * Clears all items and inserts the default urls into the combo. Will be
      * called implicitly upon the first call to setUrls() or setUrl()
      * @see addDefaultUrl
      */
     void setDefaults();
 
-    /**
+    /*!
      * Removes any occurrence of @p url. If @p checkDefaultUrls is false
      * default-urls won't be removed.
      */
     void removeUrl(const QUrl &url, bool checkDefaultURLs = true);
 
-    /**
+    /*!
      * Reimplemented from KComboBox (from KCompletion)
      * @internal
      */
     void setCompletionObject(KCompletion *compObj, bool hsig = true) override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when an item was clicked at.
      * @param url is the url of the now current item.
      */

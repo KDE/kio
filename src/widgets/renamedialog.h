@@ -28,7 +28,7 @@ class KSqueezedTextLabel;
 
 namespace KIO
 {
-/**
+/*!
  * @class KIO::RenameDialog renamedialog.h <KIO/RenameDialog>
  *
  * The dialog shown when a CopyJob realizes that a destination file already exists,
@@ -40,7 +40,7 @@ class KIOWIDGETS_EXPORT RenameDialog : public QDialog
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Construct a "rename" dialog to let the user know that @p src is about to overwrite @p dest.
      *
      * @param parent parent widget (often 0)
@@ -68,13 +68,13 @@ public:
                  const QDateTime &mtimeDest = QDateTime());
     ~RenameDialog() override;
 
-    /**
+    /*!
      * @return the new destination
      * valid only if RENAME was chosen
      */
     QUrl newDestUrl();
 
-    /**
+    /*!
      * @return an automatically renamed destination
      * valid always
      */

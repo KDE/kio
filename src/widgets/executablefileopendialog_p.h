@@ -12,7 +12,7 @@
 
 class QCheckBox;
 
-/**
+/*!
  * @brief Dialog shown when opening an executable file
  */
 class ExecutableFileOpenDialog : public QDialog

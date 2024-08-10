@@ -12,7 +12,7 @@
 
 #include "kiowidgets_export.h"
 
-/**
+/*!
  * @class KFile kfile.h <KFile>
  *
  * KFile is a class which provides a namespace for some enumerated
@@ -24,7 +24,7 @@ class KIOWIDGETS_EXPORT KFile
 {
     Q_GADGET
 public:
-    /**
+    /*!
      * Modes of operation for the dialog.
      * @li @p File - Get a single file name from the user.
      * @li @p Directory - Get a directory name from the user.
@@ -41,7 +41,7 @@ public:
         LocalOnly = 16,
         ModeMax = 65536,
     };
-    /**
+    /*!
      * Stores a combination of #Mode values.
      */
     Q_DECLARE_FLAGS(Modes, Mode)

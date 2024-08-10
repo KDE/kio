@@ -14,7 +14,7 @@
 #include <QString>
 #include <QUrl>
 
-/**
+/*!
  * @class KRecentDocument krecentdocument.h <KRecentDocument>
  *
  * Manage the "Recent Document Menu" entries displayed by
@@ -68,7 +68,7 @@ public:
 
     typedef QList<KRecentDocument::RecentDocumentGroup> RecentDocumentGroups;
 
-    /**
+    /*!
      *
      * Return a list of recent URLs. This includes all the URLs from
      * recentDocuments() as well as URLs from other applications conforming to
@@ -78,7 +78,7 @@ public:
      */
     static QList<QUrl> recentUrls();
 
-    /**
+    /*!
      * Add a new item to the Recent Document menu.
      *
      * @param url The url to add.
@@ -87,7 +87,7 @@ public:
     /// @since 5.93
     static void add(const QUrl &url, KRecentDocument::RecentDocumentGroups groups);
 
-    /**
+    /*!
      * Add a new item to the Recent Document menu, specifying the application to open it with.
      * The above add() method uses QCoreApplication::applicationName() for the app name,
      * which isn't always flexible enough.
@@ -112,12 +112,13 @@ public:
      * @since 6.6
      */
     static void removeBookmarksModifiedSince(const QDateTime &since);
-    /**
+
+    /*!
      * Clear the recent document menu of all entries.
      */
     static void clear();
 
-    /**
+    /*!
      * Returns the maximum amount of recent document entries allowed.
      */
     static int maximumItems();

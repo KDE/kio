@@ -16,7 +16,7 @@ class QMenu;
 
 namespace KDEPrivate
 {
-/**
+/*!
  * @brief A combobox listing available schemes.
  *
  * The widget is used by the URL navigator for offering the available

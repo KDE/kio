@@ -97,14 +97,14 @@ public:
      */
     bool matchesMimeFilter(const KFileItem &) const;
 
-    /**
+    /*!
      * Redirect this dirlister from oldUrl to newUrl.
      * @param keepItems if true, keep the fileitems (e.g. when renaming an existing dir);
      * if false, clear out everything (e.g. when redirecting during listing).
      */
     void redirect(const QUrl &oldUrl, const QUrl &newUrl, bool keepItems);
 
-    /**
+    /*!
      * Should this item be visible according to the current filter settings?
      */
     bool isItemVisible(const KFileItem &item) const;
@@ -124,7 +124,7 @@ public:
 
     KCoreDirLister *const q;
 
-    /**
+    /*!
      * List of dirs handled by this dirlister. The first entry is the base URL.
      * For a tree view, it contains all the dirs shown.
      */
@@ -177,7 +177,7 @@ public:
     friend class KCoreDirListerCache;
 };
 
-/**
+/*!
  * Design of the cache:
  * There is a single KCoreDirListerCache for the whole process.
  * It holds all the items used by the dir listers (itemsInUse)
@@ -227,7 +227,7 @@ public:
     void forgetCachedItemsJob(KCoreDirListerPrivate::CachedItemsJob *job, KCoreDirLister *lister, const QUrl &url);
 
 public Q_SLOTS:
-    /**
+    /*!
      * Notify that files have been added in @p directory
      * The receiver will list that directory again to find
      * the new items (since it needs more than just the names anyway).
@@ -235,7 +235,7 @@ public Q_SLOTS:
      */
     void slotFilesAdded(const QString &urlDirectory);
 
-    /**
+    /*!
      * Notify that files have been deleted.
      * This call passes the exact urls of the deleted files
      * so that any view showing them can simply remove them
@@ -244,7 +244,7 @@ public Q_SLOTS:
      */
     void slotFilesRemoved(const QStringList &fileList);
 
-    /**
+    /*!
      * Notify that files have been changed.
      * At the moment, this is only used for new icon, but it could be
      * used for size etc. as well.
@@ -305,14 +305,14 @@ private:
     // helper for renameDir
     void emitRedirections(const QUrl &oldUrl, const QUrl &url);
 
-    /**
+    /*!
      * Emits refreshItem() in the directories that cared for oldItem.
      * The caller has to remember to call emitItems in the set of dirlisters returned
      * (but this allows to buffer change notifications)
      */
     std::set<KCoreDirLister *> emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem);
 
-    /**
+    /*!
      * Remove the item from the sorted by url list matching @p oldUrl,
      * that is in the wrong place (because its url has changed) and insert @p item in the right place.
      * @param oldUrl the previous url of the @p item
@@ -341,7 +341,7 @@ private:
         }
     }
 
-    /**
+    /*!
      * When KDirWatch tells us that something changed in "dir", we need to
      * also notify the dirlisters that are listing a symlink to "dir" (#213799)
      */
@@ -358,7 +358,7 @@ private:
         std::set<QString> listedFiles;
     };
 
-    /**
+    /*!
      * Returns the names listed in dir's ".hidden" file, if it exists.
      * If a file named ".hidden" exists in the @p dir directory, this method
      * returns all the file names listed in that file. If it doesn't exist, an

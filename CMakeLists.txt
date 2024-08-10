@@ -176,8 +176,6 @@ endif()
 
 add_subdirectory(templates)
 
-ecm_generate_qdoc(KF6KIOCore kio.qdocconf)
-
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6KIO")
 

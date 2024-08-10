@@ -21,7 +21,7 @@ class QLineEdit;
 class KIconButton;
 class KUrlRequester;
 
-/**
+/*!
  * @class KFilePlaceEditDialog kfileplaceeditdialog.h <KFilePlaceEditDialog>
  *
  * A dialog that allows editing entries of a KFilePlacesModel.
@@ -36,7 +36,7 @@ class KIOFILEWIDGETS_EXPORT KFilePlaceEditDialog : public QDialog
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * A convenience method to show the dialog and retrieve all the
      * properties via the given parameters. The parameters are used to
      * initialize the dialog and then return the user-configured values.
@@ -58,7 +58,7 @@ public:
     static bool
     getInformation(bool allowGlobal, QUrl &url, QString &label, QString &icon, bool isAddingNewPlace, bool &appLocal, int iconSize, QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Constructs a KFilePlaceEditDialog.
      *
      * @p allowGlobal if you set this to true, the dialog will have a checkbox
@@ -83,27 +83,27 @@ public:
                          bool appLocal = true,
                          int iconSize = KIconLoader::SizeMedium,
                          QWidget *parent = nullptr);
-    /**
+    /*!
      * Destroys the dialog.
      */
     ~KFilePlaceEditDialog() override;
 
-    /**
+    /*!
      * @returns the configured url
      */
     QUrl url() const;
 
-    /**
+    /*!
      * @returns the configured label
      */
     QString label() const;
 
-    /**
+    /*!
      * @returns the configured icon
      */
     QString icon() const;
 
-    /**
+    /*!
      * @returns whether the item should be local to the application or global.
      * If allowGlobal was set to false in the constructor, this will always
      * return true.
@@ -114,19 +114,19 @@ public Q_SLOTS:
     void urlChanged(const QString &);
 
 private:
-    /**
+    /*!
      * The KUrlRequester used for editing the url
      */
     KUrlRequester *m_urlEdit;
-    /**
+    /*!
      * The QLineEdit used for editing the label
      */
     QLineEdit *m_labelEdit;
-    /**
+    /*!
      * The KIconButton to configure the icon
      */
     KIconButton *m_iconButton;
-    /**
+    /*!
      * The QCheckBox to modify the local/global setting
      */
     QCheckBox *m_appLocal;

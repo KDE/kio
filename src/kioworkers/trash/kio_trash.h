@@ -33,7 +33,7 @@ public:
     KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
     // TODO (maybe) chmod( const QUrl& url, int permissions );
     KIO::WorkerResult del(const QUrl &url, bool isfile) override;
-    /**
+    /*!
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents

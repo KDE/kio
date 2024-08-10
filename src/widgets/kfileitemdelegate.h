@@ -20,7 +20,7 @@ class QHelpEvent;
 class QModelIndex;
 class QPainter;
 
-/**
+/*!
  * @class KFileItemDelegate kfileitemdelegate.h <KFileItemDelegate>
  *
  * KFileItemDelegate is intended to be used to provide a KDE file system
@@ -56,7 +56,7 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 
-    /**
+    /*!
      * This property holds which additional information (if any) should be shown below
      * items in icon views.
      *
@@ -66,7 +66,7 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(InformationList information READ showInformation WRITE setShowInformation)
 
-    /**
+    /*!
      * This property holds the color used for the text shadow.
      *
      * The alpha value in the color determines the opacity of the shadow.
@@ -79,7 +79,7 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(QColor shadowColor READ shadowColor WRITE setShadowColor)
 
-    /**
+    /*!
      * This property holds the horizontal and vertical offset for the text shadow.
      * The default value for this property is (1, 1).
      *
@@ -89,7 +89,7 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(QPointF shadowOffset READ shadowOffset WRITE setShadowOffset)
 
-    /**
+    /*!
      * This property holds the blur radius for the text shadow.
      * The default value for this property is 2.
      *
@@ -99,14 +99,14 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(qreal shadowBlur READ shadowBlur WRITE setShadowBlur)
 
-    /**
+    /*!
      * This property holds the maximum size that can be returned
      * by KFileItemDelegate::sizeHint(). If the maximum size is empty,
      * it will be ignored.
      */
     Q_PROPERTY(QSize maximumSize READ maximumSize WRITE setMaximumSize)
 
-    /**
+    /*!
      * This property determines whether a tooltip will be shown by the delegate
      * if the display role is elided. This tooltip will contain the full display
      * role information. The tooltip will only be shown if the Qt::ToolTipRole differs
@@ -115,14 +115,14 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(bool showToolTipWhenElided READ showToolTipWhenElided WRITE setShowToolTipWhenElided)
 
-    /**
+    /*!
      * This property determines if there are KIO jobs on a destination URL visible, then
      * they will have a small animation overlay displayed on them.
      */
     Q_PROPERTY(bool jobTransfersVisible READ jobTransfersVisible WRITE setJobTransfersVisible)
 
 public:
-    /**
+    /*!
      * This enum defines the additional information that can be displayed below item
      * labels in icon views.
      *
@@ -163,19 +163,19 @@ public:
 
     typedef QList<Information> InformationList;
 
-    /**
+    /*!
      * Constructs a new KFileItemDelegate.
      *
      * @param parent The parent object for the delegate.
      */
     explicit KFileItemDelegate(QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destroys the item delegate.
      */
     ~KFileItemDelegate() override;
 
-    /**
+    /*!
      * Returns the nominal size for the item referred to by @p index, given the
      * provided options.
      *
@@ -189,7 +189,7 @@ public:
      */
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Paints the item indicated by @p index, using @p painter.
      *
      * The item will be drawn in the rectangle specified by option.rect.
@@ -212,32 +212,32 @@ public:
      */
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /**
+    /*!
      * Sets the list of information lines that are shown below the icon label in list views.
      *
      * You will typically construct the list like this:
@@ -255,7 +255,7 @@ public:
      */
     void setShowInformation(const InformationList &list);
 
-    /**
+    /*!
      * Sets a single information line that is shown below the icon label in list views.
      *
      * This is a convenience function for when you only want to show a single line
@@ -265,12 +265,12 @@ public:
      */
     void setShowInformation(Information information);
 
-    /**
+    /*!
      * Returns the file item information that should be shown below item labels in list views.
      */
     InformationList showInformation() const;
 
-    /**
+    /*!
      * Sets the color used for drawing the text shadow.
      *
      * To enable text shadows, set the shadow color to a non-transparent color.
@@ -280,56 +280,56 @@ public:
      */
     void setShadowColor(const QColor &color);
 
-    /**
+    /*!
      * Returns the color used for the text shadow.
      *
      * @see setShadowColor()
      */
     QColor shadowColor() const;
 
-    /**
+    /*!
      * Sets the horizontal and vertical offset for the text shadow.
      *
      * @see shadowOffset()
      */
     void setShadowOffset(const QPointF &offset);
 
-    /**
+    /*!
      * Returns the offset used for the text shadow.
      *
      * @see setShadowOffset()
      */
     QPointF shadowOffset() const;
 
-    /**
+    /*!
      * Sets the blur radius for the text shadow.
      *
      * @see shadowBlur()
      */
     void setShadowBlur(qreal radius);
 
-    /**
+    /*!
      * Returns the blur radius for the text shadow.
      *
      * @see setShadowBlur()
      */
     qreal shadowBlur() const;
 
-    /**
+    /*!
      * Sets the maximum size for KFileItemDelegate::sizeHint().
      *
      * @see maximumSize()
      */
     void setMaximumSize(const QSize &size);
 
-    /**
+    /*!
      * Returns the maximum size for KFileItemDelegate::sizeHint().
      *
      * @see setMaximumSize()
      */
     QSize maximumSize() const;
 
-    /**
+    /*!
      * Sets whether a tooltip should be shown if the display role is
      * elided containing the full display role information.
      *
@@ -340,7 +340,7 @@ public:
      */
     void setShowToolTipWhenElided(bool showToolTip);
 
-    /**
+    /*!
      * Returns whether a tooltip should be shown if the display role
      * is elided containing the full display role information.
      *
@@ -351,27 +351,27 @@ public:
      */
     bool showToolTipWhenElided() const;
 
-    /**
+    /*!
      * Returns the rectangle of the icon that is aligned inside the decoration
      * rectangle.
      */
     QRect iconRect(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    /**
+    /*!
      * When the contents text needs to be wrapped, @p wrapMode strategy
      * will be followed.
      *
      */
     void setWrapMode(QTextOption::WrapMode wrapMode);
 
-    /**
+    /*!
      * Returns the wrapping strategy followed to show text when it needs
      * wrapping.
      *
      */
     QTextOption::WrapMode wrapMode() const;
 
-    /**
+    /*!
      * Enable/Disable the displaying of an animated overlay that is shown for any destination
      * urls (in the view). When enabled, the animations (if any) will be drawn automatically.
      *
@@ -387,24 +387,24 @@ public:
      */
     void setJobTransfersVisible(bool jobTransfersVisible);
 
-    /**
+    /*!
      * Returns whether or not the displaying of job transfers is enabled.
      * @see setJobTransfersVisible()
      */
     bool jobTransfersVisible() const;
 
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     bool eventFilter(QObject *object, QEvent *event) override;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Reimplemented from @ref QAbstractItemDelegate.
      */
     bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    /**
+    /*!
      * Returns the shape of the item as a region.
      * The returned region can be used for precise hit testing of the item.
      */

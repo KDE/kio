@@ -16,7 +16,7 @@
 
 #include <memory>
 
-/**
+/*!
  * KDE SSL Information Dialog
  *
  * This class creates a dialog that can be used to display information about
@@ -33,19 +33,19 @@ class KIOWIDGETS_EXPORT KSslInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      *  Construct a KSSL Information Dialog
      *
      *  @param parent the parent widget
      */
     explicit KSslInfoDialog(QWidget *parent = nullptr);
 
-    /**
+    /*!
      *  Destroy this dialog
      */
     ~KSslInfoDialog() override;
 
-    /**
+    /*!
      *  Set information to display about the SSL connection.
      *
      *  @param certificateChain the certificate chain leading from the certificate
@@ -71,7 +71,7 @@ public:
     void setMainPartEncrypted(bool);
     void setAuxiliaryPartsEncrypted(bool);
 
-    /**
+    /*!
      * Converts certificate errors as provided in the "ssl_cert_errors" meta data
      * to a list of QSslError::SslError values per certificate in the certificate chain.
      * @since 5.65

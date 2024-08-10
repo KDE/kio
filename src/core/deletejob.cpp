@@ -56,7 +56,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 
-    /**
+    /*!
      * Deletes the file @p url points to
      * The file must be a LocalFile
      */
@@ -65,7 +65,7 @@ public Q_SLOTS:
         Q_EMIT rmfileResult(QFile::remove(url.toLocalFile()), isLink);
     }
 
-    /**
+    /*!
      * Deletes the directory @p url points to
      * The directory must be a LocalFile
      */

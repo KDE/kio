@@ -482,7 +482,7 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
     }
 }
 
-/***************************************************************
+/*!*************************************************************
  *
  * KOpenWithDialog
  *
@@ -498,7 +498,7 @@ public:
 
     KOpenWithDialog *const q;
 
-    /**
+    /*!
      * Determine MIME type from URLs
      */
     void setMimeTypeFromUrls(const QList<QUrl> &_urls);
@@ -507,7 +507,7 @@ public:
 
     void addToMimeAppsList(const QString &serviceId);
 
-    /**
+    /*!
      * Creates a dialog that lets the user select an application for opening one or more URLs.
      *
      * @param text   appears as a label on top of the entry box
@@ -515,12 +515,12 @@ public:
      */
     void init(const QString &text, const QString &value);
 
-    /**
+    /*!
      * Called by checkAccept() in order to save the history of the combobox
      */
     void saveComboboxHistory();
 
-    /**
+    /*!
      * Process the choices made by the user, and return true if everything is OK.
      * Called by KOpenWithDialog::accept(), i.e. when clicking on OK or typing Return.
      */

@@ -16,7 +16,7 @@
 
 class KProtocolInfoPrivate;
 
-/**
+/*!
  * @internal
  *
  * KProtocolInfoFactory is a factory for getting
@@ -26,7 +26,7 @@ class KProtocolInfoPrivate;
 class KProtocolInfoFactory
 {
 public:
-    /**
+    /*!
      * @return the instance of KProtocolInfoFactory (singleton).
      */
     static KProtocolInfoFactory *self();
@@ -34,7 +34,7 @@ public:
     KProtocolInfoFactory();
     ~KProtocolInfoFactory();
 
-    /**
+    /*!
      * Returns protocol info for @p protocol.
      *
      * Does not take proxy settings into account.
@@ -44,19 +44,19 @@ public:
      */
     KProtocolInfoPrivate *findProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
-    /**
+    /*!
      * Loads all protocols. Slow, obviously, but fills the cache once and for all.
      */
     QList<KProtocolInfoPrivate *> allProtocols();
 
-    /**
+    /*!
      * Returns list of all known protocols.
      * @return a list of all protocols
      */
     QStringList protocols();
 
 private:
-    /**
+    /*!
      * Fill the internal cache.
      */
     bool fillCache();

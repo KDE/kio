@@ -17,7 +17,7 @@
 namespace KIO
 {
 class MkpathJobPrivate;
-/**
+/*!
  * @class KIO::MkpathJob mkpathjob.h <KIO/MkpathJob>
  *
  * A KIO job that creates a directory, after creating all parent
@@ -34,7 +34,7 @@ public:
     ~MkpathJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a directory was created.
      */
     void directoryCreated(const QUrl &url);
@@ -49,7 +49,7 @@ private:
     Q_DECLARE_PRIVATE(MkpathJob)
 };
 
-/**
+/*!
  * Creates a directory, creating parent directories as needed.
  * Unlike KIO::mkdir(), the job will succeed if the directory exists already.
  *

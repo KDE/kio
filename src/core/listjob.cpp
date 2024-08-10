@@ -36,7 +36,7 @@ public:
     unsigned long m_processedEntries;
     QUrl m_redirectionURL;
 
-    /**
+    /*!
      * @internal
      * Called by the scheduler when a @p worker gets to
      * work on this job.

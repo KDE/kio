@@ -15,7 +15,7 @@
 namespace KIO
 {
 class MkdirJobPrivate;
-/**
+/*!
  * @class KIO::MkdirJob mkdirjob.h <KIO/MkdirJob>
  *
  * A KIO job that creates a directory
@@ -29,7 +29,7 @@ public:
     ~MkdirJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
@@ -38,7 +38,7 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
      * @param job the job that is redirected
@@ -57,7 +57,7 @@ private:
     Q_DECLARE_PRIVATE(MkdirJob)
 };
 
-/**
+/*!
  * Creates a single directory.
  *
  * @param url The URL of the directory to create.

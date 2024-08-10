@@ -41,7 +41,7 @@ public:
     void save(QDataStream &s) const;
     void load(QDataStream &s);
     void debugUDSEntry(QDebug &stream) const;
-    /**
+    /*!
      * @param field numeric UDS field id
      * @return the name of the field
      */

@@ -17,7 +17,7 @@ class QAction;
 
 namespace KIO
 {
-/**
+/*!
  * @class KIO::DndPopupMenuPlugin dndpopupmenuplugin.h <KIO/DndPopupMenuPlugin>
  *
  * Base class for drag and drop popup menus
@@ -36,13 +36,13 @@ class KIOGUI_EXPORT DndPopupMenuPlugin : public QObject
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Constructor.
      */
     DndPopupMenuPlugin(QObject *parent);
     ~DndPopupMenuPlugin() override;
 
-    /**
+    /*!
      * Implement the setup method in the plugin in order to create actions
      * in the given actionCollection and add it to the menu using menu->addAction().
      * The popup menu will be set as parent of the actions.

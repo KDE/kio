@@ -15,14 +15,16 @@
 namespace KIO
 {
 class ListJobPrivate;
-/**
- * @class KIO::ListJob listjob.h <KIO/ListJob>
+/*!
+ * \class KIO::ListJob
+ * \inmodule KIOCore
+ * \inheaderfile KIO/ListJob
  *
  * A ListJob is allows you to get the get the content of a directory.
  * Don't create the job directly, but use KIO::listRecursive() or
  * KIO::listDir() instead.
- * @see KIO::listRecursive()
- * @see KIO::listDir()
+ * \sa KIO::listRecursive()
+ * \sa KIO::listDir()
  */
 class KIOCORE_EXPORT ListJob : public SimpleJob
 {
@@ -36,20 +38,20 @@ public:
     };
     Q_DECLARE_FLAGS(ListFlags, ListFlag)
 
-    /**
+    /*!
      * Returns the ListJob's redirection URL. This will be invalid if there
      * was no redirection.
      * @return the redirection url
      */
     const QUrl &redirectionUrl() const;
 
-    /**
+    /*!
      * Do not apply any KIOSK restrictions to this job.
      */
     void setUnrestricted(bool unrestricted);
 
 Q_SIGNALS:
-    /**
+    /*!
      * This signal emits the entry found by the job while listing.
      * The progress signals aren't specific to ListJob. It simply
      * uses SimpleJob's processedSize (number of entries listed) and
@@ -60,7 +62,7 @@ Q_SIGNALS:
      */
     void entries(KIO::Job *job, const KIO::UDSEntryList &list); // TODO KDE5: use KIO::ListJob* argument to avoid casting
 
-    /**
+    /*!
      * This signal is emitted when a sub-directory could not be listed.
      * The job keeps going, thus doesn't result in an overall error.
      * @param job the job that emitted the signal
@@ -70,7 +72,7 @@ Q_SIGNALS:
      */
     void subError(KIO::ListJob *job, KIO::ListJob *subJob);
 
-    /**
+    /*!
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
@@ -79,7 +81,7 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
      * @param job the job that emitted this signal
@@ -99,7 +101,7 @@ protected:
     friend class ListJobPrivate;
 };
 
-/**
+/*!
  * List the contents of @p url, which is assumed to be a directory.
  *
  * "." and ".." are returned, filter them out if you don't want them.
@@ -113,7 +115,7 @@ protected:
  */
 KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, ListJob::ListFlags listFlags = ListJob::ListFlag::IncludeHidden);
 
-/**
+/*!
  * The same as the previous method, but recurses subdirectories.
  * Directory links are not followed.
  *

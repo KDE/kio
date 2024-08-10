@@ -16,7 +16,7 @@
 namespace KIO
 {
 class NameFinderJobPrivate;
-/**
+/*!
  * @class KIO::NameFinderJob namefinderjob.h <KIO/NameFinderJob>
  *
  *
@@ -71,7 +71,7 @@ class KIOCORE_EXPORT NameFinderJob : public KCompositeJob
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * @brief Creates a NameFinderJob to get a "New Folder" (or "Text File.txt") name that doesn't
      * already exist.
      *
@@ -80,26 +80,26 @@ public:
      */
     explicit NameFinderJob(const QUrl &baseUrl, const QString &name, QObject *parent);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that by default jobs auto-delete themselves after emitting result.
      */
     ~NameFinderJob() override;
 
-    /**
+    /*!
      * Starts the job.
      */
     void start() override;
 
-    /**
+    /*!
      * Call this to get the full target URL (basically the baseUrl() + "/" + finalName()).
      * Typically you should call this in a slot connected to the result() signal, and after
      * making sure no errors occurred (if there were an error this method will return an empty URL).
      */
     QUrl finalUrl() const;
 
-    /**
+    /*!
      * Call this to get the base URL (i.e.\ the URL of the folder where a new folder/file
      * is going to be created). Note that this could return a different URL from the one
      * the job was initially called on, since the StatJob (which is used internally) will
@@ -110,7 +110,7 @@ public:
      */
     QUrl baseUrl() const;
 
-    /**
+    /*!
      * Call this to get the suggested new folder/file name. Typically you should call this in a
      * slot connected to the result() signal and after making sure no errors occurred.
      */

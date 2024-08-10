@@ -14,7 +14,7 @@
 namespace KIO
 {
 class FileJobPrivate;
-/**
+/*!
  * @class KIO::FileJob filejob.h <KIO/FileJob>
  *
  *  The file-job is an asynchronous version of normal file handling.
@@ -30,7 +30,7 @@ class KIOCORE_EXPORT FileJob : public SimpleJob
 public:
     ~FileJob() override;
 
-    /**
+    /*!
      * This function attempts to read up to \p size bytes from the URL passed to
      * KIO::open() and returns the bytes received via the data() signal.
      *
@@ -49,7 +49,7 @@ public:
      */
     void read(KIO::filesize_t size);
 
-    /**
+    /*!
      * This function attempts to write all the bytes in \p data to the URL
      * passed to KIO::open() and returns the bytes written received via the
      * written() signal.
@@ -65,14 +65,14 @@ public:
      */
     void write(const QByteArray &data);
 
-    /**
+    /*!
      * Closes the file KIO worker.
      *
      * The worker emits close() and result().
      */
     void close();
 
-    /**
+    /*!
      * Seek
      *
      * The worker emits position() on successful seek to the specified \p offset.
@@ -84,7 +84,7 @@ public:
      */
     void seek(KIO::filesize_t offset);
 
-    /**
+    /*!
      * Truncate
      *
      * The worker emits truncated() on successful truncation to the specified \p length.
@@ -97,7 +97,7 @@ public:
      */
     void truncate(KIO::filesize_t length);
 
-    /**
+    /*!
      * Size
      *
      * @return the file size
@@ -105,7 +105,7 @@ public:
     KIO::filesize_t size();
 
 Q_SIGNALS:
-    /**
+    /*!
      * Data from the worker has arrived. Emitted after read().
      *
      * Unless a read() request was sent for 0 bytes, End of data (EOD) has been
@@ -117,7 +117,7 @@ Q_SIGNALS:
      */
     void data(KIO::Job *job, const QByteArray &data);
 
-    /**
+    /*!
      * Signals the file is a redirection.
      * Follow this url manually to reach data
      * @param job the job that emitted this signal
@@ -125,7 +125,7 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * MIME type determined.
      * @param job the job that emitted this signal
      * @param mimeType the MIME type
@@ -133,21 +133,21 @@ Q_SIGNALS:
      */
     void mimeTypeFound(KIO::Job *job, const QString &mimeType);
 
-    /**
+    /*!
      * File is open, metadata has been determined and the
      * file KIO worker is ready to receive commands.
      * @param job the job that emitted this signal
      */
     void open(KIO::Job *job);
 
-    /**
+    /*!
      * \p written bytes were written to the file. Emitted after write().
      * @param job the job that emitted this signal
      * @param written bytes written.
      */
     void written(KIO::Job *job, KIO::filesize_t written);
 
-    /**
+    /*!
      * Signals that the file is closed and will accept no more commands.
      *
      * @param job the job that emitted this signal
@@ -156,14 +156,14 @@ Q_SIGNALS:
      */
     void fileClosed(KIO::Job *job);
 
-    /**
+    /*!
      * The file has reached this position. Emitted after seek().
      * @param job the job that emitted this signal
      * @param offset the new position
      */
     void position(KIO::Job *job, KIO::filesize_t offset);
 
-    /**
+    /*!
      * The file has been truncated to this point. Emitted after truncate().
      * @param job the job that emitted this signal
      * @param length the new length of the file
@@ -178,7 +178,7 @@ private:
     Q_DECLARE_PRIVATE(FileJob)
 };
 
-/**
+/*!
  * Open ( random access I/O )
  *
  * The file-job emits open() when opened

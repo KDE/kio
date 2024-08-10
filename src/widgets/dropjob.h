@@ -19,7 +19,7 @@ class KFileItemListProperties;
 
 namespace KIO
 {
-/**
+/*!
  * Special flag of DropJob in addition to KIO::JobFlag
  *
  * @see DropJobFlags
@@ -29,7 +29,7 @@ enum DropJobFlag {
     DropJobDefaultFlags = 0,
     ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
 };
-/**
+/*!
  * Stores a combination of #DropJobFlag values.
  */
 Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
@@ -38,7 +38,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(DropJobFlags)
 class CopyJob;
 class DropJobPrivate;
 
-/**
+/*!
  * @class KIO::DropJob dropjob.h <KIO/DropJob>
  *
  * A KIO job that handles dropping into a file-manager-like view.
@@ -56,7 +56,7 @@ class KIOWIDGETS_EXPORT DropJob : public Job
 public:
     ~DropJob() override;
 
-    /**
+    /*!
      * Allows the application to set additional actions in the drop popup menu.
      * For instance, the application handling the desktop might want to add
      * "set as wallpaper" if the dropped url is an image file.
@@ -64,7 +64,7 @@ public:
      */
     void setApplicationActions(const QList<QAction *> &actions);
 
-    /**
+    /*!
      * Allows the application to show the menu manually.
      * DropJob instance has to be created with the KIO::ShowMenuManually flag
      *
@@ -73,12 +73,12 @@ public:
     void showMenu(const QPoint &p, QAction *atAction = nullptr);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a file or directory was created.
      */
     void itemCreated(const QUrl &url);
 
-    /**
+    /*!
      * Emitted when a copy job was started as subjob after user selection.
      *
      * You can use @p job to monitor the progress of the copy/move/link operation. Note that a
@@ -90,7 +90,7 @@ Q_SIGNALS:
      */
     void copyJobStarted(KIO::CopyJob *job);
 
-    /**
+    /*!
      * Signals that the popup menu is about to be shown.
      * Applications can use the information provided about the dropped URLs
      * (e.g. the MIME type) to decide whether to call setApplicationActions.
@@ -108,7 +108,7 @@ private:
     Q_DECLARE_PRIVATE(DropJob)
 };
 
-/**
+/*!
  * Drops the clipboard contents.
  *
  * If the mime data contains URLs, a popup appears to choose between
@@ -135,7 +135,7 @@ private:
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Similar to KIO::drop
  *
  * @param dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.

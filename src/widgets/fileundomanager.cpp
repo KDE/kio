@@ -84,7 +84,7 @@ QDebug operator<<(QDebug dbg, const BasicOperation &op)
     }
     return dbg;
 }
-/**
+/*!
  * checklist:
  * copy dir -> overwrite -> works
  * move dir -> overwrite -> works

@@ -83,7 +83,7 @@ enum DestinationState {
     DEST_DOESNT_EXIST,
 };
 
-/**
+/*!
  * States:
  *     STATE_INITIAL the constructor was called
  *     STATE_STATING for the dest
@@ -194,7 +194,7 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
     return msg;
 }
 
-/** @internal */
+/*! @internal */
 struct CopyInfo {
     QUrl uSource;
     QUrl uDest;
@@ -205,7 +205,7 @@ struct CopyInfo {
     KIO::filesize_t size; // 0 for dirs
 };
 
-/** @internal */
+/*! @internal */
 class KIO::CopyJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -379,11 +379,11 @@ public:
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
     void slotSubError(KIO::ListJob *job, KIO::ListJob *subJob);
     void addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &srcUrl, bool srcIsDir, const QUrl &currentDest);
-    /**
+    /*!
      * Forward signal from subjob
      */
     void slotProcessedSize(KJob *, qulonglong data_size);
-    /**
+    /*!
      * Forward signal from subjob
      * @param size the total size
      */
@@ -483,7 +483,7 @@ void CopyJobPrivate::slotStart()
         }
     }
 
-    /**
+    /*!
        We call the functions directly instead of using signals.
        Calling a function via a signal takes approx. 65 times the time
        compared to calling it directly (at least on my machine). aleXXX

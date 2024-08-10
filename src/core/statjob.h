@@ -16,7 +16,7 @@
 namespace KIO
 {
 class StatJobPrivate;
-/**
+/*!
  * @class KIO::StatJob statjob.h <KIO/StatJob>
  *
  * A KIO job that retrieves information about a file or directory.
@@ -34,7 +34,7 @@ public:
 
     ~StatJob() override;
 
-    /**
+    /*!
      * A stat() can have two meanings. Either we want to read from this URL,
      * or to check if we can write to it. First case is "source", second is "dest".
      * It is necessary to know what the StatJob is for, to tune the KIO worker's behavior
@@ -44,13 +44,13 @@ public:
      */
     void setSide(StatSide side);
 
-    /**
+    /*!
      * Selects the level of @p details we want.
      * @since 5.69
      */
     void setDetails(KIO::StatDetails details);
 
-    /**
+    /*!
      * @brief Result of the stat operation.
      * Call this in the slot connected to result,
      * and only after making sure no error happened.
@@ -58,7 +58,7 @@ public:
      */
     const UDSEntry &statResult() const;
 
-    /**
+    /*!
      * @brief most local URL
      *
      * Since this method depends on UDSEntry::UDS_LOCAL_PATH having been previously set
@@ -93,7 +93,7 @@ public:
     QUrl mostLocalUrl() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
@@ -102,7 +102,7 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-    /**
+    /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
      * @param job the job that is redirected
@@ -122,7 +122,7 @@ private:
     friend KIOCORE_EXPORT StatJob *mostLocalUrl(const QUrl &url, JobFlags flags);
 };
 
-/**
+/*!
  * Find all details for one file or directory.
  *
  * @param url the URL of the file
@@ -130,7 +130,7 @@ private:
  * @return the job handling the operation.
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
-/**
+/*!
  * Find all details for one file or directory.
  * This version of the call includes two additional booleans, @p sideIsSource and @p details.
  *
@@ -156,7 +156,7 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for
  * protocols that have Class ":local" (such protocols most likely have KIO workers that set
  * UDSEntry::UDS_LOCAL_PATH); ideally you should check the URL protocol Class before creating

@@ -1,0 +1,10 @@
+/*!
+    \module KIOGui
+    \title KIO GUI
+    \ingroup modules
+    \qtcmakepackage KIOGui
+
+    \brief IO
+
+    Stuff
+*/

@@ -24,7 +24,7 @@ namespace KIO
 {
 class AuthInfoPrivate;
 
-/**
+/*!
  * @class KIO::AuthInfo authinfo.h <KIO/AuthInfo>
  *
  * This class is intended to make it easier to prompt for, cache
@@ -55,39 +55,39 @@ class KIOCORE_EXPORT AuthInfo
     KIOCORE_EXPORT friend const QDBusArgument &operator>>(const QDBusArgument &argument, AuthInfo &a);
 
 public:
-    /**
+    /*!
      * Default constructor.
      */
     AuthInfo();
 
-    /**
+    /*!
      * Copy constructor.
      */
     AuthInfo(const AuthInfo &info);
 
-    /**
+    /*!
      * Destructor
      */
     ~AuthInfo();
 
-    /**
+    /*!
      * Custom assignment operator.
      */
     AuthInfo &operator=(const AuthInfo &info);
 
-    /**
+    /*!
      * Use this method to check if the object was modified.
      * @return true if the object has been modified
      */
     bool isModified() const;
 
-    /**
+    /*!
      * Use this method to indicate that this object has been modified.
      * @param flag true to mark the object as modified, false to clear
      */
     void setModified(bool flag);
 
-    /**
+    /*!
      * The URL for which authentication is to be stored.
      *
      * This field is required when attempting to cache authorization
@@ -99,17 +99,17 @@ public:
      */
     QUrl url;
 
-    /**
+    /*!
      * This is @em required for caching.
      */
     QString username;
 
-    /**
+    /*!
      * This is @em required for caching.
      */
     QString password;
 
-    /**
+    /*!
      * Information to be displayed when prompting
      * the user for authentication information.
      *
@@ -120,7 +120,7 @@ public:
      */
     QString prompt;
 
-    /**
+    /*!
      * The text to displayed in the title bar of
      * the password prompting dialog.
      *
@@ -131,7 +131,7 @@ public:
      */
     QString caption;
 
-    /**
+    /*!
      * Additional comment to be displayed when prompting
      * the user for authentication information.
      *
@@ -155,7 +155,7 @@ public:
      */
     QString comment;
 
-    /**
+    /*!
      * Descriptive label to be displayed in front of the
      * comment when prompting the user for password.
      *
@@ -164,7 +164,7 @@ public:
      */
     QString commentLabel;
 
-    /**
+    /*!
      * A unique identifier that allows caching of multiple
      * passwords for different resources in the same server.
      *
@@ -178,7 +178,7 @@ public:
      */
     QString realmValue;
 
-    /**
+    /*!
      * Field to store any extra authentication information for
      * protocols that need it.
      *
@@ -188,7 +188,7 @@ public:
      */
     QString digestInfo;
 
-    /**
+    /*!
      * Flag that, if set, indicates whether a path match should be
      * performed when requesting for cached authorization.
      *
@@ -201,14 +201,14 @@ public:
      */
     bool verifyPath;
 
-    /**
+    /*!
      * Flag which if set forces the username field to be read-only.
      *
      * This setting is @em optional and false by default.
      */
     bool readOnly;
 
-    /**
+    /*!
      * Flag to indicate the persistence of the given password.
      *
      * This is a two-way flag, when set before calling openPasswordDialog
@@ -221,7 +221,7 @@ public:
      */
     bool keepPassword;
 
-    /**
+    /*!
      * Flags for extra fields
      */
     enum FieldFlags {
@@ -230,7 +230,7 @@ public:
         ExtraFieldMandatory = 1 << 2,
     };
 
-    /**
+    /*!
      * Set Extra Field Value.
      * Currently supported extra-fields:
      *    "domain" (QString),
@@ -240,23 +240,23 @@ public:
      */
     void setExtraField(const QString &fieldName, const QVariant &value);
 
-    /**
+    /*!
      * Set Extra Field Flags
      */
     void setExtraFieldFlags(const QString &fieldName, const FieldFlags flags);
 
-    /**
+    /*!
      * Get Extra Field Value
      * Check QVariant::isValid() to find out if the field exists.
      */
     QVariant getExtraField(const QString &fieldName) const;
 
-    /**
+    /*!
      * Get Extra Field Flags
      */
     AuthInfo::FieldFlags getExtraFieldFlags(const QString &fieldName) const;
 
-    /**
+    /*!
      * Register the meta-types for AuthInfo. This is called from
      * AuthInfo's constructor but needed by daemons on the D-Bus such
      * as kpasswdserver.

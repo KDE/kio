@@ -10,7 +10,7 @@
 
 namespace KIO
 {
-/** HTTP / DAV method **/
+/*! HTTP / DAV method **/
 enum HTTP_METHOD {
     HTTP_GET,
     HTTP_PUT,

@@ -75,7 +75,7 @@ Q_STATIC_ASSERT(S_IRUSR == _S_IREAD && S_IWUSR == _S_IWRITE && S_IXUSR == _S_IEX
 #ifndef S_IFSOCK
 #define S_IFSOCK 0140000
 #endif
-/** performs a QT_STAT and add QT_STAT_LNK to st_mode if the path is a symlink */
+/*! performs a QT_STAT and add QT_STAT_LNK to st_mode if the path is a symlink */
 KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 
 #ifndef QT_LSTAT
@@ -90,9 +90,9 @@ KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 
 namespace KIOPrivate
 {
-/** @return true if the process with given PID is currently running */
+/*! @return true if the process with given PID is currently running */
 KIOCORE_EXPORT bool isProcessAlive(qint64 pid);
-/** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
+/*! Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
 KIOCORE_EXPORT void sendTerminateSignal(qint64 pid);
 
 enum SymlinkType {
@@ -101,7 +101,7 @@ enum SymlinkType {
     DirectorySymlink,
 };
 
-/** Creates a symbolic link at @p destination pointing to @p source
+/*! Creates a symbolic link at @p destination pointing to @p source
  * Unlike UNIX, Windows needs to know whether the symlink points to a file or a directory
  * when creating the link. This information can be passed in @p type. If @p type is not given
  * the windows code will guess the type based on the source file.
@@ -111,10 +111,10 @@ enum SymlinkType {
  */
 KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
 
-/** Changes the ownership of @p file (like chown()) */
+/*! Changes the ownership of @p file (like chown()) */
 KIOCORE_EXPORT bool changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup);
 
-/** Returns an icon name for a standard path,
+/*! Returns an icon name for a standard path,
  * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
 QString iconForStandardPath(const QString &localDirectory);
 }

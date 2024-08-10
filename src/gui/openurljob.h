@@ -19,7 +19,7 @@ namespace KIO
 {
 class OpenUrlJobPrivate;
 
-/**
+/*!
  * @class OpenUrlJob openurljob.h <KIO/OpenUrlJob>
  *
  * @brief OpenUrlJob finds out the right way to "open" a URL.
@@ -42,32 +42,32 @@ class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * @brief Creates an OpenUrlJob in order to open a URL.
      * @param url the URL of the file/directory to open
      */
     explicit OpenUrlJob(const QUrl &url, QObject *parent = nullptr);
 
-    /**
+    /*!
      * @brief Creates an OpenUrlJob for the case where the MIME type is already known.
      * @param url the URL of the file/directory to open
      * @param mimeType the type of file/directory. See QMimeType.
      */
     explicit OpenUrlJob(const QUrl &url, const QString &mimeType, QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that by default jobs auto-delete themselves after emitting result.
      */
     ~OpenUrlJob() override;
 
-    /**
+    /*!
      * Specifies that the URL passed to the application will be deleted when it exits (if the URL is a local file)
      */
     void setDeleteTemporaryFile(bool b);
 
-    /**
+    /*!
      * Sets the file name to use in the case of downloading the file to a tempfile,
      * in order to give it to a non-URL-aware application.
      * Some apps rely on the extension to determine the MIME type of the file.
@@ -77,7 +77,7 @@ public:
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
-    /**
+    /*!
      * Sets the platform-specific startup id of the application launch.
      * @param startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
@@ -85,14 +85,14 @@ public:
      */
     void setStartupId(const QByteArray &startupId);
 
-    /**
+    /*!
      * Set this to true if this class should allow the user to run executables.
      * Unlike KF5's KRun, this setting is OFF by default here for security reasons.
      * File managers can enable this, but e.g. web browsers, mail clients etc. shouldn't.
      */
     void setRunExecutables(bool allow);
 
-    /**
+    /*!
      * Set this to @c true if this class should show a dialog to ask the user about how
      * to handle various types of executable files; note that executing/running remote
      * files is disallowed as that is not secure (in the case of remote shell scripts
@@ -122,7 +122,7 @@ public:
      */
     void setShowOpenOrExecuteDialog(bool b);
 
-    /**
+    /*!
      * Sets whether the external webbrowser setting should be honoured.
      * This is enabled by default.
      * This should only be disabled in webbrowser applications.
@@ -130,21 +130,21 @@ public:
      */
     void setEnableExternalBrowser(bool b);
 
-    /**
+    /*!
      * Sets whether the job should follow URL redirections.
      * This is enabled by default.
      * @param b whether to follow redirections or not.
      */
     void setFollowRedirections(bool b);
 
-    /**
+    /*!
      * Starts the job.
      * You must call this, after having called all the needed setters.
      * This is a GUI job, never use exec(), it would block user interaction.
      */
     void start() override;
 
-    /**
+    /*!
      * Returns whether the @p url of @p mimetype is executable.
      * To be executable the file must pass the following rules:
      * -# Must reside on the local filesystem.
@@ -154,7 +154,7 @@ public:
     static bool isExecutableFile(const QUrl &url, const QString &mimetypeName);
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when the MIME type is determined.
      * This can be used for special cases like webbrowsers
      * who want to embed the URL in some cases, rather than starting a different

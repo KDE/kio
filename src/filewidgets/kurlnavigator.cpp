@@ -70,7 +70,7 @@ public:
 
     enum class ApplyUrlMethod { Apply, Tab, ActiveTab, NewWindow };
 
-    /** Applies the edited URL in m_pathBox to the URL navigator */
+    /*! Applies the edited URL in m_pathBox to the URL navigator */
     void applyUncommittedUrl(ApplyUrlMethod method);
     void slotApplyUrl(QUrl url);
 
@@ -82,29 +82,29 @@ public:
     void slotSchemeChanged(const QString &);
     void openPathSelectorMenu();
 
-    /**
+    /*!
      * Appends the widget at the end of the URL navigator. It is assured
      * that the filler widget remains as last widget to fill the remaining
      * width.
      */
     void appendWidget(QWidget *widget, int stretch = 0);
 
-    /**
+    /*!
      * This slot is connected to the clicked signal of the navigation bar button. It calls switchView().
      * Moreover, if switching from "editable" mode to the breadcrumb view, it calls applyUncommittedUrl().
      */
     void slotToggleEditableButtonPressed();
 
-    /**
+    /*!
      * Switches the navigation bar between the breadcrumb view and the
      * traditional view (see setUrlEditable()).
      */
     void switchView();
 
-    /** Emits the signal urlsDropped(). */
+    /*! Emits the signal urlsDropped(). */
     void dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton);
 
-    /**
+    /*!
      * Is invoked when a navigator button has been clicked.
      * Different combinations of mouse clicks and keyboard modifiers have different effects on how
      * the url is opened. The behaviours are the following:
@@ -121,7 +121,7 @@ public:
 
     void updateContent();
 
-    /**
+    /*!
      * Updates all buttons to have one button for each part of the
      * current URL. Existing buttons, which are available by m_navButtons,
      * are reused if possible. If the URL is longer, new buttons will be
@@ -131,32 +131,32 @@ public:
      */
     void updateButtons(int startIndex);
 
-    /**
+    /*!
      * Updates the visibility state of all buttons describing the URL. If the
      * width of the URL navigator is too small, the buttons representing the upper
      * paths of the URL will be hidden and moved to a drop down menu.
      */
     void updateButtonVisibility();
 
-    /**
+    /*!
      * @return Text for the first button of the URL navigator.
      */
     QString firstButtonText() const;
 
-    /**
+    /*!
      * Returns the URL that should be applied for the button with the index \a index.
      */
     QUrl buttonUrl(int index) const;
 
     void switchToBreadcrumbMode();
 
-    /**
+    /*!
      * Deletes all URL navigator buttons. m_navButtons is
      * empty after this operation.
      */
     void deleteButtons();
 
-    /**
+    /*!
      * Retrieves the place url for the current url.
      * E. g. for the path "fish://root@192.168.0.2/var/lib" the string
      * "fish://root@192.168.0.2" will be returned, which leads to the

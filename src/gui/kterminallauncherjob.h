@@ -13,7 +13,7 @@
 
 class KTerminalLauncherJobPrivate;
 
-/**
+/*!
  * @class KTerminalLauncherJob kterminallauncherjob.h <KTerminalLauncherJob>
  *
  * @brief KTerminalLauncherJob starts a terminal application,
@@ -35,27 +35,27 @@ class KIOGUI_EXPORT KTerminalLauncherJob : public KJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Creates a KTerminalLauncherJob.
      * @param command the command to execute in a terminal, can be empty.
      * @param parent the parent QObject
      */
     explicit KTerminalLauncherJob(const QString &command, QObject *parent = nullptr);
 
-    /**
+    /*!
      * Destructor
      *
      * Note that jobs auto-delete themselves after emitting result
      */
     ~KTerminalLauncherJob() override;
 
-    /**
+    /*!
      * Sets the working directory from which to run the command.
      * @param workingDirectory path of a local directory
      */
     void setWorkingDirectory(const QString &workingDirectory);
 
-    /**
+    /*!
      * Sets the platform-specific startup id of the command launch.
      * @param startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
@@ -63,14 +63,14 @@ public:
      */
     void setStartupId(const QByteArray &startupId);
 
-    /**
+    /*!
      * Can be used to pass environment variables to the child process.
      * @param environment set of environment variables to pass to the child process
      * @see QProcessEnvironment
      */
     void setProcessEnvironment(const QProcessEnvironment &environment);
 
-    /**
+    /*!
      * Starts the job.
      * You must call this, after having called all the necessary setters.
      */

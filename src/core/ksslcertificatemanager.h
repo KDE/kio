@@ -23,7 +23,7 @@ class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
 
 // ### document this... :/
-/** Certificate rule. */
+/*! Certificate rule. */
 class KIOCORE_EXPORT KSslCertificateRule
 {
 public:
@@ -38,23 +38,23 @@ public:
     QDateTime expiryDateTime() const;
     void setRejected(bool rejected);
     bool isRejected() const;
-    /**
+    /*!
      * Returns whether @p error is ignored for this certificate.
      * @since 5.64
      */
     bool isErrorIgnored(QSslError::SslError error) const;
-    /**
+    /*!
      * Set the ignored errors for this certificate.
      * @since 5.64
      */
     void setIgnoredErrors(const QList<QSslError> &errors);
-    /**
+    /*!
      * Set the ignored errors for this certificate.
      * @since 5.64
      */
     void setIgnoredErrors(const QList<QSslError::SslError> &errors);
     QList<QSslError::SslError> ignoredErrors() const;
-    /**
+    /*!
      * Filter out errors that are already ignored.
      * @since 5.64
      */
@@ -65,7 +65,7 @@ private:
 };
 
 // ### document this too... :/
-/** Certificate manager. */
+/*! Certificate manager. */
 class KIOCORE_EXPORT KSslCertificateManager
 {
 public:
@@ -79,7 +79,7 @@ public:
 
     QList<QSslCertificate> caCertificates() const;
 
-    /**
+    /*!
      * Returns the subset of @p errors that cannot be ignored, ie. that is considered fatal.
      * @since 5.64
      */

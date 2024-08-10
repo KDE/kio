@@ -17,7 +17,7 @@
 namespace KIO
 {
 class ChmodJobPrivate;
-/**
+/*!
  * @class KIO::ChmodJob chmodjob.h <KIO/ChmodJob>
  *
  * This job changes permissions on a list of files or directories,
@@ -40,7 +40,7 @@ private:
     Q_DECLARE_PRIVATE(ChmodJob)
 };
 
-/**
+/*!
  * Creates a job that changes permissions/ownership on several files or directories,
  * optionally recursively.
  * This version of chmod uses a KFileItemList so that it directly knows

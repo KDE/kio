@@ -16,7 +16,7 @@
 class KSambaShareData;
 class KSambaSharePrivate;
 
-/**
+/*!
  * @class KSambaShare ksambashare.h <KSambaShare>
  *
  * This class lists Samba user shares and monitors them for addition, update and removal.
@@ -27,12 +27,12 @@ class KIOCORE_EXPORT KSambaShare : public QObject
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * @return the one and only instance of KSambaShare.
      */
     static KSambaShare *instance();
 
-    /**
+    /*!
      * Whether or not the given path is shared by Samba.
      *
      * @param path the path to check if it is shared by Samba.
@@ -41,7 +41,7 @@ public:
      */
     bool isDirectoryShared(const QString &path) const;
 
-    /**
+    /*!
      * Returns a list of all directories shared by local users in Samba.
      * The resulting list is not sorted.
      *
@@ -49,7 +49,7 @@ public:
      */
     QStringList sharedDirectories() const;
 
-    /**
+    /*!
      * Tests that a share name is valid and does not conflict with system users names or shares.
      *
      * @param name the share name.
@@ -59,7 +59,7 @@ public:
      */
     bool isShareNameAvailable(const QString &name) const;
 
-    /**
+    /*!
      * Returns the list of available shares.
      *
      * @return @c a QStringList containing the user shares names.
@@ -68,7 +68,7 @@ public:
      */
     QStringList shareNames() const;
 
-    /**
+    /*!
      * Returns the KSambaShareData object of the share name.
      *
      * @param name the share name.
@@ -79,7 +79,7 @@ public:
      */
     KSambaShareData getShareByName(const QString &name) const;
 
-    /**
+    /*!
      * Returns a list of KSambaShareData matching the path.
      *
      * @param path the path that wants to get KSambaShareData object.
@@ -92,7 +92,7 @@ public:
 
     ~KSambaShare() override;
 
-    /**
+    /*!
      * Used to obtain UserShareSystemError error strings. This is usually the
      * verbatim stderr of internal helper commands and may contain newlines.
      * Do not use this to obtain error strings for other error types!
@@ -102,7 +102,7 @@ public:
      */
     QString lastSystemErrorString() const;
 
-    /**
+    /*!
      * Check whether usershares may enable guests. System-level configuration
      * may disable usershare guests and prevent saving KSambaShareData with
      * UserGuestPermission set.
@@ -113,7 +113,7 @@ public:
     bool areGuestsAllowed() const;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Emitted when a share is updated, added or removed
      */
     void changed();

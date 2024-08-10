@@ -19,7 +19,7 @@
 
 #include "kssld_dbusmetatypes.h"
 
-/**
+/*!
  * Proxy class for interface org.kde.KSSLD
  */
 class OrgKdeKSSLDInterface : public QDBusAbstractInterface

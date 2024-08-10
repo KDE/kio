@@ -35,7 +35,7 @@ struct FtpEntry {
 
 class FtpInternal;
 
-/**
+/*!
  * Login Mode for ftpOpenConnection
  */
 enum class LoginMode {
@@ -46,7 +46,7 @@ enum class LoginMode {
 
 using Result = KIO::WorkerResult;
 
-/**
+/*!
  * Special Result composite for errors during connection.
  */
 struct ConnectionResult {
@@ -70,7 +70,7 @@ public:
 
     void setHost(const QString &host, quint16 port, const QString &user, const QString &pass) override;
 
-    /**
+    /*!
      * Connects to a ftp server and logs us in
      * m_bLoggedOn is set to true if logging on was successful.
      * It is set to false if the connection becomes closed.
@@ -78,7 +78,7 @@ public:
      */
     KIO::WorkerResult openConnection() override;
 
-    /**
+    /*!
      * Closes the connection
      */
     void closeConnection() override;
@@ -96,7 +96,7 @@ public:
 
     void worker_status() override;
 
-    /**
+    /*!
      * Handles the case that one side of the job is a local file
      */
     KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
@@ -104,7 +104,7 @@ public:
     std::unique_ptr<FtpInternal> d;
 };
 
-/**
+/*!
  * Internal logic class.
  *
  * This class implements strict separation between the API (Ftp) and
@@ -125,7 +125,7 @@ public:
 
     void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
 
-    /**
+    /*!
      * Connects to a ftp server and logs us in
      * m_bLoggedOn is set to true if logging on was successful.
      * It is set to false if the connection becomes closed.
@@ -133,7 +133,7 @@ public:
      */
     Q_REQUIRED_RESULT Result openConnection();
 
-    /**
+    /*!
      * Closes the connection
      */
     void closeConnection();
@@ -152,7 +152,7 @@ public:
 
     void worker_status();
 
-    /**
+    /*!
      * Handles the case that one side of the job is a local file
      */
     Q_REQUIRED_RESULT Result copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags);
@@ -162,7 +162,7 @@ public:
     static bool isSocksProxyScheme(const QString &scheme);
     bool isSocksProxy() const;
 
-    /**
+    /*!
      * Connect and login to the FTP server.
      *
      * @param loginMode controls if login info should be sent<br>
@@ -174,7 +174,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpOpenConnection(LoginMode loginMode);
 
-    /**
+    /*!
      * Called by openConnection. It logs us in.
      * m_initialPath is set to the current working directory
      * if logging on was successful.
@@ -185,7 +185,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpLogin(bool *userChanged = nullptr);
 
-    /**
+    /*!
      * ftpSendCmd - send a command (@p cmd) and read response
      *
      * @param maxretries number of time it should retry. Since it recursively
@@ -196,7 +196,7 @@ public:
      */
     Q_REQUIRED_RESULT bool ftpSendCmd(const QByteArray &cmd, int maxretries = 1);
 
-    /**
+    /*!
      * Use the SIZE command to get the file size.
      * @param mode the size depends on the transfer mode, hence this arg.
      * @return true on success
@@ -204,18 +204,18 @@ public:
      */
     bool ftpSize(const QString &path, char mode);
 
-    /**
+    /*!
      * Returns true if the file exists.
      * Implemented using the SIZE command.
      */
     bool ftpFileExists(const QString &path);
 
-    /**
+    /*!
      * Set the current working directory, but only if not yet current
      */
     Q_REQUIRED_RESULT bool ftpFolder(const QString &path);
 
-    /**
+    /*!
      * Runs a command on the ftp server like "list" or "retr". In contrast to
      * ftpSendCmd a data connection is opened. The corresponding socket
      * sData is available for reading/writing on success.
@@ -228,7 +228,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpOpenCommand(const char *command, const QString &path, char mode, int errorcode, KIO::fileoffset_t offset = 0);
 
-    /**
+    /*!
      * The counterpart to openCommand.
      * Closes data sockets and then reads line sent by server at
      * end of command.
@@ -236,7 +236,7 @@ public:
      */
     bool ftpCloseCommand();
 
-    /**
+    /*!
      * Send "TYPE I" or "TYPE A" only if required, see m_cDataMode.
      *
      * Use 'A' to select ASCII and 'I' to select BINARY mode.  If
@@ -246,25 +246,25 @@ public:
 
     // void ftpAbortTransfer();
 
-    /**
+    /*!
      * Used by ftpOpenCommand, return 0 on success or an error code
      */
     int ftpOpenDataConnection();
 
-    /**
+    /*!
      * closes a data connection, see ftpOpenDataConnection()
      */
     void ftpCloseDataConnection();
 
-    /**
+    /*!
      * Helper for ftpOpenDataConnection
      */
     int ftpOpenPASVDataConnection();
-    /**
+    /*!
      * Helper for ftpOpenDataConnection
      */
     int ftpOpenEPSVDataConnection();
-    /**
+    /*!
      * Helper for ftpOpenDataConnection
      */
     int ftpOpenPortDataConnection();
@@ -273,12 +273,12 @@ public:
 
     // used by listDir
     Q_REQUIRED_RESULT Result ftpOpenDir(const QString &path);
-    /**
+    /*!
      * Called to parse directory listings, call this until it returns false
      */
     bool ftpReadDir(FtpEntry &ftpEnt);
 
-    /**
+    /*!
      * Helper to fill an UDSEntry
      */
     void ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, KIO::UDSEntry &entry, bool isDir);
@@ -287,14 +287,14 @@ public:
 
     Q_REQUIRED_RESULT Result ftpStatAnswerNotFound(const QString &path, const QString &filename);
 
-    /**
+    /*!
      * This is the internal implementation of rename() - set put().
      *
      * @return true on success.
      */
     Q_REQUIRED_RESULT Result ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags);
 
-    /**
+    /*!
      * Called by openConnection. It opens the control connection to the ftp server.
      *
      * @return true on success.
@@ -302,12 +302,12 @@ public:
     Q_REQUIRED_RESULT Result ftpOpenControlConnection();
     Q_REQUIRED_RESULT Result ftpOpenControlConnection(const QString &host, int port);
 
-    /**
+    /*!
      * closes the socket holding the control connection (see ftpOpenControlConnection)
      */
     void ftpCloseControlConnection();
 
-    /**
+    /*!
      * read a response from the server (a trailing CR gets stripped)
      * @param iOffset -1 to read a new line from the server<br>
      *                 0 to return the whole response string
@@ -317,7 +317,7 @@ public:
      */
     const char *ftpResponse(int iOffset);
 
-    /**
+    /*!
      * This is the internal implementation of get() - see copy().
      *
      * IMPORTANT: the caller should call ftpCloseCommand() on return.
@@ -330,7 +330,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset);
 
-    /**
+    /*!
      * This is the internal implementation of put() - see copy().
      *
      * IMPORTANT: the caller should call ftpCloseCommand() on return.
@@ -342,7 +342,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpPut(int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
-    /**
+    /*!
      * helper called from copy() to implement FILE -> FTP transfers
      *
      * @param iError      set to an ERR_xxxx code on error
@@ -352,7 +352,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
-    /**
+    /*!
      * helper called from copy() to implement FTP -> FILE transfers
      *
      * @param iError      set to an ERR_xxxx code on error
@@ -362,7 +362,7 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
-    /**
+    /*!
      * Sends the MIME type of the content to retrieved.
      *
      * @param iError      set to an ERR_xxxx code on error
@@ -370,18 +370,18 @@ public:
      */
     Q_REQUIRED_RESULT Result ftpSendMimeType(const QUrl &url);
 
-    /**
+    /*!
      * Fixes up an entry name so that extraneous whitespaces do not cause
      * problems. See bug# 88575 and bug# 300988.
      */
     void fixupEntryName(FtpEntry *ftpEnt);
 
-    /**
+    /*!
      * Calls @ref statEntry.
      */
     bool maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &filename, bool isDir);
 
-    /**
+    /*!
      * Setup the connection to the server.
      */
     Q_REQUIRED_RESULT ConnectionResult synchronousConnectToHost(const QString &host, quint16 port);
@@ -393,46 +393,46 @@ private: // data members
     int m_port = 0;
     QString m_user;
     QString m_pass;
-    /**
+    /*!
      * Where we end up after connecting
      */
     QString m_initialPath;
     QUrl m_proxyURL;
     QStringList m_proxyUrls;
 
-    /**
+    /*!
      * the current working directory - see ftpFolder
      */
     QString m_currentPath;
 
-    /**
+    /*!
      * the status returned by the FTP protocol, set in ftpResponse()
      */
     int m_iRespCode = 0;
 
-    /**
+    /*!
      * the status/100 returned by the FTP protocol, set in ftpResponse()
      */
     int m_iRespType = 0;
 
-    /**
+    /*!
      * This flag is maintained by ftpDataMode() and contains I or A after
      * ftpDataMode() has successfully set the mode.
      */
     char m_cDataMode;
 
-    /**
+    /*!
      * true if logged on (m_control should also be non-nullptr)
      */
     bool m_bLoggedOn;
 
-    /**
+    /*!
      * true if a "textmode" metadata key was found by ftpLogin(). This
      * switches the ftp data transfer mode from binary to ASCII.
      */
     bool m_bTextMode;
 
-    /**
+    /*!
      * true if a data stream is open, used in closeConnection().
      *
      * When the user cancels a get or put command the Ftp dtor will be called,
@@ -459,18 +459,18 @@ private: // data members
     };
     int m_extControl;
 
-    /**
+    /*!
      * control connection socket, only set if openControl() succeeded
      */
     QTcpSocket *m_control = nullptr;
     QByteArray m_lastControlLine;
 
-    /**
+    /*!
      * data connection socket
      */
     QTcpSocket *m_data = nullptr;
 
-    /**
+    /*!
      * active mode server socket
      */
     QTcpServer *m_server = nullptr;

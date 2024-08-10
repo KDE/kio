@@ -13,7 +13,7 @@
 
 class QUrl;
 
-/**
+/*!
  * @class KOverlayIconPlugin koverlayiconplugin.h <KOverlayIconPlugin>
  *
  * @brief Base class for overlay icon plugins.
@@ -53,7 +53,7 @@ public:
     explicit KOverlayIconPlugin(QObject *parent = nullptr);
     ~KOverlayIconPlugin() override;
 
-    /**
+    /*!
      * Returns a list of overlay icons to add to a file
      * This can be a path to an icon, or the icon name
      *
@@ -64,7 +64,7 @@ public:
      */
     virtual QStringList getOverlays(const QUrl &item) = 0;
 Q_SIGNALS:
-    /**
+    /*!
      * Emit this signal when the list of overlay icons changed for a given URL
      */
     void overlaysChanged(const QUrl &url, const QStringList &overlays);

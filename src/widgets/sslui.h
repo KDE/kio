@@ -13,17 +13,17 @@
 
 namespace KIO
 {
-/** UI methods for handling SSL errors. */
+/*! UI methods for handling SSL errors. */
 namespace SslUi
 {
-/** Error rule storage behavior. */
+/*! Error rule storage behavior. */
 enum RulesStorage {
     RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
     StoreRules = 2, ///< make new ignore rules from the user's choice and store them
     RecallAndStoreRules = 3, ///< apply stored rules and store new rules
 };
 
-/**
+/*!
  * If there are errors while establishing an SSL encrypted connection to a peer, usually due to
  * certificate issues, and since this poses a security issue, we need confirmation from the user about
  * how they wish to proceed.

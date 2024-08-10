@@ -15,7 +15,7 @@ class KSambaShare;
 class KSambaSharePrivate;
 class KSambaShareDataPrivate;
 
-/**
+/*!
  * @class KSambaShareData ksambasharedata.h <KSambaShareData>
  *
  * This class represents a Samba user share. It is possible to share a directory with one or more
@@ -59,22 +59,22 @@ public:
 
     ~KSambaShareData();
 
-    /**
+    /*!
      * @return @c the share name.
      */
     QString name() const;
 
-    /**
+    /*!
      * @return @c the share path.
      */
     QString path() const;
 
-    /**
+    /*!
      * @return @c the share comment.
      */
     QString comment() const;
 
-    /**
+    /*!
      * Returns a @c containing a string describing the permission added to the users, such as
      * "[DOMAIN\]username1:X,[DOMAIN\]username2:X,...". X stands for "F" (full control), "R"
      * (read-only) and "D" (deny). By default the acl is Everyone:R.
@@ -83,12 +83,12 @@ public:
      */
     QString acl() const;
 
-    /**
+    /*!
      * @return @c whether guest access to the share is allowed or not.
      */
     KSambaShareData::GuestPermission guestPermission() const;
 
-    /**
+    /*!
      * Sets the share name. If the share name is changed and valid it will remove the existing
      * share and will create a new share.
      * The share name cannot use a name of a system user or containing the forbidden characters
@@ -104,7 +104,7 @@ public:
      */
     KSambaShareData::UserShareError setName(const QString &name);
 
-    /**
+    /*!
      * Set the path for the share.
      *
      * @param path the path that will be given to the share.
@@ -118,7 +118,7 @@ public:
      */
     KSambaShareData::UserShareError setPath(const QString &path);
 
-    /**
+    /*!
      * Sets the comment for the share.
      *
      * @param comment the comment that will be given to the share.
@@ -127,7 +127,7 @@ public:
      */
     KSambaShareData::UserShareError setComment(const QString &comment);
 
-    /**
+    /*!
      * Sets the acl to the share.
      *
      * @param acl the acl that will be given to the share.
@@ -138,7 +138,7 @@ public:
      */
     KSambaShareData::UserShareError setAcl(const QString &acl);
 
-    /**
+    /*!
      * Flags if guest is allowed or not to access the share.
      *
      * @param permission the permission that will be given to the share.
@@ -149,14 +149,14 @@ public:
      */
     KSambaShareData::UserShareError setGuestPermission(const GuestPermission &permission = KSambaShareData::GuestsNotAllowed);
 
-    /**
+    /*!
      * Share the folder with the information that has been set.
      *
      * @return @c UserShareOk if the share was added or other errors as applicable. Also see UserShareSystemError.
      */
     KSambaShareData::UserShareError save();
 
-    /**
+    /*!
      * Unshare the folder held by the object.
      *
      * @return @c UserShareOk if the share was removed or other errors as applicable. Also see UserShareSystemError.

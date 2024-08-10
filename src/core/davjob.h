@@ -25,7 +25,7 @@ namespace KIO
 {
 
 class DavJobPrivate;
-/**
+/*!
  * @class KIO::DavJob davjob.h <KIO/DavJob>
  *
  * The transfer job pumps data into and/or out of a KIO worker.
@@ -40,7 +40,7 @@ class KIOCORE_EXPORT DavJob : public TransferJob
 {
     Q_OBJECT
 public:
-    /**
+    /*!
      * Returns the reponse data.
      *  @since 5.86
      */
@@ -57,7 +57,7 @@ private:
     Q_DECLARE_PRIVATE(DavJob)
 };
 
-/**
+/*!
  * Creates a new DavJob that issues a PROPFIND command. PROPFIND retrieves
  * the properties of the resource identified by the given @p url.
  *
@@ -71,7 +71,7 @@ private:
  */
 KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QString &properties, const QString &depth, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Creates a new DavJob that issues a PROPPATCH command. PROPPATCH sets
  * the properties of the resource identified by the given @p url.
  *
@@ -84,7 +84,7 @@ KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QString &properties, c
  */
 KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QString &properties, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Creates a new DavJob that issues a SEARCH command.
  *
  * @param url the URL of the resource
@@ -96,7 +96,7 @@ KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QString &properties, 
  */
 KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags = DefaultFlags);
 
-/**
+/*!
  * Creates a new DavJob that issues a REPORT command.
  *
  * @param url the URL of the resource

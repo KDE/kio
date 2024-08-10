@@ -121,7 +121,7 @@ KIOCORE_EXPORT QString KIO::decodeFileName(const QString &_str)
     return _str;
 }
 
-/***************************************************************
+/*!*************************************************************
  *
  * Utility functions
  *

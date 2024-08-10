@@ -31,8 +31,10 @@ class FileUndoManager;
 
 class Job;
 
-/**
- * @class KIO::JobUiDelegate jobuidelegate.h <KIO/JobUiDelegate>
+/*!
+ * \class KIO::JobUiDelegate
+ * \inmodule KIOWidgets
+ * \inheaderfile KIO/JobUiDelegate
  *
  * A UI delegate tuned to be used with KIO Jobs.
  */
@@ -47,7 +49,7 @@ class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobU
 protected:
     friend class ::KDirOperator;
 
-    /**
+    /*!
      * Constructs a new KIO Job UI delegate.
      * @param flags allows to enable automatic error/warning handling
      * @param window the window associated with this delegate, see setWindow.
@@ -57,20 +59,20 @@ protected:
     explicit JobUiDelegate(KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
 
 public:
-    /**
+    /*!
      * Destroys the KIO Job UI delegate.
      */
     ~JobUiDelegate() override;
 
 public:
-    /**
+    /*!
      * Associate this job with a window given by @p window.
      * @param window the window to associate to
      * @see window()
      */
     void setWindow(QWidget *window) override;
 
-    /**
+    /*!
      * Unregister the given window from kded.
      * This is normally done automatically when the window is destroyed.
      *
@@ -80,7 +82,7 @@ public:
      */
     static void unregisterWindow(QWidget *window);
 
-    /**
+    /*!
      * Ask for confirmation before deleting/trashing @p urls.
      *
      * Note that this method is not called automatically by KIO jobs. It's the application's
@@ -94,11 +96,11 @@ public:
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
 
-    /**
+    /*!
      * Creates a clipboard updater
      */
     ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode) override;
-    /**
+    /*!
      * Update URL in clipboard, if present
      */
     void updateUrlInClipboard(const QUrl &src, const QUrl &dest) override;

@@ -25,7 +25,7 @@ public:
     QUrl m_redirectionURL;
     void slotRedirection(const QUrl &url);
 
-    /**
+    /*!
      * @internal
      * Called by the scheduler when a @p worker gets to
      * work on this job.

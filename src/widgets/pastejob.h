@@ -19,7 +19,7 @@ namespace KIO
 {
 class CopyJob;
 class PasteJobPrivate;
-/**
+/*!
  * @class KIO::PasteJob pastejob.h <KIO/PasteJob>
  *
  * A KIO job that handles pasting the clipboard contents.
@@ -39,12 +39,12 @@ public:
     ~PasteJob() override;
 
 Q_SIGNALS:
-    /**
+    /*!
      * Signals that a file or directory was created.
      */
     void itemCreated(const QUrl &url);
 
-    /**
+    /*!
      * Emitted when a copy job was started as subjob as part of pasting. Note that a
      * CopyJob isn't always started by PasteJob. For instance pasting image content will create a file.
      *
@@ -65,7 +65,7 @@ private:
     Q_DECLARE_PRIVATE(PasteJob)
 };
 
-/**
+/*!
  * Pastes the clipboard contents.
  *
  * If the clipboard contains URLs, they are copied (or moved) to the destination URL,

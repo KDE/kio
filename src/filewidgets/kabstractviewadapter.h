@@ -48,7 +48,7 @@ class QSize;
  * to do anything except call setIconSize on its QAbstractItemView).
  */
 
-/**
+/*!
  * @class KAbstractViewAdapter kabstractviewadapter.h <KAbstractViewAdapter>
  *
  * Interface used by KFilePreviewGenerator to generate previews

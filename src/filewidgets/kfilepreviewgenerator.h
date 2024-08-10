@@ -20,7 +20,7 @@ class QAbstractProxyModel;
 
 class KFilePreviewGeneratorPrivate;
 
-/**
+/*!
  * @class KFilePreviewGenerator kfilepreviewgenerator.h <KFilePreviewGenerator>
  *
  * @brief Generates previews for files of an item view.
@@ -44,7 +44,7 @@ class KIOFILEWIDGETS_EXPORT KFilePreviewGenerator : public QObject
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * @param parent  Item view containing the file items where previews should
      *                be generated. It is mandatory that the item view specifies
      *                an icon size by QAbstractItemView::setIconSize() and that
@@ -53,12 +53,12 @@ public:
      */
     KFilePreviewGenerator(QAbstractItemView *parent);
 
-    /** @internal */
+    /*! @internal */
     KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model);
 
     ~KFilePreviewGenerator() override;
 
-    /**
+    /*!
      * If \a show is set to true, a preview is generated for each item. If \a show
      * is false, the MIME type icon of the item is shown instead. Per default showing
      * the preview is turned on. Note that it is mandatory that the item view
@@ -68,7 +68,7 @@ public:
     void setPreviewShown(bool show);
     bool isPreviewShown() const;
 
-    /**
+    /*!
      * Sets the list of enabled thumbnail plugins.
      * Per default all plugins enabled in the KConfigGroup "PreviewSettings"
      * are used.
@@ -82,14 +82,14 @@ public:
      */
     void setEnabledPlugins(const QStringList &list);
 
-    /**
+    /*!
      * Returns the list of enabled thumbnail plugins.
      * @see setEnabledPlugins
      */
     QStringList enabledPlugins() const;
 
 public Q_SLOTS:
-    /**
+    /*!
      * Updates the icons for all items. Usually it is only
      * necessary to invoke this method when the icon size of the abstract item view
      * has been changed by QAbstractItemView::setIconSize(). Note that this method
@@ -98,7 +98,7 @@ public Q_SLOTS:
      */
     void updateIcons();
 
-    /** Cancels all pending previews. */
+    /*! Cancels all pending previews. */
     void cancelPreviews();
 
 private:

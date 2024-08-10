@@ -25,7 +25,7 @@ namespace KIO
 {
 class RenameFileDialogPrivate;
 
-/**
+/*!
  * @class KIO::RenameFileDialog renamefiledialog.h <KIO/RenameFileDialog>
  *
  * @brief Dialog for renaming a variable number of files.
@@ -40,7 +40,7 @@ class KIOWIDGETS_EXPORT RenameFileDialog : public QDialog
     Q_OBJECT
 
 public:
-    /**
+    /*!
      * Constructs the Dialog to rename file(s)
      *
      * @param parent the parent QWidget
