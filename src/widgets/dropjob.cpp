@@ -326,8 +326,11 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popupMoveAction->setData(QVariant::fromValue(Qt::MoveAction));
     seq = QKeySequence(Qt::ControlModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
-    QAction *popupCopyAction = new QAction(i18n("&Copy Here") + QLatin1Char('\t') + seq, popup);
-    popupCopyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+
+    const QString copyActionName = allSourcesAreHttpUrls ? i18nc("@action:inmenu Download contents of URL here", "&Download Here") : i18n("&Copy Here");
+    const QIcon copyActionIcon = QIcon::fromTheme(allSourcesAreHttpUrls ? QStringLiteral("download") : QStringLiteral("edit-copy"));
+    QAction *popupCopyAction = new QAction(copyActionName + QLatin1Char('\t') + seq, popup);
+    popupCopyAction->setIcon(copyActionIcon);
     popupCopyAction->setData(QVariant::fromValue(Qt::CopyAction));
     seq = QKeySequence(Qt::ControlModifier | Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
