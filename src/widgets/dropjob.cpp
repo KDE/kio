@@ -305,12 +305,17 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     for (const QUrl &url : m_urls) {
         fileItems.append(KFileItem(url));
     }
+    const bool allSourcesAreHttpUrls = std::ranges::all_of(m_urls, [](const auto &url) {
+        return url.scheme().startsWith(QStringLiteral("http"), Qt::CaseInsensitive);
+    });
     const KFileItemListProperties itemProps(fileItems);
 
     Q_EMIT q->popupMenuAboutToShow(itemProps);
 
     const bool sReading = itemProps.supportsReading();
-    const bool sDeleting = itemProps.supportsDeleting();
+    // For http URLs, even though technically the protocol supports deleting,
+    // this never makes sense for a drag operation.
+    const bool sDeleting = allSourcesAreHttpUrls ? false : itemProps.supportsDeleting();
     const bool sMoving = itemProps.supportsMoving();
 
     const int separatorLength = QCoreApplication::translate("QShortcut", "+").size();
