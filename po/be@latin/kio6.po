@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:37+0000\n"
+"POT-Creation-Date: 2024-08-13 00:37+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3981,7 +3981,7 @@ msgstr "Nacisnicie, kab pierajsci da razmiaščennia"
 msgid "Click to Edit Location"
 msgstr "Nacisnicie, kab redahavać razmiaščennie"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vy nie aŭtaryzavanyja dlia vykanannia hetaha fajla."
@@ -4053,12 +4053,12 @@ msgstr ""
 "%1\n"
 "nieprydatny."
 
-#: gui/kprocessrunner.cpp:282
+#: gui/kprocessrunner.cpp:283
 #, kde-format
 msgid "Launching %1"
 msgstr "Zapusk %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:464
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
@@ -5038,17 +5038,25 @@ msgstr "Nacisnicie, kab skapijavać kantroĺnuju sumu ŭ bufier abmienu."
 msgid "C&ancel"
 msgstr "&Skasavać"
 
-#: widgets/dropjob.cpp:319
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pieramiascić siudy"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:330
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Downloads"
+msgctxt "@action:inmenu Download contents of URL here"
+msgid "&Download Here"
+msgstr "Spampoŭvanni"
+
+#: widgets/dropjob.cpp:330
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Skapijavać siudy"
 
-#: widgets/dropjob.cpp:329
+#: widgets/dropjob.cpp:337
 #, kde-format
 msgid "&Link Here"
 msgstr "&Spasylka"

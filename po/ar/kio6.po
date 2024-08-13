@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:37+0000\n"
+"POT-Creation-Date: 2024-08-13 00:37+0000\n"
 "PO-Revision-Date: 2024-07-28 12:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3797,7 +3797,7 @@ msgstr "انقر لتصفح الموقع "
 msgid "Click to Edit Location"
 msgstr "انقر لتحرير المكان"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ليس مصّرحًا لك تنفيذ هذا الملفّ."
@@ -3865,12 +3865,12 @@ msgstr ""
 "%1\n"
 "غير صالحة."
 
-#: gui/kprocessrunner.cpp:282
+#: gui/kprocessrunner.cpp:283
 #, kde-format
 msgid "Launching %1"
 msgstr "يُطلق %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:464
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4845,17 +4845,25 @@ msgstr "انقر لنسخ تدقيق المجموع إلى الحافظة."
 msgid "C&ancel"
 msgstr "أ&لغِ"
 
-#: widgets/dropjob.cpp:319
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Move Here"
 msgstr "ان&قل هنا"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:330
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Downloads"
+msgctxt "@action:inmenu Download contents of URL here"
+msgid "&Download Here"
+msgstr "التنزيلات"
+
+#: widgets/dropjob.cpp:330
 #, kde-format
 msgid "&Copy Here"
 msgstr "ان&سخ هنا"
 
-#: widgets/dropjob.cpp:329
+#: widgets/dropjob.cpp:337
 #, kde-format
 msgid "&Link Here"
 msgstr "ارب&ط هنا"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:37+0000\n"
+"POT-Creation-Date: 2024-08-13 00:37+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3787,7 +3787,7 @@ msgstr "स्थानस्य मार्गदर्शनार्थं �
 msgid "Click to Edit Location"
 msgstr "स्थानं सम्पादयितुं नुदन्तु"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "एतां सञ्चिकां निष्पादयितुं भवान् अधिकृतः नास्ति ।."
@@ -3855,12 +3855,12 @@ msgstr ""
 "%1\n"
 "न वैधः ।."
 
-#: gui/kprocessrunner.cpp:282
+#: gui/kprocessrunner.cpp:283
 #, kde-format
 msgid "Launching %1"
 msgstr "प्रक्षेपण %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:464
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4823,17 +4823,25 @@ msgstr "चेकसमं (checksum) अंशफलक प्रति प्�
 msgid "C&ancel"
 msgstr "&रद्दं कुर्वन्तु"
 
-#: widgets/dropjob.cpp:319
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Move Here"
 msgstr "&अत्र संस्थापयन्तु"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:330
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Downloads"
+msgctxt "@action:inmenu Download contents of URL here"
+msgid "&Download Here"
+msgstr "अवारोपण"
+
+#: widgets/dropjob.cpp:330
 #, kde-format
 msgid "&Copy Here"
 msgstr "&अत्र प्रतिलिख्यताम्"
 
-#: widgets/dropjob.cpp:329
+#: widgets/dropjob.cpp:337
 #, kde-format
 msgid "&Link Here"
 msgstr "&अत्र सम्बन्धितु"

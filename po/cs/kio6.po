@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:37+0000\n"
+"POT-Creation-Date: 2024-08-13 00:37+0000\n"
 "PO-Revision-Date: 2024-07-26 14:52+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3811,7 +3811,7 @@ msgstr "Klikněte pro navigaci k umístění"
 msgid "Click to Edit Location"
 msgstr "Klikněte pro upravení umístění"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:235
+#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nemáte oprávnění ke spuštění tohoto souboru."
@@ -3879,12 +3879,12 @@ msgstr ""
 "%1\n"
 "je neplatný."
 
-#: gui/kprocessrunner.cpp:282
+#: gui/kprocessrunner.cpp:283
 #, kde-format
 msgid "Launching %1"
 msgstr "Spouštím %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:464
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4839,17 +4839,25 @@ msgstr "Klikněte pro zkopírování součtu do schránky."
 msgid "C&ancel"
 msgstr "Z&rušit"
 
-#: widgets/dropjob.cpp:319
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Move Here"
 msgstr "Přesunout se&m"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:330
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Downloads"
+msgctxt "@action:inmenu Download contents of URL here"
+msgid "&Download Here"
+msgstr "Stahování"
+
+#: widgets/dropjob.cpp:330
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopírovat sem"
 
-#: widgets/dropjob.cpp:329
+#: widgets/dropjob.cpp:337
 #, kde-format
 msgid "&Link Here"
 msgstr "Vytvořit &odkaz zde"
