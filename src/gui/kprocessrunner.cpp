@@ -418,7 +418,7 @@ QString KProcessRunner::escapeUnitName(const QString &input)
 {
     QString res;
     const QByteArray bytes = input.toUtf8();
-    for (const auto &c : bytes) {
+    for (const unsigned char c : bytes) {
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ':' || c == '_' || c == '.') {
             res += QLatin1Char(c);
         } else {
