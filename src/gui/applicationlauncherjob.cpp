@@ -9,6 +9,7 @@
 #include "../core/global.h"
 #include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
+#include "kopenwithjob.h"
 #include "kprocessrunner_p.h"
 #include "mimetypefinderjob.h"
 #include "openwithhandlerinterface.h"
@@ -22,6 +23,7 @@
 #include <KDesktopFile>
 #include <KDesktopFileAction>
 #include <KLocalizedString>
+#include <KSandbox>
 
 #include <QFileInfo>
 #include <QPointer>
@@ -283,35 +285,50 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialogForMimeType()
 
 void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
 {
-    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("You are not authorized to select an application to open this file."));
-        q->emitResult();
-        return;
+    if (KSandbox::isInside()) {
+        auto job = new KOpenWithJob;
+        job->setUrls(m_urls);
+        job->setMimeType(m_mimeTypeName);
+        job->setStartupId(m_startupId);
+
+        QObject::connect(job, &KJob::result, q, [this](KJob *job) {
+            q->setError(job->error());
+            q->setErrorText(job->errorText());
+            q->emitResult();
+        });
+
+        job->start();
+    } else {
+        if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
+            q->setError(KJob::UserDefinedError);
+            q->setErrorText(i18n("You are not authorized to select an application to open this file."));
+            q->emitResult();
+            return;
+        }
+
+        auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
+        if (!openWithHandler) {
+            q->setError(KJob::UserDefinedError);
+            q->setErrorText(i18n("Internal error: could not prompt the user for which application to start"));
+            q->emitResult();
+            return;
+        }
+
+        QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
+            q->setError(KIO::ERR_USER_CANCELED);
+            q->emitResult();
+        });
+
+        QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
+            Q_ASSERT(service);
+            m_service = service;
+            q->start();
+        });
+
+        QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
+            q->emitResult();
+        });
+
+        openWithHandler->promptUserForApplication(q, m_urls, m_mimeTypeName);
     }
-
-    auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
-    if (!openWithHandler) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("Internal error: could not prompt the user for which application to start"));
-        q->emitResult();
-        return;
-    }
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
-    });
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
-        Q_ASSERT(service);
-        m_service = service;
-        q->start();
-    });
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
-        q->emitResult();
-    });
-
-    openWithHandler->promptUserForApplication(q, m_urls, m_mimeTypeName);
 }

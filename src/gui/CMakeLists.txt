@@ -28,6 +28,7 @@ target_sources(KF6KIOGui PRIVATE
    kurifilterplugin.cpp
    openfilemanagerwindowjob.cpp
    standardthumbnailjob.cpp
+   kopenwithjob.cpp
 )
 
 if (HAVE_QTDBUS)
@@ -92,6 +93,7 @@ target_link_libraries(KF6KIOGui
   PRIVATE
     KF6::Solid
     KF6::I18n
+    KF6::GuiAddons
 )
 
 target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
@@ -120,6 +122,7 @@ ecm_generate_headers(KIOGui_HEADERS
   KEMailClientLauncherJob
   KTerminalLauncherJob
   KUriFilter
+  KOpenWithJob
 
   REQUIRED_HEADERS KIOGui_HEADERS
 )

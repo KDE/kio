@@ -13,8 +13,8 @@
 #include "job.h" // for buildErrorString
 #include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
+#include "kopenwithjob.h"
 #include "openorexecutefileinterface.h"
-#include "openwithhandlerinterface.h"
 #include "untrustedprogramhandlerinterface.h"
 
 #include <KApplicationTrader>
@@ -632,40 +632,12 @@ void KIO::OpenUrlJobPrivate::openInPreferredApp()
 
 void KIO::OpenUrlJobPrivate::showOpenWithDialog()
 {
-    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("You are not authorized to select an application to open this file."));
-        q->emitResult();
-        return;
-    }
-
-    auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
-    if (!openWithHandler || QOperatingSystemVersion::currentType() == QOperatingSystemVersion::Windows) {
-        // As KDE on windows doesn't know about the windows default applications, offers will be empty in nearly all cases.
-        // So we use QDesktopServices::openUrl to let windows decide how to open the file.
-        // It's also our fallback if there's no handler to show an open-with dialog.
-        if (!QDesktopServices::openUrl(m_url)) {
-            q->setError(KJob::UserDefinedError);
-            q->setErrorText(i18n("Failed to open the file."));
-        }
-        q->emitResult();
-        return;
-    }
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
-    });
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
-        startService(service);
-    });
-
-    QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::handled, q, [this]() {
-        q->emitResult();
-    });
-
-    openWithHandler->promptUserForApplication(q, {m_url}, m_mimeTypeName);
+    auto job = new KOpenWithJob;
+    job->setUrls({m_url});
+    job->setMimeType(m_mimeTypeName);
+    job->setStartupId(m_startupId);
+    q->addSubjob(job);
+    job->start();
 }
 
 void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool)> dialogFinished)
