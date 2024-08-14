@@ -191,7 +191,7 @@ public:
                 // Check if our own plugins support the mimetype. If so, we use the plugin instead
                 // and ignore the standard thumbnailer
                 auto handledMimes = thumbnailer.second.mimetypes;
-                for (const auto &plugin : jsonMetaDataPlugins) {
+                for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
                     for (const auto &mime : handledMimes) {
                         if (plugin.supportsMimeType(mime)) {
                             handledMimes.removeOne(mime);
@@ -235,13 +235,14 @@ public:
         static QMap<QString, StandardThumbnailerData> standardThumbs;
         if (standardThumbs.empty()) {
             QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
-            for (const QString &thumbnailerPath : KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")})) {
+            const auto thumbnailerPaths = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")});
+            for (const QString &thumbnailerPath : thumbnailerPaths) {
                 const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
                 StandardThumbnailerData data;
                 QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
-                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QStringLiteral("")).split(QStringLiteral(";"));
-                mimetypes.removeAll(QStringLiteral(""));
-                QString exec = thumbnailerConfig.readEntry("Exec", QStringLiteral(""));
+                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QString{}).split(QStringLiteral(";"));
+                mimetypes.removeAll(QLatin1String(""));
+                QString exec = thumbnailerConfig.readEntry("Exec", QString{});
                 if (!exec.isEmpty() && !mimetypes.isEmpty()) {
                     data.exec = exec;
                     data.mimetypes = mimetypes;
@@ -461,11 +462,8 @@ void PreviewJobPrivate::startPreview()
         }
         thumbPath = thumbRoot + thumbDir;
 
-        if (!QDir(thumbPath).exists()) {
-            if (QDir().mkpath(thumbPath)) { // Qt5 TODO: mkpath(dirPath, permissions)
-                QFile f(thumbPath);
-                f.setPermissions(QFile::ReadUser | QFile::WriteUser | QFile::ExeUser); // 0700
-            }
+        if (!QDir(thumbPath).exists() && !QDir(thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
+            qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
         }
     } else {
         bSave = false;
@@ -868,7 +866,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         // Using /usr/share/thumbnailers
         QString exec;
         for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
-            for (const auto &mimetype : thumbnailer.second.mimetypes) {
+            for (const auto &mimetype : std::as_const(thumbnailer.second.mimetypes)) {
                 if (currentItem.plugin.supportsMimeType(mimetype)) {
                     exec = thumbnailer.second.exec;
                 }
