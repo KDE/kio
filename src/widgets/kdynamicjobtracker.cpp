@@ -155,6 +155,15 @@ void KDynamicJobTracker::registerJob(KJob *job)
                 d->jobViewServerSupport = KDynamicJobTrackerPrivate::V2NotSupported;
             }
         }
+
+        org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
+
+        QDBusReply<bool> requiresTrackerReply = interface.requiresJobTracker();
+        if (!requiresTrackerReply.isValid() || requiresTrackerReply.value()) {
+            d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
+        }
+
+        QDBusConnection::sessionBus().connect(kuiserverService, QStringLiteral("/JobViewServer"), QStringLiteral("org.kde.kuiserver"), QStringLiteral("requiresJobTrackerChanged"), this, SLOT(handleRequiresJobTrackerChanged(bool)));
     }
 
     if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::V2Supported) {
@@ -177,24 +186,10 @@ void KDynamicJobTracker::registerJob(KJob *job)
         trackers.kuiserverTracker->registerJob(job);
     }
 
-    if (canHaveWidgets) {
-        bool needsWidgetTracker = d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error;
-
-        if (!needsWidgetTracker) {
-            org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
-            QDBusReply<bool> reply = interface.requiresJobTracker();
-            needsWidgetTracker = !reply.isValid() || reply.value();
-        }
-
-        // If kuiserver isn't available or it tells us a job tracker is required
-        // create a widget tracker.
-        if (needsWidgetTracker) {
-            if (!d->widgetTracker) {
-                d->widgetTracker = new KWidgetJobTracker();
-            }
-            trackers.widgetTracker = d->widgetTracker;
-            trackers.widgetTracker->registerJob(job);
-        }
+    // If kuiserver isn't available or it tells us a job tracker is required
+    // create a widget tracker.
+    if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error) {
+        useWidgetsFallback();
     }
 }
 
@@ -227,6 +222,15 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
     }
 
     d->trackers.erase(it);
+}
+
+void KDynamicJobTracker::handleRequiresJobTrackerChanged(bool req)
+{
+    if (req) {
+        d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
+    } else {
+        d->jobViewServerSupport = KDynamicJobTrackerPrivate::V2Supported;
+    }
 }
 
 Q_GLOBAL_STATIC(KDynamicJobTracker, globalJobTracker)
