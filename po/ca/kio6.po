@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:37+0000\n"
-"PO-Revision-Date: 2024-07-31 12:09+0200\n"
+"PO-Revision-Date: 2024-08-13 10:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4956,12 +4956,10 @@ msgid "&Move Here"
 msgstr "&Mou aquí"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Baixades"
+msgstr "&Baixa aquí"
 
 #: widgets/dropjob.cpp:330
 #, kde-format

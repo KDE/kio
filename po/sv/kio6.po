@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:37+0000\n"
-"PO-Revision-Date: 2024-07-26 20:53+0200\n"
+"PO-Revision-Date: 2024-08-13 08:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -4927,12 +4927,10 @@ msgid "&Move Here"
 msgstr "&Flytta hit"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Nerladdningar"
+msgstr "La&dda ner här"
 
 #: widgets/dropjob.cpp:330
 #, kde-format

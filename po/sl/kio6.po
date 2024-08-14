@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:37+0000\n"
-"PO-Revision-Date: 2024-07-27 07:00+0200\n"
+"PO-Revision-Date: 2024-08-13 09:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4914,12 +4914,10 @@ msgid "&Move Here"
 msgstr "Pre&makni sem"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Prejemi"
+msgstr "Prejemi sem"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -6480,7 +6478,7 @@ msgstr "Različno (brez spremembe)"
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Te datoteke uporabljajo napredna dovoljenja."
-msgstr[1] "Ta datoteka uporablja napredna dovoljenja"
+msgstr[1] "Ta datoteka uporablja napredna dovoljenja."
 msgstr[2] "Ti datoteki uporabljata napredni dovoljenji."
 msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 
