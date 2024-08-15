@@ -958,6 +958,21 @@ struct EntryInfo {
     KNewFileMenuSingleton::Entry entry;
 };
 
+static QStringList getHomeTemplateFilePaths()
+{
+    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QStringLiteral(""), QStandardPaths::LocateDirectory);
+    QDir dir;
+    QStringList files;
+    dir.setPath(templateFolder);
+    const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
+    files.reserve(files.size() + entryList.size());
+    for (const QString &entry : entryList) {
+        const QString file = Utils::concatPaths(dir.path(), entry);
+        files.append(file);
+    }
+    return files;
+}
+
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
@@ -1072,6 +1087,50 @@ void KNewFileMenuPrivate::slotFillTemplates()
             uniqueEntries.push_back(eInfo);
         }
     }
+
+    // Adds files and folders directly from ~/Templates to the entries
+    files = getHomeTemplateFilePaths();
+    qDebug() << files;
+    for (const QString &file : files) {
+        QString key = QUrl(file).fileName();
+        key.prepend(QLatin1Char('1'));
+        QString url = file;
+
+        KNewFileMenuSingleton::Entry entry;
+        entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
+        entry.text = QUrl(file).fileName();
+        entry.filePath = file;
+        entry.templatePath = QStringLiteral("");
+        QMimeDatabase db;
+        entry.mimeType = db.mimeTypeForFile(file).name();
+        QString icon = entry.mimeType;
+        icon.replace(QStringLiteral("/"), QStringLiteral("-"));
+        entry.icon = icon;
+        EntryInfo eInfo = {key, url, entry};
+        uniqueEntries.push_back(eInfo);
+
+        qDebug() << key << "\n"
+                 << url << "\n"
+                 << entry.entryType << "\n"
+                 << entry.text << "\n"
+                 << entry.filePath << "\n"
+                 << entry.templatePath << "\n"
+                 << entry.mimeType << "\n";
+    }
+
+    // QString key = QStringLiteral("");
+    // key.prepend(QLatin1Char('1'));
+    // QString url = QStringLiteral("/home/managor/Templates/");
+    // KNewFileMenuSingleton::Entry entry;
+    // entry.text = QStringLiteral("");
+    // entry.filePath = QStringLiteral("/home/managor/Templates/template.qml");
+    // entry.templatePath = QStringLiteral("");
+    // entry.icon = QStringLiteral("text-x-qml");
+    // entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
+    // entry.comment = QStringLiteral("Enter skeleton filename");
+    // entry.mimeType = QStringLiteral("");
+    // EntryInfo eInfo = {key, url, entry};
+    // uniqueEntries.push_back(eInfo);
 
     std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
         return a.key < b.key;
