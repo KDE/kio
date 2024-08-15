@@ -960,7 +960,7 @@ struct EntryInfo {
 
 static QStringList getHomeTemplateFilePaths()
 {
-    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QStringLiteral(""), QStandardPaths::LocateDirectory);
+    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
     QDir dir;
     QStringList files;
     dir.setPath(templateFolder);
