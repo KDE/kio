@@ -1104,7 +1104,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
         QMimeType mime = db.mimeTypeForFile(file);
         entry.mimeType = mime.name();
         entry.icon = mime.iconName();
-        entry.comment = QStringLiteral("Enter ") + mime.comment() + QStringLiteral(" filename:");
+        entry.comment = i18nc("Prompt for new file of type", "Enter %1 filename:", mime.comment());
         EntryInfo eInfo = {key, url, entry};
         uniqueEntries.push_back(eInfo);
 
