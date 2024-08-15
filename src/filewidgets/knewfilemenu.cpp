@@ -1101,10 +1101,10 @@ void KNewFileMenuPrivate::slotFillTemplates()
         entry.text = text.baseName();
         entry.filePath = text.completeBaseName();
         entry.templatePath = file;
-        QString mime = db.mimeTypeForFile(file).name();
-        entry.mimeType = mime;
-        entry.icon = db.mimeTypeForName(mime).iconName();
-        entry.comment = QStringLiteral("Enter ") + db.mimeTypeForName(mime).comment() + QStringLiteral(" filename:");
+        QMimeType mime = db.mimeTypeForFile(file);
+        entry.mimeType = mime.name();
+        entry.icon = mime.iconName();
+        entry.comment = QStringLiteral("Enter ") + mime.comment() + QStringLiteral(" filename:");
         EntryInfo eInfo = {key, url, entry};
         uniqueEntries.push_back(eInfo);
 
