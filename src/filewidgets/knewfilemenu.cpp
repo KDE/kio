@@ -964,7 +964,7 @@ static QStringList getHomeTemplateFilePaths()
     QDir dir(templateFolder);
     QStringList files;
     const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
-    files.reserve(files.size() + entryList.size());
+    files.reserve(entryList.size());
     for (const QString &entry : entryList) {
         const QString file = Utils::concatPaths(dir.path(), entry);
         files.append(file);
