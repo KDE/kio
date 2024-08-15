@@ -1098,9 +1098,10 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
         KNewFileMenuSingleton::Entry entry;
         entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
-        entry.text = QUrl(file).fileName();
-        entry.filePath = file;
-        entry.templatePath = QStringLiteral("");
+        QFileInfo text(file);
+        entry.text = text.baseName();
+        entry.filePath = text.baseName();
+        entry.templatePath = file;
         QMimeDatabase db;
         entry.mimeType = db.mimeTypeForFile(file).name();
         QString icon = entry.mimeType;
@@ -1109,13 +1110,15 @@ void KNewFileMenuPrivate::slotFillTemplates()
         EntryInfo eInfo = {key, url, entry};
         uniqueEntries.push_back(eInfo);
 
-        qDebug() << key << "\n"
-                 << url << "\n"
-                 << entry.entryType << "\n"
-                 << entry.text << "\n"
-                 << entry.filePath << "\n"
-                 << entry.templatePath << "\n"
-                 << entry.mimeType << "\n";
+        // qDebug() << key << "\n"
+        //          << url << "\n"
+        //          << entry.text << "\n"
+        //          << entry.filePath << "\n"
+        //          << entry.templatePath << "\n"
+        //          << entry.icon << "\n"
+        //          << entry.entryType << "\n"
+        //          << entry.comment << "\n"
+        //          << entry.mimeType << "\n";
     }
 
     // QString key = QStringLiteral("");
