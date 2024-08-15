@@ -1107,16 +1107,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
         entry.comment = i18nc("Prompt for new file of type", "Enter %1 filename:", mime.comment());
         EntryInfo eInfo = {key, url, entry};
         uniqueEntries.push_back(eInfo);
-
-        // qDebug() << key << "\n"
-        //          << url << "\n"
-        //          << entry.text << "\n"
-        //          << entry.filePath << "\n"
-        //          << entry.templatePath << "\n"
-        //          << entry.icon << "\n"
-        //          << entry.entryType << "\n"
-        //          << entry.comment << "\n"
-        //          << entry.mimeType << "\n";
     }
 
     std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
