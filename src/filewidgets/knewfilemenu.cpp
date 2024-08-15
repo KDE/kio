@@ -1090,13 +1090,13 @@ void KNewFileMenuPrivate::slotFillTemplates()
     // Adds files and folders directly from ~/Templates to the entries
     files = getHomeTemplateFilePaths();
     for (const QString &file : files) {
-        QString key = QUrl(file).fileName();
+        QFileInfo text(file);
+        QString key = text.fileName();
         key.prepend(QLatin1Char('1'));
         QString url = file;
 
         KNewFileMenuSingleton::Entry entry;
         entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
-        QFileInfo text(file);
         entry.text = text.baseName();
         entry.filePath = text.baseName();
         entry.templatePath = file;
