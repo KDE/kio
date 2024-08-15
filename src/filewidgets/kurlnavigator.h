@@ -403,7 +403,8 @@ Q_SIGNALS:
     /**
      * Is emitted if the URL \a url should be opened in a new inactive tab because
      * the user clicked on a breadcrumb with the middle mouse button or
-     * left-clicked with the ctrl modifier pressed.
+     * left-clicked with the ctrl modifier pressed or pressed return with
+     * the alt modifier pressed.
      */
     void tabRequested(const QUrl &url);
 
@@ -411,14 +412,16 @@ Q_SIGNALS:
      * Is emitted if the URL \a url should be opened in a new active tab because
      * the user clicked on a breadcrumb with the middle mouse button with
      * the shift modifier pressed or left-clicked with both the ctrl and shift
-     * modifiers pressed.
+     * modifiers pressed or pressed return with both the alt and shift modifiers
+     * pressed.
      * @since 5.89
      */
     void activeTabRequested(const QUrl &url);
 
     /**
      * Is emitted if the URL \a url should be opened in a new window because
-     * the user left-clicked on a breadcrumb with the shift modifier pressed.
+     * the user left-clicked on a breadcrumb with the shift modifier pressed
+     * or pressed return with the shift modifier pressed.
      * @since 5.89
      */
     void newWindowRequested(const QUrl &url);
