@@ -961,9 +961,8 @@ struct EntryInfo {
 static QStringList getHomeTemplateFilePaths()
 {
     QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
-    QDir dir;
+    QDir dir(templateFolder);
     QStringList files;
-    dir.setPath(templateFolder);
     const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
     files.reserve(files.size() + entryList.size());
     for (const QString &entry : entryList) {
