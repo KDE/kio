@@ -1120,20 +1120,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
         //          << entry.mimeType << "\n";
     }
 
-    // QString key = QStringLiteral("");
-    // key.prepend(QLatin1Char('1'));
-    // QString url = QStringLiteral("/home/managor/Templates/");
-    // KNewFileMenuSingleton::Entry entry;
-    // entry.text = QStringLiteral("");
-    // entry.filePath = QStringLiteral("/home/managor/Templates/template.qml");
-    // entry.templatePath = QStringLiteral("");
-    // entry.icon = QStringLiteral("text-x-qml");
-    // entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
-    // entry.comment = QStringLiteral("Enter skeleton filename");
-    // entry.mimeType = QStringLiteral("");
-    // EntryInfo eInfo = {key, url, entry};
-    // uniqueEntries.push_back(eInfo);
-
     std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
         return a.key < b.key;
     });
