@@ -1098,7 +1098,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
         KNewFileMenuSingleton::Entry entry;
         entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
         entry.text = text.baseName();
-        entry.filePath = text.baseName();
+        entry.filePath = text.completeBaseName();
         entry.templatePath = file;
         QMimeDatabase db;
         QString mime = db.mimeTypeForFile(file).name();
