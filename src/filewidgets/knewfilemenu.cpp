@@ -1089,6 +1089,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     // Adds files and folders directly from ~/Templates to the entries
     files = getHomeTemplateFilePaths();
+    QMimeDatabase db;
     for (const QString &file : files) {
         QFileInfo text(file);
         QString key = text.fileName();
@@ -1100,7 +1101,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
         entry.text = text.baseName();
         entry.filePath = text.completeBaseName();
         entry.templatePath = file;
-        QMimeDatabase db;
         QString mime = db.mimeTypeForFile(file).name();
         entry.mimeType = mime;
         entry.icon = db.mimeTypeForName(mime).iconName();
