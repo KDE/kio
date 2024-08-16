@@ -4701,12 +4701,10 @@ msgid "&Move Here"
 msgstr "移动到此位置(&M)"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "下载"
+msgstr ""
 
 #: widgets/dropjob.cpp:330
 #, kde-format
