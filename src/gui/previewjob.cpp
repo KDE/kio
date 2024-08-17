@@ -163,7 +163,6 @@ public:
     bool bNeedCache = false;
     bool cacheDirsCreated = false;
 
-    QVector<KPluginMetaData> plugins;
     QMap<QString, KPluginMetaData> mimeMap;
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
@@ -180,7 +179,7 @@ public:
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
-    
+
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
@@ -346,7 +345,7 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
 
-    plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    const auto plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
 
     protocolMap.clear();
     mimeMap.clear();
@@ -389,7 +388,7 @@ void PreviewJobPrivate::startPreview()
             item.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             item.plugin = plugin;
             items.push_back(item);
-            
+
             if (!bNeedCache && itemNeedsCache(item)) {
                 bNeedCache = true;
             }
@@ -533,8 +532,7 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job =
-            KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode | KIO::StatMimeType, KIO::HideProgressInfo);
+        KIO::Job *job = KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
