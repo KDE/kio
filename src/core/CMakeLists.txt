@@ -89,8 +89,6 @@ target_sources(KF6KIOCore PRIVATE
   ksslerroruidata.cpp
 )
 
-target_include_directories(KF6KIOCore PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-
 set(KIOCore_HEADERS_dbus)
 if (HAVE_QTDBUS)
   target_sources(KF6KIOCore PRIVATE
