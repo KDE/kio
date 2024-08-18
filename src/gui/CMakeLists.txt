@@ -83,8 +83,6 @@ ecm_generate_export_header(KF6KIOGui
 
 target_include_directories(KF6KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui>")
 
-target_include_directories(KF6KIOGui PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-
 target_link_libraries(KF6KIOGui
   PUBLIC
     KF6::KIOCore
