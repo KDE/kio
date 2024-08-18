@@ -20,9 +20,11 @@ namespace KIO
 class CommandLauncherJobPrivate;
 
 /*!
- * @class CommandLauncherJob commandlauncherjob.h <KIO/CommandLauncherJob>
+ * \class KIO::CommandLauncherJob
+ * \inmodule KIOGui
+ * \inheaderfile KIO/CommandLauncherJob
  *
- * @brief CommandLauncherJob runs a command and watches it while running.
+ * \brief CommandLauncherJob runs a command and watches it while running.
  *
  * It creates a startup notification and finishes it on success or on error (for the taskbar).
  * It also emits a "program not found" error message if the requested command did not exist.
@@ -35,21 +37,24 @@ class CommandLauncherJobPrivate;
  *
  * For error handling, either connect to the result() signal, or for a simple messagebox on error,
  * you can do
- * @code
+ * \code
  *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
- * @endcode
+ * \endcode
  *
- * @since 5.69
+ * \since KIO 5.69
  */
 class KIOGUI_EXPORT CommandLauncherJob : public KJob
 {
 public:
     /*!
      * Creates a CommandLauncherJob.
-     * @param command the shell command to run
+     *
+     * \a command the shell command to run
+     *
      * The command is given "as is" to the shell, it must already be quoted if necessary.
-     * If @p command is instead a filename, consider using the other constructor, even if no args are present.
-     * @param parent the parent QObject
+     * If \a command is instead a filename, consider using the other constructor, even if no args are present.
+     *
+     * \a parent the parent QObject
      *
      * Please consider also calling setDesktopName() for better startup notification.
      */
@@ -57,9 +62,12 @@ public:
 
     /*!
      * Creates a CommandLauncherJob.
-     * @param executable the name of the executable
-     * @param args the commandline arguments to pass to the executable
-     * @param parent the parent QObject
+     *
+     * \a executable the name of the executable
+     *
+     * \a args the commandline arguments to pass to the executable
+     *
+     * \a parent the parent QObject
      *
      * Please consider also calling setDesktopName() for better startup notification.
      */
@@ -74,20 +82,21 @@ public:
 
     /*!
      * Sets the command to execute, this will change the command that was set by any of the constructors.
-     * @since 5.83
+     * \since KIO 5.83
      */
     void setCommand(const QString &command);
 
     /*!
      * Returns the command executed by this job.
-     * @since 5.83
+     * \since KIO 5.83
      */
     QString command() const;
 
     /*!
      * Sets the name of the executable, used in the startup notification
      * (see KStartupInfoData::setBin()).
-     * @param executable executable name, with or without a path
+     *
+     * \a executable executable name, with or without a path
      *
      * Alternatively, use setDesktopName().
      */
@@ -102,7 +111,9 @@ public:
 
     /*!
      * Sets the platform-specific startup id of the command launch.
-     * @param startupId startup id, if any (otherwise "").
+     *
+     * \a startupId startup id, if any (otherwise "").
+     *
      * For X11, this would be the id for the Startup Notification protocol.
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
@@ -110,21 +121,24 @@ public:
 
     /*!
      * Sets the working directory from which to run the command.
-     * @param workingDirectory path of a local directory
+     *
+     * \a workingDirectory path of a local directory
      */
     void setWorkingDirectory(const QString &workingDirectory);
 
     /*!
      * Returns the working directory, which was previously set with @c setWorkingDirectory().
-     * @since 5.83
+     * \since KIO 5.83
      */
     QString workingDirectory() const;
 
     /*!
      * Can be used to pass environment variables to the child process.
-     * @param environment set of environment variables to pass to the child process
-     * @see QProcessEnvironment
-     * @since 5.82
+     *
+     * \a environment set of environment variables to pass to the child process
+     *
+     * \sa QProcessEnvironment
+     * \since KIO 5.82
      */
     void setProcessEnvironment(const QProcessEnvironment &environment);
 
@@ -135,7 +149,7 @@ public:
     void start() override;
 
     /*!
-     * @return the PID of the command that was started
+     * Returns the PID of the command that was started
      *
      * Available after the job emits result().
      */

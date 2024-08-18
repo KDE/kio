@@ -1,4 +1,4 @@
-include($QT_INSTALL_DOCS/global/qt-module-defaults-online.qdocconf)
+include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
 
 project = KIOGui
 description = Additions to Qt Core
