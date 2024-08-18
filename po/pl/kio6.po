@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-17 00:37+0000\n"
-"PO-Revision-Date: 2024-07-27 09:17+0200\n"
+"PO-Revision-Date: 2024-08-17 09:38+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -4899,12 +4899,10 @@ msgid "&Move Here"
 msgstr "&Przenieś tutaj"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Pobrane"
+msgstr "&Pobierz tutaj"
 
 #: widgets/dropjob.cpp:330
 #, kde-format

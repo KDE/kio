@@ -4704,7 +4704,7 @@ msgstr "移动到此位置(&M)"
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr ""
+msgstr "下载到此位置(&D)"
 
 #: widgets/dropjob.cpp:330
 #, kde-format

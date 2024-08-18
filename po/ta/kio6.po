@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-17 00:37+0000\n"
-"PO-Revision-Date: 2024-08-04 16:37+0530\n"
+"PO-Revision-Date: 2024-08-17 21:50+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -4838,12 +4838,10 @@ msgid "&Move Here"
 msgstr "இங்கு &நகர்த்து"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "பதிவிறக்கங்கள்"
+msgstr "இங்கு &பதிவிறக்கு"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
