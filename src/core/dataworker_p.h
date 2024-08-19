@@ -40,7 +40,7 @@ public:
 
     ~DataWorker() override;
 
-    virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd) override;
+    void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd) override;
     void setConfig(const MetaData &config) override;
 
     void suspend() override;

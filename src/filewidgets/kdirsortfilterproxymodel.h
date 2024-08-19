@@ -85,7 +85,7 @@ protected:
     /**
      * Reimplemented from KCategorizedSortFilterProxyModel.
      */
-    virtual bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
     class KDirSortFilterProxyModelPrivate;

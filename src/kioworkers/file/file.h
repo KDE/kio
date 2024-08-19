@@ -40,10 +40,10 @@ public:
     ~FileProtocol() override;
 
     KIO::WorkerResult get(const QUrl &url) override;
-    virtual KIO::WorkerResult put(const QUrl &url, int _mode, KIO::JobFlags _flags) override;
-    virtual KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int mode, KIO::JobFlags flags) override;
-    virtual KIO::WorkerResult rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
-    virtual KIO::WorkerResult symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags) override;
+    KIO::WorkerResult put(const QUrl &url, int _mode, KIO::JobFlags _flags) override;
+    KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int mode, KIO::JobFlags flags) override;
+    KIO::WorkerResult rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
+    KIO::WorkerResult symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags) override;
 
     KIO::WorkerResult stat(const QUrl &url) override;
     KIO::WorkerResult listDir(const QUrl &url) override;
