@@ -112,9 +112,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::savePersistentUserReply(KIO::AskUs
 
 QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(KJob *job)
 {
-    // This needs to be in qpointer, otherwise copying process
-    // will crash if done in background and dolphin is closed
-    QPointer<QWidget> parentWidget = nullptr;
+    QWidget *parentWidget = nullptr;
 
     if (job) {
         auto parentWindow = KJobWidgets::window(job);
@@ -128,9 +126,7 @@ QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(KJob *job)
 
 QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(QWidget *widget)
 {
-    // This needs to be in qpointer, otherwise copying process
-    // will crash if done in background and dolphin is closed
-    QPointer<QWidget> parentWidget = widget;
+    QWidget *parentWidget = widget;
 
     if (!parentWidget) {
         parentWidget = this->m_parentWidget;
