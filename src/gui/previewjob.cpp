@@ -191,17 +191,6 @@ public:
                 // Check if our own plugins support the mimetype. If so, we use the plugin instead
                 // and ignore the standard thumbnailer
                 auto handledMimes = thumbnailer.second.mimetypes;
-                for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
-                    for (const auto &mime : handledMimes) {
-                        if (plugin.supportsMimeType(mime)) {
-                            handledMimes.removeOne(mime);
-                        }
-                    }
-                }
-                if (handledMimes.isEmpty()) {
-                    continue;
-                }
-
                 QMimeDatabase db;
                 // We only need the first mimetype since the names/comments are often shared between multiple types
                 auto mime = db.mimeTypeForName(handledMimes.first());
@@ -268,9 +257,7 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        d->enabledPlugins =
-            globalConfig.readEntry("Plugins",
-                                   QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
+        d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList{QStringLiteral("folder"), QStringLiteral("image")});
     }
 
     // Return to event loop first, determineNextFile() might delete this;
@@ -346,11 +333,12 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         }
-        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
-            if (pluginIsEnabled) {
-                mimeMap.insert(mimeType, plugin);
+            for (const QString &registry : enabledPlugins) {
+                if (mimeType.contains(registry)) {
+                    mimeMap.insert(mimeType, plugin);
+                }
             }
         }
     }
@@ -1040,9 +1028,9 @@ QStringList PreviewJob::availablePlugins()
 
 QStringList PreviewJob::defaultPlugins()
 {
-    const QStringList blacklist = QStringList() << QStringLiteral("textthumbnail");
+    const QStringList blacklist = QStringList() << QStringLiteral("text");
 
-    QStringList defaultPlugins = availablePlugins();
+    QStringList defaultPlugins = supportedMimeRegistries();
     for (const QString &plugin : blacklist) {
         defaultPlugins.removeAll(plugin);
     }
@@ -1064,12 +1052,14 @@ QStringList PreviewJob::supportedMimeRegistries()
 {
     // https://www.iana.org/assignments/media-types/media-types.xhtml
 
+    // TODO these names can be translated
     auto allRegistries = QStringList({QStringLiteral("application"),
                                       QStringLiteral("audio"),
                                       QStringLiteral("example"),
                                       QStringLiteral("font"),
                                       QStringLiteral("haptics"),
                                       QStringLiteral("image"),
+                                      QStringLiteral("inode"), // also known as folder
                                       QStringLiteral("message"),
                                       QStringLiteral("model"),
                                       QStringLiteral("multipart"),
@@ -1089,7 +1079,6 @@ QStringList PreviewJob::supportedMimeRegistries()
             }
         }
     }
-    supportedRegistries.append(QStringLiteral("folder"));
 
     return supportedRegistries;
 }
