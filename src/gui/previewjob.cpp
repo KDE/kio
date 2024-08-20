@@ -1060,6 +1060,40 @@ QStringList PreviewJob::supportedMimeTypes()
     return result;
 }
 
+QStringList PreviewJob::supportedMimeRegistries()
+{
+    // https://www.iana.org/assignments/media-types/media-types.xhtml
+
+    auto allRegistries = QStringList({QStringLiteral("application"),
+                                      QStringLiteral("audio"),
+                                      QStringLiteral("example"),
+                                      QStringLiteral("font"),
+                                      QStringLiteral("haptics"),
+                                      QStringLiteral("image"),
+                                      QStringLiteral("message"),
+                                      QStringLiteral("model"),
+                                      QStringLiteral("multipart"),
+                                      QStringLiteral("text"),
+                                      QStringLiteral("video")});
+
+    auto supportedRegistries = QStringList();
+
+    auto mimetypes = supportedMimeTypes();
+    for (auto mime : mimetypes) {
+        for (auto registry : allRegistries) {
+            if (supportedRegistries.contains(registry)) {
+                continue;
+            }
+            if (mime.contains(registry)) {
+                supportedRegistries.append(registry);
+            }
+        }
+    }
+    supportedRegistries.append(QStringLiteral("folder"));
+
+    return supportedRegistries;
+}
+
 PreviewJob *KIO::filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)
 {
     return new PreviewJob(items, size, enabledPlugins);

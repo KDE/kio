@@ -166,6 +166,13 @@ public:
      */
     static QStringList supportedMimeTypes();
 
+    /**
+     * Returns a list of Mimetypes that can be used for enabling preview settings
+     * Contains entries like application/, audio/...
+     * @return the list of MIME types
+     */
+    static QStringList supportedMimeRegistries();
+
 Q_SIGNALS:
     /**
      * Emitted when a thumbnail picture for @p item has been successfully
