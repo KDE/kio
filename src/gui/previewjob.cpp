@@ -257,7 +257,7 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList{QStringLiteral("folder"), QStringLiteral("image")});
+        d->enabledPlugins = globalConfig.readEntry("Mimetypes", QStringList{QStringLiteral("folder"), QStringLiteral("image")});
     }
 
     // Return to event loop first, determineNextFile() might delete this;
