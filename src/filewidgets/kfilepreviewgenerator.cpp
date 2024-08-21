@@ -462,8 +462,7 @@ KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator
     });
 
     KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), QStringLiteral("PreviewSettings"));
-    m_enabledPlugins =
-        globalConfig.readEntry("Plugins", QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
+    m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList{QStringLiteral("folder"), QStringLiteral("image")});
 
     // Compatibility update: in 4.7, jpegrotatedthumbnail was merged into (or
     // replaced with?) jpegthumbnail
