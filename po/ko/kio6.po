@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-17 00:37+0000\n"
-"PO-Revision-Date: 2024-02-09 23:44+0100\n"
+"PO-Revision-Date: 2024-08-20 23:36+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2554,12 +2554,10 @@ msgid "Reload"
 msgstr "새로 고침"
 
 #: filewidgets/kdiroperator.cpp:1970
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "새 폴더"
+msgstr "새 폴더…"
 
 #: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2783,9 +2781,7 @@ msgid "Root Folder"
 msgstr "루트 폴더"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "찾아보기..."
@@ -2948,11 +2944,10 @@ msgid "Tags"
 msgstr "태그"
 
 #: filewidgets/kfileplacesitem.cpp:340
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1(오류 %2)"
+msgstr "%1(%2에서)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3124,9 +3119,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "파티션 관리자로 다시 포맷하거나 편집"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3554,11 +3547,10 @@ msgstr ""
 "수 있습니다.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:432
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "새 파일 형식 만들기"
+msgstr "새 파일 만들기"
 
 #: filewidgets/knewfilemenu.cpp:472
 #, kde-format
@@ -3674,11 +3666,10 @@ msgid "New Folder"
 msgstr "새 폴더"
 
 #: filewidgets/knewfilemenu.cpp:1478
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "폴더 만들기"
+msgstr "새 폴더 만들기"
 
 #: filewidgets/knewfilemenu.cpp:1480
 #, kde-format
@@ -3804,7 +3795,7 @@ msgstr "내부 오류: 사용자에게 시작할 앱을 물어볼 수 없음"
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "빈 명령이 제공됨"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3926,17 +3917,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"%1 파일이 수정되었습니다.\n"
-"변경 사항을 업로드하시겠습니까?"
+"<filename>%1</filename> 파일이 수정되었습니다.<nl/>변경 사항을 업로드하시겠습"
+"니까?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -4815,12 +4803,10 @@ msgid "&Move Here"
 msgstr "여기로 이동(&M)"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "다운로드"
+msgstr "여기에 다운로드(&D)"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -5017,15 +5003,13 @@ msgstr[0] "이 항목 %1개를 휴지통에 버리시겠습니까?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "추가…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "편집(&E)…"
+msgstr "편집…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5226,20 +5210,16 @@ msgid "&Actions"
 msgstr "작업(&A)"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "다음으로 폴더 열기(&O)"
+msgstr "다음으로 폴더 열기(&O)…"
 
 #: widgets/kfileitemactions.cpp:689
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "다음으로 열기(&O)"
+msgstr "다음으로 열기(&O)…"
 
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
@@ -5264,12 +5244,10 @@ msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
 #: widgets/kfileitemactions.cpp:770
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "다른 앱(&O)..."
+msgstr "다른 앱(&O)…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -6357,12 +6335,10 @@ msgstr "체크섬(&H)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2129
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2140
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2151
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "계산 중..."
+msgstr "계산 중…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2307
 #, kde-format
@@ -6404,12 +6380,10 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "계산한 체크섬과 입력한 체크섬이 일치하지 않습니다."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2349
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "체크섬 검사 중..."
+msgstr "체크섬 검사 중…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #, kde-format
@@ -6543,11 +6517,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "웹 바로 가기 설정..."
+msgstr "웹 바로 가기 설정…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6593,11 +6566,10 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "항목 %1개 붙여넣기"
 
 #: widgets/paste.cpp:258
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "클립보드 내용 붙여넣기(&P)"
+msgstr "클립보드 내용 붙여넣기…"
 
 #: widgets/paste.cpp:262
 #, kde-format
