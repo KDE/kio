@@ -1028,14 +1028,7 @@ QStringList PreviewJob::availablePlugins()
 
 QStringList PreviewJob::defaultPlugins()
 {
-    const QStringList blacklist = QStringList() << QStringLiteral("text");
-
-    QStringList defaultPlugins = supportedMimeRegistries();
-    for (const QString &plugin : blacklist) {
-        defaultPlugins.removeAll(plugin);
-    }
-
-    return defaultPlugins;
+    return defaultRegistries().keys();
 }
 
 QStringList PreviewJob::supportedMimeTypes()
@@ -1048,34 +1041,42 @@ QStringList PreviewJob::supportedMimeTypes()
     return result;
 }
 
-QStringList PreviewJob::supportedMimeRegistries()
+QMap<QString, QString> PreviewJob::defaultRegistries()
+{
+    const QStringList blacklist = QStringList() << QStringLiteral("text");
+
+    auto defaultRegistries = supportedMimeRegistries();
+    for (const QString &plugin : blacklist) {
+        defaultRegistries.remove(plugin);
+    }
+
+    return defaultRegistries;
+}
+
+QMap<QString, QString> PreviewJob::supportedMimeRegistries()
 {
     // https://www.iana.org/assignments/media-types/media-types.xhtml
 
-    // TODO these names can be translated
-    auto allRegistries = QStringList({QStringLiteral("application"),
-                                      QStringLiteral("audio"),
-                                      QStringLiteral("example"),
-                                      QStringLiteral("font"),
-                                      QStringLiteral("haptics"),
-                                      QStringLiteral("image"),
-                                      QStringLiteral("inode"), // also known as folder
-                                      QStringLiteral("message"),
-                                      QStringLiteral("model"),
-                                      QStringLiteral("multipart"),
-                                      QStringLiteral("text"),
-                                      QStringLiteral("video")});
+    QMap<QString, QString> allRegistries;
+    allRegistries[QStringLiteral("application")] = i18n("Applications");
+    allRegistries[QStringLiteral("audio")] = i18n("Audio Files");
+    allRegistries[QStringLiteral("font")] = i18n("Fonts");
+    allRegistries[QStringLiteral("image")] = i18n("Images");
+    allRegistries[QStringLiteral("inode")] = i18n("Folders");
+    allRegistries[QStringLiteral("model")] = i18n("Models");
+    allRegistries[QStringLiteral("text")] = i18n("Text Files");
+    allRegistries[QStringLiteral("video")] = i18n("Videos");
 
-    auto supportedRegistries = QStringList();
+    auto supportedRegistries = QMap<QString, QString>();
 
     auto mimetypes = supportedMimeTypes();
     for (auto mime : mimetypes) {
-        for (auto registry : allRegistries) {
-            if (supportedRegistries.contains(registry)) {
+        for (auto registry : allRegistries.asKeyValueRange()) {
+            if (supportedRegistries.contains(registry.first)) {
                 continue;
             }
-            if (mime.contains(registry)) {
-                supportedRegistries.append(registry);
+            if (mime.contains(registry.first)) {
+                supportedRegistries[registry.first] = registry.second;
             }
         }
     }

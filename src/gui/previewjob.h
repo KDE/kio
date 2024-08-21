@@ -167,11 +167,20 @@ public:
     static QStringList supportedMimeTypes();
 
     /**
+     * Returns a list of registries that should be enabled by default, which is all registries
+     * minus the registries specified in an internal blacklist
+     * @return the list of registries that should be enabled by default
+     * @since 6.2
+     */
+    static QMap<QString, QString> defaultRegistries();
+
+    /**
      * Returns a list of Mimetypes that can be used for enabling preview settings
      * Contains entries like application/, audio/...
-     * @return the list of MIME types
+     * @return the map of registry id's as keys and their translated names as value
+     * @since 6.2
      */
-    static QStringList supportedMimeRegistries();
+    static QMap<QString, QString> supportedMimeRegistries();
 
 Q_SIGNALS:
     /**
