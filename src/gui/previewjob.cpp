@@ -191,6 +191,17 @@ public:
                 // Check if our own plugins support the mimetype. If so, we use the plugin instead
                 // and ignore the standard thumbnailer
                 auto handledMimes = thumbnailer.second.mimetypes;
+                for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
+                    for (const auto &mime : handledMimes) {
+                        if (plugin.supportsMimeType(mime)) {
+                            handledMimes.removeOne(mime);
+                        }
+                    }
+                }
+                if (handledMimes.isEmpty()) {
+                    continue;
+                }
+
                 QMimeDatabase db;
                 // We only need the first mimetype since the names/comments are often shared between multiple types
                 auto mime = db.mimeTypeForName(handledMimes.first());
