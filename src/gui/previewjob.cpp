@@ -257,9 +257,12 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        d->enabledPlugins =
-            globalConfig.readEntry("Plugins",
-                                   QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
+        d->enabledPlugins = globalConfig.readEntry("Plugins",
+                                                   QStringList{QStringLiteral("directorythumbnail"),
+                                                               QStringLiteral("imagethumbnail"),
+                                                               QStringLiteral("jpegthumbnail"),
+                                                               QStringLiteral("folder"),
+                                                               QStringLiteral("image")});
     }
 
     // Return to event loop first, determineNextFile() might delete this;
@@ -335,12 +338,11 @@ void PreviewJobPrivate::startPreview()
                 }
             }
         }
+        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
-            for (const QString &registry : enabledPlugins) {
-                if (mimeType.contains(registry)) {
-                    mimeMap.insert(mimeType, plugin);
-                }
+            if (pluginIsEnabled) {
+                mimeMap.insert(mimeType, plugin);
             }
         }
     }
@@ -1052,7 +1054,7 @@ QStringList PreviewJob::supportedMimeTypes()
 
 QMap<QString, QString> PreviewJob::defaultRegistries()
 {
-    const QStringList blacklist = QStringList() << QStringLiteral("text");
+    const QStringList blacklist = {QStringLiteral("text")};
 
     auto defaultRegistries = supportedMimeRegistries();
     for (const QString &plugin : blacklist) {

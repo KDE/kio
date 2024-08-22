@@ -30,9 +30,12 @@ PreviewTest::PreviewTest()
     layout->addWidget(btn, 0, 1);
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    const QStringList enabledPlugins =
-        globalConfig.readEntry("Plugins",
-                               QStringList() << QStringLiteral("directorythumbnail") << QStringLiteral("imagethumbnail") << QStringLiteral("jpegthumbnail"));
+    const QStringList enabledPlugins = globalConfig.readEntry("Plugins",
+                                                              QStringList{QStringLiteral("directorythumbnail"),
+                                                                          QStringLiteral("imagethumbnail"),
+                                                                          QStringLiteral("jpegthumbnail"),
+                                                                          QStringLiteral("folder"),
+                                                                          QStringLiteral("image")});
 
     m_plugins = new QLineEdit(this);
     layout->addWidget(m_plugins, 1, 0, 1, 2);
