@@ -334,7 +334,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         const int bsize = 66 + (2 * d->m_ui->iconLabel->style()->pixelMetric(QStyle::PM_ButtonMargin));
         d->m_ui->iconLabel->setFixedSize(bsize, bsize);
-        d->m_ui->iconLabel->setPixmap(QIcon::fromTheme(iconStr).pixmap(48));
+        d->m_ui->iconLabel->setPixmap(QIcon::fromTheme(iconStr, QIcon::fromTheme(QStringLiteral("unknown"))).pixmap(48));
     }
 
     KFileItemListProperties itemList(KFileItemList{firstItem});
