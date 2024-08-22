@@ -257,7 +257,9 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList{QStringLiteral("folder"), QStringLiteral("image")});
+        d->enabledPlugins =
+            globalConfig.readEntry("Plugins",
+                                   QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
     }
 
     // Return to event loop first, determineNextFile() might delete this;
@@ -1028,7 +1030,14 @@ QStringList PreviewJob::availablePlugins()
 
 QStringList PreviewJob::defaultPlugins()
 {
-    return defaultRegistries().keys();
+    const QStringList blacklist = QStringList() << QStringLiteral("textthumbnail");
+
+    QStringList defaultPlugins = availablePlugins();
+    for (const QString &plugin : blacklist) {
+        defaultPlugins.removeAll(plugin);
+    }
+
+    return defaultPlugins;
 }
 
 QStringList PreviewJob::supportedMimeTypes()
