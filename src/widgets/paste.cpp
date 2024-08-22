@@ -169,6 +169,9 @@ static QStringList extractFormats(const QMimeData *mimeData)
         if (format == QLatin1String("application/x-kde-suggestedfilename")) {
             continue;
         }
+        if (format == QLatin1String("application/x-kde-onlyReplaceEmpty")) { // Prevents emptying Klipper via selection
+            continue;
+        }
         if (format.startsWith(QLatin1String("application/x-qt-"))) { // Qt-internal
             continue;
         }
