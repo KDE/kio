@@ -193,7 +193,7 @@ public:
                 auto handledMimes = thumbnailer.second.mimetypes;
                 for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
                     for (const auto &mime : handledMimes) {
-                        if (plugin.supportsMimeType(mime)) {
+                        if (plugin.mimeTypes().contains(mime)) {
                             handledMimes.removeOne(mime);
                         }
                     }
