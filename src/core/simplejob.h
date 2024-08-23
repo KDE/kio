@@ -54,6 +54,7 @@ public:
      * Returns the SimpleJob's URL
      * @return the url
      */
+    // TODO remove const & in return type
     const QUrl &url() const;
 
     /**

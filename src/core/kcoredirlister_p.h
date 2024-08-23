@@ -275,6 +275,7 @@ private:
     void stopListJob(const QUrl &url, bool silent);
 
     KIO::ListJob *jobForUrl(const QUrl &url, KIO::ListJob *not_job = nullptr);
+    // TODO remove const & in return type
     const QUrl &joburl(KIO::ListJob *job);
 
     void killJob(KIO::ListJob *job);

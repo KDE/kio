@@ -1664,8 +1664,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     Q_ASSERT(j);
     KIO::ListJob *job = static_cast<KIO::ListJob *>(j);
 
-    QUrl jobUrl(joburl(job));
-    jobUrl = jobUrl.adjusted(QUrl::StripTrailingSlash); // need remove trailing slashes again, in case of redirections
+    const QUrl jobUrl = joburl(job).adjusted(QUrl::StripTrailingSlash); // need remove trailing slashes again, in case of redirections
 
     qCDebug(KIO_CORE_DIRLISTER) << "finished update" << jobUrl;
 

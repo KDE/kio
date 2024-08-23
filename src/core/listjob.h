@@ -41,6 +41,7 @@ public:
      * was no redirection.
      * @return the redirection url
      */
+    // TODO remove const & in return type
     const QUrl &redirectionUrl() const;
 
     /**
