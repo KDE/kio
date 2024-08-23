@@ -105,10 +105,21 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
     QMimeDatabase db;
     QStringList formatLabels;
     formatLabels.reserve(formats.size());
+    const bool hasSuggestedFileName = !suggestedFileName.isEmpty();
+    int suggestedIndex = -1;
     for (int i = 0; i < formats.size(); ++i) {
         const QString &fmt = formats[i];
         QMimeType mime = db.mimeTypeForName(fmt);
         if (mime.isValid()) {
+            if (suggestedIndex < 0 && hasSuggestedFileName) {
+                const auto suffixes = mime.suffixes();
+                for (const auto &suffix : suffixes) {
+                    if (suggestedFileName.endsWith(suffix)) {
+                        suggestedIndex = i;
+                        break;
+                    }
+                }
+            }
             formatLabels.append(i18n("%1 (%2)", mime.comment(), fmt));
         } else {
             formatLabels.append(fmt);
@@ -120,7 +131,7 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
         dialogText = i18n("Filename for clipboard content:");
     }
 
-    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, widget);
+    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, std::max(0, suggestedIndex), widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();

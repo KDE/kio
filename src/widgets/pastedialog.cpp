@@ -17,7 +17,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &items, QWidget *parent)
+KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &items, int index, QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(title);
@@ -43,6 +43,7 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
     layout->addWidget(new QLabel(i18n("Data format:"), frame));
     m_comboBox = new QComboBox(frame);
     m_comboBox->addItems(items);
+    m_comboBox->setCurrentIndex(index);
     layout->addWidget(m_comboBox);
 
     layout->addStretch();
