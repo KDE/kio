@@ -8,12 +8,6 @@
 #ifndef OPENFILEMANAGERWINDOWJOB_P_H
 #define OPENFILEMANAGERWINDOWJOB_P_H
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
-#define USE_DBUS 1
-#else
-#define USE_DBUS 0
-#endif
-
 #include <KJob>
 
 namespace KIO
@@ -43,7 +37,7 @@ protected:
     OpenFileManagerWindowJob *m_job;
 };
 
-#if USE_DBUS
+#ifdef WITH_QTDBUS
 class OpenFileManagerWindowDBusStrategy : public AbstractOpenFileManagerWindowStrategy
 {
 public:
