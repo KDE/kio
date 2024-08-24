@@ -830,6 +830,10 @@ QDir KIO::PreviewJobPrivate::createTemporaryDir()
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
+
+    QFileInfo info(pixPath);
+    Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
+
     state = PreviewJobPrivate::STATE_CREATETHUMB;
 
     bool save = bSave && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !sequenceIndex;
