@@ -847,6 +847,10 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
+
+    QFileInfo info(pixPath);
+    Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable("path is not absolute: " + info.path()));
+
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
