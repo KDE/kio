@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-23 00:37+0000\n"
-"PO-Revision-Date: 2024-08-03 13:08+0100\n"
+"PO-Revision-Date: 2024-08-24 12:05+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -4902,12 +4902,10 @@ msgid "&Move Here"
 msgstr "&Move Here"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Downloads"
+msgstr "&Download Here"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
