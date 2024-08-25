@@ -35,11 +35,6 @@ static inline Worker *jobSWorker(SimpleJob *job)
     return SimpleJobPrivate::get(job)->m_worker;
 }
 
-static inline int jobCommand(SimpleJob *job)
-{
-    return SimpleJobPrivate::get(job)->m_command;
-}
-
 static inline void startJob(SimpleJob *job, Worker *worker)
 {
     SimpleJobPrivate::get(job)->start(worker);
