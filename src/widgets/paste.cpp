@@ -198,8 +198,13 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, cons
     if (mimeData->hasText()) {
         ba = mimeData->text().toLocal8Bit(); // encoding OK?
     } else {
-        const QStringList formats = extractFormats(mimeData);
-        if (formats.isEmpty()) {
+        auto formats = extractFormats(mimeData);
+        const auto firstFormat = formats.value(0);
+        // Remove formats that shouldn't be in the dialog
+        erase_if(formats, [](const QString &string) -> bool {
+            return string.startsWith(u"application/x-kde-");
+        });
+        if (formats.isEmpty() && firstFormat.isEmpty()) {
             return nullptr;
         } else if (formats.size() > 1) {
             QUrl newUrl;
@@ -209,7 +214,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, cons
             }
             return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
         }
-        ba = mimeData->data(formats.first());
+        ba = mimeData->data(firstFormat);
     }
     if (ba.isEmpty()) {
         return nullptr;
