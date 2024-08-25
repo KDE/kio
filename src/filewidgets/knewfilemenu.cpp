@@ -977,29 +977,8 @@ static QStringList getHomeTemplateFilePaths()
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
-    // TODO KF6, use QStandardPaths::TemplatesLocation
-#ifdef Q_OS_UNIX
-    QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
-    QFile xdgUserDirsFile(xdgUserDirs);
-    if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        static const QLatin1String marker("XDG_TEMPLATES_DIR=");
-        QString line;
-        QTextStream in(&xdgUserDirsFile);
-        while (!in.atEnd()) {
-            line.clear();
-            in.readLineInto(&line);
-            if (line.startsWith(marker)) {
-                // E.g. XDG_TEMPLATES_DIR="$HOME/templates" -> $HOME/templates
-                line.remove(0, marker.size()).remove(QLatin1Char('"'));
-                line.replace(QLatin1String("$HOME"), QDir::homePath());
-                if (QDir(line).exists()) {
-                    list << line;
-                }
-                break;
-            }
-        }
-    }
-#endif
+    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
+    list << templateFolder;
     return list;
 }
 
