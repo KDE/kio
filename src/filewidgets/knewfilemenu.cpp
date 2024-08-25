@@ -1012,7 +1012,8 @@ void KNewFileMenuPrivate::slotFillTemplates()
     // Look into "templates" dirs.
     QStringList files = getTemplateFilePaths(templates);
     auto removeFunc = [](const QString &path) {
-        return path.startsWith(QLatin1Char('.'));
+        QFileInfo fileinfo(path);
+        return fileinfo.fileName().startsWith(QLatin1Char('.'));
     };
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
