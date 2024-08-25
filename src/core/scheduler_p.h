@@ -8,7 +8,7 @@
 #ifndef SCHEDULER_P_H
 #define SCHEDULER_P_H
 
-#include "kiocore_export.h"
+#include "worker_p.h"
 
 #include <QSet>
 #include <QTimer>
