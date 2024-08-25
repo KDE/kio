@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:37+0000\n"
-"PO-Revision-Date: 2024-07-27 14:20+0200\n"
+"POT-Creation-Date: 2024-08-23 00:37+0000\n"
+"PO-Revision-Date: 2024-08-22 22:54+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -379,7 +379,7 @@ msgstr ""
 "Radikaj privilegioj estas postulataj por kompletigi renomadon. Ĉu vi volas "
 "daŭrigi?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2549,7 +2549,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ne povas trovi 'kioworker' ruleblan ĉe '%1'"
 
 #: core/workerinterface.cpp:360 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "&Detaloj"
@@ -2642,7 +2642,7 @@ msgstr "Nova Dosierujo…"
 
 #: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Movi al Rubujo"
@@ -3210,7 +3210,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#: widgets/kpropertiesdialogbuiltin_p.cpp:661
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3642,39 +3642,39 @@ msgstr ""
 "filtrilon rekte en la tekstan areon.</p><p>Ĝojkartoj kiel * kaj ? estas "
 "permesitaj.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:432
+#: filewidgets/knewfilemenu.cpp:440
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Krei Novan Dosieron"
 
-#: filewidgets/knewfilemenu.cpp:472
+#: filewidgets/knewfilemenu.cpp:480
 #, kde-format
 msgid "Sorry"
 msgstr "Pardonu"
 
-#: filewidgets/knewfilemenu.cpp:483
+#: filewidgets/knewfilemenu.cpp:491
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>La ŝablono dosiero <b>%1</b> ne ekzistas.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
+#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nomo por nova ligilo:"
 
-#: filewidgets/knewfilemenu.cpp:698
+#: filewidgets/knewfilemenu.cpp:706
 #, kde-format
 msgid "Create link to URL"
 msgstr "Krei ligon al URL"
 
-#: filewidgets/knewfilemenu.cpp:739 filewidgets/knewfilemenu.cpp:794
+#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1149
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3684,7 +3684,7 @@ msgstr ""
 "La nomo <filename>%1</filename> ne povas esti uzata ĉar ĝi estas rezervita "
 "por uzo de la operaciumo."
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3694,7 +3694,7 @@ msgstr ""
 "La nomo <filename>%1</filename> komenciĝas per punkto, do ĝi estos kaŝita "
 "defaŭlte."
 
-#: filewidgets/knewfilemenu.cpp:1163
+#: filewidgets/knewfilemenu.cpp:1165
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3706,28 +3706,28 @@ msgstr ""
 "montrita antaŭ aliaj eroj dum ordigo alfabete, inter aliaj eventualaj "
 "strangaĵoj."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Uzi oblikvojn en dosierujoj kreos subdosierujojn, jene:"
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Uzado de oblikvoj en dosierujoj kreos subdosierujojn."
 
-#: filewidgets/knewfilemenu.cpp:1203
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Oblikvoj ne povas esti uzataj en nomoj de dosieroj kaj dosierujoj."
 
-#: filewidgets/knewfilemenu.cpp:1208
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Malantaŭoblikvoj ne povas esti uzataj en nomoj de dosieroj kaj dosierujoj."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3736,41 +3736,41 @@ msgstr ""
 "Komenci dosieron aŭ dosierujon per tildo ne estas rekomendita ĉar ĝi povas "
 "esti konfuza aŭ danĝera kiam oni uzas la terminalon por forigi aferojn."
 
-#: filewidgets/knewfilemenu.cpp:1286
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Dosierujo kun nomo <filename>%1</filename> jam ekzistas."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Dosiero kun nomo <filename>%1</filename> jam ekzistas."
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-format
 msgid "Create New"
 msgstr "Krei Novan"
 
-#: filewidgets/knewfilemenu.cpp:1409
+#: filewidgets/knewfilemenu.cpp:1411
 #, kde-format
 msgid "Link to Device"
 msgstr "Ligo al Aparato"
 
-#: filewidgets/knewfilemenu.cpp:1455
+#: filewidgets/knewfilemenu.cpp:1457
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova Dosierujo"
 
-#: filewidgets/knewfilemenu.cpp:1478
+#: filewidgets/knewfilemenu.cpp:1480
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Krei Novan Dosierujon"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1482
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Krei novan dosierujon en %1:"
@@ -3779,7 +3779,7 @@ msgstr "Krei novan dosierujon en %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:563 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3787,34 +3787,34 @@ msgid "Copy"
 msgstr "Kopiu"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:567 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Alglui"
 
-#: filewidgets/kurlnavigator.cpp:552
+#: filewidgets/kurlnavigator.cpp:587
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Malfermu \"%1\" en Nova Langeto"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:595
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Malfermi \"%1\" en Nova Fenestro"
 
-#: filewidgets/kurlnavigator.cpp:569
+#: filewidgets/kurlnavigator.cpp:604
 #, kde-format
 msgid "Edit"
 msgstr "Redakti"
 
-#: filewidgets/kurlnavigator.cpp:572
+#: filewidgets/kurlnavigator.cpp:607
 #, kde-format
 msgid "Navigate"
 msgstr "Navigi"
 
-#: filewidgets/kurlnavigator.cpp:587
+#: filewidgets/kurlnavigator.cpp:622
 #, kde-format
 msgid "Show Full Path"
 msgstr "Montru Plenan Vojon"
@@ -4441,7 +4441,7 @@ msgid ""
 msgstr "Ĉu vi ŝatus akcepti ĉi tiun atestilon por ĉiam sen instigi?"
 
 #: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:493
+#: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "Servila Aŭtentikigo"
@@ -4907,12 +4907,10 @@ msgid "&Move Here"
 msgstr "&Movi ĉi tien"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Elŝutoj"
+msgstr "&Elŝuti Tien Ĉi"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -5053,14 +5051,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Forigi Konstante"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:250
-#: widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5082,7 +5080,7 @@ msgstr[1] ""
 "Ĉu vi vere volas porĉiame forigi ĉi %1 elementojn?<nl/><nl/><emphasis "
 "strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5092,13 +5090,13 @@ msgstr ""
 "Ĉu vi volas konstante forigi ĉiujn erojn el la Rubujo?<nl/><nl/><emphasis "
 "strong='true'>Tiu ago ne povas esti malfarebla.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Malplenigi Rubujon"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5192,7 +5190,7 @@ msgstr "Posedanto"
 msgid "Owning Group"
 msgstr "Posedanta Grupo"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid "Others"
 msgstr "Aliaj"
@@ -6033,23 +6031,23 @@ msgid "Explore in %1"
 msgstr "Esploru en %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:428
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:701
 #, kde-format
 msgid "Refresh"
 msgstr "Refreŝigi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:547
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6058,138 +6056,138 @@ msgstr ""
 "Kalkulante... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
-#: widgets/kpropertiesdialogbuiltin_p.cpp:694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:681
+#: widgets/kpropertiesdialogbuiltin_p.cpp:696
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 dosiero"
 msgstr[1] "%1 dosieroj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:680
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:682
+#: widgets/kpropertiesdialogbuiltin_p.cpp:697
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 subdosiero"
 msgstr[1] "%1 subdosieroj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:710
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Kalkulante...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:731
+#: widgets/kpropertiesdialogbuiltin_p.cpp:733
 #, kde-format
 msgid "At least %1\n"
 msgstr "Almenaŭ %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:777
+#: widgets/kpropertiesdialogbuiltin_p.cpp:779
 #, kde-format
 msgid "The new file name is empty."
 msgstr "La nova dosiernomo estas malplena."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:975
+#: widgets/kpropertiesdialogbuiltin_p.cpp:977
 #, kde-format
 msgid "No registered file type"
 msgstr "Neniu registrita dosiertipo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:977
+#: widgets/kpropertiesdialogbuiltin_p.cpp:979
 #, kde-format
 msgid "No associated application"
 msgstr "Neniu rilata aplikaĵo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:983
+#: widgets/kpropertiesdialogbuiltin_p.cpp:985
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Krei…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:988
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Ŝanĝi…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "No Access"
 msgstr "Neniu Aliro"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 msgid "Can Only View"
 msgstr "Povas Nur Vidi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 msgid "Can View & Modify"
 msgstr "Povas Vidi kaj Modifi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can Only View Content"
 msgstr "Povas Nur Vidi Enhavon"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View & Modify Content"
 msgstr "Povas Vidi kaj Modifi Enhavon"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "Can Only View/Read Content"
 msgstr "Povas Nur Vidi/Legi Enhavon"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "Can View/Read & Modify/Write"
 msgstr "Povas Vidi/Legi kaj Modifi/Skribi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1159
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1161
 #, kde-format
 msgid "&Permissions"
 msgstr "&Permesoj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1171
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Access Permissions"
 msgstr "Alirpermesoj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Ĉi tiu dosiero estas ligilo kaj ne havas permesojn."
 msgstr[1] "Ĉiuj dosieroj estas ligiloj kaj ne havas permesojn."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1184
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Nur la posedanto povas ŝanĝi permesojn."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
 #, kde-format
 msgid "O&wner:"
 msgstr "&Posedanto:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Specifas la agojn, kiujn la posedanto rajtas fari."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&upo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Specifas la agojn, kiujn la membroj de la grupo rajtas fari."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
 msgid "O&thers:"
 msgstr "A&liaj:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6198,17 +6196,17 @@ msgstr ""
 "Specifas la agojn, kiujn ĉiuj uzantoj, kiuj estas nek posedantoj nek en la "
 "grupo, rajtas fari."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "Nur pos&edanto povas renomi kaj forigi enhavon de dosierujo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Is &executable"
 msgstr "Estas &efektivigebla"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6219,7 +6217,7 @@ msgstr ""
 "aŭ renomi la enhavitajn dosierojn kaj dosierujojn. Aliaj uzantoj povas nur "
 "aldoni novajn dosierojn, kio postulas la permeson 'Modifi Enhavon'."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6229,42 +6227,42 @@ msgstr ""
 "havas sencon por programoj kaj skriptoj. Ĝi estas postulata kiam vi volas "
 "efektivigi ilin."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "A&ltnivelaj Permesiloj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1237
 #, kde-format
 msgid "Ownership"
 msgstr "Posedo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
 msgid "User:"
 msgstr "Uzanto:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1283
 #, kde-format
 msgid "Group:"
 msgstr "Grupo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1318
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Apliki ŝanĝojn al ĉiuj subdosierujoj kaj ilia enhavo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Altnivelaj Permesiloj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1375
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "Class"
 msgstr "Klaso"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid ""
 "Show\n"
@@ -6273,22 +6271,22 @@ msgstr ""
 "Montru\n"
 "Enskribojn"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ĉi tiu flago permesas vidi la enhavon de la dosierujo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "Read"
 msgstr "Legu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "La flago Read permesas vidi la enhavon de la dosiero."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "Write\n"
@@ -6297,7 +6295,7 @@ msgstr ""
 "Skribu\n"
 "Enskribojn"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6306,43 +6304,43 @@ msgstr ""
 "Ĉi tiu flago permesas aldoni, renomi kaj forigi dosierojn. Notu, ke forigo "
 "kaj renomado povas esti limigitaj per la Gluita flago."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Write"
 msgstr "Skribi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "La Skriba flago permesas modifi la enhavon de la dosiero."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Enigu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Ebligu ĉi tiun flagon por permesi eniri la dosierujon."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Exec"
 msgstr "Exec"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Ebligu ĉi tiun flagon por permesi plenumi la dosieron kiel programo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgid "Special"
 msgstr "Speciala"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6351,7 +6349,7 @@ msgstr ""
 "Speciala flago. Valida por la tuta dosierujo, la ĝusta signifo de la flago "
 "videblas en la dekstra kolumno."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1427
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6360,17 +6358,17 @@ msgstr ""
 "Speciala flago. La preciza signifo de la flago videblas en la dekstra "
 "kolumno."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1432
 #, kde-format
 msgid "User"
 msgstr "Uzanto"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
 #, kde-format
 msgid "Group"
 msgstr "Grupo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1447
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6379,7 +6377,7 @@ msgstr ""
 "Se ĉi tiu flago estas agordita, la posedanto de ĉi tiu dosierujo estos la "
 "posedanto de ĉiuj novaj dosieroj."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6388,7 +6386,7 @@ msgstr ""
 "Se ĉi tiu dosiero estas efektivigebla kaj la flago estas metita, ĝi estos "
 "efektivigita kun la permesoj de la posedanto."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1458
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6396,7 +6394,7 @@ msgstr ""
 "Se ĉi tiu flago estas agordita, la grupo de ĉi tiu dosierujo estos agordita "
 "por ĉiuj novaj dosieroj."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6405,7 +6403,7 @@ msgstr ""
 "Se ĉi tiu dosiero estas plenumebla kaj la flago estas metita, ĝi estos "
 "efektivigita kun la permesoj de la grupo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1469
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6415,7 +6413,7 @@ msgstr ""
 "povas forigi aŭ renomi dosierojn. Alie ĉiuj kun skriba permesoj povas fari "
 "tion."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6424,89 +6422,89 @@ msgstr ""
 "La Sticky flago sur dosiero estas ignorita en Linukso, sed povas esti uzata "
 "en iuj sistemoj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
 msgid "Set UID"
 msgstr "Agordi UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1539
 #, kde-format
 msgid "Set GID"
 msgstr "Agordi GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1543
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Glueca"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1648
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1650
 #, kde-format
 msgid "Link"
 msgstr "Ligo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1670
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Varianta (Neniu Ŝanĝo)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1779
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1781
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Ĉi tiu dosiero uzas altnivelajn permesojn."
 msgstr[1] "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1801
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1803
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Ĉi tiu dosierujo uzas altnivelajn permesojn."
 msgstr[1] "Ĉi tiuj dosierujoj uzas altnivelajn permesojn."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1815
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1817
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2053
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2055
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Kontrolsumoj"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2118
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2129
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2140
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2151
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2120
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2131
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2142
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2153
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Kalkulante…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2307
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2309
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Nevalida kontrolsumo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2310
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2312
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "La donita enigo ne estas valida MD5, SHA1 aŭ SHA256-kontrolsumo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2321
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Checksums match."
 msgstr "Kontrolsumoj kongruas."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "La komputita kontrolsumo kaj la atendata kontrolsumo kongruas."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2336
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2338
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6517,30 +6515,30 @@ msgstr ""
 "la dosieron.<br/>Se la konfirmo ankoraŭ malsukcesas, kontaktu la fonton de "
 "la dosiero."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "La kalkulita kontrolsumo kaj la atendata kontrolsumo malsamas."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2349
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Konfirmante kontrolsumon…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2433
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2507
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2778
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2509
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2780
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6548,27 +6546,27 @@ msgstr ""
 "Ne eblis konservi ecojn. Nur enskriboj sur lokaj dosiersistemoj estas "
 "subtenataj."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2578
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2580
 #, kde-format
 msgid "&Application"
 msgstr "&Apliko"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2718
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2720
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Aldonu DosierTipon por %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Elektu unu aŭ plurajn dosiertipojn por aldoni:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2859
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Nur plenumeblaj sur lokaj dosiersistemoj estas subtenataj."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2873
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Altnivelaj Opcioj por %1"
@@ -7095,7 +7093,7 @@ msgstr ""
 "La fora gastiganto sendis neniujn SSL-atestilojn.\n"
 "Malsukcesas ĉar la identeco de la gastiganto ne povas esti establita."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7104,7 +7102,7 @@ msgstr ""
 "La servilo malsukcesis la kontrolon de aŭtentikeco (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:238
+#: widgets/widgetsaskuseractionhandler.cpp:234
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7116,7 +7114,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Tiu ago ne estas malfarebla.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7132,7 +7130,7 @@ msgstr[1] ""
 "Ĉu vi vere volas porĉiame forigi ĉi %1 elementojn?<nl/><nl/><emphasis "
 "strong='true'>Tiu ago ne estas malfarebla.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7144,7 +7142,7 @@ msgstr ""
 "Konstante forigi ĝin anstataŭe?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:264
+#: widgets/widgetsaskuseractionhandler.cpp:260
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7164,7 +7162,7 @@ msgstr[1] ""
 "porĉiame forigi ilin anstataŭe?<nl/><nl/><emphasis strong='true'>Tiu ago ne "
 "estas malfarebla.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:292
+#: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7172,30 +7170,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ĉu vi vere volas movi ĉi %1 elementon al rubujo?"
 msgstr[1] "Ĉu vi vere volas movi ĉi %1 elementojn al rubujo?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:343
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ne demandu denove"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ne demandu denove"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:412
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Ne montru ĉi tiun mesaĝon denove"
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:547
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La kunula SSL-atestĉeno ŝajnas esti difektita."
 
-#: widgets/widgetsaskuseractionhandler.cpp:554
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

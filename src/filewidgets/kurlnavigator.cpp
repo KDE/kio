@@ -43,6 +43,7 @@
 
 #include <algorithm>
 #include <numeric>
+#include <optional>
 
 using namespace KDEPrivate;
 
@@ -67,12 +68,15 @@ public:
         }
     }
 
+    enum class ApplyUrlMethod { Apply, Tab, ActiveTab, NewWindow };
+
     /** Applies the edited URL in m_pathBox to the URL navigator */
-    void applyUncommittedUrl();
+    void applyUncommittedUrl(ApplyUrlMethod method);
     void slotApplyUrl(QUrl url);
-    // Returns true if "text" matched a URI filter (i.e. was fitlered),
-    // otherwise returns false
-    bool slotCheckFilters(const QString &text);
+
+    // Returns the URI if "text" matched a URI filter (i.e. was fitlered),
+    // otherwise returns nullopt.
+    std::optional<QUrl> checkFilters(const QString &text);
 
     void slotReturnPressed();
     void slotSchemeChanged(const QString &);
@@ -321,7 +325,7 @@ void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
     m_pathBox->setUrl(q->locationUrl());
 }
 
-bool KUrlNavigatorPrivate::slotCheckFilters(const QString &text)
+std::optional<QUrl> KUrlNavigatorPrivate::checkFilters(const QString &text)
 {
     KUriFilterData filteredData(text);
     filteredData.setCheckForExecutables(false);
@@ -329,22 +333,40 @@ bool KUrlNavigatorPrivate::slotCheckFilters(const QString &text)
     const auto filtersList = QStringList{QStringLiteral("kshorturifilter")};
     const bool wasFiltered = KUriFilter::self()->filterUri(filteredData, filtersList);
     if (wasFiltered) {
-        slotApplyUrl(filteredData.uri()); // The text was filtered
+        return filteredData.uri(); // The text was filtered
     }
-    return wasFiltered;
+    return std::nullopt;
 }
 
-void KUrlNavigatorPrivate::applyUncommittedUrl()
+void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
 {
     const QString text = m_pathBox->currentText().trimmed();
     QUrl url = q->locationUrl();
+
+    auto applyUrl = [this, method](const QUrl &url) {
+        switch (method) {
+        case ApplyUrlMethod::Apply:
+            slotApplyUrl(url);
+            break;
+        case ApplyUrlMethod::Tab:
+            Q_EMIT q->tabRequested(url);
+            break;
+        case ApplyUrlMethod::ActiveTab:
+            Q_EMIT q->activeTabRequested(url);
+            break;
+        case ApplyUrlMethod::NewWindow:
+            Q_EMIT q->newWindowRequested(url);
+            break;
+        }
+    };
 
     // Using the stat job below, check if the url and text match a local dir; but first
     // handle a special case where "url" is empty in the unittests which use
     // KUrlNavigator::setLocationUrl(QUrl()); in practice (e.g. in Dolphin, or KFileWidget),
     // locationUrl() is never empty
     if (url.isEmpty() && !text.isEmpty()) {
-        if (slotCheckFilters(text)) {
+        if (const auto filteredUrl = checkFilters(text); filteredUrl) {
+            applyUrl(*filteredUrl);
             return;
         }
     }
@@ -360,32 +382,45 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
     auto *job = KIO::stat(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
-    q->connect(job, &KJob::result, q, [this, job, text]() {
+    q->connect(job, &KJob::result, q, [this, job, text, applyUrl]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.:
         // - typing "bar" while at "/path/to/foo" ---> "/path/to/foo/bar/"
         // - typing ".config" while at "/home/foo" ---> "/home/foo/.config"
         if (!job->error() && job->statResult().isDir()) {
-            slotApplyUrl(job->url());
+            applyUrl(job->url());
             return;
         }
 
         // Check if text matches a URI filter
-        if (slotCheckFilters(text)) {
+        if (const auto filteredUrl = checkFilters(text); filteredUrl) {
+            applyUrl(*filteredUrl);
             return;
         }
 
         // ... otherwise fallback to whatever QUrl::fromUserInput() returns
-        slotApplyUrl(QUrl::fromUserInput(text));
+        applyUrl(QUrl::fromUserInput(text));
     });
 }
 
 void KUrlNavigatorPrivate::slotReturnPressed()
 {
-    applyUncommittedUrl();
+    const auto keyboardModifiers = QApplication::keyboardModifiers();
 
-    Q_EMIT q->returnPressed();
+    if (keyboardModifiers & Qt::AltModifier) {
+        if (keyboardModifiers & Qt::ShiftModifier) {
+            applyUncommittedUrl(ApplyUrlMethod::Tab);
+        } else {
+            applyUncommittedUrl(ApplyUrlMethod::ActiveTab);
+        }
+    } else if (keyboardModifiers & Qt::ShiftModifier) {
+        applyUncommittedUrl(ApplyUrlMethod::NewWindow);
+    } else {
+        applyUncommittedUrl(ApplyUrlMethod::Apply);
 
-    if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+        Q_EMIT q->returnPressed();
+    }
+
+    if (keyboardModifiers & Qt::ControlModifier) {
         // Pressing Ctrl+Return automatically switches back to the breadcrumb mode.
         // The switch must be done asynchronously, as we are in the context of the
         // editor.
@@ -476,7 +511,7 @@ void KUrlNavigatorPrivate::openPathSelectorMenu()
 void KUrlNavigatorPrivate::slotToggleEditableButtonPressed()
 {
     if (m_editable) {
-        applyUncommittedUrl();
+        applyUncommittedUrl(ApplyUrlMethod::Apply);
     }
 
     switchView();
@@ -1165,6 +1200,17 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
             button->setShowMnemonic(false);
         }
         break;
+
+    // Avoid the "Properties" action from triggering instead of new tab.
+    case QEvent::ShortcutOverride: {
+        auto *keyEvent = static_cast<QKeyEvent *>(event);
+        if ((keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return)
+            && (keyEvent->modifiers() & Qt::AltModifier || keyEvent->modifiers() & Qt::ShiftModifier)) {
+            event->accept();
+            return true;
+        }
+        break;
+    }
 
     default:
         break;

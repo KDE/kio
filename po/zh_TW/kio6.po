@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:37+0000\n"
+"POT-Creation-Date: 2024-08-23 00:37+0000\n"
 "PO-Revision-Date: 2024-08-15 05:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -362,7 +362,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "完成重新命名需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2410,7 +2410,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "在 '%1' 找不到 'kioworker' 執行檔"
 
 #: core/workerinterface.cpp:360 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "詳細資料(&D)"
@@ -2503,7 +2503,7 @@ msgstr "新資料夾…"
 
 #: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "移到垃圾桶"
@@ -3064,7 +3064,7 @@ msgid "%1: %2"
 msgstr "%1：%2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#: widgets/kpropertiesdialogbuiltin_p.cpp:661
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3474,39 +3474,39 @@ msgstr ""
 "以從下拉選單中選擇預設的篩選器，或者直接在文字區域中輸入自訂的篩選器。</p><p>"
 "允許使用 * 和 ? 萬用字元。</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:432
+#: filewidgets/knewfilemenu.cpp:440
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "建立新檔案"
 
-#: filewidgets/knewfilemenu.cpp:472
+#: filewidgets/knewfilemenu.cpp:480
 #, kde-format
 msgid "Sorry"
 msgstr "抱歉"
 
-#: filewidgets/knewfilemenu.cpp:483
+#: filewidgets/knewfilemenu.cpp:491
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>樣本檔 <b>%1</b> 不存在。</qt>"
 
-#: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
+#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
 #, kde-format
 msgid "Name for new link:"
 msgstr "新連結名稱："
 
-#: filewidgets/knewfilemenu.cpp:698
+#: filewidgets/knewfilemenu.cpp:706
 #, kde-format
 msgid "Create link to URL"
 msgstr "建立網址連結"
 
-#: filewidgets/knewfilemenu.cpp:739 filewidgets/knewfilemenu.cpp:794
+#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1149
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3516,7 +3516,7 @@ msgstr ""
 "無法使用 <filename>%1</filename> 名稱，<nl/>因為這個檔案名稱被作業系統作為保"
 "留用途。"
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3524,7 +3524,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> 名稱是以點 (.) 開頭的，因此預設會被隱藏起來。"
 
-#: filewidgets/knewfilemenu.cpp:1163
+#: filewidgets/knewfilemenu.cpp:1165
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3535,27 +3535,27 @@ msgstr ""
 "此名稱 <filename>%1</filename> 以空白字元開頭，會造成它在依名稱排序時出現在其"
 "他項目前，以及其他可能發生的怪現象。"
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾，類似："
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾。"
 
-#: filewidgets/knewfilemenu.cpp:1203
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "斜槓 (/) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1208
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "反斜槓 (\\) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3564,41 +3564,41 @@ msgstr ""
 "不建議使用波浪號 (~) 作為檔案或資料夾名稱的開頭，因為波浪號可能會在使用終端機"
 "刪除東西時產生誤解及危險。"
 
-#: filewidgets/knewfilemenu.cpp:1286
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的資料夾已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的檔案已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-format
 msgid "Create New"
 msgstr "新增"
 
-#: filewidgets/knewfilemenu.cpp:1409
+#: filewidgets/knewfilemenu.cpp:1411
 #, kde-format
 msgid "Link to Device"
 msgstr "連結到裝置"
 
-#: filewidgets/knewfilemenu.cpp:1455
+#: filewidgets/knewfilemenu.cpp:1457
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1478
+#: filewidgets/knewfilemenu.cpp:1480
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "建立新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1482
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "在 %1 建立新資料夾："
@@ -3607,7 +3607,7 @@ msgstr "在 %1 建立新資料夾："
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:563 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3615,34 +3615,34 @@ msgid "Copy"
 msgstr "複製"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:567 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "貼上"
 
-#: filewidgets/kurlnavigator.cpp:552
+#: filewidgets/kurlnavigator.cpp:587
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新分頁開啟「%1」"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:595
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新視窗開啟「%1」"
 
-#: filewidgets/kurlnavigator.cpp:569
+#: filewidgets/kurlnavigator.cpp:604
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: filewidgets/kurlnavigator.cpp:572
+#: filewidgets/kurlnavigator.cpp:607
 #, kde-format
 msgid "Navigate"
 msgstr "導覽"
 
-#: filewidgets/kurlnavigator.cpp:587
+#: filewidgets/kurlnavigator.cpp:622
 #, kde-format
 msgid "Show Full Path"
 msgstr "顯示完整路徑"
@@ -4256,7 +4256,7 @@ msgid ""
 msgstr "您希望以後不提示就接受該憑證嗎？"
 
 #: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:493
+#: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "伺服端認證"
@@ -4855,14 +4855,14 @@ msgstr ""
 "><emphasis strong='true'>此動作無法復原。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
 msgstr "永久刪除"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:250
-#: widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -4881,7 +4881,7 @@ msgstr[0] ""
 "您要從垃圾桶中永久刪除 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動作"
 "無法復原。</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4891,13 +4891,13 @@ msgstr ""
 "您要從垃圾桶中永久刪除所有的項目嗎？<nl/><nl/><emphasis strong='true'>此動作"
 "無法復原。</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "清空垃圾桶"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4989,7 +4989,7 @@ msgstr "擁有者"
 msgid "Owning Group"
 msgstr "擁有群組"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid "Others"
 msgstr "其他"
@@ -5804,23 +5804,23 @@ msgid "Explore in %1"
 msgstr "在 %1 瀏覽"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:428
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:701
 #, kde-format
 msgid "Refresh"
 msgstr "更新"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:547
 #, kde-format
 msgid "%1:"
 msgstr "%1："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -5829,152 +5829,152 @@ msgstr ""
 "計算中... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
-#: widgets/kpropertiesdialogbuiltin_p.cpp:694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:681
+#: widgets/kpropertiesdialogbuiltin_p.cpp:696
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 個檔案"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:680
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:682
+#: widgets/kpropertiesdialogbuiltin_p.cpp:697
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 個子資料夾"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:710
 #, kde-format
 msgid "Calculating...\n"
 msgstr "計算中…\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:731
+#: widgets/kpropertiesdialogbuiltin_p.cpp:733
 #, kde-format
 msgid "At least %1\n"
 msgstr "至少 %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:777
+#: widgets/kpropertiesdialogbuiltin_p.cpp:779
 #, kde-format
 msgid "The new file name is empty."
 msgstr "新的檔案名稱是空的。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:975
+#: widgets/kpropertiesdialogbuiltin_p.cpp:977
 #, kde-format
 msgid "No registered file type"
 msgstr "沒有定義檔案類型"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:977
+#: widgets/kpropertiesdialogbuiltin_p.cpp:979
 #, kde-format
 msgid "No associated application"
 msgstr "沒有相關的應用程式"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:983
+#: widgets/kpropertiesdialogbuiltin_p.cpp:985
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "建立…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:988
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "變更…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "No Access"
 msgstr "無法存取"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 msgid "Can Only View"
 msgstr "只能檢視"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 msgid "Can View & Modify"
 msgstr "可以檢視與修改"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can Only View Content"
 msgstr "只能檢視內容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View & Modify Content"
 msgstr "可以檢視 & 修改內容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "Can Only View/Read Content"
 msgstr "只能檢視 / 讀取內容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "Can View/Read & Modify/Write"
 msgstr "可以檢視/讀取 & 修改/寫入"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1159
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1161
 #, kde-format
 msgid "&Permissions"
 msgstr "權限(&P)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1171
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Access Permissions"
 msgstr "存取權限"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "所有的檔案都是連結而沒有權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1184
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "只有擁有者可以變更權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
 #, kde-format
 msgid "O&wner:"
 msgstr "擁有者(&W)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "指定擁有者被允許進行的動作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
 #, kde-format
 msgid "Gro&up:"
 msgstr "群組(&U)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "指定群組的成員被允許進行的動作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
 msgid "O&thers:"
 msgstr "其他(&T)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "指定所有既非擁有者也不在群組中的使用者被允許進行的動作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "只有擁有者可以重新命名與刪除資料夾內容(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Is &executable"
 msgstr "是可執行檔(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -5984,7 +5984,7 @@ msgstr ""
 "啟用此選項將指允許資料夾的擁有者可以刪除或重新命名包含的檔案與資料夾。其他的"
 "使用者只能加入新的檔案，但必須具有「編輯內容」的權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -5993,42 +5993,42 @@ msgstr ""
 "啟用此選項會將檔案標示為可執行。這只對程式與命令稿有意義。當您要執行它們的時"
 "候，這是必須的。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "進階權限(&D)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1237
 #, kde-format
 msgid "Ownership"
 msgstr "擁有權"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
 msgid "User:"
 msgstr "使用者："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1283
 #, kde-format
 msgid "Group:"
 msgstr "群組："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1318
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "套用改變到所有的子資料夾和它們的內容"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "進階權限"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1375
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "Class"
 msgstr "類別"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid ""
 "Show\n"
@@ -6037,22 +6037,22 @@ msgstr ""
 "顯示\n"
 "項目"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "這個旗標允許檢視此資料夾的內容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "Read"
 msgstr "讀取"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "讀取旗標允許檢視這個檔案的內容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "Write\n"
@@ -6061,7 +6061,7 @@ msgstr ""
 "寫入\n"
 "項目"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6070,43 +6070,43 @@ msgstr ""
 "這個旗標允許加入、重新命名與刪除檔案。注意刪除與重新命名可以使用相黏旗標來限"
 "制。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Write"
 msgstr "寫入"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "寫入旗標允許修改這個檔案的內容。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "進入"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "啟用這個旗標已允許進入此資料夾。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Exec"
 msgstr "執行"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "啟用這個旗標將允許這檔案像程式一樣執行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgid "Special"
 msgstr "特殊屬性"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6114,51 +6114,51 @@ msgid ""
 msgstr ""
 "特殊的旗標。對整個資料夾都有效，這個旗標精確的意思可以在右手邊的欄位看到。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1427
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "特殊的旗標。這個旗標精確的意思可以在右手邊的欄位看到。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1432
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
 #, kde-format
 msgid "Group"
 msgstr "群組"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1447
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr "如果設定這個旗標，此資料夾的擁有者將會成為所有新檔案的擁有者。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr "如果這個檔案是可執行檔並且設定這個旗標，它將會以擁有者的權限執行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1458
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr "如果設定這個旗標，此資料夾的群組將會設定到所有新檔案。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr "如果這個檔案是可執行檔並且設定這個旗標，它將會以群組的權限執行。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1469
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6167,94 +6167,94 @@ msgstr ""
 "如果在資料夾上設定相黏旗標，只有擁有者和 root 可以刪除或重新命名檔案。否則任"
 "何具有寫入權限的人都可以進行此項動作。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr "在檔案上的相黏旗標會被 Linux 忽略，但是可能會被某些系統使用"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
 msgid "Set UID"
 msgstr "SUID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1539
 #, kde-format
 msgid "Set GID"
 msgstr "SGID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1543
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "相黏"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1648
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1650
 #, kde-format
 msgid "Link"
 msgstr "連結"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1670
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "變化（沒有改變）"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1779
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1781
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "這些檔案使用進階權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1801
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1803
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "這些資料夾使用進階權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1815
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1817
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "這些檔案使用進階權限。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2053
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2055
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "總和檢查碼(&H)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2118
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2129
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2140
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2151
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2120
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2131
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2142
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2153
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "計算中…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2307
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2309
 #, kde-format
 msgid "Invalid checksum."
 msgstr "無效的總和檢查碼。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2310
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2312
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "給定的輸入不是有效的 MD5、SHA1 或 SHA256 總和檢查碼。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2321
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Checksums match."
 msgstr "總和檢查碼符合。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "計算出來的總和檢查碼與預期中的符合。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2336
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2338
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6264,56 +6264,56 @@ msgstr ""
 "<p>總和檢查碼不符合。</p>這可能是中間有失誤的下載所導致。請試著重新下載檔案。"
 "<br/>若驗證持續失敗，請連絡 原始檔案的提供者。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "計算出來的總和檢查碼與預期中的不同。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2349
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "正在檢查總和碼…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2433
 #, kde-format
 msgid "U&RL"
 msgstr "URL(&R)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2507
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2778
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2509
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2780
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "無法儲存屬性。只支援本地檔案系統的項目。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2578
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2580
 #, kde-format
 msgid "&Application"
 msgstr "應用程式(&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2718
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2720
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "加入 %1 的檔案類型"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "選擇一個或多個要加入的檔案類型："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2859
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支援本地檔案系統的執行檔。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2873
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的進階選項"
@@ -6824,7 +6824,7 @@ msgstr ""
 "遠端主機並未送出任何 SSL 憑證。\n"
 "因為無法建立主機身份，因此將中止。"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -6833,7 +6833,7 @@ msgstr ""
 "此伺服器憑證未能通過認證測試 (%1)。\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:238
+#: widgets/widgetsaskuseractionhandler.cpp:234
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6844,7 +6844,7 @@ msgstr ""
 "您真的要從垃圾桶中永久刪除這個項目嗎？<nl/><nl/><filename>%1</filename><nl/"
 "><nl/><emphasis strong='true'>此動作無法復原。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6857,7 +6857,7 @@ msgstr[0] ""
 "您要從垃圾桶中永久刪除這 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動"
 "作無法復原。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6869,7 +6869,7 @@ msgstr ""
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'>此動作無法復原。</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:264
+#: widgets/widgetsaskuseractionhandler.cpp:260
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6885,37 +6885,37 @@ msgstr[0] ""
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'>此動作無法復原。</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:292
+#: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "是否將這 %1 個項目移至垃圾桶？"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:343
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "不要再詢問"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "不要再詢問"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:412
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "不要再顯示此訊息"
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:547
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "對等的 SSL 憑證鍊可能損壞了。"
 
-#: widgets/widgetsaskuseractionhandler.cpp:554
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

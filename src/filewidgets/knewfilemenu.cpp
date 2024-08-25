@@ -109,11 +109,13 @@ public:
 
     struct Entry {
         QString text;
-        QString filePath;
-        QString templatePath; // same as filePath for Template
-        QString icon;
-        EntryType entryType;
-        QString comment;
+        QString filePath; /// The displayed name in the context menu and the suggested filename. When using a .desktop file this is used to refer back to
+                          /// it during parsing.
+        QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
+                              /// Same as filePath for Template.
+        QString icon; /// The icon displayed in the context menu
+        EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
+        QString comment; /// The prompt label asking for filename
         QString mimeType;
     };
     // NOTE: only filePath is known before we call parseFiles
@@ -137,6 +139,12 @@ public:
      * to templatesVersion before showing up
      */
     int templatesVersion;
+};
+
+struct EntryInfo {
+    QString key; /// Context menu order is the alphabetical order of this variable
+    QString url;
+    KNewFileMenuSingleton::Entry entry;
 };
 
 void KNewFileMenuSingleton::parseFiles()
@@ -951,12 +959,6 @@ void KNewFileMenuPrivate::slotCreateDirectory()
     }
     slotAbortDialog();
 }
-
-struct EntryInfo {
-    QString key;
-    QString url;
-    KNewFileMenuSingleton::Entry entry;
-};
 
 static QStringList getHomeTemplateFilePaths()
 {

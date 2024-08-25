@@ -45,7 +45,7 @@ public:
 
     ~OpenFileManagerWindowJobPrivate() = default;
 
-#if USE_DBUS
+#ifdef WITH_QTDBUS
     void createDBusStrategy()
     {
         strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>(q);

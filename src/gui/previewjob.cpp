@@ -193,7 +193,7 @@ public:
                 auto handledMimes = thumbnailer.second.mimetypes;
                 for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
                     for (const auto &mime : handledMimes) {
-                        if (plugin.supportsMimeType(mime)) {
+                        if (plugin.mimeTypes().contains(mime)) {
                             handledMimes.removeOne(mime);
                         }
                     }
@@ -598,6 +598,8 @@ void PreviewJob::slotResult(KJob *job)
         }
 
         if (d->statResultThumbnail()) {
+            d->succeeded = true;
+            d->determineNextFile();
             return;
         }
 
@@ -709,8 +711,6 @@ bool PreviewJobPrivate::statResultThumbnail()
 
     // Found it, use it
     emitPreview(thumb);
-    succeeded = true;
-    determineNextFile();
     return true;
 }
 
@@ -943,14 +943,13 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumb
 {
     thumbnailWorkerMetaData = job->metaData();
 
-    QImage thumb = thumbData;
-
-    if (thumb.isNull()) {
+    if (thumbData.isNull()) {
         // let succeeded in false state
         // failed will get called in determineNextFile()
         return;
     }
 
+    QImage thumb = thumbData;
     saveThumbnailData(thumb);
 
     emitPreview(thumb);
@@ -959,43 +958,29 @@ void PreviewJobPrivate::slotStandardThumbData(KIO::Job *job, const QImage &thumb
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
-    thumbnailWorkerMetaData = job->metaData();
-
     QImage thumb;
     // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
     QDataStream str(data);
-    int width;
-    int height;
-    QImage::Format format;
-    qreal imgDevicePixelRatio;
-    // TODO KF6: add a version number as first parameter
-    str >> width >> height >> format >> imgDevicePixelRatio;
+
 #if WITH_SHM
     if (shmaddr != nullptr) {
+        int width;
+        int height;
+        QImage::Format format;
+        qreal imgDevicePixelRatio;
+        // TODO KF6: add a version number as first parameter
+        str >> width >> height >> format >> imgDevicePixelRatio;
         thumb = QImage(shmaddr, width, height, format).copy();
-    } else {
+        thumb.setDevicePixelRatio(imgDevicePixelRatio);
+    }
 #endif
+
+    if (thumb.isNull()) {
+        // fallback a raw QImage
         str >> thumb;
-#if WITH_SHM
-    }
-#endif
-    thumb.setDevicePixelRatio(imgDevicePixelRatio);
-
-    if (thumb.isNull()) {
-        QDataStream s(data);
-        s >> thumb;
     }
 
-    if (thumb.isNull()) {
-        // let succeeded in false state
-        // failed will get called in determineNextFile()
-        return;
-    }
-
-    saveThumbnailData(thumb);
-
-    emitPreview(thumb);
-    succeeded = true;
+    slotStandardThumbData(job, thumb);
 }
 
 void PreviewJobPrivate::saveThumbnailData(QImage &thumb)

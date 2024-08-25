@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:37+0000\n"
+"POT-Creation-Date: 2024-08-23 00:37+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -376,7 +376,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
 #: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
@@ -2451,7 +2451,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "प्रोटोकॉल '%1' के लिए आइओ-स्लेव प्राप्त नहीं कर सका."
 
 #: core/workerinterface.cpp:360 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "विवरण (&D) "
@@ -2546,7 +2546,7 @@ msgstr "नया फ़ोल्डर"
 
 #: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:294
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "कूडे में डालें"
@@ -3156,7 +3156,7 @@ msgid "%1: %2"
 msgstr "%1 (%2)"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:659
+#: widgets/kpropertiesdialogbuiltin_p.cpp:661
 #, fuzzy, kde-format
 #| msgctxt "Available space out of total partition size (percent used)"
 #| msgid "%1 out of %2 (%3% used)"
@@ -3577,20 +3577,20 @@ msgid ""
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:432
+#: filewidgets/knewfilemenu.cpp:440
 #, fuzzy, kde-format
 #| msgid "Create new file type"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "नई फ़ाइल क़िस्में बनाएँ"
 
-#: filewidgets/knewfilemenu.cpp:472
+#: filewidgets/knewfilemenu.cpp:480
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "भंडारित करें"
 
-#: filewidgets/knewfilemenu.cpp:483
+#: filewidgets/knewfilemenu.cpp:491
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3599,24 +3599,24 @@ msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr ""
 "<qt>उल्लेखित कमांड चलाने में अक्षम. फ़ाइल या फ़ोल्डर<b>%1</b> अस्तित्व में नहीं है.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
+#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:698
+#: filewidgets/knewfilemenu.cpp:706
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create link to URL"
 msgstr "बनाएँ (&r)"
 
-#: filewidgets/knewfilemenu.cpp:739 filewidgets/knewfilemenu.cpp:794
+#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1149
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3624,7 +3624,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3632,7 +3632,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1163
+#: filewidgets/knewfilemenu.cpp:1165
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3641,74 +3641,74 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1203
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1208
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1286
+#: filewidgets/knewfilemenu.cpp:1288
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "एक पुरानी इकाई '%1' नाम से पहले ही मौज़ूद है. "
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1290
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "एक फ़ाइल %1 के नाम से पहले से ही मौज़ूद है."
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1376
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "बनाएँ (&r)"
 
-#: filewidgets/knewfilemenu.cpp:1409
+#: filewidgets/knewfilemenu.cpp:1411
 #, fuzzy, kde-format
 #| msgid "Device"
 msgid "Link to Device"
 msgstr "उपकरण"
 
-#: filewidgets/knewfilemenu.cpp:1455
+#: filewidgets/knewfilemenu.cpp:1457
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नया फ़ोल्डर"
 
-#: filewidgets/knewfilemenu.cpp:1478
+#: filewidgets/knewfilemenu.cpp:1480
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "फ़ोल्डर बना नहीं सका"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1482
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3722,7 +3722,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:528 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:563 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3730,36 +3730,36 @@ msgid "Copy"
 msgstr "नक़ल"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:532 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:567 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "चिपकाएँ"
 
-#: filewidgets/kurlnavigator.cpp:552
+#: filewidgets/kurlnavigator.cpp:587
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:595
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:569
+#: filewidgets/kurlnavigator.cpp:604
 #, kde-format
 msgid "Edit"
 msgstr "संपादन"
 
-#: filewidgets/kurlnavigator.cpp:572
+#: filewidgets/kurlnavigator.cpp:607
 #, kde-format
 msgid "Navigate"
 msgstr "नेविगेट"
 
-#: filewidgets/kurlnavigator.cpp:587
+#: filewidgets/kurlnavigator.cpp:622
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
@@ -4402,7 +4402,7 @@ msgid ""
 msgstr "क्या आप इस प्रमाणपत्र को हमेशा के लिए स्वीकृत करना चाहेंगे बिना पूछे?"
 
 #: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:493
+#: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "सर्वर प्रमाणीकरण"
@@ -5034,15 +5034,15 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:207
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:203
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "प्रविष्टि मिटाएँ"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:250
-#: widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:268
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -5061,7 +5061,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5069,14 +5069,14 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "कूड़ा"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:287
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:283
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -5181,7 +5181,7 @@ msgstr "मालिक"
 msgid "Owning Group"
 msgstr "मालिक समूह"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid "Others"
 msgstr "अन्य"
@@ -5994,25 +5994,25 @@ msgid "Explore in %1"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:428
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:701
 #, kde-format
 msgid "Refresh"
 msgstr "ताज़ा करें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:547
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgid "%1:"
 msgstr "%1 (%2)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, fuzzy, kde-format
 #| msgid "Unknown Host"
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "अज्ञात होस्ट"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6021,152 +6021,152 @@ msgstr ""
 "गणना में... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
-#: widgets/kpropertiesdialogbuiltin_p.cpp:694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:681
+#: widgets/kpropertiesdialogbuiltin_p.cpp:696
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "१ फ़ाइल"
 msgstr[1] "%1 फ़ाइलें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:680
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:682
+#: widgets/kpropertiesdialogbuiltin_p.cpp:697
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "१ उप फ़ोल्डर"
 msgstr[1] "%1 उप-फ़ोल्डर"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:710
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgid "Calculating...\n"
 msgstr "गणना में... "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:731
+#: widgets/kpropertiesdialogbuiltin_p.cpp:733
 #, fuzzy, kde-format
 #| msgid "At least %1"
 msgid "At least %1\n"
 msgstr "कम से कम %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:777
+#: widgets/kpropertiesdialogbuiltin_p.cpp:779
 #, kde-format
 msgid "The new file name is empty."
 msgstr "नया फ़ाइल नाम खाली है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:975
+#: widgets/kpropertiesdialogbuiltin_p.cpp:977
 #, fuzzy, kde-format
 #| msgid "&Supported file types:"
 msgid "No registered file type"
 msgstr "समर्थित फ़ाइल क़िस्मः (&S)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:977
+#: widgets/kpropertiesdialogbuiltin_p.cpp:979
 #, fuzzy, kde-format
 #| msgid "Choose Application"
 msgid "No associated application"
 msgstr "अनुप्रयोग चुनें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:983
+#: widgets/kpropertiesdialogbuiltin_p.cpp:985
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "सृजितः"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:988
 #, fuzzy, kde-format
 #| msgid "C&hange..."
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "बदलें... (&h)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 #, fuzzy
 #| msgid "Accessed:"
 msgid "No Access"
 msgstr "पहुंचाः"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 msgid "Can Only View"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1057
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 #, fuzzy
 #| msgid "Can View & Modify Content"
 msgid "Can View & Modify"
 msgstr "विषयवस्तु देख व बदल सकते हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 #, fuzzy
 #| msgid "Can View Content"
 msgid "Can Only View Content"
 msgstr "विषयवस्तु देख सकते हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View & Modify Content"
 msgstr "विषयवस्तु देख व बदल सकते हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 #, fuzzy
 #| msgid "Can View Content"
 msgid "Can Only View/Read Content"
 msgstr "विषयवस्तु देख सकते हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
 msgid "Can View/Read & Modify/Write"
 msgstr "देख/पढ़ व बदल/लिख सकते हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1159
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1161
 #, kde-format
 msgid "&Permissions"
 msgstr "अनुमतियाँ (&P)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1171
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Access Permissions"
 msgstr "पहुँच अनुमतियाँ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "यह फ़ाइल एक लिंक है और इसमें अनुमतियां नहीं हैं."
 msgstr[1] "सभी फ़ाइलें लिंक हैं और इनमें अनुमतियाँ नहीं हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1184
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "सिर्फ स्वामी ही अनुमतियाँ बदल सकता है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
 #, kde-format
 msgid "O&wner:"
 msgstr "स्वामीः (&w)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "उल्लेखित करता है कि स्वामी के लिए कौन सी क्रियाएँ स्वीकार्य हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
 #, kde-format
 msgid "Gro&up:"
 msgstr "समूहः (&u)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "उल्लेखित करता है कि समूह के सदस्यों के लिए कौन सी क्रियाएँ स्वीकार्य हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
 msgid "O&thers:"
 msgstr "अन्यः (&t)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6175,17 +6175,17 @@ msgstr ""
 "निर्धारित करता है कि क्रियाएँ जो सभी उपयोक्ता जो कि न तो मालिक हैं और न ही समूह में हैं, "
 "कार्य हेतु स्वीकृत हैं"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "सिर्फ स्वामी ही फ़ोल्डर की वस्तुओं को मिटा सकता है या नाम बदल सकता है (&e)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Is &executable"
 msgstr "चलाने योग्य है (&e)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6193,49 +6193,49 @@ msgid ""
 "requires the 'Modify Content' permission."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "विस्तृत अनुमतियाँ (&d)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1237
 #, kde-format
 msgid "Ownership"
 msgstr "स्वामित्व"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
 msgid "User:"
 msgstr "उपयोक्ता:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1283
 #, kde-format
 msgid "Group:"
 msgstr "समूहः"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1318
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "परिवर्तनों को सभी सब-फ़ोल्डर तथा उनके वस्तुओं में लागू करें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "विस्तृत अनुमतियाँ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1375
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "Class"
 msgstr "वर्ग"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid ""
 "Show\n"
@@ -6244,22 +6244,22 @@ msgstr ""
 "दिखाएँ\n"
 "प्रविष्टियाँ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "यह फ्लेग फ़ोल्डर के वस्तुओं को देखने की स्वीकृति देता है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "Read"
 msgstr "पढ़ें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "रीड फ्लेग फ़ाइल की वस्तुओं को देखने की स्वीकृति देता है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "Write\n"
@@ -6268,7 +6268,7 @@ msgstr ""
 "लिखें\n"
 "प्रविष्टियाँ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6277,43 +6277,43 @@ msgstr ""
 "यह फ्लैग फ़ाइलों को जोड़ने, नाम बदलने तथा मिटाने देता है. टीप लें कि स्टिकी फ्लैग के प्रयोग से "
 "मिटाने व नाम बदलने की प्रक्रिया सीमित हो सकती है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Write"
 msgstr "लिखें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "राइट फ्लेग फ़ाइल की वस्तुओं को परिवर्धित करने की अनुमति देता है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "प्रविष्ट करें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "फ़ोल्डर में जाने की स्वीकृति के लिए इस फ्लेग को सक्षम करें."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Exec"
 msgstr "चलाना"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "फ़ाइल को प्रोग्राम की तरह चलाने की स्वीकृति के लिए इस फ्लेग को सक्षम करें."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgid "Special"
 msgstr "विशेष"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6322,7 +6322,7 @@ msgstr ""
 "विशेष फ्लेग. समस्त फ़ोल्डर के लिए वैध, फ्लेग का सटीक अर्थ दाएँ हाथ के स्तम्भ में देखा जा सकता "
 "है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1427
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6331,17 +6331,17 @@ msgstr ""
 "विशेष फ्लेग. समस्त फ़ोल्डर के लिए वैध, फ्लेग का सटीक अर्थ दाएँ हाथ के स्तम्भ में देखा जा सकता "
 "है."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1432
 #, kde-format
 msgid "User"
 msgstr "उपयोक्ता"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
 #, kde-format
 msgid "Group"
 msgstr "समूह"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1447
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6349,7 +6349,7 @@ msgid ""
 msgstr ""
 "यदि यह फ्लेग नियत किया जाता है, इस फ़ोल्डर का स्वामी सभी नई फ़ाइलों का स्वामी होगा."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6358,7 +6358,7 @@ msgstr ""
 "यदि यह फ़ाइल एक्जीक्यूटेबल है और फ्लेग नियत किया जाता है, यह स्वामी की अनुमति से एक्जीक्यूट "
 "होगा."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1458
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6366,7 +6366,7 @@ msgstr ""
 "यदि यह फ्लेग नियत किया जाता है, इस फ़ोल्डर के समूह को सभी नई फ़ाइलों के लिए नियत किया "
 "जाएगा."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6375,7 +6375,7 @@ msgstr ""
 "यदि यह फ़ाइल एक्जीक्यूटेबल है और फ्लेग नियत किया जाता है, यह समूह की अनुमति से एक्जीक्यूट "
 "होगा."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1469
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6384,7 +6384,7 @@ msgstr ""
 "यदि फ़ोल्डर में स्टिकी फ्लैग सेट कर दिया जाएगा तो सिर्फ मालिक या रूट ही इसे मिटा या "
 "इसका नाम बदल सकेगा. अन्यथा प्रत्येक, जिसके पास लिखने की अनुमति है, वो ये कर सकेंगे."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6393,90 +6393,90 @@ msgstr ""
 "लिनक्स में फ़ाइल पर स्टिकी फ्लेग नज़रअंदाज़ किया जाता है, पर किसी तंत्र में उपयोग किया जाता "
 "होगा"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
 msgid "Set UID"
 msgstr "यूआईडी सेट करें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1539
 #, kde-format
 msgid "Set GID"
 msgstr "जीआईडी सेट करें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1543
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "स्टिकी"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1648
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1650
 #, kde-format
 msgid "Link"
 msgstr "लिंक "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1670
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "परिवर्तनीय (कोई परिवर्तन नहीं)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1779
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1781
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "यह फ़ाइल उन्नत अनुमतियाँ प्रयोग में लेता है"
 msgstr[1] "ये फ़ाइलें उन्नत अनुमतियाँ प्रयोग में लेती हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1801
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1803
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "यह फ़ोल्डर उन्नत अनुमतियाँ प्रयोग करता है."
 msgstr[1] "ये फ़ोल्डर उन्नत अनुमतियाँ प्रयोग करते हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1815
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1817
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "ये फ़ाइलें विस्तृत अनुमतियाँ उपयोग करती हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2053
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2055
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2118
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2129
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2140
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2151
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2120
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2131
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2142
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2153
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "गणना में... "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2307
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2309
 #, kde-format
 msgid "Invalid checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2310
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2312
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2321
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Checksums match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2336
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2338
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6484,57 +6484,57 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2349
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2433
 #, kde-format
 msgid "U&RL"
 msgstr "यूआरएल (&R)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "URL:"
 msgstr "यूआरएल:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2507
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2778
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2509
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2780
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "सिर्फ स्थानीय फ़ाइल तंत्र पर एक्जीक्यूटेबल समर्थित हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2578
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2580
 #, kde-format
 msgid "&Application"
 msgstr "अनुप्रयोग (&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2718
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2720
 #, kde-format
 msgid "Add File Type for %1"
 msgstr " %1 के लिए फ़ाइल क़िस्म चुनें"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "एक या अधिक फ़ाइल क़िस्म जोड़ने के लिए चुनें:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2859
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "सिर्फ स्थानीय फ़ाइल तंत्र पर एक्जीक्यूटेबल समर्थित हैं."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2873
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 के लिए विस्तृत विकल्प "
@@ -7098,7 +7098,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:486
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
 #, fuzzy, kde-format
 #| msgid "The server certificate failed the authenticity test (%1)."
 msgid ""
@@ -7106,7 +7106,7 @@ msgid ""
 "\n"
 msgstr "सर्वर प्रमाणपत्र प्रमाणीकरण जांच (%1) में सर्वर प्रमाणपत्र असफल हो गया."
 
-#: widgets/widgetsaskuseractionhandler.cpp:238
+#: widgets/widgetsaskuseractionhandler.cpp:234
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7115,7 +7115,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7127,7 +7127,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7136,7 +7136,7 @@ msgid ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:264
+#: widgets/widgetsaskuseractionhandler.cpp:260
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7150,7 +7150,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:292
+#: widgets/widgetsaskuseractionhandler.cpp:288
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -7160,31 +7160,31 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "क्या आप सचमुच इस वस्तु को मिटाना चाहते हैं?"
 msgstr[1] "क्या आप सचमुच इस वस्तु को मिटाना चाहते हैं?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:343
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:412
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:551
+#: widgets/widgetsaskuseractionhandler.cpp:547
 #, fuzzy, kde-format
 #| msgid "The peer SSL certificate appears to be corrupt."
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "पीअर एसएसएल प्रमाणपत्र प्रतीत होता है कि खराब है."
 
-#: widgets/widgetsaskuseractionhandler.cpp:554
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "SSL"
 msgstr "एसएसएल"

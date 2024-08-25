@@ -334,7 +334,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         const int bsize = 66 + (2 * d->m_ui->iconLabel->style()->pixelMetric(QStyle::PM_ButtonMargin));
         d->m_ui->iconLabel->setFixedSize(bsize, bsize);
-        d->m_ui->iconLabel->setPixmap(QIcon::fromTheme(iconStr).pixmap(48));
+        d->m_ui->iconLabel->setPixmap(QIcon::fromTheme(iconStr, QIcon::fromTheme(QStringLiteral("unknown"))).pixmap(48));
     }
 
     KFileItemListProperties itemList(KFileItemList{firstItem});
@@ -519,7 +519,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
 
     // UDSEntry extra fields
-    if (const auto extraFields = KProtocolInfo::extraFields(url); !d->bMultiple && !extraFields.isEmpty()) {
+    // To determine extra fields, use the original URL, not the mostLocalUrl.
+    // e.g. trash:/foo will point to file:/...local/share/Trash/files/foo and therefore not have any fields.
+    if (const auto extraFields = KProtocolInfo::extraFields(firstItem.url()); !d->bMultiple && !extraFields.isEmpty()) {
         int curRow = d->m_ui->gridLayout->rowCount();
         KSeparator *sep = new KSeparator(Qt::Horizontal, &d->m_mainWidget);
         d->m_ui->gridLayout->addWidget(sep, curRow++, 0, 1, 3);
