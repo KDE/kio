@@ -107,8 +107,6 @@ public:
 
     KFileItemList initialItems;
     QStringList enabledPlugins;
-    // Some plugins support remote URLs, <protocol, mimetypes>
-    QHash<QString, QStringList> m_remoteProtocolPlugins;
     // Our todo list :)
     // We remove the first item at every step, so use std::list
     std::list<PreviewItem> items;
@@ -326,26 +324,9 @@ void PreviewJobPrivate::startPreview()
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
-    QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
     // Using thumbnailer plugin
     for (const KPluginMetaData &plugin : plugins) {
-        QStringList protocols = plugin.value(QStringLiteral("X-KDE-Protocols"), QStringList());
-        const QString p = plugin.value(QStringLiteral("X-KDE-Protocol"));
-        if (!p.isEmpty()) {
-            protocols.append(p);
-        }
-        for (const QString &protocol : std::as_const(protocols)) {
-            // Add supported MIME type for this protocol
-            QStringList &_ms = m_remoteProtocolPlugins[protocol];
-            const auto mimeTypes = plugin.mimeTypes();
-            for (const QString &_m : mimeTypes) {
-                protocolMap[protocol].insert(_m, plugin);
-                if (!_ms.contains(_m)) {
-                    _ms.append(_m);
-                }
-            }
-        }
         bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
@@ -365,44 +346,36 @@ void PreviewJobPrivate::startPreview()
         const QString mimeType = item.item.mimetype();
         KPluginMetaData plugin;
 
-        // look for protocol-specific thumbnail plugins first
-        auto it = protocolMap.constFind(item.item.url().scheme());
-        if (it != protocolMap.constEnd()) {
-            plugin = it.value().value(mimeType);
+        auto pluginIt = mimeMap.constFind(mimeType);
+        if (pluginIt == mimeMap.constEnd()) {
+            // check MIME type inheritance, resolve aliases
+            QMimeDatabase db;
+            const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
+            if (mimeInfo.isValid()) {
+                const QStringList parentMimeTypes = mimeInfo.allAncestors();
+                for (const QString &parentMimeType : parentMimeTypes) {
+                    pluginIt = mimeMap.constFind(parentMimeType);
+                    if (pluginIt != mimeMap.constEnd()) {
+                        break;
+                    }
+                }
+            }
+
+            if (pluginIt == mimeMap.constEnd()) {
+                // Check the wildcards last, see BUG 453480
+                QString groupMimeType = mimeType;
+                const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
+                if (slashIdx != -1) {
+                    // Replace everything after '/' with '*'
+                    groupMimeType.truncate(slashIdx + 1);
+                    groupMimeType += QLatin1Char('*');
+                }
+                pluginIt = mimeMap.constFind(groupMimeType);
+            }
         }
 
-        if (!plugin.isValid()) {
-            auto pluginIt = mimeMap.constFind(mimeType);
-            if (pluginIt == mimeMap.constEnd()) {
-                // check MIME type inheritance, resolve aliases
-                QMimeDatabase db;
-                const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
-                if (mimeInfo.isValid()) {
-                    const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                    for (const QString &parentMimeType : parentMimeTypes) {
-                        pluginIt = mimeMap.constFind(parentMimeType);
-                        if (pluginIt != mimeMap.constEnd()) {
-                            break;
-                        }
-                    }
-                }
-
-                if (pluginIt == mimeMap.constEnd()) {
-                    // Check the wildcards last, see BUG 453480
-                    QString groupMimeType = mimeType;
-                    const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
-                    if (slashIdx != -1) {
-                        // Replace everything after '/' with '*'
-                        groupMimeType.truncate(slashIdx + 1);
-                        groupMimeType += QLatin1Char('*');
-                    }
-                    pluginIt = mimeMap.constFind(groupMimeType);
-                }
-            }
-
-            if (pluginIt != mimeMap.constEnd()) {
-                plugin = *pluginIt;
-            }
+        if (pluginIt != mimeMap.constEnd()) {
+            plugin = *pluginIt;
         }
 
         if (plugin.isValid()) {
@@ -723,25 +696,6 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     if (!localPath.isEmpty()) {
         createThumbnail(localPath);
         return;
-    }
-
-    // heuristics for remote URL support
-    const QUrl fileUrl = item.targetUrl();
-    if (!currentItem.standardThumbnailer) {
-        bool supportsProtocol = false;
-        if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
-            // There's a plugin supporting this protocol and MIME type
-            supportsProtocol = true;
-        } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
-            // Assume KIO understands any URL, ThumbCreator workers who have
-            // X-KDE-Protocols=KIO will get fed the remote URL directly.
-            supportsProtocol = true;
-        }
-
-        if (supportsProtocol) {
-            createThumbnail(fileUrl.toString());
-            return;
-        }
     }
 
     if (item.isDir()) {
