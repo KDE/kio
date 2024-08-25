@@ -218,9 +218,6 @@ qint64 Worker::worker_pid() const
 
 void Worker::setJob(KIO::SimpleJob *job)
 {
-    if (!m_sslMetaData.isEmpty()) {
-        Q_EMIT metaData(m_sslMetaData);
-    }
     m_job = job;
 }
 
@@ -297,7 +294,6 @@ void Worker::setHost(const QString &host, quint16 port, const QString &user, con
     m_port = port;
     m_user = user;
     m_passwd = passwd;
-    m_sslMetaData.clear();
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
@@ -307,7 +303,6 @@ void Worker::setHost(const QString &host, quint16 port, const QString &user, con
 
 void Worker::resetHost()
 {
-    m_sslMetaData.clear();
     m_host = QStringLiteral("<reset>");
 }
 
