@@ -960,20 +960,6 @@ void KNewFileMenuPrivate::slotCreateDirectory()
     slotAbortDialog();
 }
 
-static QStringList getHomeTemplateFilePaths()
-{
-    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
-    QDir dir(templateFolder);
-    QStringList files;
-    const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
-    files.reserve(entryList.size());
-    for (const QString &entry : entryList) {
-        const QString file = Utils::concatPaths(dir.path(), entry);
-        files.append(file);
-    }
-    return files;
-}
-
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
@@ -988,14 +974,13 @@ static QStringList getTemplateFilePaths(const QStringList &templates)
     QStringList files;
     for (const QString &path : templates) {
         dir.setPath(path);
-        const QStringList entryList = dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files);
+        const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
         files.reserve(files.size() + entryList.size());
         for (const QString &entry : entryList) {
             const QString file = Utils::concatPaths(dir.path(), entry);
             files.append(file);
         }
     }
-
     return files;
 }
 
@@ -1032,20 +1017,38 @@ void KNewFileMenuPrivate::slotFillTemplates()
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
     std::vector<EntryInfo> uniqueEntries;
-
+    QMimeDatabase db;
     for (const QString &file : files) {
         // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
-        entry.filePath = file;
         entry.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
+        QString url;
+        QString key;
 
+        if (file.endsWith(QLatin1String(".desktop"))) {
+            entry.filePath = file;
+            const KDesktopFile config(file);
+            url = config.desktopGroup().readEntry("URL");
+            key = config.desktopGroup().readEntry("Name");
+        }
+        // Preparse non-.desktop files
+        else {
+            QFileInfo fileinfo(file);
+            url = file;
+            key = fileinfo.fileName();
+            entry.entryType = KNewFileMenuSingleton::Template;
+            entry.text = fileinfo.baseName();
+            entry.filePath = fileinfo.completeBaseName();
+            entry.templatePath = file;
+            QMimeType mime = db.mimeTypeForFile(file);
+            entry.mimeType = mime.name();
+            entry.icon = mime.iconName();
+            entry.comment = i18nc("Prompt for new file of type", "Enter %1 filename:", mime.comment());
+        }
         // Put Directory first in the list (a bit hacky),
         // and TextFile before others because it's the most used one.
         // This also sorts by user-visible name.
         // The rest of the re-ordering is done in fillMenu.
-        const KDesktopFile config(file);
-        const QString url = config.desktopGroup().readEntry("URL");
-        QString key = config.desktopGroup().readEntry("Name");
         if (file.endsWith(QLatin1String("Directory.desktop"))) {
             key.prepend(QLatin1Char('0'));
         } else if (file.startsWith(QDir::homePath())) {
@@ -1066,28 +1069,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
         } else {
             uniqueEntries.push_back(eInfo);
         }
-    }
-
-    // Adds files and folders directly from ~/Templates to the entries
-    files = getHomeTemplateFilePaths();
-    QMimeDatabase db;
-    for (const QString &file : files) {
-        QFileInfo text(file);
-        QString key = text.fileName();
-        key.prepend(QLatin1Char('1'));
-        QString url = file;
-
-        KNewFileMenuSingleton::Entry entry;
-        entry.entryType = KNewFileMenuSingleton::LinkToTemplate;
-        entry.text = text.baseName();
-        entry.filePath = text.completeBaseName();
-        entry.templatePath = file;
-        QMimeType mime = db.mimeTypeForFile(file);
-        entry.mimeType = mime.name();
-        entry.icon = mime.iconName();
-        entry.comment = i18nc("Prompt for new file of type", "Enter %1 filename:", mime.comment());
-        EntryInfo eInfo = {key, url, entry};
-        uniqueEntries.push_back(eInfo);
     }
 
     std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
