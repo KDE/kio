@@ -200,7 +200,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, cons
     } else {
         auto formats = extractFormats(mimeData);
         const auto firstFormat = formats.value(0);
-        // Remove formats that shouldn't be in the dialog
+        // Remove formats that shouldn't be exposed to the user
         erase_if(formats, [](const QString &string) -> bool {
             return string.startsWith(u"application/x-kde-");
         });
