@@ -22,7 +22,6 @@ namespace KIO
 class WorkerThread;
 class WorkerManager;
 class SimpleJob;
-class Scheduler;
 class SchedulerPrivate;
 class DataProtocol;
 class ProtoQueue;
@@ -114,7 +113,6 @@ public:
 
     // == end communication with connected kioworker ==
 private:
-    friend class Scheduler;
     friend class SchedulerPrivate;
     friend class DataProtocol;
     friend class WorkerManager;

@@ -50,7 +50,7 @@ public:
     /**
      * Register @p job with the scheduler.
      * The default is to create a new worker for the job if no worker
-     * is available. This can be changed by calling setJobPriority.
+     * is available.
      * @param job the job to register
      */
     static void doJob(SimpleJob *job);

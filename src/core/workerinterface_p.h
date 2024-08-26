@@ -167,9 +167,6 @@ private Q_SLOTS:
 protected:
     Connection *m_connection = nullptr;
 
-    // We need some metadata here for our SSL code in messageBox() and for sslMetaData().
-    MetaData m_sslMetaData;
-
 private:
     QTimer m_speed_timer;
 

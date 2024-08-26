@@ -8,7 +8,7 @@
 #ifndef SCHEDULER_P_H
 #define SCHEDULER_P_H
 
-#include "kiocore_export.h"
+#include "worker_p.h"
 
 #include <QSet>
 #include <QTimer>
@@ -98,8 +98,6 @@ public:
         return m_offset++;
     }
 
-    int changedPrioritySerial(int oldSerial, int newPriority) const;
-
 private:
     static const uint m_jobsPerPriority = 100000000;
     uint m_offset = 1;
@@ -116,7 +114,6 @@ public:
     ~ProtoQueue() override;
 
     void queueJob(KIO::SimpleJob *job);
-    void changeJobPriority(KIO::SimpleJob *job, int newPriority);
     void removeJob(KIO::SimpleJob *job);
     KIO::Worker *createWorker(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
     bool removeWorker(KIO::Worker *worker);

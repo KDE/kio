@@ -35,11 +35,6 @@ static inline Worker *jobSWorker(SimpleJob *job)
     return SimpleJobPrivate::get(job)->m_worker;
 }
 
-static inline int jobCommand(SimpleJob *job)
-{
-    return SimpleJobPrivate::get(job)->m_command;
-}
-
 static inline void startJob(SimpleJob *job, Worker *worker)
 {
     SimpleJobPrivate::get(job)->start(worker);
@@ -71,7 +66,6 @@ public:
     bool m_ignoreConfigReparse = false;
 
     void doJob(SimpleJob *job);
-    void setJobPriority(SimpleJob *job, int priority);
     void cancelJob(SimpleJob *job);
     void jobFinished(KIO::SimpleJob *job, KIO::Worker *worker);
     void putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url);
@@ -121,14 +115,6 @@ Scheduler *scheduler()
 }
 
 ////////////////////////////
-
-int SerialPicker::changedPrioritySerial(int oldSerial, int newPriority) const
-{
-    Q_ASSERT(newPriority >= -10 && newPriority <= 10);
-    newPriority = qBound(-10, newPriority, 10);
-    int unbiasedSerial = oldSerial % m_jobsPerPriority;
-    return unbiasedSerial + newPriority * m_jobsPerPriority;
-}
 
 WorkerManager::WorkerManager()
 {
@@ -375,29 +361,6 @@ void ProtoQueue::queueJob(SimpleJob *job)
     // just in case; startAJob() will refuse to start a job if it shouldn't.
     m_startJobTimer.start();
 
-    ensureNoDuplicates(&m_queuesBySerial);
-}
-
-void ProtoQueue::changeJobPriority(SimpleJob *job, int newPrio)
-{
-    SimpleJobPrivate *jobPriv = SimpleJobPrivate::get(job);
-    QHash<QString, HostQueue>::Iterator it = m_queuesByHostname.find(jobPriv->m_url.host());
-    if (it == m_queuesByHostname.end()) {
-        return;
-    }
-    HostQueue &hq = it.value();
-    const int prevLowestSerial = hq.lowestSerial();
-    if (hq.isJobRunning(job) || !hq.removeJob(job)) {
-        return;
-    }
-    jobPriv->m_schedSerial = m_serialPicker.changedPrioritySerial(jobPriv->m_schedSerial, newPrio);
-    hq.queueJob(job);
-    const bool needReinsert = hq.lowestSerial() != prevLowestSerial;
-    // the host queue might be absent from m_queuesBySerial because the connections per host limit
-    // for that host has been reached.
-    if (needReinsert && m_queuesBySerial.remove(prevLowestSerial)) {
-        m_queuesBySerial.insert(hq.lowestSerial(), &hq);
-    }
     ensureNoDuplicates(&m_queuesBySerial);
 }
 
@@ -682,16 +645,6 @@ void SchedulerPrivate::doJob(SimpleJob *job)
 
     ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
     proto->queueJob(job);
-}
-
-void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
-{
-    // qDebug() << job << priority;
-    const QString protocol = SimpleJobPrivate::get(job)->m_protocol;
-    if (!protocol.isEmpty()) {
-        ProtoQueue *proto = protoQ(protocol, job->url().host());
-        proto->changeJobPriority(job, priority);
-    }
 }
 
 void SchedulerPrivate::cancelJob(SimpleJob *job)
