@@ -811,6 +811,9 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
             DirItem *dirItem = dirItemForUrl(dir); // is it a listed directory?
             if (dirItem) {
                 deletedSubdirs.append(dir);
+                if (!dirItem->rootItem.isNull()) {
+                    removedItemsByDir[url].append(dirItem->rootItem);
+                }
             }
         }
 
