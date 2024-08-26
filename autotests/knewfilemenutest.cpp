@@ -31,20 +31,27 @@
 class KNewFileMenuTest : public QObject
 {
     Q_OBJECT
+
 private Q_SLOTS:
     void initTestCase()
     {
-        QStandardPaths::setTestModeEnabled(true);
 #ifdef Q_OS_UNIX
         m_umask = ::umask(0);
         ::umask(m_umask);
 #endif
-        QVERIFY(m_tmpDir.isValid());
 
         // These have to be created here before KNewFileMenuSingleton is created,
         // otherwise they wouldn't be picked up
-        QDir dir;
+        QStandardPaths::setTestModeEnabled(true);
         m_xdgConfigDir = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
+        // Must not stay in testMode, or user-dirs.dirs does not get parsed
+        // See https://codebrowser.dev/qt6/qtbase/src/corelib/io/qstandardpaths_unix.cpp.html#268
+        QStandardPaths::setTestModeEnabled(false);
+
+        // must use a fake XDG_CONFIG_HOME to change QStandardPaths::TemplatesLocation
+        qputenv("XDG_CONFIG_HOME", m_xdgConfigDir.toUtf8());
+
+        QDir dir;
         QVERIFY(dir.mkpath(m_xdgConfigDir));
         QFile userDirs(m_xdgConfigDir + "/user-dirs.dirs");
         QVERIFY(userDirs.open(QIODevice::WriteOnly));
@@ -53,10 +60,10 @@ private Q_SLOTS:
         userDirs.close();
 
         // Different location than what KNewFileMenuPrivate::slotFillTemplates() checks by default
-        const QString loc = m_xdgConfigDir + '/' + "test-templates/";
+        const QString loc = m_xdgConfigDir + "/test-templates/";
         QVERIFY(dir.mkpath(loc));
 
-        QFile templ(m_xdgConfigDir + "/test-templates" + "/test-text.desktop");
+        QFile templ(m_xdgConfigDir + "/test-templates/test-text.desktop");
         QVERIFY(templ.open(QIODevice::WriteOnly));
         const QByteArray contents =
             "[Desktop Entry]\n"
