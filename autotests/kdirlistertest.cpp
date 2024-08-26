@@ -1456,16 +1456,20 @@ void KDirListerTest::testRenameDirectory() // #401552
         slotOpenUrlOnRename(newUrl);
     });
 
-    for (int i = 0; i < dirs.size(); i++) {
+    for (const auto &newDir : dirs) {
         // Wait for the listener to get all files
         QTRY_VERIFY(m_dirLister.isFinished());
         // Do the rename
-        QString newDir = dirs.at(i);
         job = KIO::rename(QUrl::fromLocalFile(currDir), QUrl::fromLocalFile(newDir), KIO::HideProgressInfo);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QTest::qWait(500); // Without the delay the crash doesn't happen
         currDir = newDir;
     }
+
+    // cleanup
+    const auto delJob = KIO::del(QUrl::fromLocalFile(dirs.last()));
+    QVERIFY(delJob->exec());
+
     disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
@@ -1549,8 +1553,7 @@ void KDirListerTest::testMimeFilter()
     lister.setMimeFilter(mimeTypes);
     lister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
 
-    QSignalSpy spyCompleted(&lister, qOverload<>(&KCoreDirLister::completed));
-    QVERIFY(spyCompleted.wait(1000));
+    QVERIFY(lister.spyCompleted.wait(1000));
 
     QCOMPARE(lister.items().size(), filteredFiles.size());
 
@@ -1564,6 +1567,9 @@ void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
     m_dirLister.openUrl(QUrl::fromLocalFile(tempPath()), KDirLister::NoFlags);
+
+    QVERIFY(m_dirLister.spyCompleted.wait(1000));
+
     m_dirLister.clearSpies();
     KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempPath()), KIO::HideProgressInfo);
     bool ok = job->exec();

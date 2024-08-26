@@ -807,17 +807,11 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
 
     for (const QUrl &url : fileList) {
         const QList<QUrl> dirUrls = directoriesForCanonicalPath(url);
-        bool removed = false;
         for (const QUrl &dir : dirUrls) {
             DirItem *dirItem = dirItemForUrl(dir); // is it a listed directory?
             if (dirItem) {
                 deletedSubdirs.append(dir);
-                removed = true;
-                break;
             }
-        }
-        if (removed) {
-            continue;
         }
 
         const QUrl parentDir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
