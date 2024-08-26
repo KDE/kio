@@ -1044,7 +1044,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
             QMimeType mime = db.mimeTypeForFile(file);
             entry.mimeType = mime.name();
             entry.icon = mime.iconName();
-            entry.comment = i18nc("Prompt for new file of type", "Enter %1 filename:", mime.comment());
+            entry.comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mime.comment());
         }
         // Put Directory first in the list (a bit hacky),
         // and TextFile before others because it's the most used one.
