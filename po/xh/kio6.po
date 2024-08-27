@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2568,24 +2568,24 @@ msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, fuzzy, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Umthetho olandelwayo ongaziwayo '%1'.\n"
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"

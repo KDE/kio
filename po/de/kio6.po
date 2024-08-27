@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2024-08-25 21:39+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2595,24 +2595,24 @@ msgstr "Das Öffnen von Dateien über das Protokoll %1 wird nicht unterstützt."
 msgid "Protocol %1 does not support action %2."
 msgstr "Das Protokoll %1 unterstützt die Aktion %2 nicht."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Unbekanntes Protokoll „%1“."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ein-/Ausgabemodul für das Protokoll „%1“ nicht auffindbar."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Socket für Ein-/Ausgabemodul für das Protokoll „%1“ kann nicht erstellt "
 "werden."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ausführbare Datei „kioworker“ wurde in „%1“ nicht gefunden"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:37+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2024-08-15 05:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2389,22 +2389,22 @@ msgstr "%1 通訊協定不支援開啟檔案。"
 msgid "Protocol %1 does not support action %2."
 msgstr "通訊協定 %1 不支援動作 %2。"
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "不明的協定「%1」。"
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "找不到「%1」協定的 KIO worker。"
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "無法建立 socket 來開啟「%1」協定的 KIO worker。"
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "在 '%1' 找不到 'kioworker' 執行檔"
@@ -2758,7 +2758,7 @@ msgid "All Supported Files"
 msgstr "所有支援的檔案"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1899
+#: filewidgets/kfilewidget.cpp:1900
 #, kde-format
 msgid "All Files"
 msgstr "所有檔案"
@@ -3251,7 +3251,7 @@ msgstr "找不到檔案 %1"
 msgid "Cannot open file"
 msgstr "無法開啟檔案"
 
-#: filewidgets/kfilewidget.cpp:1192
+#: filewidgets/kfilewidget.cpp:1193
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3261,42 +3261,42 @@ msgstr ""
 "<qt>按這個按鈕來進入上一層目錄。<br /><br />例如，如果目前位置是 file:/home/"
 "konqi，按這個按鈕將把您帶到  file:/home。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1196
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "按這個按鈕在瀏覽歷史中向後移動一步。"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1198
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "按這個按鈕在瀏覽歷史中向前移動一步。"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1200
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "按這個按鈕來重新載入目前位置的內容。"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "按這個按鈕來建立新資料夾。"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Show Places Panel"
 msgstr "顯示快速存取面板"
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1211
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "顯示書籤按鈕"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Options"
 msgstr "選項"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3309,12 +3309,12 @@ msgstr ""
 "單中的檔案如何排序</li><li>檢視類型，包括圖示和列表</li><li>隱藏檔案的顯示</"
 "li><li>快速存取面板</li><li>檔案預覽</li><li>區分檔案和目錄</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1239
+#: filewidgets/kfilewidget.cpp:1240
 #, kde-format
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: filewidgets/kfilewidget.cpp:1243
+#: filewidgets/kfilewidget.cpp:1244
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3327,12 +3327,12 @@ msgstr ""
 "其他地方的書籤一樣操作。</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1282 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1283 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "名稱(&N)："
 
-#: filewidgets/kfilewidget.cpp:1359
+#: filewidgets/kfilewidget.cpp:1360
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3343,86 +3343,86 @@ msgstr ""
 "<qt>在文字區輸入時，您會看到可能的相符項目。這項功能可以按滑鼠右鍵從<b>文字補"
 "齊</b>選單選擇您所偏好的模式來控制。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1366
+#: filewidgets/kfilewidget.cpp:1367
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "這是儲存檔案時所用的名稱。"
 
-#: filewidgets/kfilewidget.cpp:1369
+#: filewidgets/kfilewidget.cpp:1370
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "這是要開啟的檔案清單。如果想要指定多個檔案，可以用空格分隔。"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "這是要開啟的檔案的名稱。"
 
-#: filewidgets/kfilewidget.cpp:1387
+#: filewidgets/kfilewidget.cpp:1388
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "快速存取"
 
-#: filewidgets/kfilewidget.cpp:1606
+#: filewidgets/kfilewidget.cpp:1607
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "檔案 %1 已存在。您希望覆寫它嗎？"
 
-#: filewidgets/kfilewidget.cpp:1607
+#: filewidgets/kfilewidget.cpp:1608
 #, kde-format
 msgid "Overwrite File?"
 msgstr "要覆寫檔案嗎？"
 
-#: filewidgets/kfilewidget.cpp:1803
+#: filewidgets/kfilewidget.cpp:1804
 #, kde-format
 msgid "You can only select local files."
 msgstr "您只能選取本地檔案。"
 
-#: filewidgets/kfilewidget.cpp:1803
+#: filewidgets/kfilewidget.cpp:1804
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "不接受遠端檔案"
 
-#: filewidgets/kfilewidget.cpp:1897
+#: filewidgets/kfilewidget.cpp:1898
 #, kde-format
 msgid "All Folders"
 msgstr "所有資料夾"
 
-#: filewidgets/kfilewidget.cpp:2049 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2050 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open"
 msgstr "開啟(&O)"
 
-#: filewidgets/kfilewidget.cpp:2149
+#: filewidgets/kfilewidget.cpp:2150
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "圖示大小：%1 像素"
 
-#: filewidgets/kfilewidget.cpp:2297
+#: filewidgets/kfilewidget.cpp:2298
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "自動選擇檔案名稱延伸檔名(&X)[%1]"
 
-#: filewidgets/kfilewidget.cpp:2298
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "延伸檔名 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "自動選擇檔案名稱延伸檔名(&X)"
 
-#: filewidgets/kfilewidget.cpp:2305
+#: filewidgets/kfilewidget.cpp:2306
 #, kde-format
 msgid "a suitable extension"
 msgstr "合適的延伸檔名"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3445,24 +3445,24 @@ msgstr ""
 "以將此選項關閉或者您可以在檔案名稱的結尾加上句點(.)來限制它（這個句點會自動被"
 "移除）。</li></ol>如果不確定，保持啟用此選項，因為它會讓您的檔案更容易管理。"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid "&File type:"
 msgstr "檔案類型(&F)："
 
-#: filewidgets/kfilewidget.cpp:2787
+#: filewidgets/kfilewidget.cpp:2788
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>此為檔案類型選取器，用來選取儲存檔案的格式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2790
 #, kde-format
 msgid "&Filter:"
 msgstr "篩選器(&F)："
 
-#: filewidgets/kfilewidget.cpp:2791
+#: filewidgets/kfilewidget.cpp:2792
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

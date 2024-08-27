@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2024-08-13 17:22+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2569,24 +2569,24 @@ msgstr "Il protocollo %1 non supporta l'apertura di file."
 msgid "Protocol %1 does not support action %2."
 msgstr "Il protocollo %1 non supporta l'azione %2."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocollo «%1» sconosciuto."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Impossibile trovare un KIO worker per il protocollo «%1»."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Impossibile creare un socket per eseguire un KIO worker per il protocollo "
 "«%1»."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Impossibile trovare l'eseguibile «kioworker» in «%1»"

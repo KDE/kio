@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2615,24 +2615,24 @@ msgstr "Tagong ta triemen wurdt net stipe mei protokol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 stipet aksje %2 net."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Unbekend protokol '%1'."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Der is gjin io-slave fûn foar protokol '%1'."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Der is gjin io-slave fûn foar protokol '%1'."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"

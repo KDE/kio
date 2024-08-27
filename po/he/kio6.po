@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2024-08-13 08:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2440,22 +2440,22 @@ msgstr "אין תמיכה בפתיחת קבצים בפרוטוקול %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "הפרוטוקול %1 לא תומך בפעולה %2."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "הפרוטוקול „%1” לא ידוע."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "אי אפשר למצוא סוכן הפעלה של KIO לפרוטוקול ‚%1’."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "אי אפשר ליצור שקע להפעלת סוכן הפעלה של KIO לפרוטוקול ‚%1’."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "אי אפשר למצוא את קובץ ההפעלה ‚kioworker’ תחת ‚%1’"

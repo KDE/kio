@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2551,24 +2551,24 @@ msgstr "खुलिरहेको फाइल %1 प्रोटोकलस�
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकल %1 ले %2 कार्य समर्थन गर्दैन ।"
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "अज्ञात प्रोटोकल '%1' ।"
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' प्रोटोकलका लागि io-slave फेला पार्न सकिदैन ।"
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' प्रोटोकलका लागि io-slave फेला पार्न सकिदैन ।"
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"

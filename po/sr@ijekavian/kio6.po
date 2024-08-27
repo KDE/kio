@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2556,25 +2556,25 @@ msgstr "Протокол %1 не подржава отварање фајлов�
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не подржава радњу %2."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Непознат протокол „%1“."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Не могу да пронађем У/И захват за протокол „%1“."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Не могу да направим сокет за покретање У/И захват за протокол „%1“."
 
 # literal-segment: kioslave
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

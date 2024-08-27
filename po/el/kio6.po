@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-26 00:36+0000\n"
+"POT-Creation-Date: 2024-08-27 00:37+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2587,18 +2587,18 @@ msgstr "Το άνοιγμα αρχείων δεν υποστηρίζεται μ�
 msgid "Protocol %1 does not support action %2."
 msgstr "Το πρωτόκολλο %1 δεν υποστηρίζει την ενέργεια %2."
 
-#: core/worker.cpp:334
+#: core/worker.cpp:329
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Άγνωστο πρωτόκολλο '%1'."
 
-#: core/worker.cpp:345
+#: core/worker.cpp:340
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Δεν ήταν δυνατό να βρεθεί io-slave για το πρωτόκολλο '%1'."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:348
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
@@ -2606,7 +2606,7 @@ msgstr ""
 "Δεν ήταν δυνατό να δημιουργηθεί υποδοχή για την εκκίνηση io-slave για το "
 "πρωτόκολλο '%1'."
 
-#: core/worker.cpp:393
+#: core/worker.cpp:388
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
