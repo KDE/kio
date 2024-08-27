@@ -26,7 +26,7 @@ class ThumbnailCreatorPrivate;
 class ThumbnailRequestPrivate;
 class ThumbnailResultPrivate;
 
-/*
+/**
  * Encapsulates the input data for a thumbnail request.
  * This includes the URL of the target file as well as additional
  * data such as the target size
