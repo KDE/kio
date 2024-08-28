@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -6658,19 +6658,19 @@ msgstr ""
 "yang telah dipilih sebelum ini tidak lagi boleh digunakan. Sila salin semula "
 "apa yang anda hendak tampal."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Folder Induk"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "%1 &Tampal fail"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6678,14 +6678,14 @@ msgid_plural "Paste %1 Items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Tampal kandungan papan klip"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-08-25 21:39+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6825,19 +6825,19 @@ msgstr ""
 "gewünschte Datenformat ist nicht mehr verfügbar. Bitte kopieren Sie die "
 "einzufügenden Daten erneut."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Einfügen (Ordner)"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Einfügen (Datei)"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6845,13 +6845,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Einfügen (1 Element)"
 msgstr[1] "Einfügen (%1 Elemente)"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Inhalt der Zwischenablage einfügen …"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

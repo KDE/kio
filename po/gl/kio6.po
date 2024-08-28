@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-08-19 15:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -6720,19 +6720,19 @@ msgstr ""
 "O portapapeis cambiouse desde que usou «pegar»: non é posíbel aplicar o "
 "formato de datos escollido. Copie de novo o que queira pegar."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Pegar un cartafol"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Pegar un ficheiro"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6740,13 +6740,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Pegar un elemento"
 msgstr[1] "Pegar %1 elementos"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Pegar o contido do portapapeis…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

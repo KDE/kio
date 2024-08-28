@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -7008,19 +7008,19 @@ msgstr ""
 "формат података више није примјењив. Копирајте поново то што желите да "
 "налијепите."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Налијепи једну фасциклу"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Налијепи један фајл"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -7030,14 +7030,14 @@ msgstr[1] "Налијепи %1 ставке"
 msgstr[2] "Налијепи %1 ставки"
 msgstr[3] "Налијепи једну ставку"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Налијепи садржај клипборда"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

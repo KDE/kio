@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-08-13 17:22+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -6779,19 +6779,19 @@ msgstr ""
 "«incolla»: il formato dati scelto non è più applicabile. Copia di nuovo ciò "
 "che vuoi incollare."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Incolla una cartella"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Incolla un file"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6799,13 +6799,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Incolla un elemento"
 msgstr[1] "Incolla %1 elementi"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Incolla il contenuto degli appunti…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-08-15 10:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -6660,19 +6660,19 @@ msgstr ""
 "تغيّرت الحافظة منذ لأنك استخدمت 'لصق': نسق البيانات المختارة لم يعد متوفرا. "
 "رجاءً انسخ مرة أخرى ما تريد لصقه."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ألصق مجلّدًا واحدًا"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ألصِق ملفًّا واحدًا"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6684,13 +6684,13 @@ msgstr[3] "ألصِق %1 عناصر"
 msgstr[4] "ألصِق %1 عنصرًا"
 msgstr[5] "ألصِق %1 عنصر"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "أل&صق محتويات الحافظة…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

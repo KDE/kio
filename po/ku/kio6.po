@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -6301,7 +6301,7 @@ msgid ""
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "One Folder"
 #| msgid_plural "%1 Folders"
@@ -6309,7 +6309,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Peldankek"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "One File"
 #| msgid_plural "%1 Files"
@@ -6317,7 +6317,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Pelek"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, fuzzy, kde-format
 #| msgid "One Item"
 #| msgid_plural "%1 Items"
@@ -6327,13 +6327,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Hêmanek"
 msgstr[1] "%1 Hêman"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr ""
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"

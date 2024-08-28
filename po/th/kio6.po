@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -6786,14 +6786,14 @@ msgstr ""
 "คลิปบอร์ดมีการเปลี่ยนแปลงตั้งแต่คุณใช้การ 'วาง': "
 "ทำให้ไม่สามารถปรับใช้รูปแบบข้อมูลที่เคยเลือกไว้ใช้ไม่ได้แล้ว โปรดทำการคัดลอกสิ่งที่ต้องวางใหม่อีกครั้ง"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "Parent Folder"
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "โฟลเดอร์แม่"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6801,21 +6801,21 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ว&าง %1 แฟ้ม"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] ""
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "ว&างเนื้อหาจากคลิปบอร์ด"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"

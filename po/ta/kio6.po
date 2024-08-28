@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-08-17 21:50+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -6607,19 +6607,19 @@ msgstr ""
 "நீங்கள் 'ஒட்டு' என்பதை பயன்படுத்திய பிறகு பிடிப்புப்பலகை மாற்றப்பட்டது: தேர்ந்தெடுக்கப்பட்ட "
 "தரவு படிவத்தை பயன்படுத்த முடியாது. நீங்கள் ஒட்ட விரும்பியதை மீண்டும் நகலெடுங்கள்."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ஒரு அடைவை ஒட்டு"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ஒரு கோப்பை ஒட்டு"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6627,13 +6627,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "ஒரு உருப்படியை ஒட்டு"
 msgstr[1] "%1 உருப்படிகளை ஒட்டு"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -6602,19 +6602,19 @@ msgstr ""
 "भवता 'संस्थापयतु' इत्यस्य उपयोगः कृतः ततः परं अंशफलकम् परिवर्तितम् अस्ति: चयनितं "
 "दत्तांशस्वरूपं पुनः प्रयोज्यम् नास्ति । कृपया यत् चिनोतु इच्छसि तत् पुनः प्रतिलिख्यताम् ।."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "एकं पुटं चिनोतु संस्थापयतु"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "एकं सञ्चिकां संस्थापयतु"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6622,7 +6622,7 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "एकं द्रव्यं संस्थापयतु"
 msgstr[1] "%1 द्रव्यं संस्थापयन्तु"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste Clipboard Contents..."
@@ -6630,7 +6630,7 @@ msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु..."
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

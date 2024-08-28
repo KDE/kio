@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -6663,7 +6663,7 @@ msgstr ""
 "pòdôwków ni ma terô brëkùnkù. Proszã znowa skòpérowac to, co bëlo do "
 "wlepieniô."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "One Folder"
 #| msgid_plural "%1 Folders"
@@ -6671,7 +6671,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Jeden katalog"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6679,7 +6679,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "&Wlepi lopk"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, fuzzy, kde-format
 #| msgid "One Item"
 #| msgid_plural "%1 Items"
@@ -6690,14 +6690,14 @@ msgstr[0] "Jeden element"
 msgstr[1] "%1 elementë"
 msgstr[2] "%1 elementów"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Wlepi zamkłosc tacnika"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"

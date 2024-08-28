@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2024-06-04 19:02\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -6771,19 +6771,19 @@ msgstr ""
 "З тае пары, як вы скарысталіся функцыяй \"Уставіць\", буфер абмену змяніўся: "
 "абраны фармат даных непрыдатны. Яшчэ раз скапіюйце тое, што хочаце ўставіць."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Уставіць адзін каталог"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Уставіць адзін файл"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste One Item"
@@ -6796,13 +6796,13 @@ msgstr[1] "Уставіць %1 элементы"
 msgstr[2] "Уставіць %1 элементаў"
 msgstr[3] "Уставіць %1 элементы"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Уставіць змесціва буфера абмену…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

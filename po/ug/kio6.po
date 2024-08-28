@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-28 00:36+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -6875,14 +6875,14 @@ msgstr ""
 "مەلۇماتنىڭ پىچىمىنى قوبۇل قىلالمايدۇ. چاپلىماقچى بولغان مەزمۇننى قايتا "
 "كۆچۈرۈڭ."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "Parent Folder"
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ئاتا قىسقۇچ"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:262
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6890,21 +6890,21 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "%1 ھۆججەت چاپلا(&P)"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] ""
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:266
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "چاپلاش تاختىسىدىكى مەزمۇنلارنى چاپلا(&P)"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:270
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"
