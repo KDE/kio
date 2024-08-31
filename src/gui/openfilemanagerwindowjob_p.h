@@ -14,11 +14,12 @@
 
 namespace KIO
 {
-class AbstractOpenFileManagerWindowStrategy
+class AbstractOpenFileManagerWindowStrategy : public QObject
 {
+    Q_OBJECT
 public:
-    explicit AbstractOpenFileManagerWindowStrategy(OpenFileManagerWindowJob *job)
-        : m_job(job)
+    explicit AbstractOpenFileManagerWindowStrategy()
+        : QObject()
     {
     }
 
@@ -27,22 +28,16 @@ public:
     }
     virtual void start(const QList<QUrl> &urls, const QByteArray &asn) = 0;
 
-    void emitResultProxy(int error = KJob::NoError)
-    {
-        m_job->setError(error);
-        m_job->emitResult();
-    }
-
-protected:
-    OpenFileManagerWindowJob *m_job;
+Q_SIGNALS:
+    void finished(int error);
 };
 
 #ifdef WITH_QTDBUS
 class OpenFileManagerWindowDBusStrategy : public AbstractOpenFileManagerWindowStrategy
 {
 public:
-    explicit OpenFileManagerWindowDBusStrategy(OpenFileManagerWindowJob *job)
-        : AbstractOpenFileManagerWindowStrategy(job)
+    explicit OpenFileManagerWindowDBusStrategy()
+        : AbstractOpenFileManagerWindowStrategy()
     {
     }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
@@ -53,18 +48,22 @@ class OpenFileManagerWindowKRunStrategy : public AbstractOpenFileManagerWindowSt
 {
 public:
     explicit OpenFileManagerWindowKRunStrategy(OpenFileManagerWindowJob *job)
-        : AbstractOpenFileManagerWindowStrategy(job)
+        : AbstractOpenFileManagerWindowStrategy()
+        , m_job(job)
     {
     }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
+
+private:
+    OpenFileManagerWindowJob *m_job;
 };
 
 #if defined(Q_OS_WINDOWS)
 class OpenFileManagerWindowWindowsShellStrategy : public AbstractOpenFileManagerWindowStrategy
 {
 public:
-    explicit OpenFileManagerWindowWindowsShellStrategy(OpenFileManagerWindowJob *job)
-        : AbstractOpenFileManagerWindowStrategy(job)
+    explicit OpenFileManagerWindowWindowsShellStrategy()
+        : AbstractOpenFileManagerWindowStrategy()
     {
     }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;

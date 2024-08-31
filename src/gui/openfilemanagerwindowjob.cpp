@@ -48,13 +48,13 @@ public:
 #ifdef WITH_QTDBUS
     void createDBusStrategy()
     {
-        strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>(q);
+        strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>();
     }
 #endif
 #if defined(Q_OS_WINDOWS)
     void createWindowsShellStrategy()
     {
-        strategy = std::make_unique<OpenFileManagerWindowWindowsShellStrategy>(q);
+        strategy = std::make_unique<OpenFileManagerWindowWindowsShellStrategy>();
     }
 #endif
 
@@ -81,6 +81,26 @@ OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
 #else
     d->createKRunStrategy();
 #endif
+
+    connect(d->strategy.get(), &AbstractOpenFileManagerWindowStrategy::finished, this, [this](int result) {
+        if (result == KJob::NoError) {
+            emitResult();
+        } else {
+#ifdef WITH_QTDBUS
+            // DBus strategy failed, fall back to KRun strategy
+            d->strategy = std::make_unique<OpenFileManagerWindowKRunStrategy>(this);
+            d->strategy->start(d->highlightUrls, d->startupId);
+
+            connect(d->strategy.get(), &KIO::AbstractOpenFileManagerWindowStrategy::finished, this, [this](int result) {
+                setError(result);
+                emitResult();
+            });
+#else
+            setError(result);
+            emitResult();
+#endif
+        }
+    });
 }
 
 OpenFileManagerWindowJob::~OpenFileManagerWindowJob() = default;
@@ -140,19 +160,12 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
         msg << QUrl::toStringList(urls) << QString::fromUtf8(asn);
 
         QDBusPendingReply<void> reply = QDBusConnection::sessionBus().asyncCall(msg);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, m_job);
-        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=, this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [urls, asn, this](QDBusPendingCallWatcher *watcher) {
             QDBusPendingReply<void> reply = *watcher;
             watcher->deleteLater();
 
-            if (reply.isError()) {
-                // Try the KRun strategy as fallback, also calls emitResult inside
-                m_job->d->createKRunStrategy();
-                m_job->d->strategy->start(urls, asn);
-                return;
-            }
-
-            emitResultProxy();
+            Q_EMIT finished(reply.isError() ? KJob::UserDefinedError : KJob::NoError);
         });
     };
 
@@ -167,7 +180,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
             QObject::connect(
                 KWaylandExtras::self(),
                 &KWaylandExtras::xdgActivationTokenArrived,
-                m_job,
+                this,
                 [launchedSerial, runWithToken](int serial, const QString &token) {
                     if (serial == launchedSerial) {
                         runWithToken(token.toUtf8());
@@ -192,11 +205,11 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
     KIO::OpenUrlJob *urlJob = new KIO::OpenUrlJob(urls.at(0).adjusted(QUrl::RemoveFilename), QStringLiteral("inode/directory"));
     urlJob->setUiDelegate(m_job->uiDelegate());
     urlJob->setStartupId(asn);
-    QObject::connect(urlJob, &KJob::result, m_job, [this](KJob *urlJob) {
+    QObject::connect(urlJob, &KJob::result, this, [this](KJob *urlJob) {
         if (urlJob->error()) {
-            emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
+            Q_EMIT finished(OpenFileManagerWindowJob::LaunchFailedError);
         } else {
-            emitResultProxy();
+            Q_EMIT finished(KJob::NoError);
         }
     });
     urlJob->start();
@@ -216,9 +229,9 @@ void OpenFileManagerWindowWindowsShellStrategy::start(const QList<QUrl> &urls, c
 
     auto result = SHOpenFolderAndSelectItems(dir, items.size(), items.data(), 0);
     if (SUCCEEDED(result)) {
-        emitResultProxy();
+        Q_EMIT finished(KJob::NoError);
     } else {
-        emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
+        Q_EMIT finished(OpenFileManagerWindowJob::LaunchFailedError);
     }
     ILFree(dir);
     for (auto &item : items) {
