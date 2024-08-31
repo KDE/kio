@@ -10,10 +10,10 @@
 
 #include <KJob>
 
+#include "openfilemanagerwindowjob.h"
+
 namespace KIO
 {
-class OpenFileManagerWindowJob;
-
 class AbstractOpenFileManagerWindowStrategy
 {
 public:
