@@ -324,6 +324,9 @@ void FileCopyJobPrivate::startDataPump()
     if (m_modificationTime.isValid()) {
         m_putJob->setModificationTime(m_modificationTime);
     }
+    if (m_sourceSize != (KIO::filesize_t)-1) {
+        m_putJob->setTotalSize(m_sourceSize);
+    }
 
     // The first thing the put job will tell us is whether we can
     // resume or not (this is always emitted)
