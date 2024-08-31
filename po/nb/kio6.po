@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:36+0000\n"
+"POT-Creation-Date: 2024-08-31 00:36+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -3449,7 +3449,7 @@ msgid "All Folders"
 msgstr "*|Alle mapper"
 
 #: filewidgets/kfilewidget.cpp:2050 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:743
 #, kde-format
 msgid "&Open"
 msgstr "&Åpne"
@@ -5168,47 +5168,47 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:528
+#: widgets/kfileitemactions.cpp:533
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "H&andlinger"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Å&pne med"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Å&pne med"
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Åpne med %1"
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Å&pne med"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:775
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

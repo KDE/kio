@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:36+0000\n"
+"POT-Creation-Date: 2024-08-31 00:36+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -3565,7 +3565,7 @@ msgid "All Folders"
 msgstr "*|Semua Folder"
 
 #: filewidgets/kfilewidget.cpp:2050 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:743
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Buka"
@@ -5276,47 +5276,47 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:528
+#: widgets/kfileitemactions.cpp:533
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Aksi"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, fuzzy, kde-format
 msgid "&Open folder with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, fuzzy, kde-format
 msgid "&Open with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:775
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:36+0000\n"
+"POT-Creation-Date: 2024-08-31 00:36+0000\n"
 "PO-Revision-Date: 2024-05-18 10:18+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3583,7 +3583,7 @@ msgid "All Folders"
 msgstr "Все папки"
 
 #: filewidgets/kfilewidget.cpp:2050 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:743
 #, kde-format
 msgid "&Open"
 msgstr "&Открыть"
@@ -5354,47 +5354,47 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:528
+#: widgets/kfileitemactions.cpp:533
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Действия"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Открыть папку в приложении…"
 
-#: widgets/kfileitemactions.cpp:689
+#: widgets/kfileitemactions.cpp:694
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Открыть с помощью…"
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Открыть папку в приложении %1"
 
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:732
 #, kde-format
 msgid "&Open with %1"
 msgstr "Открыть &с помощью %1"
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Открыть папку в приложении"
 
-#: widgets/kfileitemactions.cpp:759
+#: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Открыть с помощью…"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
