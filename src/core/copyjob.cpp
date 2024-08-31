@@ -324,6 +324,8 @@ public:
     std::set<QString> m_parentDirs;
     bool m_ignoreSourcePermissions = false;
 
+    QList<QUrl> m_destURLsToSync; // Entries in m_destList that have successfully been moved
+
     void statCurrentSrc();
     void statNextSrc();
 
@@ -1988,6 +1990,27 @@ void CopyJobPrivate::copyNextFile()
         processCopyNextFile(it, -1, NoSkipType);
     } else {
         // We're done
+#ifdef Q_OS_UNIX
+        qCInfo(KIO_COPYJOB_DEBUG) << "copyNextFile fsync files";
+
+        for (const QUrl &url : m_destURLsToSync) {
+            if (!url.isLocalFile()) {
+                continue;
+            }
+
+            const QString path = url.toLocalFile();
+            qCInfo(KIO_COPYJOB_DEBUG) << path;
+
+            int fd = open(QFile::encodeName(path).constData(), O_RDONLY);
+            if (fd > 0) {
+                fsync(fd);
+                close(fd);
+            }
+        }
+
+        qCInfo(KIO_COPYJOB_DEBUG) << "copyNextFile fsync files complete";
+#endif
+
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
         --m_processedFiles; // undo the "start at 1" hack
         slotReport(); // display final numbers, important if progress dialog stays up
@@ -2106,6 +2129,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         m_currentSrcURL = uSource;
         m_currentDestURL = uDest;
         m_bURLDirty = true;
+        m_destURLsToSync << uDest;
     }
     q->addSubjob(newjob);
     q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
