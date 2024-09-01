@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-31 00:36+0000\n"
+"POT-Creation-Date: 2024-09-01 00:37+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2903,7 +2903,7 @@ msgid "All Supported Files"
 msgstr "Semua Fail Yang Disokong"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1901
 #, fuzzy, kde-format
 msgid "All Files"
 msgstr "*|Semua Fail"
@@ -3342,27 +3342,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:616
+#: filewidgets/kfilewidget.cpp:617
 #, fuzzy, kde-format
 msgid "You can only select one file"
 msgstr "Anda hanya boleh pilih fail lokal."
 
-#: filewidgets/kfilewidget.cpp:616
+#: filewidgets/kfilewidget.cpp:617
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:787
+#: filewidgets/kfilewidget.cpp:788
 #, fuzzy, kde-format
 msgid "You can only select local files"
 msgstr "Anda hanya boleh pilih fail lokal."
 
-#: filewidgets/kfilewidget.cpp:787
+#: filewidgets/kfilewidget.cpp:788
 #, fuzzy, kde-format
 msgid "Remote files not accepted"
 msgstr "Fail Jauh Tidak Diterima"
 
-#: filewidgets/kfilewidget.cpp:794
+#: filewidgets/kfilewidget.cpp:795
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3373,12 +3373,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:800
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3386,34 +3386,34 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:818
+#: filewidgets/kfilewidget.cpp:819
 #, kde-format
 msgid "More than one folder provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:830
 #, fuzzy, kde-format
 msgid "Files and folders selected"
 msgstr "%1 ialah fail, tetapi direktori yang dijangka."
 
-#: filewidgets/kfilewidget.cpp:847
+#: filewidgets/kfilewidget.cpp:848
 #, fuzzy, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Kunci yang dipinta tidak dapat diberikan. %1"
 
-#: filewidgets/kfilewidget.cpp:847
+#: filewidgets/kfilewidget.cpp:848
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1194
 #, fuzzy, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3424,45 +3424,45 @@ msgstr ""
 "semasa ialah file:/home/%1 mengklik butang ini akan membawa anda ke file:/"
 "home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1198
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Klik butang ini untuk beralih ke belakang satu langkah di dalam rekod "
 "layaran."
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Klik butang ini untuk beralih ke hadapan satu langkah di dalam rekod layaran."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Klik butang ini untuk memuat semula kandungan dari lokasi ini."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik butang ini untuk mencipta folder baru."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1205
 #, fuzzy, kde-format
 msgid "Show Places Panel"
 msgstr "Papar Panel Akses Segera Navigasi"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1212
 #, fuzzy, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Papar Tanda Buku"
 
-#: filewidgets/kfilewidget.cpp:1218
+#: filewidgets/kfilewidget.cpp:1219
 #, fuzzy, kde-format
 msgid "Options"
 msgstr "Operasi"
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1222
 #, fuzzy, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3477,12 +3477,12 @@ msgstr ""
 "tersembunyi</li><li>panel navigasi Akses Pantas</li><li>prapapar fail</"
 "li><li>memisahkan folder dari fail</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1240
+#: filewidgets/kfilewidget.cpp:1241
 #, kde-format
 msgid "Bookmarks"
 msgstr "Tanda Laman"
 
-#: filewidgets/kfilewidget.cpp:1244
+#: filewidgets/kfilewidget.cpp:1245
 #, fuzzy, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3496,12 +3496,12 @@ msgstr ""
 "seperti tanda buku di tempat lain dalam KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1283 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1284 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nama:"
 
-#: filewidgets/kfilewidget.cpp:1360
+#: filewidgets/kfilewidget.cpp:1361
 #, fuzzy, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3513,12 +3513,12 @@ msgstr ""
 "ini dikawal dengan klik butang kanan tetikus dan pilih mod disukai dari "
 "menu<b>Penyudahan Teks</b>."
 
-#: filewidgets/kfilewidget.cpp:1367
+#: filewidgets/kfilewidget.cpp:1368
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ini ialah nama untuk menyimpan fail sebagai."
 
-#: filewidgets/kfilewidget.cpp:1370
+#: filewidgets/kfilewidget.cpp:1371
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3527,75 +3527,75 @@ msgstr ""
 "Ini ialah senarai fail hendak dibuka. Lebih daripada satu fail boleh "
 "dinyatakan dengan menyenaraikan beberapa fail, dipisahkan oleh ruang."
 
-#: filewidgets/kfilewidget.cpp:1375
+#: filewidgets/kfilewidget.cpp:1376
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ini ialah nama fail hendak dibuka."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1607
+#: filewidgets/kfilewidget.cpp:1608
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1608
+#: filewidgets/kfilewidget.cpp:1609
 #, fuzzy, kde-format
 msgid "Overwrite File?"
 msgstr "Tindi&h Semua"
 
-#: filewidgets/kfilewidget.cpp:1804
+#: filewidgets/kfilewidget.cpp:1805
 #, kde-format
 msgid "You can only select local files."
 msgstr "Anda hanya boleh pilih fail lokal."
 
-#: filewidgets/kfilewidget.cpp:1804
+#: filewidgets/kfilewidget.cpp:1805
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fail Jauh Tidak Diterima"
 
-#: filewidgets/kfilewidget.cpp:1898
+#: filewidgets/kfilewidget.cpp:1899
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Semua Folder"
 
-#: filewidgets/kfilewidget.cpp:2050 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:743
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Buka"
 
-#: filewidgets/kfilewidget.cpp:2150
+#: filewidgets/kfilewidget.cpp:2151
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2298
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Memilih &sambungan nama fail (%1) secara automatik"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2300
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "sambungan <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2305
+#: filewidgets/kfilewidget.cpp:2306
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Memilih &sambungan nama fail  secara automatik"
 
-#: filewidgets/kfilewidget.cpp:2306
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "a suitable extension"
 msgstr "sambungan sesuai"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2315
 #, fuzzy, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3622,24 +3622,24 @@ msgstr ""
 "akan dibuang secara automatik).</li></ol>Jika tak pasti, kekalkan opsyen ini "
 "diaktifkan kerana ia menjadikan fail anda lebih mudah diurus."
 
-#: filewidgets/kfilewidget.cpp:2787
+#: filewidgets/kfilewidget.cpp:2788
 #, fuzzy, kde-format
 msgid "&File type:"
 msgstr "Tapi&s:"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid "&Filter:"
 msgstr "Tapi&s:"
 
-#: filewidgets/kfilewidget.cpp:2792
+#: filewidgets/kfilewidget.cpp:2793
 #, fuzzy, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4669,7 +4669,7 @@ msgstr ""
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1332
+#: kioworkers/trash/trashimpl.cpp:1334
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
