@@ -1,5 +1,5 @@
 [General]
-Name=C++ (KF6)
+Name=C++ Worker (KF6)
 Name[ar]=سي++ (KF6)
 Name[ast]=C++ (KF6)
 Name[be]=C++ (KF6)
@@ -92,4 +92,4 @@ Comment[vi]=Bản mẫu thợ KIO
 Comment[x-test]=xxKIO Worker Templatexx
 Comment[zh_CN]=KIO 工作程序模板
 Comment[zh_TW]=KIO Worker 範本
-Category=KIO/Worker
+Category=KIO
