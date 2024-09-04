@@ -106,6 +106,7 @@ private:
     QString m_deviceIconName;
     QStringList m_emblems;
     QString m_backingFile;
+    KFilePlacesModel::GroupType m_groupType = KFilePlacesModel::UnknownType;
     QString m_groupName;
     mutable QString m_deviceDisplayName;
 };

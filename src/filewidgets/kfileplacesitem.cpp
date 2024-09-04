@@ -180,8 +180,32 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
         m_text = bookmark.text();
     }
 
-    const KFilePlacesModel::GroupType type = groupType();
-    switch (type) {
+    if (!isDevice()) {
+        const QString protocol = bookmark.url().scheme();
+        if (protocol == QLatin1String("timeline") || protocol == QLatin1String("recentlyused")) {
+            m_groupType = KFilePlacesModel::RecentlySavedType;
+        } else if (protocol.contains(QLatin1String("search"))) {
+            m_groupType = KFilePlacesModel::SearchForType;
+        } else if (protocol == QLatin1String("bluetooth") || protocol == QLatin1String("obexftp") || protocol == QLatin1String("kdeconnect")) {
+            m_groupType = KFilePlacesModel::DevicesType;
+        } else if (protocol == QLatin1String("tags")) {
+            m_groupType = KFilePlacesModel::TagsType;
+        } else if (protocol == QLatin1String("remote") || KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
+            m_groupType = KFilePlacesModel::RemoteType;
+        } else {
+            m_groupType = KFilePlacesModel::PlacesType;
+        }
+    } else {
+        if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
+            m_groupType = KFilePlacesModel::RemovableDevicesType;
+        } else if (m_networkShare) {
+            m_groupType = KFilePlacesModel::RemoteType;
+        } else {
+            m_groupType = KFilePlacesModel::DevicesType;
+        }
+    }
+
+    switch (m_groupType) {
     case KFilePlacesModel::PlacesType:
         m_groupName = i18nc("@item", "Places");
         break;
@@ -203,7 +227,7 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
     case KFilePlacesModel::TagsType:
         m_groupName = i18nc("@item", "Tags");
         break;
-    default:
+    case KFilePlacesModel::UnknownType:
         Q_UNREACHABLE();
         break;
     }
@@ -227,38 +251,7 @@ QVariant KFilePlacesItem::data(int role) const
 
 KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
 {
-    if (!isDevice()) {
-        const QString protocol = bookmark().url().scheme();
-        if (protocol == QLatin1String("timeline") || protocol == QLatin1String("recentlyused")) {
-            return KFilePlacesModel::RecentlySavedType;
-        }
-
-        if (protocol.contains(QLatin1String("search"))) {
-            return KFilePlacesModel::SearchForType;
-        }
-
-        if (protocol == QLatin1String("bluetooth") || protocol == QLatin1String("obexftp") || protocol == QLatin1String("kdeconnect")) {
-            return KFilePlacesModel::DevicesType;
-        }
-
-        if (protocol == QLatin1String("tags")) {
-            return KFilePlacesModel::TagsType;
-        }
-
-        if (protocol == QLatin1String("remote") || KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
-            return KFilePlacesModel::RemoteType;
-        } else {
-            return KFilePlacesModel::PlacesType;
-        }
-    }
-
-    if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
-        return KFilePlacesModel::RemovableDevicesType;
-    } else if (m_networkShare) {
-        return KFilePlacesModel::RemoteType;
-    } else {
-        return KFilePlacesModel::DevicesType;
-    }
+    return m_groupType;
 }
 
 bool KFilePlacesItem::isHidden() const
