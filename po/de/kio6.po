@@ -11,7 +11,7 @@
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: kcmkio\n"
+"Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-01 00:37+0000\n"
 "PO-Revision-Date: 2024-08-25 21:39+0200\n"
