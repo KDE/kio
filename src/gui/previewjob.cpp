@@ -417,10 +417,10 @@ void PreviewJobPrivate::startPreview()
         };
 
         const static auto pools = {
-            CachePool{QStringLiteral("/normal/"), 128},
-            CachePool{QStringLiteral("/large/"), 256},
-            CachePool{QStringLiteral("/x-large/"), 512},
-            CachePool{QStringLiteral("/xx-large/"), 1024},
+            CachePool{QStringLiteral("normal/"), 128},
+            CachePool{QStringLiteral("large/"), 256},
+            CachePool{QStringLiteral("x-large/"), 512},
+            CachePool{QStringLiteral("xx-large/"), 1024},
         };
 
         QString thumbDir;
