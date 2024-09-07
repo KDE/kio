@@ -119,7 +119,7 @@ ConnectionBackend::ConnectionResult ConnectionBackend::listenForRemote()
         errorString = localServer->errorString();
         delete localServer;
         localServer = nullptr;
-        return {false, localServer->errorString()};
+        return {false, errorString};
     }
 
     connect(localServer, &QLocalServer::newConnection, this, &ConnectionBackend::newConnection);
