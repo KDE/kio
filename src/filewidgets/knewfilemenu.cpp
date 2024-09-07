@@ -963,29 +963,8 @@ void KNewFileMenuPrivate::slotCreateDirectory()
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
-    // TODO KF6, use QStandardPaths::TemplatesLocation
-#ifdef Q_OS_UNIX
-    QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
-    QFile xdgUserDirsFile(xdgUserDirs);
-    if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        static const QLatin1String marker("XDG_TEMPLATES_DIR=");
-        QString line;
-        QTextStream in(&xdgUserDirsFile);
-        while (!in.atEnd()) {
-            line.clear();
-            in.readLineInto(&line);
-            if (line.startsWith(marker)) {
-                // E.g. XDG_TEMPLATES_DIR="$HOME/templates" -> $HOME/templates
-                line.remove(0, marker.size()).remove(QLatin1Char('"'));
-                line.replace(QLatin1String("$HOME"), QDir::homePath());
-                if (QDir(line).exists()) {
-                    list << line;
-                }
-                break;
-            }
-        }
-    }
-#endif
+    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
+    list << templateFolder;
     return list;
 }
 
@@ -995,14 +974,13 @@ static QStringList getTemplateFilePaths(const QStringList &templates)
     QStringList files;
     for (const QString &path : templates) {
         dir.setPath(path);
-        const QStringList entryList = dir.entryList(QStringList{QStringLiteral("*.desktop")}, QDir::Files);
+        const QStringList entryList = dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries);
         files.reserve(files.size() + entryList.size());
         for (const QString &entry : entryList) {
             const QString file = Utils::concatPaths(dir.path(), entry);
             files.append(file);
         }
     }
-
     return files;
 }
 
@@ -1033,26 +1011,55 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     // Look into "templates" dirs.
     QStringList files = getTemplateFilePaths(templates);
+
+    // Remove files that begin with a dot.
+    // dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries) does not disregard internal files that
+    // start with a dot like :/kio5/newfile-templates/.source
     auto removeFunc = [](const QString &path) {
-        return path.startsWith(QLatin1Char('.'));
+        QFileInfo fileinfo(path);
+        return fileinfo.fileName().startsWith(QLatin1Char('.'));
     };
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
-    std::vector<EntryInfo> uniqueEntries;
+    // Ensure desktop files are always before template files
+    // This ensures consistent behavior
+    std::partition(files.begin(), files.end(), [](const QString &a) {
+        return a.endsWith(QStringLiteral(".desktop"));
+    });
 
+    std::vector<EntryInfo> uniqueEntries;
+    QMimeDatabase db;
     for (const QString &file : files) {
         // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
-        entry.filePath = file;
         entry.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
+        QString url;
+        QString key;
 
+        if (file.endsWith(QLatin1String(".desktop"))) {
+            entry.filePath = file;
+            const KDesktopFile config(file);
+            url = config.desktopGroup().readEntry("URL");
+            key = config.desktopGroup().readEntry("Name");
+        }
+        // Preparse non-.desktop files
+        else {
+            QFileInfo fileinfo(file);
+            url = file;
+            key = fileinfo.fileName();
+            entry.entryType = KNewFileMenuSingleton::Template;
+            entry.text = fileinfo.baseName();
+            entry.filePath = fileinfo.completeBaseName();
+            entry.templatePath = file;
+            QMimeType mime = db.mimeTypeForFile(file);
+            entry.mimeType = mime.name();
+            entry.icon = mime.iconName();
+            entry.comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mime.comment());
+        }
         // Put Directory first in the list (a bit hacky),
         // and TextFile before others because it's the most used one.
         // This also sorts by user-visible name.
         // The rest of the re-ordering is done in fillMenu.
-        const KDesktopFile config(file);
-        const QString url = config.desktopGroup().readEntry("URL");
-        QString key = config.desktopGroup().readEntry("Name");
         if (file.endsWith(QLatin1String("Directory.desktop"))) {
             key.prepend(QLatin1Char('0'));
         } else if (file.startsWith(QDir::homePath())) {
