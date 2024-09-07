@@ -51,18 +51,22 @@ private Q_SLOTS:
         // must use a fake XDG_CONFIG_HOME to change QStandardPaths::TemplatesLocation
         qputenv("XDG_CONFIG_HOME", m_xdgConfigDir.toUtf8());
 
+        const QString templatesLoc = m_xdgConfigDir + "/test-templates";
+
         QDir dir;
         QVERIFY(dir.mkpath(m_xdgConfigDir));
         QFile userDirs(m_xdgConfigDir + "/user-dirs.dirs");
         QVERIFY(userDirs.open(QIODevice::WriteOnly));
-        const QString templDir = "XDG_TEMPLATES_DIR=\"" + m_xdgConfigDir + "/test-templates/\"\n";
+        const QString templDir = "XDG_TEMPLATES_DIR=\"" + templatesLoc + "\"\n";
         userDirs.write(templDir.toLocal8Bit());
         userDirs.close();
 
         // Different location than what KNewFileMenuPrivate::slotFillTemplates() checks by default
-        const QString loc = m_xdgConfigDir + "/test-templates/";
-        QVERIFY(dir.mkpath(loc));
 
+        QVERIFY(dir.mkpath(templatesLoc));
+
+        // knewfilemenu keeps its data in static variable
+        // The files in template dirs are traversed only once
         QFile templ(m_xdgConfigDir + "/test-templates/test-text.desktop");
         QVERIFY(templ.open(QIODevice::WriteOnly));
         const QByteArray contents =
@@ -75,12 +79,10 @@ private Q_SLOTS:
         templ.write(contents);
         templ.close();
 
-        const QString templatePath = m_xdgConfigDir + "/test-templates";
-
-        QDir folderTemplate(templatePath + "/my-folder");
+        QDir folderTemplate(templatesLoc + "/my-folder");
         QVERIFY(folderTemplate.mkdir(folderTemplate.path()));
 
-        QFile templateFile(templatePath + "/my-script.py");
+        QFile templateFile(templatesLoc + "/my-script.py");
         QVERIFY(templateFile.open(QIODevice::WriteOnly));
         templateFile.close();
     }
@@ -304,8 +306,7 @@ private Q_SLOTS:
         KNewFileMenu menu(this);
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
-        QAction *action = &menu;
-        const auto list = action->menu()->actions();
+        const auto list = menu.menu()->actions();
         auto it = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
             return act->text() == QStringLiteral("Custom...");
         });
@@ -320,8 +321,7 @@ private Q_SLOTS:
         KNewFileMenu menu(this);
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
-        QAction *action = &menu;
-        const auto list = action->menu()->actions();
+        const auto list = menu.menu()->actions();
         auto itFolder = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
             return act->text() == QStringLiteral("my-folder");
         });
