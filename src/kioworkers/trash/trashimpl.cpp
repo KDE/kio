@@ -781,7 +781,7 @@ bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int
         return false; // path is mandatory...
     }
     if (trashId == 0) {
-        Q_ASSERT(info.origPath[0] == QLatin1Char('/'));
+        Q_ASSERT_X(info.origPath[0] == QLatin1Char('/'), "readInfoFile: path is not absolute", qPrintable(info.origPath));
     } else {
         if (!info.origPath.startsWith(QLatin1Char('/'))) {
             const QString topdir = topDirectoryPath(trashId); // includes trailing slash
