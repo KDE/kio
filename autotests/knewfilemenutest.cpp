@@ -74,6 +74,15 @@ private Q_SLOTS:
 
         templ.write(contents);
         templ.close();
+
+        const QString templatePath = m_xdgConfigDir + "/test-templates";
+
+        QDir folderTemplate(templatePath + "/my-folder");
+        QVERIFY(folderTemplate.mkdir(folderTemplate.path()));
+
+        QFile templateFile(templatePath + "/my-script.py");
+        QVERIFY(templateFile.open(QIODevice::WriteOnly));
+        templateFile.close();
     }
 
     void cleanupTestCase()
@@ -207,6 +216,7 @@ private Q_SLOTS:
                 textAct = act;
             }
         }
+        QVERIFY(textAct != nullptr);
         if (!textAct) {
             for (const QAction *act : actionsList) {
                 qDebug() << act << act->text() << act->data();
@@ -297,12 +307,30 @@ private Q_SLOTS:
         QAction *action = &menu;
         const auto list = action->menu()->actions();
         auto it = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
-            return act->text().contains("Custom");
+            return act->text() == QStringLiteral("Custom...");
         });
         QVERIFY(it != list.cend());
         // There is a separator between system-wide templates and the ones
         // from the user's home
         QVERIFY((*--it)->isSeparator());
+    }
+
+    void testParsingSimpleTemplates()
+    {
+        KNewFileMenu menu(this);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
+        menu.checkUpToDate();
+        QAction *action = &menu;
+        const auto list = action->menu()->actions();
+        auto itFolder = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
+            return act->text() == QStringLiteral("my-folder");
+        });
+        QVERIFY(itFolder != list.cend());
+
+        auto itScript = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
+            return act->text() == QStringLiteral("my-script");
+        });
+        QVERIFY(itScript != list.cend());
     }
 
 private:
