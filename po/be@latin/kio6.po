@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3071,49 +3071,49 @@ msgstr ""
 "toĺki pry vykarystanni biahučaj prahramy (%1).<br /><br />Kali hety "
 "paramietr nie abrany, zapis budzie dastupny va ŭsich prahramach.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Adrasy"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Adliehly"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Niadaŭnija"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Pošuk"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Prylady"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Ruchomyja nośbity"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Paznaki"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 (Error %2)"
 msgctxt "@info:tooltip path (mounted from)"
@@ -3792,7 +3792,14 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "Vy&kanać jak inšy karystaĺnik"
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3802,7 +3809,7 @@ msgstr ""
 "Nazvu <filename>%1</filename> nieĺha vykarystoŭvać, bo jana zareziervavanaja "
 "dlia vykarystannia apieracyjnaj sistemaj."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3812,7 +3819,7 @@ msgstr ""
 "Nazva <filename>%1</filename> pačynajecca z kropki, tamu pradvyznačana fajl "
 "budzie schavany."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3824,32 +3831,32 @@ msgstr ""
 "što pry sartavanni ŭ alfavitnym paradku eliemient budzie pakazvacca pierad "
 "inšymi eliemientami."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Pry vykarystanni kasoj rysy ŭ nazvach katalohaŭ buduć stvaracca ŭkladzienyja "
 "katalohi, napryklad:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Pry vykarystanni kasoj rysy ŭ nazvach katalohaŭ buduć stvaracca ŭkladzienyja "
 "katalohi."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Kasyja rysy nieĺha vykarystoŭvać u nazvach fajlaŭ i katalohaŭ."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Advarotnyja kasyja rysy nieĺha vykarystoŭvać u nazvach fajlaŭ i katalohaŭ."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3858,42 +3865,42 @@ msgstr ""
 "Nie rekamiendujecca pačynać nazvu fajla abo kataloha z \"~\", bo takaja "
 "nazva moža kanfliktavać z funkcyjami emuliatara terminala."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Kataloh z nazvaj <filename>%1</filename> užo isnuje."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Fajl z nazvaj <filename>%1</filename> užo isnuje."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "Stvaryć"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "Spasylka na pryladu"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Novy kataloh"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Stvaryć kataloh"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Stvaryć novy kataloh u %1:"
@@ -9508,12 +9515,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~| msgid "&Remove Entry"
 #~ msgid "&Remove Entry %1"
 #~ msgstr "&Vydalić %1"
-
-#, fuzzy
-#~| msgid "Ru&n as a different user"
-#~ msgctxt "@action:button"
-#~ msgid "Enter a Different Name"
-#~ msgstr "Vy&kanać jak inšy karystaĺnik"
 
 #, fuzzy
 #~| msgid "Invalid Filenames"

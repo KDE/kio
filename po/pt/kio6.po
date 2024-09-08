@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -3062,49 +3062,49 @@ msgstr ""
 "aplicação actual (%1).<br/><br/>Se esta opção não estiver seleccionada, o "
 "item ficará disponível em todas as aplicações.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Locais"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Remotos"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Recentes"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Procurar Por"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Dispositivos Removíveis"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Marcas"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 (Error %2)"
 msgctxt "@info:tooltip path (mounted from)"
@@ -3762,7 +3762,13 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, kde-format
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3772,7 +3778,7 @@ msgstr ""
 "Não foi possível usar o nome <filename>%1</filename> por estar reservado "
 "para ser usado pelo sistema operativo."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3782,7 +3788,7 @@ msgstr ""
 "O nome <filename>%1</filename> começa por um ponto; como tal, ficará "
 "escondido por omissão."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3794,29 +3800,29 @@ msgstr ""
 "apresentado antes dos outros itens numa ordenação alfabética, entre outras "
 "potenciais peculiaridades."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "O uso das barras nos nomes das pastas irão criar sub-pastas, como por "
 "exemplo:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "O uso das barras nos nomes das pastas irão criar sub-pastas."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Não pode usar as barras nos nomes dos ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Não pode usar as barras invertidas nos nomes dos ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3825,42 +3831,42 @@ msgstr ""
 "O início de um nome de ficheiro ou pasta com um til (~) não é recomendado, "
 "porque poderá ser confuso ou perigoso se usar o terminal para apagar coisas."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Já existe uma pasta chamada <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Já existe um ficheiro chamado <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "Criar um Novo"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "Atalho para Dispositivo"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Criar uma Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Criar uma pasta nova em %1:"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2024-08-17 21:50+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2925,49 +2925,49 @@ msgstr ""
 "இந்த தேர்வுப்பெட்டியை தேர்வு செய்யவும்.<br /><br />இதை தேர்வு செய்யாவிடில், இப்பதிவு "
 "அனைத்து செயலிகளிலும் காட்டப்படும்.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "இடங்கள்"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "தொலை இடங்கள்"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "சமீபமானவை"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "இதற்கு தேடு"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "கழற்றக்கூடிய சாதனங்கள்"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "குறிச்சொற்கள்"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
@@ -3612,7 +3612,15 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enter a Different Name"
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "வேறு பெயரை உள்ளிடுங்கள்"
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3622,7 +3630,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் இயக்குதளத்தின் பயன்பாட்டிற்கு ஒதுக்கி "
 "வைக்கப்பட்டதால் அதனை நீங்கள் பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3632,7 +3640,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் புள்ளியில் தொடங்குவதால், அது இயல்பாக "
 "மறைந்திருக்கும்."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3644,28 +3652,28 @@ msgstr ""
 "வரிசைப்படுத்தும்போது மற்ற உருப்படிகளுக்கு முன்பு காட்டப்படுவதுடன், வேறு "
 "விசித்திரங்களையும் இது கோண்டிருக்கலாம்."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "அடைவுகளின் பெயர்களில் சாய்வுக்கோட்டை பயன்படுத்தல், இப்படி துணை அடைவுகளை உருவாக்கும்:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "அடைவுகளின் பெயர்களில் சாய்வுக்கோடுகளை பயன்படுத்தல் துணை அடைவுகளை உருவாக்கும்."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "கோப்புகள் மற்றும் அடைவுகளின் பெயர்களில் சாய்வுக்கோடுகளை பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "பின்சாய்க்கோடுகளை கோப்புகள் மற்றும் அடைவுகளின் பெயர்களில் பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3674,41 +3682,41 @@ msgstr ""
 "டில்டெ (~) தனைக் கொண்டு கோப்பு அல்லது அடைவின் பெயரைத் தொடங்குதல் பரிந்துரைக்கப்படாதது. "
 "ஏனென்றால் முனையத்தில் அதை அகற்றும்போது குழப்பம் உண்டாகலாம்."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு அடைவு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு கோப்பு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "புதியதை உருவாக்கு"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "சாதனத்துக்கு இணைப்பு"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "புதிய அடைவு"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "புதிய அடைவை உருவாக்குவது"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 -இல் புதிய அடைவை உருவாக்கு: "
@@ -8861,10 +8869,6 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 
 #~ msgid "&Remove Entry '%1'"
 #~ msgstr "'%1' என்ற பதிவை &நீக்கு"
-
-#~ msgctxt "@action:button"
-#~ msgid "Enter a Different Name"
-#~ msgstr "வேறு பெயரை உள்ளிடுங்கள்"
 
 #~ msgid "Invalid Directory Name"
 #~ msgstr "முறையற்ற அடைவுபெயர்"

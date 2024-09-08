@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2024-08-13 13:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2949,49 +2949,49 @@ msgstr ""
 "istiyorsanız bu ayarı etkinleştirin.<br /><br />Eğer bu ayar seçilmezse "
 "girdi tüm uygulamalar tarafından kullanılabilir olacaktır.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Yerler"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Uzak Konum"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Son Kullanılanlar"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Ara"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Çıkarılabilir Aygıtlar"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Etiketler"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
@@ -3640,7 +3640,13 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, kde-format
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3650,7 +3656,7 @@ msgstr ""
 "<filename>%1</filename> adı işletim sisteminin kullanımı için ayrıldığından "
 "kullanılamıyor."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3660,7 +3666,7 @@ msgstr ""
 "<filename>%1</filename> adı bir nokta ile başlıyor; dolayısıyla öntanımlı "
 "olarak gizlenecektir."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3672,29 +3678,29 @@ msgstr ""
 "olarak sıralarken diğer dosyaların önünde görüntülenmesine ve bunun gibi "
 "diğer garipliklere neden olabilir."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Klasör adlarında bölü işareti kullanmak, aşağıdaki gibi alt klasörler "
 "oluşturacaktır:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Klasör adlarında bölü işareti kullanmak alt klasörler oluşturacaktır."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Dosya ve klasör adlarında bölü işareti kullanılamaz."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Dosya ve klasör adlarında ters bölü kullanılamaz."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3704,41 +3710,41 @@ msgstr ""
 "olabileceğinden, bir dosya veya klasör adını yaklaşık işaretiyle başlatmanız "
 "önerilmez."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı bir dizin halihazırda var."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı bir dosya zaten var."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "Yeni Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "Aygıta Bağlantı"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 içinde yeni klasör oluştur:"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2024-05-09 12:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2972,49 +2972,49 @@ msgstr ""
 "núverandi forrit er notað (%1).<br /><br />Ef stillingin er ekki valin "
 "verður hún tiltæk í öllum forritum.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Staðir"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Fjartengt"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Nýlegt"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Leita að"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Tæki"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Fjarlægjanleg tæki"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Merki"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 (Error %2)"
 msgctxt "@info:tooltip path (mounted from)"
@@ -3669,7 +3669,15 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enter a different name"
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "Settu inn annað nafn"
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3679,7 +3687,7 @@ msgstr ""
 "Ekki er hægt að nota heitið <filename>%1</filename> því það er frátekið til "
 "notkunar af stýrikerfinu."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3689,7 +3697,7 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar á punkti og skráin því sjálfgefið "
 "falin."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3700,29 +3708,29 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar með bili sem þýðir að það mun birtast "
 "á undan öðrum atriðum í stafrófsröðun, auk annarra undarlegheita."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur, eins og "
 "hér:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Skástrik er ekki hægt að nota í nöfnum á skrám og möppum."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Öfug skástrik er ekki hægt að nota í nöfnum skráa og mappa."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3732,41 +3740,41 @@ msgstr ""
 "slíkt getur verið ruglandi og haft ýmsar hættur í för með sér þegar hlutum "
 "er eytt á skipanalínu."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mappa með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Skrá með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "Búa til nýtt"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "Tengill í tæki"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Ný mappa"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Búa til nýja möppu"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Búa til nýja möppu í: %1"
@@ -8939,13 +8947,6 @@ msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
 
 #~ msgid "&Remove Entry '%1'"
 #~ msgstr "Fja&rlægja færsluna '%1'"
-
-#, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid "Enter a different name"
-#~ msgctxt "@action:button"
-#~ msgid "Enter a Different Name"
-#~ msgstr "Settu inn annað nafn"
 
 #, fuzzy
 #~| msgid "Invalid Filenames"

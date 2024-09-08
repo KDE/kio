@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-01 00:37+0000\n"
+"POT-Creation-Date: 2024-09-08 00:37+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3018,49 +3018,49 @@ msgstr ""
 "ddefnyddir y cymhwysiad yma (%1).<br/><br/>Os ni ddewisir y gosodiad yma, "
 "bydd y cofnod ar gael ym mhob chymhwysiad.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:210
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Lleoedd"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:213
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Anghysbell"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:216
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Diweddar"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:219
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Chwilio Am"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:222
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Dyfeisiau"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:225
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Dyfeisiau Godynniadwy"
 
-#: filewidgets/kfileplacesitem.cpp:204
+#: filewidgets/kfileplacesitem.cpp:228
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Tagiau"
 
-#: filewidgets/kfileplacesitem.cpp:340
+#: filewidgets/kfileplacesitem.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 (Error %2)"
 msgctxt "@info:tooltip path (mounted from)"
@@ -3720,7 +3720,14 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1149
+#: filewidgets/knewfilemenu.cpp:1057
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "Rhede&g fel defnyddiwr gwahanol"
+
+#: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3730,7 +3737,7 @@ msgstr ""
 "Ni ellir enw <filename>%1</filename> yn ei ddefnyddio achos mae e'n "
 "rhagarbedwyd ar gyfer defnyddio gyda'r weithretgyfundrefn."
 
-#: filewidgets/knewfilemenu.cpp:1157
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3740,7 +3747,7 @@ msgstr ""
 "Mae'r enw <filename>%1</filename> yn dechreu gyda phwynt, felly fydd hyn yn "
 "ei guddiwyd trwy amwall."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3752,28 +3759,28 @@ msgstr ""
 "ei ardangos cyn eitemau eraill pan ddidoli yn ôl yr egwyddor, ymhlith "
 "nwythau galluadwy eraill."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Fe fydd defynddio sleisiau yn enwau plygell yn creu isblygellau, fel hyn:"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Fe fydd defynddio sleisiau yn enwau plygell yn creu isblygellau."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Ni ellir sleisiau yn eu defnyddio i mewn enwau ffeil a phlygfell."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Ni ellir ôlsleisiau yn eu defnyddio i mewn enwau ffeil a phlyfell."
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3782,42 +3789,42 @@ msgstr ""
 "Ni argymellir i ddechreu enw ffeil neu blygell gyda tild achos fe allo hyn i "
 "fod yn ddyryslyd neu beryglus pan ddefnyddio y terfynell i ddileu pethau."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mae cyfeiriad o'r enw <filename>%1</filename> mewn bod yn barod."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Mae ffeil o'r enw <filename>%1</filename> mewn bod yn barod."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1383
 #, kde-format
 msgid "Create New"
 msgstr "Creu Newydd"
 
-#: filewidgets/knewfilemenu.cpp:1411
+#: filewidgets/knewfilemenu.cpp:1418
 #, kde-format
 msgid "Link to Device"
 msgstr "Cysylltu i Ddyfais"
 
-#: filewidgets/knewfilemenu.cpp:1457
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Plygell Newydd"
 
-#: filewidgets/knewfilemenu.cpp:1480
+#: filewidgets/knewfilemenu.cpp:1487
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Creu Plygell"
 
-#: filewidgets/knewfilemenu.cpp:1482
+#: filewidgets/knewfilemenu.cpp:1489
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Creu plygell newydd %1:"
@@ -9144,12 +9151,6 @@ msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
 #~| msgid "&Remove Entry"
 #~ msgid "&Remove Entry '%1'"
 #~ msgstr "&Diddymu Cofnod"
-
-#, fuzzy
-#~| msgid "Ru&n as a different user"
-#~ msgctxt "@action:button"
-#~ msgid "Enter a Different Name"
-#~ msgstr "Rhede&g fel defnyddiwr gwahanol"
 
 #, fuzzy
 #~| msgid "Invalid Filenames"
