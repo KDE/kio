@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2023-08-26 04:26+0200\n"
+"PO-Revision-Date: 2024-08-19 15:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -5856,7 +5856,7 @@ msgstr ""
 #: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
-msgstr "© 1998-2000, 2003 Equipo de desenvolvemento de KFM e Konqueror"
+msgstr "© 1998-2000, 2003 Equipo desenvolvedor de KFM e Konqueror"
 
 #: kioexec/main.cpp:291
 #, kde-format
