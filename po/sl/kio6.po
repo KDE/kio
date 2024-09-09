@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:37+0000\n"
-"PO-Revision-Date: 2024-08-13 09:36+0200\n"
+"PO-Revision-Date: 2024-09-08 07:54+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3687,7 +3687,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr ""
+msgstr "Vnesite %1 ime datoteke:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
@@ -6483,10 +6483,10 @@ msgstr "Različno (brez spremembe)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Te datoteke uporabljajo napredna dovoljenja."
-msgstr[1] "Ta datoteka uporablja napredna dovoljenja."
-msgstr[2] "Ti datoteki uporabljata napredni dovoljenji."
-msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
+msgstr[0] "Te datoteke uporabljajo napredna dovoljenja"
+msgstr[1] "Ta datoteka uporablja napredna dovoljenja"
+msgstr[2] "Ti datoteki uporabljata napredni dovoljenji"
+msgstr[3] "Te datoteke uporabljajo napredna dovoljenja"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1803
 #, kde-format

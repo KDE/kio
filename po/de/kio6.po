@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:37+0000\n"
-"PO-Revision-Date: 2024-08-25 21:39+0200\n"
+"PO-Revision-Date: 2024-09-08 21:27+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3760,12 +3760,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1057
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Geben Sie einen anderen Namen ein"
+msgstr "Geben Sie einen Dateinamen für %1 ein:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
@@ -7018,7 +7016,7 @@ msgstr "Ziel"
 #: widgets/renamedialog.cpp:405
 #, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Das Quelle ist <b>aktueller</b>."
+msgstr "Die Quelle ist <b>aktueller</b>."
 
 #: widgets/renamedialog.cpp:407
 #, kde-format
@@ -7028,7 +7026,7 @@ msgstr "Die Quelle ist <b>älter</b>."
 #: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Das Quelle ist <b>%1 kleiner</b>."
+msgstr "Die Quelle ist <b>%1 kleiner</b>."
 
 #: widgets/renamedialog.cpp:419
 #, kde-format

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:37+0000\n"
-"PO-Revision-Date: 2024-08-13 08:20+0300\n"
+"PO-Revision-Date: 2024-09-08 07:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3578,12 +3578,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1057
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "הכנס שם אחר"
+msgstr "נא למלא שם קובץ %1:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
