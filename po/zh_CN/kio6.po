@@ -3495,7 +3495,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr ""
+msgstr "输入 %1 文件名："
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
