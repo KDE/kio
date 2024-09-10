@@ -8,6 +8,7 @@
 #ifndef JOBTEST_H
 #define JOBTEST_H
 
+#include "config-kiocore.h"
 #include <kio/udsentry.h>
 #include <kiocore_export.h>
 
@@ -107,7 +108,9 @@ private Q_SLOTS:
     void moveFileDestAlreadyExists();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
+#if HAVE_POSIX_ACL
     void copyFileToSamePartitionWithAcl();
+#endif
     void moveDestAlreadyExistsAutoRename_data();
     void moveDestAlreadyExistsAutoRename();
 
