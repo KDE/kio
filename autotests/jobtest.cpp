@@ -7,7 +7,6 @@
 
 #include "jobtest.h"
 #include "mockcoredelegateextensions.h"
-#include "config-kiocore.h"
 
 #include "kio/job.h"
 #include "kiotesthelper.h" // createTestFile etc.
@@ -47,7 +46,12 @@
 
 #ifdef HAVE_POSIX_ACL
 #include <sys/types.h>
+#if HAVE_SYS_ACL_H
 #include <sys/acl.h>
+#endif
+#if HAVE_ACL_LIBACL_H
+#include <acl/libacl.h>
+#endif
 #endif
 
 #ifndef Q_OS_WIN
