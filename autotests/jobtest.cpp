@@ -825,6 +825,7 @@ other::---)";
     QVERIFY2(acl_valid(new_acl) == 0, strerror(errno));
 
     // change the source acl
+    qDebug() << "path" << path;
     QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
     auto src_acl = acl_get_file(path, ACL_TYPE_ACCESS);
     QVERIFY(src_acl != NULL);
