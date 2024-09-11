@@ -825,6 +825,13 @@ other::---
     qDebug() << "acl" << acl_to_text(new_acl, NULL);
     // change the source acl
     qDebug() << "path" << path;
+
+#ifdef Q_OS_FREEBSD
+    qDebug() << "equiv" << acl_equiv_mode_np(new_acl, NULL);
+    int brand;
+    acl_get_brand_np(new_acl, &brand);
+    qDebug() << "brand" << brand;
+#endif
     QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
     auto src_acl = acl_get_file(path, ACL_TYPE_ACCESS);
     QVERIFY(src_acl != NULL);
