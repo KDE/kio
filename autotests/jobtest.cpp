@@ -816,7 +816,6 @@ void JobTest::copyFileToSamePartitionWithAcl()
 
     std::string new_acl_string = R"(user::rw-
 group::rwx                      #effective:rw-
-group:users:rwx                 #effective:rw-
 mask::rw-
 other::r--
 )";
