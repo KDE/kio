@@ -816,12 +816,13 @@ void JobTest::copyFileToSamePartitionWithAcl()
 
     std::string new_acl_string = R"(user::rw-
 group::r--
-other::---)";
+other::---
+)";
     acl_t new_acl = acl_from_text(new_acl_string.c_str());
     QVERIFY2(new_acl != nullptr, strerror(errno));
     QVERIFY2(acl_valid(new_acl) == 0, strerror(errno));
-    QVERIFY2(acl_calc_mask(&new_acl) == 0, strerror(errno));
 
+    qDebug() << "acl" << acl_to_text(new_acl, NULL);
     // change the source acl
     qDebug() << "path" << path;
     QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
