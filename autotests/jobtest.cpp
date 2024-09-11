@@ -815,8 +815,10 @@ void JobTest::copyFileToSamePartitionWithAcl()
     const auto path = QFile::encodeName(filePath);
 
     std::string new_acl_string = R"(user::rw-
-group::r--
-other::---
+group::rwx                      #effective:rw-
+group:users:rwx                 #effective:rw-
+mask::rw-
+other::r--
 )";
     acl_t new_acl = acl_from_text(new_acl_string.c_str());
     QVERIFY2(new_acl != nullptr, strerror(errno));
