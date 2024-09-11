@@ -49,9 +49,6 @@
 #if HAVE_SYS_ACL_H
 #include <sys/acl.h>
 #endif
-#if HAVE_ACL_LIBACL_H
-#include <acl/libacl.h>
-#endif
 #endif
 
 #ifndef Q_OS_WIN
