@@ -820,11 +820,12 @@ other::---)";
     acl_t new_acl = acl_from_text(new_acl_string.c_str());
     QVERIFY2(new_acl != nullptr, strerror(errno));
     QVERIFY2(acl_valid(new_acl) == 0, strerror(errno));
+    QVERIFY2(acl_calc_mask(&new_acl) == 0, strerror(errno));
 
     // change the source acl
     qDebug() << "path" << path;
-    QVERIFY2(acl_set_file(path.data(), ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
-    auto src_acl = acl_get_file(path.data(), ACL_TYPE_ACCESS);
+    QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
+    auto src_acl = acl_get_file(path, ACL_TYPE_ACCESS);
     QVERIFY(src_acl != NULL);
     QCOMPARE(acl_to_text(src_acl, NULL), acl_to_text(new_acl, NULL));
     acl_free(src_acl);
