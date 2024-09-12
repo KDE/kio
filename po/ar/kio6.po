@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-08 00:37+0000\n"
-"PO-Revision-Date: 2024-08-15 10:28+0400\n"
+"PO-Revision-Date: 2024-09-11 21:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3617,12 +3617,10 @@ msgid "%1"
 msgstr "‏%1"
 
 #: filewidgets/knewfilemenu.cpp:1057
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "ادخل اسم مختلف"
+msgstr "أدخل اسم الملف %1:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
