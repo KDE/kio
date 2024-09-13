@@ -832,6 +832,7 @@ other::r--
     int brand;
     acl_get_brand_np(new_acl, &brand);
     qDebug() << "brand" << brand;
+    qDebug() << "path" << path;
 #endif
     QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerror(errno));
     auto src_acl = acl_get_file(path, ACL_TYPE_ACCESS);
