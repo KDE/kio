@@ -14,6 +14,7 @@ Name[cs]=KDE Invent
 Name[cy]=KDE Llifento
 Name[da]=KDE Invent
 Name[de]=KDE Invent
+Name[el]=KDE Invent
 Name[en_GB]=KDE Invent
 Name[eo]=KDE Invent
 Name[es]=KDE Invent
@@ -66,6 +67,7 @@ Query[cs]=https://invent.kde.org/search?search=\\{@}
 Query[cy]=https://invent.kde.org/search?search=\\{@}
 Query[da]=https://invent.kde.org/search?search=\\{@}
 Query[de]=https://invent.kde.org/search?search=\\{@}
+Query[el]=https://invent.kde.org/search?search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?search=\\{@}
 Query[eo]=https://invent.kde.org/search?search=\\{@}
 Query[es]=https://invent.kde.org/search?search=\\{@}

@@ -12,6 +12,7 @@ Name[cs]=CPP Reference
 Name[cy]=Cyfeirdeb CPP
 Name[da]=CPP reference
 Name[de]=CPP-Reference
+Name[el]=Εγχειρίδιο αναφοράς CPP
 Name[en_GB]=CPP Reference
 Name[eo]=CPP-Referenco
 Name[es]=Referencia de CPP
@@ -66,6 +67,7 @@ Query[cs]=https://cppreference.com/w/?search=\\{@}
 Query[cy]=https://cppreference.com/w/?search=\\{@}
 Query[da]=https://cppreference.com/w/?search=\\{@}
 Query[de]=https://cppreference.com/w/?search=\\{@}
+Query[el]=https://cppreference.com/w/?search=\\{@}
 Query[en_GB]=https://cppreference.com/w/?search=\\{@}
 Query[eo]=https://cppreference.com/w/?search=\\{@}
 Query[es]=https://cppreference.com/w/?search=\\{@}

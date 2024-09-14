@@ -10,6 +10,7 @@ Name[ca]=PyPI
 Name[ca@valencia]=PyPI
 Name[da]=PyPi
 Name[de]=PyPI
+Name[el]=PyPI
 Name[en_GB]=PyPI
 Name[eo]=PyPI
 Name[es]=PyPI
@@ -50,6 +51,7 @@ Query[ca@valencia]=https://pypi.org/search/?q=\\{@}
 Query[cs]=https://pypi.org/search/?q=\\{@}
 Query[da]=https://pypi.org/search/?q=\\{@}
 Query[de]=https://pypi.org/search/?q=\\{@}
+Query[el]=https://pypi.org/search/?q=\\{@}
 Query[en_GB]=https://pypi.org/search/?q=\\{@}
 Query[eo]=https://pypi.org/search/?q=\\{@}
 Query[es]=https://pypi.org/search/?q=\\{@}

@@ -11,6 +11,7 @@ Name[ca@valencia]=Bugzilla d'openSUSE
 Name[cs]=Bugzilla openSUSE
 Name[da]=openSUSE Bugzilla
 Name[de]=openSUSE-Bugzilla
+Name[el]=openSUSE Bugzilla
 Name[en_GB]=openSUSE Bugzilla
 Name[eo]=openSUSE Bugzilla
 Name[es]=openSUSE Bugzilla
@@ -51,6 +52,7 @@ Query[ca@valencia]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[cs]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[da]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[de]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[el]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[en_GB]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[eo]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[es]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}

@@ -11,6 +11,7 @@ Name[ca@valencia]=Codeberg
 Name[cs]=Codeberg
 Name[da]=Codeberg
 Name[de]=Codeberg
+Name[el]=Codeberg
 Name[en_GB]=Codeberg
 Name[eo]=Codeberg
 Name[es]=Codeberg
@@ -50,6 +51,7 @@ Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[ca@valencia]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[da]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[de]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[el]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[en_GB]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[eo]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[es]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
