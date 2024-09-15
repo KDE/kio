@@ -5,6 +5,5 @@ include:
   - project: sysadmin/ci-utilities
     file:
       - /gitlab-templates/linux.yml
-      - /gitlab-templates/android.yml
       - /gitlab-templates/freebsd.yml
       - /gitlab-templates/windows.yml
