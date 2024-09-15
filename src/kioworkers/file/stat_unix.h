@@ -124,7 +124,7 @@ inline static ino_t stat_ino(const QT_STATBUF &buf)
 {
     return buf.st_ino;
 }
-inline static off_t stat_size(const QT_STATBUF &buf)
+inline static size_t stat_size(const QT_STATBUF &buf)
 {
     return buf.st_size;
 }

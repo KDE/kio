@@ -172,24 +172,22 @@ static bool isOnCifsMount(const QString &filePath)
 
 #if HAVE_STATX
 // statx syscall is available
-using SizeType = size_t;
 using StatStruct = struct statx;
 #else
-using SizeType = off_t;
 using StatStruct = QT_STATBUF;
 #endif
 
 static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path)
 {
     // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
-    SizeType size = stat_size(buf);
+    size_t size = stat_size(buf);
     if (size > SIZE_MAX) {
         qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
         return {};
     }
-    SizeType lowerBound = 256;
-    SizeType higherBound = 1024;
-    SizeType bufferSize = qBound(lowerBound, size + 1, higherBound);
+    size_t lowerBound = 256;
+    size_t higherBound = 1024;
+    size_t bufferSize = qBound(lowerBound, size + 1, higherBound);
     QByteArray linkTargetBuffer(bufferSize, Qt::Initialization::Uninitialized);
     while (true) {
         ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
@@ -199,7 +197,7 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path
                According to gnulib/lib/areadlink-with-size.c */
             qCWarning(KIO_FILE) << "readlink failed!" << path;
             return {};
-        } else if (n > 0 && static_cast<SizeType>(n) != bufferSize) {
+        } else if (n > 0 && static_cast<size_t>(n) != bufferSize) {
             // the buffer was not filled in the last iteration
             // we are finished reading, break the loop
             linkTargetBuffer.truncate(n);
