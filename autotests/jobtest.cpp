@@ -2895,8 +2895,11 @@ void JobTest::cancelCopyAndCleanDest()
     if (!f.open()) {
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
-
-    const int sz = 4000000; //~4MB
+#ifdef HAVE_LIBURING
+    const int sz = 4000000; //~40MB
+#else
+    const int sz = 400000; //~4MB
+#endif
     f.seek(sz - 1);
     f.write("0");
     f.close();
@@ -2915,7 +2918,6 @@ void JobTest::cancelCopyAndCleanDest()
     connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, destToCheck](KJob *job, qulonglong processedSize) {
         if (processedSize > 0) {
             QVERIFY2(QFile::exists(destToCheck), qPrintable(destToCheck));
-            qDebug() << "processedSize=" << processedSize << "file size" << QFileInfo(destToCheck).size();
             if (suspend) {
                 job->suspend();
             }
