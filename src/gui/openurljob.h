@@ -20,23 +20,26 @@ namespace KIO
 class OpenUrlJobPrivate;
 
 /*!
- * @class OpenUrlJob openurljob.h <KIO/OpenUrlJob>
+ * \class KIO::OpenUrlJob
+ * \inmodule KIOGui
+ * \inheaderfile KIO/OpenUrlJob
  *
- * @brief OpenUrlJob finds out the right way to "open" a URL.
+ * \brief OpenUrlJob finds out the right way to "open" a URL.
+ *
  * This includes finding out its MIME type, and then the associated application,
  * or running desktop files, executables, etc.
  * It also honours the "use this webbrowser for all http(s) URLs" setting.
  *
  * For the "Open With" dialog functionality to work, make sure to set
  * KIO::JobUiDelegate as the delegate for this job (in widgets applications).
- * @code
+ * \code
  *    // Since 5.98 use:
  *    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
  *    // For older releases use:
  *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
- * @endcode
+ * \endcode
  *
- * @since 5.71
+ * \since KIO 5.71
  */
 class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
 {

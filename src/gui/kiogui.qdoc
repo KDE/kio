@@ -2,7 +2,9 @@
     \module KIOGui
     \title KIO Gui C++ Classes
     \ingroup modules
-    \qtcmakepackage KIOGui
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KIOGui
 
     \brief IO
 
