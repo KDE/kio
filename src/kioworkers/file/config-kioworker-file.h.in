@@ -23,3 +23,6 @@
 
 /* Defined if system has the copy_file_range function. */
 #cmakedefine01 HAVE_COPY_FILE_RANGE
+
+/* Defined if system has the liburing API available */
+#cmakedefine01 HAVE_LIBURING
