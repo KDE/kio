@@ -106,7 +106,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ItemViews     # kdirsortfilterproxymodel
     KF6::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
-    Qt6::Core5Compat
     KF6::GuiAddons    # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::IconWidgets   # KIconButton

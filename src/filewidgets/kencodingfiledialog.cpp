@@ -23,7 +23,6 @@
 #include <QBoxLayout>
 #include <QComboBox>
 #include <QPushButton>
-#include <QTextCodec>
 
 struct KEncodingFileDialogPrivate {
     KEncodingFileDialogPrivate()
@@ -71,13 +70,16 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     d->w->setCustomWidget(i18n("Encoding:"), d->encoding);
 
     d->encoding->clear();
-    QByteArray sEncoding = encoding.toUtf8();
-    auto systemEncoding = QTextCodec::codecForLocale()->name();
-    if (sEncoding.isEmpty() || sEncoding == "System") {
-        sEncoding = systemEncoding;
+    auto sEncoding = QStringEncoder::encodingForName(encoding.toLocal8Bit().data());
+    auto systemEncoding = QStringConverter::System;
+    QStringEncoder::Encoding currentEncoding;
+    if (!sEncoding || QByteArray(QStringEncoder(*sEncoding).name()) == QByteArray("System")) {
+        currentEncoding = systemEncoding;
+    } else {
+        currentEncoding = sEncoding.value();
     }
 
-    auto encodings = QTextCodec::availableCodecs();
+    auto encodings = QStringEncoder::availableCodecs();
     std::sort(encodings.begin(), encodings.end(), [](auto &a, auto &b) {
         return (a.compare(b, Qt::CaseInsensitive) < 0);
     });
@@ -86,19 +88,18 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     int system = 0;
     bool foundRequested = false;
     for (const auto &encoding : encodings) {
-        QTextCodec *codecForEnc = QTextCodec::codecForName(encoding);
-
+        auto codecForEnc = QStringEncoder::encodingForName(encoding.toLocal8Bit().data());
         if (codecForEnc) {
-            d->encoding->addItem(QString::fromUtf8(encoding));
-            auto codecName = codecForEnc->name();
-            if ((codecName == sEncoding) || (encoding == sEncoding)) {
+            d->encoding->addItem(encoding);
+            auto codec = *codecForEnc;
+            if (codec == currentEncoding) {
                 d->encoding->setCurrentIndex(insert);
                 foundRequested = true;
             }
-
-            if ((codecName == systemEncoding) || (encoding == systemEncoding)) {
+            if (codec == systemEncoding) {
                 system = insert;
             }
+
             insert++;
         }
     }
