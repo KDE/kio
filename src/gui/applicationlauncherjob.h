@@ -51,7 +51,7 @@ class ApplicationLauncherJobPrivate;
  * To invoke the open-with dialog (from KIOWidgets), construct an ApplicationLauncherJob without
  * any arguments or with a null KService.
  *
- * \since KIO 5.69
+ * \since 5.69
  */
 class KIOGUI_EXPORT ApplicationLauncherJob : public KJob
 {
