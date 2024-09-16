@@ -6,6 +6,7 @@
 */
 
 #include "jobtest.h"
+#include "config-kioworker-file.h"
 #include "mockcoredelegateextensions.h"
 
 #include "kio/job.h"

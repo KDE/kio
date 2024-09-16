@@ -534,7 +534,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 // TODO handle ENOSPC and more error paths
 //  maybe adapt the buffer size to the block size
 #define QD 60 // 64 sqe is queue
-#define BS (4 * 1024) // 4 Kb
+#define BS (4 * 1024) // 4 Kb, 1 typical page cache
 
     int infd = srcFile.handle();
     int outfd = destFile.handle();

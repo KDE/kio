@@ -38,7 +38,7 @@ ecm_add_tests(
  krecentdocumenttest.cpp
  filefiltertest.cpp
  NAME_PREFIX "kiocore-"
- LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
+ LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml ${LIBURING_LIBRARY}
 )
 
 target_link_libraries(threadtest Qt6::Concurrent)
@@ -79,6 +79,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
         NAME_PREFIX "kiocore-"
         LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
     )
+endif()
+
+if(UNIX)
+    if (HAVE_LIBURING)
+        configure_file(../src/kioworkers/file/config-kioworker-file.h.in config-kioworker-file.h)
+    endif()
 endif()
 
 if (TARGET KF6::KIOGui)
