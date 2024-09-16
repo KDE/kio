@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-08 00:37+0000\n"
+"POT-Creation-Date: 2024-09-16 00:37+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ayikwazi ukwenza i io-slave: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -2429,18 +2429,18 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Impazamo Engababhalwanga"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1477
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ikhonkco olunophawu"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1479
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Ikhonkco kwi %1"
 
-#: core/kfileitem.cpp:1487
+#: core/kfileitem.cpp:1482
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -4390,22 +4390,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:718
+#: kioworkers/file/file_unix.cpp:716
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:938
 #, fuzzy, kde-format
 msgid "No media in device for %1"
 msgstr "Akukho metainfo ye %1"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1230
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ayinakungena kulawulo %1"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1241
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

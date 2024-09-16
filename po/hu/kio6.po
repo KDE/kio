@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-08 00:37+0000\n"
+"POT-Creation-Date: 2024-09-16 00:37+0000\n"
 "PO-Revision-Date: 2024-06-20 22:17+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2387,17 +2387,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nem dokumentált hibakód"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1477
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Szimbolikus link erre: %1)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link erre: %2)"
 
-#: core/kfileitem.cpp:1487
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Ide mutat: %1)"
@@ -4299,22 +4299,22 @@ msgstr ""
 "Forrás: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:718
+#: kioworkers/file/file_unix.cpp:716
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:938
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1230
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1241
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"

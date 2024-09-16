@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-08 00:37+0000\n"
+"POT-Creation-Date: 2024-09-16 00:37+0000\n"
 "PO-Revision-Date: 2024-09-08 15:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Niet in staat KIO-worker aan te maken: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2432,17 +2432,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ongedocumenteerde fout"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1477
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolische koppeling naar %1)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, koppeling naar %2)"
 
-#: core/kfileitem.cpp:1487
+#: core/kfileitem.cpp:1482
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Verwijst naar %1)"
@@ -4360,22 +4360,22 @@ msgstr ""
 "Bron: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:718
+#: kioworkers/file/file_unix.cpp:716
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bestand kan niet van %1 naar %2 worden gekopieerd. (foutcode: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:938
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Geen medium in station voor %1"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1230
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kon gebruikers-id voor de opgegeven gebruikersnaam %1 niet verkrijgen"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1241
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"
