@@ -76,7 +76,6 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     if (sEncoding && QByteArray(QStringEncoder(*sEncoding).name()) != QByteArray("System") {
         currentEncoding = sEncoding.value();
     }
-    }
 
     auto encodings = QStringEncoder::availableCodecs();
     std::sort(encodings.begin(), encodings.end(), [](auto &a, auto &b) {
