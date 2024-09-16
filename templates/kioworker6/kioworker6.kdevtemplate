@@ -1,5 +1,17 @@
 [General]
 Name=C++ Worker (KF6)
+Name[ca]=Procés de treball C++ (KF6)
+Name[ca@valencia]=Procés de treball C++ (KF6)
+Name[en_GB]=C++ Worker (KF6)
+Name[es]=Módulo de trabajo de C++ (KF6)
+Name[he]=סוכן פעולה C++‎‏ (KF6)
+Name[it]=Worker C++ (KF6)
+Name[ka]=C++ Worker (KF6)
+Name[sl]=C++ Worker (KF6)
+Name[sv]=C++ arbetare (KF6)
+Name[tr]=C++ İşçi (KF6)
+Name[uk]=Обробник C++ (KF6)
+Name[x-test]=xxC++ Worker (KF6)xx
 Comment=KIO Worker Template
 Comment[ar]=قالب عامل الدخل والخرج
 Comment[az]=KİO modulu nümunəsi
