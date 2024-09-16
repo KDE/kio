@@ -2895,7 +2895,7 @@ void JobTest::cancelCopyAndCleanDest()
     if (!f.open()) {
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
-#ifdef HAVE_LIBURING
+#if HAVE_LIBURING
     const int sz = 4000000; //~40MB
 #else
     const int sz = 400000; //~4MB
