@@ -72,11 +72,10 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     d->encoding->clear();
     auto sEncoding = QStringEncoder::encodingForName(encoding.toLocal8Bit().data());
     auto systemEncoding = QStringConverter::System;
-    QStringEncoder::Encoding currentEncoding;
-    if (!sEncoding || QByteArray(QStringEncoder(*sEncoding).name()) == QByteArray("System")) {
-        currentEncoding = systemEncoding;
-    } else {
+    QStringEncoder::Encoding currentEncoding = systemEncoding;
+    if (sEncoding && QByteArray(QStringEncoder(*sEncoding).name()) != QByteArray("System") {
         currentEncoding = sEncoding.value();
+    }
     }
 
     auto encodings = QStringEncoder::availableCodecs();
