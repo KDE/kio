@@ -141,7 +141,7 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
 # Used by KMountPoint
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     find_package(LibUring)
-    if (${LIBURING_FOUND})
+    if (LIBURING_FOUND)
         set (HAVE_LIBURING true)
     endif()
 
