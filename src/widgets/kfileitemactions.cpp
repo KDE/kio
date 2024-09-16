@@ -214,7 +214,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
             }
             act->setData(QVariant::fromValue(serviceAction));
             m_executeServiceActionGroup.addAction(act);
-            
+
             menu->addAction(act); // Add to toplevel menu
             ++count;
         }
@@ -587,8 +587,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
-            const QString showInSubmenu = jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"));
-            if (showInSubmenu == QLatin1String("true")) {
+            if (jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false)) {
                 actionsMenu->addActions(actions);
             } else {
                 mainMenu->addActions(actions);
