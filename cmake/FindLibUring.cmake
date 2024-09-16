@@ -19,8 +19,8 @@ find_library(LIBURING_LIBRARY NAMES uring)
 mark_as_advanced(LIBURING_LIBRARY)
 
 include(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(LibUring
-    FOUND_VAR LibUring_FOUND
+find_package_handle_standard_args(LibUring
+    FOUND_VAR LIBURING_FOUND
     REQUIRED_VARS LIBURING_LIBRARY LIBURING_INCLUDE_DIR)
 
 if(LIBURING_FOUND)
