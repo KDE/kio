@@ -51,7 +51,7 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
-#ifdef HAVE_LIBURING
+#if HAVE_LIBURING
 #include <liburing.h>
 #endif
 
@@ -525,7 +525,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     processedSize(sizeProcessed);
 
-#ifdef HAVE_LIBURING
+#if HAVE_LIBURING
 
 // TODO only use if file size is bigger than X
 // TODO adapt the queue size to the kind of medium (SSD > HDD > usb stick)
