@@ -27,7 +27,7 @@ class UDSEntry;
 KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const KIO::UDSEntry &a);
 KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a);
 
-/**
+/*!
  * Support for qDebug() << aUDSEntry
  * \since 5.22
  */
@@ -37,19 +37,19 @@ namespace KIO
 {
 class UDSEntryPrivate;
 
-/**
+/*!
  * Returns true if the entry contains the same data as the other
  * @since 5.63
  */
 KIOCORE_EXPORT bool operator==(const UDSEntry &entry, const UDSEntry &other);
 
-/**
+/*!
  * Returns true if the entry does not contain the same data as the other
  * @since 5.63
  */
 KIOCORE_EXPORT bool operator!=(const UDSEntry &entry, const UDSEntry &other);
 
-/**
+/*!
  * @class KIO::UDSEntry udsentry.h <KIO/UDSEntry>
  *
  * Universal Directory Service
@@ -80,7 +80,7 @@ class KIOCORE_EXPORT UDSEntry
 public:
     UDSEntry();
 
-    /**
+    /*!
      * Create a UDSEntry by QT_STATBUF
      * @param buff QT_STATBUF object
      * @param name filename
@@ -88,39 +88,39 @@ public:
      */
     UDSEntry(const QT_STATBUF &buff, const QString &name = QString());
 
-    /**
+    /*!
      * Copy constructor
      */
     UDSEntry(const UDSEntry &);
 
-    /**
+    /*!
      * Destructor
      */
     ~UDSEntry();
 
-    /**
+    /*!
      * Move constructor
      * @since 5.44
      */
     UDSEntry(UDSEntry &&);
 
-    /**
+    /*!
      * Copy assignment
      */
     UDSEntry &operator=(const UDSEntry &);
 
-    /**
+    /*!
      * Move assignment
      * @since 5.44
      */
     UDSEntry &operator=(UDSEntry &&);
 
-    /**
+    /*!
      * @return value of a textual field
      */
     QString stringValue(uint field) const;
 
-    /**
+    /*!
      * @return value of a numeric field
      */
     long long numberValue(uint field, long long defaultValue = 0) const;
@@ -134,13 +134,13 @@ public:
     /// @return true if this entry is a link
     bool isLink() const;
 
-    /**
+    /*!
      * Calling this function before inserting items into an empty UDSEntry may save time and memory.
      * @param size number of items for which memory will be pre-allocated
      */
     void reserve(int size);
 
-    /**
+    /*!
      * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
      * @param field numeric field id
      * @param value to set
@@ -148,7 +148,7 @@ public:
      */
     void fastInsert(uint field, const QString &value);
 
-    /**
+    /*!
      * insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
      * @param field numeric field id
      * @param l value to set
@@ -156,31 +156,31 @@ public:
      */
     void fastInsert(uint field, long long l);
 
-    /**
+    /*!
      * count fields
      * @return the number of fields
      */
     int count() const;
 
-    /**
+    /*!
      * check existence of a field
      * @param field numeric field id
      */
     bool contains(uint field) const;
 
-    /**
+    /*!
      * A vector of fields being present for the current entry.
      * @return all fields for the current entry.
      * @since 5.8
      */
     QList<uint> fields() const;
 
-    /**
+    /*!
      * remove all fields
      */
     void clear();
 
-    /**
+    /*!
      * Bit field used to specify the item type of a StandardFieldTypes.
      */
     enum ItemTypes {
@@ -193,7 +193,7 @@ public:
         UDS_TIME = 0x04000000 | UDS_NUMBER,
     };
 
-    /**
+    /*!
      * Constants used to specify the type of a UDSEntry’s field.
      */
     enum StandardFieldTypes {
@@ -329,7 +329,7 @@ private:
     friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
 
 public:
-    /**
+    /*!
      * Replace or insert field with string value
      * @param field numeric field id
      * @param value to set
@@ -337,7 +337,7 @@ public:
      */
     void replace(uint field, const QString &value);
 
-    /**
+    /*!
      * Replace or insert field with numeric value
      * @param field numeric field id
      * @param l value to set
@@ -361,7 +361,7 @@ Q_DECLARE_TYPEINFO(KIO::UDSEntry, Q_RELOCATABLE_TYPE);
 
 namespace KIO
 {
-/**
+/*!
  * A directory listing is a list of UDSEntry instances.
  *
  * To list the name and size of all the files in a directory listing you would do:
