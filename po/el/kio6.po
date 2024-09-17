@@ -5414,7 +5414,7 @@ msgstr "&Ενέργειες"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Άνοιγμα φακέλου με…"
+msgstr "Άνοιγμα &φακέλου με…"
 
 #: widgets/kfileitemactions.cpp:694
 #, kde-format
@@ -5425,7 +5425,7 @@ msgstr "Άνοιγμα με…"
 #: widgets/kfileitemactions.cpp:732
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Άνοιγμα φακέλου με %1"
+msgstr "Άνοιγμα φα&κέλου με %1"
 
 #: widgets/kfileitemactions.cpp:732
 #, kde-format
@@ -5436,7 +5436,7 @@ msgstr "Ά&νοιγμα με %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Άνοιγμα φακέλου με"
+msgstr "Άνοιγ&μα φακέλου με"
 
 #: widgets/kfileitemactions.cpp:764
 #, kde-format
@@ -5448,7 +5448,7 @@ msgstr "Άνοιγμα &με"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Άλλη εφαρμογή…"
+msgstr "Άλλη &εφαρμογή…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
