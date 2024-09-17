@@ -2,6 +2,7 @@ include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
 
 project = KIOGui
 description = Additions to Qt Core
+productname = KDE Frameworks
 
 documentationinheaders = true
 
