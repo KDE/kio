@@ -98,6 +98,8 @@ if (TARGET KF6::KIOGui)
     LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt6::Test
   )
 
+  if (NOT ANDROID)
+
   foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
     foreach(_systemd "" "SCOPE" "SERVICE")
       set(_scope 0)
@@ -124,6 +126,7 @@ if (TARGET KF6::KIOGui)
         )
     endforeach()
   endforeach()
+  endif()
 
   target_link_libraries(favicontest Qt6::Concurrent)
 endif()

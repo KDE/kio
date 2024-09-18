@@ -817,9 +817,11 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
 void KOpenWithDialogPrivate::discoverButtonClicked()
 {
+#ifndef Q_OS_ANDROID
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("plasma-discover"), {QStringLiteral("--mime"), qMimeType});
     job->setDesktopName(QStringLiteral("org.kde.discover"));
     job->start();
+#endif
 }
 
 // ----------------------------------------------------------------------

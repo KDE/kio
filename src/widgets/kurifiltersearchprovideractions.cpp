@@ -48,9 +48,11 @@ void KUriFilterSearchProviderActions::setSelectedText(const QString &selectedTex
 
 void KUriFilterSearchProviderActions::slotConfigureWebShortcuts()
 {
+#ifndef Q_OS_ANDROID
     auto *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), {QStringLiteral("webshortcuts")});
     job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
+#endif
 }
 
 void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)

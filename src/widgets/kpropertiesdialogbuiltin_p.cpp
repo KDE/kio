@@ -744,6 +744,7 @@ void KFilePropsPlugin::slotSizeStop()
 
 void KFilePropsPlugin::slotSizeDetails()
 {
+#ifndef Q_OS_ANDROID
     // Open the current folder in filelight
     KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"));
     if (service) {
@@ -752,6 +753,7 @@ void KFilePropsPlugin::slotSizeDetails()
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, properties));
         job->start();
     }
+#endif
 }
 
 KFilePropsPlugin::~KFilePropsPlugin() = default;

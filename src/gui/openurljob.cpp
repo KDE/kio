@@ -160,7 +160,7 @@ void KIO::OpenUrlJob::start()
         emitResult();
     };
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS) || defined(Q_OS_ANDROID)
     if (d->m_externalBrowserEnabled) {
         // For Windows and MacOS, the mimetypes handling is different, so use QDesktopServices
         qtOpenUrl();
@@ -168,12 +168,14 @@ void KIO::OpenUrlJob::start()
     }
 #endif
 
+#if !defined(Q_OS_ANDROID)
     if (d->m_externalBrowserEnabled && KSandbox::isInside()) {
         // Use the function from QDesktopServices as it handles portals correctly
         // Note that it falls back to "normal way" if the portal service isn't running.
         qtOpenUrl();
         return;
     }
+#endif
 
     // If we know the MIME type, proceed
     if (!d->m_mimeTypeName.isEmpty()) {
@@ -280,6 +282,7 @@ void KIO::OpenUrlJobPrivate::useSchemeHandler()
 
 void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QList<QUrl> &urls)
 {
+#ifndef Q_OS_ANDROID
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service, q);
     job->setUrls(urls);
     job->setRunFlags(m_deleteTemporaryFile ? KIO::ApplicationLauncherJob::DeleteTemporaryFiles : KIO::ApplicationLauncherJob::RunFlags{});
@@ -287,6 +290,7 @@ void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QL
     job->setStartupId(m_startupId);
     q->addSubjob(job);
     job->start();
+#endif
 }
 
 void KIO::OpenUrlJobPrivate::runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName)
@@ -461,6 +465,7 @@ void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &fi
 
 void KIO::OpenUrlJobPrivate::executeCommand()
 {
+#ifndef Q_OS_ANDROID
     // Execute the URL as a command. This is how we start scripts and executables
     KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(m_url.toLocalFile(), QStringList());
     job->setStartupId(m_startupId);
@@ -471,6 +476,9 @@ void KIO::OpenUrlJobPrivate::executeCommand()
     // TODO implement deleting the file if tempFile==true
     // CommandLauncherJob doesn't support that, unlike ApplicationLauncherJob
     // We'd have to do it in KProcessRunner.
+#else
+    Q_UNREACHABLE();
+#endif
 }
 
 void KIO::OpenUrlJobPrivate::runUrlWithMimeType()

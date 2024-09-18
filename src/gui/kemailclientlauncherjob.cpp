@@ -85,7 +85,7 @@ void KEMailClientLauncherJob::setStartupId(const QByteArray &startupId)
 
 void KEMailClientLauncherJob::start()
 {
-#ifndef Q_OS_WIN
+#if !defined(Q_OS_WIN) && !defined(Q_OS_ANDROID)
     KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
     if (!service) {
         setError(KJob::UserDefinedError);
@@ -107,11 +107,13 @@ void KEMailClientLauncherJob::start()
         connect(subjob, &KJob::result, this, &KEMailClientLauncherJob::emitResult);
         subjob->start();
     }
-#else
+#elif defined(Q_OS_WIN)
     const QString url = mailToUrl().toString();
     const QString sOpen = QStringLiteral("open");
     ShellExecuteW(0, (LPCWSTR)sOpen.utf16(), (LPCWSTR)url.utf16(), 0, 0, SW_NORMAL);
     emitDelayedResult();
+#else
+    // Android code here
 #endif
 }
 

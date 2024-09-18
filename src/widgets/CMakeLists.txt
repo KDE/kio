@@ -24,7 +24,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kacleditwidget.cpp
   kurlrequesterdialog.cpp
   kurlcombobox.cpp
-  kfileitemactions.cpp
   imagefilter.cpp
   kopenwithdialog.cpp
   kfile.cpp
@@ -67,6 +66,12 @@ if (HAVE_QTDBUS)
     target_sources(KF6KIOWidgets PRIVATE
         kdynamicjobtracker.cpp
         ${kiowidgets_dbus_SRCS}
+    )
+endif()
+
+if (NOT ANDROID)
+    target_sources(KF6KIOWidgets PRIVATE
+        kfileitemactions.cpp
     )
 endif()
 

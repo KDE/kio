@@ -10,16 +10,12 @@ set_target_properties(KF6KIOGui PROPERTIES
 )
 
 target_sources(KF6KIOGui PRIVATE
-   applicationlauncherjob.cpp
-   commandlauncherjob.cpp
    dndpopupmenuplugin.cpp
    faviconrequestjob.cpp
    kcoreurlnavigator.cpp
    openurljob.cpp
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
-   kprocessrunner.cpp
-   kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
    previewjob.cpp
    thumbnailcreator.cpp
@@ -51,6 +47,16 @@ if (HAVE_QTDBUS AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
         systemd/scopedprocessrunner.cpp
     )
 endif ()
+
+if (NOT ANDROID)
+    target_sources(KF6KIOGui PRIVATE
+      applicationlauncherjob.cpp
+      commandlauncherjob.cpp
+      kprocessrunner.cpp
+      kterminallauncherjob.cpp
+    )
+endif()
+
 
 ecm_qt_declare_logging_category(KF6KIOGui
     HEADER kiogui_debug.h

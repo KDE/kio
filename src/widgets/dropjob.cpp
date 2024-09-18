@@ -629,6 +629,7 @@ void DropJobPrivate::handleDropToDesktopFile()
     const KDesktopFile desktopFile(destFile);
     const KConfigGroup desktopGroup = desktopFile.desktopGroup();
     if (desktopFile.hasApplicationType()) {
+#ifndef Q_OS_ANDROID
         // Drop to application -> start app with urls as argument
         KService::Ptr service(new KService(destFile));
         // Can't use setParentJob() because ApplicationLauncherJob isn't a KIO::Job,
@@ -643,6 +644,7 @@ void DropJobPrivate::handleDropToDesktopFile()
             q->emitResult();
         });
         job->start();
+#endif
     } else if (desktopFile.hasLinkType() && desktopGroup.hasKey(urlKey)) {
         // Drop to link -> adjust destination directory
         m_destUrl = QUrl::fromUserInput(desktopGroup.readPathEntry(urlKey, QString()));
