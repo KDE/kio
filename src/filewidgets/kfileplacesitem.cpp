@@ -531,8 +531,9 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
         if (m_access->filePath() == QDir::rootPath()) {
             m_isTeardownAllowed = false;
         } else {
-            KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
-            if (mountPoint && m_access->filePath() == mountPoint->mountPoint()) {
+            const auto homeDevice = Solid::Device::storageAccessFromPath(QDir::homePath());
+            const auto *homeAccess = homeDevice.as<Solid::StorageAccess>();
+            if (homeAccess && m_access->filePath() == homeAccess->filePath()) {
                 m_isTeardownAllowed = false;
             }
         }
