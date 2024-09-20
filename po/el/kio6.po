@@ -13,20 +13,21 @@
 # Stelios <sstavra@gmail.com>, 2012.
 # Dimitris Kardarakos <dimkard@gmail.com>, 2015, 2016.
 # Dimitrys Meliates <demetresmeliates+i18n@gmail.com>, 2024.
+# SPDX-FileCopyrightText: 2024 Antonis Geralis <capoiosct@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-16 00:37+0000\n"
-"PO-Revision-Date: 2024-09-04 14:30+0300\n"
-"Last-Translator: Αντώνης Γέραλης <capoiosct@gmail.com>\n"
-"Language-Team: Greek <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-09-19 21:59+0300\n"
+"Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -933,7 +934,7 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"Οι άδειες πρόσβασής σας ίσως να μην επαρκούν για να πραγματοποιηθεί η "
+"Οι άδειες πρόσβασης σας ίσως να μην επαρκούν για να πραγματοποιηθεί η "
 "ζητούμενη ενέργεια σε αυτόν τον πόρο."
 
 #: core/job_error.cpp:386
@@ -1406,7 +1407,7 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Ξαναδοκιμάστε την αίτηση και βεβαιωθείτε ότι οι πληροφορίες ταυτοποίησής σας "
+"Ξαναδοκιμάστε την αίτηση και βεβαιωθείτε ότι οι πληροφορίες ταυτοποίησης σας "
 "δίνονται σωστά."
 
 #: core/job_error.cpp:632
@@ -3958,7 +3959,7 @@ msgstr ""
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
-"Εσωτερικό σφάλμα: αδυναμία προοτροπής του χρήστη για το ποια εφαρμογή να "
+"Εσωτερικό σφάλμα: αδυναμία προτροπής του χρήστη για το ποια εφαρμογή να "
 "ξεκινήσει"
 
 #: gui/commandlauncherjob.cpp:106
@@ -5092,7 +5093,7 @@ msgstr "&Αναίρεση: Δημιουργία φακέλου"
 #: widgets/fileundomanager.cpp:323
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "&Αναίρεση: Σημιουργία φακέλου(ων)"
+msgstr "&Αναίρεση: Δημιουργία φακέλου(ων)"
 
 #: widgets/fileundomanager.cpp:325
 #, kde-format
