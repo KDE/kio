@@ -1037,7 +1037,7 @@ void KFilePlacesView::setUrl(const QUrl &url)
 
         d->m_currentUrl = url;
 
-        if (placesModel->url(index) == url.adjusted(QUrl::StripTrailingSlash)) {
+        if (placesModel->url(index).matches(url, QUrl::StripTrailingSlash)) {
             selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
         } else {
             selectionModel()->clear();

@@ -34,6 +34,8 @@ private Q_SLOTS:
 
     void testUrlChanged_data();
     void testUrlChanged();
+    void testSetUrl_data();
+    void testSetUrl();
 
 private:
     QTemporaryDir m_tmpHome;
@@ -98,6 +100,41 @@ void KFilePlacesViewTest::testUrlChanged()
     QTRY_COMPARE(urlChangedSpy.count(), 1);
     const QList<QVariant> args = urlChangedSpy.takeFirst();
     QCOMPARE(args.at(0).toUrl().toString(), expectedUrl);
+}
+
+void KFilePlacesViewTest::testSetUrl_data()
+{
+    QTest::addColumn<QUrl>("place");
+    QTest::addColumn<QUrl>("url");
+
+    QString testPath = QString("file://%1/testSetUrl").arg(m_tmpHome.path());
+    QUrl bareUrl = QUrl(testPath);
+    QUrl trailingUrl = QUrl(testPath.append("/"));
+
+    QTest::newRow("place-bare-url-bare") << bareUrl << bareUrl;
+    QTest::newRow("place-bare-url-trailing") << bareUrl << trailingUrl;
+    QTest::newRow("place-trailing-url-bare") << trailingUrl << bareUrl;
+    QTest::newRow("place-trailing-url-trailing") << trailingUrl << trailingUrl;
+}
+
+void KFilePlacesViewTest::testSetUrl()
+{
+    QFETCH(QUrl, place);
+    QFETCH(QUrl, url);
+
+    KFilePlacesView pv;
+    KFilePlacesModel pm;
+    pv.setModel(&pm);
+
+    pm.addPlace("testSetUrl", place);
+    QModelIndex added = pm.closestItem(place);
+
+    QSignalSpy selectionChangedSpy(pv.selectionModel(), &QItemSelectionModel::selectionChanged);
+    pv.setUrl(url);
+
+    QVERIFY(!selectionChangedSpy.isEmpty());
+    const QList<QVariant> args = selectionChangedSpy.takeFirst();
+    QVERIFY(args.at(0).value<QItemSelection>().indexes().contains(added));
 }
 
 QTEST_MAIN(KFilePlacesViewTest)
