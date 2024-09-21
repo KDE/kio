@@ -583,6 +583,13 @@ void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
         }
     } else {
         m_mimeType = db.mimeTypeForUrl(url);
+
+        const mode_t executableMask = S_IXGRP | S_IXUSR | S_IXOTH;
+        if (url.isLocalFile() && (m_permissions & executableMask) && !m_mimeType.inherits(QStringLiteral("application/x-executable"))) {
+            // if the file is local and executable but its mime is not one of an executable
+            // check its content, executable files can have weird extension like ".2"
+            m_mimeType = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchMode::MatchContent);
+        }
     }
 }
 
