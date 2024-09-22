@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-16 00:37+0000\n"
-"PO-Revision-Date: 2024-08-17 09:38+0200\n"
+"PO-Revision-Date: 2024-09-21 11:46+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3660,12 +3660,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1057
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Podaj inną nazwę"
+msgstr "Wpisz nazwę pliku %1:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format

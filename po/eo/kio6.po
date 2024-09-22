@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-16 00:37+0000\n"
-"PO-Revision-Date: 2024-08-22 22:54+0200\n"
+"PO-Revision-Date: 2024-09-21 10:41+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3678,7 +3678,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr ""
+msgstr "Enigu %1-dosiernomon:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
