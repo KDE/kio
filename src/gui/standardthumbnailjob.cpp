@@ -70,28 +70,72 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
     return 2;
 }
 
+class Q_DECL_HIDDEN KIO::StandardThumbnailJob::Private
+{
+public:
+    explicit Private(const QString execString, const int width, const QString inputFile, const QString outputFile)
+        : m_execString(execString)
+        , m_width(width)
+        , m_inputFile(inputFile)
+        , m_outputFile(outputFile)
+    {
+    }
+    ~Private()
+    {
+    }
+
+    QString m_execString;
+    int m_width;
+    QString m_inputFile;
+    QString m_outputFile;
+    QProcess *m_proc;
+};
+
 KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const int width, const QString inputFile, const QString outputFile)
+    : d(new Private(execString, width, inputFile, outputFile))
+{
+    setAutoDelete(true);
+}
+
+KIO::StandardThumbnailJob::~StandardThumbnailJob() = default;
+
+bool KIO::StandardThumbnailJob::StandardThumbnailJob::doKill()
+{
+    d->m_proc->kill();
+    return true;
+}
+
+void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
 {
     // Prepare the command
-    ThumbnailerExpander thumbnailer(execString, width, inputFile, outputFile);
+    ThumbnailerExpander thumbnailer(d->m_execString, d->m_width, d->m_inputFile, d->m_outputFile);
     // Emit data on command exit
-    QProcess *proc = new QProcess();
-    connect(proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus exitStatus) {
-        proc->deleteLater();
+    d->m_proc = new QProcess();
+    connect(d->m_proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus /* exitStatus */) {
+        d->m_proc->deleteLater();
         if (exitCode != 0) {
             setErrorText(QStringLiteral("Standard Thumbnail Job failed with exit code: %1 ").arg(exitCode));
             setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
             emitResult();
+
+            // clean temp file
+            QFile::remove(d->m_outputFile);
             return;
         }
-        Q_EMIT data(this, QImage(outputFile));
+        Q_EMIT data(this, QImage(d->m_outputFile));
         emitResult();
+
+        // clean temp file
+        QFile::remove(d->m_outputFile);
     });
-    connect(proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
-        proc->deleteLater();
+    connect(d->m_proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
+        d->m_proc->deleteLater();
         setErrorText(QStringLiteral("Standard Thumbnail Job had an error: %1").arg(error));
         setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
         emitResult();
+
+        // clean temp file
+        QFile::remove(d->m_outputFile);
     });
-    proc->start(thumbnailer.binary(), thumbnailer.args());
+    d->m_proc->start(thumbnailer.binary(), thumbnailer.args());
 }
