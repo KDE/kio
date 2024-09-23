@@ -2897,9 +2897,9 @@ void JobTest::cancelCopyAndCleanDest()
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
 #if HAVE_LIBURING
-    const int sz = 4000000; //~40MB
+    const int sz = 400000000; //~400MB
 #else
-    const int sz = 400000; //~4MB
+    const int sz = 400000; //~400kB
 #endif
     f.seek(sz - 1);
     f.write("0");
@@ -2916,6 +2916,7 @@ void JobTest::cancelCopyAndCleanDest()
     copyJob->setUiDelegate(nullptr);
     QSignalSpy spyProcessedSize(copyJob, &KIO::Job::processedSize);
     QSignalSpy spyFinished(copyJob, &KIO::Job::finished);
+
     connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, destToCheck](KJob *job, qulonglong processedSize) {
         if (processedSize > 0) {
             QVERIFY2(QFile::exists(destToCheck), qPrintable(destToCheck));
@@ -2933,7 +2934,7 @@ void JobTest::cancelCopyAndCleanDest()
 
     // the destination file actual deletion happens after finished() is emitted
     // we need to give some time to the KIO worker to finish the file cleaning
-    QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
+    QTRY_VERIFY2_WITH_TIMEOUT(!QFile::exists(destToCheck), qPrintable(destToCheck), 1000);
 }
 
 #include "moc_jobtest.cpp"
