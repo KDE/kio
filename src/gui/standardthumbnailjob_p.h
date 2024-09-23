@@ -16,8 +16,18 @@ class KIOGUI_EXPORT StandardThumbnailJob : public KIO::Job
 
 public:
     StandardThumbnailJob(const QString execString, const int width, const QString inputFile, const QString outputFile);
+    ~StandardThumbnailJob() override;
+
+    void start() override;
+    bool doKill() override;
+
 Q_SIGNALS:
     void data(KIO::Job *job, const QImage &thumb);
+
+private:
+    class Private;
+    std::unique_ptr<Private> const d; /// @internal
+    Q_DISABLE_COPY(StandardThumbnailJob)
 };
 
 }
