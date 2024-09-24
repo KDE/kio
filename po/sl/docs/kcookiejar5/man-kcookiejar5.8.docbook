@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>Uporabniški priročnik kcookiejar5</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>31.07.2015</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Vmesnik ukazne vrstice do &kde; &HTTP; piškotkov demon</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Povzetek</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domain</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Opis</title>
+
+<para
+><command
+>kcookiejar5</command
+> je vmesnik ukazne vrstice do shrambe &HTTP; piškotkov, ki jo uporablja &kde;, Ta vmesnik je &DBus; storitev za shranjevanje/pridobivanje/čiščenje piškotkov. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Možnosti</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Prikaži pomoč o možnostih.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Prikaži informacije o različici.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Zapri posodo za piškotke in &DBus; storitev. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domena</parameter
+></term>
+<listitem>
+<para
+>Odstrani piškotke za <parameter
+>domeno</parameter
+> iz posode s piškotki. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Odstrani vse piškotke iz posode s piškotki.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Ponovno naloži konfiguracijsko datoteko. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Uporaba</title>
+<para
+><command
+>kcookiejar5</command
+> je orodje ukazne vrstice za dostop do kded modula, ki upravlja s piškotki v &konqueror; in drugimi &kde; aplikacijami.</para>
+<para
+>Ko zagnano brez parametrov, naloži kded modul, da zagotovi &DBus; vmesnik za shranjevanje piškotkov. </para>
+<para
+>Ko je <command
+>kcookiejar5</command
+> zagnan z nekaj parametri, opravi na posodi s piškotki, s katero upravlja, dodatna opravila, kot npr. odstranjevanje piškotkov iz ene <parameter
+>domene</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Glej Tudi</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Hrošči</title>
+<para
+>Prosimo, uporabite <ulink url="https://bugs.kde.org"
+>&kde;-jev sledilnik hroščev</ulink
+>, da prijavite hrošče.</para>
+</refsect1>
+
+</refentry>
+
+
+

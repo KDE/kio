@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21.01.2002</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> je <emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>authoring in <emphasis
+>V</emphasis
+>ersioning protokol za svetovni splet. Omogoča enostavno upravljanje dokumentov in skript v strežniku &HTTP; in ima dodatne funkcije, namenjene poenostavitvi upravljanja različic med več avtorji.</para>
+
+<para
+>Uporaba tega protokola je preprosta. Vnesite lokacijo, ki jo želite prikazati, podobno kot v &URL;-ju &HTTP;, le da je na začetku ime protokola webdav://. Primer je <userinput
+>webdav://<replaceable
+>www.hostname.com/path/</replaceable
+></userinput
+>. Če navedete ime mape, se prikaže seznam datotek in map, s katerimi lahko upravljate tako kot s katerim koli drugim datotečnim sistemom.</para>
+
+<variablelist>
+<title
+>Lastnosti WebDAV</title>
+<varlistentry>
+<term
+>Zaklepanje</term>
+<listitem>
+<para
+>Z zaklepanjem datotek lahko uporabniki zaklenejo datoteko in tako obvestijo druge, da trenutno delajo s to datoteko. Tako lahko urejate brez strahu, da bi spremembe prepisala druga oseba, ki prav tako ureja isti dokument.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Dostop do izvorne datoteke</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> omogoča dostop do skripte, ki se pokliče za izdelavo določene strani, tako da lahko spremenite samo skripto.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Podpora lastnostim za posamezen dokument</term>
+<listitem>
+<para
+>Za lažjo identifikacijo dokumenta se lahko nastavijo poljubne lastnosti, na primer avtor.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Če želite izkoristiti te dodatne možnosti, potrebujete aplikacijo, ki jih podpira. Trenutno jih nobena aplikacija ne podpira prek tega KIO worker-ja.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> je <acronym
+>WebDAV</acronym
+> protokol šifriran preko SSL.</para>
+
+</article>

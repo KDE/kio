@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>&Windows; souporabe</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske nastavitve</keyword>
+<keyword
+>Souporabe iz Windows</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>&Windows; souporabe</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Uvod</title>
+
+<para
+>V mnogih majhnih krajevnih omrežjih se protokol &SMB; pogosto uporablja za nudenje omrežnih servisov. Pogosto so uporabljena tudi imena, kot so <quote
+>omrežje &Windows;</quote
+> ali <quote
+>omrežje &Windows; za delovne skupine</quote
+> ali <quote
+>LanManager</quote
+>. Z uporabo &SMB; lahko dostopate do tako imenovanih <quote
+>skupnih virov</quote
+> (to so mape, ki jih ponuja strežnik) kot tudi do tiskalnikov.</para>
+
+<para
+>&kde; ima vgrajeno podporo za protokol <acronym
+>SMB</acronym
+>. Ker je &kde; omreÅ¾no transparenten, kar pomeni, da lahko dostopate do souporab <acronym
+>SMB</acronym
+> od tam, kjer lahko dostopate do vaÅ¡ih krajevnih datotek, na primer iz datotečnega upravljalnika &konqueror; ali iz pogovornega okna za datoteke. Če želite to uporabiti, morate podati &kde;-ju nekaj informacij o vašem omrežju &SMB;. Vendar ne skrbite, saj je to običajno precej preprosto, ker vsi odjemniki Windows vašega omrežja potrebujejo in imajo iste informacije.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb KIO worker doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan KIO worker,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>Pogoj za pravilno delovanje protokola &SMB; je pogoj pravilno nameščena &Samba;.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Uporaba</title>
+
+<para
+>Čeprav obstaja veliko ne-varnih omrežij &SMB;, ki omogočajo dostop vsakomur, bi se v principu morali sami overoviti za dostop do storitev strežnika &SMB; a. Privzeto bo &kde; za overovitev na gostiteljih &SMB; uporabil podatke, vnešene v poljih <guilabel
+>Privzeto uporabniško ime</guilabel
+> in <guilabel
+>Privzeto geslo</guilabel
+>. Če pustite polje <guilabel
+>Privzeto uporabniško ime</guilabel
+> prazno, bo &kde; poskušal dostopati do gostiteljev &SMB; brez uporabniškega imena. Če pa pustite prazno privzeto geslo, bo poskušal brez gesla. Če &kde; ne uspe dostopiti do gostitelja z uporabo teh nastavitev, boste vprašani za uporabniško ime in geslo.</para>
+
+<important
+><para
+>Ker &kde; želi narediti stvari bolj udobne, shrani vaše geslo za &SMB;, kar je lahko slabo z vidika varnosti.Če uporabljate &SMB; v okolju, v katerem je potrebna varnost, potem ne bi smeli tukaj shraniti vašega gesla, ampak ga vsakič vnesti ob vnovičnem dostopanju do gostitelja &SMB;.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>
