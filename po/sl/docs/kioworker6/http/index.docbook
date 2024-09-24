@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@moj.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP; je kratica za <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol (protokol za prenos hiperteksta).</para>
+
+<para
+>Ta proces uporabljajo vsi &kde; programi za obvladovanje povezav s http (spletnimi) strežniki. Najpogostejša uporaba je za ogled strani v spletnem brskalniku &konqueror;.</para>
+
+<para
+>Uporabite lahko https KIO worker v programu &konqueror; tako, da mu podate &URL;. <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https je http, ki je enkapsuliran v SSL/TLS tok podatkov.</para>
+<para
+>SSL je Secure Sockets Layer protokol (protokol za varovanje plasti vtičev). Je varnostni protokol, ki zagotavlja zasebnost pri komunikaciji preko Interneta. Omrežnim aplikacijam omogoča način komunikacije, ki je zasnovan, da prepreči prisluškovanje, nedovoljene posege in ponaredbo sporočil. </para>
+<para
+>TLS je kratica za Transport Layer Security (protokol za varovanje transportne plasti).</para>
+
+</article>

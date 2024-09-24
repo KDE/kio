@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@moj.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>21.1.2002</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+> pomeni <emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning protokol (protokol za deljeno avtorstvo in verzioniranje) za svetovni splet. omogoča enostavno upravljanje dokumentov na &HTTP; strežnikih in ima dodatne funkcije, da več avtorjev lažje upravlja verzije.</para>
+
+<para
+>Uporaba tega protokola je preprosta. Vpišite lokacijo, ki si jo želite ogledati, podobno kot &HTTP; &URL;, le da napišete ime protokola webdav:// na začetku. Primer: <userinput
+>webdav://<replaceable
+>www.ime_gostitelja.com/pot/</replaceable
+></userinput
+>. Če želite navesti ime mape, bo izpisan seznam datotek in map. S temi datotekami in mapami lahko upravljate kot z vsakim datotečnim sistemom.</para>
+
+<variablelist>
+<title
+>WebDAV Lastonsti</title>
+<varlistentry>
+<term
+>Zaklepanje</term>
+<listitem>
+<para
+>Zaklepanje datotek omogoča uporabniku, da zaklene datoteko in s tem obvesti ostale, da trenutno dela na tej datoteki. Tako lahko uporabnik ureja datoteko, brez da bi nekdo drug, ki bi ob istem času urejal isto datoteko, prepisal in pokvaril njegove spremembe.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Dostop do izvorne datoteke</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+> omogoča dostop do skripte, ki je poklican za izdelavo določene strani, tako da je mogoče spremeniti skripto samo.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Podpora za lastnosti posameznih dokumentov</term>
+<listitem>
+<para
+>Poljubne lastnosti so lahko nastavljene za lažjo identifikacijo dokumenta, kot npr. avtor.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Da bi izkoristili te dodatne zmožnosti, boste potrebovali aplikacijo, ki jih podpira. Trenutno jih nobena aplikacija ne podpira prek tega KIO worker-ja.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+> je protokol <acronym
+>WebDAV</acronym
+> šifriran z SSL.</para>
+
+</article>

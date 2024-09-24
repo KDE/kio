@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Krištof</firstname
+><surname
+>Trček</surname
+><affiliation
+><address
+><email
+>kt91536@student.uni-lj.si</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; je storitev Interneta, ki se uporablja za prenos podatkovnih datotek iz diska enega računalnika na disk drugega, ne glede na tip operacijskega sistema. </para>
+
+<para
+>Podobno kot druge Internetne aplikacije, &FTP; uporablja pristop strežnik-odjemalec &mdash; uporabnik prikliče &FTP; program na računalniku, mu ukaže, naj se poveže z oddaljenim računalnikom, in nato zahteva prenos ene ali več datotek. Lokalni &FTP; program postane odjemalec, ki uporablja <acronym
+>TCP</acronym
+>, da stopi v stik s &FTP; strežniškim programom na oddaljenem računalniku. Vsakič, ko uporabnik zahteva prenos datoteke, strežniški in odjemalski program sodelujeta, da pošljeta kopijo podatkov preko Interneta.</para>
+
+<para
+>&FTP; strežniki, ki dovoljujejo <quote
+>anonimen &FTP;</quote
+>, dovoljujejo kateremu koli uporabniku, ne le tistim z računom, da brskajo po <quote
+>ftp</quote
+> arhivih in prenašajo datoteke. Nekateri &FTP; strežniki so skonfigurirani tako, da dovoljujejo uporabnikom tudi nalaganje datotek nanje.</para>
+
+<para
+>&FTP; se pogosto uporablja za pridobivanje informacij in programske opreme, shranjene v datotekah na &FTP; arhivskih mestih po vsem svetu. </para>
+
+
+<para
+>Vir: Parafrazirano iz <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Glej priročnik: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

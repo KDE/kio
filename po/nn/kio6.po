@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-16 00:37+0000\n"
-"PO-Revision-Date: 2024-08-19 21:01+0200\n"
+"PO-Revision-Date: 2024-09-23 20:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -3641,7 +3641,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr ""
+msgstr "Skriv inn %1-filnamn:"
 
 #: filewidgets/knewfilemenu.cpp:1156
 #, kde-kuit-format
