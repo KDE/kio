@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 00:37+0000\n"
+"POT-Creation-Date: 2024-09-27 00:37+0000\n"
 "PO-Revision-Date: 2024-09-09 09:39+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -3641,7 +3641,7 @@ msgid "All Folders"
 msgstr "Tous les dossiers"
 
 #: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:743
+#: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Ouvrir"
@@ -5452,41 +5452,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Actions"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Ouvrir un dossier avec..."
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Ouvrir avec..."
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ouvrir un dossier avec %1"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Ouvrir avec %1"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Ouvrir un dossier avec"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Ouvrir avec"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:774
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

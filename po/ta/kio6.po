@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 00:37+0000\n"
+"POT-Creation-Date: 2024-09-27 00:37+0000\n"
 "PO-Revision-Date: 2024-09-08 12:40+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3493,7 +3493,7 @@ msgid "All Folders"
 msgstr "எல்லா அடைவுகள்"
 
 #: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:743
+#: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
@@ -5257,41 +5257,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&செயல்கள்"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&அடைவை செயலியில் திற…"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&செயலியில் திற…"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1 -ஆல் அடைவை &திற"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 -ஆல் &திற"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&அடைவை இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:774
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

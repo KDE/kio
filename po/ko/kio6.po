@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 00:37+0000\n"
+"POT-Creation-Date: 2024-09-27 00:37+0000\n"
 "PO-Revision-Date: 2024-08-20 23:36+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3460,7 +3460,7 @@ msgid "All Folders"
 msgstr "모든 폴더"
 
 #: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:743
+#: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
@@ -5217,41 +5217,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "작업(&A)"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "다음으로 폴더 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "다음으로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:774
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 00:37+0000\n"
+"POT-Creation-Date: 2024-09-27 00:37+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3411,7 +3411,7 @@ msgid "All Folders"
 msgstr "*|Buot máhpat"
 
 #: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:743
+#: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
@@ -5133,41 +5133,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Doaimmat"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:694
+#: widgets/kfileitemactions.cpp:693
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:732
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open with %1"
 msgstr "Raba %1 &prográmmain"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:763
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:774
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
