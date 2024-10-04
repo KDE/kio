@@ -146,7 +146,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::scanFilesInTrash(ScanFilesInTrash
 
     // Iterate over the actual trashed files.
     // Orphan items (no .fileinfo) still take space.
-    QDirIterator it(mTrashPath + QLatin1String("/files/"), QDir::NoDotAndDotDot);
+    QDirIterator it(mTrashPath + QLatin1String("/files/"), QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot);
     qint64 sum = 0;
     qint64 max_mtime = 0;
     const auto checkMaxTime = [&max_mtime](const qint64 lastModTime) {
