@@ -816,7 +816,8 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         return;
     }
 
-    if (currentItem.standardThumbnailer) {
+    // If caching is off, thumbPath is empty. Then we can't use standard thumbnailers.
+    if (currentItem.standardThumbnailer && !thumbPath.isEmpty()) {
         // Using /usr/share/thumbnailers
         QString exec;
         for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
@@ -831,12 +832,19 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
             return;
         }
 
-        const QString outputPath = QTemporaryDir().path() + thumbName;
+        // Thumbnailer binaries only save and load files, so they can't be loaded directly into memory
+        const QString tempPath = thumbPath + QStringLiteral("/tmp/");
+        if (!QDir().exists(tempPath)) {
+            QDir().mkpath(tempPath);
+        }
+        const QString tempOutputPath = tempPath + thumbName;
 
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, width * devicePixelRatio, currentItem.item.localPath(), outputPath);
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, width * devicePixelRatio, currentItem.item.localPath(), tempOutputPath);
         q->addSubjob(job);
         q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
+            // Delete the tmp file
+            QFile::remove(tempOutputPath);
         });
 
     } else {
