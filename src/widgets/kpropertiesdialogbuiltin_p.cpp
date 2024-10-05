@@ -78,6 +78,7 @@
 #include <QMimeDatabase>
 #include <QProgressBar>
 #include <QPushButton>
+#include <QSizePolicy>
 #include <QStyle>
 #include <QtConcurrentRun>
 
@@ -1161,20 +1162,20 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     properties->addPage(d->m_frame, i18n("&Permissions"));
 
     QBoxLayout *box = new QVBoxLayout(d->m_frame);
-    box->setContentsMargins(0, 0, 0, 0);
 
     QWidget *l;
-    QLabel *lbl;
+    QString lbl;
     QGroupBox *gb;
-    QGridLayout *gl;
+    QFormLayout *gl;
     QPushButton *pbAdvancedPerm = nullptr;
 
     /* Group: Access Permissions */
     gb = new QGroupBox(i18n("Access Permissions"), d->m_frame);
+    gb->setFlat(true);
     box->addWidget(gb);
 
-    gl = new QGridLayout(gb);
-    gl->setColumnStretch(1, 1);
+    gl = new QFormLayout(gb);
+    gl->setFormAlignment(Qt::AlignHCenter);
 
     l = d->explanationLabel = new QLabel(gb);
     if (isLink) {
@@ -1182,39 +1183,32 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
             i18np("This file is a link and does not have permissions.", "All files are links and do not have permissions.", properties->items().count()));
     } else if (!d->canChangePermissions) {
         d->explanationLabel->setText(i18n("Only the owner can change permissions."));
+    } else {
+        d->explanationLabel->setFixedHeight(0);
     }
-    gl->addWidget(l, 0, 0, 1, 2);
+    gl->addWidget(l);
 
-    lbl = new QLabel(i18n("O&wner:"), gb);
-    gl->addWidget(lbl, 1, 0, Qt::AlignRight);
     l = d->ownerPermCombo = new QComboBox(gb);
-    lbl->setBuddy(l);
-    gl->addWidget(l, 1, 1);
+    gl->addRow(i18n("O&wner:"), l);
     connect(d->ownerPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the owner is allowed to do."));
 
-    lbl = new QLabel(i18n("Gro&up:"), gb);
-    gl->addWidget(lbl, 2, 0, Qt::AlignRight);
     l = d->groupPermCombo = new QComboBox(gb);
-    lbl->setBuddy(l);
-    gl->addWidget(l, 2, 1);
+    gl->addRow(i18n("Gro&up:"), l);
     connect(d->groupPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the members of the group are allowed to do."));
 
-    lbl = new QLabel(i18n("O&thers:"), gb);
-    gl->addWidget(lbl, 3, 0, Qt::AlignRight);
     l = d->othersPermCombo = new QComboBox(gb);
-    lbl->setBuddy(l);
-    gl->addWidget(l, 3, 1);
+    gl->addRow(i18n("O&thers:"), l);
     connect(d->othersPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(
         i18n("Specifies the actions that all users, who are neither "
              "owner nor in the group, are allowed to do."));
 
     if (!isLink) {
-        l = d->extraCheckbox = new QCheckBox(hasDir ? i18n("Only own&er can rename and delete folder content") : i18n("Is &executable"), gb);
+        l = d->extraCheckbox = new QCheckBox(hasDir ? i18n("Only own&er can delete or rename contents") : i18n("Allow &executing file as program"), gb);
         connect(d->extraCheckbox, &QAbstractButton::clicked, this, &KPropertiesDialogPlugin::changed);
-        gl->addWidget(l, 4, 1);
+        gl->addRow(hasDir ? i18n("Delete or rename:") : i18n("Execute:"), l);
         l->setWhatsThis(hasDir ? i18n("Enable this option to allow only the folder's owner to "
                                       "delete or rename the contained files and folders. Other "
                                       "users can only add new files, which requires the 'Modify "
@@ -1223,11 +1217,8 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
                                       "sense for programs and scripts. It is required when you want to "
                                       "execute them."));
 
-        QLayoutItem *spacer = new QSpacerItem(0, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-        gl->addItem(spacer, 5, 0, 1, 3);
-
         pbAdvancedPerm = new QPushButton(i18n("A&dvanced Permissions"), gb);
-        gl->addWidget(pbAdvancedPerm, 6, 0, 1, 2, Qt::AlignRight);
+        gl->addWidget(pbAdvancedPerm);
         connect(pbAdvancedPerm, &QAbstractButton::clicked, this, &KFilePermissionsPropsPlugin::slotShowAdvancedPermissions);
     } else {
         d->extraCheckbox = nullptr;
@@ -1235,15 +1226,14 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
 
     /**** Group: Ownership ****/
     gb = new QGroupBox(i18n("Ownership"), d->m_frame);
+    gb->setFlat(true);
     box->addWidget(gb);
 
-    gl = new QGridLayout(gb);
-    gl->addItem(new QSpacerItem(0, 10), 0, 0);
+    gl = new QFormLayout(gb);
+    gl->setFormAlignment(Qt::AlignHCenter);
 
     /*** Set Owner ***/
-    l = new QLabel(i18n("User:"), gb);
-    gl->addWidget(l, 1, 0, Qt::AlignRight);
-
+    lbl = i18n("User:");
     /* GJ: Don't autocomplete more than 1000 users. This is a kind of random
      * value. Huge sites having 10.000+ user have a fair chance of using NIS,
      * (possibly) making this unacceptably slow.
@@ -1262,11 +1252,13 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         kcom->setItems(userNames);
         d->usrEdit->setCompletionMode((userNames.size() < maxEntries) ? KCompletion::CompletionAuto : KCompletion::CompletionNone);
         d->usrEdit->setText(d->strOwner);
-        gl->addWidget(d->usrEdit, 1, 1);
+        gl->addRow(lbl, d->usrEdit);
         connect(d->usrEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     } else {
-        l = new QLabel(d->strOwner, gb);
-        gl->addWidget(l, 1, 1);
+        l = new QLabel(d->strGroup, gb);
+        static_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        l->setFocusPolicy(Qt::TabFocus);
+        gl->addRow(lbl, l);
     }
 
     /*** Set Group ***/
@@ -1279,9 +1271,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     if (!isMyGroup) {
         groupList += d->strGroup;
     }
-
-    l = new QLabel(i18n("Group:"), gb);
-    gl->addWidget(l, 2, 0, Qt::AlignRight);
+    lbl = i18n("Group:");
 
     /* Set group: if possible to change:
      * - Offer a KLineEdit for root, since he can change to any group.
@@ -1297,26 +1287,28 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         d->grpEdit->setAutoDeleteCompletionObject(true);
         d->grpEdit->setCompletionMode(KCompletion::CompletionAuto);
         d->grpEdit->setText(d->strGroup);
-        gl->addWidget(d->grpEdit, 2, 1);
+        gl->addRow(lbl, d->grpEdit);
         connect(d->grpEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     } else if ((groupList.count() > 1) && isMyFile && isLocal) {
         d->grpCombo = new QComboBox(gb);
         d->grpCombo->setObjectName(QStringLiteral("combogrouplist"));
         d->grpCombo->addItems(groupList);
         d->grpCombo->setCurrentIndex(groupList.indexOf(d->strGroup));
-        gl->addWidget(d->grpCombo, 2, 1);
+        gl->addRow(lbl, d->grpCombo);
         connect(d->grpCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     } else {
         l = new QLabel(d->strGroup, gb);
-        gl->addWidget(l, 2, 1);
+        static_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        l->setFocusPolicy(Qt::TabFocus);
+        gl->addRow(lbl, l);
     }
-
-    gl->setColumnStretch(2, 10);
 
     // "Apply recursive" checkbox
     if (hasDir && !isLink && !isTrash) {
         d->cbRecursive = new QCheckBox(i18n("Apply changes to all subfolders and their contents"), d->m_frame);
         connect(d->cbRecursive, &QAbstractButton::clicked, this, &KPropertiesDialogPlugin::changed);
+        KSeparator *sep = new KSeparator();
+        box->addWidget(sep);
         box->addWidget(d->cbRecursive);
     }
 
@@ -1329,8 +1321,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
             pbAdvancedPerm->setEnabled(false);
         }
     }
-
-    box->addStretch(10);
 }
 
 #if HAVE_POSIX_ACL
@@ -1364,10 +1354,13 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     QGroupBox *gb;
     QGridLayout *gl;
 
-    QVBoxLayout *vbox = new QVBoxLayout(&dlg);
+    auto *vbox = new QVBoxLayout(&dlg);
+
     // Group: Access Permissions
     gb = new QGroupBox(i18n("Access Permissions"), &dlg);
+    gb->setFlat(true);
     vbox->addWidget(gb);
+    vbox->setAlignment(Qt::AlignHCenter);
 
     gl = new QGridLayout(gb);
     gl->addItem(new QSpacerItem(0, 10), 0, 0);
@@ -1501,7 +1494,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     QCheckBox *cba[3][4];
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 4; ++col) {
-            QCheckBox *cb = new QCheckBox(gb);
+            auto *cb = new QCheckBox(gb);
             if (col != 3) {
                 theNotSpecials.append(cb);
             }
@@ -1549,6 +1542,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         }
     }
     gl->setColumnStretch(6, 10);
+    vbox->addStretch(1);
 
 #if HAVE_POSIX_ACL
     KACLEditWidget *extendedACLs = nullptr;
@@ -1578,8 +1572,11 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         }
     }
 #endif
+    // Separator above buttons
+    auto *buttonSep = new KSeparator();
+    vbox->addWidget(buttonSep);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(&dlg);
+    auto *buttonBox = new QDialogButtonBox(&dlg);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     connect(buttonBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
@@ -1624,6 +1621,8 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         d->permissions |= (andPermissions | orPermissions) & (S_ISUID | S_ISGID | S_ISVTX);
     }
 #endif
+
+    dlg.setMinimumSize(dlg.sizeHint());
 
     updateAccessControls();
     Q_EMIT changed();
@@ -2117,44 +2116,44 @@ void KChecksumsPlugin::slotInvalidateCache()
 
 void KChecksumsPlugin::slotShowMd5()
 {
-    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
     d->m_ui.md5Button->hide();
+    d->m_ui.horizontalSpacerMd5->changeSize(0, 0);
 
     showChecksum(QCryptographicHash::Md5, label, d->m_ui.md5CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha1()
 {
-    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
     d->m_ui.sha1Button->hide();
+    d->m_ui.horizontalSpacerSha1->changeSize(0, 0);
 
     showChecksum(QCryptographicHash::Sha1, label, d->m_ui.sha1CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha256()
 {
-    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
     d->m_ui.sha256Button->hide();
+    d->m_ui.horizontalSpacerSha256->changeSize(0, 0);
 
     showChecksum(QCryptographicHash::Sha256, label, d->m_ui.sha256CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha512()
 {
-    auto label = new QLabel(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha512Button, label);
     d->m_ui.sha512Button->hide();
+    d->m_ui.horizontalSpacerSha512->changeSize(0, 0);
 
     showChecksum(QCryptographicHash::Sha512, label, d->m_ui.sha512CopyButton);
 }
@@ -2352,13 +2351,17 @@ void KChecksumsPlugin::setVerifyState()
     d->m_ui.feedbackLabel->show();
 }
 
-void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label, QPushButton *copyButton)
+void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLineEdit *label, QPushButton *copyButton)
 {
+    label->setReadOnly(true);
+
     const QString checksum = cachedChecksum(algorithm);
 
     // Checksum in cache, nothing else to do.
     if (!checksum.isEmpty()) {
         label->setText(checksum);
+        label->setCursorPosition(0);
+        label->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         return;
     }
 
@@ -2369,6 +2372,8 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLa
         futureWatcher->deleteLater();
 
         label->setText(checksum);
+        label->setCursorPosition(0);
+        label->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         cacheChecksum(checksum, algorithm);
 
         copyButton->show();
@@ -2432,7 +2437,6 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
     d->m_frame = new QFrame();
     properties->addPage(d->m_frame, i18n("U&RL"));
     QVBoxLayout *layout = new QVBoxLayout(d->m_frame);
-    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel *l;
     l = new QLabel(d->m_frame);

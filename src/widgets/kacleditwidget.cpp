@@ -385,6 +385,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView,
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QGroupBox *gb = new QGroupBox(i18n("Entry Type"), this);
+    gb->setFlat(true);
     QVBoxLayout *gbLayout = new QVBoxLayout(gb);
 
     m_buttonGroup = new QButtonGroup(this);

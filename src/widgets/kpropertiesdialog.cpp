@@ -51,6 +51,7 @@
 
 #include <QDebug>
 #include <QDir>
+#include <QLayout>
 #include <QList>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -333,6 +334,8 @@ void KPropertiesDialogPrivate::init()
     q->setFaceType(KPageDialog::Tabbed);
 
     insertPages();
+    // Ensure users can't make it so small where things break
+    q->setMinimumSize(q->sizeHint());
 }
 
 void KPropertiesDialog::showFileSharingPage()

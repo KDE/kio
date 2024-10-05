@@ -11,9 +11,6 @@
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="margin" stdset="0">
-    <number>0</number>
-   </property>
    <item>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
