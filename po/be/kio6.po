@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:37+0000\n"
+"POT-Creation-Date: 2024-10-06 00:37+0000\n"
 "PO-Revision-Date: 2024-06-04 19:02\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3230,7 +3230,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:661
+#: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3514,7 +3514,7 @@ msgstr ""
 "у KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1284 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1284 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Назва:"
@@ -5232,80 +5232,80 @@ msgstr "Рэдагаваць запіс ACL"
 msgid "Entry Type"
 msgstr "Тып запісу"
 
-#: widgets/kacleditwidget.cpp:393
+#: widgets/kacleditwidget.cpp:394
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "Прадвызначана для новых файлаў у гэтым каталозе"
 
-#: widgets/kacleditwidget.cpp:400
+#: widgets/kacleditwidget.cpp:401
 #, kde-format
 msgid "Owner"
 msgstr "Уласнік"
 
-#: widgets/kacleditwidget.cpp:405
+#: widgets/kacleditwidget.cpp:406
 #, kde-format
 msgid "Owning Group"
 msgstr "Група валодання"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid "Others"
 msgstr "Іншыя"
 
-#: widgets/kacleditwidget.cpp:415
+#: widgets/kacleditwidget.cpp:416
 #, kde-format
 msgid "Mask"
 msgstr "Маска"
 
-#: widgets/kacleditwidget.cpp:420
+#: widgets/kacleditwidget.cpp:421
 #, kde-format
 msgid "Named user"
 msgstr "Карыстальнік з імем"
 
-#: widgets/kacleditwidget.cpp:425
+#: widgets/kacleditwidget.cpp:426
 #, kde-format
 msgid "Named group"
 msgstr "Група з назвай"
 
-#: widgets/kacleditwidget.cpp:443
+#: widgets/kacleditwidget.cpp:444
 #, kde-format
 msgid "User: "
 msgstr "Карыстальнік: "
 
-#: widgets/kacleditwidget.cpp:457
+#: widgets/kacleditwidget.cpp:458
 #, kde-format
 msgid "Group: "
 msgstr "Група: "
 
-#: widgets/kacleditwidget.cpp:595
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Type"
 msgstr "Тып"
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgid "Name"
 msgstr "Назва"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "r"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "w"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:601
 #, kde-format
 msgid "Effective"
 msgstr "Эфектыўны"
@@ -5690,7 +5690,7 @@ msgid "Get more Apps from Discover"
 msgstr "Паглядзець праграмы ў Discover"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
-#: widgets/kpropertiesdesktopadvbase.ui:29
+#: widgets/kpropertiesdesktopadvbase.ui:17
 #, kde-format
 msgctxt ""
 "@title:group Title of a group that lets the user choose options about the "
@@ -5699,7 +5699,7 @@ msgid "Terminal"
 msgstr "Тэрмінал"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:51
+#: widgets/kpropertiesdesktopadvbase.ui:39
 #, kde-format
 msgid ""
 "Check this option if the application you want to run is a text mode "
@@ -5710,19 +5710,19 @@ msgstr ""
 "хочаце бачыць звесткі, якія праграма выводзіць ў акно эмулятара тэрмінала."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:54
+#: widgets/kpropertiesdesktopadvbase.ui:42
 #, kde-format
 msgid "Run in terminal"
 msgstr "Запуск у тэрмінале"
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
-#: widgets/kpropertiesdesktopadvbase.ui:61
+#: widgets/kpropertiesdesktopadvbase.ui:49
 #, kde-format
 msgid "Terminal options:"
 msgstr "Параметры тэрмінала:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:71
+#: widgets/kpropertiesdesktopadvbase.ui:59
 #, kde-format
 msgid ""
 "Check this option if the text mode application offers relevant information "
@@ -5734,13 +5734,13 @@ msgstr ""
 "закрыты."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:74
+#: widgets/kpropertiesdesktopadvbase.ui:62
 #, kde-format
 msgid "Do not close when command exits"
 msgstr "Не закрываць, калі каманда завяршае працу"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
-#: widgets/kpropertiesdesktopadvbase.ui:87
+#: widgets/kpropertiesdesktopadvbase.ui:75
 #, kde-format
 msgctxt ""
 "@title:group Title of a group that lets the user choose which user to use "
@@ -5749,7 +5749,7 @@ msgid "User"
 msgstr "Карыстальнік"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:93
+#: widgets/kpropertiesdesktopadvbase.ui:81
 #, kde-format
 msgid ""
 "Check this option if you want to run this application with a different user "
@@ -5763,43 +5763,43 @@ msgstr ""
 "параметра спатрэбіцца пароль гэтага карыстальніка."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:96
+#: widgets/kpropertiesdesktopadvbase.ui:84
 #, kde-format
 msgid "Run as a different user"
 msgstr "Запусціць ад імя іншага карыстальніка"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
-#: widgets/kpropertiesdesktopadvbase.ui:119
+#: widgets/kpropertiesdesktopadvbase.ui:107
 #, kde-format
 msgid "Enter the user name you want to run the application as."
 msgstr "Увядзіце імя карыстальніка, ад імя якога вы хочаце запускаць праграму."
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
-#: widgets/kpropertiesdesktopadvbase.ui:122
+#: widgets/kpropertiesdesktopadvbase.ui:110
 #, kde-format
 msgid "Username:"
 msgstr "Імя карыстальніка:"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
-#: widgets/kpropertiesdesktopadvbase.ui:132
+#: widgets/kpropertiesdesktopadvbase.ui:120
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
 msgstr "Увядзіце імя карыстальніка, ад імя якога вы хочаце запускаць праграму."
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
-#: widgets/kpropertiesdesktopadvbase.ui:142
+#: widgets/kpropertiesdesktopadvbase.ui:130
 #, kde-format
 msgid "Discrete GPU"
 msgstr "Дыскрэтная відэакарта"
 
 #. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:148
+#: widgets/kpropertiesdesktopadvbase.ui:136
 #, kde-format
 msgid "Run using dedicated graphics card"
 msgstr "Запуск з дапамогай дадатковай відэакарты"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
-#: widgets/kpropertiesdesktopadvbase.ui:158
+#: widgets/kpropertiesdesktopadvbase.ui:146
 #, kde-format
 msgctxt ""
 "@title:group Title of a group that lets the user choose options regarding "
@@ -5808,7 +5808,7 @@ msgid "Startup"
 msgstr "Запуск"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:164
+#: widgets/kpropertiesdesktopadvbase.ui:152
 #, kde-format
 msgid ""
 "Check this option if you want to make clear that your application has "
@@ -5818,14 +5818,14 @@ msgstr ""
 "Яна можа пазначацца занятым курсорам або на панэлі задач."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
-#: widgets/kpropertiesdesktopadvbase.ui:167
+#: widgets/kpropertiesdesktopadvbase.ui:155
 #, kde-format
 msgid "Enable launch feedback"
 msgstr "Уключыць пазначэнне запуску"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
-#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#: widgets/kpropertiesdesktopbase.ui:19 widgets/kpropertiesdesktopbase.ui:32
 #, kde-format
 msgid ""
 "Type the name you want to give to this application here. This application "
@@ -5836,7 +5836,7 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
-#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
 #, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
@@ -5847,45 +5847,45 @@ msgstr ""
 "\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: widgets/kpropertiesdesktopbase.ui:45
+#: widgets/kpropertiesdesktopbase.ui:42
 #, kde-format
 msgid "&Description:"
 msgstr "&Апісанне:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
-#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
 #, kde-format
 msgid "Type any comment you think is useful here."
 msgstr "Увядзіце тут карысны каментар."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: widgets/kpropertiesdesktopbase.ui:65
+#: widgets/kpropertiesdesktopbase.ui:62
 #, kde-format
 msgid "Comm&ent:"
 msgstr "Кам&ентар:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
-#: widgets/kpropertiesdesktopbase.ui:82
+#: widgets/kpropertiesdesktopbase.ui:79
 #, kde-format
 msgid "Environment Variables:"
 msgstr "Зменныя асяроддзя:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
+#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:107
 #, kde-format
 msgid "Type the command to start this application here."
 msgstr "Увядзіце каманду для запуску гэтай праграмы тут."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:98
+#: widgets/kpropertiesdesktopbase.ui:95
 #, kde-format
 msgid "Program:"
 msgstr "Праграма:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:114
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -5895,14 +5895,14 @@ msgstr ""
 "файл."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:120
+#: widgets/kpropertiesdesktopbase.ui:117
 #, kde-format
 msgid "&Browse..."
 msgstr "&Агляд..."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
-#: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
+#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:159
 #, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
@@ -5933,27 +5933,27 @@ msgstr ""
 " %k - размяшчэнне файла .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
-#: widgets/kpropertiesdesktopbase.ui:142
+#: widgets/kpropertiesdesktopbase.ui:139
 #, kde-format
 msgid "&Arguments:"
 msgstr "&Аргументы:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
+#: widgets/kpropertiesdesktopbase.ui:166 widgets/kpropertiesdesktopbase.ui:179
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Вызначае працоўны каталог для праграмы."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:172
+#: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "&Work path:"
 msgstr "&Працоўны шлях:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
+#: widgets/kpropertiesdesktopbase.ui:193 widgets/kpropertiesdesktopbase.ui:214
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -5986,25 +5986,25 @@ msgstr ""
 "выдаліць іх са спіса, націснуўшы кнопку <b>Выдаліць</b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:199
+#: widgets/kpropertiesdesktopbase.ui:196
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Тыпы файлаў, якія падтрымліваюцца:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:230
+#: widgets/kpropertiesdesktopbase.ui:227
 #, kde-format
 msgid "Mimetype"
 msgstr "Тып MIME"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:232
 #, kde-format
 msgid "Description"
 msgstr "Апісанне"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:245
+#: widgets/kpropertiesdesktopbase.ui:242
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -6014,13 +6014,13 @@ msgstr ""
 "працаваць праграма."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:248
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid "Add..."
 msgstr "Дадаць..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:255
+#: widgets/kpropertiesdesktopbase.ui:252
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -6030,13 +6030,13 @@ msgstr ""
 "працаваць, абярыце тып MIME са спіса і націсніце на гэтую кнопку."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:255
 #, kde-format
 msgid "Remove"
 msgstr "Выдаліць"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:281
+#: widgets/kpropertiesdesktopbase.ui:278
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -6046,19 +6046,19 @@ msgstr ""
 "заруску, параметры D-Bus або запусціць ад імя іншага карыстальніка."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:284
+#: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Ад&мысловыя параметры"
 
-#: widgets/kpropertiesdialog.cpp:144 widgets/kpropertiesdialog.cpp:159
-#: widgets/kpropertiesdialog.cpp:171 widgets/kpropertiesdialog.cpp:189
-#: widgets/kpropertiesdialog.cpp:207 widgets/kpropertiesdialog.cpp:231
+#: widgets/kpropertiesdialog.cpp:145 widgets/kpropertiesdialog.cpp:160
+#: widgets/kpropertiesdialog.cpp:172 widgets/kpropertiesdialog.cpp:190
+#: widgets/kpropertiesdialog.cpp:208 widgets/kpropertiesdialog.cpp:232
 #, kde-format
 msgid "Properties for %1"
 msgstr "Уласцівасці для %1"
 
-#: widgets/kpropertiesdialog.cpp:169 widgets/kpropertiesdialog.cpp:205
+#: widgets/kpropertiesdialog.cpp:170 widgets/kpropertiesdialog.cpp:206
 #, fuzzy, kde-format
 #| msgid "Properties for 1 item"
 #| msgid_plural "Properties for %1 Selected Items"
@@ -6069,13 +6069,13 @@ msgstr[1] "Уласцівасці для %1 абраных элементаў"
 msgstr[2] "Уласцівасці для %1 абраных элементаў"
 msgstr[3] "Уласцівасці для %1 абраных элементаў"
 
-#: widgets/kpropertiesdialog.cpp:347
+#: widgets/kpropertiesdialog.cpp:350
 #, kde-format
 msgctxt "@title:tab"
 msgid "Share"
 msgstr "Абагульванне"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:109
+#: widgets/kpropertiesdialogbuiltin_p.cpp:110
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6085,36 +6085,36 @@ msgstr ""
 "Не ўдалося захаваць уласцівасці праз адсутнасць правоў на запіс у:<nl/"
 "><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:221
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Асноўнае"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:417
+#: widgets/kpropertiesdialogbuiltin_p.cpp:418
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Пошук у %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:428
-#: widgets/kpropertiesdialogbuiltin_p.cpp:701
+#: widgets/kpropertiesdialogbuiltin_p.cpp:429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:702
 #, kde-format
 msgid "Refresh"
 msgstr "Абнавіць"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:547
+#: widgets/kpropertiesdialogbuiltin_p.cpp:548
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:669
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Невядомы памер"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:679
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6123,8 +6123,8 @@ msgstr ""
 "Падлік... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:681
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:682
+#: widgets/kpropertiesdialogbuiltin_p.cpp:697
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -6133,8 +6133,8 @@ msgstr[1] "%1 файлы"
 msgstr[2] "%1 файлаў"
 msgstr[3] "%1 файлы"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:682
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:683
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
 #, fuzzy, kde-format
 #| msgid "1 sub-folder"
 #| msgid_plural "%1 sub-folders"
@@ -6145,85 +6145,85 @@ msgstr[1] "%1 укладзеныя каталогі"
 msgstr[2] "%1 укладзеных каталогаў"
 msgstr[3] "%1 укладзеныя каталогі"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:710
+#: widgets/kpropertiesdialogbuiltin_p.cpp:711
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Падлік...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:733
+#: widgets/kpropertiesdialogbuiltin_p.cpp:734
 #, kde-format
 msgid "At least %1\n"
 msgstr "Прынамсі %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:779
+#: widgets/kpropertiesdialogbuiltin_p.cpp:780
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Новая назва файла пустая."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:977
+#: widgets/kpropertiesdialogbuiltin_p.cpp:978
 #, kde-format
 msgid "No registered file type"
 msgstr "Незарэгістраваны тып файла"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:979
+#: widgets/kpropertiesdialogbuiltin_p.cpp:980
 #, kde-format
 msgid "No associated application"
 msgstr "Няма звязаных праграм"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:985
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Стварыць…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:988
+#: widgets/kpropertiesdialogbuiltin_p.cpp:989
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Змяніць…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1060
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
 msgid "No Access"
 msgstr "Няма доступу"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can Only View"
 msgstr "Можна толькі праглядаць"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1059
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 msgid "Can View & Modify"
 msgstr "Можна праглядаць і змяняць"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
 msgid "Can Only View Content"
 msgstr "Можна толькі праглядаць змесціва"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
 msgid "Can View & Modify Content"
 msgstr "Можна праглядаць і змяняць змесціва"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
 msgid "Can Only View/Read Content"
 msgstr "Можна толькі праглядаць і запісваць змесціва"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1062
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
 msgid "Can View/Read & Modify/Write"
 msgstr "Можна праглядаць/чытаць і змяняць/запісваць"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1161
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1162
 #, kde-format
 msgid "&Permissions"
 msgstr "&Правы доступу"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1173
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
 #, kde-format
 msgid "Access Permissions"
 msgstr "Правы доступу"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1182
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1183
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6232,12 +6232,12 @@ msgstr[1] "Усе файлы - спасылкі, для іх няма право
 msgstr[2] "Усе файлы - спасылкі, для іх няма правоў доступу."
 msgstr[3] "Усе файлы - спасылкі, для іх няма правоў доступу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1184
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1185
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Толькі ўласнік можа змяняць правы доступу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
 #, kde-format
 msgid "O&wner:"
 msgstr "У&ласнік:"
@@ -6247,22 +6247,22 @@ msgstr "У&ласнік:"
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Вызначае дзеянні, якія дазволена рабіць уласніку."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1197
 #, kde-format
 msgid "Gro&up:"
 msgstr "Гр&упа:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Вызначае дзеянні, якія дазволена рабіць удзельнікам групы."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "O&thers:"
 msgstr "І&ншыя:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6271,17 +6271,31 @@ msgstr ""
 "Вызначае дзеянні, якія дазволена рабіць усім карыстальнікам, якія не "
 "валодаюць гэтым файлаі і не ўдзельнічаюць у групе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
-#, kde-format
-msgid "Only own&er can rename and delete folder content"
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#, fuzzy, kde-format
+#| msgid "Only own&er can rename and delete folder content"
+msgid "Only own&er can delete or rename contents"
 msgstr "Толькі ўла&снік можа змяняць назву і выдаляць змесціва каталога"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
-#, kde-format
-msgid "Is &executable"
-msgstr "&Выканальны файл"
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#, fuzzy, kde-format
+#| msgid "Enable this flag to allow executing the file as a program."
+msgid "Allow &executing file as program"
+msgstr "Адзначце гэты сцяг, каб дазволіць выкананне гэтага файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#, fuzzy, kde-format
+#| msgid "Default user name:"
+msgid "Delete or rename:"
+msgstr "Прадвызначаны карыстальнік:"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#, fuzzy, kde-format
+#| msgid "&Execute"
+msgid "Execute:"
+msgstr "&Выкананне"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6292,7 +6306,7 @@ msgstr ""
 "назвы ўкладзеных у яе файлаў і каталогаў. Іншыя карыстальнікі могуць толькі "
 "дадаваць новыя файлы, на што патрэбныя правы на змену змесціва."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6301,42 +6315,42 @@ msgstr ""
 "Уключыце гэты параметр, каб пазначыць файл як выканальны. Гэта мае сэнс "
 "толькі для праграм і скрыптоў. Гэта патрэбна для іх выканання."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "А&дмысловыя правы доступу"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1237
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
 msgid "Ownership"
 msgstr "Валоданне"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "User:"
 msgstr "Карыстальнік:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1283
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
 #, kde-format
 msgid "Group:"
 msgstr "Група:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1318
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1308
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Ужыць змены да ўсіх укладзеных каталогаў і іх змесціва"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1350
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Адмысловыя правы доступу"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Class"
 msgstr "Клас"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid ""
 "Show\n"
@@ -6345,22 +6359,22 @@ msgstr ""
 "Прагляд\n"
 "элементаў"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Гэты сцяг дазваляе прагляд змесціва каталога."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "Read"
 msgstr "Чытанне"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1381
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Сцяг чытання дазваляе праглядаць змесціва файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid ""
 "Write\n"
@@ -6369,7 +6383,7 @@ msgstr ""
 "Запіс\n"
 "элементаў"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6379,43 +6393,43 @@ msgstr ""
 "на тое, што функцыі выдалення і змены назвы могуць быць абмежаваныя сцягам "
 "замацавання."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid "Write"
 msgstr "Запіс"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Сцяг запісу дазваляе змяняць змесціва файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Увод"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Адзначце гэты сцяг, каб дазволіць пераход у гэты каталог."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
 #, kde-format
 msgid "Exec"
 msgstr "Выкананне"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1403
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Адзначце гэты сцяг, каб дазволіць выкананне гэтага файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Special"
 msgstr "Адмысловы"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6424,7 +6438,7 @@ msgstr ""
 "Адмысловы сцяг. Дзейнічае для ўсяго каталога. Дакладнае значэнне гэтага "
 "сцяга можна паглядзець у правым слупку."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6433,17 +6447,17 @@ msgstr ""
 "Адмысловы сцяг. Дакладнае значэнне гэтага сцяга можна паглядзець у правым "
 "слупку."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1432
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
 #, kde-format
 msgid "User"
 msgstr "Карыстальнік"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
 #, kde-format
 msgid "Group"
 msgstr "Група"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1447
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6452,7 +6466,7 @@ msgstr ""
 "Калі адзначаны гэты сцяг, уласнік гэтага каталога будзе ўласнікам усіх новых "
 "файлаў."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6461,7 +6475,7 @@ msgstr ""
 "Калі гэты файл выканальны і сцяг уключаны, ён будзе выконвацца з правамі "
 "ўласніка гэтага файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1458
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6469,7 +6483,7 @@ msgstr ""
 "Калі адзначаны гэты сцяг, група гэтага каталога будзе групай для ўсіх новых "
 "файлаў."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6478,7 +6492,7 @@ msgstr ""
 "Калі гэты файл выканальны і гэты сцяг адзначаны, ён будзе выконвацца з "
 "правамі групы гэтага файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1469
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6488,7 +6502,7 @@ msgstr ""
 "суперкарыстальнік змогуць выдаляць і змяняць назвы файлаў. Інакш кожны з "
 "правамі на запіс будзе мець магчымасць выдаляць і змяняць назвы."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6497,33 +6511,33 @@ msgstr ""
 "Сцяг замацавання файлаў ігнаруецца ў Linux, але можа выкарыстоўвацца ў іншых "
 "сістэмах"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1528
 #, kde-format
 msgid "Set UID"
 msgstr "Прызначыць UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1539
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1532
 #, kde-format
 msgid "Set GID"
 msgstr "Прызначыць GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1543
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Замацавана"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1649
 #, kde-format
 msgid "Link"
 msgstr "Спасылка"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1670
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Змяняецца (без змен)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1781
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1780
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6532,7 +6546,7 @@ msgstr[1] "Гэтыя файлы выкарыстоўваюць адмыслов
 msgstr[2] "Гэтыя файлы выкарыстоўваюць адмысловыя правы доступу."
 msgstr[3] "Гэтыя файлы выкарыстоўваюць адмысловыя правы доступу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1803
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1802
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6541,49 +6555,49 @@ msgstr[1] "Гэтыя каталогі выкарыстоўваюць адмыс
 msgstr[2] "Гэтыя каталогі выкарыстоўваюць адмысловыя правы доступу."
 msgstr[3] "Гэтыя каталогі выкарыстоўваюць адмысловыя правы доступу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1817
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1816
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Гэтыя файлы выкарыстоўваюць адмысловыя правы доступу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2055
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2054
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Кантрольныя сумы"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2120
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2131
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2142
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2153
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2119
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2130
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2152
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Падлік…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2309
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2308
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Хібная кантрольная сума."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2312
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2311
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Уведзенае не ёсць прыдатнай кантрольнай сумай MD5, SHA1 або SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2322
 #, kde-format
 msgid "Checksums match."
 msgstr "Кантрольныя сумы супадаюць."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2325
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Падлічаная і чаканая кантрольная сума супадаюць."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2338
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6594,30 +6608,30 @@ msgstr ""
 "спампоўвання. Паспрабуйце спампаваць файл паўторна.<br/>Калі правяранне зноў "
 "скончылася няўдачай, звяжыцеся з кантактамі крыніцы файла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2342
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Падлічаная і чаканая кантрольная сума не супадаюць."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Правяранне кантрольнай сумы…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2433
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2509
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2513
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2784
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6625,29 +6639,29 @@ msgstr ""
 "Не ўдалося захаваць уласцівасці. Падтрымліваюцца толькі запісы ў лакальных "
 "файлавых сістэмах."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2580
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2584
 #, kde-format
 msgid "&Application"
 msgstr "&Праграма"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2720
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2724
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Дадаць тып файлаў для %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2725
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Дадаць адзін або некалькі тыпаў файлаў:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2859
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Падтрымліваюцца толькі выканальныя файлы, размешчаныя ў лакальнай файлавай "
 "сістэме."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2873
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2877
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Адмысловыя параметры для %1"
@@ -7323,6 +7337,9 @@ msgstr "Гэта запусціць праграму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
+
+#~ msgid "Is &executable"
+#~ msgstr "&Выканальны файл"
 
 #~ msgid "New Folder..."
 #~ msgstr "Новы каталог..."
@@ -8431,9 +8448,6 @@ msgstr "Калі вы не давяраеце гэтай праграме, на�
 
 #~ msgid "These settings apply to network browsing only."
 #~ msgstr "Гэтыя налады дзейнічаюць толькі пры аглядзе сеткі."
-
-#~ msgid "Default user name:"
-#~ msgstr "Прадвызначаны карыстальнік:"
 
 #~ msgid "Default password:"
 #~ msgstr "Прадвызначаны пароль:"
