@@ -58,9 +58,19 @@
 
 #include "job_p.h"
 
+#ifdef WITH_QTDBUS
+#include <QDBusConnection>
+#include <QDBusError>
+#include <QDBusReply>
+
+#include "kiofuse_interface.h"
+#endif
+
 namespace
 {
 static qreal s_defaultDevicePixelRatio = 1.0;
+// Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
+static constexpr int s_kioFuseMountTimeout = 10000;
 }
 
 namespace KIO
@@ -163,8 +173,12 @@ public:
     } currentDeviceCachePolicy = Unknown;
     // the path of a unique temporary directory
     QString m_tempDirPath;
+    // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
+    bool tryKioFuse = true;
 
     void getOrCreateThumbnail();
+    void createThumbnailViaFuse(const QUrl &, const QUrl &);
+    void createThumbnailViaLocalCopy(const QUrl &);
     bool statResultThumbnail();
     void createThumbnail(const QString &);
     void cleanupTempFile();
@@ -716,19 +730,63 @@ void PreviewJobPrivate::getOrCreateThumbnail()
         return;
     }
 
-    if (item.isDir()) {
+    if (item.isDir() || !KProtocolInfo::isKnownProtocol(item.targetUrl().scheme())) {
         // Skip remote dirs (bug 208625)
         cleanupTempFile();
         determineNextFile();
         return;
     }
-    // No plugin support access to this remote content, copy the file
-    // to the local machine, then create the thumbnail
+    // The plugin does not support this remote content, either copy the
+    // file, or try to get a local path using KIOFuse
+    if (tryKioFuse) {
+        createThumbnailViaFuse(item.targetUrl(), item.mostLocalUrl());
+        return;
+    }
+
+    createThumbnailViaLocalCopy(item.mostLocalUrl());
+}
+
+void PreviewJobPrivate::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &localUrl)
+{
+    Q_Q(PreviewJob);
+#if defined(WITH_QTDBUS) && !defined(Q_OS_ANDROID)
+    state = PreviewJobPrivate::STATE_GETORIG;
+    org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
+    kiofuse_iface.setTimeout(s_kioFuseMountTimeout);
+    QDBusPendingReply<QString> reply = kiofuse_iface.mountUrl(fileUrl.toString());
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, q);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, q, [this, localUrl](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QString> reply = *watcher;
+        watcher->deleteLater();
+
+        if (reply.isError()) {
+            // Don't try kio-fuse again if it is not available
+            if (reply.error().type() == QDBusError::ServiceUnknown || reply.error().type() == QDBusError::NoReply) {
+                tryKioFuse = false;
+            }
+
+            // Fall back to copying the file to the local machine
+            createThumbnailViaLocalCopy(localUrl);
+        } else {
+            // Use file exposed via the local fuse mount point
+            createThumbnail(reply.value());
+        }
+    });
+#else
+    createThumbnailViaLocalCopy(localUrl);
+#endif
+}
+
+void PreviewJobPrivate::createThumbnailViaLocalCopy(const QUrl &url)
+{
+    Q_Q(PreviewJob);
     state = PreviewJobPrivate::STATE_GETORIG;
     QTemporaryFile localFile;
 
     // Some thumbnailers, like libkdcraw, depend on the file extension being
     // correct
+    const KFileItem &item = currentItem.item;
     const QString extension = item.suffix();
     if (!extension.isEmpty()) {
         localFile.setFileTemplate(QStringLiteral("%1.%2").arg(localFile.fileTemplate(), extension));
@@ -737,8 +795,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     localFile.setAutoRemove(false);
     localFile.open();
     tempName = localFile.fileName();
-    const QUrl currentURL = item.mostLocalUrl();
-    KIO::Job *job = KIO::file_copy(currentURL, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+    KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     q->addSubjob(job);
 }

@@ -31,7 +31,13 @@ target_sources(KF6KIOGui PRIVATE
 )
 
 if (HAVE_QTDBUS)
-    target_sources(KF6KIOGui PRIVATE dbusactivationrunner.cpp)
+    set(kiofuse_dbus_SRCS)
+    qt_add_dbus_interface(kiofuse_dbus_SRCS ../core/org.kde.KIOFuse.VFS.xml kiofuse_interface)
+
+    target_sources(KF6KIOGui PRIVATE
+        ${kiofuse_dbus_SRCS}
+        dbusactivationrunner.cpp
+    )
 endif ()
 
 if (HAVE_QTDBUS AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
