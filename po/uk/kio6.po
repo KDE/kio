@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-06 00:37+0000\n"
-"PO-Revision-Date: 2024-09-08 09:20+0300\n"
+"PO-Revision-Date: 2024-10-06 09:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -6270,28 +6270,24 @@ msgstr ""
 "групи та не є власниками."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Тільки в&ласник може перейменовувати та стирати вміст теки"
+msgstr "Тільки в&ласник може вилучати або перейменовувати дані"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Вмикання цього біта надає дозвіл на запуск цього файла як програми."
+msgstr "Дозволити &виконання файла як програми"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Типове ім'я користувача:"
+msgstr "Вилучити або перейменувати:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "Ви&конати"
+msgstr "Виконати:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
