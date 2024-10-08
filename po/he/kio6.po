@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-06 00:37+0000\n"
-"PO-Revision-Date: 2024-09-08 07:49+0300\n"
+"PO-Revision-Date: 2024-10-07 06:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -6085,28 +6085,24 @@ msgid ""
 msgstr "ציון הפעולות שרשאים לבצע כל המשתמשים שאינם הבעלים ואינם חברים בקבוצה."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "רק הבעלים רשאי לש&נות שמות ולמחוק את תוכן התיקייה"
+msgstr "רק הבעלים יכולים לש&נות שמות או למחוק את התוכן"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "יש להפעיל דגל זה כדי לאפשר הפעלת קובץ כתוכנית."
+msgstr "לאפשר ה&פעלת הקובץ כתוכנית"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "שם משתמש ברירת מחדל:"
+msgstr "מחיקה או שינוי שם:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "ה&רצה"
+msgstr "הרצה:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
