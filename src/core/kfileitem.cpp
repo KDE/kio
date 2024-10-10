@@ -725,6 +725,10 @@ QString KFileItem::linkDest() const
 
     d->ensureInitialized();
 
+    if (!d->m_bLink) {
+        return QString{};
+    }
+
     // Extract it from the KIO::UDSEntry
     const QString linkStr = d->m_entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
     if (!linkStr.isEmpty()) {
