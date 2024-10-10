@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:37+0000\n"
+"POT-Creation-Date: 2024-10-10 00:37+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -2344,24 +2344,32 @@ msgstr "ilo %1 li ken ala open e lipu."
 msgid "Protocol %1 does not support action %2."
 msgstr "toki ilo %1 li ken ala pali %2."
 
-#: core/worker.cpp:329
+#: core/worker.cpp:352
+#, kde-format
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+
+#: core/worker.cpp:379
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "mi sona ala e nasin toki ilo '%1'."
 
-#: core/worker.cpp:340
+#: core/worker.cpp:390
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "mi ken ala alasa e ilo lili pi nasin toki ilo '%1'."
 
-#: core/worker.cpp:348
+#: core/worker.cpp:404
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "mi ken ala open e nasin toki tawa ilo tawa toki ilo '%1'."
 
-#: core/worker.cpp:388
+#: core/worker.cpp:444
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

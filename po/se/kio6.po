@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:37+0000\n"
+"POT-Creation-Date: 2024-10-10 00:37+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -2402,22 +2402,30 @@ msgstr "%1-protokollain ii leat vejolaš rahpat fiillaid."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1-protokolla ii doarjjo %2-doaimma"
 
-#: core/worker.cpp:329
+#: core/worker.cpp:352
+#, kde-format
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+
+#: core/worker.cpp:379
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Amas protokolla «%1»."
 
-#: core/worker.cpp:340
+#: core/worker.cpp:390
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:348
+#: core/worker.cpp:404
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:388
+#: core/worker.cpp:444
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr ""

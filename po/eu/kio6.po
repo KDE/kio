@@ -14,15 +14,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:37+0000\n"
-"PO-Revision-Date: 2024-09-08 09:01+0200\n"
+"POT-Creation-Date: 2024-10-10 00:37+0000\n"
+"PO-Revision-Date: 2024-10-09 21:31+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -2531,23 +2531,31 @@ msgstr "%1 protokoloak ez du fitxategiak irekitzea onartzen. "
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokoloak ez du %2 ekintza onartzen."
 
-#: core/worker.cpp:329
+#: core/worker.cpp:352
+#, kde-format
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+
+#: core/worker.cpp:379
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protokolo ezezaguna '%1'."
 
-#: core/worker.cpp:340
+#: core/worker.cpp:390
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ezin du aurkitu '%1' protokoloaren KIO behargin bat."
 
-#: core/worker.cpp:348
+#: core/worker.cpp:404
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ezin du '%1' protokoloaren KIO behargin bat abiarazteko «socket» bat sortu."
 
-#: core/worker.cpp:388
+#: core/worker.cpp:444
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ezin da 'kioworker' exekutagarria aurkitu '%1'(e)n"
@@ -6219,28 +6227,24 @@ msgstr ""
 "ekintzak adierazten ditu. "
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Jabeak &soilik berrizendatu eta ezabatu dezake karpetaren edukia."
+msgstr "Jab&eak bakarrik ezabatu edo berrizendatu dezake edukia"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Gaitu bandera hau fitxategia programa bezala exekutatzen uzteko."
+msgstr "Utzi fitxategia programa gisa &exekutatzen"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Erabiltzaile-izen lehenetsia:"
+msgstr "Ezabatu edo berrizendatu:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Exekutatu"
+msgstr "Exekutatu:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
