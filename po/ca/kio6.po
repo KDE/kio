@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:37+0000\n"
-"PO-Revision-Date: 2024-10-06 10:23+0200\n"
+"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"PO-Revision-Date: 2024-10-10 10:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2419,17 +2419,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error sense documentar"
 
-#: core/kfileitem.cpp:1477
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Enllaç simbòlic a %1)"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, enllaç a %2)"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
@@ -2566,6 +2566,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"La seguretat del procés de treball KIO del protocol «%1», que normalment "
+"demana permisos elevats, no es pot garantir perquè els usuaris que no siguin "
+"l'administrador tenen permís per a modificar-lo a %2."
 
 #: core/worker.cpp:379
 #, kde-format

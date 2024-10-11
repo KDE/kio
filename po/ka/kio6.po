@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:37+0000\n"
-"PO-Revision-Date: 2024-10-06 05:53+0200\n"
+"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"PO-Revision-Date: 2024-10-10 05:07+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2356,17 +2356,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "არადოკუმენტირებული შეცდომა"
 
-#: core/kfileitem.cpp:1477
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(სიმბმული %1-მდე)"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ბმული %2-მდე)"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (მიუთითებს %1-ზე)"
@@ -2502,6 +2502,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"KIO დახმარე პროგრამის უსაფრთხოება პროტოკოლისთვის '%1', რომელიც, ჩვეულებრივ, "
+"მომატებულ წვდომებს მოითხოვს, გარანტირებული ვერ იქნება, რადგან მისი ჩასწორება "
+"%2-ზე root-ის გარდა სხვა მომხმარებლებსაც შეუძლიათ."
 
 #: core/worker.cpp:379
 #, kde-format

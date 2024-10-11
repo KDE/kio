@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-10 00:37+0000\n"
+"POT-Creation-Date: 2024-10-11 00:37+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2413,17 +2413,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "कागजात नगरिएको त्रुटि"
 
-#: core/kfileitem.cpp:1477
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 मा साङ्केतिक लिङ्क)"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 मा लिङ्क)"
 
-#: core/kfileitem.cpp:1482
+#: core/kfileitem.cpp:1486
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
