@@ -125,6 +125,17 @@ void KIO::ApplicationLauncherJob::emitUnauthorizedError()
 
 void KIO::ApplicationLauncherJob::start()
 {
+    if (d->m_urls.size() == 1) {
+        const QUrl url = d->m_urls.first();
+        if (url.isLocalFile() && !QFile::exists(url.toLocalFile())) {
+            // Don't launch an application for a non-existing file (e.g. a broken symlink)
+            setError(KIO::ERR_DOES_NOT_EXIST);
+            setErrorText(url.toDisplayString());
+            emitResult();
+            return;
+        }
+    }
+
     if (!d->m_service) {
         d->showOpenWithDialogForMimeType();
         return;
