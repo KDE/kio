@@ -32,6 +32,8 @@ private Q_SLOTS:
     void shouldFailOnServiceWithNoExec();
     void shouldFailOnExecutableWithoutPermissions();
 
+    void shouldFailOnNonExistingSingleArgument();
+
     void showOpenWithDialog_data();
     void showOpenWithDialog();
 

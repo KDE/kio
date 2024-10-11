@@ -338,6 +338,49 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 #endif
 }
 
+void ApplicationLauncherJobTest::shouldFailOnNonExistingSingleArgument()
+{
+    if (qgetenv("_KDE_APPLICATIONS_AS_FORKING") != QByteArrayLiteral("1")) {
+        QSKIP("This test is not to be run by systemd");
+    }
+
+    QTemporaryDir tempDir;
+    const QString target = tempDir.filePath(QStringLiteral("target"));
+    createSrcFile(target);
+    const QString nonExistingFile = tempDir.filePath(QStringLiteral("nonexisting_file"));
+    const QString goodSymlink = tempDir.filePath(QStringLiteral("good_symlink"));
+    QVERIFY(QFile::link(target, goodSymlink));
+    const QString badSymlink = tempDir.filePath(QStringLiteral("bad_symlink"));
+    QVERIFY(QFile::link(nonExistingFile, badSymlink));
+
+    KService::Ptr servicePtr(new KService(m_tempService));
+
+    // should not fail with a single good argument
+    {
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+        job->setUrls({QUrl::fromLocalFile(goodSymlink)});
+        QVERIFY(job->exec());
+    }
+
+    // should fail when the only argument is a broken symlink
+    {
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+        job->setUrls({QUrl::fromLocalFile(badSymlink)});
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_DOES_NOT_EXIST);
+        QCOMPARE(job->errorString(), QUrl::fromLocalFile(badSymlink).toDisplayString());
+    }
+
+    // should fail when the only argument is non-existing
+    {
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(servicePtr, this);
+        job->setUrls({QUrl::fromLocalFile(nonExistingFile)});
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_DOES_NOT_EXIST);
+        QCOMPARE(job->errorString(), QUrl::fromLocalFile(nonExistingFile).toDisplayString());
+    }
+}
+
 void ApplicationLauncherJobTest::showOpenWithDialog_data()
 {
     QTest::addColumn<bool>("withHandler");
