@@ -140,8 +140,12 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
 
     QString workingDir(service->workingDirectory());
     if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
-        // systemd requires working directory to be normalized, or '~'
-        workingDir = QFileInfo(urls.first().toLocalFile()).canonicalPath();
+        QFileInfo info(urls.first().toLocalFile());
+        // QFileInfo::canonicalPath() returns "." for broken symlinks, which systemd doesn't like
+        if (info.exists()) {
+            // systemd requires working directory to be normalized, or '~'
+            workingDir = info.canonicalPath();
+        }
     }
     instance->m_process->setWorkingDirectory(workingDir);
 
