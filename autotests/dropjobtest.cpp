@@ -206,6 +206,9 @@ private Q_SLOTS:
 
         // Then the file is copied
         QVERIFY(jobSpy.waitForResult());
+        if (job->error()) {
+            qDebug() << job->errorText();
+        }
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
             QCOMPARE(copyJobSpy.count(), 1);
@@ -459,6 +462,9 @@ private Q_SLOTS:
 
         // Then the job should finish, and the chosen action should happen.
         QVERIFY(jobSpy.waitForResult());
+        if (jobSpy.error()) {
+            qDebug() << job->errorText();
+        }
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
             QCOMPARE(copyJobSpy.count(), 1);

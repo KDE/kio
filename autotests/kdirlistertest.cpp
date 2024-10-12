@@ -351,7 +351,7 @@ void KDirListerTest::testNewItemByCopyInSubDir() // #440712
     const QString fileName = path + "subdir/toplevelfile_copy";
     const QUrl itemUrl = QUrl::fromLocalFile(fileName);
     KIO::CopyJob *job = KIO::copyAs(QUrl::fromLocalFile(path + "toplevelfile_3"), itemUrl, KIO::HideProgressInfo);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorText()));
 
     QTRY_COMPARE(m_items.count(), origItemCount);
 
