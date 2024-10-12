@@ -92,8 +92,7 @@ void DeleteOrTrashJobTest::deleteTrashFileTest()
     QVERIFY(trashJob->exec());
 
     auto [job, askUserHandler] = createJobWithUrl(AskIface::Trash, QUrl("trash:/0-delete_or_trash_job_test_file"));
-    bool res = job->exec();
-    QVERIFY(res);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(askUserHandler->m_delType, KIO::AskUserActionInterface::DeletionType::Delete);
     QCOMPARE(askUserHandler->m_askUserDeleteCalled, 1);
 }
