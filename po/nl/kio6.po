@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-11 00:37+0000\n"
-"PO-Revision-Date: 2024-10-06 14:23+0200\n"
+"PO-Revision-Date: 2024-10-11 16:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2590,6 +2590,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"De beveiliging van de KIO-worker voor protocol ’%1’, die typisch vraagt voor "
+"verhoogde rechten, kan niet gegarandeerd worden omdat gebruikers anders dan "
+"root rechten hebben om het bij %2 te wijzigen."
 
 #: core/worker.cpp:379
 #, kde-format
