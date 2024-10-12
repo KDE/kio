@@ -348,11 +348,11 @@ bool isWorkerSecurityCompromised(const QString &workerPath, const QString &proto
             // We have found a library that is compromised. We continue searching in case this library was only placed here to circumvent this security check.
         }
     }
-    const auto adminWorkerSecurityWarning{
-        i18n("The security of the KIO worker for protocol ’%1’, which typically asks for elevated permissions, "
-             "can not be guaranteed because users other than root have permission to modify it at %2.",
-             protocolName,
-             workerPath)};
+    const auto adminWorkerSecurityWarning{i18nc("@info %2 is a path",
+                                                "The security of the KIO worker for protocol ’%1’, which typically asks for elevated permissions, "
+                                                "can not be guaranteed because users other than root have permission to modify it at %2.",
+                                                protocolName,
+                                                workerPath)};
     if (!kioCoreSecurityCompromised.has_value() || !kioCoreSecurityCompromised.value()) {
         error_text = adminWorkerSecurityWarning;
         error = KIO::ERR_CANNOT_CREATE_WORKER;
