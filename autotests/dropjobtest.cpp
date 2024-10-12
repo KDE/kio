@@ -206,9 +206,6 @@ private Q_SLOTS:
 
         // Then the file is copied
         QVERIFY(jobSpy.waitForResult());
-        if (job->error()) {
-            qDebug() << job->errorText();
-        }
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
             QCOMPARE(copyJobSpy.count(), 1);
