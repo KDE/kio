@@ -15,8 +15,6 @@
 #include "workerbase.h"
 
 #include <KLocalizedString>
-#include <signal.h>
-#include <time.h>
 
 #include <QDataStream>
 #include <QDateTime>
