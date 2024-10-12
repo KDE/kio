@@ -82,10 +82,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
 endif()
 
 if(UNIX)
-    if (HAVE_LIBURING)
-        configure_file(../src/kioworkers/file/config-kioworker-file.h.in config-kioworker-file.h)
-
-
+    configure_file(../src/kioworkers/file/config-kioworker-file.h.in config-kioworker-file.h)
+    if (LIBURING_FOUND)
         target_link_libraries(jobtest ${LIBURING_LIBRARY})
     endif()
 endif()

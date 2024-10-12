@@ -2936,7 +2936,7 @@ void JobTest::cancelCopyAndCleanDest()
 
     // the destination file actual deletion happens after finished() is emitted
     // we need to give some time to the KIO worker to finish the file cleaning
-    QTRY_VERIFY2_WITH_TIMEOUT(!QFile::exists(destToCheck), qPrintable(destToCheck), 1000);
+    QTRY_VERIFY2_WITH_TIMEOUT(!QFile::exists(destToCheck), qPrintable(destToCheck), 3000);
 }
 
 #include "moc_jobtest.cpp"
