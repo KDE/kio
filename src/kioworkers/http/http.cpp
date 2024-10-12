@@ -433,6 +433,8 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
     }
 
+    inputData->startTransaction(); // To be able to restart after redirects.
+
     QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
 
     bool mimeTypeEmitted = false;
@@ -454,10 +456,27 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         processedSize(received);
     });
 
-    QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, reply, dataMode, url, method]() {
-        handleRedirection(method, url, reply);
+    // From RFC 4918 5.2 Collection Resources:
+    // > In general, clients SHOULD use the trailing slash form of collection names.
+    // > If clients do not use the trailing slash form the client needs to be prepared to see a redirect response.
+    // KIO doesn't handle trailing slashes well (especially in KDirLister), so handle it transparently.
+    bool redirectToTrailingSlash = false;
 
+    QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, &redirectToTrailingSlash, reply, dataMode, url, method]() {
         int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+
+        // Handled after returning from the event loop.
+        // 301 is necessary for Apache (see bugs 209508 and 187970).
+        if (statusCode == 301 || statusCode == 307 || statusCode == 308) {
+            const QString redir = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
+            const QUrl newUrl = url.resolved(QUrl(redir));
+            if (url != newUrl && url == newUrl.adjusted(QUrl::StripTrailingSlash)) {
+                redirectToTrailingSlash = true;
+                return;
+            }
+        }
+
+        handleRedirection(method, url, reply);
 
         if (statusCode == 206) {
             canResume();
@@ -496,6 +515,15 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         loop.quit();
     });
     loop.exec();
+
+    // If there was a foo -> foo/ redirect, follow it.
+    if (redirectToTrailingSlash) {
+        inputData->rollbackTransaction();
+        QUrl newUrl = url;
+        newUrl.setPath(newUrl.path() + QLatin1Char('/'));
+        return makeRequest(newUrl, method, inputData, dataMode, extraHeaders);
+    }
+    inputData->commitTransaction();
 
     // make sure data is emitted at least once
     // NOTE: emitting an empty data set means "end of data" and must not happen
@@ -732,11 +760,6 @@ KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
     };
 
     Response response = makeDavRequest(url, method, inputData, DataMode::Return, extraHeaders);
-
-    // TODO
-    // if (!stat) {
-    // Utils::appendSlashToPath(m_request.url);
-    // }
 
     // Has a redirection already been called? If so, we're done.
     // if (m_isRedirection || m_kioError) {
@@ -1105,26 +1128,6 @@ KIO::WorkerResult HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::J
 
     QByteArray inputData;
     Response response = makeDavRequest(src, KIO::DAV_MOVE, inputData, DataMode::Discard, extraHeaders);
-
-    // Work around strict Apache-2 WebDAV implementation which refuses to cooperate
-    // with webdav://host/directory, instead requiring webdav://host/directory/
-    // (strangely enough it accepts Destination: without a trailing slash)
-    // See BR# 209508 and BR#187970
-    // TODO
-    // if (m_request.responseCode == 301) {
-    //     QUrl redir = m_request.redirectUrl;
-    //
-    //     resetSessionSettings();
-    //
-    //     m_request.url = redir;
-    //     m_request.method = DAV_MOVE;
-    //     m_request.davData.desturl = newDest.toString();
-    //     m_request.davData.overwrite = (flags & KIO::Overwrite);
-    //     m_request.url.setQuery(QString());
-    //     m_request.cacheTag.policy = CC_Reload;
-    //
-    //     (void)/* handling result via dav codes */ proceedUntilResponseHeader();
-    // }
 
     // The server returns a HTTP/1.1 201 Created or 204 No Content on successful completion
     if (response.httpCode == 201 || response.httpCode == 204) {
