@@ -188,10 +188,10 @@ private Q_SLOTS:
         QFETCH(int, expectedError);
         QFETCH(bool, shouldSourceStillExist);
 
-        // Given a directory and a source file
-        QTemporaryDir tempDestDir;
-        QVERIFY(tempDestDir.isValid());
         if (dest.isEmpty()) {
+            // Given a directory and a source file
+            QTemporaryDir tempDestDir;
+            QVERIFY(tempDestDir.isValid());
             dest = tempDestDir.path();
         }
 
