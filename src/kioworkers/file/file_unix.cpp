@@ -563,7 +563,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
         sqe = io_uring_get_sqe(ring);
         io_uring_prep_readv(sqe, infd, &data->iov, 1, offset);
-        // sqe->flags |= IOSQE_IO_LINK;
+        sqe->flags |= IOSQE_IO_LINK;
         io_uring_sqe_set_data(sqe, data);
 
         sqe = io_uring_get_sqe(ring);
