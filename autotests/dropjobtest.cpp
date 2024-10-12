@@ -188,10 +188,10 @@ private Q_SLOTS:
         QFETCH(int, expectedError);
         QFETCH(bool, shouldSourceStillExist);
 
+        // Given a directory and a source file
+        QTemporaryDir tempDestDir;
+        QVERIFY(tempDestDir.isValid());
         if (dest.isEmpty()) {
-            // Given a directory and a source file
-            QTemporaryDir tempDestDir;
-            QVERIFY(tempDestDir.isValid());
             dest = tempDestDir.path();
         }
 
@@ -459,9 +459,6 @@ private Q_SLOTS:
 
         // Then the job should finish, and the chosen action should happen.
         QVERIFY(jobSpy.waitForResult());
-        if (jobSpy.error()) {
-            qDebug() << job->errorText();
-        }
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
             QCOMPARE(copyJobSpy.count(), 1);
