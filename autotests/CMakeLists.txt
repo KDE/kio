@@ -88,10 +88,8 @@ if(UNIX)
     LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
   )
 
-    if (HAVE_LIBURING)
-        configure_file(../src/kioworkers/file/config-kioworker-file.h.in config-kioworker-file.h)
-
-
+    configure_file(../src/kioworkers/file/config-kioworker-file.h.in config-kioworker-file.h)
+    if (LIBURING_FOUND)
         target_link_libraries(jobtest ${LIBURING_LIBRARY})
     endif()
 endif()
