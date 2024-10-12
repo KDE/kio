@@ -45,6 +45,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QPointer>
+#include <QQueue>
 #include <QTemporaryFile>
 #include <QTimeZone>
 #include <QTimer>
@@ -315,6 +316,8 @@ public:
     int m_conflictError;
 
     QTimer *m_reportTimer;
+    QElapsedTimer m_speedMeasurementTimer;
+    QQueue<std::pair<quint64, KIO::filesize_t>> m_speedMeasurementPoints;
 
     // The current src url being stat'ed or copied
     // During the stat phase, this is initially equal to *m_currentStatSrc but it can be resolved to a local file equivalent (#188903).
@@ -2107,6 +2110,9 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         m_currentDestURL = uDest;
         m_bURLDirty = true;
     }
+
+    // speed is computed locally
+    QObject::disconnect(newjob, &KJob::speed, q, nullptr);
     q->addSubjob(newjob);
     q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
         slotProcessedSize(job, processedSize);
@@ -2205,6 +2211,24 @@ void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
         qCDebug(KIO_COPYJOB_DEBUG) << "Adjusting m_totalSize to" << m_totalSize;
         q->setTotalAmount(KJob::Bytes, m_totalSize); // safety
     }
+
+    const auto processed = m_fileProcessedSize + m_processedSize;
+    const auto elapsed = m_speedMeasurementTimer.elapsed();
+    if (m_speedMeasurementPoints.size() == 0) {
+        m_speedMeasurementPoints.enqueue(std::pair(elapsed, processed));
+    } else {
+        const auto headMeasurementPoint = m_speedMeasurementPoints.head();
+        if ((m_speedMeasurementTimer.elapsed() - headMeasurementPoint.first) >= 1000) {
+            if (m_speedMeasurementPoints.size() >= 8) {
+                m_speedMeasurementPoints.dequeue();
+            }
+
+            q->emitSpeed(1000 * (processed - headMeasurementPoint.second) / (elapsed - headMeasurementPoint.first));
+
+            m_speedMeasurementPoints.enqueue(std::pair(elapsed, processed));
+        }
+    }
+
     qCDebug(KIO_COPYJOB_DEBUG) << "emit processedSize" << (unsigned long)(m_processedSize + m_fileProcessedSize);
 }
 
