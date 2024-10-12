@@ -553,7 +553,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     ret = io_uring_queue_init(QD, &ring, 0);
     if (ret < 0) {
         QString error = QString::fromLocal8Bit(strerror(-ret));
-        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("queue_init: %s").arg(error));
+        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("queue_init: %1").arg(error));
     }
 
     auto queue_rw_pair = [infd, outfd](struct io_uring *ring, size_t size, size_t offset) {
@@ -655,7 +655,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                     return WorkerResult::fail(KIO::ERR_USER_CANCELED);
                 }
                 const QString error = QString::fromLocal8Bit(strerror(-ret));
-                return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("wait cqe: %s").arg(error));
+                return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("wait cqe: %1").arg(error));
             }
             if (!cqe)
                 break;
@@ -664,7 +664,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 if (ret == ECANCELED) {
                     break;
                 }
-                return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("handle cqe: %i").arg(cqe->res));
+                return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("handle cqe: %1").arg(cqe->res));
             }
             inflight--;
         }
