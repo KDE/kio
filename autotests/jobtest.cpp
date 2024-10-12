@@ -6,7 +6,9 @@
 */
 
 #include "jobtest.h"
+#if defined(Q_OS_LINUX)
 #include "config-kioworker-file.h"
+#endif
 #include "mockcoredelegateextensions.h"
 
 #include "kio/job.h"
@@ -2896,7 +2898,7 @@ void JobTest::cancelCopyAndCleanDest()
     if (!f.open()) {
         qFatal("Couldn't open %s", qPrintable(f.fileName()));
     }
-#if HAVE_LIBURING
+#if defined(Q_OS_LINUX) && HAVE_LIBURING
     const int sz = 400000000; //~400MB
 #else
     const int sz = 400000; //~400kB
