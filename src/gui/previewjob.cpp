@@ -157,6 +157,8 @@ public:
     // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
     QMap<QString, int> deviceIdMap;
     enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
+    // the path of a unique temporary directory
+    QString m_tempDirPath;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -250,6 +252,9 @@ public:
         }
         return standardThumbs;
     }
+
+private:
+    QDir createTemporaryDir();
 };
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
@@ -279,8 +284,12 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 
 PreviewJob::~PreviewJob()
 {
-#if WITH_SHM
     Q_D(PreviewJob);
+    if (!d->m_tempDirPath.isEmpty()) {
+        QDir tempDir(d->m_tempDirPath);
+        tempDir.removeRecursively();
+    }
+#if WITH_SHM
     if (d->shmaddr) {
         shmdt((char *)d->shmaddr);
         shmctl(d->shmid, IPC_RMID, nullptr);
@@ -798,6 +807,22 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
     return idUnknown;
 }
 
+QDir KIO::PreviewJobPrivate::createTemporaryDir()
+{
+    if (m_tempDirPath.isEmpty()) {
+        auto tempDir = QTemporaryDir();
+        Q_ASSERT(tempDir.isValid());
+
+        tempDir.setAutoRemove(false);
+        // restrict read access to current User
+        QFile::setPermissions(tempDir.path(), QFile::Permission::ReadOwner | QFile::Permission::WriteOwner | QFile::Permission::ExeOwner);
+
+        m_tempDirPath = tempDir.path();
+    }
+
+    return QDir(m_tempDirPath);
+}
+
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 {
     Q_Q(PreviewJob);
@@ -826,17 +851,23 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         }
         if (exec.isEmpty()) {
             qCWarning(KIO_GUI) << "The exec entry for standard thumbnailer " << currentItem.plugin.name() << " was empty!";
-        } else {
-            const QString outputPath = QTemporaryDir().path() + thumbName;
-
-            KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, width * devicePixelRatio, pixPath, outputPath);
-            q->addSubjob(job);
-            q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
-                slotStandardThumbData(job, thumb);
-            });
-            job->start();
             return;
         }
+        auto tempDir = createTemporaryDir();
+        if (pixPath.startsWith(tempDir.path())) {
+            // don't generate thumbnails for images already in temporary directory
+            return;
+        }
+
+        const QString outputPath = tempDir.filePath(thumbName);
+
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, width * devicePixelRatio, pixPath, outputPath);
+        q->addSubjob(job);
+        q->connect(job, &KIO::StandardThumbnailJob::data, q, [=, this](KIO::Job *job, const QImage &thumb) {
+            slotStandardThumbData(job, thumb);
+        });
+        job->start();
+        return;
     }
 
     // Using thumbnailer plugin
