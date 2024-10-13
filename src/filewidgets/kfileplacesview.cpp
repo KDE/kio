@@ -52,6 +52,7 @@
 
 #include <chrono>
 #include <cmath>
+#include <set>
 
 #include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
@@ -1769,19 +1770,44 @@ void KFilePlacesViewPrivate::adaptItemSize()
 
     const int minSize = q->style()->pixelMetric(QStyle::PM_SmallIconSize);
     const int maxSize = 64;
-
-    int textWidth = 0;
     QFontMetrics fm = q->fontMetrics();
+
+    /// A set that contains the integer widths of the rows of the widest rows.
+    /// It is supposed to only contain the widest 20% of the rows. A std::set of integers is always sorted in ascending order.
+    std::set<int> widestTwentyPercentOfTextWidths;
+
+    /// The number of items that should be in widestTwentyPercentOfTextWidths.
+    const unsigned int twentyPercent = static_cast<int>(std::ceil(0.2 * rowCount));
+    Q_ASSERT(twentyPercent > 0); // This is an expectation of the code below or it might crash.
+
+    /// In this for-loop widestTwentyPercentOfTextWidths is filled, so it becomes true to its name.
+    /// Example: If there are rows with widths of 36, 28, 21, 35, 67, 70, 56, 41, 48, 178, then twentyPercent should equal 2,
+    ///          and after this for-loop widestTwentyPercentOfTextWidths should only consist of 70 and 178.
     for (int i = 0; i < placesModel->rowCount(); ++i) {
         QModelIndex index = placesModel->index(i, 0);
 
         if (!placesModel->isHidden(index)) {
-            textWidth = qMax(textWidth, fm.boundingRect(index.data(Qt::DisplayRole).toString()).width());
+            const int textWidth = fm.boundingRect(index.data(Qt::DisplayRole).toString()).width();
+            if (widestTwentyPercentOfTextWidths.size() < twentyPercent || textWidth > (*widestTwentyPercentOfTextWidths.begin())) {
+                // begin() is the smallest integer in the std::set.
+                if (widestTwentyPercentOfTextWidths.size() + 1 > twentyPercent) {
+                    // We need to remove an integer from the set, so the total count does not grow beyond our target size of twentyPercent.
+                    widestTwentyPercentOfTextWidths.erase(widestTwentyPercentOfTextWidths.begin());
+                }
+                widestTwentyPercentOfTextWidths.insert(textWidth);
+            }
         }
     }
 
     const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr, q) + 1;
-    const int maxWidth = q->viewport()->width() - textWidth - 4 * margin - 1;
+    int maxWidth; /// The maximum width the icons should have based on the text widths. If a lot of text is cut off, we use a smaller icon.
+    if ((*widestTwentyPercentOfTextWidths.rbegin()) - (*widestTwentyPercentOfTextWidths.begin()) > 40) {
+        // There is quite a difference in width if we ignore the widest 20% of texts so let's ignore them.
+        // This makes it more likely that bigger icons are chosen if there is also enough vertical space.
+        maxWidth = q->viewport()->width() - (*widestTwentyPercentOfTextWidths.begin()) - 4 * margin - 1;
+    } else {
+        maxWidth = q->viewport()->width() - (*widestTwentyPercentOfTextWidths.rbegin()) - 4 * margin - 1;
+    }
 
     const int totalItemsHeight = (fm.height() / 2) * rowCount;
     const int totalSectionsHeight = m_delegate->sectionHeaderHeight(QModelIndex()) * sectionsCount();
