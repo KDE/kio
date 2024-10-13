@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"POT-Creation-Date: 2024-10-13 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2377,6 +2377,7 @@ msgstr "协议 %1 不支持操作 %2。"
 
 #: core/worker.cpp:352
 #, kde-format
+msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
 "elevated permissions, can not be guaranteed because users other than root "
@@ -2403,24 +2404,24 @@ msgstr "无法创建用于为协议“%1”启动 KIO 工作程序的套接字�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "无法在“%1”中找到“kioworker”可执行程序"
 
-#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "详情(&D)"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "总是(&F)"
 
-#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "继续(&N)"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

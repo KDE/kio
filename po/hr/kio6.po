@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"POT-Creation-Date: 2024-10-13 00:37+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -2556,6 +2556,7 @@ msgstr "Protokol %1 ne podržava akciju %2."
 
 #: core/worker.cpp:352
 #, kde-format
+msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
 "elevated permissions, can not be guaranteed because users other than root "
@@ -2585,24 +2586,24 @@ msgstr "Ne mogu pronaći podređeni-iu  za protokol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ne mogu pronaći podređeni-iu  za protokol '%1'."
 
-#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "&Detalji"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Zauvijek"
 
-#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Nastavi"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

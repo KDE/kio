@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"POT-Creation-Date: 2024-10-13 00:37+0000\n"
 "PO-Revision-Date: 2024-10-10 08:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2457,6 +2457,7 @@ msgstr "لا يدعم الميفاق %1 الإجراء %2."
 
 #: core/worker.cpp:352
 #, kde-format
+msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
 "elevated permissions, can not be guaranteed because users other than root "
@@ -2483,24 +2484,24 @@ msgstr "تعذّر إنشاء مقبس لإطلاق تابع الدّخل/الخ
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "تعذّر العثور على تنفيذيّ 'kioworker' في ’%1‘"
 
-#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "التّ&فاصيل"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "للأب&د"
 
-#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&تابع"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

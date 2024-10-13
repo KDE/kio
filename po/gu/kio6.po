@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"POT-Creation-Date: 2024-10-13 00:37+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -2265,6 +2265,7 @@ msgstr "પ્રોટોકોલ %1 ક્રિયા %2 ને આધાર
 
 #: core/worker.cpp:352
 #, kde-format
+msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
 "elevated permissions, can not be guaranteed because users other than root "
@@ -2294,24 +2295,24 @@ msgstr "પ્રોટોકોલ '%1' માટે io-slave મળી શક�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "પ્રોટોકોલ '%1' માટે io-slave મળી શકતું નથી."
 
-#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "વિગતો (&D)"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "હંંમેશા (&F)"
 
-#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "ચાલુ રાખો (&n)"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

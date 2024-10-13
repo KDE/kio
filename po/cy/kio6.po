@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:37+0000\n"
+"POT-Creation-Date: 2024-10-13 00:37+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2557,6 +2557,7 @@ msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
 
 #: core/worker.cpp:352
 #, kde-format
+msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
 "elevated permissions, can not be guaranteed because users other than root "
@@ -2586,24 +2587,24 @@ msgstr "Methu creu pill ar gyfer lansio gwas-io am brotocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Methu canfod gweithredadwyolyn 'kioslave5' am '%1'"
 
-#: core/workerinterface.cpp:360 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "&Manylion"
 
-#: core/workerinterface.cpp:362 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Am Byth"
 
-#: core/workerinterface.cpp:366 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Par&hau"
 
-#: core/workerinterface.cpp:368 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
