@@ -613,6 +613,13 @@ void KIO::OpenUrlJobPrivate::openInPreferredApp()
 {
     KService::Ptr service = KApplicationTrader::preferredService(m_mimeTypeName);
     if (service) {
+        // If file mimetype is set to xdg-open or kde-open, the file will be opened in endless loop
+        // In these cases, showOpenWithDialog instead
+        const QStringList disallowedWrappers = {QStringLiteral("xdg-open"), QStringLiteral("kde-open")};
+        if (disallowedWrappers.contains(service.data()->exec())) {
+            showOpenWithDialog();
+            return;
+        }
         startService(service);
     } else {
         // Avoid directly opening partial downloads and incomplete files
