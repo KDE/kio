@@ -463,22 +463,40 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     bool redirectToTrailingSlash = false;
 
     QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, &redirectToTrailingSlash, reply, dataMode, url, method]() {
-        int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
-        // Handled after returning from the event loop.
-        // 301 is necessary for Apache (see bugs 209508 and 187970).
-        if (statusCode == 301 || statusCode == 307 || statusCode == 308) {
+        if (statusCode >= 300 && statusCode < 400) {
             const QString redir = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
             const QUrl newUrl = url.resolved(QUrl(redir));
-            if (url != newUrl && url == newUrl.adjusted(QUrl::StripTrailingSlash)) {
-                redirectToTrailingSlash = true;
-                return;
+
+            // Handled after returning from the event loop.
+            // 301 is necessary for Apache (see bugs 209508 and 187970).
+            if (statusCode == 301 || statusCode == 307 || statusCode == 308) {
+                if (url != newUrl && url == newUrl.adjusted(QUrl::StripTrailingSlash)) {
+                    redirectToTrailingSlash = true;
+                    return;
+                }
             }
-        }
 
-        handleRedirection(method, url, reply);
+            if (statusCode == 301 || statusCode == 308) {
+                setMetaData(QStringLiteral("permanent-redirect"), QStringLiteral("true"));
+                redirection(newUrl);
+            } else if (statusCode == 302) {
+                if (method == KIO::HTTP_POST) {
+                    setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
+                }
 
-        if (statusCode == 206) {
+                redirection(newUrl);
+            } else if (statusCode == 303) {
+                if (method != KIO::HTTP_HEAD) {
+                    setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
+                }
+
+                redirection(newUrl);
+            } else if (statusCode == 307) {
+                redirection(newUrl);
+            }
+        } else if (statusCode == 206) {
             canResume();
         }
 
@@ -674,38 +692,6 @@ QString HTTPProtocol::getContentType()
         contentType.remove(QLatin1String("Content-Type: "), Qt::CaseInsensitive);
     }
     return contentType;
-}
-
-void HTTPProtocol::handleRedirection(KIO::HTTP_METHOD method, const QUrl &originalUrl, QNetworkReply *reply)
-{
-    int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-
-    auto redirect = [this, originalUrl, reply] {
-        const QString redir = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
-        redirection(originalUrl.resolved(QUrl(redir)));
-    };
-
-    if (statusCode == 301) {
-        setMetaData(QStringLiteral("permanent-redirect"), QStringLiteral("true"));
-        redirect();
-    } else if (statusCode == 302) {
-        if (method == KIO::HTTP_POST) {
-            setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
-        }
-
-        redirect();
-    } else if (statusCode == 303) {
-        if (method != KIO::HTTP_HEAD) {
-            setMetaData(QStringLiteral("redirect-to-get"), QStringLiteral("true"));
-        }
-
-        redirect();
-    } else if (statusCode == 307) {
-        redirect();
-    } else if (statusCode == 308) {
-        setMetaData(QStringLiteral("permanent-redirect"), QStringLiteral("true"));
-        redirect();
-    }
 }
 
 KIO::WorkerResult HTTPProtocol::listDir(const QUrl &url)
