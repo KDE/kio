@@ -68,7 +68,6 @@ private:
     [[nodiscard]] KIO::WorkerResult copyPut(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
 
     void handleSslErrors(QNetworkReply *reply, const QList<QSslError> errors);
-    void handleRedirection(KIO::HTTP_METHOD method, const QUrl &originalUrl, QNetworkReply *reply);
 
     [[nodiscard]] KIO::WorkerResult davStatList(const QUrl &url, bool stat);
     void davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntry &entry);
