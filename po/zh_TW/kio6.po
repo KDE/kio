@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-13 00:37+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2024-10-07 14:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2642,7 +2642,7 @@ msgstr "顯示預覽"
 msgid "Open Containing Folder"
 msgstr "開啟包含資料夾"
 
-#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1222
 #, kde-format
 msgid "Properties"
 msgstr "屬性"
@@ -3066,96 +3066,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "用分割區管理員進行重新格式化或編輯"
 
-#: filewidgets/kfileplacesview.cpp:336
+#: filewidgets/kfileplacesview.cpp:337
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1：%2"
 
-#: filewidgets/kfileplacesview.cpp:353
+#: filewidgets/kfileplacesview.cpp:354
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "剩餘 %1，共 %2 (%3% 已使用)"
 
-#: filewidgets/kfileplacesview.cpp:653
+#: filewidgets/kfileplacesview.cpp:654
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1（隱藏）"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "清空垃圾桶"
 
-#: filewidgets/kfileplacesview.cpp:1208
+#: filewidgets/kfileplacesview.cpp:1209
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "掛載"
 
-#: filewidgets/kfileplacesview.cpp:1214
+#: filewidgets/kfileplacesview.cpp:1215
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "在新分頁開啟"
 
-#: filewidgets/kfileplacesview.cpp:1217
+#: filewidgets/kfileplacesview.cpp:1218
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: filewidgets/kfileplacesview.cpp:1226
+#: filewidgets/kfileplacesview.cpp:1227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "新增項目…"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "編輯(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1237
+#: filewidgets/kfileplacesview.cpp:1238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "從快速存取移除"
 
-#: filewidgets/kfileplacesview.cpp:1241
+#: filewidgets/kfileplacesview.cpp:1242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "隱藏(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1249
+#: filewidgets/kfileplacesview.cpp:1250
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "隱藏區段「%1」"
 
-#: filewidgets/kfileplacesview.cpp:1249
+#: filewidgets/kfileplacesview.cpp:1250
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "隱藏區段"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
 msgid "&Show All Entries"
 msgstr "顯示所有項目(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "圖示大小"
 
-#: filewidgets/kfileplacesview.cpp:1382
+#: filewidgets/kfileplacesview.cpp:1383
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3163,25 +3163,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "自動調整大小"
 
-#: filewidgets/kfileplacesview.cpp:1402
+#: filewidgets/kfileplacesview.cpp:1403
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "小 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1405
+#: filewidgets/kfileplacesview.cpp:1406
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "中 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1408
+#: filewidgets/kfileplacesview.cpp:1409
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "大 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1411
+#: filewidgets/kfileplacesview.cpp:1412
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

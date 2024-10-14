@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-13 00:37+0000\n"
-"PO-Revision-Date: 2024-10-10 12:08+0300\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"PO-Revision-Date: 2024-10-13 12:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2494,11 +2494,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokolü %2 eylemini desteklemiyor."
 
 #: core/worker.cpp:352
-#, fuzzy, kde-format
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -2507,7 +2503,7 @@ msgid ""
 msgstr ""
 "Genelde yükseltilmiş izinler isteyen “%1” protokolü için KIO işçisinin "
 "güvenliği garanti edilemiyor; çünkü kök kullanıcı dışındaki kullanıcıların "
-"%2 düzeyinde üzerinde değişiklik yapmak için izni vardır."
+"%2 konumunda üzerinde değişiklik yapmak için izni vardır."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -2754,7 +2750,7 @@ msgstr "Önizlemeyi Göster"
 msgid "Open Containing Folder"
 msgstr "İçeren Klasörü Aç"
 
-#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1222
 #, kde-format
 msgid "Properties"
 msgstr "Özellikler"
@@ -3186,96 +3182,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Bölüntü Yöneticisi ile Yeniden Biçimlendir veya Düzenle"
 
-#: filewidgets/kfileplacesview.cpp:336
+#: filewidgets/kfileplacesview.cpp:337
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:353
+#: filewidgets/kfileplacesview.cpp:354
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 / %2 boş (%​%3 kullanılıyor)"
 
-#: filewidgets/kfileplacesview.cpp:653
+#: filewidgets/kfileplacesview.cpp:654
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (gizli)"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Çöp Kutusunu Boşalt"
 
-#: filewidgets/kfileplacesview.cpp:1208
+#: filewidgets/kfileplacesview.cpp:1209
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Bağla"
 
-#: filewidgets/kfileplacesview.cpp:1214
+#: filewidgets/kfileplacesview.cpp:1215
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Yeni Sekmede Aç"
 
-#: filewidgets/kfileplacesview.cpp:1217
+#: filewidgets/kfileplacesview.cpp:1218
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Yeni Pencerede Aç"
 
-#: filewidgets/kfileplacesview.cpp:1226
+#: filewidgets/kfileplacesview.cpp:1227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Girdi Ekle…"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Dü&zenle…"
 
-#: filewidgets/kfileplacesview.cpp:1237
+#: filewidgets/kfileplacesview.cpp:1238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Yerlerden Kaldır"
 
-#: filewidgets/kfileplacesview.cpp:1241
+#: filewidgets/kfileplacesview.cpp:1242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Gizle"
 
-#: filewidgets/kfileplacesview.cpp:1249
+#: filewidgets/kfileplacesview.cpp:1250
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "“%1” Bölümünü Gizle"
 
-#: filewidgets/kfileplacesview.cpp:1249
+#: filewidgets/kfileplacesview.cpp:1250
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Bölümü Gizle"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Tüm Girdileri Göster"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Simge Boyutu"
 
-#: filewidgets/kfileplacesview.cpp:1382
+#: filewidgets/kfileplacesview.cpp:1383
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3283,25 +3279,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Otomatik Yeniden Boyutlandır"
 
-#: filewidgets/kfileplacesview.cpp:1402
+#: filewidgets/kfileplacesview.cpp:1403
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Küçük (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1405
+#: filewidgets/kfileplacesview.cpp:1406
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Orta (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1408
+#: filewidgets/kfileplacesview.cpp:1409
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Büyük (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1411
+#: filewidgets/kfileplacesview.cpp:1412
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
