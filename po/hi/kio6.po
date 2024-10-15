@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -3843,7 +3843,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "इस फ़ाइल को खोलने के लिए आप किसी अनुप्रयोग को चुनने के लिए अधिकृत नहीं हैं."
@@ -3971,7 +3971,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "डेस्कटॉप प्रविष्टि फ़ाइल %1 में कोई क़िस्म=... प्रविष्टि दर्ज नहीं है."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3979,12 +3979,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The program \"%1\" could not be launched."

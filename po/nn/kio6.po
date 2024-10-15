@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2024-09-23 20:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3855,7 +3855,7 @@ msgstr ""
 "Klarte ikkje gjera tenesta «%1» køyrbar. Avbryt køyringa.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Du har ikkje løyve til å velja eit program som skal opna denne fila."
@@ -3973,7 +3973,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skrivebordoppføringsfila %1 har inga Type=…-oppføring."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3984,12 +3984,12 @@ msgstr ""
 "Sjå etter ikkje-ferdige oppgåver eller nedlastingar i varslingsområdet og i "
 "programma som køyrer."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Klarte ikkje opna fila."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Kunne ikkje starta programmet «%1»."

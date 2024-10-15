@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-10-10 17:33+0200\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"PO-Revision-Date: 2024-10-14 15:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2517,11 +2517,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "Протоколът %1 не поддържа операцията %2."
 
 #: core/worker.cpp:352
-#, fuzzy, kde-format
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -3901,7 +3897,7 @@ msgstr ""
 "Услугата %1 не може да се изпълни, прекъсвайки изпълнението. \n"
 " %2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Нямате права за отварянето на файла."
@@ -4022,7 +4018,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Записът във файл за работен плот \"%1\" не съдържа ред \"Type=...\"."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4033,12 +4029,12 @@ msgstr ""
 "Проверете отворените си приложения и областта за уведомяване за всички "
 "предстоящи задачи или изтегляния."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Неуспешно отваряне на файла."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Програмата \"%1 \" не можа да бъде стартирана."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3737,7 +3737,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Dus ii leat lohpi válljet prográmma mii galgá rahpat dán fiilla."
@@ -3849,7 +3849,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Čállinbeavdemearkkušfiillas, %1, ii leat Type=… mearkkuš."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3857,12 +3857,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr ""

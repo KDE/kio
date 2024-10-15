@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -3874,7 +3874,7 @@ msgstr ""
 "Không thể làm cho dịch vụ %1 trở thành thực thi được, huỷ bỏ việc thực thi.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Bạn không có quyền chọn ứng dụng để mở tệp này."
@@ -3993,7 +3993,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Tệp mục desktop %1 không có mục \"Type=...\" nào."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4004,12 +4004,12 @@ msgstr ""
 "Hãy kiểm tra các ứng dụng đang mở và ô thông báo để xem các tác vụ hay các "
 "mục tải về còn đang thực hiện."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mở tệp thất bại."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Không khởi chạy được chương trình \"%1\"."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3822,7 +3822,7 @@ msgstr ""
 "%1 सेवां कार्यान्वयनीयं कर्तुं असमर्थः, निष्पादनं निरस्तं करोति ।\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "एतां सञ्चिकां उद्घाटयितुं भवान् अनुप्रयोगं चिन्वितुं अधिकृतः नास्ति ।."
@@ -3938,7 +3938,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "कार्यमुख प्रविष्टिसञ्चिका %1 इत्यस्य Type=... प्रविष्टिः नास्ति ।."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3949,12 +3949,12 @@ msgstr ""
 "भवतः उद्घाटितानि अनुप्रयोगाः सूचनाक्षेत्रं च पश्यन्तु यत् किमपि लम्बितकार्यं वा अवारोपण वा "
 "भवति।."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "सञ्चिकां उद्घाटयितुं असफलम्।."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" इति कार्यक्रमः प्रारब्धः न अभवत् ।."

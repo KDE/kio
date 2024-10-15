@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2024-10-13 06:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3908,7 +3908,7 @@ msgstr ""
 "Ezin da %1 zerbitzua exekutagarri egin, exekuzioa galarazten.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Ez duzu aplikazio bat hautatzeko baimenik fitxategi hau irekitzeko."
@@ -4028,7 +4028,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Mahaigaineko %1 sarrera-fitxategiak ez du Type=... sarrerarik."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4039,12 +4039,12 @@ msgstr ""
 "Egiaztatu zure aplikazioetan eta jakinarazpen gunean amaitu gabeko ataza edo "
 "zama-jaitsieren bila."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Huts egin du fitxategia irekitzea."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "«%1» programa ezin izan du abiarazi."

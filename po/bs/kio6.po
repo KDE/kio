@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3964,7 +3964,7 @@ msgid ""
 "%2."
 msgstr "Nije moguće učiniti uslugu %1 izvršnom, prekida se izvršavanje.\n"
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Niste ovlaÅ¡Ä‡eni da izaberete program za otvaranje ove datoteke."
@@ -4088,7 +4088,7 @@ msgstr ""
 "Datoteka s elementima radne povrÅ¡ine <filename>%1</filename> nema unos "
 "<icode>Type=...</icode>."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4099,12 +4099,12 @@ msgstr ""
 "Provjerite svoje otvorene aplikacije i područje obavijesti da li ima "
 "zadataka na čekanjuili preuzimanja."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Otvaranje datoteke nije uspelo."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ nije mogao da se pokrene."

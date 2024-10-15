@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-10-11 16:44+0200\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"PO-Revision-Date: 2024-10-14 11:00+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2584,11 +2584,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "Protocol %1 biedt geen ondersteuning voor actie %2."
 
 #: core/worker.cpp:352
-#, fuzzy, kde-format
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -3966,7 +3962,7 @@ msgstr ""
 "Niet in staat om de service %1 uitvoerbaar te maken, uitvoeren afbreken.\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4089,7 +4085,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "In het desktopbestand %1 ontbreekt de Type=... regel."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4100,12 +4096,12 @@ msgstr ""
 "Controleer uw open toepassingen en het meldingengebied voor taken die "
 "wachten of op downloads."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Het bestand openen is mislukt."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Het programma \"%1\" kon niet worden gestart."

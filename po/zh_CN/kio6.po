@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2383,6 +2383,8 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"“%1”协议的 KIO 工作程序通常需要提升权限，然而 root 以外的用户不一定具备在 %2 "
+"上修改它的权限，所以无法保证成功。"
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3705,7 +3707,7 @@ msgstr ""
 "无法将 %1 服务设置为可执行，放弃执行操作。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您没有选择此文件的打开程序的权限。"
@@ -3819,7 +3821,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "桌面项目文件 %1 没有 Type=... 项。"
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3829,12 +3831,12 @@ msgstr ""
 "此文件不完整，不应打开。\n"
 "请检查您打开的应用程序和通知区域是否存在未完成的任务或下载进程。"
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "打开文件失败。"
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "程序“%1”无法启动。"

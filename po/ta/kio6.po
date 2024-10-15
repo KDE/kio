@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2024-10-09 21:34+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3831,7 +3831,7 @@ msgstr ""
 "%1 என்கிற சேவையை இயக்கவல்லதாக்க முடியவில்லை. இயக்குதல் கைவிடப்படுகிறது.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "இக்கோப்பினைத் திறப்பதற்கான செயலியை தேர்வு செய்ய உங்களுக்கு அனுமதி இல்லை."
@@ -3948,7 +3948,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "%1 பணிமேடை பதிவுக் கோப்பில் Type=... என்ற பதிவு இல்லை."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3959,12 +3959,12 @@ msgstr ""
 "நீங்கள் திறந்துள்ள செயலிகளிலும் அறிவிப்புகளிலும் முடிவடையாத பணிகள் அல்லது பதிவிறக்கங்கள் "
 "உள்ளனவா என பாருங்கள்."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "கோப்பை திறத்தல் தோல்வியடைந்தது."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" என்கிற நிரலை இயக்க முடியவில்லை."

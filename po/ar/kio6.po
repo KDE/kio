@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-10-10 08:43+0400\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"PO-Revision-Date: 2024-10-14 20:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2463,6 +2463,8 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"لا يمكن ضمان أمان عامل KIO للميفاق '%1'، والذي يطلب عادةً أذونات مرتفعة، لأن "
+"المستخدمين بخلاف الجذر لديهم الإذن بتعديله عند %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3832,7 +3834,7 @@ msgstr ""
 "تعذّر جعل الخدمة %1 تنفيذيّة، أُبطل التّنفيذ.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ليس مصرّحًا لك اختيار تطبيق لفتح هذا الملفّ."
@@ -3947,7 +3949,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ليس لملفّ مدخلة سطح المكتب %1 مدخلة Type=...‎."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3958,12 +3960,12 @@ msgstr ""
 "تحقق من التطبيقات المفتوحة ومنطقة الإشعارات بحثًا عن أي مهام أو تنزيلات غير "
 "منتهية."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "فشل في فتح الملفّ"
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "تعذّر تشغيل البرنامج ”%1“."

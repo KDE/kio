@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4143,7 +4143,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, fuzzy, kde-format
 #| msgid "You are not authorized to open this file."
 msgid "You are not authorized to select an application to open this file."
@@ -4273,7 +4273,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Yn de búroblêdtriem %1 mist de yngong Type=..."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4281,12 +4281,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, fuzzy, kde-format
 msgid "Failed to open the file."
 msgstr "Kin de triem %1 net iepenje."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The program \"%1\" could not be launched."

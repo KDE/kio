@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3908,7 +3908,7 @@ msgid ""
 "%2."
 msgstr "មិនអាច​ធ្វើ​ឲ្យ​សេវា %1 ប្រតិបត្តិបាន​បានទេ បោះបង់បង់​កា​រប្រតិបត្តិ"
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "អ្នក​មិនត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​បើក​កម្មវិធី​ដើម្បី​បើក​ឯកសារ​នេះ​ឡើយ ។"
@@ -4033,7 +4033,7 @@ msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម�
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ឯកសារ​ធាតុ​ផ្ទៃតុ %1 មិន​មាន​ធាតុ Type=... ឡើយ ។"
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4041,13 +4041,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."

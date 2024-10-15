@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-10-10 06:55+0300\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"PO-Revision-Date: 2024-10-14 20:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2441,11 +2441,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "הפרוטוקול %1 לא תומך בפעולה %2."
 
 #: core/worker.cpp:352
-#, fuzzy, kde-format
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -3798,7 +3794,7 @@ msgstr ""
 "לא ניתן להפוך את השירות %1 לזמין להפעלה, ההפעלה מבוטלת.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "אין לך הרשאה לבחור תוכנית לפתיחת קובץ זה."
@@ -3912,7 +3908,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "לקובץ רשומת שולחן העבודה %1 אין רשומת Type=…‎."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3923,12 +3919,12 @@ msgstr ""
 "נא לבדוק בין היישומים הפתוחים ואזור ההתראות שלך אם יש משימות או הורדות "
 "ממתינות."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "פתיחת הקובץ נכשלה."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "אי אפשר להפעיל את התוכנית „%1”."

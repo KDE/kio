@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-10-15 00:37+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3957,7 +3957,7 @@ msgstr ""
 "Αδυναμία ορισμού της υπηρεσίας %1 ως εκτελέσιμη, εγκατάλειψη εκτέλεσης.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:637
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4081,7 +4081,7 @@ msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Το αρχείο καταχώρησης επιφάνειας εργασίας %1 δεν έχει καταχώρηση Type=... ."
 
-#: gui/openurljob.cpp:623
+#: gui/openurljob.cpp:630
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4092,12 +4092,12 @@ msgstr ""
 "Ελέγξτε τις ανοιχτές εφαρμογές σας και την περιοχή ειδοποιήσεων για τυχόν "
 "εκκρεμείς εργασίες ή λήψεις."
 
-#: gui/openurljob.cpp:649
+#: gui/openurljob.cpp:656
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Αποτυχία ανοίγματος του αρχείου."
 
-#: gui/openurljob.cpp:683
+#: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Το πρόγραμμα «%1» δεν μπόρεσε να εκκινηθεί."
@@ -6330,10 +6330,9 @@ msgid "Delete or rename:"
 msgstr "Προκαθορισμένο όνομα χρήστη:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Εκτέλεση"
+msgstr "Εκτέλεση:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
