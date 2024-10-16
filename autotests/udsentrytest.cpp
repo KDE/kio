@@ -307,6 +307,13 @@ void UDSEntryTest::testEquality()
     QVERIFY(entry2 == entry3);
     QVERIFY(!(entry != entry3));
     QVERIFY(!(entry2 != entry3));
+
+    // we're just checking that this compiles
+    KIO::UDSEntryList list1;
+    KIO::UDSEntryList list2;
+    QVERIFY(list1 == list2);
+    list2 << entry;
+    QVERIFY(list1 != list2);
 }
 
 QTEST_MAIN(UDSEntryTest)
