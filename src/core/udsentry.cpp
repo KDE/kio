@@ -446,7 +446,21 @@ KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a)
     return s;
 }
 
+// TODO KF7 remove
+// legacy operator in global namespace for binary compatibility
 KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
+{
+    return KIO::operator==(entry, other);
+}
+
+// TODO KF7 remove
+// legacy operator in global namespace for binary compatibility
+KIOCORE_EXPORT bool operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
+{
+    return KIO::operator!=(entry, other);
+}
+
+bool KIO::operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
 {
     if (entry.count() != other.count()) {
         return false;
@@ -472,7 +486,7 @@ KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &
     return true;
 }
 
-KIOCORE_EXPORT bool operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
+bool KIO::operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
 {
-    return !(entry == other);
+    return !KIO::operator==(entry, other);
 }

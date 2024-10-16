@@ -33,21 +33,22 @@ KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a);
  */
 KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
 
+namespace KIO
+{
+class UDSEntryPrivate;
+
 /**
  * Returns true if the entry contains the same data as the other
  * @since 5.63
  */
-KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+KIOCORE_EXPORT bool operator==(const UDSEntry &entry, const UDSEntry &other);
 
 /**
  * Returns true if the entry does not contain the same data as the other
  * @since 5.63
  */
-KIOCORE_EXPORT bool operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+KIOCORE_EXPORT bool operator!=(const UDSEntry &entry, const UDSEntry &other);
 
-namespace KIO
-{
-class UDSEntryPrivate;
 /**
  * @class KIO::UDSEntry udsentry.h <KIO/UDSEntry>
  *
