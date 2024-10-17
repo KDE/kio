@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"POT-Creation-Date: 2024-10-17 00:37+0000\n"
 "PO-Revision-Date: 2024-10-07 01:44+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Non é posíbel crear o traballador de KIO: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -71,7 +71,7 @@ msgstr ""
 "Non foi posíbel crear a ligazón simbólica «%1».\n"
 "O sistema de ficheiros de destino (%2) non permite ligazóns simbólicas."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -86,7 +86,7 @@ msgstr ""
 "Seleccionar «Substituír» substituirá os caracteres non válidos (no nome do "
 "cartafol de destino) por unha barra baixa («_»)."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -101,23 +101,23 @@ msgstr ""
 "Seleccionar «Substituír» substituirá os caracteres non válidos (no nome do "
 "ficheiro de destino) por unha barra baixa («_»)."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:585
+#: core/copyjob.cpp:1388 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "O cartafol xa existe"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "O ficheiro xa existe"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Xa existe como un cartafol"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Lixo"

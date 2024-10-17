@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"POT-Creation-Date: 2024-10-17 00:37+0000\n"
 "PO-Revision-Date: 2024-09-05 15:42+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ошибка создания вспомогательного процесса ввода/вывода: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -84,7 +84,7 @@ msgstr ""
 "Ошибка создания символической ссылки %1.\n"
 "Целевая файловая система (%2) не поддерживает символические ссылки."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -99,7 +99,7 @@ msgstr ""
 "При выборе «Заменить» все неподдерживаемые символы в имени целевой папки "
 "будут замены на символ подчёркивания (_)."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -114,23 +114,23 @@ msgstr ""
 "При выборе «Заменить» все неподдерживаемые символы в имени целевого файла "
 "будут замены на символ подчёркивания (_)."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:585
+#: core/copyjob.cpp:1388 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Папка уже существует"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Файл уже существует"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Уже существует как папка"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Корзина"

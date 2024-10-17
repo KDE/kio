@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"POT-Creation-Date: 2024-10-17 00:37+0000\n"
 "PO-Revision-Date: 2024-10-13 12:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi oluşturulamıyor: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -74,7 +74,7 @@ msgstr ""
 "“%1” sembolik bağlantısı yapılamadı.\n"
 "Hedef dosya sistemi (%2), sembolik bağlantıları desteklemiyor."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -89,7 +89,7 @@ msgstr ""
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -104,23 +104,23 @@ msgstr ""
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:585
+#: core/copyjob.cpp:1388 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Klasör Halihazırda Var"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dosya Halihazırda Var"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Klasör Olarak Halihazırda Var"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Çöp Kutusu"

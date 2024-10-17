@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"POT-Creation-Date: 2024-10-17 00:37+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Peldankê Jê Bibe"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -60,7 +60,7 @@ msgid ""
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -70,7 +70,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -80,23 +80,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:585
+#: core/copyjob.cpp:1388 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr ""
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Pel Berê Heye"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr ""
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:37+0000\n"
+"POT-Creation-Date: 2024-10-17 00:37+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nevar izveidot IO apstrādātāju: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -72,7 +72,7 @@ msgstr ""
 "Nevar izveidot simbolsaiti %1.\n"
 "Lūdzu, pārbaudiet atļaujas."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -82,7 +82,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -92,23 +92,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:585
+#: core/copyjob.cpp:1388 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mape jau eksistē"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datne jau pastāv"
 
-#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
+#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jau eksistē kā mape"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Miskaste"
