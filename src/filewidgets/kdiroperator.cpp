@@ -1271,6 +1271,24 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
         break;
     }
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonDblClick: {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent) {
+            // Navigate and then discard the event so it doesn't select an item on the directory navigated to.
+            switch (mouseEvent->button()) {
+            case Qt::BackButton:
+                back();
+                return true;
+            case Qt::ForwardButton:
+                forward();
+                return true;
+            default:
+                break;
+            }
+        }
+        break;
+    }
     case QEvent::MouseButtonRelease: {
         if (d->m_preview != nullptr && !d->m_preview->isHidden()) {
             const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
@@ -1280,19 +1298,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 d->m_preview->clearPreview();
             }
         }
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (mouseEvent) {
-            switch (mouseEvent->button()) {
-            case Qt::BackButton:
-                back();
-                break;
-            case Qt::ForwardButton:
-                forward();
-                break;
-            default:
-                break;
-            }
-        }
+
         break;
     }
     case QEvent::HoverLeave: {
