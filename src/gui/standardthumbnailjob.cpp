@@ -8,6 +8,7 @@
 #include <KMacroExpander>
 #include <QImage>
 #include <QProcess>
+#include <QTemporaryFile>
 
 class ThumbnailerExpander : public KMacroExpanderBase
 {
@@ -73,11 +74,11 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
 class Q_DECL_HIDDEN KIO::StandardThumbnailJob::Private
 {
 public:
-    explicit Private(const QString execString, const int width, const QString inputFile, const QString outputFile)
+    explicit Private(const QString &execString, int width, const QString &inputFile, const QString &outputFolder)
         : m_execString(execString)
         , m_width(width)
         , m_inputFile(inputFile)
-        , m_outputFile(outputFile)
+        , m_outputFolder(outputFolder)
     {
     }
     ~Private()
@@ -87,12 +88,13 @@ public:
     QString m_execString;
     int m_width;
     QString m_inputFile;
-    QString m_outputFile;
+    QString m_outputFolder;
     QProcess *m_proc;
+    QTemporaryFile *m_tempFile;
 };
 
-KIO::StandardThumbnailJob::StandardThumbnailJob(const QString execString, const int width, const QString inputFile, const QString outputFile)
-    : d(new Private(execString, width, inputFile, outputFile))
+KIO::StandardThumbnailJob::StandardThumbnailJob(const QString &execString, int width, const QString &inputFile, const QString &outputFolder)
+    : d(new Private(execString, width, inputFile, outputFolder))
 {
     setAutoDelete(true);
 }
@@ -108,7 +110,15 @@ bool KIO::StandardThumbnailJob::StandardThumbnailJob::doKill()
 void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
 {
     // Prepare the command
-    ThumbnailerExpander thumbnailer(d->m_execString, d->m_width, d->m_inputFile, d->m_outputFile);
+    d->m_tempFile = new QTemporaryFile(QStringLiteral("%1/XXXXXX.png").arg(d->m_outputFolder));
+    if (!d->m_tempFile->open()) {
+        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not open temporary file"));
+        setError(KIO::ERR_CANNOT_OPEN_FOR_WRITING);
+        emitResult();
+    }
+    d->m_tempFile->setAutoRemove(false);
+
+    ThumbnailerExpander thumbnailer(d->m_execString, d->m_width, d->m_inputFile, d->m_tempFile->fileName());
     // Emit data on command exit
     d->m_proc = new QProcess();
     connect(d->m_proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus /* exitStatus */) {
@@ -119,14 +129,14 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
             emitResult();
 
             // clean temp file
-            QFile::remove(d->m_outputFile);
+            d->m_tempFile->remove();
             return;
         }
-        Q_EMIT data(this, QImage(d->m_outputFile));
+        Q_EMIT data(this, QImage(d->m_tempFile->fileName()));
         emitResult();
 
         // clean temp file
-        QFile::remove(d->m_outputFile);
+        d->m_tempFile->remove();
     });
     connect(d->m_proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
         d->m_proc->deleteLater();
@@ -135,7 +145,7 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
         emitResult();
 
         // clean temp file
-        QFile::remove(d->m_outputFile);
+        d->m_tempFile->remove();
     });
     d->m_proc->start(thumbnailer.binary(), thumbnailer.args());
 }

@@ -15,7 +15,7 @@ class KIOGUI_EXPORT StandardThumbnailJob : public KIO::Job
     Q_OBJECT
 
 public:
-    StandardThumbnailJob(const QString execString, const int width, const QString inputFile, const QString outputFile);
+    StandardThumbnailJob(const QString &execString, int width, const QString &inputFile, const QString &outputFile);
     ~StandardThumbnailJob() override;
 
     void start() override;
