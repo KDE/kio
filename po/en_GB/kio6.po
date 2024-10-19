@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:37+0000\n"
-"PO-Revision-Date: 2024-09-15 10:42+0100\n"
+"PO-Revision-Date: 2024-10-18 17:08+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2528,6 +2528,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -6200,28 +6203,24 @@ msgstr ""
 "group, are allowed to do."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Only own&er can rename and delete folder content"
+msgstr "Only own&er can delete or rename contents"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Enable this flag to allow executing the file as a program."
+msgstr "Allow &executing file as program"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Default user name:"
+msgstr "Delete or rename:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Execute"
+msgstr "Execute:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
