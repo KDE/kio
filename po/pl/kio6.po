@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:37+0000\n"
-"PO-Revision-Date: 2024-10-12 10:24+0200\n"
+"PO-Revision-Date: 2024-10-19 12:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2508,11 +2508,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "Protokół %1 nie obsługuje działania %2."
 
 #: core/worker.cpp:352
-#, fuzzy, kde-format
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
