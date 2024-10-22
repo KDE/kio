@@ -17,9 +17,10 @@
 class QUrl;
 class KRemoteEncodingPrivate;
 /*!
- * @class KRemoteEncoding kremoteencoding.h <KRemoteEncoding>
+ * \class KRemoteEncoding
+ * \inmodule KIOCore
  *
- * Allows encoding and decoding properly remote filenames into Unicode.
+ * \brief Allows encoding and decoding properly remote filenames into Unicode.
  *
  * Certain protocols do not specify an appropriate encoding for decoding
  * their 8-bit data into proper Unicode forms. Therefore, KIO workers should
@@ -29,9 +30,6 @@ class KRemoteEncodingPrivate;
  *
  * Each KIO::WorkerBase has one object of this kind, even if it is not necessary.
  * It can be accessed through KIO::WorkerBase::remoteEncoding.
- *
- * @short A class for handling remote filenames
- * @author Thiago Macieira <thiago.macieira@kdemail.net>
  */
 class KIOCORE_EXPORT KRemoteEncoding
 {
@@ -40,13 +38,10 @@ public:
      * Constructor.
      *
      * Constructs this object to use the given encoding name.
-     * If @p name is a null pointer, the standard encoding will be used.
+     * If \a name is a null pointer, the standard encoding will be used.
      */
     explicit KRemoteEncoding(const char *name = nullptr);
 
-    /*!
-     * Destructor
-     */
     virtual ~KRemoteEncoding();
 
     /*!
@@ -57,7 +52,7 @@ public:
     QString decode(const QByteArray &name) const;
 
     /*!
-     * Converts the given name from Unicode.
+     * Converts the given \a name from Unicode.
      * This function is supposed to work for dirnames, filenames
      * or a full pathname.
      */
@@ -91,7 +86,7 @@ public:
      * Sets the encoding being used.
      * This function does not change the global configuration.
      *
-     * Pass a null pointer in @p name to revert to the standard
+     * Pass a null pointer in \a name to revert to the standard
      * encoding.
      */
     void setEncoding(const char *name);

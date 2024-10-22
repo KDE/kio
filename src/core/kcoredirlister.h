@@ -58,21 +58,54 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
     friend struct KCoreDirListerCacheDirectoryData;
 
     Q_OBJECT
+
+    /*!
+     * \property KCoreDirLister::autoUpdate
+     */
     Q_PROPERTY(bool autoUpdate READ autoUpdate WRITE setAutoUpdate)
+
+    /*!
+     * \property KCoreDirLister::showHiddenFiles
+     */
     Q_PROPERTY(bool showHiddenFiles READ showHiddenFiles WRITE setShowHiddenFiles)
+
+    /*!
+     * \property KCoreDirLister::dirOnlyMode
+     */
     Q_PROPERTY(bool dirOnlyMode READ dirOnlyMode WRITE setDirOnlyMode)
+
+    /*!
+     * \property KCoreDirLister::delayedMimeTypes
+     */
     Q_PROPERTY(bool delayedMimeTypes READ delayedMimeTypes WRITE setDelayedMimeTypes)
+
+    /*!
+     * \property KCoreDirLister::requestMimeTypeWhileListing
+     */
     Q_PROPERTY(bool requestMimeTypeWhileListing READ requestMimeTypeWhileListing WRITE setRequestMimeTypeWhileListing)
+
+    /*!
+     * \property KCoreDirLister::nameFilter
+     */
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter)
+
+    /*!
+     * \property KCoreDirLister::mimeFilter
+     */
     Q_PROPERTY(QStringList mimeFilter READ mimeFilters WRITE setMimeFilter RESET clearMimeFilter)
+
+    /*!
+     * \property KCoreDirLister::autoErrorHandlingEnabled
+     */
     Q_PROPERTY(bool autoErrorHandlingEnabled READ autoErrorHandlingEnabled WRITE setAutoErrorHandlingEnabled)
 
 public:
     /*!
      * \value NoFlags No additional flags specified.
      * \value Keep Previous directories aren't forgotten. (they are still watched by kdirwatch and their items are kept for this KCoreDirLister). This is useful
-     * for e.g. a treeview. \value Reload Indicates whether to use the cache or to reread the directory from the disk. Use only when opening a dir not yet
-     * listed by this lister without using the cache. Otherwise use updateDirectory.
+     * for e.g. a treeview.
+     * \value Reload Indicates whether to use the cache or to reread the directory from the disk. Use only when opening a dir not yet listed by this lister
+     * without using the cache. Otherwise use updateDirectory.
      */
     enum OpenUrlFlag {
         NoFlags = 0x0,
@@ -135,7 +168,7 @@ public:
      *
      * \a dirUrl the directory URL.
      *
-     * \since KIO 5.91
+     * \since 5.91
      */
     void forgetDirs(const QUrl &dirUrl);
 
@@ -159,14 +192,14 @@ public:
      * Checks whether KDirWatch will automatically update directories. This is
      * enabled by default.
      *
-     * @return @c true if KDirWatch is used to automatically update directories
+     * Returns \c true if KDirWatch is used to automatically update directories
      */
     bool autoUpdate() const;
 
     /*!
      * Toggle automatic directory updating, when a directory changes (using KDirWatch).
      *
-     * @param enable set to @c true to enable or @c false to disable
+     * \a enable set to \c true to enable or \c false to disable
      */
     void setAutoUpdate(bool enable);
 
@@ -174,10 +207,10 @@ public:
      * Checks whether hidden files (e.g. files whose name start with '.' on Unix) will be shown.
      * By default this option is disabled (hidden files are not shown).
      *
-     * @return @c true if hidden files are shown, @c false otherwise
+     * Returns \c true if hidden files are shown, \c false otherwise
      *
      * \sa setShowHiddenFiles()
-     * \since KIO 5.100
+     * \since 5.100
      */
     bool showHiddenFiles() const;
 
@@ -187,10 +220,10 @@ public:
      *
      * You need to call emitChanges() afterwards.
      *
-     * @param showHiddenFiles set to @c true/false to show/hide hidden files respectively
+     * \a showHiddenFiles set to true/false to show/hide hidden files respectively
      *
      * \sa showHiddenFiles()
-     * \since KIO 5.100
+     * \since 5.100
      */
     void setShowHiddenFiles(bool showHiddenFiles);
 
@@ -198,9 +231,9 @@ public:
      * Checks whether this KCoreDirLister only lists directories or all items (directories and
      * files), by default all items are listed.
      *
-     * @return @c true if only directories are listed, @c false otherwise
+     * Returns \c true if only directories are listed, \c false otherwise
      *
-     * \sa setDirOnlyMode(bool)
+     * \sa setDirOnlyMode()
      */
     bool dirOnlyMode() const;
 
@@ -210,7 +243,7 @@ public:
      *
      * You need to call emitChanges() afterwards.
      *
-     * @param dirsOnly set to @c true to list only directories
+     * \a dirsOnly set to \c true to list only directories
      */
     void setDirOnlyMode(bool dirsOnly);
 
@@ -225,25 +258,25 @@ public:
      *
      * By default this is disabled.
      *
-     * @return @c true if the worker is asked for MIME types, @c false otherwise.
+     * Returns \c true if the worker is asked for MIME types, \c false otherwise.
      *
-     * \sa setRequestMimeTypeWhileListing(bool)
+     * \sa setRequestMimeTypeWhileListing()
      *
-     * \since KIO 5.82
+     * \since 5.82
      */
     bool requestMimeTypeWhileListing() const;
 
     /*!
      * Toggles whether to request MIME types from the worker or in-process.
      *
-     * @param request set to @c true to request MIME types from the worker.
+     * \a request set to \c true to request MIME types from the worker.
      *
-     * @note If this is changed while the lister is already listing a directory,
+     * \note If this is changed while the lister is already listing a directory,
      * it will only have an effect the next time openUrl() is called.
      *
      * \sa requestMimeTypeWhileListing()
      *
-     * \since KIO 5.82
+     * \since 5.82
      */
     void setRequestMimeTypeWhileListing(bool request);
 
@@ -253,8 +286,6 @@ public:
      * It might be different from the one given with openUrl() if there was a
      * redirection. If you called openUrl() with OpenUrlFlag::Keep this is the
      * first url opened (e.g. in a treeview this is the root).
-     *
-     * @return the url used by this instance to list the files
      */
     QUrl url() const;
 
@@ -263,8 +294,6 @@ public:
      * useful if you called openUrl() with OpenUrlFlag::Keep, as it happens in a
      * treeview, for example. (Note that the base url is included in the list
      * as well, of course.)
-     *
-     * @return a list of all listed URLs
      */
     QList<QUrl> directories() const;
 
@@ -275,21 +304,21 @@ public:
     void emitChanges();
 
     /*!
-     * Update the directory @p dirUrl. This method causes KCoreDirLister to @em only emit
-     * the items of @p dirUrl that actually changed compared to the current state in the
+     * Update the directory \a dirUrl. This method causes KCoreDirLister to \em only emit
+     * the items of \a dirUrl that actually changed compared to the current state in the
      * cache, and updates the cache.
      *
      * The current implementation calls updateDirectory automatically for local files, using
-     * KDirWatch (if autoUpdate() is @c true), but it might be useful to force an update manually.
+     * KDirWatch (if autoUpdate() is \c true), but it might be useful to force an update manually.
      *
-     * @param dirUrl the directory URL
+     * \a dirUrl the directory URL
      */
     void updateDirectory(const QUrl &dirUrl);
 
     /*!
-     * Returns @c true if no I/O operation is currently in progress.
+     * Returns \c true if no I/O operation is currently in progress.
      *
-     * @return @c true if finished, @c false otherwise
+     * Returns \c true if finished, \c false otherwise
      */
     bool isFinished() const;
 
@@ -297,53 +326,53 @@ public:
      * Returns the file item of the URL.
      *
      * Can return an empty KFileItem.
-     * @return the file item for url() itself (".")
+     *
+     * Returns the file item for url() itself (".")
      */
     KFileItem rootItem() const;
 
     /*!
      * Find an item by its URL.
-     * @param url the item URL
-     * @return the KFileItem
+     *
+     * \a url the item URL
      */
     KFileItem findByUrl(const QUrl &url) const;
 
     /*!
      * Find an item by its name.
-     * @param name the item name
-     * @return the KFileItem
+     * \a name the item name
      */
     KFileItem findByName(const QString &name) const;
 
     /*!
-     * Set a name filter to only list items matching this name, e.g.\ "*.cpp".
+     * Set a name filter to only list items matching this name, e.g. "*.cpp".
      *
      * You can set more than one filter by separating them with whitespace, e.g
      * "*.cpp *.h".
-     * Note: the directory is not automatically reloaded.
+     * \note the directory is not automatically reloaded.
      * You need to call emitChanges() afterwards.
      *
-     * @param filter the new filter, QString() to disable filtering
+     * \a filter the new filter, QString() to disable filtering
      * \sa matchesFilter
      */
     void setNameFilter(const QString &filter);
 
     /*!
-     * Returns the current name filter, as set via setNameFilter()
-     * @return the current name filter, can be QString() if filtering
-     *         is turned off
+     * Returns the current name filter, as set via setNameFilter().
+     *
+     * Can be QString() if filtering is turned off
      */
     QString nameFilter() const;
 
     /*!
      * Set MIME type based filter to only list items matching the given MIME types.
      *
-     * NOTE: setting the filter does not automatically reload directory.
+     * \note Setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
      *
      * You need to call emitChanges() afterwards.
      *
-     * @param mimeList a list of MIME types
+     * \a mimeList a list of MIME types
      *
      * \sa clearMimeFilter
      * \sa matchesMimeFilter
@@ -356,10 +385,11 @@ public:
      *
      * Set MIME type based exclude filter to only list items not matching the given MIME types
      *
-     * NOTE: setting the filter does not automatically reload directory.
+     * \note setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
      *
-     * @param mimeList a list of MIME types
+     * \a mimeList a list of MIME types
+     *
      * \sa clearMimeFilter
      * \sa matchesMimeFilter
      */
@@ -376,13 +406,17 @@ public:
 
     /*!
      * Returns the list of MIME type based filters, as set via setMimeFilter().
-     * @return the list of MIME type based filters. Empty, when no MIME type filter is set.
+     *
+     * Empty, when no MIME type filter is set.
      */
     QStringList mimeFilters() const;
 
     /*!
      * Used by items() and itemsForDir() to specify whether you want
      * all items for a directory or just the filtered ones.
+     *
+     * \value AllItems
+     * \value FilteredItems
      */
     enum WhichItems {
         AllItems = 0,
@@ -392,37 +426,38 @@ public:
     /*!
      * Returns the items listed for the current url().
      *
-     * This method will @em not start listing a directory, you should only call
+     * This method will \em not start listing a directory, you should only call
      * this in a slot connected to the finished() signal.
      *
      * The items in the KFileItemList are copies of the items used by KCoreDirLister.
      *
-     * @param which specifies whether the returned list will contain all entries
+     * \em which specifies whether the returned list will contain all entries
      *              or only the ones that passed the nameFilter(), mimeFilter(),
      *              etc. Note that the latter causes iteration over all the
      *              items, filtering them. If this is too slow for you, use the
      *              newItems() signal, sending out filtered items in chunks
-     * @return the items listed for the current url()
      */
     KFileItemList items(WhichItems which = FilteredItems) const;
 
     /*!
-     * Returns the items listed for the given @p dirUrl.
-     * This method will @em not start listing @p dirUrl, you should only call
+     * Returns the items listed for the given \a dirUrl.
+     *
+     * This method will \em not start listing \a dirUrl, you should only call
      * this in a slot connected to the finished() signal.
      *
      * The items in the KFileItemList are copies of the items used by KCoreDirLister.
      *
-     * @param dirUrl specifies the url for which the items should be returned. This
+     * \a dirUrl specifies the url for which the items should be returned. This
      *            is only useful if you use KCoreDirLister with multiple URLs
      *            i.e. using bool OpenUrlFlag::Keep in openUrl()
-     * @param which specifies whether the returned list will contain all entries
+     *
+     * \a which specifies whether the returned list will contain all entries
      *              or only the ones that passed the nameFilter, mimeFilter, etc.
      *              Note that the latter causes iteration over all the items,
      *              filtering them. If this is too slow for you, use the
      * newItems() signal, sending out filtered items in chunks
      *
-     * @return the items listed for @p dirUrl
+     * Returns the items listed for \a dirUrl
      */
     KFileItemList itemsForDir(const QUrl &dirUrl, WhichItems which = FilteredItems) const;
 
@@ -439,36 +474,42 @@ public:
 
     /*!
      * Checks whether auto error handling is enabled.
+     *
      * If enabled, it will show an error dialog to the user when an
      * error occurs (assuming the application links to KIOWidgets).
      * It is turned on by default.
-     * @return @c true if auto error handling is enabled, @c false otherwise
+     *
+     * Returns \c true if auto error handling is enabled, \c false otherwise
      * \sa setAutoErrorHandlingEnabled()
-     * \since KIO 5.82
+     * \since 5.82
      */
     bool autoErrorHandlingEnabled() const;
 
     /*!
      * Enable or disable auto error handling.
+     *
      * If enabled, it will show an error dialog to the user when an
      * error occurs. It is turned on by default.
-     * @param enable true to enable auto error handling, false to disable
-     * @param parent the parent widget for the error dialogs, can be @c nullptr for
+     *
+     * \a enable true to enable auto error handling, false to disable
+     *
+     * \a parent the parent widget for the error dialogs, can be \c nullptr for
      *               top-level
      * \sa autoErrorHandlingEnabled()
-     * \since KIO 5.82
+     * \since 5.82
      */
     void setAutoErrorHandlingEnabled(bool enable);
 
 Q_SIGNALS:
     /*!
-     * Tell the view that this KCoreDirLister has started to list @p dirUrl. Note that this
-     * does @em not imply that there is really a job running! I.e. KCoreDirLister::jobs()
+     * Tell the view that this KCoreDirLister has started to list \a dirUrl. Note that this
+     * does \em not imply that there is really a job running! I.e. KCoreDirLister::jobs()
      * may return an empty list, in which case the items are taken from the cache.
      *
      * The view knows that openUrl should start it, so this might seem useless, but the view
      * also needs to know when an automatic update happens.
-     * @param dirUrl the URL to list
+     *
+     * \a dirUrl the URL to list
      */
     void started(const QUrl &dirUrl);
 
@@ -478,12 +519,12 @@ Q_SIGNALS:
     void completed();
 
     /*!
-     * Tell the view that the listing of the directory @p dirUrl is finished.
+     * Tell the view that the listing of the directory \a dirUrl is finished.
      * There might be other running jobs left.
      *
-     * @param dirUrl the directory URL
+     * \a dirUrl the directory URL
      *
-     * \since KIO 5.79
+     * \since 5.79
      */
     void listingDirCompleted(const QUrl &dirUrl);
 
@@ -493,44 +534,45 @@ Q_SIGNALS:
     void canceled();
 
     /*!
-     * Tell the view that the listing of the directory @p dirUrl was canceled.
+     * Tell the view that the listing of the directory \a dirUrl was canceled.
      * There might be other running jobs left.
      *
-     * @param dirUrl the directory URL
+     * \a dirUrl the directory URL
      *
-     * \since KIO 5.79
+     * \since 5.79
      */
     void listingDirCanceled(const QUrl &dirUrl);
 
     /*!
      * Signals a redirection.
      *
-     * @param oldUrl the original URL
-     * @param newUrl the new URL
+     * \a oldUrl the original URL
+     *
+     * \a newUrl the new URL
      */
     void redirection(const QUrl &oldUrl, const QUrl &newUrl);
 
     /*!
-     * Signals to the view to remove all items (when e.g.\ going from dirA to dirB).
+     * Signals to the view to remove all items (when e.g. going from dirA to dirB).
      * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
     void clear();
 
     /*!
-     * Signals to the view to clear all items from directory @p dirUrl.
+     * Signals to the view to clear all items from directory \a dirUrl.
      *
      * This is only emitted if the lister is holding more than one directory.
      *
-     * @param dirUrl the directory that the view should clear all items from
+     * \a dirUrl the directory that the view should clear all items from
      *
-     * \since KIO 5.79
+     * \since 5.79
      */
     void clearDir(const QUrl &dirUrl);
 
     /*!
      * Signal new items.
      *
-     * @param items a list of new items
+     * \a items a list of new items
      */
     void newItems(const KFileItemList &items);
 
@@ -539,29 +581,31 @@ Q_SIGNALS:
      * Alternative signal emitted at the same time as newItems(),
      * but itemsAdded also passes the url of the parent directory.
      *
-     * @param items a list of new items
+     * \a items a list of new items
      */
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
 
     /*!
      * Send a list of items filtered-out by MIME type.
-     * @param items the list of filtered items
      *
+     * \a items the list of filtered items
      */
     void itemsFilteredByMime(const KFileItemList &items);
 
     /*!
      * Signal that items have been deleted
      *
-     * \since KIO 4.1.2
-     * @param items the list of deleted items
+     * \a items the list of deleted items
+     * \since 4.1.2
      */
     void itemsDeleted(const KFileItemList &items);
 
     /*!
      * Signal an item to refresh (its MIME-type/icon/name has changed).
-     * Note: KFileItem::refresh has already been called on those items.
-     * @param items the items to refresh. This is a list of pairs, where
+     *
+     * \note KFileItem::refresh has already been called on those items.
+     *
+     * \a items the items to refresh. This is a list of pairs, where
      * the first item in the pair is the OLD item, and the second item is the
      * NEW item. This allows to track which item has changed, especially after
      * a renaming.
@@ -570,52 +614,65 @@ Q_SIGNALS:
 
     /*!
      * Emitted to display information about running jobs.
+     *
      * Examples of message are "Resolving host", "Connecting to host...", etc.
-     * @param msg the info message
+     *
+     * \a msg the info message
      */
     void infoMessage(const QString &msg);
 
     /*!
      * Progress signal showing the overall progress of the KCoreDirLister.
+     *
      * This allows using a progress bar very easily. (see QProgressBar)
-     * @param percent the progress in percent
+     *
+     * \sa percent the progress in percent
      */
     void percent(int percent);
 
     /*!
      * Emitted when we know the size of the jobs.
-     * @param size the total size in bytes
+     *
+     * \a size the total size in bytes
      */
     void totalSize(KIO::filesize_t size);
 
     /*!
      * Regularly emitted to show the progress of this KCoreDirLister.
-     * @param size the processed size in bytes
+     *
+     * \a size the processed size in bytes
      */
     void processedSize(KIO::filesize_t size);
 
     /*!
      * Emitted to display information about the speed of the jobs.
-     * @param bytes_per_second the speed in bytes/s
+     *
+     * \a bytes_per_second the speed in bytes/s
      */
     void speed(int bytes_per_second);
 
     /*!
      * Emitted if listing a directory fails with an error.
+     *
      * A typical implementation in a widgets-based application
      * would show a message box by calling this in a slot connected to this signal:
-     * <tt>job->uiDelegate()->showErrorMessage()</tt>
+     *
+     * \code
+     * job->uiDelegate()->showErrorMessage()
+     * \endcode
+     *
      * Many applications might prefer to embed the error message though
      * (e.g. by using the KMessageWidget class, from the KWidgetsAddons Framework).
-     * @param the job with an error
-     * \since KIO 5.82
+     *
+     * \a the job with an error
+     * \since 5.82
      */
     void jobError(KIO::Job *job);
 
 protected:
     /*!
      * Reimplemented by KDirLister to associate windows with jobs
-     * \since KIO 5.0
+     * \since 5.0
      */
     virtual void jobStarted(KIO::ListJob *);
 

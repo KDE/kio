@@ -20,9 +20,9 @@ namespace KIO
 KIOCORE_EXPORT KJobTrackerInterface *getJobTracker();
 
 /*!
- * @internal
+ * \internal
  * Allows the KIO widgets library to register its widget-based job tracker automatically.
- * @since 5.0
+ * \since 5.0
  */
 KIOCORE_EXPORT void setJobTracker(KJobTrackerInterface *tracker);
 }

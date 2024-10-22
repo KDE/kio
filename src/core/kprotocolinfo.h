@@ -15,9 +15,10 @@
 #include <QStringList>
 
 /*!
- * \class KProtocolInfo kprotocolinfo.h <KProtocolInfo>
+ * \class KProtocolInfo
+ * \inmodule KIOCore
  *
- * Information about I/O (Internet, etc.) protocols supported by KDE.
+ * \brief Information about I/O (Internet, etc.) protocols supported by KDE.
 
  * KProtocolInfo is useful if you want to know which protocols
  * KDE supports. In addition you can find out lots of information
@@ -39,16 +40,14 @@ public:
 
     /*!
      * Returns list of all known protocols.
-     * @return a list of all known protocols
      */
     static QStringList protocols();
 
     /*!
-     * Returns whether a protocol is installed that is able to handle @p url.
+     * Returns whether a protocol is installed that is able to handle \a url.
      *
-     * @param url the url to check
-     * @return true if the protocol is known
-     * @see name()
+     * \a url the url to check
+     * \sa name()
      */
     static bool isKnownProtocol(const QUrl &url);
 
@@ -59,15 +58,17 @@ public:
     static bool isKnownProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
     /*!
-     * Returns the library / executable to open for the protocol @p protocol
+     * Returns the library / executable to open for the protocol \a protocol
      * Example : "kio_ftp", meaning either the executable "kio_ftp" or
      * the library "kio_ftp.la" (recommended), whichever is available.
      *
      * This corresponds to the "exec=" field in the protocol description file.
-     * @param protocol the protocol to check
-     * @return the executable of library to open, or QString() for
+     *
+     * \a protocol the protocol to check
+     *
+     * Returns the executable of library to open, or QString() for
      *         unsupported protocols
-     * @see KUrl::protocol()
+     * \sa KUrl::protocol()
      */
     static QString exec(const QString &protocol);
 
@@ -76,13 +77,18 @@ public:
      * For instance ftp:// appears as a filesystem with folders and files,
      * while bzip2:// appears as a single file (a stream of data),
      * and telnet:// doesn't output anything.
-     * @see outputType
+     * \sa outputType
+     *
+     * \value T_STREAM stream of data (e.g.\ single file)
+     * \value T_FILESYSTEM structured directory
+     * \value T_NONE no information about the type available
+     * \value T_ERROR used to signal an error
      */
     enum Type {
-        T_STREAM, ///< stream of data (e.g.\ single file)
-        T_FILESYSTEM, ///< structured directory
-        T_NONE, ///< no information about the type available
-        T_ERROR, ///< used to signal an error
+        T_STREAM,
+        T_FILESYSTEM,
+        T_NONE,
+        T_ERROR,
     };
 
     /*!
@@ -94,6 +100,11 @@ public:
      * Currently supported types: "QString", "QDateTime" (ISO-8601 format)
      */
     struct ExtraField {
+        /*!
+         * \value String
+         * \value DateTime
+         * \value Invalid
+         */
         enum Type {
             String = QMetaType::QString,
             DateTime = QMetaType::QDateTime,
@@ -112,6 +123,9 @@ public:
         QString name;
         Type type;
     };
+    /*!
+     * TODO qdoc?
+     */
     typedef QList<ExtraField> ExtraFieldList;
     /*!
      * Definition of extra fields in the UDS entries, returned by a listDir operation.
@@ -130,8 +144,9 @@ public:
      * This corresponds to the "helper=" field in the protocol description file.
      * Valid values for this field are "true" or "false" (default).
      *
-     * @param url the url to check
-     * @return true if the protocol is a helper protocol (e.g. vnc), false
+     * \a url the url to check
+     *
+     * Returns \c true if the protocol is a helper protocol (e.g. vnc), false
      *              if not (e.g. http)
      */
     static bool isHelperProtocol(const QUrl &url);
@@ -154,8 +169,9 @@ public:
      * Valid values for this field are "true" (default) for source protocol or
      * "false" for filter protocol.
      *
-     * @param url the url to check
-     * @return true if the protocol is a filter (e.g. gzip), false if the
+     * \a url the url to check
+     *
+     * Returns \c true if the protocol is a filter (e.g. gzip), false if the
      *         protocol is a helper or source
      */
     static bool isFilterProtocol(const QUrl &url);
@@ -171,8 +187,9 @@ public:
      *
      * This corresponds to the "Icon=" field in the protocol description file.
      *
-     * @param protocol the protocol to check
-     * @return the icon of the protocol, or an empty string if unknown
+     * \a protocol the protocol to check
+     *
+     * Returns the icon of the protocol, or an empty string if unknown
      */
     static QString icon(const QString &protocol);
 
@@ -184,8 +201,9 @@ public:
      * This corresponds to the "config=" field in the protocol description file.
      * The default is the protocol name, see name()
      *
-     * @param protocol the protocol to check
-     * @return the config file, or an empty string if unknown
+     * \a protocol the protocol to check
+     *
+     * Returns the config file, or an empty string if unknown
      */
     static QString config(const QString &protocol);
 
@@ -198,10 +216,11 @@ public:
      * This corresponds to the "maxInstances=" field in the protocol's worker metadata.
      * The default is 1.
      *
-     * @param protocol the protocol to check
-     * @return the maximum number of workers, or 1 if unknown
+     * \a protocol the protocol to check
      *
-     * @since 5.101
+     * Returns the maximum number of workers, or 1 if unknown
+     *
+     * \since 5.101
      */
     static int maxWorkers(const QString &protocol);
 
@@ -211,10 +230,11 @@ public:
      * This corresponds to the "maxInstancesPerHost=" field in the protocol's worker metadata.
      * The default is 0 which means there is no per host limit.
      *
-     * @param protocol the protocol to check
-     * @return the maximum number of workers, or 1 if unknown
+     * \a protocol the protocol to check
      *
-     * @since 5.101
+     * Returns the maximum number of workers, or 1 if unknown
+     *
+     * \since 5.101
      */
     static int maxWorkersPerHost(const QString &protocol);
 
@@ -226,8 +246,9 @@ public:
      * This corresponds to the "determineMimetypeFromExtension=" field in the protocol description file.
      * Valid values for this field are "true" (default) or "false".
      *
-     * @param protocol the protocol to check
-     * @return true if the MIME types can be determined by extension
+     * \a protocol the protocol to check
+     *
+     * Returns \c true if the MIME types can be determined by extension
      */
     static bool determineMimetypeFromExtension(const QString &protocol);
 
@@ -236,9 +257,10 @@ public:
      *
      * This corresponds to the "defaultMimetype=" field in the protocol description file.
      *
-     * @param protocol the protocol to check
-     * @return the default MIME type of the protocol, or an empty string if none set or protocol unknown
-     * @since 5.60
+     * \a protocol the protocol to check
+     *
+     * Returns the default MIME type of the protocol, or an empty string if none set or protocol unknown
+     * \since 5.60
      */
     static QString defaultMimetype(const QString &protocol);
 
@@ -247,8 +269,9 @@ public:
      *
      * This corresponds to the "X-DocPath=" or "DocPath=" field in the protocol description file.
      *
-     * @param protocol the protocol to check
-     * @return the docpath of the protocol, or an empty string if unknown
+     * \a protocol the protocol to check
+     *
+     * Returns the docpath of the protocol, or an empty string if unknown
      */
     static QString docPath(const QString &protocol);
 
@@ -258,14 +281,17 @@ public:
      * This corresponds to the "Class=" field in the protocol description file.
      *
      * The following classes are defined:
-     * @li ":internet" for common internet protocols
-     * @li ":local" for protocols that access local resources
+     * \list
+     * \li ":internet" for common internet protocols
+     * \li ":local" for protocols that access local resources
+     * \endlist
      *
      * Protocol classes always start with a ':' so that they can not be confused with
      * the protocols themselves.
      *
-     * @param protocol the protocol to check
-     * @return the class of the protocol, or an empty string if unknown
+     * \a protocol the protocol to check
+     *
+     * Returns the class of the protocol, or an empty string if unknown
      */
     static QString protocolClass(const QString &protocol);
 
@@ -276,8 +302,9 @@ public:
      *
      * By default previews are shown if protocolClass is :local.
      *
-     * @param protocol the protocol to check
-     * @return true if previews should be shown by default, false otherwise
+     * \a protocol the protocol to check
+     *
+     * Returns \c true if previews should be shown by default, false otherwise
      */
     static bool showFilePreview(const QString &protocol);
 
@@ -294,8 +321,9 @@ public:
      * before sending a special() command that would otherwise do nothing
      * on older KIO worker implementations.
      *
-     * @param protocol the protocol to check
-     * @return the list of capabilities.
+     * \a protocol the protocol to check
+     *
+     * Returns the list of capabilities.
      */
     static QStringList capabilities(const QString &protocol);
 
@@ -305,9 +333,10 @@ public:
      *
      * This corresponds to the "archiveMimetype=" field in the protocol description file.
      *
-     * @param protocol the protocol to check
-     * @return the list of archive MIME types (e.g. application/x-zip) handled.
-     * @since 5.23
+     * \a protocol the protocol to check
+     *
+     * Returns the list of archive MIME types (e.g. application/x-zip) handled.
+     * \since 5.23
      */
     static QStringList archiveMimetypes(const QString &protocol);
 
@@ -321,7 +350,9 @@ public:
      *
      * This corresponds to the "ProxiedBy=" in the protocol description file.
      *
-     * @deprecated since 6.4, not used.
+     * Not used.
+     *
+     * \deprecated[6.4]
      */
     KIOCORE_DEPRECATED_VERSION(6, 4, "Not used")
     static QString proxiedBy(const QString &protocol);

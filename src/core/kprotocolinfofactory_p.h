@@ -17,7 +17,7 @@
 class KProtocolInfoPrivate;
 
 /*!
- * @internal
+ * \internal
  *
  * KProtocolInfoFactory is a factory for getting
  * KProtocolInfo. The factory is a singleton
@@ -27,7 +27,7 @@ class KProtocolInfoFactory
 {
 public:
     /*!
-     * @return the instance of KProtocolInfoFactory (singleton).
+     * Returns the instance of KProtocolInfoFactory (singleton).
      */
     static KProtocolInfoFactory *self();
 
@@ -35,12 +35,15 @@ public:
     ~KProtocolInfoFactory();
 
     /*!
-     * Returns protocol info for @p protocol.
+     * Returns protocol info for \a protocol.
      *
      * Does not take proxy settings into account.
-     * @param protocol the protocol to search for
-     * @param updateCacheIfNotfound Flag for revalidating the cache. This will cause all plugins to be reloaded
-     * @return the pointer to the KProtocolInfo, or @c nullptr if not found
+     *
+     * \a protocol the protocol to search for
+     *
+     * \a updateCacheIfNotfound Flag for revalidating the cache. This will cause all plugins to be reloaded
+     *
+     * Returns the pointer to the KProtocolInfo, or \c nullptr if not found
      */
     KProtocolInfoPrivate *findProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
@@ -51,7 +54,6 @@ public:
 
     /*!
      * Returns list of all known protocols.
-     * @return a list of all protocols
      */
     QStringList protocols();
 
