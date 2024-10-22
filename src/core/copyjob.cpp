@@ -317,7 +317,12 @@ public:
 
     QTimer *m_reportTimer;
     QElapsedTimer m_speedMeasurementTimer;
-    QQueue<std::pair<quint64, KIO::filesize_t>> m_speedMeasurementPoints;
+
+    struct CopyProgressPoint {
+        qint64 elapsedTime;
+        KIO::filesize_t processedSize;
+    };
+    QQueue<CopyProgressPoint> m_speedMeasurementPoints;
 
     // The current src url being stat'ed or copied
     // During the stat phase, this is initially equal to *m_currentStatSrc but it can be resolved to a local file equivalent (#188903).
@@ -2215,17 +2220,17 @@ void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
     const auto processed = m_fileProcessedSize + m_processedSize;
     const auto elapsed = m_speedMeasurementTimer.elapsed();
     if (m_speedMeasurementPoints.size() == 0) {
-        m_speedMeasurementPoints.enqueue(std::pair(elapsed, processed));
+        m_speedMeasurementPoints.enqueue({elapsed, processed});
     } else {
         const auto headMeasurementPoint = m_speedMeasurementPoints.head();
-        if ((m_speedMeasurementTimer.elapsed() - headMeasurementPoint.first) >= 1000) {
+        if ((m_speedMeasurementTimer.elapsed() - headMeasurementPoint.elapsedTime) >= 1000) {
             if (m_speedMeasurementPoints.size() >= 8) {
                 m_speedMeasurementPoints.dequeue();
             }
 
-            q->emitSpeed(1000 * (processed - headMeasurementPoint.second) / (elapsed - headMeasurementPoint.first));
+            q->emitSpeed(1000 * (processed - headMeasurementPoint.processedSize) / (elapsed - headMeasurementPoint.elapsedTime));
 
-            m_speedMeasurementPoints.enqueue(std::pair(elapsed, processed));
+            m_speedMeasurementPoints.enqueue({elapsed, processed});
         }
     }
 
