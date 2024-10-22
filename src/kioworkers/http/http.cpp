@@ -98,6 +98,26 @@ public:
     }
 };
 
+namespace
+{
+
+bool isDav(const QString &protocol)
+{
+    return protocol.startsWith(QLatin1String("webdav")) || protocol.startsWith(QLatin1String("dav"));
+}
+
+QUrl protocolChangedToHttp(const QUrl &url)
+{
+    QUrl newUrl{url};
+    QString protocol{newUrl.scheme()};
+    protocol.replace(QLatin1String{"webdav"}, QLatin1String{"http"});
+    protocol.replace(QLatin1String{"dav"}, QLatin1String{"http"});
+    if (newUrl.scheme() != protocol)
+        newUrl.setScheme(protocol);
+    return newUrl;
+}
+};
+
 HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : WorkerBase(protocol, pool, app)
 {
@@ -283,13 +303,7 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
     nam.setCookieJar(cookies);
 
-    QUrl properUrl = url;
-    if (url.scheme() == QLatin1String("webdav")) {
-        properUrl.setScheme(QStringLiteral("http"));
-    }
-    if (url.scheme() == QLatin1String("webdavs")) {
-        properUrl.setScheme(QStringLiteral("https"));
-    }
+    QUrl properUrl = protocolChangedToHttp(url);
 
     m_hostName = properUrl.host();
 
@@ -561,7 +575,7 @@ KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 
 KIO::WorkerResult HTTPProtocol::put(const QUrl &url, int /*_mode*/, KIO::JobFlags flags)
 {
-    if (url.scheme().startsWith(QLatin1String("webdav"))) {
+    if (isDav(url.scheme())) {
         if (!(flags & KIO::Overwrite)) {
             // Checks if the destination exists and return an error if it does.
             if (davDestinationExists(url)) {
@@ -1063,7 +1077,7 @@ int HTTPProtocol::codeFromResponse(const QString &response)
 
 KIO::WorkerResult HTTPProtocol::stat(const QUrl &url)
 {
-    if (url.scheme() != QLatin1String("webdav") && url.scheme() != QLatin1String("webdavs")) {
+    if (!isDav(url.scheme())) {
         QString statSide = metaData(QStringLiteral("statSide"));
         if (statSide != QLatin1String("source")) {
             // When uploading we assume the file does not exist.
@@ -1168,7 +1182,7 @@ KIO::WorkerResult HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO
 
 KIO::WorkerResult HTTPProtocol::del(const QUrl &url, bool)
 {
-    if (url.scheme().startsWith(QLatin1String("webdav"))) {
+    if (isDav(url.scheme())) {
         Response response = makeRequest(url, KIO::HTTP_DELETE, {}, DataMode::Discard);
 
         // The server returns a HTTP/1.1 200 Ok or HTTP/1.1 204 No Content
