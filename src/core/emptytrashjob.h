@@ -15,12 +15,14 @@ namespace KIO
 {
 class EmptyTrashJobPrivate;
 /*!
- * @class KIO::EmptyTrashJob emptytrashjob.h <KIO/EmptyTrashJob>
+ * \class KIO::EmptyTrashJob
+ * \inheaderfile KIO/EmptyTrashJob
+ * \inmodule KIOCore
  *
  * A KIO job for emptying the trash
- * @see KIO::trash()
- * @see KIO::restoreFromTrash()
- * @since 5.2
+ * \sa KIO::trash()
+ * \sa KIO::restoreFromTrash()
+ * \since 5.2
  */
 class KIOCORE_EXPORT EmptyTrashJob : public SimpleJob
 {
@@ -42,8 +44,8 @@ private:
 /*!
  * Empties the trash.
  *
- * @return A pointer to the job handling the operation.
- * @since 5.2
+ * Returns a pointer to the job handling the operation.
+ * \since 5.2
  */
 KIOCORE_EXPORT EmptyTrashJob *emptyTrash();
 

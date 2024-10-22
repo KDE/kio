@@ -17,10 +17,12 @@ namespace KIO
 {
 class FileSystemFreeSpaceJobPrivate;
 /*!
- * @class KIO::FileSystemFreeSpaceJob filesystemfreespacejob.h <KIO/FileSystemFreeSpaceJob>
+ * \class KIO::FileSystemFreeSpaceJob
+ * \inheaderfile KIO/FileSystemFreeSpaceJob
+ * \inmodule KIOCore
  *
- * A KIO job that retrieves the total and available size of a filesystem.
- * @since 5.3
+ * \brief A KIO job that retrieves the total and available size of a filesystem.
+ * \since 5.3
  */
 class KIOCORE_EXPORT FileSystemFreeSpaceJob : public SimpleJob
 {
@@ -31,13 +33,13 @@ public:
 
     /*!
      * Get total amount of space
-     * @since 6.0
+     * \since 6.0
      */
     KIO::filesize_t size() const;
 
     /*!
      * Get available amount of space
-     * @since 6.0
+     * \since 6.0
      */
     KIO::filesize_t availableSize() const;
 
@@ -52,8 +54,9 @@ private:
 /*!
  * Get a filesystem's total and available space.
  *
- * @param url Url to the filesystem.
- * @return the job handling the operation.
+ * \a url Url to the filesystem.
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT FileSystemFreeSpaceJob *fileSystemFreeSpace(const QUrl &url);
 

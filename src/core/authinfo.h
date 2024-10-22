@@ -25,7 +25,11 @@ namespace KIO
 class AuthInfoPrivate;
 
 /*!
- * @class KIO::AuthInfo authinfo.h <KIO/AuthInfo>
+ * \class KIO::AuthInfo
+ * \inheaderfile KIO/AuthInfo
+ * \inmodule KIOCore
+ *
+ * \brief A two way messaging class for passing authentication information.
  *
  * This class is intended to make it easier to prompt for, cache
  * and retrieve authorization information.
@@ -38,20 +42,32 @@ class AuthInfoPrivate;
  * prompt for password you only need to optionally set the prompt,
  * username (if already supplied), comment and commentLabel fields.
  *
- * <em>SPECIAL NOTE:</em> If you extend this class to add additional
+ * \note If you extend this class to add additional
  * parameters do not forget to overload the stream insertion and
  * extraction operators ("<<" and ">>") so that the added data can
  * be correctly serialized.
  *
- * @short A two way messaging class for passing authentication information.
- * @author Dawit Alemayehu <adawit@kde.org>
  */
 class KIOCORE_EXPORT AuthInfo
 {
+    /*!
+     *
+     */
     KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const AuthInfo &a);
+
+    /*!
+     *
+     */
     KIOCORE_EXPORT friend QDataStream &operator>>(QDataStream &s, AuthInfo &a);
 
+    /*!
+     *
+     */
     KIOCORE_EXPORT friend QDBusArgument &operator<<(QDBusArgument &argument, const AuthInfo &a);
+
+    /*!
+     *
+     */
     KIOCORE_EXPORT friend const QDBusArgument &operator>>(const QDBusArgument &argument, AuthInfo &a);
 
 public:
@@ -65,25 +81,20 @@ public:
      */
     AuthInfo(const AuthInfo &info);
 
-    /*!
-     * Destructor
-     */
     ~AuthInfo();
 
-    /*!
-     * Custom assignment operator.
-     */
     AuthInfo &operator=(const AuthInfo &info);
 
     /*!
      * Use this method to check if the object was modified.
-     * @return true if the object has been modified
+     * Returns \c true if the object has been modified
      */
     bool isModified() const;
 
     /*!
      * Use this method to indicate that this object has been modified.
-     * @param flag true to mark the object as modified, false to clear
+     *
+     * \a flag true to mark the object as modified, false to clear
      */
     void setModified(bool flag);
 
@@ -94,18 +105,18 @@ public:
      * and retrieve it.  However, it is not needed when prompting
      * the user for authorization info.
      *
-     * This setting is @em required except when prompting the
+     * This setting is \e required except when prompting the
      * user for password.
      */
     QUrl url;
 
     /*!
-     * This is @em required for caching.
+     * This is \e required for caching.
      */
     QString username;
 
     /*!
-     * This is @em required for caching.
+     * This is \e required for caching.
      */
     QString password;
 
@@ -113,10 +124,10 @@ public:
      * Information to be displayed when prompting
      * the user for authentication information.
      *
-     * @note If this field is not set, the authentication
+     * \note If this field is not set, the authentication
      *    dialog simply displays the preset default prompt.
      *
-     * This setting is @em optional and empty by default.
+     * This setting is \e optional and empty by default.
      */
     QString prompt;
 
@@ -124,10 +135,10 @@ public:
      * The text to displayed in the title bar of
      * the password prompting dialog.
      *
-     * @note If this field is not set, the authentication
+     * \note If this field is not set, the authentication
      *    dialog simply displays the preset default caption.
      *
-     * This setting is @em optional and empty by default.
+     * This setting is \e optional and empty by default.
      */
     QString caption;
 
@@ -147,11 +158,11 @@ public:
      *
      * where "Server:" is the commentLabel and the rest is the
      * actual comment.  Note that it is always better to use
-     * the @p commentLabel field as it will be placed properly
+     * the \a commentLabel field as it will be placed properly
      * in the dialog rather than to include it within the actual
      * comment.
      *
-     * This setting is @em optional and empty by default.
+     * This setting is \e optional and empty by default.
      */
     QString comment;
 
@@ -159,7 +170,7 @@ public:
      * Descriptive label to be displayed in front of the
      * comment when prompting the user for password.
      *
-     * This setting is @em optional and only applicable when
+     * This setting is \e optional and only applicable when
      * the comment field is also set.
      */
     QString commentLabel;
@@ -174,7 +185,7 @@ public:
      * generate or supply a unique id can effectively use it
      * to distinguish passwords.
      *
-     * This setting is @em optional and not set by default.
+     * This setting is \e optional and not set by default.
      */
     QString realmValue;
 
@@ -182,7 +193,7 @@ public:
      * Field to store any extra authentication information for
      * protocols that need it.
      *
-     * This setting is @em optional and mostly applicable for HTTP
+     * This setting is \e optional and mostly applicable for HTTP
      * protocol.  However, any protocol can make use of it to
      * store extra info.
      */
@@ -197,14 +208,14 @@ public:
      * and the request's path set to "/foo/bar/acme", then it is a match
      * whereas it would not if the request's path was set to "/foo".
      *
-     * This setting is @em optional and false by default.
+     * This setting is \e optional and false by default.
      */
     bool verifyPath;
 
     /*!
      * Flag which if set forces the username field to be read-only.
      *
-     * This setting is @em optional and false by default.
+     * This setting is \e optional and false by default.
      */
     bool readOnly;
 
@@ -223,6 +234,10 @@ public:
 
     /*!
      * Flags for extra fields
+     *
+     * \value ExtraFieldNoFlags
+     * \value ExtraFieldReadOnly
+     * \value ExtraFieldMandatory
      */
     enum FieldFlags {
         ExtraFieldNoFlags = 0,

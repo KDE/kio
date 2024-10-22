@@ -12,6 +12,9 @@
 #include "kiocore_export.h"
 
 /*!
+ * \namespace KRecentDirs
+ * \inmodule KIOCore
+ *
  * The goal of this namespace is to make sure that, when the user needs to
  * specify a file via the file selection dialog, this dialog will start
  * in the directory most likely to contain the desired files.
@@ -40,7 +43,7 @@ KIOCORE_EXPORT QStringList list(const QString &fileClass);
 KIOCORE_EXPORT QString dir(const QString &fileClass);
 
 /*!
- * Associates @p directory with @p fileClass
+ * Associates \a directory with \a fileClass
  */
 KIOCORE_EXPORT void add(const QString &fileClass, const QString &directory);
 }

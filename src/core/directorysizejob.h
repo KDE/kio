@@ -16,12 +16,16 @@ namespace KIO
 {
 class DirectorySizeJobPrivate;
 /*!
- * @class KIO::DirectorySizeJob directorysizejob.h <KIO/DirectorySizeJob>
+ * \class KIO::DirectorySizeJob
+ * \inheaderfile KIO/DirectorySizeJob
+ * \inmodule KIOCore
  *
- * Computes a directory size (similar to "du", but doesn't give the same results
- * since we simply sum up the dir and file sizes, whereas du speaks disk blocks)
+ * \brief Computes a directory size.
  *
- * Usage: see KIO::directorySize.
+ * Similar to "du", but doesn't give the same results
+ * since we simply sum up the dir and file sizes, whereas du speaks disk blocks.
+ *
+ * \sa KIO::directorySize.
  */
 class KIOCORE_EXPORT DirectorySizeJob : public KIO::Job
 {
@@ -32,18 +36,18 @@ public:
 
 public:
     /*!
-     * @return the size we found
+     * Returns the size we found
      */
     KIO::filesize_t totalSize() const;
 
     /*!
-     * @return the total number of files (counting symlinks to files, sockets
+     * Returns the total number of files (counting symlinks to files, sockets
      * and character devices as files) in this directory and all sub-directories
      */
     KIO::filesize_t totalFiles() const;
 
     /*!
-     * @return the total number of sub-directories found (not including the
+     * Returns the total number of sub-directories found (not including the
      * directory the search started from and treating symlinks to directories
      * as directories)
      */
@@ -73,7 +77,7 @@ KIOCORE_EXPORT DirectorySizeJob *directorySize(const QUrl &directory);
  * Connect to the result signal (this is the preferred solution to avoid blocking the GUI),
  * or use exec() for a synchronous (blocking) calculation.
  *
- * This one lists the items from @p lstItems.
+ * This one lists the items from \a lstItems.
  * The reason we asks for items instead of just urls, is so that
  * we directly know if the item is a file or a directory,
  * and in case of a file, we already have its size.
