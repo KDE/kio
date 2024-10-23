@@ -110,6 +110,7 @@ QUrl protocolChangedToHttp(const QUrl &url)
 {
     QUrl newUrl{url};
     QString protocol{newUrl.scheme()};
+    // Keeps the 's' at the end, if present.
     protocol.replace(QLatin1String{"webdav"}, QLatin1String{"http"});
     protocol.replace(QLatin1String{"dav"}, QLatin1String{"http"});
     if (newUrl.scheme() != protocol)
