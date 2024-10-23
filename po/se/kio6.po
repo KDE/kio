@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:37+0000\n"
+"POT-Creation-Date: 2024-10-23 00:37+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -76,23 +76,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1388 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Máhppa gávdno juo"
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fiila gávdno juo"
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Gávdno juo máhppan"
 
-#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Ruskalihtti"

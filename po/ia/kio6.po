@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:37+0000\n"
+"POT-Creation-Date: 2024-10-23 00:37+0000\n"
 "PO-Revision-Date: 2024-10-20 18:21+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -89,23 +89,23 @@ msgstr ""
 "Seliger Reimplacia reimplaciara ulle characteres invalide (in le nomine de "
 "file de destination) con un sublinea \"_\"."
 
-#: core/copyjob.cpp:1388 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dossier ja existe"
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "File Ja existe"
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Un dossier ja es existente"
 
-#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Corbe"

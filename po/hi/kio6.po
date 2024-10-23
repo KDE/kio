@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:37+0000\n"
+"POT-Creation-Date: 2024-10-23 00:37+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -88,23 +88,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1388 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "फ़ोल्डर पहले से ही अस्तित्व में है"
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "फ़ाइल पहले से ही अस्तित्व में है. "
 
-#: core/copyjob.cpp:1712 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "पहले से ही फ़ोल्डर के रूप में है"
 
-#: core/copyjob.cpp:1866 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
