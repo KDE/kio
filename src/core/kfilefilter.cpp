@@ -209,15 +209,15 @@ QList<KFileFilter> KFileFilter::fromMimeTypes(const QStringList &mimeTypes)
 
 QDebug operator<<(QDebug dbg, const KFileFilter &filter)
 {
-    dbg << "KFileFilter(";
+    dbg.nospace() << "KFileFilter(";
 
-    dbg << "MIME patterns: " << filter.mimePatterns();
-    dbg << " ";
-    dbg << "File patterns: " << filter.filePatterns();
-    dbg << " ";
-    dbg << "label: " << filter.label();
+    dbg.nospace() << "MIME patterns: " << filter.mimePatterns();
+    dbg.nospace() << " ";
+    dbg.nospace() << "File patterns: " << filter.filePatterns();
+    dbg.nospace() << " ";
+    dbg.nospace() << "label: " << filter.label();
 
-    dbg << ")";
+    dbg.nospace() << ")";
     return dbg;
 }
 
