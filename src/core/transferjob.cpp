@@ -273,6 +273,8 @@ void TransferJobPrivate::start(Worker *worker)
 {
     Q_Q(TransferJob);
     Q_ASSERT(worker);
+
+    q->startElapsedTimer();
     JobPrivate::emitTransferring(q, m_url);
     q->connect(worker, &WorkerInterface::data, q, &TransferJob::slotData);
 

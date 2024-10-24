@@ -466,6 +466,8 @@ void CopyJobPrivate::slotStart()
         return;
     }
 
+    q->startElapsedTimer();
+
     if (m_mode == CopyJob::CopyMode::Move) {
         for (const QUrl &url : std::as_const(m_srcList)) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
