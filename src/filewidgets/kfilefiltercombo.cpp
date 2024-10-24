@@ -210,7 +210,7 @@ void KFileFilterCombo::setCurrentFilter(const KFileFilter &filter)
     auto it = std::find(d->m_filters.cbegin(), d->m_filters.cend(), filter);
 
     if (it == d->m_filters.cend()) {
-        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "Could not find file filter";
+        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "KFileFilterCombo::setCurrentFilter: Could not find file filter" << filter;
         setCurrentIndex(-1);
         Q_EMIT filterChanged();
         return;
