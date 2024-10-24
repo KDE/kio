@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-23 00:37+0000\n"
+"POT-Creation-Date: 2024-10-24 00:37+0000\n"
 "PO-Revision-Date: 2024-10-13 12:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4517,90 +4517,90 @@ msgstr "Autenticació del servidor"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> a <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1313
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Altrament, la petició hauria tingut èxit."
 
-#: kioworkers/http/http.cpp:1327
+#: kioworkers/http/http.cpp:1316
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recuperar els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1329
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "establir els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1331
+#: kioworkers/http/http.cpp:1320
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea la carpeta demanada"
 
-#: kioworkers/http/http.cpp:1333
+#: kioworkers/http/http.cpp:1322
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1335
+#: kioworkers/http/http.cpp:1324
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "mou la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1337
+#: kioworkers/http/http.cpp:1326
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "busca dins la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1339
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1341
+#: kioworkers/http/http.cpp:1330
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "desbloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1343
+#: kioworkers/http/http.cpp:1332
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "suprimix la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "consultar les capacitats del servidor"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1336
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera el contingut de la carpeta o fitxer especificat"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1338
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un informe en la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1357
+#: kioworkers/http/http.cpp:1346
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "S'ha produït un error inesperat (%1) en intentar %2."
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4610,13 +4610,13 @@ msgstr ""
 "S'ha produït un error en intentar %1, %2. A davall hi ha un resum dels "
 "motius."
 
-#: kioworkers/http/http.cpp:1415 kioworkers/http/http.cpp:1559
+#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "S'ha denegat l'accés en intentar %1."
 
-#: kioworkers/http/http.cpp:1429 kioworkers/http/http.cpp:1566
+#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4625,7 +4625,7 @@ msgstr ""
 "No es pot crear un recurs a la destinació fins que s'hagen creat una o més "
 "col·leccions intermèdies (carpetes)."
 
-#: kioworkers/http/http.cpp:1438
+#: kioworkers/http/http.cpp:1427
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4640,28 +4640,28 @@ msgstr ""
 "no se sobreescrigueren.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1446
+#: kioworkers/http/http.cpp:1435
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "No s'ha pogut atorgar el bloqueig sol·licitat. %1"
 
-#: kioworkers/http/http.cpp:1452
+#: kioworkers/http/http.cpp:1441
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "El servidor no accepta el tipus de petició del cos."
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1574
+#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "No s'ha pogut %1 perquè el recurs està bloquejat."
 
-#: kioworkers/http/http.cpp:1461
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Esta acció ha sigut evitada per un altre error."
 
-#: kioworkers/http/http.cpp:1468 kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4671,7 +4671,7 @@ msgstr ""
 "No s'ha pogut %1 perquè el servidor de destinació refusa acceptar el fitxer "
 "o la carpeta."
 
-#: kioworkers/http/http.cpp:1477 kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4680,18 +4680,18 @@ msgstr ""
 "El recurs de destinació no té espai suficient per a gravar l'estat del "
 "recurs després de l'execució d'este mètode."
 
-#: kioworkers/http/http.cpp:1530
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "El recurs no s'ha pogut suprimir."
 
-#: kioworkers/http/http.cpp:1550
+#: kioworkers/http/http.cpp:1539
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "puja %1"
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1590
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
