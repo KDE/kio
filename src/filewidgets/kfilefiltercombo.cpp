@@ -168,7 +168,14 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
 
     if (hasAllFilesFilter) {
         addItem(i18n("All Files"));
-        d->m_filters.append(KFileFilter(i18n("All Files"), {}, {QStringLiteral("application/octet-stream")}));
+
+        KFileFilter allFilter(i18n("All Files"), {}, {QStringLiteral("application/octet-stream")});
+
+        d->m_filters.append(allFilter);
+
+        if (defaultFilter == allFilter) {
+            setCurrentIndex(count() - 1);
+        }
     }
 
     d->m_lastFilter = currentText();

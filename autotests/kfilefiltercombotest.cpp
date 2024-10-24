@@ -20,6 +20,7 @@ private Q_SLOTS:
     void testShowsAllFiles();
     void testShowsAllFiles_data();
     void testCurrentFilter();
+    void testSetFilterWithDefault();
 };
 
 void KFileFilterComboTest::initTestCase()
@@ -131,6 +132,24 @@ void KFileFilterComboTest::testCurrentFilter()
     // User enters something custom
     combo.setCurrentText("text/plain");
     QCOMPARE(combo.currentFilter(), KFileFilter::fromMimeType("text/plain"));
+}
+
+void KFileFilterComboTest::testSetFilterWithDefault()
+{
+    KFileFilterCombo combo;
+
+    const KFileFilter cppFilter("C++ Sources", {"*.cpp"}, {});
+    const KFileFilter pngFilter("PNG Images", {"*.png"}, {});
+    const KFileFilter pdfFilter("PDF Documents", {"*.pdf"}, {});
+    const KFileFilter allFilter("All Files", {}, {"application/octet-stream"});
+
+    combo.setFilters({cppFilter, pngFilter, pdfFilter}, pngFilter);
+    QCOMPARE(combo.currentFilter(), pngFilter);
+    QCOMPARE(combo.currentText(), "PNG Images");
+
+    combo.setFilters({allFilter, cppFilter, pngFilter}, allFilter);
+    QCOMPARE(combo.currentFilter(), allFilter);
+    QCOMPARE(combo.currentText(), "All Files");
 }
 
 QTEST_MAIN(KFileFilterComboTest)
