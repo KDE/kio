@@ -46,6 +46,13 @@ public:
     KFileFilter(const KFileFilter &other);
     KFileFilter &operator=(const KFileFilter &other);
     ~KFileFilter();
+
+    /**
+     * Checks whether two filters are equal.
+     *
+     * Filters are considered equal if their file and name patters match.
+     * The label is ignored here.
+     */
     bool operator==(const KFileFilter &other) const;
 
     /**

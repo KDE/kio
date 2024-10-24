@@ -134,7 +134,7 @@ QStringList KFileFilter::mimePatterns() const
 
 bool KFileFilter::operator==(const KFileFilter &other) const
 {
-    return d->m_label == other.d->m_label && d->m_filePatterns == other.d->m_filePatterns && d->m_mimePatterns == other.d->m_mimePatterns;
+    return d->m_filePatterns == other.d->m_filePatterns && d->m_mimePatterns == other.d->m_mimePatterns;
 }
 
 bool KFileFilter::isEmpty() const

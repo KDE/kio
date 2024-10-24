@@ -81,6 +81,34 @@ private Q_SLOTS:
 
         QCOMPARE(input.value<KFileFilter>().toFilterString(), expectedFilterString);
     }
+
+    void testCompare_data()
+    {
+        QTest::addColumn<QVariant>("a");
+        QTest::addColumn<QVariant>("b");
+        QTest::addColumn<bool>("result");
+
+        QTest::addRow("empty") << QVariant::fromValue(KFileFilter()) << QVariant::fromValue(KFileFilter()) << true;
+        QTest::addRow("png") << QVariant::fromValue(KFileFilter("PNG Images", {"*.png"}, {})) << QVariant::fromValue(KFileFilter("PNG Images", {"*.png"}, {}))
+                             << true;
+        QTest::addRow("pdf") << QVariant::fromValue(KFileFilter("PDF Documents", {}, {"application/pdf"}))
+                             << QVariant::fromValue(KFileFilter("PDF Documents", {}, {"application/pdf"})) << true;
+        QTest::addRow("unequal") << QVariant::fromValue(KFileFilter("PDF Documents", {}, {"application/pdf"}))
+                                 << QVariant::fromValue(KFileFilter("JPEG Images", {}, {"image/jpeg"})) << false;
+        QTest::addRow("unequal2") << QVariant::fromValue(KFileFilter("PDF Documents", {"*.pdf"}, {}))
+                                  << QVariant::fromValue(KFileFilter("JPEG Images", {"*.jpg"}, {})) << false;
+        QTest::addRow("label_only") << QVariant::fromValue(KFileFilter("PDFs", {}, {"application/pdf"}))
+                                    << QVariant::fromValue(KFileFilter("PDF Documents", {}, {"application/pdf"})) << true;
+    }
+
+    void testCompare()
+    {
+        QFETCH(QVariant, a);
+        QFETCH(QVariant, b);
+        QFETCH(bool, result);
+
+        QCOMPARE(a.value<KFileFilter>() == b.value<KFileFilter>(), result);
+    }
 };
 Q_DECLARE_METATYPE(KFileFilter);
 
