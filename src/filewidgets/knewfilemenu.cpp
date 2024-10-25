@@ -963,8 +963,19 @@ void KNewFileMenuPrivate::slotCreateDirectory()
 static QStringList getInstalledTemplates()
 {
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
-    QString templateFolder = QStandardPaths::locate(QStandardPaths::TemplatesLocation, QString(), QStandardPaths::LocateDirectory);
-    list << templateFolder;
+    QString templateFolder = QStandardPaths::standardLocations(QStandardPaths::TemplatesLocation).value(0);
+    static bool templateWarningShown = false;
+    // Some distros set TemplatesLocation to home dir, which means it hasn't been set up and should be ignored
+    // Otherwise everything in the home folder will be used as a template
+    if (templateFolder != QDir::homePath()) {
+        list << templateFolder;
+    } else if (!templateWarningShown) {
+        qCWarning(KFILEWIDGETS_LOG) << 
+        "Your 'templates' folder is set to your home folder. "
+        "This is probably an error in your settings. Ignoring it. "
+        "You can change the setting by running `systemsettings kcm_desktoppaths`. ";
+        templateWarningShown = true;
+    }
     return list;
 }
 
