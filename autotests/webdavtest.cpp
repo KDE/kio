@@ -15,11 +15,18 @@
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+#include <qobject.h>
 
 class WebDAVTest : public QObject
 {
     Q_OBJECT
 public:
+    WebDAVTest(const QUrl &url)
+        : QObject()
+        , m_url(url)
+    {
+    }
+
     QUrl url(const QString &path) const
     {
         Q_ASSERT(path.startsWith(QChar('/')));
@@ -29,9 +36,9 @@ public:
         return newUrl;
     }
 
+    QUrl m_url;
     QTemporaryDir m_remoteDir;
     QProcess m_daemonProc;
-    QUrl m_url = QUrl("webdav://localhost");
     static const int port = 30000;
 
 private:
@@ -276,5 +283,21 @@ private Q_SLOTS:
     }
 };
 
-QTEST_MAIN(WebDAVTest)
+int main(int argc, char *argv[])
+{
+    QCoreApplication app(argc, argv);
+    app.setAttribute(Qt::AA_Use96Dpi, true);
+
+    WebDAVTest testWedDav(QUrl("webdav://localhost"));
+    auto retWebDav = QTest::qExec(&testWedDav, argc, argv);
+
+    WebDAVTest testDav(QUrl("dav://localhost"));
+    auto retDav = QTest::qExec(&testDav, argc, argv);
+
+    if (retWebDav != 0) {
+        return retWebDav;
+    }
+    return retDav;
+}
+
 #include "webdavtest.moc"
