@@ -23,7 +23,11 @@ static const char s_altIconUrl[] = "http://www.ibm.com/favicon.ico";
 static const char s_thirdIconUrl[] = "http://www.google.fr/favicon.ico";
 static const char s_iconUrlForThreadTest[] = "http://www.google.de/favicon.ico";
 
-static enum NetworkAccess { Unknown, Yes, No } s_networkAccess = Unknown;
+static enum NetworkAccess {
+    Unknown,
+    Yes,
+    No
+} s_networkAccess = Unknown;
 static bool checkNetworkAccess()
 {
     if (s_networkAccess == Unknown) {

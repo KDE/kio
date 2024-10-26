@@ -58,7 +58,16 @@ static QString unescape(const QString &text);
 static constexpr mode_t s_modeExe = S_IXUSR | S_IXGRP | S_IXOTH;
 
 // Constants for types of completion
-enum ComplType { CTNone = 0, CTEnv, CTUser, CTMan, CTExe, CTFile, CTUrl, CTInfo };
+enum ComplType {
+    CTNone = 0,
+    CTEnv,
+    CTUser,
+    CTMan,
+    CTExe,
+    CTFile,
+    CTUrl,
+    CTInfo
+};
 
 class CompletionThread;
 

@@ -281,8 +281,10 @@ enum JobFlag {
 Q_DECLARE_FLAGS(JobFlags, JobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(JobFlags)
 
-enum LoadType { Reload, NoReload };
-
+enum LoadType {
+    Reload,
+    NoReload
+};
 }
 
 #endif

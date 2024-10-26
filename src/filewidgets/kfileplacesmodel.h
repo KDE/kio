@@ -127,7 +127,12 @@ public:
     };
     Q_ENUM(GroupType)
 
-    enum DeviceAccessibility { SetupNeeded, SetupInProgress, Accessible, TeardownInProgress };
+    enum DeviceAccessibility {
+        SetupNeeded,
+        SetupInProgress,
+        Accessible,
+        TeardownInProgress
+    };
     Q_ENUM(DeviceAccessibility)
 
     explicit KFilePlacesModel(QObject *parent = nullptr);

@@ -139,7 +139,13 @@ public:
     qint64 nextTimeoutMsecs;
     KIO::filesize_t totalSize;
     KRemoteEncoding *remotefile = nullptr;
-    enum { Idle, InsideMethod, InsideTimeoutSpecial, FinishedCalled, ErrorCalled } m_state;
+    enum {
+        Idle,
+        InsideMethod,
+        InsideTimeoutSpecial,
+        FinishedCalled,
+        ErrorCalled
+    } m_state;
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 

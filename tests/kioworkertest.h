@@ -36,9 +36,24 @@ public:
         }
     }
 
-    enum Operations { List = 0, ListRecursive, Stat, Get, Put, Copy, Move, Delete, Mkdir, Mimetype };
+    enum Operations {
+        List = 0,
+        ListRecursive,
+        Stat,
+        Get,
+        Put,
+        Copy,
+        Move,
+        Delete,
+        Mkdir,
+        Mimetype
+    };
 
-    enum ProgressModes { ProgressNone = 0, ProgressDefault, ProgressStatus };
+    enum ProgressModes {
+        ProgressNone = 0,
+        ProgressDefault,
+        ProgressStatus
+    };
 
 protected:
     void printUDSEntry(const KIO::UDSEntry &entry);

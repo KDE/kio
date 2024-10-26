@@ -335,7 +335,12 @@ private:
 class KFilePreviewGeneratorPrivate::TileSet
 {
 public:
-    enum { LeftMargin = 3, TopMargin = 2, RightMargin = 3, BottomMargin = 4 };
+    enum {
+        LeftMargin = 3,
+        TopMargin = 2,
+        RightMargin = 3,
+        BottomMargin = 4
+    };
 
     enum Tile {
         TopLeftCorner = 0,

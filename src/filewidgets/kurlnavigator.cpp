@@ -68,7 +68,12 @@ public:
         }
     }
 
-    enum class ApplyUrlMethod { Apply, Tab, ActiveTab, NewWindow };
+    enum class ApplyUrlMethod {
+        Apply,
+        Tab,
+        ActiveTab,
+        NewWindow
+    };
 
     /** Applies the edited URL in m_pathBox to the URL navigator */
     void applyUncommittedUrl(ApplyUrlMethod method);

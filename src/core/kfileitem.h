@@ -66,7 +66,9 @@ class KIOCORE_EXPORT KFileItem
     Q_PROPERTY(bool isRegularFile READ isRegularFile)
 
 public:
-    enum { Unknown = static_cast<mode_t>(-1) };
+    enum {
+        Unknown = static_cast<mode_t>(-1)
+    };
 
     /**
      * The timestamps associated with a file.

@@ -28,7 +28,7 @@ public:
 
 KPasswdServerClient::KPasswdServerClient()
     : m_interface(
-        new OrgKdeKPasswdServerInterface(QStringLiteral("org.kde.kpasswdserver6"), QStringLiteral("/modules/kpasswdserver"), QDBusConnection::sessionBus()))
+          new OrgKdeKPasswdServerInterface(QStringLiteral("org.kde.kpasswdserver6"), QStringLiteral("/modules/kpasswdserver"), QDBusConnection::sessionBus()))
     , d(new KPasswdServerClientPrivate)
 {
 }

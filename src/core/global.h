@@ -197,7 +197,7 @@ enum Error {
     ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Worker::createWorker, @since 5.96
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
     ERR_OWNER_DIED ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers. @since 5.54
-    = KJob::UserDefinedError + 75,
+        = KJob::UserDefinedError + 75,
     ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioworker, @since 5.60
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77, // used by FileJob::truncate, @since 5.66
     /**

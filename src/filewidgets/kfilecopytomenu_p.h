@@ -24,7 +24,10 @@ public:
     bool m_autoErrorHandling;
 };
 
-enum MenuType { Copy, Move };
+enum MenuType {
+    Copy,
+    Move
+};
 
 // The main menu, shown when opening "Copy To" or "Move To"
 // It contains Home Folder, Root Folder, Browse, and recent destinations

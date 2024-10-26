@@ -195,7 +195,11 @@ private:
     int m_lastErrorCode;
     QString m_lastErrorMessage;
 
-    enum { InitToBeDone, InitOK, InitError } m_initStatus;
+    enum {
+        InitToBeDone,
+        InitOK,
+        InitError
+    } m_initStatus;
 
     // A "trash directory" is a physical directory on disk,
     // e.g. $HOME/.local/share/Trash or /mnt/foo/.Trash-$uid

@@ -130,9 +130,8 @@ void KRecentDocumentTest::testXbelBookmarkMaxEntries()
     config.writeEntry(QStringLiteral("UseRecent"), true);
     config.writeEntry(QStringLiteral("MaxEntries"), 3);
 
-    auto tempFiles = QList<QFile*>();
-    for (int i = 0; i < 15; ++i)
-    {
+    auto tempFiles = QList<QFile *>();
+    for (int i = 0; i < 15; ++i) {
         QFile *tempFile = new QFile(QDir::currentPath() + "/temp File" + QString::number(i));
         QVERIFY(tempFile->open(QIODevice::WriteOnly));
         tempFile->close();
@@ -148,7 +147,7 @@ void KRecentDocumentTest::testXbelBookmarkMaxEntries()
         QCOMPARE(recentUrls.at(i).fileName(), "temp File" + QString::number(i + 12));
     }
 
-    for (auto &f: tempFiles) {
+    for (auto &f : tempFiles) {
         f->remove();
     }
 }

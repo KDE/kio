@@ -186,7 +186,11 @@ private:
     int m_childCount : 31;
     bool m_populated : 1;
     // Network file system? (nfs/smb/ssh)
-    mutable enum { FsTypeUnknown, LocalFs, NetworkFs } m_fsType : 3;
+    mutable enum {
+        FsTypeUnknown,
+        LocalFs,
+        NetworkFs
+    } m_fsType : 3;
 };
 
 int KDirModelNode::rowNumber() const

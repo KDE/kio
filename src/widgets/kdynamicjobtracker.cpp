@@ -163,7 +163,12 @@ void KDynamicJobTracker::registerJob(KJob *job)
             d->jobViewServerSupport = KDynamicJobTrackerPrivate::Error;
         }
 
-        QDBusConnection::sessionBus().connect(kuiserverService, QStringLiteral("/JobViewServer"), QStringLiteral("org.kde.kuiserver"), QStringLiteral("requiresJobTrackerChanged"), this, SLOT(handleRequiresJobTrackerChanged(bool)));
+        QDBusConnection::sessionBus().connect(kuiserverService,
+                                              QStringLiteral("/JobViewServer"),
+                                              QStringLiteral("org.kde.kuiserver"),
+                                              QStringLiteral("requiresJobTrackerChanged"),
+                                              this,
+                                              SLOT(handleRequiresJobTrackerChanged(bool)));
     }
 
     if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::V2Supported) {

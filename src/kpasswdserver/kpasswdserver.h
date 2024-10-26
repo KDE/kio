@@ -75,7 +75,11 @@ private:
         KIO::AuthInfo info;
         QString directory;
 
-        enum { expNever, expWindowClose, expTime } expire;
+        enum {
+            expNever,
+            expWindowClose,
+            expTime
+        } expire;
         QList<qlonglong> windowList;
         qulonglong expireTime = expNever;
         qlonglong seqNr = 0;

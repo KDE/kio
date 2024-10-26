@@ -970,10 +970,9 @@ static QStringList getInstalledTemplates()
     if (templateFolder != QDir::homePath()) {
         list << templateFolder;
     } else if (!templateWarningShown) {
-        qCWarning(KFILEWIDGETS_LOG) << 
-        "Your 'templates' folder is set to your home folder. "
-        "This is probably an error in your settings. Ignoring it. "
-        "You can change the setting by running `systemsettings kcm_desktoppaths`. ";
+        qCWarning(KFILEWIDGETS_LOG) << "Your 'templates' folder is set to your home folder. "
+                                       "This is probably an error in your settings. Ignoring it. "
+                                       "You can change the setting by running `systemsettings kcm_desktoppaths`. ";
         templateWarningShown = true;
     }
     return list;

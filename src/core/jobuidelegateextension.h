@@ -147,14 +147,21 @@ public:
      * or emptying the trash
      * Used by askDeleteConfirmation.
      */
-    enum DeletionType { Delete, Trash, EmptyTrash };
+    enum DeletionType {
+        Delete,
+        Trash,
+        EmptyTrash
+    };
     /**
      * ForceConfirmation: always ask the user for confirmation
      * DefaultConfirmation: don't ask the user if he/she said "don't ask again".
      *
      * Used by askDeleteConfirmation.
      */
-    enum ConfirmationType { DefaultConfirmation, ForceConfirmation };
+    enum ConfirmationType {
+        DefaultConfirmation,
+        ForceConfirmation
+    };
     /**
      * Ask for confirmation before deleting/trashing @p urls.
      *

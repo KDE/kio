@@ -197,7 +197,6 @@ public:
      * Constants used to specify the type of a UDSEntry’s field.
      */
     enum StandardFieldTypes {
-
         // The highest bit is reserved to store the used FieldTypes
 
         /// Size of the file
@@ -324,8 +323,8 @@ public:
 
 private:
     QSharedDataPointer<UDSEntryPrivate> d;
-    friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream &s, const KIO::UDSEntry &a);
-    friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream &s, KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream & s, const KIO::UDSEntry & a);
+    friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream & s, KIO::UDSEntry & a);
     friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
 
 public:

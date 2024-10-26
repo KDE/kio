@@ -50,7 +50,10 @@ public:
     void updateRecycleBin();
 
 private:
-    typedef enum { Copy, Move } CopyOrMove;
+    typedef enum {
+        Copy,
+        Move
+    } CopyOrMove;
     [[nodiscard]] KIO::WorkerResult copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
     [[nodiscard]] KIO::WorkerResult listRoot();
     [[nodiscard]] KIO::WorkerResult restore(const QUrl &trashURL, const QUrl &destURL);

@@ -1539,7 +1539,8 @@ QStringList KFilePlacesModel::supportedSchemes() const
     return d->supportedSchemes;
 }
 
-namespace {
+namespace
+{
 QString partitionManagerPath()
 {
     static const QString path = QStandardPaths::findExecutable(QStringLiteral("partitionmanager"));
@@ -1559,9 +1560,8 @@ QAction *KFilePlacesModel::partitionActionForIndex(const QModelIndex &index) con
         return nullptr;
     }
 
-    auto action = new QAction(QIcon::fromTheme(QStringLiteral("partitionmanager")),
-                              i18nc("@action:inmenu", "Reformat or Edit with Partition Manager"),
-                              nullptr);
+    auto action =
+        new QAction(QIcon::fromTheme(QStringLiteral("partitionmanager")), i18nc("@action:inmenu", "Reformat or Edit with Partition Manager"), nullptr);
     connect(action, &QAction::triggered, this, [device] {
         const auto block = device.as<Solid::Block>();
         auto job = new KIO::CommandLauncherJob(partitionManagerPath(), {QStringLiteral("--device"), block->device()});

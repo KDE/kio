@@ -99,7 +99,11 @@ public:
      * @see setOperationMode
      * @see operationMode
      */
-    enum OperationMode { Other = 0, Opening, Saving };
+    enum OperationMode {
+        Other = 0,
+        Opening,
+        Saving
+    };
 
     /**
      * @returns The selected fully qualified filename.

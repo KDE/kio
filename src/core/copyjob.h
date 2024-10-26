@@ -45,7 +45,11 @@ public:
     /**
      * Defines the mode of the operation
      */
-    enum CopyMode { Copy, Move, Link };
+    enum CopyMode {
+        Copy,
+        Move,
+        Link
+    };
 
     ~CopyJob() override;
 

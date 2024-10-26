@@ -3,8 +3,8 @@
 #include "scopedprocessrunner_p.h"
 #include "systemdprocessrunner_p.h"
 
-#include <unistd.h>
 #include <sys/eventfd.h>
+#include <unistd.h>
 
 using namespace org::freedesktop;
 

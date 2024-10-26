@@ -58,7 +58,10 @@ class QSize;
 class KIOFILEWIDGETS_EXPORT KAbstractViewAdapter : public QObject
 {
 public:
-    enum Signal { ScrollBarValueChanged, IconSizeChanged };
+    enum Signal {
+        ScrollBarValueChanged,
+        IconSizeChanged
+    };
 
     KAbstractViewAdapter(QObject *parent)
         : QObject(parent)

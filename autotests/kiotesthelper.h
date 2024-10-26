@@ -107,7 +107,11 @@ void createTestPipe(const QString &path)
     QVERIFY(QFileInfo::exists(path));
 }
 
-enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1, Empty = 2 };
+enum CreateTestDirectoryOptions {
+    DefaultOptions = 0,
+    NoSymlink = 1,
+    Empty = 2
+};
 static inline void createTestDirectory(const QString &path, CreateTestDirectoryOptions opt = DefaultOptions)
 {
     QDir dir;

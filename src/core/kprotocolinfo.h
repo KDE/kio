@@ -94,7 +94,11 @@ public:
      * Currently supported types: "QString", "QDateTime" (ISO-8601 format)
      */
     struct ExtraField {
-        enum Type { String = QMetaType::QString, DateTime = QMetaType::QDateTime, Invalid = QMetaType::UnknownType };
+        enum Type {
+            String = QMetaType::QString,
+            DateTime = QMetaType::QDateTime,
+            Invalid = QMetaType::UnknownType
+        };
 
         ExtraField()
             : type(Invalid)
@@ -323,7 +327,11 @@ public:
     static QString proxiedBy(const QString &protocol);
 #endif
 
-    typedef enum { Name, FromUrl, DisplayName } FileNameUsedForCopying;
+    typedef enum {
+        Name,
+        FromUrl,
+        DisplayName
+    } FileNameUsedForCopying;
 
 private:
     Q_DISABLE_COPY(KProtocolInfo)

@@ -156,7 +156,11 @@ public:
     int currentDeviceId = 0;
     // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
     QMap<QString, int> deviceIdMap;
-    enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
+    enum CachePolicy {
+        Prevent,
+        Allow,
+        Unknown
+    } currentDeviceCachePolicy = Unknown;
     // the path of a unique temporary directory
     QString m_tempDirPath;
 

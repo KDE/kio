@@ -52,7 +52,10 @@ private Q_SLOTS:
 
 private:
     KIO::WorkerResult initImpl();
-    typedef enum { Copy, Move } CopyOrMove;
+    typedef enum {
+        Copy,
+        Move
+    } CopyOrMove;
     KIO::WorkerResult copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
     KIO::WorkerResult copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);
     void createTopLevelDirEntry(KIO::UDSEntry &entry);

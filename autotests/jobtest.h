@@ -147,7 +147,9 @@ protected Q_SLOTS:
 
 private:
     void enterLoop();
-    enum { AlreadyExists = 1 };
+    enum {
+        AlreadyExists = 1
+    };
     void copyLocalFile(const QString &src, const QString &dest);
     bool checkXattrFsSupport(const QString &writeTest);
     bool setXattr(const QString &src);

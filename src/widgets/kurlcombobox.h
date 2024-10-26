@@ -49,7 +49,11 @@ public:
     /**
      * This enum describes which kind of items is shown in the combo box.
      */
-    enum Mode { Files = -1, Directories = 1, Both = 0 };
+    enum Mode {
+        Files = -1,
+        Directories = 1,
+        Both = 0
+    };
     /**
      * This Enumeration is used in setUrl() to determine which items
      * will be removed when the given list is larger than maxItems().
@@ -57,7 +61,10 @@ public:
      * @li RemoveTop means that items will be removed from top
      * @li RemoveBottom means, that items will be removed from the bottom
      */
-    enum OverLoadResolving { RemoveTop, RemoveBottom };
+    enum OverLoadResolving {
+        RemoveTop,
+        RemoveBottom
+    };
 
     /**
      * Constructs a KUrlComboBox.

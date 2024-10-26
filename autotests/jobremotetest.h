@@ -84,7 +84,9 @@ protected Q_SLOTS:
 
 private:
     void enterLoop();
-    enum { AlreadyExists = 1 };
+    enum {
+        AlreadyExists = 1
+    };
 
     int m_result;
     bool m_closeSignalCalled;

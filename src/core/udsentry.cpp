@@ -352,7 +352,7 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     d->insert(UDS_ACCESS_TIME, buff.st_atime);
 #ifndef Q_OS_WIN
     d->insert(UDS_LOCAL_USER_ID, buff.st_uid);
-    d->insert(UDS_LOCAL_GROUP_ID,  buff.st_gid);
+    d->insert(UDS_LOCAL_GROUP_ID, buff.st_gid);
 #endif
 }
 

@@ -49,7 +49,11 @@ public:
      * are listed using KIO.
      * @li DirCompletion - Same as FileCompletion but only returns directories.
      */
-    enum Mode { ExeCompletion = 1, FileCompletion, DirCompletion };
+    enum Mode {
+        ExeCompletion = 1,
+        FileCompletion,
+        DirCompletion
+    };
 
     /**
      * Constructs a KUrlCompletion object in FileCompletion mode.

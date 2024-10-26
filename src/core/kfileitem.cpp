@@ -182,11 +182,23 @@ public:
     mutable bool m_useIconNameCache : 1;
 
     // Auto: check leading dot.
-    enum { Auto, Hidden, Shown } m_hidden : 3;
-    mutable enum { HiddenUncached, HiddenCached, ShownCached } m_hiddenCache : 3;
+    enum {
+        Auto,
+        Hidden,
+        Shown
+    } m_hidden : 3;
+    mutable enum {
+        HiddenUncached,
+        HiddenCached,
+        ShownCached
+    } m_hiddenCache : 3;
 
     // Slow? (nfs/smb/ssh)
-    mutable enum { SlowUnknown, Fast, Slow } m_slow : 3;
+    mutable enum {
+        SlowUnknown,
+        Fast,
+        Slow
+    } m_slow : 3;
 
     /**
      * True if MIME type determination by content should be skipped

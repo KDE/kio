@@ -75,7 +75,10 @@ public:
     QHash<QByteArray, TrashSizeCache::SizeAndModTime> readDirCache();
 
 private:
-    enum ScanFilesInTrashOption { CheckModificationTime, DonTcheckModificationTime };
+    enum ScanFilesInTrashOption {
+        CheckModificationTime,
+        DonTcheckModificationTime
+    };
     TrashSizeCache::SizeAndModTime scanFilesInTrash(ScanFilesInTrashOption checkDateTime = CheckModificationTime);
 
     QString mTrashSizeCachePath;

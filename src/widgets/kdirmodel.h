@@ -150,7 +150,9 @@ public:
 
     /// Possible return value for data(ChildCountRole), meaning the item isn't a directory,
     /// or we haven't calculated its child count yet
-    enum { ChildCountUnknown = -1 };
+    enum {
+        ChildCountUnknown = -1
+    };
 
     enum AdditionalRoles {
         // Note: use   printf "0x%08X\n" $(($RANDOM*$RANDOM))

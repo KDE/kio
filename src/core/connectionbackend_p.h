@@ -30,7 +30,11 @@ class ConnectionBackend : public QObject
     Q_OBJECT
 
 public:
-    enum { Idle, Listening, Connected } state;
+    enum {
+        Idle,
+        Listening,
+        Connected
+    } state;
     QUrl address;
     QString errorString;
 
