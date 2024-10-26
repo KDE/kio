@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:37+0000\n"
+"POT-Creation-Date: 2024-10-26 00:37+0000\n"
 "PO-Revision-Date: 2024-05-09 12:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2552,7 +2552,7 @@ msgstr "Fann ekki 'kioworker' keyrsluskrá á '%1'."
 msgid "&Details"
 msgstr "&Nánar"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2563,7 +2563,7 @@ msgstr "All&taf"
 msgid "Co&ntinue"
 msgstr "Á&fram"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2894,7 +2894,7 @@ msgstr "%1 (%2)"
 msgid "All Supported Files"
 msgstr "Allar studdar skrár"
 
-#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
 #: filewidgets/kfilewidget.cpp:1901
 #, kde-format
 msgid "All Files"
@@ -3678,7 +3678,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1057
+#: filewidgets/knewfilemenu.cpp:1068
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3686,7 +3686,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Settu inn annað nafn"
 
-#: filewidgets/knewfilemenu.cpp:1156
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3696,7 +3696,7 @@ msgstr ""
 "Ekki er hægt að nota heitið <filename>%1</filename> því það er frátekið til "
 "notkunar af stýrikerfinu."
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3706,7 +3706,7 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar á punkti og skráin því sjálfgefið "
 "falin."
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3717,29 +3717,29 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar með bili sem þýðir að það mun birtast "
 "á undan öðrum atriðum í stafrófsröðun, auk annarra undarlegheita."
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur, eins og "
 "hér:"
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur."
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Skástrik er ekki hægt að nota í nöfnum á skrám og möppum."
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Öfug skástrik er ekki hægt að nota í nöfnum skráa og mappa."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3749,41 +3749,41 @@ msgstr ""
 "slíkt getur verið ruglandi og haft ýmsar hættur í för með sér þegar hlutum "
 "er eytt á skipanalínu."
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mappa með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1297
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Skrá með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1383
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Búa til nýtt"
 
-#: filewidgets/knewfilemenu.cpp:1418
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Tengill í tæki"
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Ný mappa"
 
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Búa til nýja möppu"
 
-#: filewidgets/knewfilemenu.cpp:1489
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Búa til nýja möppu í: %1"
@@ -4351,13 +4351,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:320
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð til að komast á vefsvæðið."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:322
 #, kde-format
 msgid "Site:"
 msgstr "Vefsvæði:"
@@ -4386,7 +4386,7 @@ msgstr ""
 "\n"
 "Þjónninn svaraði: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4395,7 +4395,7 @@ msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð fyrir milliþjóninn hér fyrir "
 "neðan til að komast inn á vefsvæði."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "Milliþjónn (proxy):"
@@ -4445,109 +4445,109 @@ msgstr "Fletti upp hluta"
 msgid "Could not find filename %1 in %2."
 msgstr "Tókst ekki að finna skrána %1 í %2."
 
-#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
 "Vilt þú samþykkja þetta vottorð alltaf án þess að spurt sé í hvert sinn?"
 
-#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "Auðkenning þjóns"
 
-#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
-#: kioworkers/http/http.cpp:378
+#: kioworkers/http/http.cpp:340 kioworkers/http/http.cpp:379
+#: kioworkers/http/http.cpp:393
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> á <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1313
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars hefði beiðnin tekist."
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1331
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "sækja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1333
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "velja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1335
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "búa til umbeðna möppu"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "afrita umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "færa umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "leita í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "læsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "aflæsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "eyða umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "spyrja um getu þjónsins"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "sækja innihald umbeðinnar skrár eða möppu"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "keyra skýrslu í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að framkvæma %2."
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4557,13 +4557,13 @@ msgstr ""
 "Villa kom upp þegar reynt var að %1, %2. Yfirlit yfir ástæður er hér fyrir "
 "neðan."
 
-#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Aðgangi var hafnað þegar reynt var að %1."
 
-#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4572,7 +4572,7 @@ msgstr ""
 "Ekki er hægt að búa til tilfang á áfangastaðnum fyrr en búið er að búa til "
 "eitt eða fleiri söfn (möppur) á slóðinni."
 
-#: kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4586,28 +4586,28 @@ msgstr ""
 "að skrifa yfir skrá á meðan þú baðst um að ekki væri\n"
 "skrifað yfir skrár. %1"
 
-#: kioworkers/http/http.cpp:1435
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ekki tókst að að útvega umbeðna læsingu. %1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Þjónninn styður ekki gerð beiðninnar."
 
-#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 gengur ekki vegna þess að tilfang er læst."
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Þessi aðgerð var stöðvuð vegna annarrar villu."
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4616,7 +4616,7 @@ msgid ""
 msgstr ""
 "%1 gengur ekki því viðtakandinn neitar að taka við skránni eða möppunni."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4625,18 +4625,18 @@ msgstr ""
 "Viðtökutilfangið hefur ekki nægjanlegt pláss til að skrá ástand tilfangsins "
 "eftir keyrslu þessarar aðgerðar."
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ekki er hægt að eyða þessu tilfangi."
 
-#: kioworkers/http/http.cpp:1539
+#: kioworkers/http/http.cpp:1554
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "hleð upp %1"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

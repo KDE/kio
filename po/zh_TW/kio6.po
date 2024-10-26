@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:37+0000\n"
+"POT-Creation-Date: 2024-10-26 00:37+0000\n"
 "PO-Revision-Date: 2024-10-19 20:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2426,7 +2426,7 @@ msgstr "在 '%1' 找不到 'kioworker' 執行檔"
 msgid "&Details"
 msgstr "詳細資料(&D)"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2437,7 +2437,7 @@ msgstr "永遠(&F)"
 msgid "Co&ntinue"
 msgstr "繼續(&N)"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2768,7 +2768,7 @@ msgstr "%1 (%2)"
 msgid "All Supported Files"
 msgstr "所有支援的檔案"
 
-#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
 #: filewidgets/kfilewidget.cpp:1901
 #, kde-format
 msgid "All Files"
@@ -3517,13 +3517,13 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1057
+#: filewidgets/knewfilemenu.cpp:1068
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "輸入 %1 檔案名稱："
 
-#: filewidgets/knewfilemenu.cpp:1156
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3533,7 +3533,7 @@ msgstr ""
 "無法使用 <filename>%1</filename> 名稱，<nl/>因為這個檔案名稱被作業系統作為保"
 "留用途。"
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3541,7 +3541,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> 名稱是以點 (.) 開頭的，因此預設會被隱藏起來。"
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3552,27 +3552,27 @@ msgstr ""
 "此名稱 <filename>%1</filename> 以空白字元開頭，會造成它在依名稱排序時出現在其"
 "他項目前，以及其他可能發生的怪現象。"
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾，類似："
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾。"
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "斜槓 (/) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "反斜槓 (\\) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3581,41 +3581,41 @@ msgstr ""
 "不建議使用波浪號 (~) 作為檔案或資料夾名稱的開頭，因為波浪號可能會在使用終端機"
 "刪除東西時產生誤解及危險。"
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的資料夾已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1297
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的檔案已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1383
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "新增"
 
-#: filewidgets/knewfilemenu.cpp:1418
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "連結到裝置"
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "建立新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1489
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "在 %1 建立新資料夾："
@@ -4174,12 +4174,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:320
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "您必須提供一組使用者名稱和密碼來存取這個網站。"
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:322
 #, kde-format
 msgid "Site:"
 msgstr "網站："
@@ -4208,7 +4208,7 @@ msgstr ""
 "\n"
 "伺服器回傳：「%1」"
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4216,7 +4216,7 @@ msgid ""
 msgstr ""
 "您必須為下列的代理伺服器提供一組使用者名稱和密碼，才能夠取得存取網站的權限。"
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "代理伺服器："
@@ -4266,108 +4266,108 @@ msgstr "正在找尋段落"
 msgid "Could not find filename %1 in %2."
 msgstr "在%2當中找不到名稱為 %1 的檔案。"
 
-#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "您希望以後不提示就接受該憑證嗎？"
 
-#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "伺服端認證"
 
-#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
-#: kioworkers/http/http.cpp:378
+#: kioworkers/http/http.cpp:340 kioworkers/http/http.cpp:379
+#: kioworkers/http/http.cpp:393
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> 在 <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1313
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "否則，該請求就已經成功了。"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1331
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "接收屬性數值"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1333
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "設定屬性數值"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1335
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "建立所請求的資料夾"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "複製指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "搬移指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "在指定的資料夾搜尋"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "鎖住指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "解除鎖定指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "刪除指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "查詢伺服器的性能"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "接收所指定的檔案或資料夾的內容"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "在指定的資料夾執行報告"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "在連線到 %2 發生了非預期的錯誤 (%1)。"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4375,20 +4375,20 @@ msgid ""
 "below."
 msgstr "在連線到 %2 要求 %1 時發生錯誤。錯誤原因如下。"
 
-#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "連線到 %1 被拒絕，存取失敗。"
 
-#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr "資源無法在目標被建立，直到一個或多個中間集合(資料夾)已經被建立之後。"
 
-#: kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4402,28 +4402,28 @@ msgstr ""
 "仍然試圖覆寫檔案。\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1435
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "發出的鎖定請求無法被許可。%1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "伺服器並不支援請求內容的類型。"
 
-#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "無法連線到 %1，因為資源被鎖定，所以無法進行。"
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "該動作被另外一個錯誤所阻止。"
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4431,25 +4431,25 @@ msgid ""
 "folder."
 msgstr "無法連線到 %1，因為對方伺服器拒絕接收該檔案或資料夾。"
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "目標資源需的空間並不足以紀錄在執行這個方式之後的資源狀態"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "資源無法被刪除。"
 
-#: kioworkers/http/http.cpp:1539
+#: kioworkers/http/http.cpp:1554
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "上傳 %1"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

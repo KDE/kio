@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:37+0000\n"
+"POT-Creation-Date: 2024-10-26 00:37+0000\n"
 "PO-Revision-Date: 2024-10-18 17:08+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2558,7 +2558,7 @@ msgstr "Can not find 'kioworker' executable at '%1'"
 msgid "&Details"
 msgstr "&Details"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2569,7 +2569,7 @@ msgstr "&Forever"
 msgid "Co&ntinue"
 msgstr "Co&ntinue"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2900,7 +2900,7 @@ msgstr "%1 (%2)"
 msgid "All Supported Files"
 msgstr "All Supported Files"
 
-#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
 #: filewidgets/kfilewidget.cpp:1901
 #, kde-format
 msgid "All Files"
@@ -3678,13 +3678,13 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1057
+#: filewidgets/knewfilemenu.cpp:1068
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Enter %1 filename:"
 
-#: filewidgets/knewfilemenu.cpp:1156
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3694,7 +3694,7 @@ msgstr ""
 "The name <filename>%1</filename> cannot be used because it is reserved for "
 "use by the operating system."
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3704,7 +3704,7 @@ msgstr ""
 "The name <filename>%1</filename> starts with a dot, so it will be hidden by "
 "default."
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3716,27 +3716,27 @@ msgstr ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Using slashes in folder names will create sub-folders, like so:"
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Using slashes in folder names will create sub-folders."
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Slashes cannot be used in file and folder names."
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Backslashes cannot be used in file and folder names."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3745,41 +3745,41 @@ msgstr ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "A directory with name <filename>%1</filename> already exists."
 
-#: filewidgets/knewfilemenu.cpp:1297
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "A file with name <filename>%1</filename> already exists."
 
-#: filewidgets/knewfilemenu.cpp:1383
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Create New"
 
-#: filewidgets/knewfilemenu.cpp:1418
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Link to Device"
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "New Folder"
 
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Create New Folder"
 
-#: filewidgets/knewfilemenu.cpp:1489
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Create new folder in %1:"
@@ -4349,12 +4349,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:320
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "You need to supply a username and a password to access this site."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:322
 #, kde-format
 msgid "Site:"
 msgstr "Site:"
@@ -4383,7 +4383,7 @@ msgstr ""
 "\n"
 "The server said: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4392,7 +4392,7 @@ msgstr ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
@@ -4442,109 +4442,109 @@ msgstr "Looking up section"
 msgid "Could not find filename %1 in %2."
 msgstr "Could not find filename %1 in %2."
 
-#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
 "Would you like to accept this certificate forever without being prompted?"
 
-#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "Server Authentication"
 
-#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
-#: kioworkers/http/http.cpp:378
+#: kioworkers/http/http.cpp:340 kioworkers/http/http.cpp:379
+#: kioworkers/http/http.cpp:393
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> at <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1313
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Otherwise, the request would have succeeded."
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1331
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "retrieve property values"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1333
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "set property values"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1335
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "create the requested folder"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copy the specified file or folder"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "move the specified file or folder"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "search in the specified folder"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "lock the specified file or folder"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "unlock the specified file or folder"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "delete the specified file or folder"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "query the server's capabilities"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "retrieve the contents of the specified file or folder"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "run a report in the specified folder"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "An unexpected error (%1) occurred while attempting to %2."
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4554,13 +4554,13 @@ msgstr ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
 
-#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Access was denied whilst attempting to %1."
 
-#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4569,7 +4569,7 @@ msgstr ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 
-#: kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4584,28 +4584,28 @@ msgstr ""
 "that files are not overwritten.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1435
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "The requested lock could not be granted. %1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "The server does not support the request type of the body."
 
-#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Unable to %1 because the resource is locked."
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "This action was prevented by another error."
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4615,7 +4615,7 @@ msgstr ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4624,18 +4624,18 @@ msgstr ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "The resource cannot be deleted."
 
-#: kioworkers/http/http.cpp:1539
+#: kioworkers/http/http.cpp:1554
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "upload %1"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

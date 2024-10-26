@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:37+0000\n"
+"POT-Creation-Date: 2024-10-26 00:37+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2570,7 +2570,7 @@ msgstr "'%1'  كېلىشىم ئىشلىتىدىغان كىرگۈزۈش چىقى�
 msgid "&Details"
 msgstr "تەپسىلاتلار(&D)"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2581,7 +2581,7 @@ msgstr "مەڭگۈ(&F)"
 msgid "Co&ntinue"
 msgstr "داۋاملاشتۇر(&N)"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2938,7 +2938,7 @@ msgstr "%1 (%2)"
 msgid "All Supported Files"
 msgstr "قوللايدىغان ھەممە ھۆججەتلەر"
 
-#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
 #: filewidgets/kfilewidget.cpp:1901
 #, kde-format
 msgid "All Files"
@@ -3757,7 +3757,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1057
+#: filewidgets/knewfilemenu.cpp:1068
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3765,7 +3765,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "باشقا ئات كىرگۈزۈڭ"
 
-#: filewidgets/knewfilemenu.cpp:1156
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3773,7 +3773,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1175
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The name \"%1\" starts with a dot, so the directory will be hidden by "
@@ -3785,7 +3785,7 @@ msgid ""
 msgstr ""
 "\"%1\" ئات چېكىت بىلەن باشلانغان بۇ مۇندەرىجە كۆڭۈلدىكى ئەھۋالدا يوشۇرۇلىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3794,71 +3794,71 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1306
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'%1' ئاتلىق كونا تۈردىن بىرى مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1297
+#: filewidgets/knewfilemenu.cpp:1308
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "%1 ئاتلىق بىر ھۆججەت مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1383
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "يېڭىدىن قۇر"
 
-#: filewidgets/knewfilemenu.cpp:1418
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "ئۈسكۈنىگە ئۇلا"
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "يېڭى قىسقۇچ"
 
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "يېنىۋال: قىسقۇچ قۇر(&O)"
 
-#: filewidgets/knewfilemenu.cpp:1489
+#: filewidgets/knewfilemenu.cpp:1500
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -4446,13 +4446,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:320
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "سىز ئىشلەتكۈچى ئاتى ۋە ئىم تەمىنلەپ ئاندىن بۇ بېكەتنى زىيارەت قىلالايسىز."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:322
 #, kde-format
 msgid "Site:"
 msgstr "تور بېكەت:"
@@ -4480,7 +4480,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 ئىجرا قىلىۋاتىدۇ"
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4489,7 +4489,7 @@ msgstr ""
 "سىز تۆۋەندە كۆرسىتىلگەن ۋاكالىتەن مۇلازىمېتىرنى ئىشلەتكۈچى ئاتى ۋە ئىم بىلەن "
 "تەمىنلىسىڭىز ئاندىن تور بېكەتنى زىيارەت قىلالايسىز."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "ۋاكالەتچى:"
@@ -4542,108 +4542,108 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "ھۆججەت ‹%1› ئوقۇيالمىدى"
 
-#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "بۇ ئىسپاتنامىنى بۇنىڭدىن كېيىن دەخلىسىز مەڭگۈ قوبۇل قىلامسىز؟"
 
-#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "مۇلازىمېتىر ئىسپاتنامىسى"
 
-#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
-#: kioworkers/http/http.cpp:378
+#: kioworkers/http/http.cpp:340 kioworkers/http/http.cpp:379
+#: kioworkers/http/http.cpp:393
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> دىكى <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1313
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "بولمىسا، بۇ تەلەپ مۇۋەپپەقىيەتلىك ئورۇنلانغان."
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1331
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "خاسلىق قىممىتىگە ئېرىش"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1333
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "خاسلىق قىممەت تەڭشىكى"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1335
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "تەلەپ قىلغان قىسقۇچنى قۇر"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى كۆچۈر"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى يۈتكە"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "بەلگىلەنگەن قىسقۇچتىن ئىزدە"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى قۇلۇپلا"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى قۇلۇپسىزلا"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى ئۆچۈر"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "مۇلازىمېتىر ئىقتىدارىنى سۈرۈشتۈر"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچ مەزمۇنىغا ئېرىشىدۇ"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "بەلگىلەنگەن قىسقۇچتا دوكلات ئىجرا قىلىدۇ"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 نى قىلىۋاتقاندا كۈتۈلمىگەن (%1) خاتالىق يۈز بەردى."
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4653,13 +4653,13 @@ msgstr ""
 "%1, %2 نى ئېلىپ بېرىۋاتقاندا خاتالىق كۆرۈلدى. سەۋەبىنىڭ ئۈزۈمدىسى "
 "تۆۋەندىكىدەك."
 
-#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 نى ئېلىپ بېرىۋاتقاندا زىيارەت رەت قىلىندى."
 
-#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4668,7 +4668,7 @@ msgstr ""
 "بىر ياكى بىر قانچە ۋاسىتىچى توپلام (قىسقۇچ) قۇرۇلغاندىن كېيىن ئاندىن نىشان "
 "ئورۇندا مەنبەنى قۇرالايدۇ."
 
-#: kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1442
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4685,28 +4685,28 @@ msgstr ""
 "ئاكتىپچانلىقى ياكى مەلۇم بىر ھۆججەتنى قاپلاشنى سىناشنى ساقلاپ قالالمىدى، "
 "شۇنىڭ بىلەن بىرگە ئۇ ھۆججەتلەرنى قاپلىماسلىقنى تەلەپ قىلدى.  %1"
 
-#: kioworkers/http/http.cpp:1435
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "تەلەپ قىلغان قۇلۇپلاشنى تاماملىيالمىدى. %1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "مۇلازىمېتىر مەزمۇندىكى تەلەپ تىپىنى قوللىمايدۇ."
 
-#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 قىلغىلى بولمايدۇ چۈنكى مەنبە قۇلۇپلانغان."
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "بۇ ھەرىكەت باشقا بىر خاتالىق تەرىپىدىن توسۇلدى."
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4716,7 +4716,7 @@ msgstr ""
 "%1 قىلغىلى بولمايدۇ چۈنكى نىشان مۇلازىمېتىر بۇ ھۆججەت ياكى قىسقۇچنى "
 "قوبۇللاشنى رەت قىلدى."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4725,18 +4725,18 @@ msgstr ""
 "نىشان مەنبەسى بۇ ئۇسۇل ئىجرا قىلىنغاندىن كېيىن مەنبەنىڭ ھالىتىنى خاتىرىلەشكە "
 "يېتەرلىك بوشلۇق يوق."
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "مەنبەنى ئۆچۈرگىلى بولمايدۇ."
 
-#: kioworkers/http/http.cpp:1539
+#: kioworkers/http/http.cpp:1554
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 نى يۈكلە"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

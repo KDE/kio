@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:37+0000\n"
+"POT-Creation-Date: 2024-10-26 00:37+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2589,7 +2589,7 @@ msgstr "'%1' प्रोटोकलका लागि io-slave फेला �
 msgid "&Details"
 msgstr "विवरण"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:194
+#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2600,7 +2600,7 @@ msgstr "सदाको लागि"
 msgid "Co&ntinue"
 msgstr "जारी राख्नुहोस्"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:195
+#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"
@@ -2959,7 +2959,7 @@ msgstr "%1 (%2)"
 msgid "All Supported Files"
 msgstr "सबै समर्थित फाइलहरू"
 
-#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
 #: filewidgets/kfilewidget.cpp:1901
 #, fuzzy, kde-format
 #| msgid "*|All Files"
@@ -3837,14 +3837,14 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1057
+#: filewidgets/knewfilemenu.cpp:1068
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1156
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3852,7 +3852,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3860,7 +3860,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3869,74 +3869,74 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1306
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'%1' नाम भएको एउटा पुरानो वस्तु पहिले नै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1297
+#: filewidgets/knewfilemenu.cpp:1308
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "%1 नाम गरिएको फाइल पहिल्यै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1383
+#: filewidgets/knewfilemenu.cpp:1394
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "सिर्जना गर्नुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1418
+#: filewidgets/knewfilemenu.cpp:1429
 #, fuzzy, kde-format
 #| msgid "Device"
 msgid "Link to Device"
 msgstr "यन्त्र"
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1475
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नयाँ फोल्डर"
 
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "फोल्डर सिर्जना गर्न सकेन"
 
-#: filewidgets/knewfilemenu.cpp:1489
+#: filewidgets/knewfilemenu.cpp:1500
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -4528,12 +4528,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:320
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "तपाईँले यो साइट पहुँच गर्न प्रयोगकर्ता नाम र पासवर्ड प्रविष्टि गर्न आवश्यक हुन्छ ।"
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:322
 #, kde-format
 msgid "Site:"
 msgstr "साइट:"
@@ -4561,7 +4561,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 सुरु गर्दै"
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:355
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4570,7 +4570,7 @@ msgstr ""
 "तपाईँलाई कुनै पनि साइटहरूमा पहुँच अनुमति हुनका लागि तल सूचित गरिएका प्रोक्सी सर्भरका "
 "अगाडि प्रयोगकर्ता नाम र पासवर्ड वितरण गर्नु आवश्यक हुन्छ ।"
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:359
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "प्रोक्सी:"
@@ -4623,121 +4623,121 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "%1 फाइल पढ्न सकेन ।"
 
-#: kioworkers/http/http.cpp:190 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "प्रयत्न बिना नै तपाईँ यो प्रमाणपत्र सधैका लागि स्वीकार गर्न चाहनुहुन्छ?"
 
-#: kioworkers/http/http.cpp:193 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "सर्भर प्रमाणीकरण"
 
-#: kioworkers/http/http.cpp:325 kioworkers/http/http.cpp:364
-#: kioworkers/http/http.cpp:378
+#: kioworkers/http/http.cpp:340 kioworkers/http/http.cpp:379
+#: kioworkers/http/http.cpp:393
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> मा <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1313
+#: kioworkers/http/http.cpp:1328
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "अन्यथा, अनुरोध सफल भएको हुनेछ ।"
 
-#: kioworkers/http/http.cpp:1316
+#: kioworkers/http/http.cpp:1331
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "विशेषता मानहरू पुन: प्राप्त गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1318
+#: kioworkers/http/http.cpp:1333
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "विशेषता मानहरू सेट गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1320
+#: kioworkers/http/http.cpp:1335
 #, fuzzy, kde-format
 #| msgid "create the requested folder"
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "अनुरोध गरिएको फोल्डर सिर्जना गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1322
+#: kioworkers/http/http.cpp:1337
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर प्रतिलिपि गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1324
+#: kioworkers/http/http.cpp:1339
 #, fuzzy, kde-format
 #| msgid "move the specified file or folder"
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर सार्नुहोस्"
 
-#: kioworkers/http/http.cpp:1326
+#: kioworkers/http/http.cpp:1341
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "निर्दिष्ट गरिएको फोल्डरमा खोजी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1343
 #, fuzzy, kde-format
 #| msgid "lock the specified file or folder"
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरमा ताल्चा लगाउनुहोस्"
 
-#: kioworkers/http/http.cpp:1330
+#: kioworkers/http/http.cpp:1345
 #, fuzzy, kde-format
 #| msgid "unlock the specified file or folder"
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरमा ताल्चा खोल्नुहोस्"
 
-#: kioworkers/http/http.cpp:1332
+#: kioworkers/http/http.cpp:1347
 #, fuzzy, kde-format
 #| msgid "delete the specified file or folder"
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डर मेट्नुहोस्"
 
-#: kioworkers/http/http.cpp:1334
+#: kioworkers/http/http.cpp:1349
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "सर्भरको क्षमता क्वेरी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1336
+#: kioworkers/http/http.cpp:1351
 #, fuzzy, kde-format
 #| msgid "retrieve the contents of the specified file or folder"
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "निर्दिष्ट गरिएका फाइल वा फोल्डरको सामाग्री पुन: प्राप्त गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1338
+#: kioworkers/http/http.cpp:1353
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "निर्दिष्ट गरिएको फोल्डरमा खोजी गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1361
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 मा प्रयास गर्दा अनपेक्षित त्रुटि (%1) देखापर्यो ।"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1401
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4748,21 +4748,21 @@ msgid ""
 "below."
 msgstr "%1, %2 मा प्रयास गर्दा एउटा त्रुटि देखापर्यो । कारणहरूको सार तल छ ।<ul>"
 
-#: kioworkers/http/http.cpp:1404 kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 मा प्रयास गर्दा पहुँच अस्वीकार गरियो ।"
 
-#: kioworkers/http/http.cpp:1418 kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr "एक वा धरै आपसी सङ्ग्रहहरू (फोल्डरहरू) सिर्जना नभएसम्म संसाधन सिर्जना गर्न सकिँदैन ।"
 
-#: kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1442
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4778,29 +4778,29 @@ msgstr ""
 "विशेषता व्यवहार XML तत्वमा सूचिकृत गरिएका गुणहरूको अस्तित्व सम्भार गर्न वा तपाईँले अनुरोध "
 "गर्दा फाइलहरू अधिलेखन नभएको बेलामा अधिलेखन गर्ने प्रयास गर्दा सर्भर अक्षम भयो । %1"
 
-#: kioworkers/http/http.cpp:1435
+#: kioworkers/http/http.cpp:1450
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "अनुरोध गरिएको ताल्चा निकासा गर्न सकेन । %1"
 
-#: kioworkers/http/http.cpp:1441
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "सर्भरले अनुरोध गरिएको प्रकारको मुख्य भाग समर्थन गर्दैन ।"
 
-#: kioworkers/http/http.cpp:1446 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "संसाधनमा ताल्चा लगाएको हुनाले %1 अक्षम भयो ।"
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "अन्य त्रुटिद्वारा यो कार्य निषेध गरिएको थियो ।"
 
-#: kioworkers/http/http.cpp:1457 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unable to %1 because the destination server refuses to accept the file or "
@@ -4811,7 +4811,7 @@ msgid ""
 "folder."
 msgstr "गन्तव्य सर्भरले फाइल वा फोल्डर स्वीकार गर्न अस्वीकार गर्नाले %1 मा अक्षम भयो ।"
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4820,20 +4820,20 @@ msgstr ""
 "यो विधिको कार्यान्वयन पछि संसाधनको स्थिति रेकर्ड गर्न गन्तव्य संसाधनमा प्रयाप्त खाली ठाउँ "
 "छैन ।"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1534
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "निर्दिष्ट गरिएको संसाधन अवस्थित हुन सक्दैन ।"
 
-#: kioworkers/http/http.cpp:1539
+#: kioworkers/http/http.cpp:1554
 #, fuzzy, kde-format
 #| msgid "upload %1"
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 अपलोड गर्नुहोस्"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1605
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"
