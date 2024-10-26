@@ -53,8 +53,7 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId,
 
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(*info, windowId, usertime);
     if (!reply.isValid()) {
-        qCWarning(KIO_CORE) << "Can't communicate with kiod_kpasswdserver (for checkAuthInfo)!";
-        // qDebug() << reply.error().name() << reply.error().message();
+        qCWarning(KIO_CORE) << "Can't communicate with kiod_kpasswdserver (for checkAuthInfo)!" << reply.error().message();
         return false;
     }
 
