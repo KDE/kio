@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-26 00:37+0000\n"
+"POT-Creation-Date: 2024-10-27 00:37+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -91,23 +91,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1395 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Фасцикла већ постоји"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
 #: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Фајл већ постоји"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1719 core/copyjob.cpp:2424
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Већ постоји као фасцикла"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1873 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
@@ -2135,7 +2135,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер је био презаузет одговарањем на друге захтјеве да би одговорио."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1526
+#: core/job_error.cpp:1118 core/slavebase.cpp:1532
 #, kde-format
 msgid "Unknown Error"
 msgstr "Непозната грешка"
@@ -2409,17 +2409,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументована грешка"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(симболичка веза ка %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1495
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, веза ка %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1498
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (показује на %1)"
@@ -2460,98 +2460,98 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Протокол %1 не подржава отварање веза."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Протокол %1 не подржава затварање веза."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Протокол %1 не подржава приступање фајловима."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Упис у %1 није подржан.|/|Упис у $[аку %1] није подржан."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Нема никаквих посебних радњи за протокол %1."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Протокол %1 не подржава листање фасцикли."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr ""
 "Преузимање података преко %1 није подржано.|/|Преузимање података преко "
 "$[ген %1] није подржано."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 "Добављање податка о МИМЕ типу преко %1 није подржано.|/|Добављање податка о "
 "МИМЕ типу преко $[ген %1] није подржано."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Преименовање или премијештање фајлова унутар %1 није подржано.|/|"
 "Преименовање или премијештање фајлова унутар $[ген %1] није подржано."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Протокол %1 не подржава стварање симболичких веза."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr ""
 "Копирање фајлова унутар %1 није подржано.|/|Копирање фајлова унутар $[ген "
 "%1] није подржано."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr ""
 "Брисање фајлова преко %1 није подржано.|/|Брисање фајлова преко $[ген %1] "
 "није подржано."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Протокол %1 не подржава стварање фасцикли."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Протокол %1 не подржава мијењање атрибута фајловима."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:881
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Протокол %1 не подржава мијењање власништва над фајловима."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:883
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Протокол %1 не подржава отварање фајлова."
 
 # >> %2 is a numeric code of the action
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:885
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не подржава радњу %2."
@@ -3291,7 +3291,7 @@ msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1563
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3796,7 +3796,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1|/|$[аку %1]"
 
-#: filewidgets/knewfilemenu.cpp:1068
+#: filewidgets/knewfilemenu.cpp:1067
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3804,7 +3804,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Изабери друго име"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3812,7 +3812,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1174
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The name \"%1\" starts with a dot, so the directory will be hidden by "
@@ -3825,7 +3825,7 @@ msgstr ""
 "<html>Име <tt>%1</tt> почиње с тачком, тако да ће фасцикла подразумијевано "
 "бити скривена.</html>"
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1182
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3834,41 +3834,41 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1201
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1211
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1223
+#: filewidgets/knewfilemenu.cpp:1222
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1237
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1306
+#: filewidgets/knewfilemenu.cpp:1305
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Старија ставка по имену ‘%1’ већ постоји."
 
-#: filewidgets/knewfilemenu.cpp:1308
+#: filewidgets/knewfilemenu.cpp:1307
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
@@ -3877,31 +3877,31 @@ msgstr "Фајл по имену ‘%1’ већ постоји."
 
 # >> @title:menu Create new folder, file, link...
 # Без „…нови“ јер се реченица прелива на ставке подменија.
-#: filewidgets/knewfilemenu.cpp:1394
+#: filewidgets/knewfilemenu.cpp:1393
 #, kde-format
 msgid "Create New"
 msgstr "Направи"
 
 # >> @item:inmenu Create New
-#: filewidgets/knewfilemenu.cpp:1429
+#: filewidgets/knewfilemenu.cpp:1428
 #, kde-format
 msgid "Link to Device"
 msgstr "везу ка уређају"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1474
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "нова‑фасцикла"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1497
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "О&позови стварање фасцикле"
 
-#: filewidgets/knewfilemenu.cpp:1500
+#: filewidgets/knewfilemenu.cpp:1499
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3915,7 +3915,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:563 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:568 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3923,35 +3923,35 @@ msgid "Copy"
 msgstr "Копирај"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:567 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:572 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Налијепи"
 
-#: filewidgets/kurlnavigator.cpp:587
+#: filewidgets/kurlnavigator.cpp:592
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Отвори помоћу"
 
-#: filewidgets/kurlnavigator.cpp:595
+#: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:604
+#: filewidgets/kurlnavigator.cpp:609
 #, kde-format
 msgid "Edit"
 msgstr "Уреди"
 
-#: filewidgets/kurlnavigator.cpp:607
+#: filewidgets/kurlnavigator.cpp:612
 #, kde-format
 msgid "Navigate"
 msgstr "Навигација"
 
-#: filewidgets/kurlnavigator.cpp:622
+#: filewidgets/kurlnavigator.cpp:627
 #, kde-format
 msgid "Show Full Path"
 msgstr "Пуна путања"
@@ -5516,43 +5516,43 @@ msgstr "Ажурирање поставе система"
 msgid "Updating system configuration…"
 msgstr "Ажурирам поставу система..."
 
-#: widgets/kdirmodel.cpp:1233
+#: widgets/kdirmodel.cpp:1237
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "име"
 
-#: widgets/kdirmodel.cpp:1235
+#: widgets/kdirmodel.cpp:1239
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "величина"
 
-#: widgets/kdirmodel.cpp:1237
+#: widgets/kdirmodel.cpp:1241
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "датум"
 
-#: widgets/kdirmodel.cpp:1239
+#: widgets/kdirmodel.cpp:1243
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "дозволе"
 
-#: widgets/kdirmodel.cpp:1241
+#: widgets/kdirmodel.cpp:1245
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "власник"
 
-#: widgets/kdirmodel.cpp:1243
+#: widgets/kdirmodel.cpp:1247
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "група"
 
-#: widgets/kdirmodel.cpp:1245
+#: widgets/kdirmodel.cpp:1249
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5623,7 +5623,7 @@ msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
 msgstr "&Програм"
 
-#: widgets/kfileitemdelegate.cpp:209
+#: widgets/kfileitemdelegate.cpp:214
 #, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
@@ -5633,7 +5633,7 @@ msgstr[1] "%1 ставке"
 msgstr[2] "%1 ставки"
 msgstr[3] "1 ставка"
 
-#: widgets/kfileitemdelegate.cpp:264 widgets/kfileitemdelegate.cpp:268
+#: widgets/kfileitemdelegate.cpp:269 widgets/kfileitemdelegate.cpp:273
 #, kde-format
 msgctxt "@info mimetype"
 msgid "Unknown"
