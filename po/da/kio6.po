@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 00:37+0000\n"
-"PO-Revision-Date: 2024-07-10 12:53+0200\n"
+"PO-Revision-Date: 2024-10-29 10:47+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2538,6 +2538,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Sikkerheden af KIO-arbejderen for protokollen '%1', som typisk spørger om "
+"forhøjede tilladelser, kan ikke blive garanteret på grund af, at brugere "
+"udover root har tilladelse til at modificere den på %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3038,11 +3041,10 @@ msgid "Tags"
 msgstr "Mærker"
 
 #: filewidgets/kfileplacesitem.cpp:333
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (fejl %2)"
+msgstr "%1 (fra %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3217,9 +3219,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Reformatér eller redigér med Partitionshåndtering"
 
 #: filewidgets/kfileplacesview.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3696,12 +3696,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1067
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Angiv et andet navn"
+msgstr "Angiv %1 filnavn:"
 
 #: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
@@ -4294,9 +4292,9 @@ msgid "Change Timestamp"
 msgstr "Ændr tidsstempel"
 
 #: kioworkers/file/file_unix.cpp:134
-#, fuzzy, kde-format
+#, kde-format
 msgid "From: %1, To: %2"
-msgstr "Fra: %1, Til: %1"
+msgstr "Fra: %1, Til: %2"
 
 #: kioworkers/file/file_unix.cpp:137
 #, kde-format
@@ -4941,12 +4939,10 @@ msgid "&Move Here"
 msgstr "&Flyt hertil"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Hentet"
+msgstr "&Download her"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -6225,28 +6221,24 @@ msgstr ""
 "har lov til at udføre."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Kun e&jeren kan omdøbe og slette mappeindhold"
+msgstr "Kun e&jeren kan slette eller omdøber indholdet"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Aktivér dette flag for at tillade at køre filen som et program."
+msgstr "Aktivér at &køre filen som et program"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Standard-brugernavn:"
+msgstr "Slet eller omdøb:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Kør"
+msgstr "Kør:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
