@@ -35,6 +35,7 @@
 #include <KProtocolManager>
 #include <KSharedConfig>
 #include <KStandardAction>
+#include <KToggleAction>
 #include <KUrlMimeData>
 #include <kfileitemdelegate.h>
 #include <kfilepreviewgenerator.h>

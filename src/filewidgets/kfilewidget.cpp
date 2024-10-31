@@ -51,6 +51,7 @@
 #include <KSharedConfig>
 #include <KShell>
 #include <KStandardAction>
+#include <KToggleAction>
 
 #include <QAbstractProxyModel>
 #include <QApplication>
