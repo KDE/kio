@@ -17,7 +17,6 @@ if (NOT @KIOCORE_ONLY@)
     find_dependency(KF6Service "@KF_DEP_VERSION@")
 
     if (NOT @BUILD_SHARED_LIBS@)
-        find_dependency(KF6ConfigWidgets "@KF_DEP_VERSION@")
         find_dependency(KF6GuiAddons "@KF_DEP_VERSION@")
         find_dependency(KF6IconThemes "@KF_DEP_VERSION@")
 
