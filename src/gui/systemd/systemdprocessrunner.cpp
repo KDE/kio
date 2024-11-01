@@ -35,8 +35,7 @@ KProcessRunner::LaunchMode calculateLaunchMode()
     }
 
     QDBusConnection bus = QDBusConnection::sessionBus();
-    auto queryVersionMessage =
-        QDBusMessage::createMethodCall(u"org.freedesktop.systemd1"_s, u"/org/freedesktop/systemd1"_s, u"org.freedesktop.DBus.Properties"_s, u"Get"_s);
+    auto queryVersionMessage = QDBusMessage::createMethodCall(systemdService, systemdPath, u"org.freedesktop.DBus.Properties"_s, u"Get"_s);
     queryVersionMessage << u"org.freedesktop.systemd1.Manager"_s << u"Version"_s;
     QDBusReply<QDBusVariant> reply = bus.call(queryVersionMessage);
     QVersionNumber systemdVersion = QVersionNumber::fromString(reply.value().variant().toString());
