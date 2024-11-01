@@ -448,7 +448,9 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
     }
 
-    inputData->startTransaction(); // To be able to restart after redirects.
+    if (inputData) {
+        inputData->startTransaction(); // To be able to restart after redirects.
+    }
 
     QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
 
@@ -551,12 +553,16 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
     // If there was a foo -> foo/ redirect, follow it.
     if (redirectToTrailingSlash) {
-        inputData->rollbackTransaction();
+        if (inputData) {
+            inputData->rollbackTransaction();
+        }
         QUrl newUrl = url;
         newUrl.setPath(newUrl.path() + QLatin1Char('/'));
         return makeRequest(newUrl, method, inputData, dataMode, extraHeaders);
     }
-    inputData->commitTransaction();
+    if (inputData) {
+        inputData->commitTransaction();
+    }
 
     // make sure data is emitted at least once
     // NOTE: emitting an empty data set means "end of data" and must not happen
