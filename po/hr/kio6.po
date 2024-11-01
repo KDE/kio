@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:37+0000\n"
+"POT-Creation-Date: 2024-11-01 00:37+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -2609,70 +2609,70 @@ msgstr "&Nastavi"
 msgid "&Current Session only"
 msgstr "Samo trenutna s&jednica"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Niste odabrali datoteku za brisanje."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Nema ništa za brisanje"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Niste odabrali datoteku za bacanje u smeće."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Nema ništa za bacanje u smeće"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:916 filewidgets/kdiroperator.cpp:1048
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Naveden direktorij ne postoji ili nije čitljiv."
 
-#: filewidgets/kdiroperator.cpp:1943
+#: filewidgets/kdiroperator.cpp:1944
 #, kde-format
 msgid "Menu"
 msgstr "Izbornik"
 
-#: filewidgets/kdiroperator.cpp:1948
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Parent Folder"
 msgstr "Mapa roditelj"
 
-#: filewidgets/kdiroperator.cpp:1955
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1959
+#: filewidgets/kdiroperator.cpp:1960
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1963
+#: filewidgets/kdiroperator.cpp:1964
 #, kde-format
 msgid "Home Folder"
 msgstr "Osobna mapa"
 
-#: filewidgets/kdiroperator.cpp:1967
+#: filewidgets/kdiroperator.cpp:1968
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno učitaj"
 
-#: filewidgets/kdiroperator.cpp:1970
+#: filewidgets/kdiroperator.cpp:1971
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2680,214 +2680,214 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "Nova mapa"
 
-#: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1981 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Premjesti u smeće"
 
-#: filewidgets/kdiroperator.cpp:1986
+#: filewidgets/kdiroperator.cpp:1987
 #, kde-format
 msgid "Delete"
 msgstr "Izbriši"
 
-#: filewidgets/kdiroperator.cpp:1993
+#: filewidgets/kdiroperator.cpp:1994
 #, kde-format
 msgid "Sorting"
 msgstr "Sortiraj"
 
-#: filewidgets/kdiroperator.cpp:1998
+#: filewidgets/kdiroperator.cpp:1999
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "Ime domene/računala"
 
-#: filewidgets/kdiroperator.cpp:2004
+#: filewidgets/kdiroperator.cpp:2005
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Skraćeni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2010
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "Po datumu"
 
-#: filewidgets/kdiroperator.cpp:2016
+#: filewidgets/kdiroperator.cpp:2017
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "Tip unosa"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "Silazno"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Descending"
 msgstr "Silazno"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Folders First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Prikaži skrivene datoteke"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Skraćeni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Skraćeni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2067
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Detaljni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Icon Position"
 msgstr "Položaj ikone"
 
-#: filewidgets/kdiroperator.cpp:2088
+#: filewidgets/kdiroperator.cpp:2089
 #, kde-format
 msgid "Next to File Name"
 msgstr "Pokraj naziva datoteke"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Above File Name"
 msgstr "Iznad naziva datoteke"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Short View"
 msgstr "Skraćeni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed View"
 msgstr "Detaljni prikaz"
 
-#: filewidgets/kdiroperator.cpp:2122
+#: filewidgets/kdiroperator.cpp:2123
 #, kde-format
 msgid "Tree View"
 msgstr "Prikaz kroz stablo"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2130
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Detaljni prikaz kroz stablo"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2143
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Prikaži skrivene datoteke"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Prikaži pregled"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2163
 #, kde-format
 msgid "Show Preview"
 msgstr "Prikaži pregled"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2170
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2177 filewidgets/kfileplacesview.cpp:1222
 #, kde-format
 msgid "Properties"
 msgstr "Svojstva"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Prikaz"
 
-#: filewidgets/kdiroperator.cpp:2288 filewidgets/kdiroperator.cpp:2300
+#: filewidgets/kdiroperator.cpp:2289 filewidgets/kdiroperator.cpp:2301
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2289 filewidgets/kdiroperator.cpp:2301
+#: filewidgets/kdiroperator.cpp:2290 filewidgets/kdiroperator.cpp:2302
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2292
+#: filewidgets/kdiroperator.cpp:2293
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2293
+#: filewidgets/kdiroperator.cpp:2294
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2296
+#: filewidgets/kdiroperator.cpp:2297
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2297
+#: filewidgets/kdiroperator.cpp:2298
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:74
 #, kde-format
 msgid "Encoding:"
 msgstr "Kodiranje:"
 
-#: filewidgets/kencodingfiledialog.cpp:125
-#: filewidgets/kencodingfiledialog.cpp:139
-#: filewidgets/kencodingfiledialog.cpp:152
-#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164
+#: filewidgets/kencodingfiledialog.cpp:177
+#: filewidgets/kencodingfiledialog.cpp:191 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Otvori"
 
-#: filewidgets/kencodingfiledialog.cpp:180
-#: filewidgets/kencodingfiledialog.cpp:198
+#: filewidgets/kencodingfiledialog.cpp:205
+#: filewidgets/kencodingfiledialog.cpp:223
 #, kde-format
 msgid "Save As"
 msgstr "Spremi kao"
@@ -2961,7 +2961,7 @@ msgid "All Supported Files"
 msgstr "Sve podržane datoteke"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
-#: filewidgets/kfilewidget.cpp:1901
+#: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"
 msgstr "Sve datoteke"
@@ -3422,27 +3422,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:617
+#: filewidgets/kfilewidget.cpp:618
 #, kde-format
 msgid "You can only select one file"
 msgstr "Možete odabrati samo jednu datoteku"
 
-#: filewidgets/kfilewidget.cpp:617
+#: filewidgets/kfilewidget.cpp:618
 #, kde-format
 msgid "More than one file provided"
 msgstr "Pruženo je više od jedne datoteke"
 
-#: filewidgets/kfilewidget.cpp:788
+#: filewidgets/kfilewidget.cpp:789
 #, kde-format
 msgid "You can only select local files"
 msgstr "Možete odabrati samo lokalne datoteke"
 
-#: filewidgets/kfilewidget.cpp:788
+#: filewidgets/kfilewidget.cpp:789
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Udaljene datoteke nisu prihvatljive"
 
-#: filewidgets/kfilewidget.cpp:795
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3454,12 +3454,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: filewidgets/kfilewidget.cpp:801
+#: filewidgets/kfilewidget.cpp:802
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3470,12 +3470,12 @@ msgstr ""
 "direktorije, pa zato nije moguće odlučiti u kojega treba ući. Molim "
 "odaberite jedan direktorij da ga prikažem."
 
-#: filewidgets/kfilewidget.cpp:819
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Pruženo je više od jednog direktorija"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3484,22 +3484,22 @@ msgstr ""
 "Barem je jedan direktorij i jedna datoteka odabrana. Odabrane datoteke bit "
 "će zanemarene, a odabrani direktorij bit će izlistan"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Odabrane su datoteke i direktoriji"
 
-#: filewidgets/kfilewidget.cpp:848
+#: filewidgets/kfilewidget.cpp:849
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nije moguće naći datoteku \"%1\""
 
-#: filewidgets/kfilewidget.cpp:848
+#: filewidgets/kfilewidget.cpp:849
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nije moguće otvoriti datoteku"
 
-#: filewidgets/kfilewidget.cpp:1194
+#: filewidgets/kfilewidget.cpp:1195
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3514,47 +3514,47 @@ msgstr ""
 ">Na primjer, ako je trenutna lokacija file:/home/%1, klik na ovaj gumb "
 "odvest će vas na file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Klik na ovaj gumb vraća na lokaciju koja je jedan korak unatrag u povijesti "
 "pregledavanja."
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1200
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Klik na ovaj gumb pomiče jedan korak unaprijed u povijesti pregledavanja."
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Klik na ovaj gumb ponovno učitava sadržaja trenute lokacije."
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik na ovaj gumb stvara novi direktorij."
 
-#: filewidgets/kfilewidget.cpp:1205
+#: filewidgets/kfilewidget.cpp:1206
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Prikaži navigacijski panel s Mjestima"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1213
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Prikaži oznake"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Options"
 msgstr "Opcije"
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1223
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3576,12 +3576,12 @@ msgstr ""
 "li><li>pregled datoteka</li><li>odvajanje direktorija od datoteka</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1241
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Bookmarks"
 msgstr "Oznake"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1246
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3595,12 +3595,12 @@ msgstr ""
 "dijalog, s njima možete raditi kao i s oznakama drugdje unutar KDE-a.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1284 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1285 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Naziv:"
 
-#: filewidgets/kfilewidget.cpp:1361
+#: filewidgets/kfilewidget.cpp:1362
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3612,12 +3612,12 @@ msgstr ""
 "Ovom mogućnosti može se upravljati pritiskom na desnu tipku miša i "
 "odabiranjem željenog načina iz izbornika <b>Dovršavanje teksta</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ovo je ime pod kojim će datoteka biti spremljena."
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1372
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3626,75 +3626,75 @@ msgstr ""
 "Ovo je lista datoteka koje treba otvoriti. Više od jedne datoteke može se "
 "odrediti izlistavanjem nekoliko datoteka, odvojenih razmacima.  "
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1377
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ovo je ime datoteke koja će  biti otvorena."
 
-#: filewidgets/kfilewidget.cpp:1389
+#: filewidgets/kfilewidget.cpp:1390
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Mjesta"
 
-#: filewidgets/kfilewidget.cpp:1608
+#: filewidgets/kfilewidget.cpp:1609
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Datoteka \"%1\" već postoji. Želite li ju prepisati?"
 
-#: filewidgets/kfilewidget.cpp:1609
+#: filewidgets/kfilewidget.cpp:1610
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Prepisati datoteku?"
 
-#: filewidgets/kfilewidget.cpp:1805
+#: filewidgets/kfilewidget.cpp:1806
 #, kde-format
 msgid "You can only select local files."
 msgstr "Možete odabrati samo lokalne datoteke."
 
-#: filewidgets/kfilewidget.cpp:1805
+#: filewidgets/kfilewidget.cpp:1806
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Udaljene datoteke nisu prihvatljive"
 
-#: filewidgets/kfilewidget.cpp:1899
+#: filewidgets/kfilewidget.cpp:1900
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Svi direktoriji"
 
-#: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2052 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Otvori"
 
-#: filewidgets/kfilewidget.cpp:2151
+#: filewidgets/kfilewidget.cpp:2152
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Veličina ikone: %1 piksela"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2300
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatski odaberi datotečni &nastavak (%1)"
 
-#: filewidgets/kfilewidget.cpp:2300
+#: filewidgets/kfilewidget.cpp:2301
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "dodatak <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2306
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatski odaberi datotečni &nastavak"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2308
 #, kde-format
 msgid "a suitable extension"
 msgstr "prikladan nastavak"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3721,25 +3721,25 @@ msgstr ""
 "niste sigurni, ostavite ovu opciju uključenom kako bi ste imali veću "
 "preglednost nad Vašim datotekama."
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filtar:"
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2790
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2791
+#: filewidgets/kfilewidget.cpp:2792
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtar:"
 
-#: filewidgets/kfilewidget.cpp:2793
+#: filewidgets/kfilewidget.cpp:2794
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

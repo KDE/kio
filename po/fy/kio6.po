@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:37+0000\n"
+"POT-Creation-Date: 2024-11-01 00:37+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2671,287 +2671,287 @@ msgstr "Trochgea&n"
 msgid "&Current Session only"
 msgstr "&Allinne dizze sitting"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Jo hawwe net in triem selekteare om te wiskjen."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Neat te wiskjen"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Jo hawwe net in triem selektearre foar it jiskefet."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Neat foar it Jiskefet"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:916 filewidgets/kdiroperator.cpp:1048
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "De opjûne map bestiet net of is net te lêzen."
 
-#: filewidgets/kdiroperator.cpp:1943
+#: filewidgets/kdiroperator.cpp:1944
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:1948
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Parent Folder"
 msgstr "Haadmap"
 
-#: filewidgets/kdiroperator.cpp:1955
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1959
+#: filewidgets/kdiroperator.cpp:1960
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1963
+#: filewidgets/kdiroperator.cpp:1964
 #, kde-format
 msgid "Home Folder"
 msgstr "Thúsmap"
 
-#: filewidgets/kdiroperator.cpp:1967
+#: filewidgets/kdiroperator.cpp:1968
 #, fuzzy, kde-format
 #| msgid "Read"
 msgid "Reload"
 msgstr "Op 'e nij lade"
 
-#: filewidgets/kdiroperator.cpp:1970
+#: filewidgets/kdiroperator.cpp:1971
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Nije map"
 
-#: filewidgets/kdiroperator.cpp:1980 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1981 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Nei it Jiskefet"
 
-#: filewidgets/kdiroperator.cpp:1986
+#: filewidgets/kdiroperator.cpp:1987
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Delete"
 msgstr "Delete"
 
-#: filewidgets/kdiroperator.cpp:1993
+#: filewidgets/kdiroperator.cpp:1994
 #, kde-format
 msgid "Sorting"
 msgstr "Sortearje "
 
-#: filewidgets/kdiroperator.cpp:1998
+#: filewidgets/kdiroperator.cpp:1999
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "Side namme"
 
-#: filewidgets/kdiroperator.cpp:2004
+#: filewidgets/kdiroperator.cpp:2005
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2010
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "Neffens datum"
 
-#: filewidgets/kdiroperator.cpp:2016
+#: filewidgets/kdiroperator.cpp:2017
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "Itemtype"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Ascending"
 msgstr "Ofrinnend"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Descending"
 msgstr "Ofrinnend"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Folders First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2067
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Detaillearre werjefte"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2086
 #, fuzzy, kde-format
 msgid "Icon Position"
 msgstr "Neffens &posysje"
 
-#: filewidgets/kdiroperator.cpp:2088
+#: filewidgets/kdiroperator.cpp:2089
 #, fuzzy, kde-format
 msgid "Next to File Name"
 msgstr "Dit is de namme fan de te iepenjen triem."
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, fuzzy, kde-format
 #| msgid "Local Filename"
 msgid "Above File Name"
 msgstr "Namme fan it konfiguraasjetriem"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Short View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed View"
 msgstr "Detaillearre werjefte"
 
-#: filewidgets/kdiroperator.cpp:2122
+#: filewidgets/kdiroperator.cpp:2123
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Tree View"
 msgstr "It ferskil besjen"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2130
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Detailed Tree View"
 msgstr "HTML útfier besjen"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2143
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Foarbyld sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2163
 #, kde-format
 msgid "Show Preview"
 msgstr "Foarbyld sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2170
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2176 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2177 filewidgets/kfileplacesview.cpp:1222
 #, fuzzy, kde-format
 #| msgid "Properties for %1"
 msgid "Properties"
 msgstr "Eigenskippen"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, fuzzy, kde-format
 #| msgid "&Preview"
 msgid "&View Mode"
 msgstr "Byl&d"
 
-#: filewidgets/kdiroperator.cpp:2288 filewidgets/kdiroperator.cpp:2300
+#: filewidgets/kdiroperator.cpp:2289 filewidgets/kdiroperator.cpp:2301
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2289 filewidgets/kdiroperator.cpp:2301
+#: filewidgets/kdiroperator.cpp:2290 filewidgets/kdiroperator.cpp:2302
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2292
+#: filewidgets/kdiroperator.cpp:2293
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2293
+#: filewidgets/kdiroperator.cpp:2294
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2296
+#: filewidgets/kdiroperator.cpp:2297
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2297
+#: filewidgets/kdiroperator.cpp:2298
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr ""
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:74
 #, kde-format
 msgid "Encoding:"
 msgstr "Kod&earring:"
 
-#: filewidgets/kencodingfiledialog.cpp:125
-#: filewidgets/kencodingfiledialog.cpp:139
-#: filewidgets/kencodingfiledialog.cpp:152
-#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164
+#: filewidgets/kencodingfiledialog.cpp:177
+#: filewidgets/kencodingfiledialog.cpp:191 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Iepenje"
 
-#: filewidgets/kencodingfiledialog.cpp:180
-#: filewidgets/kencodingfiledialog.cpp:198
+#: filewidgets/kencodingfiledialog.cpp:205
+#: filewidgets/kencodingfiledialog.cpp:223
 #, kde-format
 msgid "Save As"
 msgstr "Bewarje as"
@@ -3026,7 +3026,7 @@ msgid "All Supported Files"
 msgstr "Alle stipe triemen"
 
 #: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:172
-#: filewidgets/kfilewidget.cpp:1901
+#: filewidgets/kfilewidget.cpp:1902
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3524,30 +3524,30 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:617
+#: filewidgets/kfilewidget.cpp:618
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:617
+#: filewidgets/kfilewidget.cpp:618
 #, fuzzy, kde-format
 msgid "More than one file provided"
 msgstr "mear as ien dokuminttype definieart"
 
-#: filewidgets/kfilewidget.cpp:788
+#: filewidgets/kfilewidget.cpp:789
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:788
+#: filewidgets/kfilewidget.cpp:789
 #, fuzzy, kde-format
 #| msgid "Remote Files Not Accepted"
 msgid "Remote files not accepted"
 msgstr "Net-lokale triemen wurde net akseptearre"
 
-#: filewidgets/kfilewidget.cpp:795
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3558,12 +3558,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:801
+#: filewidgets/kfilewidget.cpp:802
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:817
+#: filewidgets/kfilewidget.cpp:818
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3571,36 +3571,36 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:819
+#: filewidgets/kfilewidget.cpp:820
 #, fuzzy, kde-format
 msgid "More than one folder provided"
 msgstr "mear as ien dokuminttype definieart"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:831
 #, fuzzy, kde-format
 #| msgid "%1 is a file, but a folder was expected."
 msgid "Files and folders selected"
 msgstr "Dielde triemmen en mappen"
 
-#: filewidgets/kfilewidget.cpp:848
+#: filewidgets/kfilewidget.cpp:849
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The file \"%1\" could not be found"
 msgstr "De module %1 wie net te finen."
 
-#: filewidgets/kfilewidget.cpp:848
+#: filewidgets/kfilewidget.cpp:849
 #, fuzzy, kde-format
 msgid "Cannot open file"
 msgstr "Kin de triem %1 net iepenje."
 
-#: filewidgets/kfilewidget.cpp:1194
+#: filewidgets/kfilewidget.cpp:1195
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<p>For instance, if the "
@@ -3615,46 +3615,46 @@ msgstr ""
 "de lokaasje fan dit stuit file:/home/%1 is, dan komme jo yn de map file:/"
 "home at  jo op dizze knop drukke.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1198
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Klik op dizze knop om in stap tebek te gean in de sneup-skiednis."
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1200
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Klik op dizze knop om in stap foarút te gean yn de sneup-skiednis."
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Klik op dizze knop om de ynhâld fan de aktive lokaasje op'e nij te laden."
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik op dizze knop om in nije map oan te meitsjen."
 
-#: filewidgets/kfilewidget.cpp:1205
+#: filewidgets/kfilewidget.cpp:1206
 #, fuzzy, kde-format
 #| msgid "Show Quick Access Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Untwikkelder (navigaasjepaniel-framewerk)"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1213
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Blêdwizer sjen litte"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1220
 #, fuzzy, kde-format
 #| msgid "Operation"
 msgid "Options"
 msgstr "Opsjes"
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1223
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the configuration menu for the file dialog. Various options "
@@ -3676,12 +3676,12 @@ msgstr ""
 "litten fan it navigaasjepaniel</li> <li>triemfoarbylden</li><li>mappen "
 "skieden fan triemen werjaan</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1241
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Bookmarks"
 msgstr "Blêdwizers"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3702,12 +3702,12 @@ msgstr ""
 
 #  i18n: file ./kfile/kpropertiesdesktopbase.ui line 103
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1284 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1285 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Namme:"
 
-#: filewidgets/kfilewidget.cpp:1361
+#: filewidgets/kfilewidget.cpp:1362
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3725,12 +3725,12 @@ msgstr ""
 "de rjochter mûsknop yn it tekstgebiet te klikken en yn it menu "
 "<b>tekstoanfolling</b> in oare metoade te selektearjen."
 
-#: filewidgets/kfilewidget.cpp:1368
+#: filewidgets/kfilewidget.cpp:1369
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dit is de namme dy't jo de triem jouwe by it bewarjen."
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1372
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3739,77 +3739,77 @@ msgstr ""
 "Dit is in list mei te iepenjen triemen. Jo kinne mear dan ien triem "
 "oantsjutte troch meardere triemnammen, skieden troch spaasjes, op te jaan."
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1377
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dit is de namme fan de te iepenjen triem."
 
-#: filewidgets/kfilewidget.cpp:1389
+#: filewidgets/kfilewidget.cpp:1390
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Places"
 
-#: filewidgets/kfilewidget.cpp:1608
+#: filewidgets/kfilewidget.cpp:1609
 #, fuzzy, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "In sesje mei de namme '%1' bestiet al, wolle jo it oerskriuwe?"
 
-#: filewidgets/kfilewidget.cpp:1609
+#: filewidgets/kfilewidget.cpp:1610
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "Triem oerskriuwe?"
 
-#: filewidgets/kfilewidget.cpp:1805
+#: filewidgets/kfilewidget.cpp:1806
 #, kde-format
 msgid "You can only select local files."
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:1805
+#: filewidgets/kfilewidget.cpp:1806
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Net-lokale triemen wurde net akseptearre"
 
-#: filewidgets/kfilewidget.cpp:1899
+#: filewidgets/kfilewidget.cpp:1900
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:2051 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2052 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Iepenje"
 
-#: filewidgets/kfilewidget.cpp:2151
+#: filewidgets/kfilewidget.cpp:2152
 #, fuzzy, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ofbylding - %1x%2 piksels"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2300
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatysk triemnammetahea&ksels selektearje (%1)"
 
-#: filewidgets/kfilewidget.cpp:2300
+#: filewidgets/kfilewidget.cpp:2301
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "it taheaksel <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2306
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatysk triemnammetahea&ksels selektearje"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2308
 #, kde-format
 msgid "a suitable extension"
 msgstr "in gaadlik taheaksel"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2316
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3848,25 +3848,25 @@ msgstr ""
 "(dizze punt sil automatysk fuorthelle wurde).</li></ol>Binne jo net wis? Lit "
 "dizze opsje dan oanstean. Dit makket it behearen fan jo triemen ienfâldiger."
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2789
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filterje:"
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2790
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2791
+#: filewidgets/kfilewidget.cpp:2792
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filterje:"
 
-#: filewidgets/kfilewidget.cpp:2793
+#: filewidgets/kfilewidget.cpp:2794
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the filter to apply to the file list. File names that do not "
