@@ -60,6 +60,9 @@ private:
 
 int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 {
+    if (str.length() == pos + 1) {
+        return 0;
+    }
     uint option = str[pos + 1].unicode();
     switch (option) {
     case 'c':
