@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:37+0000\n"
+"POT-Creation-Date: 2024-11-02 00:37+0000\n"
 "PO-Revision-Date: 2024-10-13 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -4478,90 +4478,90 @@ msgstr "Overitev strežnika"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> pri <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Sicer bi zahteva uspela."
 
-#: kioworkers/http/http.cpp:1331
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "pridobiti vrednosti lastnosti"
 
-#: kioworkers/http/http.cpp:1333
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "nastaviti vrednosti lastnosti"
 
-#: kioworkers/http/http.cpp:1335
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ustvariti zahtevane mape"
 
-#: kioworkers/http/http.cpp:1337
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopirati navedene datoteko ali mapo"
 
-#: kioworkers/http/http.cpp:1339
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "premakniti navedene datoteke ali mape"
 
-#: kioworkers/http/http.cpp:1341
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "iskati v navedeni mapi"
 
-#: kioworkers/http/http.cpp:1343
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zakleniti navedene datoteke ali mape"
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "odkleniti navedene datoteke ali mape"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "izbrisati navedene datoteke ali mape"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1355
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "poizvesti o zmožnostih strežnika"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1357
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "pridobiti vsebine navedene datoteke ali mape"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1359
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "zagnati poročila v navedeni mapi"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Prišlo je do nepričakovane napake (%1), ko se je poskušalo %2."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4570,13 +4570,13 @@ msgid ""
 msgstr ""
 "Prišlo je do napake, ko se je poskušalo %1, %2. Povzetek razlogov je spodaj."
 
-#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1425 kioworkers/http/http.cpp:1569
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Dostop je bil zavrnjen, ko se je poskušalo %1."
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1439 kioworkers/http/http.cpp:1576
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4585,7 +4585,7 @@ msgstr ""
 "Vir na cilju ne more biti ustvarjen, dokler ni bila ustvarjena ena ali več "
 "vmesnih zbirk (map) ."
 
-#: kioworkers/http/http.cpp:1442
+#: kioworkers/http/http.cpp:1448
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4600,28 +4600,28 @@ msgstr ""
 "zahtevo, da naj se datoteke ne prepišejo.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Zahtevane zaklenitve ni bilo mogoče zagotoviti. %1"
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1462
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Strežnik ne podpira zahtevane vrste telesa."
 
-#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1467 kioworkers/http/http.cpp:1584
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ni mogoče %1, ker je vir zaklenjen."
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "To dejanje je preprečila druga napaka."
 
-#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
+#: kioworkers/http/http.cpp:1478 kioworkers/http/http.cpp:1591
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4629,7 +4629,7 @@ msgid ""
 "folder."
 msgstr "Ni mogoče %1, ker ciljni strežnik odklanja sprejem datoteke ali mape."
 
-#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1600
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4637,18 +4637,18 @@ msgid ""
 msgstr ""
 "Ciljni vir nima dovolj prostora za zapis stanja vira po izvedbi te metode."
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Vira ni mogoče izbrisati."
 
-#: kioworkers/http/http.cpp:1554
+#: kioworkers/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "pošlji %1"
 
-#: kioworkers/http/http.cpp:1605
+#: kioworkers/http/http.cpp:1611
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-01 00:37+0000\n"
+"POT-Creation-Date: 2024-11-02 00:37+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4535,90 +4535,90 @@ msgstr "Servera autentificēšana"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> uz <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1328
+#: kioworkers/http/http.cpp:1334
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Citādi pieprasījums tiktu izpildīts."
 
-#: kioworkers/http/http.cpp:1331
+#: kioworkers/http/http.cpp:1337
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "saņemt īpašību vērtības"
 
-#: kioworkers/http/http.cpp:1333
+#: kioworkers/http/http.cpp:1339
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "uzstādīt īpašību vērtības"
 
-#: kioworkers/http/http.cpp:1335
+#: kioworkers/http/http.cpp:1341
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "izveidot pieprasīto mapi"
 
-#: kioworkers/http/http.cpp:1337
+#: kioworkers/http/http.cpp:1343
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopēt norādīto failu vai mapi"
 
-#: kioworkers/http/http.cpp:1339
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pārvietot norādīto failu vai mapi"
 
-#: kioworkers/http/http.cpp:1341
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "meklēt norādītajā mapē"
 
-#: kioworkers/http/http.cpp:1343
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "slēgt norādīto failu vai mapi"
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "atslēgt norādīto failu vai mapi"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "dzēst norādīto failu vai mapi"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1355
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "pārbaudīt servera iespējas"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1357
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "saņemt norādītās mapes vai faila saturu"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1359
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "darbināt atskaiti norādītajā mapē"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Gadījusies neparedzēta kļūda (%1), mēģinot %2."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4626,13 +4626,13 @@ msgid ""
 "below."
 msgstr "Gadījusies kļūda, mēģinot %1, %2. Iemeslu kopsavilkums ir zemāk."
 
-#: kioworkers/http/http.cpp:1419 kioworkers/http/http.cpp:1563
+#: kioworkers/http/http.cpp:1425 kioworkers/http/http.cpp:1569
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Pieeja bija aizliegta, mēģinot %1."
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1439 kioworkers/http/http.cpp:1576
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4641,7 +4641,7 @@ msgstr ""
 "Nevar izveidot resursu mērķī, vispirms jāizveido viena vai vairākas "
 "starpkolekcijas (mapes)."
 
-#: kioworkers/http/http.cpp:1442
+#: kioworkers/http/http.cpp:1448
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4658,28 +4658,28 @@ msgstr ""
 "vai arī jūs mēģinājāt pārrakstīt failu, vienlaicīgi pieprasot, ka faili nav "
 "pārrakstāmi. %1"
 
-#: kioworkers/http/http.cpp:1450
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Nevar realizēt pieprasīto slēgšanu. %1"
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1462
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Serveris neatbalsta pieprasījuma tipa ķermeni."
 
-#: kioworkers/http/http.cpp:1461 kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1467 kioworkers/http/http.cpp:1584
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nevar %1, jo resurss ir slēgts."
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Šo darbību apturēja cita kļūda."
 
-#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1585
+#: kioworkers/http/http.cpp:1478 kioworkers/http/http.cpp:1591
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4687,7 +4687,7 @@ msgid ""
 "folder."
 msgstr "Nevar %1, jo mērķa serveris atteicās pieņemt failu vai mapi."
 
-#: kioworkers/http/http.cpp:1481 kioworkers/http/http.cpp:1594
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1600
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4696,18 +4696,18 @@ msgstr ""
 "Uz mērķa resursa nav pietiekoši vietas, lai ierakstītu resursa stāvokli pēc "
 "šīs metodes izpildes."
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Šo resursu nevar izdzēst."
 
-#: kioworkers/http/http.cpp:1554
+#: kioworkers/http/http.cpp:1560
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "augšupielādēt %1"
 
-#: kioworkers/http/http.cpp:1605
+#: kioworkers/http/http.cpp:1611
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
