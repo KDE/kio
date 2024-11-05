@@ -17,10 +17,11 @@ namespace KIO
 {
 class NameFinderJobPrivate;
 /*!
- * @class KIO::NameFinderJob namefinderjob.h <KIO/NameFinderJob>
+ * \class KIO::NameFinderJob
+ * \inheaderfile KIO/NameFinderJob
+ * \inmodule KIOCore
  *
- *
- * @brief NameFinderJob finds a valid "New Folder" name.
+ * \brief NameFinderJob finds a valid "New Folder" name.
  *
  * This job is useful when suggesting a new folder/file name, e.g. in KNewFileMenu,
  * the text box is pre-filled with a suggested name, typically in the form "New Folder";
@@ -42,9 +43,9 @@ class NameFinderJobPrivate;
  *
  * If the job fails for any reason targerUrl() will return an empty URL.
  *
- * @note You must call start() to start the job.
+ * \note You must call start() to start the job.
  *
- * @code
+ * \code
  *    // Create the job
  *    auto nameJob = new KIO::NameFinderJob(baseUrl, name, this);
  *    // Connect to the result() slot, and after making sure there were no errors call
@@ -61,9 +62,9 @@ class NameFinderJobPrivate;
  *
  *    // Start the job
  *    nameJob->start();
- * @endcode
+ * \endcode
  *
- * @since 5.76
+ * \since 5.76
  */
 
 class KIOCORE_EXPORT NameFinderJob : public KCompositeJob
@@ -72,11 +73,12 @@ class KIOCORE_EXPORT NameFinderJob : public KCompositeJob
 
 public:
     /*!
-     * @brief Creates a NameFinderJob to get a "New Folder" (or "Text File.txt") name that doesn't
+     * Creates a NameFinderJob to get a "New Folder" (or "Text File.txt") name that doesn't
      * already exist.
      *
-     * @param baseUrl URL of the directory where a new folder/file is going to be created
-     * @param name the initially proposed name of the new folder/file
+     * \a baseUrl URL of the directory where a new folder/file is going to be created
+     *
+     * \a name the initially proposed name of the new folder/file
      */
     explicit NameFinderJob(const QUrl &baseUrl, const QString &name, QObject *parent);
 

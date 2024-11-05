@@ -18,13 +18,16 @@ namespace KIO
 {
 class MkpathJobPrivate;
 /*!
- * @class KIO::MkpathJob mkpathjob.h <KIO/MkpathJob>
+ * \class KIO::MkpathJob
+ * \inheaderfile KIO/MkpathJob
+ * \inmodule KIOCore
  *
- * A KIO job that creates a directory, after creating all parent
+ * \brief A KIO job that creates a directory, after creating all parent
  * directories necessary for this.
  *
- * @see KIO::mkpath(), KIO::mkdir()
- * @since 5.4
+ * \sa KIO::mkpath()
+ * \sa KIO::mkdir()
+ * \since 5.4
  */
 class KIOCORE_EXPORT MkpathJob : public Job
 {
@@ -53,15 +56,17 @@ private:
  * Creates a directory, creating parent directories as needed.
  * Unlike KIO::mkdir(), the job will succeed if the directory exists already.
  *
- * @param url The URL of the directory to create.
- * @param baseUrl Optionally, the URL to start from, which is known to exist
+ * \a url The URL of the directory to create.
+ *
+ * \a baseUrl Optionally, the URL to start from, which is known to exist
  * (e.g. the directory currently listed).
- * @param flags mkpath() supports HideProgressInfo.
  *
- * If @p baseUrl is not an ancestor of @p url, @p baseUrl will be ignored.
+ * \a flags mkpath() supports HideProgressInfo.
  *
- * @return A pointer to the job handling the operation.
- * @since 5.4
+ * If \a baseUrl is not an ancestor of \a url, \a baseUrl will be ignored.
+ *
+ * Returns a pointer to the job handling the operation.
+ * \since 5.4
  */
 KIOCORE_EXPORT MkpathJob *mkpath(const QUrl &url, const QUrl &baseUrl = QUrl(), JobFlags flags = DefaultFlags);
 

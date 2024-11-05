@@ -19,19 +19,22 @@ namespace KIO
 class MimeTypeFinderJobPrivate;
 
 /*!
- * @class MimeTypeFinderJob MimeTypeFinderjob.h <KIO/MimeTypeFinderJob>
+ * \class KIO::MimeTypeFinderJob
+ * \inheaderfile KIO/MimeTypeFinderJob
+ * \inmodule KIOCore
  *
- * @brief MimeTypeFinderJob finds out the MIME type of a URL.
+ * \brief MimeTypeFinderJob finds out the MIME type of a URL.
  *
- * @since 5.80
+ * \since 5.80
  */
 class KIOCORE_EXPORT MimeTypeFinderJob : public KCompositeJob
 {
     Q_OBJECT
 public:
     /*!
-     * @brief Creates an MimeTypeFinderJob for a URL.
-     * @param url the URL of the file/directory to examine
+     * Creates an MimeTypeFinderJob for a URL.
+     *
+     * \a url the URL of the file/directory to examine
      */
     explicit MimeTypeFinderJob(const QUrl &url, QObject *parent = nullptr);
 
@@ -45,7 +48,8 @@ public:
     /*!
      * Sets whether the job should follow URL redirections.
      * This is enabled by default.
-     * @param b whether to follow redirections or not
+     *
+     * \a b whether to follow redirections or not
      */
     void setFollowRedirections(bool b);
 
@@ -55,7 +59,8 @@ public:
      * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
-     * @param suggestedFileName the file name
+     *
+     * \a suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
@@ -78,18 +83,21 @@ public:
 
     /*!
      * Returns where authentication prompts are enabled or disabled.
-     * @see setAuthenticationPromptEnabled
+     * \sa setAuthenticationPromptEnabled()
      */
     bool isAuthenticationPromptEnabled() const;
 
     /*!
      * Starts the job.
      * You must call this, after having called all the needed setters.
+     * \reimp
      */
     void start() override;
 
     /*!
-     * @return the MIME type. Only valid after the result() signal has been emitted.
+     * Returns the MIME type.
+     *
+     * Only valid after the result() signal has been emitted.
      */
     QString mimeType() const;
 
