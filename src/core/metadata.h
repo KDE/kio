@@ -15,9 +15,8 @@
 namespace KIO
 {
 /*!
- * @class KIO::MetaData metadata.h <KIO/MetaData>
- *
  * MetaData is a simple map of key/value strings.
+ * \internal
  */
 class MetaData : public QMap<QString, QString>
 {
@@ -39,14 +38,16 @@ public:
 
     /*!
      * Creates a meta data map from a QVaraint map.
-     * @since 4.3.1
+     * \since 4.3.1
      */
     MetaData(const QMap<QString, QVariant> &);
 
     /*!
      * Adds the given meta data map to this map.
-     * @param metaData the map to add
-     * @return this map
+     *
+     * \a metaData the map to add
+     *
+     * Returns this map
      */
     MetaData &operator+=(const QMap<QString, QString> &metaData)
     {
@@ -63,25 +64,31 @@ public:
      * This convenience function allows you to easily assign the values
      * of a QVariant to this meta data class.
      *
-     * @param metaData the map to add
-     * @return this map
-     * @since 4.3.1
+     * \a metaData the map to add
+     *
+     * Returns this map
+     *
+     * \since 4.3.1
      */
     MetaData &operator+=(const QMap<QString, QVariant> &metaData);
 
     /*!
      * Sets the given meta data map to this map.
-     * @param metaData the map to add
-     * @return this map
-     * @since 4.3.1
+     *
+     * \a metaData the map to add
+     *
+     * Returns this map
+     *
+     * \since 4.3.1
      */
     MetaData &operator=(const QMap<QString, QVariant> &metaData);
 
     /*!
      * Returns the contents of the map as a QVariant.
      *
-     * @return a QVariant representation of the meta data map.
-     * @since 4.3.1
+     * Returns a QVariant representation of the meta data map.
+     *
+     * \since 4.3.1
      */
     QVariant toVariant() const;
 };

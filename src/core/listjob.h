@@ -33,15 +33,17 @@ class KIOCORE_EXPORT ListJob : public SimpleJob
 public:
     ~ListJob() override;
 
+    /*!
+     * \value IncludeHidden Include hidden files in the listing.
+     */
     enum class ListFlag {
-        IncludeHidden = 1 << 0, ///< Include hidden files in the listing.
+        IncludeHidden = 1 << 0,
     };
     Q_DECLARE_FLAGS(ListFlags, ListFlag)
 
     /*!
      * Returns the ListJob's redirection URL. This will be invalid if there
      * was no redirection.
-     * @return the redirection url
      */
     const QUrl &redirectionUrl() const;
 
@@ -57,16 +59,20 @@ Q_SIGNALS:
      * uses SimpleJob's processedSize (number of entries listed) and
      * totalSize (total number of entries, if known),
      * as well as percent.
-     * @param job the job that emitted this signal
-     * @param list the list of UDSEntries
+     *
+     * \a job the job that emitted this signal
+     *
+     * \a list the list of UDSEntries
      */
     void entries(KIO::Job *job, const KIO::UDSEntryList &list); // TODO KDE5: use KIO::ListJob* argument to avoid casting
 
     /*!
      * This signal is emitted when a sub-directory could not be listed.
      * The job keeps going, thus doesn't result in an overall error.
-     * @param job the job that emitted the signal
-     * @param subJob the job listing a sub-directory, which failed. Use
+     *
+     * \a job the job that emitted the signal
+     *
+     * \a subJob the job listing a sub-directory, which failed. Use
      *       url(), error() and errorText() on that job to find
      *       out more.
      */
@@ -76,17 +82,22 @@ Q_SIGNALS:
      * Signals a redirection.
      * Use to update the URL shown to the user.
      * The redirection itself is handled internally.
-     * @param job the job that is redirected
-     * @param url the new url
+     *
+     * \a job the job that is redirected
+     *
+     * \a url the new url
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
     /*!
      * Signals a permanent redirection.
      * The redirection itself is handled internally.
-     * @param job the job that emitted this signal
-     * @param fromUrl the original URL
-     * @param toUrl the new URL
+     *
+     * \a job the job that emitted this signal
+     *
+     * \a fromUrl the original URL
+     *
+     * \a toUrl the new URL
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
@@ -102,16 +113,18 @@ protected:
 };
 
 /*!
- * List the contents of @p url, which is assumed to be a directory.
+ * List the contents of \a url, which is assumed to be a directory.
  *
  * "." and ".." are returned, filter them out if you don't want them.
  *
+ * \a url the url of the directory
  *
- * @param url the url of the directory
- * @param flags Can be HideProgressInfo here
- * @param includeHidden true for all files, false to cull out UNIX hidden
+ * \a flags Can be HideProgressInfo here
+ *
+ * \a includeHidden true for all files, false to cull out UNIX hidden
  *                      files/dirs (whose names start with dot)
- * @return the job handling the operation.
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, ListJob::ListFlags listFlags = ListJob::ListFlag::IncludeHidden);
 
@@ -122,11 +135,14 @@ KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, 
  * "." and ".." are returned but only for the toplevel directory.
  * Filter them out if you don't want them.
  *
- * @param url the url of the directory
- * @param flags Can be HideProgressInfo here
- * @param includeHidden true for all files, false to cull out UNIX hidden
+ * \a url the url of the directory
+ *
+ * \a flags Can be HideProgressInfo here
+ *
+ * \a includeHidden true for all files, false to cull out UNIX hidden
  *                      files/dirs (whose names start with dot)
- * @return the job handling the operation.
+ *
+ * Returns the job handling the operation.
  */
 KIOCORE_EXPORT ListJob *listRecursive(const QUrl &url, JobFlags flags = DefaultFlags, ListJob::ListFlags listFlags = ListJob::ListFlag::IncludeHidden);
 
