@@ -388,6 +388,7 @@ SimpleJob *KIO::unmount(const QString &point, JobFlags flags)
 
 //////////
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 9)
 SimpleJob *KIO::http_update_cache(const QUrl &url, bool no_cache, const QDateTime &expireDate)
 {
     Q_ASSERT(url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https"));
@@ -395,5 +396,6 @@ SimpleJob *KIO::http_update_cache(const QUrl &url, bool no_cache, const QDateTim
     KIO_ARGS << (int)2 << url << no_cache << qlonglong(expireDate.toMSecsSinceEpoch() / 1000);
     return SimpleJobPrivate::newJob(url, CMD_SPECIAL, packedArgs);
 }
+#endif
 
 #include "moc_simplejob.cpp"

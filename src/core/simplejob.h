@@ -227,6 +227,7 @@ KIOCORE_EXPORT SimpleJob *mount(bool ro, const QByteArray &fstype, const QString
  */
 KIOCORE_EXPORT SimpleJob *unmount(const QString &point, JobFlags flags = DefaultFlags);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 9)
 /**
  * HTTP cache update
  *
@@ -235,8 +236,12 @@ KIOCORE_EXPORT SimpleJob *unmount(const QString &point, JobFlags flags = Default
  * @param expireDate Local machine time indicating when the entry is
  * supposed to expire.
  * @return the job handling the operation.
+ *
+ * @deprecated since 6.9, not implemented.
  */
+KIOCORE_DEPRECATED_VERSION(6, 9, "Not implemented")
 KIOCORE_EXPORT SimpleJob *http_update_cache(const QUrl &url, bool no_cache, const QDateTime &expireDate);
+#endif
 
 /**
  * Delete a single file.
