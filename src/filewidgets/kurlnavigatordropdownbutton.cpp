@@ -7,6 +7,8 @@
 #include "kurlnavigator.h"
 #include "kurlnavigatordropdownbutton_p.h"
 
+#include <KLocalizedString>
+
 #include <QKeyEvent>
 #include <QPainter>
 #include <QStyleOption>
@@ -16,6 +18,7 @@ namespace KDEPrivate
 KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
 {
+    setText(i18nc("@action:button opening a list of locations", "Go to Location on Path"));
 }
 
 KUrlNavigatorDropDownButton::~KUrlNavigatorDropDownButton()

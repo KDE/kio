@@ -15,10 +15,11 @@ namespace KDEPrivate
 {
 /**
  * @brief Button of the URL navigator which offers a drop down menu
- *        of hidden paths.
+ *        of the hidden portion of the path.
  *
  * The button will only be shown if the width of the URL navigator is
- * too small to show the whole path.
+ * too small to show the whole path or if some part of the path is
+ * expected to be a known location like "home".
  */
 class KUrlNavigatorDropDownButton : public KUrlNavigatorButtonBase
 {

@@ -779,6 +779,10 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
         m_navButtons.erase(itBegin, itEnd);
     }
 
+    m_dropDownButton->setToolTip(xi18nc("@info:tooltip for button. 1 is path",
+                                        "Go to any location on the path <filename>%1</filename>",
+                                        currentUrl.toDisplayString(QUrl::RemoveScheme | QUrl::NormalizePathSegments | QUrl::RemoveAuthority))
+                                     .replace(QStringLiteral("///"), QStringLiteral("/")));
     q->setTabOrder(m_dropDownButton, m_navButtons.constFirst());
     q->setTabOrder(m_navButtons.constLast(), m_toggleEditableMode);
 
