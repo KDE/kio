@@ -33,12 +33,12 @@ class CopyJobPrivate;
  * Don't create the job directly, but use KIO::copy(),
  * KIO::move(), KIO::link() and friends.
  *
- * \sa KIO::copy()
- * \sa KIO::copyAs()
- * \sa KIO::move()
- * \sa KIO::moveAs()
- * \sa KIO::link()
- * \sa KIO::linkAs()
+ * \sa copy()
+ * \sa copyAs()
+ * \sa move()
+ * \sa moveAs()
+ * \sa link()
+ * \sa linkAs()
  */
 class KIOCORE_EXPORT CopyJob : public Job
 {
@@ -252,6 +252,8 @@ private:
 };
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Copy a file or directory \a src into the destination \a dest,
  * which can be a file (including the final filename) or a directory
  * (into which \a src will be copied).
@@ -272,6 +274,8 @@ private:
 KIOCORE_EXPORT CopyJob *copy(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Copy a file or directory \a src into the destination \a dest,
  * which is the destination name in any case, even for a directory.
  *
@@ -292,6 +296,8 @@ KIOCORE_EXPORT CopyJob *copy(const QUrl &src, const QUrl &dest, JobFlags flags =
 KIOCORE_EXPORT CopyJob *copyAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Copy a list of file/dirs \a src into a destination directory \a dest.
  *
  * \a src the list of files and/or directories
@@ -308,6 +314,8 @@ KIOCORE_EXPORT CopyJob *copyAs(const QUrl &src, const QUrl &dest, JobFlags flags
 KIOCORE_EXPORT CopyJob *copy(const QList<QUrl> &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Moves a file or directory \a src to the given destination \a dest.
  *
  * \a src the file or directory to copy
@@ -325,6 +333,8 @@ KIOCORE_EXPORT CopyJob *copy(const QList<QUrl> &src, const QUrl &dest, JobFlags 
  */
 KIOCORE_EXPORT CopyJob *move(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 /*!
+ * \relates KIO::CopyJob
+ *
  * Moves a file or directory \a src to the given destination \a dest. Unlike move()
  * this operation will not move \a src into \a dest when \a dest exists: it will
  * either fail, or move the contents of \a src into it if Overwrite is set.
@@ -342,6 +352,8 @@ KIOCORE_EXPORT CopyJob *move(const QUrl &src, const QUrl &dest, JobFlags flags =
  */
 KIOCORE_EXPORT CopyJob *moveAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 /*!
+ * \relates KIO::CopyJob
+ *
  * Moves a list of files or directories \a src to the given destination \a dest.
  *
  * \a src the list of files or directories to copy
@@ -359,6 +371,8 @@ KIOCORE_EXPORT CopyJob *moveAs(const QUrl &src, const QUrl &dest, JobFlags flags
 KIOCORE_EXPORT CopyJob *move(const QList<QUrl> &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Create a link.
  * If the protocols and hosts are the same, a Unix symlink will be created.
  * Otherwise, a .desktop file of Type Link and pointing to the src URL will be created.
@@ -374,6 +388,8 @@ KIOCORE_EXPORT CopyJob *move(const QList<QUrl> &src, const QUrl &dest, JobFlags 
 KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Create several links
  * If the protocols and hosts are the same, a Unix symlink will be created.
  * Otherwise, a .desktop file of Type Link and pointing to the src URL will be created.
@@ -385,11 +401,12 @@ KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flag
  * \a flags link() supports HideProgressInfo only
  *
  * Returns the job handling the operation
- * \sa link()
  */
 KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Create a link. Unlike link() this operation will fail when \a dest is an existing
  * directory rather than the final name for the link.
  * If the protocols and hosts are the same, a Unix symlink will be created.
@@ -402,12 +419,14 @@ KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFla
  * \a flags linkAs() supports HideProgressInfo only
  *
  * Returns the job handling the operation
- * \sa link ()
+ * \sa link()
  * \sa copyAs()
  */
 KIOCORE_EXPORT CopyJob *linkAs(const QUrl &src, const QUrl &dest, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Trash a file or directory.
  * This is currently only supported for local files and directories.
  * Use QUrl::fromLocalFile to create a URL from a local file path.
@@ -421,6 +440,8 @@ KIOCORE_EXPORT CopyJob *linkAs(const QUrl &src, const QUrl &dest, JobFlags flags
 KIOCORE_EXPORT CopyJob *trash(const QUrl &src, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::CopyJob
+ *
  * Trash a list of files or directories.
  * This is currently only supported for local files and directories.
  *

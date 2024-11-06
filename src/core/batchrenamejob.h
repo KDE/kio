@@ -54,6 +54,8 @@ private:
 };
 
 /*!
+ * \relates KIO::BatchRenameJob
+ *
  * Renames multiple files at once.
  *
  * The new filename is obtained by replacing the characters represented by
