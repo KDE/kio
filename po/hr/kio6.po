@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -3946,11 +3946,25 @@ msgstr "Navigiraj"
 msgid "Show Full Path"
 msgstr "Prikaži cijelu putanju"
 
+#: filewidgets/kurlnavigator.cpp:783
+#, fuzzy, kde-kuit-format
+#| msgid "Do you really want to move this item to the trash?"
+#| msgid_plural "Do you really want to move these %1 items to the trash?"
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr "Želite li zaista premjestiti ovu %1 stavku u smeće?"
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "Više"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

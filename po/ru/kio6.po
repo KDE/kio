@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2024-09-05 15:42+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3864,11 +3864,25 @@ msgstr "Перейти"
 msgid "Show Full Path"
 msgstr "Показывать полный путь"
 
+#: filewidgets/kurlnavigator.cpp:783
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr "Не удалось передать «<filename>%1</filename>»"
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "Больше"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

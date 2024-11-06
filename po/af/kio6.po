@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4058,12 +4058,24 @@ msgstr ""
 msgid "Show Full Path"
 msgstr ""
 
+#: filewidgets/kurlnavigator.cpp:783
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr "Wil jy rerig hierdie item uitvee?"
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "Stoor"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, fuzzy, kde-format

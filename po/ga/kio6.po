@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3813,11 +3813,25 @@ msgstr "Nascleanúint"
 msgid "Show Full Path"
 msgstr "Taispeáin an Chonair Iomlán"
 
+#: filewidgets/kurlnavigator.cpp:783
+#, fuzzy, kde-kuit-format
+#| msgid "Do you really want to move this item to the trash?"
+#| msgid_plural "Do you really want to move these %1 items to the trash?"
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "Tuilleadh"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

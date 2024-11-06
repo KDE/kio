@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2024-10-13 15:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -3867,11 +3867,25 @@ msgstr "Навігація"
 msgid "Show Full Path"
 msgstr "Показати повний шлях"
 
+#: filewidgets/kurlnavigator.cpp:783
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr "Не вдалося перенести <filename>%1</filename>"
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "Більше"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

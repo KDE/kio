@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:37+0000\n"
+"POT-Creation-Date: 2024-11-06 00:37+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -3637,12 +3637,24 @@ msgstr "શોધખોળ"
 msgid "Show Full Path"
 msgstr "સંપૂર્ણ માર્ગ બતાવો"
 
+#: filewidgets/kurlnavigator.cpp:783
+#, kde-kuit-format
+msgctxt "@info:tooltip for button. 1 is path"
+msgid "Go to any location on the path <filename>%1</filename>"
+msgstr ""
+
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"
 msgid "More"
 msgstr "સંગ્રહ કરો"
+
+#: filewidgets/kurlnavigatordropdownbutton.cpp:21
+#, kde-format
+msgctxt "@action:button opening a list of locations"
+msgid "Go to Location on Path"
+msgstr ""
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
