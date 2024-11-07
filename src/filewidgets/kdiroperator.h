@@ -251,14 +251,14 @@ public:
      * Sets a filter like "*.cpp *.h *.o". Only files matching that filter
      * will be shown.
      *
-     * @see KDirLister::setNameFilter
-     * @see nameFilter
+     * \sa KDirLister::setNameFilter
+     * \sa nameFilter
      */
     void setNameFilter(const QString &filter);
 
     /*!
      * Returnss the current namefilter.
-     * @see setNameFilter
+     * \sa setNameFilter
      */
     QString nameFilter() const;
 
@@ -276,8 +276,8 @@ public:
      * Node: Without the MIME type inode/directory, only files would be shown.
      * Call updateDir() to apply it.
      *
-     * @see KDirLister::setMimeFilter
-     * @see mimeFilter
+     * \sa KDirLister::setMimeFilter
+     * \sa mimeFilter
      */
     void setMimeFilter(const QStringList &mimetypes);
 
@@ -302,8 +302,8 @@ public:
      * Note: If the list is empty, all options will be shown. Otherwise,
      * without the MIME type inode/directory, only file options will be shown.
      *
-     * @see KNewFileMenu::setSupportedMimeTypes
-     * @see newFileMenuSupportedMimeTypes
+     * \sa KNewFileMenu::setSupportedMimeTypes
+     * \sa newFileMenuSupportedMimeTypes
      */
     void setNewFileMenuSupportedMimeTypes(const QStringList &mime);
 
@@ -323,8 +323,8 @@ public:
      * Clears both the namefilter and MIME type filter, so that all files and
      * directories will be shown. Call updateDir() to apply it.
      *
-     * @see setMimeFilter
-     * @see setNameFilter
+     * \sa setMimeFilter
+     * \sa setNameFilter
      */
     void clearFilter();
 
@@ -366,13 +366,13 @@ public:
 
     /*!
      * Returnss the currently used view.
-     * @see setView
+     * \sa setView
      */
     QAbstractItemView *view() const;
 
     /*!
      * Set the view mode to one of the predefined modes.
-     * @see KFile::FileView
+     * \sa KFile::FileView
      *
      * @since 5.100
      */
@@ -381,7 +381,7 @@ public:
     /*!
      * Returns the current view mode.
      * Returnss KFile::FileView
-     * @see KFile::FileView
+     * \sa KFile::FileView
      * @since 5.0
      */
     KFile::FileView viewMode() const;
@@ -518,8 +518,8 @@ public:
      * You must not delete the KConfig or KConfigGroup object (and master config object) before
      * either deleting the KDirOperator or  calling setViewConfig(0); or something like that
      *
-     * @see viewConfig
-     * @see viewConfigGroup
+     * \sa viewConfig
+     * \sa viewConfigGroup
      */
     virtual void setViewConfig(KConfigGroup &configGroup);
 
@@ -537,17 +537,17 @@ public:
      * \endcode
      * to apply it.
      *
-     * @see setView
-     * @see setViewConfig
-     * @see writeConfig
+     * \sa setView
+     * \sa setViewConfig
+     * \sa writeConfig
      */
     virtual void readConfig(const KConfigGroup &configGroup);
 
     /*!
      * Saves the current settings like sorting, simple or detailed view.
      *
-     * @see readConfig
-     * @see setViewConfig
+     * \sa readConfig
+     * \sa setViewConfig
      */
     virtual void writeConfig(KConfigGroup &configGroup);
 
@@ -565,7 +565,7 @@ public:
     /*!
      * Returnss whether files (not directories) should only be select()ed by
      * double-clicks.
-     * @see setOnlyDoubleClickSelectsFiles
+     * \sa setOnlyDoubleClickSelectsFiles
      */
     bool onlyDoubleClickSelectsFiles() const;
 
@@ -579,7 +579,7 @@ public:
      * Returnss true if setUrl is called on newly created directories, false
      * otherwise. Enabled by default.
      * @since 5.62
-     * @see setFollowNewDirectories
+     * \sa setFollowNewDirectories
      */
     bool followNewDirectories() const;
 
@@ -624,7 +624,7 @@ public:
      *    to go to /a/b/, "c" will be highlighted; using the back action again to go
      *    to /a/, "b" will be highlighted
      *
-     * @see dirHighlighting. The default is to highlight directories when going back/up.
+     * \sa dirHighlighting. The default is to highlight directories when going back/up.
      */
     virtual void setEnableDirHighlighting(bool enable);
 
@@ -751,8 +751,8 @@ protected:
      * \a parent   is the QWidget to be set as parent
      * \a viewKind is the predefined view to be set, note: this can be several ones OR:ed together
      * Returnss the created view
-     * @see KFile::FileView
-     * @see setView
+     * \sa KFile::FileView
+     * \sa setView
      */
     virtual QAbstractItemView *createView(QWidget *parent, KFile::FileView viewKind);
 
@@ -772,7 +772,7 @@ protected:
 
     /*!
      * Updates the sorting-related actions to comply with the current sorting
-     * @see sorting
+     * \sa sorting
      */
     void updateSortActions();
 
@@ -874,7 +874,7 @@ public Q_SLOTS:
     /*!
      * Initiates a rename operation on the currently selected files/directories,
      * prompting the user to choose a new name(s) for the currently selected items
-     * @see renamingFinished
+     * \sa renamingFinished
      * @since 5.67
      */
     void renameSelected();

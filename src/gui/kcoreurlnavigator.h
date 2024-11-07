@@ -116,7 +116,7 @@ public:
     /*!
      * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
-     * @see    KCoreUrlNavigator::saveLocationState()
+     * \sa    KCoreUrlNavigator::saveLocationState()
      */
     Q_INVOKABLE QVariant locationState(int historyIndex = -1) const;
 

@@ -160,7 +160,7 @@ public:
      * Sets the point at which this thumb-creator's sequence indices
      * will wrap around.
      *
-     * @see sequenceIndexWraparoundPoint()
+     * \sa sequenceIndexWraparoundPoint()
      */
     void setSequenceIndexWraparoundPoint(float wraparoundPoint);
 

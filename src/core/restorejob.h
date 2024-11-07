@@ -23,8 +23,8 @@ class RestoreJobPrivate;
  * RestoreJob is used to restore files from the trash.
  * Don't create the job directly, but use KIO::restoreFromTrash().
  *
- * @see KIO::trash()
- * @see KIO::copy()
+ * \sa KIO::trash()
+ * \sa KIO::copy()
  * @since 5.2
  */
 class KIOCORE_EXPORT RestoreJob : public Job

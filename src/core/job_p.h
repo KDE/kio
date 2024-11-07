@@ -152,19 +152,19 @@ public:
 
     /*!
      * Called on a worker's connected signal.
-     * @see connected()
+     * \sa connected()
      */
     void slotConnected();
     /*!
      * Forward signal from the worker.
      * \a data_size the processed size in bytes
-     * @see processedSize()
+     * \sa processedSize()
      */
     void slotProcessedSize(KIO::filesize_t data_size);
     /*!
      * Forward signal from the worker.
      * \a speed the speed in bytes/s
-     * @see speed()
+     * \sa speed()
      */
     void slotSpeed(unsigned long speed);
     /*!
@@ -177,7 +177,7 @@ public:
     /*!
      * Called on a worker's info message.
      * \a s the info message
-     * @see infoMessage()
+     * \sa infoMessage()
      */
     void _k_slotWorkerInfoMessage(const QString &s);
 

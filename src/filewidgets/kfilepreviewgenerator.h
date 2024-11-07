@@ -78,13 +78,13 @@ public:
      *
      * For a list of available plugins, call KIO::PreviewJob::availableThumbnailerPlugins().
      *
-     * @see enabledPlugins
+     * \sa enabledPlugins
      */
     void setEnabledPlugins(const QStringList &list);
 
     /*!
      * Returns the list of enabled thumbnail plugins.
-     * @see setEnabledPlugins
+     * \sa setEnabledPlugins
      */
     QStringList enabledPlugins() const;
 

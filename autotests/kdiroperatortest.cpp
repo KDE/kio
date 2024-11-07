@@ -257,7 +257,7 @@ private Q_SLOTS:
     /*!
      * If one copies the location of a file and then paste that into the location bar,
      * the directory browser should show the directory of the file instead of showing an error.
-     * @see https://bugs.kde.org/459900
+     * \sa https://bugs.kde.org/459900
      */
     void test_bug459900()
     {

@@ -36,7 +36,7 @@ class KIOGUI_EXPORT PreviewJob : public KIO::Job
 public:
     /*!
      * Specifies the type of scaling that is applied to the generated preview.
-     * For HiDPI, pixel density scaling, @see setDevicePixelRatio
+     * For HiDPI, pixel density scaling, \sa setDevicePixelRatio
      *
      */
     enum ScaleType {
@@ -73,13 +73,13 @@ public:
     /*!
      * Sets the scale type for the generated preview. Per default
      * PreviewJob::ScaledAndCached is set.
-     * @see PreviewJob::ScaleType
+     * \sa PreviewJob::ScaleType
      */
     void setScaleType(ScaleType type);
 
     /*!
      * Returns The scale type for the generated preview.
-     * @see PreviewJob::ScaleType
+     * \sa PreviewJob::ScaleType
      */
     ScaleType scaleType() const;
 
@@ -118,7 +118,7 @@ public:
      * ThumbSequenceCreator supports sub-integer precision, but frontends
      * supporting only integer sequence indices may choose to round it down.
      *
-     * @see ThumbSequenceCreator::sequenceIndexWraparoundPoint()
+     * \sa ThumbSequenceCreator::sequenceIndexWraparoundPoint()
      * @since 5.80
      */
     float sequenceIndexWraparoundPoint() const;
@@ -194,7 +194,7 @@ private:
 public:
     /*!
      * Sets a default device Pixel Ratio used for Previews
-     * @see setDevicePixelRatio
+     * \sa setDevicePixelRatio
      *
      * Defaults to 1
      *

@@ -23,7 +23,7 @@ namespace KIO
  * @class KIO::WidgetsAskUserActionHandler widgetsaskuseractionhandler.h <KIO/WidgetsAskUserActionHandler>
  *
  * This implements KIO::AskUserActionInterface.
- * @see KIO::AskUserActionInterface()
+ * \sa KIO::AskUserActionInterface()
  *
  * @sa KIO::JobUiDelegateExtension()
  *

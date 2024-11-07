@@ -86,13 +86,13 @@ public:
 
     /*
      * Asks for data from the job.
-     * @see readData
+     * \sa readData
      */
     void dataReq();
 
     /*
      * open succeeds
-     * @see open()
+     * \sa open()
      */
     void opened();
 
@@ -119,8 +119,8 @@ public:
      * You can add rich text markup to the message, the places where the
      * error message will be displayed are rich text aware.
      *
-     * @see KIO::Error
-     * @see KIO::buildErrorString
+     * \sa KIO::Error
+     * \sa KIO::buildErrorString
      * \a _errid the error code from KIO::Error
      * \a _text the rich text error message
      */
@@ -449,24 +449,24 @@ public:
     /*
      * read.
      * \a size the requested amount of data to read
-     * @see KIO::FileJob::read()
+     * \sa KIO::FileJob::read()
      */
     virtual void read(KIO::filesize_t size);
     /*
      * write.
      * \a data the data to write
-     * @see KIO::FileJob::write()
+     * \sa KIO::FileJob::write()
      */
     virtual void write(const QByteArray &data);
     /*
      * seek.
      * \a offset the requested amount of data to read
-     * @see KIO::FileJob::read()
+     * \sa KIO::FileJob::read()
      */
     virtual void seek(KIO::filesize_t offset);
     /*
      * close.
-     * @see KIO::FileJob::close()
+     * \sa KIO::FileJob::close()
      */
     virtual void close();
 
@@ -483,7 +483,7 @@ public:
      *
      * IMPORTANT: Use the "modified" metadata in order to set the modification time of the file.
      *
-     * @see canResume()
+     * \sa canResume()
      */
     virtual void put(const QUrl &url, int permissions, JobFlags flags);
 
@@ -792,7 +792,7 @@ public:
      * store the password information in a persistent storage like
      * KWallet, then you MUST call @ref cacheAuthentication.
      *
-     * @see checkCachedAuthentication
+     * \sa checkCachedAuthentication
      * \a info  See AuthInfo.
      * \a errorMsg Error message to show
      * Returns a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
@@ -909,7 +909,7 @@ public:
     /*
      * Checks with job if privilege operation is allowed.
      * Returns privilege operation status.
-     * @see PrivilegeOperationStatus
+     * \sa PrivilegeOperationStatus
      * @since 5.66
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
@@ -975,7 +975,7 @@ namespace KIO
  * is an unsupported action (ERR_UNSUPPORTED_ACTION).
  * \a protocol name of the protocol
  * \a cmd given command
- * @see enum Command
+ * \sa enum Command
  */
 KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 }

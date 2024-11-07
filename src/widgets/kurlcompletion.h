@@ -169,14 +169,14 @@ public:
 
     /*!
      * Sets the MIME type filters for the file dialog.
-     * @see QFileDialog::setMimeTypeFilters()
+     * \sa QFileDialog::setMimeTypeFilters()
      * @since 5.38
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
 
     /*!
      * Returns the MIME type filters for the file dialog.
-     * @see QFileDialog::mimeTypeFilters()
+     * \sa QFileDialog::mimeTypeFilters()
      * @since 5.38
      */
     QStringList mimeTypeFilters() const;

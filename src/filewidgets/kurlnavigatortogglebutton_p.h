@@ -26,7 +26,7 @@ public:
     explicit KUrlNavigatorToggleButton(KUrlNavigator *parent);
     ~KUrlNavigatorToggleButton() override;
 
-    /*! @see QWidget::sizeHint() */
+    /*! \sa QWidget::sizeHint() */
     QSize sizeHint() const override;
 
 protected:

@@ -26,7 +26,7 @@
  * Contact staikos@kde.org for details if needed.
  *
  * @author George Staikos <staikos@kde.org>
- * @see KSSL
+ * \sa KSSL
  * @short KDE SSL Information Dialog
  */
 class KIOWIDGETS_EXPORT KSslInfoDialog : public QDialog

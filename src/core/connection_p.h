@@ -46,7 +46,7 @@ public:
     };
     /*!
      * Creates a new connection.
-     * @see connectToRemote, listenForRemote
+     * \sa connectToRemote, listenForRemote
      */
     explicit Connection(Type type, QObject *parent = nullptr);
     ~Connection() override;
@@ -65,7 +65,7 @@ public:
     /*!
      * Checks whether the connection has been initialized.
      * Returns true if the initialized
-     * @see init()
+     * \sa init()
      */
     bool inited() const;
 

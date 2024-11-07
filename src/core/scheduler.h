@@ -40,7 +40,7 @@ class SchedulerPrivate;
  * queued. When a worker is finished with a job, it will be assigned
  * a job from the queue.
  *
- * @see KIO::Job
+ * \sa KIO::Job
  */
 class Scheduler : public QObject
 {

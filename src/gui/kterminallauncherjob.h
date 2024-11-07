@@ -66,7 +66,7 @@ public:
     /*!
      * Can be used to pass environment variables to the child process.
      * \a environment set of environment variables to pass to the child process
-     * @see QProcessEnvironment
+     * \sa QProcessEnvironment
      */
     void setProcessEnvironment(const QProcessEnvironment &environment);
 

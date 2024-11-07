@@ -75,7 +75,7 @@ public:
      * setFileFilter().
      *
      * By default, this is set to match all files.
-     * @see defaultFileFilter
+     * \sa defaultFileFilter
      *
      * @since 6.0
      */
@@ -83,7 +83,7 @@ public:
 
     /*!
      * Returns the default filter, used when an empty filter is set.
-     * @see setDefaultFileFilter
+     * \sa setDefaultFileFilter
      *
      * @since 6.0
      */

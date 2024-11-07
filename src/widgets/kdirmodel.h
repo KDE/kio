@@ -50,7 +50,7 @@ public:
 
     /*!
      * Flags for the openUrl() method
-     * @see OpenUrlFlags
+     * \sa OpenUrlFlags
      * @since 5.69
      */
     enum OpenUrlFlag {
@@ -162,7 +162,7 @@ public:
     };
 
     /*!
-     * @see DropsAllowed
+     * \sa DropsAllowed
      */
     enum DropsAllowedFlag {
         NoDrops = 0,
@@ -211,10 +211,10 @@ public:
     /// Reimplemented from QAbstractItemModel.
     /// Call this to set a new icon, e.g. a preview
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-    /// Reimplemented from QAbstractItemModel. Not implemented. @see KDirSortFilterProxyModel
+    /// Reimplemented from QAbstractItemModel. Not implemented. \sa KDirSortFilterProxyModel
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
     /// Reimplemented from QAbstractItemModel.
-    /// @see AdditionalRoles
+    /// \sa AdditionalRoles
     QHash<int, QByteArray> roleNames() const override;
 
     /*!

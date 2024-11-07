@@ -64,7 +64,7 @@ public:
 
     /*!
      * Sets all the data for the next instance of the popupmenu.
-     * @see KFileItemListProperties
+     * \sa KFileItemListProperties
      */
     void setItemListProperties(const KFileItemListProperties &itemList);
 

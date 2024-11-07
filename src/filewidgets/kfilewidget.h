@@ -96,8 +96,8 @@ public:
      *
      * @p Other means that no default actions are performed.
      *
-     * @see setOperationMode
-     * @see operationMode
+     * \sa setOperationMode
+     * \sa operationMode
      */
     enum OperationMode {
         Other = 0,
@@ -154,7 +154,7 @@ public:
     /*!
      * Sets a list of URLs as preselected
      *
-     * @see setSelectedUrl
+     * \sa setSelectedUrl
      * @since 5.75
      */
     void setSelectedUrls(const QList<QUrl> &urls);
@@ -173,8 +173,8 @@ public:
      *
      * Call this method right after instantiating KFileWidget.
      *
-     * @see operationMode
-     * @see KFileWidget::OperationMode
+     * \sa operationMode
+     * \sa KFileWidget::OperationMode
      */
     void setOperationMode(OperationMode);
 
@@ -182,8 +182,8 @@ public:
      * Returnss the current operation mode, Opening, Saving or Other. Default
      * is Other.
      *
-     * @see operationMode
-     * @see KFileWidget::OperationMode
+     * \sa operationMode
+     * \sa KFileWidget::OperationMode
      */
     OperationMode operationMode() const;
 
@@ -224,8 +224,8 @@ public:
      * Returns the current filter as entered by the user or one of the
      * predefined set via setFilters().
      *
-     * @see setFilters()
-     * @see filterChanged()
+     * \sa setFilters()
+     * \sa filterChanged()
      *
      * @since 6.0
      */
@@ -274,7 +274,7 @@ public:
 
     /*!
      * Returns the mode of the filedialog.
-     * @see setMode()
+     * \sa setMode()
      */
     KFile::Modes mode() const;
 
@@ -325,7 +325,7 @@ public:
      *        KRecentDirs::add().
      * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
-     * @see KFileWidget::KFileWidget()
+     * \sa KFileWidget::KFileWidget()
      */
     static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass);
 
@@ -346,7 +346,7 @@ public:
      * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
      *
-     * @see KFileWidget::KFileWidget()
+     * \sa KFileWidget::KFileWidget()
      */
     static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass, QString &fileName);
 
@@ -404,7 +404,7 @@ public:
     /*!
      * Sets how the view should be displayed.
      *
-     * @see KFile::FileView
+     * \sa KFile::FileView
      * @since 5.0
      */
     void setViewMode(KFile::FileView mode);
@@ -473,7 +473,7 @@ Q_SIGNALS:
      * Note: fileHighlighted() or fileSelected() are @em not
      * emitted in multiselection mode. You may use selectedItems() to
      * ask for the current highlighted items.
-     * @see fileSelected
+     * \sa fileSelected
      */
     void selectionChanged();
 
@@ -484,8 +484,8 @@ Q_SIGNALS:
      * \a filter contains the new filter (only the extension part,
      * not the explanation), i.e. "*.cpp" or "*.cpp *.cc".
      *
-     * @see setFilters()
-     * @see currentFilter()
+     * \sa setFilters()
+     * \sa currentFilter()
      *
      * @since 6.0
      */

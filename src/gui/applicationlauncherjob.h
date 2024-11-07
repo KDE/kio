@@ -102,7 +102,7 @@ public:
     void setUrls(const QList<QUrl> &urls);
 
     /*!
-     * @see RunFlag
+     * \sa RunFlag
      */
     enum RunFlag {
         DeleteTemporaryFiles = 0x1, ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)

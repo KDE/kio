@@ -45,13 +45,13 @@ public:
     // Note: run   printf "0x%08X\n" $(($RANDOM*$RANDOM))
     // to define additional roles.
     enum AdditionalRoles {
-        /*! roleName is "url". @see url() */
+        /*! roleName is "url". \sa url() */
         UrlRole = 0x069CD12B,
 
-        /*! roleName is "isHidden". @see isHidden() */
+        /*! roleName is "isHidden". \sa isHidden() */
         HiddenRole = 0x0741CAAC,
 
-        /*! roleName is "isSetupNeeded". @see setupNeeded() */
+        /*! roleName is "isSetupNeeded". \sa setupNeeded() */
         SetupNeededRole = 0x059A935D,
 
         /*!
@@ -74,19 +74,19 @@ public:
 
         /*!
          * roleName is "iconName".
-         * @see icon()
+         * \sa icon()
          * @since 5.41
          */
         IconNameRole = 0x00a45c00,
 
         /*! roleName is "isGroupHidden".
-         * @see isGroupHidden()
+         * \sa isGroupHidden()
          * @since 5.42
          */
         GroupHiddenRole = 0x21a4b936,
 
         /*! roleName is "isTeardownAllowed".
-         * @see isTeardownAllowed().
+         * \sa isTeardownAllowed().
          * @since 5.91
          */
         TeardownAllowedRole = 0x02533364,
@@ -98,14 +98,14 @@ public:
 
         /*!
          * roleName is "isTeardownOverlayRecommended".
-         * @see isTeardownOverlayRecommended()
+         * \sa isTeardownOverlayRecommended()
          * @since 5.95
          */
         TeardownOverlayRecommendedRole = 0x032EDCCE,
 
         /*!
          * roleName is "deviceAccessibility".
-         * @see deviceAccessibility()
+         * \sa deviceAccessibility()
          * @since 5.99
          */
         DeviceAccessibilityRole = 0x023FFD93,
@@ -210,13 +210,13 @@ public:
 
     /*!
      * Returns Whether the place at index @p index is a device handled by Solid.
-     * @see deviceForIndex()
+     * \sa deviceForIndex()
      */
     Q_INVOKABLE bool isDevice(const QModelIndex &index) const;
 
     /*!
      * Returns The solid device of the place at index @p index, if it is a device. Otherwise a default Solid::Device() instance is returned.
-     * @see isDevice()
+     * \sa isDevice()
      */
     Solid::Device deviceForIndex(const QModelIndex &index) const;
 
@@ -241,7 +241,7 @@ public:
 
     /*!
      * Returns The list of model indexes that have @ type as their group type.
-     * @see groupType()
+     * \sa groupType()
      * @since 5.42
      */
     Q_INVOKABLE QModelIndexList groupIndexes(const GroupType type) const;
@@ -249,14 +249,14 @@ public:
     /*!
      * Returns A QAction with a proper translated label that can be used to trigger the requestTeardown()
      * method for the place at index @p index.
-     * @see requestTeardown()
+     * \sa requestTeardown()
      */
     Q_INVOKABLE QAction *teardownActionForIndex(const QModelIndex &index) const;
 
     /*!
      * Returns A QAction with a proper translated label that can be used to trigger the requestEject()
      * method for the place at index @p index.
-     * @see requestEject()
+     * \sa requestEject()
      */
     Q_INVOKABLE QAction *ejectActionForIndex(const QModelIndex &index) const;
 
@@ -267,19 +267,19 @@ public:
 
     /*!
      * Unmounts the place at index @p index by triggering the teardown functionality of its Solid device.
-     * @see deviceForIndex()
+     * \sa deviceForIndex()
      */
     Q_INVOKABLE void requestTeardown(const QModelIndex &index);
 
     /*!
      * Ejects the place at index @p index by triggering the eject functionality of its Solid device.
-     * @see deviceForIndex()
+     * \sa deviceForIndex()
      */
     Q_INVOKABLE void requestEject(const QModelIndex &index);
 
     /*!
      * Mounts the place at index @p index by triggering the setup functionality of its Solid device.
-     * @see deviceForIndex()
+     * \sa deviceForIndex()
      */
     Q_INVOKABLE void requestSetup(const QModelIndex &index);
 
@@ -307,7 +307,7 @@ public:
      * \a text The new user-visible text for the place
      * \a url The new URL of the place
      * \a iconName The new icon of the place
-     * \a appName The new application-local filter for the place (@see addPlace()).
+     * \a appName The new application-local filter for the place (\sa addPlace()).
      */
     Q_INVOKABLE void
     editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
@@ -320,14 +320,14 @@ public:
     /*!
      * Changes the visibility of the place with index @p index, but only if the place is not inside an hidden group.
      * \a hidden Whether the place should be hidden or visible.
-     * @see isGroupHidden()
+     * \sa isGroupHidden()
      */
     Q_INVOKABLE void setPlaceHidden(const QModelIndex &index, bool hidden);
 
     /*!
      * Changes the visibility of the group with type @p type.
      * \a hidden Whether the group should be hidden or visible.
-     * @see isGroupHidden()
+     * \sa isGroupHidden()
      * @since 5.42
      */
     Q_INVOKABLE void setGroupHidden(const GroupType type, bool hidden);
@@ -341,7 +341,7 @@ public:
 
     /*!
      * Returns The number of hidden places in the model.
-     * @see isHidden()
+     * \sa isHidden()
      */
     Q_INVOKABLE int hiddenCount() const;
 
@@ -367,7 +367,7 @@ public:
     QModelIndex parent(const QModelIndex &child) const override;
 
     /// Reimplemented from QAbstractItemModel.
-    /// @see AdditionalRoles
+    /// \sa AdditionalRoles
     QHash<int, QByteArray> roleNames() const override;
 
     /*!
@@ -450,7 +450,7 @@ Q_SIGNALS:
     /*!
      * Emitted after the Solid setup ends.
      * \a success Whether the Solid setup has been successful.
-     * @see requestSetup()
+     * \sa requestSetup()
      */
     void setupDone(const QModelIndex &index, bool success);
 
@@ -469,7 +469,7 @@ Q_SIGNALS:
     /*!
      * Emitted whenever the visibility of the group @p group changes.
      * \a hidden The new visibility of the group.
-     * @see setGroupHidden()
+     * \sa setGroupHidden()
      * @since 5.42
      */
     void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
