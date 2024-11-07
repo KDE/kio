@@ -139,17 +139,17 @@ public:
     ~KFilePlacesModel() override;
 
     /*!
-     * @return The URL of the place at index @p index.
+     * Returns The URL of the place at index @p index.
      */
     Q_INVOKABLE QUrl url(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the place at index @p index needs to be mounted before it can be used.
+     * Returns Whether the place at index @p index needs to be mounted before it can be used.
      */
     Q_INVOKABLE bool setupNeeded(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the place is a device that can be unmounted, e.g. it is
+     * Returns Whether the place is a device that can be unmounted, e.g. it is
      * mounted but does not point at system Root or the user's Home directory.
      *
      * It does not indicate whether the teardown can succeed.
@@ -158,7 +158,7 @@ public:
     Q_INVOKABLE bool isTeardownAllowed(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the place is a device that can be ejected, e.g. it is
+     * Returns Whether the place is a device that can be ejected, e.g. it is
      * a CD, DVD, etc.
      *
      * It does not indicate whether the eject can succeed.
@@ -167,7 +167,7 @@ public:
     Q_INVOKABLE bool isEjectAllowed(const QModelIndex &index) const;
 
     /*!
-     * @return Whether showing an inline teardown button is recommended,
+     * Returns Whether showing an inline teardown button is recommended,
      * e.g. when it is a removable drive.
      *
      * @since 5.95
@@ -175,93 +175,93 @@ public:
     Q_INVOKABLE bool isTeardownOverlayRecommended(const QModelIndex &index) const;
 
     /*!
-     * @return Whether this device is currently accessible or being (un)mounted.
+     * Returns Whether this device is currently accessible or being (un)mounted.
      *
      * @since 5.99
      */
     Q_INVOKABLE KFilePlacesModel::DeviceAccessibility deviceAccessibility(const QModelIndex &index) const;
 
     /*!
-     * @return The icon of the place at index @p index.
+     * Returns The icon of the place at index @p index.
      */
     Q_INVOKABLE QIcon icon(const QModelIndex &index) const;
 
     /*!
-     * @return The user-visible text of the place at index @p index.
+     * Returns The user-visible text of the place at index @p index.
      */
     Q_INVOKABLE QString text(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the place at index @p index is hidden or is inside an hidden group.
+     * Returns Whether the place at index @p index is hidden or is inside an hidden group.
      */
     Q_INVOKABLE bool isHidden(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the group type @p type is hidden.
+     * Returns Whether the group type @p type is hidden.
      * @since 5.42
      */
     Q_INVOKABLE bool isGroupHidden(const GroupType type) const;
 
     /*!
-     * @return Whether the group of the place at index @p index is hidden.
+     * Returns Whether the group of the place at index @p index is hidden.
      * @since 5.42
      */
     Q_INVOKABLE bool isGroupHidden(const QModelIndex &index) const;
 
     /*!
-     * @return Whether the place at index @p index is a device handled by Solid.
+     * Returns Whether the place at index @p index is a device handled by Solid.
      * @see deviceForIndex()
      */
     Q_INVOKABLE bool isDevice(const QModelIndex &index) const;
 
     /*!
-     * @return The solid device of the place at index @p index, if it is a device. Otherwise a default Solid::Device() instance is returned.
+     * Returns The solid device of the place at index @p index, if it is a device. Otherwise a default Solid::Device() instance is returned.
      * @see isDevice()
      */
     Solid::Device deviceForIndex(const QModelIndex &index) const;
 
     /*!
-     * @return The KBookmark instance of the place at index @p index.
+     * Returns The KBookmark instance of the place at index @p index.
      * If the index is not valid, a default KBookmark instance is returned.
      */
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
 
     /*!
-     * @return The KBookmark instance of the place with url @p searchUrl.
+     * Returns The KBookmark instance of the place with url @p searchUrl.
      * If the bookmark corresponding to searchUrl is not found, a default KBookmark instance is returned.
      * @since 5.63
      */
     KBookmark bookmarkForUrl(const QUrl &searchUrl) const;
 
     /*!
-     * @return The group type of the place at index @p index.
+     * Returns The group type of the place at index @p index.
      * @since 5.42
      */
     Q_INVOKABLE GroupType groupType(const QModelIndex &index) const;
 
     /*!
-     * @return The list of model indexes that have @ type as their group type.
+     * Returns The list of model indexes that have @ type as their group type.
      * @see groupType()
      * @since 5.42
      */
     Q_INVOKABLE QModelIndexList groupIndexes(const GroupType type) const;
 
     /*!
-     * @return A QAction with a proper translated label that can be used to trigger the requestTeardown()
+     * Returns A QAction with a proper translated label that can be used to trigger the requestTeardown()
      * method for the place at index @p index.
      * @see requestTeardown()
      */
     Q_INVOKABLE QAction *teardownActionForIndex(const QModelIndex &index) const;
 
     /*!
-     * @return A QAction with a proper translated label that can be used to trigger the requestEject()
+     * Returns A QAction with a proper translated label that can be used to trigger the requestEject()
      * method for the place at index @p index.
      * @see requestEject()
      */
     Q_INVOKABLE QAction *ejectActionForIndex(const QModelIndex &index) const;
 
     /*!
-     * @return A QAction with a proper translated label that can be used to open a partitioning menu for the device. nullptr if not a device.
+     * Returns A QAction with a proper translated label that can be used to open a partitioning menu for the device. nullptr if not a device.
      */
     Q_INVOKABLE QAction *partitionActionForIndex(const QModelIndex &index) const;
 
@@ -285,29 +285,29 @@ public:
 
     /*!
      * Adds a new place to the model.
-     * @param text The user-visible text for the place
-     * @param url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
-     * @param iconName The icon of the place
-     * @param appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
+     * \a text The user-visible text for the place
+     * \a url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
+     * \a iconName The icon of the place
+     * \a appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
      */
     Q_INVOKABLE void addPlace(const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
 
     /*!
      * Adds a new place to the model.
-     * @param text The user-visible text for the place
-     * @param url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
-     * @param iconName The icon of the place
-     * @param appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
-     * @param after The index after which the new place will be added.
+     * \a text The user-visible text for the place
+     * \a url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
+     * \a iconName The icon of the place
+     * \a appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
+     * \a after The index after which the new place will be added.
      */
     Q_INVOKABLE void addPlace(const QString &text, const QUrl &url, const QString &iconName, const QString &appName, const QModelIndex &after);
 
     /*!
      * Edits the place with index @p index.
-     * @param text The new user-visible text for the place
-     * @param url The new URL of the place
-     * @param iconName The new icon of the place
-     * @param appName The new application-local filter for the place (@see addPlace()).
+     * \a text The new user-visible text for the place
+     * \a url The new URL of the place
+     * \a iconName The new icon of the place
+     * \a appName The new application-local filter for the place (@see addPlace()).
      */
     Q_INVOKABLE void
     editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
@@ -319,14 +319,14 @@ public:
 
     /*!
      * Changes the visibility of the place with index @p index, but only if the place is not inside an hidden group.
-     * @param hidden Whether the place should be hidden or visible.
+     * \a hidden Whether the place should be hidden or visible.
      * @see isGroupHidden()
      */
     Q_INVOKABLE void setPlaceHidden(const QModelIndex &index, bool hidden);
 
     /*!
      * Changes the visibility of the group with type @p type.
-     * @param hidden Whether the group should be hidden or visible.
+     * \a hidden Whether the group should be hidden or visible.
      * @see isGroupHidden()
      * @since 5.42
      */
@@ -334,13 +334,13 @@ public:
 
     /*!
      * @brief Move place at @p itemRow to a position before @p row
-     * @return Whether the place has been moved.
+     * Returns Whether the place has been moved.
      * @since 5.41
      */
     Q_INVOKABLE bool movePlace(int itemRow, int row);
 
     /*!
-     * @return The number of hidden places in the model.
+     * Returns The number of hidden places in the model.
      * @see isHidden()
      */
     Q_INVOKABLE int hiddenCount() const;
@@ -349,10 +349,10 @@ public:
      * @brief Get a visible data based on Qt role for the given index.
      * Return the device information for the give index.
      *
-     * @param index The QModelIndex which contains the row, column to fetch the data.
-     * @param role The Interview data role(ex: Qt::DisplayRole).
+     * \a index The QModelIndex which contains the row, column to fetch the data.
+     * \a role The Interview data role(ex: Qt::DisplayRole).
      *
-     * @return the data for the given index and role.
+     * Returns the data for the given index and role.
      */
     QVariant data(const QModelIndex &index, int role) const override;
 
@@ -414,8 +414,8 @@ public:
      *         that will be handled by the corresponding KIO worker.
      *         Virtual URLs for bookmarks are used to be independent from
      *         internal format changes.
-     * @param an url
-     * @return the converted URL, which can be handled by a KIO worker
+     * \a an url
+     * Returns the converted URL, which can be handled by a KIO worker
      * @since 5.41
      */
     static QUrl convertedUrl(const QUrl &url);
@@ -449,7 +449,7 @@ Q_SIGNALS:
 
     /*!
      * Emitted after the Solid setup ends.
-     * @param success Whether the Solid setup has been successful.
+     * \a success Whether the Solid setup has been successful.
      * @see requestSetup()
      */
     void setupDone(const QModelIndex &index, bool success);
@@ -460,15 +460,15 @@ Q_SIGNALS:
      * @note In case of an error, the @p errorMessage signal
      * will also be emitted with a message describing the error.
      *
-     * @param error Type of error that occurred, if any.
-     * @param errorData More information about the error, if any.
+     * \a error Type of error that occurred, if any.
+     * \a errorData More information about the error, if any.
      * @since 5.100
      */
     void teardownDone(const QModelIndex &index, Solid::ErrorType error, const QVariant &errorData);
 
     /*!
      * Emitted whenever the visibility of the group @p group changes.
-     * @param hidden The new visibility of the group.
+     * \a hidden The new visibility of the group.
      * @see setGroupHidden()
      * @since 5.42
      */

@@ -43,7 +43,7 @@ class KIOWIDGETS_EXPORT KDirModel : public QAbstractItemModel
 
 public:
     /*!
-     * @param parent parent qobject
+     * \a parent parent qobject
      */
     explicit KDirModel(QObject *parent = nullptr);
     ~KDirModel() override;
@@ -70,9 +70,9 @@ public:
     /*!
      * Display the contents of @p url in the model.
      * Apart from the support for the ShowRoot flag, this is equivalent to dirLister()->openUrl(url, flags)
-     * @param url   the URL of the directory whose contents should be listed.
+     * \a url   the URL of the directory whose contents should be listed.
      *              Unless ShowRoot is set, the item for this directory will NOT be shown, the model starts at its children.
-     * @param flags see OpenUrlFlag
+     * \a flags see OpenUrlFlag
      * @since 5.69
      */
     Q_INVOKABLE void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
@@ -114,7 +114,7 @@ public:
      * the model will not immediately have this url available.
      * The model emits the signal expand() when an index has become available; this can be connected
      * to the treeview in order to let it open that index.
-     * @param url the url of a subdirectory of the directory model (or a file in a subdirectory)
+     * \a url the url of a subdirectory of the directory model (or a file in a subdirectory)
      */
     Q_INVOKABLE void expandToUrl(const QUrl &url);
 
@@ -224,7 +224,7 @@ public:
      * For example, for a list of "/home/foo/a", "/home/foo/a/a.txt", "/home/foo/a/a/a.txt", "/home/foo/a/b/b.txt",
      * "home/foo/b/b.txt", this method will return the list "/home/foo/a", "/home/foo/b/b.txt".
      *
-     * @return the list @p urls without parented urls inside.
+     * Returns the list @p urls without parented urls inside.
      */
     static QList<QUrl> simplifiedUrlList(const QList<QUrl> &urls);
 
@@ -234,8 +234,8 @@ public:
      * If there is a KFilePreviewGenerator attached to this model, that generator will care
      * about creating another preview.
      *
-     * @param index Index of the item that should get another icon
-     * @param sequenceIndex Index in the sequence. If it is zero, the standard icon will be assigned.
+     * \a index Index of the item that should get another icon
+     * \a sequenceIndex Index in the sequence. If it is zero, the standard icon will be assigned.
      *                                        For higher indices, arbitrary different meaningful icons will be generated.
      */
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
@@ -273,8 +273,8 @@ Q_SIGNALS:
     void expand(const QModelIndex &index);
     /*!
      * Emitted when another icon sequence index is requested
-     * @param index Index of the item that should get another icon
-     * @param sequenceIndex Index in the sequence. If it is zero, the standard icon should be assigned.
+     * \a index Index of the item that should get another icon
+     * \a sequenceIndex Index in the sequence. If it is zero, the standard icon should be assigned.
      *                                        For higher indices, arbitrary different meaningful icons should be generated.
      *                                        This is usually slowly counted up while the user hovers the icon.
      *                                        If no meaningful alternative icons can be generated, this should be ignored.

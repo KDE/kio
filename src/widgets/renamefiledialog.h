@@ -43,8 +43,8 @@ public:
     /*!
      * Constructs the Dialog to rename file(s)
      *
-     * @param parent the parent QWidget
-     * @param items a non-empty list of items to rename
+     * \a parent the parent QWidget
+     * \a items a non-empty list of items to rename
      */
     explicit RenameFileDialog(const KFileItemList &items, QWidget *parent);
     ~RenameFileDialog() override;

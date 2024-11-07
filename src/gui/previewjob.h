@@ -59,9 +59,9 @@ public:
     };
 
     /*!
-     * @param items          List of files to create previews for.
-     * @param size           Desired size of the preview.
-     * @param enabledPlugins If non-zero it defines the list of plugins that
+     * \a items          List of files to create previews for.
+     * \a size           Desired size of the preview.
+     * \a enabledPlugins If non-zero it defines the list of plugins that
      *                       are considered for generating the preview. If
      *                       enabledPlugins is zero the plugins specified in the
      *                       KConfigGroup "PreviewSettings" are used.
@@ -78,7 +78,7 @@ public:
     void setScaleType(ScaleType type);
 
     /*!
-     * @return The scale type for the generated preview.
+     * Returns The scale type for the generated preview.
      * @see PreviewJob::ScaleType
      */
     ScaleType scaleType() const;
@@ -87,7 +87,7 @@ public:
      * Removes an item from preview processing. Use this if you passed
      * an item to filePreview and want to delete it now.
      *
-     * @param url the url of the item that should be removed from the preview queue
+     * \a url the url of the item that should be removed from the preview queue
      */
     void removeItem(const QUrl &url);
 
@@ -143,7 +143,7 @@ public:
      * Returns a list of all available preview plugins. The list
      * contains the basenames of the plugins' .desktop files (no path,
      * no .desktop).
-     * @return the list of all available plugins
+     * Returns the list of all available plugins
      */
     static QStringList availablePlugins();
 
@@ -157,7 +157,7 @@ public:
     /*!
      * Returns a list of plugins that should be enabled by default, which is all plugins
      * Minus the plugins specified in an internal blacklist
-     * @return the list of plugins that should be enabled by default
+     * Returns the list of plugins that should be enabled by default
      * @since 5.40
      */
     static QStringList defaultPlugins();
@@ -165,7 +165,7 @@ public:
     /*!
      * Returns a list of all supported MIME types. The list can
      * contain entries like text/ * (without the space).
-     * @return the list of MIME types
+     * Returns the list of MIME types
      */
     static QStringList supportedMimeTypes();
 
@@ -173,15 +173,15 @@ Q_SIGNALS:
     /*!
      * Emitted when a thumbnail picture for @p item has been successfully
      * retrieved.
-     * @param item the file of the preview
-     * @param preview the preview image
+     * \a item the file of the preview
+     * \a preview the preview image
      */
     void gotPreview(const KFileItem &item, const QPixmap &preview);
     /*!
      * Emitted when a thumbnail for @p item could not be created,
      * either because a ThumbCreator for its MIME type does not
      * exist, or because something went wrong.
-     * @param item the file that failed
+     * \a item the file that failed
      */
     void failed(const KFileItem &item);
 
@@ -205,9 +205,9 @@ public:
 
 /*!
  * Creates a PreviewJob to generate a preview image for the given items.
- * @param items          List of files to create previews for.
- * @param size           Desired size of the preview.
- * @param enabledPlugins If non-zero it defines the list of plugins that
+ * \a items          List of files to create previews for.
+ * \a size           Desired size of the preview.
+ * \a enabledPlugins If non-zero it defines the list of plugins that
  *                       are considered for generating the preview. If
  *                       enabledPlugins is zero the plugins specified in the
  *                       KConfigGroup "PreviewSettings" are used.

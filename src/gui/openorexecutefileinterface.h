@@ -49,9 +49,9 @@ public:
      * files, basically whether to run/execute the file, or in the case of text-based
      * ones (shell scripts and .desktop files) open them as text.
      *
-     * @param job the job calling this. This is useful if you need to
+     * \a job the job calling this. This is useful if you need to
      * get any of its properties
-     * @param mimetype the MIME type of the file being handled
+     * \a mimetype the MIME type of the file being handled
      *
      * Implementations of this method must emit either executeFile or canceled.
      *
@@ -65,7 +65,7 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted by promptUserOpenOrExecute() once the user chooses an action.
-     * @param enable \c true if the user selected to execute/run the file or
+     * \a enable \c true if the user selected to execute/run the file or
      * \c false if the user selected to open the file as text (the latter is
      * only valid for shell scripts and .desktop files)
      */

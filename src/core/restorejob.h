@@ -55,13 +55,13 @@ private:
  * Restore a set of trashed files or directories.
  * @since 5.2
  *
- * @param urls the trash:/ URLs to restore. The trash implementation
+ * \a urls the trash:/ URLs to restore. The trash implementation
  * will know where the files came from and will restore them to their
  * original location.
  *
- * @param flags restoreFromTrash() supports HideProgressInfo.
+ * \a flags restoreFromTrash() supports HideProgressInfo.
  *
- * @return the job handling the operation
+ * Returns the job handling the operation
  */
 KIOCORE_EXPORT RestoreJob *restoreFromTrash(const QList<QUrl> &urls, JobFlags flags = DefaultFlags);
 

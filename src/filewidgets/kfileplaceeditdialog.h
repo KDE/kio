@@ -89,22 +89,22 @@ public:
     ~KFilePlaceEditDialog() override;
 
     /*!
-     * @returns the configured url
+     * Returnss the configured url
      */
     QUrl url() const;
 
     /*!
-     * @returns the configured label
+     * Returnss the configured label
      */
     QString label() const;
 
     /*!
-     * @returns the configured icon
+     * Returnss the configured icon
      */
     QString icon() const;
 
     /*!
-     * @returns whether the item should be local to the application or global.
+     * Returnss whether the item should be local to the application or global.
      * If allowGlobal was set to false in the constructor, this will always
      * return true.
      */

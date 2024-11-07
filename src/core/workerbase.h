@@ -29,7 +29,12 @@ class WorkerBasePrivate;
 class WorkerResultPrivate;
 
 /*!
- * @brief The result of a worker call
+ * \class KIO::WorkerResult
+ * \inheaderfile KIO/WorkerBase
+ * \inmodule KIOCore
+ *
+ * \brief The result of a worker call.
+ *
  * When using the Result type always mark the function Q_REQUIRED_RESULT to enforce handling of the Result.
  */
 class KIOCORE_EXPORT WorkerResult
@@ -105,7 +110,7 @@ public:
      * To signal end of data, simply send an empty
      * QByteArray().
      *
-     * @param data the data read by the worker
+     * \a data the data read by the worker
      */
     void data(const QByteArray &data);
 
@@ -117,9 +122,9 @@ public:
 
     /*!
      * Used to report the status of the worker.
-     * @param host the worker is currently connected to. (Should be
+     * \a host the worker is currently connected to. (Should be
      *        empty if not connected)
-     * @param connected Whether an actual network connection exists.
+     * \a connected Whether an actual network connection exists.
      **/
     void workerStatus(const QString &host, bool connected);
 
@@ -127,14 +132,14 @@ public:
      * Call this from stat() to express details about an object, the
      * UDSEntry customarily contains the atoms describing file name, size,
      * MIME type, etc.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void statEntry(const UDSEntry &_entry);
 
     /*!
      * Call this in listDir, each time you have a bunch of entries
      * to report.
-     * @param _entry The UDSEntry containing all of the object attributes.
+     * \a _entry The UDSEntry containing all of the object attributes.
      */
     void listEntries(const UDSEntryList &_entry);
 
@@ -244,15 +249,15 @@ public:
 
     /*!
      * Call this to show a message box from the worker
-     * @param type type of message box
-     * @param text Message string. May contain newlines.
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
+     * \a type type of message box
+     * \a text Message string. May contain newlines.
+     * \a title Message box title.
+     * \a primaryActionText the text for the first button.
      *                          Ignored for @p type Information.
-     * @param secondaryActionText the text for the second button.
+     * \a secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
                    const QString &text,
@@ -262,16 +267,16 @@ public:
 
     /*!
      * Call this to show a message box from the worker
-     * @param text Message string. May contain newlines.
-     * @param type type of message box
-     * @param title Message box title.
-     * @param primaryActionText the text for the first button.
+     * \a text Message string. May contain newlines.
+     * \a type type of message box
+     * \a title Message box title.
+     * \a primaryActionText the text for the first button.
      *                          Ignored for @p type Information.
-     * @param secondaryActionText the text for the second button.
+     * \a secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information.
-     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-     * @return a button code, as defined in ButtonCode, or 0 on communication error.
+     * \a dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
+     * Returns a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(const QString &text,
                    MessageBoxType type,
@@ -394,7 +399,7 @@ public:
 
     /*!
      * get, aka read.
-     * @param url the full url for this request. Host, port and user of the URL
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
      *
      * The worker should first "emit" the MIME type by calling mimeType(),
@@ -415,33 +420,33 @@ public:
 
     /*!
      * open.
-     * @param url the full url for this request. Host, port and user of the URL
+     * \a url the full url for this request. Host, port and user of the URL
      *        can be assumed to be the same as in the last setHost() call.
-     * @param mode see \ref QIODevice::OpenMode
+     * \a mode see \ref QIODevice::OpenMode
      */
     Q_REQUIRED_RESULT virtual WorkerResult open(const QUrl &url, QIODevice::OpenMode mode);
 
     /*!
      * read.
-     * @param size the requested amount of data to read
+     * \a size the requested amount of data to read
      * @see KIO::FileJob::read()
      */
     Q_REQUIRED_RESULT virtual WorkerResult read(KIO::filesize_t size);
     /*!
      * write.
-     * @param data the data to write
+     * \a data the data to write
      * @see KIO::FileJob::write()
      */
     Q_REQUIRED_RESULT virtual WorkerResult write(const QByteArray &data);
     /*!
      * seek.
-     * @param offset the requested amount of data to read
+     * \a offset the requested amount of data to read
      * @see KIO::FileJob::read()
      */
     Q_REQUIRED_RESULT virtual WorkerResult seek(KIO::filesize_t offset);
     /*!
      * truncate
-     * @param size size to truncate the file to
+     * \a size size to truncate the file to
      * @see KIO::FileJob::truncate()
      */
     Q_REQUIRED_RESULT virtual WorkerResult truncate(KIO::filesize_t size);
@@ -454,9 +459,9 @@ public:
     /*!
      * put, i.e.\ write data into a file.
      *
-     * @param url where to write the file
-     * @param permissions may be -1. In this case no special permission mode is set.
-     * @param flags We support Overwrite here. Hopefully, we're going to
+     * \a url where to write the file
+     * \a permissions may be -1. In this case no special permission mode is set.
+     * \a flags We support Overwrite here. Hopefully, we're going to
      * support Resume in the future, too.
      * If the file indeed already exists, the worker should NOT apply the
      * permissions change to it.
@@ -510,8 +515,8 @@ public:
 
     /*!
      * Create a directory
-     * @param url path to the directory to create
-     * @param permissions the permissions to set after creating the directory
+     * \a url path to the directory to create
+     * \a permissions the permissions to set after creating the directory
      * (-1 if no permissions to be set)
      * The worker emits ERR_CANNOT_MKDIR if failure.
      */
@@ -539,18 +544,18 @@ public:
      * moving a file from yourproto: to file:.
      * See KProtocolManager::canRenameToFile() for more details.
      *
-     * @param src where to move the file from
-     * @param dest where to move the file to
-     * @param flags We support Overwrite here
+     * \a src where to move the file from
+     * \a dest where to move the file to
+     * \a flags We support Overwrite here
      */
     Q_REQUIRED_RESULT virtual WorkerResult rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
     /*!
      * Creates a symbolic link named @p dest, pointing to @p target, which
      * may be a relative or an absolute path.
-     * @param target The string that will become the "target" of the link (can be relative)
-     * @param dest The symlink to create.
-     * @param flags We support Overwrite here
+     * \a target The string that will become the "target" of the link (can be relative)
+     * \a dest The symlink to create.
+     * \a flags We support Overwrite here
      */
     Q_REQUIRED_RESULT virtual WorkerResult symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
@@ -596,11 +601,11 @@ public:
      * If the worker returns an error ERR_FILE_ALREADY_EXIST, the job will
      * ask for a different destination filename.
      *
-     * @param src where to copy the file from (decoded)
-     * @param dest where to copy the file to (decoded)
-     * @param permissions may be -1. In this case no special permission mode is set,
+     * \a src where to copy the file from (decoded)
+     * \a dest where to copy the file to (decoded)
+     * \a permissions may be -1. In this case no special permission mode is set,
      *        and the owner and group permissions are not preserved.
-     * @param flags We support Overwrite here
+     * \a flags We support Overwrite here
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.
      */
@@ -608,8 +613,8 @@ public:
 
     /*!
      * Delete a file or directory.
-     * @param url file/directory to delete
-     * @param isfile if true, a file should be deleted.
+     * \a url file/directory to delete
+     * \a isfile if true, a file should be deleted.
      *               if false, a directory should be deleted.
      *
      * By default, del() on a directory should FAIL if the directory is not empty.
@@ -622,7 +627,7 @@ public:
      * Used for any command that is specific to this worker (protocol).
      * Examples are : HTTP POST, mount and unmount (kio_file)
      *
-     * @param data packed data; the meaning is completely dependent on the
+     * \a data packed data; the meaning is completely dependent on the
      *        worker, but usually starts with an int for the command number.
      * Document your worker's commands, at least in its header file.
      */
@@ -631,7 +636,7 @@ public:
     /*!
      * Get a filesystem's total and available space.
      *
-     * @param url Url to the filesystem
+     * \a url Url to the filesystem
      */
     Q_REQUIRED_RESULT virtual WorkerResult fileSystemFreeSpace(const QUrl &url);
 
@@ -648,23 +653,23 @@ public:
     virtual void reparseConfiguration();
 
     /*!
-     * @return timeout value for connecting to remote host.
+     * Returns timeout value for connecting to remote host.
      */
     int connectTimeout();
 
     /*!
-     * @return timeout value for connecting to proxy in secs.
+     * Returns timeout value for connecting to proxy in secs.
      */
     int proxyConnectTimeout();
 
     /*!
-     * @return timeout value for read from first data from
+     * Returns timeout value for read from first data from
      * remote host in seconds.
      */
     int responseTimeout();
 
     /*!
-     * @return timeout value for read from subsequent data from
+     * Returns timeout value for read from subsequent data from
      * remote host in secs.
      */
     int readTimeout();
@@ -687,8 +692,8 @@ public:
     /*!
      * Read data sent by the job, after a dataReq
      *
-     * @param buffer buffer where data is stored
-     * @return 0 on end of data,
+     * \a buffer buffer where data is stored
+     * Returns 0 on end of data,
      *         > 0 bytes read
      *         < 0 error
      **/
@@ -700,7 +705,7 @@ public:
      * frame exceeded (to make sure the app gets some
      * items in time but not too many items one by one
      * as this will cause a drastic performance penalty).
-     * @param entry The UDSEntry containing all of the object attributes.
+     * \a entry The UDSEntry containing all of the object attributes.
      */
     void listEntry(const UDSEntry &entry);
 
@@ -755,9 +760,9 @@ public:
      * KWallet, then you MUST call @ref cacheAuthentication.
      *
      * @see checkCachedAuthentication
-     * @param info  See AuthInfo.
-     * @param errorMsg Error message to show
-     * @return a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
+     * \a info  See AuthInfo.
+     * \a errorMsg Error message to show
+     * Returns a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
      */
     int openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
@@ -785,8 +790,8 @@ public:
      * }
      * \endcode
      *
-     * @param       info See AuthInfo.
-     * @return      @p true if cached Authorization is found, false otherwise.
+     * \a       info See AuthInfo.
+     * Returns      @p true if cached Authorization is found, false otherwise.
      */
     bool checkCachedAuthentication(AuthInfo &info);
 
@@ -813,14 +818,14 @@ public:
      * }
      * \endcode
      *
-     * @param info See AuthInfo.
-     * @return @p true if @p info was successfully cached.
+     * \a info See AuthInfo.
+     * Returns @p true if @p info was successfully cached.
      */
     bool cacheAuthentication(const AuthInfo &info);
 
     /*!
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
-     * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
+     * Returns the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
      */
     int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = nullptr);
 
@@ -865,7 +870,7 @@ public:
 
     /*!
      * Checks with job if privilege operation is allowed.
-     * @return privilege operation status.
+     * Returns privilege operation status.
      * @see PrivilegeOperationStatus
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
@@ -874,7 +879,7 @@ public:
      * Adds @p action to the list of PolicyKit actions which the
      * worker is authorized to perform.
      *
-     * @param action the PolicyKit action
+     * \a action the PolicyKit action
      */
     void addTemporaryAuthorization(const QString &action);
 
@@ -884,7 +889,7 @@ public:
      * metadata for consumption in other worker functions; this overwrites
      * existing metadata set by the client!
      *
-     * @param metaData metadata to set
+     * \a metaData metadata to set
      * @since 5.99
      */
     void setIncomingMetaData(const KIO::MetaData &metaData);
@@ -914,8 +919,8 @@ namespace KIO
 /*!
  * Returns an appropriate error message if the given command @p cmd
  * is an unsupported action (ERR_UNSUPPORTED_ACTION).
- * @param protocol name of the protocol
- * @param cmd given command
+ * \a protocol name of the protocol
+ * \a cmd given command
  * @see enum Command
  */
 KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);

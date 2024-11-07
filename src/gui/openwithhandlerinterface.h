@@ -47,9 +47,9 @@ protected:
 public:
     /*!
      * Show the "Open With" dialog.
-     * @param job the job calling this. Useful to get all its properties
-     * @param urls the URLs to open
-     * @param mimeType the MIME type of the URLs, if known. Can be empty otherwise.
+     * \a job the job calling this. Useful to get all its properties
+     * \a urls the URLs to open
+     * \a mimeType the MIME type of the URLs, if known. Can be empty otherwise.
      *
      * Implementations of this method must emit either serviceSelected or canceled.
      *
@@ -62,7 +62,7 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted by promptUserForApplication() once the user chooses an application.
-     * @param service the application chosen by the user
+     * \a service the application chosen by the user
      */
     void serviceSelected(const KService::Ptr &service);
 

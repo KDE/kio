@@ -34,7 +34,7 @@ public:
 
     /*!
      * Constructs a custom file dialog
-     * @param startDir see the KFileWidget constructor for documentation
+     * \a startDir see the KFileWidget constructor for documentation
      * @since 5.67
      */
     explicit KFileCustomDialog(const QUrl &startDir, QWidget *parent = nullptr);
@@ -44,13 +44,13 @@ public:
     /*!
      * Sets the directory to view.
      *
-     * @param url URL to show.
+     * \a url URL to show.
      */
     void setUrl(const QUrl &url);
 
     /*!
      * Set a custom widget that should be added to the file dialog.
-     * @param widget A widget, or a widget of widgets, for displaying custom
+     * \a widget A widget, or a widget of widgets, for displaying custom
      *               data in the file widget. This can be used, for example, to
      *               display a check box with the title "Open as read-only".
      *               When creating this widget, you don't need to specify a parent,
@@ -60,7 +60,7 @@ public:
 
     /*!
      * @brief fileWidget
-     * @return the filewidget used inside this dialog
+     * Returns the filewidget used inside this dialog
      */
     KFileWidget *fileWidget() const;
 

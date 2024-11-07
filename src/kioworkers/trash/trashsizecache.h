@@ -39,8 +39,8 @@ public:
 
     /*!
      * Adds a directory to the cache.
-     * @param directoryName fileId of the directory
-     * @param directorySize size in bytes
+     * \a directoryName fileId of the directory
+     * \a directorySize size in bytes
      */
     void add(const QString &directoryName, qint64 directorySize);
 

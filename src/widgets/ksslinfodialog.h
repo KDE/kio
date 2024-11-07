@@ -36,7 +36,7 @@ public:
     /*!
      *  Construct a KSSL Information Dialog
      *
-     *  @param parent the parent widget
+     *  \a parent the parent widget
      */
     explicit KSslInfoDialog(QWidget *parent = nullptr);
 
@@ -48,15 +48,15 @@ public:
     /*!
      *  Set information to display about the SSL connection.
      *
-     *  @param certificateChain the certificate chain leading from the certificate
+     *  \a certificateChain the certificate chain leading from the certificate
      *         authority to the peer.
-     *  @param ip the ip of the remote host
-     *  @param host the remote hostname
-     *  @param sslProtocol the version of SSL in use (SSLv2, SSLv3, TLSv1)
-     *  @param cipher the cipher in use
-     *  @param usedBits the used bits of the key
-     *  @param bits the key size of the cipher in use
-     *  @param validationErrors errors validating the certificates, if any
+     *  \a ip the ip of the remote host
+     *  \a host the remote hostname
+     *  \a sslProtocol the version of SSL in use (SSLv2, SSLv3, TLSv1)
+     *  \a cipher the cipher in use
+     *  \a usedBits the used bits of the key
+     *  \a bits the key size of the cipher in use
+     *  \a validationErrors errors validating the certificates, if any
      *  @since 5.64
      */
     void setSslInfo(const QList<QSslCertificate> &certificateChain,

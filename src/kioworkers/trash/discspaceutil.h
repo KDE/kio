@@ -20,7 +20,7 @@ public:
     /*!
      * Creates a new disc space util.
      *
-     * @param directory A directory the util shall work on.
+     * \a directory A directory the util shall work on.
      */
     explicit DiscSpaceUtil(const QString &directory);
 
@@ -28,7 +28,7 @@ public:
      * Returns the usage of the directory pass in the constructor on this
      * mount point in percent.
      *
-     * @param size The current size of the directory.
+     * \a size The current size of the directory.
      */
     double usage(qint64 size) const;
 

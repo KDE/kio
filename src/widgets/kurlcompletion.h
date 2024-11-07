@@ -79,27 +79,27 @@ public:
      * Returns the first match for user, environment, and local dir completion
      * and QString() for asynchronous completion (KIO or threaded).
      *
-     * @param text the text to complete
-     * @return the first match, or QString() if not found
+     * \a text the text to complete
+     * Returns the first match, or QString() if not found
      */
     QString makeCompletion(const QString &text) override;
 
     /*!
      * Sets the current directory (used as base for completion).
      * Default = $HOME.
-     * @param dir the current directory, as a URL (use QUrl::fromLocalFile for local paths)
+     * \a dir the current directory, as a URL (use QUrl::fromLocalFile for local paths)
      */
     virtual void setDir(const QUrl &dir);
 
     /*!
      * Returns the current directory, as it was given in setDir
-     * @return the current directory, as a URL (use QUrl::toLocalFile for local paths)
+     * Returns the current directory, as a URL (use QUrl::toLocalFile for local paths)
      */
     virtual QUrl dir() const;
 
     /*!
      * Check whether asynchronous completion is in progress.
-     * @return true if asynchronous completion is in progress
+     * Returns true if asynchronous completion is in progress
      */
     virtual bool isRunning() const;
 
@@ -110,13 +110,13 @@ public:
 
     /*!
      * Returns the completion mode: exe or file completion (default FileCompletion).
-     * @return the completion mode
+     * Returns the completion mode
      */
     virtual Mode mode() const;
 
     /*!
      * Changes the completion mode: exe or file completion
-     * @param mode the new completion mode
+     * \a mode the new completion mode
      */
     virtual void setMode(Mode mode);
 
@@ -124,14 +124,14 @@ public:
      * Checks whether environment variables are completed and
      * whether they are replaced internally while finding completions.
      * Default is enabled.
-     * @return true if environment variables will be replaced
+     * Returns true if environment variables will be replaced
      */
     virtual bool replaceEnv() const;
 
     /*!
      * Enables/disables completion and replacement (internally) of
      * environment variables in URLs. Default is enabled.
-     * @param replace true to replace environment variables
+     * \a replace true to replace environment variables
      */
     virtual void setReplaceEnv(bool replace);
 
@@ -139,7 +139,7 @@ public:
      * Returns whether ~username is completed and whether ~username
      * is replaced internally with the user's home directory while
      * finding completions. Default is enabled.
-     * @return true to replace tilde with the home directory
+     * Returns true to replace tilde with the home directory
      */
     virtual bool replaceHome() const;
 
@@ -147,7 +147,7 @@ public:
      * Enables/disables completion of ~username and replacement
      * (internally) of ~username with the user's home directory.
      * Default is enabled.
-     * @param replace true to replace tilde with the home directory
+     * \a replace true to replace tilde with the home directory
      */
     virtual void setReplaceHome(bool replace);
 
@@ -156,8 +156,8 @@ public:
      * current settings and returns the filtered url. Only works with
      * local files, i.e. returns back the original string for non-local
      * urls.
-     * @param text the text to process
-     * @return the path or URL resulting from this operation. If you
+     * \a text the text to process
+     * Returns the path or URL resulting from this operation. If you
      * want to convert it to a QUrl, use QUrl::fromUserInput.
      */
     QString replacedPath(const QString &text) const;

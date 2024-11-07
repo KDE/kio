@@ -110,9 +110,9 @@ class SimpleJobPrivate : public JobPrivate
 public:
     /*!
      * Creates a new simple job.
-     * @param url the url of the job
-     * @param command the command of the job
-     * @param packedArgs the arguments
+     * \a url the url of the job
+     * \a command the command of the job
+     * \a packedArgs the arguments
      */
     SimpleJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
         : m_worker(nullptr)
@@ -157,26 +157,26 @@ public:
     void slotConnected();
     /*!
      * Forward signal from the worker.
-     * @param data_size the processed size in bytes
+     * \a data_size the processed size in bytes
      * @see processedSize()
      */
     void slotProcessedSize(KIO::filesize_t data_size);
     /*!
      * Forward signal from the worker.
-     * @param speed the speed in bytes/s
+     * \a speed the speed in bytes/s
      * @see speed()
      */
     void slotSpeed(unsigned long speed);
     /*!
      * Forward signal from the worker.
      * Can also be called by the parent job, when it knows the size.
-     * @param data_size the total size
+     * \a data_size the total size
      */
     void slotTotalSize(KIO::filesize_t data_size);
 
     /*!
      * Called on a worker's info message.
-     * @param s the info message
+     * \a s the info message
      * @see infoMessage()
      */
     void _k_slotWorkerInfoMessage(const QString &s);
@@ -290,7 +290,7 @@ public:
      * @internal
      * Called by the scheduler when a worker gets to
      * work on this job.
-     * @param worker the worker that works on the job
+     * \a worker the worker that works on the job
      */
     void start(KIO::Worker *worker) override;
     /*!

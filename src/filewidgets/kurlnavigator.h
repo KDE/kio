@@ -75,17 +75,17 @@ public:
     KUrlNavigator(QWidget *parent = nullptr);
 
     /*!
-     * @param placesModel    Model for the places which are selectable inside a
+     * \a placesModel    Model for the places which are selectable inside a
      *                       menu. A place can be a bookmark or a device. If it is 0,
      *                       no places selector is displayed.
-     * @param url            URL which is used for the navigation or editing.
-     * @param parent         Parent widget.
+     * \a url            URL which is used for the navigation or editing.
+     * \a parent         Parent widget.
      */
     KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent);
     ~KUrlNavigator() override;
 
     /*!
-     * @return URL of the location given by the \a historyIndex. If \a historyIndex
+     * Returns URL of the location given by the \a historyIndex. If \a historyIndex
      *         is smaller than 0, the URL of the current location is returned.
      * @since  4.5
      */
@@ -113,7 +113,7 @@ public:
     void saveLocationState(const QByteArray &state);
 
     /*!
-     * @return Location state given by \a historyIndex. If \a historyIndex
+     * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
      * @see    KUrlNavigator::saveLocationState()
      * @since  4.5
@@ -179,7 +179,7 @@ public:
     void setUrlEditable(bool editable);
 
     /*!
-     * @return True, if the URL is editable within a line editor.
+     * Returns True, if the URL is editable within a line editor.
      *         If false is returned, each part of the URL is presented by a button
      *         for fast navigation ("breadcrumb view").
      */
@@ -196,7 +196,7 @@ public:
     void setShowFullPath(bool show);
 
     /*!
-     * @return True, if the full path of the URL should be shown in the breadcrumb view.
+     * Returns True, if the full path of the URL should be shown in the breadcrumb view.
      * @since  4.2
      */
     bool showFullPath() const;
@@ -213,7 +213,7 @@ public:
     void setActive(bool active);
 
     /*!
-     * @return True, if the URL navigator is in the active mode.
+     * Returns True, if the URL navigator is in the active mode.
      * @see    KUrlNavigator::setActive()
      */
     bool isActive() const;
@@ -226,31 +226,31 @@ public:
      */
     void setPlacesSelectorVisible(bool visible);
 
-    /*! @return True, if the places selector is visible. */
+    /*! Returns True, if the places selector is visible. */
     bool isPlacesSelectorVisible() const;
 
     /*!
-     * @return The currently entered, but not accepted URL.
+     * Returns The currently entered, but not accepted URL.
      *         It is possible that the returned URL is not valid.
      */
     QUrl uncommittedUrl() const;
 
     /*!
-     * @return The amount of locations in the history. The data for each
+     * Returns The amount of locations in the history. The data for each
      *         location can be retrieved by KUrlNavigator::locationUrl() and
      *         KUrlNavigator::locationState().
      */
     int historySize() const;
 
     /*!
-     * @return  The history index of the current location, where
+     * Returns  The history index of the current location, where
      *          0 <= history index < KUrlNavigator::historySize(). 0 is the most
      *          recent history entry.
      */
     int historyIndex() const;
 
     /*!
-     * @return The used editor when the navigator is in the edit mode
+     * Returns The used editor when the navigator is in the edit mode
      * @see    KUrlNavigator::setUrlEditable()
      */
     KUrlComboBox *editor() const;
@@ -280,7 +280,7 @@ public:
      * The child widget that received the QDropEvent when dropping on the URL
      * navigator. You can pass this widget to KJobWidgets::setWindow()
      * if you need to show a drop menu with KIO::drop().
-     * @return Child widget that has received the last drop event, or nullptr if
+     * Returns Child widget that has received the last drop event, or nullptr if
      *         nothing has been dropped yet on the URL navigator.
      * @since 5.37
      * @see KIO::drop()

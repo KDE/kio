@@ -39,7 +39,7 @@ class KIOWIDGETS_EXPORT FileUndoManager : public QObject
     Q_OBJECT
 public:
     /*!
-     * @return the FileUndoManager instance
+     * Returns the FileUndoManager instance
      */
     static FileUndoManager *self();
 
@@ -64,7 +64,7 @@ public:
          */
         void setShowProgressInfo(bool b);
         /*!
-         * @returns whether progress info dialogs are shown while undoing.
+         * Returnss whether progress info dialogs are shown while undoing.
          */
         bool showProgressInfo() const;
 
@@ -74,7 +74,7 @@ public:
         void setParentWidget(QWidget *parentWidget);
 
         /*!
-         * @return the parent widget passed to the last call to undo(parentWidget), or @c nullptr.
+         * Returns the parent widget passed to the last call to undo(parentWidget), or @c nullptr.
          */
         QWidget *parentWidget() const;
 
@@ -107,12 +107,12 @@ public:
     /*!
      * Set a new UiInterface implementation.
      * This deletes the previous one.
-     * @param ui the UiInterface instance, which becomes owned by the undo manager.
+     * \a ui the UiInterface instance, which becomes owned by the undo manager.
      */
     void setUiInterface(UiInterface *ui);
 
     /*!
-     * @return the UiInterface instance passed to setUiInterface.
+     * Returns the UiInterface instance passed to setUiInterface.
      * This is useful for calling setParentWidget on it. Never delete it!
      */
     UiInterface *uiInterface() const;
@@ -135,10 +135,10 @@ public:
     /*!
      * Record this job while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
-     * @param op the type of job - which is also the type of command that will be created for it
-     * @param src list of source urls. This is empty for Mkdir, Mkpath, Put operations.
-     * @param dst destination url
-     * @param job the job to record
+     * \a op the type of job - which is also the type of command that will be created for it
+     * \a src list of source urls. This is empty for Mkdir, Mkpath, Put operations.
+     * \a dst destination url
+     * \a job the job to record
      */
     void recordJob(CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
 
@@ -149,14 +149,14 @@ public:
     void recordCopyJob(KIO::CopyJob *copyJob);
 
     /*!
-     * @return true if undo is possible. Usually used for enabling/disabling the undo action.
+     * Returns true if undo is possible. Usually used for enabling/disabling the undo action.
      *
      * @since 5.79
      */
     bool isUndoAvailable() const;
 
     /*!
-     * @return the current text for the undo action.
+     * Returns the current text for the undo action.
      */
     QString undoText() const;
 

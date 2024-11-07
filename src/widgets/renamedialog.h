@@ -43,17 +43,17 @@ public:
     /*!
      * Construct a "rename" dialog to let the user know that @p src is about to overwrite @p dest.
      *
-     * @param parent parent widget (often 0)
-     * @param title the title for the dialog box
-     * @param src the url to the file/dir we're trying to copy, as it's part of the text message
-     * @param dest the path to destination file/dir, i.e. the one that already exists
-     * @param options parameters for the dialog (which buttons to show...),
-     * @param sizeSrc size of source file
-     * @param sizeDest size of destination file
-     * @param ctimeSrc creation time of source file
-     * @param ctimeDest creation time of destination file
-     * @param mtimeSrc modification time of source file
-     * @param mtimeDest modification time of destination file
+     * \a parent parent widget (often 0)
+     * \a title the title for the dialog box
+     * \a src the url to the file/dir we're trying to copy, as it's part of the text message
+     * \a dest the path to destination file/dir, i.e. the one that already exists
+     * \a options parameters for the dialog (which buttons to show...),
+     * \a sizeSrc size of source file
+     * \a sizeDest size of destination file
+     * \a ctimeSrc creation time of source file
+     * \a ctimeDest creation time of destination file
+     * \a mtimeSrc modification time of source file
+     * \a mtimeDest modification time of destination file
      */
     RenameDialog(QWidget *parent,
                  const QString &title,
@@ -69,13 +69,13 @@ public:
     ~RenameDialog() override;
 
     /*!
-     * @return the new destination
+     * Returns the new destination
      * valid only if RENAME was chosen
      */
     QUrl newDestUrl();
 
     /*!
-     * @return an automatically renamed destination
+     * Returns an automatically renamed destination
      * valid always
      */
     QUrl autoDestUrl() const;

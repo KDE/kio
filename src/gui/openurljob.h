@@ -47,14 +47,14 @@ class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
 public:
     /*!
      * @brief Creates an OpenUrlJob in order to open a URL.
-     * @param url the URL of the file/directory to open
+     * \a url the URL of the file/directory to open
      */
     explicit OpenUrlJob(const QUrl &url, QObject *parent = nullptr);
 
     /*!
      * @brief Creates an OpenUrlJob for the case where the MIME type is already known.
-     * @param url the URL of the file/directory to open
-     * @param mimeType the type of file/directory. See QMimeType.
+     * \a url the URL of the file/directory to open
+     * \a mimeType the type of file/directory. See QMimeType.
      */
     explicit OpenUrlJob(const QUrl &url, const QString &mimeType, QObject *parent = nullptr);
 
@@ -76,13 +76,13 @@ public:
      * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
-     * @param suggestedFileName the file name
+     * \a suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
     /*!
      * Sets the platform-specific startup id of the application launch.
-     * @param startupId startup id, if any (otherwise "").
+     * \a startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
@@ -129,14 +129,14 @@ public:
      * Sets whether the external webbrowser setting should be honoured.
      * This is enabled by default.
      * This should only be disabled in webbrowser applications.
-     * @param b whether to let the external browser handle the URL or not
+     * \a b whether to let the external browser handle the URL or not
      */
     void setEnableExternalBrowser(bool b);
 
     /*!
      * Sets whether the job should follow URL redirections.
      * This is enabled by default.
-     * @param b whether to follow redirections or not.
+     * \a b whether to follow redirections or not.
      */
     void setFollowRedirections(bool b);
 

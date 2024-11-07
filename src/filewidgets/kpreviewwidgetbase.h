@@ -42,7 +42,7 @@ public:
      * and pass the KFileDialog this preview widget is going to be used in as
      * the parent.
      *
-     * @param parent The KFileDialog this preview widget is going to be used in
+     * \a parent The KFileDialog this preview widget is going to be used in
      */
     explicit KPreviewWidgetBase(QWidget *parent);
     ~KPreviewWidgetBase() override;
@@ -54,7 +54,7 @@ public Q_SLOTS:
      * This slot is called every time the user selects another file in the
      * file dialog. Implement the stuff necessary to reflect the change here.
      *
-     * @param url The URL of the currently selected file.
+     * \a url The URL of the currently selected file.
      */
     virtual void showPreview(const QUrl &url) = 0;
 

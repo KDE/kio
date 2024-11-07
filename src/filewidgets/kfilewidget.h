@@ -52,7 +52,7 @@ public:
     /*!
      * Constructs a file selector widget.
      *
-     * @param startDir This can either be:
+     * \a startDir This can either be:
      *         @li An empty URL (QUrl()) to start in the current working directory,
      *             or the last directory where a file has been selected.
      *         @li The path or URL of a starting directory.
@@ -78,7 +78,7 @@ public:
      *
      * @note Since 5.96, the "?global" syntax is deprecated, for lack of usage.
      *
-     * @param parent The parent widget of this widget
+     * \a parent The parent widget of this widget
      *
      */
     explicit KFileWidget(const QUrl &startDir, QWidget *parent = nullptr);
@@ -106,17 +106,17 @@ public:
     };
 
     /*!
-     * @returns The selected fully qualified filename.
+     * Returnss The selected fully qualified filename.
      */
     QUrl selectedUrl() const;
 
     /*!
-     * @returns The list of selected URLs.
+     * Returnss The list of selected URLs.
      */
     QList<QUrl> selectedUrls() const;
 
     /*!
-     * @returns the currently shown directory.
+     * Returnss the currently shown directory.
      */
     QUrl baseUrl() const;
 
@@ -134,8 +134,8 @@ public:
     /*!
      * Sets the directory to view.
      *
-     * @param url URL to show.
-     * @param clearforward Indicates whether the forward queue
+     * \a url URL to show.
+     * \a clearforward Indicates whether the forward queue
      * should be cleared.
      */
     void setUrl(const QUrl &url, bool clearforward = true);
@@ -179,7 +179,7 @@ public:
     void setOperationMode(OperationMode);
 
     /*!
-     * @returns the current operation mode, Opening, Saving or Other. Default
+     * Returnss the current operation mode, Opening, Saving or Other. Default
      * is Other.
      *
      * @see operationMode
@@ -201,7 +201,7 @@ public:
     void setKeepLocation(bool keep);
 
     /*!
-     * @returns whether the contents of the location edit are kept when
+     * Returnss whether the contents of the location edit are kept when
      * changing directories.
      */
     bool keepsLocation() const;
@@ -213,7 +213,7 @@ public:
      *
      * Only one filter is active at a time.
      *
-     * @param activeFilter the initially active filter
+     * \a activeFilter the initially active filter
      *
      * @since 6.0
      *
@@ -245,7 +245,7 @@ public:
      * Ownership is transferred to KFileWidget. You need to create the
      * preview-widget with "new", i.e. on the heap.
      *
-     * @param w The widget to be used for the preview.
+     * \a w The widget to be used for the preview.
      */
     void setPreviewWidget(KPreviewWidgetBase *w);
 
@@ -288,26 +288,26 @@ public:
     void setLocationLabel(const QString &text);
 
     /*!
-     * @returns a pointer to the OK-Button in the filedialog.
+     * Returnss a pointer to the OK-Button in the filedialog.
      * Note that the button is hidden and unconnected when using KFileWidget alone;
      * KFileDialog shows it and connects to it.
      */
     QPushButton *okButton() const;
 
     /*!
-     * @returns a pointer to the Cancel-Button in the filedialog.
+     * Returnss a pointer to the Cancel-Button in the filedialog.
      * Note that the button is hidden and unconnected when using KFileWidget alone;
      * KFileDialog shows it and connects to it.
      */
     QPushButton *cancelButton() const;
 
     /*!
-     * @returns the combobox used to type the filename or full location of the file.
+     * Returnss the combobox used to type the filename or full location of the file.
      */
     KUrlComboBox *locationEdit() const;
 
     /*!
-     * @returns the combobox that contains the filters
+     * Returnss the combobox that contains the filters
      */
     KFileFilterCombo *filterWidget() const;
 
@@ -315,15 +315,15 @@ public:
      * This method implements the logic to determine the user's default directory
      * to be listed. E.g. the documents directory, home directory or a recently
      * used directory.
-     * @param startDir A URL specifying the initial directory, or using the
+     * \a startDir A URL specifying the initial directory, or using the
      *                 @c kfiledialog:/// syntax to specify a last used
      *                 directory.  If this URL specifies a file name, it is
      *                 ignored.  Refer to the KFileWidget::KFileWidget()
      *                 documentation for the @c kfiledialog:/// URL syntax.
-     * @param recentDirClass If the @c kfiledialog:/// syntax is used, this
+     * \a recentDirClass If the @c kfiledialog:/// syntax is used, this
      *        will return the string to be passed to KRecentDirs::dir() and
      *        KRecentDirs::add().
-     * @return The URL that should be listed by default (e.g. by KFileDialog or
+     * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
      * @see KFileWidget::KFileWidget()
      */
@@ -333,17 +333,17 @@ public:
      * Similar to getStartUrl(const QUrl& startDir,QString& recentDirClass),
      * but allows both the recent start directory keyword and a suggested file name
      * to be returned.
-     * @param startDir A URL specifying the initial directory and/or filename,
+     * \a startDir A URL specifying the initial directory and/or filename,
      *                 or using the @c kfiledialog:/// syntax to specify a
      *                 last used location.
      *                 Refer to the KFileWidget::KFileWidget()
      *                 documentation for the @c kfiledialog:/// URL syntax.
-     * @param recentDirClass If the @c kfiledialog:/// syntax is used, this
+     * \a recentDirClass If the @c kfiledialog:/// syntax is used, this
      *        will return the string to be passed to KRecentDirs::dir() and
      *        KRecentDirs::add().
-     * @param fileName The suggested file name, if specified as part of the
+     * \a fileName The suggested file name, if specified as part of the
      *        @p StartDir URL.
-     * @return The URL that should be listed by default (e.g. by KFileDialog or
+     * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
      *
      * @see KFileWidget::KFileWidget()
@@ -358,7 +358,7 @@ public:
 
     /*!
      * Set a custom widget that should be added to the file dialog.
-     * @param widget A widget, or a widget of widgets, for displaying custom
+     * \a widget A widget, or a widget of widgets, for displaying custom
      *               data in the file widget. This can be used, for example, to
      *               display a check box with the title "Open as read-only".
      *               When creating this widget, you don't need to specify a parent,
@@ -369,9 +369,9 @@ public:
     /*!
      * Sets a custom widget that should be added below the location and the filter
      * editors.
-     * @param text     Label of the custom widget, which is displayed below the labels
+     * \a text     Label of the custom widget, which is displayed below the labels
      *                 "Location:" and "Filter:".
-     * @param widget   Any kind of widget, but preferable a combo box or a line editor
+     * \a widget   Any kind of widget, but preferable a combo box or a line editor
      *                 to be compliant with the location and filter layout.
      *                 When creating this widget, you don't need to specify a parent,
      *                 since the widget's parent will be set automatically by KFileWidget.
@@ -382,21 +382,21 @@ public:
      * Sets whether the user should be asked for confirmation
      * when an overwrite might occur.
      *
-     * @param enable Set this to true to enable checking.
+     * \a enable Set this to true to enable checking.
      */
     void setConfirmOverwrite(bool enable);
 
     /*!
      * Forces the inline previews to be shown or hidden, depending on @p show.
      *
-     * @param show Whether to show inline previews or not.
+     * \a show Whether to show inline previews or not.
      */
     void setInlinePreviewShown(bool show);
 
     /*!
      * Provides a size hint, useful for dialogs that embed the widget.
      *
-     * @return a QSize, calculated to be optimal for a dialog.
+     * Returns a QSize, calculated to be optimal for a dialog.
      * @since 5.0
      */
     QSize dialogSizeHint() const;
@@ -481,7 +481,7 @@ Q_SIGNALS:
      * Emitted when the filter changed, i.e.\ the user entered an own filter
      * or chose one of the predefined set via setFilters().
      *
-     * @param filter contains the new filter (only the extension part,
+     * \a filter contains the new filter (only the extension part,
      * not the explanation), i.e. "*.cpp" or "*.cpp *.cc".
      *
      * @see setFilters()
@@ -499,14 +499,14 @@ Q_SIGNALS:
 
 public:
     /*!
-     * @returns the KDirOperator used to navigate the filesystem
+     * Returnss the KDirOperator used to navigate the filesystem
      */
     KDirOperator *dirOperator();
 
 #if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 3)
     /*!
      * reads the configuration for this widget from the given config group
-     * @param group the KConfigGroup to read from
+     * \a group the KConfigGroup to read from
      *
      * @deprecated since 6.3, no known use case.
      */

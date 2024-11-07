@@ -87,19 +87,19 @@ public:
     ~KUrlRequester() override;
 
     /*!
-     * @returns the current url in the lineedit. May be malformed, if the user
+     * Returnss the current url in the lineedit. May be malformed, if the user
      * entered something weird. For local files, ~user or environment variables
      * are substituted, relative paths will be resolved against startDir()
      */
     QUrl url() const;
 
     /*!
-     * @returns the current start dir
+     * Returnss the current start dir
      */
     QUrl startDir() const;
 
     /*!
-     * @returns the current text in the lineedit or combobox.
+     * Returnss the current text in the lineedit or combobox.
      * This does not do the URL expansion that url() does, it's only provided
      * for cases where KUrlRequester is used to enter URL-or-something-else,
      * like KOpenWithDialog where you can type a full command with arguments.
@@ -117,7 +117,7 @@ public:
      * by KUrlRequester, hence setting KFile::Files doesn't make
      * much sense here.
      *
-     * @param mode an OR'ed combination of KFile::Modes flags
+     * \a mode an OR'ed combination of KFile::Modes flags
      *
      * @see QFileDialog::setFileMode()
      */
@@ -181,7 +181,7 @@ public:
     QStringList mimeTypeFilters() const;
 
     /*!
-     * @returns a pointer to the filedialog.
+     * Returnss a pointer to the filedialog.
      * You can use this to customize the dialog, e.g. to call setLocationLabel
      * or other things which are not accessible in the KUrlRequester API.
      *
@@ -194,7 +194,7 @@ public:
     virtual QFileDialog *fileDialog() const;
 
     /*!
-     * @returns a pointer to the lineedit, either the default one, or the
+     * Returnss a pointer to the lineedit, either the default one, or the
      * special one, if you used the special constructor.
      *
      * It is provided so that you can e.g. set an own completion object
@@ -203,24 +203,24 @@ public:
     KLineEdit *lineEdit() const;
 
     /*!
-     * @returns a pointer to the combobox, in case you have set one using the
+     * Returnss a pointer to the combobox, in case you have set one using the
      * special constructor. Returns 0L otherwise.
      */
     KComboBox *comboBox() const;
 
     /*!
-     * @returns a pointer to the pushbutton. It is provided so that you can
+     * Returnss a pointer to the pushbutton. It is provided so that you can
      * specify an own pixmap or a text, if you really need to.
      */
     QPushButton *button() const;
 
     /*!
-     * @returns the KUrlCompletion object used in the lineedit/combobox.
+     * Returnss the KUrlCompletion object used in the lineedit/combobox.
      */
     KUrlCompletion *completionObject() const;
 
     /*!
-     * @returns an object, suitable for use with KEditListWidget. It allows you
+     * Returnss an object, suitable for use with KEditListWidget. It allows you
      * to put this KUrlRequester into a KEditListWidget.
      * Basically, do it like this:
      * \code
@@ -232,7 +232,7 @@ public:
     const KEditListWidget::CustomEditor &customEditor();
 
     /*!
-     * @return the message set with setPlaceholderText
+     * Returns the message set with setPlaceholderText
      * @since 5.0
      */
     QString placeholderText() const;
@@ -246,7 +246,7 @@ public:
     void setPlaceholderText(const QString &msg);
 
     /*!
-     * @returns the window modality of the file dialog set with setFileDialogModality
+     * Returnss the window modality of the file dialog set with setFileDialogModality
      */
     Qt::WindowModality fileDialogModality() const;
 

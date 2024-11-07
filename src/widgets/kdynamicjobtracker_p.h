@@ -27,7 +27,7 @@ public:
     /*!
      * Creates a new KDynamicJobTracker
      *
-     * @param parent the parent of this object.
+     * \a parent the parent of this object.
      */
     explicit KDynamicJobTracker(QObject *parent = nullptr);
 
@@ -41,14 +41,14 @@ public Q_SLOTS:
      * Register a new job in this tracker. This call will get forwarded to either KWidgetJobTracker
      * or KUiServerJobTracker, depending on the availability of the Kuiserver.
      *
-     * @param job the job to register
+     * \a job the job to register
      */
     void registerJob(KJob *job) override;
 
     /*!
      * Unregister a job from the tracker it was registered to.
      *
-     * @param job the job to unregister
+     * \a job the job to unregister
      */
     void unregisterJob(KJob *job) override;
 

@@ -50,7 +50,7 @@ Q_SIGNALS:
      *
      * You can use @p job to monitor the progress of the copy/move/link operation.
      *
-     * @param job the job started for moving, copying or symlinking files
+     * \a job the job started for moving, copying or symlinking files
      * @since 6.0
      */
     void copyJobStarted(KIO::CopyJob *job);
@@ -77,11 +77,11 @@ private:
  * itemCreated for every file or directory being created, so that the view can select
  * these items.
  *
- * @param mimeData the MIME data to paste, usually QApplication::clipboard()->mimeData()
- * @param destDir The URL of the target directory
- * @param flags passed to the sub job
+ * \a mimeData the MIME data to paste, usually QApplication::clipboard()->mimeData()
+ * \a destDir The URL of the target directory
+ * \a flags passed to the sub job
  *
- * @return A pointer to the job handling the operation.
+ * Returns A pointer to the job handling the operation.
  * @since 5.4
  */
 KIOWIDGETS_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);

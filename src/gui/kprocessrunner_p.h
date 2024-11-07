@@ -45,12 +45,12 @@ public:
 
     /*!
      * Run a KService (application desktop file) to open @p urls.
-     * @param service the service to run
-     * @param urls the list of URLs, can be empty
-     * @param flags various flags
-     * @param suggestedFileName see KRun::setSuggestedFileName
-     * @param asn Application startup notification id, if any (otherwise "")
-     * @param serviceEntryPath the KService entryPath(), passed as an argument
+     * \a service the service to run
+     * \a urls the list of URLs, can be empty
+     * \a flags various flags
+     * \a suggestedFileName see KRun::setSuggestedFileName
+     * \a asn Application startup notification id, if any (otherwise "")
+     * \a serviceEntryPath the KService entryPath(), passed as an argument
      * because in some cases it could become an empty string, e.g. if an
      * ApplicationLauncherJob is created from a @c KServiceAction, the
      * ApplicationLauncherJob will call KService::setExec() which clears the
@@ -65,11 +65,11 @@ public:
 
     /*!
      * Run a shell command
-     * @param cmd must be a shell command. No need to append "&" to it.
-     * @param desktopName name of the desktop file, if known.
-     * @param execName the name of the executable, if known.
-     * @param asn Application startup notification id, if any (otherwise "").
-     * @param workingDirectory the working directory for the started process. The default
+     * \a cmd must be a shell command. No need to append "&" to it.
+     * \a desktopName name of the desktop file, if known.
+     * \a execName the name of the executable, if known.
+     * \a asn Application startup notification id, if any (otherwise "").
+     * \a workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
@@ -86,11 +86,11 @@ public:
      * @note: Starting from 5.92, if an actual executable named @p executable cannot be found
      * in PATH, this will return a nullptr.
      *
-     * @param executable the name of (or full path to) the executable, mandatory
-     * @param args the arguments to pass to the executable
-     * @param desktopName name of the desktop file, if known.
-     * @param asn Application startup notification id, if any (otherwise "").
-     * @param workingDirectory the working directory for the started process. The default
+     * \a executable the name of (or full path to) the executable, mandatory
+     * \a args the arguments to pass to the executable
+     * \a desktopName name of the desktop file, if known.
+     * \a asn Application startup notification id, if any (otherwise "").
+     * \a workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
      *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
      */
@@ -113,13 +113,13 @@ public:
 Q_SIGNALS:
     /*!
      * @brief Emitted on error. In that case, finished() is not emitted.
-     * @param errorString the error message
+     * \a errorString the error message
      */
     void error(const QString &errorString);
 
     /*!
      * @brief emitted when the process was successfully started
-     * @param pid PID of the process that was started
+     * \a pid PID of the process that was started
      */
     void processStarted(qint64 pid);
 

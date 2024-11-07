@@ -48,8 +48,8 @@ public:
      * Note that with
      * this method the user must select an existing filename.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
      *          directory, or the last directory where a file has been
@@ -60,11 +60,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
@@ -79,8 +79,8 @@ public:
      * Note that with
      * this method the user must select an existing filename.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
      *          directory, or the last directory where a file has been
@@ -91,11 +91,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
                                                                     const QUrl &startDir = QUrl(),
@@ -110,8 +110,8 @@ public:
      * Note that with
      * this method the user must select an existing URL.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
      *          directory, or the last directory where a file has been
@@ -122,11 +122,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
@@ -141,8 +141,8 @@ public:
      * Note that with
      * this method the user must select an existing filename.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
      *          directory, or the last directory where a file has been
@@ -153,11 +153,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
                                                                const QUrl &startDir = QUrl(),
@@ -172,8 +172,8 @@ public:
      * Note that with this
      * method the user need not select an existing filename.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li a relative path or a filename determining the
      *             directory to start in and the file to be selected.
@@ -186,11 +186,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
@@ -205,8 +205,8 @@ public:
      * Note that with this
      * method the user need not select an existing filename.
      *
-     * @param encoding The encoding shown in the encoding combo.
-     * @param startDir This can either be
+     * \a encoding The encoding shown in the encoding combo.
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li a relative path or a filename determining the
      *             directory to start in and the file to be selected.
@@ -219,11 +219,11 @@ public:
      *         @li '::&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in any application that specified the
      *             same keyword.
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
      *    for examples of patterns.
-     * @param parent The widget the dialog will be centered on initially.
-     * @param title The name of the dialog widget.
+     * \a parent The widget the dialog will be centered on initially.
+     * \a title The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
@@ -246,7 +246,7 @@ private:
     /*!
      * Constructs a file dialog for text files with encoding selection possibility.
      *
-     * @param startDir This can either be
+     * \a startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
      *          directory, or the last directory where a file has been
@@ -258,20 +258,20 @@ private:
      *             by a filedialog in any application that specified the
      *             same keyword.
      *
-     * @param encoding The encoding shown in the encoding combo. If it's
+     * \a encoding The encoding shown in the encoding combo. If it's
      *          QString(), the global default encoding will be shown.
      *
-     * @param filter A shell glob or a MIME type filter that specifies which files to display.
+     * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    The preferred option is to set a list of MIME type names, see setMimeFilter() for details.
      *    Otherwise you can set the text to be displayed for the each glob, and
      *    provide multiple globs, see setFilters() for details.
      *
-     * @param title The title of the dialog
+     * \a title The title of the dialog
      *
-     * @param type This can either be
+     * \a type This can either be
      *      @li QFileDialog::AcceptOpen (open dialog, the default setting)
      *      @li QFileDialog::AcceptSave
-     * @param parent The parent widget of this dialog
+     * \a parent The parent widget of this dialog
      */
     KEncodingFileDialog(const QUrl &startDir = QUrl(),
                         const QString &encoding = QString(),
@@ -285,7 +285,7 @@ private:
     ~KEncodingFileDialog() override;
 
     /*!
-     * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
+     * Returnss The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
      */
     QString selectedEncoding() const;
 

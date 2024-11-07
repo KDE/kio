@@ -92,7 +92,7 @@ public:
     Q_SIGNAL void historyChanged();
 
     /*!
-     * @return URL of the location given by the \a historyIndex. If \a historyIndex
+     * Returns URL of the location given by the \a historyIndex. If \a historyIndex
      *         is smaller than 0, the URL of the current location is returned.
      */
     Q_INVOKABLE QUrl locationUrl(int historyIndex = -1) const;
@@ -114,7 +114,7 @@ public:
     Q_INVOKABLE void saveLocationState(const QVariant &state);
 
     /*!
-     * @return Location state given by \a historyIndex. If \a historyIndex
+     * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
      * @see    KCoreUrlNavigator::saveLocationState()
      */

@@ -211,14 +211,14 @@ public:
     /*!
      * Creates a KUriFilterData object from the given URL.
      *
-     * @param url is the URL to be filtered.
+     * \a url is the URL to be filtered.
      */
     explicit KUriFilterData(const QUrl &url);
 
     /*!
      * Creates a KUriFilterData object from the given string.
      *
-     * @param url is the string to be filtered.
+     * \a url is the string to be filtered.
      */
     explicit KUriFilterData(const QString &url);
 
@@ -227,7 +227,7 @@ public:
      *
      * Creates a KUriFilterData object from another KURIFilterData object.
      *
-     * @param other the uri filter data to be copied.
+     * \a other the uri filter data to be copied.
      */
     KUriFilterData(const KUriFilterData &other);
 
@@ -242,7 +242,7 @@ public:
      * If one of the plugins successfully filtered the original input, this
      * function returns it. Otherwise, it will return the input itself.
      *
-     * @return the filtered or original url.
+     * Returns the filtered or original url.
      */
     QUrl uri() const;
 
@@ -253,7 +253,7 @@ public:
      * uri type is set to KUriFilterData::ERROR. Otherwise, it returns a nullptr
      * string.
      *
-     * @return the error message or a nullptr when there is none.
+     * Returns the error message or a nullptr when there is none.
      */
     QString errorMsg() const;
 
@@ -263,14 +263,14 @@ public:
      * This method always returns KUriFilterData::UNKNOWN if the given URL was
      * not filtered.
      *
-     * @return the type of the URI
+     * Returns the type of the URI
      */
     UriTypes uriType() const;
 
     /*!
      * Returns the absolute path if one has already been set.
      *
-     * @return the absolute path, or QString()
+     * Returns the absolute path, or QString()
      *
      * @see hasAbsolutePath()
      */
@@ -279,7 +279,7 @@ public:
     /*!
      * Checks whether the supplied data had an absolute path.
      *
-     * @return true if the supplied data has an absolute path
+     * Returns true if the supplied data has an absolute path
      *
      * @see absolutePath()
      */
@@ -289,7 +289,7 @@ public:
      * Returns the command line options and arguments for a local resource
      * when present.
      *
-     * @return options and arguments when present, otherwise QString()
+     * Returns options and arguments when present, otherwise QString()
      */
     QString argsAndOptions() const;
 
@@ -297,12 +297,12 @@ public:
      * Checks whether the current data is a local resource with command line
      * options and arguments.
      *
-     * @return true if the current data has command line options and arguments
+     * Returns true if the current data has command line options and arguments
      */
     bool hasArgsAndOptions() const;
 
     /*!
-     * @return true if the filters should attempt to check whether the
+     * Returns true if the filters should attempt to check whether the
      * supplied uri is an executable. False otherwise.
      */
     bool checkForExecutables() const;
@@ -481,7 +481,7 @@ public:
      * Use this function to set the string to be filtered when you construct an
      * empty filter object.
      *
-     * @param url the URL to be filtered.
+     * \a url the URL to be filtered.
      */
     void setData(const QUrl &url);
 
@@ -492,7 +492,7 @@ public:
      * filtered when you construct an empty filter
      * object.
      *
-     * @param url the string to be filtered.
+     * \a url the string to be filtered.
      */
     void setData(const QString &url);
 
@@ -506,9 +506,9 @@ public:
      * a QUrl, make sure you set the argument for this function to the result
      * of calling path () instead of url ().
      *
-     * @param abs_path  the absolute path to the local resource.
+     * \a abs_path  the absolute path to the local resource.
      *
-     * @return true if absolute path is successfully set. Otherwise, false.
+     * Returns true if absolute path is successfully set. Otherwise, false.
      */
     bool setAbsolutePath(const QString &abs_path);
 
@@ -576,7 +576,7 @@ public:
      * This function allows you to easily assign a QUrl
      * to a KUriFilterData object.
      *
-     * @return an instance of a KUriFilterData object.
+     * Returns an instance of a KUriFilterData object.
      */
     KUriFilterData &operator=(const QUrl &url);
 
@@ -586,7 +586,7 @@ public:
      * This function allows you to easily assign a QString to a KUriFilterData
      * object.
      *
-     * @return an instance of a KUriFilterData object.
+     * Returns an instance of a KUriFilterData object.
      */
     KUriFilterData &operator=(const QString &url);
 
@@ -733,10 +733,10 @@ public:
      * If no named filters are specified, the default, then all the
      * URI filter plugins found will be used.
      *
-     * @param data object that contains the URI to be filtered.
-     * @param filters specify the list of filters to be used.
+     * \a data object that contains the URI to be filtered.
+     * \a filters specify the list of filters to be used.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(KUriFilterData &data, const QStringList &filters = QStringList());
 
@@ -746,10 +746,10 @@ public:
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri the URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri the URI to filter.
+     * \a filters specify the list of filters to be used.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(QUrl &uri, const QStringList &filters = QStringList());
 
@@ -759,10 +759,10 @@ public:
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri The URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri The URI to filter.
+     * \a filters specify the list of filters to be used.
      *
-     * @return a boolean indicating whether the URI has been changed
+     * Returns a boolean indicating whether the URI has been changed
      */
     bool filterUri(QString &uri, const QStringList &filters = QStringList());
 
@@ -772,10 +772,10 @@ public:
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri The URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri The URI to filter.
+     * \a filters specify the list of filters to be used.
      *
-     * @return the filtered URI or null if it cannot be filtered
+     * Returns the filtered URI or null if it cannot be filtered
      */
     QUrl filteredUri(const QUrl &uri, const QStringList &filters = QStringList());
 
@@ -785,10 +785,10 @@ public:
      * The given URL is filtered based on the specified list of filters.
      * If the list is empty all available filters would be used.
      *
-     * @param uri the URI to filter.
-     * @param filters specify the list of filters to be used.
+     * \a uri the URI to filter.
+     * \a filters specify the list of filters to be used.
      *
-     * @return the filtered URI or null if it cannot be filtered
+     * Returns the filtered URI or null if it cannot be filtered
      */
     QString filteredUri(const QString &uri, const QStringList &filters = QStringList());
 
@@ -801,9 +801,9 @@ public:
      * You can also use the flags from @ref KUriFilterData::SearchFilterOption
      * to alter the filtering mechanisms of the search filter providers.
      *
-     * @param data object that contains the URI to be filtered.
-     * @param types the search filters used to filter the request.
-     * @return true if the specified @p data was successfully filtered.
+     * \a data object that contains the URI to be filtered.
+     * \a types the search filters used to filter the request.
+     * Returns true if the specified @p data was successfully filtered.
      *
      * @see KUriFilterData::setSearchFilteringOptions
      */
@@ -812,7 +812,7 @@ public:
     /*!
      * Return a list of the names of all loaded plugins.
      *
-     * @return a QStringList of plugin names
+     * Returns a QStringList of plugin names
      */
     QStringList pluginNames() const;
 

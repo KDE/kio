@@ -45,7 +45,7 @@ public:
     ~KFilePreviewGeneratorPrivate();
     /*!
      * Requests a new icon for the item \a index.
-     * @param sequenceIndex If this is zero, the standard icon is requested, else another one.
+     * \a sequenceIndex If this is zero, the standard icon is requested, else another one.
      */
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
 

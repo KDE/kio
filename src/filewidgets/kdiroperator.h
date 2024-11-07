@@ -238,7 +238,7 @@ public:
     virtual void setShowHiddenFiles(bool s);
 
     /*!
-     * @returns true when hidden files are shown or false otherwise.
+     * Returnss true when hidden files are shown or false otherwise.
      */
     bool showHiddenFiles() const;
 
@@ -257,7 +257,7 @@ public:
     void setNameFilter(const QString &filter);
 
     /*!
-     * @returns the current namefilter.
+     * Returnss the current namefilter.
      * @see setNameFilter
      */
     QString nameFilter() const;
@@ -282,7 +282,7 @@ public:
     void setMimeFilter(const QStringList &mimetypes);
 
     /*!
-     * @returns the current MIME type filter.
+     * Returnss the current MIME type filter.
      */
     QStringList mimeFilter() const;
 
@@ -308,7 +308,7 @@ public:
     void setNewFileMenuSupportedMimeTypes(const QStringList &mime);
 
     /*!
-     * @returns the current Supported Mimes Types.
+     * Returnss the current Supported Mimes Types.
      */
     QStringList newFileMenuSupportedMimeTypes() const;
 
@@ -329,14 +329,14 @@ public:
     void clearFilter();
 
     /*!
-     * @returns the current url
+     * Returnss the current url
      */
     QUrl url() const;
 
     /*!
      * Sets a new url to list.
-     * @param clearforward specifies whether the "forward" history should be cleared.
-     * @param url the URL to set
+     * \a clearforward specifies whether the "forward" history should be cleared.
+     * \a url the URL to set
      */
     virtual void setUrl(const QUrl &url, bool clearforward);
 
@@ -365,7 +365,7 @@ public:
     void setCurrentItems(const KFileItemList &items);
 
     /*!
-     * @returns the currently used view.
+     * Returnss the currently used view.
      * @see setView
      */
     QAbstractItemView *view() const;
@@ -380,7 +380,7 @@ public:
 
     /*!
      * Returns the current view mode.
-     * @returns KFile::FileView
+     * Returnss KFile::FileView
      * @see KFile::FileView
      * @since 5.0
      */
@@ -392,22 +392,22 @@ public:
     void setSorting(QDir::SortFlags);
 
     /*!
-     * @returns the current way of sorting files and directories
+     * Returnss the current way of sorting files and directories
      */
     QDir::SortFlags sorting() const;
 
     /*!
-     * @returns true if we are displaying the root directory of the current url
+     * Returnss true if we are displaying the root directory of the current url
      */
     bool isRoot() const;
 
     /*!
-     * @returns the object listing the directory
+     * Returnss the object listing the directory
      */
     KDirLister *dirLister() const;
 
     /*!
-     * @returns the progress widget, that is shown during directory listing.
+     * Returnss the progress widget, that is shown during directory listing.
      * You can for example reparent() it to put it into a statusbar.
      */
     QProgressBar *progressBar() const;
@@ -425,7 +425,7 @@ public:
      */
     virtual void setMode(KFile::Modes m);
     /*!
-     * @returns the listing/selection mode.
+     * Returnss the listing/selection mode.
      */
     KFile::Modes mode() const;
 
@@ -437,30 +437,30 @@ public:
     virtual void setPreviewWidget(KPreviewWidgetBase *w);
 
     /*!
-     * @returns a list of all currently selected items. If there is no view,
+     * Returnss a list of all currently selected items. If there is no view,
      * or there are no selected items, an empty list is returned.
      */
     KFileItemList selectedItems() const;
 
     /*!
-     * @returns true if @p item is currently selected, or false otherwise.
+     * Returnss true if @p item is currently selected, or false otherwise.
      */
     bool isSelected(const KFileItem &item) const;
 
     /*!
-     * @returns the number of directories in the currently listed url.
+     * Returnss the number of directories in the currently listed url.
      * Returns 0 if there is no view.
      */
     int numDirs() const;
 
     /*!
-     * @returns the number of files in the currently listed url.
+     * Returnss the number of files in the currently listed url.
      * Returns 0 if there is no view.
      */
     int numFiles() const;
 
     /*!
-     * @returns a KCompletion object, containing all filenames and
+     * Returnss a KCompletion object, containing all filenames and
      * directories of the current directory/URL.
      * You can use it to insert it into a KLineEdit or KComboBox
      * Note: it will only contain files, after prepareCompletionObjects()
@@ -470,7 +470,7 @@ public:
     KCompletion *completionObject() const;
 
     /*!
-     * @returns a KCompletion object, containing only all directories of the
+     * Returnss a KCompletion object, containing only all directories of the
      * current directory/URL.
      * You can use it to insert it into a KLineEdit or KComboBox
      * Note: it will only contain directories, after
@@ -524,7 +524,7 @@ public:
     virtual void setViewConfig(KConfigGroup &configGroup);
 
     /*!
-     * @returns the group set by setViewConfig configuration.
+     * Returnss the group set by setViewConfig configuration.
      */
     KConfigGroup *viewConfigGroup() const;
 
@@ -563,7 +563,7 @@ public:
     void setOnlyDoubleClickSelectsFiles(bool enable);
 
     /*!
-     * @returns whether files (not directories) should only be select()ed by
+     * Returnss whether files (not directories) should only be select()ed by
      * double-clicks.
      * @see setOnlyDoubleClickSelectsFiles
      */
@@ -576,7 +576,7 @@ public:
     void setFollowNewDirectories(bool enable);
 
     /*!
-     * @returns true if setUrl is called on newly created directories, false
+     * Returnss true if setUrl is called on newly created directories, false
      * otherwise. Enabled by default.
      * @since 5.62
      * @see setFollowNewDirectories
@@ -591,7 +591,7 @@ public:
     void setFollowSelectedDirectories(bool enable);
 
     /*!
-     * @returns whether setUrl is called on selected directories when a tree
+     * Returnss whether setUrl is called on selected directories when a tree
      * view is used. Enabled by default.
      * @since 5.62
      */
@@ -600,10 +600,10 @@ public:
     /*!
      * Starts and returns a KIO::DeleteJob to delete the given @p items.
      *
-     * @param items the list of items to be deleted
-     * @param parent the parent widget used for the confirmation dialog
-     * @param ask specifies whether a confirmation dialog should be shown
-     * @param showProgress passed to the DeleteJob to show a progress dialog
+     * \a items the list of items to be deleted
+     * \a parent the parent widget used for the confirmation dialog
+     * \a ask specifies whether a confirmation dialog should be shown
+     * \a showProgress passed to the DeleteJob to show a progress dialog
      */
     virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr, bool ask = true, bool showProgress = true);
 
@@ -629,7 +629,7 @@ public:
     virtual void setEnableDirHighlighting(bool enable);
 
     /*!
-     * @returns whether the last directory will be made the current item
+     * Returnss whether the last directory will be made the current item
      * (and hence highlighted) when going up or back in the directory hierarchy
      *
      * Directories are highlighted by default.
@@ -637,7 +637,7 @@ public:
     bool dirHighlighting() const;
 
     /*!
-     * @returns true if we are in directory-only mode, that is, no files are
+     * Returnss true if we are in directory-only mode, that is, no files are
      * shown.
      */
     bool dirOnlyMode() const;
@@ -646,13 +646,13 @@ public:
 
     /*!
      * Sets up the action menu.
-     * @param whichActions is an value of OR'd ActionTypes that controls which actions to show in the action menu
+     * \a whichActions is an value of OR'd ActionTypes that controls which actions to show in the action menu
      */
     void setupMenu(int whichActions);
 
     /*!
      * Reimplemented - allow dropping of files if @p b is true, defaults to true since 5.59
-     * @param b true if the widget should allow dropping of files
+     * \a b true if the widget should allow dropping of files
      */
     virtual void setAcceptDrops(bool b);
 
@@ -665,10 +665,10 @@ public:
     /*!
      * Starts and returns a KIO::CopyJob to trash the given @p items.
      *
-     * @param items the list of items to be trashed
-     * @param parent the parent widget used for the confirmation dialog
-     * @param ask specifies whether a confirmation dialog should be shown
-     * @param showProgress passed to the CopyJob to show a progress dialog
+     * \a items the list of items to be trashed
+     * \a parent the parent widget used for the confirmation dialog
+     * \a ask specifies whether a confirmation dialog should be shown
+     * \a showProgress passed to the CopyJob to show a progress dialog
      */
     virtual KIO::CopyJob *trash(const KFileItemList &items, QWidget *parent, bool ask = true, bool showProgress = true);
 
@@ -680,7 +680,7 @@ public:
     /*!
      * Forces the inline previews to be shown or hidden, depending on @p show.
      *
-     * @param show Whether to show inline previews or not.
+     * \a show Whether to show inline previews or not.
      */
     void setInlinePreviewShown(bool show);
 
@@ -748,9 +748,9 @@ protected:
     /*!
      * A view factory for creating predefined fileviews. Called internally by setView,
      * but you can also call it directly. Reimplement this if you depend on self defined fileviews.
-     * @param parent   is the QWidget to be set as parent
-     * @param viewKind is the predefined view to be set, note: this can be several ones OR:ed together
-     * @returns the created view
+     * \a parent   is the QWidget to be set as parent
+     * \a viewKind is the predefined view to be set, note: this can be several ones OR:ed together
+     * Returnss the created view
      * @see KFile::FileView
      * @see setView
      */
@@ -1002,9 +1002,9 @@ Q_SIGNALS:
     /*!
      * Emitted when files are dropped. Dropping files is disabled by
      * default. You need to enable it with setAcceptDrops()
-     * @param item the item on which the drop occurred or 0.
-     * @param event the drop event itself.
-     * @param urls the urls that where dropped.
+     * \a item the item on which the drop occurred or 0.
+     * \a event the drop event itself.
+     * \a urls the urls that where dropped.
      */
     void dropped(const KFileItem &item, QDropEvent *event, const QList<QUrl> &urls);
 
@@ -1012,8 +1012,8 @@ Q_SIGNALS:
      * Emitted just before the context menu is shown, allows users to
      * extend the menu with custom actions.
      *
-     * @param item the file on which the context menu was invoked
-     * @param menu the context menu, pre-populated with the file-management actions
+     * \a item the file on which the context menu was invoked
+     * \a menu the context menu, pre-populated with the file-management actions
      */
     void contextMenuAboutToShow(const KFileItem &item, QMenu *menu);
 
@@ -1033,7 +1033,7 @@ Q_SIGNALS:
     /*!
      * Emitted when renaming selected files has finished.
      *
-     * @param urls URL list of the renamed files
+     * \a urls URL list of the renamed files
      * @since 5.96
      */
     void renamingFinished(const QList<QUrl> &urls);
