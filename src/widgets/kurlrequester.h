@@ -119,13 +119,13 @@ public:
      *
      * \a mode an OR'ed combination of KFile::Modes flags
      *
-     * @see QFileDialog::setFileMode()
+     * \sa QFileDialog::setFileMode()
      */
     void setMode(KFile::Modes mode);
 
     /*!
      * Returns the current mode
-     * @see QFileDialog::fileMode()
+     * \sa QFileDialog::fileMode()
      */
     KFile::Modes mode() const;
 
@@ -134,48 +134,48 @@ public:
      *
      * The default is QFileDialog::AcceptOpen.
      *
-     * @see QFileDialog::setAcceptMode()
+     * \sa QFileDialog::setAcceptMode()
      * @since 5.33
      */
     void setAcceptMode(QFileDialog::AcceptMode m);
 
     /*!
      * Returns the current open / save mode
-     * @see QFileDialog::acceptMode()
+     * \sa QFileDialog::acceptMode()
      * @since 5.33
      */
     QFileDialog::AcceptMode acceptMode() const;
 
     /*!
      * Sets the filters for the file dialog.
-     * @see QFileDialog::setNameFilters()
+     * \sa QFileDialog::setNameFilters()
      * @since 5.108
      */
     void setNameFilters(const QStringList &filters);
 
     /*!
      * Sets the filters for the file dialog.
-     * @see QFileDialog::setNameFilter()
+     * \sa QFileDialog::setNameFilter()
      * @since 5.108
      */
     void setNameFilter(const QString &filter);
 
     /*!
      * Returns the filters for the file dialog.
-     * @see QFileDialog::nameFilters()
+     * \sa QFileDialog::nameFilters()
      * @since 5.108
      */
     QStringList nameFilters() const;
 
     /*!
      * Sets the MIME type filters for the file dialog.
-     * @see QFileDialog::setMimeTypeFilters()
+     * \sa QFileDialog::setMimeTypeFilters()
      * @since 5.31
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
     /*!
      * Returns the MIME type filters for the file dialog.
-     * @see QFileDialog::mimeTypeFilters()
+     * \sa QFileDialog::mimeTypeFilters()
      * @since 5.31
      */
     QStringList mimeTypeFilters() const;
@@ -277,7 +277,7 @@ public Q_SLOTS:
      * enter URL-or-something-else, like KOpenWithDialog where you
      * can type a full command with arguments.
      *
-     * @see text
+     * \sa text
      */
     void setText(const QString &text);
 

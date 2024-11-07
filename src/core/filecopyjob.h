@@ -19,8 +19,8 @@ class FileCopyJobPrivate;
  * @class KIO::FileCopyJob filecopyjob.h <KIO/FileCopyJob>
  *
  * The FileCopyJob copies data from one place to another.
- * @see KIO::file_copy()
- * @see KIO::file_move()
+ * \sa KIO::file_copy()
+ * \sa KIO::file_move()
  */
 class KIOCORE_EXPORT FileCopyJob : public Job
 {

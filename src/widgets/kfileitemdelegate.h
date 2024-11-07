@@ -139,9 +139,9 @@ public:
      * types are resolved. If the MIME type isn't known, "Unknown" will be displayed until
      * the MIME type has been successfully resolved.
      *
-     * @see setShowInformation()
-     * @see showInformation()
-     * @see information
+     * \sa setShowInformation()
+     * \sa showInformation()
+     * \sa information
      */
     enum Information {
         NoInformation, ///< No additional information will be shown for items.
@@ -276,56 +276,56 @@ public:
      * To enable text shadows, set the shadow color to a non-transparent color.
      * To disable text shadows, set the color to Qt::transparent.
      *
-     * @see shadowColor()
+     * \sa shadowColor()
      */
     void setShadowColor(const QColor &color);
 
     /*!
      * Returns the color used for the text shadow.
      *
-     * @see setShadowColor()
+     * \sa setShadowColor()
      */
     QColor shadowColor() const;
 
     /*!
      * Sets the horizontal and vertical offset for the text shadow.
      *
-     * @see shadowOffset()
+     * \sa shadowOffset()
      */
     void setShadowOffset(const QPointF &offset);
 
     /*!
      * Returns the offset used for the text shadow.
      *
-     * @see setShadowOffset()
+     * \sa setShadowOffset()
      */
     QPointF shadowOffset() const;
 
     /*!
      * Sets the blur radius for the text shadow.
      *
-     * @see shadowBlur()
+     * \sa shadowBlur()
      */
     void setShadowBlur(qreal radius);
 
     /*!
      * Returns the blur radius for the text shadow.
      *
-     * @see setShadowBlur()
+     * \sa setShadowBlur()
      */
     qreal shadowBlur() const;
 
     /*!
      * Sets the maximum size for KFileItemDelegate::sizeHint().
      *
-     * @see maximumSize()
+     * \sa maximumSize()
      */
     void setMaximumSize(const QSize &size);
 
     /*!
      * Returns the maximum size for KFileItemDelegate::sizeHint().
      *
-     * @see setMaximumSize()
+     * \sa setMaximumSize()
      */
     QSize maximumSize() const;
 
@@ -336,7 +336,7 @@ public:
      * @note The tooltip will only be shown if the Qt::ToolTipRole differs
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
-     * @see showToolTipWhenElided()
+     * \sa showToolTipWhenElided()
      */
     void setShowToolTipWhenElided(bool showToolTip);
 
@@ -347,7 +347,7 @@ public:
      * @note The tooltip will only be shown if the Qt::ToolTipRole differs
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
-     * @see setShowToolTipWhenElided()
+     * \sa setShowToolTipWhenElided()
      */
     bool showToolTipWhenElided() const;
 
@@ -389,7 +389,7 @@ public:
 
     /*!
      * Returns whether or not the displaying of job transfers is enabled.
-     * @see setJobTransfersVisible()
+     * \sa setJobTransfersVisible()
      */
     bool jobTransfersVisible() const;
 

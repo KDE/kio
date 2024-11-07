@@ -77,7 +77,7 @@ public:
     /*!
      * Returns all the web shortcut keys associated with this search provider.
      *
-     * @see defaultKey
+     * \sa defaultKey
      */
     QStringList keys() const;
 
@@ -87,7 +87,7 @@ public:
      * Right now this is the same as doing keys().first(), it might however
      * change based on what the backend plugins do.
      *
-     * @see keys
+     * \sa keys
      */
     QString defaultKey() const;
 
@@ -186,9 +186,9 @@ public:
      *     where all available search providers are returned if no preferred ones
      *     ones are available. No input filtering will be performed.
      *
-     * @see setSearchFilteringOptions
-     * @see KUriFilter::filterSearchUri
-     * @see SearchFilterOptions
+     * \sa setSearchFilteringOptions
+     * \sa KUriFilter::filterSearchUri
+     * \sa SearchFilterOptions
      */
     enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
@@ -272,7 +272,7 @@ public:
      *
      * Returns the absolute path, or QString()
      *
-     * @see hasAbsolutePath()
+     * \sa hasAbsolutePath()
      */
     QString absolutePath() const;
 
@@ -281,7 +281,7 @@ public:
      *
      * Returns true if the supplied data has an absolute path
      *
-     * @see absolutePath()
+     * \sa absolutePath()
      */
     bool hasAbsolutePath() const;
 
@@ -318,7 +318,7 @@ public:
      * If the @ref typedString was not filtered by a search filter plugin, this
      * function returns an empty string.
      *
-     * @see typedString
+     * \sa typedString
      */
     QString searchTerm() const;
 
@@ -329,7 +329,7 @@ public:
      * If @ref typedString was not filtered by a search filter plugin, this
      * function returns a null character.
      *
-     * @see typedString
+     * \sa typedString
      */
     QChar searchTermSeparator() const;
 
@@ -339,7 +339,7 @@ public:
      * If @ref typedString was not filtered by a search filter plugin, this
      * function returns an empty string.
      *
-     * @see typedString
+     * \sa typedString
      */
     QString searchProvider() const;
 
@@ -361,10 +361,10 @@ public:
      * You can use @ref queryForPreferredServiceProvider to obtain the query
      * associated with the list of search providers returned by this function.
      *
-     * @see setAlternateSearchProviders
-     * @see setAlternateDefaultSearchProvider
-     * @see setSearchFilteringOption
-     * @see queryForPreferredServiceProvider
+     * \sa setAlternateSearchProviders
+     * \sa setAlternateDefaultSearchProvider
+     * \sa setSearchFilteringOption
+     * \sa queryForPreferredServiceProvider
      */
     QStringList preferredSearchProviders() const;
 
@@ -374,8 +374,8 @@ public:
      * You can use this function to obtain the more information about the search
      * providers returned by @ref preferredSearchProviders.
      *
-     * @see preferredSearchProviders
-     * @see KUriFilterSearchProvider
+     * \sa preferredSearchProviders
+     * \sa KUriFilterSearchProvider
      */
     KUriFilterSearchProvider queryForSearchProvider(const QString &provider) const;
 
@@ -389,7 +389,7 @@ public:
      * "gg:foo bar", and must be re-filtered through KUriFilter to obtain a
      * valid url.
      *
-     * @see preferredSearchProviders
+     * \sa preferredSearchProviders
      */
     QString queryForPreferredSearchProvider(const QString &provider) const;
 
@@ -402,7 +402,7 @@ public:
      * function, unlike @ref queryForPreferredSearchProvider, will return a
      * a query for each and every web shortcut.
      *
-     * @see queryForPreferredSearchProvider
+     * \sa queryForPreferredSearchProvider
      */
     QStringList allQueriesForSearchProvider(const QString &provider) const;
 
@@ -412,7 +412,7 @@ public:
      * You can use this function to obtain the icon names associated with the
      * preferred search providers returned by @ref preferredSearchProviders.
      *
-     * @see preferredSearchProviders
+     * \sa preferredSearchProviders
      */
     QString iconNameForPreferredSearchProvider(const QString &provider) const;
 
@@ -424,8 +424,8 @@ public:
      * preferred providers have been chosen by the user through the search
      * configuration module.
      *
-     * @see setAlternatteSearchProviders
-     * @see preferredSearchProviders
+     * \sa setAlternatteSearchProviders
+     * \sa preferredSearchProviders
      */
     QStringList alternateSearchProviders() const;
 
@@ -436,7 +436,7 @@ public:
      * was not called to set the default search provider to be used when none has been
      * chosen by the user through the search configuration module.
      *
-     * @see setAlternateDefaultSearchProvider
+     * \sa setAlternateDefaultSearchProvider
      */
     QString alternateDefaultSearchProvider() const;
 
@@ -445,7 +445,7 @@ public:
      *
      * By default this function will return an empty string.
      *
-     * @see setDefaultUrlScheme
+     * \sa setDefaultUrlScheme
      */
     QString defaultUrlScheme() const;
 
@@ -454,7 +454,7 @@ public:
      *
      * By default this function returns @ref SearchFilterOptionNone.
      *
-     * @see setSearchFilteringOptions
+     * \sa setSearchFilteringOptions
      */
     SearchFilterOptions searchFilteringOptions() const;
 
@@ -521,8 +521,8 @@ public:
      * selected by the user. Otherwise, the providers specified through this
      * function will be ignored.
      *
-     * @see alternateSearchProviders
-     * @see preferredSearchProviders
+     * \sa alternateSearchProviders
+     * \sa preferredSearchProviders
      */
     void setAlternateSearchProviders(const QStringList &providers);
 
@@ -534,8 +534,8 @@ public:
      * the user. Otherwise, the default provider specified by through function
      * will be ignored.
      *
-     * @see alternateDefaultSearchProvider
-     * @see preferredSearchProviders
+     * \sa alternateDefaultSearchProvider
+     * \sa preferredSearchProviders
      */
     void setAlternateDefaultSearchProvider(const QString &provider);
 
@@ -550,7 +550,7 @@ public:
      * simply set to "ftp", then a potentially valid url input such as "kde.org"
      * will be filtered to "ftp://kde.org".
      *
-     * @see defaultUrlScheme
+     * \sa defaultUrlScheme
      */
     void setDefaultUrlScheme(const QString &);
 
@@ -566,7 +566,7 @@ public:
      * can return an invalid url even though the filtering request returned
      * a successful response.
      *
-     * @see searchFilteringOptions
+     * \sa searchFilteringOptions
      */
     void setSearchFilteringOptions(SearchFilterOptions options);
 
@@ -706,7 +706,7 @@ public:
      * @li NormalTextFilter      The plugin used to filter normal text, e.g. "some term to search".
      * @li WebShortcutFilter     The plugin used to filter web shortcuts, e.g. gg:KDE.
      *
-     * @see SearchFilterTypes
+     * \sa SearchFilterTypes
      */
     enum SearchFilterType {
         NormalTextFilter = 0x01,
@@ -805,7 +805,7 @@ public:
      * \a types the search filters used to filter the request.
      * Returns true if the specified @p data was successfully filtered.
      *
-     * @see KUriFilterData::setSearchFilteringOptions
+     * \sa KUriFilterData::setSearchFilteringOptions
      */
     bool filterSearchUri(KUriFilterData &data, SearchFilterTypes types);
 

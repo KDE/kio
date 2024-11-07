@@ -133,13 +133,13 @@ public:
 
     /*!
      * Sets how many items should be handled and displayed by the combobox.
-     * @see maxItems
+     * \sa maxItems
      */
     void setMaxItems(int);
 
     /*!
      * Returnss the maximum of items the combobox handles.
-     * @see setMaxItems
+     * \sa setMaxItems
      */
     int maxItems() const;
 
@@ -166,7 +166,7 @@ public:
     /*!
      * Clears all items and inserts the default urls into the combo. Will be
      * called implicitly upon the first call to setUrls() or setUrl()
-     * @see addDefaultUrl
+     * \sa addDefaultUrl
      */
     void setDefaults();
 

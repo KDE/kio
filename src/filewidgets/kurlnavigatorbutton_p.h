@@ -64,7 +64,7 @@ public:
     void setActiveSubDirectory(const QString &subDir);
     QString activeSubDirectory() const;
 
-    /*! @see QWidget::sizeHint() */
+    /*! \sa QWidget::sizeHint() */
     QSize sizeHint() const override;
 
     void setShowMnemonic(bool show);

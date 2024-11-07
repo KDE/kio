@@ -31,7 +31,7 @@ public:
      * @li @p Files - Get multiple file names from the user.
      * @li @p ExistingOnly - Never return a filename which does not exist yet
      * @li @p LocalOnly - Don't return remote filenames
-     * @see Modes
+     * \sa Modes
      */
     enum Mode {
         File = 1,

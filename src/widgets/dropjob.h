@@ -22,7 +22,7 @@ namespace KIO
 /*!
  * Special flag of DropJob in addition to KIO::JobFlag
  *
- * @see DropJobFlags
+ * \sa DropJobFlags
  * @since 5.67
  */
 enum DropJobFlag {
@@ -42,7 +42,7 @@ class DropJobPrivate;
  * @class KIO::DropJob dropjob.h <KIO/DropJob>
  *
  * A KIO job that handles dropping into a file-manager-like view.
- * @see KIO::drop
+ * \sa KIO::drop
  *
  * The popupmenu that can appear on drop, can be customized with plugins,
  * see KIO::DndPopupMenuPlugin.

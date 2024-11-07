@@ -42,7 +42,7 @@ public:
      * If enabled, it will show an error dialog to the user when an
      * error occurs. It is turned on by default.
      * Returns true if auto error handling is enabled, false otherwise
-     * @see setAutoErrorHandlingEnabled()
+     * \sa setAutoErrorHandlingEnabled()
      */
     bool autoErrorHandlingEnabled() const; // KF6 remove, already provided by KCoreDirLister
 

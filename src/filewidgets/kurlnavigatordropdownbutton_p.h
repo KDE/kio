@@ -29,7 +29,7 @@ public:
     explicit KUrlNavigatorDropDownButton(KUrlNavigator *parent);
     ~KUrlNavigatorDropDownButton() override;
 
-    /*! @see QWidget::sizeHint() */
+    /*! \sa QWidget::sizeHint() */
     QSize sizeHint() const override;
 
 protected:

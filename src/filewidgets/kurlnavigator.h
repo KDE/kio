@@ -115,7 +115,7 @@ public:
     /*!
      * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
-     * @see    KUrlNavigator::saveLocationState()
+     * \sa    KUrlNavigator::saveLocationState()
      * @since  4.5
      */
     QByteArray locationState(int historyIndex = -1) const;
@@ -154,7 +154,7 @@ public:
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
      * and KUrlNavigator::historyChanged() are emitted.
      *
-     * @see KUrlNavigator::setHomeUrl()
+     * \sa KUrlNavigator::setHomeUrl()
      */
     // KDE5: Remove the home-property. It is sufficient to invoke
     // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
@@ -214,7 +214,7 @@ public:
 
     /*!
      * Returns True, if the URL navigator is in the active mode.
-     * @see    KUrlNavigator::setActive()
+     * \sa    KUrlNavigator::setActive()
      */
     bool isActive() const;
 
@@ -251,7 +251,7 @@ public:
 
     /*!
      * Returns The used editor when the navigator is in the edit mode
-     * @see    KUrlNavigator::setUrlEditable()
+     * \sa    KUrlNavigator::setUrlEditable()
      */
     KUrlComboBox *editor() const;
 
@@ -283,7 +283,7 @@ public:
      * Returns Child widget that has received the last drop event, or nullptr if
      *         nothing has been dropped yet on the URL navigator.
      * @since 5.37
-     * @see KIO::drop()
+     * \sa KIO::drop()
      */
     QWidget *dropWidget() const;
 
@@ -344,7 +344,7 @@ public Q_SLOTS:
     /*!
      * Activates the URL navigator (KUrlNavigator::isActive() will return true)
      * and emits the signal KUrlNavigator::activated().
-     * @see KUrlNavigator::setActive()
+     * \sa KUrlNavigator::setActive()
      */
     void requestActivation();
 
@@ -357,14 +357,14 @@ Q_SIGNALS:
     /*!
      * Is emitted, if the URL navigator has been activated by
      * an user interaction
-     * @see KUrlNavigator::setActive()
+     * \sa KUrlNavigator::setActive()
      */
     void activated();
 
     /*!
      * Is emitted, if the location URL has been changed e. g. by
      * the user.
-     * @see KUrlNavigator::setUrl()
+     * \sa KUrlNavigator::setUrl()
      */
     void urlChanged(const QUrl &url);
 
@@ -443,7 +443,7 @@ protected:
     /*!
      * If the Escape key is pressed, the navigation bar should switch
      * to the breadcrumb view.
-     * @see QWidget::keyPressEvent()
+     * \sa QWidget::keyPressEvent()
      */
     void keyPressEvent(QKeyEvent *event) override;
 
@@ -455,7 +455,7 @@ protected:
     /*!
      * Paste the clipboard content as URL, if the middle mouse
      * button has been clicked.
-     * @see QWidget::mouseReleaseEvent()
+     * \sa QWidget::mouseReleaseEvent()
      */
     void mouseReleaseEvent(QMouseEvent *event) override;
 

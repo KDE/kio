@@ -22,7 +22,7 @@ namespace KDEPrivate
  * The widget is used by the URL navigator for offering the available
  * schemes for non-local URLs.
  *
- * @see KUrlNavigator
+ * \sa KUrlNavigator
  */
 class KUrlNavigatorSchemeCombo : public KUrlNavigatorButtonBase
 {

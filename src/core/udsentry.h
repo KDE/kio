@@ -220,7 +220,7 @@ public:
      * \value UDS_ACCESS Access permissions (part of the mode returned by stat)
      * \value UDS_MODIFICATION_TIME The last time the file was modified. Required time format: seconds since UNIX epoch.
      * \value UDS_ACCESS_TIME The last time the file was opened. Required time format: seconds since UNIX epoch.
-     * \vale UDS_CREATION_TIME The time the file was created. Required time format: seconds since UNIX epoch.
+     * \value UDS_CREATION_TIME The time the file was created. Required time format: seconds since UNIX epoch.
      * \value UDS_FILE_TYPE File type, part of the mode returned by stat (for a link, this returns the file type of the pointed item) check UDS_LINK_DEST to
      * know if this is a link
      * \value UDS_LINK_DEST Name of the file where the link points to. Allows to check for a symlink (don't use S_ISLNK !)
@@ -332,6 +332,8 @@ namespace KIO
 {
 /*!
  * \typedef KIO::UDSEntryList
+ *
+ * \relates KIO::UDSEntry
  *
  * A directory listing is a list of UDSEntry instances.
  *

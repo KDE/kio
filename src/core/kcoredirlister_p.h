@@ -78,8 +78,8 @@ public:
      * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching a pattern *.cpp ( KFileItem::isHidden())
-     * @see matchesFilter
-     * @see setNameFilter
+     * \sa matchesFilter
+     * \sa setNameFilter
      */
     bool matchesFilter(const KFileItem &) const;
 
@@ -92,8 +92,8 @@ public:
      * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching the mime filter
-     * @see matchesMimeFilter
-     * @see setMimeFilter
+     * \sa matchesMimeFilter
+     * \sa setMimeFilter
      */
     bool matchesMimeFilter(const KFileItem &) const;
 

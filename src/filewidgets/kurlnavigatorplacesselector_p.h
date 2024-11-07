@@ -24,7 +24,7 @@ namespace KDEPrivate
  * The icon from the current selected bookmark is shown
  * inside the bookmark selector.
  *
- * @see KUrlNavigator
+ * \sa KUrlNavigator
  * @internal
  */
 class KUrlNavigatorPlacesSelector : public KUrlNavigatorButtonBase
@@ -56,7 +56,7 @@ public:
     /*! Returns the selected bookmark. */
     QString selectedPlaceText() const;
 
-    /*! @see QWidget::sizeHint() */
+    /*! \sa QWidget::sizeHint() */
     QSize sizeHint() const override;
 
 Q_SIGNALS:

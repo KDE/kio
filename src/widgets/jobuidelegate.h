@@ -68,7 +68,7 @@ public:
     /*!
      * Associate this job with a window given by @p window.
      * \a window the window to associate to
-     * @see window()
+     * \sa window()
      */
     void setWindow(QWidget *window) override;
 
