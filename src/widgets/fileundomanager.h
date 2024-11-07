@@ -114,6 +114,7 @@ public:
     /*!
      * Set a new UiInterface implementation.
      * This deletes the previous one.
+     *
      * \a ui the UiInterface instance, which becomes owned by the undo manager.
      */
     void setUiInterface(UiInterface *ui);
@@ -126,6 +127,16 @@ public:
 
     /*!
      * The type of job.
+     *
+     * \value Copy
+     * \value Move
+     * \value Rename
+     * \value Link
+     * \value Mkdir
+     * \value Trash
+     * \value[since 4.7] Put Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop
+     * \vaue[since 5.4] Represents a KIO::mkpath() job
+     * \value[since 5.42] Represents a KIO::batchRename() job. Used when renaming multiple files
      */
     enum CommandType {
         Copy,
@@ -134,17 +145,21 @@ public:
         Link,
         Mkdir,
         Trash,
-        Put, ///< Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop. \since 4.7
-        Mkpath, ///< Represents a KIO::mkpath() job. \since 5.4
-        BatchRename ///< Represents a KIO::batchRename() job. Used when renaming multiple files. \since 5.42
+        Put,
+        Mkpath,
+        BatchRename
     };
 
     /*!
      * Record this job while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
+     *
      * \a op the type of job - which is also the type of command that will be created for it
+     *
      * \a src list of source urls. This is empty for Mkdir, Mkpath, Put operations.
+     *
      * \a dst destination url
+     *
      * \a job the job to record
      */
     void recordJob(CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
@@ -172,8 +187,14 @@ public:
      * Each command has a unique ID. You can get a new serial number for a custom command
      * with newCommandSerialNumber(), and then when you want to undo, check if the command
      * FileUndoManager would undo is newer or older than your custom command.
+     *
+     * \sa currentCommandSerialNumber()
      */
     quint64 newCommandSerialNumber();
+
+    /*!
+     *
+     */
     quint64 currentCommandSerialNumber() const;
 
 public Q_SLOTS:
@@ -188,13 +209,19 @@ public Q_SLOTS:
     void undo(); // TODO pass QWindow*, for askUserInterface->askUserDelete and error handling etc.
 
 Q_SIGNALS:
-    /// Emitted when the value of isUndoAvailable() changes
+    /*!
+     * Emitted when the value of isUndoAvailable() changes
+     */
     void undoAvailable(bool avail);
 
-    /// Emitted when the value of undoText() changes
+    /*!
+     * Emitted when the value of undoText() changes
+     */
     void undoTextChanged(const QString &text);
 
-    /// Emitted when an undo job finishes. Used for unit testing.
+    /*!
+     * Emitted when an undo job finishes. Used for unit testing.
+     */
     void undoJobFinished();
 
     /*!

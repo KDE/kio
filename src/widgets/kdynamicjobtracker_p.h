@@ -14,6 +14,8 @@
 class KDynamicJobTrackerPrivate;
 
 /*!
+ * \internal
+ *
  * This class implements a simple job tracker which registers any job to the KWidgetJobTracker if a
  * kuiserver isn't available on the DBus, or to the KUiServerJobTracker, if a kuiserver is
  * available. This way, we have the old dialogs as fallback when the user doesn't use a kuiserver

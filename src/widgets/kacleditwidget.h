@@ -18,7 +18,6 @@
 
 #include <memory>
 
-/// @internal
 class KACLEditWidget : public QWidget
 {
     Q_OBJECT

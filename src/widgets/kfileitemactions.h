@@ -20,14 +20,17 @@ class QMenu;
 class KFileItemActionsPrivate;
 
 /*!
- * @class KFileItemActions kfileitemactions.h <KFileItemActions>
+ * \class KFileItemActions
+ * \inmodule KIOWidgets
  *
  * This class creates and handles the actions for a url (or urls) in a popupmenu.
  *
  * This includes:
- * @li "open with <application>" actions, but also
- * @li user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
- * @li servicemenus actions, defined in .desktop files and selected based on the MIME type of the url
+ * \list
+ * \li "open with <application>" actions, but also
+ * \li user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
+ * \li servicemenus actions, defined in .desktop files and selected based on the MIME type of the url
+ * \endlist
  *
  * KFileItemActions respects Kiosk-based restrictions (see the KAuthorized
  * namespace in the KConfig framework). In particular, the "action/openwith"
@@ -40,11 +43,10 @@ class KFileItemActionsPrivate;
  * action is allowed.  The action is ignored if any of the listed actions are
  * not authorized.
  *
- * @note: The builtin services like mount/unmount for old-style device desktop
+ * \note The builtin services like mount/unmount for old-style device desktop
  * files (which mainly concerns CDROM and Floppy drives) have been deprecated
  * since 5.82; those menu entries were hidden long before that, since the FSDevice
  * .desktop template file hadn't been installed for quite a while.
- *
  */
 class KIOWIDGETS_EXPORT KFileItemActions : public QObject
 {
@@ -57,9 +59,6 @@ public:
      */
     KFileItemActions(QObject *parent = nullptr);
 
-    /*!
-     * Destructor
-     */
     ~KFileItemActions() override;
 
     /*!
@@ -79,8 +78,8 @@ public:
     void setParentWidget(QWidget *widget);
 
     /*!
-     * Generates the "Open With <Application>" actions, and inserts them in @p menu,
-     * before action @p before. If @p before is nullptr or doesn't exist in the menu
+     * Generates the "Open With <Application>" actions, and inserts them in \a menu,
+     * before action \a before. If \a before is nullptr or doesn't exist in the menu
      * the actions will be appended to the menu.
      *
      * All actions are created as children of the menu.
@@ -89,8 +88,10 @@ public:
      * (see KAuthorized::authorize()).
      *
      * \a before the "open with" actions will be inserted before this action; if this action
-     * is nullptr or isn't available in @p topMenu, the "open with" actions will be appended
+     * is nullptr or isn't available in \a topMenu, the "open with" actions will be appended
+     *
      * \a menu the QMenu where the actions will be added
+     *
      * \a excludedDesktopEntryNames list of desktop entry names that will not be shown
      *
      * \since 5.82
@@ -113,29 +114,42 @@ public:
      * KApplicationTrader instead, e.g. query() or preferredService().
      *
      * This will return an empty list if the "openwith" Kiosk action is not
-     * authorized (see @c KAuthorized::authorize()).
+     * authorized (see KAuthorized::authorize()).
      *
      * \a mimeTypeList the MIME types
+     *
      * Returns the sorted list of services.
+     *
      * \since 5.83
      */
     static KService::List associatedApplications(const QStringList &mimeTypeList);
 
+    /*!
+     * \value Services Add user defined actions and servicemenu actions (this used to include builtin actions, which have been deprecated since 5.82 see class
+     * API documentation)
+     * \value Plugins Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class
+     * \value All
+     *
+     */
     enum class MenuActionSource {
-        Services = 0x1, ///< Add user defined actions and servicemenu actions (this used to include builtin
-                        ///< actions, which have been deprecated since 5.82 see class API documentation)
-        Plugins = 0x2, ///< Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class.
+        Services = 0x1,
+        Plugins = 0x2,
         All = Services | Plugins,
     };
     Q_DECLARE_FLAGS(MenuActionSources, MenuActionSource)
 
     /*!
      * This methods adds additional actions to the menu.
+     *
      * \a menu Menu to which the actions/submenus will be added.
+     *
      * \a sources sources from which the actions should be fetched. By default all sources are used.
+     *
      * \a additionalActions additional actions that should be added to the "Actions" submenu or
      * top level menu if there are less than three entries in total.
+     *
      * \a excludeList list of action names or plugin ids that should be excluded
+     *
      * \since 5.77
      */
     void addActionsTo(QMenu *menu,
@@ -160,7 +174,9 @@ Q_SIGNALS:
 public Q_SLOTS:
     /*!
      * Slot used to execute a list of files in their respective preferred application.
+     *
      * \a fileOpenList the list of KFileItems to open.
+     *
      * \since 5.83
      */
     void runPreferredApplications(const KFileItemList &fileOpenList);

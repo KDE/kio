@@ -50,29 +50,31 @@ public:
 
     /*!
      * Flags for the openUrl() method
-     * \sa OpenUrlFlags
+     *
+     * \value NoFlags No additional flags specified.
+     * \value Reload Indicates whether to use the cache or to reread the directory from the disk. Use only when opening a dir not yet listed by our dirLister()
+     * without using the cache. Otherwise use dirLister()->updateDirectory().
+     * \value ShowRoot Display a root node for the URL being opened.
      * \since 5.69
      */
     enum OpenUrlFlag {
-        NoFlags = 0x0, ///< No additional flags specified.
-        Reload = 0x1, ///< Indicates whether to use the cache or to reread
-                      ///< the directory from the disk.
-                      ///< Use only when opening a dir not yet listed by our dirLister()
-                      ///< without using the cache. Otherwise use dirLister()->updateDirectory().
-        ShowRoot = 0x2, ///< Display a root node for the URL being opened.
+        NoFlags = 0x0,
+        Reload = 0x1,
+        ShowRoot = 0x2,
     };
-    /*!
-     * Stores a combination of #OpenUrlFlag values.
-     */
     Q_DECLARE_FLAGS(OpenUrlFlags, OpenUrlFlag)
     Q_FLAG(OpenUrlFlags)
 
     /*!
-     * Display the contents of @p url in the model.
+     * Display the contents of \a url in the model.
+     *
      * Apart from the support for the ShowRoot flag, this is equivalent to dirLister()->openUrl(url, flags)
-     * \a url   the URL of the directory whose contents should be listed.
-     *              Unless ShowRoot is set, the item for this directory will NOT be shown, the model starts at its children.
+     *
+     * \a url the URL of the directory whose contents should be listed. Unless ShowRoot is set, the item for this directory will NOT be shown, the model starts
+     * at its children.
+     *
      * \a flags see OpenUrlFlag
+     *
      * \since 5.69
      */
     Q_INVOKABLE void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
@@ -104,7 +106,7 @@ public:
     Q_INVOKABLE QModelIndex indexForUrl(const QUrl &url) const;
 
     /*!
-     * @short Lists subdirectories using fetchMore() as needed until the given @p url exists in the model.
+     * Lists subdirectories using fetchMore() as needed until the given url exists in the model.
      *
      * When the model is used by a treeview, call KDirLister::openUrl with the base url of the tree,
      * then the treeview will take care of calling fetchMore() when the user opens directories.
@@ -114,6 +116,7 @@ public:
      * the model will not immediately have this url available.
      * The model emits the signal expand() when an index has become available; this can be connected
      * to the treeview in order to let it open that index.
+     *
      * \a url the url of a subdirectory of the directory model (or a file in a subdirectory)
      */
     Q_INVOKABLE void expandToUrl(const QUrl &url);
@@ -135,6 +138,15 @@ public:
 
     /*!
      * Useful "default" columns. Views can use a proxy to have more control over this.
+     *
+     * \value Name
+     * \value Size
+     * \value ModifiedTime
+     * \value Permissions
+     * \value Owner
+     * \value Group
+     * \value Type
+     * \value ColumnCount
      */
     enum ModelColumns {
         Name = 0,
@@ -147,74 +159,106 @@ public:
         ColumnCount,
     };
 
-    /// Possible return value for data(ChildCountRole), meaning the item isn't a directory,
-    /// or we haven't calculated its child count yet
+    /*!
+     * Possible return value for data(ChildCountRole), meaning the item isn't a directory,
+     * or we haven't calculated its child count yet
+     *
+     * \value ChildCountUnknown
+     */
     enum {
         ChildCountUnknown = -1
     };
 
+    /*!
+     * \value FileItemRole Returns the KFileItem for a given index. roleName is "fileItem".
+     * \value ChildCountRole Returns the number of items in a directory, or ChildCountUnknown. roleName is "childCount".
+     * \value HasJobRole Returns whether or not there is a job on an item (file/directory). roleName is "hasJob".
+     */
     enum AdditionalRoles {
         // Note: use   printf "0x%08X\n" $(($RANDOM*$RANDOM))
         // to define additional roles.
-        FileItemRole = 0x07A263FF, ///< returns the KFileItem for a given index. roleName is "fileItem".
-        ChildCountRole = 0x2C4D0A40, ///< returns the number of items in a directory, or ChildCountUnknown. roleName is "childCount".
-        HasJobRole = 0x01E555A5, ///< returns whether or not there is a job on an item (file/directory). roleName is "hasJob".
+        FileItemRole = 0x07A263FF,
+        ChildCountRole = 0x2C4D0A40,
+        HasJobRole = 0x01E555A5,
     };
 
     /*!
-     * \sa DropsAllowed
+     * \value NoDrops
+     * \value DropOnDirectory Allow drops on any directory
+     * \value DropOnAnyFile Allow drops on any file
+     * \value DropOnLocalExecutable Allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
      */
     enum DropsAllowedFlag {
         NoDrops = 0,
-        DropOnDirectory = 1, ///< allow drops on any directory
-        DropOnAnyFile = 2, ///< allow drops on any file
-        DropOnLocalExecutable = 4, ///< allow drops on local executables, shell scripts and desktop files. Can be used with DropOnDirectory.
+        DropOnDirectory = 1,
+        DropOnAnyFile = 2,
+        DropOnLocalExecutable = 4,
     };
-    /*!
-     * Stores a combination of #DropsAllowedFlag values.
-     */
     Q_DECLARE_FLAGS(DropsAllowed, DropsAllowedFlag)
     Q_FLAG(DropsAllowed)
 
-    /// Set whether dropping onto items should be allowed, and for which kind of item
-    /// Drops are disabled by default.
+    /*!
+     * Set whether dropping onto items should be allowed, and for which kind of item
+     * Drops are disabled by default.
+     */
     Q_INVOKABLE void setDropsAllowed(DropsAllowed dropsAllowed);
 
-    /// Reimplemented from QAbstractItemModel. Returns true for empty directories.
+    /*!
+     * \reimp
+     * Returns \c true for empty directories.
+     */
     bool canFetchMore(const QModelIndex &parent) const override;
-    /// Reimplemented from QAbstractItemModel. Returns ColumnCount.
+
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    /// Reimplemented from QAbstractItemModel.
+
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    /// Reimplemented from QAbstractItemModel. Not implemented yet.
+
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
-    /// Reimplemented from QAbstractItemModel. Lists the subdirectory.
+
+    /*!
+     * \reimp Lists the subdirectory.
+     */
     void fetchMore(const QModelIndex &parent) override;
-    /// Reimplemented from QAbstractItemModel.
+
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    /// Reimplemented from QAbstractItemModel. Returns true for directories.
+
+    /*!
+     * \reimp
+     * Returns \c true for directories
+     */
     bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
-    /// Reimplemented from QAbstractItemModel. Returns the column titles.
+
+    /*!
+     * \reimp
+     * Returns the column titles.
+     */
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-    /// Reimplemented from QAbstractItemModel. O(1)
+
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-    /// Reimplemented from QAbstractItemModel.
+
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
-    /// Reimplemented from QAbstractItemModel.
+
     QStringList mimeTypes() const override;
-    /// Reimplemented from QAbstractItemModel.
+
     QModelIndex parent(const QModelIndex &index) const override;
-    /// Reimplemented from QAbstractItemModel.
+
     QModelIndex sibling(int row, int column, const QModelIndex &index) const override;
-    /// Reimplemented from QAbstractItemModel.
+
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    /// Reimplemented from QAbstractItemModel.
-    /// Call this to set a new icon, e.g. a preview
+
+    /*!
+     * \reimp
+     * Call this to set a new icon, e.g. a preview
+     */
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-    /// Reimplemented from QAbstractItemModel. Not implemented. \sa KDirSortFilterProxyModel
+
+    /*!
+     * \reimp
+     * Not implemented.
+     * \sa KDirSortFilterProxyModel
+     */
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
-    /// Reimplemented from QAbstractItemModel.
-    /// \sa AdditionalRoles
+
     QHash<int, QByteArray> roleNames() const override;
 
     /*!
@@ -224,7 +268,7 @@ public:
      * For example, for a list of "/home/foo/a", "/home/foo/a/a.txt", "/home/foo/a/a/a.txt", "/home/foo/a/b/b.txt",
      * "home/foo/b/b.txt", this method will return the list "/home/foo/a", "/home/foo/b/b.txt".
      *
-     * Returns the list @p urls without parented urls inside.
+     * Returns the list \a urls without parented urls inside.
      */
     static QList<QUrl> simplifiedUrlList(const QList<QUrl> &urls);
 
@@ -235,6 +279,7 @@ public:
      * about creating another preview.
      *
      * \a index Index of the item that should get another icon
+     *
      * \a sequenceIndex Index in the sequence. If it is zero, the standard icon will be assigned.
      *                                        For higher indices, arbitrary different meaningful icons will be generated.
      */
@@ -273,7 +318,9 @@ Q_SIGNALS:
     void expand(const QModelIndex &index);
     /*!
      * Emitted when another icon sequence index is requested
+     *
      * \a index Index of the item that should get another icon
+     *
      * \a sequenceIndex Index in the sequence. If it is zero, the standard icon should be assigned.
      *                                        For higher indices, arbitrary different meaningful icons should be generated.
      *                                        This is usually slowly counted up while the user hovers the icon.
