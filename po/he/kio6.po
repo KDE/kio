@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-10-14 20:11+0300\n"
+"PO-Revision-Date: 2024-11-06 06:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3736,12 +3736,10 @@ msgid "Show Full Path"
 msgstr "הצגת נתיב מלא"
 
 #: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "אי אפשר להעביר את <filename>%1</filename>"
+msgstr "מעבר לכל מקום בנתיב <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3753,7 +3751,7 @@ msgstr "עוד"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "מעבר למקום בנתיב"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

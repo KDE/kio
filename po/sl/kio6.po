@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-10-13 07:27+0200\n"
+"PO-Revision-Date: 2024-11-06 10:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3821,13 +3821,13 @@ msgstr "Prilepi"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Odpri »%1« v novem zavihku"
+msgstr "Odpri \"%1\" v novem zavihku"
 
 #: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Odpri »%1« v novem oknu"
+msgstr "Odpri \"%1\" v novem oknu"
 
 #: filewidgets/kurlnavigator.cpp:609
 #, kde-format
@@ -3845,12 +3845,10 @@ msgid "Show Full Path"
 msgstr "Pokaži polno pot"
 
 #: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Ni mogoče prenesti <filename>%1</filename>"
+msgstr "Pojdi na katero koli lokacijo na poti <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3862,7 +3860,7 @@ msgstr "Več"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Pojdi na lokacijo na poti"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

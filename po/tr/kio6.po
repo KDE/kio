@@ -3806,12 +3806,10 @@ msgid "Show Full Path"
 msgstr "Tam Yolu Göster"
 
 #: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "<filename>%1</filename> aktarılamıyor"
+msgstr "<filename>%1</filename> üzerindeki herhangi bir konuma git"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3823,7 +3821,7 @@ msgstr "Fazlası"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Yoldaki Konuma Git"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

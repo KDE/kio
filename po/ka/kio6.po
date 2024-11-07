@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-10-13 07:22+0200\n"
+"PO-Revision-Date: 2024-11-06 04:03+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3804,12 +3804,10 @@ msgid "Show Full Path"
 msgstr "მთლიანი ბილიკის ჩვენება"
 
 #: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "<filename>%1</filename>-ის გადატანის შეცდომა"
+msgstr "გადასვლა ნებისმიერ ადგილას ბილიკზე <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3821,7 +3819,7 @@ msgstr "მეტი"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "გადასვლა ბილიკის მდებარეობაზე"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

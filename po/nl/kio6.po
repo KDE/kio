@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-10-14 11:00+0200\n"
+"PO-Revision-Date: 2024-11-06 10:59+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3904,12 +3904,10 @@ msgid "Show Full Path"
 msgstr "Volledig pad tonen"
 
 #: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Kan <filename>%1</filename> niet overdragen"
+msgstr "Ga naar een locatie op het pad <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3921,7 +3919,7 @@ msgstr "Meer"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Ga naar locatie op pad"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
