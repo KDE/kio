@@ -102,6 +102,8 @@ private:
 };
 
 /*!
+ * \relates KIO::DeleteJob
+ *
  * Delete a file or directory.
  *
  * \a src file to delete
@@ -113,6 +115,8 @@ private:
 KIOCORE_EXPORT DeleteJob *del(const QUrl &src, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::DeleteJob
+ *
  * Deletes a list of files or directories.
  *
  * \a src the files to delete

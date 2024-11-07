@@ -68,52 +68,52 @@ public:
 
         /*!
          * The name of the group, for example "Remote" or "Devices". roleName is "group".
-         * @since 5.40
+         * \since 5.40
          */
         GroupRole = 0x0a5b64ee,
 
         /*!
          * roleName is "iconName".
          * \sa icon()
-         * @since 5.41
+         * \since 5.41
          */
         IconNameRole = 0x00a45c00,
 
         /*! roleName is "isGroupHidden".
          * \sa isGroupHidden()
-         * @since 5.42
+         * \since 5.42
          */
         GroupHiddenRole = 0x21a4b936,
 
         /*! roleName is "isTeardownAllowed".
          * \sa isTeardownAllowed().
-         * @since 5.91
+         * \since 5.91
          */
         TeardownAllowedRole = 0x02533364,
 
         /*! roleName is "isEjectAllowed".
-         * @since 5.94.
+         * \since 5.94.
          */
         EjectAllowedRole = 0x0A16AC5B,
 
         /*!
          * roleName is "isTeardownOverlayRecommended".
          * \sa isTeardownOverlayRecommended()
-         * @since 5.95
+         * \since 5.95
          */
         TeardownOverlayRecommendedRole = 0x032EDCCE,
 
         /*!
          * roleName is "deviceAccessibility".
          * \sa deviceAccessibility()
-         * @since 5.99
+         * \since 5.99
          */
         DeviceAccessibilityRole = 0x023FFD93,
     };
 
     /*!
      * Describes the available group types used in this model.
-     * @since 5.42
+     * \since 5.42
      */
     enum GroupType {
         PlacesType, ///< "Places" section
@@ -123,7 +123,7 @@ public:
         DevicesType, ///< "Devices" section
         RemovableDevicesType, ///< "Removable Devices" section
         UnknownType, ///< Unknown GroupType
-        TagsType, ///< "Tags" section. @since 5.54
+        TagsType, ///< "Tags" section. \since 5.54
     };
     Q_ENUM(GroupType)
 
@@ -153,7 +153,7 @@ public:
      * mounted but does not point at system Root or the user's Home directory.
      *
      * It does not indicate whether the teardown can succeed.
-     * @since 5.91
+     * \since 5.91
      */
     Q_INVOKABLE bool isTeardownAllowed(const QModelIndex &index) const;
 
@@ -162,7 +162,7 @@ public:
      * a CD, DVD, etc.
      *
      * It does not indicate whether the eject can succeed.
-     * @since 5.94
+     * \since 5.94
      */
     Q_INVOKABLE bool isEjectAllowed(const QModelIndex &index) const;
 
@@ -170,14 +170,14 @@ public:
      * Returns Whether showing an inline teardown button is recommended,
      * e.g. when it is a removable drive.
      *
-     * @since 5.95
+     * \since 5.95
      **/
     Q_INVOKABLE bool isTeardownOverlayRecommended(const QModelIndex &index) const;
 
     /*!
      * Returns Whether this device is currently accessible or being (un)mounted.
      *
-     * @since 5.99
+     * \since 5.99
      */
     Q_INVOKABLE KFilePlacesModel::DeviceAccessibility deviceAccessibility(const QModelIndex &index) const;
 
@@ -198,13 +198,13 @@ public:
 
     /*!
      * Returns Whether the group type @p type is hidden.
-     * @since 5.42
+     * \since 5.42
      */
     Q_INVOKABLE bool isGroupHidden(const GroupType type) const;
 
     /*!
      * Returns Whether the group of the place at index @p index is hidden.
-     * @since 5.42
+     * \since 5.42
      */
     Q_INVOKABLE bool isGroupHidden(const QModelIndex &index) const;
 
@@ -229,20 +229,20 @@ public:
     /*!
      * Returns The KBookmark instance of the place with url @p searchUrl.
      * If the bookmark corresponding to searchUrl is not found, a default KBookmark instance is returned.
-     * @since 5.63
+     * \since 5.63
      */
     KBookmark bookmarkForUrl(const QUrl &searchUrl) const;
 
     /*!
      * Returns The group type of the place at index @p index.
-     * @since 5.42
+     * \since 5.42
      */
     Q_INVOKABLE GroupType groupType(const QModelIndex &index) const;
 
     /*!
      * Returns The list of model indexes that have @ type as their group type.
      * \sa groupType()
-     * @since 5.42
+     * \since 5.42
      */
     Q_INVOKABLE QModelIndexList groupIndexes(const GroupType type) const;
 
@@ -328,14 +328,14 @@ public:
      * Changes the visibility of the group with type @p type.
      * \a hidden Whether the group should be hidden or visible.
      * \sa isGroupHidden()
-     * @since 5.42
+     * \since 5.42
      */
     Q_INVOKABLE void setGroupHidden(const GroupType type, bool hidden);
 
     /*!
      * @brief Move place at @p itemRow to a position before @p row
      * Returns Whether the place has been moved.
-     * @since 5.41
+     * \since 5.41
      */
     Q_INVOKABLE bool movePlace(int itemRow, int row);
 
@@ -404,7 +404,7 @@ public:
 
     /*!
      * @brief Reload bookmark information
-     * @since 5.41
+     * \since 5.41
      */
     Q_INVOKABLE void refresh() const;
 
@@ -416,7 +416,7 @@ public:
      *         internal format changes.
      * \a an url
      * Returns the converted URL, which can be handled by a KIO worker
-     * @since 5.41
+     * \since 5.41
      */
     static QUrl convertedUrl(const QUrl &url);
 
@@ -427,7 +427,7 @@ public:
      * schemes are @c "file" or @c "ftp".
      *
      * @sa QFileDialog::setSupportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     void setSupportedSchemes(const QStringList &schemes);
 
@@ -437,7 +437,7 @@ public:
      * If the returned list is empty, all schemes are supported.
      *
      * @sa QFileDialog::supportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     QStringList supportedSchemes() const;
 
@@ -462,7 +462,7 @@ Q_SIGNALS:
      *
      * \a error Type of error that occurred, if any.
      * \a errorData More information about the error, if any.
-     * @since 5.100
+     * \since 5.100
      */
     void teardownDone(const QModelIndex &index, Solid::ErrorType error, const QVariant &errorData);
 
@@ -470,21 +470,21 @@ Q_SIGNALS:
      * Emitted whenever the visibility of the group @p group changes.
      * \a hidden The new visibility of the group.
      * \sa setGroupHidden()
-     * @since 5.42
+     * \since 5.42
      */
     void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
 
     /*!
      * Called once the model has been reloaded
      *
-     * @since 5.71
+     * \since 5.71
      */
     void reloaded();
 
     /*!
      * Emitted whenever the list of supported schemes has been changed
      *
-     * @since 5.94
+     * \since 5.94
      */
     void supportedSchemesChanged();
 

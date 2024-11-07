@@ -32,7 +32,7 @@ class RenameFileDialogPrivate;
  *
  * The dialog deletes itself when accepted or rejected.
  *
- * @since 5.67
+ * \since 5.67
  */
 // TODO KF6  : rename the class RenameFileDialog to RenameDialog and the class RenameDialog to RenameFileOverwrittenDialog or similar.
 class KIOWIDGETS_EXPORT RenameFileDialog : public QDialog

@@ -188,10 +188,10 @@ public:
      *
      */
     enum MessageDialogType {
-        QuestionTwoActions = 1, ///< @since 5.100
-        QuestionTwoActionsCancel = 2, ///< @since 5.100
-        WarningTwoActions = 3, ///< @since 5.100
-        WarningTwoActionsCancel = 4, ///< @since 5.100
+        QuestionTwoActions = 1, ///< \since 5.100
+        QuestionTwoActionsCancel = 2, ///< \since 5.100
+        WarningTwoActions = 3, ///< \since 5.100
+        WarningTwoActionsCancel = 4, ///< \since 5.100
         WarningContinueCancel = 5,
         Information = 7,
         Error = 9,

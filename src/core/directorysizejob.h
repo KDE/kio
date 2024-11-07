@@ -64,6 +64,8 @@ private:
 };
 
 /*!
+ * \relates KIO::DirectorySizeJob
+ *
  * Computes a directory size (by doing a recursive listing).
  * Connect to the result signal (this is the preferred solution to avoid blocking the GUI),
  * or use exec() for a synchronous (blocking) calculation.
@@ -73,6 +75,8 @@ private:
 KIOCORE_EXPORT DirectorySizeJob *directorySize(const QUrl &directory);
 
 /*!
+ * \relates KIO::DirectorySizeJob
+ *
  * Computes a directory size (by doing a recursive listing).
  * Connect to the result signal (this is the preferred solution to avoid blocking the GUI),
  * or use exec() for a synchronous (blocking) calculation.

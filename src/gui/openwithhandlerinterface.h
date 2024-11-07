@@ -28,7 +28,7 @@ class OpenWithHandlerInterfacePrivate;
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension
  * and UntrustedProgramHandlerInterface.
  *
- * @since 5.71
+ * \since 5.71
  */
 class KIOGUI_EXPORT OpenWithHandlerInterface : public QObject
 {

@@ -55,7 +55,7 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
-    /// @since 5.108
+    /// \since 5.108
     Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
@@ -135,48 +135,48 @@ public:
      * The default is QFileDialog::AcceptOpen.
      *
      * \sa QFileDialog::setAcceptMode()
-     * @since 5.33
+     * \since 5.33
      */
     void setAcceptMode(QFileDialog::AcceptMode m);
 
     /*!
      * Returns the current open / save mode
      * \sa QFileDialog::acceptMode()
-     * @since 5.33
+     * \since 5.33
      */
     QFileDialog::AcceptMode acceptMode() const;
 
     /*!
      * Sets the filters for the file dialog.
      * \sa QFileDialog::setNameFilters()
-     * @since 5.108
+     * \since 5.108
      */
     void setNameFilters(const QStringList &filters);
 
     /*!
      * Sets the filters for the file dialog.
      * \sa QFileDialog::setNameFilter()
-     * @since 5.108
+     * \since 5.108
      */
     void setNameFilter(const QString &filter);
 
     /*!
      * Returns the filters for the file dialog.
      * \sa QFileDialog::nameFilters()
-     * @since 5.108
+     * \since 5.108
      */
     QStringList nameFilters() const;
 
     /*!
      * Sets the MIME type filters for the file dialog.
      * \sa QFileDialog::setMimeTypeFilters()
-     * @since 5.31
+     * \since 5.31
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
     /*!
      * Returns the MIME type filters for the file dialog.
      * \sa QFileDialog::mimeTypeFilters()
-     * @since 5.31
+     * \since 5.31
      */
     QStringList mimeTypeFilters() const;
 
@@ -233,7 +233,7 @@ public:
 
     /*!
      * Returns the message set with setPlaceholderText
-     * @since 5.0
+     * \since 5.0
      */
     QString placeholderText() const;
 
@@ -241,7 +241,7 @@ public:
      * This makes the KUrlRequester line edit display a grayed-out hinting text as long as
      * the user didn't enter any text. It is often used as indication about
      * the purpose of the line edit.
-     * @since 5.0
+     * \since 5.0
      */
     void setPlaceholderText(const QString &msg);
 
@@ -297,7 +297,7 @@ Q_SIGNALS:
     /*!
      * Emitted when the text in the lineedit was modified by the user.
      * Unlike textChanged(), this signal is not emitted when the text is changed programmatically, for example, by calling setText().
-     * @since 5.21
+     * \since 5.21
      */
     void textEdited(const QString &);
 

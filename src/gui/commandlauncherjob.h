@@ -41,7 +41,7 @@ class CommandLauncherJobPrivate;
  *    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
  * \endcode
  *
- * \since KIO 5.69
+ * \since 5.69
  */
 class KIOGUI_EXPORT CommandLauncherJob : public KJob
 {
@@ -82,13 +82,13 @@ public:
 
     /*!
      * Sets the command to execute, this will change the command that was set by any of the constructors.
-     * \since KIO 5.83
+     * \since 5.83
      */
     void setCommand(const QString &command);
 
     /*!
      * Returns the command executed by this job.
-     * \since KIO 5.83
+     * \since 5.83
      */
     QString command() const;
 
@@ -128,7 +128,7 @@ public:
 
     /*!
      * Returns the working directory, which was previously set with @c setWorkingDirectory().
-     * \since KIO 5.83
+     * \since 5.83
      */
     QString workingDirectory() const;
 
@@ -138,7 +138,7 @@ public:
      * \a environment set of environment variables to pass to the child process
      *
      * \sa QProcessEnvironment
-     * \since KIO 5.82
+     * \since 5.82
      */
     void setProcessEnvironment(const QProcessEnvironment &environment);
 

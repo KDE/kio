@@ -20,9 +20,11 @@ class ListJobPrivate;
  * \inmodule KIOCore
  * \inheaderfile KIO/ListJob
  *
- * A ListJob is allows you to get the get the content of a directory.
+ * \brief A ListJob is allows you to get the get the content of a directory.
+ *
  * Don't create the job directly, but use KIO::listRecursive() or
  * KIO::listDir() instead.
+ *
  * \sa KIO::listRecursive()
  * \sa KIO::listDir()
  */
@@ -113,6 +115,8 @@ protected:
 };
 
 /*!
+ * \relates KIO::ListJob
+ *
  * List the contents of \a url, which is assumed to be a directory.
  *
  * "." and ".." are returned, filter them out if you don't want them.
@@ -129,6 +133,8 @@ protected:
 KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, ListJob::ListFlags listFlags = ListJob::ListFlag::IncludeHidden);
 
 /*!
+ * \relates KIO::ListJob
+ *
  * The same as the previous method, but recurses subdirectories.
  * Directory links are not followed.
  *

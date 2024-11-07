@@ -20,9 +20,11 @@ namespace KIO
 {
 class FavIconRequestJobPrivate;
 /*!
- * @class FavIconRequestJob faviconrequestjob.h <KIO/FavIconRequestJob>
+ * \class FavIconRequestJob
+ * \inheaderfile KIO/FavIconRequestJob
+ * \inmodule KIOGui
  *
- * FavIconRequestJob handles the retrieval of a favicon (either from the local cache or from the internet)
+ * \brief FavIconRequestJob handles the retrieval of a favicon (either from the local cache or from the internet).
  *
  * For instance, the icon for http://www.google.com exists at http://www.google.com/favicon.ico
  * This job will (the first time) download the favicon, and make it available as a local PNG
@@ -31,7 +33,7 @@ class FavIconRequestJobPrivate;
  * Usage:
  * Create a FavIconRequestJob, connect to result(KJob *), and from there use iconFile().
  *
- * @code
+ * \code
  * // Let's say we want to show the icon for QUrl m_url
  * KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(m_url);
  * connect(job, &KIO::FavIconRequestJob::result, this, [job, this](KJob *){
@@ -39,7 +41,7 @@ class FavIconRequestJobPrivate;
  *         // show the icon using QIcon(job->iconFile())
  *     }
  * });
- * @endcode
+ * \endcode
  *
  * For a given HTTP URL, you can find out if a favicon is available by calling KIO::favIconForUrl() in KIOCore.
  * It is however not necessary to check this first, FavIconRequestJob will do this
@@ -55,16 +57,19 @@ class FavIconRequestJobPrivate;
  *
  * The on-disk cache is shared between processes.
  *
- * @since 5.19
+ * \since 5.19
  */
 class KIOGUI_EXPORT FavIconRequestJob : public KCompositeJob
 {
     Q_OBJECT
 public:
     /*!
-     * @brief FavIconRequestJob constructor
+     * FavIconRequestJob constructor
+     *
      * \a hostUrl The web page URL. We only use the scheme and host.
+     *
      * \a reload set this to reload to skip the cache and force a refresh of the favicon.
+     *
      * \a parent parent object
      */
     explicit FavIconRequestJob(const QUrl &hostUrl, KIO::LoadType reload = KIO::NoReload, QObject *parent = nullptr);
@@ -76,7 +81,7 @@ public:
     ~FavIconRequestJob() override;
 
     /*!
-     * @brief setIconUrl allows to set, for a specific URL, a different icon URL
+     * setIconUrl allows to set, for a specific URL, a different icon URL
      * than the default one for the host (http://host/favicon.ico)
      *
      * This information is stored in the on-disk cache, so that
@@ -96,12 +101,12 @@ public:
 
     /*!
      * Returns the URL passed to the constructor
-     * @since 5.20
+     * \since 5.20
      */
     QUrl hostUrl() const;
 
     /*!
-     * @internal
+     * \internal
      * Do not call start(), KIO jobs are autostarted
      */
     void start() override

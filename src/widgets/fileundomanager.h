@@ -127,9 +127,9 @@ public:
         Link,
         Mkdir,
         Trash,
-        Put, ///< Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop. @since 4.7
-        Mkpath, ///< Represents a KIO::mkpath() job. @since 5.4
-        BatchRename ///< Represents a KIO::batchRename() job. Used when renaming multiple files. @since 5.42
+        Put, ///< Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop. \since 4.7
+        Mkpath, ///< Represents a KIO::mkpath() job. \since 5.4
+        BatchRename ///< Represents a KIO::batchRename() job. Used when renaming multiple files. \since 5.42
     };
 
     /*!
@@ -151,7 +151,7 @@ public:
     /*!
      * Returns true if undo is possible. Usually used for enabling/disabling the undo action.
      *
-     * @since 5.79
+     * \since 5.79
      */
     bool isUndoAvailable() const;
 

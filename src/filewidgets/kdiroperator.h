@@ -315,7 +315,7 @@ public:
     /*!
      * Setting this to true will make a directory get selected when trying to create a new one that has the same name.
      *
-     * @since 5.76
+     * \since 5.76
      */
     void setNewFileMenuSelectDirWhenAlreadyExist(bool selectOnDirExists);
 
@@ -374,7 +374,7 @@ public:
      * Set the view mode to one of the predefined modes.
      * \sa KFile::FileView
      *
-     * @since 5.100
+     * \since 5.100
      */
     void setViewMode(KFile::FileView viewKind);
 
@@ -382,7 +382,7 @@ public:
      * Returns the current view mode.
      * Returnss KFile::FileView
      * \sa KFile::FileView
-     * @since 5.0
+     * \since 5.0
      */
     KFile::FileView viewMode() const;
 
@@ -489,7 +489,7 @@ public:
      * to add a button into a toolbar, which makes the dirOperator change to
      * its parent directory.
      *
-     *  @since 5.100
+     *  \since 5.100
      */
     QAction *action(KDirOperator::Action action) const;
 
@@ -498,7 +498,7 @@ public:
      *
      * See action()
      *
-     * @since 5.100
+     * \since 5.100
      *
      */
     QList<QAction *> allActions() const;
@@ -571,14 +571,14 @@ public:
 
     /*!
      * Toggles whether setUrl is called on newly created directories.
-     * @since 5.62
+     * \since 5.62
      */
     void setFollowNewDirectories(bool enable);
 
     /*!
      * Returnss true if setUrl is called on newly created directories, false
      * otherwise. Enabled by default.
-     * @since 5.62
+     * \since 5.62
      * \sa setFollowNewDirectories
      */
     bool followNewDirectories() const;
@@ -586,14 +586,14 @@ public:
     /*!
      * Toggles whether setUrl is called on selected directories when a tree view
      * is used.
-     * @since 5.62
+     * \since 5.62
      */
     void setFollowSelectedDirectories(bool enable);
 
     /*!
      * Returnss whether setUrl is called on selected directories when a tree
      * view is used. Enabled by default.
-     * @since 5.62
+     * \since 5.62
      */
     bool followSelectedDirectories() const;
 
@@ -687,14 +687,14 @@ public:
     /*!
      * Returns the position where icons are shown relative to the labels
      * of file items in the icon view.
-     * @since 4.2.3
+     * \since 4.2.3
      */
     QStyleOptionViewItem::Position decorationPosition() const;
 
     /*!
      * Sets the position where icons shall be shown relative to the labels
      * of file items in the icon view.
-     * @since 4.2.3
+     * \since 4.2.3
      */
     void setDecorationPosition(QStyleOptionViewItem::Position position);
 
@@ -707,7 +707,7 @@ public:
      * Returns the icon size in pixels, ranged from KIconLoader::SizeSmall (16) to
      * KIconLoader::SizeEnormous (128).
      *
-     * @since 5.76
+     * \since 5.76
      */
     int iconSize() const;
 
@@ -730,7 +730,7 @@ public:
      * If the returned list is empty, all schemes are supported.
      *
      * @sa QFileDialog::supportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     QStringList supportedSchemes() const;
 
@@ -740,7 +740,7 @@ public:
      * an email or uploading an image to some online service, and need to
      * check the contents before going forward.
      *
-     * @since 5.87
+     * \since 5.87
      */
     void showOpenWithActions(bool enable);
 
@@ -875,7 +875,7 @@ public Q_SLOTS:
      * Initiates a rename operation on the currently selected files/directories,
      * prompting the user to choose a new name(s) for the currently selected items
      * \sa renamingFinished
-     * @since 5.67
+     * \since 5.67
      */
     void renameSelected();
 
@@ -894,7 +894,7 @@ public Q_SLOTS:
      * Notifies that the icons size should change. @p value is the icon size in pixels, ranged
      * from KIconLoader::SizeSmall (16) to KIconLoader::SizeEnormous (128).
      *
-     * @since 5.76
+     * \since 5.76
      */
     void setIconSize(int value);
 
@@ -905,7 +905,7 @@ public Q_SLOTS:
      * schemes are @c "file" or @c "ftp".
      *
      * @sa QFileDialog::setSupportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     void setSupportedSchemes(const QStringList &schemes);
 
@@ -1026,7 +1026,7 @@ Q_SIGNALS:
 
     /*!
      * Triggered when the user hit Enter/Return
-     * @since 5.57
+     * \since 5.57
      */
     void keyEnterReturnPressed();
 
@@ -1034,7 +1034,7 @@ Q_SIGNALS:
      * Emitted when renaming selected files has finished.
      *
      * \a urls URL list of the renamed files
-     * @since 5.96
+     * \since 5.96
      */
     void renamingFinished(const QList<QUrl> &urls);
 

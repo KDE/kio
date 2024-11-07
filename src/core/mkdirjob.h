@@ -65,6 +65,8 @@ private:
 };
 
 /*!
+ * \relates KIO::MkdirJob
+ *
  * Creates a single directory.
  *
  * \a url The URL of the directory to create.

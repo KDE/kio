@@ -71,7 +71,7 @@ class KIOFILEWIDGETS_EXPORT KUrlNavigator : public QWidget
     Q_OBJECT
 
 public:
-    /*! @since 4.5 */
+    /*! \since 4.5 */
     KUrlNavigator(QWidget *parent = nullptr);
 
     /*!
@@ -87,7 +87,7 @@ public:
     /*!
      * Returns URL of the location given by the \a historyIndex. If \a historyIndex
      *         is smaller than 0, the URL of the current location is returned.
-     * @since  4.5
+     * \since  4.5
      */
     QUrl locationUrl(int historyIndex = -1) const;
 
@@ -116,7 +116,7 @@ public:
      * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
      * \sa    KUrlNavigator::saveLocationState()
-     * @since  4.5
+     * \since  4.5
      */
     QByteArray locationState(int historyIndex = -1) const;
 
@@ -197,7 +197,7 @@ public:
 
     /*!
      * Returns True, if the full path of the URL should be shown in the breadcrumb view.
-     * @since  4.2
+     * \since  4.2
      */
     bool showFullPath() const;
 
@@ -262,7 +262,7 @@ public:
      * schemes are @c "file" or @c "ftp".
      *
      * @sa QFileDialog::setSupportedSchemes
-     * @since 5.103
+     * \since 5.103
      */
     void setSupportedSchemes(const QStringList &schemes);
 
@@ -272,7 +272,7 @@ public:
      * If the returned list is empty, all schemes are supported.
      *
      * @sa QFileDialog::supportedSchemes
-     * @since 5.103
+     * \since 5.103
      */
     QStringList supportedSchemes() const;
 
@@ -282,32 +282,32 @@ public:
      * if you need to show a drop menu with KIO::drop().
      * Returns Child widget that has received the last drop event, or nullptr if
      *         nothing has been dropped yet on the URL navigator.
-     * @since 5.37
+     * \since 5.37
      * \sa KIO::drop()
      */
     QWidget *dropWidget() const;
 
     /*!
      * Sets whether to show hidden folders in the subdirectories popup.
-     * @since 5.87
+     * \since 5.87
      */
     void setShowHiddenFolders(bool showHiddenFolders);
 
     /*!
      * Returns whether to show hidden folders in the subdirectories popup.
-     * @since 5.87
+     * \since 5.87
      */
     bool showHiddenFolders() const;
 
     /*!
      * Sets whether to sort hidden folders in the subdirectories popup last.
-     * @since 5.87
+     * \since 5.87
      */
     void setSortHiddenFoldersLast(bool sortHiddenFoldersLast);
 
     /*!
      * Returns whether to sort hidden folders in the subdirectories popup last.
-     * @since 5.87
+     * \since 5.87
      */
     bool sortHiddenFoldersLast() const;
 
@@ -322,13 +322,13 @@ public:
      * when the space is tight. You might want to call KUrlNavigator::setMinimumWidth() with a larger value
      * in that case.
      * In general, it is recommended to keep the badge widget small and not expanding, to avoid layout issues.
-     * @since 6.2
+     * \since 6.2
      */
     void setBadgeWidget(QWidget *widget);
 
     /*!
      * Returns the badge widget set by setBadgeWidget(). If setBadgeWidget() hasn't been called, returns nullptr.
-     * @since 6.2
+     * \since 6.2
      */
     QWidget *badgeWidget() const;
 
@@ -414,7 +414,7 @@ Q_SIGNALS:
      * the shift modifier pressed or left-clicked with both the ctrl and shift
      * modifiers pressed or pressed return with both the alt and shift modifiers
      * pressed.
-     * @since 5.89
+     * \since 5.89
      */
     void activeTabRequested(const QUrl &url);
 
@@ -422,7 +422,7 @@ Q_SIGNALS:
      * Is emitted if the URL \a url should be opened in a new window because
      * the user left-clicked on a breadcrumb with the shift modifier pressed
      * or pressed return with the shift modifier pressed.
-     * @since 5.89
+     * \since 5.89
      */
     void newWindowRequested(const QUrl &url);
 
@@ -434,7 +434,7 @@ Q_SIGNALS:
      * (in the example paths this would be /home/user1/data/).
      * This signal allows file managers to pre-select the directory
      * that the user is navigating up from.
-     * @since 5.37.0
+     * \since 5.37.0
      */
     void urlSelectionRequested(const QUrl &url);
 

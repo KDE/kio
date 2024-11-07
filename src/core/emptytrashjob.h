@@ -42,6 +42,8 @@ private:
 };
 
 /*!
+ * \relates KIO::EmptyTrashJob
+ *
  * Empties the trash.
  *
  * Returns a pointer to the job handling the operation.

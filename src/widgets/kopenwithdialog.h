@@ -74,7 +74,7 @@ public:
      * \a text   appears as a label on top of the entry box.
      * \a value  is the initial value of the line
      * \a parent parent widget
-     * @since 5.71
+     * \since 5.71
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType, const QString &text, const QString &value, QWidget *parent = nullptr);
 

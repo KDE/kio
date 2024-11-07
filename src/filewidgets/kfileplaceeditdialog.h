@@ -29,7 +29,7 @@ class KUrlRequester;
  * See the class-method getInformation() for easy usage.
  *
  * @author Carsten Pfeiffer <pfeiffer@kde.org>
- * @since 5.53
+ * \since 5.53
  */
 class KIOFILEWIDGETS_EXPORT KFilePlaceEditDialog : public QDialog
 {

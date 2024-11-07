@@ -16,9 +16,12 @@ namespace KIO
 {
 class FileCopyJobPrivate;
 /*!
- * @class KIO::FileCopyJob filecopyjob.h <KIO/FileCopyJob>
+ * \class KIO::FileCopyJob
+ * \inheaderfile KIO/FileCopyJob
+ * \inmodule KIOCore
  *
  * The FileCopyJob copies data from one place to another.
+ *
  * \sa KIO::file_copy()
  * \sa KIO::file_move()
  */
@@ -31,6 +34,7 @@ public:
     /*!
      * If you know the size of the source file, call this method
      * to inform this job. It will be displayed in the "resume" dialog.
+     *
      * \a size the size of the source file
      */
     void setSourceSize(KIO::filesize_t size);
@@ -45,13 +49,11 @@ public:
     void setModificationTime(const QDateTime &mtime);
 
     /*!
-     * Returns the source URL.
      * Returns the source URL
      */
     QUrl srcUrl() const;
 
     /*!
-     * Returns the destination URL.
      * Returns the destination URL
      */
     QUrl destUrl() const;
@@ -69,14 +71,17 @@ Q_SIGNALS:
      * MIME type information from the get job.
      *
      * \a job the job that emitted this signal
+     *
      * \a mimeType the MIME type
-     * @since 5.78
+     *
+     * \since 5.78
      */
     void mimeTypeFound(KIO::Job *job, const QString &mimeType);
 
 protected Q_SLOTS:
     /*!
      * Called whenever a subjob finishes.
+     *
      * \a job the job that emitted this signal
      */
     void slotResult(KJob *job) override;
@@ -89,50 +94,64 @@ private:
 };
 
 /*!
+ * \relates KIO::FileCopyJob
+ *
  * Copy a single file.
  *
  * Uses either WorkerBase::copy() if the worker supports that
  * or get() and put() otherwise.
  *
  * \a src Where to get the file
+ *
  * \a dest Where to put the file
- * \a permissions the file mode permissions to set on @p dest; if this is -1
- * (the default) no special permissions will be set on @p dest, i.e. it'll have
+ *
+ * \a permissions the file mode permissions to set on \a dest; if this is -1
+ * (the default) no special permissions will be set on \a dest, i.e. it'll have
  * the default system permissions for newly created files, and the owner and group
  * permissions are not preserved.
- * \a flags Can be @ref JobFlag::HideProgressInfo, Overwrite and Resume here
- * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
- * @p dest if @p dest exists
+ *
+ * \a flags Can be JobFlag::HideProgressInfo, Overwrite and Resume here
+ * WARNING: Setting JobFlag::Resume means that the data will be appended to
+ * \a dest if \a dest exists
+ *
  * Returns the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::FileCopyJob
+ *
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  */
 FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 
 /*!
+ * \relates KIO::FileCopyJob
+ *
  * Move a single file.
  *
  * Use either WorkerBase::rename() if the worker supports that,
  * or copy() and del() otherwise, or eventually get() & put() & del()
  *
  * \a src Where to get the file
+ *
  * \a dest Where to put the file
- * \a permissions the file mode permissions to set on @p dest; if this is -1
- * (the default), no special permissions are set on @p dest, i.e. it'll have
+ *
+ * \a permissions the file mode permissions to set on \a dest; if this is -1
+ * (the default), no special permissions are set on \a dest, i.e. it'll have
  * the default system permissions for newly created files, and the owner and group
  * permissions are not preserved.
+ *
  * \a flags Can be HideProgressInfo, Overwrite and Resume here
- * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
- * @p dest if @p dest exists
+ * WARNING: Setting JobFlag::Resume means that the data will be appended to
+ * \a dest if \a dest exists
+ *
  * Returns the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
-/*!
+/*
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
  */

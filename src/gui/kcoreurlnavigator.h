@@ -27,11 +27,12 @@ class KUrlComboBox;
 class KCoreUrlNavigatorPrivate;
 
 /*!
- * @class KCoreUrlNavigator kcoreurlnavigator.h <KCoreUrlNavigator>
+ * \class KCoreUrlNavigator
+ * \inmodule KIOGui
  *
- * @brief Object that helps with keeping track of URLs in file-manager like interfaces.
+ * \brief Object that helps with keeping track of URLs in file-manager like interfaces.
  *
- * @since 5.93
+ * \since 5.93
  */
 class KIOGUI_EXPORT KCoreUrlNavigator : public QObject
 {
@@ -41,6 +42,9 @@ public:
     KCoreUrlNavigator(const QUrl &url = QUrl(), QObject *parent = nullptr);
     ~KCoreUrlNavigator() override;
 
+    /*!
+     * \property KCoreUrlNavigator::currentLocationUrl
+     */
     Q_PROPERTY(QUrl currentLocationUrl READ currentLocationUrl WRITE setCurrentLocationUrl NOTIFY currentLocationUrlChanged)
 
     QUrl currentLocationUrl() const;
@@ -49,6 +53,7 @@ public:
 
     /*!
      * Is emitted, before the location URL is going to be changed to \a newUrl.
+     *
      * The signal KCoreUrlNavigator::urlChanged() will be emitted after the change
      * has been done. Connecting to this signal is useful to save the state
      * of a view with KCoreUrlNavigator::saveLocationState().
@@ -56,6 +61,8 @@ public:
     Q_SIGNAL void currentUrlAboutToChange(const QUrl &newUrl);
 
     /*!
+     * \property KCoreUrlNavigator::historySize
+     *
      * The amount of locations in the history. The data for each
      * location can be retrieved by KCoreUrlNavigator::locationUrl() and
      * KCoreUrlNavigator::locationState().
@@ -67,16 +74,18 @@ public:
     /*!
      * When the URL is changed and the new URL (e.g.\ /home/user1/)
      * is a parent of the previous URL (e.g.\ /home/user1/data/stuff),
-     * then this signal is emitted and \p url is set to the child
+     * then this signal is emitted and \a url is set to the child
      * directory of the new URL which is an ancestor of the old URL
      * (in the example paths this would be /home/user1/data/).
      * This signal allows file managers to pre-select the directory
      * that the user is navigating up from.
-     * @since 5.95
+     * \since 5.95
      */
     Q_SIGNAL void urlSelectionRequested(const QUrl &url);
 
     /*!
+     * \property KCoreUrlNavigator::historyIndex
+     *
      * The history index of the current location, where
      * 0 <= history index < KCoreUrlNavigator::historySize(). 0 is the most
      * recent history entry.
@@ -116,7 +125,7 @@ public:
     /*!
      * Returns Location state given by \a historyIndex. If \a historyIndex
      *         is smaller than 0, the state of the current location is returned.
-     * \sa    KCoreUrlNavigator::saveLocationState()
+     * \sa KCoreUrlNavigator::saveLocationState()
      */
     Q_INVOKABLE QVariant locationState(int historyIndex = -1) const;
 

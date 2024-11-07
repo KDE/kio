@@ -147,7 +147,7 @@ public:
      * It also handles relative URLs, which you should construct like this:
      * QUrl relativeUrl; relativeUrl.setPath(fileName);
      *
-     * @since 5.33
+     * \since 5.33
      */
     void setSelectedUrl(const QUrl &url);
 
@@ -155,7 +155,7 @@ public:
      * Sets a list of URLs as preselected
      *
      * \sa setSelectedUrl
-     * @since 5.75
+     * \since 5.75
      */
     void setSelectedUrls(const QList<QUrl> &urls);
 
@@ -215,7 +215,7 @@ public:
      *
      * \a activeFilter the initially active filter
      *
-     * @since 6.0
+     * \since 6.0
      *
      */
     void setFilters(const QList<KFileFilter> &filters, const KFileFilter &activeFilter = KFileFilter());
@@ -227,7 +227,7 @@ public:
      * \sa setFilters()
      * \sa filterChanged()
      *
-     * @since 6.0
+     * \since 6.0
      */
     KFileFilter currentFilter() const;
 
@@ -397,7 +397,7 @@ public:
      * Provides a size hint, useful for dialogs that embed the widget.
      *
      * Returns a QSize, calculated to be optimal for a dialog.
-     * @since 5.0
+     * \since 5.0
      */
     QSize dialogSizeHint() const;
 
@@ -405,7 +405,7 @@ public:
      * Sets how the view should be displayed.
      *
      * \sa KFile::FileView
-     * @since 5.0
+     * \since 5.0
      */
     void setViewMode(KFile::FileView mode);
 
@@ -420,7 +420,7 @@ public:
      * If the returned list is empty, all schemes are supported.
      *
      * @sa QFileDialog::setSupportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     void setSupportedSchemes(const QStringList &schemes);
 
@@ -431,7 +431,7 @@ public:
      * schemes are @c "file" or @c "ftp".
      *
      * @sa QFileDialog::supportedSchemes
-     * @since 5.43
+     * \since 5.43
      */
     QStringList supportedSchemes() const;
 
@@ -487,7 +487,7 @@ Q_SIGNALS:
      * \sa setFilters()
      * \sa currentFilter()
      *
-     * @since 6.0
+     * \since 6.0
      */
     void filterChanged(const KFileFilter &filter);
 

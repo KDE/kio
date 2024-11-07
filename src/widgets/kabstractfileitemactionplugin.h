@@ -72,7 +72,7 @@ class KFileItemListProperties;
  *
  * @author Sebastian Trueg <trueg@kde.org>
  *
- * @since 4.6.1
+ * \since 4.6.1
  */
 class KIOWIDGETS_EXPORT KAbstractFileItemActionPlugin : public QObject
 {
@@ -97,7 +97,7 @@ public:
 Q_SIGNALS:
     /*!
      * Emits an error which will be displayed to the user
-     * @since 5.82
+     * \since 5.82
      */
     void error(const QString &errorMessage);
 };

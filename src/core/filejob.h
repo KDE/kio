@@ -185,6 +185,8 @@ private:
 };
 
 /*!
+ * \relates KIO::FileJob
+ *
  * Open ( random access I/O )
  *
  * The file-job emits open() when opened

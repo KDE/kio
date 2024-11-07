@@ -199,6 +199,8 @@ private:
 };
 
 /*!
+ * \relates KIO::JobUiDelegateExtension
+ *
  * Returns the default job UI delegate extension to be used by all KIO jobs (in which HideProgressInfo is not set)
  * Can return nullptr, if no kio GUI library is loaded.
  * \since 5.0
@@ -206,6 +208,8 @@ private:
 KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();
 
 /*!
+ * \relates KIO::JobUiDelegateExtension
+ *
  * Internal. Allows the KIO widgets library to register its widget-based job UI delegate extension
  * automatically.
  * \since 5.0

@@ -14,6 +14,7 @@ class KJobTrackerInterface;
 
 namespace KIO
 {
+// TODO qdoc header file
 /*!
  * Returns the job tracker to be used by all KIO jobs (in which HideProgressInfo is not set)
  */

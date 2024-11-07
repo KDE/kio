@@ -18,14 +18,17 @@ namespace KIO
 {
 class RestoreJobPrivate;
 /*!
- * @class KIO::RestoreJob restorejob.h <KIO/RestoreJob>
+ * \class KIO::RestoreJob
+ * \inheaderfile KIO/RestoreJob
+ * \inmodule KIOCore
  *
- * RestoreJob is used to restore files from the trash.
+ * \brief RestoreJob is used to restore files from the trash.
+ *
  * Don't create the job directly, but use KIO::restoreFromTrash().
  *
  * \sa KIO::trash()
  * \sa KIO::copy()
- * @since 5.2
+ * \since 5.2
  */
 class KIOCORE_EXPORT RestoreJob : public Job
 {
@@ -52,8 +55,11 @@ private:
 };
 
 /*!
+ * \relates KIO::RestoreJob
+ *
  * Restore a set of trashed files or directories.
- * @since 5.2
+ *
+ * \since 5.2
  *
  * \a urls the trash:/ URLs to restore. The trash implementation
  * will know where the files came from and will restore them to their

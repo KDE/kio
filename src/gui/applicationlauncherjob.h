@@ -58,29 +58,36 @@ class KIOGUI_EXPORT ApplicationLauncherJob : public KJob
 public:
     /*!
      * Creates an ApplicationLauncherJob.
+     *
      * \a service the service (application desktop file) to run
+     *
      * \a parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /*!
      * Creates an ApplicationLauncherJob.
+     *
      * \a serviceAction the service action to run
+     *
      * \a parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
     /*!
-     * @overload
-     * @since 6.0
+     * Creates an ApplicationLauncherJob.
+     *
+     * \since 6.0
      */
     explicit ApplicationLauncherJob(const KDesktopFileAction &desktopFileAction, QObject *parent = nullptr);
 
     /*!
      * Creates an ApplicationLauncherJob which will prompt the user for which application to use
      * (via the open-with dialog from KIOWidgets).
+     *
      * \a parent the parent QObject
-     * @since 5.71
+     *
+     * \since 5.71
      */
     explicit ApplicationLauncherJob(QObject *parent = nullptr);
 
@@ -94,6 +101,7 @@ public:
 
     /*!
      * Specifies the URLs to be passed to the application.
+     *
      * \a urls list of files (local or remote) to open
      *
      * Note that when passing multiple URLs to an application that doesn't support opening
@@ -102,18 +110,16 @@ public:
     void setUrls(const QList<QUrl> &urls);
 
     /*!
-     * \sa RunFlag
+     * \value DeleteTemporaryFiles The URLs passed to the service will be deleted when it exits (if the URLs are local files)
      */
     enum RunFlag {
-        DeleteTemporaryFiles = 0x1, ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
+        DeleteTemporaryFiles = 0x1,
     };
-    /*!
-     * Stores a combination of #RunFlag values.
-     */
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
     /*!
      * Specifies various flags.
+     *
      * \a runFlags the flags to be set. For instance, whether the URLs are temporary files that should be deleted after execution.
      */
     void setRunFlags(RunFlags runFlags);
@@ -124,20 +130,25 @@ public:
      * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
+     *
      * \a suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
     /*!
      * Sets the platform-specific startup id of the application launch.
+     *
      * \a startupId startup id, if any (otherwise "").
+     *
      * For X11, this would be the id for the Startup Notification protocol.
+     *
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
     void setStartupId(const QByteArray &startupId);
 
     /*!
      * Starts the job.
+     *
      * You must call this, after having done all the setters.
      * This is (potentially) a GUI job, never use exec(), it would block user interaction.
      */
