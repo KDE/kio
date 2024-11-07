@@ -51,7 +51,7 @@ public:
     /*!
      * Flags for the openUrl() method
      * \sa OpenUrlFlags
-     * @since 5.69
+     * \since 5.69
      */
     enum OpenUrlFlag {
         NoFlags = 0x0, ///< No additional flags specified.
@@ -73,7 +73,7 @@ public:
      * \a url   the URL of the directory whose contents should be listed.
      *              Unless ShowRoot is set, the item for this directory will NOT be shown, the model starts at its children.
      * \a flags see OpenUrlFlag
-     * @since 5.69
+     * \since 5.69
      */
     Q_INVOKABLE void openUrl(const QUrl &url, OpenUrlFlags flags = NoFlags);
 
@@ -129,7 +129,7 @@ public:
     /*!
      * Forget all previews (optimization for turning previews off).
      * The items will again have their default appearance (not controlled by the model).
-     * @since 5.28
+     * \since 5.28
      */
     Q_INVOKABLE void clearAllPreviews();
 

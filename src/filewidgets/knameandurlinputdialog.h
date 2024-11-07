@@ -60,7 +60,7 @@ public:
     /*!
      * Returns the URL the user entered, as plain text.
      * This is only useful for creating relative symlinks.
-     * @since 5.25
+     * \since 5.25
      */
     QString urlText() const;
 

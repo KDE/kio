@@ -33,9 +33,6 @@ public:
     ~ChmodJob() override;
 
 protected Q_SLOTS:
-    /*!
-     * \reimp
-     */
     void slotResult(KJob *job) override;
 
 protected:
@@ -46,6 +43,8 @@ private:
 };
 
 /*!
+ * \relates KIO::ChmodJob
+ *
  * Creates a job that changes permissions/ownership on several files or directories,
  * optionally recursively.
  * This version of chmod uses a KFileItemList so that it directly knows

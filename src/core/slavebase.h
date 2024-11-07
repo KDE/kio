@@ -197,7 +197,7 @@ public:
     void written(KIO::filesize_t _bytes);
 
     /*
-     * @since 5.66
+     * \since 5.66
      */
     void truncated(KIO::filesize_t _length);
 
@@ -248,10 +248,10 @@ public:
      * Type of message box. Should be kept in sync with KMessageBox::DialogType.
      */
     enum MessageBoxType {
-        QuestionTwoActions = 1, ///< @since 5.100
-        WarningTwoActions = 2, ///< @since 5.100
+        QuestionTwoActions = 1, ///< \since 5.100
+        WarningTwoActions = 2, ///< \since 5.100
         WarningContinueCancel = 3,
-        WarningTwoActionsCancel = 4, ///< @since 5.100
+        WarningTwoActionsCancel = 4, ///< \since 5.100
         Information = 5,
         // In KMessageBox::DialogType; <unused> = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
@@ -263,8 +263,8 @@ public:
     enum ButtonCode {
         Ok = 1,
         Cancel = 2,
-        PrimaryAction = 3, ///< @since 5.100
-        SecondaryAction = 4, ///< @since 5.100
+        PrimaryAction = 3, ///< \since 5.100
+        SecondaryAction = 4, ///< \since 5.100
         Continue = 5,
     };
 
@@ -338,25 +338,25 @@ public:
      * relevant for the current protocol and host.
      *
      * Use configValue() as shortcut.
-     * @since 5.64
+     * \since 5.64
      */
     QMap<QString, QVariant> mapConfig() const;
 
     /*
      * Returns a bool from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     bool configValue(const QString &key, bool defaultValue) const;
 
     /*
      * Returns an int from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     int configValue(const QString &key, int defaultValue) const;
 
     /*
      * Returns a QString from the config/meta-data information.
-     * @since 5.64
+     * \since 5.64
      */
     QString configValue(const QString &key, const QString &defaultValue = QString()) const;
 
@@ -738,7 +738,7 @@ public:
      * items in time but not too many items one by one
      * as this will cause a drastic performance penalty).
      * \a entry The UDSEntry containing all of the object attributes.
-     * @since 5.0
+     * \since 5.0
      */
     void listEntry(const UDSEntry &entry);
 
@@ -910,7 +910,7 @@ public:
      * Checks with job if privilege operation is allowed.
      * Returns privilege operation status.
      * \sa PrivilegeOperationStatus
-     * @since 5.66
+     * \since 5.66
      */
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
 
@@ -919,7 +919,7 @@ public:
      * slave is authorized to perform.
      *
      * \a action the PolicyKit action
-     * @since 5.45
+     * \since 5.45
      */
     void addTemporaryAuthorization(const QString &action);
 

@@ -54,7 +54,7 @@ protected:
      * \a flags allows to enable automatic error/warning handling
      * \a window the window associated with this delegate, see setWindow.
      * \a ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
-     * @since 5.98
+     * \since 5.98
      */
     explicit JobUiDelegate(KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
 
@@ -78,7 +78,7 @@ public:
      *
      * This method is useful for instance when keeping a hidden window
      * around to make it faster to reuse later.
-     * @since 5.2
+     * \since 5.2
      */
     static void unregisterWindow(QWidget *window);
 

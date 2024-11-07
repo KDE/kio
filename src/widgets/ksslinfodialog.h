@@ -57,7 +57,7 @@ public:
      *  \a usedBits the used bits of the key
      *  \a bits the key size of the cipher in use
      *  \a validationErrors errors validating the certificates, if any
-     *  @since 5.64
+     *  \since 5.64
      */
     void setSslInfo(const QList<QSslCertificate> &certificateChain,
                     const QString &ip,
@@ -74,7 +74,7 @@ public:
     /*!
      * Converts certificate errors as provided in the "ssl_cert_errors" meta data
      * to a list of QSslError::SslError values per certificate in the certificate chain.
-     * @since 5.65
+     * \since 5.65
      */
     static QList<QList<QSslError::SslError>> certificateErrorsFromString(const QString &errorsString);
 

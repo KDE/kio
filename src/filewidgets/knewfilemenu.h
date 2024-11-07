@@ -54,7 +54,7 @@ public:
      * If the parent object is a widget, it will also be used as the parent widget
      * for any dialogs that this class might show. Otherwise, call setParentWidget.
      *
-     * @since 5.100
+     * \since 5.100
      */
     KNewFileMenu(QObject *parent);
 
@@ -86,14 +86,14 @@ public:
     /*!
      * Set the working directory.
      * Files will be created relative to this directory.
-     * @since 5.97.
+     * \since 5.97.
      */
     void setWorkingDirectory(const QUrl &directory);
 
     /*!
      * Returns the working directory.
      * Files will be created relative to this directory.
-     * @since 5.97.
+     * \since 5.97.
      */
     QUrl workingDirectory() const;
 
@@ -114,7 +114,7 @@ public:
      *
      * default: false
      *
-     * @since 5.76
+     * \since 5.76
      */
     void setSelectDirWhenAlreadyExist(bool b);
 
@@ -123,7 +123,7 @@ public:
      *
      * The shortcut is copied from \a action.
      *
-     * @since 5.100
+     * \since 5.100
      */
     void setNewFolderShortcutAction(QAction *action);
 
@@ -132,7 +132,7 @@ public:
      *
      * The shortcut is copied from \a action.
      *
-     * @since 5.100
+     * \since 5.100
      */
     void setNewFileShortcutAction(QAction *action);
 
@@ -141,13 +141,13 @@ public:
      * Namejob is what spawns the new directory dialog, which can be slow in,
      * for example, network folders.
      *
-     * @since 6.2
+     * \since 6.2
      */
     bool isCreateDirectoryRunning();
 
     /*!
      * Use this to check if the file creation process is still running.
-     * @since 6.2
+     * \since 6.2
      */
     bool isCreateFileRunning();
 
@@ -175,7 +175,7 @@ public Q_SLOTS:
      * the New menu.
      * Requirements: since 5.97 call setWorkingDirectory first (for older releases call setPopupFiles first), and keep this KNewFileMenu instance
      * alive (the copy is async).
-     * @since 5.53
+     * \since 5.53
      */
     void createFile();
 
@@ -183,7 +183,7 @@ Q_SIGNALS:
 
     /*!
      * Emitted once the creation job for file @p url has been started
-     * @since 6.2
+     * \since 6.2
      */
     void fileCreationStarted(const QUrl &url);
 
@@ -194,13 +194,13 @@ Q_SIGNALS:
 
     /*!
      * Emitted once the creation for file @p url has been rejected
-     * @since 6.2
+     * \since 6.2
      */
     void fileCreationRejected(const QUrl &url);
 
     /*!
      * Emitted once the creation job for directory @p url has been started
-     * @since 6.2
+     * \since 6.2
      */
     void directoryCreationStarted(const QUrl &url);
 
@@ -211,7 +211,7 @@ Q_SIGNALS:
 
     /*!
      * Emitted once the creation for directory @p url has been rejected
-     * @since 6.2
+     * \since 6.2
      */
     void directoryCreationRejected(const QUrl &url);
 
@@ -221,7 +221,7 @@ Q_SIGNALS:
      * the view (in case the user wants to use that directory instead of creating
      * a new one).
      *
-     * @since 5.76
+     * \since 5.76
      */
     void selectExistingDir(const QUrl &url);
 

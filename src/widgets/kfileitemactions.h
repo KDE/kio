@@ -93,7 +93,7 @@ public:
      * \a menu the QMenu where the actions will be added
      * \a excludedDesktopEntryNames list of desktop entry names that will not be shown
      *
-     * @since 5.82
+     * \since 5.82
      */
     void insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames);
 
@@ -117,7 +117,7 @@ public:
      *
      * \a mimeTypeList the MIME types
      * Returns the sorted list of services.
-     * @since 5.83
+     * \since 5.83
      */
     static KService::List associatedApplications(const QStringList &mimeTypeList);
 
@@ -136,7 +136,7 @@ public:
      * \a additionalActions additional actions that should be added to the "Actions" submenu or
      * top level menu if there are less than three entries in total.
      * \a excludeList list of action names or plugin ids that should be excluded
-     * @since 5.77
+     * \since 5.77
      */
     void addActionsTo(QMenu *menu,
                       MenuActionSources sources = MenuActionSource::All,
@@ -147,13 +147,13 @@ Q_SIGNALS:
     /*!
      * Emitted before the "Open With" dialog is shown
      * This is used e.g in folderview to close the folder peek popups on invoking the "Open With" menu action
-     * @since 4.8.2
+     * \since 4.8.2
      */
     void openWithDialogAboutToBeShown();
 
     /*!
      * Forwards the errors from the KAbstractFileItemActionPlugin instances
-     * @since 5.82
+     * \since 5.82
      */
     void error(const QString &errorMessage);
 
@@ -161,7 +161,7 @@ public Q_SLOTS:
     /*!
      * Slot used to execute a list of files in their respective preferred application.
      * \a fileOpenList the list of KFileItems to open.
-     * @since 5.83
+     * \since 5.83
      */
     void runPreferredApplications(const KFileItemList &fileOpenList);
 

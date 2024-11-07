@@ -52,6 +52,8 @@ private:
 };
 
 /*!
+ * \relates KIO::FileSystemFreeSpaceJob
+ *
  * Get a filesystem's total and available space.
  *
  * \a url Url to the filesystem.

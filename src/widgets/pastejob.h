@@ -29,7 +29,7 @@ class PasteJobPrivate;
  * the user to choose a filename and the preferred data format.
  *
  * \sa KIO::pasteClipboard
- * @since 5.4
+ * \since 5.4
  */
 class KIOWIDGETS_EXPORT PasteJob : public Job
 {
@@ -51,7 +51,7 @@ Q_SIGNALS:
      * You can use @p job to monitor the progress of the copy/move/link operation.
      *
      * \a job the job started for moving, copying or symlinking files
-     * @since 6.0
+     * \since 6.0
      */
     void copyJobStarted(KIO::CopyJob *job);
 
@@ -82,7 +82,7 @@ private:
  * \a flags passed to the sub job
  *
  * Returns A pointer to the job handling the operation.
- * @since 5.4
+ * \since 5.4
  */
 KIOWIDGETS_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
 

@@ -23,7 +23,7 @@ class CopyJob;
 /*!
  * Returns true if pasteMimeData will find any interesting format in @p data.
  * You can use this method to enable/disable the paste action appropriately.
- * @since 5.0 (was called canPasteMimeSource before)
+ * \since 5.0 (was called canPasteMimeSource before)
  */
 KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 
@@ -36,7 +36,7 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
  * \a destItem item representing the directory into which the clipboard data
  *        or items would be pasted. Used to find out about permissions in that directory.
  * Returns a string suitable for QAction::setText
- * @since 5.4
+ * \since 5.4
  */
 KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem);
 
@@ -44,14 +44,14 @@ KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enabl
  * Add the information whether the files were cut, into the mimedata.
  * \a mimeData pointer to the mimeData object to be populated. Must not be null.
  * \a cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
- * @since 5.2
+ * \since 5.2
  */
 KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData *mimeData, bool cut);
 
 /*!
  * Returns true if the URLs in @p mimeData were cut by the user.
  * This should be called when pasting, to choose between moving and copying.
- * @since 5.2
+ * \since 5.2
  */
 KIOWIDGETS_EXPORT bool isClipboardDataCut(const QMimeData *mimeData);
 

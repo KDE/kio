@@ -7,8 +7,7 @@ productname = KDE Frameworks
 documentationinheaders = true
 
 headerdirs = .
-
-headers.fileextensions = "*.qdoc *.h"
+sourcedirs = .
 
 outputformats = HTML
 

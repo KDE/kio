@@ -48,9 +48,10 @@ class Scheduler : public QObject
     Q_CLASSINFO("D-Bus Interface", "org.kde.KIO.Scheduler")
 public:
     /*!
-     * Register @p job with the scheduler.
+     * Register \a job with the scheduler.
      * The default is to create a new worker for the job if no worker
      * is available.
+     *
      * \a job the job to register
      */
     static void doJob(SimpleJob *job);
@@ -64,7 +65,8 @@ public:
     /*!
      * Called when a job is done.
      * \a job the finished job
-     * \a worker the worker that executed the @p job
+     *
+     * \a worker the worker that executed the \a job
      */
     static void jobFinished(KIO::SimpleJob *job, KIO::Worker *worker);
 
@@ -76,10 +78,12 @@ public:
      * Based on the MIME type, the program can give control to another
      * component in the same process which can then resume the job
      * by simply asking for the same URL again.
-     * \a job the job that should be stopped
-     * \a url the URL that is handled by the @p url
      *
-     * @since 5.101
+     * \a job the job that should be stopped
+     *
+     * \a url the URL that is handled by the \a url
+     *
+     * \since 5.101
      */
     static void putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url);
 
@@ -87,7 +91,7 @@ public:
      * Removes any worker that might have been put on hold. If a worker
      * was put on hold it will be killed.
      *
-     * @since 5.101
+     * \since 5.101
      */
     static void removeWorkerOnHold();
 
@@ -95,16 +99,16 @@ public:
     // KF6 TODO: rename to emitReparseWorkerConfiguration. See also T15956.
 
     /*!
-     * Returns true if there is a worker on hold for @p url.
+     * Returns true if there is a worker on hold for \a url.
      *
-     * @since 5.101
+     * \since 5.101
      */
     static bool isWorkerOnHoldFor(const QUrl &url);
 
     /*!
      * Updates the internal metadata from job.
      *
-     * @since 4.6.5
+     * \since 4.6.5
      */
     static void updateInternalMetaData(SimpleJob *job);
 

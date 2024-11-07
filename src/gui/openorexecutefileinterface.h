@@ -27,7 +27,7 @@ class OpenOrExecuteFileInterfacePrivate;
  * This extension mechanism for jobs is similar to KIO::JobUiDelegateExtension,
  * OpenWithHandlerInterface and UntrustedProgramHandlerInterface.
  *
- * @since 5.73
+ * \since 5.73
  */
 class KIOGUI_EXPORT OpenOrExecuteFileInterface : public QObject
 {

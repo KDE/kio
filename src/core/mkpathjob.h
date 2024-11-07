@@ -53,6 +53,8 @@ private:
 };
 
 /*!
+ * \relates KIO::MkpathJob
+ *
  * Creates a directory, creating parent directories as needed.
  * Unlike KIO::mkdir(), the job will succeed if the directory exists already.
  *

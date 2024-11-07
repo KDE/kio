@@ -21,7 +21,7 @@ class KFileCustomDialogPrivate;
 /*!
  * This class implement a custom file dialog.
  * It uses a KFileWidget and allows the application to provide a custom widget.
- * @since 5.42
+ * \since 5.42
  */
 class KIOFILEWIDGETS_EXPORT KFileCustomDialog : public QDialog
 {
@@ -35,7 +35,7 @@ public:
     /*!
      * Constructs a custom file dialog
      * \a startDir see the KFileWidget constructor for documentation
-     * @since 5.67
+     * \since 5.67
      */
     explicit KFileCustomDialog(const QUrl &startDir, QWidget *parent = nullptr);
 

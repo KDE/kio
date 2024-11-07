@@ -119,14 +119,14 @@ public:
      * supporting only integer sequence indices may choose to round it down.
      *
      * \sa ThumbSequenceCreator::sequenceIndexWraparoundPoint()
-     * @since 5.80
+     * \since 5.80
      */
     float sequenceIndexWraparoundPoint() const;
 
     /*!
      * Determines whether the ThumbCreator in use is a ThumbSequenceCreator.
      *
-     * @since 5.80
+     * \since 5.80
      */
     bool handlesSequences() const;
 
@@ -135,7 +135,7 @@ public:
      * The returned thumbnail may not respect the device pixel ratio requested.
      * Use QPixmap::devicePixelRatio to check, or paint as necessary.
      *
-     * @since 5.84
+     * \since 5.84
      */
     void setDevicePixelRatio(qreal dpr);
 
@@ -150,7 +150,7 @@ public:
     /*!
      * Returns all plugins that are considered when a preview is generated
      * The result is internally cached, meaning any further method call will not reload the plugins
-     * @since 5.90
+     * \since 5.90
      */
     static QList<KPluginMetaData> availableThumbnailerPlugins();
 
@@ -158,7 +158,7 @@ public:
      * Returns a list of plugins that should be enabled by default, which is all plugins
      * Minus the plugins specified in an internal blacklist
      * Returns the list of plugins that should be enabled by default
-     * @since 5.40
+     * \since 5.40
      */
     static QStringList defaultPlugins();
 
@@ -198,7 +198,7 @@ public:
      *
      * Defaults to 1
      *
-     * @since 5.84
+     * \since 5.84
      */
     static void setDefaultDevicePixelRatio(qreal devicePixelRatio);
 };

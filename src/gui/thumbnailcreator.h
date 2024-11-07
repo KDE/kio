@@ -31,7 +31,7 @@ class ThumbnailResultPrivate;
  * This includes the URL of the target file as well as additional
  * data such as the target size
  *
- * @since 5.100
+ * \since 5.100
  *
  */
 class KIOGUI_EXPORT ThumbnailRequest
@@ -108,7 +108,7 @@ private:
  *
  * To create a result use KIO::ThumbnailResult::pass(image) or KIO::ThumbnailResult::fail()
  *
- * @since 5.100
+ * \since 5.100
  */
 class KIOGUI_EXPORT ThumbnailResult
 {
@@ -229,7 +229,7 @@ private:
  * previously-cached thumbnails for this creator will be discarded.  You should
  * increase the version if and only if old thumbnails need to be regenerated.
  *
- * @since 5.100
+ * \since 5.100
  */
 class KIOGUI_EXPORT ThumbnailCreator : public QObject
 {

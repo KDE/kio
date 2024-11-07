@@ -44,6 +44,8 @@ private:
 };
 
 /*!
+ * \relates KIO::MimetypeJob
+ *
  * Find MIME type for one file or directory.
  *
  * If you are going to download the file right after determining its MIME type,

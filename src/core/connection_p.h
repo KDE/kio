@@ -23,7 +23,7 @@ namespace KIO
 class ConnectionServer;
 class ConnectionPrivate;
 /*!
- * @private
+ * \internal
  *
  * This class provides a simple means for IPC between two applications
  * via a pipe.

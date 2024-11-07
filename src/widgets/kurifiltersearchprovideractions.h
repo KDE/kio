@@ -26,7 +26,7 @@ class WebShortcutsMenuManagerPrivate;
  *
  * You can set the selected text with setSelectedText() function
  *
- * @since 5.16
+ * \since 5.16
  */
 class KIOWIDGETS_EXPORT KUriFilterSearchProviderActions : public QObject
 {

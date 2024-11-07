@@ -18,9 +18,11 @@ class QAction;
 namespace KIO
 {
 /*!
- * @class KIO::DndPopupMenuPlugin dndpopupmenuplugin.h <KIO/DndPopupMenuPlugin>
+ * \class KIO::DndPopupMenuPlugin
+ * \inheaderfile KIO/DndPopupMenuPlugin
+ * \inmodule KIOGui
  *
- * Base class for drag and drop popup menus
+ * \brief Base class for drag and drop popup menus.
  *
  * This can be used for adding dynamic menu items to the normal copy/move/link
  * here menu appearing in KIO-based file managers. In the setup method you may check
@@ -29,8 +31,7 @@ namespace KIO
  *
  * The plugin should have Json metadata and be installed into kf6/kio_dnd/.
  *
- * @author Harald Hvaal <metellius@gmail.com>
- * @since 5.6
+ * \since 5.6
  */
 class KIOGUI_EXPORT DndPopupMenuPlugin : public QObject
 {
@@ -48,7 +49,9 @@ public:
      * The popup menu will be set as parent of the actions.
      *
      * \a popupMenuInfo all the information about the source URLs being dropped
+     *
      * \a destination the URL to where the file(s) were dropped
+     *
      * Returns a QList with the QActions that will be plugged into the menu.
      */
     virtual QList<QAction *> setup(const KFileItemListProperties &popupMenuInfo, const QUrl &destination) = 0;

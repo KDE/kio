@@ -23,7 +23,7 @@ namespace KIO
  * Special flag of DropJob in addition to KIO::JobFlag
  *
  * \sa DropJobFlags
- * @since 5.67
+ * \since 5.67
  */
 enum DropJobFlag {
     DropJobDefaultFlags = 0,
@@ -47,7 +47,7 @@ class DropJobPrivate;
  * The popupmenu that can appear on drop, can be customized with plugins,
  * see KIO::DndPopupMenuPlugin.
  *
- * @since 5.6
+ * \since 5.6
  */
 class KIOWIDGETS_EXPORT DropJob : public Job
 {
@@ -68,7 +68,7 @@ public:
      * Allows the application to show the menu manually.
      * DropJob instance has to be created with the KIO::ShowMenuManually flag
      *
-     * @since 5.67
+     * \since 5.67
      */
     void showMenu(const QPoint &p, QAction *atAction = nullptr);
 
@@ -86,7 +86,7 @@ Q_SIGNALS:
      * simply launch the executable.
      *
      * \a job the job started for moving, copying or symlinking files
-     * @since 5.30
+     * \since 5.30
      */
     void copyJobStarted(KIO::CopyJob *job);
 
@@ -131,7 +131,7 @@ private:
  * Returns A pointer to the job handling the operation.
  * @warning Don't forget to call KJobWidgets::setWindow() on this job, otherwise the popup
  *          menu won't be properly positioned with Wayland compositors.
- * @since 5.4
+ * \since 5.4
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags = DefaultFlags);
 
@@ -147,7 +147,7 @@ KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl
  * Returns A pointer to the job handling the operation.
  * @warning Don't forget to call DropJob::showMenu on this job, otherwise the popup will never be shown
  *
- * @since 5.67
+ * \since 5.67
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent,
                                 const QUrl &destUrl,

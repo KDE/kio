@@ -39,7 +39,7 @@ class OpenUrlJobPrivate;
  *    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
  * \endcode
  *
- * \since KIO 5.71
+ * \since 5.71
  */
 class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
 {
@@ -121,7 +121,7 @@ public:
      * When set to @c true this will take precedence over setRunExecutables (the latter can be
      * used to allow running executables without first asking the user for confirmation).
      *
-     * @since 5.73
+     * \since 5.73
      */
     void setShowOpenOrExecuteDialog(bool b);
 

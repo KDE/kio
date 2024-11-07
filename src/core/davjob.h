@@ -60,6 +60,8 @@ private:
 };
 
 /*!
+ * \relates KIO::DavJob
+ *
  * Creates a new DavJob that issues a PROPFIND command. PROPFIND retrieves
  * the properties of the resource identified by the given \p url.
  *
@@ -78,6 +80,8 @@ private:
 KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QString &properties, const QString &depth, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::DavJob
+ *
  * Creates a new DavJob that issues a PROPPATCH command. PROPPATCH sets
  * the properties of the resource identified by the given \a url.
  *
@@ -94,6 +98,8 @@ KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QString &properties, c
 KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QString &properties, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::DavJob
+ *
  * Creates a new DavJob that issues a SEARCH command.
  *
  * \a url the URL of the resource
@@ -111,6 +117,8 @@ KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QString &properties, 
 KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::DavJob
+ *
  * Creates a new DavJob that issues a REPORT command.
  *
  * \a url the URL of the resource

@@ -109,7 +109,7 @@ public:
      * For local files with a known MIME type, simply create a KFileItemList
      * and pass it to the other constructor.
      *
-     * @since 5.10
+     * \since 5.10
      */
     explicit KPropertiesDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
@@ -188,7 +188,7 @@ public:
      *
      * Returns true on successful dialog displaying (can be false on win32).
      *
-     * @since 5.10
+     * \since 5.10
      */
     static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr, bool modal = true);
 
@@ -284,12 +284,12 @@ public:
 public Q_SLOTS:
     /*!
      * Called when the user presses 'Ok'.
-     * @since 5.25
+     * \since 5.25
      */
     void accept() override;
     /*!
      * Called when the user presses 'Cancel' or Esc.
-     * @since 5.25
+     * \since 5.25
      */
     void reject() override;
 

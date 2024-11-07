@@ -37,13 +37,13 @@ public:
     /*!
      * The teardown function signature. Custom teardown logic
      * may be provided via the setTeardownFunction method.
-     * @since 5.91
+     * \since 5.91
      */
     using TeardownFunction = std::function<void(const QModelIndex &)>;
 
     /*!
      * Whether hidden places, if any, are currently shown.
-     * @since 5.91
+     * \since 5.91
      */
     bool allPlacesShown() const;
 
@@ -65,7 +65,7 @@ public:
      * and held on top of a place for at least that duraton.
      *
      * \a delay Delay in ms, default is zero.
-     * @since 5.92
+     * \since 5.92
      */
     void setDragAutoActivationDelay(int delay);
     int dragAutoActivationDelay() const;
@@ -81,7 +81,7 @@ public:
     /*!
      * Sets a custom function that will be called when teardown of
      * a device (e.g.\ unmounting a drive) is requested.
-     * @since 5.91
+     * \since 5.91
      */
     void setTeardownFunction(TeardownFunction teardownFunc);
 
@@ -120,7 +120,7 @@ Q_SIGNALS:
      * mounting has completed successfully.
      *
      * \a url The URL of the place
-     * @since 5.91
+     * \since 5.91
      */
     void placeActivated(const QUrl &url);
 
@@ -132,7 +132,7 @@ Q_SIGNALS:
      *
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.
-     * @since 5.91
+     * \since 5.91
      */
     void tabRequested(const QUrl &url);
 
@@ -144,7 +144,7 @@ Q_SIGNALS:
 
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.
-     * @since 5.91
+     * \since 5.91
      */
     void activeTabRequested(const QUrl &url);
 
@@ -155,7 +155,7 @@ Q_SIGNALS:
      *
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.
-     * @since 5.91
+     * \since 5.91
      */
     void newWindowRequested(const QUrl &url);
 
@@ -164,13 +164,13 @@ Q_SIGNALS:
      * application actions to the menu.
      * \a index The model index of the place whose menu is about to open.
      * \a menu The menu that will be opened.
-     * @since 5.91
+     * \since 5.91
      */
     void contextMenuAboutToShow(const QModelIndex &index, QMenu *menu);
 
     /*!
      * Emitted when allPlacesShown changes
-     * @since 5.91
+     * \since 5.91
      */
     void allPlacesShownChanged(bool allPlacesShown);
 
