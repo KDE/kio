@@ -38,9 +38,9 @@ public:
      * Create a dialog that asks for a application to open a given
      * URL(s) with.
      *
-     * @param urls   the URLs that should be opened. The list can be empty,
+     * \a urls   the URLs that should be opened. The list can be empty,
      * if the dialog is used to choose an application but not for some particular URLs.
-     * @param parent parent widget
+     * \a parent parent widget
      */
     explicit KOpenWithDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
@@ -48,10 +48,10 @@ public:
      * Create a dialog that asks for a application to open a given
      * URL(s) with.
      *
-     * @param urls   is the URL that should be opened
-     * @param text   appears as a label on top of the entry box. Leave empty for default text (since 5.20).
-     * @param value  is the initial value of the line
-     * @param parent parent widget
+     * \a urls   is the URL that should be opened
+     * \a text   appears as a label on top of the entry box. Leave empty for default text (since 5.20).
+     * \a value  is the initial value of the line
+     * \a parent parent widget
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value, QWidget *parent = nullptr);
 
@@ -59,9 +59,9 @@ public:
      * Create a dialog to select a service for a given MIME type.
      * Note that this dialog doesn't apply to URLs.
      *
-     * @param mimeType the MIME type we want to choose an application for.
-     * @param value  is the initial value of the line
-     * @param parent parent widget
+     * \a mimeType the MIME type we want to choose an application for.
+     * \a value  is the initial value of the line
+     * \a parent parent widget
      */
     KOpenWithDialog(const QString &mimeType, const QString &value, QWidget *parent = nullptr);
 
@@ -69,11 +69,11 @@ public:
      * Create a dialog that asks for a application for opening a given
      * URL (or more than one), when we already know the MIME type of the URL(s).
      *
-     * @param urls   is the URLs that should be opened
-     * @param mimeType the MIME type of the URL
-     * @param text   appears as a label on top of the entry box.
-     * @param value  is the initial value of the line
-     * @param parent parent widget
+     * \a urls   is the URLs that should be opened
+     * \a mimeType the MIME type of the URL
+     * \a text   appears as a label on top of the entry box.
+     * \a value  is the initial value of the line
+     * \a parent parent widget
      * @since 5.71
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType, const QString &text, const QString &value, QWidget *parent = nullptr);
@@ -82,7 +82,7 @@ public:
      * Create a dialog to select an application
      * Note that this dialog doesn't apply to URLs.
      *
-     * @param parent parent widget
+     * \a parent parent widget
      */
     KOpenWithDialog(QWidget *parent = nullptr);
 
@@ -92,7 +92,7 @@ public:
     ~KOpenWithDialog() override;
 
     /*!
-     * @return the text the user entered
+     * Returns the text the user entered
      */
     QString text() const;
     /*!
@@ -104,7 +104,7 @@ public:
      */
     void hideRunInTerminal();
     /*!
-     * @return the chosen service in the application tree
+     * Returns the chosen service in the application tree
      * Can be null, if the user typed some text and didn't select a service.
      */
     KService::Ptr service() const;

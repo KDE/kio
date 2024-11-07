@@ -35,7 +35,7 @@ public:
     /*!
      * Constructs a webshorts menu manager.
      *
-     * @param parent The QObject parent.
+     * \a parent The QObject parent.
      */
 
     explicit KUriFilterSearchProviderActions(QObject *parent = nullptr);
@@ -47,13 +47,13 @@ public:
     QString selectedText() const;
     /*!
      * @brief Set selected text
-     * @param selectedText the text to search for
+     * \a selectedText the text to search for
      */
     void setSelectedText(const QString &selectedText);
 
     /*!
      * @brief addWebShortcutsToMenu Manage to add web shortcut actions to existing menu.
-     * @param menu menu to add shortcuts to
+     * \a menu menu to add shortcuts to
      */
     void addWebShortcutsToMenu(QMenu *menu);
 

@@ -30,7 +30,7 @@ public:
     /*!
      * Creates a new filter combo box.
      *
-     * @param parent The parent widget.
+     * \a parent The parent widget.
      */
     explicit KFileFilterCombo(QWidget *parent = nullptr);
 
@@ -42,10 +42,10 @@ public:
     /*!
      * Sets the filters to be used.
      *
-     * @param filters each item in the list corresponds to one item in the combobox.
+     * \a filters each item in the list corresponds to one item in the combobox.
      * Entries for "All files" and "All supported files" are added automatically as needed.
      *
-     * @param defaultFilter if not empty this will be the by default active filter
+     * \a defaultFilter if not empty this will be the by default active filter
      *
      * @since 6.0
      *
@@ -82,7 +82,7 @@ public:
     void setDefaultFilter(const KFileFilter &filter);
 
     /*!
-     * @return the default filter, used when an empty filter is set.
+     * Returns the default filter, used when an empty filter is set.
      * @see setDefaultFileFilter
      *
      * @since 6.0
@@ -98,7 +98,7 @@ public:
     void setCurrentFilter(const KFileFilter &filter);
 
     /*!
-     * @return true if the filter's first item is the list of all MIME types
+     * Returns true if the filter's first item is the list of all MIME types
      */
     bool showsAllTypes() const;
 

@@ -510,8 +510,8 @@ public:
     /*!
      * Creates a dialog that lets the user select an application for opening one or more URLs.
      *
-     * @param text   appears as a label on top of the entry box
-     * @param value  is the initial value in the entry box
+     * \a text   appears as a label on top of the entry box
+     * \a value  is the initial value in the entry box
      */
     void init(const QString &text, const QString &value);
 

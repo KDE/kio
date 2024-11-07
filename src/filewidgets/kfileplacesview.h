@@ -64,7 +64,7 @@ public:
      * automatically be activated if an item is dragged over
      * and held on top of a place for at least that duraton.
      *
-     * @param delay Delay in ms, default is zero.
+     * \a delay Delay in ms, default is zero.
      * @since 5.92
      */
     void setDragAutoActivationDelay(int delay);
@@ -119,7 +119,7 @@ Q_SIGNALS:
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.
      *
-     * @param url The URL of the place
+     * \a url The URL of the place
      * @since 5.91
      */
     void placeActivated(const QUrl &url);
@@ -162,8 +162,8 @@ Q_SIGNALS:
     /*!
      * Emitted just before the context menu opens. This can be used to add additional
      * application actions to the menu.
-     * @param index The model index of the place whose menu is about to open.
-     * @param menu The menu that will be opened.
+     * \a index The model index of the place whose menu is about to open.
+     * \a menu The menu that will be opened.
      * @since 5.91
      */
     void contextMenuAboutToShow(const QModelIndex &index, QMenu *menu);

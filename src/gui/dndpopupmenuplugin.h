@@ -47,9 +47,9 @@ public:
      * in the given actionCollection and add it to the menu using menu->addAction().
      * The popup menu will be set as parent of the actions.
      *
-     * @param popupMenuInfo all the information about the source URLs being dropped
-     * @param destination the URL to where the file(s) were dropped
-     * @return a QList with the QActions that will be plugged into the menu.
+     * \a popupMenuInfo all the information about the source URLs being dropped
+     * \a destination the URL to where the file(s) were dropped
+     * Returns a QList with the QActions that will be plugged into the menu.
      */
     virtual QList<QAction *> setup(const KFileItemListProperties &popupMenuInfo, const QUrl &destination) = 0;
 };

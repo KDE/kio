@@ -58,15 +58,15 @@ class KIOGUI_EXPORT ApplicationLauncherJob : public KJob
 public:
     /*!
      * Creates an ApplicationLauncherJob.
-     * @param service the service (application desktop file) to run
-     * @param parent the parent QObject
+     * \a service the service (application desktop file) to run
+     * \a parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KService::Ptr &service, QObject *parent = nullptr);
 
     /*!
      * Creates an ApplicationLauncherJob.
-     * @param serviceAction the service action to run
-     * @param parent the parent QObject
+     * \a serviceAction the service action to run
+     * \a parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
 
@@ -79,7 +79,7 @@ public:
     /*!
      * Creates an ApplicationLauncherJob which will prompt the user for which application to use
      * (via the open-with dialog from KIOWidgets).
-     * @param parent the parent QObject
+     * \a parent the parent QObject
      * @since 5.71
      */
     explicit ApplicationLauncherJob(QObject *parent = nullptr);
@@ -94,7 +94,7 @@ public:
 
     /*!
      * Specifies the URLs to be passed to the application.
-     * @param urls list of files (local or remote) to open
+     * \a urls list of files (local or remote) to open
      *
      * Note that when passing multiple URLs to an application that doesn't support opening
      * multiple files, the application will be launched once for each URL.
@@ -114,7 +114,7 @@ public:
 
     /*!
      * Specifies various flags.
-     * @param runFlags the flags to be set. For instance, whether the URLs are temporary files that should be deleted after execution.
+     * \a runFlags the flags to be set. For instance, whether the URLs are temporary files that should be deleted after execution.
      */
     void setRunFlags(RunFlags runFlags);
 
@@ -124,13 +124,13 @@ public:
      * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
-     * @param suggestedFileName the file name
+     * \a suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
     /*!
      * Sets the platform-specific startup id of the application launch.
-     * @param startupId startup id, if any (otherwise "").
+     * \a startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
@@ -144,7 +144,7 @@ public:
     void start() override;
 
     /*!
-     * @return the PID of the application that was started
+     * Returns the PID of the application that was started
      *
      * Convenience method for pids().at(0). You should only use this when specifying zero or one URL,
      * or when you are sure that the application supports opening multiple files. Otherwise use pids().
@@ -153,7 +153,7 @@ public:
     qint64 pid() const;
 
     /*!
-     * @return the PIDs of the applications that were started
+     * Returns the PIDs of the applications that were started
      *
      * Available after the job emits result().
      */

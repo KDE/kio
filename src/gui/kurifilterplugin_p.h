@@ -32,8 +32,8 @@ public:
     /*!
      * Constructs a filter plugin with a given name
      *
-     * @param parent the parent object, or @c nullptr for no parent
-     * @param name the name of the plugin, mandatory
+     * \a parent the parent object, or @c nullptr for no parent
+     * \a name the name of the plugin, mandatory
      */
     explicit KUriFilterPlugin(QObject *parent, const KPluginMetaData &data);
 
@@ -43,8 +43,8 @@ public:
     /*!
      * Filters a URI.
      *
-     * @param data the URI data to be filtered.
-     * @return A boolean indicating whether the URI has been changed.
+     * \a data the URI data to be filtered.
+     * Returns A boolean indicating whether the URI has been changed.
      */
     virtual bool filterUri(KUriFilterData &data) const = 0;
 
@@ -96,9 +96,9 @@ protected:
      * \note All uri filter plugins that need to perform a hostname
      * lookup should use this function.
      *
-     * @param hostname   the hostname to lookup.
-     * @param timeout    the amount of time in msecs to wait for the lookup.
-     * @return the result of the host name lookup.
+     * \a hostname   the hostname to lookup.
+     * \a timeout    the amount of time in msecs to wait for the lookup.
+     * Returns the result of the host name lookup.
      */
     QHostInfo resolveName(const QString &hostname, unsigned long timeout) const;
 

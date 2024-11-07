@@ -31,7 +31,7 @@ public:
     /*!
      * If you know the size of the source file, call this method
      * to inform this job. It will be displayed in the "resume" dialog.
-     * @param size the size of the source file
+     * \a size the size of the source file
      */
     void setSourceSize(KIO::filesize_t size);
 
@@ -46,13 +46,13 @@ public:
 
     /*!
      * Returns the source URL.
-     * @return the source URL
+     * Returns the source URL
      */
     QUrl srcUrl() const;
 
     /*!
      * Returns the destination URL.
-     * @return the destination URL
+     * Returns the destination URL
      */
     QUrl destUrl() const;
 
@@ -68,8 +68,8 @@ Q_SIGNALS:
      * being used (which is the common case), this signal forwards the
      * MIME type information from the get job.
      *
-     * @param job the job that emitted this signal
-     * @param mimeType the MIME type
+     * \a job the job that emitted this signal
+     * \a mimeType the MIME type
      * @since 5.78
      */
     void mimeTypeFound(KIO::Job *job, const QString &mimeType);
@@ -77,7 +77,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
     /*!
      * Called whenever a subjob finishes.
-     * @param job the job that emitted this signal
+     * \a job the job that emitted this signal
      */
     void slotResult(KJob *job) override;
 
@@ -94,16 +94,16 @@ private:
  * Uses either WorkerBase::copy() if the worker supports that
  * or get() and put() otherwise.
  *
- * @param src Where to get the file
- * @param dest Where to put the file
- * @param permissions the file mode permissions to set on @p dest; if this is -1
+ * \a src Where to get the file
+ * \a dest Where to put the file
+ * \a permissions the file mode permissions to set on @p dest; if this is -1
  * (the default) no special permissions will be set on @p dest, i.e. it'll have
  * the default system permissions for newly created files, and the owner and group
  * permissions are not preserved.
- * @param flags Can be @ref JobFlag::HideProgressInfo, Overwrite and Resume here
+ * \a flags Can be @ref JobFlag::HideProgressInfo, Overwrite and Resume here
  * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
  * @p dest if @p dest exists
- * @return the job handling the operation
+ * Returns the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 
@@ -119,16 +119,16 @@ FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL
  * Use either WorkerBase::rename() if the worker supports that,
  * or copy() and del() otherwise, or eventually get() & put() & del()
  *
- * @param src Where to get the file
- * @param dest Where to put the file
- * @param permissions the file mode permissions to set on @p dest; if this is -1
+ * \a src Where to get the file
+ * \a dest Where to put the file
+ * \a permissions the file mode permissions to set on @p dest; if this is -1
  * (the default), no special permissions are set on @p dest, i.e. it'll have
  * the default system permissions for newly created files, and the owner and group
  * permissions are not preserved.
- * @param flags Can be HideProgressInfo, Overwrite and Resume here
+ * \a flags Can be HideProgressInfo, Overwrite and Resume here
  * WARNING: Setting @ref JobFlag::Resume means that the data will be appended to
  * @p dest if @p dest exists
- * @return the job handling the operation
+ * Returns the job handling the operation
  */
 KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int permissions = -1, JobFlags flags = DefaultFlags);
 

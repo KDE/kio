@@ -131,7 +131,7 @@ public:
      * current URL. Existing buttons, which are available by m_navButtons,
      * are reused if possible. If the URL is longer, new buttons will be
      * created, if the URL is shorter, the remaining buttons will be deleted.
-     * @param startIndex    Start index of URL part (/), where the buttons
+     * \a startIndex    Start index of URL part (/), where the buttons
      *                      should be created for each following part.
      */
     void updateButtons(int startIndex);
@@ -144,7 +144,7 @@ public:
     void updateButtonVisibility();
 
     /*!
-     * @return Text for the first button of the URL navigator.
+     * Returns Text for the first button of the URL navigator.
      */
     QString firstButtonText() const;
 

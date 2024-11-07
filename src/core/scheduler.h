@@ -51,20 +51,20 @@ public:
      * Register @p job with the scheduler.
      * The default is to create a new worker for the job if no worker
      * is available.
-     * @param job the job to register
+     * \a job the job to register
      */
     static void doJob(SimpleJob *job);
 
     /*!
      * Stop the execution of a job.
-     * @param job the job to cancel
+     * \a job the job to cancel
      */
     static void cancelJob(SimpleJob *job);
 
     /*!
      * Called when a job is done.
-     * @param job the finished job
-     * @param worker the worker that executed the @p job
+     * \a job the finished job
+     * \a worker the worker that executed the @p job
      */
     static void jobFinished(KIO::SimpleJob *job, KIO::Worker *worker);
 
@@ -76,8 +76,8 @@ public:
      * Based on the MIME type, the program can give control to another
      * component in the same process which can then resume the job
      * by simply asking for the same URL again.
-     * @param job the job that should be stopped
-     * @param url the URL that is handled by the @p url
+     * \a job the job that should be stopped
+     * \a url the URL that is handled by the @p url
      *
      * @since 5.101
      */

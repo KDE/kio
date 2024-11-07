@@ -85,7 +85,7 @@ Q_SIGNALS:
      * CopyJob isn't always started by DropJob. For instance dropping files onto an executable will
      * simply launch the executable.
      *
-     * @param job the job started for moving, copying or symlinking files
+     * \a job the job started for moving, copying or symlinking files
      * @since 5.30
      */
     void copyJobStarted(KIO::CopyJob *job);
@@ -94,7 +94,7 @@ Q_SIGNALS:
      * Signals that the popup menu is about to be shown.
      * Applications can use the information provided about the dropped URLs
      * (e.g. the MIME type) to decide whether to call setApplicationActions.
-     * @param itemProps properties of the dropped items
+     * \a itemProps properties of the dropped items
      */
     void popupMenuAboutToShow(const KFileItemListProperties &itemProps);
 
@@ -123,12 +123,12 @@ private:
  * itemCreated for every file or directory being created, so that the view can select
  * these items.
  *
- * @param dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
+ * \a dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
          The application should take care of calling dropEvent->acceptProposedAction().
- * @param destUrl The URL of the target file or directory
- * @param flags passed to the sub job
+ * \a destUrl The URL of the target file or directory
+ * \a flags passed to the sub job
  *
- * @return A pointer to the job handling the operation.
+ * Returns A pointer to the job handling the operation.
  * @warning Don't forget to call KJobWidgets::setWindow() on this job, otherwise the popup
  *          menu won't be properly positioned with Wayland compositors.
  * @since 5.4
@@ -138,13 +138,13 @@ KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl
 /*!
  * Similar to KIO::drop
  *
- * @param dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
+ * \a dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
          The application should take care of calling dropEvent->acceptProposedAction().
- * @param destUrl The URL of the target file or directory
- * @param dropjobFlags Show the menu immediately or manually.
- * @param flags passed to the sub job
+ * \a destUrl The URL of the target file or directory
+ * \a dropjobFlags Show the menu immediately or manually.
+ * \a flags passed to the sub job
  *
- * @return A pointer to the job handling the operation.
+ * Returns A pointer to the job handling the operation.
  * @warning Don't forget to call DropJob::showMenu on this job, otherwise the popup will never be shown
  *
  * @since 5.67

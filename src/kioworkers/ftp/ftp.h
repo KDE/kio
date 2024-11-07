@@ -165,12 +165,12 @@ public:
     /*!
      * Connect and login to the FTP server.
      *
-     * @param loginMode controls if login info should be sent<br>
+     * \a loginMode controls if login info should be sent<br>
      *  loginDeferred  - must not be logged on, no login info is sent<br>
      *  loginExplicit - must not be logged on, login info is sent<br>
      *  loginImplicit - login info is sent if not logged on
      *
-     * @return true on success (a login failure would return false).
+     * Returns true on success (a login failure would return false).
      */
     Q_REQUIRED_RESULT Result ftpOpenConnection(LoginMode loginMode);
 
@@ -179,16 +179,16 @@ public:
      * m_initialPath is set to the current working directory
      * if logging on was successful.
      *
-     * @param userChanged if not nullptr, will be set to true if the user name
+     * \a userChanged if not nullptr, will be set to true if the user name
      *                    was changed during login.
-     * @return true on success.
+     * Returns true on success.
      */
     Q_REQUIRED_RESULT Result ftpLogin(bool *userChanged = nullptr);
 
     /*!
      * ftpSendCmd - send a command (@p cmd) and read response
      *
-     * @param maxretries number of time it should retry. Since it recursively
+     * \a maxretries number of time it should retry. Since it recursively
      * calls itself if it can't read the answer (this happens especially after
      * timeouts), we need to limit the recursiveness ;-)
      *
@@ -198,8 +198,8 @@ public:
 
     /*!
      * Use the SIZE command to get the file size.
-     * @param mode the size depends on the transfer mode, hence this arg.
-     * @return true on success
+     * \a mode the size depends on the transfer mode, hence this arg.
+     * Returns true on success
      * Gets the size into m_size.
      */
     bool ftpSize(const QString &path, char mode);
@@ -221,10 +221,10 @@ public:
      * sData is available for reading/writing on success.
      * The connection must be closed afterwards with ftpCloseCommand.
      *
-     * @param mode is 'A' or 'I'. 'A' means ASCII transfer, 'I' means binary transfer.
-     * @param errorcode the command-dependent error code to emit on error
+     * \a mode is 'A' or 'I'. 'A' means ASCII transfer, 'I' means binary transfer.
+     * \a errorcode the command-dependent error code to emit on error
      *
-     * @return true if the command was accepted by the server.
+     * Returns true if the command was accepted by the server.
      */
     Q_REQUIRED_RESULT Result ftpOpenCommand(const char *command, const QString &path, char mode, int errorcode, KIO::fileoffset_t offset = 0);
 
@@ -232,7 +232,7 @@ public:
      * The counterpart to openCommand.
      * Closes data sockets and then reads line sent by server at
      * end of command.
-     * @return false on error (line doesn't start with '2')
+     * Returns false on error (line doesn't start with '2')
      */
     bool ftpCloseCommand();
 
@@ -290,14 +290,14 @@ public:
     /*!
      * This is the internal implementation of rename() - set put().
      *
-     * @return true on success.
+     * Returns true on success.
      */
     Q_REQUIRED_RESULT Result ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags);
 
     /*!
      * Called by openConnection. It opens the control connection to the ftp server.
      *
-     * @return true on success.
+     * Returns true on success.
      */
     Q_REQUIRED_RESULT Result ftpOpenControlConnection();
     Q_REQUIRED_RESULT Result ftpOpenControlConnection(const QString &host, int port);
@@ -309,10 +309,10 @@ public:
 
     /*!
      * read a response from the server (a trailing CR gets stripped)
-     * @param iOffset -1 to read a new line from the server<br>
+     * \a iOffset -1 to read a new line from the server<br>
      *                 0 to return the whole response string
      *                >0 to return the response with iOffset chars skipped
-     * @return the response message with iOffset chars skipped (or "" if iOffset points
+     * Returns the response message with iOffset chars skipped (or "" if iOffset points
      *         behind the available data)
      */
     const char *ftpResponse(int iOffset);
@@ -323,10 +323,10 @@ public:
      * IMPORTANT: the caller should call ftpCloseCommand() on return.
      * The function does not call error(), the caller should do this.
      *
-     * @param iError      set to an ERR_xxxx code on error
-     * @param iCopyFile   -1 -or- handle of a local destination file
-     * @param hCopyOffset local file only: non-zero for resume
-     * @return 0 for success, -1 for server error, -2 for client error
+     * \a iError      set to an ERR_xxxx code on error
+     * \a iCopyFile   -1 -or- handle of a local destination file
+     * \a hCopyOffset local file only: non-zero for resume
+     * Returns 0 for success, -1 for server error, -2 for client error
      */
     Q_REQUIRED_RESULT Result ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset);
 
@@ -336,37 +336,37 @@ public:
      * IMPORTANT: the caller should call ftpCloseCommand() on return.
      * The function does not call error(), the caller should do this.
      *
-     * @param iError      set to an ERR_xxxx code on error
-     * @param iCopyFile   -1 -or- handle of a local source file
-     * @return 0 for success, -1 for server error, -2 for client error
+     * \a iError      set to an ERR_xxxx code on error
+     * \a iCopyFile   -1 -or- handle of a local source file
+     * Returns 0 for success, -1 for server error, -2 for client error
      */
     Q_REQUIRED_RESULT Result ftpPut(int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /*!
      * helper called from copy() to implement FILE -> FTP transfers
      *
-     * @param iError      set to an ERR_xxxx code on error
-     * @param iCopyFile   [out] handle of a local source file
-     * @param sCopyFile   path of the local source file
-     * @return 0 for success, -1 for server error, -2 for client error
+     * \a iError      set to an ERR_xxxx code on error
+     * \a iCopyFile   [out] handle of a local source file
+     * \a sCopyFile   path of the local source file
+     * Returns 0 for success, -1 for server error, -2 for client error
      */
     Q_REQUIRED_RESULT Result ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /*!
      * helper called from copy() to implement FTP -> FILE transfers
      *
-     * @param iError      set to an ERR_xxxx code on error
-     * @param iCopyFile   [out] handle of a local source file
-     * @param sCopyFile   path of the local destination file
-     * @return 0 for success, -1 for server error, -2 for client error
+     * \a iError      set to an ERR_xxxx code on error
+     * \a iCopyFile   [out] handle of a local source file
+     * \a sCopyFile   path of the local destination file
+     * Returns 0 for success, -1 for server error, -2 for client error
      */
     Q_REQUIRED_RESULT Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
 
     /*!
      * Sends the MIME type of the content to retrieved.
      *
-     * @param iError      set to an ERR_xxxx code on error
-     * @return 0 for success, -1 for server error, -2 for client error
+     * \a iError      set to an ERR_xxxx code on error
+     * Returns 0 for success, -1 for server error, -2 for client error
      */
     Q_REQUIRED_RESULT Result ftpSendMimeType(const QUrl &url);
 

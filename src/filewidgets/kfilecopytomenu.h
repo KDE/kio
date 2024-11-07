@@ -31,7 +31,7 @@ public:
      * Note that this instance (and the widget) must stay alive for at least as
      * long as the popupmenu; it has the slots for the actions created by addActionsTo.
      *
-     * @param parentWidget parent widget for the file dialog and message boxes.
+     * \a parentWidget parent widget for the file dialog and message boxes.
      * The parentWidget also serves as a parent for this object.
      */
     explicit KFileCopyToMenu(QWidget *parentWidget);
@@ -68,8 +68,8 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted when the copy or move job fails.
-     * @param errorCode the KIO job error code
-     * @param message the error message to show the user
+     * \a errorCode the KIO job error code
+     * \a message the error message to show the user
      */
     void error(int errorCode, const QString &message);
 

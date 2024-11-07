@@ -105,10 +105,10 @@ private:
     /*!
      * Returns system name and machine type, for example "Windows", "i686".
      *
-     * @param systemName system name
-     * @param machine machine type
+     * \a systemName system name
+     * \a machine machine type
 
-     * @return true if system name and machine type has been provided
+     * Returns true if system name and machine type has been provided
      */
     bool getSystemNameVersionAndMachine(QString &systemName, QString &machine);
 

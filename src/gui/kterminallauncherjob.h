@@ -37,8 +37,8 @@ class KIOGUI_EXPORT KTerminalLauncherJob : public KJob
 public:
     /*!
      * Creates a KTerminalLauncherJob.
-     * @param command the command to execute in a terminal, can be empty.
-     * @param parent the parent QObject
+     * \a command the command to execute in a terminal, can be empty.
+     * \a parent the parent QObject
      */
     explicit KTerminalLauncherJob(const QString &command, QObject *parent = nullptr);
 
@@ -51,13 +51,13 @@ public:
 
     /*!
      * Sets the working directory from which to run the command.
-     * @param workingDirectory path of a local directory
+     * \a workingDirectory path of a local directory
      */
     void setWorkingDirectory(const QString &workingDirectory);
 
     /*!
      * Sets the platform-specific startup id of the command launch.
-     * @param startupId startup id, if any (otherwise "").
+     * \a startupId startup id, if any (otherwise "").
      * For X11, this would be the id for the Startup Notification protocol.
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
@@ -65,7 +65,7 @@ public:
 
     /*!
      * Can be used to pass environment variables to the child process.
-     * @param environment set of environment variables to pass to the child process
+     * \a environment set of environment variables to pass to the child process
      * @see QProcessEnvironment
      */
     void setProcessEnvironment(const QProcessEnvironment &environment);

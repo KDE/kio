@@ -44,12 +44,12 @@ class KIOWIDGETS_EXPORT DeleteOrTrashJob : public KCompositeJob
 public:
     /*!
      * Creates a DeleteOrTrashJob.
-     * @param urls the list of urls to delete, move to Trash, or an empty list
+     * \a urls the list of urls to delete, move to Trash, or an empty list
      * in the case of AskUserActionInterface::EmptyTrash (in the latter case,
      * the list of urls is ignored)
-     * @param deletionType one of AskUserActionInterface::DeletionType
-     * @param confirm one of AskUserActionInterface::ConfirmationType
-     * @param parent parent object, e.g. a QWidget for widget-based applications
+     * \a deletionType one of AskUserActionInterface::DeletionType
+     * \a confirm one of AskUserActionInterface::ConfirmationType
+     * \a parent parent object, e.g. a QWidget for widget-based applications
      */
     explicit DeleteOrTrashJob(const QList<QUrl> &urls,
                               AskUserActionInterface::DeletionType deletionType,

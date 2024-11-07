@@ -32,9 +32,9 @@ struct DataHeader {
  * characters @p c1 or comma (',') or semicolon (';') or buf.length()
  * if none is contained.
  *
- * @param buf buffer where to look for c
- * @param begin zero-indexed starting position
- * @param c1 character to find or '\0' to ignore
+ * \a buf buffer where to look for c
+ * \a begin zero-indexed starting position
+ * \a c1 character to find or '\0' to ignore
  */
 static int find(const QByteArray &buf, int begin, const char c1)
 {
@@ -56,9 +56,9 @@ static int find(const QByteArray &buf, int begin, const char c1)
  * occurrence of either @p c1 or comma (',') or semicolon (';') exclusively
  * and updates @p pos to point at the found delimiter or at the end of the
  * buffer if neither character occurred.
- * @param buf buffer where to look for
- * @param pos zero-indexed position within buffer
- * @param c1 character to find or '\0' to ignore
+ * \a buf buffer where to look for
+ * \a pos zero-indexed position within buffer
+ * \a c1 character to find or '\0' to ignore
  */
 static inline QString extract(const QByteArray &buf, int &pos, const char c1 = '\0')
 {
@@ -68,8 +68,8 @@ static inline QString extract(const QByteArray &buf, int &pos, const char c1 = '
 }
 
 /*! ignores all whitespaces
- * @param buf buffer to operate on
- * @param pos position to shift to first non-whitespace character
+ * \a buf buffer to operate on
+ * \a pos position to shift to first non-whitespace character
  *  Upon return @p pos will either point to the first non-whitespace
  *  character or to the end of the buffer.
  */
@@ -84,9 +84,9 @@ static inline void ignoreWS(const QByteArray &buf, int &pos)
 /*! parses a quoted string as per rfc 822.
  *
  * If trailing quote is missing, the whole rest of the buffer is returned.
- * @param buf buffer to operate on
- * @param pos position pointing to the leading quote
- * @return the extracted string. @p pos will be updated to point to the
+ * \a buf buffer to operate on
+ * \a pos position pointing to the leading quote
+ * Returns the extracted string. @p pos will be updated to point to the
  *  character following the trailing quote.
  */
 static QString parseQuotedString(const QByteArray &buf, int &pos)
@@ -121,9 +121,9 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
 }
 
 /*! parses the header of a data url
- * @param url the data url
- * @param mimeOnly if the only interesting information is the MIME type
- * @return DataHeader structure with the header information
+ * \a url the data url
+ * \a mimeOnly if the only interesting information is the MIME type
+ * Returns DataHeader structure with the header information
  */
 static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
 {

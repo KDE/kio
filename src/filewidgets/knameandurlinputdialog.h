@@ -28,10 +28,10 @@ class KIOFILEWIDGETS_EXPORT KNameAndUrlInputDialog : public QDialog
     Q_OBJECT
 public:
     /*!
-     * @param nameLabel label for the name field
-     * @param urlLabel label for the URL requester
-     * @param startDir start directory for the URL requester (optional)
-     * @param parent parent widget
+     * \a nameLabel label for the name field
+     * \a urlLabel label for the URL requester
+     * \a startDir start directory for the URL requester (optional)
+     * \a parent parent widget
      */
     KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent);
 
@@ -50,15 +50,15 @@ public:
     void setSuggestedUrl(const QUrl &url);
 
     /*!
-     * @return the name the user entered
+     * Returns the name the user entered
      */
     QString name() const;
     /*!
-     * @return the URL the user entered
+     * Returns the URL the user entered
      */
     QUrl url() const;
     /*!
-     * @return the URL the user entered, as plain text.
+     * Returns the URL the user entered, as plain text.
      * This is only useful for creating relative symlinks.
      * @since 5.25
      */

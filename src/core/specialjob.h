@@ -16,9 +16,12 @@ namespace KIO
 class SpecialJobPrivate;
 
 /*!
- * @class KIO::SpecialJob specialjob.h <KIO/SpecialJob>
+ * \class KIO::SpecialJob
+ * \inheaderfile KIO/SpecialJob
+ * \inmodule KIOCore
  *
- * A class that sends a special command to a KIO worker.
+ * \brief A class that sends a special command to a KIO worker.
+ *
  * This allows you to send a binary blob to a worker and handle
  * its responses. The worker will receive the binary data as an
  * argument to the "special" function (inherited from WorkerBase::special()).
@@ -26,7 +29,7 @@ class SpecialJobPrivate;
  * Use this only on KIO workers that belong to your application. Sending
  * special commands to other workers may cause unexpected behaviour.
  *
- * @see KIO::special
+ * \sa KIO::special
  */
 class KIOCORE_EXPORT SpecialJob : public TransferJob
 {
@@ -35,8 +38,9 @@ public:
     /*!
      * Creates a KIO::SpecialJob.
      *
-     * @param url the URL to be passed to the worker
-     * @param data the data to be sent to the WorkerBase::special() function.
+     * \a url the URL to be passed to the worker
+     *
+     * \a data the data to be sent to the WorkerBase::special() function.
      */
     explicit SpecialJob(const QUrl &url, const QByteArray &data = QByteArray());
 

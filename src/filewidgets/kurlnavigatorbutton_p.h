@@ -164,7 +164,7 @@ private:
     void cancelSubDirsRequest();
 
     /*!
-     * @return Text without mnemonic characters.
+     * Returns Text without mnemonic characters.
      */
     QString plainText() const;
 

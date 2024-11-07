@@ -33,7 +33,7 @@ class KUrlNavigatorPlacesSelector : public KUrlNavigatorButtonBase
 
 public:
     /*!
-     * @param parent Parent widget where the bookmark selector
+     * \a parent Parent widget where the bookmark selector
      *               is embedded into.
      */
     KUrlNavigatorPlacesSelector(KUrlNavigator *parent, KFilePlacesModel *placesModel);
@@ -62,7 +62,7 @@ public:
 Q_SIGNALS:
     /*!
      * Is send when a bookmark has been activated by the user.
-     * @param url URL of the selected place.
+     * \a url URL of the selected place.
      */
     void placeActivated(const QUrl &url);
 

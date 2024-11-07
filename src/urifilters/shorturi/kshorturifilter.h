@@ -39,8 +39,8 @@ public:
      * is a known short URI and converts it to its fully
      * qualified version.
      *
-     * @param data the data to be filtered
-     * @return true if the url has been filtered
+     * \a data the data to be filtered
+     * Returns true if the url has been filtered
      */
     bool filterUri(KUriFilterData &data) const override;
 

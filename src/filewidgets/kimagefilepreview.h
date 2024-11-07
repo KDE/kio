@@ -38,7 +38,7 @@ public:
     /*!
      * Creates a new image file preview.
      *
-     * @param parent The parent widget.
+     * \a parent The parent widget.
      */
     explicit KImageFilePreview(QWidget *parent = nullptr);
 

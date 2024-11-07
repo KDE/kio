@@ -86,10 +86,10 @@ public:
     /*!
      * Implement the actions method in the plugin in order to create actions.
      *
-     * @param fileItemInfos  Information about the selected file items.
-     * @param parentWidget   To be used as parent for the returned QActions
+     * \a fileItemInfos  Information about the selected file items.
+     * \a parentWidget   To be used as parent for the returned QActions
      *
-     * @return A list of actions to be added to a contextual menu for the file
+     * Returns A list of actions to be added to a contextual menu for the file
      *         items.
      */
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;

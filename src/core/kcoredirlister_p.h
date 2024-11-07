@@ -55,8 +55,8 @@ public:
      * Called by the public matchesMimeFilter() to do the
      * actual filtering. Those methods may be reimplemented to customize
      * filtering.
-     * @param mimeType the MIME type to filter
-     * @param filters the list of MIME types to filter
+     * \a mimeType the MIME type to filter
+     * \a filters the list of MIME types to filter
      */
     bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
     bool doMimeExcludeFilter(const QString &mimeExclude, const QStringList &filters) const;
@@ -75,7 +75,7 @@ public:
      * filtering.
      * The default implementation filters out ".." and everything not matching
      * the name filter(s)
-     * @return @c true if the item is "ok".
+     * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching a pattern *.cpp ( KFileItem::isHidden())
      * @see matchesFilter
@@ -89,7 +89,7 @@ public:
      * filtering.
      * The default implementation filters out everything not matching
      * the mime filter(s)
-     * @return @c true if the item is "ok".
+     * Returns @c true if the item is "ok".
      *         @c false if the item shall not be shown in a view, e.g.
      * files not matching the mime filter
      * @see matchesMimeFilter
@@ -99,7 +99,7 @@ public:
 
     /*!
      * Redirect this dirlister from oldUrl to newUrl.
-     * @param keepItems if true, keep the fileitems (e.g. when renaming an existing dir);
+     * \a keepItems if true, keep the fileitems (e.g. when renaming an existing dir);
      * if false, clear out everything (e.g. when redirecting during listing).
      */
     void redirect(const QUrl &oldUrl, const QUrl &newUrl, bool keepItems);
@@ -217,7 +217,7 @@ public:
     KFileItem findByName(const KCoreDirLister *lister, const QString &_name) const;
     // findByUrl returns a pointer so that it's possible to modify the item.
     // See itemForUrl for the version that returns a readonly kfileitem.
-    // @param lister can be 0. If set, it is checked that the url is held by the lister
+    // \a lister can be 0. If set, it is checked that the url is held by the lister
     KFileItem findByUrl(const KCoreDirLister *lister, const QUrl &url) const;
 
     // Called by CachedItemsJob:
@@ -315,8 +315,8 @@ private:
     /*!
      * Remove the item from the sorted by url list matching @p oldUrl,
      * that is in the wrong place (because its url has changed) and insert @p item in the right place.
-     * @param oldUrl the previous url of the @p item
-     * @param item the modified item to be inserted
+     * \a oldUrl the previous url of the @p item
+     * \a item the modified item to be inserted
      */
     void reinsert(const KFileItem &item, const QUrl &oldUrl)
     {
@@ -363,8 +363,8 @@ private:
      * If a file named ".hidden" exists in the @p dir directory, this method
      * returns all the file names listed in that file. If it doesn't exist, an
      * empty set is returned.
-     * @param dir path to the target directory.
-     * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
+     * \a dir path to the target directory.
+     * Returns names listed in the directory's ".hidden" file (empty if it doesn't exist).
      */
     CacheHiddenFile *cachedDotHiddenForDir(const QString &dir);
 

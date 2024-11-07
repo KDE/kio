@@ -68,7 +68,7 @@ public:
 
     /*!
      * Constructs a KUrlComboBox.
-     * @param mode is either Files, Directories or Both and controls the
+     * \a mode is either Files, Directories or Both and controls the
      * following behavior:
      * @li Files  all inserted URLs will be treated as files, therefore the
      *            url shown in the combo will never show a trailing /
@@ -78,7 +78,7 @@ public:
      *                  directory will show the "open folder" icon, other
      *                  directories the "folder" icon.
      * @li Both  Don't mess with anything, just show the url as given.
-     * @param parent The parent object of this widget.
+     * \a parent The parent object of this widget.
      */
     explicit KUrlComboBox(Mode mode, QWidget *parent = nullptr);
     KUrlComboBox(Mode mode, bool rw, QWidget *parent = nullptr);
@@ -120,7 +120,7 @@ public:
     void setUrls(const QStringList &urls, OverLoadResolving remove);
 
     /*!
-     * @returns a list of all urls currently handled. The list contains at most
+     * Returnss a list of all urls currently handled. The list contains at most
      * maxItems() items.
      * Use this to save the list of urls in a config-file and reinsert them
      * via setUrls() next time.
@@ -138,7 +138,7 @@ public:
     void setMaxItems(int);
 
     /*!
-     * @returns the maximum of items the combobox handles.
+     * Returnss the maximum of items the combobox handles.
      * @see setMaxItems
      */
     int maxItems() const;
@@ -185,7 +185,7 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted when an item was clicked at.
-     * @param url is the url of the now current item.
+     * \a url is the url of the now current item.
      */
     void urlActivated(const QUrl &url);
 

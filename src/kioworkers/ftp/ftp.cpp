@@ -128,7 +128,7 @@ static // JPF: in ftp.cc we make it static
      * This helper handles some special issues (blocking and interrupted
      * system call) when writing to a file handle.
      *
-     * @return 0 on success or an error code on failure (ERR_CANNOT_WRITE,
+     * Returns 0 on success or an error code on failure (ERR_CANNOT_WRITE,
      * ERR_DISK_FULL, ERR_CONNECTION_BROKEN).
      */
     int
@@ -408,7 +408,7 @@ Result FtpInternal::ftpOpenConnection(LoginMode loginMode)
 /*!
  * Called by @ref openConnection. It opens the control connection to the ftp server.
  *
- * @return true on success.
+ * Returns true on success.
  */
 Result FtpInternal::ftpOpenControlConnection()
 {
@@ -500,7 +500,7 @@ Result FtpInternal::ftpOpenControlConnection(const QString &host, int port)
  * @ref m_initialPath is set to the current working directory
  * if logging on was successful.
  *
- * @return true on success.
+ * Returns true on success.
  */
 Result FtpInternal::ftpLogin(bool *userChanged)
 {
@@ -698,7 +698,7 @@ Result FtpInternal::ftpLogin(bool *userChanged)
 /*!
  * ftpSendCmd - send a command (@p cmd) and read response
  *
- * @param maxretries number of time it should retry. Since it recursively
+ * \a maxretries number of time it should retry. Since it recursively
  * calls itself if it can't read the answer (this happens especially after
  * timeouts), we need to limit the recursiveness ;-)
  *
@@ -895,7 +895,7 @@ int FtpInternal::ftpOpenEPSVDataConnection()
  * who is responsible for calling error(). ftpOpenPortDataConnection
  * can be called as last try and it does never return ERR_INTERNAL.
  *
- * @return 0 if successful, err code otherwise
+ * Returns 0 if successful, err code otherwise
  */
 int FtpInternal::ftpOpenDataConnection()
 {
@@ -944,7 +944,7 @@ int FtpInternal::ftpOpenDataConnection()
 /*
  * ftpOpenPortDataConnection - set up data connection
  *
- * @return 0 if successful, err code otherwise (but never ERR_INTERNAL
+ * Returns 0 if successful, err code otherwise (but never ERR_INTERNAL
  *         because this is the last connection mode that is tried)
  */
 int FtpInternal::ftpOpenPortDataConnection()

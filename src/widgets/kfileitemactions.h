@@ -88,10 +88,10 @@ public:
      * No actions will be added if the "openwith" Kiosk action is not authorized
      * (see KAuthorized::authorize()).
      *
-     * @param before the "open with" actions will be inserted before this action; if this action
+     * \a before the "open with" actions will be inserted before this action; if this action
      * is nullptr or isn't available in @p topMenu, the "open with" actions will be appended
-     * @param menu the QMenu where the actions will be added
-     * @param excludedDesktopEntryNames list of desktop entry names that will not be shown
+     * \a menu the QMenu where the actions will be added
+     * \a excludedDesktopEntryNames list of desktop entry names that will not be shown
      *
      * @since 5.82
      */
@@ -115,8 +115,8 @@ public:
      * This will return an empty list if the "openwith" Kiosk action is not
      * authorized (see @c KAuthorized::authorize()).
      *
-     * @param mimeTypeList the MIME types
-     * @return the sorted list of services.
+     * \a mimeTypeList the MIME types
+     * Returns the sorted list of services.
      * @since 5.83
      */
     static KService::List associatedApplications(const QStringList &mimeTypeList);
@@ -131,11 +131,11 @@ public:
 
     /*!
      * This methods adds additional actions to the menu.
-     * @param menu Menu to which the actions/submenus will be added.
-     * @param sources sources from which the actions should be fetched. By default all sources are used.
-     * @param additionalActions additional actions that should be added to the "Actions" submenu or
+     * \a menu Menu to which the actions/submenus will be added.
+     * \a sources sources from which the actions should be fetched. By default all sources are used.
+     * \a additionalActions additional actions that should be added to the "Actions" submenu or
      * top level menu if there are less than three entries in total.
-     * @param excludeList list of action names or plugin ids that should be excluded
+     * \a excludeList list of action names or plugin ids that should be excluded
      * @since 5.77
      */
     void addActionsTo(QMenu *menu,
@@ -160,7 +160,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     /*!
      * Slot used to execute a list of files in their respective preferred application.
-     * @param fileOpenList the list of KFileItems to open.
+     * \a fileOpenList the list of KFileItems to open.
      * @since 5.83
      */
     void runPreferredApplications(const KFileItemList &fileOpenList);

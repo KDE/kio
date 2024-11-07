@@ -30,20 +30,20 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 /*!
  * Returns the text to use for the Paste action, when the application supports
  * pasting files, urls, and clipboard data, using pasteClipboard().
- * @param mimeData the mime data, usually QApplication::clipboard()->mimeData().
- * @param enable output parameter, to be passed to QAction::setEnabled.
+ * \a mimeData the mime data, usually QApplication::clipboard()->mimeData().
+ * \a enable output parameter, to be passed to QAction::setEnabled.
  *      The pointer must be non-null, and in return the function will always set its value.
- * @param destItem item representing the directory into which the clipboard data
+ * \a destItem item representing the directory into which the clipboard data
  *        or items would be pasted. Used to find out about permissions in that directory.
- * @return a string suitable for QAction::setText
+ * Returns a string suitable for QAction::setText
  * @since 5.4
  */
 KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem);
 
 /*!
  * Add the information whether the files were cut, into the mimedata.
- * @param mimeData pointer to the mimeData object to be populated. Must not be null.
- * @param cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
+ * \a mimeData pointer to the mimeData object to be populated. Must not be null.
+ * \a cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
  * @since 5.2
  */
 KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData *mimeData, bool cut);

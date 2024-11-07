@@ -166,7 +166,7 @@ public:
     /*!
      * Constructs a new KFileItemDelegate.
      *
-     * @param parent The parent object for the delegate.
+     * \a parent The parent object for the delegate.
      */
     explicit KFileItemDelegate(QObject *parent = nullptr);
 
@@ -184,8 +184,8 @@ public:
      *
      * This function is reimplemented from @ref QAbstractItemDelegate.
      *
-     * @param option  The style options that should be used when painting the item.
-     * @param index   The index to the item for which to return the size hint.
+     * \a option  The style options that should be used when painting the item.
+     * \a index   The index to the item for which to return the size hint.
      */
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -206,9 +206,9 @@ public:
      *
      * This function is reimplemented from @ref QAbstractItemDelegate.
      *
-     * @param painter The painter with which to draw the item.
-     * @param option  The style options that should be used when painting the item.
-     * @param index   The index to the item that should be painted.
+     * \a painter The painter with which to draw the item.
+     * \a option  The style options that should be used when painting the item.
+     * \a index   The index to the item that should be painted.
      */
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -251,7 +251,7 @@ public:
      * The delegate will first draw the item label, and then as many information
      * lines as will fit in the available space.
      *
-     * @param list A list of information items that should be shown
+     * \a list A list of information items that should be shown
      */
     void setShowInformation(const InformationList &list);
 
@@ -261,7 +261,7 @@ public:
      * This is a convenience function for when you only want to show a single line
      * of information.
      *
-     * @param information The information that should be shown
+     * \a information The information that should be shown
      */
     void setShowInformation(Information information);
 

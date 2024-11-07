@@ -40,18 +40,18 @@ public:
     /*!
      * Contruct a new ThumbnailRequest for a given file.
      *
-     * @param url URL of the relevant file.
-     * @param targetSize A size hint for the result image.
+     * \a url URL of the relevant file.
+     * \a targetSize A size hint for the result image.
      * The actual result size may be different. This already
      * accounts for highdpi scaling, i.e. if a 500x500px thumbnail
      * with a DPR of 2 is requested 1000x1000 is passed here.
-     * @param mimeType The MIME type of the target file.
-     * @param dpr The device pixle ratio for this request. This can
+     * \a mimeType The MIME type of the target file.
+     * \a dpr The device pixle ratio for this request. This can
      * be used to adjust the level of detail rendered. For example
      * a thumbnail for text of size 1000x1000 and DPR 1 should have
      * the name number of text lines as for a request of size 2000x2000
      * and DPR 2.
-     * @param sequenceIndex If the thumbnailer supports sequences this
+     * \a sequenceIndex If the thumbnailer supports sequences this
      * determines which sequence frame is used. Pass 0 otherwise.
      *
      */

@@ -63,9 +63,9 @@ class KIOGUI_EXPORT FavIconRequestJob : public KCompositeJob
 public:
     /*!
      * @brief FavIconRequestJob constructor
-     * @param hostUrl The web page URL. We only use the scheme and host.
-     * @param reload set this to reload to skip the cache and force a refresh of the favicon.
-     * @param parent parent object
+     * \a hostUrl The web page URL. We only use the scheme and host.
+     * \a reload set this to reload to skip the cache and force a refresh of the favicon.
+     * \a parent parent object
      */
     explicit FavIconRequestJob(const QUrl &hostUrl, KIO::LoadType reload = KIO::NoReload, QObject *parent = nullptr);
 
@@ -83,14 +83,14 @@ public:
      * other FavIconRequestJobs for this url and KIO::favIconForUrl
      * will return the icon specified here.
      *
-     * @param iconUrl the URL to the icon, usually parsed from the HTML
+     * \a iconUrl the URL to the icon, usually parsed from the HTML
      */
     void setIconUrl(const QUrl &iconUrl);
 
     /*!
      * Returns the full local path to the icon from the cache.
      * Only call this in the slot connected to the result(KJob*) signal.
-     * @return the path to the icon file
+     * Returns the path to the icon file
      */
     QString iconFile() const;
 

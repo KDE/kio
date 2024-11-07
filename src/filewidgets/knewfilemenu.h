@@ -50,7 +50,7 @@ public:
     /*!
      * Constructor.
      *
-     * @param parent the parent object, for ownership.
+     * \a parent the parent object, for ownership.
      * If the parent object is a widget, it will also be used as the parent widget
      * for any dialogs that this class might show. Otherwise, call setParentWidget.
      *
@@ -121,7 +121,7 @@ public:
     /*!
      * Use this to set a shortcut for the "New Folder" action.
      *
-     * The shortcut is copied from @param action.
+     * The shortcut is copied from \a action.
      *
      * @since 5.100
      */
@@ -130,7 +130,7 @@ public:
     /*!
      * Use this to set a shortcut for the new file action.
      *
-     * The shortcut is copied from @param action.
+     * The shortcut is copied from \a action.
      *
      * @since 5.100
      */

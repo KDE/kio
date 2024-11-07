@@ -45,7 +45,7 @@ class KIOFILEWIDGETS_EXPORT KFilePreviewGenerator : public QObject
 
 public:
     /*!
-     * @param parent  Item view containing the file items where previews should
+     * \a parent  Item view containing the file items where previews should
      *                be generated. It is mandatory that the item view specifies
      *                an icon size by QAbstractItemView::setIconSize() and that
      *                the model of the view (or the source model of the proxy model)

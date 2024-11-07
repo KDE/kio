@@ -393,7 +393,7 @@ public:
     void slotProcessedSize(KJob *, qulonglong data_size);
     /*!
      * Forward signal from subjob
-     * @param size the total size
+     * \a size the total size
      */
     void slotTotalSize(KJob *, qulonglong size);
 
