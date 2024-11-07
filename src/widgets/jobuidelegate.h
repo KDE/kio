@@ -51,23 +51,26 @@ protected:
 
     /*!
      * Constructs a new KIO Job UI delegate.
+     *
      * \a flags allows to enable automatic error/warning handling
+     *
      * \a window the window associated with this delegate, see setWindow.
+     *
      * \a ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
+     *
      * \since 5.98
      */
     explicit JobUiDelegate(KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
 
 public:
-    /*!
-     * Destroys the KIO Job UI delegate.
-     */
     ~JobUiDelegate() override;
 
 public:
     /*!
-     * Associate this job with a window given by @p window.
+     * Associate this job with a window given by \a window.
+     *
      * \a window the window to associate to
+     *
      * \sa window()
      */
     void setWindow(QWidget *window) override;
@@ -83,15 +86,19 @@ public:
     static void unregisterWindow(QWidget *window);
 
     /*!
-     * Ask for confirmation before deleting/trashing @p urls.
+     * Ask for confirmation before deleting/trashing \a urls.
      *
      * Note that this method is not called automatically by KIO jobs. It's the application's
      * responsibility to ask the user for confirmation before calling KIO::del() or KIO::trash().
      *
      * \a urls the urls about to be deleted/trashed
+     *
      * \a deletionType the type of deletion (Delete for real deletion, Trash otherwise)
+     *
      * \a confirmation see ConfirmationType. Normally set to DefaultConfirmation.
-     * Note: the window passed to setWindow is used as the parent for the message box.
+     *
+     * \note The window passed to setWindow is used as the parent for the message box.
+     *
      * Returns true if confirmed
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
