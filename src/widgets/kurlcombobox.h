@@ -120,7 +120,7 @@ public:
     void setUrls(const QStringList &urls, OverLoadResolving remove);
 
     /*!
-     * Returnss a list of all urls currently handled. The list contains at most
+     * Returns a list of all urls currently handled. The list contains at most
      * maxItems() items.
      * Use this to save the list of urls in a config-file and reinsert them
      * via setUrls() next time.
@@ -138,7 +138,7 @@ public:
     void setMaxItems(int);
 
     /*!
-     * Returnss the maximum of items the combobox handles.
+     * Returns the maximum of items the combobox handles.
      * \sa setMaxItems
      */
     int maxItems() const;

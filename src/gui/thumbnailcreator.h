@@ -26,13 +26,17 @@ class ThumbnailCreatorPrivate;
 class ThumbnailRequestPrivate;
 class ThumbnailResultPrivate;
 
-/**
- * Encapsulates the input data for a thumbnail request.
+/*!
+ * \class KIO::ThumbnailRequest
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
+ *
+ * \brief Encapsulates the input data for a thumbnail request.
+ *
  * This includes the URL of the target file as well as additional
  * data such as the target size
  *
  * \since 5.100
- *
  */
 class KIOGUI_EXPORT ThumbnailRequest
 {
@@ -41,19 +45,22 @@ public:
      * Contruct a new ThumbnailRequest for a given file.
      *
      * \a url URL of the relevant file.
+     *
      * \a targetSize A size hint for the result image.
      * The actual result size may be different. This already
      * accounts for highdpi scaling, i.e. if a 500x500px thumbnail
      * with a DPR of 2 is requested 1000x1000 is passed here.
+     *
      * \a mimeType The MIME type of the target file.
+     *
      * \a dpr The device pixle ratio for this request. This can
      * be used to adjust the level of detail rendered. For example
      * a thumbnail for text of size 1000x1000 and DPR 1 should have
      * the name number of text lines as for a request of size 2000x2000
      * and DPR 2.
+     *
      * \a sequenceIndex If the thumbnailer supports sequences this
      * determines which sequence frame is used. Pass 0 otherwise.
-     *
      */
     explicit ThumbnailRequest(const QUrl &url, const QSize &targetSize, const QString &mimeType, qreal dpr, float sequenceIndex);
     ThumbnailRequest(const ThumbnailRequest &);
@@ -102,7 +109,12 @@ private:
 };
 
 /*!
- * Encapsulates the output of a thumbnail request.
+ * \class ThumbnailResult
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
+ *
+ * \brief Encapsulates the output of a thumbnail request.
+ *
  * It contains information on whether the request was successful and,
  * if successful, the requested thumbnail
  *
@@ -180,9 +192,10 @@ private:
 };
 
 /*!
- * @class ThumbnailCreator thumbnailcreator.h <KIO/ThumbnailCreator>
+ * \class ThumbnailCreator
+ * \inheaderfile KIO/ThumbnailCreator
  *
- * Base class for thumbnail generator plugins.
+ * \brief Base class for thumbnail generator plugins.
  *
  * KIO::PreviewJob, via the "thumbnail" KIO worker, uses instances of this class
  * to generate the thumbnail previews.
@@ -211,8 +224,7 @@ private:
  * \endcode
  *
  * MIME types can also use
- * simple wildcards, like
- * \htmlonly "text/&#42;".\endhtmlonly\latexonly text/$\ast$.\endlatexonly
+ * simple wildcards, like "text/\*"
  *
  * If the thumbnail creation is cheap (such as text previews), you can set
  * \code

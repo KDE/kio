@@ -22,16 +22,15 @@ namespace KIO
 /*!
  * Special flag of DropJob in addition to KIO::JobFlag
  *
- * \sa DropJobFlags
+ * \value DropJobDefaultFlags
+ * \value ShowMenuManually Show the menu manually with DropJob::showMenu
+ *
  * \since 5.67
  */
 enum DropJobFlag {
     DropJobDefaultFlags = 0,
-    ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
+    ShowMenuManually = 1,
 };
-/*!
- * Stores a combination of #DropJobFlag values.
- */
 Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(DropJobFlags)
 
@@ -39,9 +38,11 @@ class CopyJob;
 class DropJobPrivate;
 
 /*!
- * @class KIO::DropJob dropjob.h <KIO/DropJob>
+ * \class KIO::DropJob
+ * \inheaderfile KIO/DropJob
+ * \inmodule KIOWidgets
  *
- * A KIO job that handles dropping into a file-manager-like view.
+ * \brief A KIO job that handles dropping into a file-manager-like view.
  * \sa KIO::drop
  *
  * The popupmenu that can appear on drop, can be customized with plugins,
@@ -81,7 +82,7 @@ Q_SIGNALS:
     /*!
      * Emitted when a copy job was started as subjob after user selection.
      *
-     * You can use @p job to monitor the progress of the copy/move/link operation. Note that a
+     * You can use \a job to monitor the progress of the copy/move/link operation. Note that a
      * CopyJob isn't always started by DropJob. For instance dropping files onto an executable will
      * simply launch the executable.
      *
@@ -94,6 +95,7 @@ Q_SIGNALS:
      * Signals that the popup menu is about to be shown.
      * Applications can use the information provided about the dropped URLs
      * (e.g. the MIME type) to decide whether to call setApplicationActions.
+     *
      * \a itemProps properties of the dropped items
      */
     void popupMenuAboutToShow(const KFileItemListProperties &itemProps);
@@ -109,6 +111,8 @@ private:
 };
 
 /*!
+ * \relates KIO::DropJob
+ *
  * Drops the clipboard contents.
  *
  * If the mime data contains URLs, a popup appears to choose between
@@ -124,28 +128,36 @@ private:
  * these items.
  *
  * \a dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
-         The application should take care of calling dropEvent->acceptProposedAction().
+ *        The application should take care of calling dropEvent->acceptProposedAction().
+ *
  * \a destUrl The URL of the target file or directory
+ *
  * \a flags passed to the sub job
  *
  * Returns A pointer to the job handling the operation.
- * @warning Don't forget to call KJobWidgets::setWindow() on this job, otherwise the popup
+ *
+ * \warning Don't forget to call KJobWidgets::setWindow() on this job, otherwise the popup
  *          menu won't be properly positioned with Wayland compositors.
  * \since 5.4
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags = DefaultFlags);
 
 /*!
+ * \relates KIO::DropJob
+ *
  * Similar to KIO::drop
  *
  * \a dropEvent the drop event, from which the job will extract mimeData, dropAction, etc.
-         The application should take care of calling dropEvent->acceptProposedAction().
+ *        The application should take care of calling dropEvent->acceptProposedAction().
+ *
  * \a destUrl The URL of the target file or directory
+ *
  * \a dropjobFlags Show the menu immediately or manually.
+ *
  * \a flags passed to the sub job
  *
  * Returns A pointer to the job handling the operation.
- * @warning Don't forget to call DropJob::showMenu on this job, otherwise the popup will never be shown
+ * \warning Don't forget to call DropJob::showMenu on this job, otherwise the popup will never be shown
  *
  * \since 5.67
  */

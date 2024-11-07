@@ -238,7 +238,7 @@ public:
     virtual void setShowHiddenFiles(bool s);
 
     /*!
-     * Returnss true when hidden files are shown or false otherwise.
+     * Returns true when hidden files are shown or false otherwise.
      */
     bool showHiddenFiles() const;
 
@@ -257,7 +257,7 @@ public:
     void setNameFilter(const QString &filter);
 
     /*!
-     * Returnss the current namefilter.
+     * Returns the current namefilter.
      * \sa setNameFilter
      */
     QString nameFilter() const;
@@ -282,7 +282,7 @@ public:
     void setMimeFilter(const QStringList &mimetypes);
 
     /*!
-     * Returnss the current MIME type filter.
+     * Returns the current MIME type filter.
      */
     QStringList mimeFilter() const;
 
@@ -308,7 +308,7 @@ public:
     void setNewFileMenuSupportedMimeTypes(const QStringList &mime);
 
     /*!
-     * Returnss the current Supported Mimes Types.
+     * Returns the current Supported Mimes Types.
      */
     QStringList newFileMenuSupportedMimeTypes() const;
 
@@ -329,7 +329,7 @@ public:
     void clearFilter();
 
     /*!
-     * Returnss the current url
+     * Returns the current url
      */
     QUrl url() const;
 
@@ -365,7 +365,7 @@ public:
     void setCurrentItems(const KFileItemList &items);
 
     /*!
-     * Returnss the currently used view.
+     * Returns the currently used view.
      * \sa setView
      */
     QAbstractItemView *view() const;
@@ -380,7 +380,7 @@ public:
 
     /*!
      * Returns the current view mode.
-     * Returnss KFile::FileView
+     * Returns KFile::FileView
      * \sa KFile::FileView
      * \since 5.0
      */
@@ -392,22 +392,22 @@ public:
     void setSorting(QDir::SortFlags);
 
     /*!
-     * Returnss the current way of sorting files and directories
+     * Returns the current way of sorting files and directories
      */
     QDir::SortFlags sorting() const;
 
     /*!
-     * Returnss true if we are displaying the root directory of the current url
+     * Returns true if we are displaying the root directory of the current url
      */
     bool isRoot() const;
 
     /*!
-     * Returnss the object listing the directory
+     * Returns the object listing the directory
      */
     KDirLister *dirLister() const;
 
     /*!
-     * Returnss the progress widget, that is shown during directory listing.
+     * Returns the progress widget, that is shown during directory listing.
      * You can for example reparent() it to put it into a statusbar.
      */
     QProgressBar *progressBar() const;
@@ -425,7 +425,7 @@ public:
      */
     virtual void setMode(KFile::Modes m);
     /*!
-     * Returnss the listing/selection mode.
+     * Returns the listing/selection mode.
      */
     KFile::Modes mode() const;
 
@@ -437,30 +437,30 @@ public:
     virtual void setPreviewWidget(KPreviewWidgetBase *w);
 
     /*!
-     * Returnss a list of all currently selected items. If there is no view,
+     * Returns a list of all currently selected items. If there is no view,
      * or there are no selected items, an empty list is returned.
      */
     KFileItemList selectedItems() const;
 
     /*!
-     * Returnss true if @p item is currently selected, or false otherwise.
+     * Returns true if @p item is currently selected, or false otherwise.
      */
     bool isSelected(const KFileItem &item) const;
 
     /*!
-     * Returnss the number of directories in the currently listed url.
+     * Returns the number of directories in the currently listed url.
      * Returns 0 if there is no view.
      */
     int numDirs() const;
 
     /*!
-     * Returnss the number of files in the currently listed url.
+     * Returns the number of files in the currently listed url.
      * Returns 0 if there is no view.
      */
     int numFiles() const;
 
     /*!
-     * Returnss a KCompletion object, containing all filenames and
+     * Returns a KCompletion object, containing all filenames and
      * directories of the current directory/URL.
      * You can use it to insert it into a KLineEdit or KComboBox
      * Note: it will only contain files, after prepareCompletionObjects()
@@ -470,7 +470,7 @@ public:
     KCompletion *completionObject() const;
 
     /*!
-     * Returnss a KCompletion object, containing only all directories of the
+     * Returns a KCompletion object, containing only all directories of the
      * current directory/URL.
      * You can use it to insert it into a KLineEdit or KComboBox
      * Note: it will only contain directories, after
@@ -524,7 +524,7 @@ public:
     virtual void setViewConfig(KConfigGroup &configGroup);
 
     /*!
-     * Returnss the group set by setViewConfig configuration.
+     * Returns the group set by setViewConfig configuration.
      */
     KConfigGroup *viewConfigGroup() const;
 
@@ -563,7 +563,7 @@ public:
     void setOnlyDoubleClickSelectsFiles(bool enable);
 
     /*!
-     * Returnss whether files (not directories) should only be select()ed by
+     * Returns whether files (not directories) should only be select()ed by
      * double-clicks.
      * \sa setOnlyDoubleClickSelectsFiles
      */
@@ -576,7 +576,7 @@ public:
     void setFollowNewDirectories(bool enable);
 
     /*!
-     * Returnss true if setUrl is called on newly created directories, false
+     * Returns true if setUrl is called on newly created directories, false
      * otherwise. Enabled by default.
      * \since 5.62
      * \sa setFollowNewDirectories
@@ -591,7 +591,7 @@ public:
     void setFollowSelectedDirectories(bool enable);
 
     /*!
-     * Returnss whether setUrl is called on selected directories when a tree
+     * Returns whether setUrl is called on selected directories when a tree
      * view is used. Enabled by default.
      * \since 5.62
      */
@@ -629,7 +629,7 @@ public:
     virtual void setEnableDirHighlighting(bool enable);
 
     /*!
-     * Returnss whether the last directory will be made the current item
+     * Returns whether the last directory will be made the current item
      * (and hence highlighted) when going up or back in the directory hierarchy
      *
      * Directories are highlighted by default.
@@ -637,7 +637,7 @@ public:
     bool dirHighlighting() const;
 
     /*!
-     * Returnss true if we are in directory-only mode, that is, no files are
+     * Returns true if we are in directory-only mode, that is, no files are
      * shown.
      */
     bool dirOnlyMode() const;
@@ -750,7 +750,7 @@ protected:
      * but you can also call it directly. Reimplement this if you depend on self defined fileviews.
      * \a parent   is the QWidget to be set as parent
      * \a viewKind is the predefined view to be set, note: this can be several ones OR:ed together
-     * Returnss the created view
+     * Returns the created view
      * \sa KFile::FileView
      * \sa setView
      */

@@ -96,7 +96,7 @@ public:
      * Waits for one more command to be handled and ready.
      *
      * \a ms   the time to wait in milliseconds
-     * Returnss true if one command can be read, false if we timed out
+     * Returns true if one command can be read, false if we timed out
      */
     bool waitForIncomingTask(int ms = 30000);
 

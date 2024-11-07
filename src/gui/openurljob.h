@@ -46,14 +46,17 @@ class KIOGUI_EXPORT OpenUrlJob : public KCompositeJob
     Q_OBJECT
 public:
     /*!
-     * @brief Creates an OpenUrlJob in order to open a URL.
+     * Creates an OpenUrlJob in order to open a URL.
+     *
      * \a url the URL of the file/directory to open
      */
     explicit OpenUrlJob(const QUrl &url, QObject *parent = nullptr);
 
     /*!
-     * @brief Creates an OpenUrlJob for the case where the MIME type is already known.
+     * Creates an OpenUrlJob for the case where the MIME type is already known.
+     *
      * \a url the URL of the file/directory to open
+     *
      * \a mimeType the type of file/directory. See QMimeType.
      */
     explicit OpenUrlJob(const QUrl &url, const QString &mimeType, QObject *parent = nullptr);
@@ -76,14 +79,18 @@ public:
      * Some apps rely on the extension to determine the MIME type of the file.
      * Usually the file name comes from the URL, but in the case of the
      * HTTP Content-Disposition header, we need to override the file name.
+     *
      * \a suggestedFileName the file name
      */
     void setSuggestedFileName(const QString &suggestedFileName);
 
     /*!
      * Sets the platform-specific startup id of the application launch.
+     *
      * \a startupId startup id, if any (otherwise "").
+     *
      * For X11, this would be the id for the Startup Notification protocol.
+     *
      * For Wayland, this would be the token for the XDG Activation protocol.
      */
     void setStartupId(const QByteArray &startupId);
@@ -96,29 +103,31 @@ public:
     void setRunExecutables(bool allow);
 
     /*!
-     * Set this to @c true if this class should show a dialog to ask the user about how
+     * Set this to \c true if this class should show a dialog to ask the user about how
      * to handle various types of executable files; note that executing/running remote
      * files is disallowed as that is not secure (in the case of remote shell scripts
      * and .desktop files, they are always opened as text in the default application):
-     *  - For native binaries: whether to execute or cancel
-     *  - For .exe files: whether to execute or cancel, ("execute" on Linux in this
+     * \list
+     *  \li For native binaries: whether to execute or cancel
+     *  \li For .exe files: whether to execute or cancel, ("execute" on Linux in this
      *    context means running the file with the default application (e.g. WINE))
-     *  - For executable shell scripts: whether to execute the file or open it as
+     *  \li For executable shell scripts: whether to execute the file or open it as
      *    text in the default application; note that if the file doesn't have the
      *    execute bit, it'll always be opened as text
-     *  - For .desktop files: whether to run the file or open it as text in the default
+     *  \li For .desktop files: whether to run the file or open it as text in the default
      *    application; note that if the .desktop file is located in a non-standard
      *    location (on Linux standard locations are /usr/share/applications or
      *    ~/.local/share/applications) and does not have the execute bit, another dialog
      *    (see UntrustedProgramHandlerInterface) will be launched to ask the user whether
      *    they trust running the application (the one the .desktop file launches based on
      *    the Exec line)
+     * \endlist
      *
      * Note that the dialog, ExecutableFileOpenDialog (from KIOWidgets), provides an option
      * to remember the last value used and not ask again, if that is set, then the dialog will
      * not be shown.
      *
-     * When set to @c true this will take precedence over setRunExecutables (the latter can be
+     * When set to \c true this will take precedence over setRunExecutables (the latter can be
      * used to allow running executables without first asking the user for confirmation).
      *
      * \since 5.73
@@ -127,15 +136,20 @@ public:
 
     /*!
      * Sets whether the external webbrowser setting should be honoured.
+     *
      * This is enabled by default.
+     *
      * This should only be disabled in webbrowser applications.
+     *
      * \a b whether to let the external browser handle the URL or not
      */
     void setEnableExternalBrowser(bool b);
 
     /*!
      * Sets whether the job should follow URL redirections.
+     *
      * This is enabled by default.
+     *
      * \a b whether to follow redirections or not.
      */
     void setFollowRedirections(bool b);
@@ -148,7 +162,7 @@ public:
     void start() override;
 
     /*!
-     * Returns whether the @p url of @p mimetype is executable.
+     * Returns whether the \a url of \a mimetype is executable.
      * To be executable the file must pass the following rules:
      * -# Must reside on the local filesystem.
      * -# Must be marked as executable for the user by the filesystem.
