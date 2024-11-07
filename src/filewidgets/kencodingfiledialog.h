@@ -285,7 +285,7 @@ private:
     ~KEncodingFileDialog() override;
 
     /*!
-     * Returnss The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
+     * Returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
      */
     QString selectedEncoding() const;
 

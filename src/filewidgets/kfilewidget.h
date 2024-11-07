@@ -106,17 +106,17 @@ public:
     };
 
     /*!
-     * Returnss The selected fully qualified filename.
+     * Returns The selected fully qualified filename.
      */
     QUrl selectedUrl() const;
 
     /*!
-     * Returnss The list of selected URLs.
+     * Returns The list of selected URLs.
      */
     QList<QUrl> selectedUrls() const;
 
     /*!
-     * Returnss the currently shown directory.
+     * Returns the currently shown directory.
      */
     QUrl baseUrl() const;
 
@@ -179,7 +179,7 @@ public:
     void setOperationMode(OperationMode);
 
     /*!
-     * Returnss the current operation mode, Opening, Saving or Other. Default
+     * Returns the current operation mode, Opening, Saving or Other. Default
      * is Other.
      *
      * \sa operationMode
@@ -201,7 +201,7 @@ public:
     void setKeepLocation(bool keep);
 
     /*!
-     * Returnss whether the contents of the location edit are kept when
+     * Returns whether the contents of the location edit are kept when
      * changing directories.
      */
     bool keepsLocation() const;
@@ -288,26 +288,26 @@ public:
     void setLocationLabel(const QString &text);
 
     /*!
-     * Returnss a pointer to the OK-Button in the filedialog.
+     * Returns a pointer to the OK-Button in the filedialog.
      * Note that the button is hidden and unconnected when using KFileWidget alone;
      * KFileDialog shows it and connects to it.
      */
     QPushButton *okButton() const;
 
     /*!
-     * Returnss a pointer to the Cancel-Button in the filedialog.
+     * Returns a pointer to the Cancel-Button in the filedialog.
      * Note that the button is hidden and unconnected when using KFileWidget alone;
      * KFileDialog shows it and connects to it.
      */
     QPushButton *cancelButton() const;
 
     /*!
-     * Returnss the combobox used to type the filename or full location of the file.
+     * Returns the combobox used to type the filename or full location of the file.
      */
     KUrlComboBox *locationEdit() const;
 
     /*!
-     * Returnss the combobox that contains the filters
+     * Returns the combobox that contains the filters
      */
     KFileFilterCombo *filterWidget() const;
 
@@ -499,7 +499,7 @@ Q_SIGNALS:
 
 public:
     /*!
-     * Returnss the KDirOperator used to navigate the filesystem
+     * Returns the KDirOperator used to navigate the filesystem
      */
     KDirOperator *dirOperator();
 

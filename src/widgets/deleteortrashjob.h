@@ -21,9 +21,11 @@ namespace KIO
 class DeleteOrTrashJobPrivate;
 
 /*!
- * @class DeleteOrTrashJob deleteortrashjob.h <KIO/DeleteOrTrashJob>
+ * \class DeleteOrTrashJob
+ * \inheaderfile KIO/DeleteOrTrashJob
+ * \inmodule KIOWidgets
  *
- * This job asks the user for confirmation to delete or move to Trash
+ * \brief This job asks the user for confirmation to delete or move to Trash
  * a list of URLs; or if the job is constructed with
  * AskUserActionInterface::EmptyTrash, to empty the Trash.
  *
@@ -44,11 +46,15 @@ class KIOWIDGETS_EXPORT DeleteOrTrashJob : public KCompositeJob
 public:
     /*!
      * Creates a DeleteOrTrashJob.
+     *
      * \a urls the list of urls to delete, move to Trash, or an empty list
      * in the case of AskUserActionInterface::EmptyTrash (in the latter case,
      * the list of urls is ignored)
+     *
      * \a deletionType one of AskUserActionInterface::DeletionType
+     *
      * \a confirm one of AskUserActionInterface::ConfirmationType
+     *
      * \a parent parent object, e.g. a QWidget for widget-based applications
      */
     explicit DeleteOrTrashJob(const QList<QUrl> &urls,

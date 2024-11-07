@@ -20,8 +20,11 @@ namespace KIO
 class OpenWithHandlerInterfacePrivate;
 
 /*!
- * @class OpenWithHandlerInterface openwithhandlerinterface.h <KIO/OpenWithHandlerInterface>
- * @brief The OpenWithHandlerInterface class allows OpenUrlJob to
+ * \class KIO::OpenWithHandlerInterface
+ * \inheaderfile KIO/OpenWithHandlerInterface
+ * \inmodule KIOGui
+ *
+ * \brief The OpenWithHandlerInterface class allows OpenUrlJob to
  * prompt the user about which application to use to open URLs that do not
  * have an associated application (via the "Open With" dialog).
  *
@@ -39,16 +42,16 @@ protected:
      */
     explicit OpenWithHandlerInterface(QObject *parent = nullptr);
 
-    /*!
-     * Destructor
-     */
     ~OpenWithHandlerInterface() override;
 
 public:
     /*!
      * Show the "Open With" dialog.
+     *
      * \a job the job calling this. Useful to get all its properties
+     *
      * \a urls the URLs to open
+     *
      * \a mimeType the MIME type of the URLs, if known. Can be empty otherwise.
      *
      * Implementations of this method must emit either serviceSelected or canceled.
@@ -62,6 +65,7 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted by promptUserForApplication() once the user chooses an application.
+     *
      * \a service the application chosen by the user
      */
     void serviceSelected(const KService::Ptr &service);

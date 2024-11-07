@@ -36,31 +36,22 @@ class KIOGUI_EXPORT PreviewJob : public KIO::Job
 public:
     /*!
      * Specifies the type of scaling that is applied to the generated preview.
-     * For HiDPI, pixel density scaling, \sa setDevicePixelRatio
+     * For HiDPI, pixel density scaling, see setDevicePixelRatio
      *
+     * \value Unscaled The original size of the preview will be returned. Most previews will return a size of 256 x 256 pixels.
+     * \value Scaled The preview will be scaled to the size specified when constructing the PreviewJob. The aspect ratio will be kept.
+     * \value ScaledAndCached The preview will be scaled to the size specified when constructing the PreviewJob. The result will be cached for later use. Per
+     * default ScaledAndCached is set.
      */
     enum ScaleType {
-        /*!
-         * The original size of the preview will be returned. Most previews
-         * will return a size of 256 x 256 pixels.
-         */
         Unscaled,
-        /*!
-         * The preview will be scaled to the size specified when constructing
-         * the PreviewJob. The aspect ratio will be kept.
-         */
         Scaled,
-        /*!
-         * The preview will be scaled to the size specified when constructing
-         * the PreviewJob. The result will be cached for later use. Per default
-         * ScaledAndCached is set.
-         */
         ScaledAndCached,
     };
 
     /*!
-     * \a items          List of files to create previews for.
-     * \a size           Desired size of the preview.
+     * \a items List of files to create previews for.
+     * \a size Desired size of the preview.
      * \a enabledPlugins If non-zero it defines the list of plugins that
      *                       are considered for generating the preview. If
      *                       enabledPlugins is zero the plugins specified in the
@@ -92,7 +83,7 @@ public:
     void removeItem(const QUrl &url);
 
     /*!
-     * If @p ignoreSize is true, then the preview is always
+     * If \a ignoreSize is true, then the preview is always
      * generated regardless of the settings
      **/
     void setIgnoreMaximumSize(bool ignoreSize = true);
@@ -131,7 +122,7 @@ public:
     bool handlesSequences() const;
 
     /*!
-     * Request preview to use the device pixel ratio @p dpr.
+     * Request preview to use the device pixel ratio \a dpr.
      * The returned thumbnail may not respect the device pixel ratio requested.
      * Use QPixmap::devicePixelRatio to check, or paint as necessary.
      *
@@ -171,16 +162,19 @@ public:
 
 Q_SIGNALS:
     /*!
-     * Emitted when a thumbnail picture for @p item has been successfully
+     * Emitted when a thumbnail picture for \a item has been successfully
      * retrieved.
+     *
      * \a item the file of the preview
+     *
      * \a preview the preview image
      */
     void gotPreview(const KFileItem &item, const QPixmap &preview);
     /*!
-     * Emitted when a thumbnail for @p item could not be created,
+     * Emitted when a thumbnail for \a item could not be created,
      * either because a ThumbCreator for its MIME type does not
      * exist, or because something went wrong.
+     *
      * \a item the file that failed
      */
     void failed(const KFileItem &item);
@@ -204,9 +198,14 @@ public:
 };
 
 /*!
+ * \relates KIO::PreviewJob
+ *
  * Creates a PreviewJob to generate a preview image for the given items.
+ *
  * \a items          List of files to create previews for.
+ *
  * \a size           Desired size of the preview.
+ *
  * \a enabledPlugins If non-zero it defines the list of plugins that
  *                       are considered for generating the preview. If
  *                       enabledPlugins is zero the plugins specified in the

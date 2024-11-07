@@ -29,9 +29,12 @@ class UndoCommand;
 class UndoJob;
 
 /*!
- * @class KIO::FileUndoManager fileundomanager.h <KIO/FileUndoManager>
+ * \class KIO::FileUndoManager
+ * \inheaderfile KIO/FileUndoManager
+ * \inmodule KIOWidgets
  *
- * FileUndoManager: makes it possible to undo kio jobs.
+ * \brief Makes it possible to undo KIO jobs.
+ *
  * This class is a singleton, use self() to access its only instance.
  */
 class KIOWIDGETS_EXPORT FileUndoManager : public QObject
@@ -44,11 +47,15 @@ public:
     static FileUndoManager *self();
 
     /*!
+     * \class KIO::FileUndoManager::UiInterface
+     *
      * Interface for the gui handling of FileUndoManager.
      * This includes three events currently:
-     * - error when undoing a job
-     * - (until KF 5.78) confirm deletion before undoing a copy job
-     * - confirm deletion when the copied file has been modified afterwards
+     * \list
+     * \li error when undoing a job
+     * \li (until KF 5.78) confirm deletion before undoing a copy job
+     * \li confirm deletion when the copied file has been modified afterwards
+     * \endlist
      *
      * By default UiInterface shows message boxes in all three cases;
      * applications can reimplement this interface to provide different user interfaces.
@@ -64,7 +71,7 @@ public:
          */
         void setShowProgressInfo(bool b);
         /*!
-         * Returnss whether progress info dialogs are shown while undoing.
+         * Returns whether progress info dialogs are shown while undoing.
          */
         bool showProgressInfo() const;
 
