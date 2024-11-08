@@ -17,18 +17,17 @@
 class KOpenWithDialogPrivate;
 
 /*!
- * @class KOpenWithDialog kopenwithdialog.h <KOpenWithDialog>
+ * \class KOpenWithDialog
+ * \inmodule KIOWidgets
  *
- * "Open With" dialog box.
+ * \brief "Open With" dialog box.
  *
- * @note To let the user choose an application and run it immediately,
+ * \note To let the user choose an application and run it immediately,
  *       use simpler KRun::displayOpenWithDialog().
  *
  * If the Kiosk "shell_access" action is not authorized (see
  * KAuthorized::authorize()), arbitrary commands are not allowed; instead, the
  * user must browse to and choose an executable.
- *
- * @author David Faure <faure@kde.org>
  */
 class KIOWIDGETS_EXPORT KOpenWithDialog : public QDialog
 {
@@ -40,6 +39,7 @@ public:
      *
      * \a urls   the URLs that should be opened. The list can be empty,
      * if the dialog is used to choose an application but not for some particular URLs.
+     *
      * \a parent parent widget
      */
     explicit KOpenWithDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
@@ -49,8 +49,11 @@ public:
      * URL(s) with.
      *
      * \a urls   is the URL that should be opened
+     *
      * \a text   appears as a label on top of the entry box. Leave empty for default text (since 5.20).
+     *
      * \a value  is the initial value of the line
+     *
      * \a parent parent widget
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value, QWidget *parent = nullptr);
@@ -60,7 +63,9 @@ public:
      * Note that this dialog doesn't apply to URLs.
      *
      * \a mimeType the MIME type we want to choose an application for.
+     *
      * \a value  is the initial value of the line
+     *
      * \a parent parent widget
      */
     KOpenWithDialog(const QString &mimeType, const QString &value, QWidget *parent = nullptr);
@@ -70,10 +75,15 @@ public:
      * URL (or more than one), when we already know the MIME type of the URL(s).
      *
      * \a urls   is the URLs that should be opened
+     *
      * \a mimeType the MIME type of the URL
+     *
      * \a text   appears as a label on top of the entry box.
+     *
      * \a value  is the initial value of the line
+     *
      * \a parent parent widget
+     *
      * \since 5.71
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &mimeType, const QString &text, const QString &value, QWidget *parent = nullptr);
@@ -86,9 +96,6 @@ public:
      */
     KOpenWithDialog(QWidget *parent = nullptr);
 
-    /*!
-     * Destructor
-     */
     ~KOpenWithDialog() override;
 
     /*!
@@ -126,9 +133,6 @@ public Q_SLOTS: // TODO KDE5: move all those slots to the private class!
     void slotTerminalToggled(bool);
 
 protected Q_SLOTS:
-    /*!
-     * Reimplemented from QDialog::accept()
-     */
     void accept() override;
 
 private:

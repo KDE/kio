@@ -33,7 +33,7 @@ namespace KDEPrivate
 /*!
  * 'General' plugin
  *  This plugin displays the name of the file, its size and access times.
- * @internal
+ * \internal
  */
 class KFilePropsPlugin : public KPropertiesDialogPlugin
 {
@@ -93,7 +93,7 @@ private:
  * 'Permissions' plugin
  * In this plugin you can modify permissions and change
  * the owner of a file.
- * @internal
+ * \internal
  */
 class KFilePermissionsPropsPlugin : public KPropertiesDialogPlugin
 {
@@ -192,7 +192,7 @@ private:
  * URL=....
  *
  * Such files are used to represent a program in kicker and konqueror.
- * @internal
+ * \internal
  */
 class KUrlPropsPlugin : public KPropertiesDialogPlugin
 {
@@ -218,7 +218,7 @@ private:
  * Type=Application
  *
  * Such files are used to represent a program in kicker and konqueror.
- * @internal
+ * \internal
  */
 class KDesktopPropsPlugin : public KPropertiesDialogPlugin
 {

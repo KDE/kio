@@ -24,9 +24,11 @@
 class KPropertiesDialogPrivate;
 
 /*!
- * @class KPropertiesDialog kpropertiesdialog.h <KPropertiesDialog>
+ * \class KPropertiesDialog
+ * \inmodule KIOWidgets
  *
- * The main properties dialog class.
+ * \brief The main properties dialog class.
+ *
  * A Properties Dialog is a dialog which displays various information
  * about a particular file or URL, or several files or URLs.
  * This main class holds various related classes, which are instantiated in
@@ -34,6 +36,7 @@ class KPropertiesDialogPrivate;
  * The various tabs themselves will let the user view, and sometimes change,
  * information about the file or URL.
  *
+ * TODO qdoc
  * \image html kpropertiesdialog.png "Example of KPropertiesDialog"
  *
  * The best way to display the properties dialog is to use showDialog().
@@ -54,7 +57,9 @@ public:
     /*!
      * Determine whether there are any property pages available for the
      * given file items.
+     *
      * \a _items the list of items to check.
+     *
      * Returns true if there are any property pages, otherwise false.
      */
     static bool canDisplay(const KFileItemList &_items);
@@ -67,6 +72,7 @@ public:
      * method rather than the one below.
      *
      * \a item file item whose properties should be displayed.
+     *
      * \a parent is the parent of the dialog widget.
      */
     explicit KPropertiesDialog(const KFileItem &item, QWidget *parent = nullptr);
@@ -80,6 +86,7 @@ public:
      * work on the first item in a list.
      *
      * \a _items list of file items whose properties should be displayed.
+     *
      * \a parent is the parent of the dialog widget.
      */
     explicit KPropertiesDialog(const KFileItemList &_items, QWidget *parent = nullptr);
@@ -90,6 +97,7 @@ public:
      * KFileItem or KFileItemList.
      *
      * \a url the URL whose properties should be displayed
+     *
      * \a parent is the parent of the dialog widget.
      *
      * For local files with a known MIME type, simply create a KFileItem
@@ -104,6 +112,7 @@ public:
      *
      * \a urls list of URLs whose properties should be displayed (must
      *             contain at least one non-empty URL)
+     *
      * \a parent is the parent of the dialog widget.
      *
      * For local files with a known MIME type, simply create a KFileItemList
@@ -119,9 +128,12 @@ public:
      * "File / New" in file-manager type applications.
      *
      * \a _tempUrl template used for reading only
+     *
      * \a _currentDir directory where the file will be written to
+     *
      * \a _defaultName something to put in the name field,
      * like mimetype.desktop
+     *
      * \a parent is the parent of the dialog widget.
      */
     KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir, const QString &_defaultName, QWidget *parent = nullptr);
@@ -131,6 +143,7 @@ public:
      * a standard dialog, but for things not doable via the plugin-mechanism).
      *
      * \a title is the string display as the "filename" in the title of the dialog.
+     *
      * \a parent is the parent of the dialog widget.
      */
     explicit KPropertiesDialog(const QString &title, QWidget *parent = nullptr);
@@ -145,31 +158,34 @@ public:
     /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
-     * On MS Windows, if @p item points to a local file, native (non modal) property
-     * dialog is displayed (@p parent and @p modal are ignored in this case).
      *
-     * Returns true on successful dialog displaying (can be false on win32).
+     * On MS Windows, if \a item points to a local file, native (non modal) property
+     * dialog is displayed (\a parent and \a modal are ignored in this case).
+     *
+     * Returns \c true on successful dialog displaying (can be \c false on win32).
      */
     static bool showDialog(const KFileItem &item, QWidget *parent = nullptr, bool modal = true);
 
     /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
-     * On MS Windows, if @p _url points to a local file, native (non modal) property
-     * dialog is displayed (@p parent and @p modal are ignored in this case).
      *
-     * Returns true on successful dialog displaying (can be false on win32).
+     * On MS Windows, if \a _url points to a local file, native (non modal) property
+     * dialog is displayed (\a parent and \a modal are ignored in this case).
+     *
+     * Returns \c true on successful dialog displaying (can be \c false on win32).
      */
     static bool showDialog(const QUrl &_url, QWidget *parent = nullptr, bool modal = true);
 
     /*!
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
-     * On MS Windows, if @p _items has one element and this element points
-     * to a local file, native (non modal) property dialog is displayed
-     * (@p parent and @p modal are ignored in this case).
      *
-     * Returns true on successful dialog displaying (can be false on win32).
+     * On MS Windows, if \a _items has one element and this element points
+     * to a local file, native (non modal) property dialog is displayed
+     * (\a parent and \a modal are ignored in this case).
+     *
+     * Returns \c true on successful dialog displaying (can be \c false on win32).
      */
     static bool showDialog(const KFileItemList &_items, QWidget *parent = nullptr, bool modal = true);
 
@@ -177,16 +193,18 @@ public:
      * Immediately displays a Properties dialog using constructor with
      * the same parameters.
      *
-     * On MS Windows, if @p _urls has one element and this element points
+     * On MS Windows, if \a _urls has one element and this element points
      * to a local file, native (non modal) property dialog is displayed
-     * (@p parent and @p modal are ignored in this case).
+     * (\a parent and \a modal are ignored in this case).
      *
      * \a urls list of URLs whose properties should be displayed (must
      *             contain at least one non-empty URL)
+     *
      * \a parent is the parent of the dialog widget.
+     *
      * \a modal tells the dialog whether it should be modal.
      *
-     * Returns true on successful dialog displaying (can be false on win32).
+     * Returns \c true on successful dialog displaying (can be \c false on win32).
      *
      * \since 5.10
      */
@@ -194,6 +212,7 @@ public:
 
     /*!
      * The URL of the file that has its properties being displayed.
+     *
      * This is only valid if the KPropertiesDialog was created/shown
      * for one file or URL.
      *
@@ -204,7 +223,7 @@ public:
     /*!
      * Returns the file item for which the dialog is shown
      *
-     * Warning: this method returns the first item of the list.
+     * \warning this method returns the first item of the list.
      * This means that you should use this only if you are sure the dialog is used
      * for a single item. Otherwise, you probably want items() instead.
      */
@@ -236,6 +255,7 @@ public:
      * Updates the item URL (either called by rename or because
      * a global apps/mimelnk desktop file is being saved)
      * Can only be called if the dialog applies to a single file or URL.
+     *
      * \a newUrl the new URL
      */
     void updateUrl(const QUrl &newUrl);
@@ -243,8 +263,9 @@ public:
     /*!
      * Renames the item to the specified name. This can only be called if
      * the dialog applies to a single file or URL.
+     *
      * \a _name new filename, encoded.
-     * \see FilePropsDialogPlugin::applyChanges
+     * \sa FilePropsDialogPlugin::applyChanges
      */
     void rename(const QString &_name);
 
@@ -257,7 +278,7 @@ public:
      * Shows the page that was previously set by
      * setFileSharingPage(), or does nothing if no page
      * was set yet.
-     * \see setFileSharingPage
+     * \sa setFileSharingPage
      */
     void showFileSharingPage();
 
@@ -268,14 +289,14 @@ public:
      * \a page the page to set
      *
      * \note This should only be called by KPropertiesDialog plugins.
-     * \see showFileSharingPage
+     * \sa showFileSharingPage
      */
     void setFileSharingPage(QWidget *page);
 
     /*!
      * Call this to make the filename lineedit readonly, to prevent the user
      * from renaming the file.
-     * \param ro true if the lineedit should be read only
+     * \a ro true if the lineedit should be read only
      */
     void setFileNameReadOnly(bool ro);
 
@@ -313,8 +334,9 @@ Q_SIGNALS:
     void canceled();
 
     /*!
-     * Emitted before changes to @p oldUrl are saved as @p newUrl.
-     * The receiver may change @p newUrl to point to an alternative
+     * Emitted before changes to \a oldUrl are saved as \a newUrl.
+     *
+     * The receiver may change \a newUrl to point to an alternative
      * save location.
      */
     void saveAs(const QUrl &oldUrl, QUrl &newUrl);

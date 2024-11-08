@@ -17,7 +17,7 @@ class QLabel;
 namespace KIO
 {
 /*!
- * @internal
+ * \internal
  * Internal class used by paste.h. DO NOT USE.
  */
 class PasteDialog : public QDialog

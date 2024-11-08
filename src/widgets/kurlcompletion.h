@@ -29,13 +29,13 @@ class Job;
 class KUrlCompletionPrivate;
 
 /*!
- * @class KUrlCompletion kurlcompletion.h <KUrlCompletion>
+ * \class KUrlCompletion
+ * \inmodule KIOWidgets
+ *
+ * \brief Completion of a single URL
  *
  * This class does completion of URLs including user directories (~user)
  * and environment variables.  Remote URLs are passed to KIO.
- *
- * @short Completion of a single URL
- * @author David Smith <dsmith@algonet.se>
  */
 class KIOWIDGETS_EXPORT KUrlCompletion : public KCompletion
 {
@@ -44,10 +44,10 @@ class KIOWIDGETS_EXPORT KUrlCompletion : public KCompletion
 public:
     /*!
      * Determines how completion is done.
-     * @li ExeCompletion - executables in $PATH or with full path.
-     * @li FileCompletion - all files with full path or in dir(), URLs
+     * \value ExeCompletion executables in $PATH or with full path.
+     * \value FileCompletion all files with full path or in dir(), URLs
      * are listed using KIO.
-     * @li DirCompletion - Same as FileCompletion but only returns directories.
+     * \value DirCompletion Same as FileCompletion but only returns directories.
      */
     enum Mode {
         ExeCompletion = 1,
@@ -64,9 +64,7 @@ public:
      * or FileCompletion without using setMode. Default is FileCompletion.
      */
     KUrlCompletion(Mode);
-    /*!
-     * Destructs the KUrlCompletion object.
-     */
+
     ~KUrlCompletion() override;
 
     /*!
@@ -80,6 +78,7 @@ public:
      * and QString() for asynchronous completion (KIO or threaded).
      *
      * \a text the text to complete
+     *
      * Returns the first match, or QString() if not found
      */
     QString makeCompletion(const QString &text) override;
@@ -87,19 +86,18 @@ public:
     /*!
      * Sets the current directory (used as base for completion).
      * Default = $HOME.
+     *
      * \a dir the current directory, as a URL (use QUrl::fromLocalFile for local paths)
      */
     virtual void setDir(const QUrl &dir);
 
     /*!
-     * Returns the current directory, as it was given in setDir
-     * Returns the current directory, as a URL (use QUrl::toLocalFile for local paths)
+     * Returns the current directory, as it was given in setDir, as a URL (use QUrl::toLocalFile for local paths)
      */
     virtual QUrl dir() const;
 
     /*!
      * Check whether asynchronous completion is in progress.
-     * Returns true if asynchronous completion is in progress
      */
     virtual bool isRunning() const;
 
@@ -110,12 +108,12 @@ public:
 
     /*!
      * Returns the completion mode: exe or file completion (default FileCompletion).
-     * Returns the completion mode
      */
     virtual Mode mode() const;
 
     /*!
      * Changes the completion mode: exe or file completion
+     *
      * \a mode the new completion mode
      */
     virtual void setMode(Mode mode);
@@ -123,7 +121,9 @@ public:
     /*!
      * Checks whether environment variables are completed and
      * whether they are replaced internally while finding completions.
+     *
      * Default is enabled.
+     *
      * Returns true if environment variables will be replaced
      */
     virtual bool replaceEnv() const;
@@ -131,6 +131,7 @@ public:
     /*!
      * Enables/disables completion and replacement (internally) of
      * environment variables in URLs. Default is enabled.
+     *
      * \a replace true to replace environment variables
      */
     virtual void setReplaceEnv(bool replace);
@@ -139,6 +140,7 @@ public:
      * Returns whether ~username is completed and whether ~username
      * is replaced internally with the user's home directory while
      * finding completions. Default is enabled.
+     *
      * Returns true to replace tilde with the home directory
      */
     virtual bool replaceHome() const;
@@ -147,6 +149,7 @@ public:
      * Enables/disables completion of ~username and replacement
      * (internally) of ~username with the user's home directory.
      * Default is enabled.
+     *
      * \a replace true to replace tilde with the home directory
      */
     virtual void setReplaceHome(bool replace);
@@ -156,14 +159,16 @@ public:
      * current settings and returns the filtered url. Only works with
      * local files, i.e. returns back the original string for non-local
      * urls.
+     *
      * \a text the text to process
+     *
      * Returns the path or URL resulting from this operation. If you
      * want to convert it to a QUrl, use QUrl::fromUserInput.
      */
     QString replacedPath(const QString &text) const;
 
     /*!
-     * @internal I'll let ossi add a real one to KShell :)
+     * \internal I'll let ossi add a real one to KShell :)
      */
     static QString replacedPath(const QString &text, bool replaceHome, bool replaceEnv = true);
 
