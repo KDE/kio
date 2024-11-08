@@ -292,15 +292,13 @@ enum Error {
  * \sa getCacheControlString()
  * \deprecated[6.6]
  * Not used
- */
-KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
-/*!
  * \value CC_CacheOnly Fail request if not in cache
  * \value CC_Cache Use cached entry if available
  * \value CC_Verify Validate cached entry with remote site if expired
  * \value CC_Refresh Always validate cached entry with remote site
  * \value CC_Reload Always fetch from remote site
  */
+KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
 enum CacheControl {
     CC_CacheOnly,
     CC_Cache,

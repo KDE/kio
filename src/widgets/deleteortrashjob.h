@@ -21,7 +21,7 @@ namespace KIO
 class DeleteOrTrashJobPrivate;
 
 /*!
- * \class DeleteOrTrashJob
+ * \class KIO::DeleteOrTrashJob
  * \inheaderfile KIO/DeleteOrTrashJob
  * \inmodule KIOWidgets
  *

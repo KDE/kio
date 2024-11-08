@@ -20,7 +20,7 @@ namespace KIO
 {
 class FavIconRequestJobPrivate;
 /*!
- * \class FavIconRequestJob
+ * \class KIO::FavIconRequestJob
  * \inheaderfile KIO/FavIconRequestJob
  * \inmodule KIOGui
  *
