@@ -1,0 +1,12 @@
+/*!
+    \module KIOFileWidgets
+    \title KIO FileWidgets C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KF6::KIOFileWidgets
+
+    \brief IO
+
+    Stuff
+*/

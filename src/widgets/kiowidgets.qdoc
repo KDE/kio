@@ -2,7 +2,9 @@
     \module KIOWidgets
     \title KIO Widgets C++ Classes
     \ingroup modules
-    \qtcmakepackage KIOWidgets
+    \cmakepackage KF6
+    \cmakecomponent KIO
+    \cmaketargetitem KF6::KIOWidgets
 
     \brief IO
 

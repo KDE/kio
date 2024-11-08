@@ -1,8 +1,7 @@
 include($KDE_DOCS/global/qt-module-defaults.qdocconf)
 
-project = KIOGui
+project = KIOFileWidgets
 description = Additions to Qt Core
-productname = KDE Frameworks
 
 documentationinheaders = true
 
@@ -14,7 +13,9 @@ outputformats = HTML
 depends += \
     qtcore \
     qtgui \
+    qtwidgets \
     kcoreaddons \
-    kconfigcore \
+    kjobwidgets \
     kiocore \
-    kservice
+    kiogui \
+    kiowidgets
