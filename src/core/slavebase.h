@@ -60,13 +60,13 @@ public:
     virtual ~SlaveBase();
 
     /*
-     * @internal
+     * \internal
      * Terminate the slave by calling the destructor and then ::exit()
      */
     void exit();
 
     /*
-     * @internal
+     * \internal
      */
     void dispatchLoop();
 
@@ -326,7 +326,7 @@ public:
     QString metaData(const QString &key) const;
 
     /*
-     * @internal for ForwardingSlaveBase
+     * \internal for ForwardingSlaveBase
      * Contains all metadata (but no config) sent by the application to the slave.
      */
     MetaData allMetaData() const;
@@ -712,12 +712,12 @@ public:
     ////////////////
 
     /*
-     * @internal
+     * \internal
      */
     virtual void dispatch(int command, const QByteArray &data);
 
     /*
-     * @internal
+     * \internal
      */
     virtual void dispatchOpenCommand(int command, const QByteArray &data);
 
@@ -892,17 +892,17 @@ public:
     bool wasKilled() const;
 
     /* Internally used.
-     * @internal
+     * \internal
      */
     void setKillFlag();
 
     /* Internally used
-     * @internal
+     * \internal
      */
     void lookupHost(const QString &host);
 
     /* Internally used
-     * @internal
+     * \internal
      */
     int waitForHostInfo(QHostInfo &info);
 

@@ -25,7 +25,7 @@ namespace KDEPrivate
  * inside the bookmark selector.
  *
  * \sa KUrlNavigator
- * @internal
+ * \internal
  */
 class KUrlNavigatorPlacesSelector : public KUrlNavigatorButtonBase
 {

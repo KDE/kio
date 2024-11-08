@@ -54,12 +54,12 @@ public:
 protected:
     /*!
      * Sets metadata
-     * @internal
+     * \internal
      */
     void setAllMetaData(const MetaData &);
     /*!
      * Sends metadata set with setAllMetaData
-     * @internal
+     * \internal
      */
     void sendMetaData();
 

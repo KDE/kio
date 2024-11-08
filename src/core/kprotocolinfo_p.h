@@ -16,7 +16,7 @@
 #include <QJsonObject>
 
 /*!
- * @internal
+ * \internal
  */
 class KProtocolInfoPrivate
 {

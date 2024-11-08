@@ -35,7 +35,7 @@ public:
     void slotTotalSize(KIO::filesize_t);
 
     /*!
-     * @internal
+     * \internal
      * Called by the scheduler when a @p worker gets to
      * work on this job.
      * \a worker the worker that starts working on this job

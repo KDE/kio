@@ -351,7 +351,7 @@ public:
     static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass, QString &fileName);
 
     /*!
-     * @internal
+     * \internal
      * Used by KDirSelectDialog to share the dialog's start directory.
      */
     static void setStartDir(const QUrl &directory);

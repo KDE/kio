@@ -414,7 +414,7 @@ public Q_SLOTS:
 
 private:
     class Private;
-    std::unique_ptr<Private> const d; /// @internal
+    std::unique_ptr<Private> const d; /// \internal
     Q_DISABLE_COPY(KFileItemDelegate)
 };
 

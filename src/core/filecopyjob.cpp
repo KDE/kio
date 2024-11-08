@@ -26,7 +26,7 @@ static inline Worker *jobWorker(SimpleJob *job)
     return SimpleJobPrivate::get(job)->m_worker;
 }
 
-/*! @internal */
+/*! \internal */
 class KIO::FileCopyJobPrivate : public KIO::JobPrivate
 {
 public:
