@@ -3652,7 +3652,7 @@ msgstr "显示完整路径"
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr ""
+msgstr "转到此路径上的任意位置 <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3664,7 +3664,7 @@ msgstr "更多"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "转到路径上的位置"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
