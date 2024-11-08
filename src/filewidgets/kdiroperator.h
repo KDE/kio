@@ -41,7 +41,10 @@ class DeleteJob;
 class KDirOperatorPrivate;
 
 /*!
- * @class KDirOperator kdiroperator.h <KDirOperator>
+ * \class KDirOperator
+ * \inmodule KIOWidgets
+ *
+ * \brief A widget for displaying files and browsing directories.
  *
  * This widget works as a network transparent filebrowser. You specify a URL
  * to display and this url will be loaded via KDirLister. The user can
@@ -83,9 +86,6 @@ class KDirOperatorPrivate;
  * of /home/gis in the default-view. The view is determined by the readConfig()
  * call, which will read the KDirOperator settings, the user left your program
  * with (and which you saved with op->writeConfig()).
- *
- * @short A widget for displaying files and browsing directories.
- * @author Stephan Kulow <coolo@kde.org>, Carsten Pfeiffer <pfeiffer@kde.org>
  */
 class KIOFILEWIDGETS_EXPORT KDirOperator : public QWidget
 {
@@ -94,6 +94,12 @@ class KIOFILEWIDGETS_EXPORT KDirOperator : public QWidget
 public:
     /*!
      * The various action types. These values can be or'd together
+     *
+     * \value SortActions
+     * \value ViewActions
+     * \value NavActions
+     * \value FileActions
+     * \value AllActions
      */
     enum ActionType {
         SortActions = 1,
@@ -105,85 +111,66 @@ public:
 
     /*!
      * Actions provided by KDirOperator that can be accessed from the outside using action()
+     *
+     * \value PopupMenu An ActionMenu presenting a popupmenu with all actions
+     * \value Up Changes to the parent directory
+     * \value Back Goes back to the previous directory
+     * \value Forward Goes forward in the history
+     * \value Home Changes to the user's home directory
+     * \value Reload Reloads the current directory
+     * \value New A KNewFileMenu
+     * \value NewFolder Opens a dialog box to create a directory
+     * \value Rename
+     * \value Trash
+     * \value Delete Deletes the selected files/directories
+     * \value SortMenu An ActionMenu containing all sort-options
+     * \value SortByName Sorts by name
+     * \value SortBySize Sorts by size
+     * \value SortByDate Sorts by date
+     * \value SortByType Sorts by type
+     * \value SortAscending Changes sort order to ascending
+     * \value SortDescending Changes sort order to descending
+     * \value SortFoldersFirst Sorts folders before files
+     * \value SortHiddenFilesLast Sorts hidden files last
+     * \value ViewModeMenu an ActionMenu containing all actions concerning the view
+     * \value ViewIconsView
+     * \value ViewCompactView
+     * \value ViewDetailsView
+     * \value DecorationMenu
+     * \value DecorationAtTop
+     * \value DecorationAtLeft
+     * \value ShortView Shows a simple fileview
+     * \value DetailedView Shows a detailed fileview (dates, permissions ,...)
+     * \value TreeView
+     * \value DetailedTreeView
+     * \value AllowExpansionInDetailsView
+     * \value ShowHiddenFiles shows hidden files
+     * \value ShowPreviewPanel shows a preview next to the fileview
+     * \value ShowPreview
+     * \value OpenContainingFolder
+     * \value Properties Shows a KPropertiesDialog for the selected files
      */
     enum Action {
-        /*!
-         * An ActionMenu presenting a popupmenu with all actions
-         */
         PopupMenu,
-        /*!
-         * Changes to the parent directory
-         */
         Up,
-        /*!
-         * Goes back to the previous directory
-         */
         Back,
-        /*!
-         * Goes forward in the history
-         */
         Forward,
-        /*!
-         * Changes to the user's home directory
-         */
         Home,
-        /*!
-         * Reloads the current directory
-         */
         Reload,
-        /*
-         * A KNewFileMenu
-         */
         New,
-        /*!
-         * Opens a dialog box to create a directory
-         */
         NewFolder,
         Rename,
         Trash,
-        /*!
-         * Deletes the selected files/directories
-         */
         Delete,
-        /*!
-         * An ActionMenu containing all sort-options
-         */
         SortMenu,
-        /*!
-         * Sorts by name
-         */
         SortByName,
-        /*!
-         * Sorts by size
-         */
         SortBySize,
-        /*!
-         * Sorts by date
-         */
         SortByDate,
-        /*!
-         * Sorts by type
-         */
         SortByType,
-        /*!
-         * Changes sort order to ascending
-         */
         SortAscending,
-        /*!
-         * Changes sort order to descending
-         */
         SortDescending,
-        /*!
-         * Sorts folders before files
-         */
         SortFoldersFirst,
-        /*!
-         * Sorts hidden files last
-         */
         SortHiddenFilesLast,
-        /*!
-         *  an ActionMenu containing all actions concerning the view
-         */
         ViewModeMenu,
         ViewIconsView,
         ViewCompactView,
@@ -191,31 +178,15 @@ public:
         DecorationMenu,
         DecorationAtTop,
         DecorationAtLeft,
-        /*!
-         * Shows a simple fileview
-         */
         ShortView,
-        /*!
-         * Shows a detailed fileview (dates, permissions ,...)
-         */
         DetailedView,
-
         TreeView,
         DetailedTreeView,
         AllowExpansionInDetailsView,
-        /*!
-         * shows hidden files
-         */
         ShowHiddenFiles,
-        /*!
-         * shows a preview next to the fileview
-         */
         ShowPreviewPanel,
         ShowPreview,
         OpenContainingFolder,
-        /*!
-         * Shows a KPropertiesDialog for the selected files
-         */
         Properties,
     };
 
@@ -227,9 +198,7 @@ public:
      * This constructor doesn't start loading the url, setView will do it.
      */
     explicit KDirOperator(const QUrl &urlName = QUrl{}, QWidget *parent = nullptr);
-    /*!
-     * Destroys the KDirOperator.
-     */
+
     ~KDirOperator() override;
 
     /*!
@@ -335,31 +304,33 @@ public:
 
     /*!
      * Sets a new url to list.
+     *
      * \a clearforward specifies whether the "forward" history should be cleared.
+     *
      * \a url the URL to set
      */
     virtual void setUrl(const QUrl &url, bool clearforward);
 
     /*!
-     * Clears the current selection and attempts to set @p url
+     * Clears the current selection and attempts to set \a url
      * the current url file.
      */
     void setCurrentItem(const QUrl &url);
 
     /*!
-     * Clears the current selection and attempts to set @p item
+     * Clears the current selection and attempts to set \a item
      * as the current item.
      */
     void setCurrentItem(const KFileItem &item);
 
     /*!
-     * Clears the current selection and attempts to set @p urls
+     * Clears the current selection and attempts to set \a urls
      * the current url files.
      */
     void setCurrentItems(const QList<QUrl> &urls);
 
     /*!
-     * Clears the current selection and attempts to set @p items
+     * Clears the current selection and attempts to set \a items
      * as the current items.
      */
     void setCurrentItems(const KFileItemList &items);
@@ -380,7 +351,6 @@ public:
 
     /*!
      * Returns the current view mode.
-     * Returns KFile::FileView
      * \sa KFile::FileView
      * \since 5.0
      */
@@ -414,11 +384,13 @@ public:
 
     /*!
      * Sets the listing/selection mode for the views, an OR'ed combination of
-     * @li File
-     * @li Directory
-     * @li Files
-     * @li ExistingOnly
-     * @li LocalOnly
+     * \list
+     * \li File
+     * \li Directory
+     * \li Files
+     * \li ExistingOnly
+     * \li LocalOnly
+     * \endlist
      *
      * You cannot mix File and Files of course, as the former means
      * single-selection mode, the latter multi-selection.
@@ -431,7 +403,8 @@ public:
 
     /*!
      * Sets a preview-widget to be shown next to the file-view.
-     * The ownership of @p w is transferred to KDirOperator, so don't
+     *
+     * The ownership of \a w is transferred to KDirOperator, so don't
      * delete it yourself!
      */
     virtual void setPreviewWidget(KPreviewWidgetBase *w);
@@ -443,7 +416,7 @@ public:
     KFileItemList selectedItems() const;
 
     /*!
-     * Returns true if @p item is currently selected, or false otherwise.
+     * Returns true if \a item is currently selected, or false otherwise.
      */
     bool isSelected(const KFileItem &item) const;
 
@@ -489,7 +462,7 @@ public:
      * to add a button into a toolbar, which makes the dirOperator change to
      * its parent directory.
      *
-     *  \since 5.100
+     * \since 5.100
      */
     QAction *action(KDirOperator::Action action) const;
 
@@ -499,7 +472,6 @@ public:
      * See action()
      *
      * \since 5.100
-     *
      */
     QList<QAction *> allActions() const;
 
@@ -598,11 +570,14 @@ public:
     bool followSelectedDirectories() const;
 
     /*!
-     * Starts and returns a KIO::DeleteJob to delete the given @p items.
+     * Starts and returns a KIO::DeleteJob to delete the given \a items.
      *
      * \a items the list of items to be deleted
+     *
      * \a parent the parent widget used for the confirmation dialog
+     *
      * \a ask specifies whether a confirmation dialog should be shown
+     *
      * \a showProgress passed to the DeleteJob to show a progress dialog
      */
     virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr, bool ask = true, bool showProgress = true);
@@ -617,12 +592,14 @@ public:
      * can highlight the directory that was just left.
      *
      * For example:
-     *  - starting in /a/b/c/, going up to /a/b, "c" will be highlighted
-     *  - starting in /a/b/c, going up (twice) to /a, "b" will be highlighted;
+     * \list
+     *  \li starting in /a/b/c/, going up to /a/b, "c" will be highlighted
+     *  \li starting in /a/b/c, going up (twice) to /a, "b" will be highlighted;
      *    using the back action to go to /a/b/, "c" will be highlighted
-     *  - starting in /a, going to "b", then going to "c", using the back action
+     *  \li starting in /a, going to "b", then going to "c", using the back action
      *    to go to /a/b/, "c" will be highlighted; using the back action again to go
      *    to /a/, "b" will be highlighted
+     * \endlist
      *
      * \sa dirHighlighting. The default is to highlight directories when going back/up.
      */
@@ -646,12 +623,14 @@ public:
 
     /*!
      * Sets up the action menu.
+     *
      * \a whichActions is an value of OR'd ActionTypes that controls which actions to show in the action menu
      */
     void setupMenu(int whichActions);
 
     /*!
-     * Reimplemented - allow dropping of files if @p b is true, defaults to true since 5.59
+     * Reimplemented - allow dropping of files if \a b is true, defaults to true since 5.59
+     *
      * \a b true if the widget should allow dropping of files
      */
     virtual void setAcceptDrops(bool b);
@@ -663,7 +642,7 @@ public:
     virtual void setDropOptions(int options);
 
     /*!
-     * Starts and returns a KIO::CopyJob to trash the given @p items.
+     * Starts and returns a KIO::CopyJob to trash the given \a items.
      *
      * \a items the list of items to be trashed
      * \a parent the parent widget used for the confirmation dialog
@@ -678,7 +657,7 @@ public:
     KFilePreviewGenerator *previewGenerator() const;
 
     /*!
-     * Forces the inline previews to be shown or hidden, depending on @p show.
+     * Forces the inline previews to be shown or hidden, depending on \a show.
      *
      * \a show Whether to show inline previews or not.
      */
@@ -712,15 +691,15 @@ public:
     int iconSize() const;
 
     /*!
-     * If the system is set up to trigger items on single click, if @p isSaving
+     * If the system is set up to trigger items on single click, if \a isSaving
      * is true, we will force to double click to accept.
-     * @note this is false by default
+     * \note this is false by default
      */
     void setIsSaving(bool isSaving);
 
     /*!
      * Returns whether KDirOperator will force a double click to accept.
-     * @note this is false by default
+     * \note this is false by default
      */
     bool isSaving() const;
 
@@ -729,7 +708,7 @@ public:
      *
      * If the returned list is empty, all schemes are supported.
      *
-     * @sa QFileDialog::supportedSchemes
+     * \sa QFileDialog::supportedSchemes
      * \since 5.43
      */
     QStringList supportedSchemes() const;
@@ -748,9 +727,13 @@ protected:
     /*!
      * A view factory for creating predefined fileviews. Called internally by setView,
      * but you can also call it directly. Reimplement this if you depend on self defined fileviews.
+     *
      * \a parent   is the QWidget to be set as parent
+     *
      * \a viewKind is the predefined view to be set, note: this can be several ones OR:ed together
+     *
      * Returns the created view
+     *
      * \sa KFile::FileView
      * \sa setView
      */
@@ -891,7 +874,7 @@ public Q_SLOTS:
     virtual void trashSelected();
 
     /*!
-     * Notifies that the icons size should change. @p value is the icon size in pixels, ranged
+     * Notifies that the icons size should change. \a value is the icon size in pixels, ranged
      * from KIconLoader::SizeSmall (16) to KIconLoader::SizeEnormous (128).
      *
      * \since 5.76
@@ -902,9 +885,9 @@ public Q_SLOTS:
      * Set the URL schemes that the file widget should allow navigating to.
      *
      * If the returned list is empty, all schemes are supported. Examples for
-     * schemes are @c "file" or @c "ftp".
+     * schemes are \c "file" or \c "ftp".
      *
-     * @sa QFileDialog::setSupportedSchemes
+     * \sa QFileDialog::setSupportedSchemes
      * \since 5.43
      */
     void setSupportedSchemes(const QStringList &schemes);
@@ -923,7 +906,7 @@ protected Q_SLOTS:
     void pathChanged();
 
     /*!
-     * Enters the directory specified by the given @p item.
+     * Enters the directory specified by the given \a item.
      */
     virtual void selectDir(const KFileItem &item);
 
@@ -973,15 +956,30 @@ protected Q_SLOTS:
     void toggleIgnoreCase();
 
     /*!
-     * Tries to make the given @p match as current item in the view and emits
+     * Tries to make the given \a match as current item in the view and emits
      * completion( match )
      */
     void slotCompletionMatch(const QString &match);
 
 Q_SIGNALS:
+    /*!
+     *
+     */
     void urlEntered(const QUrl &);
+
+    /*!
+     *
+     */
     void updateInformation(int files, int dirs);
+
+    /*!
+     *
+     */
     void completion(const QString &);
+
+    /*!
+     *
+     */
     void finishedLoading();
 
     /*!
@@ -993,17 +991,29 @@ Q_SIGNALS:
 
     /*!
      * Emitted when a file is highlighted or generally the selection changes in
-     * multiselection mode. In the latter case, @p item is a null KFileItem.
+     * multiselection mode. In the latter case, \a item is a null KFileItem.
      * You can access the selected items with selectedItems().
      */
     void fileHighlighted(const KFileItem &item);
+
+    /*!
+     *
+     */
     void dirActivated(const KFileItem &item);
+
+    /*!
+     *
+     */
     void fileSelected(const KFileItem &item);
+
     /*!
      * Emitted when files are dropped. Dropping files is disabled by
      * default. You need to enable it with setAcceptDrops()
+     *
      * \a item the item on which the drop occurred or 0.
+     *
      * \a event the drop event itself.
+     *
      * \a urls the urls that where dropped.
      */
     void dropped(const KFileItem &item, QDropEvent *event, const QList<QUrl> &urls);
@@ -1013,6 +1023,7 @@ Q_SIGNALS:
      * extend the menu with custom actions.
      *
      * \a item the file on which the context menu was invoked
+     *
      * \a menu the context menu, pre-populated with the file-management actions
      */
     void contextMenuAboutToShow(const KFileItem &item, QMenu *menu);
