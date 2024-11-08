@@ -31,7 +31,7 @@ inline bool isAbsoluteLocalPath(const QString &path)
     return !path.startsWith(QLatin1Char(':')) && QDir::isAbsolutePath(path);
 }
 
-/*!
+/*
  * Appends a slash to @p path if it's not empty, and doesn't already end with a '/'.
  * This method modifies its arg directly:
  * QString p = "foo";
