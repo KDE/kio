@@ -1,4 +1,4 @@
-include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
 
 project = KIOWidgets
 description = Additions to Qt Core
@@ -6,8 +6,7 @@ description = Additions to Qt Core
 documentationinheaders = true
 
 headerdirs = .
-
-headers.fileextensions = "*.qdoc *.h"
+sourcedirs = .
 
 outputformats = HTML
 

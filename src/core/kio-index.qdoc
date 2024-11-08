@@ -18,6 +18,7 @@
         \li \l{KIO Core C++ Classes}
         \li \l{KIO Gui C++ Classes}
         \li \l{KIO Widgets C++ Classes}
+        \li \l{KIO FileWidgets C++ Classes}
     \endlist
 
     \section1 Licenses
