@@ -121,9 +121,9 @@ public:
     static bool parseURL(const QUrl &url, int &trashId, QString &fileId, QString &relativePath);
 
     using TrashDirMap = QMap<int, QString>;
-    /// @internal This method is for TestTrash only. Home trash is included (id 0).
+    /// \internal This method is for TestTrash only. Home trash is included (id 0).
     TrashDirMap trashDirectories() const;
-    /// @internal This method is for TestTrash only. No entry with id 0.
+    /// \internal This method is for TestTrash only. No entry with id 0.
     TrashDirMap topDirectories() const;
 
 Q_SIGNALS:

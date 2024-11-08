@@ -187,14 +187,14 @@ public:
     void slotPrivilegeOperationRequested();
 
     /*!
-     * @internal
+     * \internal
      * Called by the scheduler when a worker gets to
      * work on this job.
      **/
     virtual void start(KIO::Worker *worker);
 
     /*!
-     * @internal
+     * \internal
      * Called to detach a worker from a job.
      **/
     void workerDone();
@@ -287,14 +287,14 @@ public:
      */
     void internalResume();
     /*!
-     * @internal
+     * \internal
      * Called by the scheduler when a worker gets to
      * work on this job.
      * \a worker the worker that works on the job
      */
     void start(KIO::Worker *worker) override;
     /*!
-     * @internal
+     * \internal
      * Called when the KIO worker needs the data to send the server. This slot
      * is invoked when the data is to be sent is read from a QIODevice rather
      * instead of a QByteArray buffer.
@@ -338,7 +338,7 @@ public:
 
 class DirectCopyJobPrivate;
 /*!
- * @internal
+ * \internal
  * Used for direct copy from or to the local filesystem (i.e.\ WorkerBase::copy())
  */
 class DirectCopyJob : public SimpleJob
@@ -354,7 +354,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /*!
-     * @internal
+     * \internal
      * Emitted if the job found an existing partial file
      * and supports resuming. Used by FileCopyJob.
      */

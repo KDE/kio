@@ -53,7 +53,7 @@ public:
      */
     KFilePreviewGenerator(QAbstractItemView *parent);
 
-    /*! @internal */
+    /*! \internal */
     KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model);
 
     ~KFilePreviewGenerator() override;

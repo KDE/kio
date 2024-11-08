@@ -16,7 +16,7 @@ namespace KDEPrivate
  *
  * The implementation extends QMenu with drag & drop support.
  *
- * @internal
+ * \internal
  */
 class KUrlNavigatorMenu : public QMenu
 {

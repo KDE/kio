@@ -195,7 +195,7 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
     return msg;
 }
 
-/*! @internal */
+/*! \internal */
 struct CopyInfo {
     QUrl uSource;
     QUrl uDest;
@@ -206,7 +206,7 @@ struct CopyInfo {
     KIO::filesize_t size; // 0 for dirs
 };
 
-/*! @internal */
+/*! \internal */
 class KIO::CopyJobPrivate : public KIO::JobPrivate
 {
 public:
