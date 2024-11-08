@@ -11,16 +11,25 @@
 #include "kiowidgets_export.h"
 #include <ksslerroruidata.h>
 
+// TODO qdoc header file
+
 namespace KIO
 {
 /*! UI methods for handling SSL errors. */
 namespace SslUi
 {
-/*! Error rule storage behavior. */
+/*!
+ * Error rule storage behavior
+ *
+ * \value RecallRules Apply stored certificate rules (typically ignored errors)
+ * \value StoreRules Make new ignore rules from the user's choice and store them
+ * \value RecallAndStoreRules Apply stored rules and store new rules
+ *
+ */
 enum RulesStorage {
-    RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
-    StoreRules = 2, ///< make new ignore rules from the user's choice and store them
-    RecallAndStoreRules = 3, ///< apply stored rules and store new rules
+    RecallRules = 1,
+    StoreRules = 2,
+    RecallAndStoreRules = 3,
 };
 
 /*!
@@ -32,9 +41,10 @@ enum RulesStorage {
  * the SSL errors that occurred and continue connecting. And in case of the latter whether to remember
  * the decision in the future or ignore the error temporarily.
  *
- * @p uiData the KSslErrorUiData object constructed from the socket that is trying to establish the
+ * \a uiData the KSslErrorUiData object constructed from the socket that is trying to establish the
  *           encrypted connection
- * @p storedRules see RulesStorage Enum
+ *
+ * \a storedRules see RulesStorage Enum
  */
 bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules = RecallAndStoreRules);
 }
