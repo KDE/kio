@@ -28,7 +28,10 @@ class QEvent;
 class QString;
 
 /*!
- * @class KUrlRequester kurlrequester.h <KUrlRequester>
+ * \class KUrlRequester
+ * \inmodule KIOWidgets
+ *
+ * \brief A widget to request a filename/url from the user
  *
  * This class is a widget showing a lineedit and a button, which invokes a
  * filedialog. File name completion is available in the lineedit.
@@ -46,21 +49,40 @@ class QString;
  *
  * The default window modality for the file dialog is Qt::ApplicationModal
  *
+ * TODO qdoc
  * \image html kurlrequester.png "KUrlRequester"
- *
- * @short A widget to request a filename/url from the user
- * @author Carsten Pfeiffer <pfeiffer@kde.org>
  */
 class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {
     Q_OBJECT
+    /*!
+     * \property KUrlRequester::url
+     */
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
-    /// \since 5.108
+    /*!
+     * \property KUrlRequester::nameFilters
+     * \since 5.108
+     */
     Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters)
+    /*!
+     * \property KUrlRequester::mode
+     */
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
+    /*!
+     * \property KUrlRequester::acceptMode
+     */
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
+    /*!
+     * \property KUrlRequester::placeholderText
+     */
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
+    /*!
+     * \property KUrlRequester::text
+     */
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
+    /*!
+     * \property KUrlRequester::fileDialogModality
+     */
     Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)
 
 public:
@@ -70,7 +92,7 @@ public:
     explicit KUrlRequester(QWidget *parent = nullptr);
 
     /*!
-     * Constructs a KUrlRequester widget with the initial URL @p url.
+     * Constructs a KUrlRequester widget with the initial URL \a url.
      */
     explicit KUrlRequester(const QUrl &url, QWidget *parent = nullptr);
 
@@ -81,9 +103,6 @@ public:
      * edit-widget is reparented to have the KUrlRequester as parent.
      */
     KUrlRequester(QWidget *editWidget, QWidget *parent);
-    /*!
-     * Destructs the KUrlRequester.
-     */
     ~KUrlRequester() override;
 
     /*!
@@ -113,7 +132,7 @@ public:
      * The default mode of the file dialog is 'KFile::File | KFile::ExistingOnly | KFile::LocalOnly',
      * which you can change using this method.
      *
-     * @note You can only select one file from the file dialog invoked
+     * \note You can only select one file from the file dialog invoked
      * by KUrlRequester, hence setting KFile::Files doesn't make
      * much sense here.
      *
@@ -187,8 +206,9 @@ public:
      *
      * Never returns 0. This method creates the file dialog on demand.
      *
-     * @deprecated since 5.0. The dialog will be created anyway when the user
+     * Deprecated: The dialog will be created anyway when the user
      * requests it, and will behave according to the properties of KUrlRequester.
+     * \deprecated 5.0.
      */
     KIOWIDGETS_DEPRECATED_VERSION(5, 0, "See API docs")
     virtual QFileDialog *fileDialog() const;
@@ -251,7 +271,7 @@ public:
     Qt::WindowModality fileDialogModality() const;
 
     /*!
-     * Set the window modality for the file dialog to @p modality
+     * Set the window modality for the file dialog to \a modality
      * Directory selection dialogs are always modal
      *
      * The default is Qt::ApplicationModal.
@@ -261,18 +281,20 @@ public:
 
 public Q_SLOTS:
     /*!
-     * Sets the url in the lineedit to @p url.
+     * Sets the url in the lineedit to \a url.
      */
     void setUrl(const QUrl &url);
 
     /*!
-     * Sets the start dir @p startDir.
+     * Sets the start dir \a startDir.
+     *
      * The start dir is only used when the URL isn't set.
      */
     void setStartDir(const QUrl &startDir);
 
     /*!
      * Sets the current text in the lineedit or combobox.
+     *
      * This is used for cases where KUrlRequester is used to
      * enter URL-or-something-else, like KOpenWithDialog where you
      * can type a full command with arguments.
@@ -337,6 +359,11 @@ private:
     Q_DISABLE_COPY(KUrlRequester)
 };
 
+/*!
+ * \class KUrlComboRequester
+ * \inheaderfile KUrlRequester
+ * \inmodule KIOWidgets
+ */
 class KIOWIDGETS_EXPORT KUrlComboRequester : public KUrlRequester // krazy:exclude=dpointer (For use in Qt Designer)
 {
     Q_OBJECT

@@ -14,7 +14,11 @@
 
 class KPropertiesDialogPluginPrivate;
 /*!
- * A Plugin in the Properties dialog
+ * \class KPropertiesDialogPlugin
+ * \inmodule KIOWidgets
+ *
+ * \brief A Plugin in the Properties dialog.
+ *
  * This is an abstract class. You must inherit from this class
  * to build a new kind of tabbed page for the KPropertiesDialog.
  * A plugin in itself is just a library containing code, not a dialog's page.
@@ -26,14 +30,14 @@ class KPropertiesDialogPluginPrivate;
  *
  * The metadata can contain the MIME types for which the plugin should be created.
  * For instance:
- * @verbatim
-   {
-       "KPlugin": {
-           "MimeTypes": ["text/html", "application/x-mymimetype"]
-       },
-       "X-KDE-Protocols": ["file"]
-   }
-   @endverbatim
+ * \badcode
+ * {
+ *     "KPlugin": {
+ *         "MimeTypes": ["text/html", "application/x-mymimetype"]
+ *     },
+ *     "X-KDE-Protocols": ["file"]
+ * }
+ * \endcode
  * If the MIME types are empty or not specified, the plugin will be created for all MIME types.
  *
  * You can also include "X-KDE-Protocols" if you want that plugin for instance
@@ -58,7 +62,14 @@ public:
      */
     virtual void applyChanges();
 
+    /*!
+     *
+     */
     void setDirty(bool b = true);
+
+    /*!
+     *
+     */
     bool isDirty() const;
 
 Q_SIGNALS:

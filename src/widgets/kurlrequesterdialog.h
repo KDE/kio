@@ -19,13 +19,13 @@ class QFileDialog;
 class KUrlRequesterDialogPrivate;
 
 /*!
- * @class KUrlRequesterDialog kurlrequesterdialog.h <KUrlRequesterDialog>
+ * \class KUrlRequesterDialog
+ * \inmodule KIOWidgets
+ *
+ * \brief Simple dialog to enter a filename/url.
  *
  * Dialog in which a user can enter a filename or url. It is a dialog
  * encapsulating KUrlRequester.
- *
- * @short Simple dialog to enter a filename/url.
- * @author Wilco Greven <greven@kde.org>
  */
 class KIOWIDGETS_EXPORT KUrlRequesterDialog : public QDialog
 {
@@ -38,6 +38,7 @@ public:
      * \a url    The url of the directory to start in. Use QString()
      *               to start in the current working directory, or the last
      *               directory where a file has been selected.
+     *
      * \a parent The parent object of this widget.
      */
     explicit KUrlRequesterDialog(const QUrl &url, QWidget *parent = nullptr);
@@ -48,13 +49,13 @@ public:
      * \a url    The url of the directory to start in. Use QString()
      *               to start in the current working directory, or the last
      *               directory where a file has been selected.
+     *
      * \a text   Text of the label
+     *
      * \a parent The parent object of this widget.
      */
     KUrlRequesterDialog(const QUrl &url, const QString &text, QWidget *parent);
-    /*!
-     * Destructs the dialog.
-     */
+
     ~KUrlRequesterDialog() override;
 
     /*!
@@ -66,7 +67,9 @@ public:
      * Creates a modal dialog, executes it and returns the selected URL.
      *
      * \a url This specifies the initial path of the input line.
+     *
      * \a parent The widget the dialog will be centered on initially.
+     *
      * \a title The title to use for the dialog.
      */
     static QUrl getUrl(const QUrl &url = QUrl(), QWidget *parent = nullptr, const QString &title = QString());

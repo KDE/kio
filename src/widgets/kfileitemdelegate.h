@@ -21,9 +21,10 @@ class QModelIndex;
 class QPainter;
 
 /*!
- * @class KFileItemDelegate kfileitemdelegate.h <KFileItemDelegate>
+ * \class KFileItemDelegate
+ * \inmodule KIOWidgets
  *
- * KFileItemDelegate is intended to be used to provide a KDE file system
+ * \brief KFileItemDelegate is intended to be used to provide a KDE file system
  * view, when using one of the standard item views in Qt with KDirModel.
  *
  * While primarily intended to be used with KDirModel, it uses
@@ -39,67 +40,61 @@ class QPainter;
  * the file items below the icon labels.
  *
  * Which information should be shown, if any, is controlled by the
- * @ref information property, which is a list that can be set by calling
+ * information property, which is a list that can be set by calling
  * setShowInformation(), and read by calling showInformation().
  * By default this list is empty.
  *
  * To use KFileItemDelegate, instantiate an object from the delegate,
  * and call setItemDelegate() in one of the standard item views in Qt:
  *
- * @code
+ * \code
  * QListView *listview = new QListView(this);
  * KFileItemDelegate *delegate = new KFileItemDelegate(this);
  * listview->setItemDelegate(delegate);
- * @endcode
+ * \endcode
  */
 class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 
     /*!
+     * \property KFileItemDelegate::information
+     *
      * This property holds which additional information (if any) should be shown below
      * items in icon views.
-     *
-     * Access functions:
-     * @li void setShownformation(InformationList information)
-     * @li InformationList showInformation() const
      */
     Q_PROPERTY(InformationList information READ showInformation WRITE setShowInformation)
 
     /*!
+     * \property KFileItemDelegate::shadowColor
+     *
      * This property holds the color used for the text shadow.
      *
      * The alpha value in the color determines the opacity of the shadow.
      * Shadows are only rendered when the alpha value is non-zero.
      * The default value for this property is Qt::transparent.
-     *
-     * Access functions:
-     * @li void setShadowColor(const QColor &color)
-     * @li QColor shadowColor() const
      */
     Q_PROPERTY(QColor shadowColor READ shadowColor WRITE setShadowColor)
 
     /*!
+     * \property KFileItemDelegate::shadowOffset
+     *
      * This property holds the horizontal and vertical offset for the text shadow.
      * The default value for this property is (1, 1).
-     *
-     * Access functions:
-     * @li void setShadowOffset(const QPointF &offset)
-     * @li QPointF shadowOffset() const
      */
     Q_PROPERTY(QPointF shadowOffset READ shadowOffset WRITE setShadowOffset)
 
     /*!
+     * \property KFileItemDelegate::shadowBlur
+     *
      * This property holds the blur radius for the text shadow.
      * The default value for this property is 2.
-     *
-     * Access functions:
-     * @li void setShadowBlur(qreal radius)
-     * @li qreal shadowBlur() const
      */
     Q_PROPERTY(qreal shadowBlur READ shadowBlur WRITE setShadowBlur)
 
     /*!
+     * \property KFileItemDelegate::maximumSize
+     *
      * This property holds the maximum size that can be returned
      * by KFileItemDelegate::sizeHint(). If the maximum size is empty,
      * it will be ignored.
@@ -107,6 +102,8 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
     Q_PROPERTY(QSize maximumSize READ maximumSize WRITE setMaximumSize)
 
     /*!
+     * \property KFileItemDelegate::showToolTipWhenElided
+     *
      * This property determines whether a tooltip will be shown by the delegate
      * if the display role is elided. This tooltip will contain the full display
      * role information. The tooltip will only be shown if the Qt::ToolTipRole differs
@@ -116,6 +113,8 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
     Q_PROPERTY(bool showToolTipWhenElided READ showToolTipWhenElided WRITE setShowToolTipWhenElided)
 
     /*!
+     * \property KFileItemDelegate::jobTransfersVisible
+     *
      * This property determines if there are KIO jobs on a destination URL visible, then
      * they will have a small animation overlay displayed on them.
      */
@@ -139,28 +138,46 @@ public:
      * types are resolved. If the MIME type isn't known, "Unknown" will be displayed until
      * the MIME type has been successfully resolved.
      *
+     * \value NoInformation No additional information will be shown for items.
+     * \value Size The file size for files, and the number of items for folders.
+     * \value Permissions A UNIX permissions string, e.g. -rwxr-xr-x.
+     * \value OctalPermissions The permissions as an octal value, e.g. 0644.
+     * \value Owner  The user name of the file owner, e.g. root
+     * \value OwnerAndGroup The user and group that owns the file, e.g. root:root
+     * \value CreationTime The date and time the file/folder was created.
+     * \value ModificationTime The date and time the file/folder was last modified.
+     * \value AccessTime The date and time the file/folder was last accessed.
+     * \value MimeType The MIME type for the item, e.g. text/html.
+     * \value FriendlyMimeType The descriptive name for the MIME type, e.g. HTML Document.
+     * \value[since 4.5] LinkDest The destination of a symbolic link.
+     * \value[since 4.5] LocalPathOrUrl The local path to the file or the URL in case it is not a local file.
+     * \value[since 4.6] Comment A simple comment that can be displayed to the user as is.
+     *
      * \sa setShowInformation()
      * \sa showInformation()
      * \sa information
      */
     enum Information {
-        NoInformation, ///< No additional information will be shown for items.
-        Size, ///< The file size for files, and the number of items for folders.
-        Permissions, ///< A UNIX permissions string, e.g.\ -rwxr-xr-x.
-        OctalPermissions, ///< The permissions as an octal value, e.g.\ 0644.
-        Owner, ///< The user name of the file owner, e.g.\ root
-        OwnerAndGroup, ///< The user and group that owns the file, e.g.\ root:root
-        CreationTime, ///< The date and time the file/folder was created.
-        ModificationTime, ///< The date and time the file/folder was last modified.
-        AccessTime, ///< The date and time the file/folder was last accessed.
-        MimeType, ///< The MIME type for the item, e.g.\ text/html.
-        FriendlyMimeType, ///< The descriptive name for the MIME type, e.g.\ HTML Document.
-        LinkDest, ///< The destination of a symbolic link. \since 4.5
-        LocalPathOrUrl, ///< The local path to the file or the URL in case it is not a local file. \since 4.5
-        Comment, ///< A simple comment that can be displayed to the user as is. \since 4.6
+        NoInformation,
+        Size,
+        Permissions,
+        OctalPermissions,
+        Owner,
+        OwnerAndGroup,
+        CreationTime,
+        ModificationTime,
+        AccessTime,
+        MimeType,
+        FriendlyMimeType,
+        LinkDest,
+        LocalPathOrUrl,
+        Comment,
     };
     Q_ENUM(Information)
 
+    /*!
+     * \typedef KFileItemDelegate::InformationList
+     */
     typedef QList<Information> InformationList;
 
     /*!
@@ -176,76 +193,66 @@ public:
     ~KFileItemDelegate() override;
 
     /*!
-     * Returns the nominal size for the item referred to by @p index, given the
+     * Returns the nominal size for the item referred to by \a index, given the
      * provided options.
      *
      * If the model provides a valid Qt::FontRole and/or Qt::TextAlignmentRole for the item,
      * those will be used instead of the ones specified in the style options.
      *
-     * This function is reimplemented from @ref QAbstractItemDelegate.
+     * This function is reimplemented from QAbstractItemDelegate.
      *
      * \a option  The style options that should be used when painting the item.
+     *
      * \a index   The index to the item for which to return the size hint.
      */
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /*!
-     * Paints the item indicated by @p index, using @p painter.
+     * Paints the item indicated by \a index, using \a painter.
      *
      * The item will be drawn in the rectangle specified by option.rect.
      * The correct size for that rectangle can be obtained by calling
-     * @ref sizeHint().
+     * sizeHint().
      *
      * This function will use the following data values if the model provides
-     * them for the item, in place of the values in @p option:
+     * them for the item, in place of the values in \a option:
      *
-     * @li Qt::FontRole           The font that should be used for the display role.
-     * @li Qt::TextAlignmentRole  The alignment of the display role.
-     * @li Qt::ForegroundRole     The text color for the display role.
-     * @li Qt::BackgroundRole     The background color for the item.
+     * \list
+     * \li Qt::FontRole           The font that should be used for the display role.
+     * \li Qt::TextAlignmentRole  The alignment of the display role.
+     * \li Qt::ForegroundRole     The text color for the display role.
+     * \li Qt::BackgroundRole     The background color for the item.
+     * \endlist
      *
-     * This function is reimplemented from @ref QAbstractItemDelegate.
+     * This function is reimplemented from QAbstractItemDelegate.
      *
      * \a painter The painter with which to draw the item.
+     *
      * \a option  The style options that should be used when painting the item.
+     *
      * \a index   The index to the item that should be painted.
      */
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /*!
      * Sets the list of information lines that are shown below the icon label in list views.
      *
      * You will typically construct the list like this:
-     * @code
+     * \code
      * KFileItemDelegate::InformationList list;
      * list << KFileItemDelegate::FriendlyMimeType << KFileItemDelegate::Size;
      * delegate->setShowInformation(list);
-     * @endcode
+     * \endcode
      *
      * The information lines will be displayed in the list order.
      * The delegate will first draw the item label, and then as many information
@@ -333,7 +340,7 @@ public:
      * Sets whether a tooltip should be shown if the display role is
      * elided containing the full display role information.
      *
-     * @note The tooltip will only be shown if the Qt::ToolTipRole differs
+     * \note The tooltip will only be shown if the Qt::ToolTipRole differs
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
      * \sa showToolTipWhenElided()
@@ -344,7 +351,7 @@ public:
      * Returns whether a tooltip should be shown if the display role
      * is elided containing the full display role information.
      *
-     * @note The tooltip will only be shown if the Qt::ToolTipRole differs
+     * \note The tooltip will only be shown if the Qt::ToolTipRole differs
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
      * \sa setShowToolTipWhenElided()
@@ -358,7 +365,7 @@ public:
     QRect iconRect(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     /*!
-     * When the contents text needs to be wrapped, @p wrapMode strategy
+     * When the contents text needs to be wrapped, \a wrapMode strategy
      * will be followed.
      *
      */
@@ -393,19 +400,14 @@ public:
      */
     bool jobTransfersVisible() const;
 
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     bool eventFilter(QObject *object, QEvent *event) override;
 
 public Q_SLOTS:
-    /*!
-     * Reimplemented from @ref QAbstractItemDelegate.
-     */
     bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
     /*!
      * Returns the shape of the item as a region.
+     *
      * The returned region can be used for precise hit testing of the item.
      */
     QRegion shape(const QStyleOptionViewItem &option, const QModelIndex &index);

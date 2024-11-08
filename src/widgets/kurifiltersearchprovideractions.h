@@ -18,9 +18,11 @@ namespace KIO
 {
 class WebShortcutsMenuManagerPrivate;
 /*!
- * @class KUriFilterSearchProviderActions kurifiltersearchprovideractions.h <KIO/KUriFilterSearchProviderActions>
+ * \class KUriFilterSearchProviderActions
+ * \inheaderfile KIO/KUriFilterSearchProviderActions
+ * \inmodule KIOWidgets
  *
- * This class is a manager for web shortcuts
+ * \brief This class is a manager for web shortcuts.
  *
  * It will provide a list of web shortcuts against a selected text
  *
@@ -37,22 +39,21 @@ public:
      *
      * \a parent The QObject parent.
      */
-
     explicit KUriFilterSearchProviderActions(QObject *parent = nullptr);
     ~KUriFilterSearchProviderActions() override;
 
     /*!
-     * @brief return the selected text
+     * Returns the selected text
      */
     QString selectedText() const;
     /*!
-     * @brief Set selected text
+     * Set selected text
      * \a selectedText the text to search for
      */
     void setSelectedText(const QString &selectedText);
 
     /*!
-     * @brief addWebShortcutsToMenu Manage to add web shortcut actions to existing menu.
+     * Add web shortcut actions to existing menu.
      * \a menu menu to add shortcuts to
      */
     void addWebShortcutsToMenu(QMenu *menu);
