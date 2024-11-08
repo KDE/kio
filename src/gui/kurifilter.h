@@ -714,8 +714,6 @@ public:
      *
      * \value NormalTextFilter The plugin used to filter normal text, e.g. "some term to search".
      * \value WebShortcutFilter The plugin used to filter web shortcuts, e.g. gg:KDE.
-     *
-     * \sa SearchFilterTypes
      */
     enum SearchFilterType {
         NormalTextFilter = 0x01,

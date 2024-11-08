@@ -49,34 +49,68 @@ class QSize;
  */
 
 /*!
- * @class KAbstractViewAdapter kabstractviewadapter.h <KAbstractViewAdapter>
+ * \class KAbstractViewAdapter
+ * \inmodule KIOWidgets
  *
- * Interface used by KFilePreviewGenerator to generate previews
- * for files. The interface allows KFilePreviewGenerator to be
+ * \brief Interface used by KFilePreviewGenerator to generate previews
+ * for files.
+ *
+ * The interface allows KFilePreviewGenerator to be
  * independent from the view implementation.
  */
 class KIOFILEWIDGETS_EXPORT KAbstractViewAdapter : public QObject
 {
 public:
+    /*!
+     * \value ScrollBarValueChanged
+     * \value IconSizeChanged
+     */
     enum Signal {
         ScrollBarValueChanged,
         IconSizeChanged
     };
 
+    /*!
+     *
+     */
     KAbstractViewAdapter(QObject *parent)
         : QObject(parent)
     {
     }
+
     ~KAbstractViewAdapter() override
     {
     }
+
+    /*!
+     *
+     */
     virtual QAbstractItemModel *model() const = 0;
+
+    /*!
+     *
+     */
     virtual QSize iconSize() const = 0;
+
+    /*!
+     *
+     */
     virtual QPalette palette() const = 0;
+
+    /*!
+     *
+     */
     virtual QRect visibleArea() const = 0;
+
+    /*!
+     *
+     */
     virtual QRect visualRect(const QModelIndex &index) const = 0;
 
     // TODO KF6 make this connect work with a PointerToMemberFunction/Functor
+    /*!
+     *
+     */
     virtual void connect(Signal signal, QObject *receiver, const char *slot) = 0;
 };
 
