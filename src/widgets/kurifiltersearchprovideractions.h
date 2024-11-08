@@ -18,7 +18,7 @@ namespace KIO
 {
 class WebShortcutsMenuManagerPrivate;
 /*!
- * \class KUriFilterSearchProviderActions
+ * \class KIO::KUriFilterSearchProviderActions
  * \inheaderfile KIO/KUriFilterSearchProviderActions
  * \inmodule KIOWidgets
  *

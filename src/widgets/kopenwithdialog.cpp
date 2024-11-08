@@ -482,7 +482,7 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
     }
 }
 
-/*!*************************************************************
+/**************************************************************
  *
  * KOpenWithDialog
  *

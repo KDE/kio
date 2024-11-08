@@ -31,7 +31,7 @@ class QString;
  * \class KUrlRequester
  * \inmodule KIOWidgets
  *
- * \brief A widget to request a filename/url from the user
+ * \brief A widget to request a filename/url from the user.
  *
  * This class is a widget showing a lineedit and a button, which invokes a
  * filedialog. File name completion is available in the lineedit.

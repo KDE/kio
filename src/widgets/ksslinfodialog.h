@@ -20,7 +20,7 @@
  * \class KSslInfoDialog
  * \inmodule KIOWidgets
  *
- * \brief KDE SSL Information Dialog
+ * \brief KDE SSL Information Dialog.
  *
  * This class creates a dialog that can be used to display information about
  * an SSL session.
