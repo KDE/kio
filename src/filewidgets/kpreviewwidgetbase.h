@@ -18,7 +18,10 @@
 class QUrl;
 
 /*!
- * @class KPreviewWidgetBase kpreviewwidgetbase.h <KPreviewWidgetBase>
+ * \class KPreviewWidgetBase
+ * \inmodule KIOFileWidgets
+ *
+ * \short Abstract baseclass for all preview widgets.
  *
  * Abstract baseclass for all preview widgets which shall be used via
  * KFileDialog::setPreviewWidget(const KPreviewWidgetBase *).
@@ -28,9 +31,6 @@ class QUrl;
  * Just derive your custom preview widget from KPreviewWidgetBase and implement
  * all the pure virtual methods. The slot showPreview(const QUrl &) is called
  * every time the file selection changes.
- *
- * @short Abstract baseclass for all preview widgets.
- * @author Frerich Raabe <raabe@kde.org>
  */
 class KIOFILEWIDGETS_EXPORT KPreviewWidgetBase : public QWidget
 {
@@ -47,6 +47,9 @@ public:
     explicit KPreviewWidgetBase(QWidget *parent);
     ~KPreviewWidgetBase() override;
 
+    /*!
+     *
+     */
     QStringList supportedMimeTypes() const;
 
 public Q_SLOTS:
@@ -66,6 +69,9 @@ public Q_SLOTS:
     virtual void clearPreview() = 0;
 
 protected:
+    /*!
+     *
+     */
     void setSupportedMimeTypes(const QStringList &mimeTypes);
 
 private:

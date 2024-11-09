@@ -23,14 +23,19 @@ class QContextMenuEvent;
 class KFilePlacesViewPrivate;
 
 /*!
- * @class KFilePlacesView kfileplacesview.h <KFilePlacesView>
+ * \class KFilePlacesView
  *
- * This class allows to display a KFilePlacesModel.
+ * \inmodule KIOFileWidgets
+ *
+ * \brief This class allows to display a KFilePlacesModel.
  */
 class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView
 {
     Q_OBJECT
 public:
+    /*!
+     *
+     */
     explicit KFilePlacesView(QWidget *parent = nullptr);
     ~KFilePlacesView() override;
 
@@ -57,6 +62,10 @@ public:
      * disabled.
      */
     void setDropOnPlaceEnabled(bool enabled);
+
+    /*!
+     *
+     */
     bool isDropOnPlaceEnabled() const;
 
     /*!
@@ -68,6 +77,10 @@ public:
      * \since 5.92
      */
     void setDragAutoActivationDelay(int delay);
+
+    /*!
+     *
+     */
     int dragAutoActivationDelay() const;
 
     /*!
@@ -76,6 +89,10 @@ public:
      *
      */
     void setAutoResizeItemsEnabled(bool enabled);
+
+    /*!
+     *
+     */
     bool isAutoResizeItemsEnabled() const;
 
     /*!
@@ -88,7 +105,14 @@ public:
     QSize sizeHint() const override; // clazy:exclude=const-signal-or-slot
 
 public Q_SLOTS:
+    /*!
+     *
+     */
     void setUrl(const QUrl &url);
+
+    /*!
+     *
+     */
     void setShowAll(bool showAll);
 
     void setModel(QAbstractItemModel *model) override;
@@ -162,7 +186,9 @@ Q_SIGNALS:
     /*!
      * Emitted just before the context menu opens. This can be used to add additional
      * application actions to the menu.
+     *
      * \a index The model index of the place whose menu is about to open.
+     *
      * \a menu The menu that will be opened.
      * \since 5.91
      */
@@ -178,6 +204,7 @@ Q_SIGNALS:
 
     /*!
      * Is emitted if items are dropped on the place \a dest.
+     *
      * The application has to take care itself about performing the
      * corresponding action like copying or moving.
      */

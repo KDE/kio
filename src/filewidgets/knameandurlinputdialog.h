@@ -17,11 +17,12 @@ class KNameAndUrlInputDialogPrivate;
 class QUrl;
 
 /*!
- * @class KNameAndUrlInputDialog knameandurlinputdialog.h <KNameAndUrlInputDialog>
+ * \class KNameAndUrlInputDialog
+ * \inmodule KIOFileWidgets
  *
- * Dialog to ask for a name (e.g.\ filename) and a URL
+ * \brief Dialog to ask for a name (e.g.\ filename) and a URL.
+ *
  * Basically a merge of KLineEditDlg and KUrlRequesterDlg ;)
- * @author David Faure <faure@kde.org>
  */
 class KIOFILEWIDGETS_EXPORT KNameAndUrlInputDialog : public QDialog
 {
@@ -29,15 +30,15 @@ class KIOFILEWIDGETS_EXPORT KNameAndUrlInputDialog : public QDialog
 public:
     /*!
      * \a nameLabel label for the name field
+     *
      * \a urlLabel label for the URL requester
+     *
      * \a startDir start directory for the URL requester (optional)
+     *
      * \a parent parent widget
      */
     KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent);
 
-    /*!
-     * Destructor.
-     */
     ~KNameAndUrlInputDialog() override;
 
     /*!

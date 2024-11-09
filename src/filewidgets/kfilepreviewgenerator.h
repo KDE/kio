@@ -21,22 +21,25 @@ class QAbstractProxyModel;
 class KFilePreviewGeneratorPrivate;
 
 /*!
- * @class KFilePreviewGenerator kfilepreviewgenerator.h <KFilePreviewGenerator>
+ * \class KFilePreviewGenerator
+ * \inmodule KIOFileWidgets
  *
- * @brief Generates previews for files of an item view.
+ * \brief Generates previews for files of an item view.
  *
  * Per default a preview is generated for each item.
  * Additionally the clipboard is checked for cut items.
  * The icon state for cut items gets dimmed automatically.
  *
  * The following strategy is used when creating previews:
- * - The previews for currently visible items are created before
+ * \list
+ * \li The previews for currently visible items are created before
  *   the previews for invisible items.
- * - If the user changes the visible area by using the scrollbars,
+ * \li If the user changes the visible area by using the scrollbars,
  *   all pending previews get paused. As soon as the user stays
  *   on the same position for a short delay, the previews are
  *   resumed. Also in this case the previews for the visible items
  *   are generated first.
+ * \endlist
  *
  */
 class KIOFILEWIDGETS_EXPORT KFilePreviewGenerator : public QObject
@@ -45,7 +48,7 @@ class KIOFILEWIDGETS_EXPORT KFilePreviewGenerator : public QObject
 
 public:
     /*!
-     * \a parent  Item view containing the file items where previews should
+     * \a parent Item view containing the file items where previews should
      *                be generated. It is mandatory that the item view specifies
      *                an icon size by QAbstractItemView::setIconSize() and that
      *                the model of the view (or the source model of the proxy model)
@@ -66,6 +69,10 @@ public:
      * KFilePreviewGenerator::isPreviewShown() will always return false.
      */
     void setPreviewShown(bool show);
+
+    /*!
+     *
+     */
     bool isPreviewShown() const;
 
     /*!
