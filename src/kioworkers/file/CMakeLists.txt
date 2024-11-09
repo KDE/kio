@@ -35,6 +35,12 @@ if(UNIX)
   target_link_libraries(kio_file Qt6::Network KF6::AuthCore)
 endif()
 
+if (HAIKU)
+  # for accept, recvmsg, socket, bind and listen
+  target_link_libraries(kio_file network)
+endif ()
+
+
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
 endif()
