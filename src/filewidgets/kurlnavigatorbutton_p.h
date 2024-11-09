@@ -30,12 +30,14 @@ class Job;
 namespace KDEPrivate
 {
 /*!
- * @brief Button of the URL navigator which contains one part of an URL.
+ * Button of the URL navigator which contains one part of an URL.
  *
  * It is possible to drop a various number of items to an UrlNavigatorButton. In this case
  * a context menu is opened where the user must select whether he wants
  * to copy, move or link the dropped items to the URL part indicated by
  * the button.
+ *
+ * \internal
  */
 class KUrlNavigatorButton : public KUrlNavigatorButtonBase
 {
