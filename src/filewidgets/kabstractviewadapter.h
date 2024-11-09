@@ -50,7 +50,7 @@ class QSize;
 
 /*!
  * \class KAbstractViewAdapter
- * \inmodule KIOWidgets
+ * \inmodule KIOFileWidgets
  *
  * \brief Interface used by KFilePreviewGenerator to generate previews
  * for files.

@@ -28,22 +28,32 @@ class QMimeData;
 class QAction;
 
 /*!
- * @class KFilePlacesModel kfileplacesmodel.h <KFilePlacesModel>
+ * \class KFilePlacesModel
+ * \inmodule KIOFileWidgets
  *
  * This class is a list view model. Each entry represents a "place"
  * where user can access files. Only relevant when
  * used with QListView or QTableView.
- * @note This class is since 6.0 re-entrant
+ *
+ * \reentrant
  */
 class KIOFILEWIDGETS_EXPORT KFilePlacesModel : public QAbstractItemModel
 {
     Q_OBJECT
 
+    /*!
+     * \property KFilePlacesModel::supportedSchemes
+     */
     Q_PROPERTY(QStringList supportedSchemes READ supportedSchemes WRITE setSupportedSchemes NOTIFY supportedSchemesChanged)
 
 public:
     // Note: run   printf "0x%08X\n" $(($RANDOM*$RANDOM))
     // to define additional roles.
+    /*!
+     * \value UrlRole roleName is "url". See url()
+     *
+     *
+     */
     enum AdditionalRoles {
         /*! roleName is "url". \sa url() */
         UrlRole = 0x069CD12B,

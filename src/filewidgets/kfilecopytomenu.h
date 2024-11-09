@@ -18,9 +18,10 @@ class QMenu;
 class KFileCopyToMenuPrivate;
 
 /*!
- * @class KFileCopyToMenu kfilecopytomenu.h <KFileCopyToMenu>
+ * \class KFileCopyToMenu
+ * \inmodule KIOFileWidgets
  *
- * This class adds "Copy To" and "Move To" submenus to a popupmenu.
+ * \brief This class adds "Copy To" and "Move To" submenus to a popupmenu.
  */
 class KIOFILEWIDGETS_EXPORT KFileCopyToMenu : public QObject
 {
@@ -36,9 +37,6 @@ public:
      */
     explicit KFileCopyToMenu(QWidget *parentWidget);
 
-    /*!
-     * Destructor
-     */
     ~KFileCopyToMenu() override;
 
     /*!
@@ -52,7 +50,7 @@ public:
     void setReadOnly(bool ro);
 
     /*!
-     * Generate the actions and submenus, and adds them to the @p menu.
+     * Generate the actions and submenus, and adds them to the \a menu.
      * All actions are created as children of the menu.
      */
     void addActionsTo(QMenu *menu) const;
@@ -68,7 +66,9 @@ public:
 Q_SIGNALS:
     /*!
      * Emitted when the copy or move job fails.
+     *
      * \a errorCode the KIO job error code
+     *
      * \a message the error message to show the user
      */
     void error(int errorCode, const QString &message);
