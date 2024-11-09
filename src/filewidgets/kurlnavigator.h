@@ -26,17 +26,20 @@ class KUrlComboBox;
 class KUrlNavigatorPrivate;
 
 /*!
- * @class KUrlNavigator kurlnavigator.h <KUrlNavigator>
+ * \class KUrlNavigator
+ * \inmodule KIOFileWidgets
  *
- * @brief Widget that allows to navigate through the paths of an URL.
+ * \brief Widget that allows to navigate through the paths of an URL.
  *
  * The URL navigator offers two modes:
- * - Editable:     The URL of the location is editable inside an editor.
+ * \list
+ * \li Editable: The URL of the location is editable inside an editor.
  *                 By pressing RETURN the URL will get activated.
- * - Non editable ("breadcrumb view"): The URL of the location is represented by
+ * \li Non editable ("breadcrumb view"): The URL of the location is represented by
  *                 a number of buttons, where each button represents a path
  *                 of the URL. By clicking on a button the path will get
  *                 activated. This mode also supports drag and drop of items.
+ * \endlist
  *
  * The mode can be changed by clicking on the empty area of the URL navigator.
  * It is recommended that the application remembers the setting
@@ -51,20 +54,24 @@ class KUrlNavigatorPrivate;
  * KUrlNavigator::setShowFullPath()).
  *
  * The typical usage of the KUrlNavigator is:
- * - Create an instance providing a places model and an URL.
- * - Create an instance of QAbstractItemView which shows the content of the URL
+ * \list
+ * \li Create an instance providing a places model and an URL.
+ * \li Create an instance of QAbstractItemView which shows the content of the URL
  *   given by the URL navigator.
- * - Connect to the signal KUrlNavigator::urlChanged() and synchronize the content of
+ * \li Connect to the signal KUrlNavigator::urlChanged() and synchronize the content of
  *   QAbstractItemView with the URL given by the URL navigator.
+ * \endlist
  *
  * It is recommended, that the application remembers the state of the QAbstractItemView
  * when the URL has been changed. This allows to restore the view state when going back in history.
  * KUrlNavigator offers support for remembering the view state:
- * - The signal urlAboutToBeChanged() will be emitted before the URL change takes places.
+ * \list
+ * \li The signal urlAboutToBeChanged() will be emitted before the URL change takes places.
  *   This allows the application to store the view state by KUrlNavigator::saveLocationState().
- * - The signal urlChanged() will be emitted after the URL change took place. This allows
+ * \li The signal urlChanged() will be emitted after the URL change took place. This allows
  *   the application to restore the view state by getting the values from
  *   KUrlNavigator::locationState().
+ * \endlist
  */
 class KIOFILEWIDGETS_EXPORT KUrlNavigator : public QWidget
 {
@@ -78,7 +85,9 @@ public:
      * \a placesModel    Model for the places which are selectable inside a
      *                       menu. A place can be a bookmark or a device. If it is 0,
      *                       no places selector is displayed.
+     *
      * \a url            URL which is used for the navigation or editing.
+     *
      * \a parent         Parent widget.
      */
     KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent);
@@ -168,6 +177,9 @@ public:
     // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     void setHomeUrl(const QUrl &url);
 
+    /*!
+     *
+     */
     QUrl homeUrl() const;
 
     /*!
@@ -179,7 +191,7 @@ public:
     void setUrlEditable(bool editable);
 
     /*!
-     * Returns True, if the URL is editable within a line editor.
+     * Returns \c true, if the URL is editable within a line editor.
      *         If false is returned, each part of the URL is presented by a button
      *         for fast navigation ("breadcrumb view").
      */
@@ -196,8 +208,8 @@ public:
     void setShowFullPath(bool show);
 
     /*!
-     * Returns True, if the full path of the URL should be shown in the breadcrumb view.
-     * \since  4.2
+     * Returns \c true, if the full path of the URL should be shown in the breadcrumb view.
+     * \since 4.2
      */
     bool showFullPath() const;
 
@@ -213,8 +225,8 @@ public:
     void setActive(bool active);
 
     /*!
-     * Returns True, if the URL navigator is in the active mode.
-     * \sa    KUrlNavigator::setActive()
+     * Returns \c true, if the URL navigator is in the active mode.
+     * \sa KUrlNavigator::setActive()
      */
     bool isActive() const;
 
@@ -226,31 +238,31 @@ public:
      */
     void setPlacesSelectorVisible(bool visible);
 
-    /*! Returns True, if the places selector is visible. */
+    /*! Returns \c true, if the places selector is visible. */
     bool isPlacesSelectorVisible() const;
 
     /*!
-     * Returns The currently entered, but not accepted URL.
+     * Returns the currently entered, but not accepted URL.
      *         It is possible that the returned URL is not valid.
      */
     QUrl uncommittedUrl() const;
 
     /*!
-     * Returns The amount of locations in the history. The data for each
+     * Returns the amount of locations in the history. The data for each
      *         location can be retrieved by KUrlNavigator::locationUrl() and
      *         KUrlNavigator::locationState().
      */
     int historySize() const;
 
     /*!
-     * Returns  The history index of the current location, where
+     * Returns the history index of the current location, where
      *          0 <= history index < KUrlNavigator::historySize(). 0 is the most
      *          recent history entry.
      */
     int historyIndex() const;
 
     /*!
-     * Returns The used editor when the navigator is in the edit mode
+     * Returns the used editor when the navigator is in the edit mode
      * \sa    KUrlNavigator::setUrlEditable()
      */
     KUrlComboBox *editor() const;
@@ -259,9 +271,9 @@ public:
      * Set the URL schemes that the navigator should allow navigating to.
      *
      * If the passed list is empty, all schemes are supported. Examples for
-     * schemes are @c "file" or @c "ftp".
+     * schemes are \c "file" or \c "ftp".
      *
-     * @sa QFileDialog::setSupportedSchemes
+     * \sa QFileDialog::setSupportedSchemes
      * \since 5.103
      */
     void setSupportedSchemes(const QStringList &schemes);
@@ -271,7 +283,7 @@ public:
      *
      * If the returned list is empty, all schemes are supported.
      *
-     * @sa QFileDialog::supportedSchemes
+     * \sa QFileDialog::supportedSchemes
      * \since 5.103
      */
     QStringList supportedSchemes() const;
@@ -280,6 +292,7 @@ public:
      * The child widget that received the QDropEvent when dropping on the URL
      * navigator. You can pass this widget to KJobWidgets::setWindow()
      * if you need to show a drop menu with KIO::drop().
+     *
      * Returns Child widget that has received the last drop event, or nullptr if
      *         nothing has been dropped yet on the URL navigator.
      * \since 5.37
@@ -316,7 +329,7 @@ public:
      *
      * KUrlNavigator takes ownership over \a widget. Any existing badge widget is deleted.
      *
-     * NOTE: There is no limit to the size of the badge widget. If your badge widget is taller than other
+     * \note There is no limit to the size of the badge widget. If your badge widget is taller than other
      * controls in KUrlNavigator, then the whole KUrlNavigator will be resized to accommodate it. Also,
      * KUrlNavigator has fixed minimumWidth of 100, so if your badge widget is too wide, it might be clipped
      * when the space is tight. You might want to call KUrlNavigator::setMinimumWidth() with a larger value
@@ -348,10 +361,8 @@ public Q_SLOTS:
      */
     void requestActivation();
 
-#if !defined(K_DOXYGEN)
     // KDE5: Remove and listen for focus-signal instead
     void setFocus();
-#endif
 
 Q_SIGNALS:
     /*!
@@ -439,27 +450,21 @@ Q_SIGNALS:
     void urlSelectionRequested(const QUrl &url);
 
 protected:
-#if !defined(K_DOXYGEN)
-    /*!
+    /*
      * If the Escape key is pressed, the navigation bar should switch
      * to the breadcrumb view.
-     * \sa QWidget::keyPressEvent()
      */
     void keyPressEvent(QKeyEvent *event) override;
 
-    /*!
-     * Reimplemented for internal purposes.
-     */
     void keyReleaseEvent(QKeyEvent *event) override;
 
-    /*!
+    /*
      * Paste the clipboard content as URL, if the middle mouse
      * button has been clicked.
-     * \sa QWidget::mouseReleaseEvent()
      */
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-    /*!
+    /*
      * Reimplemented to activate on middle mousse button click
      */
     void mousePressEvent(QMouseEvent *event) override;
@@ -469,7 +474,6 @@ protected:
     void wheelEvent(QWheelEvent *event) override;
 
     bool eventFilter(QObject *watched, QEvent *event) override;
-#endif
 
 private:
     friend class KUrlNavigatorPrivate;

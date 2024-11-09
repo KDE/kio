@@ -22,9 +22,10 @@ class KActionCollection;
 class KNewFileMenuPrivate;
 
 /*!
- * @class KNewFileMenu knewfilemenu.h <KNewFileMenu>
+ * \class KNewFileMenu
+ * \inmodule KIOFileWidgets
  *
- * The 'Create New' submenu, for creating files using templates
+ * \brief The 'Create New' submenu, for creating files using templates
  * (e.g.\ "new HTML file") and directories.
  *
  * The same instance can be used by both for the File menu and the RMB popup menu,
@@ -36,12 +37,6 @@ class KNewFileMenuPrivate;
  *
  * KNewFileMenu automatically updates the list of templates shown if installed templates
  * are added/updated/deleted.
- *
- * @author Björn Ruberg <bjoern@ruberg-wegener.de>
- * Made dialogs working asynchronously
- * @author David Faure <faure@kde.org>
- * Ideas and code for the new template handling mechanism ('link' desktop files)
- * from Christoph Pickart <pickart@iam.uni-bonn.de>
  */
 class KIOFILEWIDGETS_EXPORT KNewFileMenu : public KActionMenu
 {

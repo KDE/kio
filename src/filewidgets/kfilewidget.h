@@ -38,9 +38,10 @@ class KFileItem;
 class KDirOperator;
 
 /*!
- * @class KFileWidget kfilewidget.h <KFileWidget>
+ * \class KFileWidget
+ * \inmodule KIOFileWidgets
  *
- * File selector widget.
+ * \brief File selector widget.
  *
  * This is the contents of the KDE file dialog, without the actual QDialog around it.
  * It can be embedded directly into applications.
@@ -53,48 +54,52 @@ public:
      * Constructs a file selector widget.
      *
      * \a startDir This can either be:
-     *         @li An empty URL (QUrl()) to start in the current working directory,
-     *             or the last directory where a file has been selected.
-     *         @li The path or URL of a starting directory.
-     *         @li An initial file name to select, with the starting directory being
-     *             the current working directory or the last directory where a file
-     *             has been selected.
-     *         @li The path or URL of a file, specifying both the starting directory and
-     *             an initially selected file name.
-     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt; to start in the
-     *             directory last used by a filedialog in the same application that
-     *             specified the same keyword.
-     *         @li A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;
-     *             to start in the directory last used by a filedialog in the same
-     *             application that specified the same keyword, and to initially
-     *             select the specified filename.
-     *         @li Deprecated: A URL of the form @c kfiledialog:///&lt;keyword&gt;?global to start
-     *             in the directory last used by a filedialog in any application that
-     *             specified the same keyword.
-     *         @li Deprecated: A URL of the form @c kfiledialog:///&lt;keyword&gt;/&lt;filename&gt;?global
-     *             to start in the directory last used by a filedialog in any
-     *             application that specified the same keyword, and to initially
-     *             select the specified filename.
+     * \list
+     * \li An empty URL (QUrl()) to start in the current working directory,
+     *     or the last directory where a file has been selected.
+     * \li The path or URL of a starting directory.
+     * \li An initial file name to select, with the starting directory being
+     *     the current working directory or the last directory where a file
+     *     has been selected.
+     * \li The path or URL of a file, specifying both the starting directory and
+     *     an initially selected file name.
+     * \li A URL of the form \c kfiledialog:///<keyword>; to start in the
+     *     directory last used by a filedialog in the same application that
+     *     specified the same keyword.
+     * \li A URL of the form \c kfiledialog:///<keyword>/<filename>;
+     *     to start in the directory last used by a filedialog in the same
+     *     application that specified the same keyword, and to initially
+     *     select the specified filename.
+     * \li Deprecated: A URL of the form \c kfiledialog:///<keyword>?global to start
+     *     in the directory last used by a filedialog in any application that
+     *     specified the same keyword.
+     * \li Deprecated: A URL of the form \c kfiledialog:///<keyword>/<filename>?global
+     *     to start in the directory last used by a filedialog in any
+     *     application that specified the same keyword, and to initially
+     *     select the specified filename.
+     * \endlist
      *
-     * @note Since 5.96, the "?global" syntax is deprecated, for lack of usage.
+     * \note Since 5.96, the "?global" syntax is deprecated, for lack of usage.
      *
      * \a parent The parent widget of this widget
      *
      */
     explicit KFileWidget(const QUrl &startDir, QWidget *parent = nullptr);
 
-    /*!
-     * Destructor
-     */
     ~KFileWidget() override;
 
     /*!
      * Defines some default behavior of the filedialog.
-     * E.g. in mode @p Opening and @p Saving, the selected files/urls will
+     *
+     * E.g. in mode Opening and Saving, the selected files/urls will
      * be added to the "recent documents" list. The Saving mode also implies
      * setKeepLocation() being set.
      *
-     * @p Other means that no default actions are performed.
+     * Other means that no default actions are performed.
+     *
+     * \value Other
+     * \value Opening
+     * \value Saving
      *
      * \sa setOperationMode
      * \sa operationMode
@@ -135,13 +140,14 @@ public:
      * Sets the directory to view.
      *
      * \a url URL to show.
+     *
      * \a clearforward Indicates whether the forward queue
      * should be cleared.
      */
     void setUrl(const QUrl &url, bool clearforward = true);
 
     /*!
-     * Sets the URL to preselect to @p url
+     * Sets the URL to preselect to \a url
      *
      * This method handles absolute URLs (remember to use fromLocalFile for local paths).
      * It also handles relative URLs, which you should construct like this:
@@ -160,16 +166,16 @@ public:
     void setSelectedUrls(const QList<QUrl> &urls);
 
     /*!
-     * Sets the operational mode of the filedialog to @p Saving, @p Opening
-     * or @p Other. This will set some flags that are specific to loading
+     * Sets the operational mode of the filedialog to Saving, Opening
+     * or Other. This will set some flags that are specific to loading
      * or saving files. E.g. setKeepLocation() makes mostly sense for
      * a save-as dialog. So setOperationMode( KFileWidget::Saving ); sets
      * setKeepLocation for example.
      *
-     * The mode @p Saving, together with a default filter set via
+     * The mode Saving, together with a default filter set via
      * setMimeFilter() will make the filter combobox read-only.
      *
-     * The default mode is @p Opening.
+     * The default mode is Opening.
      *
      * Call this method right after instantiating KFileWidget.
      *
@@ -216,7 +222,6 @@ public:
      * \a activeFilter the initially active filter
      *
      * \since 6.0
-     *
      */
     void setFilters(const QList<KFileFilter> &filters, const KFileFilter &activeFilter = KFileFilter());
 
@@ -315,14 +320,17 @@ public:
      * This method implements the logic to determine the user's default directory
      * to be listed. E.g. the documents directory, home directory or a recently
      * used directory.
+     *
      * \a startDir A URL specifying the initial directory, or using the
-     *                 @c kfiledialog:/// syntax to specify a last used
+     *                 \c kfiledialog:/// syntax to specify a last used
      *                 directory.  If this URL specifies a file name, it is
      *                 ignored.  Refer to the KFileWidget::KFileWidget()
-     *                 documentation for the @c kfiledialog:/// URL syntax.
-     * \a recentDirClass If the @c kfiledialog:/// syntax is used, this
+     *                 documentation for the \c kfiledialog:/// URL syntax.
+     *
+     * \a recentDirClass If the \c kfiledialog:/// syntax is used, this
      *        will return the string to be passed to KRecentDirs::dir() and
      *        KRecentDirs::add().
+     *
      * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
      * \sa KFileWidget::KFileWidget()
@@ -333,16 +341,20 @@ public:
      * Similar to getStartUrl(const QUrl& startDir,QString& recentDirClass),
      * but allows both the recent start directory keyword and a suggested file name
      * to be returned.
+     *
      * \a startDir A URL specifying the initial directory and/or filename,
-     *                 or using the @c kfiledialog:/// syntax to specify a
+     *                 or using the \c kfiledialog:/// syntax to specify a
      *                 last used location.
      *                 Refer to the KFileWidget::KFileWidget()
-     *                 documentation for the @c kfiledialog:/// URL syntax.
-     * \a recentDirClass If the @c kfiledialog:/// syntax is used, this
+     *                 documentation for the \c kfiledialog:/// URL syntax.
+     *
+     * \a recentDirClass If the \c kfiledialog:/// syntax is used, this
      *        will return the string to be passed to KRecentDirs::dir() and
      *        KRecentDirs::add().
+     *
      * \a fileName The suggested file name, if specified as part of the
-     *        @p StartDir URL.
+     *        \a StartDir URL.
+     *
      * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).
      *
@@ -358,6 +370,7 @@ public:
 
     /*!
      * Set a custom widget that should be added to the file dialog.
+     *
      * \a widget A widget, or a widget of widgets, for displaying custom
      *               data in the file widget. This can be used, for example, to
      *               display a check box with the title "Open as read-only".
@@ -369,8 +382,10 @@ public:
     /*!
      * Sets a custom widget that should be added below the location and the filter
      * editors.
+     *
      * \a text     Label of the custom widget, which is displayed below the labels
      *                 "Location:" and "Filter:".
+     *
      * \a widget   Any kind of widget, but preferable a combo box or a line editor
      *                 to be compliant with the location and filter layout.
      *                 When creating this widget, you don't need to specify a parent,
@@ -387,7 +402,7 @@ public:
     void setConfirmOverwrite(bool enable);
 
     /*!
-     * Forces the inline previews to be shown or hidden, depending on @p show.
+     * Forces the inline previews to be shown or hidden, depending on \a show.
      *
      * \a show Whether to show inline previews or not.
      */
@@ -409,9 +424,6 @@ public:
      */
     void setViewMode(KFile::FileView mode);
 
-    /*!
-     * Reimplemented
-     */
     QSize sizeHint() const override;
 
     /*!
@@ -419,7 +431,7 @@ public:
      *
      * If the returned list is empty, all schemes are supported.
      *
-     * @sa QFileDialog::setSupportedSchemes
+     * \sa QFileDialog::setSupportedSchemes
      * \since 5.43
      */
     void setSupportedSchemes(const QStringList &schemes);
@@ -428,9 +440,9 @@ public:
      * Returns the URL schemes that the file widget should allow navigating to.
      *
      * If the returned list is empty, all schemes are supported. Examples for
-     * schemes are @c "file" or @c "ftp".
+     * schemes are \c "file" or \c "ftp".
      *
-     * @sa QFileDialog::supportedSchemes
+     * \sa QFileDialog::supportedSchemes
      * \since 5.43
      */
     QStringList supportedSchemes() const;
@@ -441,7 +453,15 @@ public Q_SLOTS:
      * Might or might not call accept().
      */
     void slotOk();
+
+    /*!
+     *
+     */
     void accept();
+
+    /*!
+     *
+     */
     void slotCancel();
 
 protected:
@@ -508,7 +528,9 @@ public:
      * reads the configuration for this widget from the given config group
      * \a group the KConfigGroup to read from
      *
-     * @deprecated since 6.3, no known use case.
+     * Deprecated: No known use case
+     *
+     * \deprecated[6.3]
      */
     KIOFILEWIDGETS_DEPRECATED_VERSION(6, 3, "No known use case")
     void readConfig(KConfigGroup &group);
