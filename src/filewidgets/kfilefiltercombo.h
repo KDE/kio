@@ -18,9 +18,10 @@
 class KFileFilterComboPrivate;
 
 /*!
- * @class KFileFilterCombo kfilefiltercombo.h <KFileFilterCombo>
+ * \class KFileFilterCombo
+ * \inmodule KIOFileWidgets
  *
- * File filter combo box.
+ * \brief File filter combo box.
  */
 class KIOFILEWIDGETS_EXPORT KFileFilterCombo : public KComboBox
 {
@@ -34,9 +35,6 @@ public:
      */
     explicit KFileFilterCombo(QWidget *parent = nullptr);
 
-    /*!
-     * Destroys the filter combo box.
-     */
     ~KFileFilterCombo() override;
 
     /*!

@@ -16,6 +16,7 @@ class QAbstractItemModel;
 /*!
  * Default detail view for KDirOperator using
  * custom resizing options and columns.
+ * \internal
  */
 class KDirOperatorDetailView : public QTreeView
 {

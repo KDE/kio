@@ -42,7 +42,7 @@ class KDirOperatorPrivate;
 
 /*!
  * \class KDirOperator
- * \inmodule KIOWidgets
+ * \inmodule KIOFileWidgets
  *
  * \brief A widget for displaying files and browsing directories.
  *
