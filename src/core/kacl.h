@@ -30,7 +30,7 @@ typedef QList<ACLGroupPermissions>::const_iterator ACLGroupPermissionsConstItera
  * \class KACL
  * \inmodule KIOCore
  *
- * \brief a POSIX ACL encapsulation
+ * \brief a POSIX ACL encapsulation.
  *
  * The KACL class encapsulates a POSIX Access Control List. It follows the
  * little standard that couldn't, 1003.1e/1003.2c, which died in draft status.
