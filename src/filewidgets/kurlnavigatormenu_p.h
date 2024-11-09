@@ -12,7 +12,7 @@
 namespace KDEPrivate
 {
 /*!
- * @brief Provides drop-down menus for the URL navigator.
+ * Provides drop-down menus for the URL navigator.
  *
  * The implementation extends QMenu with drag & drop support.
  *

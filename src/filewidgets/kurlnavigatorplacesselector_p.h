@@ -19,7 +19,7 @@ class QMenu;
 namespace KDEPrivate
 {
 /*!
- * @brief Allows to select a bookmark from a popup menu.
+ * Allows to select a bookmark from a popup menu.
  *
  * The icon from the current selected bookmark is shown
  * inside the bookmark selector.
