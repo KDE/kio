@@ -36,8 +36,9 @@ if(UNIX)
 endif()
 
 if (HAIKU)
-  # for accept, recvmsg, socket, bind and listen
-  target_link_libraries(kio_file network)
+  # for accept, recvmsg, socket, bind and listen (network)
+  # for fsetxattr (gnu)
+  target_link_libraries(kio_file gnu network)
 endif ()
 
 

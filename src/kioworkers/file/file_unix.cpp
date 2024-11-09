@@ -789,7 +789,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     // copy access and modification time
     if (!wasKilled()) {
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
         // with nano secs precision
         struct timespec ut[2];
         ut[0] = buffSrc.st_atim;
@@ -949,7 +949,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
     // qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
 
-#ifndef HAVE_DIRENT_D_TYPE
+#if !(HAVE_DIRENT_D_TYPE)
     QT_STATBUF st;
 #endif
     QT_DIRENT *ep;
@@ -970,7 +970,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
          */
         if (details == KIO::StatBasic) {
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
-#ifdef HAVE_DIRENT_D_TYPE
+#if HAVE_DIRENT_D_TYPE
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, (ep->d_type == DT_DIR) ? S_IFDIR : S_IFREG);
             const bool isSymLink = (ep->d_type == DT_LNK);
 #else
@@ -993,7 +993,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             fullPath += filename;
 
             if (createUDSEntry(filename, encodedBasePath + QByteArray(ep->d_name), entry, details, fullPath)) {
-#if HAVE_SYS_XATTR_H
+#if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
 

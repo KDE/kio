@@ -14,7 +14,7 @@
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID) && !defined(Q_OS_HAIKU)
 #define WITH_SHM 1
 #else
 #define WITH_SHM 0

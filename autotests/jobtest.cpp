@@ -1977,7 +1977,7 @@ void JobTest::statTimeResolution()
 
     QFile dest_file(filePath);
     QVERIFY(dest_file.open(QIODevice::ReadOnly));
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
     // with nano secs precision
     struct timespec ut[2];
     ut[0].tv_sec = early70sTime;
