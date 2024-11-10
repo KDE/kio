@@ -12,7 +12,9 @@ outputformats = HTML
 
 depends += \
     qtcore \
+    qtnetwork \
     kcoreaddons \
     kiogui \
     kiowidgets \
-    kiofilewidgets
+    kiofilewidgets \
+    kconfigcore
