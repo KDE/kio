@@ -189,6 +189,8 @@ public:
  * For faster lookups, it also stores a hash table, which gives for a directory URL:
  * - the dirlisters holding that URL (listersCurrentlyHolding)
  * - the dirlisters currently listing that URL (listersCurrentlyListing)
+ *
+ * \internal
  */
 class KCoreDirListerCache : public QObject
 {
