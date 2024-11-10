@@ -28,23 +28,23 @@ class QUrl;
  * \endcode
  * The C++ file should look like this:
  * \code
-#include <KOverlayIconPlugin>
-
-class MyOverlayPlugin : public KOverlayIconPlugin
-{
-    Q_PLUGIN_METADATA(IID "org.kde.overlayicon.myplugin")
-    Q_OBJECT
-
-public:
-    MyOverlayPlugin() {
-    }
-
-    QStringList getOverlays(const QUrl &url) override {
-        // Implement your logic
-    }
-};
-
-#include "myoverlayplugin.moc"
+ * #include <KOverlayIconPlugin>
+ *
+ * class MyOverlayPlugin : public KOverlayIconPlugin
+ * {
+ *     Q_PLUGIN_METADATA(IID "org.kde.overlayicon.myplugin")
+ *     Q_OBJECT
+ *
+ * public:
+ *     MyOverlayPlugin() {
+ *     }
+ *
+ *     QStringList getOverlays(const QUrl &url) override {
+ *         // Implement your logic
+ *     }
+ * };
+ *
+ * #include "myoverlayplugin.moc"
  * \endcode
  * \since 5.16
  */
