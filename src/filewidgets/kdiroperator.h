@@ -714,7 +714,7 @@ public:
     QStringList supportedSchemes() const;
 
     /*!
-     * Call with @c true to add open-with actions to items in the view.
+     * Call with \c true to add open-with actions to items in the view.
      * This can be useful when you're attaching an image or text file to
      * an email or uploading an image to some online service, and need to
      * check the contents before going forward.
