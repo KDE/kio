@@ -29,8 +29,6 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, 
     , m_selectedItem(-1)
     , m_placesModel(placesModel)
 {
-    setFocusPolicy(Qt::NoFocus);
-
     connect(m_placesModel, &KFilePlacesModel::reloaded, this, [this] {
         updateSelection(m_selectedUrl);
     });

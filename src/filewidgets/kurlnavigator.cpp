@@ -144,6 +144,14 @@ public:
     void updateButtonVisibility();
 
     /**
+     * Set a sensible Tab key focus order which goes left to right all the way
+     * through all visible child widgets. For right-to-left layout directions
+     * the order goes right to left.
+     * The first widget is set as the focusProxy() of this KUrlNavigator.
+     */
+    void updateTabOrder();
+
+    /**
      * @return Text for the first button of the URL navigator.
      */
     QString firstButtonText() const;
@@ -656,9 +664,11 @@ void KUrlNavigatorPrivate::slotPathBoxChanged(const QString &text)
         m_schemes->setScheme(scheme);
         if (m_supportedSchemes.count() != 1) {
             m_schemes->show();
+            updateTabOrder();
         }
     } else {
         m_schemes->hide();
+        updateTabOrder();
     }
 }
 
@@ -680,6 +690,9 @@ void KUrlNavigatorPrivate::updateContent()
 
         m_pathBox->show();
         m_pathBox->setUrl(currentUrl);
+
+        q->setTabOrder(m_pathBox, m_toggleEditableMode); // Fixes order for the first time switchView() is called.
+        updateTabOrder();
     } else {
         m_pathBox->hide();
         m_badgeWidgetContainer->show();
@@ -783,9 +796,6 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                                         "Go to any location on the path <filename>%1</filename>",
                                         currentUrl.toDisplayString(QUrl::RemoveScheme | QUrl::NormalizePathSegments | QUrl::RemoveAuthority))
                                      .replace(QStringLiteral("///"), QStringLiteral("/")));
-    q->setTabOrder(m_dropDownButton, m_navButtons.constFirst());
-    q->setTabOrder(m_navButtons.constLast(), m_toggleEditableMode);
-
     updateButtonVisibility();
 }
 
@@ -863,6 +873,34 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
             && url.scheme() != QLatin1String("baloosearch") //
             && url.scheme() != QLatin1String("filenamesearch");
         m_dropDownButton->setVisible(visible);
+    }
+
+    updateTabOrder();
+}
+
+void KUrlNavigatorPrivate::updateTabOrder()
+{
+    QMultiMap<int, QWidget *> visibleChildrenSortedByX;
+    const auto childWidgets = q->findChildren<QWidget *>();
+    for (auto childWidget : childWidgets) {
+        if (childWidget->isVisible()) {
+            if (q->layoutDirection() == Qt::LeftToRight) {
+                visibleChildrenSortedByX.insert(childWidget->x(), childWidget); // sort ascending
+            } else {
+                visibleChildrenSortedByX.insert(-childWidget->x(), childWidget); // sort descending
+            }
+        }
+    }
+    if (visibleChildrenSortedByX.isEmpty()) {
+        return;
+    }
+    q->setFocusProxy(visibleChildrenSortedByX.first());
+    auto it = visibleChildrenSortedByX.begin();
+    auto nextIt = ++visibleChildrenSortedByX.begin();
+    while (nextIt != visibleChildrenSortedByX.end()) {
+        q->setTabOrder(*it, *nextIt);
+        it++;
+        nextIt++;
     }
 }
 
@@ -1095,6 +1133,7 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
 
     d->m_showPlacesSelector = visible;
     d->m_placesSelector->setVisible(visible);
+    d->updateTabOrder();
 }
 
 bool KUrlNavigator::isPlacesSelectorVisible() const
