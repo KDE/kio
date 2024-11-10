@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-11-06 15:33+0100\n"
+"PO-Revision-Date: 2024-11-09 20:09+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,7 +69,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
-"Не може да създаде \"%1\".\n"
+"Не може да създаде „%1“.\n"
 "Целевата файлова система (%2) забранява следните символи в имената на "
 "папките: %3\n"
 "Избирането на Замяна ще замени всички невалидни знаци (в името на папката на "
@@ -84,7 +84,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
-"Не може да създаде \"%1\".\n"
+"Не може да създаде „%1“.\n"
 "Целевата файлова система (%2) забранява следните символи в имената на "
 "файловете: %3\n"
 "Избирането на Замяна ще замени всички невалидни знаци (в името на файла на "
@@ -119,20 +119,20 @@ msgstr "Няма Exec поле в %1"
 #: core/desktopexecparser.cpp:354
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "Програмата \"%1\" не може да бъде намерена"
+msgstr "Програмата „%1“ не може да бъде намерена"
 
 #: core/desktopexecparser.cpp:357
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
-"Програмата \"%1\" бе намерена на \"%2\", но в нея липсват разрешения за "
+"Програмата „%1“ бе намерена на „%2“, но в нея липсват разрешения за "
 "изпълнение."
 
 #: core/desktopexecparser.cpp:359
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "В програмата \"%1\" липсват разрешения за изпълнение."
+msgstr "В програмата „%1“ липсват разрешения за изпълнение."
 
 #: core/desktopexecparser.cpp:373
 #, kde-format
@@ -445,17 +445,17 @@ msgstr "Протоколът %1 служи само за филтриране."
 #: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "\"%1\" е директория, но се очакваше да е файл."
+msgstr "„%1“ е директория, но се очакваше да е файл."
 
 #: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "\"%1\" е файл, но се очакваше да е директория."
+msgstr "„%1“ е файл, но се очакваше да е директория."
 
 #: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "Няма файл или директория с име \"%1\"."
+msgstr "Няма файл или директория с име „%1“."
 
 #: core/job_error.cpp:71
 #, kde-format
@@ -465,7 +465,7 @@ msgstr "Вече има файл с име %1."
 #: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "Вече има директория с име \"%1\"."
+msgstr "Вече има директория с име „%1“."
 
 #: core/job_error.cpp:77
 #, kde-format
@@ -494,12 +494,12 @@ msgstr ""
 #: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
-msgstr "Директорията \"%1\" не може да бъде отворена."
+msgstr "Директорията „%1“ не може да бъде отворена."
 
 #: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "Протоколът \"%1\" не поддържа директорийни услуги."
+msgstr "Протоколът „%1“ не поддържа директорийни услуги."
 
 #: core/job_error.cpp:92
 #, kde-format
@@ -818,7 +818,7 @@ msgid ""
 "Please retry after changing permissions."
 msgstr ""
 "Ескалацията на привилегиите не е необходима, защото \n"
-" \"%1\" е собственост на текущия потребител. \n"
+" „%1“ е собственост на текущия потребител. \n"
 "Моля, опитайте отново след промяна на разрешенията."
 
 #: core/job_error.cpp:261
@@ -1343,7 +1343,7 @@ msgstr ""
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
-"Въведеното име \"%1\" може би не съществува или сте допуснали правописна "
+"Въведеното име „%1“ може би не съществува или сте допуснали правописна "
 "грешка."
 
 #: core/job_error.cpp:611
@@ -2412,8 +2412,8 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"Неуспешно извличане на име на изпълним файл от \"%1\", моля, въведете "
-"валидно име."
+"Неуспешно извличане на име на изпълним файл от „%1“, моля, въведете валидно "
+"име."
 
 #: core/openwith.cpp:142
 #, kde-kuit-format
@@ -2459,7 +2459,7 @@ msgstr "Няма налично действие за протокола %1."
 #: core/slavebase.cpp:863
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
-msgstr "Протоколът \"%1\" не поддържа показване на съдържанието на директории."
+msgstr "Протоколът „%1“ не поддържа показване на съдържанието на директории."
 
 #: core/slavebase.cpp:865
 #, kde-format
@@ -2494,7 +2494,7 @@ msgstr "Протоколът %1 не поддържа изтриване на ф
 #: core/slavebase.cpp:877
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "Протоколът \"%1\" не поддържа създаване на директории."
+msgstr "Протоколът „%1“ не поддържа създаване на директории."
 
 #: core/slavebase.cpp:879
 #, kde-format
@@ -2509,7 +2509,7 @@ msgstr "Протоколът %1 не поддържа променянето а�
 #: core/slavebase.cpp:883
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "Протоколът \"%1\" не поддържа създаване на директории."
+msgstr "Протоколът „%1“ не поддържа създаване на директории."
 
 #: core/slavebase.cpp:885
 #, kde-format
@@ -2531,12 +2531,12 @@ msgstr ""
 #: core/worker.cpp:379
 #, kde-format
 msgid "Unknown protocol '%1'."
-msgstr "Неизвестен протокол \"%1\"."
+msgstr "Неизвестен протокол „%1“."
 
 #: core/worker.cpp:390
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Липсва KIO worker за протокола \"%1\"."
+msgstr "Липсва KIO worker за протокола „%1“."
 
 #: core/worker.cpp:404
 #, kde-format
@@ -3160,7 +3160,7 @@ msgstr "&Изваждане"
 #: filewidgets/kfileplacesmodel.cpp:1448
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr "Устройството \"%1\" не е диск и не може да бъде извадено."
+msgstr "Устройството „%1“ не е диск и не може да бъде извадено."
 
 #: filewidgets/kfileplacesmodel.cpp:1483
 #, kde-format
@@ -3170,7 +3170,7 @@ msgstr "Възникна грешка при достъп до %1. Отгово�
 #: filewidgets/kfileplacesmodel.cpp:1485
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr "Възникна грешка при опит за достъп до \"%1\"."
+msgstr "Възникна грешка при опит за достъп до „%1“."
 
 #: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-format
@@ -3188,10 +3188,10 @@ msgid_plural ""
 "<application>%2</application>."
 msgstr[0] ""
 "Един или повече файлове на това устройство се отворени в приложение "
-"<application> \"%2\"</application>."
+"<application> „%2“</application>."
 msgstr[1] ""
 "Един или повече файлове на това устройство се отворени в следните приложения:"
-"<application> \"%2\"</application>."
+"<application> „%2“</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1517
 #, kde-format
@@ -3399,7 +3399,7 @@ msgstr "Маркирани файлове и директории"
 #: filewidgets/kfilewidget.cpp:849
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "Файлът \"%1\" не можа да бъде намерен"
+msgstr "Файлът „%1“ не можа да бъде намерен"
 
 #: filewidgets/kfilewidget.cpp:849
 #, kde-format
@@ -3538,7 +3538,7 @@ msgstr "Места"
 #: filewidgets/kfilewidget.cpp:1609
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "Вече има такъв файл (\"%1\"). Искате ли да го презапишете?"
+msgstr "Вече има такъв файл („%1“). Искате ли да го презапишете?"
 
 #: filewidgets/kfilewidget.cpp:1610
 #, kde-format
@@ -3815,13 +3815,13 @@ msgstr "Поставяне"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Отваряне на \"%1\" в нов раздел"
+msgstr "Отваряне на „%1“ в нов раздел"
 
 #: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Отваряне на \"%1\" в нов прозорец"
+msgstr "Отваряне на „%1“ в нов прозорец"
 
 #: filewidgets/kurlnavigator.cpp:609
 #, kde-format
@@ -3996,8 +3996,8 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"Изпълнимият файл \"%1\" се намира в отдалечена файлова система. От "
-"съображения за безопасност няма да бъде стартиран."
+"Изпълнимият файл „%1“ се намира в отдалечена файлова система. От съображения "
+"за безопасност няма да бъде стартиран."
 
 #: gui/openurljob.cpp:410
 #, kde-format
@@ -4013,7 +4013,7 @@ msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
-"Програмата \"%1\" трябва да има разрешение за изпълнение, преди да може да "
+"Програмата „%1“ трябва да има разрешение за изпълнение, преди да може да "
 "бъде стартира."
 
 #: gui/openurljob.cpp:451
@@ -4022,13 +4022,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"Не може да се направи файл \"%1\" изпълним. \n"
+"Не може да се направи файл „%1“ изпълним. \n"
 " %2."
 
 #: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "Записът във файл за работен плот \"%1\" не съдържа ред \"Type=...\"."
+msgstr "Записът във файл за работен плот „%1“ не съдържа ред \"Type=...\"."
 
 #: gui/openurljob.cpp:630
 #, kde-format
@@ -4049,7 +4049,7 @@ msgstr "Неуспешно отваряне на файла."
 #: gui/openurljob.cpp:690
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "Програмата \"%1 \" не можа да бъде стартирана."
+msgstr "Програмата „%1“  не можа да бъде стартирана."
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -4331,12 +4331,12 @@ msgstr "Няма носител в устройството %1"
 #: kioworkers/file/file_unix.cpp:1230
 #, kde-format
 msgid "Could not get user id for given user name %1"
-msgstr "ИД за потребител \"%1\" не може да бъде получен"
+msgstr "ИД за потребител „%1“ не може да бъде получен"
 
 #: kioworkers/file/file_unix.cpp:1241
 #, kde-format
 msgid "Could not get group id for given group name %1"
-msgstr "ИД за група \"%1\" не може да бъде получен"
+msgstr "ИД за група „%1“ не може да бъде получен"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
@@ -4407,7 +4407,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr ""
 "\n"
-"Сървърът каза: \"%1\""
+"Сървърът каза: „%1“"
 
 #: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
 #, kde-format
@@ -4767,7 +4767,7 @@ msgstr "Отказан достъп"
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
-msgstr "Нямате достатъчно права за достъп до протокола \"%1\"."
+msgstr "Нямате достатъчно права за достъп до протокола „%1“."
 
 #: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
@@ -5633,7 +5633,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr ""
 "&Запомняне на свързването на приложения за всички файлове от тип \n"
-"\"%1\" (%2)"
+"„%1“ (%2)"
 
 #: widgets/kopenwithdialog.cpp:744
 #, kde-format
@@ -5642,7 +5642,7 @@ msgid ""
 "\"%1\""
 msgstr ""
 "&Запомняне на свързването на приложения за всички файлове от тип \n"
-"\"%1\""
+"„%1“"
 
 #: widgets/kopenwithdialog.cpp:754
 #, kde-format
@@ -6699,7 +6699,7 @@ msgstr "%1 до %2"
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
 msgid "Search for '%1' with"
-msgstr "Търсене за \"%1\" с"
+msgstr "Търсене за „%1“ с"
 
 #: widgets/kurifiltersearchprovideractions.cpp:85
 #, kde-format
@@ -6891,7 +6891,7 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"Това действие ще запише \"%1\" върху себе си.\n"
+"Това действие ще запише „%1“ върху себе си.\n"
 "Моля, въведете ново име на файл:"
 
 #: widgets/renamedialog.cpp:300
@@ -6907,7 +6907,7 @@ msgstr "Искате ли да презапишете местоназначен
 #: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Искате ли да се слее съдържанието на \"'%1\" в \"%2\"?"
+msgstr "Искате ли да се слее съдържанието на \"'%1\" в „%2“?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6966,17 +6966,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "Вече има файл с име \"%1\"."
+msgstr "Вече има файл с име „%1“."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "Вече има подобен файл с име \"%1\"."
+msgstr "Вече има подобен файл с име „%1“."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "Вече съществува по-скорошен елемент с име \"%1\"."
+msgstr "Вече съществува по-скорошен елемент с име „%1“."
 
 #: widgets/renamedialog.cpp:482
 #, kde-format
