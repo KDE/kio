@@ -21,7 +21,7 @@ class QUrl;
  * \class KPreviewWidgetBase
  * \inmodule KIOFileWidgets
  *
- * \short Abstract baseclass for all preview widgets.
+ * \brief Abstract baseclass for all preview widgets.
  *
  * Abstract baseclass for all preview widgets which shall be used via
  * KFileDialog::setPreviewWidget(const KPreviewWidgetBase *).
