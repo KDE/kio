@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:37+0000\n"
+"POT-Creation-Date: 2024-11-11 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3608,7 +3608,7 @@ msgstr "新建文件夹到 %1："
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:568 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3616,39 +3616,39 @@ msgid "Copy"
 msgstr "复制"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:572 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "粘贴"
 
-#: filewidgets/kurlnavigator.cpp:592
+#: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新标签中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:608
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新窗口中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:609
+#: filewidgets/kurlnavigator.cpp:617
 #, kde-format
 msgid "Edit"
 msgstr "编辑模式"
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:620
 #, kde-format
 msgid "Navigate"
 msgstr "导航模式"
 
-#: filewidgets/kurlnavigator.cpp:627
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgid "Show Full Path"
 msgstr "显示完整路径"
 
-#: filewidgets/kurlnavigator.cpp:783
+#: filewidgets/kurlnavigator.cpp:796
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"

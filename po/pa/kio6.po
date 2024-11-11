@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:37+0000\n"
+"POT-Creation-Date: 2024-11-11 00:37+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -3618,7 +3618,7 @@ msgstr "%1 ਵਿੱਚ ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਓ:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:568 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3626,39 +3626,39 @@ msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:572 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "ਚੇਪੋ"
 
-#: filewidgets/kurlnavigator.cpp:592
+#: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "ਨਵੀਂ ਟੈਬ ਵਿੱਚ \"%1\" ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:608
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ \"%1\" ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kurlnavigator.cpp:609
+#: filewidgets/kurlnavigator.cpp:617
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:620
 #, kde-format
 msgid "Navigate"
 msgstr "ਨੇਵੀਗੇਟ"
 
-#: filewidgets/kurlnavigator.cpp:627
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgid "Show Full Path"
 msgstr "ਪੂਰਾ ਪਾਥ ਵੇਖੋ"
 
-#: filewidgets/kurlnavigator.cpp:783
+#: filewidgets/kurlnavigator.cpp:796
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"

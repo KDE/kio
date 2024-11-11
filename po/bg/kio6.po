@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-11-09 20:09+0100\n"
+"POT-Creation-Date: 2024-11-11 00:37+0000\n"
+"PO-Revision-Date: 2024-11-10 20:12+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2542,12 +2542,12 @@ msgstr "Липсва KIO worker за протокола „%1“."
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Не може да се създаде сокет за стартиране на KIO Worker за протокол '%1'."
+"Не може да се създаде сокет за стартиране на KIO Worker за протокол „%1“."
 
 #: core/worker.cpp:444
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Не може да се намери изпълним 'kioworker' на '%1'"
+msgstr "Не може да се намери изпълним 'kioworker' на „%1“"
 
 #: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
@@ -3275,7 +3275,7 @@ msgstr "&Скриване"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "Скриване на секция '%1'"
+msgstr "Скриване на секция „%1“"
 
 #: filewidgets/kfileplacesview.cpp:1250
 #, kde-format
@@ -3798,7 +3798,7 @@ msgstr "Създаване на нова папка в %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:568 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3806,39 +3806,39 @@ msgid "Copy"
 msgstr "Копиране"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:572 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Поставяне"
 
-#: filewidgets/kurlnavigator.cpp:592
+#: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Отваряне на „%1“ в нов раздел"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:608
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Отваряне на „%1“ в нов прозорец"
 
-#: filewidgets/kurlnavigator.cpp:609
+#: filewidgets/kurlnavigator.cpp:617
 #, kde-format
 msgid "Edit"
 msgstr "Редактиране"
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:620
 #, kde-format
 msgid "Navigate"
 msgstr "Навигация"
 
-#: filewidgets/kurlnavigator.cpp:627
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgid "Show Full Path"
 msgstr "Показване на целия път"
 
-#: filewidgets/kurlnavigator.cpp:783
+#: filewidgets/kurlnavigator.cpp:796
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"

@@ -14,15 +14,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:37+0000\n"
-"PO-Revision-Date: 2024-10-13 06:24+0200\n"
+"POT-Creation-Date: 2024-11-11 00:37+0000\n"
+"PO-Revision-Date: 2024-11-10 19:15+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -3809,7 +3809,7 @@ msgstr "Sortu karpeta berria hemen, %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:568 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3817,45 +3817,43 @@ msgid "Copy"
 msgstr "Kopiatu"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:572 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: filewidgets/kurlnavigator.cpp:592
+#: filewidgets/kurlnavigator.cpp:600
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Ireki «%1» fitxa berrian"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:608
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Ireki «%1» leiho berrian"
 
-#: filewidgets/kurlnavigator.cpp:609
+#: filewidgets/kurlnavigator.cpp:617
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:620
 #, kde-format
 msgid "Navigate"
 msgstr "Nabigatu"
 
-#: filewidgets/kurlnavigator.cpp:627
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgid "Show Full Path"
 msgstr "Erakutsi bide-izen osoa"
 
-#: filewidgets/kurlnavigator.cpp:783
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#: filewidgets/kurlnavigator.cpp:796
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Cannot transfer <filename>%1</filename>"
+msgstr "Joan <filename>%1</filename> bide-izeneko edozein kokalekura"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3867,7 +3865,7 @@ msgstr "Gehiago"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Joan bilde-izeneko kokalekura"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
