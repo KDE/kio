@@ -42,14 +42,13 @@ class KRunMX1 : public KMacroExpanderBase
 public:
     explicit KRunMX1(const KService &_service)
         : KMacroExpanderBase(QLatin1Char('%'))
-        , hasUrls(false)
-        , hasSpec(false)
         , service(_service)
     {
     }
 
-    bool hasUrls;
-    bool hasSpec;
+    bool hasUrls = false;
+    bool hasSpec = false;
+    bool hasError = false;
 
 protected:
     int expandEscapedMacro(const QString &str, int pos, QStringList &ret) override;
@@ -61,6 +60,10 @@ private:
 int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 {
     if (str.length() == pos + 1) {
+        // Internally, the stack of KMacroExpanderBase is empty and thus it thinks everything is successfully parsed
+        // This could be the case if the escape char "%" in this case, is at the end of the string
+        // See BUG: 495606
+        hasError = true;
         return 0;
     }
     uint option = str[pos + 1].unicode();
@@ -372,7 +375,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KRunMX1 mx1(d->service);
     KRunMX2 mx2(d->urls);
 
-    if (!mx1.expandMacrosShellQuote(exec)) { // Error in shell syntax
+    if (!mx1.expandMacrosShellQuote(exec) || mx1.hasError) { // Error in shell syntax
         d->m_errorString = i18n("Syntax error in command %1 coming from %2", exec, d->service.entryPath());
         qCWarning(KIO_CORE) << "Syntax error in command" << d->service.exec() << ", service" << d->service.name();
         return QStringList();
@@ -519,7 +522,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             }
         }
         terminal += QLatin1Char(' ') + d->service.terminalOptions();
-        if (!mx1.expandMacrosShellQuote(terminal)) {
+        if (!mx1.expandMacrosShellQuote(terminal) || mx1.hasError) {
             d->m_errorString = i18n("Syntax error in command %1 while trying to run %2", terminal, d->service.entryPath());
             qCWarning(KIO_CORE) << "Syntax error in command" << terminal << ", service" << d->service.name();
             return QStringList();

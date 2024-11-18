@@ -276,4 +276,15 @@ void DesktopExecParserTest::testKtelnetservice()
     }
 }
 
+void DesktopExecParserTest::testParsingCrash()
+{
+    QString parseError = QStringLiteral("env PROTON_LOG=0 true %command%");
+    KService service(QStringLiteral("ErrorService"), parseError, QStringLiteral(""));
+    QVERIFY(service.isValid());
+    KIO::DesktopExecParser parser(service, {});
+    const QStringList args = parser.resultingArguments();
+    QVERIFY(args.isEmpty());
+    QVERIFY(parser.errorMessage().startsWith(QLatin1String("Syntax error in command env")));
+}
+
 #include "moc_desktopexecparsertest.cpp"

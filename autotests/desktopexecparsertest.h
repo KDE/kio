@@ -21,6 +21,7 @@ private Q_SLOTS:
     void testProcessDesktopExecNoFile_data();
     void testProcessDesktopExecNoFile();
     void testKtelnetservice();
+    void testParsingCrash();
 
 private:
     QString m_sh;
