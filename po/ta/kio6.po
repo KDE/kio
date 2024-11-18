@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-15 00:37+0000\n"
-"PO-Revision-Date: 2024-10-09 21:34+0530\n"
+"PO-Revision-Date: 2024-11-17 22:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2477,6 +2477,8 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"சாதாரணமாக ரூட் அனுமதியை கோரும் '%1' நெறிமுறைக்கான KIO பணியின் பாதுகாப்பை "
+"உறுதிசெய்ய முடியவில்லை. ரூட் அல்லாத பயனர்களும் அதை %2 தனில் மாற்ற அனுமதி உள்ளது."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3773,12 +3775,11 @@ msgid "Show Full Path"
 msgstr "முழு பாதையைக் காட்டு"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "<filename>%1</filename>-ஐ இடமாற்றம் செய்ய முடியவில்லை"
+msgstr ""
+"<filename>%1</filename> எனும் பாதையிலுள்ள எந்த இடத்திற்கு வேண்டுமானாலும் செல்லலாம்."
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3790,7 +3791,7 @@ msgstr "மேலும்"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "பாதையிலுள்ள இடத்திற்கு செல்"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
