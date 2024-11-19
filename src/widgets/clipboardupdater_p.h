@@ -59,6 +59,7 @@ private:
     explicit ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUpdaterMode mode);
     friend class JobUiDelegate;
     JobUiDelegateExtension::ClipboardUpdaterMode m_mode;
+    QByteArray m_uuid;
 };
 }
 

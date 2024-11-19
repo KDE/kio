@@ -14,12 +14,42 @@
 #include <KUrlMimeData>
 
 #include <QClipboard>
+#include <QCryptographicHash>
 #include <QGuiApplication>
 #include <QMimeData>
 
 using namespace KIO;
 
-static void overwriteUrlsInClipboard(KJob *job)
+namespace
+{
+QByteArray createUuidFromFileJob(KJob *job)
+{
+    QCryptographicHash hash(QCryptographicHash::Sha1);
+
+    if (CopyJob *copyJob = qobject_cast<CopyJob *>(job)) {
+        const QList<QUrl> urls = copyJob->srcUrls();
+        for (const QUrl &url : urls) {
+            hash.addData(url.toEncoded());
+        }
+        hash.addData(copyJob->destUrl().toEncoded());
+    } else if (FileCopyJob *fileCopyJob = qobject_cast<FileCopyJob *>(job)) {
+        hash.addData(fileCopyJob->srcUrl().toEncoded());
+        hash.addData(fileCopyJob->destUrl().toEncoded());
+    } else if (SimpleJob *simpleJob = qobject_cast<SimpleJob *>(job)) {
+        hash.addData(simpleJob->url().toEncoded());
+    } else if (DeleteJob *deleteJob = qobject_cast<DeleteJob *>(job)) {
+        const QList<QUrl> urls = deleteJob->urls();
+        for (const QUrl &url : urls) {
+            hash.addData(url.toEncoded());
+        }
+    } else {
+        return {};
+    }
+
+    return hash.result();
+}
+
+void overwriteUrlsInClipboard(KJob *job, const QByteArray &uuid)
 {
     CopyJob *copyJob = qobject_cast<CopyJob *>(job);
     FileCopyJob *fileCopyJob = qobject_cast<FileCopyJob *>(job);
@@ -44,10 +74,11 @@ static void overwriteUrlsInClipboard(KJob *job)
 
     QMimeData *mime = new QMimeData();
     mime->setUrls(newUrls);
+    mime->setData(QStringLiteral("application/x-kde-kio-clipboardupdater"), uuid);
     QGuiApplication::clipboard()->setMimeData(mime);
 }
 
-static void updateUrlsInClipboard(KJob *job)
+void updateUrlsInClipboard(KJob *job, const QByteArray &uuid)
 {
     CopyJob *copyJob = qobject_cast<CopyJob *>(job);
     FileCopyJob *fileCopyJob = qobject_cast<FileCopyJob *>(job);
@@ -87,11 +118,12 @@ static void updateUrlsInClipboard(KJob *job)
     if (update) {
         QMimeData *mime = new QMimeData();
         mime->setUrls(clipboardUrls);
+        mime->setData(QStringLiteral("application/x-kde-kio-clipboardupdater"), uuid);
         clipboard->setMimeData(mime);
     }
 }
 
-static void removeUrlsFromClipboard(KJob *job)
+void removeUrlsFromClipboard(KJob *job, const QByteArray &uuid)
 {
     SimpleJob *simpleJob = qobject_cast<SimpleJob *>(job);
     DeleteJob *deleteJob = qobject_cast<DeleteJob *>(job);
@@ -128,9 +160,11 @@ static void removeUrlsFromClipboard(KJob *job)
         QMimeData *mime = new QMimeData();
         if (!clipboardUrls.isEmpty()) {
             mime->setUrls(clipboardUrls);
+            mime->setData(QStringLiteral("application/x-kde-kio-clipboardupdater"), uuid);
         }
         clipboard->setMimeData(mime);
     }
+}
 }
 
 void ClipboardUpdater::slotResult(KJob *job)
@@ -141,13 +175,13 @@ void ClipboardUpdater::slotResult(KJob *job)
 
     switch (m_mode) {
     case JobUiDelegateExtension::UpdateContent:
-        updateUrlsInClipboard(job);
+        updateUrlsInClipboard(job, m_uuid);
         break;
     case JobUiDelegateExtension::OverwriteContent:
-        overwriteUrlsInClipboard(job);
+        overwriteUrlsInClipboard(job, m_uuid);
         break;
     case JobUiDelegateExtension::RemoveContent:
-        removeUrlsFromClipboard(job);
+        removeUrlsFromClipboard(job, m_uuid);
         break;
     }
 }
@@ -176,6 +210,7 @@ void ClipboardUpdater::update(const QUrl &srcUrl, const QUrl &destUrl)
 ClipboardUpdater::ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUpdaterMode mode)
     : QObject(job)
     , m_mode(mode)
+    , m_uuid(createUuidFromFileJob(job))
 {
     Q_ASSERT(job);
     connect(job, &KJob::result, this, &ClipboardUpdater::slotResult);
