@@ -142,6 +142,10 @@
                 "Pradinis kelias",
                 "Ištrynimo data"
             ],
+            "ExtraNames[lv]": [
+                "Sākotnējais ceļš",
+                "Dzēšanas datums"
+            ],
             "ExtraNames[ml]": [
                 "യഥാർത്ഥ പാത",
                 "ഇല്ലാതാക്കിയ തീയതി"
