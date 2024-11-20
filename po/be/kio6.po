@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-15 00:37+0000\n"
-"PO-Revision-Date: 2024-06-04 19:02\n"
+"PO-Revision-Date: 2024-11-11 19:00\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -640,7 +640,7 @@ msgstr "Не ўдалося выдаліць файл %1."
 #: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
-msgstr "Працэс пратакола %1 нечакана аварыйна завяршыўся."
+msgstr "Працэс пратаколу %1 нечакана аварыйна завяршыўся."
 
 #: core/job_error.cpp:164
 #, kde-format
@@ -1036,7 +1036,7 @@ msgstr "Паспрабуйце яшчэ раз зараз або пазней."
 #: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
-msgstr "Магчыма, адбылася памылка пратакола або несумяшчальнасці."
+msgstr "Магчыма, адбылася памылка пратаколу або несумяшчальнасці."
 
 #: core/job_error.cpp:423
 #, kde-format
@@ -1110,7 +1110,7 @@ msgid ""
 "technical reasons."
 msgstr ""
 "Не ўдаецца знайсці або запусціць праграму, якая забяспечвае доступ да "
-"пратакола <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
+"пратаколу <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
 
 #: core/job_error.cpp:465
 #, kde-format
@@ -1134,7 +1134,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
 msgstr ""
-"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратакола <strong>"
+"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, паведаміла пра ўнутраную памылку."
 
 #: core/job_error.cpp:484
@@ -1181,7 +1181,7 @@ msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr ""
-"Версія пратакола %1, якая падтрымліваецца гэтым камп'ютарама, можа быць "
+"Версія пратаколу %1, якая падтрымліваецца гэтым камп'ютарама, можа быць "
 "несумяшчальнай з версіяй на серверы."
 
 #: core/job_error.cpp:506
@@ -1594,7 +1594,7 @@ msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
 msgstr ""
-"Магчыма, адбылася памылка пратакола, у адказ на якую сервер перарваў "
+"Магчыма, адбылася памылка пратаколу, у адказ на якую сервер перарваў "
 "злучэнне."
 
 #: core/job_error.cpp:748
@@ -1985,7 +1985,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has unexpectedly terminated."
 msgstr ""
-"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратакола <strong>"
+"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, нечакана знішчыла свой працэс."
 
 #: core/job_error.cpp:1027
@@ -1999,7 +1999,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol could not obtain the memory required to continue."
 msgstr ""
-"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратакола <strong>"
+"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, не атрымала патрэбную колькасць памяці."
 
 #: core/job_error.cpp:1038
@@ -2076,7 +2076,7 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"Праграма на серверы, якая забяспечвае доступ да пратакола <strong>%1</"
+"Праграма на серверы, якая забяспечвае доступ да пратаколу <strong>%1</"
 "strong>, паведаміла пра ўнутраную памылку: %2."
 
 #: core/job_error.cpp:1085
@@ -2142,7 +2142,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
-"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратакола <strong>"
+"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, паведаміла пра невядомую памылку: %2."
 
 #: core/job_error.cpp:1130
@@ -2156,7 +2156,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
-"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратакола <strong>"
+"Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, паведаміла пра перапыненне невядомага тыпу: %2."
 
 #: core/job_error.cpp:1142
@@ -2357,7 +2357,7 @@ msgid ""
 "could not be started. This is usually due to technical reasons."
 msgstr ""
 "Не ўдаецца запусціць праграму KIO worker, якая забяспечвае доступ да "
-"пратакола <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
+"пратаколу <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
 
 #: core/job_error.cpp:1259
 #, kde-format
@@ -2476,7 +2476,7 @@ msgstr "Запіс у %1 не падтрымліваецца."
 #: core/slavebase.cpp:861
 #, kde-format
 msgid "There are no special actions available for protocol %1."
-msgstr "Адмысловыя дзеянні недаступныя для пратакола %1."
+msgstr "Адмысловыя дзеянні недаступныя для пратаколу %1."
 
 #: core/slavebase.cpp:863
 #, kde-format
@@ -2546,6 +2546,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Нельга гарантаваць бяспеку KIO worker для пратакола \"%1\", якому звычайна "
+"патрэбныя павышаныя правы доступу, бо звычайныя карыстальнікі (не толькі "
+"суперкарыстальнік (root)) маюць правы на яго змену ў %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -2555,12 +2558,12 @@ msgstr "Невядомы пратакол \"%1\"."
 #: core/worker.cpp:390
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Не ўдалося знайсці KIO worker для пратакола \"%1\"."
+msgstr "Не ўдалося знайсці KIO worker для пратаколу \"%1\"."
 
 #: core/worker.cpp:404
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Не ўдалося стварыць сокет для запуску KIO worker для пратакола \"%1\"."
+msgstr "Не ўдалося стварыць сокет для запуску KIO worker для пратаколу \"%1\"."
 
 #: core/worker.cpp:444
 #, kde-format
@@ -3045,11 +3048,10 @@ msgid "Tags"
 msgstr "Тэгі"
 
 #: filewidgets/kfileplacesitem.cpp:333
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Памылка %2)"
+msgstr "%1 (з %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3231,9 +3233,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Перафарматаваць або рэдагаваць з дапамогай Partition Manager"
 
 #: filewidgets/kfileplacesview.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3713,11 +3713,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1067
-#, fuzzy, kde-format
-#| msgid "Ru&n as a different user"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Вы&канаць як іншы карыстальнік"
+msgstr "Увядзіце назву файла \"%1\":"
 
 #: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
@@ -3869,12 +3868,10 @@ msgid "Show Full Path"
 msgstr "Паказаць поўны шлях"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Не ўдалося перадаць <filename>%1</filename>"
+msgstr "Пераход у любое месца па шляху <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3886,7 +3883,7 @@ msgstr "Яшчэ"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Пераход да размяшчэння па шляху"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3959,7 +3956,7 @@ msgstr ""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Пададзена пустая каманда"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -4790,7 +4787,7 @@ msgstr "Доступ забаронены"
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
-msgstr "Вы не маеце правоў для доступу да пратакола %1."
+msgstr "Вы не маеце правоў для доступу да пратаколу %1."
 
 #: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
@@ -4968,12 +4965,10 @@ msgid "&Move Here"
 msgstr "&Перамясціць сюды"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Спампоўванні"
+msgstr "&Спампаваць сюды"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -5705,7 +5700,7 @@ msgstr "Выканаць у &тэрмінале"
 #: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr ""
+msgstr "&Не закрываць, калі каманда завяршае працу"
 
 #: widgets/kopenwithdialog.cpp:796
 #, kde-format
@@ -6295,28 +6290,24 @@ msgstr ""
 "валодаюць гэтым файлаі і не ўдзельнічаюць у групе."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Толькі ўла&снік можа змяняць назву і выдаляць змесціва каталога"
+msgstr "Толькі ўла&дальнік можа змяняць назву і выдаляць змесціва"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Адзначце гэты сцяг, каб дазволіць выкананне гэтага файла."
+msgstr "Дазволіць &выконваць як праграму"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Прадвызначаны карыстальнік:"
+msgstr "Выдаленне або змена назвы:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Выкананне"
+msgstr "Выкананне:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
