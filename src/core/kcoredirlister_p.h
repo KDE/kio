@@ -324,9 +324,10 @@ private:
         DirItem *dirItem = dirItemForUrl(parentDir);
         if (dirItem) {
             auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
-            Q_ASSERT(it != dirItem->lstItems.end());
-            dirItem->lstItems.erase(it);
-            dirItem->insert(item);
+            if (it != dirItem->lstItems.end()) {
+                dirItem->lstItems.erase(it);
+                dirItem->insert(item);
+            }
         }
     }
 
@@ -336,8 +337,9 @@ private:
         DirItem *dirItem = dirItemForUrl(parentDir);
         if (dirItem) {
             auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
-            Q_ASSERT(it != dirItem->lstItems.end());
-            dirItem->lstItems.erase(it);
+            if (it != dirItem->lstItems.end()) {
+                dirItem->lstItems.erase(it);
+            }
         }
     }
 
@@ -502,6 +504,7 @@ private:
         // Remember that this is optional. FTP sites don't return '.' in
         // the list, so they give no root item
         KFileItem rootItem;
+        // The fileitems contained in the directory. Empty when directory is not readable.
         QList<KFileItem> lstItems;
     };
 

@@ -1720,4 +1720,51 @@ void KDirListerTest::testCacheEviction()
     QVERIFY(KDirWatch::self()->contains(newDir.path() + QString("dir_1")));
 }
 
+void KDirListerTest::testUnreadableParentDirectory() {
+#ifdef WITH_QTDBUS
+    QTemporaryDir newDir(tmpDirTemplate());
+    MyDirLister dirLister;
+
+    const QString hiddenPath = newDir.path() + QString("/hidden");
+    const QString visiblePath = hiddenPath + QString("/visible");
+
+    KDirWatch::self()->addDir(newDir.path(), KDirWatch::WatchSubDirs);
+
+    // Create hidden folder and add it to lister
+    QVERIFY(QDir().mkdir(hiddenPath));
+    // Set folder to u-r to mimic `chown root:root hidden`
+    const mode_t badperms = (S_IWUSR | S_IXUSR | S_IXGRP);
+    QVERIFY(KIO::chmod(QUrl::fromLocalFile(hiddenPath), badperms)->exec());
+    // Set the permissions normal to allow test to clean up at end of scope
+    auto cleanup = qScopeGuard([hiddenPath] {
+        const mode_t clearperms = (S_IWUSR | S_IXUSR | S_IRUSR | S_IRGRP | S_IWGRP | S_IXGRP);
+        QVERIFY(KIO::chmod(QUrl::fromLocalFile(hiddenPath), clearperms)->exec());
+    });
+    QVERIFY(dirLister.openUrl(QUrl::fromLocalFile(hiddenPath), MyDirLister::Keep));
+    // This should fail since we cant read the folder, so check for jobError
+    QVERIFY(dirLister.spyJobError.wait(500));
+    QVERIFY(dirLister.isFinished());
+    QVERIFY(KDirWatch::self()->contains(hiddenPath));
+
+    // Create visible folder and add it to lister
+    QVERIFY(QDir().mkdir(visiblePath));
+    QVERIFY(dirLister.openUrl(QUrl::fromLocalFile(visiblePath), MyDirLister::Keep));
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(dirLister.isFinished());
+    QVERIFY(KDirWatch::self()->contains(visiblePath));
+
+    // Wait until the time changes so the cache will have to be updated
+    waitUntilMTimeChange(hiddenPath);
+    const QString hiddenFile = hiddenPath + "/aaaa";
+    createSimpleFile(hiddenFile);
+
+    // Add a file to have difference between old and new cache data
+    waitUntilMTimeChange(visiblePath);
+    const QString visibleFile = visiblePath + "/bbbb";
+    createSimpleFile(visibleFile);
+    // Make sure we emit files changed so the cache will be re-read
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(visiblePath), QUrl::fromLocalFile(hiddenPath)});
+#endif
+}
+
 #include "moc_kdirlistertest.cpp"

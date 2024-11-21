@@ -110,6 +110,7 @@ private Q_SLOTS:
     void testMimeFilter();
     void testBug386763();
     void testCacheEviction();
+    void testUnreadableParentDirectory();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 
