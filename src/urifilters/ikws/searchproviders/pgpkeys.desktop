@@ -50,7 +50,7 @@ Name[kn]=ಮುಕ್ತ PGP ಕೀಲಿಕೈ ಹುಡುಕಾಟ
 Name[ko]=OpenPGP 키 검색
 Name[ku]=Lêgerîna Mifteya Open PGP
 Name[lt]=OpenPGP raktų paieška
-Name[lv]=OpenPGP atslēgu meklēšana
+Name[lv]=„OpenPGP“ atslēgu meklēšana
 Name[mai]=ओपनपीजीपी कुँजी खोज
 Name[mk]=Пребарување на OpenPGP клучеви
 Name[ml]=ഓപ്പണ്‍പിജിപി (OpenPGP) കീ തെരച്ചില്‍
@@ -127,6 +127,7 @@ Query[it]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ka]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ko]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[lv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[my]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[nl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[nn]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

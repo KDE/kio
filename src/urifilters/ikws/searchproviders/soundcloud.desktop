@@ -34,6 +34,7 @@ Name[it]=Soundcloud
 Name[ka]=Soundcloud
 Name[ko]=Soundcloud
 Name[lt]=Soundcloud
+Name[lv]=Soundcloud
 Name[my]=ဆောင်းကလောက်
 Name[nl]=Soundcloud
 Name[nn]=SoundCloud
@@ -93,6 +94,7 @@ Query[it]=https://soundcloud.com/search?q=\\{@}
 Query[ka]=https://soundcloud.com/search?q=\\{@}
 Query[ko]=https://soundcloud.com/search?q=\\{@}
 Query[lt]=https://soundcloud.com/search?q=\\{@}
+Query[lv]=https://soundcloud.com/search?q=\\{@}
 Query[my]=https://soundcloud.com/search?q=\\{@}
 Query[nl]=https://soundcloud.com/search?q=\\{@}
 Query[nn]=https://soundcloud.com/search?q=\\{@}

@@ -44,7 +44,7 @@ Name[km]=ការ​ទិញ​ឥវ៉ាន់របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಖರೀದಿ
 Name[ko]=Duck Duck Go 쇼핑
 Name[lt]=Duck Duck Go apsipirkimas
-Name[lv]=Duck Duck Go iepirkšanās
+Name[lv]=„Duck Duck Go“ iepirkšanās
 Name[mai]=डक डक गो शापिंग
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ ഷോപ്പിംഗ്
 Name[mr]=डक डक गो खरेदी
@@ -115,6 +115,7 @@ Query[ka]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[lv]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[mr]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[my]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[nb]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

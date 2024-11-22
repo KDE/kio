@@ -51,7 +51,7 @@ Name[kn]=CiteSeer: ವೈಜ್ಞಾನಿಕ ಸಾಹಿತ್ಯ ಅಂಕ�
 Name[ko]=CiteSeer: 과학 문학 디지털 도서관
 Name[ku]=CiteSeer: Pirtûkxane ya Dîjîtal ya Lîteratûra Zanistî
 Name[lt]=CiteSeer: Mokslinės literatūros skaitmeninė biblioteka
-Name[lv]=CiteSeer: Zinātniskās literatūras elektroniskā bibliotēka
+Name[lv]=„CiteSeer“: zinātniskās literatūras elektroniskā bibliotēka
 Name[mai]=CiteSeer: वैज्ञानिक साहित्य डिजिटल पुस्तकालय
 Name[mk]=CiteSeer: дигитална библиотека со научна литература
 Name[ml]=സൈറ്റ്സിയര്‍: ശാസ്ത്രസാഹിത്യത്തിന്റെ ഡിജിറ്റല്‍ വായനശാല
@@ -128,6 +128,7 @@ Query[it]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[ka]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ko]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[lv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[my]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nn]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

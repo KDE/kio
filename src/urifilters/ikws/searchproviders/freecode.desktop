@@ -37,6 +37,7 @@ Name[ka]=Freecode
 Name[kk]=Freecode
 Name[ko]=Freecode
 Name[lt]=Freecode
+Name[lv]=Freecode
 Name[mr]=फ्रीकोड
 Name[my]=ဖရီးကုတ်
 Name[nb]=Freecode
@@ -104,6 +105,7 @@ Query[ka]=http://freecode.com/search?q=\\{@}
 Query[kk]=http://freecode.com/search?q=\\{@}
 Query[ko]=http://freecode.com/search?q=\\{@}
 Query[lt]=http://freecode.com/search?q=\\{@}
+Query[lv]=http://freecode.com/search?q=\\{@}
 Query[mr]=http://freecode.com/search?q=\\{@}
 Query[my]=http://freecode.com/search?q=\\{@}
 Query[nb]=http://freecode.com/search?q=\\{@}

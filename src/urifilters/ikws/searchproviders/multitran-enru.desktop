@@ -51,7 +51,7 @@ Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್-ಇಂಗ್ಲೀಷ್ ಮತ್ತ
 Name[ko]=Multitran - 영어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Îngilîzî û Rûsî de
 Name[lt]=Multitran – versti iš anglų į rusų ir atvirkščiai
-Name[lv]=Multitran - tulkot no Angļu uz Krievu
+Name[lv]=„Multitran“ — tulkot starp angļu un krievu valodu
 Name[mai]=Multitran - Translate Between English and Russian
 Name[mk]=Multitran - превод меѓу англиски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഇംഗ്ലീഷും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
@@ -125,6 +125,7 @@ Query[it]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[lv]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

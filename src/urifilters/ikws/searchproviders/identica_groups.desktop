@@ -44,7 +44,7 @@ Name[km]=ក្រុម​របស់ Identi.ca
 Name[kn]=identi.ca ಗುಂಪುಗಳು
 Name[ko]=Identi.ca 그룹스
 Name[lt]=Identi.ca grupės
-Name[lv]=Identi.ca grupas
+Name[lv]=„Identi.ca“ grupas
 Name[mai]=Identi.ca समूह
 Name[ml]=ഐഡന്റിക്ക ഗ്രൂപ്പുകള്‍
 Name[mr]=Identi.ca ग्रुप्स
@@ -115,6 +115,7 @@ Query[ka]=https://identi.ca/search/group?q=\\{@}
 Query[kk]=https://identi.ca/search/group?q=\\{@}
 Query[ko]=https://identi.ca/search/group?q=\\{@}
 Query[lt]=https://identi.ca/search/group?q=\\{@}
+Query[lv]=https://identi.ca/search/group?q=\\{@}
 Query[mr]=https://identi.ca/search/group?q=\\{@}
 Query[my]=https://identi.ca/search/group?q=\\{@}
 Query[nb]=https://identi.ca/search/group?q=\\{@}

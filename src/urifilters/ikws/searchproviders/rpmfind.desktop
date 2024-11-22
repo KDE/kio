@@ -51,7 +51,7 @@ Name[kn]=RPM-ಹುಡುಕಾಟ
 Name[ko]=RPM-Find
 Name[ku]=RPM-Find
 Name[lt]=RPM-Find
-Name[lv]=RPM-Meklēšana
+Name[lv]=RPM meklēšana
 Name[mai]=आरपीएम-फाइंड
 Name[mk]=RPM-барање
 Name[ml]=RPM-ഫൈൻഡ്
@@ -129,6 +129,7 @@ Query[it]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ka]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ko]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[lt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[lv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[my]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nn]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

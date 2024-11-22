@@ -52,7 +52,7 @@ Name[kn]=ಗೂಗಲ್ ಚಲಚ್ಚಿತ್ರಗಳು
 Name[ko]=Google 영화
 Name[ku]=Fîlmên Google
 Name[lt]=Google filmai
-Name[lv]=Google filmas
+Name[lv]=„Google“ filmas
 Name[mai]=गूगल सिनेमा
 Name[mk]=Google - филмови
 Name[ml]=ഗൂഗിള്‍ ചലചിത്രങ്ങള്‍
@@ -131,6 +131,7 @@ Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[lv]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[my]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nn]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

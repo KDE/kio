@@ -50,7 +50,7 @@ Name[kn]=CTAN -ವ್ಯಾಪಕ ಟೆಕ್ ( TeX) ಕಡತಾಗಾರ (ಆ
 Name[ko]=CTAN - Comprehensive TeX Archive Network
 Name[ku]=CTAN - Tora Arşîva TeX yê Bikitekit
 Name[lt]=CTAN – Visapusis TeX Archyvo Tinklas
-Name[lv]=CTAN - visaptverošs TeX arhīvu rīkls
+Name[lv]=CTAN + visaptverošs „TeX“ arhīvu tīkls
 Name[mai]=CTAN - काम्प्रेहेंसिव टीईएक्स आर्काइव नेटवर्क
 Name[mk]=CTAN - Обемна мрежа со TeX архиви
 Name[ml]=CTAN - സമഗ്രമായ ടെക്സ് ശേഖര ശൃംഖല
@@ -128,6 +128,7 @@ Query[it]=https://ctan.org/search?phrase=\\{@}
 Query[ka]=https://ctan.org/search?phrase=\\{@}
 Query[ko]=https://ctan.org/search?phrase=\\{@}
 Query[lt]=https://ctan.org/search?phrase=\\{@}
+Query[lv]=https://ctan.org/search?phrase=\\{@}
 Query[my]=https://ctan.org/search?phrase=\\{@}
 Query[nl]=https://ctan.org/search?phrase=\\{@}
 Query[nn]=https://ctan.org/search?phrase=\\{@}

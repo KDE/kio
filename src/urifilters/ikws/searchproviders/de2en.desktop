@@ -52,7 +52,7 @@ Name[kn]=dict.cc ಭಾಷಾಂತರ: ಜರ್ಮನ್ ನಿಂದ ಇಂ�
 Name[ko]=dict.cc 번역: 독일어 - 영어
 Name[ku]=dict.cc Wergerandin: Almanî ji Îngilîzî re 
 Name[lt]=dict.cc vertimas: iš vokiečių į anglų
-Name[lv]=dict.cc tulkošana: no Vācu uz Angļu
+Name[lv]=„dict.cc“ tulkošana: no vācu uz angļu
 Name[mai]=dict.cc अनुवादः जर्मन सँ अंग्रेजी
 Name[mk]=dict.cc превод: од германски на англиски
 Name[ml]=dict.cc പരിഭാഷ: ജര്‍മനില്‍ നിന്നും ഇംഗ്ലീഷിലേയ്ക്കു്
@@ -128,6 +128,7 @@ Query[it]=https://www.dict.cc/?s=\\{@}
 Query[ka]=https://www.dict.cc/?s=\\{@}
 Query[ko]=https://www.dict.cc/?s=\\{@}
 Query[lt]=https://www.dict.cc/?s=\\{@}
+Query[lv]=https://www.dict.cc/?s=\\{@}
 Query[my]=https://www.dict.cc/?s=\\{@}
 Query[nl]=https://www.dict.cc/?s=\\{@}
 Query[nn]=https://www.dict.cc/?s=\\{@}

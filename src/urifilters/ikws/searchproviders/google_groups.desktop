@@ -51,7 +51,7 @@ Name[kn]=ಗೂಗಲ್ ಗುಂಪುಗಳು
 Name[ko]=Google 그룹스
 Name[ku]=Komên Googleyê
 Name[lt]=Google grupės
-Name[lv]=Google grupas
+Name[lv]=„Google“ grupas
 Name[mai]=गूगल समूह
 Name[mk]=Google-групи
 Name[ml]=ഗൂഗിള്‍ കൂട്ടങ്ങള്‍
@@ -134,6 +134,7 @@ Query[ka]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[kk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ko]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[lv]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[mr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[my]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nb]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

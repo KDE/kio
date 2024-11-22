@@ -44,7 +44,7 @@ Name[km]=មនុស្ស Identi.ca
 Name[kn]=identi.ca ಜನರು
 Name[ko]=Identi.ca 피플
 Name[lt]=Identi.ca žmonės
-Name[lv]=Identi.ca cilvēki
+Name[lv]=„Identi.ca“ cilvēki
 Name[mai]=Identi.ca लोकनिसभ
 Name[ml]=ഐഡന്റിക്കയിലെ ആളുകള്‍
 Name[mr]=Identi.ca लोक
@@ -115,6 +115,7 @@ Query[ka]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[kk]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ko]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[lt]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[lv]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[mr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[my]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nb]=https://identi.ca/search/people?q=\\{@}&search=Search

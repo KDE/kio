@@ -31,6 +31,7 @@ Name[it]=Documentazione di STD di Rust
 Name[ka]=Rust STD დოკუმენტაცია
 Name[ko]=Rust STD 문서
 Name[lt]=Rust STD dokumentacija
+Name[lv]=„Rust“ STD dokumentācija
 Name[my]=ရက်စ် အက်စ်တီဒီ ဒိုကူမန်တေးရှင်း
 Name[nl]=Rust STD-documentatie
 Name[nn]=Rust STD-dokumentasjon
@@ -85,6 +86,7 @@ Query[it]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ka]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ko]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[lt]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[lv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[my]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nn]=https://doc.rust-lang.org/std/index.html?search=\\{@}

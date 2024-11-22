@@ -53,7 +53,7 @@ Name[kn]=ವಿಕಿಪೀಡಿಯಾ - ಮುಕ್ತ ವಿಶ್ವಕೋ�
 Name[ko]=위키백과 - 우리 모두의 백과사전
 Name[ku]=Wîkîpediya - Ensîklopediya Azad
 Name[lt]=Vikipedija – laisvoji enciklopedija
-Name[lv]=Wikipedia - brīvā enciklopēdija
+Name[lv]=Vikipēdija — brīvā enciklopēdija
 Name[mai]=विकिपेडिया- मुफ्त विश्वकोश
 Name[mk]=Википедија - Слободната енциклопедија
 Name[ml]=വിക്കിപീഡിയ - സ്വതന്ത്ര സര്‍വ്വവിജ്ഞാനകോശം
@@ -134,6 +134,7 @@ Query[ka]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://lt.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[lv]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[mr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[my]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

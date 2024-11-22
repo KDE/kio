@@ -53,7 +53,7 @@ Name[kn]=WordReference.com ಇಂಗ್ಲೀಷ್ ಶಬ್ದಕೋಶ
 Name[ko]=WordReference.com 영어 사전
 Name[ku]=Ferhenga Îngilîzî WordReference.com
 Name[lt]=WordReference.com anglų kalbos žodynas
-Name[lv]=WordReference.com Angļu valodas vārdnīca
+Name[lv]=„WordReference.com“ angļu valodas vārdnīca
 Name[mai]=वर्डरेफरेंस.काम  अंग्रेजी शब्दकोश
 Name[mk]=WordReference.com Англиски речник
 Name[ml]=WordReference.com ഇംഗ്ലീഷ് നിഘണ്ടു
@@ -129,6 +129,7 @@ Query[it]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ka]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ko]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[lt]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[lv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[my]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nn]=https://www.wordreference.com/english/definition.asp?en=\\{@}

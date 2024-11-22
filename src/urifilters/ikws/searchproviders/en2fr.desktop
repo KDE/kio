@@ -52,7 +52,7 @@ Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂ
 Name[ko]=WordReference.com 번역: 영어 - 프랑스어
 Name[ku]=WordReference.com Wergerandin: Îngilîzî ji Fransizî re
 Name[lt]=WordReference.com vertimas: iš anglų į prancūzų
-Name[lv]=WordReference.com tulkošana: no Angļu uz Franču
+Name[lv]=„WordReference.com“ tulkošana: no angļu uz franču
 Name[mai]=WordReference.com अनुवादः अंग्रेजी सँ फ्रांसीसी
 Name[mk]=WordReference.com превод: од англиски на француски
 Name[ml]=WordReference.com പരിഭാഷ: ഇംഗ്ലീഷില്‍ നിന്നും ഫ്രഞ്ചിലേയ്ക്കു്
@@ -127,6 +127,7 @@ Query[it]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ka]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ko]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[lt]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[lv]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[my]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[nl]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[nn]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

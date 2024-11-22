@@ -42,7 +42,7 @@ Name[km]=វចនានុក្រម​លើ​បណ្ដាញ Beolingus
 Name[kn]=ಬಿಯೋಲಿಂಗಸ್ ಒನ್ಲೈನ್ ಶಬ್ದಕೋಶ
 Name[ko]=Beolingus 온라인 사전
 Name[lt]=Beolingus internetinis žodynas
-Name[lv]=Beolingus tiešsaistes vārdnīca
+Name[lv]=„Beolingus“ tiešsaistes vārdnīca
 Name[ml]=ബിയോലിങ്കസ് ഓണ്‍ലൈന്‍ നിഘണ്ടു
 Name[mr]=बिओलिंगस ऑनलाइन शब्दकोश
 Name[my]=ဘိုလင်းဂတ်စ် အွန်လိုင်းဒစ်ရှင်နရီ
@@ -111,6 +111,7 @@ Query[it]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0
 Query[ka]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[ko]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[lt]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
+Query[lv]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[my]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nl]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nn]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email

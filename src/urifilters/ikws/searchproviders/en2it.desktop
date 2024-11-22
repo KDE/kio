@@ -52,7 +52,7 @@ Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂ
 Name[ko]=WordReference.com 번역: 영어 - 이탈리아어
 Name[ku]=WordReference.com Wergerandin: Îngilîzî ji Îtalî re
 Name[lt]=WordReference.com vertimas: iš anglų į italų
-Name[lv]=WordReference.com tulkošana: no Angļu uz Itāļu
+Name[lv]=„WordReference.com“ tulkošana: no angļu uz itāļu
 Name[mai]=WordReference.com अनुवादः अंग्रेजी सँ इतालवी
 Name[mk]=WordReference.com превод: од англиски на италијански
 Name[ml]=WordReference.com പരിഭാഷ: ഇംഗ്ലീഷില്‍ നിന്നും ഇറ്റാലിയനിലേയ്ക്കു്
@@ -127,6 +127,7 @@ Query[it]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ka]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ko]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[lt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[lv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[my]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[nl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[nn]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

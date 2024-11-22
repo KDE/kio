@@ -51,7 +51,7 @@ Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಡಚ್ ಮತ್ತು ರಷ್
 Name[ko]=Multitran - 네덜란드어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Holandî û Rûsî de
 Name[lt]=Multitran – versti iš olandų į rusų ir atvirkščiai
-Name[lv]=Multitran - tulkot no Nīderlandiešu uz Krievu
+Name[lv]=„Multitran“ — tulkot starp holandiešu un krievu valodu
 Name[mai]=Multitran - Translate Between Dutch and Russian
 Name[mk]=Multitran - превод меѓу холандски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഡച്ചും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
@@ -125,6 +125,7 @@ Query[it]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[lv]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

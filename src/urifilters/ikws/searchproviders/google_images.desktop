@@ -51,7 +51,7 @@ Name[kn]=ಗೂಗಲ್ ಚಿತ್ರ ಹುಡುಕಾಟ
 Name[ko]=Google 이미지 검색
 Name[ku]=Lêgerîna Wêneyan a Gooleyê
 Name[lt]=Google vaizdų paieška
-Name[lv]=Google attēlu meklēšana
+Name[lv]=„Google“ attēlu meklēšana
 Name[mai]=गूगल छवि खोज
 Name[mk]=Google - пребарување на слики
 Name[ml]=ഗൂഗിൾ ചിത്ര തിരയൽ
@@ -134,6 +134,7 @@ Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[lv]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[mr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[my]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[nb]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

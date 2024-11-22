@@ -33,6 +33,7 @@ Name[it]=CPlusPlus
 Name[ka]=CPlusPlus
 Name[ko]=CPlusPlus
 Name[lt]=CPlusPlus
+Name[lv]=CPlusPlus
 Name[my]=စီပလပ်ပလပ်
 Name[nl]=CPlusPlus
 Name[nn]=CPlusPlus
@@ -88,6 +89,7 @@ Query[it]=http://cplusplus.com/search.do?q=\\{@}
 Query[ka]=http://cplusplus.com/search.do?q=\\{@}
 Query[ko]=http://cplusplus.com/search.do?q=\\{@}
 Query[lt]=http://cplusplus.com/search.do?q=\\{@}
+Query[lv]=http://cplusplus.com/search.do?q=\\{@}
 Query[my]=http://cplusplus.com/search.do?q=\\{@}
 Query[nl]=http://cplusplus.com/search.do?q=\\{@}
 Query[nn]=http://cplusplus.com/search.do?q=\\{@}

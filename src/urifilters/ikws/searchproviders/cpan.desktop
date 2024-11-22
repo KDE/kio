@@ -50,7 +50,7 @@ Name[kn]=CPAN -ವ್ಯಾಪಕ ಪರ್ಲ್ ಕಡತಾಗಾರ (ಆರ�
 Name[ko]=CPAN - Comprehensive Perl Archive Network
 Name[ku]=CPAN - Tora Arşîva Perl yê Bikitekit
 Name[lt]=CPAN – Visapusis Perlo Archyvo Tinklas
-Name[lv]=CPAN - visaptverošs perl arhīvu tīkls
+Name[lv]=CPAN — visaptverošs „Perl“ arhīvu tīkls
 Name[mai]=CPAN - काम्प्रेहेंसिव पर्ल आर्काइव नेटवर्क
 Name[mk]=CPAN - Обемна мрежа со Perl архиви
 Name[ml]=സിപാൻ - സമഗ്രമായ പേൾ ശേഖര ശൃംഖല
@@ -128,6 +128,7 @@ Query[it]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ka]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[lv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[my]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

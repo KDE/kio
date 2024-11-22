@@ -51,7 +51,7 @@ Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಇಟಾಲಿಯನ್ ಮತ್�
 Name[ko]=Multitran - 이탈리아어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Îtalî û Rûsî de
 Name[lt]=Multitran – versti iš italų į rusų ir atvirkščiai
-Name[lv]=Multitran - tulkot no Itāļu uz Krievu
+Name[lv]=„Multitran“ — tulkot starp itāļu un krievu valodu
 Name[mai]=Multitran - Translate Between Italian and Russian
 Name[mk]=Multitran - превод меѓу италијански и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഇറ്റാലിയനും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
@@ -125,6 +125,7 @@ Query[it]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[lv]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

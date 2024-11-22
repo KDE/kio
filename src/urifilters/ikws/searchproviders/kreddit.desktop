@@ -33,6 +33,7 @@ Name[it]=KDE Reddit
 Name[ka]=KDE Reddit-ზე
 Name[ko]=KDE Reddit
 Name[lt]=KDE Reddit
+Name[lv]=KDE Reddit
 Name[my]=ကေဒီအီး ရက်ဒစ်
 Name[nl]=KDE-Reddit
 Name[nn]=KDE Reddit
@@ -87,6 +88,7 @@ Query[it]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ka]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ko]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[lt]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[lv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[my]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nn]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

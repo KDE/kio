@@ -35,6 +35,7 @@ Name[it]=Acquisti di Qwant
 Name[ka]=Qwant საყიდლები
 Name[ko]=Qwant 쇼핑
 Name[lt]=Qwant apsipirkimas
+Name[lv]=„Qwant“ iepirkšanās
 Name[mr]=क्वांटखरेदी
 Name[my]=ကွမ့် စျေးဝယ်ထွက်
 Name[nb]=Qwant shopping
@@ -96,6 +97,7 @@ Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

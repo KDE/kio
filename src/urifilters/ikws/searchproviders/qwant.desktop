@@ -35,6 +35,7 @@ Name[it]=Qwant
 Name[ka]=Qwant
 Name[ko]=Qwant
 Name[lt]=Qwant
+Name[lv]=Qwant
 Name[ml]=ക്വാണ്ട്
 Name[mr]=क्वांट
 Name[my]=ကွမ့်
@@ -97,6 +98,7 @@ Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

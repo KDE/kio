@@ -50,7 +50,7 @@ Name[kn]=ಮೈಕ್ರೋಸಾಫ್ಟ್ ವಿಕಸನ ಜಾಲ ಹು�
 Name[ko]=Microsoft 개발자 네트워크 검색
 Name[ku]=Lêgerîna Torê a Pêşdebirên Microsoftê
 Name[lt]=Microsoft Developer tinklo paieška
-Name[lv]=Meklēt Microsoft izstrādātāju tīklā
+Name[lv]=Meklēt „Microsoft“ izstrādātāju tīklā
 Name[mai]=माइक्रोसाफ्ट डेवलपर नेटवर्क खोज
 Name[mk]=Microsoft Developer Network Search
 Name[ml]=മൈക്രോസോഫ്റ്റ് ഡെവലപ്പര്‍ നെറ്റ്‌വര്‍ക്കില്‍ തെരയുക
@@ -131,6 +131,7 @@ Query[ka]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[kk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ko]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[lt]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[lv]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[mr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[my]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[nb]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

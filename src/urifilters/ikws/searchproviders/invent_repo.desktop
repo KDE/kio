@@ -34,6 +34,7 @@ Name[it]=Depositi su KDE Invent
 Name[ka]=KDE Invent რეპოზიტორები
 Name[ko]=KDE Invent 저장소
 Name[lt]=KDE Invent saugyklos
+Name[lv]=„KDE Invent“ krātuves
 Name[my]=ကေဒီအီး အင်ဗန့် ရီပိုစစ်တိုရီများ
 Name[nl]=Opslagruimtes van KDE-invent
 Name[nn]=KDE Invent-pakkebrønnar
@@ -87,6 +88,7 @@ Query[it]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ka]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ko]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[lt]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[lv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[my]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nn]=https://invent.kde.org/explore/projects/starred?name=\\{@}

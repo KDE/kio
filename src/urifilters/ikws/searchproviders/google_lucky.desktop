@@ -49,7 +49,7 @@ Name[kn]=ಗೂಗಲ್ (ಅದೃಷ್ಟ ಚೆನ್ನಾಗಿದ್ದ�
 Name[ko]=Google (운 좋은 예감)
 Name[ku]=Goole (Ez Bi Siûd im)
 Name[lt]=Google (Man sekasi!)
-Name[lv]=Google (Es ticu veiksmei)
+Name[lv]=„Google“ (es ticu veiksmei)
 Name[mai]=गूगल (आइ हमर किस्मत नीक अछि)
 Name[mk]=Google Од прва рака
 Name[ml]=ഗൂഗിൾ (എനിക്ക് ഭാഗ്യം തോന്നുന്നു)
@@ -131,6 +131,7 @@ Query[ka]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[kk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[lv]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[mr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[my]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[nb]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
