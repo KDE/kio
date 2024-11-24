@@ -6,6 +6,7 @@
 */
 
 #include "commandlauncherjobtest.h"
+#include "../core/global.h"
 #include "commandlauncherjob.h"
 
 #include "kiotesthelper.h" // createTestFile etc.
@@ -239,7 +240,7 @@ void CommandLauncherJobTest::startProcessWithEnvironmentVariables()
     QCOMPARE(data, "myvar=myvalue");
 }
 
-void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
+void CommandLauncherJobTest::launchingCommandDoesNotFailOnNonExistingExecutable()
 {
     // Given a command that uses an executable that doesn't exist
     const QString command = "does_not_exist foo bar";
@@ -258,6 +259,18 @@ void CommandLauncherJobTest::doesNotFailOnNonExistingExecutable()
 
     // Wait for KProcessRunner to be deleted
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
+}
+
+void CommandLauncherJobTest::launchingMissingExectubleFail()
+{
+    // When running a CommandLauncherJob with a non-existing executable
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("really_does_not_exist"), {}, this);
+
+    // Then it fails.
+    QVERIFY(!job->exec());
+
+    QCOMPARE(job->error(), KIO::ERR_DOES_NOT_EXIST);
+    QCOMPARE(job->errorString(), QStringLiteral("really_does_not_exist"));
 }
 
 void CommandLauncherJobTest::shouldErrorOnEmptyCommand()

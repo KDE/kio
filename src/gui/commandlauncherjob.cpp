@@ -6,6 +6,7 @@
 */
 
 #include "commandlauncherjob.h"
+#include "../core/global.h"
 #include "kiogui_debug.h"
 #include "kprocessrunner_p.h"
 #include <KLocalizedString>
@@ -118,6 +119,13 @@ void KIO::CommandLauncherJob::start()
     if (d->m_command.isEmpty() && !d->m_executable.isEmpty()) {
         d->m_processRunner =
             KProcessRunner::fromExecutable(d->m_executable, d->m_arguments, d->m_desktopName, d->m_startupId, d->m_workingDirectory, d->m_environment);
+
+        if (!d->m_processRunner) {
+            setError(KIO::ERR_DOES_NOT_EXIST);
+            setErrorText(d->m_executable);
+            emitResult();
+            return;
+        }
     } else {
         d->m_processRunner =
             KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_startupId, d->m_workingDirectory, d->m_environment);

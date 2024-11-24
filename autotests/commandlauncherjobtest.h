@@ -29,7 +29,8 @@ private Q_SLOTS:
 
     void startProcessWithEnvironmentVariables();
 
-    void doesNotFailOnNonExistingExecutable();
+    void launchingCommandDoesNotFailOnNonExistingExecutable();
+    void launchingMissingExectubleFail();
     void shouldErrorOnEmptyCommand();
 
     void runExecutableInLocalPath();
