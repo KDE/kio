@@ -75,6 +75,7 @@ Name[se]=WordReference.com – jorgaleapmi: eŋgelasgielas italialašgillii
 Name[si]=WordReference.com පරිවර්ථනය: ඉංග්‍රීසි සිට ඉතාලි බසට
 Name[sk]=WordReference.com preklad z angličtiny do taliančiny
 Name[sl]=Prevod WordReference.com: angleščina v italijanščino
+Name[sq]=Përkthim nga WordReference.com: anglisht në italisht
 Name[sr]=Вордреференс: са енглеског на италијански
 Name[sr@ijekavian]=Вордреференс: са енглеског на италијански
 Name[sr@ijekavianlatin]=WordReference: sa engleskog na italijanski
@@ -140,6 +141,7 @@ Query[ru]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sa]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[sq]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[tg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[tok]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

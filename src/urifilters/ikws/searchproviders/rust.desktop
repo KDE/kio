@@ -44,6 +44,7 @@ Name[ru]=Документация по Rust STD
 Name[sa]=Rust STD Documentation
 Name[sk]=Dokumentácia Rust STD
 Name[sl]=Dokumentacija za Rust STD
+Name[sq]=Dokumentim për Rust STD
 Name[sv]=Rust standarddokumentation
 Name[tr]=Rust STD Belgelendirmesi
 Name[uk]=Документація із STD Rust
@@ -99,6 +100,7 @@ Query[ru]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sa]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sk]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sq]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[tr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[uk]=https://doc.rust-lang.org/std/index.html?search=\\{@}

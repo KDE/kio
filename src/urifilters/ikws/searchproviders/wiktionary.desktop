@@ -75,6 +75,7 @@ Name[se]=Wiktinary – fridja sátnegirji
 Name[si]=Wiktionary - නිදහස් ශබ්ද කෝශය
 Name[sk]=Wiktionary - voľne dostupný slovník
 Name[sl]=Wiktionary - Prosti slovar
+Name[sq]=Wiktionary - Fjalori i Lirë
 Name[sr]=Викиречник — слободни речник
 Name[sr@ijekavian]=Викирјечник — слободни рјечник
 Name[sr@ijekavianlatin]=Wikirečnik — slobodni rječnik
@@ -148,6 +149,7 @@ Query[ru]=https://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sa]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sl]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[sq]=https://sq.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr@ijekavian]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr@ijekavianlatin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

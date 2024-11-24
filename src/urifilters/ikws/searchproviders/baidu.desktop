@@ -62,6 +62,7 @@ Name[sa]=Baidu
 Name[si]=Baidu
 Name[sk]=Baidu
 Name[sl]=Baidu
+Name[sq]=Baidu
 Name[sr]=Бајду
 Name[sr@ijekavian]=Бајду
 Name[sr@ijekavianlatin]=Baidu
@@ -126,6 +127,7 @@ Query[ru]=https://www.baidu.com/s?wd=\\{@}
 Query[sa]=https://www.baidu.com/s?wd=\\{@}
 Query[sk]=https://www.baidu.com/s?wd=\\{@}
 Query[sl]=https://www.baidu.com/s?wd=\\{@}
+Query[sq]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}
 Query[tg]=https://www.baidu.com/s?wd=\\{@}
 Query[tok]=https://www.baidu.com/s?wd=\\{@}

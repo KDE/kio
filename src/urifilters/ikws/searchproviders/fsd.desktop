@@ -75,6 +75,7 @@ Name[se]=FSF/UNESCO Free Software Directory
 Name[si]=FSF/UNESCO නිදහස් මෘදුකාංග ශබ්දකෝශය
 Name[sk]=FSF/UNESCO Adresár slobodného softvéru
 Name[sl]=Imenik prostega programja FSF/UNESCO
+Name[sq]=Drejtoria e Software-it të Lirë FSF/UNESCO
 Name[sr]=Именик слободног софтвера ЗСС/Унеско
 Name[sr@ijekavian]=Именик слободног софтвера ЗСС/Унеско
 Name[sr@ijekavianlatin]=Imenik slobodnog softvera ZSS/Unesco
@@ -140,6 +141,7 @@ Query[ru]=https://directory.fsf.org/search/?query=\\{@}
 Query[sa]=https://directory.fsf.org/search/?query=\\{@}
 Query[sk]=https://directory.fsf.org/search/?query=\\{@}
 Query[sl]=https://directory.fsf.org/search/?query=\\{@}
+Query[sq]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[tg]=https://directory.fsf.org/search/?query=\\{@}
 Query[tok]=https://directory.fsf.org/search/?query=\\{@}

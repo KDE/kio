@@ -46,6 +46,7 @@ Name[ru]=CPlusPlus
 Name[sa]=CPlusPlus
 Name[sk]=CPlusPlus
 Name[sl]=CPlusPlus
+Name[sq]=CPlusPlus
 Name[sv]=C++
 Name[tr]=CPlusPlus
 Name[uk]=CPlusPlus
@@ -102,6 +103,7 @@ Query[ru]=http://cplusplus.com/search.do?q=\\{@}
 Query[sa]=http://cplusplus.com/search.do?q=\\{@}
 Query[sk]=http://cplusplus.com/search.do?q=\\{@}
 Query[sl]=http://cplusplus.com/search.do?q=\\{@}
+Query[sq]=http://cplusplus.com/search.do?q=\\{@}
 Query[sv]=http://cplusplus.com/search.do?q=\\{@}
 Query[tr]=http://cplusplus.com/search.do?q=\\{@}
 Query[uk]=http://cplusplus.com/search.do?q=\\{@}

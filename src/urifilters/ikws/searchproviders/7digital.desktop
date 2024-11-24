@@ -64,6 +64,7 @@ Name[sa]=7Digital
 Name[si]=අංකිත7
 Name[sk]=7Digital
 Name[sl]=7Digital
+Name[sq]=7Digital
 Name[sr]=7‑диџитал
 Name[sr@ijekavian]=7‑диџитал
 Name[sr@ijekavianlatin]=7Digitalo
@@ -127,6 +128,7 @@ Query[ru]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[sa]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sq]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tok]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

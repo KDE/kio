@@ -74,6 +74,7 @@ Name[se]=CTAN – TeX-vuorká: «Comprehensive TeX Archive Network»
 Name[si]=CTAN - Comprehensive TeX Archive Network
 Name[sk]=CTAN - Comprehensive TeX Archive Network
 Name[sl]=CPAN - Omrežje obsežnega arhiva za TeX
+Name[sq]=CTAN - Comprehensive TeX Archive Network
 Name[sr]=ЦТАН — свеобухватна архива теха
 Name[sr@ijekavian]=ЦТАН — свеобухватна архива теха
 Name[sr@ijekavianlatin]=CTAN — sveobuhvatna arhiva TeX‑a
@@ -141,6 +142,7 @@ Query[ru]=https://ctan.org/search?phrase=\\{@}
 Query[sa]=https://ctan.org/search?phrase=\\{@}
 Query[sk]=https://ctan.org/search?phrase=\\{@}
 Query[sl]=https://ctan.org/search?phrase=\\{@}
+Query[sq]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[tg]=https://ctan.org/search?phrase=\\{@}
 Query[tok]=https://ctan.org/search?phrase=\\{@}

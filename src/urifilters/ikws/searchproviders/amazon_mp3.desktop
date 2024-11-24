@@ -64,6 +64,7 @@ Name[sa]=Amazon MP3
 Name[si]=Amazon MP3
 Name[sk]=Amazon MP3
 Name[sl]=Amazon MP3
+Name[sq]=Amazon MP3
 Name[sr]=Амазон МП3
 Name[sr@ijekavian]=Амазон МП3
 Name[sr@ijekavianlatin]=Amazon MP3
@@ -127,6 +128,7 @@ Query[ru]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music
 Query[sa]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[sk]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[sl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[sq]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[sv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[tg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[tok]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

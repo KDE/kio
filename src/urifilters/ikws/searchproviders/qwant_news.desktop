@@ -52,6 +52,7 @@ Name[ru]=Qwant: Новости
 Name[sa]=Qwant News
 Name[sk]=Novinky služby Qwant
 Name[sl]=Qwant - novice
+Name[sq]=Lajme Qwant
 Name[sr]=Квант-вести
 Name[sr@ijekavian]=Квант-вести
 Name[sr@ijekavianlatin]=Qwant-vesti
@@ -111,6 +112,7 @@ Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

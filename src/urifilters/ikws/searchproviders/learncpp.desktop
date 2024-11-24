@@ -46,6 +46,7 @@ Name[ru]=Learn CPP
 Name[sa]=Learn CPP
 Name[sk]=Naučte sa CPP
 Name[sl]=Naučite se CPP
+Name[sq]=Mësoni CPP
 Name[sv]=Lär dig C++
 Name[tr]=CPP Öğren
 Name[uk]=Learn CPP
@@ -102,6 +103,7 @@ Query[ru]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sa]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sq]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[tr]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}

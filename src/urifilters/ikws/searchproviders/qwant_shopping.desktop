@@ -51,6 +51,7 @@ Name[ru]=Qwant: Покупки
 Name[sa]=Qwant Shopping
 Name[sk]=Qwant nakupovanie
 Name[sl]=Qwant - nakupovanje
+Name[sq]=Blerje Qwant
 Name[sr]=Квант-шопинг
 Name[sr@ijekavian]=Квант-шопинг
 Name[sr@ijekavianlatin]=Qwant-šoping
@@ -110,6 +111,7 @@ Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

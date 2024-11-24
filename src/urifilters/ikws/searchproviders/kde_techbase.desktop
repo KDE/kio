@@ -63,6 +63,7 @@ Name[sa]=KDE TechBase
 Name[si]=KDE තාක්ෂණික පාදම
 Name[sk]=KDE TechBase
 Name[sl]=KDE TechBase
+Name[sq]=KDE TechBase
 Name[sr]=Техбаза КДЕ‑а
 Name[sr@ijekavian]=Техбаза КДЕ‑а
 Name[sr@ijekavianlatin]=Techbase KDE‑a
@@ -125,6 +126,7 @@ Query[ru]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sa]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sq]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tok]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

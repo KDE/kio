@@ -76,6 +76,7 @@ Name[se]=Python-referánsagiehtagirji
 Name[si]=Python යොමු අත්පොත
 Name[sk]=Manuál jazyka Python
 Name[sl]=Referenčni priročnik za python
+Name[sq]=Doracak Reference Python
 Name[sr]=Референтни приручник питона
 Name[sr@ijekavian]=Референтни приручник питона
 Name[sr@ijekavianlatin]=Referentni priručnik Pythona
@@ -148,6 +149,7 @@ Query[ru]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[sa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[sq]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sr@ijekavian]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sr@ijekavianlatin]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

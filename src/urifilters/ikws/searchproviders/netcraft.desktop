@@ -76,6 +76,7 @@ Name[se]=Netcraft
 Name[si]=Netcraft
 Name[sk]=Netcraft
 Name[sl]=Netcraft
+Name[sq]=Netcraft
 Name[sr]=Неткрафт
 Name[sr@ijekavian]=Неткрафт
 Name[sr@ijekavianlatin]=Netcraft
@@ -143,6 +144,7 @@ Query[ru]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sa]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sl]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[sq]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sv]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[tg]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[tok]=https://uptime.netcraft.com/up/graph?site=\\{@}

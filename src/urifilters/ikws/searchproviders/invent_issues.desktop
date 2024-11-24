@@ -46,6 +46,7 @@ Name[ru]=Известные ошибки KDE Invent
 Name[sa]=KDE Invent Issues
 Name[sk]=Problémy KDE Invent
 Name[sl]=Težave s KDE Invent
+Name[sq]=Çështje KDE Invent
 Name[sv]=KDE-Invent problemrapporter
 Name[tr]=KDE Invent Sorunları
 Name[uk]=Вади на KDE Invent
@@ -100,6 +101,7 @@ Query[ru]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sa]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sk]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sq]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=issues&search=\\{@}

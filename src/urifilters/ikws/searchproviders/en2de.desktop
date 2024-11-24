@@ -75,6 +75,7 @@ Name[se]=dict.cc Jorgaleapmi: Eŋgelasgielas duiskkagillii
 Name[si]=dict.cc පරිවර්ථනය: ඉංග්‍රීසි සිට ජර්මන් භාශාවට
 Name[sk]=dict.cc Preklad z angličtiny do nemčiny
 Name[sl]=prevod dict.cc: angleščina v nemščino
+Name[sq]=Përkthim dict.cc: anglisht në gjermanisht
 Name[sr]=English to German: дикт.цц: са енглеског на немачки
 Name[sr@ijekavian]=English to German: дикт.цц: са енглеског на њемачки
 Name[sr@ijekavianlatin]=dict.cc: sa engleskog na nemački
@@ -141,6 +142,7 @@ Query[ru]=https://www.dict.cc/?s=\\{@}
 Query[sa]=https://www.dict.cc/?s=\\{@}
 Query[sk]=https://www.dict.cc/?s=\\{@}
 Query[sl]=https://www.dict.cc/?s=\\{@}
+Query[sq]=https://www.dict.cc/?s=\\{@}
 Query[sv]=https://www.dict.cc/?s=\\{@}
 Query[tg]=https://www.dict.cc/?s=\\{@}
 Query[tok]=https://www.dict.cc/?s=\\{@}

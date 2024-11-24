@@ -75,6 +75,7 @@ Name[se]=CiteSeer:Digitálalaš bibliotehka mas lea dieđálaš litteratuvra
 Name[si]=CiteSeer: විද්‍යාත්මක සාහිත්‍ය අංකිත පුස්තකාලය
 Name[sk]=CiteSeer: Digitálna knižnica vedeckej literatúry
 Name[sl]=CiteSeer: Digitalna knjižnica znanstvene literature
+Name[sq]=CiteSeer: Bibliotekë Dixhitale Literature Shkencore
 Name[sr]=Сајтсир: дигитална библиотека научне литературе
 Name[sr@ijekavian]=Сајтсир: дигитална библиотека научне литературе
 Name[sr@ijekavianlatin]=CiteSeer: digitalna biblioteka naučne literature
@@ -141,6 +142,7 @@ Query[ru]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[sa]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[sq]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[tg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[tok]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

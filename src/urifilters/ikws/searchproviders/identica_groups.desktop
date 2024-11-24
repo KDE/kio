@@ -63,6 +63,7 @@ Name[sa]=Identi.ca Groups
 Name[si]=Identi.ca සමූහ
 Name[sk]=Identi.ca skupiny
 Name[sl]=Identi.ca - skupine
+Name[sq]=Grupe Identi.ca
 Name[sr]=Идентика-групе
 Name[sr@ijekavian]=Идентика-групе
 Name[sr@ijekavianlatin]=identi.ca‑grupe
@@ -131,6 +132,7 @@ Query[ru]=https://identi.ca/search/group?q=\\{@}
 Query[sa]=https://identi.ca/search/group?q=\\{@}
 Query[sk]=https://identi.ca/search/group?q=\\{@}
 Query[sl]=https://identi.ca/search/group?q=\\{@}
+Query[sq]=https://identi.ca/search/group?q=\\{@}
 Query[sr]=https://identi.ca/search/group?q=\\{@}
 Query[sr@ijekavian]=https://identi.ca/search/group?q=\\{@}
 Query[sr@ijekavianlatin]=https://identi.ca/search/group?q=\\{@}

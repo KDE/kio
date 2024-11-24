@@ -45,6 +45,7 @@ Name[ru]=Reddit
 Name[sa]=Reddit
 Name[sk]=Reddit
 Name[sl]=Reddit
+Name[sq]=Reddit
 Name[sv]=Reddit
 Name[tr]=Reddit
 Name[uk]=Reddit
@@ -100,6 +101,7 @@ Query[ru]=https://www.reddit.com/search/?q=\\{@}
 Query[sa]=https://www.reddit.com/search/?q=\\{@}
 Query[sk]=https://www.reddit.com/search/?q=\\{@}
 Query[sl]=https://www.reddit.com/search/?q=\\{@}
+Query[sq]=https://www.reddit.com/search/?q=\\{@}
 Query[sv]=https://www.reddit.com/search/?q=\\{@}
 Query[tr]=https://www.reddit.com/search/?q=\\{@}
 Query[uk]=https://www.reddit.com/search/?q=\\{@}

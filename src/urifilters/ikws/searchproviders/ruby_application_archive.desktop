@@ -75,6 +75,7 @@ Name[se]=Ruby-prográmmavuorká
 Name[si]=Ruby භාවිතයෙදවුම් සංරක්‍ෂකය
 Name[sk]=Archív aplikácií Ruby
 Name[sl]=Arhiv programov Ruby
+Name[sq]=Arkiv Aplikacionesh Ruby
 Name[sr]=Архива рубијевских програма
 Name[sr@ijekavian]=Архива рубијевских програма
 Name[sr@ijekavianlatin]=Arhiva ruby programa
@@ -142,6 +143,7 @@ Query[ru]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sa]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sq]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tok]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

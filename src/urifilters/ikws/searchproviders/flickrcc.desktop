@@ -63,6 +63,7 @@ Name[sa]=Flickr Creative Commons
 Name[si]=Flickr Creative Commons
 Name[sk]=Flickr Creative Commons
 Name[sl]=Flickr Creative Commons
+Name[sq]=Flickr Creative Commons
 Name[sr]=Фликр (Криејтив комонс)
 Name[sr@ijekavian]=Фликр (Криејтив комонс)
 Name[sr@ijekavianlatin]=Flickr (Creative Commons)
@@ -130,6 +131,7 @@ Query[ru]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sa]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sl]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[sq]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sr@ijekavian]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sr@ijekavianlatin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

@@ -74,6 +74,7 @@ Name[se]=Oza Microsoft Developer Network báikkis
 Name[si]=Microsoft සංවර්ධක ජාල සෙවුම
 Name[sk]=Hľadanie v Microsoft Developer Network
 Name[sl]=Iskalnik po razvijalnem omrežju Microsofta
+Name[sq]=Kërkim në Microsoft Developer Network
 Name[sr]=Мајкрософтова развојна мрежа (МСДН)
 Name[sr@ijekavian]=Мајкрософтова развојна мрежа (МСДН)
 Name[sr@ijekavianlatin]=Majkrosoftova razvojna mreža (MSDN)
@@ -147,6 +148,7 @@ Query[ru]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sa]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sl]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[sq]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr@ijekavian]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr@ijekavianlatin]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

@@ -75,6 +75,7 @@ Name[se]=WordReference.com – jorgaleapmi: eŋgelasgielas fránskkagillii
 Name[si]=WordReference.com පරිවර්ථනය: ඉංග්‍රීසි සිට ප්‍රංශ බසට
 Name[sk]=WordReference.com preklad z angličtiny do francúzštiny
 Name[sl]=Prevod WordReference.com: angleščina v francoščino
+Name[sq]=Përkthim nga WordReference.com: anglisht në frëngjisht
 Name[sr]=Вордреференс: са енглеског на француски
 Name[sr@ijekavian]=Вордреференс: са енглеског на француски
 Name[sr@ijekavianlatin]=WordReference: sa engleskog na francuski
@@ -140,6 +141,7 @@ Query[ru]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sa]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sk]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sl]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[sq]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sv]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[tg]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[tok]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

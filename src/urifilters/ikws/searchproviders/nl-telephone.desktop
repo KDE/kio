@@ -71,6 +71,7 @@ Name[se]=Ohcanmotor telefonkatalogaid várás
 Name[si]=දුරකථන පොත් සෙවුම් සැපයුම් කරු
 Name[sk]=Hľadanie v telefónnom zozname
 Name[sl]=Ponudnik iskanja po telefonskem imeniku
+Name[sq]=Furnizues Kërkimesh në Libra Telefonash
 Name[sr]=Телефонски именик (Холандија)
 Name[sr@ijekavian]=Телефонски именик (Холандија)
 Name[sr@ijekavianlatin]=Telefonski imenik (Holandija)
@@ -139,6 +140,7 @@ Query[ru]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[sa]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sk]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[sq]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sv]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[tg]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[tok]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

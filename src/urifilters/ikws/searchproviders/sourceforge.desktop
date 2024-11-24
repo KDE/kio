@@ -76,6 +76,7 @@ Name[se]=SourceForge
 Name[si]=SourceForge
 Name[sk]=SourceForge
 Name[sl]=SourceForge
+Name[sq]=SourceForge
 Name[sr]=Сорсфорџ
 Name[sr@ijekavian]=Сорсфорџ
 Name[sr@ijekavianlatin]=SourceForge
@@ -142,6 +143,7 @@ Query[ru]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\
 Query[sa]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[sk]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[sl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[sq]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[sv]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[tg]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[tok]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

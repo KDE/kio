@@ -76,6 +76,7 @@ Name[se]=Feedster
 Name[si]=Feedster
 Name[sk]=Feedster
 Name[sl]=Feedster
+Name[sq]=Feedster
 Name[sr]=Фидстер
 Name[sr@ijekavian]=Фидстер
 Name[sr@ijekavianlatin]=Feedster
@@ -142,6 +143,7 @@ Query[ru]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[sa]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[sq]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[tg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[tok]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

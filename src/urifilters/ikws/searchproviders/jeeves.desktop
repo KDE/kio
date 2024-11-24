@@ -74,6 +74,7 @@ Name[se]=Ask Jeeves
 Name[si]=Ask Jeeves
 Name[sk]=Ask Jeeves
 Name[sl]=Ask Jeeves
+Name[sq]=Ask Jeeves
 Name[sr]=Питај Џивса
 Name[sr@ijekavian]=Питај Џивса
 Name[sr@ijekavianlatin]=Pitaj Jeevesa
@@ -132,6 +133,7 @@ Query[ru]=https://www.ask.com/web?q=\\{@}
 Query[sa]=https://www.ask.com/web?q=\\{@}
 Query[sk]=https://www.ask.com/web?q=\\{@}
 Query[sl]=https://www.ask.com/web?q=\\{@}
+Query[sq]=https://www.ask.com/web?q=\\{@}
 Query[sv]=https://www.ask.com/web?q=\\{@}
 Query[tr]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}

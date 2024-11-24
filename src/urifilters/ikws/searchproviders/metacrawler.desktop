@@ -76,6 +76,7 @@ Name[se]=MetaCrawler
 Name[si]=MetaCrawler
 Name[sk]=MetaCrawler
 Name[sl]=MetaCrawler
+Name[sq]=MetaCrawler
 Name[sr]=Метакроулер
 Name[sr@ijekavian]=Метакроулер
 Name[sr@ijekavianlatin]=Metakrouler
@@ -143,6 +144,7 @@ Query[ru]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sa]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sq]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sv]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tg]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tok]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

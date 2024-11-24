@@ -77,6 +77,7 @@ Name[se]=Google filmmat
 Name[si]=Google සිනමා
 Name[sk]=Google filmy
 Name[sl]=Filmi Google
+Name[sq]=Google Movies
 Name[sr]=Гугл‑филмови
 Name[sr@ijekavian]=Гугл‑филмови
 Name[sr@ijekavianlatin]=Google-filmovi
@@ -144,6 +145,7 @@ Query[ru]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sa]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sk]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[sq]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ta]=https://www.google.com/search?hl=ta&q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

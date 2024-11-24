@@ -51,6 +51,7 @@ Name[ru]=Qwant: Картинки
 Name[sa]=Qwant Images
 Name[sk]=Qwant obrázky
 Name[sl]=Qwant - slike
+Name[sq]=Figura Qwant
 Name[sr]=Квант-слике
 Name[sr@ijekavian]=Квант-слике
 Name[sr@ijekavianlatin]=Qwant-slike
@@ -110,6 +111,7 @@ Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

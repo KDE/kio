@@ -77,6 +77,7 @@ Name[se]=Google ođđasat
 Name[si]=Google ප්‍රවෘත්ති
 Name[sk]=Google správy
 Name[sl]=Google News
+Name[sq]=Google News
 Name[sr]=Гугл‑вести
 Name[sr@ijekavian]=Гугл‑вести
 Name[sr@ijekavianlatin]=Google-vesti
@@ -150,6 +151,7 @@ Query[ru]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sa]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sl]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[sq]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr@ijekavian]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr@ijekavianlatin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

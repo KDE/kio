@@ -76,6 +76,7 @@ Name[se]=Google Groups
 Name[si]=ගූගල් සමූහ
 Name[sk]=Diskusné skupiny Google
 Name[sl]=Skupine Google
+Name[sq]=Google Groups
 Name[sr]=Гугл‑групе
 Name[sr@ijekavian]=Гугл‑групе
 Name[sr@ijekavianlatin]=Google-grupe
@@ -150,6 +151,7 @@ Query[ru]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sa]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[sq]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sr@ijekavian]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sr@ijekavianlatin]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

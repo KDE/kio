@@ -75,6 +75,7 @@ Name[se]=WordReference.com – jorgaleapmi: eŋgelasgielas spánskkagillii
 Name[si]=WordReference.com පරිවර්ථනය:ඉංග්‍රීසි සිට ස්පාඤ්ඤ බසට
 Name[sk]=WordReference.com preklad z angličtiny do španielčiny
 Name[sl]=Prevod WordReference.com: angleščina v španščino
+Name[sq]=Përkthim nga WordReference.com: anglisht në spanjisht
 Name[sr]=Вордреференс: са енглеског на шпански
 Name[sr@ijekavian]=Вордреференс: са енглеског на шпански
 Name[sr@ijekavianlatin]=WordReference: sa engleskog na španski
@@ -140,6 +141,7 @@ Query[ru]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sa]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sl]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[sq]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sv]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[tg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[tok]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

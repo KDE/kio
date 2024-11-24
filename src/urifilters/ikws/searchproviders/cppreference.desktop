@@ -45,6 +45,7 @@ Name[ru]=Руководство по CPP
 Name[sa]=CPP Reference
 Name[sk]=Referenčná príručka CPP
 Name[sl]=Referenčni priročnik za CPP
+Name[sq]=Referencë CPP
 Name[sv]=C++ referens
 Name[tr]=CPP Başvuru
 Name[uk]=Довідник з C++
@@ -101,6 +102,7 @@ Query[ru]=https://cppreference.com/w/?search=\\{@}
 Query[sa]=https://cppreference.com/w/?search=\\{@}
 Query[sk]=https://cppreference.com/w/?search=\\{@}
 Query[sl]=https://cppreference.com/w/?search=\\{@}
+Query[sq]=https://cppreference.com/w/?search=\\{@}
 Query[sv]=https://cppreference.com/w/?search=\\{@}
 Query[tr]=https://cppreference.com/w/?search=\\{@}
 Query[uk]=https://cppreference.com/w/?search=\\{@}

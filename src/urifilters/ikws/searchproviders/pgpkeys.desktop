@@ -74,6 +74,7 @@ Name[se]=Oza OpenPGP-čoavdagiid
 Name[si]=OpenPGP යතුරු සෙවුම
 Name[sk]=Hľadanie kľúčov OpenPGP
 Name[sl]=Iskanje ključa OpenPGP
+Name[sq]=Kërkim Kyçesh OpenPGP
 Name[sr]=ОпенПГП кључеви
 Name[sr@ijekavian]=ОпенПГП кључеви
 Name[sr@ijekavianlatin]=OpenPGP ključevi
@@ -140,6 +141,7 @@ Query[ru]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sq]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tok]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

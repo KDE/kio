@@ -63,6 +63,7 @@ Name[sa]=Identi.ca People
 Name[si]=Identi.ca පුද්ගලයින්
 Name[sk]=Identi.ca ľudia
 Name[sl]=Identi.ca - ljudje
+Name[sq]=Persona Identi.ca
 Name[sr]=Идентика‑људи
 Name[sr@ijekavian]=Идентика‑људи
 Name[sr@ijekavianlatin]=identi.ca‑ljudi
@@ -131,6 +132,7 @@ Query[ru]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sa]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sk]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sl]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[sq]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr@ijekavian]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr@ijekavianlatin]=https://identi.ca/search/people?q=\\{@}&search=Search

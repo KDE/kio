@@ -78,6 +78,7 @@ Name[se]=Google
 Name[si]=Google
 Name[sk]=Google
 Name[sl]=Google
+Name[sq]=Google
 Name[sr]=Гугл
 Name[sr@ijekavian]=Гугл
 Name[sr@ijekavianlatin]=Google
@@ -152,6 +153,7 @@ Query[ru]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sa]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sk]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sl]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[sq]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sr]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sr@ijekavian]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[sr@ijekavianlatin]=https://www.google.com/search?q=\\{@}&ie=UTF-8

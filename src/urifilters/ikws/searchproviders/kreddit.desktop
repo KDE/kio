@@ -46,6 +46,7 @@ Name[ru]=Сообщество KDE на сайте Reddit
 Name[sa]=KDE Reddit
 Name[sk]=KDE Reddit
 Name[sl]=Reddit KDE
+Name[sq]=KDE Reddit
 Name[sv]=KDE Reddit
 Name[tr]=KDE Reddit
 Name[uk]=KDE Reddit
@@ -101,6 +102,7 @@ Query[ru]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sa]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sq]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

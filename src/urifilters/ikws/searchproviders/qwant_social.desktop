@@ -52,6 +52,7 @@ Name[ru]=Qwant: Блоги
 Name[sa]=Qwant Social
 Name[sk]=Qwant sociálne
 Name[sl]=Qwant - družabno
+Name[sq]=Shoqërore Qwant
 Name[sr]=Квант-дружење
 Name[sr@ijekavian]=Квант-дружење
 Name[sr@ijekavianlatin]=Qwant-druženje
@@ -111,6 +112,7 @@ Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

@@ -75,6 +75,7 @@ Name[se]=HyperDictionary.com Thesaurus
 Name[si]=HyperDictionary.com Thesaurus
 Name[sk]=HyperDictionary.com - slovník synoným
 Name[sl]=Tezaver HyperDictionary.com
+Name[sq]=Fjalor sinonimik HyperDictionary.com
 Name[sr]=Хиперречник (синонимар)
 Name[sr@ijekavian]=Хиперрјечник (синонимар)
 Name[sr@ijekavianlatin]=Hiperrječnik (sinonimar)
@@ -170,6 +171,7 @@ Query[se]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[si]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sk]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sl]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[sq]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sr@ijekavian]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sr@ijekavianlatin]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

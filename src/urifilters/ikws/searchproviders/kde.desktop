@@ -78,6 +78,7 @@ Name[se]=KDE API-dokumentašuvdna
 Name[si]=KDE API ප්‍රලේඛනය
 Name[sk]=KDE API dokumentácia
 Name[sl]=Dokumentacija KDE API
+Name[sq]=Dokumentim API KDE-je
 Name[sr]=КДЕ АПИ документација
 Name[sr@ijekavian]=КДЕ АПИ документација
 Name[sr@ijekavianlatin]=KDE API dokumentacija
@@ -143,6 +144,7 @@ Query[ru]=https://api.kde.org/search.html?query=\\{@}
 Query[sa]=https://api.kde.org/search.html?query=\\{@}
 Query[sk]=https://api.kde.org/search.html?query=\\{@}
 Query[sl]=https://api.kde.org/search.html?query=\\{@}
+Query[sq]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[tr]=https://api.kde.org/search.html?query=\\{@}
 Query[uk]=https://api.kde.org/search.html?query=\\{@}

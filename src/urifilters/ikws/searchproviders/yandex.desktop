@@ -46,6 +46,7 @@ Name[ru]=Яндекс
 Name[sa]=Yandex
 Name[sk]=Yandex
 Name[sl]=Yandex
+Name[sq]=Yandex
 Name[sv]=Yandex
 Name[tr]=Yandex
 Name[uk]=Yandex
@@ -99,6 +100,7 @@ Query[ru]=https://yandex.ru/search/?text=\\{@}
 Query[sa]=https://yandex.ru/search/?text=\\{@}
 Query[sk]=https://yandex.ru/search/?text=\\{@}
 Query[sl]=https://yandex.ru/search/?text=\\{@}
+Query[sq]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
 Query[tr]=https://yandex.ru/search/?text=\\{@}
 Query[uk]=https://yandex.ru/search/?text=\\{@}

@@ -63,6 +63,7 @@ Name[sa]=Duck Duck Go Shopping
 Name[si]=Duck Duck Go සාප්පු සවාරි
 Name[sk]=Duck Duck Go Shopping
 Name[sl]=Duck Duck Go – nakupovanje
+Name[sq]=Blerje Duck Duck Go
 Name[sr]=Дак дак го (куповина)
 Name[sr@ijekavian]=Дак дак го (куповина)
 Name[sr@ijekavianlatin]=Duck Duck Go (kupovina)
@@ -131,6 +132,7 @@ Query[ru]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sa]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sl]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[sq]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr@ijekavian]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

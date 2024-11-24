@@ -47,6 +47,7 @@ Name[ru]=Soundcloud
 Name[sa]=Soundcloud
 Name[sk]=Soundcloud
 Name[sl]=Soundcloud
+Name[sq]=Soundcloud
 Name[sr]=Саундклауд
 Name[sr@ijekavian]=Саундклауд
 Name[sr@ijekavianlatin]=SoundCloud
@@ -107,6 +108,7 @@ Query[ru]=https://soundcloud.com/search?q=\\{@}
 Query[sa]=https://soundcloud.com/search?q=\\{@}
 Query[sk]=https://soundcloud.com/search?q=\\{@}
 Query[sl]=https://soundcloud.com/search?q=\\{@}
+Query[sq]=https://soundcloud.com/search?q=\\{@}
 Query[sr]=https://soundcloud.com/search?q=\\{@}
 Query[sr@ijekavian]=https://soundcloud.com/search?q=\\{@}
 Query[sr@ijekavianlatin]=https://soundcloud.com/search?q=\\{@}

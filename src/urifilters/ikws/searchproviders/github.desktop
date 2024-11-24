@@ -64,6 +64,7 @@ Name[sa]=GitHub
 Name[si]=GitHub
 Name[sk]=GitHub
 Name[sl]=GitHub
+Name[sq]=GitHub
 Name[sr]=Гитхаб
 Name[sr@ijekavian]=Гитхаб
 Name[sr@ijekavianlatin]=GitHub
@@ -133,6 +134,7 @@ Query[ru]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sa]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sl]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[sq]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sr]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sr@ijekavian]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sr@ijekavianlatin]=https://github.com/search?q=\\{@}&x=0&y=0

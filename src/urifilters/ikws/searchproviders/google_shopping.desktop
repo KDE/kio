@@ -53,6 +53,7 @@ Name[ru]=Google: Покупки
 Name[sa]=Google Shopping
 Name[sk]=Google nakupovanie
 Name[sl]=Google Shopping
+Name[sq]=Google Shopping
 Name[sr]=Гугл‑шопинг
 Name[sr@ijekavian]=Гугл‑шопинг
 Name[sr@ijekavianlatin]=Google Shopping
@@ -121,6 +122,7 @@ Query[ru]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sa]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[sq]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@ijekavian]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@ijekavianlatin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

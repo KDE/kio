@@ -61,6 +61,7 @@ Name[sa]=Ecosia search engine
 Name[si]=Ecosia සෙවුම් එන්ජිම
 Name[sk]=Vyhľadávací nástroj Ecosia
 Name[sl]=Iskalnik Ecosia
+Name[sq]=Motori i kërkimeve Ecosia
 Name[sr]=Екозија
 Name[sr@ijekavian]=Екозија
 Name[sr@ijekavianlatin]=Ecosia
@@ -125,6 +126,7 @@ Query[ru]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sa]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sq]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tok]=https://ecosia.org/search.php?q=\\{@}&meta=normal

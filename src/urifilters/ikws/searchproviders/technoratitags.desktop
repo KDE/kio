@@ -74,6 +74,7 @@ Name[se]=Technorati gilkorat
 Name[si]=Technorati Tags
 Name[sk]=Technorati Tags
 Name[sl]=Oznake Technorati
+Name[sq]=Technorati Tags
 Name[sr]=Техноратијеве ознаке
 Name[sr@ijekavian]=Техноратијеве ознаке
 Name[sr@ijekavianlatin]=Technoratijeve oznake
@@ -138,6 +139,7 @@ Query[ru]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sa]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sq]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tok]=https://technorati.com/tag/\\{@}?sourceid=kde-search

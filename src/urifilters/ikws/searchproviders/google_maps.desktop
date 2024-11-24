@@ -61,6 +61,7 @@ Name[sa]=Google Maps
 Name[si]=ගූගල් සිතියම්
 Name[sk]=Google mapy
 Name[sl]=Google zemljevidi
+Name[sq]=Google Maps
 Name[sr]=Гугл‑карте
 Name[sr@ijekavian]=Гугл‑карте
 Name[sr@ijekavianlatin]=Google-karte
@@ -131,6 +132,7 @@ Query[ru]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sa]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sl]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[sq]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@ijekavian]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@ijekavianlatin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

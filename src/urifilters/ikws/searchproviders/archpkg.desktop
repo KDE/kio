@@ -48,6 +48,7 @@ Name[ru]=Поиск пакетов Arch Linux
 Name[sa]=Arch Linux Package Search
 Name[sk]=Hľadanie balíčkov pre Arch Linux
 Name[sl]=Iskanje po paketih Arch Linux
+Name[sq]=Kërkim Paketash Arch Linux
 Name[sr]=Пакети Арч линукса
 Name[sr@ijekavian]=Пакети Арч линукса
 Name[sr@ijekavianlatin]=Paketi Arch Linuxa
@@ -108,6 +109,7 @@ Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sa]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sl]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sq]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tok]=https://www.archlinux.org/packages/?q=\\{@}

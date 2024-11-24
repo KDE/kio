@@ -73,6 +73,7 @@ Name[se]=LEO – jorgal fránskka- ja duiskkagiela gaskkas
 Name[si]=LEO - ප්‍රංශ හා ජර්මන් අතර පරිවර්ථනය කරයි
 Name[sk]=LEO - Preklad medzi francúzštinou a nemčinou
 Name[sl]=LEO - Prevod med francoščino in nemščino
+Name[sq]=LEO - Përktheni nga frëngjishtja në gjermanisht, ose anasjelltas
 Name[sr]=Лео: са француског на немачки
 Name[sr@ijekavian]=Лео: са француског на њемачки
 Name[sr@ijekavianlatin]=Leo: sa francuskog na njemački
@@ -139,6 +140,7 @@ Query[ru]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sa]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sl]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sq]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tok]=https://dict.leo.org/?lp=frde&search=\\{@}

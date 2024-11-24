@@ -47,6 +47,7 @@ Name[ru]=ArchWiki
 Name[sa]=ArchWiki
 Name[sk]=ArchWiki
 Name[sl]=ArchWiki
+Name[sq]=ArchWiki
 Name[sv]=ArchWiki
 Name[tg]=ArchWiki
 Name[tok]=tomo sona ArchWiki
@@ -103,6 +104,7 @@ Query[ru]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sa]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sk]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sl]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[sq]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sv]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tg]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tok]=https://wiki.archlinux.org/index.php?search=\\{@}

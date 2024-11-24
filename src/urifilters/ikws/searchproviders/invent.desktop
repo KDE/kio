@@ -47,6 +47,7 @@ Name[ru]=KDE Invent
 Name[sa]=KDE Invent
 Name[sk]=KDE Invent
 Name[sl]=KDE Invent
+Name[sq]=KDE Invent
 Name[sv]=KDE-Invent
 Name[tok]=tomo pali KDE Invent
 Name[tr]=KDE Invent
@@ -101,6 +102,7 @@ Query[ru]=https://invent.kde.org/search?search=\\{@}
 Query[sa]=https://invent.kde.org/search?search=\\{@}
 Query[sk]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://invent.kde.org/search?search=\\{@}
+Query[sq]=https://invent.kde.org/search?search=\\{@}
 Query[sv]=https://invent.kde.org/search?search=\\{@}
 Query[tok]=https://invent.kde.org/search?search=\\{@}
 Query[tr]=https://invent.kde.org/search?search=\\{@}

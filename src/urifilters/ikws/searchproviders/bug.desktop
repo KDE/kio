@@ -47,6 +47,7 @@ Name[ru]=Система отслеживания ошибок KDE
 Name[sa]=KDE Bugs
 Name[sk]=KDE Chyby
 Name[sl]=KDE Bugs
+Name[sq]=Të meta KDE-je
 Name[sv]=KDE Bugs
 Name[tg]=Хатоҳои KDE
 Name[tok]=pakala pi ilo tan kulupu KDE
@@ -108,6 +109,7 @@ Query[ru]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[sq]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@ijekavian]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@ijekavianlatin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

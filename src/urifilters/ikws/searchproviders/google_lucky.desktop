@@ -73,6 +73,7 @@ Name[se]=Google (Geahččalan lihkku)
 Name[si]=Google (I'm Feeling Lucky)
 Name[sk]=Google (Skúsim šťastie)
 Name[sl]=Google (Počutim se srečnega)
+Name[sq]=Google (Ndihem Me Fat)
 Name[sr]=Гугл (из прве руке)
 Name[sr@ijekavian]=Гугл (из прве руке)
 Name[sr@ijekavianlatin]=Google (iz prve ruke)
@@ -147,6 +148,7 @@ Query[ru]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[sa]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sl]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[sq]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sr@ijekavian]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[sr@ijekavianlatin]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

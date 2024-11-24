@@ -48,6 +48,7 @@ Name[ru]=Документация по Qt6
 Name[sa]=Qt6 Online Documentation
 Name[sk]=Online dokumentácia Qt6
 Name[sl]=Spletna dokumentacija za Qt6
+Name[sq]=Dokumentimi Në Internet për Qt6
 Name[sv]=Qt6-dokumentation på nätet
 Name[tr]=Qt6 Çevrimiçi Belgelendirme
 Name[uk]=Документація з Qt6 у мережі
@@ -101,6 +102,7 @@ Query[ru]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sa]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sq]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[tr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

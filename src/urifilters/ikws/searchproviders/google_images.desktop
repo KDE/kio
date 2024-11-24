@@ -76,6 +76,7 @@ Name[se]=Oza govaid Google báikkis
 Name[si]=Google පිංතූර සෙවුම
 Name[sk]=Hľadanie obrázkov Google
 Name[sl]=Iskanje slik z Google
+Name[sq]=Kërkim Figurash me Google
 Name[sr]=Гугл‑слике
 Name[sr@ijekavian]=Гугл‑слике
 Name[sr@ijekavianlatin]=Google-slike
@@ -150,6 +151,7 @@ Query[ru]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sl]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[sq]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sr@ijekavian]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sr@ijekavianlatin]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

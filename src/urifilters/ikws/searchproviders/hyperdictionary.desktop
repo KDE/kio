@@ -76,6 +76,7 @@ Name[se]=HyperDictionary.com
 Name[si]=HyperDictionary.com
 Name[sk]=HyperDictionary.com
 Name[sl]=HyperDictionary.com
+Name[sq]=HyperDictionary.com
 Name[sr]=Хиперречник
 Name[sr@ijekavian]=Хиперрјечник
 Name[sr@ijekavianlatin]=Hiperrječnik
@@ -171,6 +172,7 @@ Query[se]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[si]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sl]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[sq]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sr@ijekavian]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sr@ijekavianlatin]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

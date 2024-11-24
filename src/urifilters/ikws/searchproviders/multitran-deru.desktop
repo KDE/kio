@@ -72,6 +72,7 @@ Name[sa]=Multitran - Translate Between German and Russian
 Name[si]=Multitran - ජර්මන් හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi nemčinou a ruštinou
 Name[sl]=Multitran - Prevod med nemščino in ruščino
+Name[sq]=Multitran - Përktheni nga gjermanishtja në rusisht, ose anasjelltas
 Name[sr]=Мултитран: са немачког на руски
 Name[sr@ijekavian]=Мултитран: са немачког на руски
 Name[sr@ijekavianlatin]=Multitran: sa nemačkog na ruski
@@ -138,6 +139,7 @@ Query[ru]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sa]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[sq]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[tg]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[tok]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

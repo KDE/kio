@@ -62,6 +62,7 @@ Name[sa]=Duck Duck Go Info
 Name[si]=Duck Duck Go තොරතුරු
 Name[sk]=Duck Duck Go Info
 Name[sl]=Duck Duck Go – podrobnosti
+Name[sq]=Info mbi Duck Duck Go-n
 Name[sr]=Дак дак го (информације)
 Name[sr@ijekavian]=Дак дак го (информације)
 Name[sr@ijekavianlatin]=Duck Duck Go (informacije)
@@ -130,6 +131,7 @@ Query[ru]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sa]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sl]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[sq]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr@ijekavian]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

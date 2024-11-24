@@ -75,6 +75,7 @@ Name[se]=Internet Movie Database
 Name[si]=අන්තර්ජාල සිනමා දත්තගබඩාව
 Name[sk]=Internetová databáza filmov IMDb
 Name[sl]=Internetna zbirka filmov (IMDB)
+Name[sq]=Internet Movie Database
 Name[sr]=Интернет база филмова
 Name[sr@ijekavian]=Интернет база филмова
 Name[sr@ijekavianlatin]=Internet baza filmova
@@ -141,6 +142,7 @@ Query[ru]=https://imdb.com/find?s=all&q=\\{@}
 Query[sa]=https://imdb.com/find?s=all&q=\\{@}
 Query[sk]=https://imdb.com/find?s=all&q=\\{@}
 Query[sl]=https://imdb.com/find?s=all&q=\\{@}
+Query[sq]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}
 Query[tg]=https://imdb.com/find?s=all&q=\\{@}
 Query[tok]=https://imdb.com/find?s=all&q=\\{@}

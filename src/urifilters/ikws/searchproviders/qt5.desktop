@@ -48,6 +48,7 @@ Name[ru]=Документация по Qt5
 Name[sa]=Qt5 Online Documentation
 Name[sk]=Online dokumentácia Qt5
 Name[sl]=Spletna dokumentacija za Qt5
+Name[sq]=Dokumentimi Në Internet për Qt5
 Name[sv]=Qt5-dokumentation på nätet
 Name[tr]=Qt5 Çevrimiçi Belgelendirme
 Name[uk]=Документація з Qt5 у мережі
@@ -101,6 +102,7 @@ Query[ru]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sa]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[sq]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@ijekavian]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@ijekavianlatin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

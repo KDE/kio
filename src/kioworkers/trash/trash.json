@@ -199,6 +199,10 @@
                 "Prvotna pot",
                 "Datum izbrisa"
             ],
+            "ExtraNames[sq]": [
+                "Shteg Origjinal",
+                "Datë Fshirjeje"
+            ],
             "ExtraNames[sr@ijekavian]": [
                 "изворна путања",
                 "датум брисања"

@@ -64,6 +64,7 @@ Name[sa]=Facebook
 Name[si]=Facebook
 Name[sk]=Facebook
 Name[sl]=Facebook
+Name[sq]=Facebook
 Name[sr]=Фејсбук
 Name[sr@ijekavian]=Фејсбук
 Name[sr@ijekavianlatin]=Facebook
@@ -132,6 +133,7 @@ Query[ru]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sa]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sl]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[sq]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sr]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sr@ijekavian]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sr@ijekavianlatin]=https://www.facebook.com/search/?q=\\{@}&init=quick

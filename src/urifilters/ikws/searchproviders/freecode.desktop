@@ -53,6 +53,7 @@ Name[ru]=Freecode
 Name[sa]=Freecode
 Name[sk]=Freecode
 Name[sl]=Freecode
+Name[sq]=Freecode
 Name[sr]=Фрикод
 Name[sr@ijekavian]=Фрикод
 Name[sr@ijekavianlatin]=Freecode
@@ -121,6 +122,7 @@ Query[ru]=http://freecode.com/search?q=\\{@}
 Query[sa]=http://freecode.com/search?q=\\{@}
 Query[sk]=http://freecode.com/search?q=\\{@}
 Query[sl]=http://freecode.com/search?q=\\{@}
+Query[sq]=http://freecode.com/search?q=\\{@}
 Query[sr]=http://freecode.com/search?q=\\{@}
 Query[sr@ijekavian]=http://freecode.com/search?q=\\{@}
 Query[sr@ijekavianlatin]=http://freecode.com/search?q=\\{@}

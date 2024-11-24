@@ -76,6 +76,7 @@ Name[se]=TV Tome
 Name[si]=TV Tome
 Name[sk]=TV Tome
 Name[sl]=TV Tome
+Name[sq]=TV Tome
 Name[sr]=ТВ‑том
 Name[sr@ijekavian]=ТВ‑том
 Name[sr@ijekavianlatin]=TV Tome
@@ -141,6 +142,7 @@ Query[ru]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sa]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sk]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[sq]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sv]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[tg]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[tok]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

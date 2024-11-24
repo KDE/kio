@@ -63,6 +63,7 @@ Name[sa]=Yahoo Local
 Name[si]=පෙදෙසි Yahoo
 Name[sk]=Yahoo Local
 Name[sl]=Yahoo - krajevno
+Name[sq]=Yahoo Local
 Name[sr]=Јаху‑локал
 Name[sr@ijekavian]=Јаху‑локал
 Name[sr@ijekavianlatin]=Yahoo Local
@@ -126,6 +127,7 @@ Query[ru]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[sa]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[sk]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[sl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[sq]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[sv]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[tg]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[tok]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

@@ -75,6 +75,7 @@ Name[se]=PHP-ohcan
 Name[si]=PHP සෙවුම
 Name[sk]=Hľadanie PHP
 Name[sl]=Iskanje po PHP
+Name[sq]=Kërkim PHP
 Name[sr]=Приручник за ПХП
 Name[sr@ijekavian]=Приручник за ПХП
 Name[sr@ijekavianlatin]=Priručnik za PHP
@@ -141,6 +142,7 @@ Query[ru]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sa]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sk]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sq]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sv]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[tg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[tok]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

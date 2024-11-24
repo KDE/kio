@@ -76,6 +76,7 @@ Name[se]=WordReference.com eŋgelaš sátnegirji
 Name[si]=WordReference.com ඉංග්‍රීසි ශබ්දකෝශය
 Name[sk]=Anglický slovník WordReference.com
 Name[sl]=Angleški slovar WordReference.com
+Name[sq]=Fjalori Anglisht WordReference.com
 Name[sr]=Вордреференс: енглески речник
 Name[sr@ijekavian]=Вордреференс: енглески рјечник
 Name[sr@ijekavianlatin]=WordReference: engleski rječnik
@@ -142,6 +143,7 @@ Query[ru]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sa]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[sq]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[tg]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[tok]=https://www.wordreference.com/english/definition.asp?en=\\{@}

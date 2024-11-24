@@ -63,6 +63,7 @@ Name[sa]=Wikia
 Name[si]=Wikia
 Name[sk]=Wikia
 Name[sl]=Wikia
+Name[sq]=Wikia
 Name[sr]=Викија
 Name[sr@ijekavian]=Викија
 Name[sr@ijekavianlatin]=Wikia
@@ -125,6 +126,7 @@ Query[ru]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[sa]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[sq]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[sv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[tg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[tok]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

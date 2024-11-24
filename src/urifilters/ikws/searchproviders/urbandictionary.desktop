@@ -62,6 +62,7 @@ Name[sa]=Urban Dictionary
 Name[si]=නාගරික ශබ්දකෝෂය
 Name[sk]=Slovník Urban
 Name[sl]=Urban Dictionary
+Name[sq]=Urban Dictionary
 Name[sr]=Урбани речник
 Name[sr@ijekavian]=Урбани речник
 Name[sr@ijekavianlatin]=Urbani rečnik
@@ -124,6 +125,7 @@ Query[ru]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sa]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sk]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sl]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[sq]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sv]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[tg]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[tok]=https://www.urbandictionary.com/define.php?term=\\{@}

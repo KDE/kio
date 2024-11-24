@@ -45,6 +45,7 @@ Name[ru]=Запросы на слияние KDE Invent
 Name[sa]=KDE Invent Merge Requests
 Name[sk]=Požiadavky na zlúčenie v KDE Invent
 Name[sl]=Zahteve za spajanje KDE Invent
+Name[sq]=Kërkesa Përzierjeje në KDE Invent
 Name[sv]=KDE-Invent sammanfogningsbegäran
 Name[tr]=KDE Invent Birleştirme İstekleri
 Name[uk]=Запити щодо об'єднання на KDE Invent
@@ -98,6 +99,7 @@ Query[ru]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sq]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

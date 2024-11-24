@@ -63,6 +63,7 @@ Name[sa]=KDE Forums
 Name[si]=KDE ෆෝරම්
 Name[sk]=KDE fóra
 Name[sl]=KDE-jevi forumi
+Name[sq]=Forume KDE
 Name[sr]=Форуми КДЕ‑а
 Name[sr@ijekavian]=Форуми КДЕ‑а
 Name[sr@ijekavianlatin]=Forumi KDE‑a
@@ -131,6 +132,7 @@ Query[ru]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags
 Query[sa]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[sk]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[sl]=https://discuss.kde.org/search?q=\\{@}
+Query[sq]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[sr]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[sr@ijekavian]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[sr@ijekavianlatin]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search

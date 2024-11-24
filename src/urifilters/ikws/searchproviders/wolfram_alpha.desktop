@@ -64,6 +64,7 @@ Name[sa]=Wolfram Alpha
 Name[si]=Wolfram Alpha
 Name[sk]=Wolfram Alpha
 Name[sl]=Wolfram Alpha
+Name[sq]=Wolfram Alpha
 Name[sr]=Волфрамова алфа
 Name[sr@ijekavian]=Волфрамова алфа
 Name[sr@ijekavianlatin]=Volframova alfa
@@ -133,6 +134,7 @@ Query[ru]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sa]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sl]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[sq]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sr]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sr@ijekavian]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sr@ijekavianlatin]=https://www.wolframalpha.com/input/?i=\\{@}

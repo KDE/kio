@@ -75,6 +75,7 @@ Name[se]=LEO-Translate
 Name[si]=LEO-Translate
 Name[sk]=LEO-Translate
 Name[sl]=LEO-Translate
+Name[sq]=LEO-Translate
 Name[sr]=Лео‑превод
 Name[sr@ijekavian]=Лео‑превод
 Name[sr@ijekavianlatin]=Leo‑prevod
@@ -143,6 +144,7 @@ Query[ru]=https://dict.leo.org/?search=\\{@}
 Query[sa]=https://dict.leo.org/?search=\\{@}
 Query[sk]=https://dict.leo.org/?search=\\{@}
 Query[sl]=https://dict.leo.org/?search=\\{@}
+Query[sq]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[tg]=https://dict.leo.org/?search=\\{@}
 Query[tok]=https://dict.leo.org/?search=\\{@}

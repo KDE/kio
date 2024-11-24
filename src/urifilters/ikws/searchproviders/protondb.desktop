@@ -46,6 +46,7 @@ Name[ru]=ProtonDB
 Name[sa]=ProtonDB
 Name[sk]=ProtonDB
 Name[sl]=ProtonDB
+Name[sq]=ProtonDB
 Name[sv]=ProtonDB
 Name[tr]=ProtonDB
 Name[uk]=ProtonDB
@@ -102,6 +103,7 @@ Query[ru]=https://www.protondb.com/search?q=\\{@}
 Query[sa]=https://www.protondb.com/search?q=\\{@}
 Query[sk]=https://www.protondb.com/search?q=\\{@}
 Query[sl]=https://www.protondb.com/search?q=\\{@}
+Query[sq]=https://www.protondb.com/search?q=\\{@}
 Query[sv]=https://www.protondb.com/search?q=\\{@}
 Query[tr]=https://www.protondb.com/search?q=\\{@}
 Query[uk]=https://www.protondb.com/search?q=\\{@}
