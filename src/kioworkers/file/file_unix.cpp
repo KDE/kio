@@ -656,18 +656,23 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     off_t sizeProcessed = 0;
 
 #ifdef FICLONE
-    // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-    int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
-    if (ret != -1) {
-        sizeProcessed = srcSize;
-        processedSize(srcSize);
+    const auto useReflink = !metaData(QStringLiteral("UseReflink")).isEmpty();
+    if (useReflink) {
+        // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
+        int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
+        if (ret != -1) {
+            sizeProcessed = srcSize;
+            processedSize(srcSize);
+        }
+        // if fs does not support reflinking, files are on different devices...
     }
-    // if fs does not support reflinking, files are on different devices...
 #endif
 
     bool existingDestDeleteAttempted = false;
 
     processedSize(sizeProcessed);
+
+    const auto useFsync = !metaData(QStringLiteral("UseFsync")).isEmpty();
 
 #if HAVE_COPY_FILE_RANGE
     while (!wasKilled() && sizeProcessed < srcSize) {
@@ -714,6 +719,10 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             }
 
             return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
+        }
+
+        if (useFsync) {
+            ::sync_file_range(destFile.handle(), sizeProcessed, copiedBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
         }
 
         sizeProcessed += copiedBytes;
@@ -771,6 +780,11 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 }
                 return WorkerResult::fail(error, dest);
             }
+
+            if (useFsync) {
+                ::sync_file_range(destFile.handle(), sizeProcessed, readBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
+            }
+
             sizeProcessed += readBytes;
             processedSize(sizeProcessed);
         }

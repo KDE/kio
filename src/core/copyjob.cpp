@@ -261,6 +261,7 @@ public:
     std::list<CopyInfo>::const_iterator m_directoriesCopiedIterator;
 
     CopyJob::CopyMode m_mode;
+    CopyJob::CopyOptions copyOptions = KIO::CopyJob::UseReflink;
     bool m_asMethod; // See copyAs() method
     DestinationState destinationState;
     CopyJobState state;
@@ -734,6 +735,17 @@ bool CopyJob::doResume()
         break;
     }
     return Job::doResume();
+}
+
+void CopyJob::setCopyOptions(KIO::CopyJob::CopyOptions options)
+{
+    Q_D(CopyJob);
+    d->copyOptions = options;
+}
+
+KIO::CopyJob::CopyOptions CopyJob::copyOptions() const
+{
+    return d_func()->copyOptions;
 }
 
 void CopyJobPrivate::slotReport()
@@ -2116,6 +2128,13 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         m_currentSrcURL = uSource;
         m_currentDestURL = uDest;
         m_bURLDirty = true;
+    }
+
+    if (copyOptions & CopyJob::UseReflink) {
+        newjob->addMetaData(QStringLiteral("UseReflink"), QStringLiteral("true"));
+    }
+    if (copyOptions & CopyJob::UseFsync) {
+        newjob->addMetaData(QStringLiteral("UseFsync"), QStringLiteral("true"));
     }
 
     // speed is computed locally

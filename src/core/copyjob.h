@@ -50,6 +50,17 @@ public:
         Move,
         Link
     };
+    Q_ENUM(CopyMode);
+
+    /// @since 6.9
+    enum CopyOption {
+        None = 0x0,
+        /// Use reflink if available, by default selected
+        UseReflink = 0x1,
+        /// use synchronized file writing (fsync) or otherwise avoid vfs caching
+        UseFsync = 0x2,
+    };
+    Q_DECLARE_FLAGS(CopyOptions, CopyOption)
 
     ~CopyJob() override;
 
@@ -115,6 +126,14 @@ public:
      * Reimplemented for internal reasons
      */
     bool doResume() override;
+
+    /**
+     * define copy options to tweak the copy behavior
+     */
+    /// since 6.9
+    void setCopyOptions(CopyOptions options);
+    /// since 6.9
+    CopyOptions copyOptions() const;
 
 Q_SIGNALS:
     /**
@@ -375,6 +394,7 @@ KIOCORE_EXPORT CopyJob *trash(const QUrl &src, JobFlags flags = DefaultFlags);
  */
 KIOCORE_EXPORT CopyJob *trash(const QList<QUrl> &src, JobFlags flags = DefaultFlags);
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(CopyJob::CopyOptions)
 }
 
 #endif
