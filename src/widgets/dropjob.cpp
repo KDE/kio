@@ -20,7 +20,6 @@
 #include <KFileItem>
 #include <KFileItemListProperties>
 #include <KIO/ApplicationLauncherJob>
-#include <KIO/CopyJob>
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
 #include <KJobWidgets>
@@ -164,6 +163,7 @@ public:
     QList<QAction *> m_pluginActions;
     bool m_triggered; // Tracks whether an action has been triggered in the popup menu.
     QSet<KIO::DropMenu *> m_menus;
+    CopyJob::CopyOptions m_copyOptions;
 
     Q_DECLARE_PUBLIC(DropJob)
 
@@ -242,6 +242,12 @@ DropJob::DropJob(DropJobPrivate &dd)
 
 DropJob::~DropJob()
 {
+}
+
+void DropJob::setCopyOptions(KIO::CopyJob::CopyOptions copyOptions)
+{
+    Q_D(DropJob);
+    d->m_copyOptions = copyOptions;
 }
 
 void DropJobPrivate::slotStart()
@@ -609,6 +615,7 @@ void DropJobPrivate::doCopyToDirectory()
     }
     Q_ASSERT(job);
     job->setParentJob(q);
+    job->setCopyOptions(m_copyOptions);
     job->setMetaData(m_metaData);
     QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job *, const QUrl &, const QUrl &to) {
         Q_EMIT q->itemCreated(to);

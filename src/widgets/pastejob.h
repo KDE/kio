@@ -11,6 +11,7 @@
 #include <QUrl>
 
 #include "kiowidgets_export.h"
+#include <KIO/CopyJob>
 #include <kio/job_base.h>
 
 class QMimeData;
@@ -37,6 +38,13 @@ class KIOWIDGETS_EXPORT PasteJob : public Job
 
 public:
     ~PasteJob() override;
+
+    /**
+     * define copy options to tweak the copy behavior
+     * @see CopyJob::CopyOptions
+     */
+    /// since 6.9
+    void setCopyOptions(KIO::CopyJob::CopyOptions copyOptions);
 
 Q_SIGNALS:
     /**

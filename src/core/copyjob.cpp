@@ -17,7 +17,6 @@
 #include "kcoredirlister.h"
 #include "kfileitem.h"
 #include "kiocoredebug.h"
-#include "kioglobal_p.h"
 #include "listjob.h"
 #include "mkdirjob.h"
 #include "statjob.h"

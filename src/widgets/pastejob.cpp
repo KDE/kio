@@ -13,7 +13,6 @@
 #include <QMimeData>
 #include <QTimer>
 
-#include <KIO/CopyJob>
 #include <KIO/FileUndoManager>
 #include <KJobWidgets>
 #include <KLocalizedString>
@@ -37,6 +36,12 @@ PasteJob::~PasteJob()
 {
 }
 
+void PasteJob::setCopyOptions(KIO::CopyJob::CopyOptions copyOptions)
+{
+    Q_D(PasteJob);
+    d->m_copyOptions = copyOptions;
+}
+
 void PasteJobPrivate::slotStart()
 {
     Q_Q(PasteJob);
@@ -56,6 +61,7 @@ void PasteJobPrivate::slotStart()
             } else {
                 copyJob = KIO::copy(urls, m_destDir, m_flags);
             }
+            copyJob->setCopyOptions(m_copyOptions);
             QObject::connect(copyJob, &KIO::CopyJob::copyingDone, q, [this](KIO::Job *job, const QUrl &src, const QUrl &dest) {
                 slotCopyingDone(job, src, dest);
             });

@@ -11,6 +11,7 @@
 #include <QUrl>
 
 #include "kiowidgets_export.h"
+#include <KIO/CopyJob>
 #include <kio/job_base.h>
 
 class QAction;
@@ -35,7 +36,6 @@ enum DropJobFlag {
 Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(DropJobFlags)
 
-class CopyJob;
 class DropJobPrivate;
 
 /**
@@ -71,6 +71,13 @@ public:
      * @since 5.67
      */
     void showMenu(const QPoint &p, QAction *atAction = nullptr);
+
+    /**
+     * define copy options to tweak the copy behavior
+     * @see CopyJob::CopyOptions
+     */
+    /// since 6.9
+    void setCopyOptions(KIO::CopyJob::CopyOptions copyOptions);
 
 Q_SIGNALS:
     /**

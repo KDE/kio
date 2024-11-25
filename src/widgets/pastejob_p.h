@@ -8,6 +8,7 @@
 #ifndef PASTEJOB_P_H
 #define PASTEJOB_P_H
 
+#include "copyjob.h"
 #include "pastejob.h"
 #include <job_p.h>
 
@@ -36,6 +37,7 @@ public:
     QUrl m_destDir;
     JobFlags m_flags;
     bool m_clipboard;
+    CopyJob::CopyOptions m_copyOptions = CopyJob::UseReflink;
 
     Q_DECLARE_PUBLIC(PasteJob)
 
