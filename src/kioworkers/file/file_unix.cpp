@@ -721,9 +721,11 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
         }
 
+#if HAVE_SYNC_FILE_RANGE
         if (useFsync) {
             ::sync_file_range(destFile.handle(), sizeProcessed, copiedBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
         }
+#endif
 
         sizeProcessed += copiedBytes;
         processedSize(sizeProcessed);
@@ -781,9 +783,11 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 return WorkerResult::fail(error, dest);
             }
 
+#if HAVE_SYNC_FILE_RANGE
             if (useFsync) {
                 ::sync_file_range(destFile.handle(), sizeProcessed, readBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
             }
+#endif
 
             sizeProcessed += readBytes;
             processedSize(sizeProcessed);
