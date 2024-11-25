@@ -10,6 +10,7 @@
 
 #include "copyjob.h"
 #include "../utils_p.h"
+#include "config-kiocore.h"
 #include "deletejob.h"
 #include "filecopyjob.h"
 #include "global.h"
@@ -260,7 +261,7 @@ public:
     std::list<CopyInfo>::const_iterator m_directoriesCopiedIterator;
 
     CopyJob::CopyMode m_mode;
-    CopyJob::CopyOptions copyOptions = KIO::CopyJob::UseReflink;
+    CopyJob::CopyOptions copyOptions;
     bool m_asMethod; // See copyAs() method
     DestinationState destinationState;
     CopyJobState state;
@@ -2128,13 +2129,11 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         m_currentDestURL = uDest;
         m_bURLDirty = true;
     }
-
-    if (copyOptions & CopyJob::UseReflink) {
-        newjob->addMetaData(QStringLiteral("UseReflink"), QStringLiteral("true"));
-    }
+#if HAVE_SYNC_FILE_RANGE
     if (copyOptions & CopyJob::UseFsync) {
         newjob->addMetaData(QStringLiteral("UseFsync"), QStringLiteral("true"));
     }
+#endif
 
     // speed is computed locally
     QObject::disconnect(newjob, &KJob::speed, q, nullptr);

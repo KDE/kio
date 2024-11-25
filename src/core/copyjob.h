@@ -55,10 +55,13 @@ public:
     /// @since 6.9
     enum CopyOption {
         None = 0x0,
-        /// Use reflink if available, by default selected
-        UseReflink = 0x1,
-        /// use synchronized file writing (fsync) or otherwise avoid vfs caching
-        UseFsync = 0x2,
+        /*
+         * Use synchronized file writing (fsync) or otherwise avoid vfs caching
+         * This allows to have copy speed matching the disk write speed, useful for removable media.
+         *
+         * Supported on Linux Only
+         */
+        UseFsync = 0x1,
     };
     Q_DECLARE_FLAGS(CopyOptions, CopyOption)
 

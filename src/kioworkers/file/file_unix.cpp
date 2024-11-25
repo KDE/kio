@@ -656,23 +656,21 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     off_t sizeProcessed = 0;
 
 #ifdef FICLONE
-    const auto useReflink = !metaData(QStringLiteral("UseReflink")).isEmpty();
-    if (useReflink) {
-        // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-        int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
-        if (ret != -1) {
-            sizeProcessed = srcSize;
-            processedSize(srcSize);
-        }
-        // if fs does not support reflinking, files are on different devices...
+    // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
+    int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
+    if (ret != -1) {
+        sizeProcessed = srcSize;
+        processedSize(srcSize);
     }
+    // if fs does not support reflinking, files are on different devices...
 #endif
 
     bool existingDestDeleteAttempted = false;
 
     processedSize(sizeProcessed);
-
+#if HAVE_SYNC_FILE_RANGE
     const auto useFsync = !metaData(QStringLiteral("UseFsync")).isEmpty();
+#endif
 
 #if HAVE_COPY_FILE_RANGE
     while (!wasKilled() && sizeProcessed < srcSize) {
@@ -680,7 +678,15 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             QThread::msleep(50);
         }
 
-        const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), nullptr, destFile.handle(), nullptr, s_maxIPCSize, 0);
+        ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), nullptr, destFile.handle(), nullptr, s_maxIPCSize, 0);
+
+#if HAVE_SYNC_FILE_RANGE
+        if (copiedBytes > 0) {
+            if (useFsync) {
+                copiedBytes = ::sync_file_range(destFile.handle(), sizeProcessed, copiedBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
+            }
+        }
+#endif
 
         if (copiedBytes == -1) {
             // ENOENT is returned on cifs in some cases, probably a kernel bug
@@ -721,12 +727,6 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
         }
 
-#if HAVE_SYNC_FILE_RANGE
-        if (useFsync) {
-            ::sync_file_range(destFile.handle(), sizeProcessed, copiedBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
-        }
-#endif
-
         sizeProcessed += copiedBytes;
         processedSize(sizeProcessed);
     }
@@ -746,7 +746,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 if (errno == EINTR) { // Interrupted
                     continue;
                 } else {
-                    qCWarning(KIO_FILE) << "Couldn't read[2]. Error:" << srcFile.errorString();
+                    qCWarning(KIO_FILE) << "Couldn't read[2]. Error:" << strerror(errno);
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
@@ -758,20 +758,32 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 return WorkerResult::fail(KIO::ERR_CANNOT_READ, src);
             }
 
-            if (destFile.write(buffer.data(), readBytes) != readBytes) {
+            ssize_t writtenBytes = ::write(destFile.handle(), buffer.data(), readBytes);
+#if HAVE_SYNC_FILE_RANGE
+            if (writtenBytes > 0) {
+                if (useFsync) {
+                    writtenBytes = ::sync_file_range(destFile.handle(), sizeProcessed, writtenBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
+                }
+            }
+#endif
+
+            if (writtenBytes == -1 || writtenBytes != readBytes) {
                 int error = KIO::ERR_CANNOT_WRITE;
-                if (destFile.error() == QFileDevice::ResourceError) { // disk full
+                if (errno == EINTR) { // Interrupted
+                    continue;
+                } else if (errno == ENOSPC) { // disk full
                     // attempt to free disk space occupied by file being overwritten
                     if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
                         ::unlink(_destBackup.constData());
                         existingDestDeleteAttempted = true;
-                        if (destFile.write(buffer.data(), readBytes) == readBytes) { // retry
+                        writtenBytes = ::write(destFile.handle(), buffer.data(), readBytes);
+                        if (writtenBytes == readBytes) { // retry
                             continue;
                         }
                     }
                     error = KIO::ERR_DISK_FULL;
                 } else {
-                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << destFile.errorString();
+                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << strerror(errno);
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
@@ -782,13 +794,6 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 }
                 return WorkerResult::fail(error, dest);
             }
-
-#if HAVE_SYNC_FILE_RANGE
-            if (useFsync) {
-                ::sync_file_range(destFile.handle(), sizeProcessed, readBytes, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE);
-            }
-#endif
-
             sizeProcessed += readBytes;
             processedSize(sizeProcessed);
         }

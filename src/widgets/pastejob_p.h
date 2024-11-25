@@ -37,7 +37,7 @@ public:
     QUrl m_destDir;
     JobFlags m_flags;
     bool m_clipboard;
-    CopyJob::CopyOptions m_copyOptions = CopyJob::UseReflink;
+    CopyJob::CopyOptions m_copyOptions;
 
     Q_DECLARE_PUBLIC(PasteJob)
 

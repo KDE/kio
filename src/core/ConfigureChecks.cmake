@@ -40,3 +40,5 @@ if (LIBC_IS_GLIBC)
 else()
     set(HAVE_STATX 0)
 endif()
+
+check_function_exists(sync_file_range HAVE_SYNC_FILE_RANGE)

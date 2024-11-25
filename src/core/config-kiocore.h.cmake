@@ -10,3 +10,6 @@
 #define KDE_INSTALL_FULL_LIBEXECDIR_KF "${KDE_INSTALL_FULL_LIBEXECDIR_KF}"
 
 #cmakedefine01 KIO_ASSERT_WORKER_STATES
+
+/* Defined if system has the sync_file_range function. */
+#cmakedefine01 HAVE_SYNC_FILE_RANGE
