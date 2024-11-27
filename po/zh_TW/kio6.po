@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2024-11-11 16:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -118,38 +118,38 @@ msgstr "已存在以此為名的資料夾"
 msgid "Trash"
 msgstr "垃圾桶"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1 沒有 Exec 欄位"
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "找不到程式「%1」"
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "在「%2」找到「%1」程式，但缺少執行權限。"
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "程式「%1」缺少執行權限。"
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "來自 %2 的命令 %1 內有語法錯誤"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "嘗試執行 %2 時找不到終端機 %1"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "嘗試執行 %2 時在命令 %1 內有語法錯誤"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -109,38 +109,38 @@ msgstr "ဖိုလ်ဒါအဖြစ်ရှိနှင့်ပြီး
 msgid "Trash"
 msgstr "အမှိုက်ပုံး"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1တွင် ဆောင်ရွက်-ကွက်လပ်မရှိပါ"
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "'%1'ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "ပရိုဂရမ် '%1' ကို '%2' ၌ တွေ့သော်လည်း ၎င်းတွင် မောင်းနှင်ရန် ခွင့်ပြုချက် ပျောက်နေသည်။"
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "ပရိုဂရမ် '%1' တွင် မောင်းနှင်ရန် ခွင့်ပြုချက် ပျောက်နေသည်။"
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 မှလာသော အမိန့် %1 တွင် သဒ္ဒါဆိုင်ရာအမှား"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် တာမီနယ် %1 မတွေ့ပါ"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "%2 လုပ်ဆောင်ရန် ကြိုးစားနေစဥ် အမိန့် %1 တွင် သဒ္ဒါဆိုင်ရာအမှား"

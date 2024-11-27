@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2024-04-08 20:00+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -124,17 +124,17 @@ msgstr "On jo olemassa kansiona"
 msgid "Trash"
 msgstr "Roskakori"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Ei Exec-kenttää: %1"
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Ohjelmaa ”%1” ei löydy"
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
@@ -142,22 +142,22 @@ msgstr ""
 "Ohjelma ”%1” löytyi kansiosta ”%2”, mutta siltä puuttuu suoritusoikeudet."
 "Ohjelma ”%1” löytyi kansiosta ”%2”, mutta siltä puuttuu suoritusoikeudet."
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "Ohjelmalta ”%1” puuttuu suoritusoikeudet."
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Syntaksivirhe komennossa %1, jonka lähde on %2"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Päätettä %1 ei löytynyt yritettäessä suorittaa: %2"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Syntaksivirhe komennossa %1 yritettäessä suorittaa: %2"

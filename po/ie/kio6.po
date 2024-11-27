@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -111,39 +111,39 @@ msgstr "Ja existe quam un fólder"
 msgid "Trash"
 msgstr "Paper-corb"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Null camp Exec in %1"
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Ne successat trovar li programma «%1»"
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 "Li programma «%1» esset trovat in %2 ma it manca permissiones de execution."
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "Li programma «%1» manca permissiones de execution."
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Errore de sintaxe in comande %1 quel venit de %2"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Li terminal %1 ne esset trovat quande %2 esset lansat"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Errore de sintaxe in comande %1 quande on prova lansar %2"

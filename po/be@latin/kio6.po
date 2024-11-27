@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -121,18 +121,18 @@ msgstr "Užo isnuje kataloh z takoj nazvaj"
 msgid "Trash"
 msgstr "Smietnica"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Dlia %1 na vyznačana polie \"Exec\""
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, fuzzy, kde-format
 #| msgid "Could not find the program %1"
 msgid "Could not find the program '%1'"
 msgstr "Nie ŭdalosia znajsci prahramu \"%1\""
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program %1 was found at %2 but it is missing executable permissions."
@@ -142,23 +142,23 @@ msgstr ""
 "Prahrama \"%1\" byla znojdzienaja ŭ \"%2\", alie jana nie maje pravoŭ na "
 "vykanannie."
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, fuzzy, kde-format
 #| msgid "The program %1 is missing executable permissions."
 msgid "The program '%1' is missing executable permissions."
 msgstr "Prahrama \"%1\" nie maje pravoŭ na vykanannie."
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Sintaksičnaja pamylka ŭ zahadzie %1 z %2"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Padčas sproby zapusku %2 nie znojdzieny terminal %1"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Padčas sproby zapusku %2 adbylasia sintaksičnaja pamylka ŭ zahadzie %1"

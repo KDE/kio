@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-15 00:37+0000\n"
+"POT-Creation-Date: 2024-11-27 00:37+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -104,39 +104,39 @@ msgstr "ഫോള്‍ഡറായി നിലവിലുണ്ടു്"
 msgid "Trash"
 msgstr "ചവറ്റുകുട്ട"
 
-#: core/desktopexecparser.cpp:329
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1-ൽ \"Exec\" ഫീൽഡ് ഇല്ല"
 
-#: core/desktopexecparser.cpp:354
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "'%1' പ്രമേയം കണ്ടെത്താനായില്ല"
 
-#: core/desktopexecparser.cpp:357
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 "'%1' എന്ന പ്രോഗ്രാം '%2' ൽ കണ്ടെത്തി, എന്നാൽ അതിൽ എക്സിക്യൂട്ടബിൾ അനുമതികൾ കാണുന്നില്ല."
 
-#: core/desktopexecparser.cpp:359
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "പ്രോഗ്രാം '%1' എക്സിക്യൂട്ടബിൾ അനുമതികൾ കാണുന്നില്ല."
 
-#: core/desktopexecparser.cpp:373
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 ൽ നിന്നും വരുന്ന %1 കമാൻഡിൽ വാക്യഘടന പിശക് കാണുന്നു"
 
-#: core/desktopexecparser.cpp:503
+#: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "%2 പ്രവർത്തിപ്പിക്കാൻ ശ്രമിക്കുമ്പോൾ %1 ടെർമിനൽ കണ്ടെത്തിയില്ല"
 
-#: core/desktopexecparser.cpp:520
+#: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "%2 പ്രവർത്തിപ്പിക്കാൻ ശ്രമിക്കുമ്പോൾ %1 കമാൻഡിലെ വാക്യഘടന പിശക്"
