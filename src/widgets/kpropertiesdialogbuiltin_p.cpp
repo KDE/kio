@@ -1255,7 +1255,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         gl->addRow(lbl, d->usrEdit);
         connect(d->usrEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     } else {
-        l = new QLabel(d->strGroup, gb);
+        l = new QLabel(d->strOwner, gb);
         static_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         l->setFocusPolicy(Qt::TabFocus);
         gl->addRow(lbl, l);
