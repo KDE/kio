@@ -1256,7 +1256,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         connect(d->usrEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     } else {
         l = new QLabel(d->strOwner, gb);
-        static_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        qobject_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         l->setFocusPolicy(Qt::TabFocus);
         gl->addRow(lbl, l);
     }
@@ -1298,7 +1298,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         connect(d->grpCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     } else {
         l = new QLabel(d->strGroup, gb);
-        static_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        qobject_cast<QLabel *>(l)->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         l->setFocusPolicy(Qt::TabFocus);
         gl->addRow(lbl, l);
     }
