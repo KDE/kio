@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2023-08-19 21:42+0400\n"
+"PO-Revision-Date: 2024-11-28 08:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -643,7 +643,7 @@ msgid ""
 "Error. Out of memory.\n"
 "%1"
 msgstr ""
-"خطأ. نفذت الذّاكرة.\n"
+"خطأ. نفدت الذّاكرة.\n"
 "%1"
 
 #: core/job_error.cpp:163
@@ -1929,7 +1929,7 @@ msgstr ""
 #: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
-msgstr "نفذت الذّاكرة"
+msgstr "نفدت الذّاكرة"
 
 #: core/job_error.cpp:1025
 #, kde-format
