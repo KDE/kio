@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-27 00:37+0000\n"
-"PO-Revision-Date: 2024-10-14 20:28+0400\n"
+"PO-Revision-Date: 2024-11-28 08:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -643,7 +643,7 @@ msgid ""
 "Error. Out of memory.\n"
 "%1"
 msgstr ""
-"خطأ. نفذت الذّاكرة.\n"
+"خطأ. نفدت الذّاكرة.\n"
 "%1"
 
 #: core/job_error.cpp:167
@@ -1929,7 +1929,7 @@ msgstr ""
 #: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
-msgstr "نفذت الذّاكرة"
+msgstr "نفدت الذّاكرة"
 
 #: core/job_error.cpp:1029
 #, kde-format
@@ -3776,12 +3776,10 @@ msgid "Show Full Path"
 msgstr "اعرض المسار الكامل"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "لا يمكن نقل <filename>%1</filename>"
+msgstr "اذهب إلى أي موقع في المسار <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3793,7 +3791,7 @@ msgstr "أكثر"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "اذهب إلى موقع في المسار"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
