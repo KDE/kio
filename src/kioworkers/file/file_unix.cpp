@@ -845,7 +845,9 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         if (::chown(_dest.data(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
             // as we are the owner of the new file, we can always change the group, but
             // we might not be allowed to change the owner
-            (void)::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/);
+            if (::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/) < 0) {
+                qCWarning(KIO_FILE) << "Couldn't chown destFile" << _dest << "(" << strerror(errno) << ")";
+            }
         } else {
             if (!tryChangeFileAttr(CHOWN, {_dest, buffSrc.st_uid, buffSrc.st_gid}, errno).success()) {
                 qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
