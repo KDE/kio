@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-27 00:37+0000\n"
+"POT-Creation-Date: 2024-12-01 00:37+0000\n"
 "PO-Revision-Date: 2024-10-09 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nelze vytvořit nástroj KIO: '%1'"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3845,7 +3845,7 @@ msgstr "Klikněte pro upravení umístění"
 msgid "You are not authorized to execute this file."
 msgstr "Nemáte oprávnění ke spuštění tohoto souboru."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3871,7 +3871,7 @@ msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
 
-#: gui/commandlauncherjob.cpp:106
+#: gui/commandlauncherjob.cpp:107
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -4259,17 +4259,17 @@ msgstr ""
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nelze kopírovat soubor z %1 do %2 (chyba č. %3)."
 
-#: kioworkers/file/file_unix.cpp:938
+#: kioworkers/file/file_unix.cpp:940
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Žádné médium v zařízení pro %1"
 
-#: kioworkers/file/file_unix.cpp:1230
+#: kioworkers/file/file_unix.cpp:1232
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nelze získat ID uživatele pro uživatele %1"
 
-#: kioworkers/file/file_unix.cpp:1241
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nelze získat ID skupiny pro skupinu %1"
@@ -4321,7 +4321,7 @@ msgstr "Pro přístup k tomuto serveru potřebujete uživatelské jméno a heslo
 msgid "Site:"
 msgstr "Server:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2497
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4336,7 +4336,7 @@ msgstr "Úspěšné přihlášení"
 msgid "Could not login to %1."
 msgstr "Nelze se přihlásit na %1."
 
-#: kioworkers/ftp/ftp.cpp:1032
+#: kioworkers/ftp/ftp.cpp:1036
 #, kde-format
 msgid ""
 "\n"
@@ -4345,7 +4345,7 @@ msgstr ""
 "\n"
 "Server odpověděl: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
+#: kioworkers/ftp/ftp.cpp:2492 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4354,12 +4354,12 @@ msgstr ""
 "Dříve než přistoupíte k jakémukoliv serveru, musíte zadat uživatelské jméno "
 "a heslo pro proxy server uvedený níže."
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
+#: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2494
+#: kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Ověření proxy selhalo."

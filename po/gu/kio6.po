@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-27 00:37+0000\n"
+"POT-Creation-Date: 2024-12-01 00:37+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave બનાવવામાં અસક્ષમ: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1140
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3695,7 +3695,7 @@ msgstr "સ્થળ ફેરફાર કરવા ક્લિક કરો"
 msgid "You are not authorized to execute this file."
 msgstr "તમે આ ફાઇલ ચલાવવા માટે માન્ય નથી"
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:116
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
@@ -3720,7 +3720,7 @@ msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
 
-#: gui/commandlauncherjob.cpp:106
+#: gui/commandlauncherjob.cpp:107
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -4113,17 +4113,17 @@ msgstr ""
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"
 
-#: kioworkers/file/file_unix.cpp:938
+#: kioworkers/file/file_unix.cpp:940
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: kioworkers/file/file_unix.cpp:1230
+#: kioworkers/file/file_unix.cpp:1232
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "આપેલ વપરાશકર્તા નામ %1 માટે વપરાશકર્તા ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/file/file_unix.cpp:1241
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"
@@ -4170,7 +4170,7 @@ msgstr "આ સાઇટ જોવા માટે તમારે વપરા�
 msgid "Site:"
 msgstr "સાઇટ:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2497
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4185,7 +4185,7 @@ msgstr "પ્રવેશ બરાબર"
 msgid "Could not login to %1."
 msgstr "%1 પર પ્રવેશ કરી શકતું નથી."
 
-#: kioworkers/ftp/ftp.cpp:1032
+#: kioworkers/ftp/ftp.cpp:1036
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgid ""
@@ -4193,19 +4193,19 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 શરૂ કરે છે"
 
-#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:370
+#: kioworkers/ftp/ftp.cpp:2492 kioworkers/http/http.cpp:370
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:374
+#: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:374
 #, kde-format
 msgid "Proxy:"
 msgstr "પ્રોક્સી:"
 
-#: kioworkers/ftp/ftp.cpp:2494
+#: kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "પ્રોક્સી સત્તાધિકરણ નિષ્ફળ."
