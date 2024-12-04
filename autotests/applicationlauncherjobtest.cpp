@@ -340,6 +340,10 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
 
 void ApplicationLauncherJobTest::shouldFailOnNonExistingSingleArgument()
 {
+    if (qgetenv("_KDE_APPLICATIONS_AS_FORKING") != QByteArrayLiteral("1")) {
+        QSKIP("This test is not to be run by systemd");
+    }
+
     QTemporaryDir tempDir;
     const QString target = tempDir.filePath(QStringLiteral("target"));
     createSrcFile(target);
