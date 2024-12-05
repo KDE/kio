@@ -85,6 +85,7 @@ public:
         , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
         , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
         , m_dropAction(dropEvent->dropAction())
+        , m_possibleDropActions(dropEvent->possibleActions())
         , m_relativePos(dropEvent->position().toPoint())
         , m_keyboardModifiers(dropEvent->modifiers())
         , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
@@ -151,6 +152,7 @@ public:
     const QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
+    Qt::DropActions m_possibleDropActions;
     QPoint m_relativePos;
     Qt::KeyboardModifiers m_keyboardModifiers;
     bool m_hasArkFormat;
@@ -512,6 +514,9 @@ void DropJobPrivate::handleCopyToDirectory()
     } else if (allItemsAreFromTrash) {
         // No point in asking copy/move/link when using dragging from the trash, just move the file out.
         m_dropAction = Qt::MoveAction;
+        err = KJob::NoError; // Ok
+    } else if (m_possibleDropActions == m_dropAction) {
+        // the system only allows one action, we shouldn't ask
         err = KJob::NoError; // Ok
     } else if (m_keyboardModifiers & (Qt::ControlModifier | Qt::ShiftModifier | Qt::AltModifier)) {
         // Qt determined m_dropAction from the modifiers already
