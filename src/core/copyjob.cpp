@@ -317,6 +317,7 @@ public:
 
     QTimer *m_reportTimer;
     QElapsedTimer m_speedMeasurementTimer;
+    qint64 m_speedMeasurementLastReportTime;
 
     struct CopyProgressPoint {
         qint64 elapsedTime;
@@ -504,6 +505,8 @@ void CopyJobPrivate::slotStart()
         slotReport();
     });
     m_reportTimer->start(s_reportTimeout);
+    m_speedMeasurementTimer.start();
+    m_speedMeasurementLastReportTime = m_speedMeasurementTimer.elapsed();
 
     // Stat the dest
     state = STATE_STATING;
@@ -2225,15 +2228,21 @@ void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
         m_speedMeasurementPoints.enqueue({elapsed, processed});
     } else {
         const auto headMeasurementPoint = m_speedMeasurementPoints.head();
-        if ((m_speedMeasurementTimer.elapsed() - headMeasurementPoint.elapsedTime) >= 1000) {
-            if (m_speedMeasurementPoints.size() >= 8) {
-                m_speedMeasurementPoints.dequeue();
-            }
-
-            q->emitSpeed(1000 * (processed - headMeasurementPoint.processedSize) / (elapsed - headMeasurementPoint.elapsedTime));
-
-            m_speedMeasurementPoints.enqueue({elapsed, processed});
+        if (m_speedMeasurementPoints.size() >= 8) {
+            m_speedMeasurementPoints.dequeue();
         }
+
+        if (elapsed - m_speedMeasurementLastReportTime >= 1000) {
+            q->emitSpeed(1000 * (processed - headMeasurementPoint.processedSize) / (elapsed - headMeasurementPoint.elapsedTime));
+            qCDebug(KIO_COPYJOB_DEBUG) << "emit speed" << elapsed
+                                       << 1000 * (processed - headMeasurementPoint.processedSize) / (elapsed - headMeasurementPoint.elapsedTime);
+            for (auto i : m_speedMeasurementPoints)
+                qCDebug(KIO_COPYJOB_DEBUG) << i.elapsedTime << i.processedSize;
+
+            m_speedMeasurementLastReportTime = elapsed;
+        }
+
+        m_speedMeasurementPoints.enqueue({elapsed, processed});
     }
 
     qCDebug(KIO_COPYJOB_DEBUG) << "emit processedSize" << (unsigned long)(m_processedSize + m_fileProcessedSize);
