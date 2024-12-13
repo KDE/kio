@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:37+0000\n"
+"POT-Creation-Date: 2024-12-13 00:38+0000\n"
 "PO-Revision-Date: 2024-11-06 18:35+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -3923,13 +3923,13 @@ msgstr "Клацніть для переходу у режим зміни адр
 msgid "You are not authorized to execute this file."
 msgstr "Вам не дозволено запускати цей файл."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Триває запуск %1"
 
-#: gui/applicationlauncherjob.cpp:170
+#: gui/applicationlauncherjob.cpp:181
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3938,12 +3938,12 @@ msgstr ""
 "Не вдалося зробити службу %1 виконуваною, виконання перервано.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Вам не дозволено вибирати програму для відкривання цього файла."
 
-#: gui/applicationlauncherjob.cpp:296
+#: gui/applicationlauncherjob.cpp:307
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

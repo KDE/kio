@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:37+0000\n"
+"POT-Creation-Date: 2024-12-13 00:38+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3899,13 +3899,13 @@ msgstr "Məkana Düzəliş Etmək üçün kliklə"
 msgid "You are not authorized to execute this file."
 msgstr "Bu faylı icra etməyə sizin imtiyazınız yoxdur."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 başladılır"
 
-#: gui/applicationlauncherjob.cpp:170
+#: gui/applicationlauncherjob.cpp:181
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3914,12 +3914,12 @@ msgstr ""
 "%1 xidmətini icra etmək mümkün deyil, icra dayandırılır.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Bu faylı açmaq üçün bir tətbiq seçmək səlahiyyətiniz yoxdur."
 
-#: gui/applicationlauncherjob.cpp:296
+#: gui/applicationlauncherjob.cpp:307
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
