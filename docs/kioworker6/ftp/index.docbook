@@ -38,13 +38,6 @@ configured to allow users to upload files.</para>
 files at &FTP; archive sites throughout the world.
 </para>
 
-
-<para>
-Source: Paraphrased from <ulink 
-url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"> 
-http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink>
-</para>
-
 <para> See the manual: <ulink url="man:/ftp">ftp</ulink>.</para>
 
 </article>
