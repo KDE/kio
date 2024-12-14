@@ -142,9 +142,11 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
     }
 
     if (d->m_allTypes) {
-        QStringList allTypes;
+        QStringList allMimePatterns;
+        QStringList allFilePatterns;
         for (const KFileFilter &filter : std::as_const(d->m_filters)) {
-            allTypes << filter.mimePatterns().join(QLatin1Char(' '));
+            allMimePatterns << filter.mimePatterns();
+            allFilePatterns << filter.filePatterns();
         }
 
         KFileFilter allSupportedFilesFilter;
@@ -155,9 +157,9 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
                 allComments << filter.label();
             }
 
-            allSupportedFilesFilter = KFileFilter(allComments.join(delim), {}, allTypes);
+            allSupportedFilesFilter = KFileFilter(allComments.join(delim), allFilePatterns, allMimePatterns);
         } else {
-            allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), {}, allTypes);
+            allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), allMimePatterns, allMimePatterns);
             d->m_hasAllSupportedFiles = true;
         }
 
