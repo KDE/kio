@@ -35,6 +35,7 @@ Name[pl]=Codeberg
 Name[pt_BR]=Codeberg
 Name[ro]=Codeberg
 Name[ru]=Codeberg
+Name[sa]=कोडबर्ग्
 Name[sk]=Codeberg
 Name[sl]=Codeberg
 Name[sq]=Codeberg
@@ -77,6 +78,7 @@ Query[pl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[pt_BR]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ro]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ru]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[sa]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&केवल_प्रदर्शन_सान्दर्भिक=सत्यम्
 Query[sk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sq]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
