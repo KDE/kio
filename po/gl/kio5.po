@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-12-08 15:25+0100\n"
+"PO-Revision-Date: 2024-12-16 01:21+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -797,7 +797,7 @@ msgstr "Non é posíbel soltar un ficheiro ou cartafol sobre si mesmo."
 #: core/job_error.cpp:239
 #, kde-format
 msgid "A folder cannot be moved into itself"
-msgstr "Non é posíbel mover un ficheiro ou cartafol sobre si mesmo."
+msgstr "Non é posíbel mover un cartafol sobre si mesmo."
 
 #: core/job_error.cpp:242
 #, kde-format
@@ -1134,6 +1134,7 @@ msgstr ""
 msgid "Improperly Formatted URL"
 msgstr "URL formatado incorrectamente"
 
+# skip-rule: trasno-file_reverse
 #: core/job_error.cpp:482
 #, kde-format
 msgid ""
@@ -2056,8 +2057,9 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
-"Rexistre un fallo en <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
-"</a> para informar ao equipo de KDE do método de autenticación non permitido."
+"Envíe un informe de fallo mediante <a href=\"https://bugs.kde.org/\">https://"
+"bugs.kde.org/</a> para informar ao equipo de KDE do método de autenticación "
+"non permitido."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -8874,14 +8876,14 @@ msgstr "A conexión actual está protexida con SSL."
 msgid ""
 "The main part of this document is secured with SSL, but some parts are not."
 msgstr ""
-"A maior parte deste documento está cifrada con SSL, pero algunhas partes non "
-"o están."
+"A maior parte deste documento está protexida con SSL, pero algunhas partes "
+"non o están."
 
 #: widgets/ksslinfodialog.cpp:94
 #, kde-format
 msgid "Some of this document is secured with SSL, but the main part is not."
 msgstr ""
-"Algunhas partes deste documento están cifradas con SSL, pero a parte "
+"Algunhas partes deste documento están protexidas con SSL, pero a parte "
 "principal non o está."
 
 #: widgets/ksslinfodialog.cpp:98
