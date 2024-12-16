@@ -4,19 +4,20 @@
 #
 # Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
 # Raghavendra Kamath <raghu@raghukamath.com>, 2021.
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:38+0000\n"
-"PO-Revision-Date: 2021-09-17 20:07+0530\n"
-"Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
-"Language-Team: kde-hindi\n"
+"PO-Revision-Date: 2024-12-15 19:32+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #, kde-format
@@ -2796,7 +2797,7 @@ msgstr "कोई फ़ोल्डर नहीं."
 #| msgid "&Browse..."
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "ब्राउज... (&B)"
+msgstr "ब्राउज… (&B)"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, fuzzy, kde-format
@@ -3210,7 +3211,7 @@ msgstr ""
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "प्रविष्टि जोड़ें..."
+msgstr "प्रविष्टि जोड़ें…"
 
 #: filewidgets/kfileplacesview.cpp:1233
 #, fuzzy, kde-format
@@ -6108,7 +6109,7 @@ msgstr "सृजितः"
 #| msgid "C&hange..."
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "बदलें... (&h)"
+msgstr "बदलें… (&h)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1061
@@ -6496,7 +6497,7 @@ msgstr ""
 #| msgid "Calculating..."
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "गणना में... "
+msgstr "गणना में… "
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2308
 #, kde-format
@@ -6684,7 +6685,7 @@ msgstr ""
 #| msgid "Change &Policy..."
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "पॉलिसी बदलें.... (&P)"
+msgstr "पॉलिसी बदलें…. (&P)"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
