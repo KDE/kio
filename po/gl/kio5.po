@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-12-16 01:21+0100\n"
+"PO-Revision-Date: 2024-12-17 22:59+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2342,7 +2342,7 @@ msgstr ""
 #: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
-msgstr "Probe a reiniciar a sesión, ou busque no historial erros de kiod."
+msgstr "Probe a reiniciar a sesión, ou busque erros de kiod nos rexistros."
 
 #: core/job_error.cpp:1247
 #, kde-format
@@ -5386,7 +5386,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:120
 #, kde-format
 msgid "Use system proxy configuration:"
-msgstr "Usar a configuración do mandatario fornecida polo sistema:"
+msgstr "Usar a configuración do mandatario do sistema:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
 #: kcms/proxy/kproxydlg.ui:127
