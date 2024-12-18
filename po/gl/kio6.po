@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:38+0000\n"
-"PO-Revision-Date: 2024-12-16 01:21+0100\n"
+"PO-Revision-Date: 2024-12-17 18:31+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2342,7 +2342,7 @@ msgstr ""
 #: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
-msgstr "Probe a reiniciar a sesión, ou busque no historial erros de kiod."
+msgstr "Probe a reiniciar a sesión, ou busque erros de kiod nos rexistros."
 
 #: core/job_error.cpp:1251
 #, kde-format

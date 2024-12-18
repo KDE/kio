@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:38+0000\n"
-"PO-Revision-Date: 2024-05-09 12:30+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2024-12-13 09:57+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -2523,6 +2523,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Ekki er hægt að tryggja öryggi KIO-þrælsins fyrir samskiptastaðalinn ’%1’, "
+"sem venjulega krefst aukinna aðgangsheimilda, vegna þess að aðrir notendur "
+"en rót hafa heimild til að breyta honum á %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3024,11 +3027,10 @@ msgid "Tags"
 msgstr "Merki"
 
 #: filewidgets/kfileplacesitem.cpp:333
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (villa %2)"
+msgstr "%1 (frá %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3203,9 +3205,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Endursníða eða breyta með disksneiðaumsýslu"
 
 #: filewidgets/kfileplacesview.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3679,12 +3679,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1067
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Settu inn annað nafn"
+msgstr "Sláðu inn %1 skrárheiti:"
 
 #: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
@@ -3833,12 +3831,10 @@ msgid "Show Full Path"
 msgstr "Sýna alla slóðina"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Ekki tókst að flytja <filename>%1</filename>"
+msgstr "Fara á einhvern stað á slóðinni <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3850,7 +3846,7 @@ msgstr "Meira"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Fara á stað á slóð"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3921,7 +3917,7 @@ msgstr ""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Auð skipun gefin"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -4936,12 +4932,10 @@ msgid "&Move Here"
 msgstr "&Færa hingað"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Sóttar skrár"
+msgstr "&Sækja hingað"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -6214,28 +6208,24 @@ msgstr ""
 "mega gera."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Einungis &eigandinn má endurnefna og eyða innihaldi möppunnar"
+msgstr "Einungis &eigandinn má eyða eða endurnefna innihald"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Gerðu þennan bita virkan til að leyfa að skráin sé keyrð sem forrit."
+msgstr "Leyfa að skrá sé &keyrð sem forrit"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Sjálfgefið notandanafn:"
+msgstr "Eyða eða endurnefna:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Keyra"
+msgstr "Keyra:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
