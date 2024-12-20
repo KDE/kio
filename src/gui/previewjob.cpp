@@ -707,6 +707,11 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     const KFileItem &item = currentItem.item;
     const QString localPath = item.localPath();
     if (!localPath.isEmpty()) {
+        QFileInfo info(localPath);
+        Q_ASSERT_X(info.isAbsolute(),
+                   "PreviewJobPrivate::getOrCreateThumbnail",
+                   qPrintable(QLatin1String("Local path for url ") + item.url().toString() + QLatin1String(" is not absolute: ") + localPath));
+
         createThumbnail(localPath);
         return;
     }
