@@ -60,7 +60,6 @@
 using namespace std::chrono_literals;
 
 static constexpr int s_lateralMargin = 4;
-static constexpr int s_capacitybarHeight = 6;
 static constexpr auto s_pollFreeSpaceInterval = 1min;
 
 KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
