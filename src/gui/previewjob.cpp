@@ -827,12 +827,12 @@ QDir KIO::PreviewJobPrivate::createTemporaryDir()
     return QDir(m_tempDirPath);
 }
 
-void PreviewJobPrivate::createThumbnail(const QString &pixPath)
+void PreviewJobPrivate::createThumbnail(const QString &_path)
 {
     Q_Q(PreviewJob);
 
-    QFileInfo info(pixPath);
-    Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
+    // The thumbnail worker expects an absolute URL, so resolve any relative input
+    const QString pixPath = QUrl::fromLocalFile(QDir::currentPath() + QLatin1String("/")).resolved(QUrl(_path)).toLocalFile();
 
     state = PreviewJobPrivate::STATE_CREATETHUMB;
 
