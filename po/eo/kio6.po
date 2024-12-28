@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:38+0000\n"
-"PO-Revision-Date: 2024-09-21 10:41+0200\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3456,7 +3456,7 @@ msgstr "Montri Legosignojn Butonon"
 #: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Options"
-msgstr "Opcioj"
+msgstr "Elektebloj"
 
 #: filewidgets/kfilewidget.cpp:1223
 #, kde-format
@@ -3613,7 +3613,7 @@ msgstr ""
 "alklakas <b>Konservi</b>, %3 estos aldonita al la fino de la dosiernomo (se "
 "la dosiernomo ne jam ekzistas). Ĉi tiu etendo baziĝas sur la dosiertipo, en "
 "kiu vi elektis konservi.<br /><br />Se vi ne volas, ke KDE liveru etendaĵon "
-"por la dosiernomo, vi povas aŭ malŝalti ĉi tiun opcion aŭ subpremi ĝin. "
+"por la dosiernomo, vi povas aŭ malŝalti ĉi tiun elekteblon aŭ subpremi ĝin. "
 "aldonante punkton (.) al la fino de la dosiernomo (la punkto estos aŭtomate "
 "forigita).</li></ol>Se ne certas, tenu ĉi tiun opcion ebligita ĉar ĝi faras "
 "viajn dosierojn pli regeblaj."
@@ -3835,12 +3835,10 @@ msgid "Show Full Path"
 msgstr "Montru Plenan Vojon"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Ne povas transdoni <filename>%1</filename>"
+msgstr "Iri al ajn loko en la vojo <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3852,7 +3850,7 @@ msgstr "Pli"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Iri al Loko en Vojo"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -5638,7 +5636,7 @@ msgstr ""
 #: widgets/kopenwithdialog.cpp:754
 #, kde-format
 msgid "Terminal options"
-msgstr "Finaj opcioj"
+msgstr "Elektebloj de terminalo"
 
 #: widgets/kopenwithdialog.cpp:759
 #, kde-format
@@ -5653,7 +5651,7 @@ msgstr "Ne fermi kiam koman&do eliras"
 #: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr "Akiru pli da Aplikoj de Discover"
+msgstr "Akiri pli da Aplikoj de Discover"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:17
@@ -5672,21 +5670,21 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Marku ĉi tiun opcion se la aplikaĵo, kiun vi volas ruli, estas teksta reĝima "
-"aplikaĵo aŭ se vi volas la informojn provizitajn de la fenestro de la "
+"Marku ĉi tiun elekteblon se la aplikaĵo, kiun vi volas ruli, estas tekst-"
+"reĝima aplikaĵo aŭ se vi volas la informojn provizitajn de la fenestro de la "
 "terminala emulilo."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:42
 #, kde-format
 msgid "Run in terminal"
-msgstr "Kuru en terminalo"
+msgstr "Ruli en terminalo"
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:49
 #, kde-format
 msgid "Terminal options:"
-msgstr "Finaj opcioj:"
+msgstr "Elektebloj de terminalo:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:59
@@ -5696,9 +5694,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Marku ĉi tiun opcion se la tekstreĝima aplikaĵo ofertas koncernajn informojn "
-"pri eliro. Teni la terminalan emulilon malfermita permesas vin preni ĉi tiun "
-"informon."
+"Marku ĉi tiun elekteblon se la tekstreĝima aplikaĵo ofertas koncernajn "
+"informojn pri eliro. Teni la terminalan emulilon malfermita permesas vin "
+"preni ĉi tiun informon."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:62
@@ -5724,10 +5722,10 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Marku ĉi tiun opcion se vi volas ruli ĉi tiun aplikaĵon kun malsama "
+"Marku ĉi tiun elekteblon se vi volas ruli ĉi tiun aplikaĵon kun malsama "
 "uzantidentigilo. Ĉiu procezo havas malsaman uzantidentigilon asociitan kun "
 "ĝi. Ĉi tiu identigkodo determinas dosieraliron kaj aliajn permesojn. La "
-"pasvorto de la uzanto estas postulata por uzi ĉi tiun opcion."
+"pasvorto de la uzanto estas postulata por uzi ĉi tiun elekteblon."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:84
@@ -5781,8 +5779,8 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Marku ĉi tiun opcion se vi volas klarigi, ke via aplikaĵo komenciĝis. Ĉi tiu "
-"vida sugesto povas aperi kiel okupata kursoro aŭ en la taskobreto."
+"Marku ĉi tiun elekteblon se vi volas klarigi, ke via aplikaĵo komenciĝis. Ĉi "
+"tiu vida sugesto povas aperi kiel okupata kursoro aŭ en la taskobreto."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:155
@@ -6009,13 +6007,13 @@ msgid ""
 "Bus options or to run it as a different user."
 msgstr ""
 "Klaku ĉi tie por modifi la manieron kiel ĉi tiu aplikaĵo funkcios, lanĉi "
-"komentojn, opciojn de D-Bus aŭ por funkcii ĝin kiel malsama uzanto."
+"komentojn, elekteblojn de D-Bus aŭ por funkcii ĝin kiel malsama uzanto."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr "Altni&velaj Opcioj"
+msgstr "Altni&velaj Elektebloj"
 
 #: widgets/kpropertiesdialog.cpp:145 widgets/kpropertiesdialog.cpp:160
 #: widgets/kpropertiesdialog.cpp:172 widgets/kpropertiesdialog.cpp:190
@@ -6226,27 +6224,24 @@ msgstr ""
 "grupo, rajtas fari."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Nur pos&edanto povas renomi kaj forigi enhavon de dosierujo"
+msgstr "Nur pos&edanto povas forigi aŭ alinomi enhavon"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Ebligu ĉi tiun flagon por permesi plenumi la dosieron kiel programo."
+msgstr "Permesi efektivigi la dosieron kiel programo"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid "Delete or rename:"
-msgstr ""
+msgstr "Forigi aŭ alinomi:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Efektivigi"
+msgstr "Efektivigi:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
@@ -6255,9 +6250,9 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"Ebligu ĉi tiun opcion por permesi nur al la posedanto de la dosierujo forigi "
-"aŭ renomi la enhavitajn dosierojn kaj dosierujojn. Aliaj uzantoj povas nur "
-"aldoni novajn dosierojn, kio postulas la permeson 'Modifi Enhavon'."
+"Ebligu ĉi tiun elekteblon por permesi nur al la posedanto de la dosierujo "
+"forigi aŭ alinomi la enhavitajn dosierojn kaj dosierujojn. Aliaj uzantoj "
+"povas nur aldoni novajn dosierojn, kio postulas la permeson 'Modifi Enhavon'."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
@@ -6265,7 +6260,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Ebligu ĉi tiun opcion por marki la dosieron kiel plenumebla. Ĉi tio nur "
+"Ebligu ĉi tiun elekteblon por marki la dosieron kiel plenumebla. Ĉi tio nur "
 "havas sencon por programoj kaj skriptoj. Ĝi estas postulata kiam vi volas "
 "efektivigi ilin."
 
@@ -6611,7 +6606,7 @@ msgstr "Nur plenumeblaj sur lokaj dosiersistemoj estas subtenataj."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2877
 #, kde-format
 msgid "Advanced Options for %1"
-msgstr "Altnivelaj Opcioj por %1"
+msgstr "Altnivelaj Elektebloj por %1"
 
 #: widgets/ksslinfodialog.cpp:38
 #, kde-format
@@ -7256,6 +7251,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgid "Is &executable"
-#~ msgstr "Estas &efektivigebla"
