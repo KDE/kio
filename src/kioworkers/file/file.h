@@ -77,8 +77,6 @@ public:
 
 private:
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
-    QString getUserName(KUserId uid) const;
-    QString getGroupName(KGroupId gid) const;
     KIO::WorkerResult deleteRecursive(const QString &path);
 
     bool privilegeOperationUnitTestMode();

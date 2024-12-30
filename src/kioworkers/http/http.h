@@ -78,8 +78,6 @@ private:
     QByteArray getData();
     QString getContentType();
 
-    void setSslMetaData();
-
     [[nodiscard]] KIO::WorkerResult post(const QUrl &url, qint64 size);
     [[nodiscard]] Response
     makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
