@@ -43,6 +43,7 @@ Name[kk]=Identi.ca жазбалары
 Name[km]=ចំណាំ​របស់ Identi.ca
 Name[kn]=identi.ca ಸೂಚನೆ
 Name[ko]=Identi.ca 공지
+Name[lg]=Identi.ca Notices
 Name[lt]=Identi.ca pranešimai
 Name[lv]=Identi.ca piezīmes
 Name[mai]=Identi.ca सूचना
@@ -112,6 +113,7 @@ Query[it]=https://identi.ca/search/notice?q=\\{@}
 Query[ka]=https://identi.ca/search/notice?q=\\{@}
 Query[kk]=https://identi.ca/search/notice?q=\\{@}
 Query[ko]=https://identi.ca/search/notice?q=\\{@}
+Query[lg]=https://identi.ca/search/notice?q=\\{@}
 Query[lt]=https://identi.ca/search/notice?q=\\{@}
 Query[mr]=https://identi.ca/search/notice?q=\\{@}
 Query[my]=https://identi.ca/search/notice?q=\\{@}

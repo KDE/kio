@@ -50,6 +50,7 @@ Name[km]=ថត​កម្មវិធី​ឥត​គិត​ថ្លៃ�
 Name[kn]=FSF/UNESCO ಮಕ್ತ ತಂತ್ರಾಂಶ ಶಬ್ದಕೋಶ
 Name[ko]=FSF/UNESCO 자유 소프트웨어 디렉터리
 Name[ku]=FSF/UNESCO Ferhenga Nivîsbariyê ya Bêpere
+Name[lg]=Endagiriro eya FSF ne UNESCO eya Puloguramu Ezitaliko Bukugire
 Name[lt]=FSF/UNESCO laisvosios programinės įrangos katalogas
 Name[lv]=FSF/UNESCO brīvās programmatūras krātuve
 Name[mai]=एफएसएफ/यूनेस्को फ्री साफ्टवेयर डिरेक्ट्री
@@ -124,6 +125,7 @@ Query[is]=https://directory.fsf.org/search/?query=\\{@}
 Query[it]=https://directory.fsf.org/search/?query=\\{@}
 Query[ka]=https://directory.fsf.org/search/?query=\\{@}
 Query[ko]=https://directory.fsf.org/search/?query=\\{@}
+Query[lg]=https://directory.fsf.org/search/?query=\\{@}
 Query[lt]=https://directory.fsf.org/search/?query=\\{@}
 Query[my]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}

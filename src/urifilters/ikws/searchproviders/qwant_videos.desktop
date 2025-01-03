@@ -33,6 +33,7 @@ Name[is]=Qwant Videos
 Name[it]=Video di Qwant
 Name[ka]=Qwant ვიდეოები
 Name[ko]=Qwant 동영상
+Name[lg]=Noonya Vidiyo ku Qwant
 Name[lt]=Qwant vaizdo įrašai
 Name[mr]=क्वांट व्हिडीओ
 Name[my]=ကွမ့်ဗီဒီယိုများ
@@ -92,6 +93,7 @@ Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

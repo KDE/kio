@@ -29,6 +29,7 @@ Name[is]=Reddit
 Name[it]=Reddit
 Name[ka]=Reddit
 Name[ko]=Reddit
+Name[lg]=Reddit
 Name[my]=ရက်ဒစ်
 Name[nl]=Reddit
 Name[nn]=Reddit
@@ -78,6 +79,7 @@ Query[is]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[ka]=https://www.reddit.com/search/?q=\\{@}
 Query[ko]=https://www.reddit.com/search/?q=\\{@}
+Query[lg]=https://www.reddit.com/search/?q=\\{@}
 Query[my]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
 Query[nn]=https://www.reddit.com/search/?q=\\{@}

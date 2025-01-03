@@ -32,6 +32,7 @@ Name[is]=Arch Linux Package Search
 Name[it]=Ricerca di pacchetti Arch Linux
 Name[ka]=Arch Linux-ის პაკეტების ძებნა
 Name[ko]=Arch Linux 패키지 검색
+Name[lg]=Noonya Miganda gya ku Arch Linux
 Name[lt]=Arch Linux paketų paieška
 Name[my]=Archလင်းနပ်စ်ပတ်ကေ့ရှာဖွေမှု
 Name[nb]=Søk etter pakker for Arch Linux
@@ -90,6 +91,7 @@ Query[is]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ka]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=https://www.archlinux.org/packages/?q=\\{@}
+Query[lg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[lt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[my]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}

@@ -51,6 +51,7 @@ Name[km]=ព័ត៌មាន​តាម​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ವಾರ್ತೆಗಳು
 Name[ko]=Google 뉴스
 Name[ku]=Nûçeyên Google
+Name[lg]=Google News
 Name[lt]=Google naujienos
 Name[lv]=Google ziņas
 Name[mai]=गूगल समाचार
@@ -131,6 +132,7 @@ Query[it]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[kk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[lg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[mr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[my]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

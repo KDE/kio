@@ -49,6 +49,7 @@ Name[km]=LEO - បកប្រែ​រវាង​ភាសា​អាល្�
 Name[kn]=ಲಿಯೋ-ಜೆರ್ಮನ್ ಮತ್ತು ಫ್ರಿಂಚ್ ನಡುವೆ ಭಾಷಾಂತರಿಸು
 Name[ko]=LEO - 독일어 - 프랑스어 번역
 Name[ku]=LEO - Wergerandin Di Navbera Almanî û Fransizî de
+Name[lg]=LEO - Ekifo Ekikyusa okuva mu Ludaaki okudda mu Lufalansa
 Name[lt]=LEO – vertimas iš vokiečių į prancūzų ir atvirkščiai
 Name[lv]=LEO - tulkot no Vācu uz Franču
 Name[mai]=लिओ - जर्मनी आओर फ्रेंच केर बीच अनुवाद
@@ -123,6 +124,7 @@ Query[is]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[it]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ka]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ko]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[lg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[lt]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[my]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[nl]=https://dict.leo.org/?lp=frde&search=\\{@}

@@ -34,6 +34,7 @@ Name[is]=Qwant News
 Name[it]=Notizie di Qwant
 Name[ka]=Qwant ახალი ამბები
 Name[ko]=Qwant 뉴스
+Name[lg]=Mawulire ku Qwant
 Name[lt]=Qwant naujienos
 Name[ml]=ക്വാണ്ട് വാർത്തകൾ
 Name[mr]=क्वांट समाचार
@@ -94,6 +95,7 @@ Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

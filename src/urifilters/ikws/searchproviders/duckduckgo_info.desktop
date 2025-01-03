@@ -43,6 +43,7 @@ Name[kk]=Duck Duck Go Info
 Name[km]=ព័ត៌មាន​របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಮಾಹಿತಿ
 Name[ko]=Duck Duck Go 정보
+Name[lg]=Duck Duck Go Kutangaaza
 Name[lt]=Duck Duck Go informacija
 Name[lv]=Duck Duck Go informācija
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ വിവരം
@@ -111,6 +112,7 @@ Query[it]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[lg]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[mr]=http://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[my]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

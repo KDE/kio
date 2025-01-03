@@ -51,6 +51,7 @@ Name[km]=Feedster
 Name[kn]=ಫೀಡ್ಸ್ಟರ್
 Name[ko]=Feedster
 Name[ku]=Feedster
+Name[lg]=Feedster
 Name[lt]=Feedster
 Name[lv]=Feedster
 Name[mai]=फीडस्टर
@@ -126,6 +127,7 @@ Query[is]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[it]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ka]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ko]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[lg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[lt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[my]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

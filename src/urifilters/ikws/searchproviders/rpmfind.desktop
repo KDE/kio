@@ -50,6 +50,7 @@ Name[km]=រក RPM
 Name[kn]=RPM-ಹುಡುಕಾಟ
 Name[ko]=RPM-Find
 Name[ku]=RPM-Find
+Name[lg]=RPM-Find
 Name[lt]=RPM-Find
 Name[lv]=RPM-Meklēšana
 Name[mai]=आरपीएम-फाइंड
@@ -126,6 +127,7 @@ Query[is]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[it]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ka]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ko]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[lg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[lt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[my]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

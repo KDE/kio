@@ -51,6 +51,7 @@ Name[km]=សៀវភៅ​យោង​របស់ Python
 Name[kn]=ಪೈಥಾನ್ ಪರಾಮರ್ಶನ (ರೆಫರೆಂಸ್) ಕೈಪಿಡಿ
 Name[ko]=파이썬 참조 문서
 Name[ku]=Rêberê Çavkaniya Python
+Name[lg]=Ekiwandiko Ekyebuuzibwako ku Nkola ne Enkozesa ya Python
 Name[lt]=Python rodyklės vadovas
 Name[lv]=Python rokasgrāmata
 Name[mai]=पायथन रेफरेंस मेनुअल
@@ -129,6 +130,7 @@ Query[it]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[ka]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[kk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ko]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[lg]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[lt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[mr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[my]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

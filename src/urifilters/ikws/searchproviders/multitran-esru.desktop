@@ -50,6 +50,7 @@ Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​អេ�
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್-ಸ್ಪಾನಿಷ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
 Name[ko]=Multitran - 스페인어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Spanyolî û Rûsî de
+Name[lg]=Multitran - Kyusa okuva mu Lusipanya okudda mu Lurasiya
 Name[lt]=Multitran – versti iš ispanų į rusų ir atvirkščiai
 Name[lv]=Multitran - tulkot no Spāņu uz Krievu
 Name[mai]=Multitran - Translate Between Spanish and Russian
@@ -122,6 +123,7 @@ Query[is]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[lg]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

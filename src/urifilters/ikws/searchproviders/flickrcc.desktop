@@ -43,6 +43,7 @@ Name[kk]=Flickr Creative Commons
 Name[km]=Flickr Creative Commons
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ ಕ್ರಿಯೇಟಿವ್ ಕಾಮನ್ಸ್
 Name[ko]=Flickr 크리에이티브 커먼즈
+Name[lg]=Flickr Creative Commons
 Name[lt]=Flickr Creative Commons
 Name[lv]=Flickr Creative Commons
 Name[mai]=Flickr Creative Commons
@@ -111,6 +112,7 @@ Query[it]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ka]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[kk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ko]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[lg]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[lt]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[mr]=http://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[my]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

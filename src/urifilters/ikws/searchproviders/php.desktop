@@ -50,6 +50,7 @@ Name[km]=ការ​ស្វែងរក PHP
 Name[kn]=PHP ಹುಡುಕಾಟ
 Name[ko]=PHP 검색
 Name[ku]=Lêgerîna PHP'ê
+Name[lg]=Noonya ebikwata ku nkola ya PHP
 Name[lt]=PHP paieška
 Name[lv]=PHP meklēšana
 Name[mai]=पीएचपी खोज
@@ -125,6 +126,7 @@ Query[is]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[it]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ka]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ko]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[lg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[my]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

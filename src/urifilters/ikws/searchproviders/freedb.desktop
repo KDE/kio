@@ -51,6 +51,7 @@ Name[km]=FreeDB
 Name[kn]=ಫ್ರೀಡಿಬಿ
 Name[ko]=FreeDB
 Name[ku]=FreeDB
+Name[lg]=FreeDB
 Name[lt]=FreeDB
 Name[lv]=FreeDB
 Name[mai]=फ्री-डीबी
@@ -145,6 +146,7 @@ Query[km]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[kn]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ko]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ku]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[lg]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[lt]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[lv]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[mai]=http://www.freedb.org/freedb_search.php?words=\\{@}

@@ -50,6 +50,7 @@ Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​បា�
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಫ್ರೆಂಚ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
 Name[ko]=Multitran - 프랑스어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Fransizî û Rûsî de
+Name[lg]=Multitran - Kyusa okuva mu Lufalansa okudda mu Lurasiya
 Name[lt]=Multitran – versti iš prancūzų į rusų ir atvirkščiai
 Name[lv]=Multitran - tulkot no Franču uz Krievu
 Name[mai]=Multitran - Translate Between French and Russian
@@ -122,6 +123,7 @@ Query[is]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[lg]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}

@@ -50,6 +50,7 @@ Name[km]=Multitran - បកប្រែ​​រវាង​​ភាសា​�
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್-ಜರ್ಮನ್ ಮತ್ತು ರಷ್ಯನ್ ನಡುವೆ ಅನುವಾದಿಸು
 Name[ko]=Multitran - 독일어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Almanî û Rûsî de
+Name[lg]=Multittran - Kyusa Okuva mu Ludaaki okudda mu Lurasiya
 Name[lt]=Multitran – versti iš vokiečių į rusų ir atvirkščiai
 Name[lv]=Multitran - tulkot no Vācu uz Krievu
 Name[mai]=Multitran - Translate Between German and Russian
@@ -122,6 +123,7 @@ Query[is]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[lg]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

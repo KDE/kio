@@ -43,6 +43,7 @@ Name[kk]=Urban Dictionary
 Name[km]=វចនុក្រម Urban
 Name[kn]=ಅರ್ಬಾನ್(Urban) ಶಬ್ದಕೋಶ 
 Name[ko]=Urban Dictionary
+Name[lg]=Enkuluze eya Lungereza oLuyaaye olwa mu Amerika
 Name[lt]=Urban Dictionary
 Name[lv]=Urban Dictionary
 Name[ml]=അര്‍ബന്‍ നിഘണ്ടു
@@ -108,6 +109,7 @@ Query[is]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[it]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ka]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ko]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[lg]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[lt]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[my]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[nl]=https://www.urbandictionary.com/define.php?term=\\{@}

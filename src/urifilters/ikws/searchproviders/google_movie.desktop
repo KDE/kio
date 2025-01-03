@@ -51,6 +51,7 @@ Name[km]=ភាព​យន្ត​តាម​​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಚಲಚ್ಚಿತ್ರಗಳು
 Name[ko]=Google 영화
 Name[ku]=Fîlmên Google
+Name[lg]=Google Movies
 Name[lt]=Google filmai
 Name[lv]=Google filmas
 Name[mai]=गूगल सिनेमा
@@ -128,6 +129,7 @@ Query[is]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[lg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[my]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

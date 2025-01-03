@@ -44,6 +44,7 @@ Name[kk]=openDesktop.org
 Name[km]=openDesktop.org
 Name[kn]=openDesktop.org
 Name[ko]=openDesktop.org
+Name[lg]=openDesktop.org
 Name[lt]=openDesktop.org
 Name[lv]=openDesktop.org
 Name[mai]=openDesktop.org
@@ -110,6 +111,7 @@ Query[is]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[it]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ka]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[lg]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[my]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

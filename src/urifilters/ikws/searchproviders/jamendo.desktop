@@ -44,6 +44,7 @@ Name[kk]=Jamendo
 Name[km]=Jamendo
 Name[kn]=ಜಮೆಂಡೊ(Jamendo)
 Name[ko]=Jamendo
+Name[lg]=Jamendo
 Name[lt]=Jamendo
 Name[lv]=Jamendo
 Name[mai]=जामिनडो
@@ -112,6 +113,7 @@ Query[is]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[it]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ka]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ko]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[lg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[my]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nl]=https://www.jamendo.com/en/search?qs=q=\\{@}

@@ -51,6 +51,7 @@ Name[km]=MetaCrawler
 Name[kn]=ಮೆಟಾ ಕ್ರಾಲರ್
 Name[ko]=MetaCrawler
 Name[ku]=MetaCrawler
+Name[lg]=MetaCrawler
 Name[lt]=MetaCrawler
 Name[lv]=MetaCrawler
 Name[mai]=मेटा-क्राउलर
@@ -127,6 +128,7 @@ Query[is]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[it]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ka]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ko]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[lg]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[lt]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[my]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[nl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

@@ -50,6 +50,7 @@ Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​អ៊�
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಇಟಾಲಿಯನ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
 Name[ko]=Multitran - 이탈리아어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Îtalî û Rûsî de
+Name[lg]=Multitran - Kyusa okuva mu Luyitale okudda mu Lurasiya
 Name[lt]=Multitran – versti iš italų į rusų ir atvirkščiai
 Name[lv]=Multitran - tulkot no Itāļu uz Krievu
 Name[mai]=Multitran - Translate Between Italian and Russian
@@ -122,6 +123,7 @@ Query[is]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[lg]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

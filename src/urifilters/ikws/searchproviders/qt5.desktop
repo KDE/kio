@@ -31,6 +31,7 @@ Name[is]=Qt5 hjálparskjöl á netinu
 Name[it]=Documentazione in linea di Qt5
 Name[ka]=Qt5 ონლაინ დოკუმენტაცია
 Name[ko]=Qt5 온라인 문서
+Name[lg]=Ebiwandiko Ebikwata ku Qt5
 Name[my]=ကျူတီ၅ အွန်လိုင်းဒိုကူမန်တေးရှင်း
 Name[nl]=Qt5 online-documentatie
 Name[nn]=Qt5-dokumentasjon på nett
@@ -80,6 +81,7 @@ Query[is]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[it]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ka]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[lg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[lt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

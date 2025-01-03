@@ -51,6 +51,7 @@ Name[km]=មូលដ្ឋាន​ទិន្នន័យ​ប៉ាតង�
 Name[kn]=ಯು.ಎಸ್ (ಹಕ್ಕು ಪತ್ರ) ಪೇಟೆಂಟ್ ದತ್ತಸಂಚಯ
 Name[ko]=미국 특허 정보
 Name[ku]=Danegeha Patentan a DYA'yê
+Name[lg]=Ggwanika Erya Mu U.S. Ery'ebifa ku Biyiiye Ebikugire
 Name[lt]=JAV patentų duomenų bazė
 Name[lv]=ASV patentu datubāze
 Name[mai]=यूएस पेटेन्ट डाटाबेस
@@ -144,6 +145,7 @@ Query[km]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2
 Query[kn]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[ko]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[ku]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
+Query[lg]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[lt]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[lv]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[mai]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50

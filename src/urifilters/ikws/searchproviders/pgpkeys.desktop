@@ -49,6 +49,7 @@ Name[km]=ស្វែងរក​កូនសោ​តាម​រយៈ OpenPGP
 Name[kn]=ಮುಕ್ತ PGP ಕೀಲಿಕೈ ಹುಡುಕಾಟ
 Name[ko]=OpenPGP 키 검색
 Name[ku]=Lêgerîna Mifteya Open PGP
+Name[lg]=Noonya ebikwata ku nkola ya OpenPGP Key
 Name[lt]=OpenPGP raktų paieška
 Name[lv]=OpenPGP atslēgu meklēšana
 Name[mai]=ओपनपीजीपी कुँजी खोज
@@ -124,6 +125,7 @@ Query[is]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[it]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ka]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ko]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[lg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[my]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[nl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

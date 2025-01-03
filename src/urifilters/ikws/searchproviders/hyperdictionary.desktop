@@ -50,6 +50,7 @@ Name[km]=HyperDictionary.com
 Name[kn]=HyperDictionary.com
 Name[ko]=HyperDictionary.com
 Name[ku]=HyperDictionary.com
+Name[lg]=HyperDictionary.com
 Name[lt]=HyperDictionary.com
 Name[lv]=HyperDictionary.com
 Name[mai]=हायपर-डिक्शनरी.काम
@@ -145,6 +146,7 @@ Query[km]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kn]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ko]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ku]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[lg]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[lt]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[lv]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[mai]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

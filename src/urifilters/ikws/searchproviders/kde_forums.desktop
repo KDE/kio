@@ -43,6 +43,7 @@ Name[kk]=KDE форумдары
 Name[km]=វេទិកា​របស់ KDE
 Name[kn]=ಕೆಡಿಇ ಚರ್ಚಾವೇದಿಕೆ 
 Name[ko]=KDE 포럼
+Name[lg]=Ebimeeza Ebyogera ku KDE
 Name[lt]=KDE forumai
 Name[lv]=KDE forumi
 Name[mai]=KDE फोरम
@@ -112,6 +113,7 @@ Query[it]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags
 Query[ka]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[kk]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[ko]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
+Query[lg]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[lt]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[mr]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[my]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search

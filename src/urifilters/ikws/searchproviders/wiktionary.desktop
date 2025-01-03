@@ -51,6 +51,7 @@ Name[km]=Wikipedia - វចនានុក្រម​ឥត​គិត​ថ�
 Name[kn]=ವಿಕ್ಷನರಿ - ಮುಕ್ತ ಶಬ್ದಕೋಶ
 Name[ko]=위키낱말사전 - 말과 글의 누리
 Name[ku]=Wîkîferheng - Ferhenga Azad
+Name[lg]=Wiktionary - Enkuluze eya Bonna
 Name[lt]=Vikižodynas – laisvasis žodynas
 Name[lv]=Wiktionary - brīvā vārdnīca
 Name[mai]=विकिपेडिया- मुफ्त विश्वकोश
@@ -129,6 +130,7 @@ Query[it]=http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ka]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wiktionary.org/wiki/특수:검색?search=\\{@}&go=Go
+Query[lg]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[lt]=https://lt.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[mr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[my]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

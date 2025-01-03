@@ -44,6 +44,7 @@ Name[kk]=7Digital
 Name[km]=7Digital
 Name[kn]=೭ ಅಂಕೀಯ (ಡಿಜಿಟಲ್)
 Name[ko]=7Digital
+Name[lg]=7Digital
 Name[lt]=7Digital
 Name[lv]=7Digital
 Name[mai]=7Digital
@@ -110,6 +111,7 @@ Query[is]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ka]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ko]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[lg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[lt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[my]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
