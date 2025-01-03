@@ -51,6 +51,7 @@ Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​�
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಇಟಾಲಿಯನ್ ಗೆ
 Name[ko]=WordReference.com 번역: 영어 - 이탈리아어
 Name[ku]=WordReference.com Wergerandin: Îngilîzî ji Îtalî re
+Name[lg]=WordReference.com: Ekifo ekikyusa okuva mu Lungereza okudda mu Luyitale
 Name[lt]=WordReference.com vertimas: iš anglų į italų
 Name[lv]=„WordReference.com“ tulkošana: no angļu uz itāļu
 Name[mai]=WordReference.com अनुवादः अंग्रेजी सँ इतालवी
@@ -127,6 +128,7 @@ Query[is]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[it]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ka]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ko]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[lg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[lt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[lv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[my]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

@@ -32,6 +32,7 @@ Name[is]=Flatpak-hjálparskjöl
 Name[it]=Documentazione Flatpak
 Name[ka]=Flatpak -ის დოკუმენტაცია
 Name[ko]=Flatpak 문서
+Name[lg]=Ebiwandiko Ebikwata ku Flatpak
 Name[lt]=Flatpak dokumentacija
 Name[lv]=„Flatpak“ dokumentācija
 Name[my]=ဖလက်ပတ်ခ် ဒိုကူမန်တေးရှင်း
@@ -89,6 +90,7 @@ Query[is]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[it]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ka]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ko]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[lg]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[lt]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[lv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[my]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

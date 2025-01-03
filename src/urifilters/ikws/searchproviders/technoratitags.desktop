@@ -50,6 +50,7 @@ Name[km]=ស្លាក Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ ತಲೆಚೀಟಿಗಳು (ಟಾಗ್ಸ್)
 Name[ko]=Technorati 태그
 Name[ku]=Etîketên Technorati
+Name[lg]=Technorati Tags
 Name[lt]=Technorati žymės
 Name[lv]=„Technorati“ birkas
 Name[mai]=टेक्नोराती टैग्स
@@ -125,6 +126,7 @@ Query[is]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ka]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ko]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[lg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[lt]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[lv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[my]=https://technorati.com/tag/\\{@}?sourceid=kde-search

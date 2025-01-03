@@ -33,6 +33,7 @@ Name[is]=KDE Invent
 Name[it]=KDE Invent
 Name[ka]=KDE Invent
 Name[ko]=KDE Invent
+Name[lg]=KDE Invent
 Name[lt]=KDE Invent
 Name[lv]=KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့်
@@ -88,6 +89,7 @@ Query[is]=https://invent.kde.org/search?search=\\{@}
 Query[it]=https://invent.kde.org/search?search=\\{@}
 Query[ka]=https://invent.kde.org/search?search=\\{@}
 Query[ko]=https://invent.kde.org/search?search=\\{@}
+Query[lg]=https://invent.kde.org/search?search=\\{@}
 Query[lt]=https://invent.kde.org/search?search=\\{@}
 Query[lv]=https://invent.kde.org/search?search=\\{@}
 Query[my]=https://invent.kde.org/search?search=\\{@}

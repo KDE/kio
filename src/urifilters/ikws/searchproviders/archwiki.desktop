@@ -33,6 +33,7 @@ Name[is]=ArchWiki
 Name[it]=ArchWiki
 Name[ka]=ArchWiki
 Name[ko]=ArchWiki
+Name[lg]=ArchWiki
 Name[lt]=ArchWiki
 Name[lv]=ArchWiki
 Name[my]=ArchWiki
@@ -90,6 +91,7 @@ Query[is]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ka]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ko]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[lg]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lt]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[lv]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[my]=https://wiki.archlinux.org/index.php?search=\\{@}

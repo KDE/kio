@@ -44,6 +44,7 @@ Name[kk]=Amazon MP3
 Name[km]=Amazon MP3
 Name[kn]=ಅಮೆಜೋನ್ MP3
 Name[ko]=Amazon MP3
+Name[lg]=Amazon MP3
 Name[lt]=Amazon MP3
 Name[lv]=Amazon MP3
 Name[mai]=अमेजन MP3
@@ -114,6 +115,7 @@ Query[is]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music
 Query[it]=https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ka]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ko]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[lg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[lt]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[lv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[my]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

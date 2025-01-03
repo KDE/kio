@@ -50,6 +50,7 @@ Name[km]=សួរ Jeeves
 Name[kn]=ಜೀವಿಸ್ ನನ್ನುಕೇಳು (ಆಸ್ಕ್ ಜೀವಿಸ್)
 Name[ko]=Ask Jeeves
 Name[ku]=Ask Jeeves
+Name[lg]=Ask Jeeves
 Name[lt]=Ask Jeeves
 Name[lv]=Ask Jeeves
 Name[mai]=आस्क जीव्स
@@ -121,6 +122,7 @@ Query[is]=https://www.ask.com/web?q=\\{@}
 Query[it]=https://www.ask.com/web?q=\\{@}
 Query[ka]=https://www.ask.com/web?q=\\{@}
 Query[ko]=https://www.ask.com/web?q=\\{@}
+Query[lg]=https://www.ask.com/web?q=\\{@}
 Query[lt]=https://www.ask.com/web?q=\\{@}
 Query[lv]=https://www.ask.com/web?q=\\{@}
 Query[nl]=https://www.ask.com/web?q=\\{@}

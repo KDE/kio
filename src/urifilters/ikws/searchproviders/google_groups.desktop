@@ -50,6 +50,7 @@ Name[km]=ក្រុម​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಗುಂಪುಗಳು
 Name[ko]=Google 그룹스
 Name[ku]=Komên Googleyê
+Name[lg]=Google Groups
 Name[lt]=Google grupės
 Name[lv]=„Google“ grupas
 Name[mai]=गूगल समूह
@@ -134,6 +135,7 @@ Query[it]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ka]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[kk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ko]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[lg]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lv]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[mr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

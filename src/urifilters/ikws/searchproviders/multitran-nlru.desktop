@@ -50,6 +50,7 @@ Name[km]=LEO - បកប្រែ​រវាង​ភាសា​ហុល្�
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಡಚ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
 Name[ko]=Multitran - 네덜란드어 - 러시아어 번역
 Name[ku]=Multîtran - Wergerandina Di Navbera Holandî û Rûsî de
+Name[lg]=Multitran - Kyusa okuva mu Luholandi okudda mu Lurasiya
 Name[lt]=Multitran – versti iš olandų į rusų ir atvirkščiai
 Name[lv]=„Multitran“ — tulkot starp holandiešu un krievu valodu
 Name[mai]=Multitran - Translate Between Dutch and Russian
@@ -125,6 +126,7 @@ Query[is]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[lg]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[lv]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

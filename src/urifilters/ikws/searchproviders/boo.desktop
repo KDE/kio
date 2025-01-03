@@ -26,6 +26,7 @@ Name[is]=openSUSE Bugzilla
 Name[it]=Bugzilla di openSUSE
 Name[ka]=openSUSE Bugzilla
 Name[ko]=openSUSE Bugzilla
+Name[lg]=puloguramu eza openSUSE
 Name[lt]=openSUSE Bugzilla
 Name[lv]=openSUSE Bugzilla
 Name[nl]=openSUSE Bugzilla
@@ -70,6 +71,7 @@ Query[is]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[it]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ka]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ko]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[lg]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[lt]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[lv]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[nl]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}

@@ -43,6 +43,7 @@ Name[kk]=Wolfram Alpha
 Name[km]=Wolfram Alpha
 Name[kn]=ವೂಲ್ಫ್ರಾಮ್ ಆಲ್ಫಾ
 Name[ko]=Wolfram Alpha
+Name[lg]=Wolfram Alpha
 Name[lt]=Wolfram Alpha
 Name[lv]=Wolfram Alpha
 Name[mai]=वोल्फॉर्म अल्फा
@@ -117,6 +118,7 @@ Query[it]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ka]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[kk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ko]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[lg]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[lt]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[lv]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[mr]=https://www.wolframalpha.com/input/?i=\\{@}

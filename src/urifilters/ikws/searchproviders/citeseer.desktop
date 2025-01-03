@@ -50,6 +50,7 @@ Name[km]=CiteSeer ៖ បណ្ណាល័យ​ឌីជីថល​អក្
 Name[kn]=CiteSeer: ವೈಜ್ಞಾನಿಕ ಸಾಹಿತ್ಯ ಅಂಕೀಯ (ಡಿಜಿಟಲ್) ಭಂಡಾರ
 Name[ko]=CiteSeer: 과학 문학 디지털 도서관
 Name[ku]=CiteSeer: Pirtûkxane ya Dîjîtal ya Lîteratûra Zanistî
+Name[lg]=CiteSeer: Awasangibwa Biwandike Ebya Kinnasayansi
 Name[lt]=CiteSeer: Mokslinės literatūros skaitmeninė biblioteka
 Name[lv]=„CiteSeer“: zinātniskās literatūras elektroniskā bibliotēka
 Name[mai]=CiteSeer: वैज्ञानिक साहित्य डिजिटल पुस्तकालय
@@ -128,6 +129,7 @@ Query[is]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[it]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ka]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ko]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[lg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[my]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

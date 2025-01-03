@@ -41,6 +41,7 @@ Name[kk]=Ecosia іздеу құралы
 Name[km]=ម៉ាស៊ីន​ស្វែងរក Ecosia
 Name[kn]=ಎಕೊಸಿಯಾ(Ecosia) ಶೋಧನಾ ಯಂತ್ರ
 Name[ko]=Ecosia 검색 엔진
+Name[lg]=Enfo enoonyesebwa eya Ecosia
 Name[lt]=Ecosia paieškos sistema
 Name[lv]=„Ecosia“ meklēšanas dzinis
 Name[mai]=इकोसिया खोज इंजिन
@@ -112,6 +113,7 @@ Query[is]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[it]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ka]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ko]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[lg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[my]=https://ecosia.org/search.php?q=\\{@}&meta=normal

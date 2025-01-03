@@ -52,6 +52,7 @@ Name[km]=ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್
 Name[ko]=Google
 Name[ku]=Google
+Name[lg]=Google
 Name[lt]=Google
 Name[lv]=Google
 Name[mai]=गूगल
@@ -136,6 +137,7 @@ Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[kk]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[lg]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[lv]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[mr]=https://www.google.com/search?q=\\{@}&ie=UTF-8

@@ -44,6 +44,7 @@ Name[kk]=Duck Duck Go
 Name[km]=Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ
 Name[ko]=Duck Duck Go
+Name[lg]=Duck Duck Go
 Name[lt]=Duck Duck Go
 Name[lv]=Duck Duck Go
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ
@@ -115,6 +116,7 @@ Query[it]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[lg]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[lv]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[mr]=http://duckduckgo.com/?q=\\{@}&t=kde

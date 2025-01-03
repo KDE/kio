@@ -31,6 +31,7 @@ Name[is]=Microsoft C++ handbækur
 Name[it]=Documentazione su C++ di Microsoft
 Name[ka]=Microsoft C++ დოკუმენტაცია
 Name[ko]=Microsoft C++ 문서
+Name[lg]=Ebiwandiko Ebikwata ku Microsoft C++
 Name[lt]=Microsoft C++ dokumentacija
 Name[lv]=„Microsoft“ C++ dokumentācija
 Name[my]=မိုက်ခရိုဆော့ဖ် စီ++ ဒိုကူမန်တေးရှင်း
@@ -87,6 +88,7 @@ Query[is]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[it]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ka]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ko]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[lg]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[lt]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[lv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[my]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

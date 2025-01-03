@@ -44,6 +44,7 @@ Name[kk]=Flickr
 Name[km]=Flickr
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ 
 Name[ko]=Flickr
+Name[lg]=Flickr
 Name[lt]=Flickr
 Name[lv]=Flickr
 Name[mai]=Flickr
@@ -114,6 +115,7 @@ Query[is]=https://www.flickr.com/search/?q=\\{@}
 Query[it]=https://www.flickr.com/search/?q=\\{@}
 Query[ka]=https://www.flickr.com/search/?q=\\{@}
 Query[ko]=https://www.flickr.com/search/?q=\\{@}
+Query[lg]=https://www.flickr.com/search/?q=\\{@}
 Query[lt]=https://www.flickr.com/search/?q=\\{@}
 Query[lv]=https://www.flickr.com/search/?q=\\{@}
 Query[my]=https://www.flickr.com/search/?q=\\{@}

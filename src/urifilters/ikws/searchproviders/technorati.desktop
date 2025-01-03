@@ -51,6 +51,7 @@ Name[km]=Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ
 Name[ko]=Technorati
 Name[ku]=Technorati
+Name[lg]=Technorati
 Name[lt]=Technorati
 Name[lv]=Technorati
 Name[mai]=टेक्नोराती
@@ -129,6 +130,7 @@ Query[is]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[it]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ka]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ko]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[lg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[lt]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[lv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[my]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

@@ -44,6 +44,7 @@ Name[kk]=Wikia
 Name[km]=Wikia
 Name[kn]=ವಿಕಿಯಾ
 Name[ko]=Wikia
+Name[lg]=Wikia
 Name[lt]=Wikia
 Name[lv]=Wikia
 Name[ml]=വിക്കിയ
@@ -112,6 +113,7 @@ Query[is]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[it]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ka]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ko]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[lg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[lt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[lv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[my]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

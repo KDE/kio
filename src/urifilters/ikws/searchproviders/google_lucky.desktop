@@ -48,6 +48,7 @@ Name[km]=ហ្គូហ្គល (ខ្ញុំ​មាន​អារម្
 Name[kn]=ಗೂಗಲ್ (ಅದೃಷ್ಟ ಚೆನ್ನಾಗಿದ್ದಂತಿದೆ)
 Name[ko]=Google (운 좋은 예감)
 Name[ku]=Goole (Ez Bi Siûd im)
+Name[lg]=Google "I'm Feeling Lucky"
 Name[lt]=Google (Man sekasi!)
 Name[lv]=„Google“ (es ticu veiksmei)
 Name[mai]=गूगल (आइ हमर किस्मत नीक अछि)
@@ -131,6 +132,7 @@ Query[it]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[ka]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[kk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[lg]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lv]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[mr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

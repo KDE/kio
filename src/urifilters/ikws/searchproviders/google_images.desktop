@@ -50,6 +50,7 @@ Name[km]=ស្វែងរក​រូបភាព​តាម​រយៈ​�
 Name[kn]=ಗೂಗಲ್ ಚಿತ್ರ ಹುಡುಕಾಟ
 Name[ko]=Google 이미지 검색
 Name[ku]=Lêgerîna Wêneyan a Gooleyê
+Name[lg]=Noonya Bifaananyi ku Google
 Name[lt]=Google vaizdų paieška
 Name[lv]=„Google“ attēlu meklēšana
 Name[mai]=गूगल छवि खोज
@@ -134,6 +135,7 @@ Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[lg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lv]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[mr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

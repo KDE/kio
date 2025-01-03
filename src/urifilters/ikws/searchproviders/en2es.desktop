@@ -51,6 +51,7 @@ Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​�
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಸ್ಪಾನಿಷ್ ಗೆ
 Name[ko]=WordReference.com 번역: 영어 - 스페인어
 Name[ku]=WordReference.com Wergerandin: Îngilîzî ji Spanyolî re
+Name[lg]=WordReference.com: Ekifo ekikyusa okuva mu Lungereza okudda mu Lusipanya
 Name[lt]=WordReference.com vertimas: iš anglų į ispanų
 Name[lv]=„WordReference.com“ tulkošana: no angļu uz spāņu
 Name[mai]=WordReference.com अनुवादः अंग्रेजी सँ स्पेनी
@@ -127,6 +128,7 @@ Query[is]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[it]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ka]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ko]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[lg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[lt]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[lv]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[my]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

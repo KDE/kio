@@ -32,6 +32,7 @@ Name[is]=Yandex
 Name[it]=Yandex
 Name[ka]=Yandex
 Name[ko]=Yandex
+Name[lg]=Yandex
 Name[lt]=Yandex
 Name[lv]=Yandex
 Name[my]=ရန်ဒက်
@@ -86,6 +87,7 @@ Query[is]=https://yandex.ru/search/?text=\\{@}
 Query[it]=https://yandex.ru/search/?text=\\{@}
 Query[ka]=https://yandex.ru/search/?text=\\{@}
 Query[ko]=https://yandex.ru/search/?text=\\{@}
+Query[lg]=https://yandex.ru/search/?text=\\{@}
 Query[lt]=https://yandex.ru/search/?text=\\{@}
 Query[lv]=https://yandex.ru/search/?text=\\{@}
 Query[my]=https://yandex.ru/search/?text=\\{@}

@@ -34,6 +34,7 @@ Name[is]=Stóra katalónska orðabókin (GRan Enciclopèdia  Catalana)
 Name[it]=Grande dizionario della lingua catalana (GRan Enciclopèdia Catalana)
 Name[ka]=კატალანური ენის დიდი ლექსიკონი (GRan Enciclopèdia Catalana)
 Name[ko]=카탈루냐어 대사전(GRan Enciclopèdia Catalana)
+Name[lg]=Enkuluze Mawuuno Ey'olulimi oLuKatalani (GRan Enciclopèdia Catalana)
 Name[lt]=Didysis katalonų kalbos žodynas (GRan Enciclopèdia Catalana)
 Name[lv]=Lielā katalāņu valodas vārdnīca („GRan Enciclopèdia Catalana“)
 Name[my]=ကတ်တလန်ဘာသာစကား၏ ဒစ်ရှင်နရီကြီး (GRan Enciclopèdia Catalana)
@@ -106,6 +107,7 @@ Query[kk]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[km]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[kn]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ko]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[lg]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[lt]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[lv]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[mai]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}

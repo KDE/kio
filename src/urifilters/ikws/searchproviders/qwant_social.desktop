@@ -34,6 +34,7 @@ Name[is]=Qwant Social
 Name[it]=Rete sociale di Qwant
 Name[ka]=Qwant სოციალური ქსელები
 Name[ko]=Qwant 소셜
+Name[lg]=Noonya Eby'okutabagana ku Qwant
 Name[lt]=Qwant socialinių tinklų įrašai
 Name[lv]=„Qwant Social“
 Name[ml]=ക്വാണ്ട് സോഷ്യൽ
@@ -98,6 +99,7 @@ Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

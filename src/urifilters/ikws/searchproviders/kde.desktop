@@ -53,6 +53,7 @@ Name[km]=ឯកសារ API របស់ KDE
 Name[kn]=ಕೆಡಿಇ ಎಪಿಐ ದಸ್ತಾವೇಜೀಕರಣ
 Name[ko]=KDE API 문서
 Name[ku]=Belgekirina KDE API
+Name[lg]=Noonya Ebiwandiko Ebikwata ku KDE API
 Name[lt]=KDE API dokumentacija
 Name[lv]=KDE API dokumentācija
 Name[mai]=केडीई एपीआई दस्ताबेजीकरण
@@ -130,6 +131,7 @@ Query[is]=https://api.kde.org/search.html?query=\\{@}
 Query[it]=https://api.kde.org/search.html?query=\\{@}
 Query[ka]=https://api.kde.org/search.html?query=\\{@}
 Query[ko]=https://api.kde.org/search.html?query=\\{@}
+Query[lg]=https://api.kde.org/search.html?query=\\{@}
 Query[lt]=https://api.kde.org/search.html?query=\\{@}
 Query[lv]=https://api.kde.org/search.html?query=\\{@}
 Query[my]=https://api.kde.org/search.html?query=\\{@}

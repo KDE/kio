@@ -31,6 +31,7 @@ Name[is]=Reddit
 Name[it]=Reddit
 Name[ka]=Reddit
 Name[ko]=Reddit
+Name[lg]=Reddit
 Name[lt]=Reddit
 Name[lv]=Reddit
 Name[my]=ရက်ဒစ်
@@ -87,6 +88,7 @@ Query[is]=https://www.reddit.com/search/?q=\\{@}
 Query[it]=https://www.reddit.com/search/?q=\\{@}
 Query[ka]=https://www.reddit.com/search/?q=\\{@}
 Query[ko]=https://www.reddit.com/search/?q=\\{@}
+Query[lg]=https://www.reddit.com/search/?q=\\{@}
 Query[lt]=https://www.reddit.com/search/?q=\\{@}
 Query[lv]=https://www.reddit.com/search/?q=\\{@}
 Query[my]=https://www.reddit.com/search/?q=\\{@}

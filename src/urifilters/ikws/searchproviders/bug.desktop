@@ -33,6 +33,7 @@ Name[is]=KDE Bugs
 Name[it]=Bug di KDE
 Name[ka]=KDE შეცდომები
 Name[ko]=KDE 버그
+Name[lg]=Mpulunguse ezizuulidwa mu KDE
 Name[lt]=KDE klaidos
 Name[lv]=KDE kļūdas
 Name[my]=ခေဒီအီးဆိုင်ရာ ဆော့ဖ်လ်ဝဲလ်ပြစ်ချက်များ
@@ -92,6 +93,7 @@ Query[it]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ka]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[kk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ko]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[lg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lv]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[mr]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

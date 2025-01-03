@@ -36,6 +36,7 @@ Name[it]=Acquisti di Google
 Name[ka]=Google საყიდლები
 Name[kk]=Google Shopping
 Name[ko]=Google 쇼핑
+Name[lg]=Google Shopping
 Name[lt]=Google apsipirkimas
 Name[lv]=„Google“ iepirkšanās
 Name[mr]=गूगल खरेदी
@@ -105,6 +106,7 @@ Query[it]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ka]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[kk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ko]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[lg]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[lt]=https://www.google.com/search?hl=lt&tbm=shop&q=\\{@}
 Query[lv]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[mr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

@@ -49,6 +49,7 @@ Name[km]=ការ​ស្វែងរក Debian Backports
 Name[kn]=ಡೇಬಿಯನ್ ಬ್ಯಾಕ್ಪೋರ್ಟ್ ಶೋಧ
 Name[ko]=데비안 백포트 검색
 Name[ku]=Lêgerîna Dergehên Paş yên Debian
+Name[lg]=Noonya Emiganda egya Debian Backport
 Name[lt]=Debian Backports paieška
 Name[lv]=„Debian Backports“ meklēšana
 Name[mai]=डेबियन बैकपोर्ट्स खोज
@@ -125,6 +126,7 @@ Query[is]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[it]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ka]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ko]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[lg]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[lt]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[lv]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ml]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

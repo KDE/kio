@@ -42,6 +42,7 @@ Name[kk]=Bing
 Name[km]=Bing
 Name[kn]=ಬಿಂಗ್
 Name[ko]=Bing
+Name[lg]=Bing
 Name[lt]=Bing
 Name[lv]=Bing
 Name[mai]=बिंग
@@ -112,6 +113,7 @@ Query[is]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}
 Query[ka]=https://www.bing.com/search?q=\\{@}
 Query[ko]=https://www.bing.com/search?q=\\{@}
+Query[lg]=https://www.bing.com/search?q=\\{@}
 Query[lt]=https://www.bing.com/search?q=\\{@}
 Query[lv]=https://www.bing.com/search?q=\\{@}
 Query[my]=https://www.bing.com/search?q=\\{@}

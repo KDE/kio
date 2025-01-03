@@ -51,6 +51,7 @@ Name[km]=ការ​បកប្រែ dict.cc ៖ ភាសា​អាល្
 Name[kn]=dict.cc ಭಾಷಾಂತರ: ಜರ್ಮನ್ ನಿಂದ ಇಂಗ್ಲೀಷಿಗೆ
 Name[ko]=dict.cc 번역: 독일어 - 영어
 Name[ku]=dict.cc Wergerandin: Almanî ji Îngilîzî re 
+Name[lg]=dict.cc : Ekifo Ekikyusa Okuva mu Ludaaki okudda mu Lungereza
 Name[lt]=dict.cc vertimas: iš vokiečių į anglų
 Name[lv]=„dict.cc“ tulkošana: no vācu uz angļu
 Name[mai]=dict.cc अनुवादः जर्मन सँ अंग्रेजी
@@ -128,6 +129,7 @@ Query[is]=https://www.dict.cc/?s=\\{@}
 Query[it]=https://www.dict.cc/?s=\\{@}
 Query[ka]=https://www.dict.cc/?s=\\{@}
 Query[ko]=https://www.dict.cc/?s=\\{@}
+Query[lg]=https://www.dict.cc/?s=\\{@}
 Query[lt]=https://www.dict.cc/?s=\\{@}
 Query[lv]=https://www.dict.cc/?s=\\{@}
 Query[my]=https://www.dict.cc/?s=\\{@}

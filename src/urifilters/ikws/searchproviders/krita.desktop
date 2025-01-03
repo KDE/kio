@@ -32,6 +32,7 @@ Name[is]=Krita handbók
 Name[it]=Manuale di Krita
 Name[ka]=Krita -ის სახელმძღვანელო
 Name[ko]=Krita 설명서
+Name[lg]=Ekiwandike Ekiraga Enkola ya Krita mu Bujjuvu
 Name[lt]=Krita naudotojo vadovas
 Name[lv]=„Krita“ rokasgrāmata
 Name[my]=Krita လက်စွဲစာအုပ်
@@ -89,6 +90,7 @@ Query[is]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[it]=https://docs.krita.org/it/search.html?q=\\{@}
 Query[ka]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ko]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[lg]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[lt]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[lv]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[my]=https://docs.krita.org/en/search.html?q=\\{@}

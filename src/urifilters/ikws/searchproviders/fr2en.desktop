@@ -51,6 +51,7 @@ Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​�
 Name[kn]=WordReference.com ಅನುವಾದ: ಫ್ರೆಂಚ್ ನಿಂದ ಇಂಗ್ಲೀಷಿಗೆ
 Name[ko]=WordReference.com 번역: 프랑스어 - 영어
 Name[ku]=WordReference.com Wergerandin: Fransizî ji Îngilîzî re
+Name[lg]=WordReference.com: Ekifo ekikyusa okuva mu Lufalansa okudda mu Lungereza
 Name[lt]=WordReference.com vertimas: iš prancūzų į anglų
 Name[lv]=„WordReference.com“ tulkošana: no franču uz angļu
 Name[mai]=WordReference.com अनुवादः फ्रांसीसी सँ अंग्रेजी
@@ -127,6 +128,7 @@ Query[is]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[it]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ka]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ko]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[lg]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[lt]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[lv]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[my]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

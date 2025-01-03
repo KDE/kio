@@ -34,6 +34,7 @@ Name[is]=Qwant Images
 Name[it]=Immagini di Qwant
 Name[ka]=Qwant სურათი
 Name[ko]=Qwant 그림
+Name[lg]=Noonya Bifaananyi ku Qwant
 Name[lt]=Qwant paveikslai
 Name[lv]=„Qwant“ attēli
 Name[mr]=क्वांट प्रतिमा
@@ -97,6 +98,7 @@ Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

@@ -44,6 +44,7 @@ Name[kk]=Facebook
 Name[km]=Facebook
 Name[kn]=ಫೇಸ್ ಬುಕ್
 Name[ko]=Facebook
+Name[lg]=Facebook
 Name[lt]=Facebook
 Name[lv]=Facebook
 Name[mai]=फेसबुक
@@ -116,6 +117,7 @@ Query[it]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ka]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[kk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ko]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[lg]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[lt]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[lv]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[mr]=http://www.facebook.com/search/?q=\\{@}&init=quick
