@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:38+0000\n"
+"POT-Creation-Date: 2025-01-04 00:38+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -4005,14 +4005,14 @@ msgstr "Kliknite za uređivanje lokacije"
 msgid "You are not authorized to execute this file."
 msgstr "Niste ovlašteni za izvršavanje ove datoteke."
 
-#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Pokretanje %1"
 
-#: gui/applicationlauncherjob.cpp:181
+#: gui/applicationlauncherjob.cpp:170
 #, fuzzy, kde-format
 #| msgid "Unable to make the service %1 executable, aborting execution"
 msgid ""
@@ -4020,12 +4020,12 @@ msgid ""
 "%2."
 msgstr "Nije moguće učiniti uslugu %1 izvršnom, prekidanje izvođenja"
 
-#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Niste ovlašteni za odabir aplikacije koja će otvoriti ovu datoteku."
 
-#: gui/applicationlauncherjob.cpp:307
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

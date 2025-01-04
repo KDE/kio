@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:38+0000\n"
+"POT-Creation-Date: 2025-01-04 00:38+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3914,25 +3914,25 @@ msgstr "برای ویرایش مکان کلیک کنید"
 msgid "You are not authorized to execute this file."
 msgstr "مجاز به اجرای این پرونده نیستید."
 
-#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "اجرای %1"
 
-#: gui/applicationlauncherjob.cpp:181
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "مجاز به برگزیدن کاربردی برای باز کردن این پرونده نیستید."
 
-#: gui/applicationlauncherjob.cpp:307
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

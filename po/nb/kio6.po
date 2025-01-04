@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:38+0000\n"
+"POT-Creation-Date: 2025-01-04 00:38+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -3775,25 +3775,25 @@ msgstr "Trykk for å endre plassering"
 msgid "You are not authorized to execute this file."
 msgstr "Du har ikke lov til å kjøre denne fila."
 
-#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:181
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Du har ikke lov til å åpne denne fila."
 
-#: gui/applicationlauncherjob.cpp:307
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

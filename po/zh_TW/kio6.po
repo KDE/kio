@@ -1,7 +1,7 @@
 # translation of kcmkio.po to Chinese Traditional
 # traditional Chinese translation of kcmkio
 # Copyright (C) 2001-2002, 2003, 2007, 2008 Free Software Foundation, Inc.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 # Translator: Kenduest Lee <kenduest@i18n.linux.org.tw>, 2001.
 # Chao-Hsiung Liao <pesder.liao@msa.hinet.net>, 2002.
 # 林耕宇 <s9321028@ncnu.edu.tw>, 2003.
@@ -16,15 +16,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:38+0000\n"
-"PO-Revision-Date: 2024-11-11 16:20+0900\n"
+"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"PO-Revision-Date: 2025-01-04 00:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -2527,7 +2527,7 @@ msgstr "刪除"
 #: filewidgets/kdiroperator.cpp:2000
 #, kde-format
 msgid "Sorting"
-msgstr "排序中"
+msgstr "排序"
 
 #: filewidgets/kdiroperator.cpp:2005
 #, kde-format
@@ -3720,13 +3720,13 @@ msgstr "點選以編輯位置"
 msgid "You are not authorized to execute this file."
 msgstr "您未獲授權去執行此檔案。"
 
-#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "正在啟動 %1"
 
-#: gui/applicationlauncherjob.cpp:181
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3735,12 +3735,12 @@ msgstr ""
 "無法使 %1 服務可被執行，取消執行。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您未獲授權去選取應用程式以開啟此檔案。"
 
-#: gui/applicationlauncherjob.cpp:307
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

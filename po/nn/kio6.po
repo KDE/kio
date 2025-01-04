@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:38+0000\n"
+"POT-Creation-Date: 2025-01-04 00:38+0000\n"
 "PO-Revision-Date: 2024-10-27 14:42+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3854,13 +3854,13 @@ msgstr "Trykk for å endra plassering"
 msgid "You are not authorized to execute this file."
 msgstr "Du har ikkje løyve til å køyra denne fila."
 
-#: gui/applicationlauncherjob.cpp:144 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Startar %1"
 
-#: gui/applicationlauncherjob.cpp:181
+#: gui/applicationlauncherjob.cpp:170
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3869,12 +3869,12 @@ msgstr ""
 "Klarte ikkje gjera tenesta «%1» køyrbar. Avbryt køyringa.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:299 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Du har ikkje løyve til å velja eit program som skal opna denne fila."
 
-#: gui/applicationlauncherjob.cpp:307
+#: gui/applicationlauncherjob.cpp:296
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
