@@ -6019,13 +6019,11 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
 #, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
 msgid "Only own&er can delete or rename contents"
 msgstr "Dušše &eaiggát sáhttá rievdadat máhpa nama dahje sihkkut dan sisdoalu."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
 #, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
 msgid "Allow &executing file as program"
 msgstr "Bijá dán leavgga vai oažžut lobi vuodjit fiilla prográmman."
 
@@ -6036,7 +6034,6 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, fuzzy, kde-format
-#| msgid "&Execute"
 msgid "Execute:"
 msgstr "&Daga"
 

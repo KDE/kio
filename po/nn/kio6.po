@@ -3798,8 +3798,6 @@ msgstr "Vis heile adressa"
 
 #: filewidgets/kurlnavigator.cpp:796
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Kan ikkje overføra <filename>%1</filename>"
