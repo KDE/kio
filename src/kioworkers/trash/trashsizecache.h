@@ -83,7 +83,7 @@ private:
 
     QString mTrashSizeCachePath;
     QString mTrashPath;
-    QFileInfo getTrashFileInfo(const QString &fileName);
+    std::optional<QFileInfo> getTrashFileInfo(const QString &fileName);
 };
 
 #endif

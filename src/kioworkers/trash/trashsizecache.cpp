@@ -52,10 +52,13 @@ void TrashSizeCache::add(const QString &directoryName, qint64 directorySize)
             }
         }
 
-        const qint64 mtime = getTrashFileInfo(directoryName).lastModified().toMSecsSinceEpoch();
-        QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime) + spaceAndDirAndNewline;
-        out.write(newLine);
-        out.commit();
+        const auto trashInfo = getTrashFileInfo(directoryName);
+        if (trashInfo) {
+            const qint64 mtime = trashInfo->lastModified().toMSecsSinceEpoch();
+            QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime) + spaceAndDirAndNewline;
+            out.write(newLine);
+            out.commit();
+        }
     }
     // qCDebug(KIO_TRASH) << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
@@ -102,11 +105,15 @@ void TrashSizeCache::clear()
     QFile::remove(mTrashSizeCachePath);
 }
 
-QFileInfo TrashSizeCache::getTrashFileInfo(const QString &fileName)
+std::optional<QFileInfo> TrashSizeCache::getTrashFileInfo(const QString &fileName)
 {
     const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + fileName + QLatin1String(".trashinfo");
-    Q_ASSERT(QFile::exists(fileInfoPath));
-    return QFileInfo(fileInfoPath);
+    auto info = QFileInfo(fileInfoPath);
+    if (info.exists()) {
+        return {info};
+    } else {
+        return {};
+    }
 }
 
 QHash<QByteArray, TrashSizeCache::SizeAndModTime> TrashSizeCache::readDirCache()
@@ -156,10 +163,10 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::scanFilesInTrash(ScanFilesInTrash
     };
     const auto checkLastModTime = [this, checkMaxTime](const QString &fileName) {
         const auto trashFileInfo = getTrashFileInfo(fileName);
-        if (!trashFileInfo.exists()) {
+        if (!trashFileInfo) {
             return;
         }
-        checkMaxTime(trashFileInfo.lastModified().toMSecsSinceEpoch());
+        checkMaxTime(trashFileInfo->lastModified().toMSecsSinceEpoch());
     };
     while (it.hasNext()) {
         it.next();
@@ -186,7 +193,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::scanFilesInTrash(ScanFilesInTrash
             if (dirIt != dirCache.constEnd()) {
                 const SizeAndModTime &data = *dirIt;
                 const auto trashFileInfo = getTrashFileInfo(fileName);
-                if (trashFileInfo.exists() && trashFileInfo.lastModified().toMSecsSinceEpoch() == data.mtime) {
+                if (trashFileInfo && trashFileInfo->lastModified().toMSecsSinceEpoch() == data.mtime) {
                     sum += data.size;
                     usableCache = true;
                     if (checkDateTime == ScanFilesInTrashOption::CheckModificationTime) {
