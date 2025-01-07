@@ -167,6 +167,16 @@ public:
     QString oldName;
 };
 
+static bool hasNoAccessTime(const KMountPoint::Ptr &mp, const bool isDir)
+{
+    if (!mp) {
+        qCWarning(KIO_WIDGETS) << "Could not find mount point";
+        return false;
+    }
+
+    return mp->mountOptions().contains(QLatin1String("noatime")) || (isDir && mp->mountOptions().contains(QLatin1String("nodiratime")));
+}
+
 KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     : KPropertiesDialogPlugin(_props)
     , d(new KFilePropsPluginPrivate)
@@ -181,6 +191,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // check that the other items match against it, resetting when not.
     const KFileItem firstItem = properties->item();
     auto [url, isLocal] = firstItem.isMostLocalUrl();
+    auto mp = KMountPoint::currentMountPoints(KMountPoint::DetailsNeededFlag::NeedMountOptions).findByPath(url.toLocalFile());
     bool isReallyLocal = firstItem.url().isLocalFile();
     bool bDesktopFile = firstItem.isDesktopFile();
     mode_t mode = firstItem.mode();
@@ -478,7 +489,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->modifiedTimeLabel_Left->hide();
         }
 
-        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull()) {
+        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull() && !hasNoAccessTime(mp, hasDirs)) {
             d->m_ui->accessTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
         } else {
             d->m_ui->accessTimeLabel->hide();
@@ -496,8 +507,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // File system and mount point widgets
     if (hasDirs) { // only for directories
         if (isLocal) {
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
-
             if (mp) {
                 d->m_ui->fsLabel->setText(mp->mountType());
                 d->m_ui->mountPointLabel->setText(mp->mountPoint());
