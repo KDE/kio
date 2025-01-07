@@ -1622,8 +1622,6 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     }
 #endif
 
-    dlg.setMinimumSize(dlg.sizeHint());
-
     updateAccessControls();
     Q_EMIT changed();
 }
