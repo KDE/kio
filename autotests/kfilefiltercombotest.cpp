@@ -22,6 +22,7 @@ private Q_SLOTS:
     void testCurrentFilter();
     void testSetFilterWithDefault();
     void testAllSupportedFiles();
+    void testAllSupportedFilesMoreThanThree();
 };
 
 void KFileFilterComboTest::initTestCase()
@@ -169,6 +170,25 @@ void KFileFilterComboTest::testAllSupportedFiles()
     QCOMPARE(combo.currentFilter().mimePatterns(), expectedMimeTypes);
     QCOMPARE(combo.currentFilter().filePatterns(), expectedFileTypes);
     QCOMPARE(combo.currentFilter().label(), "C++ Sources, PNG Images, PDF Documents");
+}
+
+void KFileFilterComboTest::testAllSupportedFilesMoreThanThree()
+{
+    KFileFilterCombo combo;
+
+    const KFileFilter cppFilter("C++ Sources", {}, {"text/x-c++src"});
+    const KFileFilter pngFilter("PNG Images", {"*.png"}, {});
+    const KFileFilter pdfFilter("PDF Documents", {"*.pdf"}, {});
+    const KFileFilter gltfFilter("glTF Model", {"*.gltf"}, {});
+
+    combo.setFilters({cppFilter, pngFilter, pdfFilter, gltfFilter});
+
+    // Check that it has the right "All supported types" filter
+    QStringList expectedMimeTypes{"text/x-c++src"};
+    QStringList expectedFileTypes{"*.png", "*.pdf", "*.gltf"};
+    QCOMPARE(combo.currentFilter().mimePatterns(), expectedMimeTypes);
+    QCOMPARE(combo.currentFilter().filePatterns(), expectedFileTypes);
+    QCOMPARE(combo.currentFilter().label(), "All Supported Files");
 }
 
 QTEST_MAIN(KFileFilterComboTest)

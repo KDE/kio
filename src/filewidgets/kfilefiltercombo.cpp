@@ -159,7 +159,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
 
             allSupportedFilesFilter = KFileFilter(allComments.join(delim), allFilePatterns, allMimePatterns);
         } else {
-            allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), allMimePatterns, allMimePatterns);
+            allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), allFilePatterns, allMimePatterns);
             d->m_hasAllSupportedFiles = true;
         }
 
