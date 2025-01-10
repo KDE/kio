@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Adem Alp Yıldız <ademalp@kde.org.tr>, 2004.
 # Adem Alp Yıldız <ademalp@linux-sevenler.org>, 2004.
 # Adem GUNES <adem@alaeddin.cc.selcuk.edu.tr>, 2000.
@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:38+0000\n"
-"PO-Revision-Date: 2024-10-13 12:12+0300\n"
+"PO-Revision-Date: 2025-01-09 16:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2524,7 +2524,7 @@ msgstr ""
 #: core/worker.cpp:444
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "“%1” konumunda ‘kioworker’ yürütülebiliri bulunamadı"
+msgstr "“%1” konumunda “kioworker” yürütülebiliri bulunamadı"
 
 #: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
@@ -4162,7 +4162,7 @@ msgstr "Yürütülecek komut"
 #: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "‘Komut’ için yerel dosya(lar) veya URL(’ler)"
+msgstr "“Komut” için yerel dosya(lar) veya URL(’ler)"
 
 #: kioworkers/file/file.cpp:166
 #, kde-format
@@ -4191,12 +4191,12 @@ msgstr ""
 #: kioworkers/file/file.cpp:855
 #, kde-format
 msgid "Could not find program \"mount\""
-msgstr "‘mount’ programı bulunamadı"
+msgstr "“mount” programı bulunamadı"
 
 #: kioworkers/file/file.cpp:929
 #, kde-format
 msgid "Could not find program \"umount\""
-msgstr "‘umount’ programı bulunamadı"
+msgstr "“umount” programı bulunamadı"
 
 #: kioworkers/file/file_unix.cpp:98
 #, kde-format
@@ -4688,7 +4688,7 @@ msgid ""
 msgstr ""
 "KDE çöp kutusuna erişmek için yardımcı uygulama\n"
 "Not: Dosyaları çöp kutusuna taşımak için ktrash kullanmayın, “kioclient move "
-"‘url’ trash:/” kullanın"
+"'url' trash:/” kullanın."
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
@@ -5751,7 +5751,7 @@ msgid ""
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
 "Uygulamanızın başlatıldığını görünür hale getirmek için bu seçeneği "
-"işaretleyin. Bu görsel etkileşim, görev çubuğunda belirecek ‘meşgul imleci’ "
+"işaretleyin. Bu görsel etkileşim, görev çubuğunda belirecek “meşgul imleci” "
 "ile sağlanacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
@@ -5912,8 +5912,8 @@ msgstr ""
 "<p>MIME, Multipurpose Internet (e)Mail Extension, (Çok Amaçlı İnternet E-"
 "posta Uzantısı) protokolü, dosya adı uzantıları ve eşdeğer <u>MIME türleri</"
 "u> temelinde, veri türlerinin tanımlanması için oluşturulmuş yerleşik bir "
-"protokoldür.Örneğin: ‘anadolu.bmp’ dosya adı içindeki, noktadan-sonra-gelen "
-"‘bmp’ kısmı, bu dosyanın bir tür görsel dosyası (Biteşlem Görseli) olduğunu "
+"protokoldür.Örneğin: “anadolu.bmp” dosya adı içindeki, noktadan-sonra-gelen "
+"“bmp” kısmı, bu dosyanın bir tür görsel dosyası (Biteşlem Görseli) olduğunu "
 "belirtir. Bunun MIME anlatımı: <u>image/x-bmp</u> şeklinde olacaktır. Her "
 "bir dosya türünü hangi uygulamanın açıp işleyeceğini bilmek için sisteminiz, "
 "uygulamaların bu uzantıları ve MIME türlerini ele alma ve işleme yetenekleri "
@@ -6226,7 +6226,7 @@ msgid ""
 msgstr ""
 "Bir klasörün ve içindeki dosyaların yalnızca klasörün sahibi tarafından "
 "silinebilmesini veya adlarının değiştirilebilmesini sağlamak için bu "
-"seçeneği işaretleyin. Diğer kullanıcılar yalnızca ‘İçeriği Değiştirme’ izni "
+"seçeneği işaretleyin. Diğer kullanıcılar yalnızca “İçeriği Değiştirme” izni "
 "gerektiren bir işlem olan yeni dosya eklemesi yapabilir."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1216
@@ -6706,7 +6706,7 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
-"Son ‘yapıştır’ işleminizden bu yana pano içeriği değişti: Seçili veri biçimi "
+"Son “yapıştır” işleminizden bu yana pano içeriği değişti: Seçili veri biçimi "
 "artık uygulanabilir değil. Lütfen yapıştırmak istediğiniz şeyi yeniden "
 "kopyalayın."
 
