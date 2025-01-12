@@ -263,7 +263,7 @@ void KUrlNavigatorTest::testRelativePaths()
     // Test "..", which should go up in the dir hierarchy
     m_navigator->editor()->setCurrentText(QStringLiteral(".."));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
-    QTRY_COMPARE(m_navigator->locationUrl(), tempDirUrl);
+    QTRY_COMPARE(m_navigator->locationUrl().adjusted(QUrl::StripTrailingSlash), tempDirUrl);
 
     // Replace all the text with ".c"
     m_navigator->editor()->setCurrentText(QStringLiteral(".c"));
