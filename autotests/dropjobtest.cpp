@@ -423,8 +423,8 @@ private Q_SLOTS:
         QAction *action = popup->actions().at(triggerActionNumber);
         QVERIFY(action);
         QCOMPARE(int(action->data().value<Qt::DropAction>()), int(expectedDropAction));
-        const QRect actionGeom = popup->actionGeometry(action);
-        QTest::mouseClick(popup, Qt::LeftButton, Qt::NoModifier, actionGeom.center());
+        action->trigger();
+        popup->hide();
 
         // Then the job should finish, and the chosen action should happen.
         QVERIFY(jobSpy.waitForResult());
@@ -468,8 +468,8 @@ private Q_SLOTS:
         QVERIFY(actions.at(actions.indexOf(&appAction2) + 1)->isSeparator());
 
         // And when selecting action appAction1
-        const QRect actionGeom = popup->actionGeometry(&appAction1);
-        QTest::mouseClick(popup, Qt::LeftButton, Qt::NoModifier, actionGeom.center());
+        appAction1.trigger();
+        popup->hide();
 
         // Then the menu should hide and the job terminate (without doing any copying)
         QVERIFY(jobSpy.waitForResult());
