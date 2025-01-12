@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:38+0000\n"
-"PO-Revision-Date: 2024-09-14 23:44+0300\n"
+"PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2558,6 +2558,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"KIO darbininko, skirto „%1“ protokolui , kuris įprastai prašo viršesnių "
+"leidimų, saugumas negali būti garantuotas, nes be supernaudotojo (root) yra "
+"ir kitų naudotojų, turinčių leidimą modifikuoti jį ties %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -3875,12 +3878,10 @@ msgid "Show Full Path"
 msgstr "Rodyti visą kelią"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Nepavyko perduoti <filename>%1</filename>"
+msgstr "Eiti į bet kurią vietą, esančią kelyje <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3892,7 +3893,7 @@ msgstr "Daugiau"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Eiti į vieta kelyje"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -6289,28 +6290,24 @@ msgstr ""
 "nepriklauso ir kurie nepriklauso savininko grupei, gali daryti."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Tik savi&ninkas gali pervadinti ar ištrinti aplanko turinį"
+msgstr "Tik savi&ninkas gali ištrinti ar pervadinti turinį"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1209
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Pažymėkite šią vėliavėlę norėdami leisti vykdyti failą kaip programą."
+msgstr "L&eisti vykdyti failą kaip programą"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Numatytas naudotojo vardas:"
+msgstr "Ištrinti ar pervadinti:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Vykdyti"
+msgstr "Vykdyti:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
