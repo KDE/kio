@@ -14,13 +14,13 @@
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # obsoleteman <tulliana@gmail.com>, 2010,2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2024-09-23 15:28+0300\n"
+"PO-Revision-Date: 2025-01-11 17:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5197,7 +5197,7 @@ msgstr ""
 "aracı uygulamadır ve Web sayfası önbelleklemesi ve/veya süzmesi gibi işleri "
 "yapar.</p><p>Önbellekleme daha önce ziyaret ettiğiniz sayfalara, bu "
 "sayfaları yerel olarak depolayarak, sonraki ziyaretlerinizde daha hızlı "
-"erişmenizi sağlar. Süzme ise reklamları, istenmeyen postayı ve engellemek "
+"erişmenizi sağlar. Süzme ise reklâmları, istenmeyen postayı ve engellemek "
 "istediğiniz her şeyi engellemenizi sağlar.</p><p><u>Not:</u> Bazı vekil "
 "sunucular hem önbellekleme hem de süzme hizmeti sağlar.</p>"
 
@@ -5225,7 +5225,7 @@ msgstr ""
 "<p>\n"
 "Bir vekil sunucu, internet bağlantınızla aranızda durur ve web sayfalarını "
 "önbellekler ve süzer. Önbellekleme yapan web sunucuları daha önce ziyaret "
-"edilmiş sayfalara erişiminizi hızlandırırken, süzme yapanlar reklamları, "
+"edilmiş sayfalara erişiminizi hızlandırırken, süzme yapanlar reklâmları, "
 "istenmeyen postayı ve engellemek istediğiniz her şeyi engellemenizi sağlar.\n"
 "<p>\n"
 "İnternete bağlanmak için bir vekil sunucuya gereksiniminizın olup olmadığı "
