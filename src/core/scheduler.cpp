@@ -275,7 +275,7 @@ static void ensureNoDuplicates(QMap<int, HostQueue *> *queuesBySerial)
 #endif
 }
 
-static void verifyRunningJobsCount(QHash<QString, HostQueue> *queues, int runningJobsCount)
+static void verifyRunningJobsCount(const std::unordered_map<QString, HostQueue> *const queues, int runningJobsCount)
 {
     Q_UNUSED(queues);
     Q_UNUSED(runningJobsCount);
@@ -283,7 +283,7 @@ static void verifyRunningJobsCount(QHash<QString, HostQueue> *queues, int runnin
     int realRunningJobsCount = 0;
     auto it = queues->cbegin();
     for (; it != queues->cend(); ++it) {
-        realRunningJobsCount += it.value().runningJobsCount();
+        realRunningJobsCount += it->second.runningJobsCount();
     }
     Q_ASSERT(realRunningJobsCount == runningJobsCount);
 
@@ -291,7 +291,7 @@ static void verifyRunningJobsCount(QHash<QString, HostQueue> *queues, int runnin
     QSet<SimpleJob *> seenJobs;
     auto it2 = queues->cbegin();
     for (; it2 != queues->cend(); ++it2) {
-        for (SimpleJob *job : it2.value().runningJobs()) {
+        for (SimpleJob *job : it2->second.runningJobs()) {
             Q_ASSERT(!seenJobs.contains(job));
             seenJobs.insert(job);
         }
@@ -397,7 +397,7 @@ void ProtoQueue::removeJob(SimpleJob *job)
 
         if (hq.isEmpty()) {
             // no queued jobs, no running jobs. this destroys hq from above.
-            m_queuesByHostname.remove(jobPriv->m_url.host());
+            m_queuesByHostname.erase(jobPriv->m_url.host());
         }
 
         if (jobPriv->m_worker && jobPriv->m_worker->isAlive()) {
@@ -439,7 +439,7 @@ QList<Worker *> ProtoQueue::allWorkers() const
     QList<Worker *> ret(m_workerManager.allWorkers());
     auto it = m_queuesByHostname.cbegin();
     for (; it != m_queuesByHostname.cend(); ++it) {
-        ret.append(it.value().allWorkers());
+        ret.append(it->second.allWorkers());
     }
 
     return ret;
@@ -455,7 +455,7 @@ void ProtoQueue::startAJob()
     // qDebug() << "m_runningJobsCount:" << m_runningJobsCount;
     auto it = m_queuesByHostname.cbegin();
     for (; it != m_queuesByHostname.cend(); ++it) {
-        const QList<KIO::SimpleJob *> list = it.value().runningJobs();
+        const QList<KIO::SimpleJob *> list = it->second.runningJobs();
         for (SimpleJob *job : list) {
             // qDebug() << SimpleJobPrivate::get(job)->m_url;
         }

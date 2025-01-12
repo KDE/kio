@@ -127,7 +127,7 @@ private:
     SerialPicker m_serialPicker;
     QTimer m_startJobTimer;
     QMap<int, HostQueue *> m_queuesBySerial;
-    QHash<QString, HostQueue> m_queuesByHostname;
+    std::unordered_map<QString, HostQueue> m_queuesByHostname;
     WorkerManager m_workerManager;
     int m_maxConnectionsPerHost;
     int m_maxConnectionsTotal;
