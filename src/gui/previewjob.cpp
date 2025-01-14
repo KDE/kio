@@ -1031,10 +1031,10 @@ QStringList PreviewJob::availablePlugins()
 
 QStringList PreviewJob::defaultPlugins()
 {
-    const QStringList blacklist = QStringList() << QStringLiteral("textthumbnail");
+    const QStringList exclusionList = QStringList() << QStringLiteral("textthumbnail");
 
     QStringList defaultPlugins = availablePlugins();
-    for (const QString &plugin : blacklist) {
+    for (const QString &plugin : exclusionList) {
         defaultPlugins.removeAll(plugin);
     }
 
