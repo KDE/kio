@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=Docker Hub
+Keys=docker,dockerhub,dh,dk,dhub,dkstore
+Query=https://hub.docker.com/search?q=\\{@}
+Charset=utf8

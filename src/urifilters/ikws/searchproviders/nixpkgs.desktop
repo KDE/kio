@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=Nix Packages
+Keys=nixpkg,nixpkgs
+Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Charset=utf8

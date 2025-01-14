@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=npm
+Keys=npm,npmjs
+Query=https://www.npmjs.com/search?q=\\{@}
+Charset=utf8

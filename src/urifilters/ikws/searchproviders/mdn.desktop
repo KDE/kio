@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=Mozilla Developer Network (MDN)
+Keys=mdn
+Query=https://developer.mozilla.org/en-US/search?q=\\{@}
+Charset=utf8

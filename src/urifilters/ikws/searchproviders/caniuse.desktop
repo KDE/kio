@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=Can I Use…
+Keys=caniuse,ciu,cius
+Query=https://caniuse.com/?search=\\{@}
+Charset=utf8
