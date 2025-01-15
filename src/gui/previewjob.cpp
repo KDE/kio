@@ -559,10 +559,15 @@ void PreviewJob::slotResult(KJob *job)
         d->currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
         d->tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
 
-        bool skipCurrentItem = false;
-        const KIO::filesize_t size = (KIO::filesize_t)statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
-        const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
+        const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
+        if (size == 0) {
+            qCDebug(KIO_GUI) << "PreviewJob: skipping an empty file, migth be a broken symlink" << d->currentItem.item.url();
+            d->determineNextFile();
+            return;
+        }
 
+        bool skipCurrentItem = false;
+        const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
         if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !d->currentItem.item.isSlow()) {
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
         } else {
@@ -638,7 +643,7 @@ bool PreviewJobPrivate::statResultThumbnail()
         const QString canonicalPath = localFile.canonicalFilePath();
         origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
         if (origName.isEmpty()) {
-            qCWarning(KIO_GUI) << "Failed to convert" << url << "to canonical path";
+            qCDebug(KIO_GUI) << "Failed to convert" << url << "to canonical path, possibly a broken symlink";
             return false;
         }
     } else {
