@@ -1,6 +1,32 @@
 [Desktop Entry]
 Type=Service
 Name=Nix Packages
+Name[ar]=حزم Nix
+Name[ca]=Paquets Nix
+Name[es]=Paquetes de Nix
+Name[eu]=Nix paketeak
+Name[he]=חבילות Nix
+Name[ia]=Pacchettos de Nix
+Name[ka]=Nix-ის პაკეტები
+Name[nl]=Nix-pakketten
+Name[sl]=Paketi Nix
+Name[sv]=Nix-paket
+Name[tr]=Nix Packages
+Name[uk]=Пакунки Nix
+Name[x-test]=xxNix Packagesxx
 Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ca]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[es]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[eu]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[he]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ka]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[nl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[uk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[x-test]=xxhttps://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}xx
 Charset=utf8

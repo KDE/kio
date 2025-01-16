@@ -1,6 +1,32 @@
 [Desktop Entry]
 Type=Service
 Name=Mozilla Developer Network (MDN)
+Name[ar]=شبكة مطوري موزيلا (MDN)
+Name[ca]=Xarxa de desenvolupador de Mozilla (MDN)
+Name[es]=Red del desarrollador de Mozilla (MDN)
+Name[eu]=Mozilla Garatzaileen Sarea (MDN - Mozilla Developer Network)
+Name[he]=רשת המפתחים של Mozilla‏ (MDN)
+Name[ia]=Mozilla Developer Network (MDN)
+Name[ka]=Mozilla Developer Network (MDN)
+Name[nl]=Mozilla Developer Network (MDN)
+Name[sl]=Mozilla Developer Network (MDN)
+Name[sv]=Mozilla Developer Network (MDN)
+Name[tr]=Mozilla Developer Network (MDN)
+Name[uk]=Мережа розробників Mozilla (MDN)
+Name[x-test]=xxMozilla Developer Network (MDN)xx
 Keys=mdn
 Query=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ar]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ca]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[es]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[eu]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[he]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ia]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ka]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sl]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sv]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[tr]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[uk]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[x-test]=xxhttps://developer.mozilla.org/en-US/search?q=\\{@}xx
 Charset=utf8
