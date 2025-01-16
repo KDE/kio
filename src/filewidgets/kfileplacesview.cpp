@@ -1929,7 +1929,7 @@ void KFilePlacesViewPrivate::addPlace(const QModelIndex &index)
     QUrl url = m_currentUrl;
     QString label;
     QString iconName = QStringLiteral("folder");
-    bool appLocal = true;
+    bool appLocal = false;
     if (KFilePlaceEditDialog::getInformation(true, url, label, iconName, true, appLocal, 64, q)) {
         QString appName;
         if (appLocal) {
