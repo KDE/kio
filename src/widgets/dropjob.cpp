@@ -452,6 +452,23 @@ void DropJobPrivate::handleCopyToDirectory()
     bool containsTrashRoot = false;
     for (const QUrl &url : m_urls) {
         const bool local = url.isLocalFile();
+#ifdef Q_OS_LINUX
+        // Check if the file is already in the xdg trash folder, BUG:497390
+        const QString xdgtrash = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash");
+        if (!local /*optimization*/ && url.scheme() == QLatin1String("trash")) {
+            if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
+                containsTrashRoot = true;
+            }
+        } else if (local || url.scheme() == QLatin1String("file")) {
+            if (!url.toLocalFile().startsWith(xdgtrash)) {
+                allItemsAreFromTrash = false;
+            } else if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
+                containsTrashRoot = true;
+            }
+        } else {
+            allItemsAreFromTrash = false;
+        }
+#else
         if (!local /*optimization*/ && url.scheme() == QLatin1String("trash")) {
             if (url.path().isEmpty() || url.path() == QLatin1String("/")) {
                 containsTrashRoot = true;
@@ -459,6 +476,7 @@ void DropJobPrivate::handleCopyToDirectory()
         } else {
             allItemsAreFromTrash = false;
         }
+#endif
         if (url.matches(m_destUrl, QUrl::StripTrailingSlash)) {
             slotDropActionDetermined(KIO::ERR_DROP_ON_ITSELF);
             return;

@@ -368,6 +368,36 @@ private Q_SLOTS:
         QCOMPARE(job->error(), KIO::ERR_DROP_ON_ITSELF);
     }
 
+// Test this only on Linux due to using xdg filepath
+#ifdef Q_OS_LINUX
+    void shouldDropFromXdgTrashToTrash() // #497390
+    {
+        // Given a file in the trash
+        const QString xdgtrash = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash/files/srcfile");
+        // We utilize the file from previous test, but create the file if it doesn't exist
+        if (!QFile::exists(xdgtrash)) {
+            QVERIFY(QFileInfo(m_srcFile).isWritable());
+            KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
+            QSignalSpy copyingDoneSpy(copyJob, &KIO::CopyJob::copyingDone);
+            QVERIFY(copyJob->exec());
+            const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
+            QVERIFY(trashUrl.isValid());
+            QVERIFY(!QFile::exists(m_srcFile));
+        }
+
+        // When dropping the trashed file in the trash
+        m_mimeData.setUrls(QList<QUrl>{QUrl::fromLocalFile(xdgtrash)});
+        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
+        KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
+        QSignalSpy copyJobSpy(job, &KIO::DropJob::copyJobStarted);
+        QSignalSpy spy(job, &KIO::DropJob::itemCreated);
+
+        // Then an error should be reported and no files action should occur
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_DROP_ON_ITSELF);
+    }
+#endif
+
     void shouldDropToDirectoryWithPopup_data()
     {
         QTest::addColumn<QString>("dest"); // empty for a temp dir
