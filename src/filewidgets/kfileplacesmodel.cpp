@@ -1346,11 +1346,8 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         const bool teardownInProgress = deviceAccessibility(index) == KFilePlacesModel::TeardownInProgress;
 
-        bool hotpluggable = false;
         bool removable = false;
-
         if (drive != nullptr) {
-            hotpluggable = drive->isHotpluggable();
             removable = drive->isRemovable();
         }
 
@@ -1363,7 +1360,7 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
             } else {
                 text = i18nc("@action:inmenu", "&Release");
             }
-        } else if (removable || hotpluggable) {
+        } else if (removable) {
             if (teardownInProgress) {
                 text = i18nc("@action:inmenu", "Safely Removing…");
             } else {

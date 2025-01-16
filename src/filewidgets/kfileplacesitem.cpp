@@ -196,7 +196,7 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
             m_groupType = KFilePlacesModel::PlacesType;
         }
     } else {
-        if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
+        if (m_drive && m_drive->isRemovable()) {
             m_groupType = KFilePlacesModel::RemovableDevicesType;
         } else if (m_networkShare) {
             m_groupType = KFilePlacesModel::RemoteType;
@@ -396,7 +396,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
 
         case KFilePlacesModel::FixedDeviceRole: {
             if (m_drive != nullptr) {
-                return !m_drive->isHotpluggable() && !m_drive->isRemovable();
+                return !m_drive->isRemovable();
             }
             return true;
         }
@@ -611,7 +611,7 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
 
     m_isTeardownOverlayRecommended = m_isTeardownAllowed && !m_networkShare;
     if (m_isTeardownOverlayRecommended) {
-        if (m_drive && !m_drive->isHotpluggable() && !m_drive->isRemovable()) {
+        if (m_drive && !m_drive->isRemovable()) {
             m_isTeardownOverlayRecommended = false;
         }
     }
