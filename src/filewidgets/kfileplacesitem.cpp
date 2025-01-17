@@ -596,7 +596,7 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
         m_isReadOnly = generic->property(QStringLiteral("ReadOnly")).toBool();
     }
 
-    m_isTeardownAllowed = isAccessible;
+    m_isTeardownAllowed = isAccessible && (!m_block || !m_block->isSystem());
     if (m_isTeardownAllowed) {
         if (m_access->filePath() == QDir::rootPath()) {
             m_isTeardownAllowed = false;
