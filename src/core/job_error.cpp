@@ -1098,15 +1098,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         description = i18n(
             "Although contact was made with the server, a "
             "response was not received within the amount of time allocated for "
-            "the request as follows:<ul>"
-            "<li>Timeout for establishing a connection: %1 seconds</li>"
-            "<li>Timeout for receiving a response: %2 seconds</li>"
-            "<li>Timeout for accessing proxy servers: %3 seconds</li></ul>"
-            "Please note that you can alter these timeout settings in the KDE "
-            "System Settings, by selecting Network Settings -> Connection Preferences.",
-            KProtocolManager::connectTimeout(),
-            KProtocolManager::responseTimeout(),
-            KProtocolManager::proxyConnectTimeout());
+            "the request.");
         causes << cNetpath
                << i18n(
                       "The server was too busy responding to other "
