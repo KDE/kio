@@ -3,8 +3,11 @@ Type=Service
 Name=Nix Packages
 Name[ar]=حزم Nix
 Name[ca]=Paquets Nix
+Name[ca@valencia]=Paquets Nix
 Name[es]=Paquetes de Nix
 Name[eu]=Nix paketeak
+Name[fr]=Paquet « nix »
+Name[gl]=Paquetes de Nix
 Name[he]=חבילות Nix
 Name[ia]=Pacchettos de Nix
 Name[ka]=Nix-ის პაკეტები
@@ -18,8 +21,11 @@ Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ca]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ca@valencia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[es]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[eu]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[fr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[gl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[he]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ka]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
