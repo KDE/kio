@@ -85,6 +85,7 @@ QMap<QString, QString> KProtocolManager::entryMap(const QString &group)
 
 /*=============================== TIMEOUT SETTINGS ==========================*/
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int KProtocolManager::readTimeout()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
@@ -93,7 +94,9 @@ int KProtocolManager::readTimeout()
     int val = cg.readEntry("ReadTimeout", DEFAULT_READ_TIMEOUT);
     return qMax(MIN_TIMEOUT_VALUE, val);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int KProtocolManager::connectTimeout()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
@@ -102,7 +105,9 @@ int KProtocolManager::connectTimeout()
     int val = cg.readEntry("ConnectTimeout", DEFAULT_CONNECT_TIMEOUT);
     return qMax(MIN_TIMEOUT_VALUE, val);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int KProtocolManager::proxyConnectTimeout()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
@@ -111,7 +116,9 @@ int KProtocolManager::proxyConnectTimeout()
     int val = cg.readEntry("ProxyConnectTimeout", DEFAULT_PROXY_CONNECT_TIMEOUT);
     return qMax(MIN_TIMEOUT_VALUE, val);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int KProtocolManager::responseTimeout()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
@@ -120,6 +127,7 @@ int KProtocolManager::responseTimeout()
     int val = cg.readEntry("ResponseTimeout", DEFAULT_RESPONSE_TIMEOUT);
     return qMax(MIN_TIMEOUT_VALUE, val);
 }
+#endif
 
 /*==================================== OTHERS ===============================*/
 

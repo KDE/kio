@@ -670,27 +670,35 @@ public:
      */
     virtual void reparseConfiguration();
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for connecting to remote host.
      */
     int connectTimeout();
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for connecting to proxy in secs.
      */
     int proxyConnectTimeout();
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for read from first data from
      * remote host in seconds.
      */
     int responseTimeout();
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for read from subsequent data from
      * remote host in secs.
      */
     int readTimeout();
+#endif
 
     /**
      * This function sets a timeout of @p timeout seconds and calls

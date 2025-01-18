@@ -55,37 +55,57 @@ class KIOCORE_EXPORT KProtocolManager
 public:
     /*=========================== TIMEOUT CONFIG ================================*/
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * Returns the preferred timeout value for reading from
      * remote connections in seconds.
      *
      * @return timeout value for remote connection in secs.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     static int readTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * Returns the preferred timeout value for remote connections
      * in seconds.
      *
      * @return timeout value for remote connection in secs.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     static int connectTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * Returns the preferred timeout value for proxy connections
      * in seconds.
      *
      * @return timeout value for proxy connection in secs.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     static int proxyConnectTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * Returns the preferred response timeout value for
      * remote connecting in seconds.
      *
      * @return timeout value for remote connection in seconds.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     static int responseTimeout();
+#endif
 
     /*============================ DOWNLOAD CONFIG ==============================*/
 

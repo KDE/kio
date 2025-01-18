@@ -380,25 +380,33 @@ bool WorkerBase::cacheAuthentication(const AuthInfo &info)
     return d->bridge.cacheAuthentication(info);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int WorkerBase::connectTimeout()
 {
     return d->bridge.connectTimeout();
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int WorkerBase::proxyConnectTimeout()
 {
     return d->bridge.proxyConnectTimeout();
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int WorkerBase::responseTimeout()
 {
     return d->bridge.responseTimeout();
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int WorkerBase::readTimeout()
 {
     return d->bridge.readTimeout();
 }
+#endif
 
 bool WorkerBase::wasKilled() const
 {

@@ -1421,6 +1421,7 @@ bool SlaveBase::cacheAuthentication(const AuthInfo &info)
     return true;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int SlaveBase::connectTimeout()
 {
     bool ok;
@@ -1431,7 +1432,9 @@ int SlaveBase::connectTimeout()
     }
     return DEFAULT_CONNECT_TIMEOUT;
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int SlaveBase::proxyConnectTimeout()
 {
     bool ok;
@@ -1442,7 +1445,9 @@ int SlaveBase::proxyConnectTimeout()
     }
     return DEFAULT_PROXY_CONNECT_TIMEOUT;
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int SlaveBase::responseTimeout()
 {
     bool ok;
@@ -1453,7 +1458,9 @@ int SlaveBase::responseTimeout()
     }
     return DEFAULT_RESPONSE_TIMEOUT;
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 11)
 int SlaveBase::readTimeout()
 {
     bool ok;
@@ -1464,6 +1471,7 @@ int SlaveBase::readTimeout()
     }
     return DEFAULT_READ_TIMEOUT;
 }
+#endif
 
 bool SlaveBase::wasKilled() const
 {

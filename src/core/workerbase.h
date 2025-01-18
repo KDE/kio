@@ -647,27 +647,47 @@ public:
      */
     virtual void reparseConfiguration();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for connecting to remote host.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int connectTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for connecting to proxy in secs.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int proxyConnectTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for read from first data from
      * remote host in seconds.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int responseTimeout();
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 11)
     /**
      * @return timeout value for read from subsequent data from
      * remote host in secs.
+     *
+     * @deprecated since 6.11, not used.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 11, "Not used")
     int readTimeout();
+#endif
 
     /**
      * This function sets a timeout of @p timeout seconds and calls
