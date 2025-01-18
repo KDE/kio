@@ -196,3 +196,5 @@ install(FILES
 # make available to ecm_add_qch in parent folder
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)
 
+add_subdirectory(dropIntoNewFolder)
+

@@ -394,6 +394,7 @@ public:
     QStringList m_supportedMimeTypes;
     QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
     QString m_text;
+    QString m_windowTitle;
 
     KNewFileMenuSingleton::Entry *m_firstFileEntry = nullptr;
 
@@ -437,7 +438,7 @@ void KNewFileMenuPrivate::initDialog()
     m_fileDialog->setAttribute(Qt::WA_DeleteOnClose);
     m_fileDialog->setModal(m_modal);
     m_fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    m_fileDialog->setWindowTitle(i18nc("@title:window", "Create New File"));
+    m_fileDialog->setWindowTitle(m_windowTitle.isEmpty() ? i18nc("@title:window", "Create New File") : m_windowTitle);
 
     m_messageWidget = new KMessageWidget(m_fileDialog);
     m_messageWidget->setCloseButtonVisible(false);
@@ -1494,7 +1495,7 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 {
     initDialog();
 
-    m_fileDialog->setWindowTitle(i18nc("@title:window", "Create New Folder"));
+    m_fileDialog->setWindowTitle(m_windowTitle.isEmpty() ? i18nc("@title:window", "Create New Folder") : m_windowTitle);
 
     m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)));
 
@@ -1564,6 +1565,11 @@ void KNewFileMenu::setParentWidget(QWidget *parentWidget)
 void KNewFileMenu::setSupportedMimeTypes(const QStringList &mime)
 {
     d->m_supportedMimeTypes = mime;
+}
+
+void KNewFileMenu::setWindowTitle(const QString &title)
+{
+    d->m_windowTitle = title;
 }
 
 void KNewFileMenu::slotResult(KJob *job)
