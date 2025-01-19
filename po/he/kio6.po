@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-16 08:01+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2028,30 +2028,20 @@ msgstr "שגיאת זמן מוקצב"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"למרות שנוצר קשר עם השרת, לא התקבלה תגובה במסגרת פרק הזמן המוקצב לבקשה. "
-"הזמנים המוקצבים הם כדלהלן:<ul><li>הזמן המוקצב ליצירת חיבור: %1 שניות</"
-"li><li>הזמן המוקצב לקבלת תגובה: %2 שניות</li><li>הזמן המוקצב לגישה לשרתים "
-"מתווכים: %3 שניות</li></ul>נא לשים לב כי אפשר לשנות ערכי זמנים מוקצבים אלה "
-"במרכז הבקרה של KDE, באמצעות בחירה בהגדרות רשת -> העדפות חיבור."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "השרת היה עסוק מדי במענה לבקשות אחרות מכדי להגיב."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "שגיאה לא מוכרת"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2060,12 +2050,12 @@ msgstr ""
 "התוכנית במחשב שלך שמספקת גישה לפרוטוקול <strong>%1</strong> דיווחה על שגיאה "
 "לא מוכרת: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "הפרעה לא מוכרת"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2074,12 +2064,12 @@ msgstr ""
 "התוכנית במחשב שלך שמספקת גישה לפרוטוקול <strong>%1</strong> דיווחה על הפרעה "
 "מסוג לא מוכר: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "אי אפשר למחוק את הקובץ המקורי"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2089,12 +2079,12 @@ msgstr ""
 "כדי להשלים את הפעולה המבוקשת צריך למחוק את הקובץ המקורי, <strong>%1</"
 "strong>, ככל הנראה בסוף פעולת העברה של קבצים, אך אי אפשר למחוק קובץ זה."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "אי אפשר למחוק את הקובץ הזמני"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2104,12 +2094,12 @@ msgstr ""
 "כדי להשלים את הפעולה המבוקשת צריך ליצור קובץ זמני, <strong>%1</strong>, בו "
 "יישמר הקובץ החדש במהלך ההורדה. אי אפשר למחוק קובץ זמני זה."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "אי אפשר לשנות את שם הקובץ המקורי"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2118,12 +2108,12 @@ msgstr ""
 "כדי להשלים את הפעולה המבוקשת צריך לשנות את שם הקובץ המקורי <strong>%1</"
 "strong>, אך אי אפשר לשנות את שמו."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "אי אפשר לשנות את שם הקובץ הזמני"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2132,32 +2122,32 @@ msgstr ""
 "כדי להשלים את הפעולה המבוקשת צריך ליצור את הקובץ הזמני <strong>%1</strong>, "
 "אך אי אפשר ליצור אותו."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "אי אפשר ליצור את הקישור"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "אי אפשר ליצור את הקישור הסמלי"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "אין אפשרות ליצור את הקישור הסמלי המבוקש %1."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "אין תוכן"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "הכונן מלא"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2165,7 +2155,7 @@ msgid ""
 msgstr ""
 "אי אפשר לכתוב את הקובץ המבוקש <strong>%1</strong> כי אין מספיק מקום בכונן."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2176,29 +2166,29 @@ msgstr ""
 "רצוים, 2) אחסון קבצים במדיה נשלפת כגון תקליטורים לצריבה, 3) הוספת קיבולת "
 "אחסון נוספת."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "קובץ המקור וקובץ היעד זהים"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "אי אפשר להשלים את הפעולה מכיוון שקובץ המקור וקובץ היעד הם אותו קובץ."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "נא לבחור שם קובץ אחר לקובץ היעד."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "קובץ או תיקייה אל עצמם"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2206,34 +2196,34 @@ msgid ""
 msgstr ""
 "אי אפשר להשלים את הפעולה מכיוון שקובץ או תיקיית המקור והיעד הם אותו הדבר."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "יש לגרור את הפריט לקובץ או תיקייה אחרים."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "התיקייה הועברה לעצמה"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "אי אפשר להשלים את הפעולה כי אי אפשר להעביר את המקור לעצמו."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "העברת הפריט לתיקייה אחרת."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "לא ניתן לתקשר עם שרת הסיסמאות"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2242,23 +2232,23 @@ msgstr ""
 "אי אפשר להשלים את הפעולה כיוון שהשירות שלא ניתן ליצור קשר עם השירות שמקבל "
 "סיסמאות (kpasswdserver)"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "כדאי לנסות להעלות את ההפעלה שלך מחדש או לחפש ביומנים שלך שגיאות מ־kiod."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "אי אפשר לאתחל את הפרוטוקול %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "לא ניתן ליצור סוכן הפעלה של KIO"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2267,7 +2257,7 @@ msgstr ""
 "אי אפשר להפעיל את סוכן ההפעלה של KIO שמספק גישה לפרוטוקול <strong>%1</"
 "strong>. בדרך כלל קורה עקב סיבות טכניות."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2276,13 +2266,13 @@ msgstr ""
 "klauncher לא הצליח למצוא או להפעיל את התוסף שמספק את הפרוטוקול. משמעות הדבר "
 "היא שיש לך גרסה מיושנת של התוסף."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "אי אפשר להעביר את <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2292,14 +2282,14 @@ msgstr ""
 "אי אפשר להעביר את הקובץ <filename>%1</filename> כיוון שמערכת הקבצים שביעד לא "
 "תומכת בקבצים גדולים כל כך"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr "נא לפרמט את כונן היעד כך שישתמש במערכת קבצים שתומכת בקבצים בכזה גודל."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "שגיאה לא מתועדת"
@@ -2695,7 +2685,7 @@ msgstr "הצגת תצוגה מקדימה"
 msgid "Open Containing Folder"
 msgstr "פתיחת התיקייה המכיל"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "מאפיינים"
@@ -3126,96 +3116,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "פרמוט מחדש או עריכה עם מנהל מחיצות"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 פנויים מתוך %2 (%3% בשימוש)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (מוסתר)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "פינוי אשפה"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "עיגון"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "פתיחה בלשונית חדשה"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "פתיחה בחלון חדש"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "הוספת רשומה…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "ע&ריכה…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "הסרה ממקומות"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "ה&סתרה"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "הסתרת האזור ‚%1’"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "הסתרת אזור"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "ה&צגת כל הרשומות"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "גודל סמלים"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3223,25 +3213,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "שינוי גודל אוטומטי"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "קטן (%1✕%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "בינוני (%1✕%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "גדול (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7135,6 +7125,21 @@ msgstr "יפעיל את התוכנית:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם זאת אינה תוכנית מהימנה, ללחוץ על ביטול"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "למרות שנוצר קשר עם השרת, לא התקבלה תגובה במסגרת פרק הזמן המוקצב לבקשה. "
+#~ "הזמנים המוקצבים הם כדלהלן:<ul><li>הזמן המוקצב ליצירת חיבור: %1 שניות</"
+#~ "li><li>הזמן המוקצב לקבלת תגובה: %2 שניות</li><li>הזמן המוקצב לגישה לשרתים "
+#~ "מתווכים: %3 שניות</li></ul>נא לשים לב כי אפשר לשנות ערכי זמנים מוקצבים "
+#~ "אלה במרכז הבקרה של KDE, באמצעות בחירה בהגדרות רשת -> העדפות חיבור."
 
 #~ msgid "Is &executable"
 #~ msgstr "ניתן לה&פעלה"

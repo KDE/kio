@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2118,32 +2118,21 @@ msgstr "Greška prekovremena"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"<qt>Iako je server kontaktiran, odgovor nije primljen u okviru vremena "
-"dodeljenog za zahtjev na sljedeći način: <ul><li>prekovrijeme za "
-"uspostavljanje veze: %1 sek.</li><li>prekovrijeme za prijem odgovora: %2 sek."
-"</li><li>prekovrijeme za pristup proksi serverima: %3 sek.</li></ul>Imajte "
-"na umu da ove vrijednosti možete izmijeniti u Sistemskim postavkama KDE‑a, "
-"pod <i>Mrežne postavke→Postavke povezivanja</i>.</qt>"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Server je bio prezauzet odgovaranjem na druge zahtjeve da bi odgovorio."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nepoznata greška"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2152,12 +2141,12 @@ msgstr ""
 "Program na vašem računaru koji pruža pristup protokolu <strong>%1</strong> "
 "prijavio je nepoznatu grešku: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Nepoznat prekid"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2166,12 +2155,12 @@ msgstr ""
 "Program na vašem računaru koji pruža pristup protokolu <strong>%1</strong> "
 "prijavio je prekid nepoznatog tipa: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Ne mogu da obrišem izvorni fajl"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2182,12 +2171,12 @@ msgstr ""
 "postupka premiještanja. Izvorni fajl <tt>%1</tt> nije mogao biti obrisan.</"
 "qt>"
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Ne mogu da obrišem privremeni fajl"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2198,12 +2187,12 @@ msgstr ""
 "sadržaj koji se preuzima. Taj privremeni fajl <tt>%1</tt> nije mogao biti "
 "obrisan.</qt>"
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ne mogu da preimenujem izvorni fajl"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2212,12 +2201,12 @@ msgstr ""
 "<qt>Postupak je zahtijevao preimenovanje izvornog fajla <tt>%1</tt>, ali se "
 "to nije moglo izvesti.</qt>"
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Ne mogu da preimenujem privremeni fajl"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2226,33 +2215,33 @@ msgstr ""
 "<qt>Postupak je zahtijevao stvaranje privremenog fajla <tt>%1</tt>, ali se "
 "to nije moglo izvesti.</qt>"
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Ne mogu da napravim vezu"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Ne mogu da napravim simboličku vezu"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr ""
 "<qt>Zahtijevana simbolička veza <tt>%1</tt> nije mogla biti napravljena.</qt>"
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Bez sadržaja"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Disk je pun"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2261,7 +2250,7 @@ msgstr ""
 "<qt>Zahtijevani fajl <tt>%1</tt> nije mogao da bude zapisan jer nema "
 "dovoljno prostora na disku.</qt>"
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2272,12 +2261,12 @@ msgstr ""
 "i privremene fajlove, 2) arhivirati neke na uklonjivi medijum poput CD‑a, "
 "ili 3) nabaviti veći disk."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Izvorni i odredišni fajl su istovjetni"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2286,17 +2275,17 @@ msgstr ""
 "Postupak nije mogao biti dovršen zato što su izvorni i odredišni fajl jedan "
 "te isti."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Izaberite drugačije ime za odredišni fajl."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fajl ili fascikla prevučena sama na sebe"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2305,17 +2294,17 @@ msgstr ""
 "Postupak nije mogao biti dovršen zato što su izvorni i odredišni fajl ili "
 "fascikla jedno te isto."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Prevucite stavku na različit fajl ili fasciklu."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Fascikla premeštena sama u sebe"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2324,17 +2313,17 @@ msgstr ""
 "Postupak nije mogao biti dovršen zato što izvor ne može da se premesti sam u "
 "sebe."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Premestite stavku u različitu fasciklu."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Ne mogu da komuniciram sa serverom lozinki"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2344,24 +2333,24 @@ msgstr ""
 "servisom za zahtevanje lozinki (kpasswdserver)."
 
 # rewrite-msgid: /your session/your desktop session/
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Pokušajte resetujete sesiju površi, ili potražite greške u dnevniku kiod."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ne mogu da pripremim protokol %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "Ne mogu da napravim U/I zahvat"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The io-slave which provides access to the <strong>%1</strong> protocol "
@@ -2375,7 +2364,7 @@ msgstr ""
 "obezbjeđuje pristup protokolu <strong>$[nom %1]</strong> ne može da se "
 "pokrene. Ovo je obično iz tehničkih razloga."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, fuzzy, kde-format
 #| msgid ""
 #| "klauncher could not find or start the plugin which provides the protocol."
@@ -2387,13 +2376,13 @@ msgstr ""
 "KLauncher ne može da nađe ili pokrene priključak koji obezbjeđuje protokol. "
 "Ovo znači da imate zastarelu verziju priključka."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2401,14 +2390,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Nedokumentovana greška"
@@ -2832,7 +2821,7 @@ msgstr "Pregled"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Svojstva"
@@ -3301,7 +3290,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3309,98 +3298,98 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "Slobodno %1 od %2 (%3% popunjeno)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (skriveno)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Isprazni smeće"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montiraj"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Otvori pomoću"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Dodaj stavku..."
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Uredi"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Ukloni"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Sakrij odeljak"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Sakrij odeljak"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Prikaži sve unose"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Sažeti prikaz"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Auto D&etect"
 msgctxt ""
@@ -3409,26 +3398,26 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Otkrij &automatski"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, fuzzy, kde-format
 #| msgid "Date: %1"
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Datum: %1"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7632,6 +7621,22 @@ msgstr "Ovo će pokrenuti program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ako ne vjerujete programu, kliknite na „Odustani“."
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "<qt>Iako je server kontaktiran, odgovor nije primljen u okviru vremena "
+#~ "dodeljenog za zahtjev na sljedeći način: <ul><li>prekovrijeme za "
+#~ "uspostavljanje veze: %1 sek.</li><li>prekovrijeme za prijem odgovora: %2 "
+#~ "sek.</li><li>prekovrijeme za pristup proksi serverima: %3 sek.</li></"
+#~ "ul>Imajte na umu da ove vrijednosti možete izmijeniti u Sistemskim "
+#~ "postavkama KDE‑a, pod <i>Mrežne postavke→Postavke povezivanja</i>.</qt>"
 
 #~ msgid "Is &executable"
 #~ msgstr "&Izvršno"

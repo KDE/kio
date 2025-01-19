@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-10 00:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2035,29 +2035,20 @@ msgstr "시간 초과 오류"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"서버와 통신이 성공했다고 하더라도, 지정한 시간 안에 응답이 돌아오지 않았을 수"
-"도 있습니다. <ul><li>연결을 맺는 시간 제한: %1초</li><li>응답을 받는 시간 제"
-"한: %2초</li><li>프록시 서버에 접근하는 시간 제한: %3초</li></ul>KDE 시스템 "
-"설정의 네트워크 설정 -> 연결 설정에서 이 시간 제한 설정을 바꿀 수 있습니다."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "서버가 요청을 응답한다고 매우 바빴습니다."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "알 수 없는 오류"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2066,12 +2057,12 @@ msgstr ""
 "내 컴퓨터에서 <strong>%1</strong> 프로토콜을 구현하는 프로그램에서 알 수 없"
 "는 오류를 보고함: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "알 수 없는 인터럽트"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2080,12 +2071,12 @@ msgstr ""
 "내 컴퓨터에서 <strong>%1</strong> 프로토콜을 구현하는 프로그램에서 알 수 없"
 "는 중단을 보고함: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "원본 파일을 지울 수 없음"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2095,12 +2086,12 @@ msgstr ""
 "원본 파일을 삭제하도록 요청했습니다. 이는 대개 파일 이동 작업의 끝에 일어납니"
 "다. <strong>%1</strong> 원본 파일을 삭제할 수 없습니다."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "임시 파일을 지울 수 없음"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2110,12 +2101,12 @@ msgstr ""
 "다운로드하고 있는 파일의 내용을 저장하는 임시 파일을 만들도록 요청했습니다. "
 "이 <strong>%1</strong> 임시 파일을 삭제할 수 없습니다."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "원본 파일 이름을 바꿀 수 없음"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2124,12 +2115,12 @@ msgstr ""
 "요청한 작업을 실행하는 중 <strong>%1</strong> 원본 파일의 이름을 바꾸어야 했"
 "지만 바꿀 수 없었습니다."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "임시 파일 이름을 바꿀 수 없음"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2138,32 +2129,32 @@ msgstr ""
 "요청한 작업을 실행하는 중 <strong>%1</strong>의 임시 파일을 만들어야 했지만 "
 "만들 수 없었습니다."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "링크를 만들 수 없음"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "심볼릭 링크를 만들 수 없음"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "요청한 %1 심볼릭 링크를 만들 수 없습니다."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "내용 없음"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "디스크가 가득 참"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2172,7 +2163,7 @@ msgstr ""
 "디스크 공간이 부족하기 때문에 요청한 <strong>%1</strong> 파일에 쓸 수 없습니"
 "다."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2183,85 +2174,85 @@ msgstr ""
 "미디어 저장소에 파일을 보관, 3) 더 큰 저장 장치 확보하기 등으로 충분한 디스"
 "크 공간을 확보할 수 있습니다."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "원본과 대상 파일이 같음"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "원본과 대상 파일이 같은 파일이므로 이 동작을 수행할 수 없습니다."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "대상 파일에 다른 이름을 지정해 보십시오."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "파일이나 폴더 자신 위로 끌어다 놓임"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "원본과 대상 파일나 폴더가 같으므로 작업을 수행할 수 없습니다."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "항목을 다른 파일 또는 폴더에 끌어다 놓으십시오."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "폴더 자체로 이동함"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "원본과 대상 파일이 같은 파일이므로 작업을 완료할 수 없습니다."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "항목을 다른 폴더로 이동하십시오."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "암호 서버와 통신할 수 없음"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr "암호 요청 서비스(kpasswdserver)에 연결할 수 없어 작업을 완료할 수 없음"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "세션을 다시 시작하거나 로그에서 kiod의 오류를 확인하십시오."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 프로토콜을 초기화할 수 없음"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO 워커를 만들 수 없음"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2270,7 +2261,7 @@ msgstr ""
 "<strong>%1</strong> 프로토콜을 구현하는 KIO 워커를 시작할 수 없습니다. 기술적"
 "인 문제일 가능성이 큽니다."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2279,13 +2270,13 @@ msgstr ""
 "klauncher에서 프로토콜을 제공하는 플러그인을 찾거나 시작할 수 없습니다. 플러"
 "그인의 버전이 오래된 것일 수 있습니다."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>을(를) 전송할 수 없음"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2295,14 +2286,14 @@ msgstr ""
 "<filename>%1</filename> 파일을 전송할 수 없습니다. 대상 파일 시스템의 최대 파"
 "일 크기를 초과합니다"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로 다시 포맷하십시오."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
@@ -2702,7 +2693,7 @@ msgstr "미리 보기 표시"
 msgid "Open Containing Folder"
 msgstr "포함하는 폴더 열기"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "속성"
@@ -3129,96 +3120,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "파티션 관리자로 다시 포맷하거나 편집"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2 중 %1 남음(%3% 사용함)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1(숨겨짐)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "마운트"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "새 탭으로 열기"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "새 창으로 열기"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "항목 추가…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "편집(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "위치 목록에서 삭제"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "숨기기(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "'%1' 부분 숨기기"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "부분 숨기기"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "모든 항목 보기(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "아이콘 크기"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3226,25 +3217,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "자동 크기 조정"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "작게(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "중간(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "크게(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7093,6 +7084,21 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "서버와 통신이 성공했다고 하더라도, 지정한 시간 안에 응답이 돌아오지 않았"
+#~ "을 수도 있습니다. <ul><li>연결을 맺는 시간 제한: %1초</li><li>응답을 받는 "
+#~ "시간 제한: %2초</li><li>프록시 서버에 접근하는 시간 제한: %3초</li></"
+#~ "ul>KDE 시스템 설정의 네트워크 설정 -> 연결 설정에서 이 시간 제한 설정을 바"
+#~ "꿀 수 있습니다."
 
 #~ msgid "Is &executable"
 #~ msgstr "실행 가능(&E)"

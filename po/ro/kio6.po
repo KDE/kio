@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2121,31 +2121,20 @@ msgstr "Eroare temporizare"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Deși am făcut contactul cu serverul, nu am primit un răspuns în timpul "
-"alocat cererii:<ul><li>Temporizare la stabilirea conexiunii: %1 secunde</"
-"li><li>Temporizare la primirea unui răspuns: %2 secunde</li><li>Temporizare "
-"la accesarea serverelor proxy: %3 secunde</li></ul> Trebuie să rețineți că "
-"aceste temporizări le puteți modifica din Configurările de sistem KDE "
-"selectând Configurări de rețea -> Preferințe conexiune."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Serverul a fost prea încărcat ca să răspundă la alte cereri."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Eroare necunoscută"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2154,12 +2143,12 @@ msgstr ""
 "Programul de pe calculatorul dumneavoastră care asigură acces la protocolul "
 "<strong>%1</strong> a raportat o eroare necunoscută: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Întrerupere necunoscută"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2168,12 +2157,12 @@ msgstr ""
 "Programul de pe calculatorul dumneavoastră care asigură acces la protocolul "
 "<strong>%1</strong> a raportat o întrerupere de tip necunoscut: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Nu pot șterge fișierul original"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2184,12 +2173,12 @@ msgstr ""
 "urma unei operații de mutare de fișier. Fișierul original <strong>%1</"
 "strong> nu poate fi șters."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Nu pot șterge fișierul temporar"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2200,12 +2189,12 @@ msgstr ""
 "noul fișier de transferat. Acest fișier temporar <strong>%1</strong> nu "
 "poate fi șters."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Nu pot redenumi fișierul original"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2214,12 +2203,12 @@ msgstr ""
 "Operația cerută încearcă redenumirea  fișierului original <strong>%1</"
 "strong>, dar acesta nu poate fi redenumit."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Nu pot redenumi fișierul temporar"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2228,32 +2217,32 @@ msgstr ""
 "Operația cerută încearcă crearea fișierului temporar<strong>%1</strong>, dar "
 "acesta nu poate fi făcut."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Nu se poate crea legătura"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Nu se poate crea legătura simbolică"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Nu s-a putut crea legătura simbolică %1."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Nu există conținut"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Disc plin"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2262,7 +2251,7 @@ msgstr ""
 "Fișierul cerut <strong>%1</strong> nu poate fi scris pe disc deoarece nu "
 "există spațiu suficient."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2273,12 +2262,12 @@ msgstr ""
 "temporare; 2) arhivând fișiere pe medii de stocare precum CDROM-urile "
 "inscriptibile; sau 3) faceți rost de mai mult spațiu de stocare."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Sursa și destinația reprezintă fișiere identice"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2287,17 +2276,17 @@ msgstr ""
 "Operația cerută nu poate fi efectuată deoarece fișierele sursă și destinație "
 "reprezintă același fișier."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Alegeți un nume diferit pentru fișierul destinație."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fișier sau dosar lăsat peste el însuși"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2306,17 +2295,17 @@ msgstr ""
 "Operația nu poate fi încheiată deoarece fișierul sau dosarul sursă și "
 "destinație sunt același."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Lăsați elementul în alt fișier sau dosar."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Fișier mutat în el însuși"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2325,17 +2314,17 @@ msgstr ""
 "Operația nu poate fi încheiată deoarece sursa nu poate fi mutată în ea "
 "însăși."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Mutați elementul în alt dosar."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Nu s-a putut comunica cu serverul de parole"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2344,24 +2333,24 @@ msgstr ""
 "Operația nu poate fi încheiată deoarece serviciul de la care se cer parole "
 "(kpasswdserver) nu a putut fi contactat"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Încercați să reporniți sesiunea sau verificați jurnalele pentru erori de la "
 "„kiod”."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nu pot iniția protocolul %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Nu se poate crea lucrătorul KIO"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2374,7 +2363,7 @@ msgstr ""
 "Nu pot porni programul care asigură acces la protocolul <strong>%1</strong>. "
 "În mod normal acest lucru se întâmplă din cauza unor probleme tehnice."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2383,13 +2372,13 @@ msgstr ""
 "klauncher nu a putut găsi sau porni extensia ce furnizează protocolul. "
 "Aceasta înseamnă că ați putea avea o versiune veche a extensiei."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Nu se poate transfera <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2399,7 +2388,7 @@ msgstr ""
 "Fișierul <filename>%1</filename> nu poate fi transferat deoarece sistemulde "
 "fișiere destinație nu susține fișiere atât de mari"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2408,7 +2397,7 @@ msgstr ""
 "Reformatați unitatea de destinație să folosească un sistem de fișiere care "
 "susține fișiere atât de mari."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Eroare nedocumentată"
@@ -2814,7 +2803,7 @@ msgstr "Arată previzualizare"
 msgid "Open Containing Folder"
 msgstr "Deschide dosarul conținător"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Proprietăți"
@@ -3253,7 +3242,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Formatează sau modifică cu Gestionarul de partiții"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3261,90 +3250,90 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 liberi din %2 (%3% utilizat)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ascuns)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Golește gunoiul"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montează"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Deschide în filă nouă"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Deschide în fereastră nouă"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adaugă înregistrare…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Modifică…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Elimină din Locuri"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ascunde"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ascunde secțiunea „%1”"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ascunde secțiunea"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Arată toate înregi&strările"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Dimensiune pictograme"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3352,25 +3341,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Redimensionare automată"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Mică (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Medie (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mare (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7404,6 +7393,23 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Deși am făcut contactul cu serverul, nu am primit un răspuns în timpul "
+#~ "alocat cererii:<ul><li>Temporizare la stabilirea conexiunii: %1 secunde</"
+#~ "li><li>Temporizare la primirea unui răspuns: %2 secunde</"
+#~ "li><li>Temporizare la accesarea serverelor proxy: %3 secunde</li></ul> "
+#~ "Trebuie să rețineți că aceste temporizări le puteți modifica din "
+#~ "Configurările de sistem KDE selectând Configurări de rețea -> Preferințe "
+#~ "conexiune."
 
 #~ msgid "Is &executable"
 #~ msgstr "Este &executabil"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-13 09:57+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -2086,31 +2086,20 @@ msgstr "Tímamarkavilla"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Þó að tenging hafi tekist við þjóninn þá barst ekki svar innan þess tíma sem "
-"beiðninni var gefinn:<ul> <li>Tímamörk þegar tengingu er komið á: %1 "
-"sekúndur</li> <li>Tímamörk þegar beðið er eftir svari: %2 sekúndur</li> "
-"<li>Tímamörk þegar beðið er eftir milliþjóni: %3 sekúndur</li></ul>Þú getur "
-"breytt öllum þessum stillingum í kerfisstillingum KDE með því að fara í "
-"\"Netstillingar --> Kjörstillingar tenginga\"."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Þjónninn var of upptekinn við að svara öðrum beiðnum."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Óþekkt villa"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2119,12 +2108,12 @@ msgstr ""
 "Forritið á tölvunni þinni sem veitir aðgang að samskiptareglunni <strong>%1</"
 "strong> hefur gefið til kynna óþekkta villu: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Óþekkt ígrip"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2133,12 +2122,12 @@ msgstr ""
 "Forritið á tölvunni þinni sem gefur aðgang að samskiptareglunni <strong>%1</"
 "strong> hefur tilkynnt um ígrip að óþekktri gerð: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Ekki tókst að eyða upprunalegu skránni"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2149,12 +2138,12 @@ msgstr ""
 "aðgerðar við að færa skrá. Ekki tókst að eyða upprunalegu skránni <strong>"
 "%1</strong>."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Ekki tókst að eyða bráðabirgðaskrá"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2165,12 +2154,12 @@ msgstr ""
 "skráin væri vistuð á meðan henni væri hlaðið niður. Ekki tókst að eyða "
 "bráðabirgðaskránni <strong>%1</strong>."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ekki tókst að endurnefna upprunalegu skrána"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2179,12 +2168,12 @@ msgstr ""
 "Umbeðin aðgerð krafðist þess að upprunalega skráin <strong>%1</strong>, væri "
 "endurnefnd, en það tókst ekki."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Ekki tókst að endurnefna bráðabirgðaskrána"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2193,32 +2182,32 @@ msgstr ""
 "Umbeðin aðgerð krafðist þess að búin væri til bráðabirgðaskrá <strong> %1</"
 "strong>, hinsvegar tókst ekki að búa hana til."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Ekki tókst að búa til tengil"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Ekki tókst að búa til tákntengil"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Ekki tókst að búa til umbeðinn tákntengil %1."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Ekkert innihald"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Diskur fullur"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2227,7 +2216,7 @@ msgstr ""
 "Ekki tókst að skrifa skrána <strong>%1</strong> vegna þess að það var ekki "
 "nægilegt diskpláss."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2238,12 +2227,12 @@ msgstr ""
 "setja skrár í geymslu á fjarlægjanlegum geymslumiðli eins og "
 "endurskrifanlegum geisladiski eða 3) fáðu þér annan disk."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Upprunalega skráin og viðtökuskráin eru sama skráin"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2252,17 +2241,17 @@ msgstr ""
 "Ekki tókst að ljúka aðgerðinni vegna þess að upprunalega skráin og "
 "viðtökuskráin eru sama skráin."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Veldu annað heiti fyrir viðtökuskrána."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Skrá eða möppu sleppt ofan á sjálfa sig"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2271,17 +2260,17 @@ msgstr ""
 "Ekki tókst að ljúka aðgerðinni vegna þess að upprunalega skráin eða mappan "
 "og viðtökuskráin eða -mappan eru ein og hin sama."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Sleppa atriðinu í aðra skrá eða möppu"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Mappa færð inn í sjálfa sig"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2290,17 +2279,17 @@ msgstr ""
 "Ekki tókst að ljúka aðgerðinni vegna þess að ekki er hægt að færa "
 "upprunalegu möppuna inn í sjálfa sig."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Færa atriðið í aðra möppu."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Ekki tókst að eiga samskipti við lykilorðaþjón"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2309,24 +2298,24 @@ msgstr ""
 "Ekki tókst að ljúka aðgerðinni vegna þess að ekki tókst að ná sambandi við "
 "lykilorðaþjónustuna (kpasswdserver)"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Prófaðu að endurræsa setuna þína eða athugað hvort villurfrá kiod sé að "
 "finna í annálnum."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ekki tókst að ræsa samkiptaregluna %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Ekki tókst að búa til KIO-vinnslu"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2335,7 +2324,7 @@ msgstr ""
 "Ekki tókst að ræsa KIO-vinnsluna sem veitir aðgang að samskiptareglunni "
 "<strong>%1</strong>.  Þetta er venjulega af tæknilegum ástæðum."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2345,13 +2334,13 @@ msgstr ""
 "samskiptaregluna. Það þýðir að útgáfa þín af tengiforritinu kann  að vera "
 "úrelt."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Ekki tókst að flytja <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2361,7 +2350,7 @@ msgstr ""
 "Skrána <filename>%1</filename> er ekki hægt að flytja, því "
 "viðtökuskráakerfið styður ekki svo stórar skrár"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2370,7 +2359,7 @@ msgstr ""
 "Endursníddu viðtökudrifið til að nota skráakerfi sem styður þetta stórar "
 "skrár."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Óskilgreind villa"
@@ -2773,7 +2762,7 @@ msgstr "Sýna forskoðun"
 msgid "Open Containing Folder"
 msgstr "Opna umlykjandi möppu"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Eiginleikar"
@@ -3204,96 +3193,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Endursníða eða breyta með disksneiðaumsýslu"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 laust af %2 (%3% í notkun)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (falið)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Tæma rusl"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Tengja í skráakerfið"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Opna í nýjum flipa"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Opna í nýjum glugga"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Bæta við færslu…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Br&eyta…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Fjarlægja úr Staðir"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Fela"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Fela hlutann '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Fela hlutann"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Sýna allar færslur"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Stærð tákna"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3301,25 +3290,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Breyta stærð sjálfvirkt"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Lítil (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Miðlungs (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Stór (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7229,6 +7218,22 @@ msgstr "Þetta mun ræsa forritið:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Þó að tenging hafi tekist við þjóninn þá barst ekki svar innan þess tíma "
+#~ "sem beiðninni var gefinn:<ul> <li>Tímamörk þegar tengingu er komið á: %1 "
+#~ "sekúndur</li> <li>Tímamörk þegar beðið er eftir svari: %2 sekúndur</li> "
+#~ "<li>Tímamörk þegar beðið er eftir milliþjóni: %3 sekúndur</li></ul>Þú "
+#~ "getur breytt öllum þessum stillingum í kerfisstillingum KDE með því að "
+#~ "fara í \"Netstillingar --> Kjörstillingar tenginga\"."
 
 #~ msgid "Is &executable"
 #~ msgstr "Er &keyranlegt"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-11-10 19:15+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2101,33 +2101,22 @@ msgstr "Denbora-muga errorea"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Zerbitzariarekin konektatu den arren, ez da erantzunik jaso eskaeraren "
-"denbora-mugetan:<ul> <li>Konexioa ezartzeko denbora-muga: %1 segundo</li> "
-"<li>Erantzuna jasotzeko denbora-muga: %2 segundo</li> <li>Proxy zerbitzariak "
-"atzitzeko denbora-muga: %3 segundo</li> </ul> Jakizu denbora-muga hauek alda "
-"ditzakezula KDEren Sistema-ezarpenetan, Sareko ezarpenak -> Konexioaren "
-"hobespenak hautatuz."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Zerbitzariak ezin izan du erantzun beste eskakizunei erantzuten lanpetuegi "
 "zegoelako."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Errore ezezaguna"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2136,12 +2125,12 @@ msgstr ""
 "Zure ordenagailuan <strong>%1</strong> protokolora sarbidea ematen duen "
 "programak errore ezezaguna jakinarazi du: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Etenaldi ezezaguna"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2150,12 +2139,12 @@ msgstr ""
 "Zure ordenagailuan <strong>%1</strong> protokolora sarbidea ematen duen "
 "programak mota ezezaguneko etenaldia jakinarazi du: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Ezin izan du jatorrizko fitxategia ezabatu"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2166,12 +2155,12 @@ msgstr ""
 "bat lekuz aldatzeko eragiketa baten ondoren, seguru aski. Jatorrizko <strong>"
 "%1</strong> fitxategia ezin izan du ezabatu."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Ezin izan du aldi baterako fitxategia ezabatu"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2182,12 +2171,12 @@ msgstr ""
 "fitxategi berria zama-jaitsi bitartean gordetzeko. Aldi baterako <strong>%1</"
 "strong> fitxategi hau ezin izan du ezabatu."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ezin izan du jatorrizko fitxategia berrizendatu"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2196,12 +2185,12 @@ msgstr ""
 "Eskatutako eragiketak jatorrizko <strong>%1</strong> fitxategia "
 "berrizendatzea behar zuen, baina ezin izan du berrizendatu."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Ezin izan du aldi baterako fitxategia berrizendatu"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2210,32 +2199,32 @@ msgstr ""
 "Eskatutako eragiketak aldi baterako <strong>%1</strong> fitxategia sortzea "
 "behar zuen, baina ezin izan du sortu."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Ezin izan du esteka sortu"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Ezin izan du esteka sinbolikoa sortu"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Ezin izan du eskatutako %1 esteka sinbolikoa sortu."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Edukirik ez"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Diskoa beteta"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2244,7 +2233,7 @@ msgstr ""
 "Eskatutako <strong>%1</strong> fitxategian ezin izan du idatzi, diskoan leku "
 "ezegokia dagoelako."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2255,12 +2244,12 @@ msgstr ""
 "ezabatuz; 2) fitxategiak euskarri eramangarri batera kopiatuz (CD grabagarri "
 "batetara, adibidez); edo 3) ahalmen handiagoko biltegia eskuratuz."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Iturburuko eta helburuko fitxategiak berdinak dira"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2269,17 +2258,17 @@ msgstr ""
 "Eragiketa ezin izan du burutu, iturburuko eta helburuko fitxategia bera "
 "delako."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Hautatu beste izena helburuko fitxategiarentzako."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fitxategia edo karpeta bere burugainean jaregin da"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2288,17 +2277,17 @@ msgstr ""
 "Eragiketa ezin izan du burutu, iturburuko eta helburuko fitxategia edo "
 "karpeta bera delako."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Jaregin elementua fitxategi edo karpeta desberdin batean."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Karpeta bere burugainera mugitu da"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2307,17 +2296,17 @@ msgstr ""
 "Eragiketa ezin izan du burutu, iturburua ezin delako  bere burugainera "
 "mugitu."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Mugitu elementua beste karpeta batera."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Ezin izan du pasahitz zerbitzariarekin komunikatu"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2326,24 +2315,24 @@ msgstr ""
 "Eragiketa ezin izan du burutu, pasahitzak eskatzeko zerbitzuarekin "
 "(kpasswdserver) ezin izan duelako harremanetan jarri"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Saiatu zure saio berriz hasten, edo begiratu egunkarietan kiod-en erroreen "
 "bila."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ezin da %1 protokoloa hasieratu"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Ez da KIO behargina sortzeko gai"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2352,7 +2341,7 @@ msgstr ""
 "<strong>%1</strong> protokolora sarbidea ematen duen KIO behargina ezin izan "
 "du abiatu. Hau arrazoi teknikoek eragin ohi dute."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2361,13 +2350,13 @@ msgstr ""
 "klauncher-rek ezin izan du aurkitu edo abiatu protokoloa hornitzen duen "
 "plugina. Honek esan nahi du pluginaren bertsio zaharkitu bat izan dezakezula."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Cannot transfer <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2377,7 +2366,7 @@ msgstr ""
 "Ezin da <filename>%1</filename>-ren transferentzia egin, helmugako fitxategi-"
 "sistemak ez dituelako horren fitxategi handiak onartzen"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2386,7 +2375,7 @@ msgstr ""
 "Berriz formateatu helmugako unitatea horren fitxategi handiak onartzen "
 "dituen fitxategi-sistema bat erabiltzeko."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Dokumentatu gabeko errorea"
@@ -2788,7 +2777,7 @@ msgstr "Erakutsi aurrebista"
 msgid "Open Containing Folder"
 msgstr "Ireki hau barnean duen karpeta"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Propietateak"
@@ -3220,96 +3209,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Formatua berriz eman edo editatu Partizio Kudeatzailearekin"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2(e)tatik %1 librea (%%3 erabilia)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ezkutuan)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Hustu zakarrontzia"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Muntatu"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Ireki Fitxa Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Ireki Leiho Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Gehitu Sarrera..."
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Editatu..."
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Kendu Lekuetatik"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ezkutatu"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ezkutatu '%1' atala"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ezkutatu Atala"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Erakut&si sarrera guztiak"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Ikono-tamaina"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3317,25 +3306,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Handiera automatikoki aldatzea"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Txikia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Ertaina (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Handia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7271,6 +7260,22 @@ msgstr "Honek programa abiaraziko du:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Programa honetaz ez bazara fidatzen, edin klik Utzi botoian"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Zerbitzariarekin konektatu den arren, ez da erantzunik jaso eskaeraren "
+#~ "denbora-mugetan:<ul> <li>Konexioa ezartzeko denbora-muga: %1 segundo</li> "
+#~ "<li>Erantzuna jasotzeko denbora-muga: %2 segundo</li> <li>Proxy "
+#~ "zerbitzariak atzitzeko denbora-muga: %3 segundo</li> </ul> Jakizu denbora-"
+#~ "muga hauek alda ditzakezula KDEren Sistema-ezarpenetan, Sareko ezarpenak -"
+#~ "> Konexioaren hobespenak hautatuz."
 
 #~ msgid "Is &executable"
 #~ msgstr "&Exekutagarria da"

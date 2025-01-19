@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -2151,42 +2151,24 @@ msgid "Timeout Error"
 msgstr "Aroke di ratindaedje"
 
 #: core/job_error.cpp:1099
-#, fuzzy, kde-format
-#| msgid ""
-#| "Although contact was made with the server, a response was not received "
-#| "within the amount of time allocated for the request as follows:"
-#| "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#| "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#| "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#| "settings in the KDE Control Center, by selecting Network -> Preferences."
+#, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Ca bén k' dji m' a savou raloyî a sierveu, dji n' a rçû nole response dins "
-"les tins acoirdés al dimande, c ' est a dire:<ul><li> Ratindaedje po "
-"s' raloyî: %1 segondes</li><li> Ratindaedje po rçure ene response: %2 "
-"segondes</li><li> Ratindaedje po-z atôchî les sierveus procsi: %3 segondes</"
-"li> </ul> Vos poloz candjî li tins di ratindaedje e l' aisse di minaedje di "
-"KDE, tot tchoezixhant Rantoele -> Preferinces."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Li sierveu esteut trop ocupé a responde a des ôtès dmandes po responde."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Aroke nén cnoxhowe"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2195,12 +2177,12 @@ msgstr ""
 "Li programe so voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> rapoite ene aroke nén ricnoxhowe: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Interompaedje nén cnoxhou"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2209,12 +2191,12 @@ msgstr ""
 "Li programe so voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> rapoite èn interompaedje d' ene sôre nén ricnoxhowe: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Dji n' sai disfacer li fitchî d' oridjene"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2225,12 +2207,12 @@ msgstr ""
 "pus seur al difén d' on bodjaedje di fitchî. Seulmint, n' a nén avou moyén "
 "do disfacer li fitchî d' oridjene <strong>%1</strong>."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Dji n' sai disfacer li fitchî timporaire"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2241,12 +2223,12 @@ msgstr ""
 "schaper li novea fitchî tins k' dji l' aberwetéve.  Seulmint, ci fitchî "
 "timporaire la, <strong>%1</strong>, i n' a nén avou moyén del disfacer."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Dji n' sai rlomer l' fitchî d' oridjene"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2255,12 +2237,12 @@ msgstr ""
 "Po fé çou k' vos avoz dmandé, i faleut rlomer li fitchî d' oridjene <strong>"
 "%1</strong>, mins dji n' l' a savou rlomer."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Dji n' sai rlomer l' fitchî timporaire"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2269,32 +2251,32 @@ msgstr ""
 "Po fé çou k' vos avoz dmandé, i faleut fé on fitchî timporaire: <strong>%1</"
 "strong>. Seulmint, ci fitchî timporaire la,  i n' a nén avou moyén del fé."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Dji n' sai fé l' loyén"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Dji n' sai fé on loyén simbolike"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Dji n' a savou fé l' loyén simbolike dimandé: %1."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Rén å dvins"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Deure plake forrimpleye"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2303,7 +2285,7 @@ msgstr ""
 "Li fitchî k' vos avoz dmandé, <strong>%1</strong>, dji n' l' a savou scrire, "
 "ca gn a nén del plaece assez sol deure plake."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2315,12 +2297,12 @@ msgstr ""
 "bodjåves sopoirts, metans des CD eredjîstråves; (3) tirer vosse plan po-z "
 "aveur di pus d' plaece."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Li fitchî sourdant eyet l' fitchî såme son les minmes"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2329,18 +2311,18 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Tchoezixhoz èn ôte no d' fitchî come såme."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Li fitchî ou li ridant n' egzistêye nén."
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2352,20 +2334,20 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "copyî l' fitchî ou ridant specifyî"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Li fitchî ou li ridant n' egzistêye nén."
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2377,19 +2359,19 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "copyî l' fitchî ou ridant specifyî"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2401,23 +2383,23 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Dji n' sai enonder li protocole %1."
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to Create KIO Worker"
 msgstr "Dji n' sai fé li module vårlet d' intrêye/sôrteye: %1"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2431,20 +2413,20 @@ msgstr ""
 "protocole<strong>%1</strong>. Å pus sovint, c' est ene sacwè di tecnike ki "
 "n' va nén."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2452,14 +2434,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Aroke nén documintêye"
@@ -2872,7 +2854,7 @@ msgstr "Prévey"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Prôpietés"
@@ -3354,105 +3336,105 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 libe so %2 (%3% d' eployî)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Vudî li batch"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Monter"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Drovi avou"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Radjouter intrêye..."
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Candjî"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Oister"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "&Catchî «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "&Catchî «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Mostrer totes les Intrêyes"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Court håynaedje"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3461,26 +3443,26 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Tr&over tot seu"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Lijheu: %1"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7450,6 +7432,31 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Although contact was made with the server, a response was not received "
+#~| "within the amount of time allocated for the request as follows:"
+#~| "<ul><li>Timeout for establishing a connection: %1 seconds</"
+#~| "li><li>Timeout for receiving a response: %2 seconds</li><li>Timeout for "
+#~| "accessing proxy servers: %3 seconds</li></ul>Please note that you can "
+#~| "alter these timeout settings in the KDE Control Center, by selecting "
+#~| "Network -> Preferences."
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Ca bén k' dji m' a savou raloyî a sierveu, dji n' a rçû nole response "
+#~ "dins les tins acoirdés al dimande, c ' est a dire:<ul><li> Ratindaedje po "
+#~ "s' raloyî: %1 segondes</li><li> Ratindaedje po rçure ene response: %2 "
+#~ "segondes</li><li> Ratindaedje po-z atôchî les sierveus procsi: %3 "
+#~ "segondes</li> </ul> Vos poloz candjî li tins di ratindaedje e l' aisse di "
+#~ "minaedje di KDE, tot tchoezixhant Rantoele -> Preferinces."
 
 #~ msgid "Is &executable"
 #~ msgstr "Est &enondåve"

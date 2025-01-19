@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -2152,42 +2152,23 @@ msgid "Timeout Error"
 msgstr "Tydverstreke Fout"
 
 #: core/job_error.cpp:1099
-#, fuzzy, kde-format
-#| msgid ""
-#| "Although contact was made with the server, a response was not received "
-#| "within the amount of time allocated for the request as follows:"
-#| "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#| "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#| "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#| "settings in the KDE Control Center, by selecting Network -> Preferences."
+#, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Alhoewel kontak was gemaak met die bediener, 'n antwoord was nie ontvang "
-"binne in die hoeveelheid van tyd geallokeer vir die versoek as volg:"
-"<ul><li>Tydverstreke vir opstel 'n verbinding: %1 sekondes</"
-"li><li>Tydverstreke vir ontvang 'n antwoord: %2 sekondes</"
-"li><li>Tydverstreke vir toegang te kry tot volmag bedieners: %3 sekondes</"
-"li></ul>Asseblief nota wat jy kan verander hierdie Tydverstreke instellings "
-"in die Kde Kontrole Sentrum, deur deur te kies Netwerk -> Voorkeure."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Die bediener was te besig reageer na ander versoeke na antwoord."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Onbekende Fout"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2196,12 +2177,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het raporteer 'n onbekende fout: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Onbekende Onderbreking"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2210,12 +2191,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het raporteer 'n onderbreking van 'n onbekende tipe: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Kon Nie Uitvee Oorspronklike Lêer"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2226,12 +2207,12 @@ msgstr ""
 "mees waarskynlik na Die einde van 'n lêer beweeg operasie. Die oorspronklike "
 "lêer <strong>%1</strong> kon nie wees uitgevee."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Kon Nie Uitvee Tydelike Lêer"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2242,12 +2223,12 @@ msgstr ""
 "Die nuwe lêer terwyl te wees afgelaai. Hierdie tydelike lêer <strong>%1</"
 "strong> kon nie wees uitgevee."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Kon Nie Herbenaam Oorspronklike Lêer"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2256,12 +2237,12 @@ msgstr ""
 "Die versoekte operasie benodig Die herbenaming van Die oorspronklike lêer "
 "<strong>%1</strong>, egter dit kon nie wees herbenaam."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Kon Nie Herbenaam Tydelike Lêer"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2270,32 +2251,32 @@ msgstr ""
 "Die versoekte operasie benodig Die skep van 'n tydelike lêer <strong>%1</"
 "strong>, egter dit kon nie wees geskep."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Kon Nie Skep Skakel"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Kon Nie Skep Simboliese Skakel"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Die versoekte simboliese skakel %1 kon nie wees geskep."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Nee Inhoud"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Disket Volgrote"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2304,7 +2285,7 @@ msgstr ""
 "Die versoekte lêer <strong>%1</strong> kon nie wees geskryf na as daar is "
 "onvoldoende disket spasie."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2315,12 +2296,12 @@ msgstr ""
 "2) argiveer lêers na verwyderbare media stoorplek soos as CD-Recordable "
 "skywe; of 3) verkry meer stoorplek kapasiteit."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Bron en Bestemming Lêers Identies"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2329,18 +2310,18 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Kies 'n ander lêer naam vir die bestemming lêer."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Lêer of Gids Bestaan Nie"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2352,19 +2333,19 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Lêer of Gids Bestaan Nie"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2376,18 +2357,18 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2399,23 +2380,23 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Kan nie Inisieer die %1 Protokol"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to Create KIO Worker"
 msgstr "Nie moontlik na skep io-slave: %1"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2429,20 +2410,20 @@ msgstr ""
 "strong> protokol kon nie wees beginne. Hierdie is gewoonlik as gevolg na "
 "tegniese redes."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2450,14 +2431,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Ongedokumenteerde Fout"
@@ -2874,7 +2855,7 @@ msgstr "Vertoon Voorskou"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, fuzzy, kde-format
 msgid "Properties"
 msgstr "Eienskappe vir %1"
@@ -3363,14 +3344,14 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgid "%1 %"
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1 %"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, fuzzy, kde-format
 #| msgctxt "Available space out of total partition size (percent used)"
@@ -3379,12 +3360,12 @@ msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 van %2 (%3% gebruik)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, fuzzy, kde-format
 #| msgctxt "to trash"
 #| msgid "&Trash"
@@ -3392,67 +3373,67 @@ msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gemors"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Mount"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Open Met"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Redigeer..."
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, fuzzy, kde-format
 #| msgid ""
 #| "Show\n"
@@ -3462,14 +3443,14 @@ msgstr ""
 "Vertoon\n"
 "Inskrywings"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Kort Aansig"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3478,25 +3459,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Outo Verklik"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "grootte %1"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7644,6 +7625,33 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Although contact was made with the server, a response was not received "
+#~| "within the amount of time allocated for the request as follows:"
+#~| "<ul><li>Timeout for establishing a connection: %1 seconds</"
+#~| "li><li>Timeout for receiving a response: %2 seconds</li><li>Timeout for "
+#~| "accessing proxy servers: %3 seconds</li></ul>Please note that you can "
+#~| "alter these timeout settings in the KDE Control Center, by selecting "
+#~| "Network -> Preferences."
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Alhoewel kontak was gemaak met die bediener, 'n antwoord was nie ontvang "
+#~ "binne in die hoeveelheid van tyd geallokeer vir die versoek as volg:"
+#~ "<ul><li>Tydverstreke vir opstel 'n verbinding: %1 sekondes</"
+#~ "li><li>Tydverstreke vir ontvang 'n antwoord: %2 sekondes</"
+#~ "li><li>Tydverstreke vir toegang te kry tot volmag bedieners: %3 sekondes</"
+#~ "li></ul>Asseblief nota wat jy kan verander hierdie Tydverstreke "
+#~ "instellings in die Kde Kontrole Sentrum, deur deur te kies Netwerk -> "
+#~ "Voorkeure."
 
 #~ msgid "Is &executable"
 #~ msgstr "Is Uitvoerbaar"

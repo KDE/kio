@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2119,31 +2119,20 @@ msgstr "Gwall goramser"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Er gwnaed cyswllt efo'r gweinydd, ni dderbynnir ymateb tu mewn y faint o "
-"amser sydd wedi ei neilltuo am yr ymateb fel a ganlyn:<ul><li>Goramser am "
-"sefydlu cysylltiad: %1 eiliad</li><li>Goramser am dderbyn ymateb: %2 eiliad</"
-"li><li>Goramser am gyrchu gweinyddion dirprwy: %3 eiliad</li></ul>  Noder y "
-"gallwch newid y gosodiadau goramser yn y Ganolfan Rheoli KDE, drwy ddewis "
-"Gosodiadau Rhwydwaith -> Hoffiannau Cysylltiad."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Roedd y gweinydd yn rhy brysur yn ymateb i geisiadau eraill i ymateb."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Gwall Anhysbys"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2152,12 +2141,12 @@ msgstr ""
 "Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
 "strong> wedi adrodd gwall mewnol: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Ymyriad Anhysbys"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2166,12 +2155,12 @@ msgstr ""
 "Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
 "strong> wedi adrodd ymyriad o fath anhysbys: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Methu Dileu Ffeil Gwreiddiol"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2182,12 +2171,12 @@ msgstr ""
 "ddiwedd gweithrediad symud ffeil, mwy na thebyg.  Ni ellid dileu'r ffeil "
 "gwreiddiol <strong>%1</strong>."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Methu Dileu Ffeil Dros Dro"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2198,12 +2187,12 @@ msgstr ""
 "newydd  wrth iddo gael ei lawrlwytho.  Ni ellid dileu'r ffeil dros dro "
 "<strong>%1</strong>."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Methu Ail-enwi Ffeil Gwreiddiol"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2212,12 +2201,12 @@ msgstr ""
 "Roedd gan y weithrediad ceisiedig angen ail-enwi'r ffeil gwreiddiol <strong>"
 "%1</strong>.  Ond ni ellid ail-enwi'r ffeil."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Methu Ail-enwi Ffeil Dro Dro"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2226,32 +2215,32 @@ msgstr ""
 "Roedd gan y weithrediad ceisiedig angen greu ffeil dros dro <strong>%1</"
 "strong>.  Ond ni ellid creu'r ffeil."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Methu Creu Cyswllt"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Methu Creu Cyswllt Symbolaidd"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Methu creu y cyswllt symbolaidd %1 a ofynwyd amdano."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Dim Cynnwys"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Disg Llawn"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2260,7 +2249,7 @@ msgstr ""
 "Ni ellid ysgrifennu at y ffeil ceisiedig <strong>%1</strong> gan fod diffyg "
 "lle ar y ddisg."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2271,12 +2260,12 @@ msgstr ""
 "2) archifo ffeiliau i gronfa cyfryngau symudadwy fel disgiau CD-Cofnodi; neu "
 "3) darganfod mwy o le cronfa."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Ffeiliau Tarddiad a Cyrchfan yn Unwedd"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2285,17 +2274,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Dewiswch enw ffeil gwahanol i'r ffeil cyrchfan."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Gollyngodd y ffeil neu blygell ar ei hunan"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2304,17 +2293,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Gollwng yr eitem i mewn ffeil neu blygell wahanol."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Symudodd y blygell i mewn ei hunan"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2323,17 +2312,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Symud yr eitem i mewn plygell wahanol."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Ni allai cyfathrebu gyda'r gweiniwr cyfrinair"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2342,25 +2331,25 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod na aller y wasanaeth yn erfyn "
 "cyfrineiriau (kpasswdserver) yn ei gysylltwyd"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Ceisiwch ailddechreu eich cyfeistedd, neu edrych i mewn y cyffnodiau ar "
 "gyfer gwallau oddiwrth kiod."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Methu Cychwyn y protocol %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "Methu Creu gwas-io"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The io-slave which provides access to the <strong>%1</strong> protocol "
@@ -2373,7 +2362,7 @@ msgstr ""
 "protocol <strong>%1</strong>.  Fel arfer, mae hynny o achos rhesymau "
 "technegol."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, fuzzy, kde-format
 #| msgid ""
 #| "klauncher could not find or start the plugin which provides the protocol."
@@ -2385,13 +2374,13 @@ msgstr ""
 "ni allai klauncher canfod neu ddechreu y mewnbillgyn sydd yn darparu y "
 "protocol. Mae'r hyn yn ystyru y caffoch fersiwn allamserwyd o'r mewnbillgyn."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Ni all trosglwyddo <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2401,7 +2390,7 @@ msgstr ""
 "Ni all y ffeil <filename>%1</filename> yn cael ei drosglwyddo, achos nad "
 "ydy'r ffeilgyfundrefn cyrhaeddfa yn cynnal ffeiliau mor enfawr"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2410,7 +2399,7 @@ msgstr ""
 "Ailffurfiadaethu y gyrrwr cyrhaeddfa i ddefnyddio ffeilgyfundrefn sydd yn "
 "cynnal ffeiliau mor enfawr."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Gwall Heb ei Ddogfennu"
@@ -2813,7 +2802,7 @@ msgstr "Dangos Rhagolwg"
 msgid "Open Containing Folder"
 msgstr "Agor Plygell Argynhwysiedig"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Priodweddau"
@@ -3250,7 +3239,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3258,91 +3247,91 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1rhydd o %2 (defnyddir %3%)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (cuddiwyd)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gwacáu Sbwriel"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Amdringo"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Agor yn Tab Newydd"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Agor yn Ffenestr Newydd"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Ychwanegu Cofnod…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Golygu…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Dileu Ffeil"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "%Cuddio"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Cuddio Rhanbarth '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Cuddio Rhanbarth"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Dango&s Cofnodion I Gyd"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Maint Eicon"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3350,25 +3339,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Ailfeintio Ymysgogol"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Bach (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Canol (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mawr (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7394,6 +7383,22 @@ msgstr "Fe fydd hwn yn dechreu y rhaglen:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Er gwnaed cyswllt efo'r gweinydd, ni dderbynnir ymateb tu mewn y faint o "
+#~ "amser sydd wedi ei neilltuo am yr ymateb fel a ganlyn:<ul><li>Goramser am "
+#~ "sefydlu cysylltiad: %1 eiliad</li><li>Goramser am dderbyn ymateb: %2 "
+#~ "eiliad</li><li>Goramser am gyrchu gweinyddion dirprwy: %3 eiliad</li></"
+#~ "ul>  Noder y gallwch newid y gosodiadau goramser yn y Ganolfan Rheoli "
+#~ "KDE, drwy ddewis Gosodiadau Rhwydwaith -> Hoffiannau Cysylltiad."
 
 #~ msgid "Is &executable"
 #~ msgstr "Gallu ei &Weithredu"

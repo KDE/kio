@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -1976,25 +1976,20 @@ msgstr "ਟਾਈਮ-ਆਉਟ ਗਲਤੀ"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ਸਰਵਰ ਇੰਨਾ ਰੁੱਝਿਆ ਹੋਇਆ ਹੈ ਕਿ ਹੋਰ ਬੇਨਤੀਆਂ ਨੂੰ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦਾ ਹੈ।"
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "ਅਣਜਾਣ ਗਲਤੀ"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2003,12 +1998,12 @@ msgstr ""
 "ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਪਰੋਗਰਾਮ, ਜੋ ਕਿ <strong>%1</strong> ਪਰੋਟੋਕਾਲ ਲਈ ਪਹੁੰਚ ਉਪਲੱਬਧ ਕਰਵਾਉਦਾ "
 "ਸੀ, ਨੇ ਅਣਜਾਣੀ ਗਲਤੀ ਦਿੱਤੀ ਹੈ: %2"
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "ਅਣਜਾਣ ਦਖਲ"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2017,12 +2012,12 @@ msgstr ""
 "ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਪਰੋਗਰਾਮ, ਜੋ ਕਿ <strong>%1</strong> ਪਰੋਟੋਕਾਲ ਲਈ ਪਹੁੰਚ ਉਪਲੱਬਧ ਕਰਵਾਉਂਦਾ "
 "ਸੀ, ਨੇ ਅਣਜਾਣ ਕਿਸਮ ਦੇ ਦਖਲ ਦੀ ਜਾਣਕਾਰੀ ਦਿੱਤੀ ਹੈ: %2"
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "ਅਸਲੀ ਫਾਇਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2032,12 +2027,12 @@ msgstr ""
 "ਲੋੜੀਦੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਆਮ ਤੌਰ ਉੱਤੇ ਇੱਕ ਫਾਇਲ ਭੇਜਣ ਦੀ "
 "ਕਾਰਵਾਈ ਦੌਰਾਨ। ਅਸਲੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "ਆਰਜ਼ੀ ਫਾਇਲ ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2048,12 +2043,12 @@ msgstr ""
 "ਕਰਨ ਦੌਰਾਨ ਸੰਭਾਲਿਆ ਜਾ ਸਕਦਾ। ਇਹ ਆਰਜ਼ੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ "
 "ਸਕਿਆ ਹੈ।"
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "ਅਸਲੀ ਫਾਇਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2062,12 +2057,12 @@ msgstr ""
 "ਮੰਗੀ ਕਾਰਵਾਈ ਨੇ ਅਸਲੀ ਫਾਇਲ <strong>%1</strong> ਦਾ ਨਾਂ ਬਦਲਣ ਦੀ ਮੰਗ ਕੀਤੀ ਸੀ, ਪਰ ਨਾਂ-"
 "ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "ਆਰਜ਼ੀ ਫਾਇਲ ਦਾ ਨਾਂ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2076,32 +2071,32 @@ msgstr ""
 "ਲੋੜੀਦੇ ਓਪਰੇਸ਼ਨ ਲਈ ਇੱਕ ਆਰਜ਼ੀ ਫਾਇਲ <strong>%1</strong> ਬਣਾਉਣ ਦੀ ਲੋੜ ਸੀ, ਪਰ ਇਹ ਬਣਾਈ "
 "ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ।"
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "ਲਿੰਕ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "ਸਿੰਬੋਲਿਕ ਲਿੰਕ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ ਹੈ"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "ਸਿੰਬੋਲਿਕ ਲਿੰਕ %1 ਬਣਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।"
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "ਸਮੱਗਰੀ ਨਹੀਂ"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "ਡਿਸਕ ਭਰ ਗਈ ਹੈ"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2110,7 +2105,7 @@ msgstr ""
 "ਦਿੱਤੀ ਫਾਇਲ <strong>%1</strong> ਨੂੰ ਇੱਥੇ ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ, ਕਿਉਂਕਿ ਡਿਸਕ ਉੱਤੇ ਖਾਲੀ "
 "ਥਾਂ ਨਹੀਂ ਹੈ।"
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2120,63 +2115,63 @@ msgstr ""
 "ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ 1) ਨਾ-ਲੋੜੀਦੀਆਂ ਅਤੇ ਆਰਜ਼ੀ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ; 2) ਫਾਇਲਾਂ ਨੂੰ "
 "ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ ਜਿਵੇਂ ਕਿ CD-Recordable ਡਿਸਕਾਂ ਉੱਤੇ ਲਿਖ ਕੇ ਜਾਂ 3) ਹੋਰ ਸਟੋਰੇਜ਼ ਸਮੱਰਥਾ ਜੋੜ ਕੇ।"
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲਾਂ ਇੱਕ ਹੀ ਹਨ"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "ਓਪਰੇਸ਼ਨ ਮੁਕੰਮਲ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ, ਕਿਉਕਿ ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲਾਂ ਇੱਕੋ ਹੀ ਫਾਇਲਾਂ ਹਨ।"
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "ਟਿਕਾਣਾ ਫਾਇਲ ਲਈ ਵੱਖਰਾ ਨਾਂ ਚੁਣੋ।"
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਵਿੱਚ ਪਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "ਸਰੋਤ ਅਤੇ ਟਿਕਾਣਾ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਉਹੀ ਹੋਣ ਕਰਕੇ ਕਾਰਵਾਈ ਪੂਰੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "ਆਈਟਮ ਨੂੰ ਵੱਖਰੇ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਨੂੰ ਪਾਓ।"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "ਫੋਲਡਰ ਨੂੰ ਖੁਦ ਇਸ ਦੇ ਦੇ ਅੰਦਰ ਨਹੀਂ ਭੇਜਿਆ ਜਾ ਸਕਦਾ ਹੈ"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "ਸਰੋਤ ਨੂੰ ਖੁਦ ਵਿੱਚ ਨਾ ਭੇਜੇ ਜਾਣ ਕਰਕੇ ਕਾਰਵਾਈ ਪੂਰੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "ਆਈਟਮ ਨੂੰ ਵੱਖਰੇ ਫੋਲਡਰ ਵਿੱਚ ਭੇਜੋ।"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "ਪਾਸਵਰਡ ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2185,22 +2180,22 @@ msgstr ""
 "ਪਾਸਵਰਡ ਦੀ ਮੰਗ ਕਰਨ ਵਾਲੀ ਸਰਵਿਸ (kpasswdserver) ਨਾਲ ਸੰਪਰਕ ਨਾ ਹੋਣ ਕਰਕੇ ਕਾਰਵਾਈ ਪੂਰੀ "
 "ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "ਆਪਣੇ ਸ਼ੈਸ਼ਨ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ ਜਾਂ kiod ਤੋਂ ਗਲਤੀਆਂ ਲਈ ਲਾਗ ਨੂੰ ਵੇਖੋ।"
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2209,20 +2204,20 @@ msgstr ""
 "KIO ਵਰਕਰ ਜੋ ਕਿ <strong>%1</strong> ਪਰੋਟੋਕਾਲ ਲਈ ਪਹੁੰਚ ਉਪਲੱਬਧ ਕਰਵਾਉਦਾ ਸੀ, ਸ਼ੁਰੂ ਨਹੀਂ "
 "ਕੀਤਾ ਜਾ ਸਕਿਆ। ਇਹ ਅਕਸਰ ਤਕਨੀਕੀ ਕਾਰਨਾਂ ਕਰਕੇ ਹੁੰਦਾ ਹੈ।"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename> ਨੂੰ ਟਰਾਂਸਫਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2232,7 +2227,7 @@ msgstr ""
 "ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ ਵਲੋਂ ਐਨੀ ਵੱਡੀ ਫਾਇਲ ਲਈ ਸਹਿਯੋਗੀ ਨਾ ਹੋਣ ਕਰਕੇ ਫਾਇਲ <filename>%1</"
 "filename> ਨੂੰ ਟਰਾਂਸਫਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2240,7 +2235,7 @@ msgid ""
 msgstr ""
 "ਟਿਕਾਣਾ ਡਰਾਇਵ ਨੂੰ ਐਨੀ ਵੱਡੀ ਫਾਇਲ ਲਈ ਸਹਿਯੋਗੀ ਹੋਣ ਵਾਲੇ ਫਾਇਲ-ਸਿਸਟਮ ਵਰਤ ਕੇ ਮੁੜ-ਫਾਰਮੈਟ ਕਰੋ।"
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "ਗ਼ੈਰ-ਡੌਕੂਮੈਂਟ ਗਲਤੀ"
@@ -2637,7 +2632,7 @@ msgstr "ਝਲਕ ਵੇਖਾਓ"
 msgid "Open Containing Folder"
 msgstr "ਰੱਖਣ ਵਾਲਾ ਫੋਲਡਰ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ"
@@ -3069,7 +3064,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "ਪਾਰਟੀਸ਼ਨ ਮੈਨੇਜਰ ਨਾਲ ਮੁੜ-ਫਾਰਮੈਟ ਕਰੋ ਜਾਂ ਸੋਧੋ"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3077,90 +3072,90 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2 ਵਿੱਚੋਂ %1 ਖਾਲੀ (%3% ਵਰਤੀ)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ਲੁਕਵਾਂ)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ਰੱਦੀ ਖਾਲੀ ਕਰੋ"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "ਮਾਊਂਟ"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "ਐਂਟਰੀ ਜੋੜੋ…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "ਸੋਧੋ(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ਥਾਵਾਂ ਵਿੱਚੋਂ ਹਟਾਓ"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "ਓਹਲੇ(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "ਭਾਗ '%1' ਓਹਲੇ"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "ਭਾਗ ਓਹਲੇ"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "ਸਭ ਐਂਟਰੀ ਵੇਖੋ(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ਆਈਕਾਨ ਆਕਾਰ"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3168,25 +3163,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ਆਪੇ ਮੁੜ-ਆਕਾਰ"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "ਛੋਟਾ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "ਮੱਧਮ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ਵੱਡਾ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

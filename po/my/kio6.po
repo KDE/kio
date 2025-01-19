@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2016,30 +2016,20 @@ msgstr "အချိန်ကုန်မှုဆိုင်ရာ အမှ�
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"ဆာဗာနှင့် အဆက်အသွယ်လုပ်ခဲ့သော်လည်း အောက်ပါသတ်မှတ်ထားသောအချိန်တွင်း တုံ့ပြန်မှုမရှိခဲ့ပါ- "
-"<ul><li>ချိတ်ဆက်မှုပြီးမြောက်ရန်ဆောင်ရွက်မှု အချိန်ကုန်ချက် - %1 စက္ကန့်</li><li>တုံ့ပြန်မှုလက်ခံမှု "
-"အချိန်ကုန်ချက် - %2 စက္ကန့်</li><li>ကြားခံဆာဗာများအသုံးပြုမှု အချိန်ကုန်ချက် - %3 စက္ကန့်</li></"
-"ul>မှတ်ချက်။ ။ကေဒီအီးစစ်စတမ်သတ်မှတ်ချက်များ ရှိ ဆ.သ.ရ-ကွန်ရက်ဆိုင်ရာချက်များ အတွင်း ချိတ်ဆက်မှုဆိုင်ရာ "
-"နှစ်သက်-သတ်မှတ်ချက်များတွင် အချိန်ကုန်ချက်သတ်မှတ်ချက်များကို ပြောင်းလဲနိုင်သည်။"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ဆာဗာသည် အခြားတောင်းခံမှုကို တုံ့ပြန်ရာ၌ မအားမလပ်ဖြစ်နေသဖြင့် မတုံ့ပြန်နိုင်သေးပါ။"
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "မသိသောအမှား"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2047,12 +2037,12 @@ msgid ""
 msgstr ""
 "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ် သည် မသိသောအမှား- %2 ကို အစီရင်ခံခဲ့သည်။"
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "မသိသော ကြားဖြတ်ခံရမှု"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2061,12 +2051,12 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ် သည် အမျိုးအစားမသိသော ကြားဖြတ်မှု- "
 "%2 ကို အစီရင်ခံခဲ့သည်။"
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "မူလဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2077,12 +2067,12 @@ msgstr ""
 "လိုအပ်သည်(ရွေ့ပြောင်းလုပ်ဆောင်ချက်အဆုံးတွင်ဖြစ်နိုင်သည်)။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
 "ဖျက်၍မရပါ။"
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "ယာယီဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2092,12 +2082,12 @@ msgstr ""
 "တောင်းခံထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ်ဖန်တီးရန် လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
 "ဖန်တီး၍မရပါ။"
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "ဇစ်မြစ်ဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2106,12 +2096,12 @@ msgstr ""
 "တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင်လ် <strong>%1</strong> အား အမည်ပြောင်းရန် "
 "လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်ကို အမည်ပြောင်း၍မရပါ။"
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "ယာယီဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2120,32 +2110,32 @@ msgstr ""
 "တောင်းဆိုထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ် <strong>%1</strong>ကို ဖန်တီးရန်လိုအပ်သော်လည်း ၎င်းဖိုင်လ်ကို "
 "မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "လင့်ခ်ကို မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "အထိမ်းအမှတ်လင့်ခ်ကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "တောင်းခံခဲ့သော အထိမ်းအမှတ်-လင့်ခ် %1 ကို ဖန်တီး၍မရပါ။"
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "ပါဝင်ဒေတာမရှိ"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "မှတ်ဉာဏ်စက်ပြည့်သွားပြီ"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2153,7 +2143,7 @@ msgid ""
 msgstr ""
 "တောင်းဆိုထားသော ဖိုင်လ် <strong>%1</strong>ကို မှတ်ဉာဏ်နေရာလွတ် မလုံလောက်သောကြောင့် ရေးမရခဲ့ပါ။"
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2163,63 +2153,63 @@ msgstr ""
 "လုံလောက်သောမှတ်ဉာဏ်နေရာလွတ်ရရှိရန် ၁) မလိုချင်သော ဖိုင်လ်နှင့် ယာယီဖိုင်လ်များဖျက်ပစ်ပါ၊ ၂)စီဒီ၊ ယူအက်စ်ဘီ ကဲ့သို့ "
 "ဖြုတ်လို့ရသော မီဒီယာမှတ်ဉာဏ်စက်များသို့ သိမ်းရန်၊ သို့မဟုတ် ၃) ပိုများသော မှတ်ဉာဏ်ပမာဏ တပ်ဆင်ပါ။"
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "မူလဇစ်မြစ်ဖိုင်လ်နှင့် ဦးတည်ဖိုင်လ် တစ်ထပ်တည်းကျသည်။"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "ဦးတည်ဖိုင်လ်အတွက် အမည်သစ်ပေး။"
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "ဖိုင်လ်၊ ဖိုလ်ဒို အနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချခဲ့သည်"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် သို့မဟုတ် ဖိုလ်ဒါ တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုင်လ် သို့ ဖိုလ်ဒါ အတွင်း လွှတ်ချပါ။"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "ဖိုလ်ဒါသည် ၎င်း၏အတွင်းသို့ ၎င်း ရွေ့ခဲ့သည်"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "မူလဇစ်မြစ်အနေဖြင့် ၎င်းထံသို့၎င်း ရွေ့မရသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုလ်ဒါ အတွင်း ရွေ့ပြောင်းပါ။"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "စကားဝှက်ဆာဗာနှင့် မဆက်သွယ်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2228,23 +2218,23 @@ msgstr ""
 "စကားဝှက်တောင်းဆိုသည့် ဝန်ဆောင်မှု (kpasswdserver) နှင့်ဆက်သွယ်၍မရသောကြောင့် လုပ်ဆောင်ချက် "
 "မပြီးမြောက်ပါ"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "သင်၏ ဆက်ရှင်ကို ပြန်စကြည့်ပါ သို့မဟုတ် ကေအိုင်အိုဒီမှတ်တမ်းများတွင် အမှားများ ရှာကြည့်ပါ။"
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို မစတင်နိုင်ပါ"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "အိုင်အို-ကျွန်ကို မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, fuzzy, kde-format
 #| msgid ""
 #| "The io-slave which provides access to the <strong>%1</strong> protocol "
@@ -2256,7 +2246,7 @@ msgstr ""
 "<strong>%1</strong> လုပ်ရိုးလုပ်ထုံး အသုံးပြုခွင့် ပေးသော အိုင်အို-ကျွန် ကို "
 "နည်းပညာဆိုင်ရာအခက်အခဲများကြောင့် စတင်၍မရခဲ့ပါ။"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, fuzzy, kde-format
 #| msgid ""
 #| "klauncher could not find or start the plugin which provides the protocol."
@@ -2268,13 +2258,13 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံးကို ပေးသော ပလပ်ဂင်ကို ကေလောင်ချာ ရှာမတွေ့ပါ၊ သို့ မစတင်နိုင်ခဲ့ပါ။ သင်သည် ပလပ်ဂင်၏ "
 "ခေတ်နောက်ကျသော ဗားရှင်းသုံးနေပုံရသည်။"
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>ကို မကူးပြောင်းနိုင်ပါ"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2284,7 +2274,7 @@ msgstr ""
 "'<filename>%1</filename>'ဖိုင်လ် ကိုကူးပြောင်း၍မရပါ။ အဘယ့်ကြောင့်ဆိုသော် ဦးတည်ဖိုင်လ်စနစ်သည် "
 "ထိုမျှကြီးသောဖိုင်လ်ကို မသိမ်းဆည်းနိုင်ပါ။"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2292,7 +2282,7 @@ msgid ""
 msgstr ""
 "ထိုမျှကြီးမားသော ဖိုင်လ်များ သိမ်းဆည်းနိုင်သည့် ဖိုင်လ်စနစ်အဖြစ် ဦးတည်မှတ်ဉာဏ်စက်ကို ပြန်လည်စီစဥ်ဖွဲ့စည်းနေရာချပါ။"
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "မှတ်တမ်းမပြုစုထားသော အမှား"
@@ -2693,7 +2683,7 @@ msgstr "အကြိုကြည့်မြင်ကွင်း ပြမည�
 msgid "Open Containing Folder"
 msgstr "ဖိုင်လ်ပါဝင်သောဖိုလ်ဒါကို ဖွင့်မည်"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "ကိုယ်ပိုင်လက္ခဏာများ"
@@ -3119,7 +3109,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3127,91 +3117,91 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1 - %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2 ၏ %1 လွတ် (%3% အသုံးပြု)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ဖွက်ထား)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "အမှိုက်ပုံးရှင်း"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "တပ်ဆင်"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "တပ်ဘ်အသစ်တွင် ဖွင့်မည်"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ဝင်းဒိုးအသစ်တွင် ဖွင့်မည်"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "စာရင်းမှတ်ချက်ထည့်မည်…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Eတည်းဖြတ်…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ဖိုင်လ်ဖယ်ရှားမည်"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Hဖွက်မည်"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "'%1'အပိုင်းဖွက်ရန်"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "အပိုင်းဖွက်ရန်"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Sစာရင်းမှတ်ချက်များအားလုံးပြမည်"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "အိုင်ကွန် အရွယ်အစား"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3219,25 +3209,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "အလိုအလျောက်အရွယ်ပြောင်း"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "သေးငယ် (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "ပုံမှန် (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ကြီး (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7129,6 +7119,21 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "ဆာဗာနှင့် အဆက်အသွယ်လုပ်ခဲ့သော်လည်း အောက်ပါသတ်မှတ်ထားသောအချိန်တွင်း တုံ့ပြန်မှုမရှိခဲ့ပါ- "
+#~ "<ul><li>ချိတ်ဆက်မှုပြီးမြောက်ရန်ဆောင်ရွက်မှု အချိန်ကုန်ချက် - %1 စက္ကန့်</li><li>တုံ့ပြန်မှုလက်ခံမှု "
+#~ "အချိန်ကုန်ချက် - %2 စက္ကန့်</li><li>ကြားခံဆာဗာများအသုံးပြုမှု အချိန်ကုန်ချက် - %3 စက္ကန့်</li></"
+#~ "ul>မှတ်ချက်။ ။ကေဒီအီးစစ်စတမ်သတ်မှတ်ချက်များ ရှိ ဆ.သ.ရ-ကွန်ရက်ဆိုင်ရာချက်များ အတွင်း ချိတ်ဆက်မှုဆိုင်ရာ "
+#~ "နှစ်သက်-သတ်မှတ်ချက်များတွင် အချိန်ကုန်ချက်သတ်မှတ်ချက်များကို ပြောင်းလဲနိုင်သည်။"
 
 #~ msgid "Is &executable"
 #~ msgstr "&e လုပ်ဆောင်-ဖိုင်လ် ဖြစ်ပါသလား"

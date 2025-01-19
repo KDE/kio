@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-07 15:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2085,30 +2085,20 @@ msgstr "Aikakatkaisuvirhe"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Vaikka palvelimeen tehtiin pyyntö, vastausta ei saatu määräajassa:"
-"<ul><li>Yhteyden muodostuksen aikakatkaisu: %1 sekuntia</li><li>Vastauksen "
-"saamisen aikakatkaisu: %2 sekuntia</li><li>Välityspalvelimen käytön "
-"aikakatkaisu: %3 sekuntia</li></ul> Voit muuttaa arvoja KDE:n järjestelmän "
-"asetuksista valitsemalla Verkko -> Asetukset."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Palvelin oli liian varattu vastatakseen pyyntöön."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Tuntematon virhe"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2117,12 +2107,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ilmoitti "
 "tuntemattomasta virheestä: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Tuntematon keskeytys"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2131,12 +2121,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ilmoitti "
 "tuntemattomasta keskeytyksestä: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Alkuperäistä tiedostoa ei voitu poistaa"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2147,12 +2137,12 @@ msgstr ""
 "todennäköisesti tiedoston siirto-operaation jälkeen. Alkuperäistä tiedostoa "
 "<strong>%1</strong> ei voitu poistaa."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Väliaikaista tiedostoa ei voitu poistaa"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2163,12 +2153,12 @@ msgstr ""
 "tallennettiin sitä haettaessa. Tätä väliaikaistiedostoa <strong>%1</strong> "
 "ei voitu poistaa."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Alkuperäistä tiedoston nimeä ei voitu muuttaa"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2177,12 +2167,12 @@ msgstr ""
 "Pyydetty toimenpide vaati muuttamaan alkuperäisen tiedoston <strong>%1</"
 "strong> nimeä, mutta nimeä ei kyetty muuttamaan."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Väliaikaisen tiedoston nimeä ei voitu muuttaa"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2191,32 +2181,32 @@ msgstr ""
 "Pyydetty operaatio vaati väliaikaistiedoston <strong>%1</strong> luomista, "
 "mutta sitä ei pystytty luomaan."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Linkkiä ei voitu luoda"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Symlinkkiä ei voitu luoda"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Pyydettyä sylinkkiä %1 ei voitu luoda."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Ei sisältöä"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Levy on täynnä"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2225,7 +2215,7 @@ msgstr ""
 "Pyydettyä tiedostoa <strong>%1</strong> ei voitu kirjoittaa, koska levytilaa "
 "ei ole tarpeeksi."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2236,12 +2226,12 @@ msgstr ""
 "tiedostoja 2) pakkaamalla tiedostoja siirrettävälle medialle kuten CD-R-"
 "levyille 3) hankkimalla lisää levytilaa."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Lähde- ja kohdetiedostot ovat samoja"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2250,17 +2240,17 @@ msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähde- ja kohdetiedostot ovat sama "
 "tiedosto."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Valitse kohdetiedostolle jokin toinen nimi."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Tiedosto tai kansio pudotettiin itseensä"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2268,17 +2258,17 @@ msgid ""
 msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähde- ja kohdesijainnit ovat samat."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Pudota kohde toiseen tiedostoon tai kansioon."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Kansio siirrettiin itseensä"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2286,17 +2276,17 @@ msgid ""
 msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähdettä ei voi siirtää itseensä."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Siirrä kohde toiseen kansioon."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Viestintä salasanapalvelimen kanssa epäonnistui"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2305,23 +2295,23 @@ msgstr ""
 "Toimenpidettä ei voitu suorittaa loppuun, koska salasananpyyntöpalveluun "
 "(kpasswdserver) ei saada yhteyttä"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Yritä käynnistää istunto uudelleen tai katso kiod-palvelun virheet lokista."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Yhteyskäytäntöä %1 ei saada alustetuksi"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO-työskentelijää ei voitu luoda"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2331,7 +2321,7 @@ msgstr ""
 "yhteyskäytäntöön, ei saatu käynnistettyä. Tämä johtuu yleensä teknisistä "
 "syistä."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2340,13 +2330,13 @@ msgstr ""
 "KLauncher ei löytynyt tai käynnistänyt yhteyskäytännön tarjoavaa "
 "liitännäistä.Liitännäinen saattaa olla versioltaan vanhentunut."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Tiedostoa <filename>%1</filename> ei voi siirtää"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2356,7 +2346,7 @@ msgstr ""
 "Tiedostoa <filename>%1</filename> ei voi siirtää, koska "
 "kohdetiedostojärjestelmä ei tue näin suuria tiedostoja"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2365,7 +2355,7 @@ msgstr ""
 "Alusta kohde käyttämään tiedostojärjestelmää, joka tukee näin suuria "
 "tiedostoja."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Dokumentoimaton virhe"
@@ -2769,7 +2759,7 @@ msgstr "Näytä esikatselu"
 msgid "Open Containing Folder"
 msgstr "Avaa yläkansio"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Ominaisuudet"
@@ -3201,96 +3191,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Alusta tai muokkaa osionhallinnassa"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1/%2 (%3 % käytössä)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (piilotettu)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Liitä"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Avaa uuteen välilehteen"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Avaa uuteen ikkunaan"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Lisää kohde…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Muokkaa…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Poista sijainneista"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Piilota"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Piilota osio ”%1”"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Piilota osio"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Näytä kaikki kohdat"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Kuvakkeen koko"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3298,25 +3288,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Muuta kokoa automaattisesti"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Pieni (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Keskikokoinen (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Suuri (%1 × %1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7234,6 +7224,22 @@ msgstr "Tämä käynnistää ohjelman:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ellet luota tähän ohjelmaan, napsauta Peru"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Vaikka palvelimeen tehtiin pyyntö, vastausta ei saatu määräajassa:"
+#~ "<ul><li>Yhteyden muodostuksen aikakatkaisu: %1 sekuntia</"
+#~ "li><li>Vastauksen saamisen aikakatkaisu: %2 sekuntia</"
+#~ "li><li>Välityspalvelimen käytön aikakatkaisu: %3 sekuntia</li></ul> Voit "
+#~ "muuttaa arvoja KDE:n järjestelmän asetuksista valitsemalla Verkko -> "
+#~ "Asetukset."
 
 #~ msgid "Is &executable"
 #~ msgstr "&Suoritettava"

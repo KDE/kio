@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2037,33 +2037,22 @@ msgstr "समयसमाप्तित्रुटिः"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"यद्यपि सर्वरेण सह सम्पर्कः कृतः तथापि अनुरोधाय निर्धारितसमये प्रतिक्रिया न प्राप्ता यथा "
-"निम्नलिखितम् ।:<ul><li>संयोजनं स्थापयितुं समयः समाप्तः: %1 सेकण्ड्</li><li>प्रतिक्रियां "
-"प्राप्तुं समयः समाप्तः: %2 सेकण्ड्</li><li>प्रतिनिधि वितारकम् प्राप्तुं समयसमाप्तिः: %3 "
-"सेकण्ड्</li></ul>कृपया ज्ञातव्यं यत् भवान् KDE System Settings इत्यस्मिन् एतानि "
-"समयसमाप्तिसमायोजनानि परिवर्तयितुं शक्नोति, संजालसमायोजनानि -> संयोजनप्राथमिकतानि "
-"चित्वा ।."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "अन्येषां अनुरोधानाम् प्रतिक्रियायां वितारकः अतिव्यस्तः आसीत् यत् प्रतिक्रियां दातुं न शक्नोति "
 "स्म ।."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "अज्ञातत्रुटिः"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2072,12 +2061,12 @@ msgstr ""
 "भवतः सङ्गणके यः कार्यक्रमः <strong>%1</strong> संविदस्य अभिगमनं प्रदाति सः अज्ञातदोषं "
 "निवेदितवान्: %2 ।."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "अज्ञात व्यवधान"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2086,12 +2075,12 @@ msgstr ""
 "भवतः सङ्गणके यः कार्यक्रमः <strong>%1</strong> संविदस्य अभिगमनं प्रदाति सः "
 "अज्ञातप्रकारस्य व्यत्ययं निवेदितवान्: %2 ।."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "मूलसञ्चिकां विलोपयितुं न शक्तवान्"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2101,12 +2090,12 @@ msgstr ""
 "अनुरोधितक्रियायाः कृते मूलसञ्चिकायाः विलोपनस्य आवश्यकता आसीत्, अधिकतया "
 "सञ्चिकास्थापनक्रियायाः अन्ते । मूलसञ्चिका <strong>%1</strong> लोपयितुं न शक्यते ।."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "अस्थायी सञ्चिकां विलोपयितुं न शक्तवान्"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2116,12 +2105,12 @@ msgstr ""
 "अनुरोधितक्रियायाः कृते अस्थायीसञ्चिकायाः निर्माणम् आवश्यकम् आसीत् यस्मिन् नूतनसञ्चिकां अवतरणं "
 "कुर्वन् रक्षितुं शक्यते स्म । इयं अस्थायीसञ्चिका <strong>%1</strong> लोपयितुं न शक्यते ।."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "मूलसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्मूलसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2130,12 +2119,12 @@ msgstr ""
 "अनुरोधितक्रियायाः कृते मूलसञ्चिकायाः <strong>%1</strong> नामान्तरणस्य आवश्यकता आसीत् "
 "तथापि तस्याः नामकरणं कर्तुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "अस्थायीसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2144,32 +2133,32 @@ msgstr ""
 "अनुरोधितक्रियायाः कृते अस्थायीसञ्चिकायाः <strong>%1</strong> निर्माणस्य आवश्यकता आसीत् "
 "तथापि सा निर्मातुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "संबन्धं निर्मातुं न शक्तवान्"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "प्रतीकात्मकं संबन्धं निर्मातुं न शक्तवान्"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "अनुरोधितं प्रतीकात्मकं संबन्धं %1 निर्मातुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "कोऽपि सामग्री नास्ति"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "भण्डारणं पूर्णम्"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2178,7 +2167,7 @@ msgstr ""
 "अनुरोधितसञ्चिका <strong>%1</strong> अपर्याप्तस्मृतिस्थानं भवति इति कारणेन लिखितुं न "
 "शक्यते स्म ।."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2189,12 +2178,12 @@ msgstr ""
 "सञ्चिकानां संग्रहणं हटनीयमाध्यमभण्डारणं यथा CD-Recordable discs;वा ३) अधिकं "
 "भण्डारणक्षमतां प्राप्तुं।."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "स्रोतः गन्तव्यं च सञ्चिकाः समानाः"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2202,17 +2191,17 @@ msgid ""
 msgstr ""
 "स्रोतः गन्तव्यसञ्चिका च समाना सञ्चिका इति कारणतः कार्यं सम्पन्नं कर्तुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "गन्तव्यसञ्चिकायाः कृते भिन्नं सञ्चिकानाम चिनोतु ।."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "सञ्चिका वा पुटं वा तस्मिन् स्वयमेव पातितम्"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2220,17 +2209,17 @@ msgid ""
 msgstr ""
 "स्रोतः गन्तव्यसञ्चिका वा पुटं वा समानं भवति इति कारणेन कार्यं सम्पन्नं कर्तुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "द्रव्यं भिन्नसञ्चिकायां वा पुटे वा पातयन्तु ।."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "पुटं तस्मिन् स्वयमेव प्रविष्टवान्"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2238,17 +2227,17 @@ msgid ""
 msgstr ""
 "स्रोतः स्वयमेव तस्मिन् स्थापयितुं न शक्यते इति कारणतः शल्यक्रिया सम्पन्नं कर्तुं न शक्यते स्म ।."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "द्रव्यं भिन्नपुटे स्थानान्तरयन्तु ।."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "गुप्तशब्दवितारकेन सह संवादं कर्तुं न शक्तवान्"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2257,22 +2246,22 @@ msgstr ""
 "गुप्तशब्दान् अनुरोधयितुं सेवा (kpasswdserver) सम्पर्कं कर्तुं न शक्यते इति कारणेन कार्यं सम्पन्नं "
 "कर्तुं न शक्यते स्म"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "स्वस्य सत्रस्य पुनः आरम्भं कर्तुं प्रयतस्व, अथवा kiod तः त्रुटयः लेखाः मध्ये पश्यन्तु ।."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 संविद् आरम्भं कर्तुं न शक्यते"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO कार्यकर्ता (Worker) निर्मातुं असमर्थः"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2281,7 +2270,7 @@ msgstr ""
 "KIO कार्यकर्ता (worker) यः <strong>%1</strong> संविदस्य अभिगमनं प्रदाति सः आरभुं न "
 "शक्तवान् । प्रायः तान्त्रिककारणात् एतत् भवति ।."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2290,13 +2279,13 @@ msgstr ""
 "klauncher तत् प्लगिन् अन्वेष्टुं वा आरभुं वा न शक्तवान् यत् संविदम् प्रदाति । अस्य अर्थः अस्ति "
 "यत् भवतः प्लगिन् इत्यस्य पुरातनं संस्करणं भवितुम् अर्हति ।."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename> स्थानान्तरणं कर्तुं न शक्यते"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2306,7 +2295,7 @@ msgstr ""
 "<filename>%1</filename> इति सञ्चिका स्थानान्तरितुं न शक्यते, यतः गन्तव्यसञ्चिकातन्त्रं "
 "तावत् विशालानि सञ्चिकाः समर्थयति नास्ति"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2315,7 +2304,7 @@ msgstr ""
 "एतावत् विशालं सञ्चिकां समर्थयति इति सञ्चिकातन्त्रस्य उपयोगाय गन्तव्य-ड्राइव् पुनः स्वरूपयन्तु "
 "।."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "अदस्तावेजित त्रुटि"
@@ -2713,7 +2702,7 @@ msgstr "पूर्वावलोकनम् दर्शयतु"
 msgid "Open Containing Folder"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "गुणाः"
@@ -3143,96 +3132,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "विभाजनप्रबन्धकेन पुनः स्वरूपणं वा सम्पादनं वा कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 %2 तः मुक्तं (%3% प्रयुक्तम्)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (अदृष्ट)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "पुनःप्रयोगस्य कूपं रिक्तं कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "संचयतु"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "नूतन टैब् मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "नूतनगवाक्ष मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "प्रविष्टि योजयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&सम्पादयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "स्थानेभ्यः निष्कासयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&गोपयतु"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "खण्डं गोपयन्तु '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "खण्डं गोपयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "सर्वाणि प्रविष्टयः दर्शयतु"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "चिह्नस्य आकार"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3240,25 +3229,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "स्वतः आकारं परिवर्तयतु"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "लघु (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "मध्यम (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "बृहत्‌ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7134,3 +7123,19 @@ msgstr "एतेन कार्यक्रमः आरभ्यते :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "यदि भवान् अस्मिन् कार्यक्रमे विश्वासं न करोति तर्हि रद्द (Cancel) नुदतु"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "यद्यपि सर्वरेण सह सम्पर्कः कृतः तथापि अनुरोधाय निर्धारितसमये प्रतिक्रिया न प्राप्ता "
+#~ "यथा निम्नलिखितम् ।:<ul><li>संयोजनं स्थापयितुं समयः समाप्तः: %1 सेकण्ड्</"
+#~ "li><li>प्रतिक्रियां प्राप्तुं समयः समाप्तः: %2 सेकण्ड्</li><li>प्रतिनिधि वितारकम् "
+#~ "प्राप्तुं समयसमाप्तिः: %3 सेकण्ड्</li></ul>कृपया ज्ञातव्यं यत् भवान् KDE System "
+#~ "Settings इत्यस्मिन् एतानि समयसमाप्तिसमायोजनानि परिवर्तयितुं शक्नोति, "
+#~ "संजालसमायोजनानि -> संयोजनप्राथमिकतानि चित्वा ।."

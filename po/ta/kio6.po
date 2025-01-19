@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-11-17 22:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2046,32 +2046,22 @@ msgstr "காலாவதி பிழை"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"சேவையகத்துடன் தொடர்பு ஏற்பட்டும், கோரிக்கைக்கான பதில் பின்வரும் காலாவதிக்குள் வரவில்லை: "
-"<ul><li>தொடர்பை ஏற்படுத்துவதற்கான காலாவதி: %1 நொடிகள் </li> <li>பதிலை பெறுவதற்கான "
-"காலாவதி: %2 நொடிகள்</li> <li>பதிலி சேவையகங்களை அணுகுவதற்கான காலாவதி: %3 நொடிகள்</"
-"li></ul> நீங்கள் இந்த காலாவதிகளை கே.டீ.யீ. கணினி அமைப்புகளில், 'பிணைய அமைப்புகள் > "
-"இணைப்பு விருப்பத்தேர்வுகள்' என்ற இடத்தில் மாற்றலாம்."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "சேவையகம் வேறு கோரிக்கைகளுக்கு பதிலளித்துக் கோண்டிருந்ததால், உங்கள் கோரிக்கைக்கு "
 "பதிலளிக்கவில்லை."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "தெரியாத தவறு"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2080,12 +2070,12 @@ msgstr ""
 "உங்கள் கணினியில் <strong>%1</strong> நெறிமுறையை வழங்கும் நிரல், ஒரு தெரியாத சிக்கலை "
 "தெரிவித்துள்ளது: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "தெரியாத குறுக்கீடு"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2094,12 +2084,12 @@ msgstr ""
 "உங்கள் கணினியில் <strong>%1</strong> நெறிமுறையை வழங்கும் நிரல், ஒரு தெரியாத "
 "குறுக்கீட்டை தெரிவித்துள்ளது: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "மூலக் கோப்பை நீக்க முடியவில்லை"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2109,12 +2099,12 @@ msgstr ""
 "கோரிய செயல்பாட்டிற்கு மூலக் கோப்பை நீக்கும் தேவை இருந்தது, உதாரணமாக கோப்பை நகர்த்தும் "
 "செயல்பாட்டிற்கு பின். <strong>%1</strong> என்ற மூலக் கோப்பை நீக்க முடியவில்லை."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "தற்காலிக கோப்பை நீக்க முடியவில்லை"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2125,12 +2115,12 @@ msgstr ""
 "உருவாக்கும் தேவை இருந்தது. <strong>%1</strong> என்ற இந்த தற்காலிக கோப்பை நீக்க "
 "முடியவில்லை."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "மூலக் கோப்புக்கு மறுபெயரிட முடியவில்லை"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2139,12 +2129,12 @@ msgstr ""
 "கோரிய செயல்பாட்டிற்கு <strong>%1</strong> என்ற கோப்பின் பெயரை மாற்றும் தேவை இருந்தது, "
 "ஆனால் அதன் பெயரை மாற்ற முடியவில்லை."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "தற்காலிக கோப்புக்கு மறுபெயரிட முடியவில்லை"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2153,32 +2143,32 @@ msgstr ""
 "கோரிய செயல்பாட்டிற்கு <strong>%1</strong> என்ற ஒரு தற்காலிக கோப்பை உருவாக்கும் தேவை "
 "இருந்தது, ஆனால் அதை உருவாக்க முடியவில்லை."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "இணைப்பை உருவாக்க முடியவில்லை"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "குறியிணைப்பை உருவாக்க முடியவில்லை"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "கோரிய %1 என்கிற குறியிணைப்பை உருவாக்க முடியவில்லை."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "உள்ளடக்கம் இல்லை"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "வட்டு நிறைந்துள்ளது"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2186,7 +2176,7 @@ msgid ""
 msgstr ""
 "வட்டில் போதிய இடம் இல்லாததால் <strong>%1</strong> என்கிற கோப்புக்கு எழுத முடியவில்லை."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2197,29 +2187,29 @@ msgstr ""
 "கோப்புகளை நீக்குங்கள்; 2) கோப்புகளை CD வட்டுகளை போன்ற கழற்றக்கூடிய தேக்ககங்களுக்கு "
 "நகர்த்துங்கள்; 3) இன்னும் தேக்கக இடத்தை பெறுங்கள்."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "மூல மற்றும் சேருமிட கோப்புகள் ஒன்றாக உள்ளன"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "மூலமும் சேருமிடமும் ஒரே கோப்பாக உள்ளதால் செயல்பாட்டை முடிக்க முடியவில்லை."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "சேருமிடத்துக்கு வேறு பெயரை தேர்ந்தெடுங்கள்."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "கோப்பு அல்லது அடைவு தனக்கு மேலேயே போடப்பட்டது"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2228,34 +2218,34 @@ msgstr ""
 "மூலம் மற்றும் சேருமிடத்தில் உள்ள கோப்பு அல்லது அடைவு ஒன்றாக இருப்பதால் செயல்பாட்டை முடிக்க "
 "முடியவில்லை."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "உருப்படியை வேறு கோப்பு அல்லது அடைவின் மேல் போடுங்கள்."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "அடைவு தனக்குள்ளேயே நகர்த்தப்பட்டது"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "மூலத்தை தனக்குள் நகற்ற முடியாததால் செயல்பாட்டை முடிக்க முடியவில்லை."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "உருப்படியை வேறு அடைவுக்குள் நகர்த்துங்கள்."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "கடவுச்சொல் சேவையகத்தை தொடர்பு கொள்ள முடியவில்லை"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2264,24 +2254,24 @@ msgstr ""
 "கடவுச்சொற்களை கேட்கும் (kpasswdserver) நிரலை தொடர்பு கொள்ள முடியாததால் செயல்பாட்டை "
 "முடிக்க முடியவில்லை."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "உங்கள் அமர்வை மறுதொடக்கம் செய்து பாருங்கள், அல்லது பதிவுகளில் kiod-விலிருந்து வந்த "
 "பிழைகளை தேடுங்கள்."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 நெறிமுறையை இயக்க முடியவில்லை"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2290,7 +2280,7 @@ msgstr ""
 "<strong>%1</strong> நெறிமுறையை வழங்கும் KIO ஆதரவுநிரலை இயக்க முடியவில்லை. "
 "பெரும்பாலும் இது தொழில்நுட்பம் சார்ந்த காரணங்களால் ஏற்படும்."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2299,13 +2289,13 @@ msgstr ""
 "நெறிமுறையை வழங்கும் செருகுநிரலை klauncher-ஆல் கண்டுபிடிக்க முடியவில்லை. உங்களிடம் "
 "இருக்கும் செருகுநிரலின் பதிப்பு பழையதாக இருந்தால் இது நேரலாம்."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>-ஐ இடமாற்றம் செய்ய முடியவில்லை"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2315,7 +2305,7 @@ msgstr ""
 "சேருமிடத்தின் கோப்பு முறைமை அவ்வளவு பெரிய கோப்புகளை ஆதரிக்காததால், <filename>%1</"
 "filename> என்ற கோப்பை இடமாற்ற முடியவில்லை."
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2324,7 +2314,7 @@ msgstr ""
 "அவ்வளவு பெரிய கோப்புகளை ஆதரிக்கும் ஒரு கோப்பு முறைமையை பயன்படுத்துமாறு இலக்கு வட்டை "
 "வடிவமையுங்கள்."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "தெரியாத பிழை"
@@ -2726,7 +2716,7 @@ msgstr "முன்தோற்றத்தை காட்டு"
 msgid "Open Containing Folder"
 msgstr "கொண்டுள்ள அடைவை திற"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "பண்புகள்"
@@ -3157,96 +3147,96 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "வகிர்வு மேலாளியில் வடிவமை அல்லது திருத்து"
 
 # What does this context string even mean?
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2-இல் %1 காலி (%3% பயனில் உள்ளது)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (மறைந்தது)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "அகற்றிடத்தை காலியாக்கு"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "ஏற்று"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "புதிய கீற்றில் திற"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "புதிய சாளரத்தில் திற"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "பதிவைச் சேர்…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&திருத்து…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "இடங்களிலிருந்து நீக்கு"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&மறை"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "'%1' என்ற பிரிவை மறை"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "பிரிவை மறை"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&அனைத்து பதிவுகளையும் காட்டு"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "சின்னத்தின் அளவு"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3254,25 +3244,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "தானியக்க அளவுமாற்றம்"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "சிறியது (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "நடுத்தரமானது (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "பெரியது (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7169,6 +7159,21 @@ msgstr "இது கீழ்கண்ட நிரலை இயக்கும
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "இந்த நிரல் நம்பகமானது இல்லையெனில் ரத்து செய்யுங்கள்"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "சேவையகத்துடன் தொடர்பு ஏற்பட்டும், கோரிக்கைக்கான பதில் பின்வரும் காலாவதிக்குள் வரவில்லை: "
+#~ "<ul><li>தொடர்பை ஏற்படுத்துவதற்கான காலாவதி: %1 நொடிகள் </li> <li>பதிலை "
+#~ "பெறுவதற்கான காலாவதி: %2 நொடிகள்</li> <li>பதிலி சேவையகங்களை அணுகுவதற்கான "
+#~ "காலாவதி: %3 நொடிகள்</li></ul> நீங்கள் இந்த காலாவதிகளை கே.டீ.யீ. கணினி "
+#~ "அமைப்புகளில், 'பிணைய அமைப்புகள் > இணைப்பு விருப்பத்தேர்வுகள்' என்ற இடத்தில் மாற்றலாம்."
 
 #~ msgid "Is &executable"
 #~ msgstr "&இயக்கவல்லது"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-12-28 23:16+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2155,33 +2155,20 @@ msgstr "Zeitüberschreitung"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Es bestand zwar Kontakt mit dem Server, es wurde aber keine Antwort "
-"innerhalb des Zeitraums empfangen, der für eine Reaktion vorgesehen ist:"
-"<ul><li>Zeitüberschreitung beim Herstellen einer Verbindung nach: %1 "
-"Sekunden</li><li>Zeitüberschreitung für die Entgegennahme einer Antwort "
-"nach: %2 Sekunden</li><li>Zeitüberschreitung für Zugriff auf Proxy-Server "
-"nach: %3 Sekunden</li></ul> Bitte beachten Sie, dass Sie diese Zeitangaben "
-"in den KDE-Systemeinstellungen ändern können und zwar im Modul "
-"„Netzwerkeinstellungen -> Verbindungseinstellungen“."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Der Server ist bereits mit anderen Anfragen ausgelastet."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2190,12 +2177,12 @@ msgstr ""
 "Das Programm auf Ihrem Rechner, das Zugriff auf das Protokoll <strong>%1</"
 "strong> ermöglicht, hat einen unbekannten Fehler gemeldet: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Unterbrechung aus unbekanntem Grund"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2204,12 +2191,12 @@ msgstr ""
 "Das Programm auf Ihrem Rechner, das Zugriff auf das Protokoll <strong>%1</"
 "strong> ermöglicht, hat eine Unterbrechung unbekannten Typs gemeldet: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Originaldatei kann nicht gelöscht werden"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2220,12 +2207,12 @@ msgstr ""
 "wahrscheinlich als Abschluss einer Dateiverschiebung. Die Originaldatei "
 "<strong>%1</strong> lässt sich jedoch nicht löschen."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Temporäre Datei lässt sich nicht löschen"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2236,12 +2223,12 @@ msgstr ""
 "Zwischenspeicherung während des Herunterladens. Diese temporäre Datei namens "
 "<strong>%1</strong> kann nicht gelöscht werden."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ursprüngliche Datei kann nicht umbenannt werden"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2250,12 +2237,12 @@ msgstr ""
 "Der Vorgang erfordert die Umbenennung der ursprünglichen Datei <strong>%1</"
 "strong>. Diese kann aber nicht umbenannt werden."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Temporäre Datei kann nicht umbenannt werden"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2264,32 +2251,32 @@ msgstr ""
 "Die Aktion erfordert das Anlegen einer temporären Datei namens <strong>%1</"
 "strong>. Sie lässt sich aber nicht erstellen."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Verknüpfung kann nicht erstellt werden"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Symbolische Verknüpfung kann nicht erstellt werden"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Die symbolische Verknüpfung %1 kann nicht erstellt werden."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Kein Inhalt"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Medium ist voll"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2298,7 +2285,7 @@ msgstr ""
 "Die Datei <strong>%1</strong> lässt sich nicht schreiben. Es ist nicht genug "
 "Platz auf dem Medium verfügbar."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2309,12 +2296,12 @@ msgstr ""
 "bzw. temporäre Dateien löschen, 2) Daten archivieren (z. B. auf CD-ROM) oder "
 "3) zusätzliche Speichermöglichkeiten verfügbar machen."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Quell- und Zieldatei sind identisch"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2323,17 +2310,17 @@ msgstr ""
 "Aktion kann nicht abgeschlossen werden, weil Quell- und Zieldatei dieselbe "
 "Datei sind."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Bitte wählen Sie einen anderen Namen für die Zieldatei."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Datei oder Ordner wurde auf sich selbst abgelegt"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2342,17 +2329,17 @@ msgstr ""
 "Aktion kann nicht abgeschlossen werden, weil Quell- und Zieldatei oder -"
 "Ordner gleich sind sind."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Element in eine andere Datei oder anderen Ordner ablegen."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Ordner wurde auf sich selbst abgelegt"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2361,17 +2348,17 @@ msgstr ""
 "Aktion kann nicht abgeschlossen werden, weil die Quelle nicht in sich selbst "
 "verschoben werden kann."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Element in einen anderen Ordner verschieben."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Mit dem Passwort-Server kann nicht kommuniziert werden"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2380,24 +2367,24 @@ msgstr ""
 "Die Aktion kann nicht abgeschlossen werden, weil kein Kontakt zum Dienst für "
 "die Anfrage des Passworts (kpasswdserver) hergestellt werden kann"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Starten Sie Ihre Sitzung neu oder suchen Sie in den Protokollen nach Fehlern "
 "von kiod."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Das Protokoll %1 kann nicht initialisiert werden."
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Erstellung des Ein-/Ausgabemoduls nicht möglich"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2407,7 +2394,7 @@ msgstr ""
 "%1</strong> ermöglicht, lässt sich nicht starten. Dafür gibt es vermutlich "
 "technische Gründe."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2416,13 +2403,13 @@ msgstr ""
 "klauncher kann das Modul für dieses Protokoll nicht finden oder nicht "
 "starten. Sie haben möglicherweise eine veraltete Version des Moduls."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename> kann nicht übertragen werden"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2432,7 +2419,7 @@ msgstr ""
 "<filename>%1</filename> kann nicht übertragen werden, da das Zieldateisystem "
 "Dateien mit dieser Größe nicht unterstützt"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2441,7 +2428,7 @@ msgstr ""
 "Formatieren Sie das Zielgerät neu mit einem Dateisystem, das Dateien mit "
 "dieser Größe unterstützt."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Nicht dokumentierter Fehler"
@@ -2850,7 +2837,7 @@ msgstr "Vorschau anzeigen"
 msgid "Open Containing Folder"
 msgstr "Ordner mit diesem Inhalt öffnen"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Eigenschaften"
@@ -3286,96 +3273,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Mit der Partitionsverwaltung neu formatieren oder bearbeiten"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 von %2 frei (%3 % belegt)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ausgeblendet)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Papierkorb leeren"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Einhängen"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "In neuem Unterfenster öffnen"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "In neuem Fenster öffnen"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Eintrag hinzufügen ..."
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Bearbeiten …"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Aus Speicherorten entfernen"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Abschnitt „%1“ ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Abschnitt ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Alle Einträge anzeigen"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Symbolgröße"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3383,25 +3370,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Größe automatisch anpassen"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Klein (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Mittel (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Groß (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7391,6 +7378,24 @@ msgstr "Startet das Programm:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Sie diesem Programm nicht vertrauen, drücken Sie Abbrechen"
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Es bestand zwar Kontakt mit dem Server, es wurde aber keine Antwort "
+#~ "innerhalb des Zeitraums empfangen, der für eine Reaktion vorgesehen ist:"
+#~ "<ul><li>Zeitüberschreitung beim Herstellen einer Verbindung nach: %1 "
+#~ "Sekunden</li><li>Zeitüberschreitung für die Entgegennahme einer Antwort "
+#~ "nach: %2 Sekunden</li><li>Zeitüberschreitung für Zugriff auf Proxy-Server "
+#~ "nach: %3 Sekunden</li></ul> Bitte beachten Sie, dass Sie diese "
+#~ "Zeitangaben in den KDE-Systemeinstellungen ändern können und zwar im "
+#~ "Modul „Netzwerkeinstellungen -> Verbindungseinstellungen“."
 
 #~ msgid "Is &executable"
 #~ msgstr "Aus&führbar"

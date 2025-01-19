@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:38+0000\n"
+"POT-Creation-Date: 2025-01-19 00:38+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2111,32 +2111,20 @@ msgstr "Памылка перавышэння тэрміну чакання"
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
-"within the amount of time allocated for the request as follows:"
-"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-"settings in the KDE System Settings, by selecting Network Settings -> "
-"Connection Preferences."
+"within the amount of time allocated for the request."
 msgstr ""
-"Хоць з серверам і ўдалося звязацца, але на працягу тэрміну, адведзенага на "
-"запыт, не было атрымана адказу. Зараз дзейнічаюць наступныя значэнні:"
-"<ul><li>Тэрмін чакання для ўсталявання злучэння: %1 секунд(а)</li><li>Тэрмін "
-"чакання для атрымання адказу: %2 секунд(а)</li><li>Тэрмін чакання для "
-"доступу да проксі-сервераў: %3 секунд(а)</li></ul>Звярніце ўвагу, што вы "
-"можаце змяніць гэтыя налады ў сістэмных наладах KDE, абраўшы Налады сеткі -> "
-"Налады злучэння."
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер быў занадта заняты адказамі на іншыя запыты, каб адказаць."
 
-#: core/job_error.cpp:1118 core/slavebase.cpp:1532
+#: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
 msgid "Unknown Error"
 msgstr "Невядомая памылка"
 
-#: core/job_error.cpp:1120
+#: core/job_error.cpp:1112
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2145,12 +2133,12 @@ msgstr ""
 "Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, паведаміла пра невядомую памылку: %2."
 
-#: core/job_error.cpp:1130
+#: core/job_error.cpp:1122
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Невядомае перапыненне"
 
-#: core/job_error.cpp:1132
+#: core/job_error.cpp:1124
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2159,12 +2147,12 @@ msgstr ""
 "Праграма на вашым камп'ютары, якая забяспечвае доступ да пратаколу <strong>"
 "%1</strong>, паведаміла пра перапыненне невядомага тыпу: %2."
 
-#: core/job_error.cpp:1142
+#: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Не ўдалося выдаліць арыгінальны файл"
 
-#: core/job_error.cpp:1144
+#: core/job_error.cpp:1136
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2175,12 +2163,12 @@ msgstr ""
 "пры завяршэнні аперацыі перамяшчэння файла. Арыгінальны файл <strong>%1</"
 "strong> не ўдалося выдаліць."
 
-#: core/job_error.cpp:1153
+#: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Не ўдалося выдаліць часовы файл"
 
-#: core/job_error.cpp:1155
+#: core/job_error.cpp:1147
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2191,12 +2179,12 @@ msgstr ""
 "захоўвацца новы файл падчас спампоўвання. Гэты часовы файл <strong>%1</"
 "strong> не ўдалося выдаліць."
 
-#: core/job_error.cpp:1165
+#: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Не ўдалося змяніць назву арыгінальнага файла"
 
-#: core/job_error.cpp:1167
+#: core/job_error.cpp:1159
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2205,12 +2193,12 @@ msgstr ""
 "Запытаная аперацыя патрабавала змены назвы арыгінальнага файла <strong>%1</"
 "strong>, але назву не ўдалося змяніць."
 
-#: core/job_error.cpp:1176
+#: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Не ўдалося змяніць назву часовага файла"
 
-#: core/job_error.cpp:1178
+#: core/job_error.cpp:1170
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2219,32 +2207,32 @@ msgstr ""
 "Запытаная аперацыя патрабавала стварэння часовага файла <strong>%1</strong>, "
 "але яго не ўдалося стварыць."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1179
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Не ўдалося стварыць спасылку"
 
-#: core/job_error.cpp:1188
+#: core/job_error.cpp:1180
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Не ўдалося стварыць сімвалічную спасылку"
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1181
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Не ўдалося стварыць сімвалічную спасылку %1."
 
-#: core/job_error.cpp:1195
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "No Content"
 msgstr "Няма змесціва"
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "Disk Full"
 msgstr "Дыск запоўнены"
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1194
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2253,7 +2241,7 @@ msgstr ""
 "Не ўдалося запісаць файл <strong>%1</strong>, бо на дыску не хапае вольнага "
 "месца."
 
-#: core/job_error.cpp:1206
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2264,12 +2252,12 @@ msgstr ""
 "непатрэбныя і часовыя файлы; 2) запакаваць файлы на рухомыя носьбіты 3) "
 "павялічыць памер сховішча."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Зыходны і мэтавы файлы аднолькавыя"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2277,17 +2265,17 @@ msgid ""
 msgstr ""
 "Немагчыма завяршыць аперацыю, бо зыходны і мэтавы файл - адзін і той жа файл."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Абярыце іншую назву для мэтавага файла."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Файл або каталог перамешчаны ў самога сябе"
 
-#: core/job_error.cpp:1223
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2296,17 +2284,17 @@ msgstr ""
 "Немагчыма завяршыць аперацыю, бо зыходны і мэтавы файл або каталог - адзін і "
 "той жа файл."
 
-#: core/job_error.cpp:1225
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Змясціце элемент у іншы файл або каталог."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Каталог перамешчаны ў самога сябе"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1229
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2315,17 +2303,17 @@ msgstr ""
 "Не ўдалося завяршыць аперацыю, бо зыходны элемент немагчыма перамясціць у "
 "самога сябе."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Перамясціце элемент у іншы каталог."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Не ўдалося звязацца з серверам пароляў"
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2334,23 +2322,23 @@ msgstr ""
 "Немагчыма завяршыць аперацыю, бо не ўдалося звязацца са службай для запыту "
 "пароляў (kpasswdserver)"
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Паспрабуйце перазапусціць сеанс або пашукайце ў журналах памылкі з kiod."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Не ўдалося ініцыялізаваць пратакол %1"
 
-#: core/job_error.cpp:1252
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Не ўдалося стварыць KIO worker"
 
-#: core/job_error.cpp:1254
+#: core/job_error.cpp:1246
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2359,7 +2347,7 @@ msgstr ""
 "Не ўдаецца запусціць праграму KIO worker, якая забяспечвае доступ да "
 "пратаколу <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2368,13 +2356,13 @@ msgstr ""
 "klauncher не можа знайсці або запусціць убудову, якая забяспечвае пратакол. "
 "Гэта азначае, што ў вас можа быць састарэлая версія ўбудовы."
 
-#: core/job_error.cpp:1265
+#: core/job_error.cpp:1257
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Не ўдалося перадаць <filename>%1</filename>"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1259
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2384,7 +2372,7 @@ msgstr ""
 "Не ўдалося перадаць <filename>%1</filename>, бо мэтавая файлавая сістэма не "
 "падтрымлівае файлы такога памеру"
 
-#: core/job_error.cpp:1270
+#: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2393,7 +2381,7 @@ msgstr ""
 "Адфарматуйце мэтавую прыладу, каб файлавая сістэма падтрымлівала файлы "
 "такога памеру."
 
-#: core/job_error.cpp:1275
+#: core/job_error.cpp:1267
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Незадакументаваная памылка"
@@ -2794,7 +2782,7 @@ msgstr "Паказваць мініяцюры"
 msgid "Open Containing Folder"
 msgstr "Адкрыць каталог змесціва"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1222
+#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "Уласцівасці"
@@ -3232,96 +3220,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Перафарматаваць або рэдагаваць з дапамогай Partition Manager"
 
-#: filewidgets/kfileplacesview.cpp:337
+#: filewidgets/kfileplacesview.cpp:336
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:354
+#: filewidgets/kfileplacesview.cpp:353
 #: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "Вольна %1 з %2 (%3% выкарыстоўваецца)"
 
-#: filewidgets/kfileplacesview.cpp:654
+#: filewidgets/kfileplacesview.cpp:653
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (схавана)"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Ачысціць сметніцу"
 
-#: filewidgets/kfileplacesview.cpp:1209
+#: filewidgets/kfileplacesview.cpp:1208
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Прымантаваць"
 
-#: filewidgets/kfileplacesview.cpp:1215
+#: filewidgets/kfileplacesview.cpp:1214
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Адкрыць у новай укладцы"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1217
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Адкрыць у новым акне"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Дадаць запіс…"
 
-#: filewidgets/kfileplacesview.cpp:1233
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Рэдагаванне…"
 
-#: filewidgets/kfileplacesview.cpp:1238
+#: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Выдаліць з размяшчэнняў"
 
-#: filewidgets/kfileplacesview.cpp:1242
+#: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Схаваць"
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Схаваць раздзел \"%1\""
 
-#: filewidgets/kfileplacesview.cpp:1250
+#: filewidgets/kfileplacesview.cpp:1249
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Схаваць раздзел"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Паказаць усе запісы"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Памер значка"
 
-#: filewidgets/kfileplacesview.cpp:1383
+#: filewidgets/kfileplacesview.cpp:1382
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3329,25 +3317,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Аўтаматычная змена памеру"
 
-#: filewidgets/kfileplacesview.cpp:1403
+#: filewidgets/kfileplacesview.cpp:1402
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Маленькія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1406
+#: filewidgets/kfileplacesview.cpp:1405
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Сярэднія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1409
+#: filewidgets/kfileplacesview.cpp:1408
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Вялікія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1412
+#: filewidgets/kfileplacesview.cpp:1411
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7351,6 +7339,23 @@ msgstr "Гэта запусціць праграму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
+
+#~ msgid ""
+#~ "Although contact was made with the server, a response was not received "
+#~ "within the amount of time allocated for the request as follows:"
+#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#~ "settings in the KDE System Settings, by selecting Network Settings -> "
+#~ "Connection Preferences."
+#~ msgstr ""
+#~ "Хоць з серверам і ўдалося звязацца, але на працягу тэрміну, адведзенага "
+#~ "на запыт, не было атрымана адказу. Зараз дзейнічаюць наступныя значэнні:"
+#~ "<ul><li>Тэрмін чакання для ўсталявання злучэння: %1 секунд(а)</"
+#~ "li><li>Тэрмін чакання для атрымання адказу: %2 секунд(а)</li><li>Тэрмін "
+#~ "чакання для доступу да проксі-сервераў: %3 секунд(а)</li></ul>Звярніце "
+#~ "ўвагу, што вы можаце змяніць гэтыя налады ў сістэмных наладах KDE, "
+#~ "абраўшы Налады сеткі -> Налады злучэння."
 
 #~ msgid "Is &executable"
 #~ msgstr "&Выканальны файл"
