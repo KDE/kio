@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:38+0000\n"
-"PO-Revision-Date: 2025-01-09 16:08+0300\n"
+"PO-Revision-Date: 2025-01-19 13:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2073,6 +2073,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Sunucuyla iletişim kurulmasına rağmen, istek için ayrılan sürede bir yanıt "
+"alınmadı."
 
 #: core/job_error.cpp:1104
 #, kde-format

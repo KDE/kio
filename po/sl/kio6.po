@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:38+0000\n"
-"PO-Revision-Date: 2024-11-06 10:29+0100\n"
+"PO-Revision-Date: 2025-01-19 06:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2104,6 +2104,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Čeprav je bil vzpostavljen stik s strežnikom, odgovor ni bil prejet v "
+"dodeljenem času za zahtevo."
 
 #: core/job_error.cpp:1104
 #, kde-format
