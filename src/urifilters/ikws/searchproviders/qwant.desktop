@@ -60,6 +60,7 @@ Name[sr@ijekavianlatin]=Qwant
 Name[sr@latin]=Qwant
 Name[sv]=Qwant
 Name[tg]=Qwant
+Name[th]=Qwant
 Name[tok]=ilo alasa Qwant
 Name[tr]=Qwant
 Name[uk]=Qwant
@@ -117,6 +118,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

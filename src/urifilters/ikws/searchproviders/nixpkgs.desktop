@@ -17,6 +17,7 @@ Name[sv]=Nix-paket
 Name[tr]=Nix Packages
 Name[uk]=Пакунки Nix
 Name[x-test]=xxNix Packagesxx
+Name[zh_CN]=Nix 软件包
 Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
@@ -35,4 +36,5 @@ Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[uk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[x-test]=xxhttps://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}xx
+Query[zh_CN]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Charset=utf8

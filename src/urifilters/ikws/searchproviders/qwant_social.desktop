@@ -60,6 +60,7 @@ Name[sr@ijekavianlatin]=Qwant-druženje
 Name[sr@latin]=Qwant-druženje
 Name[sv]=Qwant-social
 Name[tg]=Шабакаи иҷтимоии Qwant
+Name[th]=Qwant Social
 Name[tok]=ilo toki Qwant
 Name[tr]=Qwant Sosyal
 Name[uk]=Соціальне Qwant
@@ -117,6 +118,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

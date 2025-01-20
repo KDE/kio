@@ -54,6 +54,7 @@ Name[sl]=GitLab
 Name[sq]=GitLab
 Name[sv]=GitLab
 Name[tg]=GitLab
+Name[th]=GitLab
 Name[tok]=ilo GitLab
 Name[tr]=GitLab
 Name[uk]=GitLab
@@ -112,6 +113,7 @@ Query[sl]=https://gitlab.com/search?search=\\{@}
 Query[sq]=https://gitlab.com/search?search=\\{@}
 Query[sv]=https://gitlab.com/search?search=\\{@}
 Query[tg]=https://gitlab.com/search?search=\\{@}
+Query[th]=https://gitlab.com/search?search=\\{@}
 Query[tok]=https://gitlab.com/search?search=\\{@}
 Query[tr]=https://gitlab.com/search?search=\\{@}
 Query[uk]=https://gitlab.com/search?search=\\{@}

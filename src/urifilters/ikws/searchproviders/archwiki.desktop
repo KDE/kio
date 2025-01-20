@@ -51,6 +51,7 @@ Name[sl]=ArchWiki
 Name[sq]=ArchWiki
 Name[sv]=ArchWiki
 Name[tg]=ArchWiki
+Name[th]=ArchWiki
 Name[tok]=tomo sona ArchWiki
 Name[tr]=ArchWiki
 Name[uk]=ArchWiki
@@ -109,6 +110,7 @@ Query[sl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sq]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[sv]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tg]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[th]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tok]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[tr]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}

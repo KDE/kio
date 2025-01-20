@@ -71,6 +71,7 @@ Name[sr@ijekavianlatin]=Flickr (Creative Commons)
 Name[sr@latin]=Flickr (Creative Commons)
 Name[sv]=Flickr Creative Commons
 Name[tg]=Flickr: Иҷозатномаи Creative Commons
+Name[th]=Flickr Creative Commons
 Name[tok]=ilo sitelen Flickr (ijo pi wile mani ala taso)
 Name[tr]=Flickr Creative Commons
 Name[ug]=Flickr ئاممىۋى ئىجادىيەت
@@ -140,6 +141,7 @@ Query[sr@ijekavianlatin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all
 Query[sr@latin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sv]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tg]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[th]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tok]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ug]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

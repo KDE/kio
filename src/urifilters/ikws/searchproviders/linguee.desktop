@@ -49,6 +49,7 @@ Name[sk]=Linguee
 Name[sl]=Linguee
 Name[sq]=Linguee
 Name[sv]=Linguee
+Name[th]=Linguee
 Name[tr]=Linguee
 Name[uk]=Linguee
 Name[vi]=Linguee
@@ -107,6 +108,7 @@ Query[sk]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sl]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sq]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sv]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[th]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[tr]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[uk]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[vi]=https://www.linguee.com/search?source=auto&query=\\{@}

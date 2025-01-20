@@ -161,6 +161,7 @@ Query[sr@latin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://news.google.se/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ta]=https://news.google.com/news?hl=ta&q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[th]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tok]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ug]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

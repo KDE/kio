@@ -17,6 +17,7 @@ Name[sv]=Can I Use…
 Name[tr]=Can I Use…
 Name[uk]=Can I Use…
 Name[x-test]=xxCan I Use…xx
+Name[zh_CN]=Can I Use…
 Keys=caniuse,ciu,cius
 Query=https://caniuse.com/?search=\\{@}
 Query[ar]=https://caniuse.com/?search=\\{@}
@@ -35,4 +36,5 @@ Query[sv]=https://caniuse.com/?search=\\{@}
 Query[tr]=https://caniuse.com/?search=\\{@}
 Query[uk]=https://caniuse.com/?search=\\{@}
 Query[x-test]=xxhttps://caniuse.com/?search=\\{@}xx
+Query[zh_CN]=https://caniuse.com/?search=\\{@}
 Charset=utf8

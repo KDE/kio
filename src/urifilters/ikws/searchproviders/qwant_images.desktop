@@ -59,6 +59,7 @@ Name[sr@ijekavianlatin]=Qwant-slike
 Name[sr@latin]=Qwant-slike
 Name[sv]=Qwant-bilder
 Name[tg]=Тасвирҳои Qwant
+Name[th]=Qwant Images
 Name[tok]=ilo pi alasa sitelen Qwant
 Name[tr]=Qwant Görseller
 Name[uk]=Зображення Qwant
@@ -116,6 +117,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

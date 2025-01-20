@@ -49,6 +49,7 @@ Name[sk]=Yandex
 Name[sl]=Yandex
 Name[sq]=Yandex
 Name[sv]=Yandex
+Name[th]=Yandex
 Name[tr]=Yandex
 Name[uk]=Yandex
 Name[vi]=Yandex
@@ -104,6 +105,7 @@ Query[sk]=https://yandex.ru/search/?text=\\{@}
 Query[sl]=https://yandex.ru/search/?text=\\{@}
 Query[sq]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
+Query[th]=https://dict.leo.org/?search=\\{@}
 Query[tr]=https://yandex.ru/search/?text=\\{@}
 Query[uk]=https://yandex.ru/search/?text=\\{@}
 Query[vi]=https://yandex.ru/search/?text=\\{@}

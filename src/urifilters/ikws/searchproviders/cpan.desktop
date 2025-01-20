@@ -147,6 +147,7 @@ Query[sl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sq]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[th]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tok]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[tr]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[uk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

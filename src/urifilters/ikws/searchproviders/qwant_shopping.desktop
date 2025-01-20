@@ -59,6 +59,7 @@ Name[sr@ijekavianlatin]=Qwant-šoping
 Name[sr@latin]=Qwant-šoping
 Name[sv]=Qwant-shopping
 Name[tg]=Дукони онлайни Qwant
+Name[th]=Qwant Shopping
 Name[tok]=ilo pi alasa esun Qwant
 Name[tr]=Qwant Alışveriş
 Name[uk]=Торгівля Qwant
@@ -116,6 +117,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

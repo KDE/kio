@@ -161,6 +161,7 @@ Query[sr@latin]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sv]=https://www.google.se/search?site=imghp&tbm=isch&q=\\{@}
 Query[ta]=https://www.google.com/search?hl=ta&site=imghp&tbm=isch&q=\\{@}
 Query[tg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[th]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[tok]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[tr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ug]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

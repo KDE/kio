@@ -158,6 +158,7 @@ Query[sr@ijekavianlatin]=https://en.wiktionary.org/wiki/Special:Search?search=\\
 Query[sr@latin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sv]=https://sv.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tg]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[th]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tok]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

@@ -49,6 +49,7 @@ Name[sk]=Manuál Krita
 Name[sl]=Priročnik Krita
 Name[sq]=Doracak për Krita-n
 Name[sv]=Handbok Krita
+Name[th]=คู่มือของ Krita
 Name[tr]=Krita El Kitabı
 Name[uk]=Підручник з Krita
 Name[vi]=Sổ tay Krita
@@ -107,6 +108,7 @@ Query[sk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sq]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[th]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[tr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[uk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[vi]=https://docs.krita.org/en/search.html?q=\\{@}

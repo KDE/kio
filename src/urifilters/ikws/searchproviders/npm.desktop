@@ -17,6 +17,7 @@ Name[sv]=npm
 Name[tr]=npm
 Name[uk]=npm
 Name[x-test]=xxnpmxx
+Name[zh_CN]=npm
 Keys=npm,npmjs
 Query=https://www.npmjs.com/search?q=\\{@}
 Query[ar]=https://www.npmjs.com/search?q=\\{@}
@@ -35,4 +36,5 @@ Query[sv]=https://www.npmjs.com/search?q=\\{@}
 Query[tr]=https://www.npmjs.com/search?q=\\{@}
 Query[uk]=https://www.npmjs.com/search?q=\\{@}
 Query[x-test]=xxhttps://www.npmjs.com/search?q=\\{@}xx
+Query[zh_CN]=https://www.npmjs.com/search?q=\\{@}
 Charset=utf8

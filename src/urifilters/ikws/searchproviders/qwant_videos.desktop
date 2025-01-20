@@ -59,6 +59,7 @@ Name[sr@ijekavianlatin]=Qwant-video
 Name[sr@latin]=Qwant-video
 Name[sv]=Qwant-videor
 Name[tg]=Видеоҳои Qwant
+Name[th]=Qwant Videos
 Name[tok]=ilo pi sitelen tawa Qwant
 Name[tr]=Qwant Videoları
 Name[uk]=Відео Qwant
@@ -116,6 +117,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

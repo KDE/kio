@@ -41,6 +41,7 @@ Name[sk]=Codeberg
 Name[sl]=Codeberg
 Name[sq]=Codeberg
 Name[sv]=Codeberg
+Name[th]=Codeberg
 Name[tr]=Codeberg
 Name[uk]=Codeberg
 Name[x-test]=xxCodebergxx
@@ -85,6 +86,7 @@ Query[sk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[sl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sq]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sv]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[th]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[tr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[uk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[x-test]=xxhttps://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=truexx

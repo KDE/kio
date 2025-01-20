@@ -142,6 +142,7 @@ Query[sr@latin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sv]=https://maps.google.se/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ta]=https://maps.google.com/maps?hl=ta&q=\\{@}&ie=UTF8&iwloc=addr
 Query[tg]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[th]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tok]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ug]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

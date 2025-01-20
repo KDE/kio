@@ -51,6 +51,7 @@ Name[sl]=KDE Bugs
 Name[sq]=Të meta KDE-je
 Name[sv]=KDE Bugs
 Name[tg]=Хатоҳои KDE
+Name[th]=KDE Bugs
 Name[tok]=pakala pi ilo tan kulupu KDE
 Name[tr]=KDE Hataları
 Name[uk]=Вади KDE
@@ -118,6 +119,7 @@ Query[sr@ijekavianlatin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@latin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sv]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[th]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tok]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

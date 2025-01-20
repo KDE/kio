@@ -51,6 +51,7 @@ Name[sk]=Obchod KDE
 Name[sl]=Trgovina KDE
 Name[sq]=KDE Store
 Name[sv]=KDE-butik
+Name[th]=KDE Store
 Name[tr]=KDE Mağazası
 Name[uk]=Крамниця KDE
 Name[vi]=Cửa hàng KDE
@@ -106,6 +107,7 @@ Query[sk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sq]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[th]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[tr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

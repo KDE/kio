@@ -151,6 +151,7 @@ Query[sq]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ta]=https://www.google.com/search?hl=ta&q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[th]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tok]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tr]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

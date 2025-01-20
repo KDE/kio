@@ -60,6 +60,7 @@ Name[sr@ijekavianlatin]=Qwant-vesti
 Name[sr@latin]=Qwant-vesti
 Name[sv]=Qwant-nyheter
 Name[tg]=Ахбори Qwant
+Name[th]=Qwant News
 Name[tok]=ilo pi alasa sin Qwant
 Name[tr]=Qwant Haberleri
 Name[uk]=Новини Qwant
@@ -117,6 +118,7 @@ Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

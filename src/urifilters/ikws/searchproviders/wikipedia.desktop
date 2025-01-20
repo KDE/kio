@@ -160,6 +160,7 @@ Query[sr@ijekavianlatin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{
 Query[sr@latin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sv]=https://sv.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tg]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[th]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tok]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
