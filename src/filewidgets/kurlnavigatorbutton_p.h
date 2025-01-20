@@ -75,6 +75,14 @@ public:
         QString displayName;
     };
 
+    enum Position {
+        Start,
+        Middle,
+        End
+    };
+
+    void setPosition(Position pos);
+
 Q_SIGNALS:
     /**
      * Emitted when URLs are dropped on the KUrlNavigatorButton associated with
@@ -187,6 +195,8 @@ private:
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
     KIO::ListJob *m_subDirsJob;
     std::vector<SubDirInfo> m_subDirs;
+
+    Position m_position;
 };
 
 } // namespace KDEPrivate

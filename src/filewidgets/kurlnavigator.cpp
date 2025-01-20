@@ -764,6 +764,9 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
 
             if (isFirstButton) {
                 button->setText(firstButtonText());
+                button->setPosition(KUrlNavigatorButton::Position::Start);
+            } else {
+                button->setPosition(KUrlNavigatorButton::Position::Middle);
             }
             button->setActive(q->isActive());
 
@@ -779,6 +782,7 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
         }
     } while (hasNext);
 
+    m_navButtons.last()->setPosition(KUrlNavigatorButton::Position::End);
     // delete buttons which are not used anymore
     const int newButtonCount = idx - startIndex;
     if (newButtonCount < oldButtonCount) {

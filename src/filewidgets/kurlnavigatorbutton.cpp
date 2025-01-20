@@ -20,6 +20,7 @@
 #include <QKeyEvent>
 #include <QMimeData>
 #include <QPainter>
+#include <QPainterPath>
 #include <QStyleOption>
 #include <QTimer>
 
@@ -149,6 +150,24 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
 
     QPainter painter(this);
+
+    // draw background
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setPen(QColor(0, 0, 0, 0));
+    painter.setBrush(palette().base());
+    QPainterPath path;
+    if (m_position == Position::Start || m_position == Position::End) {
+        // first or last
+        path.addRoundedRect(rect(), 5, 5);
+        painter.drawPath(path);
+        if (m_position == Position::Start) {
+            painter.drawRect(QRect(rect().topRight().x() - 5, rect().topRight().y(), 10, rect().height()));
+        } else {
+            painter.drawRect(QRect(rect().topLeft().x(), rect().topLeft().y(), 10, rect().height()));
+        }
+    } else {
+        painter.drawRect(rect());
+    }
 
     QFont adjustedFont(font());
     adjustedFont.setBold(m_subDir.isEmpty());
@@ -702,6 +721,14 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
         initMenu(subDirsMenu, maxIndex);
         menu->addMenu(subDirsMenu);
     }
+}
+
+void KUrlNavigatorButton::setPosition(Position pos)
+{
+    if (pos == m_position) {
+        return;
+    }
+    m_position = pos;
 }
 
 } // namespace KDEPrivate
