@@ -38,6 +38,8 @@
 #include <QMetaMethod>
 #include <QMimeData>
 #include <QMimeDatabase>
+#include <QPainter>
+#include <QStyle>
 #include <QTimer>
 #include <QUrlQuery>
 
@@ -764,9 +766,6 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
 
             if (isFirstButton) {
                 button->setText(firstButtonText());
-                button->setPosition(KUrlNavigatorButton::Position::Start);
-            } else {
-                button->setPosition(KUrlNavigatorButton::Position::Middle);
             }
             button->setActive(q->isActive());
 
@@ -782,7 +781,6 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
         }
     } while (hasNext);
 
-    m_navButtons.last()->setPosition(KUrlNavigatorButton::Position::End);
     // delete buttons which are not used anymore
     const int newButtonCount = idx - startIndex;
     if (newButtonCount < oldButtonCount) {
@@ -1363,6 +1361,19 @@ QWidget *KUrlNavigator::badgeWidget() const
         return item->widget();
     } else {
         return nullptr;
+    }
+}
+
+void KUrlNavigator::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+
+    if (!d->m_badgeWidgetContainer->isHidden()) {
+        QPainter painter(this);
+        QStyleOption option;
+        option.initFrom(this);
+        option.state = QStyle::State_Sunken;
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
     }
 }
 
