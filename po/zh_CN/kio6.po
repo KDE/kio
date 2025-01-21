@@ -1978,7 +1978,7 @@ msgstr "超时错误"
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
-msgstr ""
+msgstr "虽然与服务器进行了联系，但在为该请求分配的时间内没有收到回应。"
 
 #: core/job_error.cpp:1104
 #, kde-format

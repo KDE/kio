@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:38+0000\n"
-"PO-Revision-Date: 2025-01-14 15:05+0100\n"
+"PO-Revision-Date: 2025-01-20 10:24+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2167,6 +2167,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Bien que le contact ait été établi avec le serveur, aucune réponse n'a été "
+"reçue dans le délai imparti pour la demande."
 
 #: core/job_error.cpp:1104
 #, kde-format

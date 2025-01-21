@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:38+0000\n"
-"PO-Revision-Date: 2024-12-16 08:01+0200\n"
+"PO-Revision-Date: 2025-01-19 21:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2029,7 +2029,7 @@ msgstr "שגיאת זמן מוקצב"
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
-msgstr ""
+msgstr "למרות שאיש הקשר נוצר עם השרת, לא התקבלה בקשה בכמות הזמן שהוקצתה לבקשה."
 
 #: core/job_error.cpp:1104
 #, kde-format
