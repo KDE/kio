@@ -239,8 +239,6 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     } else {
         painter.drawText(textRect, textFlags, plainText());
     }
-
-    painter.drawLine(rect().topRight(), rect().bottomRight());
 }
 
 void KUrlNavigatorButton::enterEvent(QEnterEvent *event)
