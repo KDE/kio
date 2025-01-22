@@ -2,6 +2,7 @@
 Type=Service
 Name=Docker Hub
 Name[ar]=مجمع دوكر
+Name[bg]=Docker Hub
 Name[ca]=Docker Hub
 Name[ca@valencia]=Docker Hub
 Name[es]=Docker Hub
@@ -21,6 +22,7 @@ Name[zh_CN]=Docker Hub
 Keys=docker,dockerhub,dh,dk,dhub,dkstore
 Query=https://hub.docker.com/search?q=\\{@}
 Query[ar]=https://hub.docker.com/search?q=\\{@}
+Query[bg]=https://hub.docker.com/search?q=\\{@}
 Query[ca]=https://hub.docker.com/search?q=\\{@}
 Query[ca@valencia]=https://hub.docker.com/search?q=\\{@}
 Query[es]=https://hub.docker.com/search?q=\\{@}

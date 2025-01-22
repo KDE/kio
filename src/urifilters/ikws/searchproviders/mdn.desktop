@@ -2,6 +2,7 @@
 Type=Service
 Name=Mozilla Developer Network (MDN)
 Name[ar]=شبكة مطوري موزيلا (MDN)
+Name[bg]=Mozilla Developer Network (MDN)
 Name[ca]=Xarxa de desenvolupador de Mozilla (MDN)
 Name[ca@valencia]=Xarxa de desenvolupador de Mozilla (MDN)
 Name[es]=Red del desarrollador de Mozilla (MDN)
@@ -21,6 +22,7 @@ Name[zh_CN]=Mozilla 开发者网络 (MDN)
 Keys=mdn
 Query=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ar]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[bg]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ca]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ca@valencia]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[es]=https://developer.mozilla.org/en-US/search?q=\\{@}
