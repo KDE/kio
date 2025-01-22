@@ -202,7 +202,10 @@ QList<KFileFilter> KFileFilter::fromMimeTypes(const QStringList &mimeTypes)
     QList<KFileFilter> ret;
     ret.reserve(mimeTypes.size());
     for (const QString &type : mimeTypes) {
-        ret << KFileFilter::fromMimeType(type);
+        KFileFilter fileFilter = KFileFilter::fromMimeType(type);
+        if (fileFilter.isValid()) {
+            ret << fileFilter;
+        }
     }
     return ret;
 }
