@@ -31,11 +31,6 @@ public:
     void slotFilterChanged();
 
     KFileFilterCombo *const q;
-    // when we have more than 3 mimefilters and no default-filter,
-    // we don't show the comments of all mimefilters in one line,
-    // instead we show "All supported files". We have to translate
-    // that back to the list of mimefilters in currentFilter() tho.
-    bool m_hasAllSupportedFiles = false;
     // true when setMimeFilter was called
     bool m_isMimeFilter = false;
     QString m_lastFilter;
@@ -66,7 +61,6 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
     clear();
     d->m_filters.clear();
     QString delim = QStringLiteral(", ");
-    d->m_hasAllSupportedFiles = false;
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
@@ -160,7 +154,6 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
             allSupportedFilesFilter = KFileFilter(allComments.join(delim), allFilePatterns, allMimePatterns);
         } else {
             allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), allFilePatterns, allMimePatterns);
-            d->m_hasAllSupportedFiles = true;
         }
 
         insertItem(0, allSupportedFilesFilter.label());
