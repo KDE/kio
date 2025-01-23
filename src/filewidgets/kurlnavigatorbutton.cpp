@@ -249,7 +249,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     } else {
         option.rect = QRect(rect().topLeft(), rect().bottomLeft());
     }
-    style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &option, &painter, this);
+    // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
+    // will be turned off if application style has separators turned off
+    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
 void KUrlNavigatorButton::enterEvent(QEnterEvent *event)
