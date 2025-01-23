@@ -59,8 +59,6 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setClipRect(event->rect());
 
-    const int buttonWidth = width();
-    const int buttonHeight = height();
     if (isChecked()) {
         drawHoverBackground(&painter);
 
@@ -69,14 +67,6 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
             m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
         }
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
-    } else if (isDisplayHintEnabled(EnteredHint)) {
-        painter.setPen(Qt::NoPen);
-        painter.setBrush(palette().color(foregroundRole()));
-
-        const int verticalGap = 4;
-        const int caretWidth = 2;
-        const int x = (layoutDirection() == Qt::LeftToRight) ? 0 : buttonWidth - caretWidth;
-        painter.drawRect(x, verticalGap, caretWidth, buttonHeight - 2 * verticalGap);
     }
 }
 
