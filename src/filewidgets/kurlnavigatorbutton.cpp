@@ -156,7 +156,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     painter.setFont(adjustedFont);
 
     int separatorPadding = 4;
-    int buttonWidth = width();
+    int buttonWidth = width() + separatorPadding;
     int preferredWidth = sizeHint().width();
     if (preferredWidth < minimumWidth()) {
         preferredWidth = minimumWidth();
