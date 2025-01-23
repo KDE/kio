@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:38+0000\n"
+"POT-Creation-Date: 2025-01-23 00:38+0000\n"
 "PO-Revision-Date: 2024-10-27 14:42+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2840,24 +2840,24 @@ msgctxt "@title:menu"
 msgid "Move Here"
 msgstr "Flytt hit"
 
-#: filewidgets/kfilefiltercombo.cpp:42
+#: filewidgets/kfilefiltercombo.cpp:37
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Alle filer"
 
-#: filewidgets/kfilefiltercombo.cpp:125
+#: filewidgets/kfilefiltercombo.cpp:119
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:162
+#: filewidgets/kfilefiltercombo.cpp:156
 #, kde-format
 msgid "All Supported Files"
 msgstr "Alle støtta filer"
 
-#: filewidgets/kfilefiltercombo.cpp:172 filewidgets/kfilefiltercombo.cpp:174
+#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
 #: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"

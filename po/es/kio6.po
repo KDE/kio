@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:38+0000\n"
+"POT-Creation-Date: 2025-01-23 00:38+0000\n"
 "PO-Revision-Date: 2025-01-19 17:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2926,24 +2926,24 @@ msgctxt "@title:menu"
 msgid "Move Here"
 msgstr "Mover aquí"
 
-#: filewidgets/kfilefiltercombo.cpp:42
+#: filewidgets/kfilefiltercombo.cpp:37
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Todos los archivos"
 
-#: filewidgets/kfilefiltercombo.cpp:125
+#: filewidgets/kfilefiltercombo.cpp:119
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:162
+#: filewidgets/kfilefiltercombo.cpp:156
 #, kde-format
 msgid "All Supported Files"
 msgstr "Todos los archivos permitidos"
 
-#: filewidgets/kfilefiltercombo.cpp:172 filewidgets/kfilefiltercombo.cpp:174
+#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
 #: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:38+0000\n"
+"POT-Creation-Date: 2025-01-23 00:38+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2927,25 +2927,25 @@ msgctxt "@title:menu"
 msgid "Move Here"
 msgstr ""
 
-#: filewidgets/kfilefiltercombo.cpp:42
+#: filewidgets/kfilefiltercombo.cpp:37
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Zonke Iifayile"
 
-#: filewidgets/kfilefiltercombo.cpp:125
+#: filewidgets/kfilefiltercombo.cpp:119
 #, fuzzy, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (ufako %2)"
 
-#: filewidgets/kfilefiltercombo.cpp:162
+#: filewidgets/kfilefiltercombo.cpp:156
 #, fuzzy, kde-format
 msgid "All Supported Files"
 msgstr "Zonke iifayile ezixhasiweyo"
 
-#: filewidgets/kfilefiltercombo.cpp:172 filewidgets/kfilefiltercombo.cpp:174
+#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
 #: filewidgets/kfilewidget.cpp:1902
 #, fuzzy, kde-format
 #| msgid "*|All Files"

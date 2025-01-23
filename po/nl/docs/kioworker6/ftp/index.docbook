@@ -35,11 +35,10 @@
 <para
 >&FTP; wordt over het algemeen gebruikt om informatie en software  op te halen van &FTP;-sites verspreid over de hele wereld. </para>
 
-
 <para
->Bron: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
-> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> </para>
+>Zie de RFC: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Zie ook de man-pagina: <ulink url="man:/ftp"
