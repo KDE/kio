@@ -128,7 +128,7 @@ QSize KUrlNavigatorButton::sizeHint() const
     adjustedFont.setBold(m_subDir.isEmpty());
     // the minimum size is textWidth + arrowWidth() + 2 * BorderWidth; for the
     // preferred size we add the BorderWidth 2 times again for having an uncluttered look
-    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + arrowWidth() + 4 * BorderWidth;
+    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + arrowWidth() + 12 * BorderWidth;
     return QSize(width, KUrlNavigatorButtonBase::sizeHint().height());
 }
 
@@ -155,6 +155,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     adjustedFont.setBold(m_subDir.isEmpty());
     painter.setFont(adjustedFont);
 
+    int separatorPadding = 4;
     int buttonWidth = width();
     int preferredWidth = sizeHint().width();
     if (preferredWidth < minimumWidth()) {
@@ -176,7 +177,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     if (!m_subDir.isEmpty()) {
         // draw arrow
         const int arrowSize = arrowWidth();
-        const int arrowX = leftToRight ? (buttonWidth - arrowSize) - BorderWidth : BorderWidth;
+        const int arrowX = leftToRight ? (buttonWidth - arrowSize) - BorderWidth - separatorPadding : BorderWidth + separatorPadding;
         const int arrowY = (buttonHeight - arrowSize) / 2;
 
         QStyleOption option;
@@ -203,9 +204,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         }
 
         if (leftToRight) {
-            style()->drawPrimitive(QStyle::PE_IndicatorArrowRight, &option, &painter, this);
+            style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
         } else {
-            style()->drawPrimitive(QStyle::PE_IndicatorArrowLeft, &option, &painter, this);
+            style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
             textLeft += arrowSize + 2 * BorderWidth;
         }
 
@@ -239,6 +240,16 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     } else {
         painter.drawText(textRect, textFlags, plainText());
     }
+
+    QStyleOption option;
+    option.initFrom(this);
+    option.state = QStyle::State_Horizontal;
+    if (leftToRight) {
+        option.rect = QRect(rect().topRight(), rect().bottomRight());
+    } else {
+        option.rect = QRect(rect().topLeft(), rect().bottomLeft());
+    }
+    style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &option, &painter, this);
 }
 
 void KUrlNavigatorButton::enterEvent(QEnterEvent *event)
@@ -656,8 +667,8 @@ void KUrlNavigatorButton::updateMinimumWidth()
     const int oldMinWidth = minimumWidth();
 
     int minWidth = sizeHint().width();
-    if (minWidth < 40) {
-        minWidth = 40;
+    if (minWidth < 50) {
+        minWidth = 50;
     } else if (minWidth > 150) {
         // don't let an overlong path name waste all the URL navigator space
         minWidth = 150;
