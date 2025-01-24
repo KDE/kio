@@ -192,6 +192,7 @@ public:
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
+    KUrlNavigatorButtonBase *m_penButton = nullptr;
     QWidget *m_dropWidget = nullptr;
     QWidget *m_badgeWidgetContainer = nullptr;
 
@@ -294,6 +295,15 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotToggleEditableButtonPressed();
     });
 
+    m_penButton = new KUrlNavigatorButtonBase(q);
+    m_penButton->setIcon(QIcon::fromTheme(QStringLiteral("open-for-editing")));
+    m_penButton->installEventFilter(q);
+    m_penButton->setMinimumWidth(20);
+    m_penButton->setFlat(true);
+    q->connect(m_penButton, &KUrlNavigatorToggleButton::clicked, q, [this]() {
+        m_toggleEditableMode->clicked();
+    });
+
     if (m_placesSelector != nullptr) {
         m_layout->addWidget(m_placesSelector);
     }
@@ -302,6 +312,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_badgeWidgetContainer);
     m_layout->addWidget(m_toggleEditableMode);
+    m_layout->addWidget(m_penButton);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
     q->connect(q, &QWidget::customContextMenuRequested, q, [this](const QPoint &pos) {
@@ -685,6 +696,7 @@ void KUrlNavigatorPrivate::updateContent()
         m_schemes->hide();
         m_dropDownButton->hide();
         m_badgeWidgetContainer->hide();
+        m_penButton->hide();
 
         deleteButtons();
         m_toggleEditableMode->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -698,6 +710,7 @@ void KUrlNavigatorPrivate::updateContent()
     } else {
         m_pathBox->hide();
         m_badgeWidgetContainer->show();
+        m_penButton->show();
 
         m_schemes->hide();
 
@@ -1372,12 +1385,15 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QStyleOption option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
-    option.rect = d->m_layout->geometry();
+    QRect primitiveRect(d->m_layout->geometry());
+    primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
+    option.rect = primitiveRect;
     if (!d->m_badgeWidgetContainer->isHidden()) {
         style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
     } else {
         d->m_pathBox->setMinimumHeight(option.rect.height());
     }
+
     // Updates the widget so the painter will not leave old items behind
     update();
 }
