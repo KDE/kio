@@ -1374,10 +1374,12 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     option.state = QStyle::State_Sunken;
     option.editable = true;
     option.subControls.setFlag(QStyle::SC_ComboBoxArrow, false);
+    option.rect = d->m_layout->geometry();
     if (!d->m_badgeWidgetContainer->isHidden()) {
-        style()->drawComplexControl(QStyle::CC_ComboBox, &option, &painter, this);
+        style()->drawComplexControl(QStyle::CC_ComboBox, &option, &painter, d->m_badgeWidgetContainer);
+    } else {
+        d->m_pathBox->setMinimumHeight(option.rect.height());
     }
-    d->m_pathBox->setMinimumHeight(option.rect.height());
 }
 
 #include "moc_kurlnavigator.cpp"
