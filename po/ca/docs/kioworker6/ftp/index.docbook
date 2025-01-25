@@ -31,11 +31,10 @@
 <para
 >L'&FTP; és habitualment emprat per a recuperar informació i obtenir programari emmagatzemat en fitxers als llocs d'arxiu &FTP; per tot el món. </para>
 
-
 <para
->Font: parafrasejada de <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
->http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> </para>
+>Vegeu el RFC: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Mireu el manual: <ulink url="man:/ftp"
