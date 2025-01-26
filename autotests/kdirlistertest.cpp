@@ -1578,11 +1578,12 @@ void KDirListerTest::testDeleteCurrentDir()
 
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
-    QCOMPARE(m_dirLister.spyItemsDeleted.count(), 1);
-    const KFileItem deletedItem = m_dirLister.spyItemsDeleted.at(0).at(0).value<KFileItemList>().at(0);
-
-    QUrl currentDirUrl = QUrl::fromLocalFile(tempPath()).adjusted(QUrl::StripTrailingSlash);
-    QCOMPARE(currentDirUrl, deletedItem.url());
+    // there can be duplicated delete events
+    QVERIFY(m_dirLister.spyItemsDeleted.count() >= 1 && m_dirLister.spyItemsDeleted.count() <= 2);
+    const QUrl currentDirUrl = QUrl::fromLocalFile(tempPath()).adjusted(QUrl::StripTrailingSlash);
+    for (const auto &deletedItem : m_dirLister.spyItemsDeleted) {
+        QCOMPARE(currentDirUrl, deletedItem.at(0).value<KFileItemList>().at(0).url());
+    }
 }
 
 void KDirListerTest::testForgetDir()
