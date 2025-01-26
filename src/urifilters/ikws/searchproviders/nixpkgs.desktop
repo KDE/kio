@@ -13,12 +13,15 @@ Name[he]=חבילות Nix
 Name[ia]=Pacchettos de Nix
 Name[ka]=Nix-ის პაკეტები
 Name[nl]=Nix-pakketten
+Name[pl]=Pakiety Nix
 Name[sl]=Paketi Nix
 Name[sv]=Nix-paket
+Name[th]=แพ็คเกจ Nix
 Name[tr]=Nix Packages
 Name[uk]=Пакунки Nix
 Name[x-test]=xxNix Packagesxx
 Name[zh_CN]=Nix 软件包
+Name[zh_TW]=Nix 軟體包
 Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
@@ -33,10 +36,13 @@ Query[he]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[ia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ka]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[nl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[pl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[th]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[uk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[x-test]=xxhttps://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}xx
 Query[zh_CN]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[zh_TW]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Charset=utf8

@@ -13,12 +13,15 @@ Name[he]=Docker Hub
 Name[ia]=Docker Hub
 Name[ka]=Docker Hub
 Name[nl]=Docker-hub
+Name[pl]=Docker Hub
 Name[sl]=Docker Hub
 Name[sv]=Docker Hub
+Name[th]=Docker Hub
 Name[tr]=Docker Hub
 Name[uk]=Docker Hub
 Name[x-test]=xxDocker Hubxx
 Name[zh_CN]=Docker Hub
+Name[zh_TW]=Docker Hub
 Keys=docker,dockerhub,dh,dk,dhub,dkstore
 Query=https://hub.docker.com/search?q=\\{@}
 Query[ar]=https://hub.docker.com/search?q=\\{@}
@@ -33,10 +36,13 @@ Query[he]=https://hub.docker.com/search?q=\\{@}
 Query[ia]=https://hub.docker.com/search?q=\\{@}
 Query[ka]=https://hub.docker.com/search?q=\\{@}
 Query[nl]=https://hub.docker.com/search?q=\\{@}
+Query[pl]=https://hub.docker.com/search?q=\\{@}
 Query[sl]=https://hub.docker.com/search?q=\\{@}
 Query[sv]=https://hub.docker.com/search?q=\\{@}
+Query[th]=https://hub.docker.com/search?q=\\{@}
 Query[tr]=https://hub.docker.com/search?q=\\{@}
 Query[uk]=https://hub.docker.com/search?q=\\{@}
 Query[x-test]=xxhttps://hub.docker.com/search?q=\\{@}xx
 Query[zh_CN]=https://hub.docker.com/search?q=\\{@}
+Query[zh_TW]=https://hub.docker.com/search?q=\\{@}
 Charset=utf8

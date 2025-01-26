@@ -13,12 +13,15 @@ Name[he]=רשת המפתחים של Mozilla‏ (MDN)
 Name[ia]=Mozilla Developer Network (MDN)
 Name[ka]=Mozilla Developer Network (MDN)
 Name[nl]=Mozilla Developer Network (MDN)
+Name[pl]=Mozilla Developer Network (MDN)
 Name[sl]=Mozilla Developer Network (MDN)
 Name[sv]=Mozilla Developer Network (MDN)
+Name[th]=Mozilla Developer Network (MDN)
 Name[tr]=Mozilla Developer Network (MDN)
 Name[uk]=Мережа розробників Mozilla (MDN)
 Name[x-test]=xxMozilla Developer Network (MDN)xx
 Name[zh_CN]=Mozilla 开发者网络 (MDN)
+Name[zh_TW]=Mozilla 開發者文件 (MDN)
 Keys=mdn
 Query=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ar]=https://developer.mozilla.org/en-US/search?q=\\{@}
@@ -33,10 +36,13 @@ Query[he]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ia]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ka]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[pl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sv]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[th]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[tr]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[uk]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[x-test]=xxhttps://developer.mozilla.org/en-US/search?q=\\{@}xx
 Query[zh_CN]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[zh_TW]=https://developer.mozilla.org/zh-TW/search?q=\\{@}
 Charset=utf8
