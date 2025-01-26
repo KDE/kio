@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:38+0000\n"
-"PO-Revision-Date: 2025-01-19 12:19+0100\n"
+"PO-Revision-Date: 2025-01-25 12:04+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2115,6 +2115,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Aínda que se contactou co servidor, non se recibiu unha resposta dentro do "
+"tempo reservado para a solicitude."
 
 #: core/job_error.cpp:1104
 #, kde-format

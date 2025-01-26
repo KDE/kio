@@ -4,26 +4,26 @@
 # Thanomsub Noppaburana <donga_n@yahoo.com>, 2003, 2005.
 # Sahachart Anukulkitch <drrider@gmail.com>, 2005, 2006, 2007.
 # Thanomsub Noppaburana <donga.nb@gmail.com>, 2008, 2010.
-# SPDX-FileCopyrightText: 2025 Xerusion <kde@xerusion.me>
+# SPDX-FileCopyrightText: 2025 Pongsakorn S. <kde@xerusion.me>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:38+0000\n"
-"PO-Revision-Date: 2025-01-15 19:27+0700\n"
-"Last-Translator: Xerusion <kde@xerusion.me>\n"
-"Language-Team: Thai <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-01-25 15:32+0700\n"
+"Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
+"Language-Team: th\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 24.12.1\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ถนอมทรัพย์ นพบูรณ์, สหชาติ อนุกูลกิจ, Xerusion"
+msgstr "ถนอมทรัพย์ นพบูรณ์, สหชาติ อนุกูลกิจ, Pongsakorn S."
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -143,28 +143,28 @@ msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Syntax error ในคําสั่ง %1 ขณะพยายามเรียกใช้ %2"
 
 #: core/global.cpp:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
-msgstr[0] "1 วัน %2"
+msgstr[0] "%1 วัน %2"
 msgstr[1] "%1 วัน %2"
 
 #: core/global.cpp:88 core/global.cpp:104
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
 msgstr[0] "%1 รายการ"
 msgstr[1] "%1 รายการ"
 
 #: core/global.cpp:92
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
 msgstr[0] "%1 โฟลเดอร์"
 msgstr[1] "%1 โฟลเดอร์"
 
 #: core/global.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
 msgstr[0] "%1 ไฟล์"
@@ -2030,7 +2030,7 @@ msgstr "ข้อผิดพลาดจากการหมดเวลา"
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
-msgstr ""
+msgstr "แม้ว่าจะได้ทำการติดต่อกับเซิร์ฟเวอร์แล้วแต่ไม่ได้รับการตอบกลับภายในระยะเวลาที่กำหนด"
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -3082,7 +3082,7 @@ msgid "One or more files on this device are open within an application."
 msgstr "ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้เปิดอยู่ในแอปพลิเคชัน"
 
 #: filewidgets/kfileplacesmodel.cpp:1514
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
 "\"%2\"</application>."
@@ -3090,9 +3090,9 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชัน:<application>\"%2\"</application>."
+"ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชัน:<application>%2</application>."
 msgstr[1] ""
-"ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชันต่อไปนี้:<application>%2</application>."
+"ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชัน:<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1517
 #, kde-format
@@ -3248,7 +3248,7 @@ msgid "Remote files not accepted"
 msgstr "ไม่ยอมรับแฟ้มทางไกล"
 
 #: filewidgets/kfilewidget.cpp:796
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
 "scheme: %2"
@@ -3256,7 +3256,7 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] "URL ที่เลือกใช้มีรูปแบบที่ไม่ได้รับการสนับสนุน โปรดใช้รูปแบบนี้: %2"
-msgstr[1] "URL ที่เลือกใช้มีรูปแบบที่ไม่ได้รับการสนับสนุน โปรดใช้รูปแบบใดรูปแบบหนึ่งต่อไปนี้: %2"
+msgstr[1] "URL ที่เลือกใช้มีรูปแบบที่ไม่ได้รับการสนับสนุน โปรดใช้รูปแบบนี้: %2"
 
 #: filewidgets/kfilewidget.cpp:802
 #, kde-format
@@ -4953,7 +4953,7 @@ msgid "Delete Permanently"
 msgstr "ลบทาวร"
 
 #: widgets/jobuidelegate.cpp:242
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
@@ -4965,7 +4965,7 @@ msgstr[0] ""
 "คุณต้องการลบรายการนี้ออกอย่างถาวรจริงหรือ?<nl/><nl/><emphasis "
 "strong='true'>ไม่สามารถย้อนการกระทำนี้ได้</emphasis>"
 msgstr[1] ""
-"คุณต้องการลบ %1 รายการออกอย่างถาวรจริงหรือ?<nl/><nl/><emphasis "
+"คุณต้องการลบ %1 รายการนี้ออกอย่างถาวรจริงหรือ?<nl/><nl/><emphasis "
 "strong='true'>ไม่สามารถย้อนการกระทำนี้ได้</emphasis>"
 
 #: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
@@ -4993,7 +4993,7 @@ msgid ""
 msgstr "คุณต้องการย้ายรายการนี้ไปยังถังขยะจริงหรือไม่?<nl/><filename>%1</filename>"
 
 #: widgets/jobuidelegate.cpp:278
-#, fuzzy, kde-format
+#, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "คุณต้องการทิ้งรายการนี้ลงถังขยะจริงหรือไม่?"
@@ -5250,7 +5250,7 @@ msgid "&Other Application…"
 msgstr "&โปรแกรมอื่น"
 
 #: widgets/kfileitemdelegate.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
@@ -5395,7 +5395,7 @@ msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr "<qt>เลือกโปรแกรมที่คุณต้องการใช้เปิดไฟล์<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:592
-#, fuzzy, kde-format
+#, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
@@ -5749,6 +5749,7 @@ msgstr ""
 "%f - ชื่อไฟล์เดียว\n"
 "%F - รายการชื่อไฟล์ ซึ่งใช้กับโปรแกรมที่สามารถเปิดไฟล์บนเครื่องได้หลายไฟล์พร้อมกัน\n"
 "%u - ที่อยู่ URL เดียว\n"
+"%U - รายชื่อ URL \n"
 "%i - ไอคอนของไฟล์ .desktop\n"
 "%c - ชื่อของไฟล์ .desktop\n"
 "%k - ที่อยู่ของไฟล์ .desktop\n"
@@ -5878,7 +5879,7 @@ msgid "Properties for %1"
 msgstr "คุณสมบัติของ %1"
 
 #: widgets/kpropertiesdialog.cpp:170 widgets/kpropertiesdialog.cpp:206
-#, fuzzy, kde-format
+#, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
 msgstr[0] "คุณสมบัติของรายการที่เลือกไว้"
@@ -5939,7 +5940,7 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:682
 #: widgets/kpropertiesdialogbuiltin_p.cpp:697
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 ไฟล์"
@@ -5947,10 +5948,10 @@ msgstr[1] "%1 ไฟล์"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:683
 #: widgets/kpropertiesdialogbuiltin_p.cpp:698
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
-msgstr[0] "1 โฟลเดอร์ย่อย"
+msgstr[0] "โฟลเดอร์ย่อย"
 msgstr[1] "%1 โฟลเดอร์ย่อย"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:711
@@ -6032,7 +6033,7 @@ msgid "Access Permissions"
 msgstr "สิทธิ์ในการเข้าใช้งาน"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1183
-#, fuzzy, kde-format
+#, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "ไฟล์เป็นที่อยู่เชื่อมโยงและไม่มีสิทธิ์ที่อนุญาต"
@@ -6329,14 +6330,14 @@ msgid "Varying (No Change)"
 msgstr "การเปลี่ยนแปลง (ไม่เปลี่ยนแปลง)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1780
-#, fuzzy, kde-format
+#, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "ไฟล์นี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
 msgstr[1] "ไฟล์เหล่านี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1802
-#, fuzzy, kde-format
+#, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "โฟลเดอร์นี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
@@ -6493,7 +6494,7 @@ msgid "%1, %2 %3"
 msgstr "%1, %2 %3"
 
 #: widgets/ksslinfodialog.cpp:141
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
@@ -6501,7 +6502,7 @@ msgstr[0] "ใช้ %1 บิต"
 msgstr[1] "ใช้ %1 บิต"
 
 #: widgets/ksslinfodialog.cpp:142
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
@@ -6580,7 +6581,7 @@ msgid "Paste One File"
 msgstr "วางหนึ่งไฟล์"
 
 #: widgets/paste.cpp:264
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
@@ -6837,7 +6838,7 @@ msgid "New name #"
 msgstr "ชื่อใหม่ #"
 
 #: widgets/renamefiledialog.cpp:88
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
@@ -6983,7 +6984,7 @@ msgstr ""
 "><emphasis strong='true'>ไม่สามารถย้อนการกระทำนี้ได้</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:240
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this %1 item?<nl/><nl/><emphasis "
@@ -6992,10 +6993,10 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"คุณต้องการจะลบรายการ %1 แบบถาวรจากถังขยะหรือไม่? <nl/><nl/><emphasis "
+"คุณต้องการจะลบรายการ %1 แบบถาวรจากถังขยะหรือไม่?<nl/><nl/><emphasis "
 "strong='true'>การกระทำนี้ไม่สามารถจะเรียกคืนได้</emphasis>"
 msgstr[1] ""
-"คุณต้องการจะลบรายการทั้งหมด %1 แบบถาวรจากถังขยะหรือไม่? <nl/><nl/><emphasis "
+"คุณต้องการจะลบรายการ %1 แบบถาวรจากถังขยะหรือไม่?<nl/><nl/><emphasis "
 "strong='true'>การกระทำนี้ไม่สามารถจะเรียกคืนได้</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
@@ -7011,7 +7012,7 @@ msgstr ""
 "strong='true'>ไม่สามารถย้อนการดำเนินการนี้ได้</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -7026,12 +7027,12 @@ msgstr[0] ""
 "ลบทิ้งอย่างถาวรแทนหรือไม่? <nl/><nl/><emphasis "
 "strong='true'>ไม่สามารถย้อนการดำเนินการนี้ได้</emphasis>"
 msgstr[1] ""
-"การย้ายรายการ %1 รายการเหล่านี้ไปที่ถังขยะล้มเหลวเนื่องจากรายการเหล่านี้มีขนาดใหญ่เกินไป "
+"การย้ายรายการ %1 ไปที่ถังขยะล้มเหลวเนื่องจากรายการเหล่านี้มีขนาดใหญ่เกินไป "
 "ลบทิ้งอย่างถาวรแทนหรือไม่? <nl/><nl/><emphasis "
 "strong='true'>ไม่สามารถย้อนการดำเนินการนี้ได้</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
