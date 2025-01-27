@@ -29,6 +29,13 @@ public:
     /** @see QWidget::sizeHint() */
     QSize sizeHint() const override;
 
+    enum ToggleStyle {
+        NavigatorToggle,
+        PenToggle
+    };
+
+    void setToggleStyle(ToggleStyle style);
+
 protected:
     void enterEvent(QEnterEvent *event) override;
     void leaveEvent(QEvent *event) override;
@@ -40,6 +47,7 @@ private Q_SLOTS:
 
 private:
     QPixmap m_pixmap;
+    ToggleStyle m_toggleStyle;
 };
 
 } // namespace KDEPrivate

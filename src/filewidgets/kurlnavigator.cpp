@@ -192,7 +192,7 @@ public:
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
-    KUrlNavigatorButtonBase *m_penButton = nullptr;
+    KUrlNavigatorToggleButton *m_penButton = nullptr;
     QWidget *m_dropWidget = nullptr;
     QWidget *m_badgeWidgetContainer = nullptr;
 
@@ -295,11 +295,10 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotToggleEditableButtonPressed();
     });
 
-    m_penButton = new KUrlNavigatorButtonBase(q);
-    m_penButton->setIcon(QIcon::fromTheme(QStringLiteral("open-for-editing")));
+    m_penButton = new KUrlNavigatorToggleButton(q);
     m_penButton->installEventFilter(q);
     m_penButton->setMinimumWidth(20);
-    m_penButton->setFlat(true);
+    m_penButton->setToggleStyle(KUrlNavigatorToggleButton::PenToggle);
     q->connect(m_penButton, &KUrlNavigatorToggleButton::clicked, q, [this]() {
         m_toggleEditableMode->clicked();
     });
