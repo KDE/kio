@@ -480,8 +480,6 @@ protected:
 
     bool eventFilter(QObject *watched, QEvent *event) override;
 
-    void paintEvent(QPaintEvent *event) override;
-
 #endif
 
 private:

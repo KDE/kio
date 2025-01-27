@@ -1025,6 +1025,7 @@ KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWi
 
     setMinimumWidth(100);
 
+    installEventFilter(this);
     d->updateContent();
     d->updateTabOrder();
 }
@@ -1036,6 +1037,7 @@ KUrlNavigator::~KUrlNavigator()
     for (auto *button : std::as_const(d->m_navButtons)) {
         button->removeEventFilter(this);
     }
+    removeEventFilter(this);
 }
 
 QUrl KUrlNavigator::locationUrl(int historyIndex) const
@@ -1294,6 +1296,29 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
+    case QEvent::Paint: {
+        // We can't call this in overridden paintEvent since applications using
+        // this library won't utilize them due to binary incompatibility reasons.
+        if (watched == this) {
+            QPainter painter(this);
+            if (painter.isActive()) {
+                QStyleOption option;
+                option.initFrom(this);
+                option.state = QStyle::State_Sunken;
+                QRect primitiveRect(d->m_layout->geometry());
+                primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
+                option.rect = primitiveRect;
+                if (!d->m_badgeWidgetContainer->isHidden()) {
+                    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
+                } else {
+                    d->m_pathBox->setMinimumHeight(option.rect.height());
+                }
+                painter.end();
+            }
+        }
+        break;
+    }
+
     default:
         break;
     }
@@ -1374,27 +1399,6 @@ QWidget *KUrlNavigator::badgeWidget() const
     } else {
         return nullptr;
     }
-}
-
-void KUrlNavigator::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event);
-
-    QPainter painter(this);
-    QStyleOption option;
-    option.initFrom(this);
-    option.state = QStyle::State_Sunken;
-    QRect primitiveRect(d->m_layout->geometry());
-    primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
-    option.rect = primitiveRect;
-    if (!d->m_badgeWidgetContainer->isHidden()) {
-        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
-    } else {
-        d->m_pathBox->setMinimumHeight(option.rect.height());
-    }
-
-    // Updates the widget so the painter will not leave old items behind
-    update();
 }
 
 #include "moc_kurlnavigator.cpp"
