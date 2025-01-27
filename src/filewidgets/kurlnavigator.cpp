@@ -1298,7 +1298,10 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
 
     case QEvent::Paint: {
         // We can't call this in overridden paintEvent since applications using
-        // this library won't utilize them due to binary incompatibility reasons.
+        // The paint event is handled through the event filter because overriding
+        // paintEvent might not have an effect in applications compiled against older     
+        // as they might work with an older vtable. However they would see the new 
+        // button style.
         if (watched == this) {
             QPainter painter(this);
             if (painter.isActive()) {
