@@ -47,6 +47,8 @@ private Q_SLOTS:
 
 private:
     QPixmap m_pixmap;
+
+    // NavigatorToggle by default
     ToggleStyle m_toggleStyle;
 };
 
