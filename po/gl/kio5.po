@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2025-01-19 12:19+0100\n"
+"PO-Revision-Date: 2025-01-26 19:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2051,6 +2051,7 @@ msgstr ""
 "porque o método que o servidor está a usar Non se admite polo programa de "
 "KDE que realiza o protocolo %1."
 
+# skip-rule: trasno-bug-report_reverse
 #: core/job_error.cpp:1058
 #, kde-format
 msgid ""
@@ -4487,7 +4488,7 @@ msgstr ""
 "funcionalidade, o traballador de KIO de HTTP ofrece a posibilidade de "
 "personalizar a maneira na que xestiona os rastros. Para os seus sitios de "
 "confianza, podería querer definir como política predeterminada a de aceptar, "
-"polo que poderá acceder a sitios web sen necesidade de que se lle interrompa "
+"polo que poderá acceder a sitios web sen necesidade de que se lle pregunte "
 "cada vez que se reciba un rastro.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
