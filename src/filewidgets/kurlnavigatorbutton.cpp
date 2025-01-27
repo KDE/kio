@@ -126,8 +126,8 @@ QSize KUrlNavigatorButton::sizeHint() const
 {
     QFont adjustedFont(font());
     adjustedFont.setBold(m_subDir.isEmpty());
-    // the minimum size is textWidth + arrowWidth() + 2 * BorderWidth; for the
-    // preferred size we add the BorderWidth 2 times again for having an uncluttered look
+    // the minimum size is textWidth + arrowWidth() + 4 * BorderWidth; for the
+    // preferred size we add the BorderWidth 12 times again to add some more padding between buttons
     const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + arrowWidth() + 12 * BorderWidth;
     return QSize(width, KUrlNavigatorButtonBase::sizeHint().height());
 }
