@@ -88,7 +88,6 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
             const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
             m_pixmap = QIcon::fromTheme(QStringLiteral("open-for-editing")).pixmap(tickIconSize, devicePixelRatioF());
         }
-
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
     }
 }

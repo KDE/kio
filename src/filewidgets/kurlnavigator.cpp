@@ -1296,32 +1296,24 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
+#if KIO_VERSION < QT_VERSION_CHECK(7, 0, 0)
     case QEvent::Paint: {
         // We can't call this in overridden paintEvent since applications using
-        // The paint event is handled through the event filter because overriding
-        // paintEvent might not have an effect in applications compiled against older
-        // as they might work with an older vtable. However they would see the new
-        // button style.
+        // the paint event is handled through the event filter:
+        // Overriding paintEvent might not have an effect in applications
+        // compiled against the older KIO, as they might work with an older vtable.
+        // However, they would still see the new button style.
+        // This makes sure the background is always drawn.
         if (watched == this) {
-            QPainter painter(this);
-            if (painter.isActive()) {
-                QStyleOption option;
-                option.initFrom(this);
-                option.state = QStyle::State_Sunken;
-                QRect primitiveRect(d->m_layout->geometry());
-                primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
-                option.rect = primitiveRect;
-                if (!d->m_badgeWidgetContainer->isHidden()) {
-                    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
-                } else {
-                    d->m_pathBox->setMinimumHeight(option.rect.height());
-                }
-                painter.end();
+            auto *pEvent = static_cast<QPaintEvent *>(event);
+            if (pEvent) {
+                KUrlNavigator::paintEvent(pEvent);
                 return true;
             }
         }
         break;
     }
+#endif
 
     default:
         break;
@@ -1403,6 +1395,27 @@ QWidget *KUrlNavigator::badgeWidget() const
     } else {
         return nullptr;
     }
+}
+
+void KUrlNavigator::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+    QPainter painter(this);
+    QStyleOption option;
+    option.initFrom(this);
+    option.state = QStyle::State_Sunken;
+    QRect primitiveRect(d->m_layout->geometry());
+    primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
+    option.rect = primitiveRect;
+    if (!d->m_badgeWidgetContainer->isHidden()) {
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
+    } else {
+        d->m_pathBox->setMinimumHeight(option.rect.height());
+    }
+    // Make sure to update after painting. This fixes some
+    // visual glitchiness when the primitive is not being drawn, since
+    // the style is still cached.
+    update();
 }
 
 #include "moc_kurlnavigator.cpp"
