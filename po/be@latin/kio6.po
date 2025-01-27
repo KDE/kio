@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:38+0000\n"
+"POT-Creation-Date: 2025-01-27 00:38+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3200,7 +3200,7 @@ msgstr "Nie ŭdalosia dadać paneĺ razmiaščenniaŭ: %1"
 msgid "Only folders can be added to the Places panel."
 msgstr "Na paneĺ razmiaščenniaŭ možna dadavać toĺki katalohi."
 
-#: filewidgets/kfileplacesmodel.cpp:1362
+#: filewidgets/kfileplacesmodel.cpp:1359
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3208,13 +3208,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1364
+#: filewidgets/kfileplacesmodel.cpp:1361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3222,13 +3222,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1370
+#: filewidgets/kfileplacesmodel.cpp:1367
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1375
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3236,43 +3236,43 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Admantavannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Admantavać"
 
-#: filewidgets/kfileplacesmodel.cpp:1401
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Vyniać"
 
-#: filewidgets/kfileplacesmodel.cpp:1448
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, fuzzy, kde-format
 #| msgid "The device %1 is not a disk and cannot be ejected."
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Prylada \"%1\" - nie dysk, tamu nieĺha vykanać vymannie."
 
-#: filewidgets/kfileplacesmodel.cpp:1483
+#: filewidgets/kfileplacesmodel.cpp:1480
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1, the system responded: %2"
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka. Adkaz sistemy: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1485
+#: filewidgets/kfileplacesmodel.cpp:1482
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1"
 msgid "An error occurred while accessing '%1'"
 msgstr "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka"
 
-#: filewidgets/kfileplacesmodel.cpp:1511
+#: filewidgets/kfileplacesmodel.cpp:1508
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1514
+#: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3285,13 +3285,13 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1517
+#: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1564
+#: filewidgets/kfileplacesmodel.cpp:1561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

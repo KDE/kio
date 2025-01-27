@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:38+0000\n"
+"POT-Creation-Date: 2025-01-27 00:38+0000\n"
 "PO-Revision-Date: 2025-01-24 23:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2975,69 +2975,69 @@ msgstr "無法加入至快速存取面板：%1"
 msgid "Only folders can be added to the Places panel."
 msgstr "只有資料夾才能被加入至快速存取面板。"
 
-#: filewidgets/kfileplacesmodel.cpp:1362
+#: filewidgets/kfileplacesmodel.cpp:1359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "釋出中…"
 
-#: filewidgets/kfileplacesmodel.cpp:1364
+#: filewidgets/kfileplacesmodel.cpp:1361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "釋出(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "正在安全地移除…"
 
-#: filewidgets/kfileplacesmodel.cpp:1370
+#: filewidgets/kfileplacesmodel.cpp:1367
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "安全地移除(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1375
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "卸載中…"
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "卸載(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1401
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "退出(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1448
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "裝置 %1 不是光碟機，無法跳出。"
 
-#: filewidgets/kfileplacesmodel.cpp:1483
+#: filewidgets/kfileplacesmodel.cpp:1480
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "存取 %1 時發生錯誤，系統訊息：%2"
 
-#: filewidgets/kfileplacesmodel.cpp:1485
+#: filewidgets/kfileplacesmodel.cpp:1482
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "存取 %1 時發生錯誤"
 
-#: filewidgets/kfileplacesmodel.cpp:1511
+#: filewidgets/kfileplacesmodel.cpp:1508
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "裝置上的一或多個檔案正被應用程式開啟。"
 
-#: filewidgets/kfileplacesmodel.cpp:1514
+#: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3048,13 +3048,13 @@ msgid_plural ""
 msgstr[0] ""
 "裝置上的一或多個檔案正被以下應用程式開啟：<application>%2</application>。"
 
-#: filewidgets/kfileplacesmodel.cpp:1517
+#: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr "、"
 
-#: filewidgets/kfileplacesmodel.cpp:1564
+#: filewidgets/kfileplacesmodel.cpp:1561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

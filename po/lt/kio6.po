@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:38+0000\n"
+"POT-Creation-Date: 2025-01-27 00:38+0000\n"
 "PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -3138,70 +3138,70 @@ msgstr "Nepavyko įtraukti į Vietų skydelį: %1"
 msgid "Only folders can be added to the Places panel."
 msgstr "Tik aplankai gali būti įtraukti į Vietų skydelį."
 
-#: filewidgets/kfileplacesmodel.cpp:1362
+#: filewidgets/kfileplacesmodel.cpp:1359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Atlaisvinama…"
 
-#: filewidgets/kfileplacesmodel.cpp:1364
+#: filewidgets/kfileplacesmodel.cpp:1361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "A&tlaisvinti"
 
-#: filewidgets/kfileplacesmodel.cpp:1368
+#: filewidgets/kfileplacesmodel.cpp:1365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Saugiai pašalinamas…"
 
-#: filewidgets/kfileplacesmodel.cpp:1370
+#: filewidgets/kfileplacesmodel.cpp:1367
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Saugiai pašalinti"
 
-#: filewidgets/kfileplacesmodel.cpp:1375
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Atjungiamas…"
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Atj&ungti"
 
-#: filewidgets/kfileplacesmodel.cpp:1401
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Išstumti"
 
-#: filewidgets/kfileplacesmodel.cpp:1448
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Įrenginys „%1“ nėra diskas ir negali būti išstumtas."
 
-#: filewidgets/kfileplacesmodel.cpp:1483
+#: filewidgets/kfileplacesmodel.cpp:1480
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Įvyko klaida bandant pasiekti „%1“. Sistemos atsakymas: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1485
+#: filewidgets/kfileplacesmodel.cpp:1482
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Bandant pasiekti „%1“ įvyko netikėta klaida"
 
-#: filewidgets/kfileplacesmodel.cpp:1511
+#: filewidgets/kfileplacesmodel.cpp:1508
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Vienas ar daugiau failų iš šio įrenginio yra atverta tam tikrose programose."
 
-#: filewidgets/kfileplacesmodel.cpp:1514
+#: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3222,13 +3222,13 @@ msgstr[3] ""
 "Vienas ar daugiau failų iš šio įrenginio yra atverta šiose programose: "
 "<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1517
+#: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1564
+#: filewidgets/kfileplacesmodel.cpp:1561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
