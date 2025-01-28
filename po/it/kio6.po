@@ -1,4 +1,5 @@
 # translation of kio4.po to Italian
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
 # Daniele Medri <madrid@linuxmeeting.net>, 2003.
 # Federico Cozzi <federicocozzi@federicocozzi.it>, 2004.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2004.
@@ -6,14 +7,13 @@
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005, 2006.
 # Giovanni Venturi <jumpyj@tiscali.it>, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2007.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-27 00:38+0000\n"
-"PO-Revision-Date: 2024-11-06 21:14+0100\n"
+"PO-Revision-Date: 2025-01-21 00:05+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2137,6 +2137,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Sebbene ci sia stato un contatto con il server, non è stata ricevuta una "
+"risposta nel periodo di tempo assegnato alla richiesta."
 
 #: core/job_error.cpp:1104
 #, kde-format
