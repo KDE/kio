@@ -557,7 +557,6 @@ void KUrlNavigatorPrivate::switchView()
     // Make sure to update after switching the view. This fixes some
     // visual glitchiness when the primitive is not being drawn, since
     // the style is still cached.
-    q->update();
 }
 
 void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton)
@@ -735,6 +734,7 @@ void KUrlNavigatorPrivate::updateContent()
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
     }
+    q->update();
 }
 
 void KUrlNavigatorPrivate::updateButtons(int startIndex)
@@ -1443,7 +1443,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
             }
             // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
             // will be turned off if application style has separators turned off
-            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
         }
     } else {
         // Make sure the path box and the primitive background height is the same
