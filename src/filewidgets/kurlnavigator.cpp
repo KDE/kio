@@ -554,6 +554,10 @@ void KUrlNavigatorPrivate::switchView()
 
     q->requestActivation();
     Q_EMIT q->editableStateChanged(m_editable);
+    // Make sure to update after switching the view. This fixes some
+    // visual glitchiness when the primitive is not being drawn, since
+    // the style is still cached.
+    q->update();
 }
 
 void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton)
@@ -1417,10 +1421,6 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     } else {
         d->m_pathBox->setMinimumHeight(option.rect.height());
     }
-    // Make sure to update after painting. This fixes some
-    // visual glitchiness when the primitive is not being drawn, since
-    // the style is still cached.
-    update();
 }
 
 #include "moc_kurlnavigator.cpp"
