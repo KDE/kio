@@ -187,6 +187,8 @@ private:
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
     KIO::ListJob *m_subDirsJob;
     std::vector<SubDirInfo> m_subDirs;
+
+    int m_padding = 10;
 };
 
 } // namespace KDEPrivate

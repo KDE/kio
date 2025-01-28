@@ -826,7 +826,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     // Subtract all widgets from the available width, that must be shown anyway
-    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
+    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth() - m_penButton->width();
 
     availableWidth -= m_badgeWidgetContainer->width();
 
@@ -1404,8 +1404,13 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QStyleOption option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
+
     QRect primitiveRect(d->m_layout->geometry());
-    primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
+    if (layoutDirection() == Qt::LeftToRight) {
+        primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
+    } else {
+        primitiveRect.setX(primitiveRect.x() + d->m_penButton->geometry().width());
+    }
     option.rect = primitiveRect;
     if (!d->m_badgeWidgetContainer->isHidden()) {
         style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
