@@ -70,6 +70,9 @@ public:
     void setShowMnemonic(bool show);
     bool showMnemonic() const;
 
+    void setDrawSeparator(bool draw);
+    bool drawSeparator() const;
+
     struct SubDirInfo {
         QString name;
         QString displayName;
@@ -179,6 +182,7 @@ private:
     bool m_pendingTextChange;
     bool m_replaceButton;
     bool m_showMnemonic;
+    bool m_drawSeparator;
     int m_wheelSteps;
     QUrl m_url;
 
@@ -188,7 +192,7 @@ private:
     KIO::ListJob *m_subDirsJob;
     std::vector<SubDirInfo> m_subDirs;
 
-    int m_padding = 10;
+    int m_padding;
 };
 
 } // namespace KDEPrivate

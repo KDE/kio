@@ -33,11 +33,13 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     , m_pendingTextChange(false)
     , m_replaceButton(false)
     , m_showMnemonic(false)
+    , m_drawSeparator(true)
     , m_wheelSteps(0)
     , m_url(url)
     , m_subDir()
     , m_openSubDirsTimer(nullptr)
     , m_subDirsJob(nullptr)
+    , m_padding(10)
 {
     setAcceptDrops(true);
     setUrl(url);
@@ -144,6 +146,19 @@ bool KUrlNavigatorButton::showMnemonic() const
     return m_showMnemonic;
 }
 
+void KUrlNavigatorButton::setDrawSeparator(bool draw)
+{
+    if (m_drawSeparator != draw) {
+        m_drawSeparator = draw;
+        update();
+    }
+}
+
+bool KUrlNavigatorButton::drawSeparator() const
+{
+    return m_drawSeparator;
+}
+
 void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
@@ -247,17 +262,19 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         painter.drawText(textRect, textFlags, plainText());
     }
 
-    QStyleOption option;
-    option.initFrom(this);
-    option.state = QStyle::State_Horizontal;
-    if (leftToRight) {
-        option.rect = QRect(rect().topRight(), rect().bottomRight());
-    } else {
-        option.rect = QRect(rect().topLeft(), rect().bottomLeft());
+    if (m_drawSeparator) {
+        QStyleOption option;
+        option.initFrom(this);
+        option.state = QStyle::State_Horizontal;
+        if (leftToRight) {
+            option.rect = QRect(rect().topRight(), rect().bottomRight());
+        } else {
+            option.rect = QRect(rect().topLeft(), rect().bottomLeft());
+        }
+        // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
+        // will be turned off if application style has separators turned off
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
     }
-    // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
-    // will be turned off if application style has separators turned off
-    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
 void KUrlNavigatorButton::enterEvent(QEnterEvent *event)
