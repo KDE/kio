@@ -11,6 +11,7 @@ Name[fr]=Centre de Docker
 Name[gl]=Docker Hub
 Name[he]=Docker Hub
 Name[ia]=Docker Hub
+Name[it]=Docker Hub
 Name[ka]=Docker Hub
 Name[nl]=Docker-hub
 Name[pl]=Docker Hub
@@ -34,6 +35,7 @@ Query[fr]=https://hub.docker.com/search?q=\\{@}
 Query[gl]=https://hub.docker.com/search?q=\\{@}
 Query[he]=https://hub.docker.com/search?q=\\{@}
 Query[ia]=https://hub.docker.com/search?q=\\{@}
+Query[it]=https://hub.docker.com/search?q=\\{@}
 Query[ka]=https://hub.docker.com/search?q=\\{@}
 Query[nl]=https://hub.docker.com/search?q=\\{@}
 Query[pl]=https://hub.docker.com/search?q=\\{@}
