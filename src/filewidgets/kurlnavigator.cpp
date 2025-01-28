@@ -321,8 +321,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
 {
-    // insert to the left of: m_badgeWidgetContainer, m_toggleEditableMode
-    m_layout->insertWidget(m_layout->count() - 2, widget, stretch);
+    // insert to the left of: m_badgeWidgetContainer, m_toggleEditableMode, m_penButton
+    m_layout->insertWidget(m_layout->count() - 3, widget, stretch);
 }
 
 void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
