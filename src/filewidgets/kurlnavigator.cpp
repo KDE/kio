@@ -213,7 +213,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     , m_showPlacesSelector(placesModel != nullptr)
 {
     m_layout->setSpacing(0);
-    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setContentsMargins(5, 0, 5, 0);
 
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
@@ -268,6 +268,9 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_pathBox = new KUrlComboBox(KUrlComboBox::Directories, true, q);
     m_pathBox->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     m_pathBox->installEventFilter(q);
+    m_pathBox->setAutoFillBackground(false);
+    m_pathBox->setBackgroundRole(QPalette::Base);
+    m_pathBox->setFrame(false);
 
     KUrlCompletion *kurlCompletion = new KUrlCompletion(KUrlCompletion::DirCompletion);
     m_pathBox->setCompletionObject(kurlCompletion);
@@ -893,9 +896,12 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         m_dropDownButton->setVisible(visible);
     }
 
+    auto lastButton = m_navButtons.last();
     for (const auto &button : m_navButtons) {
-        if (!button->drawSeparator()) {
+        if (button != lastButton) {
             button->setDrawSeparator(true);
+        } else {
+            button->setDrawSeparator(false);
         }
     }
 
@@ -1414,41 +1420,10 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QStyleOption option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
-    const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
+    option.rect = rect();
 
-    QRect primitiveRect(d->m_layout->geometry());
-    if (leftToRight) {
-        primitiveRect.setWidth(primitiveRect.width() - d->m_penButton->geometry().width());
-    } else {
-        primitiveRect.setX(primitiveRect.x() + d->m_penButton->geometry().width());
-    }
-    option.rect = primitiveRect;
-    if (!d->m_badgeWidgetContainer->isHidden()) {
-        // Draw the background
-        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
-
-        // Draw separator on the badge and not the last button, if badge exists
-        if (!d->m_navButtons.empty() && d->m_badgeWidgetContainer->layout()->itemAt(0)) {
-            const auto lastButton = d->m_navButtons.last();
-            lastButton->setDrawSeparator(false);
-            auto badgeGeo = d->m_badgeWidgetContainer->geometry();
-            const int padding = 8;
-            option.state = QStyle::State_Horizontal;
-            if (leftToRight) {
-                badgeGeo.setRight(badgeGeo.right() + padding);
-                option.rect = QRect(badgeGeo.topRight(), badgeGeo.bottomRight());
-            } else {
-                badgeGeo.setLeft(badgeGeo.left() + padding);
-                option.rect = QRect(badgeGeo.topLeft(), badgeGeo.bottomLeft());
-            }
-            // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
-            // will be turned off if application style has separators turned off
-            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, d->m_badgeWidgetContainer);
-        }
-    } else {
-        // Make sure the path box and the primitive background height is the same
-        d->m_pathBox->setMinimumHeight(option.rect.height());
-    }
+    // Draw the background
+    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
 #include "moc_kurlnavigator.cpp"
