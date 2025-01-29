@@ -274,7 +274,7 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         res.text = xi18nc("@info",
                           "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
                           "<emphasis strong='true'>This action cannot be undone.</emphasis>");
-        res.acceptButton = KGuiItem(i18nc("@action:button", "Empty Trash"), QStringLiteral("user-trash"));
+        res.acceptButton = KGuiItem(i18nc("@action:button", "Empty Trash"), QStringLiteral("edit-delete"));
         break;
     }
     case AskIface::Trash: {

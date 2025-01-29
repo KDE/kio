@@ -256,7 +256,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
                 xi18nc("@info",
                        "Do you want to permanently delete all items from the Trash?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"),
                 i18n("Delete Permanently"),
-                KGuiItem(i18nc("@action:button", "Empty Trash"), QIcon::fromTheme(QStringLiteral("user-trash"))),
+                KGuiItem(i18nc("@action:button", "Empty Trash"), QIcon::fromTheme(QStringLiteral("edit-delete"))),
                 KStandardGuiItem::cancel(),
                 keyName,
                 options);

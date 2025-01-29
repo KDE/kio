@@ -1180,7 +1180,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     if (!clickOverEmptyArea) {
         if (placeUrl.scheme() == QLatin1String("trash")) {
-            emptyTrash = new QAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"), &menu);
+            emptyTrash = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action:inmenu", "Empty Trash"), &menu);
             KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
             emptyTrash->setEnabled(!trashConfig.group(QStringLiteral("Status")).readEntry("Empty", true));
         }
