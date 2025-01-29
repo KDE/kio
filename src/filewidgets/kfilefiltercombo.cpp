@@ -56,13 +56,21 @@ KFileFilterCombo::KFileFilterCombo(QWidget *parent)
 
 KFileFilterCombo::~KFileFilterCombo() = default;
 
-void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFilter &defaultFilter)
+void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFileFilter &defaultFilter)
 {
     clear();
     d->m_filters.clear();
     QString delim = QStringLiteral(", ");
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
+
+    const QList<KFileFilter> types = [filters] {
+        QList res = filters;
+        std::ranges::remove_if(res, [](const KFileFilter &f) {
+            return !f.isValid();
+        });
+        return res;
+    }();
 
     if (types.isEmpty()) {
         d->m_filters = {d->m_defaultFilter};
