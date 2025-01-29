@@ -217,13 +217,10 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         }
 
         const int widthModifier = arrowSize + 2 * BorderWidth;
-        if (leftToRight) {
-            style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
-        } else {
-            style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
+        style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
+        if (!leftToRight) {
             textLeft += widthModifier;
         }
-
         textWidth -= widthModifier;
     }
 
