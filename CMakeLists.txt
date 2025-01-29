@@ -106,6 +106,10 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to gen
 set(REQUIRED_QT_VERSION 6.6.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
 
+if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+    find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+endif()
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
