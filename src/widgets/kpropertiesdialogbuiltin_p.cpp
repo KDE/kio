@@ -182,10 +182,19 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     const KFileItem firstItem = properties->item();
     auto [url, isLocal] = firstItem.isMostLocalUrl();
     bool isReallyLocal = firstItem.url().isLocalFile();
+    KMountPoint::Ptr mp;
+    if (isLocal || isReallyLocal) {
+        mp = KMountPoint::currentMountPoints(KMountPoint::DetailsNeededFlag::NeedMountOptions).findByPath(url.toLocalFile());
+        if (!mp) {
+            qCWarning(KIO_WIDGETS) << "Could not find mount point for" << url;
+        }
+    }
     bool bDesktopFile = firstItem.isDesktopFile();
     mode_t mode = firstItem.mode();
     bool hasDirs = firstItem.isDir() && !firstItem.isLink();
     bool hasRoot = url.path() == QLatin1String("/");
+    bool hasAccessTime =
+        mp ? !(mp->mountOptions().contains(QLatin1String("noatime")) || (hasDirs && mp->mountOptions().contains(QLatin1String("nodiratime")))) : true;
     QString iconStr = firstItem.iconName();
     QString directory = properties->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
     QString protocol = properties->url().scheme();
@@ -478,7 +487,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->modifiedTimeLabel_Left->hide();
         }
 
-        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull()) {
+        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull() && hasAccessTime) {
             d->m_ui->accessTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
         } else {
             d->m_ui->accessTimeLabel->hide();
@@ -496,14 +505,11 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // File system and mount point widgets
     if (hasDirs) { // only for directories
         if (isLocal) {
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
-
             if (mp) {
                 d->m_ui->fsLabel->setText(mp->mountType());
                 d->m_ui->mountPointLabel->setText(mp->mountPoint());
                 d->m_ui->mountSrcLabel->setText(mp->mountedFrom());
             } else {
-                qCWarning(KIO_WIDGETS) << "Could not find mount point for" << url;
                 d->hideMountPointLabels();
             }
         } else {
