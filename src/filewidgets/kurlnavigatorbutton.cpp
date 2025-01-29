@@ -190,7 +190,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     if (!m_subDir.isEmpty()) {
         // draw arrow
         const int arrowSize = arrowWidth();
-        const int arrowX = leftToRight ? (buttonWidth - arrowSize) - BorderWidth : BorderWidth;
+        const int arrowX = leftToRight ? (buttonWidth - arrowSize) - BorderWidth * 2 : BorderWidth * 2;
         const int arrowY = (buttonHeight - arrowSize) / 2;
 
         QStyleOption option;
