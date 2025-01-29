@@ -557,9 +557,6 @@ void KUrlNavigatorPrivate::switchView()
 
     q->requestActivation();
     Q_EMIT q->editableStateChanged(m_editable);
-    // Make sure to update after switching the view. This fixes some
-    // visual glitchiness when the primitive is not being drawn, since
-    // the style is still cached.
 }
 
 void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton)
@@ -737,7 +734,6 @@ void KUrlNavigatorPrivate::updateContent()
         const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
     }
-    q->update();
 }
 
 void KUrlNavigatorPrivate::updateButtons(int startIndex)
