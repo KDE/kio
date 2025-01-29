@@ -202,21 +202,12 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::ButtonText, fgColor);
 
         if (m_hoverArrow) {
-            // highlight the background of the arrow to indicate that the directories
-            // popup can be opened by a mouse click
-            QColor hoverColor = palette().color(QPalette::HighlightedText);
-            hoverColor.setAlpha(96);
-            painter.setPen(Qt::NoPen);
-            painter.setBrush(hoverColor);
-
-            int hoverX = arrowX;
-            if (!leftToRight) {
-                hoverX -= BorderWidth;
-            }
-            painter.drawRect(QRect(hoverX, 0, arrowSize + BorderWidth, buttonHeight));
+            option.rect = QRect(arrowX, 0, arrowSize, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
+            style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &painter, this);
         }
 
         const int widthModifier = arrowSize + 2 * BorderWidth;
+        option.rect = QRect(arrowX, arrowY, arrowSize, arrowSize);
         style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
         if (!leftToRight) {
             textLeft += widthModifier;
