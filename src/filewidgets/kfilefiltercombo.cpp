@@ -74,7 +74,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
 
     d->m_allTypes = defaultFilter.isEmpty() && (types.count() > 1);
 
-    if (!types.isEmpty() && types.first().mimePatterns().isEmpty()) {
+    if (!types.isEmpty() && types.first().isValid() && types.first().mimePatterns().isEmpty()) {
         d->m_allTypes = false;
     }
 
