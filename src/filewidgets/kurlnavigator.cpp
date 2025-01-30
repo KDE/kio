@@ -192,7 +192,6 @@ public:
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
-    KUrlNavigatorToggleButton *m_penButton = nullptr;
     QWidget *m_dropWidget = nullptr;
     QWidget *m_badgeWidgetContainer = nullptr;
 
@@ -300,14 +299,6 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         slotToggleEditableButtonPressed();
     });
 
-    m_penButton = new KUrlNavigatorToggleButton(q);
-    m_penButton->installEventFilter(q);
-    m_penButton->setMinimumWidth(20);
-    m_penButton->setToggleStyle(KUrlNavigatorToggleButton::PenToggle);
-    q->connect(m_penButton, &KUrlNavigatorToggleButton::clicked, q, [this]() {
-        m_toggleEditableMode->clicked();
-    });
-
     if (m_placesSelector != nullptr) {
         m_layout->addWidget(m_placesSelector);
     }
@@ -316,7 +307,6 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_badgeWidgetContainer);
     m_layout->addWidget(m_toggleEditableMode);
-    m_layout->addWidget(m_penButton);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
     q->connect(q, &QWidget::customContextMenuRequested, q, [this](const QPoint &pos) {
@@ -326,8 +316,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
 {
-    // insert to the left of: m_badgeWidgetContainer, m_toggleEditableMode, m_penButton
-    m_layout->insertWidget(m_layout->count() - 3, widget, stretch);
+    // insert to the left of: m_badgeWidgetContainer, m_toggleEditableMode
+    m_layout->insertWidget(m_layout->count() - 2, widget, stretch);
 }
 
 void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
@@ -700,7 +690,6 @@ void KUrlNavigatorPrivate::updateContent()
         m_schemes->hide();
         m_dropDownButton->hide();
         m_badgeWidgetContainer->hide();
-        m_penButton->hide();
 
         deleteButtons();
         m_toggleEditableMode->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -714,7 +703,6 @@ void KUrlNavigatorPrivate::updateContent()
     } else {
         m_pathBox->hide();
         m_badgeWidgetContainer->show();
-        m_penButton->show();
 
         m_schemes->hide();
 
@@ -831,7 +819,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     // Subtract all widgets from the available width, that must be shown anyway
-    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth() - m_penButton->width();
+    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
 
     availableWidth -= m_badgeWidgetContainer->width();
 

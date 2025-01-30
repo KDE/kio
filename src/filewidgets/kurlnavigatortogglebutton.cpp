@@ -19,7 +19,6 @@ static constexpr int s_iconSize = KIconLoader::SizeSmallMedium;
 
 KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
-    , m_toggleStyle(ToggleStyle::NavigatorToggle)
 {
     setCheckable(true);
     connect(this, &QAbstractButton::toggled, this, &KUrlNavigatorToggleButton::updateToolTip);
@@ -43,13 +42,6 @@ QSize KUrlNavigatorToggleButton::sizeHint() const
     return size;
 }
 
-void KUrlNavigatorToggleButton::setToggleStyle(ToggleStyle style)
-{
-    if (m_toggleStyle != style) {
-        m_toggleStyle = style;
-    }
-}
-
 void KUrlNavigatorToggleButton::enterEvent(QEnterEvent *event)
 {
     KUrlNavigatorButtonBase::enterEvent(event);
@@ -61,34 +53,23 @@ void KUrlNavigatorToggleButton::leaveEvent(QEvent *event)
     KUrlNavigatorButtonBase::leaveEvent(event);
     setCursor(Qt::ArrowCursor);
 }
-
 void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.setClipRect(event->rect());
 
-    // Draws the dialog-ok icon if checked
-    if (m_toggleStyle == ToggleStyle::NavigatorToggle) {
-        if (isChecked()) {
-            drawHoverBackground(&painter);
-
-            if (m_pixmap.isNull() || m_pixmap.devicePixelRatioF() != devicePixelRatioF()) {
-                const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
-                m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
-            }
-
-            style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
-        }
-    }
-    // Draws the pen icon both checked and unchecked
-    else if (m_toggleStyle == ToggleStyle::PenToggle) {
+    // Draws the dialog-ok icon if checked, open-for-editing when unchecked
+    const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
+    if (isChecked()) {
         drawHoverBackground(&painter);
-
-        if (m_pixmap.isNull() || m_pixmap.devicePixelRatioF() != devicePixelRatioF()) {
-            const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
-            m_pixmap = QIcon::fromTheme(QStringLiteral("open-for-editing")).pixmap(tickIconSize, devicePixelRatioF());
-        }
+        m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
+    } else {
+        const bool isHighlighted = isDisplayHintEnabled(EnteredHint) || isDisplayHintEnabled(DraggedHint) || isDisplayHintEnabled(PopupActiveHint);
+        if (isHighlighted) {
+            m_pixmap = QIcon::fromTheme(QStringLiteral("open-for-editing")).pixmap(tickIconSize, devicePixelRatioF());
+            style()->drawItemPixmap(&painter, rect(), Qt::AlignRight | Qt::AlignVCenter, m_pixmap);
+        }
     }
 }
 
