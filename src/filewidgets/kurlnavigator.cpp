@@ -819,7 +819,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     // Subtract all widgets from the available width, that must be shown anyway
-    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
+    // Make sure to take the padding into account
+    int availableWidth = q->width() - (m_padding * 2) - m_toggleEditableMode->minimumWidth();
 
     availableWidth -= m_badgeWidgetContainer->width();
 
