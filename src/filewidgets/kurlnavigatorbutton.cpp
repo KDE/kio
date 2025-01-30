@@ -251,15 +251,15 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     if (m_drawSeparator) {
         QStyleOption option;
         option.initFrom(this);
-        option.state = QStyle::State_Horizontal;
         if (leftToRight) {
             option.rect = QRect(rect().topRight(), rect().bottomRight());
         } else {
             option.rect = QRect(rect().topLeft(), rect().bottomLeft());
         }
-        // Draw FrameLineEdit instead of IndicatorToolBarSeparator, since the latter
+
+        // Draw CE_Splitter instead of PE_IndicatorToolBarSeparator, since the latter
         // will be turned off if application style has separators turned off
-        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+        style()->drawControl(QStyle::CE_Splitter, &option, &painter, this);
     }
 }
 
