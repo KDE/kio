@@ -1132,8 +1132,11 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
     }
 
     d->m_showPlacesSelector = visible;
-    d->m_placesSelector->setVisible(visible);
-    d->updateTabOrder();
+    
+    if (d->m_placesSelector) {
+        d->m_placesSelector->setVisible(visible);
+        d->updateTabOrder();
+    }
 }
 
 bool KUrlNavigator::isPlacesSelectorVisible() const
