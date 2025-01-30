@@ -201,6 +201,8 @@ public:
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
 
+    int m_padding = 4;
+
     struct {
         bool showHidden = false;
         bool sortHiddenLast = false;
@@ -213,7 +215,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     , m_showPlacesSelector(placesModel != nullptr)
 {
     m_layout->setSpacing(0);
-    m_layout->setContentsMargins(5, 0, 5, 0);
+    m_layout->setContentsMargins(m_padding / 2, 0, m_padding / 2, 0);
 
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
@@ -1416,7 +1418,9 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QStyleOption option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
-    option.rect = rect();
+    const int pad = d->m_padding;
+    setContentsMargins(pad, pad, pad, pad);
+    option.rect = rect().adjusted(pad, pad, -pad, -pad);
 
     // Draw the background
     style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
