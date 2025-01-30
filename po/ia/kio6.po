@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:38+0000\n"
+"POT-Creation-Date: 2025-01-30 00:38+0000\n"
 "PO-Revision-Date: 2025-01-20 12:19+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3242,7 +3242,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5257,7 +5257,7 @@ msgstr "Proprietario"
 msgid "Owning Group"
 msgstr "Gruppo proprietari"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid "Others"
 msgstr "Alteres"
@@ -6084,36 +6084,36 @@ msgstr ""
 "Il non pote salveguardar proprietates debite a insufficiente derectos de "
 "accesso pro scriber sur <nl/><filename>%1</filename>,"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&General"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:427
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Explora in %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:429
-#: widgets/kpropertiesdialogbuiltin_p.cpp:702
+#: widgets/kpropertiesdialogbuiltin_p.cpp:438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, kde-format
 msgid "Refresh"
 msgstr "Refresca"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:554
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Grandor incognite"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6122,138 +6122,138 @@ msgstr ""
 "Il calcula... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:682
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:703
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 File"
 msgstr[1] "%1 files"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 sub-dossier"
 msgstr[1] "%1 sub-dossieres"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:717
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Il calcula... \n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:740
 #, kde-format
 msgid "At least %1\n"
 msgstr "Al minus %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:786
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Le nove nomine de file es vacue."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:978
+#: widgets/kpropertiesdialogbuiltin_p.cpp:984
 #, kde-format
 msgid "No registered file type"
 msgstr "Necun typos de file registrate"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:980
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgid "No associated application"
 msgstr "Nulle application associate "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Crea…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:989
+#: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Cambia …"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "No Access"
 msgstr "Necun accesso"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can Only View"
 msgstr "Pote solmente vider"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can View & Modify"
 msgstr "Pote vider & modificar"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can Only View Content"
 msgstr "Pote solmente vider contento"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can View & Modify Content"
 msgstr "Pote vider & modificar contento"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can Only View/Read Content"
 msgstr "Pote splmente vider/leger contento"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can View/Read & Modify/Write"
 msgstr "Pote Vider/Leger & Modificar/Scriber"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1162
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1168
 #, kde-format
 msgid "&Permissions"
 msgstr "&Permissiones"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1179
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1366
 #, kde-format
 msgid "Access Permissions"
 msgstr "Permissiones de accesso"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1183
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Iste file es un ligamine e non ha permissiones"
 msgstr[1] "Omne files es ligamines e non ha permissiones."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1185
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Solmente le proprietario pote modificar permissiones."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1198
 #, kde-format
 msgid "O&wner:"
 msgstr "P&roprietario:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Il specifica le actiones permittite al proprietario."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1197
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&uppo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Il specifica le actiones permittite a membros del gruppo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
 msgid "O&thers:"
 msgstr "Al&teres:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6262,27 +6262,27 @@ msgstr ""
 "Il specifica le actiones permittite a omne usatores qui non es ni "
 "proprietario ni in le gruppo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Solmente propri&etario pote renominar o deler contentos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Permitte &exequer file como programma"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Dele o renomina:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Execute:"
 msgstr "Executa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6293,7 +6293,7 @@ msgstr ""
 "deler o renominar files e dossieres continite. Altere usatores pote solmente "
 "adder nove files, lo que require le permission de 'Modifica contento'."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6302,42 +6302,42 @@ msgstr ""
 "Habilita iste option pro marcar le file como executabile. Isto solmente ha "
 "senso pro programmas e scripts. Il es requirite quando tu vole executar los."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1226
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Permissiones a&vantiate"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid "Ownership"
 msgstr "Proprietate"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "Usator:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1280
 #, kde-format
 msgid "Group:"
 msgstr "Gruppo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1314
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Applica modificationes a omne sub-dossieres e lor contentos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1356
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Permissiones avantiate"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid "Class"
 msgstr "Classe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid ""
 "Show\n"
@@ -6346,22 +6346,22 @@ msgstr ""
 "Monstra\n"
 "Entratas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Iste bandiera permitte vider le contento del dossier."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "Read"
 msgstr "Lege"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Iste bandiera de Lege permitte vider le contento del file."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
 #, kde-format
 msgid ""
 "Write\n"
@@ -6370,7 +6370,7 @@ msgstr ""
 "Scribe\n"
 "Entratas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6379,44 +6379,44 @@ msgstr ""
 "Iste bandiera permitte adder, renominar e deler de files. Tu nota que deler "
 "e renominar pote esser limitate per usar le bandiera de Sticky."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "Write"
 msgstr "Scribe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Le bandiera de Scribe permitte modificar le contento del file."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Inserta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Habilita iste bandiera pro permitter insertar le dossier."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Exec"
 msgstr "Exec"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Habilita iste bandiera pro permitter exequer le file como un programma."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
 #, kde-format
 msgid "Special"
 msgstr "Special"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6425,7 +6425,7 @@ msgstr ""
 "Bandiera de Special. Valide pro le integre dossier, le exacte significato "
 "del bandiera pote esser vidite in le columna a latere dextere."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1426
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6434,17 +6434,17 @@ msgstr ""
 "Bandiera de Special. Le exacte significato del bandiera pote esser vidite in "
 "le columna a latere dextere."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "User"
 msgstr "Usator"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid "Group"
 msgstr "Gruppo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6453,7 +6453,7 @@ msgstr ""
 "Si iste bandiera es fixate, le proprietario de iste dossier essera le "
 "proprietario de omne nove files."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6462,7 +6462,7 @@ msgstr ""
 "Si iste file es un executabile e le bandiera es fixate, il essera executate "
 "con le permissiones del proprietario."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6470,7 +6470,7 @@ msgstr ""
 "Si iste bandiera es fixate le gruppo de iste dossier essera fixate pro omne "
 "nove files."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6479,7 +6479,7 @@ msgstr ""
 "Si iste file es un executabile e le bandiera es fixate, il essera executate "
 "con le permissiones del gruppo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6489,7 +6489,7 @@ msgstr ""
 "proprietario e le super-usator (root-radice) pote deler o renominar files. "
 "Alteremente quicunque con permissiones de scriber pote facer lo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6498,89 +6498,89 @@ msgstr ""
 "le bandiera de collose (Sticky) sur un file es ignorate in Linux, ma il pote "
 "esser usate con altere systemas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1528
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1534
 #, kde-format
 msgid "Set UID"
 msgstr "Fixa UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
 #, kde-format
 msgid "Set GID"
 msgstr "Fixa GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1542
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky (collose)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1649
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1655
 #, kde-format
 msgid "Link"
 msgstr "Ligamine"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1675
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Variar (nulle modification)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1786
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Iste file usa permissiones avantiate"
 msgstr[1] "Iste files usa permissiones avantiate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1802
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1808
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Iste dossier usa permissiones avantiate."
 msgstr[1] "Iste dossieres usa permissiones avantiate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1816
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Iste files usa permissiones avantiate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2060
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "C&hecksums"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2119
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2130
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2152
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2147
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2158
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Il calcula..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Checksum invalide."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2311
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Le date ingresso non es un valide checksum MD5, SHA1 o SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2322
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2328
 #, kde-format
 msgid "Checksums match."
 msgstr "Checksums coincidente"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2325
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Le checksum computate e le checksum expectate es coincidente."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6591,30 +6591,30 @@ msgstr ""
 "error. Essaya de novo a discargar le file.<br/>Si le verification falle "
 "ancora, continge  le fonte del file."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2342
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2348
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Le checksum computate e le checksum expectate differe."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Verificante checksum..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2450
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2513
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2784
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2519
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2790
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6622,27 +6622,27 @@ msgstr ""
 "Il non pote salveguarda proprietates. Solmente entratas sur systemas de file "
 "local es supportate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2584
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2590
 #, kde-format
 msgid "&Application"
 msgstr "&Application:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2724
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2730
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Adde typo de file pro %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2731
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selige un plus typos de file de adder:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2869
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Solmente files executabile sur systemas de file local es supportate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2877
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2883
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Optiones avantiate pro %1"

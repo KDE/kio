@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:38+0000\n"
+"POT-Creation-Date: 2025-01-30 00:38+0000\n"
 "PO-Revision-Date: 2025-01-24 09:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3123,7 +3123,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5097,7 +5097,7 @@ msgstr "בעלים"
 msgid "Owning Group"
 msgstr "קבוצת בעלים"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid "Others"
 msgstr "אחרים"
@@ -5915,36 +5915,36 @@ msgstr ""
 "לא ניתן לשמור מאפיינים עקב גישה לא מספקת לכתיבה אל:<nl/><filename>%1</"
 "filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&כללי"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:427
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "עיון ב־%1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:429
-#: widgets/kpropertiesdialogbuiltin_p.cpp:702
+#: widgets/kpropertiesdialogbuiltin_p.cpp:438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, kde-format
 msgid "Refresh"
 msgstr "ריענון"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:554
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -5953,8 +5953,8 @@ msgstr ""
 "מחuשב… %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:682
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:703
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -5963,8 +5963,8 @@ msgstr[1] "שני קבצים"
 msgstr[2] "%1 קבצים"
 msgstr[3] "%1 קבצים"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
@@ -5973,85 +5973,85 @@ msgstr[1] "שתי תת־תיקיות"
 msgstr[2] "%1 תת־תיקיות"
 msgstr[3] "%1 תת־תיקיות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:717
 #, kde-format
 msgid "Calculating...\n"
 msgstr "מתבצע חישוב…\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:740
 #, kde-format
 msgid "At least %1\n"
 msgstr "לפחות %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:786
 #, kde-format
 msgid "The new file name is empty."
 msgstr "שם הקובץ החדש ריק."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:978
+#: widgets/kpropertiesdialogbuiltin_p.cpp:984
 #, kde-format
 msgid "No registered file type"
 msgstr "אין סוג קובץ רשום"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:980
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgid "No associated application"
 msgstr "אין יישום משויך"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "יצירה…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:989
+#: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "החלפה…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "No Access"
 msgstr "אין גישה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can Only View"
 msgstr "אפשר רק לצפות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can View & Modify"
 msgstr "אפשר לצפות ולערוך"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can Only View Content"
 msgstr "אפשר רק לצפות בתוכן"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can View & Modify Content"
 msgstr "אפשר להציג את התוכן ולשנותו"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can Only View/Read Content"
 msgstr "אפשר רק לצפות/לקרוא את התוכן"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can View/Read & Modify/Write"
 msgstr "אפשר להציג/לקרוא ולשנות/לכתוב"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1162
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1168
 #, kde-format
 msgid "&Permissions"
 msgstr "ה&רשאות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1179
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1366
 #, kde-format
 msgid "Access Permissions"
 msgstr "הרשאות גישה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1183
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6060,64 +6060,64 @@ msgstr[1] "כל הקבצים הם קישורים ואין להם הרשאות."
 msgstr[2] "כל הקבצים הם קישורים ואין להם הרשאות."
 msgstr[3] "כל הקבצים הם קישורים ואין להם הרשאות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1185
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "רק הבעלים יכולים לשנות הרשאות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1198
 #, kde-format
 msgid "O&wner:"
 msgstr "בע&לים:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "ציון הפעולות שהבעלים רשאים לבצע."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1197
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Gro&up:"
 msgstr "&קבוצה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "ציון הפעולות שחברים בקבוצה רשאים לבצע."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
 msgid "O&thers:"
 msgstr "א&חרים:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "ציון הפעולות שרשאים לבצע כל המשתמשים שאינם הבעלים ואינם חברים בקבוצה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "רק הבעלים יכולים לש&נות שמות או למחוק את התוכן"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "לאפשר ה&פעלת הקובץ כתוכנית"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Delete or rename:"
 msgstr "מחיקה או שינוי שם:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Execute:"
 msgstr "הרצה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6128,7 +6128,7 @@ msgstr ""
 "והתיקיות שבה. משתמשים אחרים יוכלו רק להוסיף קבצים חדשים, מה שדורש את ההרשאה "
 "ל‚שינוי תוכן’."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6137,42 +6137,42 @@ msgstr ""
 "בחירה באפשרות זו תסמן את הקובץ כניתן להפעלה. אפשרות זו הגיונית רק עבור "
 "תוכניות וסקריפטים, והיא נחוצה להפעלתם."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1226
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "הרשאות מת&קדמות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid "Ownership"
 msgstr "בעלות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "משתמש:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1280
 #, kde-format
 msgid "Group:"
 msgstr "קבוצה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1314
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "החלת השינויים על כל תיקיות המשנה ותכולתן"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1356
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "הרשאות מתקדמות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid "Class"
 msgstr "מחלקה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid ""
 "Show\n"
@@ -6181,22 +6181,22 @@ msgstr ""
 "הצגת\n"
 "רשומות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "דגל זה מאפשר להציג את תוכן התיקייה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "Read"
 msgstr "קריאה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "דגל הקריאה מאפשר להציג את תוכן הקובץ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
 #, kde-format
 msgid ""
 "Write\n"
@@ -6205,7 +6205,7 @@ msgstr ""
 "כתיבת\n"
 "רשומות"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6214,43 +6214,43 @@ msgstr ""
 "דגל זה מאפשר להוסיף, לשנות שמות ולמחוק קבצים. ראוי לשים לב שניתן להגביל "
 "מחיקות ושינויי שמות באמצעות הדגל „דביק”."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "Write"
 msgstr "כתיבה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "דגל הכתיבה מאפשר לשנות את תוכן הקובץ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "כניסה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "הפעלת דגל זה תאפשר כניסה לתיקייה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Exec"
 msgstr "הפעלה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "יש להפעיל דגל זה כדי לאפשר הפעלת קובץ כתוכנית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
 #, kde-format
 msgid "Special"
 msgstr "מיוחד"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6259,24 +6259,24 @@ msgstr ""
 "דגל מיוחד. דגל זה חל על התיקייה כולה. ניתן לברר את המשמעות המדויקת של הדגל "
 "בעמודה השמאלית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1426
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "דגל מיוחד. ניתן לברר את המשמעות המדויקת של הדגל בעמודה השמאלית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "User"
 msgstr "משתמש"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid "Group"
 msgstr "קבוצה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6284,27 +6284,27 @@ msgid ""
 msgstr ""
 "אם דגל זה נבחר, הבעלים של תיקייה זו יהיו הבעלים של כל הקבצים החדשים שייווצרו."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם ההרשאות של הבעלים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr "אם דגל זה נבחר, הקבוצה של תיקייה זו תוגדר עבור כל הקבצים חדשים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם ההרשאות של הקבוצה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6313,7 +6313,7 @@ msgstr ""
 "אם הדגל „דביק” הוגדר על תיקייה, רק הבעלים ומשתמש העל יכולים למחוק או לשנות "
 "שמות של קבצים. אחרת כל בעלי הרשאות הכתיבה יכולים לעשות זאת."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6322,33 +6322,33 @@ msgstr ""
 "הדגלון „דביק” על קובץ זוכה להתעלמות בלינוקס אך יכול להיות שיש לו שימוש "
 "במערכת כלשהן"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1528
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1534
 #, kde-format
 msgid "Set UID"
 msgstr "הגדרת מזהה משתמש"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
 #, kde-format
 msgid "Set GID"
 msgstr "הגדרת מזהה קבוצה"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1542
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "דביק"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1649
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1655
 #, kde-format
 msgid "Link"
 msgstr "קישור"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1675
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "משתנה (ללא שינוי)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1786
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6357,7 +6357,7 @@ msgstr[1] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 msgstr[2] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 msgstr[3] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1802
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1808
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6366,49 +6366,49 @@ msgstr[1] "התיקיות האלו משתמשות בהרשאות מתקדמות.
 msgstr[2] "התיקיות האלו משתמשות בהרשאות מתקדמות."
 msgstr[3] "התיקיות האלו משתמשות בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1816
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "קבצים אלה משתמשים בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2060
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "סיכומי &ביקורת"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2119
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2130
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2152
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2147
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2158
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "מחושב…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
 msgid "Invalid checksum."
 msgstr "סיכום ביקורת שגוי."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2311
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "הקלט אינו סיכום ביקורת תקף מהסוגים MD5,‏ SHA1 או SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2322
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2328
 #, kde-format
 msgid "Checksums match."
 msgstr "סיכומי הביקורת תואמים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2325
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "סיכום הביקורת שחושב וסיכום הביקורת הצפוי תואמים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6418,57 +6418,57 @@ msgstr ""
 "<p>סיכומי הביקורת סותרים.</p>כנראה ההורדה לא תקינה. עדיף לנסות להוריד את "
 "הקובץ שוב.<br/>אם האימות עדיין נכשל, יש ליצור קשר עם המקור שפרסם את הקובץ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2342
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2348
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "סיכום הביקורת שחושב וסיכום הביקורת הצפוי שונים זה מזה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "סיכום הביקורת מאומת…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgid "U&RL"
 msgstr "כ&תובת"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2450
 #, kde-format
 msgid "URL:"
 msgstr "כתובת:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2513
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2784
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2519
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2790
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "אי אפשר לשמור את המאפיינים. יש תמיכה רק ברשומות במערכות הקבצים המקומיות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2584
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2590
 #, kde-format
 msgid "&Application"
 msgstr "יי&שום"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2724
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2730
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "הוספת סוג קובץ עבור %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2731
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "נא לבחור סוג קובץ אחד או יותר להוספה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2869
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "יש תמיכה רק בקובצי ההפעלה במערכת המקומית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2877
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2883
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "אפשרויות מתקדמות עבור %1"

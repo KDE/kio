@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:38+0000\n"
+"POT-Creation-Date: 2025-01-30 00:38+0000\n"
 "PO-Revision-Date: 2024-06-20 22:17+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3211,7 +3211,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5224,7 +5224,7 @@ msgstr "Tulajdonos"
 msgid "Owning Group"
 msgstr "Tulajdonos csoport"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid "Others"
 msgstr "Egyéb"
@@ -6050,36 +6050,36 @@ msgstr ""
 "Nem sikerült menteni a tulajdonságokat nem megfelelő írási jogok miatt ide:"
 "<nl/><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "Á&ltalános"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:427
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Megnyitás ezzel: %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:429
-#: widgets/kpropertiesdialogbuiltin_p.cpp:702
+#: widgets/kpropertiesdialogbuiltin_p.cpp:438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, kde-format
 msgid "Refresh"
 msgstr "Frissítés"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:554
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Ismeretlen méret"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6088,138 +6088,138 @@ msgstr ""
 "Számolás... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:682
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:703
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 fájl"
 msgstr[1] "%1 fájl"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 almappa"
 msgstr[1] "%1 almappa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:717
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Számolás…\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:740
 #, kde-format
 msgid "At least %1\n"
 msgstr "Legalább %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:786
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Az új fájlnév nem lehet üres!"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:978
+#: widgets/kpropertiesdialogbuiltin_p.cpp:984
 #, kde-format
 msgid "No registered file type"
 msgstr "Nincs regisztrált fájltípus"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:980
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgid "No associated application"
 msgstr "Nincs társított alkalmazás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Létrehozás…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:989
+#: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Módosítás…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "No Access"
 msgstr "Nincs hozzáférés"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can Only View"
 msgstr "Csak megtekinthető"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can View & Modify"
 msgstr "Megtekinthető és módosítható"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can Only View Content"
 msgstr "A tartalom csak megtekinthető"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can View & Modify Content"
 msgstr "A tartalom megtekinthető és megváltoztatható"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can Only View/Read Content"
 msgstr "A tartalom csak megtekinthető/olvasható"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can View/Read & Modify/Write"
 msgstr "Megtekintés/olvasás és módosítás/írás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1162
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1168
 #, kde-format
 msgid "&Permissions"
 msgstr "Jo&gosultságok"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1179
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1366
 #, kde-format
 msgid "Access Permissions"
 msgstr "Hozzáférési jogok"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1183
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Ez a fájl egy link, hozzáférési jogosultság nélkül."
 msgstr[1] "Mindegyik fájl link, hozzáférési jogosultság nélkül."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1185
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Csak a tulajdonos változtathatja meg a jogosultságokat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1198
 #, kde-format
 msgid "O&wner:"
 msgstr "T&ulajdonos:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "A tulajdonos hozzáférési jogosultságait határozzák meg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1197
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Csoport:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "A csoport tagjainak hozzáférési jogosultságait határozzák meg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
 msgid "O&thers:"
 msgstr "E&gyéb:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6228,32 +6228,32 @@ msgstr ""
 "A többi felhasználó hozzáférési jogosultságait határozzák meg (akik nem "
 "tulajdonosok és nem szerepelnek a csoportban sem)."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Only own&er can rename and delete folder content"
 msgid "Only own&er can delete or rename contents"
 msgstr ""
 "Csak a t&ulajdonos nevezheti át ill. törölheti a mappában található elemeket"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Enable this flag to allow executing the file as a program."
 msgid "Allow &executing file as program"
 msgstr "Ez a jogosultság teszi lehetővé programfájl esetén a végrehajtást."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgid "Delete or rename:"
 msgstr "Az alapértelmezett felhasználónév:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgid "Execute:"
 msgstr "&Futtatás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6265,7 +6265,7 @@ msgstr ""
 "felhasználó csak új fájlok létrehozására jogosult, melyhez 'A tartalom "
 "módosítása' jogosultság szükséges."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6275,42 +6275,42 @@ msgstr ""
 "csak programok és parancsfájlok esetén van értelme. Csak ilyen jogosultságú "
 "fájlokat lehet végrehajtani."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1226
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Speciális jo&gosultságok"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid "Ownership"
 msgstr "Tulajdonosi jog"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "Felhasználó:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1280
 #, kde-format
 msgid "Group:"
 msgstr "Csoport:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1314
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "A módosítások terjedjenek ki az összes almappára"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1356
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Speciális jogosultságok"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid "Class"
 msgstr "Osztály"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid ""
 "Show\n"
@@ -6319,22 +6319,22 @@ msgstr ""
 "A bejegyzések\n"
 "megjelenítése"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ez az opció lehetővé teszi a mappa tartalmának megtekintését."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "Read"
 msgstr "Olvasás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Az Olvasás opció lehetővé teszi a fájl tartalmának megtekintését."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
 #, kde-format
 msgid ""
 "Write\n"
@@ -6343,7 +6343,7 @@ msgstr ""
 "A bejegyzések\n"
 "írása"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6353,44 +6353,44 @@ msgstr ""
 "törlését. A sticky jogosultsággal korlátozni lehet a törlést és az "
 "átnevezést."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "Write"
 msgstr "Írás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr ""
 "Az írási jogosultság lehetővé teszi a fájl tartalmának megváltoztatását."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Belépés"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Ez a jogosultság teszi lehetővé a mappába való belépést."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Exec"
 msgstr "Futtatás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Ez a jogosultság teszi lehetővé programfájl esetén a végrehajtást."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
 #, kde-format
 msgid "Special"
 msgstr "Speciális"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6399,7 +6399,7 @@ msgstr ""
 "Speciális jogosultság. Az egész mappára érvényes. Pontos jelentése a jobb "
 "oldali oszlopban látható."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1426
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6407,17 +6407,17 @@ msgid ""
 msgstr ""
 "Speciális jogosultság. Pontos jelentése a jobb oldali oszlopban olvasható."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "User"
 msgstr "Felhasználó"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid "Group"
 msgstr "Csoport"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6426,7 +6426,7 @@ msgstr ""
 "Ha ez a jogosultság be van állítva, a mappa tulajdonosa lesz a létrehozott "
 "új fájlok tulajdonosa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6435,7 +6435,7 @@ msgstr ""
 "Ha a fájl programfájl és ez a jogosultság be van állítva, akkor azt a "
 "rendszer a fájl tulajdonosának nevében fogja futtatni."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6443,7 +6443,7 @@ msgstr ""
 "Ha ez a jogosultság be van állítva, a mappa tulajdonosi csoportja lesz a "
 "tulajdonosi csoport az itt létrehozott új fájloknál."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6452,7 +6452,7 @@ msgstr ""
 "Ha a fájl programfájl és ez a jogosultság be van állítva, a rendszer azt a "
 "csoport nevében fogja futtatni."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6462,7 +6462,7 @@ msgstr ""
 "tulajdonos és a rendszergazda tud fájlokat törölni és átnevezni. Ha nincs "
 "beállítva, akkor az összes írási jogosultságú felhasználó."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6471,89 +6471,89 @@ msgstr ""
 "Linuxban nincs szerepe fájloknál a sticky jogosultságnak, de más "
 "rendszerekben ez előfordulhat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1528
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1534
 #, kde-format
 msgid "Set UID"
 msgstr "A UID beállítása"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
 #, kde-format
 msgid "Set GID"
 msgstr "A GID beállítása"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1542
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1649
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1655
 #, kde-format
 msgid "Link"
 msgstr "Link"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1675
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Változó (nincs változás)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1786
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Ez a fájl speciális hozzáférési jogosultságokkal rendelkezik."
 msgstr[1] "Ezek a fájlok speciális hozzáférési jogosultságokkal rendelkeznek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1802
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1808
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Ez a mappa speciális hozzáférési jogosultságokkal rendelkezik."
 msgstr[1] "Ezek a mappák speciális hozzáférési jogosultságokkal rendelkeznek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1816
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Ezek a fájlok speciális hozzáférési jogosultságokkal rendelkeznek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2060
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Ellenőr&zőösszegek"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2119
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2130
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2152
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2147
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2158
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Számolás…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Érvénytelen ellenőrzőösszeg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2311
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "A megadott bemenet nem érvényes MD5, SHA1 vagy SHA256 ellenőrzőösszeg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2322
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2328
 #, kde-format
 msgid "Checksums match."
 msgstr "Az ellenőrzőösszegek egyeznek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2325
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "A számolt és a várt ellenőrzőösszegek egyeznek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6564,30 +6564,30 @@ msgstr ""
 "Próbálja meg újra letölteni a fájlt.<br/>Ha az ellenőrzés továbbra is "
 "meghiúsul, lépjen kapcsolatba a fájlt biztosítóval."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2342
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2348
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "A számolt és a várt ellenőrzőösszegek eltérnek."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Ellenőrzőösszegek ellenőrzése…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2450
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2513
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2784
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2519
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2790
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6595,27 +6595,27 @@ msgstr ""
 "Nem sikerült menteni a tulajdonságokat. Csak bejegyzések támogatottak a "
 "helyi fájlrendszeren."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2584
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2590
 #, kde-format
 msgid "&Application"
 msgstr "Al&kalmazás"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2724
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2730
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Fájltípus hozzáadása ehhez: %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2731
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Válassza ki a felvenni kívánt fájltípusokat:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2869
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "A futtatni kívánt programfájl nem lehet távoli fájlrendszeren."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2877
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2883
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Speciális beállítások - %1"

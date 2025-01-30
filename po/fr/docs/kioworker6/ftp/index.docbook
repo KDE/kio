@@ -35,11 +35,10 @@
 <para
 >Le &FTP; est couramment utilisé pour retrouver une information et obtenir des logiciels enregistrés sur des sites &FTP; d'archives partout dans le monde. </para>
 
-
 <para
->Source : <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
-> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> </para>
+>Veuillez consulter le document « RFC » : <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Voir le manuel : <ulink url="man:/ftp"

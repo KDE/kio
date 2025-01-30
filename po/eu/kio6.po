@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:38+0000\n"
+"POT-Creation-Date: 2025-01-30 00:38+0000\n"
 "PO-Revision-Date: 2025-01-19 07:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3218,7 +3218,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:662
+#: widgets/kpropertiesdialogbuiltin_p.cpp:668
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5231,7 +5231,7 @@ msgstr "Jabea"
 msgid "Owning Group"
 msgstr "Taldea"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid "Others"
 msgstr "Besteak"
@@ -6055,36 +6055,36 @@ msgstr ""
 "Ezin izan ditu propietateak gorde idazteko baimen nahikorik ez duelako:<nl/"
 "><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Orokorra"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:427
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Esploratu %1(e)kin"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:429
-#: widgets/kpropertiesdialogbuiltin_p.cpp:702
+#: widgets/kpropertiesdialogbuiltin_p.cpp:438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:708
 #, kde-format
 msgid "Refresh"
 msgstr "Freskatu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:554
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6093,138 +6093,138 @@ msgstr ""
 "Kalkulatzen... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:682
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:703
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "Fitxategi 1"
 msgstr[1] "%1 fitxategi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "Azpikarpeta 1"
 msgstr[1] "%1 azpikarpeta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:717
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Kalkulatzen...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:740
 #, kde-format
 msgid "At least %1\n"
 msgstr "Gutxienez %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:786
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Fitxategi-izen berria hutsik dago."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:978
+#: widgets/kpropertiesdialogbuiltin_p.cpp:984
 #, kde-format
 msgid "No registered file type"
 msgstr "Erregistratu gabeko fitxategi mota"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:980
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgid "No associated application"
 msgstr "Ez dago elkartutako aplikaziorik"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Sortu…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:989
+#: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Aldatu..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "No Access"
 msgstr "Atzitzerik ez:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can Only View"
 msgstr "Ikus daiteke soilik"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
 msgid "Can View & Modify"
 msgstr "Ikus eta alda daiteke"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can Only View Content"
 msgstr "Edukia ikus daiteke soilik"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
 msgid "Can View & Modify Content"
 msgstr "Edukia ikus eta alda daiteke"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can Only View/Read Content"
 msgstr "Edukia ikus/idatz daiteke"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can View/Read & Modify/Write"
 msgstr "Ikus/irakur eta alda/idatz daiteke"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1162
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1168
 #, kde-format
 msgid "&Permissions"
 msgstr "&Baimenak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1173
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1360
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1179
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1366
 #, kde-format
 msgid "Access Permissions"
 msgstr "Atzitze baimenak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1183
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Fitxategia esteka bat da eta ez du baimenik."
 msgstr[1] "Fitxategi guztiak estekak dira eta ez dute baimenik."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1185
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Jabeak bakarrik alda ditzake baimenak."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1198
 #, kde-format
 msgid "O&wner:"
 msgstr "&Jabea:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Egileak egin ditzakeen ekintzak adierazten ditu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1197
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Taldea:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Taldearen partaideek egin ditzaketen ekintzak adierazten ditu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
 msgid "O&thers:"
 msgstr "&Besteak:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6233,27 +6233,27 @@ msgstr ""
 "Jabea eta taldekideak izan ezik beste erabiltzaile guztiek eginditzaketen "
 "ekintzak adierazten ditu. "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Jab&eak bakarrik ezabatu edo berrizendatu dezake edukia"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1209
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Utzi fitxategia programa gisa &exekutatzen"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Ezabatu edo berrizendatu:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Execute:"
 msgstr "Exekutatu:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6265,7 +6265,7 @@ msgstr ""
 "bakarrik gehi ditzakete, eta horretarako 'Aldatu edukia' baimena eduki "
 "beharko dute."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6275,42 +6275,42 @@ msgstr ""
 "script-ekin baino ez du zentzurik. Derrigorrezkoa da exekutatu nahi "
 "dituzunean."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1226
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Baimen &aurreratuak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid "Ownership"
 msgstr "Jabetza"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
 #, kde-format
 msgid "User:"
 msgstr "Erabiltzailea:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1280
 #, kde-format
 msgid "Group:"
 msgstr "Taldea:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1314
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Aplikatu aldaketak azpidirektorio guztiei eta euren edukiei"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1356
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Baimen aurreratuak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid "Class"
 msgstr "Klasea"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
 #, kde-format
 msgid ""
 "Show\n"
@@ -6319,22 +6319,22 @@ msgstr ""
 "Erakutsi\n"
 "sarrerak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Bandera honek karpetaren edukia ikusten uzten du."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "Read"
 msgstr "Irakurri"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Irakurtze-banderak fitxategiaren edukia ikusten uzten du."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
 #, kde-format
 msgid ""
 "Write\n"
@@ -6343,7 +6343,7 @@ msgstr ""
 "Idatzi\n"
 "sarrerak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6353,43 +6353,43 @@ msgstr ""
 "Oharra: ezabatzea eta berrizendatzea mugatzeko erabili Itsaskorra (Sticky) "
 "bandera."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "Write"
 msgstr "Idatzi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Idazte-banderak fitxategiaren edukia aldatzen uzten du."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Sartu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Gaitu bandera hau karpetan sartzen uzteko."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Exec"
 msgstr "Exekutatu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Gaitu bandera hau fitxategia programa bezala exekutatzen uzteko."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
 #, kde-format
 msgid "Special"
 msgstr "Berezia"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6398,7 +6398,7 @@ msgstr ""
 "Bandera berezia, karpeta osorako baliogarria. Banderaren esanahi zehatza "
 "eskuin aldeko zutabean ikus daiteke."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1426
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6407,17 +6407,17 @@ msgstr ""
 "Bandera berezia. Banderaren esanahi zehatza eskuin aldeko zutabean ikus "
 "daiteke."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid "Group"
 msgstr "Taldea"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6426,7 +6426,7 @@ msgstr ""
 "Bandera hau ezarriz gero, fitxategi honen jabea izango da fitxategi berri "
 "guztien jabea."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6435,7 +6435,7 @@ msgstr ""
 "Fitxategi hau exekutagarria baldin bada eta bandera ezarrita egonez gero, "
 "jabearen baimenekin exekutatuko da."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6443,7 +6443,7 @@ msgstr ""
 "Bandera hau ezarrita badago, karpeta honen taldea ezarriko zaie fitxategi "
 "berri guztiei."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6452,7 +6452,7 @@ msgstr ""
 "Fitxategi hau exekutagarria bada, eta bandera ezarririk badago, taldearen "
 "baimenekin exekutatuko da."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6461,7 +6461,7 @@ msgstr ""
 "Bandera itsaskorra (sticky) ezarri bazaio karpeta bati, jabea eta root "
 "izaten dira fitxategiak berrizendatu edo ezaba ditzaketen bakarrak."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1467
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6470,90 +6470,90 @@ msgstr ""
 "Fitxategi bateko bandera itsaskorrari (sticky) ez zaio Linuxen jaramonik "
 "egiten, baina sistema batzutan erabil daiteke"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1528
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1534
 #, kde-format
 msgid "Set UID"
 msgstr "Ezarri UIDa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
 #, kde-format
 msgid "Set GID"
 msgstr "Ezarri GIDa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1542
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Itsaskorra"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1649
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1655
 #, kde-format
 msgid "Link"
 msgstr "Esteka"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1675
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Aldagarria (aldaketarik ez)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1780
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1786
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Fitxategi honek baimen aurreratuak darabiltza."
 msgstr[1] "Fitxateti hauek baimen aurreratuak darabiltzate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1802
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1808
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Karpeta honek baimen aurreratuak darabiltza."
 msgstr[1] "Karpeta hauek baimen aurreratuak darabiltzate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1816
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Fitxategi hauek baimen aurreratuak darabiltzate."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2054
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2060
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "E&giaztapen-baturak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2119
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2130
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2152
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2147
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2158
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Kalkulatzen..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
 msgid "Invalid checksum."
 msgstr "egiaztapen-batura baliogabea."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2311
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Emandako sarrerakoa ez da MD5, SHA1 edo SHA256 egiaztapen-batura balioduna."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2322
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2328
 #, kde-format
 msgid "Checksums match."
 msgstr "Egiaztapen-baturak bat datoz."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2325
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Kalkulatutako eta esperotako egiaztapen-baturak bat datoz."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6564,30 +6564,30 @@ msgstr ""
 "Saiatu fitxategia berriz jaisten.<br/>Hala ere egiaztapenak huts egingo "
 "balu, jarri harremanean fitxategiaren iturburuarekin."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2342
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2348
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Kalkulatutako eta esperotako egiaztapen-baturak ez datoz bat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Egiaztapen-batura egiaztatzen..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgid "U&RL"
 msgstr "U&RLa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2450
 #, kde-format
 msgid "URL:"
 msgstr "URLa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2513
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2784
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2519
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2790
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6595,27 +6595,27 @@ msgstr ""
 "Ezin izan ditu propietateak gorde. Fitxategi-sistema lokaleko sarrerak baino "
 "ez dira onartzen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2584
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2590
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikazioa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2724
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2730
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Gehitu fitxategi-mota honentzat: %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2731
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Hautatu fitxategi-mota bat edo gehiago gehitzeko:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2869
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Fitxategi-sistema lokaleko exekutagarriak baino ez dira onartzen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2877
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2883
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Aukera aurreratuak %1(r)entzako"
