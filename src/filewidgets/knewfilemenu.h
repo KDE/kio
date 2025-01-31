@@ -151,6 +151,13 @@ public:
      */
     bool isCreateFileRunning();
 
+    /**
+     * Allow to change the popup
+     *
+     * @since 6.11
+     */
+    void setWindowTitle(const QString &title);
+
 public Q_SLOTS:
     /**
      * Checks if updating the list is necessary

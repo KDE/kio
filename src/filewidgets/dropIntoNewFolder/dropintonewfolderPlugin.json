@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "MimeTypes": [
+            "application/octet-stream",
+            "inode/directory"
+        ],
+        "Name": "Drop Into New Folder"
+    }
+}

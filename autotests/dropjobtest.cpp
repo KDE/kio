@@ -494,8 +494,18 @@ private Q_SLOTS:
         const QList<QAction *> actions = popup->actions();
         QVERIFY(actions.contains(&appAction1));
         QVERIFY(actions.contains(&appAction2));
+
         QVERIFY(actions.at(actions.indexOf(&appAction1) - 1)->isSeparator());
-        QVERIFY(actions.at(actions.indexOf(&appAction2) + 1)->isSeparator());
+
+        // there is at least one separator after action2
+        int sepIndex = actions.indexOf(&appAction2) + 1;
+        while (sepIndex < actions.length()) {
+            if (actions.at(sepIndex)->isSeparator()) {
+                break;
+            }
+            ++sepIndex;
+        }
+        QVERIFY(sepIndex < actions.length());
 
         // And when selecting action appAction1
         appAction1.trigger();
