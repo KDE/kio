@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:38+0000\n"
+"POT-Creation-Date: 2025-01-31 00:38+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2918,18 +2918,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Holl Ffeiliau"
 
-#: filewidgets/kfilefiltercombo.cpp:119
+#: filewidgets/kfilefiltercombo.cpp:127
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:164
 #, kde-format
 msgid "All Supported Files"
 msgstr "Pob Ffeil a Cynhelir"
 
-#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:173 filewidgets/kfilefiltercombo.cpp:175
 #: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"

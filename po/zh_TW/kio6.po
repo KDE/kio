@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:38+0000\n"
+"POT-Creation-Date: 2025-01-31 00:38+0000\n"
 "PO-Revision-Date: 2025-01-24 23:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2749,18 +2749,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|所有檔案"
 
-#: filewidgets/kfilefiltercombo.cpp:119
+#: filewidgets/kfilefiltercombo.cpp:127
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:164
 #, kde-format
 msgid "All Supported Files"
 msgstr "所有支援的檔案"
 
-#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:173 filewidgets/kfilefiltercombo.cpp:175
 #: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"

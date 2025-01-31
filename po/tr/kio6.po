@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-30 00:38+0000\n"
-"PO-Revision-Date: 2025-01-19 13:35+0300\n"
+"POT-Creation-Date: 2025-01-31 00:38+0000\n"
+"PO-Revision-Date: 2025-01-30 16:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2854,18 +2854,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Tüm Dosyalar"
 
-#: filewidgets/kfilefiltercombo.cpp:119
+#: filewidgets/kfilefiltercombo.cpp:127
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:164
 #, kde-format
 msgid "All Supported Files"
 msgstr "Desteklenen Tüm Dosyalar"
 
-#: filewidgets/kfilefiltercombo.cpp:165 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:173 filewidgets/kfilefiltercombo.cpp:175
 #: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "All Files"
@@ -5081,7 +5081,7 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Çöp Kutusundaki tüm ögeleri kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
+"Çöp kutusundaki tüm ögeleri kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
