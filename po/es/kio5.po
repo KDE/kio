@@ -3,31 +3,28 @@
 # Translation to spanish.
 # Copyright (C) 2000-2002.
 #
-# Pablo de Vicente <vicente@oan.es>,2000-2002.
-# Jaime Robles <jaime@kde.org>, 2003, 2007, 2008.
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2003, 2004.
-# Pablo de Vicente <p.devicente@wanadoo.es>, 2004.
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2005.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
-# Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>, 2010, 2011, 2013.
-# arklad, 2011.
+# SPDX-FileCopyrightText: 2000-2002 Pablo de Vicente <vicente@oan.es>
+# SPDX-FileCopyrightText: 2003, 2007, 2008 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2003, 2004 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2004 Pablo de Vicente <p.devicente@wanadoo.es>
+# SPDX-FileCopyrightText: 2005 Juan Manuel Garcia Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2013 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2023-09-03 22:21+0200\n"
+"PO-Revision-Date: 2025-01-31 20:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"com>\n"
-"com>\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -432,7 +429,7 @@ msgid ""
 "%1"
 msgstr ""
 "Error interno\n"
-"Por favor, envíe un informe de fallos completo en https://bugs.kde.org\n"
+"Considere enviar un informe de fallos completo a https://bugs.kde.org\n"
 "%1"
 
 #: core/job_error.cpp:45
@@ -845,7 +842,7 @@ msgid ""
 msgstr ""
 "Código de error %1 desconocido\n"
 "%2\n"
-"Por favor, envíe un informe de fallo completo en https://bugs.kde.org."
+"Considere enviar un informe de fallo completo a https://bugs.kde.org."
 
 #: core/job_error.cpp:291
 #, kde-format
@@ -967,8 +964,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
-"Lo más probable es que haya sido ocasionado por un error en el programa. Por "
-"favor, considere enviar un informe de fallos como se detalla más abajo."
+"Lo más probable es que haya sido ocasionado por un error en el programa. "
+"Considere enviar un informe de fallos como se detalla más abajo."
 
 #: core/job_error.cpp:395
 #, kde-format
@@ -2079,9 +2076,9 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
-"Por favor, envíe un error a <a href=\"https://bugs.kde.org/\">https://bugs."
-"kde.org/</a> para informar al equipo de KDE del método de autenticación no "
-"permitido."
+"Considere enviar un informe de fallo a <a href=\"https://bugs.kde.org/"
+"\">https://bugs.kde.org/</a> para informar al equipo de KDE del método de "
+"autenticación no permitido."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -2109,8 +2106,7 @@ msgid ""
 "consider submitting a full bug report as detailed below."
 msgstr ""
 "Esto es probable que haya sido ocasionado por un error en el programa del "
-"servidor. Por favor, considere enviar un informe de fallos como se detalla "
-"más abajo."
+"servidor. Considere enviar un informe de fallos como se detalla más abajo."
 
 #: core/job_error.cpp:1085
 #, kde-format
@@ -3452,11 +3448,10 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
-"La URL seleccionada usa un esquema no permitido. Por favor, use el siguiente "
-"esquema: %2"
+"La URL seleccionada usa un esquema no permitido. Use el siguiente esquema: %2"
 msgstr[1] ""
-"La URL seleccionada usa un esquema no permitido. Por favor, use uno de los "
-"siguiente esquemas: %2"
+"La URL seleccionada usa un esquema no permitido. Use uno de los siguientes "
+"esquemas: %2"
 
 #: filewidgets/kfilewidget.cpp:865
 #, kde-format
@@ -4531,7 +4526,7 @@ msgstr ""
 "el modo de manejar las cookies. Por ello puede que desee configurar la "
 "política predeterminada  para que le solicite su consentimiento cada vez que "
 "un servidor quiera enviar una cookie, para que usted decida. Para sus sitios "
-"de compra favoritos y en los que usted tiene confianza, puede configurar la "
+"de compra favoritos y en los que tenga confianza, puede configurar la "
 "política de aceptación, de forma que sea posible navegar por los sitios sin "
 "que le solicite su consentimiento cada vez que se reciba una cookie.</p>"
 
@@ -6864,9 +6859,7 @@ msgstr "Nuevo acceso rápido Web"
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
-msgstr ""
-"El acceso rápido «%1» ya está asignado a «%2». Por favor, elija uno "
-"diferente."
+msgstr "El acceso rápido «%1» ya está asignado a «%2». Escoja uno diferente."
 
 #: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
@@ -6880,7 +6873,7 @@ msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
-"Los siguientes accesos rápidos ya están asignados. Por favor, elija otros.\n"
+"Los siguientes accesos rápidos ya están asignados. Escoja otros.\n"
 "%1"
 
 #: urifilters/ikws/searchproviderdlg.cpp:143
