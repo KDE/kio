@@ -1212,10 +1212,18 @@ void KUrlNavigator::mouseReleaseEvent(QMouseEvent *event)
             // toggle-editable-mode-button. Paste the clipboard content
             // as location URL.
             QClipboard *clipboard = QApplication::clipboard();
-            const QMimeData *mimeData = clipboard->mimeData();
-            if (mimeData->hasText()) {
+            const QMimeData *mimeData = clipboard->mimeData(QClipboard::Mode::Selection);
+            if (mimeData && mimeData->hasText()) {
                 const QString text = mimeData->text();
-                setLocationUrl(QUrl::fromUserInput(text));
+                const auto currentUrl = d->m_coreUrlNavigator->currentLocationUrl();
+                QString workindDirectory;
+                if (currentUrl.isLocalFile()) {
+                    workindDirectory = currentUrl.toLocalFile();
+                }
+                auto url = QUrl::fromUserInput(text, workindDirectory);
+                if (url.isValid()) {
+                    setLocationUrl(url);
+                }
             }
         }
     }
