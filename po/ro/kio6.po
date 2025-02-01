@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:38+0000\n"
+"POT-Creation-Date: 2025-02-01 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -377,7 +377,7 @@ msgstr ""
 "Sunt necesare privilegii de administrator pentru a finaliza redenumirea. "
 "Doriți să continuați?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2600,6 +2600,20 @@ msgstr "Co&ntinuă"
 msgid "&Current Session only"
 msgstr "Numai sesiunea &curentă"
 
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#, fuzzy, kde-format
+#| msgid "Create Folder"
+msgctxt "@action:inmenu Context menu shown when files are dragged"
+msgid "Move Into New Folder"
+msgstr "Creare dosar"
+
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#, fuzzy, kde-format
+#| msgid "Create Folder"
+msgctxt "@title:window"
+msgid "Create New Folder for These Items"
+msgstr "Creare dosar"
+
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
@@ -3688,40 +3702,40 @@ msgstr ""
 "direct în câmpul de editare.</p><p>Sunt permise caractere de globalizare "
 "precum * și ?.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:440
+#: filewidgets/knewfilemenu.cpp:441
 #, fuzzy, kde-format
 #| msgid "Create New File Type"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Creează tip nou de fișier"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:481
 #, kde-format
 msgid "Sorry"
 msgstr "Scuze"
 
-#: filewidgets/knewfilemenu.cpp:491
+#: filewidgets/knewfilemenu.cpp:492
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Fișierul-șablon <b>%1</b> nu există.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
+#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
 #, kde-format
 msgid "Name for new link:"
 msgstr "Denumire pentru legătura nouă:"
 
-#: filewidgets/knewfilemenu.cpp:706
+#: filewidgets/knewfilemenu.cpp:707
 #, kde-format
 msgid "Create link to URL"
 msgstr "Creează legătură către URL"
 
-#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
+#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1067
+#: filewidgets/knewfilemenu.cpp:1068
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3729,7 +3743,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Introduceți altă denumire"
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3739,7 +3753,7 @@ msgstr ""
 "Denumirea <filename>%1</filename> nu poate fi folosită pentru că e rezervată "
 "pentru uz de către sistemul de operare."
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3749,7 +3763,7 @@ msgstr ""
 "Denumirea <filename>%1</filename> începe cu punct, de aceea va fi ascunsă "
 "implicit."
 
-#: filewidgets/knewfilemenu.cpp:1182
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3761,27 +3775,27 @@ msgstr ""
 "înafișarea înaintea altor elemente la sortarea alfabetică printre alte "
 "posibile ciudățenii."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Folosirea barelor oblice în denumiri de dosare va crea subdosare, așa:"
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Folosirea barelor oblice în denumiri de dosare va crea subdosare."
 
-#: filewidgets/knewfilemenu.cpp:1222
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Barele oblice nu pot fi folosite în denumiri de fișiere și dosare."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Barele inverse nu pot fi folosite în denumiri de fișiere și dosare."
 
-#: filewidgets/knewfilemenu.cpp:1237
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3791,42 +3805,42 @@ msgstr ""
 "deoarece poate crea confuzie sau fi periculoasă la folosirea terminalului "
 "pentru a șterge lucruri."
 
-#: filewidgets/knewfilemenu.cpp:1305
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Există deja un dosar cu denumirea <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1307
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Există deja un fișier cu denumirea <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1393
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Creează nou"
 
-#: filewidgets/knewfilemenu.cpp:1428
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Legătură la dispozitiv"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Dosar nou"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Creare dosar"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Creează dosar nou în %1:"

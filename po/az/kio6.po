@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:38+0000\n"
+"POT-Creation-Date: 2025-02-01 00:38+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -368,7 +368,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "Ad dəyişmə üçün root imtiyaz tələb olunur. DAvam etmək istəyirsiniz?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2559,6 +2559,20 @@ msgstr "Da&vam et"
 msgid "&Current Session only"
 msgstr "&Yalnız Cari Sessiya"
 
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#, fuzzy, kde-format
+#| msgid "Create Folder"
+msgctxt "@action:inmenu Context menu shown when files are dragged"
+msgid "Move Into New Folder"
+msgstr "Qovluq yaradın"
+
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#, fuzzy, kde-format
+#| msgid "Create Folder"
+msgctxt "@title:window"
+msgid "Create New Folder for These Items"
+msgstr "Qovluq yaradın"
+
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
@@ -3641,40 +3655,40 @@ msgstr ""
 "birini seçə bilərsiniz və ya birbaşa xüsusi bir filtri mətn sahəsinə daxil "
 "edə bilərsiniz. </p><p>* və ? kimi işarələrə icazə verilir.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:440
+#: filewidgets/knewfilemenu.cpp:441
 #, fuzzy, kde-format
 #| msgid "Create New File Type"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Yeni fayl növü yarat"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:481
 #, kde-format
 msgid "Sorry"
 msgstr "Təəsüf"
 
-#: filewidgets/knewfilemenu.cpp:491
+#: filewidgets/knewfilemenu.cpp:492
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Müvəqqəti fayl.<b>%1</b> mövcud deyil.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
+#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
 #, kde-format
 msgid "Name for new link:"
 msgstr "Yeni keçid üçün ad:"
 
-#: filewidgets/knewfilemenu.cpp:706
+#: filewidgets/knewfilemenu.cpp:707
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL -da link yarat"
 
-#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
+#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1067
+#: filewidgets/knewfilemenu.cpp:1068
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3682,7 +3696,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Başqa bir Ad Daxil Edin"
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3692,7 +3706,7 @@ msgstr ""
 "<filename>%1</filename> fayl adı istifadə oluna bilməz, çünki bu ad "
 "Əməliyyat Sistemi tərəfindən istifadə üçün qorunur."
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3702,7 +3716,7 @@ msgstr ""
 "Bu <filename>%1</filename> adı nöqtə ilə başlayır, belə ki,standart qaydaya "
 "görə gizlədiləcək."
 
-#: filewidgets/knewfilemenu.cpp:1182
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3714,31 +3728,31 @@ msgstr ""
 "potensial qəribəliklər arasında əlifba sırası ilə sıralanarkən, digər "
 "elementlərin önündə göstərilməsinə səbəb olacaq."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Qovluq adlarında köndələn cizgi (sleş) istifadə olunduqda alt-qovluqlar "
 "yaradılacaq, məsələn:"
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Qovluq adında köndələn cizgi (sleş) istifadə olunduqda alt qovluqlar "
 "yaradılacaq."
 
-#: filewidgets/knewfilemenu.cpp:1222
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Sleş fayl və qovluq adlarında istifadə olun bilməz."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Tərs sleş fayl və qovluq adlarında istifadə oluna bilməz."
 
-#: filewidgets/knewfilemenu.cpp:1237
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3747,42 +3761,42 @@ msgstr ""
 "Fayl və qovluq adının tilda (~) ilə başladılması tövsiyyə olunmurş, çünki bu "
 "bəzi şeyləri terminaldan silərkən çaşqınlıq vı təhlükə törədə bilər."
 
-#: filewidgets/knewfilemenu.cpp:1305
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı qovluql artıq mövcuddur."
 
-#: filewidgets/knewfilemenu.cpp:1307
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı fayl artıq mövcudur."
 
-#: filewidgets/knewfilemenu.cpp:1393
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Yenisini Yarat"
 
-#: filewidgets/knewfilemenu.cpp:1428
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Qurğuya Keçid"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Yeni Qovluq"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Qovluq yaradın"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 daxilində yeni qovluq yaradın:"

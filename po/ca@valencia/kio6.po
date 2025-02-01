@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:38+0000\n"
+"POT-Creation-Date: 2025-02-01 00:38+0000\n"
 "PO-Revision-Date: 2025-01-19 12:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -377,7 +377,7 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a completar l'operació de "
 "canviat el nom. Voleu continuar?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2609,6 +2609,22 @@ msgstr "Co&ntinua"
 msgid "&Current Session only"
 msgstr "Només durant la sessió a&ctual"
 
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create New Folder"
+msgctxt "@action:inmenu Context menu shown when files are dragged"
+msgid "Move Into New Folder"
+msgstr "Crea una carpeta nova"
+
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create New Folder"
+msgctxt "@title:window"
+msgid "Create New Folder for These Items"
+msgstr "Crea una carpeta nova"
+
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
@@ -3686,45 +3702,45 @@ msgstr ""
 "directament a dins de l'àrea de text.</p><p>Es permeten comodins com ara «*» "
 "i «?».</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:440
+#: filewidgets/knewfilemenu.cpp:441
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Crea un fitxer nou"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:481
 #, kde-format
 msgid "Sorry"
 msgstr "Ho sentim"
 
-#: filewidgets/knewfilemenu.cpp:491
+#: filewidgets/knewfilemenu.cpp:492
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>El fitxer de plantilla <b>%1</b> no existix.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
+#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nom per a l'enllaç nou:"
 
-#: filewidgets/knewfilemenu.cpp:706
+#: filewidgets/knewfilemenu.cpp:707
 #, kde-format
 msgid "Create link to URL"
 msgstr "Crea un enllaç amb l'URL"
 
-#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
+#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1067
+#: filewidgets/knewfilemenu.cpp:1068
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Introduïu el nom del fitxer %1:"
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3734,7 +3750,7 @@ msgstr ""
 "No es pot utilitzar el nom <filename>%1</filename> perquè està reservat per "
 "a l'ús del sistema operatiu."
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3744,7 +3760,7 @@ msgstr ""
 "El nom <filename>%1</filename> comença amb un punt, per tant, estarà ocult "
 "de manera predeterminada."
 
-#: filewidgets/knewfilemenu.cpp:1182
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3756,28 +3772,28 @@ msgstr ""
 "a què es mostre abans que altres elements en ordenar alfabèticament, entre "
 "altres efectes potencials."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "L'ús de barres en els noms de les carpetes crearà subcarpetes, així:"
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "L'ús de barres en els noms de les carpetes crearà subcarpetes."
 
-#: filewidgets/knewfilemenu.cpp:1222
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "No es poden utilitzar barres en els noms de fitxer o carpetes."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "No es poden utilitzar barres inverses en els noms de fitxer o carpetes."
 
-#: filewidgets/knewfilemenu.cpp:1237
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3787,41 +3803,41 @@ msgstr ""
 "perquè pot ser confús o perillós en utilitzar el terminal per a suprimir "
 "coses."
 
-#: filewidgets/knewfilemenu.cpp:1305
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Ja existix un directori amb nom <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1307
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Ja existix un fitxer amb nom <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1393
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Crea nou"
 
-#: filewidgets/knewfilemenu.cpp:1428
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Enllaç cap a un dispositiu"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Carpeta nova"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Crea una carpeta nova"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Crea una carpeta nova a %1:"

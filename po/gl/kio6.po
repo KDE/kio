@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:38+0000\n"
+"POT-Creation-Date: 2025-02-01 00:38+0000\n"
 "PO-Revision-Date: 2025-01-26 19:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -380,7 +380,7 @@ msgstr ""
 "Requírense privilexios de root para completar o renomeamento. Quere "
 "continuar?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:640
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -2590,6 +2590,22 @@ msgstr "&Continuar"
 msgid "&Current Session only"
 msgstr "Só nesta &sesión"
 
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create New Folder"
+msgctxt "@action:inmenu Context menu shown when files are dragged"
+msgid "Move Into New Folder"
+msgstr "Crear un novo cartafol"
+
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create New Folder"
+msgctxt "@title:window"
+msgid "Create New Folder for These Items"
+msgstr "Crear un novo cartafol"
+
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
 msgctxt "Loading bar percent value"
@@ -3665,45 +3681,45 @@ msgstr ""
 "directamente na área de texto.</p><p>Permítense caracteres de substitución "
 "como * e ?.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:440
+#: filewidgets/knewfilemenu.cpp:441
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Crear un ficheiro novo"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:481
 #, kde-format
 msgid "Sorry"
 msgstr "Desculpe"
 
-#: filewidgets/knewfilemenu.cpp:491
+#: filewidgets/knewfilemenu.cpp:492
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Non existe o ficheiro de modelo <b>%1</b>.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:637 filewidgets/knewfilemenu.cpp:702
+#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nome da nova ligazón:"
 
-#: filewidgets/knewfilemenu.cpp:706
+#: filewidgets/knewfilemenu.cpp:707
 #, kde-format
 msgid "Create link to URL"
 msgstr "Crear unha ligazón a un URL"
 
-#: filewidgets/knewfilemenu.cpp:747 filewidgets/knewfilemenu.cpp:802
+#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1067
+#: filewidgets/knewfilemenu.cpp:1068
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Escriba o nome de ficheiro de %1:"
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3713,7 +3729,7 @@ msgstr ""
 "O nome <filename>%1</filename><nl/>non pode usarse porque está reservado "
 "polo sistema operativo."
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3723,7 +3739,7 @@ msgstr ""
 "O nome <filename>%1</filename> empeza cun punto, así que estará agochado de "
 "maneira predeterminada."
 
-#: filewidgets/knewfilemenu.cpp:1182
+#: filewidgets/knewfilemenu.cpp:1183
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3735,30 +3751,30 @@ msgstr ""
 "antes que outros elementos ao ordenar alfabeticamente, entre outros "
 "comportamentos raros."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1201
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Usar barras inclinadas nos nomes de cartafoles creará subcartafoles, así:"
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Usar barras inclinadas nos nomes de cartafoles creará subcartafoles."
 
-#: filewidgets/knewfilemenu.cpp:1222
+#: filewidgets/knewfilemenu.cpp:1223
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 "As barras inclinadas non poden usarse nos nomes de ficheiros e cartafoles."
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "As barras invertidas non poden usarse nos nomes de ficheiros e cartafoles."
 
-#: filewidgets/knewfilemenu.cpp:1237
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3767,41 +3783,41 @@ msgstr ""
 "Iniciar un nome de ficheiro ou de cartafol cun til non se recomenda porque "
 "pode resultar confuso ou perigoso ao usar o terminal para eliminar cousas."
 
-#: filewidgets/knewfilemenu.cpp:1305
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Xa existe un cartafol chamado <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1307
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Xa existe un ficheiro chamado <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1393
+#: filewidgets/knewfilemenu.cpp:1394
 #, kde-format
 msgid "Create New"
 msgstr "Crear novo"
 
-#: filewidgets/knewfilemenu.cpp:1428
+#: filewidgets/knewfilemenu.cpp:1429
 #, kde-format
 msgid "Link to Device"
 msgstr "Ligazón a un dispositivo"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Novo cartafol"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Crear un novo cartafol"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Crear un cartafol novo en %1:"
