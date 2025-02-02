@@ -4,6 +4,19 @@
             "application/octet-stream",
             "inode/directory"
         ],
-        "Name": "Drop Into New Folder"
+        "Name": "Drop Into New Folder",
+        "Name[ca@valencia]": "Deixa anar en una carpeta nova",
+        "Name[ca]": "Deixa anar en una carpeta nova",
+        "Name[es]": "Soltar en nueva carpeta",
+        "Name[eu]": "Jaregin karpeta berrian",
+        "Name[he]": "גרירה לתיקייה חדשה",
+        "Name[ka]": "დაგდება ახალ საქაღალდეში",
+        "Name[nl]": "In nieuwe map loslaten",
+        "Name[pl]": "Upuść do nowego katalogu",
+        "Name[sl]": "Spusti v novo mpo",
+        "Name[sv]": "Släpp i ny katalog",
+        "Name[tr]": "Yeni Klasöre Bırak",
+        "Name[uk]": "Скидання до нової теки",
+        "Name[x-test]": "xxDrop Into New Folderxx"
     }
 }
