@@ -856,6 +856,9 @@ void TrashImpl::fileRemoved()
 {
     if (isEmpty()) {
         deleteEmptyTrashInfrastructure();
+
+        // the file may have have changed by another trash:/ worker instance
+        m_config.reparseConfiguration();
         KConfigGroup group = m_config.group(QStringLiteral("Status"));
         group.writeEntry("Empty", true);
         m_config.sync();
