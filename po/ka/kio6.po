@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:38+0000\n"
-"PO-Revision-Date: 2025-01-19 03:08+0100\n"
+"PO-Revision-Date: 2025-02-01 05:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2544,20 +2544,16 @@ msgid "&Current Session only"
 msgstr "&მხოლოდ მიმდინარე სესიაში"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "ახალი საქაღალდის შექმნა"
+msgstr "გადატანა ახალ საქაღალდეში"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "ახალი საქაღალდის შექმნა"
+msgstr "ახალი საქაღალდის შექმნა ამ ელემენტებისთვის"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
