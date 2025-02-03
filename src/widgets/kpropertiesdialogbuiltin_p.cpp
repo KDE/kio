@@ -450,7 +450,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         });
 
         connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
-            const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));
+            // The most local URL is needed to resolve symlinks in virtual locations like "desktop:/"
+            const QUrl url = properties->item().isMostLocalUrl().url;
+            const QUrl resolvedTargetLocation = url.resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));
 
             KIO::StatJob *statJob = KIO::stat(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
             connect(statJob, &KJob::finished, this, [this, statJob] {
