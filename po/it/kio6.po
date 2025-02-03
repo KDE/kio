@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:38+0000\n"
-"PO-Revision-Date: 2025-01-21 00:05+0100\n"
+"PO-Revision-Date: 2025-02-01 14:19+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2618,20 +2618,16 @@ msgid "&Current Session only"
 msgstr "Solo per la sessione att&uale"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Crea una nuova cartella"
+msgstr "Sposta in una nuova cartella"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Crea una nuova cartella"
+msgstr "Crea una nuova cartella per questi elementi"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format

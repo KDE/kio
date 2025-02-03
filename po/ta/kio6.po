@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:38+0000\n"
-"PO-Revision-Date: 2025-01-26 16:24+0530\n"
+"PO-Revision-Date: 2025-02-02 16:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -2518,20 +2518,16 @@ msgid "&Current Session only"
 msgstr "&தற்போதைய அமர்வுக்கு மட்டும்"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "புதிய அடைவை உருவாக்குவது"
+msgstr "புதிய அடைவில் போடு"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "புதிய அடைவை உருவாக்குவது"
+msgstr "இந்த உருப்படிகளுக்கு புதிய அடைவை உருவாக்குவது"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format

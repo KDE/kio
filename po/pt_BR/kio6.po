@@ -13,20 +13,21 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2010, 2012, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2019, 2021.
 # SPDX-FileCopyrightText: 2023 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:38+0000\n"
-"PO-Revision-Date: 2023-12-13 15:53-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-02-02 01:14-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2122,6 +2123,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"O servidor foi contactado, mas uma resposta não foi recebida dentro do tempo "
+"alocado para esta requisição."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2545,6 +2548,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"A segurança do KIO worker para o protocolo '%1', que tipicamente pede "
+"permissões elevadas, não pode ser garantida porque usuários além do root têm "
+"permissão para modificá-lo em %2."
 
 #: core/worker.cpp:379
 #, kde-format
@@ -2592,18 +2598,16 @@ msgid "&Current Session only"
 msgstr "S&omente nesta sessão"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Criar pasta"
+msgstr "Mover para a nova pasta"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Criar pasta"
+msgstr "Criar nova pasta para estes itens"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
@@ -2669,12 +2673,10 @@ msgid "Reload"
 msgstr "Recarregar"
 
 #: filewidgets/kdiroperator.cpp:1977
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "Nova pasta"
+msgstr "Nova pasta…"
 
 #: filewidgets/kdiroperator.cpp:1987 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2898,12 +2900,10 @@ msgid "Root Folder"
 msgstr "Pasta Raiz"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "Navegar..."
+msgstr "Navegar…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3066,11 +3066,10 @@ msgid "Tags"
 msgstr "Etiquetas"
 
 #: filewidgets/kfileplacesitem.cpp:333
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Erro %2)"
+msgstr "%1 (de %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3245,9 +3244,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Reformatar ou editar com o gerenciador de partições"
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3690,11 +3687,10 @@ msgstr ""
 "permitidos.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Criar um novo tipo de arquivo"
+msgstr "Criar novo arquivo"
 
 #: filewidgets/knewfilemenu.cpp:481
 #, kde-format
@@ -3723,12 +3719,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1068
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Digite um nome diferente"
+msgstr "Digite o nome de arquivo de %1:"
 
 #: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
@@ -3822,11 +3816,10 @@ msgid "New Folder"
 msgstr "Nova pasta"
 
 #: filewidgets/knewfilemenu.cpp:1498
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Criar pasta"
+msgstr "Criar nova pasta"
 
 #: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
@@ -3878,12 +3871,10 @@ msgid "Show Full Path"
 msgstr "Mostrar localização completa"
 
 #: filewidgets/kurlnavigator.cpp:796
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Não foi possível transferir <filename>%1</filename>"
+msgstr "Ir para qualquer localização no caminho <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:701
 #, kde-format
@@ -3895,7 +3886,7 @@ msgstr "Mais"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Ir para localização no caminho"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3967,7 +3958,7 @@ msgstr ""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Um comando vazio foi informado"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -4093,17 +4084,14 @@ msgid "The program \"%1\" could not be launched."
 msgstr "O programa \"%1\" não pôde ser iniciado."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"O arquivo %1\n"
-"foi modificado. Deseja enviar as alterações?"
+"O arquivo <filename>%1</filename><nl/>foi modificado. Deseja enviar as "
+"mudanças?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -4995,12 +4983,10 @@ msgid "&Move Here"
 msgstr "&Mover aqui"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Downloads"
+msgstr "&Baixar aqui"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -5204,15 +5190,13 @@ msgstr[1] "Deseja mover estes %1 itens para a Lixeira?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "Adicionar…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&Editar..."
+msgstr "Editar…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5349,10 +5333,9 @@ msgid "Updating System Configuration"
 msgstr "Atualizando a configuração do sistema"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "Atualizando a configuração do sistema."
+msgstr "Atualizando a configuração do sistema…"
 
 #: widgets/kdirmodel.cpp:1237
 #, kde-format
@@ -5414,20 +5397,16 @@ msgid "&Actions"
 msgstr "Açõe&s"
 
 #: widgets/kfileitemactions.cpp:693
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Abrir pasta com"
+msgstr "&Abrir pasta com…"
 
 #: widgets/kfileitemactions.cpp:693
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Abrir com"
+msgstr "&Abrir com…"
 
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
@@ -5452,12 +5431,10 @@ msgid "&Open With"
 msgstr "&Abrir com"
 
 #: widgets/kfileitemactions.cpp:774
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Outro aplicativo..."
+msgstr "&Outro aplicativo…"
 
 #: widgets/kfileitemdelegate.cpp:214
 #, kde-format
@@ -6301,29 +6278,24 @@ msgstr ""
 
 # Manter a tradução com o menor tamanho possível. (Alvarenga)
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1215
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "Apenas o propri&etário pode renomear e excluir o conteúdo da pasta"
+msgstr "Apenas o propri&etário pode renomear ou excluir o conteúdo"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1215
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr ""
-"Habilite este sinal para permitir a execução do arquivo como um programa."
+msgstr "Permitir &executar arquivo como programa"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1217
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Usuário padrão:"
+msgstr "Excluir ou renomear:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1217
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Executar"
+msgstr "Executar:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
@@ -6598,12 +6570,10 @@ msgstr "Somas de &verificação"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2136
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2147
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2158
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Calculando..."
+msgstr "Calculando…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
@@ -6648,12 +6618,10 @@ msgstr ""
 "A soma de verificação computada e a soma de verificação esperada diferem."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2356
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "Verificando soma de verificação..."
+msgstr "Verificando soma de verificação…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
@@ -6793,11 +6761,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "Configurar os atalhos da Web..."
+msgstr "Configurar os atalhos da Web…"
 
 #: widgets/kurlrequester.cpp:329
 #, kde-format
@@ -6845,11 +6812,10 @@ msgstr[0] "Colar um item"
 msgstr[1] "Colar %1 itens"
 
 #: widgets/paste.cpp:266
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "Colar o conteúdo da área de &transferência"
+msgstr "Colar conteúdo da área de transferência…"
 
 #: widgets/paste.cpp:270
 #, kde-format
