@@ -95,6 +95,14 @@ public:
         , m_dropjobFlags(dropjobFlags)
         , m_triggered(false)
     {
+        if (!m_urls.isEmpty() && m_dropAction == Qt::MoveAction) {
+            // if we suspect urls might come from trash:/
+            const auto firstUrl = m_urls.constFirst();
+            if (firstUrl.path().contains(QStringLiteral("Trash/files/"))) {
+                // use kde url then
+                m_urls = KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferKdeUrls, &m_metaData);
+            }
+        }
         // Check for the drop of a bookmark -> we want a Link action
         if (m_mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
             m_keyboardModifiers |= Qt::KeyboardModifiers(Qt::ControlModifier | Qt::ShiftModifier);
@@ -148,7 +156,7 @@ public:
     QWindow *transientParent();
 
     QPointer<const QMimeData> m_mimeData;
-    const QList<QUrl> m_urls;
+    QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
     QPoint m_relativePos;
