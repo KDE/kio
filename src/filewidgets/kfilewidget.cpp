@@ -1000,6 +1000,12 @@ void KFileWidgetPrivate::multiSelectionChanged()
 
 void KFileWidgetPrivate::setLocationText(const QUrl &url)
 {
+    // fileHighlighed and fileSelected will be called one after the other:
+    // avoid to set two times in a row the location text with the same name
+    // as this would insert spurious entries in the undo stack
+    if ((url.isEmpty() && m_locationEdit->lineEdit()->text().isEmpty()) || m_locationEdit->lineEdit()->text() == escapeDoubleQuotes(url.fileName())) {
+        return;
+    }
     // Block m_locationEdit signals as setCurrentItem() will cause textChanged() to get
     // emitted, so slotLocationChanged() will be called. Make sure we don't clear the
     // KDirOperator's view-selection in there
@@ -1014,7 +1020,8 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
                 q->setUrl(url, false);
             }
         }
-        m_locationEdit->setEditText(escapeDoubleQuotes(url.fileName()));
+        m_locationEdit->lineEdit()->selectAll();
+        m_locationEdit->lineEdit()->insert(escapeDoubleQuotes(url.fileName()));
     } else if (!m_locationEdit->lineEdit()->text().isEmpty()) {
         m_locationEdit->clearEditText();
     }
@@ -1293,6 +1300,25 @@ void KFileWidgetPrivate::initLocationWidget()
         slotLocationChanged(text);
     });
 
+    // Only way to have the undo button before the clear button
+    m_locationEdit->lineEdit()->setClearButtonEnabled(false);
+
+    QAction *clearAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-clear")), {}, m_locationEdit->lineEdit());
+    m_locationEdit->lineEdit()->addAction(clearAction, QLineEdit::TrailingPosition);
+    clearAction->setVisible(false);
+    q->connect(clearAction, &QAction::triggered, m_locationEdit->lineEdit(), &QLineEdit::clear);
+    q->connect(m_locationEdit->lineEdit(), &QLineEdit::textEdited, q, [this, clearAction]() {
+        clearAction->setVisible(m_locationEdit->lineEdit()->text().length() > 0);
+    });
+
+    QAction *undoAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-undo")), i18nc("@info:tooltip", "Undo filename change"), m_locationEdit->lineEdit());
+    m_locationEdit->lineEdit()->addAction(undoAction, QLineEdit::TrailingPosition);
+    undoAction->setVisible(false);
+    q->connect(undoAction, &QAction::triggered, m_locationEdit->lineEdit(), &QLineEdit::undo);
+    q->connect(m_locationEdit->lineEdit(), &QLineEdit::textEdited, q, [this, undoAction]() {
+        undoAction->setVisible(m_locationEdit->lineEdit()->isUndoAvailable());
+    });
+
     updateLocationWhatsThis();
     m_locationLabel->setBuddy(m_locationEdit);
 
@@ -1343,10 +1369,13 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
             urls += QStringLiteral("\"%1\" ").arg(escapeDoubleQuotes(relativePathOrUrl(baseUrl, url)));
         }
         urls.chop(1);
-        m_locationEdit->setEditText(urls);
+        // Never use setEditText, because it forgets the undo history
+        m_locationEdit->lineEdit()->selectAll();
+        m_locationEdit->lineEdit()->insert(urls);
     } else if (urlList.count() == 1) {
         const auto url = urlList[0];
-        m_locationEdit->setEditText(escapeDoubleQuotes(relativePathOrUrl(baseUrl, url)));
+        m_locationEdit->lineEdit()->selectAll();
+        m_locationEdit->lineEdit()->insert(escapeDoubleQuotes(relativePathOrUrl(baseUrl, url)));
     } else if (!m_locationEdit->lineEdit()->text().isEmpty()) {
         m_locationEdit->clearEditText();
     }
@@ -2411,7 +2440,8 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         if (newText != locationEditCurrentText()) {
             const int idx = m_locationEdit->currentIndex();
             if (idx == -1) {
-                m_locationEdit->setEditText(newText);
+                m_locationEdit->lineEdit()->selectAll();
+                m_locationEdit->lineEdit()->insert(newText);
             } else {
                 m_locationEdit->setItemText(idx, newText);
             }
