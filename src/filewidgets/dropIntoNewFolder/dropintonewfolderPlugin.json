@@ -5,6 +5,7 @@
             "inode/directory"
         ],
         "Name": "Drop Into New Folder",
+        "Name[ar]": "أسقط في مجلدٍ جديدٍ",
         "Name[ca@valencia]": "Deixa anar en una carpeta nova",
         "Name[ca]": "Deixa anar en una carpeta nova",
         "Name[es]": "Soltar en nueva carpeta",
