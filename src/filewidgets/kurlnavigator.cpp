@@ -891,6 +891,7 @@ void KUrlNavigatorPrivate::updateTabOrder()
             }
         }
     }
+
     if (visibleChildrenSortedByX.isEmpty()) {
         return;
     }
@@ -902,6 +903,7 @@ void KUrlNavigatorPrivate::updateTabOrder()
         it++;
         nextIt++;
     }
+    Q_EMIT q->layoutChanged();
 }
 
 QString KUrlNavigatorPrivate::firstButtonText() const
@@ -1010,6 +1012,7 @@ KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWi
     setMinimumWidth(100);
 
     d->updateContent();
+    d->updateTabOrder();
 }
 
 KUrlNavigator::~KUrlNavigator()
@@ -1132,7 +1135,7 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
     }
 
     d->m_showPlacesSelector = visible;
-    
+
     if (d->m_placesSelector) {
         d->m_placesSelector->setVisible(visible);
         d->updateTabOrder();
@@ -1231,6 +1234,12 @@ void KUrlNavigator::wheelEvent(QWheelEvent *event)
 {
     setActive(true);
     QWidget::wheelEvent(event);
+}
+
+void KUrlNavigator::showEvent(QShowEvent *event)
+{
+    d->updateTabOrder();
+    QWidget::showEvent(event);
 }
 
 bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)

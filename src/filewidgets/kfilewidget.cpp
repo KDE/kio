@@ -22,6 +22,7 @@
 #include "kfilewidgetdocktitlebar_p.h"
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
+#include "kurlnavigatorbuttonbase_p.h"
 
 #include <config-kiofilewidgets.h>
 
@@ -76,6 +77,7 @@
 
 #include <algorithm>
 #include <array>
+#include <qnamespace.h>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
 Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
@@ -1508,13 +1510,43 @@ void KFileWidgetPrivate::initGUI()
 
     m_opsWidgetLayout->addLayout(hbox);
 
-    q->setTabOrder(m_ops, m_autoSelectExtCheckBox);
-    q->setTabOrder(m_autoSelectExtCheckBox, m_locationEdit);
-    q->setTabOrder(m_locationEdit, m_filterWidget);
-    q->setTabOrder(m_filterWidget, m_okButton);
-    q->setTabOrder(m_okButton, m_cancelButton);
-    q->setTabOrder(m_cancelButton, m_urlNavigator);
-    q->setTabOrder(m_urlNavigator, m_ops);
+    auto updateTabOrder = [this]() {
+        // First the url navigator and its internal tab order
+        q->setTabOrder(m_urlNavigator, m_ops);
+        // Add the other elements in the ui that aren't int he toolbar
+        q->setTabOrder(m_ops, m_autoSelectExtCheckBox);
+        q->setTabOrder(m_autoSelectExtCheckBox, m_locationEdit);
+        q->setTabOrder(m_locationEdit, m_filterWidget);
+        q->setTabOrder(m_filterWidget, m_okButton);
+        q->setTabOrder(m_okButton, m_cancelButton);
+        q->setTabOrder(m_cancelButton, m_placesView);
+
+        // Now add every widget in the toolbar
+        const auto toolbarChildren = m_toolbar->children();
+        QList<QWidget *> toolbarButtons;
+        for (QObject *obj : std::as_const(toolbarChildren)) {
+            if (auto *button = qobject_cast<QToolButton *>(obj)) {
+                // Make toolbar buttons focusable only via tab
+                button->setFocusPolicy(Qt::TabFocus);
+                toolbarButtons << button;
+            } else if (auto *slider = qobject_cast<QSlider *>(obj)) {
+                toolbarButtons << slider;
+            }
+        }
+
+        q->setTabOrder(m_placesView, toolbarButtons.first());
+
+        auto it = toolbarButtons.constBegin();
+        auto nextIt = ++toolbarButtons.constBegin();
+        while (nextIt != toolbarButtons.constEnd()) {
+            q->setTabOrder(*it, *nextIt);
+            it++;
+            nextIt++;
+        }
+        // Do not manually close the loop: it would break the chain
+    };
+    q->connect(m_urlNavigator, &KUrlNavigator::layoutChanged, q, updateTabOrder);
+    updateTabOrder();
 }
 
 void KFileWidgetPrivate::slotFilterChanged()

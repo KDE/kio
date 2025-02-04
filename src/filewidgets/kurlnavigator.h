@@ -438,6 +438,14 @@ Q_SIGNALS:
      */
     void urlSelectionRequested(const QUrl &url);
 
+    /**
+     * The internal layout and graphical representation of components has changed,
+     * either after an url change or after a switch between editable mode and
+     * breadcrumb mode
+     * @since 6.11
+     */
+    void layoutChanged();
+
 protected:
 #if !defined(K_DOXYGEN)
     /**
@@ -467,6 +475,8 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
     void wheelEvent(QWheelEvent *event) override;
+
+    void showEvent(QShowEvent *event) override;
 
     bool eventFilter(QObject *watched, QEvent *event) override;
 #endif
