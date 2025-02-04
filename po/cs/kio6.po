@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-01 00:38+0000\n"
+"POT-Creation-Date: 2025-02-04 00:38+0000\n"
 "PO-Revision-Date: 2024-10-09 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3189,7 +3189,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:353
-#: widgets/kpropertiesdialogbuiltin_p.cpp:668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:670
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -4670,7 +4670,7 @@ msgstr "Vyprázdnit obsah koše"
 msgid "Restore a trashed file to its original location"
 msgstr "Obnovit vyhozený soubor na původní místo"
 
-#: kioworkers/trash/trashimpl.cpp:1334
+#: kioworkers/trash/trashimpl.cpp:1337
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -5167,7 +5167,7 @@ msgstr "Vlastník"
 msgid "Owning Group"
 msgstr "Vlastnící skupina"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1439
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1441
 #, kde-format
 msgid "Others"
 msgstr "Ostatní"
@@ -5997,23 +5997,23 @@ msgid "Explore in %1"
 msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:438
-#: widgets/kpropertiesdialogbuiltin_p.cpp:708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:710
 #, kde-format
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:554
+#: widgets/kpropertiesdialogbuiltin_p.cpp:556
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:675
+#: widgets/kpropertiesdialogbuiltin_p.cpp:677
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:685
+#: widgets/kpropertiesdialogbuiltin_p.cpp:687
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6022,8 +6022,8 @@ msgstr ""
 "Počítám... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:688
-#: widgets/kpropertiesdialogbuiltin_p.cpp:703
+#: widgets/kpropertiesdialogbuiltin_p.cpp:690
+#: widgets/kpropertiesdialogbuiltin_p.cpp:705
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -6031,8 +6031,8 @@ msgstr[0] "1 soubor"
 msgstr[1] "%1 soubory"
 msgstr[2] "%1 souborů"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:689
-#: widgets/kpropertiesdialogbuiltin_p.cpp:704
+#: widgets/kpropertiesdialogbuiltin_p.cpp:691
+#: widgets/kpropertiesdialogbuiltin_p.cpp:706
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
@@ -6040,85 +6040,85 @@ msgstr[0] "1 podsložka"
 msgstr[1] "%1 podsložky"
 msgstr[2] "%1 podsložek"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:717
+#: widgets/kpropertiesdialogbuiltin_p.cpp:719
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Počítám...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:740
+#: widgets/kpropertiesdialogbuiltin_p.cpp:742
 #, kde-format
 msgid "At least %1\n"
 msgstr "Nejméně %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:786
+#: widgets/kpropertiesdialogbuiltin_p.cpp:788
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Nový název souboru je prázdný."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:984
+#: widgets/kpropertiesdialogbuiltin_p.cpp:986
 #, kde-format
 msgid "No registered file type"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:988
 #, kde-format
 msgid "No associated application"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:992
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Vytvořit…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:995
+#: widgets/kpropertiesdialogbuiltin_p.cpp:997
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Změnit…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
 msgid "No Access"
 msgstr "Není přístup"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
 msgid "Can Only View"
 msgstr "Může prohlížet"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1066
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
 msgid "Can View & Modify"
 msgstr "Může prohlížet a měnit"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can Only View Content"
 msgstr "Může prohlížet obsah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
 msgid "Can View & Modify Content"
 msgstr "Může prohlížet a měnit obsah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
 msgid "Can Only View/Read Content"
 msgstr "Může prohlížet/číst obsah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
 msgid "Can View/Read & Modify/Write"
 msgstr "Může prohlížet/číst a měnit/zapisovat"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1168
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1170
 #, kde-format
 msgid "&Permissions"
 msgstr "O&právnění"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1179
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1366
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1368
 #, kde-format
 msgid "Access Permissions"
 msgstr "Přístupová práva"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6126,64 +6126,64 @@ msgstr[0] "Tento soubor je odkaz a neobsahuje oprávnění."
 msgstr[1] "Tyto soubory jsou odkazy a neobsahují oprávnění."
 msgstr[2] "Tyto soubory jsou odkazy a neobsahují oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1193
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Pouze vlastník může měnit oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1198
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
 #, kde-format
 msgid "O&wner:"
 msgstr "V&lastník:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Určuje činnosti, které jsou vlastníkovi povoleny."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
 #, kde-format
 msgid "Gro&up:"
 msgstr "Sk&upina:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Určuje činnosti, které jsou členům skupiny povoleny."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&thers:"
 msgstr "Os&tatní:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "Určuje činnosti, které jsou všem uživatelům povoleny."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Pouz&e vlastník smí přejmenovávat a mazat obsah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Povolit sp&uštění souboru jako program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Smazat nebo přejmenovat?"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
 #, kde-format
 msgid "Execute:"
 msgstr "Spustit:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6194,7 +6194,7 @@ msgstr ""
 "nebo přejmenovávat obsažené soubory a složky. Ostatní uživatelé mohou pouze "
 "přidávat nové soubory, což vyžaduje oprávnění ke změně obsahu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1222
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6203,42 +6203,42 @@ msgstr ""
 "Povolte tuto možnost k označení souboru jako spustitelného. Toto dává smysl "
 "pouze pro programy nebo skripty a je vyžadováno, pokud je přejete spustit."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1226
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Po&kročilá oprávnění"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "Ownership"
 msgstr "Vlastnictví"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1242
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
 msgid "User:"
 msgstr "Uživatel:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1280
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
 msgid "Group:"
 msgstr "Skupina:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1314
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Aplikovat změny na všechny podsložky a jejich obsah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1358
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Pokročilá oprávnění"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
 #, kde-format
 msgid "Class"
 msgstr "Třída"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1383
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1385
 #, kde-format
 msgid ""
 "Show\n"
@@ -6247,22 +6247,22 @@ msgstr ""
 "Zobrazení\n"
 "položek"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Tento příznak povoluje prohlížení složky."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid "Read"
 msgstr "Čtení"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Tento příznak povoluje prohlížení obsahu souboru."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1393
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid ""
 "Write\n"
@@ -6271,7 +6271,7 @@ msgstr ""
 "Zápis\n"
 "položek"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6280,43 +6280,43 @@ msgstr ""
 "Tento příznak povoluje přidávání, přejmenování a mazání souborů. Všimněte "
 "si, že mazání a přejmenování může být omezeno pomocí příznaku \"sticky\"."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "Write"
 msgstr "Zápis"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Tento příznak povoluje změnu obsahu souboru."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1405
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Vstup"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Tento příznak povoluje vstup do složky."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Exec"
 msgstr "Vykonání"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Tento příznak povoluje spouštění souboru jako programu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Special"
 msgstr "Speciální"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1424
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6325,24 +6325,24 @@ msgstr ""
 "Speciální příznak, platný pro celou složku. Vlastní význam lze vidět v "
 "pravém sloupci."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1426
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "Speciální příznak; vlastní význam lze vidět v pravém sloupci."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid "User"
 msgstr "Uživatel"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1437
 #, kde-format
 msgid "Group"
 msgstr "Skupina"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6351,7 +6351,7 @@ msgstr ""
 "Pokud je tento příznak nastaven, vlastník této složky bude vlastníkem všech "
 "nových souborů."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6360,7 +6360,7 @@ msgstr ""
 "Pokud je tento soubor spustitelný a příznak je nastaven, bude soubor spuštěn "
 "s oprávněními vlastníka."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6368,7 +6368,7 @@ msgstr ""
 "Pokud je tento příznak nastaven, bude pro všechny nové soubory nastavena "
 "skupina této složky."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6377,7 +6377,7 @@ msgstr ""
 "Pokud je tento soubor spustitelný a příznak je nastaven, bude soubor spuštěn "
 "s oprávněními skupiny."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6387,7 +6387,7 @@ msgstr ""
 "root budou moci mazat a přejmenovávat soubory. V opačném případě to může "
 "provést kdokoliv."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1475
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6396,33 +6396,33 @@ msgstr ""
 "Sticky příznak na souboru je v Linuxu ignorován, ale může být využíván v "
 "jiných systémech."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1534
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1536
 #, kde-format
 msgid "Set UID"
 msgstr "Nastavit UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1540
 #, kde-format
 msgid "Set GID"
 msgstr "Nastavit GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1542
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1544
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1655
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1657
 #, kde-format
 msgid "Link"
 msgstr "Odkaz"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1675
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1677
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Různé (beze změny)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1786
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1788
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6430,7 +6430,7 @@ msgstr[0] "Tento soubor používá pokročilá oprávnění."
 msgstr[1] "Tyto soubory používají pokročilá oprávnění."
 msgstr[2] "Tyto soubory používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1808
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6438,49 +6438,49 @@ msgstr[0] "Tato složka používá pokročilá oprávnění."
 msgstr[1] "Tyto složky používají pokročilá oprávnění."
 msgstr[2] "Tyto složky používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1824
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Tyto soubory používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2060
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2062
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Kontro&lní součty"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2125
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2147
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2158
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2127
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Počítám…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2316
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Neplatný kontrolní součet."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2319
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2328
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgid "Checksums match."
 msgstr "Kontrolní součty odpovídají."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2333
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2345
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6488,30 +6488,30 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2348
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2350
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2358
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Ověřování kontrolního součtu…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2446
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2452
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2519
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2790
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2521
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2792
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6519,27 +6519,27 @@ msgstr ""
 "Vlastnosti nelze uložit. Jsou podporovány pouze položky na lokálním "
 "souborovém systému."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2590
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2592
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikace"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2730
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2732
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Přidat typ souboru pro %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2731
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2733
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Vyberte jeden nebo více typů souborů k přidání:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2869
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Jsou podporovány pouze programy na lokálním souborovém systému."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2883
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2885
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Pokročilé možnosti pro %1"
