@@ -562,7 +562,7 @@ public:
 
     /**
      * Returns a MostLocalUrlResult, with the local Url for this item if possible
-     * (otherwise an empty Url), and a bool that is set to @c true if this Url
+     * (otherwise the item url), and a bool that is set to @c true if this Url
      * does represent a local file otherwise @c false.
      *
      * Basically this is an alternative to mostLocalUrl(bool*), that does not use an
