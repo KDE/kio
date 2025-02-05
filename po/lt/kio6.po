@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:38+0000\n"
+"POT-Creation-Date: 2025-02-05 00:38+0000\n"
 "PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2938,7 +2938,7 @@ msgid "All Supported Files"
 msgstr "Visi palaikomi failai"
 
 #: filewidgets/kfilefiltercombo.cpp:173 filewidgets/kfilefiltercombo.cpp:175
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1963
 #, kde-format
 msgid "All Files"
 msgstr "Visi failai"
@@ -3371,27 +3371,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Didžiulis (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:618
+#: filewidgets/kfilewidget.cpp:620
 #, kde-format
 msgid "You can only select one file"
 msgstr "Galite pasirinkti tik vieną failą"
 
-#: filewidgets/kfilewidget.cpp:618
+#: filewidgets/kfilewidget.cpp:620
 #, kde-format
 msgid "More than one file provided"
 msgstr "Pateiktas daugiau nei vienas failas"
 
-#: filewidgets/kfilewidget.cpp:789
+#: filewidgets/kfilewidget.cpp:791
 #, kde-format
 msgid "You can only select local files"
 msgstr "Galite pasirinkti tik vietinius failus"
 
-#: filewidgets/kfilewidget.cpp:789
+#: filewidgets/kfilewidget.cpp:791
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Nuotoliniai failai nepriimami"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:798
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3408,12 +3408,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Pasirinktas URL naudoja nepalaikomą schemą. Naudokite šias schemas: %2"
 
-#: filewidgets/kfilewidget.cpp:802
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Nepalaikoma URL schema"
 
-#: filewidgets/kfilewidget.cpp:818
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3424,12 +3424,12 @@ msgstr ""
 "aplankų, todėl neįmanoma nuspręsti į kurį aplanką įžengti. Pažymėkite vieną "
 "aplanką, kad išvardytumėte jo turinį."
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:822
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Pateiktas daugiau nei vienas aplankas"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3438,22 +3438,22 @@ msgstr ""
 "Buvo pažymėtas bent vienas aplankas ir bent vienas failas. Pažymėtų failų "
 "bus nepaisoma, bus pateikiamas tik aplankų sąrašas"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:833
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Failai ir aplankai pažymėti"
 
-#: filewidgets/kfilewidget.cpp:849
+#: filewidgets/kfilewidget.cpp:851
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nepavyko rasti failo „%1“"
 
-#: filewidgets/kfilewidget.cpp:849
+#: filewidgets/kfilewidget.cpp:851
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nepavyksta atverti failo"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3464,47 +3464,47 @@ msgstr ""
 "<br /><br />Pavyzdžiui, jei dabartinė vieta yra file:/home/konqi, paspaudę "
 "šį mygtuką pateksite į file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Spustelėkite šį mygtuką, norėdami eiti vienu žingsniu atgal naršymo "
 "istorijoje."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1209
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Spustelėkite šį mygtuką, norėdami eiti vienu žingsniu pirmyn naršymo "
 "istorijoje."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1211
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Spustelėkite šį mygtuką, norėdami iš naujo įkelti esamo puslapio turinį."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Spustelėkite šį mygtuką norėdami sukurti naują aplanką."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Rodyti vietų skydelį"
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Rodyti žymelių mygtuką"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "Parinktys"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3519,12 +3519,12 @@ msgstr ""
 "rodymą</li><li>Vietų skydelį</li><li>failų peržiūrą</li><li>aplankų "
 "atskyrimą nuo failų</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1251
 #, kde-format
 msgid "Bookmarks"
 msgstr "Žymelės"
 
-#: filewidgets/kfilewidget.cpp:1246
+#: filewidgets/kfilewidget.cpp:1255
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3538,12 +3538,19 @@ msgstr ""
 "lygiai taip pat, kaip ir kitos KDE žymelės.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1285 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "Pa&vadinimas:"
 
-#: filewidgets/kfilewidget.cpp:1362
+#: filewidgets/kfilewidget.cpp:1316
+#, fuzzy, kde-format
+#| msgid "Undo Changes"
+msgctxt "@info:tooltip"
+msgid "Undo filename change"
+msgstr "Atšaukti pakeitimus"
+
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3555,12 +3562,12 @@ msgstr ""
 "Ši ypatybė gali būti valdoma spustelėjus dešiniuoju pelės mygtuku ir "
 "pasirinkus norimą veikseną per meniu <b>Teksto užbaigimas</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1369
+#: filewidgets/kfilewidget.cpp:1400
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Tai yra pavadinimas, kuriuo įrašomas failas."
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1403
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3569,74 +3576,74 @@ msgstr ""
 "Tai yra atveriamų failų sąrašas. Gali būti nurodytas daugiau nei vienas "
 "failas, išvardijant kelis, atskiriant juos tarpais."
 
-#: filewidgets/kfilewidget.cpp:1377
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Tai yra atveriamo failo pavadinimas."
 
-#: filewidgets/kfilewidget.cpp:1390
+#: filewidgets/kfilewidget.cpp:1421
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Vietos"
 
-#: filewidgets/kfilewidget.cpp:1609
+#: filewidgets/kfilewidget.cpp:1670
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Failas „%1“ Jau yra. Ar norite jį perrašyti?"
 
-#: filewidgets/kfilewidget.cpp:1610
+#: filewidgets/kfilewidget.cpp:1671
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Perrašyti failą?"
 
-#: filewidgets/kfilewidget.cpp:1806
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "You can only select local files."
 msgstr "Galite pasirinkti tik vietinius failus."
 
-#: filewidgets/kfilewidget.cpp:1806
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Nuotoliniai failai nepriimami"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "All Folders"
 msgstr "Visi aplankai"
 
-#: filewidgets/kfilewidget.cpp:2052 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Atverti"
 
-#: filewidgets/kfilewidget.cpp:2152
+#: filewidgets/kfilewidget.cpp:2213
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Piktogramų dydis: %1 piks."
 
-#: filewidgets/kfilewidget.cpp:2300
+#: filewidgets/kfilewidget.cpp:2361
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatiškai parinkti failų pavadinimų &prievardžius (%1)"
 
-#: filewidgets/kfilewidget.cpp:2301
+#: filewidgets/kfilewidget.cpp:2362
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> prievardis"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2368
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatiškai parinkti failų pavadinimų &prievardžius"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2369
 #, kde-format
 msgid "a suitable extension"
 msgstr "tinkamas prievardis"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2377
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3663,12 +3670,12 @@ msgstr ""
 "bus panaikintas automatiškai).</li></ol>Jei nežinote ką pasirinkti, palikite "
 "šią parinktį įgalinta, nes ji padaro jūsų failus lengviau valdomus."
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2851
 #, kde-format
 msgid "&File type:"
 msgstr "&Failo tipas:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2852
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3677,12 +3684,12 @@ msgstr ""
 "<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti formatą, "
 "kuriuo bus failas bus įrašytas.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2792
+#: filewidgets/kfilewidget.cpp:2854
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtras:"
 
-#: filewidgets/kfilewidget.cpp:2794
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

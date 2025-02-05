@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-04 00:38+0000\n"
+"POT-Creation-Date: 2025-02-05 00:38+0000\n"
 "PO-Revision-Date: 2025-02-01 05:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2881,7 +2881,7 @@ msgid "All Supported Files"
 msgstr "ყველა მხარდაჭერილი ფაილი"
 
 #: filewidgets/kfilefiltercombo.cpp:173 filewidgets/kfilefiltercombo.cpp:175
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1963
 #, kde-format
 msgid "All Files"
 msgstr "ყველა ფაილი"
@@ -3307,27 +3307,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "უზარმაზარი (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:618
+#: filewidgets/kfilewidget.cpp:620
 #, kde-format
 msgid "You can only select one file"
 msgstr "შეგიძლიათ მონიშნოთ მხოლოდ ერთი ფაილი"
 
-#: filewidgets/kfilewidget.cpp:618
+#: filewidgets/kfilewidget.cpp:620
 #, kde-format
 msgid "More than one file provided"
 msgstr "მითითებულია ერთზე მეტი ფაილი"
 
-#: filewidgets/kfilewidget.cpp:789
+#: filewidgets/kfilewidget.cpp:791
 #, kde-format
 msgid "You can only select local files"
 msgstr "შეგიძლიათ მონიშნოთ მხოლოდ ადგილობრივი ფაილები"
 
-#: filewidgets/kfilewidget.cpp:789
+#: filewidgets/kfilewidget.cpp:791
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "დაშორებული ფაილები მიუღებელია"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:798
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3340,12 +3340,12 @@ msgstr[0] ""
 msgstr[1] ""
 "მონიშნული ბმული მხარდაუჭერელ სქემას იყენებს. გამოიყენეთ შემდეგი სქემა: %2"
 
-#: filewidgets/kfilewidget.cpp:802
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "URL-ის მხარდაუჭერელი სქემა"
 
-#: filewidgets/kfilewidget.cpp:818
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3355,12 +3355,12 @@ msgstr ""
 "არჩეულია ერთზე მეტი საქაღალდე და ამ ფანჯარას საქაღალდე არ სჭირდება, ასე რომ, "
 "იმის გადაწყვეტა, რომელი ავირჩიოთ, შეუძლებელია. აირჩიეთ მხოლოდ ერთი საქაღალდე."
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:822
 #, kde-format
 msgid "More than one folder provided"
 msgstr "მითითებულია ერთზე მეტი საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3369,22 +3369,22 @@ msgstr ""
 "არჩეულია სულ ცოტა ერთი ფაილი და ერთი საქაღალდე. მონიშნული ფაილები "
 "გამოტოვებული იქნება და გამოიყენება მონიშნული საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:833
 #, kde-format
 msgid "Files and folders selected"
 msgstr "მონიშნული ფაილები და საქაღალდეები"
 
-#: filewidgets/kfilewidget.cpp:849
+#: filewidgets/kfilewidget.cpp:851
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "ფაილი %1 ნაპოვნი არაა"
 
-#: filewidgets/kfilewidget.cpp:849
+#: filewidgets/kfilewidget.cpp:851
 #, kde-format
 msgid "Cannot open file"
 msgstr "ფაილის გახსნის შეცდომა"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3395,45 +3395,45 @@ msgstr ""
 ">მაგალითად, თუ მიმდინარე მდებარეობაა file:/home/konqი, ამ ღილაკზე დაჭერა /"
 "home-ზე გადაგიყვანთ.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "ბრაუზერის ისტორიაში ერთი ნაბიჯით უკან გადასასვლელად დააწკაპუნეთ ამ ღილაკს."
 
-#: filewidgets/kfilewidget.cpp:1200
+#: filewidgets/kfilewidget.cpp:1209
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "ბრაუზერის ისტორიაში ერთი ნაბიჯით წინ გადასასვლელად დააწკაპუნეთ ამ ღილაკს."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1211
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "დააწკაპუნეთ ამ ღილაკზე მიმდინარე მდებარეობის შემცველობის თავიდან ჩასატვირთად."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ახალი საქაღალდის შესაქმნელად ამ ღილაკზე დააწკაპუნეთ."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Places Panel"
 msgstr "მდებარეობის პანელის ჩვენება"
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "სანიშნეების პანელის ჩვენება"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "პარამეტრები"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3448,12 +3448,12 @@ msgstr ""
 "ჩვენება</li><li>ადგილების პანელი</li><li>ფაილების მინიატურები</"
 "li><li>ფაილებისა და საქაღალდეების გაცალკევება</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1251
 #, kde-format
 msgid "Bookmarks"
 msgstr "სანიშნები"
 
-#: filewidgets/kfilewidget.cpp:1246
+#: filewidgets/kfilewidget.cpp:1255
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3467,12 +3467,19 @@ msgstr ""
 "ფაილის ფანჯარას ეკუთვნის, სხვა მხრივ კი KDE-ის სხვა სანიშნესავით იქცევა.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1285 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&სახელი:"
 
-#: filewidgets/kfilewidget.cpp:1362
+#: filewidgets/kfilewidget.cpp:1316
+#, fuzzy, kde-format
+#| msgid "Undo Changes"
+msgctxt "@info:tooltip"
+msgid "Undo filename change"
+msgstr "ცვლილებების გაუქმება"
+
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3484,12 +3491,12 @@ msgstr ""
 "კონტროლი <b>ტექსტის დასრულების</b> მენიუდან მარჯვენა თაგუნას ღილაკით "
 "დაწკაპუნებით და სასურველი რეჟიმის არჩევით ხდება.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1369
+#: filewidgets/kfilewidget.cpp:1400
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "ეს არის შესანახი ფაილის სახელი."
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1403
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3498,74 +3505,74 @@ msgstr ""
 "ეს გასახსნელი ფაილების სიაა. ერთზე მეტი ფაილის მითითება მათ სახელებს შორის "
 "ადგილის გამოტოვებით შეგიძლიათ."
 
-#: filewidgets/kfilewidget.cpp:1377
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ეს არის გასახსნელი ფაილის სახელი."
 
-#: filewidgets/kfilewidget.cpp:1390
+#: filewidgets/kfilewidget.cpp:1421
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "ადგილები"
 
-#: filewidgets/kfilewidget.cpp:1609
+#: filewidgets/kfilewidget.cpp:1670
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ფაილ %1 უკვე არსებობს. გნებავთ გადავაწეროთ?"
 
-#: filewidgets/kfilewidget.cpp:1610
+#: filewidgets/kfilewidget.cpp:1671
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ჩავანაცვლო ფაილი?"
 
-#: filewidgets/kfilewidget.cpp:1806
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "You can only select local files."
 msgstr "შეგიძლიათ მონიშნოთ მხოლოდ ადგილობრივი ფაილები."
 
-#: filewidgets/kfilewidget.cpp:1806
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "დაშორებული ფაილები მიუღებელია"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "All Folders"
 msgstr "ყველა საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:2052 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
 
-#: filewidgets/kfilewidget.cpp:2152
+#: filewidgets/kfilewidget.cpp:2213
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ხატულის ზომა: %1 პიქსელი"
 
-#: filewidgets/kfilewidget.cpp:2300
+#: filewidgets/kfilewidget.cpp:2361
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ფაილის გაფართოების ავტომატური მითითება (%1)"
 
-#: filewidgets/kfilewidget.cpp:2301
+#: filewidgets/kfilewidget.cpp:2362
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "გაფართოება <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2368
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ფაილის გაფართოების ავტომატური მითითება"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2369
 #, kde-format
 msgid "a suitable extension"
 msgstr "შესატყვისი გაფართოება"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2377
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3592,12 +3599,12 @@ msgstr ""
 "ბრძანდებით, რა ქნათ, დატოვეთ ჩართული, რადგან ის ფაილების მართვაში "
 "დაგეხმარებათ."
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2851
 #, kde-format
 msgid "&File type:"
 msgstr "&ფაილის ტიპი:"
 
-#: filewidgets/kfilewidget.cpp:2790
+#: filewidgets/kfilewidget.cpp:2852
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3606,12 +3613,12 @@ msgstr ""
 "<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
 "რომელშიც ეს ფაილი შეინახება.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2792
+#: filewidgets/kfilewidget.cpp:2854
 #, kde-format
 msgid "&Filter:"
 msgstr "&ფილტრი:"
 
-#: filewidgets/kfilewidget.cpp:2794
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
