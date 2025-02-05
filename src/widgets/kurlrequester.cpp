@@ -26,6 +26,9 @@
 #include <QMenu>
 #include <QMimeData>
 
+#include <private/qguiapplication_p.h>
+#include <qpa/qplatformtheme.h>
+
 class KUrlDragPushButton : public QPushButton
 {
     Q_OBJECT
@@ -570,7 +573,14 @@ QFileDialog *KUrlRequester::fileDialog() const
     if (!d->myFileDialog) {
         d->myFileDialog = new QFileDialog(window(), windowTitle());
         if (!d->mimeTypeFilters.isEmpty()) {
-            d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
+            QStringList mimeTypeFilters = d->mimeTypeFilters;
+            // The non plasma file dialogs don't have the "All Supported types" feature, so add the "All Files" type for them if more than one
+            // file type type is possible
+            if (mimeTypeFilters.count() > 1 && !mimeTypeFilters.contains(QStringLiteral("application/octet-stream"))
+                && QGuiApplicationPrivate::platformTheme()->name() != QStringLiteral("kde")) {
+                mimeTypeFilters.prepend(QStringLiteral("application/octet-stream"));
+            }
+            d->myFileDialog->setMimeTypeFilters(mimeTypeFilters);
         } else {
             d->myFileDialog->setNameFilters(d->nameFilters);
         }

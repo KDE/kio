@@ -128,6 +128,7 @@ target_link_libraries(KF6KIOWidgets
     KF6::IconWidgets  # KIconButton
     KF6::WindowSystem # KStartupInfo
     KF6::ColorScheme
+    Qt6::GuiPrivate
 )
 if (HAVE_QTDBUS)
     target_link_libraries(KF6KIOWidgets PRIVATE ${DBUS_LIB})
