@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:38+0000\n"
+"POT-Creation-Date: 2025-02-06 00:38+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -239,7 +239,7 @@ msgid "Creating directory"
 msgstr "ফোল্ডার তৈরি হচ্ছে"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:137
-#: widgets/kurlrequester.cpp:438
+#: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -251,7 +251,7 @@ msgid "Deleting"
 msgstr "মুছে ফেলা হচ্ছে"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
-#: widgets/kurlrequester.cpp:437
+#: widgets/kurlrequester.cpp:440
 #, fuzzy, kde-format
 msgid "File"
 msgstr "কোন ফাইল নেই"
@@ -6382,7 +6382,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "পলিসি &বদলাও..."
 
-#: widgets/kurlrequester.cpp:329
+#: widgets/kurlrequester.cpp:332
 #, kde-format
 msgid "Open file dialog"
 msgstr "ফাইল ডায়ালগ খোলো"

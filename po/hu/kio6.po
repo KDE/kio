@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:38+0000\n"
+"POT-Creation-Date: 2025-02-06 00:38+0000\n"
 "PO-Revision-Date: 2024-06-20 22:17+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -240,7 +240,7 @@ msgid "Creating directory"
 msgstr "Mappa létrehozása"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:137
-#: widgets/kurlrequester.cpp:438
+#: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "Mappa"
@@ -252,7 +252,7 @@ msgid "Deleting"
 msgstr "Törlés"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
-#: widgets/kurlrequester.cpp:437
+#: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "Fájl"
@@ -6740,7 +6740,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Keresőazonosítók beállítása…"
 
-#: widgets/kurlrequester.cpp:329
+#: widgets/kurlrequester.cpp:332
 #, kde-format
 msgid "Open file dialog"
 msgstr "Fájlmegnyitási párbeszédablak"

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:38+0000\n"
-"PO-Revision-Date: 2025-02-01 12:10+0100\n"
+"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"PO-Revision-Date: 2025-02-05 02:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -246,7 +246,7 @@ msgid "Creating directory"
 msgstr "Creando carpeta"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:137
-#: widgets/kurlrequester.cpp:438
+#: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "Directorio"
@@ -258,7 +258,7 @@ msgid "Deleting"
 msgstr "Borrando"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
-#: widgets/kurlrequester.cpp:437
+#: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "Archivo"
@@ -3555,11 +3555,10 @@ msgid "&Name:"
 msgstr "&Nombre:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Deshacer cambios"
+msgstr "Deshacer cambio de nombre de archivo"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
@@ -6803,7 +6802,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configurar atajos web..."
 
-#: widgets/kurlrequester.cpp:329
+#: widgets/kurlrequester.cpp:332
 #, kde-format
 msgid "Open file dialog"
 msgstr "Abrir diálogo de archivos"
