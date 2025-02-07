@@ -18,11 +18,13 @@
         "Name[ka]": "დაგდება ახალ საქაღალდეში",
         "Name[nl]": "In nieuwe map loslaten",
         "Name[pl]": "Upuść do nowego katalogu",
+        "Name[pt_BR]": "Soltar dentro de nova pasta",
         "Name[sl]": "Spusti v novo mpo",
         "Name[sv]": "Släpp i ny katalog",
         "Name[ta]": "புதிய அடைவில் போடு",
         "Name[tr]": "Yeni Klasöre Bırak",
         "Name[uk]": "Скидання до нової теки",
-        "Name[x-test]": "xxDrop Into New Folderxx"
+        "Name[x-test]": "xxDrop Into New Folderxx",
+        "Name[zh_TW]": "拖放到新資料夾"
     }
 }
