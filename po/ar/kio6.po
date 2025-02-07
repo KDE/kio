@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-06 00:38+0000\n"
-"PO-Revision-Date: 2025-02-03 16:33+0400\n"
+"PO-Revision-Date: 2025-02-06 08:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3446,11 +3446,10 @@ msgid "&Name:"
 msgstr "الا&سم:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "أرجع التغييرات"
+msgstr "تراجع عن تغيير اسم الملف"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
