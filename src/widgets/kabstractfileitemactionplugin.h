@@ -60,8 +60,8 @@ class KFileItemListProperties;
  * The desktop file contents must also be compiled into the plugin as JSON data.
  * The following CMake code builds and installs the plugin:
  * \code
- * kcoreaddons_add_plugin(myactionplugin SOURCES myactionplugin.cpp INSTALL_NAMESPACE "kf5/kfileitemaction")
- * kcoreaddons_desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file
+ * kcoreaddons_add_plugin(myactionplugin SOURCES myactionplugin.cpp INSTALL_NAMESPACE "kf6/kfileitemaction")
+ * kcoreaddons_desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file if necessary
  *
  * target_link_libraries(myactionplugin KF5::KIOWidgets)
  * \endcode
