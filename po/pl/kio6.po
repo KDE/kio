@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-06 00:38+0000\n"
-"PO-Revision-Date: 2025-02-01 12:52+0100\n"
+"PO-Revision-Date: 2025-02-08 17:25+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3491,11 +3491,10 @@ msgid "&Name:"
 msgstr "&Nazwa:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Wycofaj zmiany"
+msgstr "Wycofaj zmianę nazwy pliku"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
