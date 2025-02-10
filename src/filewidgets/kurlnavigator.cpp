@@ -1413,6 +1413,12 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
 
     // Draw the background
     style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+    // Make sure pathBox does not portrude outside of the above frameLineEdit background
+    if (d->m_pathBox->isVisible()) {
+        const QRect pathgeo =
+            QRect(d->m_pathBox->geometry().left(), option.rect.top(), d->m_pathBox->geometry().width(), option.rect.height()).adjusted(0, 2, 0, -2);
+        d->m_pathBox->setGeometry(pathgeo);
+    }
 }
 
 #include "moc_kurlnavigator.cpp"
