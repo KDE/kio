@@ -9,6 +9,7 @@
 
 #include "worker_p.h"
 
+#include <config-kiocore.h>
 #include <qplatformdefs.h>
 #include <stdio.h>
 
@@ -314,56 +315,6 @@ void Worker::setConfig(const MetaData &config)
     m_connection->send(CMD_CONFIG, data);
 }
 
-/**
- * @returns true if the worker should not be created because it would insecurely ask users for a password.
- *          false is returned when the worker is either safe because only the root user can write to it, or if this kio binary is already not secure.
- */
-bool isWorkerSecurityCompromised(const QString &workerPath, const QString &protocolName, int &error, QString &error_text)
-{
-#ifdef Q_OS_WIN
-    return false; // This security check is not (yet?) implemented on Windows.
-#endif
-    auto onlyRootHasWriteAccess = [](const QString &filePath) {
-        QFileInfo file(filePath);
-        return file.ownerId() == 0 && (file.groupId() == 0 || !file.permission(QFileDevice::WriteGroup)) && !file.permission(QFileDevice::WriteOther);
-    };
-    if (onlyRootHasWriteAccess(workerPath)) {
-        return false;
-    }
-
-    // The worker can be modified by non-privileged processes! If it ever asks for elevated privileges, this could lead to a privilege escalation!
-    // We will only let this slide if we are e.g. in a development environment. In a development environment the binaries are not system-installed,
-    // so this KIO library itself would also be writable by non-privileged processes. We check if this KIO library is safe from unprivileged tampering.
-    // If it is not, the security is already compromised anyway, so we ignore that the security of the worker binary is compromised as well.
-    std::optional<bool> kioCoreSecurityCompromised;
-
-    QDir folderOfKioBinary{KLibexec::path(QString{})};
-    const QFileInfoList kioBinariesAndSymlinks = folderOfKioBinary.entryInfoList({QLatin1String{"*KIOCore.so*"}}, QDir::Files);
-    for (const QFileInfo &kioFile : kioBinariesAndSymlinks) {
-        if (onlyRootHasWriteAccess(kioFile.absoluteFilePath())) {
-            kioCoreSecurityCompromised = false;
-            break; // As long as there is at least one library which appears to be secure, we assume that the whole execution is supposed to be secure.
-        } else {
-            kioCoreSecurityCompromised = true;
-            // We have found a library that is compromised. We continue searching in case this library was only placed here to circumvent this security check.
-        }
-    }
-    const auto adminWorkerSecurityWarning{i18nc("@info %2 is a path",
-                                                "The security of the KIO worker for protocol ’%1’, which typically asks for elevated permissions, "
-                                                "can not be guaranteed because users other than root have permission to modify it at %2.",
-                                                protocolName,
-                                                workerPath)};
-    if (!kioCoreSecurityCompromised.has_value() || !kioCoreSecurityCompromised.value()) {
-        error_text = adminWorkerSecurityWarning;
-        error = KIO::ERR_CANNOT_CREATE_WORKER;
-        return true;
-    }
-    // Both KIO as well as the worker can be written to by non-root objects, so there is no protection against these binaries being compromised.
-    // Notwithstanding, we let everything continue as normal because we assume this is a development environment.
-    qCInfo(KIO_CORE) << adminWorkerSecurityWarning;
-    return false;
-}
-
 // TODO KF6: return std::unique_ptr
 Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
@@ -392,9 +343,14 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
         return nullptr;
     }
 
-    // The "admin" worker will ask for elevated permissions.
-    // Make sure no malware hides behind the "admin" protocol.
-    if (protocol == QLatin1String("admin") && isWorkerSecurityCompromised(lib_path, protocol, error, error_text)) {
+    if (protocol == QLatin1String("admin") && !lib_path.startsWith(QLatin1String{KDE_INSTALL_FULL_KIO_PLUGINDIR})) {
+        error_text = i18nc("@info %2 and %3 are paths",
+                           "The KIO worker for protocol “%1” in %2 was not loaded because all KIO workers which are located outside of %3 and ask for elevated "
+                           "privileges are considered insecure.",
+                           protocol,
+                           lib_path,
+                           QLatin1String{KDE_INSTALL_FULL_KIO_PLUGINDIR});
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
         return nullptr;
     }
 
