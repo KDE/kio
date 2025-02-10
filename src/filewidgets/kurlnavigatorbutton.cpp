@@ -258,6 +258,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         } else {
             option.rect = QRect(rect().topLeft(), rect().bottomLeft());
         }
+        option.rect = option.rect.adjusted(0, m_padding / 2, 0, -m_padding / 2);
 
         // Draw CE_Splitter instead of PE_IndicatorToolBarSeparator, since the latter
         // will be turned off if application style has separators turned off
