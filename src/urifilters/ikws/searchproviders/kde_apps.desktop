@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Name=KDE App Search
+Name=Plasma Add-Ons and Extensions
 Name[af]=KDE App Soektog
 Name[ar]=بحث تطبيقات كِيدِي
 Name[as]=KDE App Search
@@ -97,8 +97,8 @@ Name[xh]=Uphendlo lwe KDE App
 Name[x-test]=xxKDE App Searchxx
 Name[zh_CN]=KDE 应用程序搜索
 Name[zh_TW]=KDE 程式搜尋
-Keys=apps,appsy
-Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Keys=ext,extension
+Query=https://store.kde.org/browse?tag=\\{@}
 Query[ar]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[be]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
