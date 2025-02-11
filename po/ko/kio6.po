@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"POT-Creation-Date: 2025-02-11 00:38+0000\n"
 "PO-Revision-Date: 2024-12-10 00:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2438,33 +2438,31 @@ msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
 
-#: core/worker.cpp:352
-#, kde-format
-msgctxt "@info %2 is a path"
-msgid ""
-"The security of the KIO worker for protocol ’%1’, which typically asks for "
-"elevated permissions, can not be guaranteed because users other than root "
-"have permission to modify it at %2."
-msgstr ""
-"'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아닌 "
-"다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
-
-#: core/worker.cpp:379
+#: core/worker.cpp:330
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:390
+#: core/worker.cpp:341
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:404
+#: core/worker.cpp:348
+#, kde-format
+msgctxt "@info %2 and %3 are paths"
+msgid ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
+msgstr ""
+
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:444
+#: core/worker.cpp:400
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -7107,6 +7105,15 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgctxt "@info %2 is a path"
+#~ msgid ""
+#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
+#~ "for elevated permissions, can not be guaranteed because users other than "
+#~ "root have permission to modify it at %2."
+#~ msgstr ""
+#~ "'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아"
+#~ "닌 다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "

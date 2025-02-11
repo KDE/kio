@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"POT-Creation-Date: 2025-02-11 00:38+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2425,33 +2425,33 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖ�
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
 
-#: core/worker.cpp:352
-#, kde-format
-msgctxt "@info %2 is a path"
-msgid ""
-"The security of the KIO worker for protocol ’%1’, which typically asks for "
-"elevated permissions, can not be guaranteed because users other than root "
-"have permission to modify it at %2."
-msgstr ""
-
-#: core/worker.cpp:379
+#: core/worker.cpp:330
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "မသိသောလုပ်ရိုးလုပ်ထုံး '%1'။"
 
-#: core/worker.cpp:390
+#: core/worker.cpp:341
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' လုပ်ရိုးလုပ်ထုံးအတွက် အိုင်အို-ကျွန် ရှာမတွေ့ပါ။"
 
-#: core/worker.cpp:404
+#: core/worker.cpp:348
+#, kde-format
+msgctxt "@info %2 and %3 are paths"
+msgid ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
+msgstr ""
+
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "လုပ်ရိုးလုပ်ထုံး'%1'အတွက် အိုင်အို-ကျွန် စတင်ရန် ဆော့ကတ် မဖန်တီးနိုင်ပါ။"
 
-#: core/worker.cpp:444
+#: core/worker.cpp:400
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

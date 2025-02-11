@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"POT-Creation-Date: 2025-02-11 00:38+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2544,33 +2544,33 @@ msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
 
-#: core/worker.cpp:352
-#, kde-format
-msgctxt "@info %2 is a path"
-msgid ""
-"The security of the KIO worker for protocol ’%1’, which typically asks for "
-"elevated permissions, can not be guaranteed because users other than root "
-"have permission to modify it at %2."
-msgstr ""
-
-#: core/worker.cpp:379
+#: core/worker.cpp:330
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol anhysbys '%1'."
 
-#: core/worker.cpp:390
+#: core/worker.cpp:341
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Methu canfod gwas-io i brotocol '%1'."
 
-#: core/worker.cpp:404
+#: core/worker.cpp:348
+#, kde-format
+msgctxt "@info %2 and %3 are paths"
+msgid ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
+msgstr ""
+
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Methu creu pill ar gyfer lansio gwas-io am brotocol '%1'."
 
-#: core/worker.cpp:444
+#: core/worker.cpp:400
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

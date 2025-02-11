@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"POT-Creation-Date: 2025-02-11 00:38+0000\n"
 "PO-Revision-Date: 2025-02-05 11:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2484,35 +2484,32 @@ msgstr "%1 protokolü dosyaları açma işlemi desteklenmiyor."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokolü %2 eylemini desteklemiyor."
 
-#: core/worker.cpp:352
-#, kde-format
-msgctxt "@info %2 is a path"
-msgid ""
-"The security of the KIO worker for protocol ’%1’, which typically asks for "
-"elevated permissions, can not be guaranteed because users other than root "
-"have permission to modify it at %2."
-msgstr ""
-"Genelde yükseltilmiş izinler isteyen “%1” protokolü için KIO işçisinin "
-"güvenliği garanti edilemiyor; çünkü kök kullanıcı dışındaki kullanıcıların "
-"%2 konumunda üzerinde değişiklik yapmak için izni vardır."
-
-#: core/worker.cpp:379
+#: core/worker.cpp:330
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Bilinmeyen protokol “%1”."
 
-#: core/worker.cpp:390
+#: core/worker.cpp:341
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "“%1” protokolü için bir KIO işçisi bulunamadı."
 
-#: core/worker.cpp:404
+#: core/worker.cpp:348
+#, kde-format
+msgctxt "@info %2 and %3 are paths"
+msgid ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
+msgstr ""
+
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "“%1” protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
 
-#: core/worker.cpp:444
+#: core/worker.cpp:400
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "“%1” konumunda “kioworker” yürütülebiliri bulunamadı"
@@ -7239,6 +7236,16 @@ msgstr "Bu eylem, şu uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
+
+#~ msgctxt "@info %2 is a path"
+#~ msgid ""
+#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
+#~ "for elevated permissions, can not be guaranteed because users other than "
+#~ "root have permission to modify it at %2."
+#~ msgstr ""
+#~ "Genelde yükseltilmiş izinler isteyen “%1” protokolü için KIO işçisinin "
+#~ "güvenliği garanti edilemiyor; çünkü kök kullanıcı dışındaki "
+#~ "kullanıcıların %2 konumunda üzerinde değişiklik yapmak için izni vardır."
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "

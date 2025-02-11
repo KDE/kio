@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:38+0000\n"
+"POT-Creation-Date: 2025-02-11 00:38+0000\n"
 "PO-Revision-Date: 2025-02-02 16:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2461,35 +2461,33 @@ msgstr "%1 நெறிமுறையைக் கொண்டு கோப்�
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆதரிக்காது."
 
-#: core/worker.cpp:352
-#, kde-format
-msgctxt "@info %2 is a path"
-msgid ""
-"The security of the KIO worker for protocol ’%1’, which typically asks for "
-"elevated permissions, can not be guaranteed because users other than root "
-"have permission to modify it at %2."
-msgstr ""
-"சாதாரணமாக ரூட் அனுமதியை கோரும் '%1' நெறிமுறைக்கான KIO பணியின் பாதுகாப்பை "
-"உறுதிசெய்ய முடியவில்லை. ரூட் அல்லாத பயனர்களும் அதை %2 தனில் மாற்ற அனுமதி உள்ளது."
-
-#: core/worker.cpp:379
+#: core/worker.cpp:330
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "தெரியாத நெறிமுறை '%1'."
 
-#: core/worker.cpp:390
+#: core/worker.cpp:341
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' நெறிமுறைக்கான KIO ஆதரவுநிரலை கண்டுபிடிக்க முடியவில்லை."
 
-#: core/worker.cpp:404
+#: core/worker.cpp:348
+#, kde-format
+msgctxt "@info %2 and %3 are paths"
+msgid ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
+msgstr ""
+
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "'%1' என்ற நெறிமுறைக்கான KIO ஆதரவுநிரலை இயக்க தேவைப்படும் சாக்கெடை உருவாக்க "
 "முடியவில்லை."
 
-#: core/worker.cpp:444
+#: core/worker.cpp:400
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' -இல் 'kioworker' நிரலை கண்டுபிடிக்க முடியவில்லை"
@@ -7180,6 +7178,15 @@ msgstr "இது கீழ்கண்ட நிரலை இயக்கும
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "இந்த நிரல் நம்பகமானது இல்லையெனில் ரத்து செய்யுங்கள்"
+
+#~ msgctxt "@info %2 is a path"
+#~ msgid ""
+#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
+#~ "for elevated permissions, can not be guaranteed because users other than "
+#~ "root have permission to modify it at %2."
+#~ msgstr ""
+#~ "சாதாரணமாக ரூட் அனுமதியை கோரும் '%1' நெறிமுறைக்கான KIO பணியின் பாதுகாப்பை "
+#~ "உறுதிசெய்ய முடியவில்லை. ரூட் அல்லாத பயனர்களும் அதை %2 தனில் மாற்ற அனுமதி உள்ளது."
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "
