@@ -188,9 +188,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
 
     if (!m_subDir.isEmpty()) {
-        // draw arrow
+        // draw folder icon
         const int arrowSize = arrowWidth();
-        const int arrowX = leftToRight ? (buttonWidth - arrowSize) - BorderWidth * 2 : BorderWidth * 2;
+        const int arrowX = !leftToRight ? (buttonWidth - arrowSize) - BorderWidth * 2 : BorderWidth * 2;
         const int arrowY = (buttonHeight - arrowSize) / 2;
 
         QStyleOption option;
@@ -207,9 +207,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         }
 
         const int widthModifier = arrowSize + 2 * BorderWidth;
-        option.rect = QRect(arrowX, arrowY, arrowSize, arrowSize);
-        style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
-        if (!leftToRight) {
+        auto pixmap = QIcon::fromTheme(QStringLiteral("folder")).pixmap(iconSize(), devicePixelRatioF());
+        style()->drawItemPixmap(&painter, QRect(arrowX, arrowY, arrowSize, arrowSize), Qt::AlignCenter, pixmap);
+        if (leftToRight) {
             textLeft += widthModifier;
         }
         textWidth -= widthModifier;
@@ -544,7 +544,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     initMenu(m_subDirsMenu, 0);
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    const int popupX = leftToRight ? width() - arrowWidth() - BorderWidth : 0;
+    const int popupX = !leftToRight ? width() - arrowWidth() - BorderWidth : 0;
     const QPoint popupPos = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
     QPointer<QObject> guard(this);
@@ -661,7 +661,7 @@ int KUrlNavigatorButton::arrowWidth() const
 bool KUrlNavigatorButton::isAboveArrow(int x) const
 {
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    return leftToRight ? (x >= width() - arrowWidth()) : (x < arrowWidth());
+    return !leftToRight ? (x >= width() - arrowWidth()) : (x < arrowWidth());
 }
 
 bool KUrlNavigatorButton::isTextClipped() const
