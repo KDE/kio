@@ -202,7 +202,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::ButtonText, fgColor);
 
         if (m_hoverOverIcon) {
-            option.rect = QRect(iconX, 0, iconW, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
+            option.rect = QRect(iconX - m_padding / 2, 0, iconW + m_padding, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
             style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &painter, this);
         }
 
