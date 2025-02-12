@@ -190,7 +190,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     if (!m_subDir.isEmpty()) {
         // draw folder icon
         const int iconW = iconWidth();
-        const int iconX = !leftToRight ? (buttonWidth - iconW) + m_padding / 2 : m_padding / 2;
+        const int iconX = !leftToRight ? (buttonWidth - iconW) - m_padding / 2 : m_padding / 2;
         const int iconY = (buttonHeight - iconW) / 2;
 
         QStyleOption option;
@@ -645,13 +645,13 @@ QString KUrlNavigatorButton::plainText() const
 
 int KUrlNavigatorButton::iconWidth() const
 {
-    return iconSize().width();
+    return iconSize().width() * devicePixelRatioF();
 }
 
 bool KUrlNavigatorButton::isAboveIcon(int x) const
 {
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    return !leftToRight ? (x >= width() - iconWidth()) : (x < iconWidth());
+    return !leftToRight ? (x >= width() - iconWidth() - m_padding) : (x < iconWidth() + m_padding);
 }
 
 bool KUrlNavigatorButton::isTextClipped() const
