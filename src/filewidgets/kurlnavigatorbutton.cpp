@@ -16,6 +16,7 @@
 #include <KLocalizedString>
 #include <KStringHandler>
 
+#include <KFileItem>
 #include <QCollator>
 #include <QKeyEvent>
 #include <QMimeData>
@@ -187,33 +188,32 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
 
-    if (!m_subDir.isEmpty()) {
-        // draw folder icon
-        const int iconW = iconWidth();
-        const int iconX = !leftToRight ? (buttonWidth - iconW) - m_padding / 2 : m_padding / 2;
-        const int iconY = (buttonHeight - iconW) / 2;
+    // draw folder icon
+    const int iconW = iconWidth();
+    const int iconX = !leftToRight ? (buttonWidth - iconW) - m_padding / 2 : m_padding / 2;
+    const int iconY = (buttonHeight - iconW) / 2;
 
-        QStyleOption option;
-        option.initFrom(this);
-        option.rect = QRect(iconX, iconY, iconW, iconW);
-        option.palette = palette();
-        option.palette.setColor(QPalette::Text, fgColor);
-        option.palette.setColor(QPalette::WindowText, fgColor);
-        option.palette.setColor(QPalette::ButtonText, fgColor);
+    QStyleOption option;
+    option.initFrom(this);
+    option.rect = QRect(iconX, iconY, iconW, iconW);
+    option.palette = palette();
+    option.palette.setColor(QPalette::Text, fgColor);
+    option.palette.setColor(QPalette::WindowText, fgColor);
+    option.palette.setColor(QPalette::ButtonText, fgColor);
 
-        if (m_hoverOverIcon) {
-            option.rect = QRect(iconX - m_padding / 2, 0, iconW + m_padding, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
-            style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &painter, this);
-        }
-
-        const int widthModifier = iconW + m_padding / 2;
-        auto pixmap = QIcon::fromTheme(QStringLiteral("folder")).pixmap(iconSize(), devicePixelRatioF());
-        style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
-        if (leftToRight) {
-            textLeft += widthModifier;
-        }
-        textWidth -= widthModifier;
+    if (m_hoverOverIcon && !m_subDir.isEmpty()) {
+        option.rect = QRect(iconX - m_padding / 2, 0, iconW + m_padding, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
+        style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &painter, this);
     }
+
+    const int widthModifier = iconW + m_padding / 2;
+    KFileItem fileItem(url());
+    auto pixmap = QIcon::fromTheme(fileItem.iconName()).pixmap(iconSize(), devicePixelRatioF());
+    style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
+    if (leftToRight) {
+        textLeft += widthModifier;
+    }
+    textWidth -= widthModifier;
 
     painter.setPen(fgColor);
     const bool clipped = isTextClipped();
