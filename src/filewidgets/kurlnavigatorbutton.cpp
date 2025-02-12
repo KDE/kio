@@ -29,7 +29,7 @@ QPointer<KUrlNavigatorMenu> KUrlNavigatorButton::m_subDirsMenu;
 
 KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
-    , m_hoverArrow(false)
+    , m_hoverOverIcon(false)
     , m_pendingTextChange(false)
     , m_replaceButton(false)
     , m_showMnemonic(false)
@@ -125,12 +125,12 @@ QString KUrlNavigatorButton::activeSubDirectory() const
 
 QSize KUrlNavigatorButton::sizeHint() const
 {
-    // the minimum size is textWidth + arrowWidth() + 4 * BorderWidth; for the
-    // preferred size we add padding to have some padding between the buttons
     QFont adjustedFont(font());
     adjustedFont.setBold(m_subDir.isEmpty());
-    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + arrowWidth() + 4 * BorderWidth;
-    return QSize(width + m_padding, KUrlNavigatorButtonBase::sizeHint().height());
+    // preferred width is textWidth, iconWidth and padding combined
+    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + iconWidth() + m_padding;
+    // add extra padding in end to make sure the space between divider and button is consistent
+    return QSize(width + (m_padding / 2), KUrlNavigatorButtonBase::sizeHint().height());
 }
 
 void KUrlNavigatorButton::setShowMnemonic(bool show)
@@ -189,26 +189,26 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 
     if (!m_subDir.isEmpty()) {
         // draw folder icon
-        const int arrowSize = arrowWidth();
-        const int arrowX = !leftToRight ? (buttonWidth - arrowSize) - BorderWidth * 2 : BorderWidth * 2;
-        const int arrowY = (buttonHeight - arrowSize) / 2;
+        const int iconW = iconWidth();
+        const int iconX = !leftToRight ? (buttonWidth - iconW) + m_padding / 2 : m_padding / 2;
+        const int iconY = (buttonHeight - iconW) / 2;
 
         QStyleOption option;
         option.initFrom(this);
-        option.rect = QRect(arrowX, arrowY, arrowSize, arrowSize);
+        option.rect = QRect(iconX, iconY, iconW, iconW);
         option.palette = palette();
         option.palette.setColor(QPalette::Text, fgColor);
         option.palette.setColor(QPalette::WindowText, fgColor);
         option.palette.setColor(QPalette::ButtonText, fgColor);
 
-        if (m_hoverArrow) {
-            option.rect = QRect(arrowX, 0, arrowSize, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
+        if (m_hoverOverIcon) {
+            option.rect = QRect(iconX, 0, iconW, buttonHeight).marginsRemoved(QMargins(0, 2, 0, 2));
             style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &painter, this);
         }
 
-        const int widthModifier = arrowSize + 2 * BorderWidth;
+        const int widthModifier = iconW + m_padding / 2;
         auto pixmap = QIcon::fromTheme(QStringLiteral("folder")).pixmap(iconSize(), devicePixelRatioF());
-        style()->drawItemPixmap(&painter, QRect(arrowX, arrowY, arrowSize, arrowSize), Qt::AlignCenter, pixmap);
+        style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
         if (leftToRight) {
             textLeft += widthModifier;
         }
@@ -235,14 +235,14 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         painter.setPen(pen);
     }
 
-    int textFlags = clipped ? Qt::AlignVCenter : Qt::AlignCenter;
-    if (clipped) {
-        if (leftToRight) {
-            textRect.setLeft(textRect.left() + m_padding);
-        } else {
-            textRect.setRight(textRect.right() - m_padding);
-        }
+    int textFlags = Qt::AlignVCenter;
+
+    if (leftToRight) {
+        textRect.setLeft(textRect.left() + m_padding / 2);
+    } else {
+        textRect.setRight(textRect.right() - m_padding / 2);
     }
+
     if (m_showMnemonic) {
         textFlags |= Qt::TextShowMnemonic;
         painter.drawText(textRect, textFlags, text());
@@ -258,7 +258,6 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         } else {
             option.rect = QRect(rect().topLeft(), rect().bottomLeft());
         }
-        option.rect = option.rect.adjusted(0, m_padding / 2, 0, -m_padding / 2);
 
         // Draw CE_Splitter instead of PE_IndicatorToolBarSeparator, since the latter
         // will be turned off if application style has separators turned off
@@ -282,8 +281,8 @@ void KUrlNavigatorButton::leaveEvent(QEvent *event)
     KUrlNavigatorButtonBase::leaveEvent(event);
     setToolTip(QString());
 
-    if (m_hoverArrow) {
-        m_hoverArrow = false;
+    if (m_hoverOverIcon) {
+        m_hoverOverIcon = false;
         update();
     }
 }
@@ -329,8 +328,8 @@ void KUrlNavigatorButton::dragEnterEvent(QDragEnterEvent *event)
 void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
 {
     QRect rect = event->answerRect();
-    if (isAboveArrow(rect.center().x())) {
-        m_hoverArrow = true;
+    if (isAboveIcon(rect.center().x())) {
+        m_hoverOverIcon = true;
         update();
 
         if (m_subDirsMenu == nullptr) {
@@ -350,7 +349,7 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
             m_subDirsMenu->deleteLater();
             m_subDirsMenu = nullptr;
         }
-        m_hoverArrow = false;
+        m_hoverOverIcon = false;
         update();
     }
 }
@@ -359,14 +358,14 @@ void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     KUrlNavigatorButtonBase::dragLeaveEvent(event);
 
-    m_hoverArrow = false;
+    m_hoverOverIcon = false;
     setDisplayHintEnabled(DraggedHint, false);
     update();
 }
 
 void KUrlNavigatorButton::mousePressEvent(QMouseEvent *event)
 {
-    if (isAboveArrow(qRound(event->position().x())) && (event->button() == Qt::LeftButton)) {
+    if (isAboveIcon(qRound(event->position().x())) && (event->button() == Qt::LeftButton)) {
         // the mouse is pressed above the [>] button
         startSubDirsJob();
     }
@@ -375,7 +374,7 @@ void KUrlNavigatorButton::mousePressEvent(QMouseEvent *event)
 
 void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (!isAboveArrow(qRound(event->position().x())) || (event->button() != Qt::LeftButton)) {
+    if (!isAboveIcon(qRound(event->position().x())) || (event->button() != Qt::LeftButton)) {
         // the mouse has been released above the text area and not
         // above the [>] button
         Q_EMIT navigatorButtonActivated(m_url, event->button(), event->modifiers());
@@ -388,9 +387,9 @@ void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent *event)
 {
     KUrlNavigatorButtonBase::mouseMoveEvent(event);
 
-    const bool hoverArrow = isAboveArrow(qRound(event->position().x()));
-    if (hoverArrow != m_hoverArrow) {
-        m_hoverArrow = hoverArrow;
+    const bool hoverOverIcon = isAboveIcon(qRound(event->position().x()));
+    if (hoverOverIcon != m_hoverOverIcon) {
+        m_hoverOverIcon = hoverOverIcon;
         update();
     }
 }
@@ -544,7 +543,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     initMenu(m_subDirsMenu, 0);
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    const int popupX = !leftToRight ? width() - arrowWidth() - BorderWidth : 0;
+    const int popupX = !leftToRight ? width() - iconWidth() : 0;
     const QPoint popupPos = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
     QPointer<QObject> guard(this);
@@ -644,31 +643,23 @@ QString KUrlNavigatorButton::plainText() const
     return dest;
 }
 
-int KUrlNavigatorButton::arrowWidth() const
+int KUrlNavigatorButton::iconWidth() const
 {
-    // if there isn't arrow then return 0
-    int width = 0;
-    if (!m_subDir.isEmpty()) {
-        width = height() / 2;
-        if (width < 4) {
-            width = 4;
-        }
-    }
-
-    return width;
+    return iconSize().width();
 }
 
-bool KUrlNavigatorButton::isAboveArrow(int x) const
+bool KUrlNavigatorButton::isAboveIcon(int x) const
 {
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    return !leftToRight ? (x >= width() - arrowWidth()) : (x < arrowWidth());
+    return !leftToRight ? (x >= width() - iconWidth()) : (x < iconWidth());
 }
 
 bool KUrlNavigatorButton::isTextClipped() const
 {
-    int availableWidth = width() - 2 * BorderWidth;
+    // Ignore padding when resizing, so text doesnt go under it
+    int availableWidth = width() - m_padding;
     if (!m_subDir.isEmpty()) {
-        availableWidth -= arrowWidth() - BorderWidth;
+        availableWidth -= iconWidth();
     }
 
     QFont adjustedFont(font());
