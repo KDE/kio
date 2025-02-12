@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 13:14+0100\n"
+"PO-Revision-Date: 2025-02-11 10:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2567,6 +2567,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"El procés de treball KIO per al protocol «%1» a %2 no s'ha carregat perquè "
+"tots els processos de treball KIO que es troben fora de %3 i demanen "
+"privilegis elevats es consideren insegurs."
 
 #: core/worker.cpp:360
 #, kde-format

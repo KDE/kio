@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 11:32+0200\n"
+"PO-Revision-Date: 2025-02-11 08:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2545,6 +2545,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Обробник KIO для протоколу «%1» у %2 не було завантажено, оскільки усі "
+"обробники KIO, які розташовано поза %3, і яким потрібні розширені права "
+"доступу, вважаються небезпечними."
 
 #: core/worker.cpp:360
 #, kde-format

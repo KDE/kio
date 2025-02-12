@@ -14,13 +14,13 @@
 # Netanel_h <netanel@gmx.com>, 2009.
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 09:06+0200\n"
+"PO-Revision-Date: 2025-02-11 23:08+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,7 +58,7 @@ msgstr ""
 #: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "לא ניתן ליצור : %1"
+msgstr "לא ניתן ליצור סוכן הפעלה של KIO:‏ %1"
 
 #: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
 #, kde-format
@@ -2448,6 +2448,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"סוכן ההפעלה של KIO לפרוטוקול „%1” תחת %2 לא נטען כיוון שכל סוכני ההפעלה של "
+"KIO שממוקמים מחוץ ל־%3 ומבקשים הרשאות גבוהות נחשבים מפוקפקים."
 
 #: core/worker.cpp:360
 #, kde-format

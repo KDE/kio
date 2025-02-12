@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 16:53+0100\n"
+"PO-Revision-Date: 2025-02-11 22:11+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2545,6 +2545,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"I/O-arbetaren för protokollet “%1” i %2 laddades inte eftersom alla I/O-"
+"arbetare som är lokaliserade utanför %3 och frågar efter höjda privilegier "
+"anses vara osäkra."
 
 #: core/worker.cpp:360
 #, kde-format

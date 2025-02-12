@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 11:19+0300\n"
+"PO-Revision-Date: 2025-02-11 10:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2502,6 +2502,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"%2 içindeki “%1” protokolü için olan KIO işçisi yüklenmedi; çünkü %3 dışında "
+"yer alan ve yükseltilmiş ayrıcalıklar isteyen tüm KIO işçileri güvensiz "
+"olarak kabul edilirler."
 
 #: core/worker.cpp:360
 #, kde-format

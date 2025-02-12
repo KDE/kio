@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 02:22+0100\n"
+"PO-Revision-Date: 2025-02-11 19:50+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -2579,6 +2579,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"El módulo de trabajo KIO para el protocolo «%1» en %2 no se ha cargado "
+"porque todos los módulos de trabajo KIO situados fuera de %3 que solicitan "
+"elevación de privilegios se consideran inseguros."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -4319,7 +4322,7 @@ msgstr "Eliminar archivo"
 #: kioworkers/file/file_unix.cpp:109
 #, kde-format
 msgid "Remove Directory"
-msgstr " Eliminar directorio"
+msgstr "Eliminar directorio"
 
 #: kioworkers/file/file_unix.cpp:112
 #, kde-format

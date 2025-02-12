@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 04:57+0100\n"
+"PO-Revision-Date: 2025-02-11 04:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2504,6 +2504,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO-ის დამხმარე პროგრამა პროტოკოლისთვის \"%1\" %2-ში ჩატვირთული არ იყო, "
+"რადგან ყველა KIO-ის დამხმარე პროგრამა, რომელიც მოთავსებულია %3-ის გარეთ და "
+"ითხოვს ამაღლებულ წვდომებს, საფრთხის შემცველად ითვლება."
 
 #: core/worker.cpp:360
 #, kde-format

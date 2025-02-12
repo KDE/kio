@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 07:21+0100\n"
+"PO-Revision-Date: 2025-02-11 07:25+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2537,6 +2537,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO worker za protokol “%1” v %2 ni bil naložen, ker vsi KIO workerji, ki se "
+"nahajajo zunaj %3 in zahtevajo povišane privilegije, veljajo za nevarne."
 
 #: core/worker.cpp:360
 #, kde-format
