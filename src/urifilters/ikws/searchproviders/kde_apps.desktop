@@ -1,10 +1,12 @@
 [Desktop Entry]
 Type=Service
 Name=Plasma Add-Ons and Extensions
+Name[ar]=امتدادات وملاحق بلازما
 Name[ca]=Complements i extensions del Plasma
 Name[ca@valencia]=Complements i extensions de Plasma
 Name[es]=Complementos y extensiones de Plasma
 Name[he]=תוספים והרחבות של פלזמה
+Name[ia]=Add-Ons e Extensiones de Plasma
 Name[ka]=Plasma-ის დამატებები და გაფართოებები
 Name[nl]=Plasma Add-ons en Extensies
 Name[sl]=Plasma dodatki in razširitve
@@ -13,12 +15,15 @@ Name[th]=Plasma Add-Ons and Extensions
 Name[tr]=Plasma Eklentileri ve Genişletmeleri
 Name[uk]=Додатки і розширення Плазми
 Name[x-test]=xxPlasma Add-Ons and Extensionsxx
+Name[zh_CN]=Plasma 附加组件和扩展
 Keys=ext,extension
 Query=https://store.kde.org/browse?tag=\\{@}
+Query[ar]=https://store.kde.org/browse?tag=\\{@}
 Query[ca]=https://store.kde.org/browse?tag=\\{@}
 Query[ca@valencia]=https://store.kde.org/browse?tag=\\{@}
 Query[es]=https://store.kde.org/browse?tag=\\{@}
 Query[he]=https://store.kde.org/browse?tag=\\{@}
+Query[ia]=https://store.kde.org/browse?tag=\\{@}
 Query[ka]=https://store.kde.org/browse?tag=\\{@}
 Query[nl]=https://store.kde.org/browse?tag=\\{@}
 Query[sl]=https://store.kde.org/browse?tag=\\{@}
@@ -27,3 +32,4 @@ Query[th]=https://store.kde.org/browse?tag=\\{@}
 Query[tr]=https://store.kde.org/browse?tag=\\{@}
 Query[uk]=https://store.kde.org/browse?tag=\\{@}
 Query[x-test]=xxhttps://store.kde.org/browse?tag=\\{@}xx
+Query[zh_CN]=https://store.kde.org/browse?tag=\\{@}

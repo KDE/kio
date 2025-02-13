@@ -5,6 +5,7 @@ Name[ar]=شبكة مطوري موزيلا (MDN)
 Name[bg]=Mozilla Developer Network (MDN)
 Name[ca]=Xarxa de desenvolupador de Mozilla (MDN)
 Name[ca@valencia]=Xarxa de desenvolupador de Mozilla (MDN)
+Name[de]=Mozilla-Entwicklernetzwerk (MDN)
 Name[es]=Red del desarrollador de Mozilla (MDN)
 Name[eu]=Mozilla Garatzaileen Sarea (MDN - Mozilla Developer Network)
 Name[fr]=Réseau des équipes de développement de Mozilla (MDN)
@@ -31,6 +32,7 @@ Query[ar]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[bg]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ca]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ca@valencia]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[de]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[es]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[eu]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[fr]=https://developer.mozilla.org/en-US/search?q=\\{@}
