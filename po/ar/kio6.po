@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-06 08:46+0400\n"
+"PO-Revision-Date: 2025-02-12 17:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2464,6 +2464,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"لم يتمكن عامل KIO للميفاق ”%1“ في %2 من التحميل لأن جميع عمال KIO الموجودين "
+"خارج %3 ويطلبون امتيازات مرتفعة يعتبرون غير آمنين."
 
 #: core/worker.cpp:360
 #, kde-format

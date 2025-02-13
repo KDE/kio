@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-05 10:15+0100\n"
+"PO-Revision-Date: 2025-02-12 10:19+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2566,6 +2566,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Le laborator de KIO per le protocollo \"%1\"  in %2 non esseva cargate "
+"perque omne laboratores de KIO que es locate foras de  %3 e demanda "
+"privilegios elevate es considerata insecure."
 
 #: core/worker.cpp:360
 #, kde-format

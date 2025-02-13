@@ -2384,6 +2384,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"%2 中的协议“%1”的 KIO 工作程序没有加载，因为位于 %3 之外并请求提权的所有 KIO "
+"工作程序均被视为不安全。"
 
 #: core/worker.cpp:360
 #, kde-format
@@ -2419,20 +2421,16 @@ msgid "&Current Session only"
 msgstr "仅当前会话(&C)"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "创建新文件夹"
+msgstr "移动到新文件夹"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "创建新文件夹"
+msgstr "创建新文件夹以存放这些项目"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
@@ -3334,11 +3332,10 @@ msgid "&Name:"
 msgstr "名称(&N)："
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "撤销更改"
+msgstr "撤销文件名更改"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
@@ -6965,12 +6962,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "“%1”协议的 KIO 工作程序通常需要提升权限，然而 root 以外的用户不一定具备在 "
-#~ "%2 上修改它的权限，所以无法保证成功。"

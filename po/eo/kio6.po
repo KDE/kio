@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2024-12-28 17:41+0100\n"
+"PO-Revision-Date: 2025-02-12 22:59+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2570,20 +2570,16 @@ msgid "&Current Session only"
 msgstr "&Nur Nuna Seanco"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Krei Novan Dosierujon"
+msgstr "Movi en Novan Dosierujon"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Krei Novan Dosierujon"
+msgstr "Krei Novan Dosierujon por Ĉi Eroj"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
@@ -3504,11 +3500,10 @@ msgid "&Name:"
 msgstr "&Nomo:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Malfari Ŝanĝojn"
+msgstr "Malfari ŝanĝon de dosiernomo"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
@@ -7263,29 +7258,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "La sekureco de la KIO-laboristo por protokolo ’%1’, kiu tipe petas altajn "
-#~ "permesojn, ne povas esti garantiita ĉar uzantoj krom root havas permeson "
-#~ "modifi ĝin ĉe %2."
-
-#~ msgid ""
-#~ "Although contact was made with the server, a response was not received "
-#~ "within the amount of time allocated for the request as follows:"
-#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#~ "settings in the KDE System Settings, by selecting Network Settings -> "
-#~ "Connection Preferences."
-#~ msgstr ""
-#~ "Kvankam kontakto estis farita kun la servilo, respondo ne estis ricevita "
-#~ "en la kvanto de tempo asignita por la peto jene:<ul><li>Tempo por establi "
-#~ "konekton: %1 sekundoj</li><li>Tempo por ricevi respondo: %2 sekundoj</"
-#~ "li><li>Tempo por aliro al prokurserviloj: %3 sekundoj</li></ul>Bonvolu "
-#~ "noti, ke vi povas ŝanĝi ĉi tiujn tempofinajn agordojn en la KDE-Sistema "
-#~ "Agordoj, elektante Retajn Agordojn - > Konekto-Preferoj."
