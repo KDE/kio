@@ -129,9 +129,10 @@ QSize KUrlNavigatorButton::sizeHint() const
     QFont adjustedFont(font());
     adjustedFont.setBold(m_subDir.isEmpty());
     // preferred width is textWidth, iconWidth and padding combined
-    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + iconWidth() + m_padding;
     // add extra padding in end to make sure the space between divider and button is consistent
-    return QSize(width + (m_padding / 2), KUrlNavigatorButtonBase::sizeHint().height());
+    // the first padding is used between icon and text, second in the end of text
+    const int width = QFontMetrics(adjustedFont).size(Qt::TextSingleLine, plainText()).width() + iconWidth() + (m_padding * 2);
+    return QSize(width, KUrlNavigatorButtonBase::sizeHint().height());
 }
 
 void KUrlNavigatorButton::setShowMnemonic(bool show)
