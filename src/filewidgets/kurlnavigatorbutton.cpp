@@ -224,9 +224,11 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         bgColor.setAlpha(0);
         QLinearGradient gradient(textRect.topLeft(), textRect.topRight());
         if (leftToRight) {
+            gradient.setFinalStop(QPoint(gradient.finalStop().x() - m_padding, gradient.finalStop().y()));
             gradient.setColorAt(0.8, fgColor);
             gradient.setColorAt(1.0, bgColor);
         } else {
+            gradient.setStart(QPoint(gradient.start().x() + m_padding, gradient.start().y()));
             gradient.setColorAt(0.0, bgColor);
             gradient.setColorAt(0.2, fgColor);
         }
