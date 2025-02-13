@@ -214,7 +214,6 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     , m_showPlacesSelector(placesModel != nullptr)
 {
     m_layout->setSpacing(0);
-    m_layout->setContentsMargins(m_padding / 2, 0, m_padding / 2, 0);
 
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
@@ -1408,7 +1407,6 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
     const int pad = d->m_padding;
-    setContentsMargins(pad, pad, pad, pad);
     option.rect = rect().adjusted(pad, pad, -pad, -pad);
 
     // Draw the background
