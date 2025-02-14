@@ -64,10 +64,11 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
-    const QList<KFileFilter> types = [filters] {
-        QList res = filters;
-        std::ranges::remove_if(res, [](const KFileFilter &f) {
-            return !f.isValid();
+    const QList<KFileFilter> types = [&filters] {
+        QList<KFileFilter> res;
+        res.reserve(filters.size());
+        std::ranges::copy_if(filters, std::back_inserter(res), [](const KFileFilter &f) {
+            return f.isValid();
         });
         return res;
     }();
