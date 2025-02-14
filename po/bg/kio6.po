@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-04 13:11+0100\n"
+"PO-Revision-Date: 2025-02-13 09:09+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -2524,6 +2524,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO worker за протокол „%1“ в %2 не беше зареден, тъй като всички KIO "
+"worker, които се намират извън %3 и изискват повишени привилегии, се считат "
+"за несигурни."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -3497,11 +3500,10 @@ msgid "&Name:"
 msgstr "Им&е:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Отмяна на промените"
+msgstr "Отмяна на промяната на името на файла"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
