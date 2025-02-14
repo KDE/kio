@@ -306,6 +306,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_badgeWidgetContainer);
     m_layout->addWidget(m_toggleEditableMode);
+    m_layout->setContentsMargins(0, 0, 0, 0);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
     q->connect(q, &QWidget::customContextMenuRequested, q, [this](const QPoint &pos) {
@@ -1406,9 +1407,6 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QStyleOption option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
-    const int pad = d->m_padding;
-    option.rect = rect().adjusted(pad, pad, -pad, -pad);
-
     // Draw the background
     style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
     // Make sure pathBox does not portrude outside of the above frameLineEdit background
