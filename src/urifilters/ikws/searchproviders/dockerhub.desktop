@@ -33,6 +33,7 @@ Query[bg]=https://hub.docker.com/search?q=\\{@}
 Query[ca]=https://hub.docker.com/search?q=\\{@}
 Query[ca@valencia]=https://hub.docker.com/search?q=\\{@}
 Query[de]=https://hub.docker.com/search?q=\\{@}
+Query[eo]=https://hub.docker.com/search?q=\\{@}
 Query[es]=https://hub.docker.com/search?q=\\{@}
 Query[eu]=https://hub.docker.com/search?q=\\{@}
 Query[fr]=https://hub.docker.com/search?q=\\{@}
