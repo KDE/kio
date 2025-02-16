@@ -1396,7 +1396,7 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Torneu-ho a provar la petició i assegureu-vos que els detalls d'autenticació "
+"Torneu a provar la petició i assegureu-vos que els detalls d'autenticació "
 "s'introduïxen correctament."
 
 #: core/job_error.cpp:632
@@ -1490,7 +1490,7 @@ msgstr "La petició no s'ha completat perquè s'ha interromput."
 #: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
-msgstr "Torneu-ho a provar la petició."
+msgstr "Torneu a provar la petició."
 
 #: core/job_error.cpp:688
 #, kde-format
@@ -1937,8 +1937,7 @@ msgstr ""
 #: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr ""
-"Torneu-ho a provar la petició sense intentar continuar la transferència."
+msgstr "Torneu a provar la petició sense intentar continuar la transferència."
 
 #: core/job_error.cpp:974
 #, kde-format

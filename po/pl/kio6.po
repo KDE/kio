@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-08 17:25+0100\n"
+"PO-Revision-Date: 2025-02-15 11:15+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2516,6 +2516,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Pracownik KIO dla protokołu “%1” w %2 nie został wczytany, bo wszyscy "
+"pracownicy KIO, którzy znajdują się poza %3 i proszą o rozszerzone "
+"uprawnienia są uznawani za niebezpiecznych."
 
 #: core/worker.cpp:360
 #, kde-format
