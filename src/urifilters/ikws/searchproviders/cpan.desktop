@@ -58,7 +58,7 @@ Name[ml]=സിപാൻ - സമഗ്രമായ പേൾ ശേഖര ശ�
 Name[mr]=CPAN - कॉम्प्रेहेंसिव पर्ल संग्रह संजाळ
 Name[ms]=CPAN - Comprehensive Perl Archive Network
 Name[my]=စီပန် - များပြားပါဝင်သော Perl အဟောင်းထိမ်းသိမ်းတိုက် ကွန်ရက်
-Name[nb]=CPAN -– Perl-arkiv: «Comprehensive Perl Archive Network»
+Name[nb]=CPAN – Perl-arkiv: «Comprehensive Perl Archive Network»
 Name[nds]=CPAN - Ümfaten Perl-Archievnettwark
 Name[ne]=CPAN - व्यापक पर्ल सङ्ग्रह सञ्जाल
 Name[nl]=CPAN - Comprehensive Perl Archive Network
@@ -128,6 +128,7 @@ Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[my]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[nb]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pa]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

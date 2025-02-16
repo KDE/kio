@@ -33,6 +33,7 @@ Name[ka]=KDE Invent რეპოზიტორები
 Name[ko]=KDE Invent 저장소
 Name[lg]=Noonya Puloguramu ku KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့် ရီပိုစစ်တိုရီများ
+Name[nb]=KDE Invent-pakkebrønner
 Name[nl]=Opslagruimtes van KDE-invent
 Name[nn]=KDE Invent-pakkebrønnar
 Name[pa]=KDE ਇਨਵੈਂਟ ਰਿਪੋਜ਼ਟਰੀਆਂ
@@ -83,6 +84,7 @@ Query[ka]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ko]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[lg]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[my]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[nb]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nn]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[pa]=https://invent.kde.org/explore/projects/starred?name=\\{@}

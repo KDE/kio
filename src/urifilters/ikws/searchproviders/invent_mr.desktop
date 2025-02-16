@@ -31,6 +31,7 @@ Name[ka]=KDE Invent -ის კოდის განახლების მ�
 Name[ko]=KDE Invent 병합 요청
 Name[lg]=Emirimu Egiwedde Egiweeredwayo ku KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့် ပေါင်းစပ်ရန်တောင်းဆိုချက်များ
+Name[nb]=KDE Invent-fletteforespørsler
 Name[nl]=KDE-invent samenvoegaanvragen
 Name[nn]=KDE Invent-fletteførespurnadar
 Name[pa]=KDE ਇਨਵੈਂਟ ਮਿਲਾਨ ਬੇਨਤੀਆਂ
@@ -78,6 +79,7 @@ Query[ka]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[lg]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[my]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[nb]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nn]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[pa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

@@ -59,7 +59,7 @@ Name[mk]=dict.cc превод: од германски на англиски
 Name[ml]=dict.cc പരിഭാഷ: ജര്‍മനില്‍ നിന്നും ഇംഗ്ലീഷിലേയ്ക്കു്
 Name[mr]=dict.cc अनुवादः जर्मन ते अंग्रेजी
 Name[my]=ဒစ် ဒေါ့ စီစီ ဘာသာပြန်မှု - ဂျာမန်မှ အင်္ဂလိပ််သို့
-Name[nb]=dict.cc Oversettelse fra tysk til engelsk
+Name[nb]=dict.cc Oversettelse: Tysk til engelsk
 Name[nds]=dict.cc Översetten: Hoochdüütsch na Engelsch
 Name[ne]=dict.cc अनुवाद: जर्मनीलाई अङ्ग्रेजीमा
 Name[nl]=dict.cc-vertaling: Duits naar Engels
@@ -129,6 +129,7 @@ Query[ko]=https://www.dict.cc/?s=\\{@}
 Query[lg]=https://www.dict.cc/?s=\\{@}
 Query[lt]=https://www.dict.cc/?s=\\{@}
 Query[my]=https://www.dict.cc/?s=\\{@}
+Query[nb]=https://www.dict.cc/?s=\\{@}
 Query[nl]=https://www.dict.cc/?s=\\{@}
 Query[nn]=https://www.dict.cc/?s=\\{@}
 Query[pa]=https://www.dict.cc/?s=\\{@}

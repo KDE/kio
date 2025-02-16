@@ -32,6 +32,7 @@ Name[ka]=Linguee
 Name[ko]=Linguee
 Name[lg]=Linguee
 Name[my]=လင်ဂွီ
+Name[nb]=Linguee
 Name[nl]=Linguee
 Name[nn]=Linguee
 Name[pa]=ਲਿੰਗੂਈ
@@ -83,6 +84,7 @@ Query[ka]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ko]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[lg]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[my]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[nb]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[nl]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[nn]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[pa]=https://www.linguee.com/search?source=auto&query=\\{@}

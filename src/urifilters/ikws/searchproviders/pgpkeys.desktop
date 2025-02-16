@@ -58,7 +58,7 @@ Name[ml]=ഓപ്പണ്‍പിജിപി (OpenPGP) കീ തെരച�
 Name[mr]=OpenPGP किल्ली शोध
 Name[ms]=Carian Kekunci OpenPGP
 Name[my]=အိုးပန်းပီဂျီပီ ကီးရှာရန်
-Name[nb]=OpenPGP nøkkelsøk
+Name[nb]=OpenPGP-nøkkelsøk
 Name[nds]=OpenPGP-Slötel-Söök
 Name[ne]=खुला PGP कुञ्जी खोजी
 Name[nl]=Zoeken naar OpenPGP-sleutels
@@ -128,6 +128,7 @@ Query[ko]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[my]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[nb]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[nl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[nn]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[pa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

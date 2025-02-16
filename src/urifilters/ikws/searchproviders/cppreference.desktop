@@ -30,6 +30,7 @@ Name[ka]=CPP მიმართვა
 Name[ko]=CPP Reference
 Name[lg]=CPP Reference
 Name[my]=စီပီပီ အကိုးအကား
+Name[nb]=CPP-referanse
 Name[nl]=CPP-referentie
 Name[nn]=CPP-referanse
 Name[pa]=CPP ਰੈਫ਼ਰੈਂਸ
@@ -81,6 +82,7 @@ Query[ka]=https://cppreference.com/w/?search=\\{@}
 Query[ko]=https://cppreference.com/w/?search=\\{@}
 Query[lg]=https://cppreference.com/w/?search=\\{@}
 Query[my]=https://cppreference.com/w/?search=\\{@}
+Query[nb]=https://cppreference.com/w/?search=\\{@}
 Query[nl]=https://cppreference.com/w/?search=\\{@}
 Query[nn]=https://cppreference.com/w/?search=\\{@}
 Query[pa]=https://cppreference.com/w/?search=\\{@}

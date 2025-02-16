@@ -58,7 +58,7 @@ Name[ml]=കമ്പ്യൂട്ടിങ്ങിന്റെ സ്വത�
 Name[mr]=संगणक कार्य हेतु मोफत ऑन-लाइन शब्दकोश
 Name[ms]=Kamus Perkomputeran Dalam Talian Percuma
 Name[my]=တွက်ချက်မှုဆိုင်ရာ အွန်လိုင်းဒစ်ရှစ်နရီ
-Name[nb]=Gratis engelsk dataordbok på nett
+Name[nb]=Free On-Line Dictionary of Computing
 Name[nds]=Free On-Line Dictionary Of Computing
 Name[ne]=कम्प्युटिङको निशुल्क अन-लाइन शब्दकोश
 Name[nl]=Free On-Line Dictionary Of Computing (IT-woordenboek)
@@ -128,6 +128,7 @@ Query[ko]=https://foldoc.org/\\{@}
 Query[lg]=https://foldoc.org/\\{@}
 Query[lt]=https://foldoc.org/\\{@}
 Query[my]=https://foldoc.org/\\{@}
+Query[nb]=https://foldoc.org/\\{@}
 Query[nl]=https://foldoc.org/\\{@}
 Query[nn]=https://foldoc.org/\\{@}
 Query[pa]=https://foldoc.org/\\{@}

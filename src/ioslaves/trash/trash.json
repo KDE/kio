@@ -152,6 +152,10 @@
                 "Original Path",
                 "Deletion Data"
             ],
+            "ExtraNames[nb]": [
+                "Opphavs sti",
+                " slettedato"
+            ],
             "ExtraNames[nl]": [
                 "Oorspronkelijk pad",
                 "Datum verwijdering"

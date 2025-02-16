@@ -31,6 +31,7 @@ Name[ka]=Reddit
 Name[ko]=Reddit
 Name[lg]=Reddit
 Name[my]=ရက်ဒစ်
+Name[nb]=Reddit
 Name[nl]=Reddit
 Name[nn]=Reddit
 Name[pa]=ਰੇਡਿਟ
@@ -81,6 +82,7 @@ Query[ka]=https://www.reddit.com/search/?q=\\{@}
 Query[ko]=https://www.reddit.com/search/?q=\\{@}
 Query[lg]=https://www.reddit.com/search/?q=\\{@}
 Query[my]=https://www.reddit.com/search/?q=\\{@}
+Query[nb]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
 Query[nn]=https://www.reddit.com/search/?q=\\{@}
 Query[pa]=https://www.reddit.com/search/?q=\\{@}

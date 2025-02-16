@@ -33,6 +33,7 @@ Name[ka]=Qt6 ონლაინ დოკუმენტაცია
 Name[ko]=Qt6 온라인 문서
 Name[lg]=Ebiwandiko Ebikwata ku Qt6
 Name[my]=ကျူတီ၆ အွန်လိုင်းဒိုကူမန်တေးရှင်း
+Name[nb]=Qt6-dokumentasjon på nett
 Name[nl]=Qt6 online-documentatie
 Name[nn]=Qt6-dokumentasjon på nett
 Name[pa]=Qt6 ਆਨਲਾਈਨ ਡੌਕੂਮੈਂਟ
@@ -81,6 +82,7 @@ Query[ka]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ko]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[lg]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[my]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[nb]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[nn]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[pa]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
