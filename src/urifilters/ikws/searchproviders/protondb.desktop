@@ -36,6 +36,7 @@ Name[lg]=ProtonDB
 Name[lt]=ProtonDB
 Name[lv]=ProtonDB
 Name[my]=ပရိုတွန်ဒီဘီ
+Name[nb]=ProtonDB
 Name[nl]=ProtonDB
 Name[nn]=ProtonDB
 Name[pa]=ProtonDB
@@ -95,6 +96,7 @@ Query[lg]=https://www.protondb.com/search?q=\\{@}
 Query[lt]=https://www.protondb.com/search?q=\\{@}
 Query[lv]=https://www.protondb.com/search?q=\\{@}
 Query[my]=https://www.protondb.com/search?q=\\{@}
+Query[nb]=https://www.protondb.com/search?q=\\{@}
 Query[nl]=https://www.protondb.com/search?q=\\{@}
 Query[nn]=https://www.protondb.com/search?q=\\{@}
 Query[pa]=https://www.protondb.com/search?q=\\{@}

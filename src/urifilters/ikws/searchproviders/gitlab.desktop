@@ -40,6 +40,7 @@ Name[lt]=GitLab
 Name[lv]=GitLab
 Name[ml]=ഗിറ്റ്ലാബ്
 Name[my]=ဂစ်လပ်ဘ်
+Name[nb]=GitLab
 Name[nl]=GitLab
 Name[nn]=GitLab
 Name[pa]=ਗਿਟਲੈਬ
@@ -99,6 +100,7 @@ Query[lg]=https://gitlab.com/search?search=\\{@}
 Query[lt]=https://gitlab.com/search?search=\\{@}
 Query[lv]=https://gitlab.com/search?search=\\{@}
 Query[my]=https://gitlab.com/search?search=\\{@}
+Query[nb]=https://gitlab.com/search?search=\\{@}
 Query[nl]=https://gitlab.com/search?search=\\{@}
 Query[nn]=https://gitlab.com/search?search=\\{@}
 Query[pa]=https://gitlab.com/search?search=\\{@}

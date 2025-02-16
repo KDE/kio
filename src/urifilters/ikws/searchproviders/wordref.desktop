@@ -60,7 +60,7 @@ Name[mk]=WordReference.com Англиски речник
 Name[ml]=WordReference.com ഇംഗ്ലീഷ് നിഘണ്ടു
 Name[mr]=वर्डरेफरेंस.कॉम अंग्रेजी शब्दकोश
 Name[my]=ဝါ့ဒ်ရပ်ဖ်ဖရမ့် ဒေါ့ ကွန်း အင်္ဂလိပ်ဒစ်ရှင်နရီ
-Name[nb]=WordReference.com, engelsk ordbok
+Name[nb]=WordReference.com engelsk ordbok
 Name[nds]=WordReference.com Engelsch-Nakieksel
 Name[ne]=WordReference.com अङ्ग्रेजी शब्दकोश
 Name[nl]=WordReference.com Engels woordenboek
@@ -134,6 +134,7 @@ Query[lg]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[lt]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[lv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[my]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[nb]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nn]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[pa]=https://www.wordreference.com/english/definition.asp?en=\\{@}

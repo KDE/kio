@@ -36,6 +36,7 @@ Name[lg]=CPlusPlus
 Name[lt]=CPlusPlus
 Name[lv]=CPlusPlus
 Name[my]=စီပလပ်ပလပ်
+Name[nb]=CPlusPlus
 Name[nl]=CPlusPlus
 Name[nn]=CPlusPlus
 Name[pa]=CPlusPlus
@@ -95,6 +96,7 @@ Query[lg]=http://cplusplus.com/search.do?q=\\{@}
 Query[lt]=http://cplusplus.com/search.do?q=\\{@}
 Query[lv]=http://cplusplus.com/search.do?q=\\{@}
 Query[my]=http://cplusplus.com/search.do?q=\\{@}
+Query[nb]=http://cplusplus.com/search.do?q=\\{@}
 Query[nl]=http://cplusplus.com/search.do?q=\\{@}
 Query[nn]=http://cplusplus.com/search.do?q=\\{@}
 Query[pa]=http://cplusplus.com/search.do?q=\\{@}

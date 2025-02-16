@@ -59,7 +59,7 @@ Name[ml]=ലിയോ-പരിഭാഷ
 Name[mr]=लिओ-अनुवाद
 Name[ms]=LEO-Terjemah
 Name[my]=လီယို-ဘာသာပြန်
-Name[nb]=LEO-oversetter
+Name[nb]=LEO-Translate
 Name[nds]=LEO-Översetten
 Name[ne]=LEO-अनुवाद
 Name[nl]=LEO-Translate (Vertaling Duits-Engels-Duits)
@@ -135,6 +135,7 @@ Query[lg]=https://dict.leo.org/?search=\\{@}
 Query[lt]=https://dict.leo.org/?search=\\{@}
 Query[lv]=https://dict.leo.org/?search=\\{@}
 Query[my]=https://dict.leo.org/?search=\\{@}
+Query[nb]=https://dict.leo.org/?search=\\{@}
 Query[nl]=https://dict.leo.org/?search=\\{@}
 Query[nn]=https://dict.leo.org/?search=\\{@}
 Query[pa]=https://dict.leo.org/?search=\\{@}

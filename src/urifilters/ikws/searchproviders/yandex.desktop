@@ -36,6 +36,7 @@ Name[lg]=Yandex
 Name[lt]=Yandex
 Name[lv]=Yandex
 Name[my]=ရန်ဒက်
+Name[nb]=Yandex
 Name[nl]=Yandex
 Name[nn]=Yandex
 Name[pa]=ਯੰਡੈਕਸ
@@ -92,6 +93,7 @@ Query[lg]=https://yandex.ru/search/?text=\\{@}
 Query[lt]=https://yandex.ru/search/?text=\\{@}
 Query[lv]=https://yandex.ru/search/?text=\\{@}
 Query[my]=https://yandex.ru/search/?text=\\{@}
+Query[nb]=https://yandex.ru/search/?text=\\{@}
 Query[nl]=https://yandex.ru/search/?text=\\{@}
 Query[nn]=https://yandex.ru/search/?text=\\{@}
 Query[pa]=https://yandex.ru/search/?text=\\{@}

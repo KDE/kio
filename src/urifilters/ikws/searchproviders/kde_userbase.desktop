@@ -50,7 +50,7 @@ Name[mai]=केडीई प्रयोक्ता बेस
 Name[ml]=കെഡിഇ യൂസര്‍ബേസ്
 Name[mr]=केडीई युजरबेस
 Name[my]=ကေဒီအီး အသုံးပြုသူများ
-Name[nb]=Brukerbase for KDE
+Name[nb]=KDE UserBase
 Name[nds]=KDE-UserBase
 Name[nl]=KDE UserBase
 Name[nn]=KDE UserBase
@@ -117,6 +117,7 @@ Query[lg]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[lt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[lv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[my]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[nb]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pa]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

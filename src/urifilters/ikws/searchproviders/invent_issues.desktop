@@ -36,6 +36,7 @@ Name[lg]=Ebizibu Ebyogerwako mu KDE Invent
 Name[lt]=KDE Invent klaidos
 Name[lv]=„KDE Invent“ problēmas
 Name[my]=ကေဒီအီး အင်ဗန့် အစ်ရှူး
+Name[nb]=KDE Invent-saker
 Name[nl]=KDE-invent problemen
 Name[nn]=KDE Invent-saker
 Name[pa]=KDE ਖੋਜ ਮਸਲੇ
@@ -93,6 +94,7 @@ Query[lg]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[lt]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[lv]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[my]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[nb]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[nn]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[pa]=https://invent.kde.org/search?scope=issues&search=\\{@}

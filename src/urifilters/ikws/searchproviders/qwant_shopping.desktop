@@ -39,7 +39,7 @@ Name[lt]=Qwant apsipirkimas
 Name[lv]=„Qwant“ iepirkšanās
 Name[mr]=क्वांटखरेदी
 Name[my]=ကွမ့် စျေးဝယ်ထွက်
-Name[nb]=Qwant shopping
+Name[nb]=Qwant netthandel
 Name[nds]=Qwant-Inköpen
 Name[nl]=Qwant winkelen
 Name[nn]=Qwant netthandel
@@ -103,6 +103,7 @@ Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[nb]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[pa]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

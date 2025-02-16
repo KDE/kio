@@ -59,7 +59,7 @@ Name[ml]=ഇന്റര്‍നെറ്റിലുള്ള ചലച്ച�
 Name[mr]=इंटरनेट चलप्रतिमा डेटाबेस
 Name[ms]=Pangkalan Data Wayang Internet
 Name[my]=အင်တာနက်ရုပ်ရှင်ဒေတာဘေ့စ်
-Name[nb]=Internett filmdatabase
+Name[nb]=Internet Movie Database
 Name[nds]=Internet-Filmdatenbank
 Name[ne]=इन्टरनेट चलचित्र डाटाबेस
 Name[nl]=Internet filmdatabase
@@ -133,6 +133,7 @@ Query[lg]=https://imdb.com/find?s=all&q=\\{@}
 Query[lt]=https://imdb.com/find?s=all&q=\\{@}
 Query[lv]=https://imdb.com/find?s=all&q=\\{@}
 Query[my]=https://imdb.com/find?s=all&q=\\{@}
+Query[nb]=https://imdb.com/find?s=all&q=\\{@}
 Query[nl]=https://imdb.com/find?s=all&q=\\{@}
 Query[nn]=https://imdb.com/find?s=all&q=\\{@}
 Query[pa]=https://imdb.com/find?s=all&q=\\{@}

@@ -38,6 +38,7 @@ Name[lg]=Dduuka Lya KDE
 Name[lt]=KDE parduotuvė
 Name[lv]=KDE veikals
 Name[my]=ကေဒီအီး စတိုး
+Name[nb]=KDE-nettbutikken
 Name[nl]=KDE Store
 Name[nn]=KDE-nettbutikken
 Name[pa]=KDE ਸਟੋਰ
@@ -94,6 +95,7 @@ Query[lg]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[lt]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[lv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[my]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[nb]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pa]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
