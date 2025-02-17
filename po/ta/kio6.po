@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:38+0000\n"
-"PO-Revision-Date: 2025-02-02 16:36+0530\n"
+"PO-Revision-Date: 2025-02-16 17:04+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2479,6 +2479,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"\"%1\" எனும் நெறிமுறைக்கான KIO பின்னிரல் (%2 தனில் உள்ளது) ஏற்றப்படவில்லை, ஏனெனில் %3-"
+"இல் இல்லாத நிரல்களுக்கு ரூட் உரிமை வழங்குவது பாதுகாப்பற்றது."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -3444,11 +3446,10 @@ msgid "&Name:"
 msgstr "&பெயர்:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "மாற்றங்களை நீக்கு"
+msgstr "பெயர்மாற்றியதை செயல்நீக்கு"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
