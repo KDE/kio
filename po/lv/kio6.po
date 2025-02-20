@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-18 00:38+0000\n"
-"PO-Revision-Date: 2025-01-27 17:51+0200\n"
+"PO-Revision-Date: 2025-02-18 18:33+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -2526,6 +2526,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO strādnieks protokolam „%1“ netika ielādēts „%2“, jo visi KIO strādnieki, "
+"kas atrodas ārpus „%3“ un lūdz paaugstinātas tiesības, tiek uzskatīti par "
+"nedrošiem."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -2561,20 +2564,16 @@ msgid "&Current Session only"
 msgstr "&Tikai šai sesijai"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Izveidot jaunu mapi"
+msgstr "Pārvietot jaunā mapē"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Izveidot jaunu mapi"
+msgstr "Izveidot jaunu mapi šiem vienumiem"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
@@ -3502,11 +3501,10 @@ msgid "&Name:"
 msgstr "&Nosaukums:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Atsaukt izmaiņas"
+msgstr "Atsaukt datnes pārdēvēšanu"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
