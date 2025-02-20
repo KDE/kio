@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2025-02-15 17:22+0100\n"
+"PO-Revision-Date: 2025-02-16 15:54+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
@@ -5508,10 +5508,8 @@ msgid ""
 msgstr ""
 "<qt>Skriv inn navnet på miljøvariabelen, for eksempel <b>NO_PROXY</b>, som "
 "brukes for å lagre adresser til steder der mellomtjener ikke skal brukes."
-"<p>\n"
-"Du kan også trykke på <b>«Finn automatisk»</b>for å forsøke å finne "
-"variabelen automatisk.\n"
-"</qt>"
+"<p>Du kan også trykke på <b>«Finn automatisk»</b>for å forsøke å finne "
+"variabelen automatisk.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
@@ -6988,8 +6986,8 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"Kopier og lim inn en sjekksum i feltet nedenfor.<br>Sjekksummer er vanligvis "
-"tilgjengelige fra nettstedene hvor du laster ned filene fra."
+"Kopier og lim inn en sjekksum i feltet nedenfor.<br/>Sjekksummer er "
+"vanligvis tilgjengelige fra nettstedene hvor du laster ned filene fra."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
@@ -7694,7 +7692,7 @@ msgstr "Velg hvilket program du vil åpne de valgte filene med."
 #: widgets/kopenwithdialog.cpp:589
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
-msgstr "<qt>Velg programmet du vil bruke til å åpne fila<br>%1</qt>"
+msgstr "<qt>Velg programmet du vil bruke til å åpne fila<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:591
 #, kde-format
@@ -8710,7 +8708,7 @@ msgid ""
 "source of the file."
 msgstr ""
 "<p>Sjekksummene er ikke like.</p>Dette kan skyldes feil ved nedlasting av "
-"fila. Prøv i så fall å laste den ned på nytt.<br>Hvis du da fortsatt får "
+"fila. Prøv i så fall å laste den ned på nytt.<br/>Hvis du da fortsatt får "
 "feil, ta kontakt med kilden til fila."
 
 #: widgets/kpropertiesdialog.cpp:3051
