@@ -4,10 +4,13 @@ Hidden=false
 Keys=duckduckgo,dd,d,dukgo,ddg
 Name=DuckDuckGo
 Name[ar]=دك دك جو
+Name[bg]=DuckDuckGo
 Name[ca]=DuckDuckGo
 Name[eo]=DuckDuckGo
 Name[es]=DuckDuckGo
 Name[gl]=DuckDuckGo
+Name[ia]=DuckDuckGo
+Name[it]=DuckDuckGo
 Name[ka]=DuckDuckGo
 Name[nl]=DuckDuckGo
 Name[pt_BR]=DuckDuckGo
@@ -16,6 +19,7 @@ Name[sv]=DuckDuckGo
 Name[tr]=DuckDuckGo
 Name[uk]=DuckDuckGo
 Name[x-test]=xxDuckDuckGoxx
+Name[zh_CN]=DuckDuckGo
 Query=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[az]=https://duckduckgo.com/?q=\\{@}&t=kde

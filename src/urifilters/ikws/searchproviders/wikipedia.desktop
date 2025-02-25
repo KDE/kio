@@ -3,10 +3,13 @@ Type=Service
 Icon=text-wiki
 Name=Wikipedia
 Name[ar]=ويكيبيديا
+Name[bg]=Wikipedia
 Name[ca]=Viquipèdia
 Name[eo]=Vikipedio
 Name[es]=Wikipedia
 Name[gl]=Wikipedia
+Name[ia]=Wikipedia
+Name[it]=Wikipedia
 Name[ka]=Wikipedia
 Name[nl]=Wikipedia
 Name[pt_BR]=Wikipédia
@@ -15,6 +18,7 @@ Name[sv]=Wikipedia
 Name[tr]=Vikipedi
 Name[uk]=Вікіпедія
 Name[x-test]=xxWikipediaxx
+Name[zh_CN]=维基百科
 Keys=wp
 Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
