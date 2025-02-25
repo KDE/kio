@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-18 00:38+0000\n"
-"PO-Revision-Date: 2025-02-01 14:19+0100\n"
+"PO-Revision-Date: 2025-02-11 13:19+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2578,6 +2578,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Il KIO worker per il protocollo «%1» in %2 non è stato caricato perché tutti "
+"i KIO worker posizionati al di fuori di %3 e che richiedono privilegi "
+"elevati sono considerati non sicuri."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -3555,11 +3558,10 @@ msgid "&Name:"
 msgstr "&Nome:"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Annulla le modifiche"
+msgstr "Annulla le modifiche al nome di file"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
