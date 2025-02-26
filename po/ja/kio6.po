@@ -1,5 +1,5 @@
 # Translation of kio4 into Japanese.
-# SPDX-FileCopyrightText: 2022, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # This file is distributed under the same license as the kdelibs package.
 # Taiki Komoda <kom@kde.gr.jp>, 2002, 2010.
 # Noriko Mizumoto <noriko@redhat.com>, 2004.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-03-06 17:05+0900\n"
+"PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2600,12 +2600,10 @@ msgid "Reload"
 msgstr "再読み込み"
 
 #: filewidgets/kdiroperator.cpp:1977
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "新しいフォルダ"
+msgstr "新しいフォルダ..."
 
 #: filewidgets/kdiroperator.cpp:1987 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2829,9 +2827,7 @@ msgid "Root Folder"
 msgstr "ルートフォルダ"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "ブラウズ..."
@@ -2996,11 +2992,10 @@ msgid "Tags"
 msgstr "タグ"
 
 #: filewidgets/kfileplacesitem.cpp:333
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (エラー %2)"
+msgstr "%1 (%2 から)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3175,9 +3170,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:336
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3231,11 +3224,10 @@ msgid "&Edit…"
 msgstr "編集(&E)..."
 
 #: filewidgets/kfileplacesview.cpp:1237
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "ファイルを削除"
+msgstr "場所パネルから削除"
 
 #: filewidgets/kfileplacesview.cpp:1241
 #, kde-format
@@ -3460,11 +3452,10 @@ msgid "&Name:"
 msgstr "名前(&N):"
 
 #: filewidgets/kfilewidget.cpp:1316
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "変更を元に戻す"
+msgstr "ファイル名の変更を元に戻す"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
@@ -3615,11 +3606,10 @@ msgstr ""
 "や ? のワイルドカードが使用できます。</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "新規作成"
+msgstr "新しいファイルを作成"
 
 #: filewidgets/knewfilemenu.cpp:481
 #, kde-format
@@ -3737,11 +3727,10 @@ msgid "New Folder"
 msgstr "新しいフォルダ"
 
 #: filewidgets/knewfilemenu.cpp:1498
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "フォルダを作成"
+msgstr "新しいフォルダを作成"
 
 #: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
@@ -4899,12 +4888,10 @@ msgid "&Move Here"
 msgstr "ここに移動(&M)"
 
 #: widgets/dropjob.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "ダウンロード"
+msgstr "ここにダウンロード(&D)"
 
 #: widgets/dropjob.cpp:330
 #, kde-format
@@ -5102,15 +5089,13 @@ msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しま�
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "追加…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "編集(&E)..."
+msgstr "編集..."
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5311,20 +5296,16 @@ msgid "&Actions"
 msgstr "アクション(&A)"
 
 #: widgets/kfileitemactions.cpp:693
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "アプリケーションでフォルダを開く(&O)"
+msgstr "アプリケーションでフォルダを開く(&O)..."
 
 #: widgets/kfileitemactions.cpp:693
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "アプリケーションで開く(&O)"
+msgstr "アプリケーションで開く(&O)..."
 
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
@@ -5349,9 +5330,7 @@ msgid "&Open With"
 msgstr "アプリケーションで開く(&O)"
 
 #: widgets/kfileitemactions.cpp:774
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
 msgstr "その他のアプリケーション(&O)..."
@@ -6206,21 +6185,19 @@ msgid "Only own&er can delete or rename contents"
 msgstr "フォルダの内容を削除したり名前を変更できるのは所有者のみ(&E)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1217
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "このフラグはファイルをプログラムとして実行することを許可します。"
+msgstr "ファイルをプログラムとして実行することを許可(&E)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1219
 #, kde-format
 msgid "Delete or rename:"
-msgstr ""
+msgstr "削除または名前変更:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1219
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "実行(&E)"
+msgstr "実行:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
@@ -6485,9 +6462,7 @@ msgstr "チェックサム(&H)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2138
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2149
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2160
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "計算中..."
@@ -6670,8 +6645,7 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "ウェブショートカットを設定..."
@@ -6721,9 +6695,7 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "%1個のアイテムを貼り付け"
 
 #: widgets/paste.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "クリップボードの内容を貼り付け..."
@@ -7111,20 +7083,15 @@ msgstr ""
 "\n"
 
 #: widgets/widgetsaskuseractionhandler.cpp:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"本当にこのアイテムを完全に削除しますか？<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
+"本当にこのアイテムを完全に削除しますか？<nl/><nl/><filename>%1</filename><nl/"
+"><nl/><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
@@ -7137,33 +7104,22 @@ msgid_plural ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
 "本当にこれら%1個のアイテムを完全に削除しますか？<nl/><nl/><emphasis "
-"strong='true'>この操作はもとに戻せません</emphasis>"
+"strong='true'>この操作はもとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"本当にこのアイテムを完全に削除しますか？<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
+"このアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わりに完全に削"
+"除しますか？<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>この操作はもとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -7174,8 +7130,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"本当にこれら%1個のアイテムを完全に削除しますか<nl/><nl/><emphasis "
-"strong='true'>この操作はもとに戻せません</emphasis>"
+"これら %1 個のアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わり"
+"に完全に削除しますか？<nl/><nl/><emphasis strong='true'>この操作はもとに戻せ"
+"ません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
@@ -7228,51 +7185,3 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
-
-#~ msgid ""
-#~ "Although contact was made with the server, a response was not received "
-#~ "within the amount of time allocated for the request as follows:"
-#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#~ "settings in the KDE System Settings, by selecting Network Settings -> "
-#~ "Connection Preferences."
-#~ msgstr ""
-#~ "<qt>サーバに接続はしましたが、指定された時間内 (以下のとおり) に要求に対す"
-#~ "る応答が返って来ませんでした。<ul><li>接続を確立する際のタイムアウト: %1 "
-#~ "秒</li><li>応答を受信する際のタイムアウト: %2 秒</li><li>プロキシサーバに"
-#~ "接続する際のタイムアウト: %3 秒</li></ul>これらの設定は KDE システム設定の"
-#~ "「ネットワークの設定|接続設定」で変更できます。</qt>"
-
-#~ msgid "Is &executable"
-#~ msgstr "実行可能(&E)"
-
-#~ msgid "New Folder..."
-#~ msgstr "新しいフォルダ..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Add..."
-#~ msgstr "追加..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit..."
-#~ msgstr "編集..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With..."
-#~ msgstr "アプリケーションでフォルダを開く(&O)..."
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "アプリケーションで開く(&O)..."
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "New Folder"
-#~ msgctxt "@title:window"
-#~ msgid "New File"
-#~ msgstr "新しいフォルダ"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "新しいフォルダ"
