@@ -1,5 +1,21 @@
 [Desktop Entry]
 Name=Fedora Packages
+Name[ca]=Paquets Fedora
+Name[ca@valencia]=Paquets Fedora
+Name[es]=Paquetes de Fedora
+Name[ka]=Fedora-ის პაკეტები
+Name[nl]=Fedora-pakketten
+Name[sl]=Paketi Fedora
+Name[tr]=Fedora Paketleri
+Name[x-test]=xxFedora Packagesxx
 Type=Service
 Keys=fedora
 Query=https://packages.fedoraproject.org/search?query=\\{@}
+Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[es]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[ka]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[tr]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[x-test]=xxhttps://packages.fedoraproject.org/search?query=\\{@}xx
