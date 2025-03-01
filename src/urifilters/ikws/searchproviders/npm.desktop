@@ -20,6 +20,7 @@ Name[nb]=npm
 Name[nl]=npm
 Name[pl]=npm
 Name[pt_BR]=npm
+Name[ru]=npm
 Name[sl]=npm
 Name[sv]=npm
 Name[th]=npm
@@ -49,6 +50,7 @@ Query[nb]=https://www.npmjs.com/search?q=\\{@}
 Query[nl]=https://www.npmjs.com/search?q=\\{@}
 Query[pl]=https://www.npmjs.com/search?q=\\{@}
 Query[pt_BR]=https://www.npmjs.com/search?q=\\{@}
+Query[ru]=https://www.npmjs.com/search?q=\\{@}
 Query[sl]=https://www.npmjs.com/search?q=\\{@}
 Query[sv]=https://www.npmjs.com/search?q=\\{@}
 Query[th]=https://www.npmjs.com/search?q=\\{@}

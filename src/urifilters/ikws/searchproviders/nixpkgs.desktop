@@ -20,6 +20,7 @@ Name[nb]=Nix-pakker
 Name[nl]=Nix-pakketten
 Name[pl]=Pakiety Nix
 Name[pt_BR]=Pacotes nix
+Name[ru]=Пакеты Nix
 Name[sl]=Paketi Nix
 Name[sv]=Nix-paket
 Name[th]=แพ็คเกจ Nix
@@ -49,6 +50,7 @@ Query[nb]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[nl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pt_BR]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ru]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[th]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

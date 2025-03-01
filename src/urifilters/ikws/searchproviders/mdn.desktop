@@ -20,6 +20,7 @@ Name[nb]=Mozilla Developer Network (MDN)
 Name[nl]=Mozilla Developer Network (MDN)
 Name[pl]=Mozilla Developer Network (MDN)
 Name[pt_BR]=Rede de desenvolvedores Mozilla (MDN)
+Name[ru]=Microsoft Developer Network (MDN)
 Name[sl]=Mozilla Developer Network (MDN)
 Name[sv]=Mozilla Developer Network (MDN)
 Name[th]=Mozilla Developer Network (MDN)
@@ -49,6 +50,7 @@ Query[nb]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pt_BR]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ru]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sv]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[th]=https://developer.mozilla.org/en-US/search?q=\\{@}
