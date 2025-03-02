@@ -24,7 +24,7 @@ class PasteDialog : public QDialog
 {
     Q_OBJECT
 public:
-    PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &items, QWidget *parent);
+    PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &formats, QWidget *parent);
 
     QString lineEditText() const;
     int comboItem() const;
@@ -33,6 +33,7 @@ private:
     QLabel *m_label;
     QLineEdit *m_lineEdit;
     QComboBox *m_comboBox;
+    QString m_lastValidComboboxFormat;
 };
 
 } // namespace
