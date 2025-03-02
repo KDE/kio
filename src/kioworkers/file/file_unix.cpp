@@ -685,6 +685,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             // ENOENT is returned on cifs in some cases, probably a kernel bug
             // (s.a. https://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=7fc84d1c0f6b35231b0b4577b70aaa26bf548a7c)
             if (errno == EINVAL || errno == EXDEV || errno == ENOENT) {
+                qCDebug(KIO_FILE) << "Skipping copy_file_range" << std::strerror(errno) << "(" << errno << ")";
                 break; // will continue with next copy mechanism
             }
 
@@ -727,6 +728,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     /* standard read/write fallback */
     if (sizeProcessed < srcSize) {
+        qCDebug(KIO_FILE) << "Using read/Write method";
         std::array<char, s_maxIPCSize> buffer;
         while (!wasKilled() && sizeProcessed < srcSize) {
             if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
@@ -751,20 +753,20 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 return WorkerResult::fail(KIO::ERR_CANNOT_READ, src);
             }
 
-            if (destFile.write(buffer.data(), readBytes) != readBytes) {
+            if (::write(destFile.handle(), buffer.data(), readBytes) != readBytes) {
                 int error = KIO::ERR_CANNOT_WRITE;
-                if (destFile.error() == QFileDevice::ResourceError) { // disk full
+                if (errno == ENOSPC) { // disk full
                     // attempt to free disk space occupied by file being overwritten
                     if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
                         ::unlink(_destBackup.constData());
                         existingDestDeleteAttempted = true;
-                        if (destFile.write(buffer.data(), readBytes) == readBytes) { // retry
+                        if (::write(destFile.handle(), buffer.data(), readBytes) == readBytes) { // retry
                             continue;
                         }
                     }
                     error = KIO::ERR_DISK_FULL;
                 } else {
-                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << destFile.errorString();
+                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << std::strerror(errno);
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
