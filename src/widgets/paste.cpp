@@ -31,7 +31,6 @@
 #include <QFileInfo>
 #include <QInputDialog>
 #include <QMimeData>
-#include <QMimeDatabase>
 #include <QTemporaryFile>
 
 static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
@@ -102,25 +101,12 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
                                      bool clipboard,
                                      QUrl *newUrl)
 {
-    QMimeDatabase db;
-    QStringList formatLabels;
-    formatLabels.reserve(formats.size());
-    for (int i = 0; i < formats.size(); ++i) {
-        const QString &fmt = formats[i];
-        QMimeType mime = db.mimeTypeForName(fmt);
-        if (mime.isValid()) {
-            formatLabels.append(i18n("%1 (%2)", mime.comment(), fmt));
-        } else {
-            formatLabels.append(fmt);
-        }
-    }
-
     QString dialogText(text);
     if (dialogText.isEmpty()) {
         dialogText = i18n("Filename for clipboard content:");
     }
 
-    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, widget);
+    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formats, widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
