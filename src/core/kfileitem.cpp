@@ -228,7 +228,8 @@ void KFileItemPrivate::init() const
     //  metaInfo = KFileMetaInfo();
 
     // stat() local files if needed
-    const bool shouldStat = (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) && m_url.isLocalFile();
+    const bool shouldStat = (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) && m_url.isLocalFile()
+        && (m_url.host().isEmpty() || m_url.host().compare(QSysInfo::machineHostName(), Qt::CaseInsensitive) == 0);
     if (shouldStat) {
         /* directories may not have a slash at the end if we want to stat()
          * them; it requires that we change into it .. which may not be allowed
@@ -243,7 +244,7 @@ void KFileItemPrivate::init() const
 #else
         QT_STATBUF buff;
 #endif
-        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).path();
         const QByteArray pathBA = QFile::encodeName(path);
         if (LSTAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
             m_entry.reserve(9);
