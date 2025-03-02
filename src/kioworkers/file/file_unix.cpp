@@ -16,6 +16,7 @@
 #include "config-kioworker-file.h"
 
 #include "../utils_p.h"
+#include <optional>
 
 #if HAVE_POSIX_ACL
 #include <../../aclhelpers_p.h>
@@ -75,8 +76,8 @@
 
 using namespace KIO;
 
-/* 512 kB */
-static constexpr int s_maxIPCSize = 1024 * 512;
+/* 4 kB */
+static constexpr int s_maxIPCSize = 4 * 1024 * 1024; // a typical linux page size
 
 static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 {
@@ -417,6 +418,23 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 }
 #endif // HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
 
+#if HAVE_LIBURING
+//  maybe adapt the buffer size to the block size
+#define QD 64 // 64 sqe is queue
+#define BS getpagesize() // 1 page cache
+bool initUring(struct io_uring *ring)
+{
+    int ret = io_uring_queue_init(QD, ring, IORING_SETUP_SINGLE_ISSUER | IORING_SETUP_DEFER_TASKRUN);
+    if (ret < 0) {
+        qCDebug(KIO_FILE) << "skipping io_uring" << std::strerror(errno) << errno;
+        return false;
+    } else {
+        qCDebug(KIO_FILE) << "using io_uring";
+        return true;
+    }
+}
+#endif // HAVE_LIBURING
+
 WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobFlags _flags)
 {
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
@@ -479,7 +497,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     }
 
 #if HAVE_FADVISE
-    posix_fadvise(srcFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
+    posix_fadvise(srcFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL | POSIX_FADV_NOREUSE);
 #endif
 
     QFile destFile(dest);
@@ -499,7 +517,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     }
 
 #if HAVE_FADVISE
-    posix_fadvise(destFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
+    posix_fadvise(destFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL | POSIX_FADV_NOREUSE);
 #endif
 
     const auto srcSize = buffSrc.st_size;
@@ -523,171 +541,202 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     bool existingDestDeleteAttempted = false;
 
-    processedSize(sizeProcessed);
-
 #if HAVE_LIBURING
-    if (sizeProcessed == 0) {
-        bool iouring_supported = true;
+    bool iouring_used = true;
+    struct io_uring ring;
+    if (iouring_used) {
+        iouring_used = initUring(&ring);
+        if (sizeProcessed == 0 && iouring_used) {
+            // TODO only use if file size is bigger than X ? instanciating a ring has some overhead
+            // TODO adapt the queue size to the kind of medium (SSD > HDD > usb stick), would need a bus type parameter or other HW hint
+            // TODO share the ring accross multiple copy, optimization for small files
+            // TODO use fsync only when required (usb stick, external drive)
+            // TODO tweak to optimize the fsync path or sync_file_range
+            // TODO handle ENOSPC and more error paths
 
-// TODO only use if file size is bigger than X
-// TODO adapt the queue size to the kind of medium (SSD > HDD > usb stick)
-// TODO use fsync only when required (usb stick, external drive)
-// TODO tweak to optimize the fsync path
-// TODO handle ENOSPC and more error paths
-//  maybe adapt the buffer size to the block size
-#define QD 60 // 64 sqe is queue
-#define BS (4 * 1024) // 4 Kb, 1 typical page cache
+            int infd = srcFile.handle();
+            int outfd = destFile.handle();
 
-        int infd = srcFile.handle();
-        int outfd = destFile.handle();
-
-        struct io_data {
-            size_t offset;
-            int index;
-            QByteArray rawData;
-            struct iovec iov;
-        };
-
-        struct io_uring ring;
-        off_t insize = srcSize;
-        int inflight = 0;
-
-        ret = io_uring_queue_init(QD, &ring, 0);
-        if (ret == -ENOSYS) {
-            iouring_supported = false;
-        } else if (ret < 0) {
-            QString error = QString::fromLocal8Bit(strerror(-ret));
-            return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: queue_init: %1").arg(error));
-        }
-
-        if (iouring_supported) {
-            auto queue_rw_pair = [infd, outfd](struct io_uring *ring, size_t size, size_t offset) {
-                struct io_uring_sqe *sqe;
-                io_data *data = new io_data{offset, 0, QByteArray(size, Qt::Initialization::Uninitialized), {}};
-                data->iov = {.iov_base = data->rawData.data(), .iov_len = size};
-
-                sqe = io_uring_get_sqe(ring);
-                io_uring_prep_readv(sqe, infd, &data->iov, 1, offset);
-                sqe->flags |= IOSQE_IO_LINK;
-                io_uring_sqe_set_data(sqe, data);
-
-                sqe = io_uring_get_sqe(ring);
-                io_uring_prep_writev(sqe, outfd, &data->iov, 1, offset);
-                // sqe->flags |= IOSQE_IO_LINK;
-                io_uring_sqe_set_data(sqe, data);
-
-                /*
-                sqe = io_uring_get_sqe(ring);
-                io_uring_prep_fsync(sqe, outfd, 0);
-                sqe->off = offset;
-                sqe->len = size;
-                io_uring_sqe_set_data(sqe, data);
-                */
+            struct io_data {
+                size_t offset;
+                int index;
+                QByteArray rawData;
+                struct iovec iov;
             };
 
-            auto handle_cqe = [=, this, &sizeProcessed, &inflight](struct io_uring *ring, struct io_uring_cqe *cqe) -> int {
-                struct io_data *data = static_cast<io_data *>(io_uring_cqe_get_data(cqe));
+            off_t insize = srcSize;
+            int inflight = 0;
 
-                if (cqe->res < 0) {
-                    if (cqe->res == -ECANCELED) {
-                        // retry
-                        queue_rw_pair(ring, data->iov.iov_len, data->offset);
-                        inflight += 3;
-                        return 0;
-                    } else {
-                        return cqe->res;
+            if (iouring_used) {
+                auto cancel = [&ring]() {
+                    io_uring_sqe *sqe = io_uring_get_sqe(&ring);
+                    io_uring_prep_cancel(sqe, nullptr, IORING_ASYNC_CANCEL_ANY | IORING_ASYNC_CANCEL_ALL);
+                    struct io_uring_cqe *cqe;
+                    int ret = io_uring_submit_and_wait_timeout(&ring, &cqe, 1, nullptr, NULL);
+                    if (ret < 0) {
+                        fprintf(stderr, "io_uring_submit: %s\n", strerror(-ret));
                     }
-                }
+                };
 
-                data->index++;
-                // if (data->index == 3) {
-                //  fsync
-                if (data->index == 2) {
-                    // write
+                auto queue_rw_pair = [infd, outfd](struct io_uring *ring, size_t size, size_t offset) {
+                    struct io_uring_sqe *sqe;
+                    io_data *data = new io_data{offset, 0, QByteArray(size, Qt::Initialization::Uninitialized), {}};
+                    data->iov = {.iov_base = data->rawData.data(), .iov_len = size};
 
-                    sizeProcessed += data->rawData.size();
-                    processedSize(sizeProcessed);
+                    sqe = io_uring_get_sqe(ring);
+                    io_uring_prep_readv(sqe, infd, &data->iov, 1, offset);
+                    sqe->flags |= IOSQE_IO_LINK;
+                    io_uring_sqe_set_data(sqe, data);
 
-                    delete (data);
-                }
-                io_uring_cqe_seen(ring, cqe);
-                return 0;
-            };
+                    sqe = io_uring_get_sqe(ring);
+                    io_uring_prep_writev(sqe, outfd, &data->iov, 1, offset);
+                    // sqe->flags |= IOSQE_IO_LINK;
+                    io_uring_sqe_set_data(sqe, data);
 
-            struct io_uring_cqe *cqe;
-            off_t this_size;
-            off_t offset;
+                    /*
+                    sqe = io_uring_get_sqe(ring);
+                    io_uring_prep_fsync(sqe, outfd, 0);
+                    sqe->off = offset;
+                    sqe->len = size;
+                    io_uring_sqe_set_data(sqe, data);
+                    */
 
-            offset = 0;
-            while (insize && !wasKilled()) {
-                int has_inflight = inflight;
-                int depth;
+                    /*
+                    sqe = io_uring_get_sqe(ring);
+                    io_uring_prep_sync_file_range(sqe, outfd, size, offset, 0);
+                    io_uring_sqe_set_data(sqe, data);
+                    */
+                };
 
-                while (insize && inflight < QD && !wasKilled()) {
-                    this_size = BS;
-                    if (this_size > insize)
-                        this_size = insize;
-                    queue_rw_pair(&ring, this_size, offset);
-                    offset += this_size;
-                    insize -= this_size;
-                    // inflight += 3; for fsync
-                    inflight += 2;
-                }
+                auto handle_cqe = [this, &sizeProcessed, &inflight, &queue_rw_pair](struct io_uring *ring, struct io_uring_cqe *cqe) -> int {
+                    struct io_data *data = static_cast<io_data *>(io_uring_cqe_get_data(cqe));
 
-                if (has_inflight != inflight) {
-                    io_uring_submit(&ring);
-                }
-
-                if (insize)
-                    depth = QD;
-                else
-                    depth = 1;
-
-                bool had_comp = false;
-                while (inflight >= depth && !wasKilled()) {
-                    int ret;
-                    if (!had_comp) {
-                        ret = io_uring_wait_cqe(&ring, &cqe);
-                    } else {
-                        ret = io_uring_peek_cqe(&ring, &cqe);
-                        if (ret == -EAGAIN) {
-                            cqe = NULL;
-                            ret = 0;
+                    if (cqe->res < 0) {
+                        if (cqe->res == -ECANCELED) {
+                            // retry
+                            qDebug() << "got ECANCELED" << data->index;
+                            queue_rw_pair(ring, data->iov.iov_len, data->offset);
+                            // inflight += 3;
+                            inflight += 2;
+                            return 0;
+                        } else {
+                            return cqe->res;
                         }
                     }
+
+                    data->index++;
+                    // if (data->index == 3) { // for fsync sync_file_range code path
+                    if (data->index == 2) {
+                        sizeProcessed += data->rawData.size();
+                        processedSize(sizeProcessed);
+
+                        delete (data);
+                    }
+                    io_uring_cqe_seen(ring, cqe);
+                    return 0;
+                };
+
+                struct io_uring_cqe *cqe;
+                off_t this_size;
+                off_t offset;
+
+                offset = 0;
+                while (insize && !wasKilled()) {
+                    int has_inflight = inflight;
+                    int depth;
+
+                    while (insize && inflight < QD && !wasKilled()) {
+                        this_size = qMin(BS, insize);
+                        queue_rw_pair(&ring, this_size, offset);
+                        offset += this_size;
+                        insize -= this_size;
+                        // inflight += 3;// for fsync sync_file_range code path
+                        inflight += 2;
+                    }
+
+                    if (has_inflight != inflight) {
+                        io_uring_submit(&ring);
+                    }
+
+                    if (insize)
+                        depth = QD;
+                    else
+                        depth = 1;
+
+                    bool had_comp = false;
+                    while (inflight >= depth && !wasKilled()) {
+                        int ret;
+                        if (!had_comp) {
+                            ret = io_uring_wait_cqe(&ring, &cqe);
+                            had_comp = true;
+
+                        } else {
+                            ret = io_uring_peek_cqe(&ring, &cqe);
+                            if (ret == -EAGAIN) {
+                                // qDebug() << "got EAGAIN";
+                                cqe = NULL;
+                                ret = 0;
+                            } else if (ret < 0) {
+                                const QString error = QString::fromLocal8Bit(strerror(-ret));
+                                qDebug() << "got " << error << "(" << -ret << ")";
+                            }
+                        }
+                        if (-ret == EINTR) { // Interrupted
+                            continue;
+                        }
+                        if (ret < 0) {
+                            cancel();
+                            if (-ret == ECANCELED) {
+                                return WorkerResult::fail(KIO::ERR_USER_CANCELED);
+                            }
+                            const QString error = QString::fromLocal8Bit(strerror(-ret));
+                            return WorkerResult::fail(KIO::ERR_INTERNAL,
+                                                      QStringLiteral("file_unix: wait cqe 1: %1 (%2) had_comp:%3 index:%4").arg(error).arg(-ret).arg(had_comp));
+                        }
+                        if (!cqe) {
+                            break;
+                        }
+
+                        if (handle_cqe(&ring, cqe)) {
+                            if (ret == ECANCELED) {
+                                break;
+                            }
+                            cancel();
+                            return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: handle cqe: %1").arg(cqe->res));
+                        }
+                        inflight--;
+                    }
+                }
+
+                while (inflight > 0 && !wasKilled()) {
+                    int ret = io_uring_wait_cqe(&ring, &cqe);
                     if (ret < 0) {
                         if (-ret == ECANCELED) {
+                            cancel();
                             return WorkerResult::fail(KIO::ERR_USER_CANCELED);
                         }
                         const QString error = QString::fromLocal8Bit(strerror(-ret));
-                        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: wait cqe: %1").arg(error));
+                        cancel();
+                        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: wait cqe 2: %1").arg(error));
                     }
-                    if (!cqe)
-                        break;
 
                     if (handle_cqe(&ring, cqe)) {
                         if (ret == ECANCELED) {
                             break;
                         }
-                        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: handle cqe: %1").arg(cqe->res));
+                        const QString error = QString::fromLocal8Bit(strerror(-ret));
+                        cancel();
+                        return WorkerResult::fail(KIO::ERR_INTERNAL, QStringLiteral("file_unix: handle cqe 3: %1").arg(cqe->res));
                     }
                     inflight--;
                 }
-            }
 
-            if (wasKilled()) {
-                io_uring_sqe *sqe = io_uring_get_sqe(&ring);
-                io_uring_prep_cancel(sqe, nullptr, IORING_ASYNC_CANCEL_ANY | IORING_ASYNC_CANCEL_ALL);
-                ret = io_uring_submit(&ring);
-                if (ret < 0) {
-                    fprintf(stderr, "io_uring_submit: %s\n", strerror(-ret));
+                if (wasKilled()) {
+                    cancel();
                 }
             }
-
-            io_uring_queue_exit(&ring);
         }
     }
-
 #endif
 
 #if HAVE_COPY_FILE_RANGE
@@ -702,6 +751,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             // ENOENT is returned on cifs in some cases, probably a kernel bug
             // (s.a. https://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=7fc84d1c0f6b35231b0b4577b70aaa26bf548a7c)
             if (errno == EINVAL || errno == EXDEV || errno == ENOENT) {
+                qCDebug(KIO_FILE) << "skipping copy_file_range" << std::strerror(errno) << errno;
                 break; // will continue with next copy mechanism
             }
 
@@ -738,6 +788,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     /* standard read/write fallback */
     if (sizeProcessed < srcSize) {
+        qCDebug(KIO_FILE) << "Using read/write";
         std::array<char, s_maxIPCSize> buffer;
         while (!wasKilled() && sizeProcessed < srcSize) {
             if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
@@ -817,7 +868,37 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         }
     }
 
+    processedSize(srcSize);
+#ifndef QT_NO_DEBUG
+    QElapsedTimer timer;
+    if (KIO_FILE().isDebugEnabled()) {
+        timer.start();
+    }
+#endif
+#if HAVE_LIBURING
+    if (iouring_used) {
+        io_uring_sqe *sqe = io_uring_get_sqe(&ring);
+        io_uring_prep_close(sqe, destFile.handle());
+        io_uring_cqe *cqe;
+        int ret = io_uring_submit_and_wait_timeout(&ring, &cqe, 1, nullptr, NULL);
+        if (ret < 0) {
+            fprintf(stderr, "io_uring_submit_and_wait_timeout: %s\n", strerror(-ret));
+        }
+
+        io_uring_queue_exit(&ring);
+
+    } else {
+        destFile.close();
+    }
+#else
     destFile.close();
+#endif
+#ifndef QT_NO_DEBUG
+    if (KIO_FILE().isDebugEnabled()) {
+        timer.start();
+        qCDebug(KIO_FILE) << "closing done, took" << timer.elapsed() << "ms";
+    }
+#endif
 
     if (wasKilled()) {
         qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;

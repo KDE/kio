@@ -135,10 +135,6 @@ FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
     testMode = !qEnvironmentVariableIsEmpty("KIOWORKER_FILE_ENABLE_TESTMODE");
 }
 
-FileProtocol::~FileProtocol()
-{
-}
-
 WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
 {
     const QString path(url.toLocalFile());

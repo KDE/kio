@@ -37,7 +37,7 @@ class FileProtocol : public QObject, public KIO::WorkerBase
     Q_OBJECT
 public:
     FileProtocol(const QByteArray &pool, const QByteArray &app);
-    ~FileProtocol() override;
+    ~FileProtocol() = default;
 
     KIO::WorkerResult get(const QUrl &url) override;
     KIO::WorkerResult put(const QUrl &url, int _mode, KIO::JobFlags _flags) override;
