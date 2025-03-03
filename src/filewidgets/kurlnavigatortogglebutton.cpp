@@ -59,24 +59,18 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setClipRect(event->rect());
 
-    const int buttonWidth = width();
-    const int buttonHeight = height();
+    // Draws the dialog-ok icon if checked, open-for-editing when unchecked
+    const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
     if (isChecked()) {
         drawHoverBackground(&painter);
-
-        if (m_pixmap.isNull() || m_pixmap.devicePixelRatioF() != devicePixelRatioF()) {
-            const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
-            m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
-        }
+        m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
-    } else if (isDisplayHintEnabled(EnteredHint)) {
-        painter.setPen(Qt::NoPen);
-        painter.setBrush(palette().color(foregroundRole()));
-
-        const int verticalGap = 4;
-        const int caretWidth = 2;
-        const int x = (layoutDirection() == Qt::LeftToRight) ? 0 : buttonWidth - caretWidth;
-        painter.drawRect(x, verticalGap, caretWidth, buttonHeight - 2 * verticalGap);
+    } else {
+        const bool isHighlighted = isDisplayHintEnabled(EnteredHint) || isDisplayHintEnabled(DraggedHint) || isDisplayHintEnabled(PopupActiveHint);
+        if (isHighlighted) {
+            m_pixmap = QIcon::fromTheme(QStringLiteral("open-for-editing")).pixmap(tickIconSize, devicePixelRatioF());
+            style()->drawItemPixmap(&painter, rect(), Qt::AlignRight | Qt::AlignVCenter, m_pixmap);
+        }
     }
 }
 

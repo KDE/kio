@@ -70,6 +70,9 @@ public:
     void setShowMnemonic(bool show);
     bool showMnemonic() const;
 
+    void setDrawSeparator(bool draw);
+    bool drawSeparator() const;
+
     struct SubDirInfo {
         QString name;
         QString displayName;
@@ -168,17 +171,18 @@ private:
      */
     QString plainText() const;
 
-    int arrowWidth() const;
-    bool isAboveArrow(int x) const;
+    int iconWidth() const;
+    bool isAboveIcon(int x) const;
     bool isTextClipped() const;
     void updateMinimumWidth();
     void initMenu(KUrlNavigatorMenu *menu, int startIndex);
 
 private:
-    bool m_hoverArrow;
+    bool m_hoverOverIcon;
     bool m_pendingTextChange;
     bool m_replaceButton;
     bool m_showMnemonic;
+    bool m_drawSeparator;
     int m_wheelSteps;
     QUrl m_url;
 
@@ -187,6 +191,8 @@ private:
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
     KIO::ListJob *m_subDirsJob;
     std::vector<SubDirInfo> m_subDirs;
+
+    int m_padding;
 };
 
 } // namespace KDEPrivate

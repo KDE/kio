@@ -1075,10 +1075,14 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_urlNavigator = new KUrlNavigator(m_model, QUrl(), m_opsWidget); // d->m_toolbar);
     m_urlNavigator->setPlacesSelectorVisible(false);
 
-    m_urlNavigator->setContentsMargins(q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                                       0,
-                                       q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                       q->style()->pixelMetric(QStyle::PM_LayoutBottomMargin) - 2);
+    // Add the urlNavigator inside a widget to give it proper padding
+    const auto navWidget = new QWidget(m_opsWidget);
+    const auto navLayout = new QHBoxLayout(navWidget);
+    navLayout->addWidget(m_urlNavigator);
+    navLayout->setContentsMargins(q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                  0,
+                                  q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                  q->style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
 
     m_messageWidget = new KMessageWidget(q);
     m_messageWidget->setMessageType(KMessageWidget::Error);
@@ -1134,7 +1138,7 @@ void KFileWidgetPrivate::initDirOpWidgets()
     initToolbar();
 
     m_opsWidgetLayout->addWidget(m_toolbar);
-    m_opsWidgetLayout->addWidget(m_urlNavigator);
+    m_opsWidgetLayout->addWidget(navWidget);
     m_opsWidgetLayout->addWidget(m_messageWidget);
     m_opsWidgetLayout->addWidget(topSeparator);
     m_opsWidgetLayout->addWidget(m_ops);

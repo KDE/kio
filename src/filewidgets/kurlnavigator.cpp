@@ -38,6 +38,8 @@
 #include <QMetaMethod>
 #include <QMimeData>
 #include <QMimeDatabase>
+#include <QPainter>
+#include <QStyle>
 #include <QTimer>
 #include <QUrlQuery>
 
@@ -198,6 +200,8 @@ public:
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
 
+    int m_padding = 4;
+
     struct {
         bool showHidden = false;
         bool sortHiddenLast = false;
@@ -265,6 +269,9 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_pathBox = new KUrlComboBox(KUrlComboBox::Directories, true, q);
     m_pathBox->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     m_pathBox->installEventFilter(q);
+    m_pathBox->setAutoFillBackground(false);
+    m_pathBox->setBackgroundRole(QPalette::Base);
+    m_pathBox->setFrame(false);
 
     KUrlCompletion *kurlCompletion = new KUrlCompletion(KUrlCompletion::DirCompletion);
     m_pathBox->setCompletionObject(kurlCompletion);
@@ -305,6 +312,12 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     q->connect(q, &QWidget::customContextMenuRequested, q, [this](const QPoint &pos) {
         openContextMenu(pos);
     });
+
+    // Make sure pathBox does not portrude outside of the above frameLineEdit background
+    const int paddingLeft = q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin);
+    const int paddingRight = q->style()->pixelMetric(QStyle::PM_LayoutRightMargin);
+    q->setContentsMargins(paddingLeft, 0, paddingRight, 0);
+    m_pathBox->setContentsMargins(paddingLeft, 0, paddingRight, 0);
 }
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
@@ -812,7 +825,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     // Subtract all widgets from the available width, that must be shown anyway
-    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
+    // Make sure to take the padding into account
+    int availableWidth = q->width() - (m_padding * 2) - m_toggleEditableMode->minimumWidth();
 
     availableWidth -= m_badgeWidgetContainer->width();
 
@@ -873,6 +887,15 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
             && url.scheme() != QLatin1String("baloosearch") //
             && url.scheme() != QLatin1String("filenamesearch");
         m_dropDownButton->setVisible(visible);
+    }
+
+    auto lastButton = m_navButtons.last();
+    for (const auto &button : m_navButtons) {
+        if (button != lastButton) {
+            button->setDrawSeparator(true);
+        } else {
+            button->setDrawSeparator(false);
+        }
     }
 
     updateTabOrder();
@@ -1011,6 +1034,7 @@ KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWi
 
     setMinimumWidth(100);
 
+    installEventFilter(this);
     d->updateContent();
     d->updateTabOrder();
 }
@@ -1022,6 +1046,7 @@ KUrlNavigator::~KUrlNavigator()
     for (auto *button : std::as_const(d->m_navButtons)) {
         button->removeEventFilter(this);
     }
+    removeEventFilter(this);
 }
 
 QUrl KUrlNavigator::locationUrl(int historyIndex) const
@@ -1280,6 +1305,25 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
+#if KIO_VERSION < QT_VERSION_CHECK(7, 0, 0)
+    case QEvent::Paint: {
+        // We can't call this in overridden paintEvent since applications using
+        // the paint event is handled through the event filter:
+        // Overriding paintEvent might not have an effect in applications
+        // compiled against the older KIO, as they might work with an older vtable.
+        // However, they would still see the new button style.
+        // This makes sure the background is always drawn.
+        if (watched == this) {
+            auto *pEvent = static_cast<QPaintEvent *>(event);
+            if (pEvent) {
+                KUrlNavigator::paintEvent(pEvent);
+                return true;
+            }
+        }
+        break;
+    }
+#endif
+
     default:
         break;
     }
@@ -1360,6 +1404,19 @@ QWidget *KUrlNavigator::badgeWidget() const
     } else {
         return nullptr;
     }
+}
+
+void KUrlNavigator::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+    QPainter painter(this);
+    QStyleOption option;
+    option.initFrom(this);
+    option.state = QStyle::State_Sunken;
+    // Adjust the rectangle due to how QRect coordinates work
+    option.rect = option.rect.adjusted(1, 0, -1, 0);
+    // Draw the background
+    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
 #include "moc_kurlnavigator.cpp"
