@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Fedora Packages
+Name[ar]=حزم فيدورا
 Name[ca]=Paquets Fedora
 Name[ca@valencia]=Paquets Fedora
 Name[eo]=Fedora-Pakoj
@@ -20,6 +21,7 @@ Name[x-test]=xxFedora Packagesxx
 Type=Service
 Keys=fedora
 Query=https://packages.fedoraproject.org/search?query=\\{@}
+Query[ar]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[eo]=https://packages.fedoraproject.org/search?query=\\{@}

@@ -97,6 +97,7 @@ Name[x-test]=xxWordReference.com Translation: English to Frenchxx
 Name[zh_CN]=WordReference.com 翻译：英语译法语
 Name[zh_TW]=WordReference.com 翻譯: 英文至法文
 Query=https://www.wordreference.com/enfr/\\{@}
+Query[ar]=https://www.wordreference.com/enfr/\\{@}
 Query[ca]=https://www.wordreference.com/enfr/\\{@}
 Query[ca@valencia]=https://www.wordreference.com/enfr/\\{@}
 Query[eo]=https://www.wordreference.com/enfr/\\{@}
