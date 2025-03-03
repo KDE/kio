@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-26 01:37+0000\n"
-"PO-Revision-Date: 2025-02-14 07:59+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-03-02 09:00+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -5092,8 +5092,8 @@ msgid ""
 "While a file is being uploaded its extension is \".part\". When fully "
 "uploaded it is renamed to its real name."
 msgstr ""
-"Mentres se está a enviar un ficheiro a súa extensión é «*.part». Cando se "
-"remata de enviar renoméase co seu nome real."
+"Mentres se está a subir un ficheiro a súa extensión é «*.part». Cando se "
+"remata de subir renoméase co seu nome real."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -5770,7 +5770,7 @@ msgid ""
 "has been modified. Do you want to upload the changes?"
 msgstr ""
 "Modificouse o ficheiro %1.\n"
-"Quere enviar os cambios?"
+"Quere subir os cambios?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -5785,7 +5785,7 @@ msgstr "Enviar"
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
-msgstr "Non enviar"
+msgstr "Non subir"
 
 #: kioexec/main.cpp:59
 #, kde-format
@@ -5842,7 +5842,7 @@ msgid ""
 msgstr ""
 "Modificouse o ficheiro\n"
 "%1.\n"
-"Quere enviar os cambios?"
+"Quere subir os cambios?"
 
 #: kioexec/main.cpp:286
 #, kde-format
@@ -6224,7 +6224,7 @@ msgstr "Non é posíbel eliminar o recurso."
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "enviar %1"
+msgstr "subir %1"
 
 #: kioworkers/http/http.cpp:1854
 #, kde-format
