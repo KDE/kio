@@ -473,10 +473,11 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
 
 void KUrlNavigatorButton::statFinished(KJob *job)
 {
+    const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
+
     if (m_pendingTextChange) {
         m_pendingTextChange = false;
 
-        const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
         QString name = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
         if (name.isEmpty()) {
             name = m_url.fileName();
@@ -484,6 +485,11 @@ void KUrlNavigatorButton::statFinished(KJob *job)
         setText(name);
 
         Q_EMIT finishedTextResolving();
+    }
+
+    const QString iconName = entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME);
+    if (!iconName.isEmpty()) {
+        setIcon(QIcon::fromTheme(iconName));
     }
 }
 
