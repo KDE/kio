@@ -85,6 +85,7 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
+    setIcon(QIcon::fromTheme(KIO::iconNameForUrl(url)));
 }
 
 QUrl KUrlNavigatorButton::url() const
@@ -207,8 +208,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     }
 
     const int widthModifier = iconW + m_padding / 2;
-    auto iconName = KIO::iconNameForUrl(url());
-    auto pixmap = QIcon::fromTheme(iconName).pixmap(iconSize(), devicePixelRatioF());
+    auto pixmap = icon().pixmap(iconSize(), devicePixelRatioF());
     style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
     if (leftToRight) {
         textLeft += widthModifier;
