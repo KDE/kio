@@ -1004,6 +1004,11 @@ int KDirOperatorPrivate::sortColumn() const
 
 Qt::SortOrder KDirOperatorPrivate::sortOrder() const
 {
+    // Reverse whatever was applied to time sorting, since reversed by default is nicer
+    if (m_sorting & QDir::Time) {
+        return (m_sorting & QDir::Reversed) ? Qt::AscendingOrder : Qt::DescendingOrder;
+    }
+
     return (m_sorting & QDir::Reversed) ? Qt::DescendingOrder : Qt::AscendingOrder;
 }
 
@@ -2348,8 +2353,8 @@ void KDirOperator::updateSortActions()
         ascending->setText(i18nc("Sort ascending", "A-Z"));
     } else if (KFile::isSortByDate(d->m_sorting)) {
         action(KDirOperator::SortByDate)->setChecked(true);
-        descending->setText(i18nc("Sort descending", "Newest First"));
-        ascending->setText(i18nc("Sort ascending", "Oldest First"));
+        descending->setText(i18nc("Sort ascending", "Oldest First"));
+        ascending->setText(i18nc("Sort descending", "Newest First"));
     } else if (KFile::isSortBySize(d->m_sorting)) {
         action(KDirOperator::SortBySize)->setChecked(true);
         descending->setText(i18nc("Sort descending", "Largest First"));
