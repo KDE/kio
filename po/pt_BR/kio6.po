@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:38+0000\n"
+"POT-Creation-Date: 2025-03-04 00:38+0000\n"
 "PO-Revision-Date: 2025-02-27 20:21-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2936,7 +2936,7 @@ msgid "All Supported Files"
 msgstr "Todos os arquivos suportados"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1963
+#: filewidgets/kfilewidget.cpp:1967
 #, kde-format
 msgid "All Files"
 msgstr "Todos os arquivos"
@@ -3444,7 +3444,7 @@ msgstr "O arquivo \"%1\" não pôde ser encontrado"
 msgid "Cannot open file"
 msgstr "Não foi possível abrir o arquivo"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3455,43 +3455,43 @@ msgstr ""
 "a localização atual for file:/home/konqi, clicar neste botão levará você "
 "para file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Clique neste botão para voltar um passo atrás no histórico de navegação."
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Clique neste botão para avançar um passo no histórico de navegação."
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Clique neste botão para recarregar o conteúdo da localização atual."
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Clique neste botão para criar uma nova pasta."
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Mostrar painel de locais"
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1226
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Mostrar botão de favoritos"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Options"
 msgstr "Opções"
 
-#: filewidgets/kfilewidget.cpp:1232
+#: filewidgets/kfilewidget.cpp:1236
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3507,12 +3507,12 @@ msgstr ""
 "pré-visualizações de arquivo</li><li>a separação entre pastas e arquivos</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1255
 #, kde-format
 msgid "Bookmarks"
 msgstr "Favoritos"
 
-#: filewidgets/kfilewidget.cpp:1255
+#: filewidgets/kfilewidget.cpp:1259
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3527,18 +3527,18 @@ msgstr ""
 "favoritos do KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1298 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nome:"
 
-#: filewidgets/kfilewidget.cpp:1316
+#: filewidgets/kfilewidget.cpp:1320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Desfazer alteração no nome do arquivo"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3551,12 +3551,12 @@ msgstr ""
 "do mouse e selecionando um modo favorito no menu de <b>Complementação de "
 "texto</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1404
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Este é o nome do arquivo a ser salvo."
 
-#: filewidgets/kfilewidget.cpp:1403
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3565,74 +3565,74 @@ msgstr ""
 "Esta é a lista de arquivos a serem abertos. Mais de um arquivo pode ser "
 "especificado através de uma lista com vários nomes, separados por espaços."
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1412
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Este é o nome do arquivo a ser aberto."
 
-#: filewidgets/kfilewidget.cpp:1421
+#: filewidgets/kfilewidget.cpp:1425
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Locais"
 
-#: filewidgets/kfilewidget.cpp:1670
+#: filewidgets/kfilewidget.cpp:1674
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "O arquivo \"%1\" já existe. Deseja sobrescrevê-lo?"
 
-#: filewidgets/kfilewidget.cpp:1671
+#: filewidgets/kfilewidget.cpp:1675
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Sobrescrever o arquivo?"
 
-#: filewidgets/kfilewidget.cpp:1867
+#: filewidgets/kfilewidget.cpp:1871
 #, kde-format
 msgid "You can only select local files."
 msgstr "Você somente pode selecionar arquivos locais."
 
-#: filewidgets/kfilewidget.cpp:1867
+#: filewidgets/kfilewidget.cpp:1871
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Arquivos remotos não são aceitos"
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "All Folders"
 msgstr "Todas as pastas"
 
-#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
 
-#: filewidgets/kfilewidget.cpp:2213
+#: filewidgets/kfilewidget.cpp:2217
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Tamanho dos ícones: %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2361
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Selecionar automaticamente a e&xtensão do arquivo (%1)"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "a extensão <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2368
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Selecionar automaticamente a e&xtensão do arquivo"
 
-#: filewidgets/kfilewidget.cpp:2369
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "uma extensão apropriada"
 
-#: filewidgets/kfilewidget.cpp:2377
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3660,12 +3660,12 @@ msgstr ""
 "opção habilitada, já que ela faz com que seus arquivos possam ser melhor "
 "gerenciados."
 
-#: filewidgets/kfilewidget.cpp:2851
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid "&File type:"
 msgstr "&Tipo de arquivo:"
 
-#: filewidgets/kfilewidget.cpp:2852
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3674,12 +3674,12 @@ msgstr ""
 "<qt>Este é o seletor do tipo de arquivo. É usado para selecionar o formato "
 "com que o arquivo será salvo.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtro:"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3837,7 +3837,7 @@ msgstr "Criar nova pasta em %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:589 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3845,45 +3845,45 @@ msgid "Copy"
 msgstr "Copiar"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:593 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Colar"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:613
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Abrir \"%1\" em nova aba"
 
-#: filewidgets/kurlnavigator.cpp:608
+#: filewidgets/kurlnavigator.cpp:621
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Abrir \"%1\" em nova janela"
 
-#: filewidgets/kurlnavigator.cpp:617
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: filewidgets/kurlnavigator.cpp:620
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgid "Navigate"
 msgstr "Navegar"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:648
 #, kde-format
 msgid "Show Full Path"
 msgstr "Mostrar localização completa"
 
-#: filewidgets/kurlnavigator.cpp:796
+#: filewidgets/kurlnavigator.cpp:809
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Ir para qualquer localização no caminho <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:701
+#: filewidgets/kurlnavigatorbutton.cpp:726
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -3918,12 +3918,12 @@ msgstr "Outros"
 msgid "Edit mode"
 msgstr "Modo de edição"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:86
+#: filewidgets/kurlnavigatortogglebutton.cpp:80
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "Clique para navegar na localização"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:88
+#: filewidgets/kurlnavigatortogglebutton.cpp:82
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "Clique para editar a localização"

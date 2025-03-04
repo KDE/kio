@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:38+0000\n"
+"POT-Creation-Date: 2025-03-04 00:38+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2841,7 +2841,7 @@ msgid "All Supported Files"
 msgstr "सभी समर्थित फ़ाइलें"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1963
+#: filewidgets/kfilewidget.cpp:1967
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3378,7 +3378,7 @@ msgstr "निवेदित तालाबंद दिया नहीं �
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1208
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3393,44 +3393,44 @@ msgstr ""
 "मौज़ूदा स्थान है फ़ाइल:/home/%1 तो इस बटन पर क्लिक करने पर यह आपको फ़ाइल:/home में ले "
 "जाएगा</qt>"
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ब्राउज़िंग इतिहास में एक स्तर पीछे जाने के लिए इस बटन को क्लिक करें."
 
-#: filewidgets/kfilewidget.cpp:1209
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ब्राउज़िंग इतिहास में एक स्तर आगे जाने के लिए इस बटन को क्लिक करें."
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "मौज़ूदा स्थान के विषयवस्तु को फिर से लोड करने के लिए इस बटन को क्लिक करें."
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "नया फ़ोल्डर बनाने के लिए इस बटन को क्लिक करें."
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1219
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "प्लेस नेविगेशन फलक दिखाएँ"
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1226
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "पुस्तचिन्ह दिखाएँ"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Options"
 msgstr "विकल्प"
 
-#: filewidgets/kfilewidget.cpp:1232
+#: filewidgets/kfilewidget.cpp:1236
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3440,12 +3440,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1255
 #, kde-format
 msgid "Bookmarks"
 msgstr " पुस्तचिन्ह "
 
-#: filewidgets/kfilewidget.cpp:1255
+#: filewidgets/kfilewidget.cpp:1259
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3455,19 +3455,19 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1298 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "नाम: (&N)"
 
-#: filewidgets/kfilewidget.cpp:1316
+#: filewidgets/kfilewidget.cpp:1320
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "नाम बदलें (&R)"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3476,12 +3476,12 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1404
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "यह इस रुप में सहेजे जाने वाले फ़ाइल का नाम है."
 
-#: filewidgets/kfilewidget.cpp:1403
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3490,77 +3490,77 @@ msgstr ""
 "फ़ाइलों को खोलने की यह सूची है. एक से अधिक फ़ाइलों को उल्लेखित किया जा सकता है,  फ़ाइलों "
 "को स्पेस से अलग-अलग कर सूची बद्ध करके."
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1412
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "यह खोले जाने वाले फ़ाइल का नाम है."
 
-#: filewidgets/kfilewidget.cpp:1421
+#: filewidgets/kfilewidget.cpp:1425
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "स्थान"
 
-#: filewidgets/kfilewidget.cpp:1670
+#: filewidgets/kfilewidget.cpp:1674
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1671
+#: filewidgets/kfilewidget.cpp:1675
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "सभी मिटाकर लिखें (&v)"
 
-#: filewidgets/kfilewidget.cpp:1867
+#: filewidgets/kfilewidget.cpp:1871
 #, kde-format
 msgid "You can only select local files."
 msgstr "आप सिर्फ स्थानीय फ़ाइलें चुन सकते हैं."
 
-#: filewidgets/kfilewidget.cpp:1867
+#: filewidgets/kfilewidget.cpp:1871
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "रिमोट फ़ाइलें स्वीकार्य नहीं हैं"
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1965
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|सारे फ़ोल्डर"
 
-#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "खोलें (&O)"
 
-#: filewidgets/kfilewidget.cpp:2213
+#: filewidgets/kfilewidget.cpp:2217
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2361
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "फ़ाइल नाम एक्सटेंशन स्वतः चुनें (%1) (&x)"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2368
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "फ़ाइल नाम एक्सटेंशन स्वतः चुनें (&x)"
 
-#: filewidgets/kfilewidget.cpp:2369
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "एक उपयुक्त एक्सटेंशन "
 
-#: filewidgets/kfilewidget.cpp:2377
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3576,25 +3576,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2851
+#: filewidgets/kfilewidget.cpp:2855
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "फ़िल्टर: (&F)"
 
-#: filewidgets/kfilewidget.cpp:2852
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "फ़िल्टर: (&F)"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3755,7 +3755,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:576 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:589 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3763,41 +3763,41 @@ msgid "Copy"
 msgstr "नक़ल"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:580 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:593 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "चिपकाएँ"
 
-#: filewidgets/kurlnavigator.cpp:600
+#: filewidgets/kurlnavigator.cpp:613
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:608
+#: filewidgets/kurlnavigator.cpp:621
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:617
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgid "Edit"
 msgstr "संपादन"
 
-#: filewidgets/kurlnavigator.cpp:620
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgid "Navigate"
 msgstr "नेविगेट"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:648
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:796
+#: filewidgets/kurlnavigator.cpp:809
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -3805,7 +3805,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "क्या आप सचमुच इस वस्तु को मिटाना चाहते हैं?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:701
+#: filewidgets/kurlnavigatorbutton.cpp:726
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"
@@ -3845,12 +3845,12 @@ msgstr "अन्य"
 msgid "Edit mode"
 msgstr "संपादन"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:86
+#: filewidgets/kurlnavigatortogglebutton.cpp:80
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "स्थान नेविगेशन के लिए क्लिक करें"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:88
+#: filewidgets/kurlnavigatortogglebutton.cpp:82
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "स्थान संपादन के लिये क्लिक करें"
