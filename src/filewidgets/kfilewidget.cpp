@@ -2335,18 +2335,22 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
             }
             // e.g. "text/html"
             else if (!fileFilter.mimePatterns().isEmpty()) {
-                QMimeType mime = db.mimeTypeForName(fileFilter.mimePatterns().first());
-                if (mime.isValid()) {
-                    extensionList = mime.globPatterns();
-                    defaultExtension = mime.preferredSuffix();
-                    if (!defaultExtension.isEmpty()) {
-                        defaultExtension.prepend(QLatin1Char('.'));
+                // workaround for bug 382437:
+                // avoid defaultExtension being ".bin" for application/octet-stream
+                // remove once KF requires shared-mime-info >= 1.10
+                if (fileFilter.mimePatterns().first() != QLatin1String("application/octet-stream")) {
+                    QMimeType mime = db.mimeTypeForName(fileFilter.mimePatterns().first());
+                    if (mime.isValid()) {
+                        extensionList = mime.globPatterns();
+                        defaultExtension = mime.preferredSuffix();
+                        if (!defaultExtension.isEmpty()) {
+                            defaultExtension.prepend(QLatin1Char('.'));
+                        }
                     }
                 }
             }
 
-            if ((!currentExtension.isEmpty() && extensionList.contains(QLatin1String("*.") + currentExtension))
-                || (!fileFilter.mimePatterns().isEmpty() && fileFilter.mimePatterns().first() == QLatin1String("application/octet-stream"))) {
+            if ((!currentExtension.isEmpty() && extensionList.contains(QLatin1String("*.") + currentExtension))) {
                 m_extension = QLatin1Char('.') + currentExtension;
             } else {
                 m_extension = defaultExtension;
