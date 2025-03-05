@@ -445,6 +445,11 @@ void KFileWidgetTest::testExtensionForSave_data()
 
     // If the file literally exists, then no new extension will be appended.
     QTest::newRow("existing file") << "README" << filter << QStringLiteral("README") << QStringLiteral("README");
+
+    // test bug 382437
+    const QString octetStreamfilter = QStringLiteral("application/octet-stream");
+    QTest::newRow("octetstream.noext") << "some" << octetStreamfilter << QStringLiteral("some") << QStringLiteral("some");
+    QTest::newRow("octetstream.ext") << "some.txt" << octetStreamfilter << QStringLiteral("some.txt") << QStringLiteral("some.txt");
 }
 
 void KFileWidgetTest::testExtensionForSave()
