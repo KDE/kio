@@ -500,6 +500,12 @@ public:
     QString suffix() const;
 
     /**
+     * Returns the parent folder of the item
+     * @since 6.13
+     */
+    QUrl parentFolderUrl() const;
+
+    /**
      * Somewhat like a comparison operator, but more explicit,
      * and it can detect that two fileitems differ if any property of the file item
      * has changed (file size, modification date, etc.). Two items are equal if

@@ -1943,6 +1943,11 @@ QString KFileItem::suffix() const
     }
 }
 
+QUrl KFileItem::parentFolderUrl() const
+{
+    return url().adjusted(QUrl::RemoveFilename);
+}
+
 QDebug operator<<(QDebug stream, const KFileItem &item)
 {
     QDebugStateSaver saver(stream);
