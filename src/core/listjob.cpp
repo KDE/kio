@@ -34,6 +34,7 @@ public:
     QString m_prefix;
     QString m_displayPrefix;
     unsigned long m_processedEntries;
+    KIO::UDSEntryList m_entryList;
     QUrl m_redirectionURL;
 
     /**
@@ -89,6 +90,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
 
     // Emit progress info (takes care of emit processedSize and percent)
     m_processedEntries += list.count();
+    m_entryList += list;
     slotProcessedSize(m_processedEntries);
 
     if (recursive) {
@@ -283,6 +285,11 @@ void ListJobPrivate::start(Worker *worker)
 const QUrl &ListJob::redirectionUrl() const
 {
     return d_func()->m_redirectionURL;
+}
+
+const KIO::UDSEntryList ListJob::itemList() const
+{
+    return d_func()->m_entryList;
 }
 
 #include "moc_listjob.cpp"

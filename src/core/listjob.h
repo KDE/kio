@@ -48,6 +48,14 @@ public:
      */
     void setUnrestricted(bool unrestricted);
 
+    /**
+     * Returns the UDSEntryList, useful when
+     * iteration over the list needs to happen after the
+     * list creation is finished.
+     * @return the list of items collected during the job
+     */
+    const KIO::UDSEntryList itemList() const;
+
 Q_SIGNALS:
     /**
      * This signal emits the entry found by the job while listing.
