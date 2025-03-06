@@ -5,12 +5,14 @@ Name[ca]=Paquets Fedora
 Name[ca@valencia]=Paquets Fedora
 Name[eo]=Fedora-Pakoj
 Name[es]=Paquetes de Fedora
+Name[eu]=Fedora paketeak
 Name[fr]=Paquets de Fedora
 Name[gl]=Paquetes de Fedora
 Name[he]=חבילות פדורה
 Name[ia]=Pacchettos de Fedora
 Name[it]=Pacchetti Fedora
 Name[ka]=Fedora-ის პაკეტები
+Name[lv]=„Fedora“ pakotnes
 Name[nl]=Fedora-pakketten
 Name[ru]=Пакеты Fedora
 Name[sl]=Paketi Fedora
@@ -19,6 +21,7 @@ Name[th]=แพ็คเกจ Fedora
 Name[tr]=Fedora Paketleri
 Name[uk]=Пакунки Fedora
 Name[x-test]=xxFedora Packagesxx
+Name[zh_CN]=Fedora 软件包
 Type=Service
 Keys=fedora
 Query=https://packages.fedoraproject.org/search?query=\\{@}
@@ -27,12 +30,14 @@ Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[eo]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[es]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[eu]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[fr]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[gl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[he]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ia]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[it]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ka]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[lv]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ru]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}
@@ -41,3 +46,4 @@ Query[th]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[tr]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[uk]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[x-test]=xxhttps://packages.fedoraproject.org/search?query=\\{@}xx
+Query[zh_CN]=https://packages.fedoraproject.org/search?query=\\{@}
