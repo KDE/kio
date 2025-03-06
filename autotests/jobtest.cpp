@@ -1368,6 +1368,18 @@ static QByteArray expectedListRecursiveOutput()
         "fileFromHome");
 }
 
+static QByteArray expectedListOutput()
+{
+    return QByteArray(
+        ".,..,"
+        "dirFromHome,"
+        "dirFromHome_copied,"
+#ifndef Q_OS_WIN
+        "dirFromHome_link,"
+#endif
+        "fileFromHome");
+}
+
 void JobTest::listRecursive()
 {
     // Note: many other tests must have been run before since we rely on the files they created
@@ -1437,6 +1449,29 @@ void JobTest::listFile()
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), static_cast<int>(KIO::ERR_DOES_NOT_EXIST));
+}
+
+void JobTest::itemList()
+{
+    const QString src = homeTmpDir();
+    KIO::ListJob *job = KIO::listDir(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    // Test that data in job->itemList() matches the expected file structure
+    QStringList names;
+    connect(job, &KIO::ListJob::result, this, [job, &names]() {
+        for (const auto &item : job->itemList()) {
+            names.append(item.stringValue(KIO::UDSEntry::UDS_NAME));
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    names.sort();
+    const QByteArray ref_names = expectedListOutput();
+    const QString joinedNames = names.join(QLatin1Char(','));
+    if (joinedNames.toLatin1() != ref_names) {
+        qDebug("%s", qPrintable(joinedNames));
+        qDebug("%s", ref_names.data());
+    }
 }
 
 void JobTest::killJob()

@@ -62,6 +62,7 @@ private Q_SLOTS:
     void listRecursive();
     void multipleListRecursive();
     void listFile();
+    void itemList();
     void killJob();
     void killJobBeforeStart();
     void deleteJobBeforeStart();
