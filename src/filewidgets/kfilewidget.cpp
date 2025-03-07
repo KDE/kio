@@ -590,7 +590,12 @@ void KFileWidget::slotOk()
 {
     //     qDebug() << "slotOk\n";
 
-    const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
+    QString locationEditCurrentText(d->locationEditCurrentText());
+    // Expand tilde only if it points to home dir, but ignore files starting with tilde.
+    // BUG:317513
+    if (locationEditCurrentText.startsWith(QStringLiteral("~/"))) {
+        locationEditCurrentText = KShell::tildeExpand(locationEditCurrentText);
+    }
 
     QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
     KFile::Modes mode = d->m_ops->mode();
