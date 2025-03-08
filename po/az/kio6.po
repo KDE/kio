@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:38+0000\n"
+"POT-Creation-Date: 2025-03-08 00:40+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2364,17 +2364,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Sənədləşməmiş Xəta"
 
-#: core/kfileitem.cpp:1493
+#: core/kfileitem.cpp:1494
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 yerinə simvolik keçid)"
 
-#: core/kfileitem.cpp:1495
+#: core/kfileitem.cpp:1496
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Link %2 -də)"
 
-#: core/kfileitem.cpp:1498
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 girişini göstərir)"
