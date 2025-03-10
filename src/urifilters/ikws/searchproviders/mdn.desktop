@@ -9,6 +9,7 @@ Name[de]=Mozilla-Entwicklernetzwerk (MDN)
 Name[eo]=Mozilla Developer Network (MDN)
 Name[es]=Red del desarrollador de Mozilla (MDN)
 Name[eu]=Mozilla Garatzaileen Sarea (MDN - Mozilla Developer Network)
+Name[fi]=Microsoft Developer Network (MDN)
 Name[fr]=Réseau des équipes de développement de Mozilla (MDN)
 Name[gl]=Rede de desenvolvemento de Mozilla (MDN)
 Name[he]=רשת המפתחים של Mozilla‏ (MDN)
@@ -39,6 +40,7 @@ Query[de]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[eo]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[es]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[eu]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[fi]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[fr]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[gl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[he]=https://developer.mozilla.org/en-US/search?q=\\{@}

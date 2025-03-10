@@ -9,6 +9,7 @@ Name[de]=Docker
 Name[eo]=Doker-Nabo
 Name[es]=Docker Hub
 Name[eu]=Docker Hub
+Name[fi]=Docker Hub
 Name[fr]=Centre de Docker
 Name[gl]=Docker Hub
 Name[he]=Docker Hub
@@ -39,6 +40,7 @@ Query[de]=https://hub.docker.com/search?q=\\{@}
 Query[eo]=https://hub.docker.com/search?q=\\{@}
 Query[es]=https://hub.docker.com/search?q=\\{@}
 Query[eu]=https://hub.docker.com/search?q=\\{@}
+Query[fi]=https://hub.docker.com/search?q=\\{@}
 Query[fr]=https://hub.docker.com/search?q=\\{@}
 Query[gl]=https://hub.docker.com/search?q=\\{@}
 Query[he]=https://hub.docker.com/search?q=\\{@}

@@ -9,6 +9,7 @@ Name[de]=npm
 Name[eo]=npm
 Name[es]=npm
 Name[eu]=npm
+Name[fi]=npm
 Name[fr]=npm
 Name[gl]=npm
 Name[he]=npm
@@ -39,6 +40,7 @@ Query[de]=https://www.npmjs.com/search?q=\\{@}
 Query[eo]=https://www.npmjs.com/search?q=\\{@}
 Query[es]=https://www.npmjs.com/search?q=\\{@}
 Query[eu]=https://www.npmjs.com/search?q=\\{@}
+Query[fi]=https://www.npmjs.com/search?q=\\{@}
 Query[fr]=https://www.npmjs.com/search?q=\\{@}
 Query[gl]=https://www.npmjs.com/search?q=\\{@}
 Query[he]=https://www.npmjs.com/search?q=\\{@}

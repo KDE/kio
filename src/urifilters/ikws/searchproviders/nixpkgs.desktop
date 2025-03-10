@@ -9,6 +9,7 @@ Name[de]=NixOS-Pakete
 Name[eo]=Nix-Pakoj
 Name[es]=Paquetes de Nix
 Name[eu]=Nix paketeak
+Name[fi]=Nix-paketit
 Name[fr]=Paquet « nix »
 Name[gl]=Paquetes de Nix
 Name[he]=חבילות Nix
@@ -39,6 +40,7 @@ Query[de]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[eo]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[es]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[eu]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[fi]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[fr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[gl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[he]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
