@@ -3,7 +3,7 @@
 # Author: Artnay
 # Author: Lliehu
 # Author: Niklas Laxström
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2002, 2003, 2004, 2005, 2006.
 # Mikko Ikola <ikola@iki.fi>, 2003, 2005.
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003, 2004, 2008.
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-08 00:40+0000\n"
-"PO-Revision-Date: 2024-12-07 15:06+0200\n"
+"PO-Revision-Date: 2025-02-14 19:33+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -2087,6 +2087,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Vaikka palvelinyhteys muodostui, pyyntöön varatussa ajassa ei vastaanotettu "
+"vastausta."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2518,6 +2520,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Yhteyskäytännön ”%1” KIO-työskentelijää kohteessa %2 ei ladattu, koska "
+"kaikki korotettuja käyttöoikeuksia pyytävät KIO-työskentelijät muualla kuin "
+"kansiossa %3 oletetaan turvattomiksi."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -2555,20 +2560,16 @@ msgid "&Current Session only"
 msgstr "&Vain nykyisen istunnon ajaksi"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Luo uusi kansio"
+msgstr "Siirrä uuteen kansioon"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Luo uusi kansio"
+msgstr "Luo näille kohteille uusi kansio"
 
 #: filewidgets/kdiroperator.cpp:304
 #, kde-format
@@ -3493,11 +3494,10 @@ msgid "&Name:"
 msgstr "&Nimi:"
 
 #: filewidgets/kfilewidget.cpp:1320
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Kumoa muutokset"
+msgstr "Kumoa tiedostonimen muutos"
 
 #: filewidgets/kfilewidget.cpp:1397
 #, kde-format
