@@ -1477,20 +1477,8 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         delete dir;
         itemsInUse.insert(newUrl, newDir);
         KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
-        for (auto lister : listers) {
-            if (newDirData.listerContainer.contains(lister)) {
-                newDirData.listerContainer[lister] = KCoreDirListerCacheDirectoryData::Listing;
-            } else {
-                newDirData.listerContainer.insert(lister, KCoreDirListerCacheDirectoryData::Listing);
-            }
-        }
-        for (auto holder : holders) {
-            if (newDirData.listerContainer.contains(holder)) {
-                newDirData.listerContainer[holder] = KCoreDirListerCacheDirectoryData::Holding;
-            } else {
-                newDirData.listerContainer.insert(holder, KCoreDirListerCacheDirectoryData::Holding);
-            }
-        }
+        newDirData.insertOrModifyListers(listers, KCoreDirListerCacheDirectoryData::Listing);
+        newDirData.insertOrModifyListers(holders, KCoreDirListerCacheDirectoryData::Holding);
 
         // emit old items: listers, holders
         for (KCoreDirLister *kdl : allListers) {
@@ -1509,20 +1497,8 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         dir->redirect(newUrl);
         itemsInUse.insert(newUrl, dir);
         KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
-        for (auto lister : listers) {
-            if (newDirData.listerContainer.contains(lister)) {
-                newDirData.listerContainer[lister] = KCoreDirListerCacheDirectoryData::Listing;
-            } else {
-                newDirData.listerContainer.insert(lister, KCoreDirListerCacheDirectoryData::Listing);
-            }
-        }
-        for (auto holder : holders) {
-            if (newDirData.listerContainer.contains(holder)) {
-                newDirData.listerContainer[holder] = KCoreDirListerCacheDirectoryData::Holding;
-            } else {
-                newDirData.listerContainer.insert(holder, KCoreDirListerCacheDirectoryData::Holding);
-            }
-        }
+        newDirData.insertOrModifyListers(listers, KCoreDirListerCacheDirectoryData::Listing);
+        newDirData.insertOrModifyListers(holders, KCoreDirListerCacheDirectoryData::Holding);
 
         if (holders.isEmpty()) {
 #ifdef DEBUG_CACHE
@@ -1652,13 +1628,7 @@ void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_new
         }
         Q_EMIT kdl->listingDirCanceled(oldUrl);
     }
-    for (auto lister : listers) {
-        if (newDirData.listerContainer.contains(lister)) {
-            newDirData.listerContainer[lister] = KCoreDirListerCacheDirectoryData::Listing;
-        } else {
-            newDirData.listerContainer.insert(lister, KCoreDirListerCacheDirectoryData::Listing);
-        }
-    }
+    newDirData.insertOrModifyListers(listers, KCoreDirListerCacheDirectoryData::Listing);
 
     // Check if we are currently displaying this directory (odds opposite wrt above)
     for (KCoreDirLister *kdl : holders) {
@@ -1666,13 +1636,8 @@ void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_new
             kdl->d->jobDone(job);
         }
     }
-    for (auto holder : holders) {
-        if (newDirData.listerContainer.contains(holder)) {
-            newDirData.listerContainer[holder] = KCoreDirListerCacheDirectoryData::Holding;
-        } else {
-            newDirData.listerContainer.insert(holder, KCoreDirListerCacheDirectoryData::Holding);
-        }
-    }
+    newDirData.insertOrModifyListers(holders, KCoreDirListerCacheDirectoryData::Holding);
+
     directoryData.erase(dit);
 
     if (!listers.isEmpty()) {
@@ -2786,11 +2751,7 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
             // Huh? The KCoreDirLister was present twice in listersCurrentlyListing, or was in both lists?
             Q_ASSERT(!listersByStatus(Holding).contains(kdl));
             if (!listersByStatus(Holding).contains(kdl)) {
-                if (listerContainer.contains(kdl)) {
-                    listerContainer[kdl] = Holding;
-                } else {
-                    listerContainer.insert(kdl, Holding);
-                }
+                insertOrModifyLister(kdl, Holding);
             }
             lister_it.remove();
         } else {
@@ -2862,6 +2823,22 @@ QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(Lister
         }
     }
     return listers;
+}
+
+void KCoreDirListerCacheDirectoryData::insertOrModifyListers(QList<KCoreDirLister *> listers, ListerStatus status)
+{
+    for (const auto &lister : listers) {
+        insertOrModifyLister(lister, status);
+    }
+}
+
+void KCoreDirListerCacheDirectoryData::insertOrModifyLister(KCoreDirLister *lister, ListerStatus status)
+{
+    if (listerContainer.contains(lister)) {
+        listerContainer[lister] = status;
+    } else {
+        listerContainer.insert(lister, status);
+    }
 }
 
 #include "moc_kcoredirlister.cpp"

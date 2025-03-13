@@ -569,6 +569,8 @@ struct KCoreDirListerCacheDirectoryData {
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
     QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
+    void insertOrModifyListers(QList<KCoreDirLister *> listers, ListerStatus status);
+    void insertOrModifyLister(KCoreDirLister *lister, ListerStatus status);
 };
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()
