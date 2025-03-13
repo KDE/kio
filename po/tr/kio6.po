@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-08 00:40+0000\n"
-"PO-Revision-Date: 2025-03-09 22:59+0300\n"
+"PO-Revision-Date: 2025-03-12 13:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -492,7 +492,7 @@ msgstr "Bilinmeyen makine %1"
 #: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
-msgstr "%1 adresine erişim engellendi."
+msgstr "%1 ögesine erişim engellendi."
 
 #: core/job_error.cpp:83
 #, kde-format
