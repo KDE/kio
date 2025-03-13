@@ -549,11 +549,7 @@ private:
 // Data associated with a directory url
 // This could be in DirItem but only in the itemsInUse dict...
 struct KCoreDirListerCacheDirectoryData {
-    // A lister can be EITHER in listersCurrentlyListing OR listersCurrentlyHolding
-    // but NOT in both at the same time.
-    // But both lists can have different listers at the same time; this
-    // happens if more listers are requesting url at the same time and
-    // one lister was stopped during the listing of files.
+    // A lister can be either in Listing or Holding status.
 
     enum ListerStatus {
         Listing,
@@ -561,11 +557,6 @@ struct KCoreDirListerCacheDirectoryData {
     };
 
     QHash<KCoreDirLister *, ListerStatus> listerContainer;
-
-    // Listers that are currently listing this url
-    //QList<KCoreDirLister *> listersCurrentlyListing;
-    // Listers that are currently holding this url
-   //QList<KCoreDirLister *> listersCurrentlyHolding;
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
     QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
