@@ -26,11 +26,11 @@
 
 #include <KDirWatch>
 #include <kio/global.h>
-#include <kcoredirlister.h>
 
 #include <set>
 
 class QRegularExpression;
+class KCoreDirLister;
 namespace KIO
 {
 class Job;
@@ -559,8 +559,21 @@ struct KCoreDirListerCacheDirectoryData {
     QHash<KCoreDirLister *, ListerStatus> listerContainer;
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
+
+    /*
+     * @returns A list of listers that have the given status.
+     */
     QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
+
+    /*
+     * Finds a list of KCoreDirListers in the listerContainer and modifies their status,
+     * or inserts the KCoreDirListers to the container with the given status.
+     */
     void insertOrModifyListers(QList<KCoreDirLister *> listers, ListerStatus status);
+
+    /*
+     * Modifies or inserts a new KCoreDirLister in the listerContainer with the given status.
+     */
     void insertOrModifyLister(KCoreDirLister *lister, ListerStatus status);
 };
 
