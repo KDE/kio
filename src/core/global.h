@@ -24,8 +24,9 @@ typedef SSIZE_T ssize_t;
 #endif
 
 /*!
- * \brief A namespace for KIO globals
- *
+ * \namespace KIO
+ * \inmodule KIOCore
+ * \brief A namespace for KIO globals.
  */
 namespace KIO
 {
@@ -325,12 +326,12 @@ enum PrivilegeOperationStatus {
 /*!
  * Describes the fields that a stat command will retrieve
  * \sa UDSEntry
- * \sa StatDetails
  * \since 5.69
  *
  * \value StatNoDetails No field returned, useful to check if a file exists
  * \value StatBasic Filename, access, type, size, linkdest
  * \value StatUser uid, gid
+ * \value StatTime
  * \value StatResolveSymlink Resolve symlinks
  * \value StatAcl ACL data
  * \value StatInode dev, inode
@@ -368,7 +369,6 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::StatDetails)
  * \sa getCacheControlString()
  * \deprecated[6.6]
  */
-
 KIOCORE_EXPORT KIO::CacheControl parseCacheControl(const QString &cacheControl);
 #endif
 

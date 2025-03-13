@@ -72,7 +72,7 @@ public:
      */
     bool isValid() const;
 
-    /*! The standard (non-extended) part of an ACL. These map directly to
+    /* The standard (non-extended) part of an ACL. These map directly to
      * standard unix file permissions. Setting them will never make a valid
      * ACL invalid. */
 
@@ -100,7 +100,7 @@ public:
     /*! Returns the basic (owner/group/others) part of the ACL as a mode_t */
     mode_t basePermissions() const;
 
-    /*! The interface to the extended ACL. This is a mask, permissions for
+    /* The interface to the extended ACL. This is a mask, permissions for
      * n named users and permissions for m named groups. */
 
     /*!

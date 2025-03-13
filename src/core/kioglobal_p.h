@@ -75,7 +75,7 @@ Q_STATIC_ASSERT(S_IRUSR == _S_IREAD && S_IWUSR == _S_IWRITE && S_IXUSR == _S_IEX
 #ifndef S_IFSOCK
 #define S_IFSOCK 0140000
 #endif
-/*! performs a QT_STAT and add QT_STAT_LNK to st_mode if the path is a symlink */
+/* performs a QT_STAT and add QT_STAT_LNK to st_mode if the path is a symlink */
 KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 
 #ifndef QT_LSTAT

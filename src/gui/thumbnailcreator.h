@@ -194,6 +194,7 @@ private:
 /*!
  * \class KIO::ThumbnailCreator
  * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
  *
  * \brief Base class for thumbnail generator plugins.
  *

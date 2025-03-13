@@ -250,7 +250,6 @@ KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, Job
  * WARNING: Setting Resume means that the data will be appended to \a dest if \a dest exists.
  *
  * Returns the job handling the operation.
- * \sa multi_get()
  */
 KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags = DefaultFlags);
 

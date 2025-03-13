@@ -51,7 +51,7 @@ class QDBusConnection;
  *         this, [this](const QStringList &fileList) { slotFilesRemoved(fileList); });
  * \endcode
  *
- * Especially noteworthy are the empty strings for both \p service and \p path. That
+ * Especially noteworthy are the empty strings for both service and path. That
  * way the client will connect to signals emitted by any application.
  *
  * The second usage is to actually emit the signals. For that emitFileRenamed() and friends are

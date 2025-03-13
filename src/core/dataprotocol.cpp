@@ -16,7 +16,7 @@
 
 using namespace KIO;
 
-/*! structure containing header information */
+/* structure containing header information */
 struct DataHeader {
     QString mime_type; // MIME type of content (lowercase)
     MetaData attributes; // attribute/value pairs (attribute lowercase,
@@ -28,8 +28,8 @@ struct DataHeader {
     // the end to indicate that there is no data
 };
 
-/*! returns the position of the first occurrence of any of the given
- * characters @p c1 or comma (',') or semicolon (';') or buf.length()
+/* returns the position of the first occurrence of any of the given
+ * characters c1 or comma (',') or semicolon (';') or buf.length()
  * if none is contained.
  *
  * \a buf buffer where to look for c
@@ -52,9 +52,9 @@ static int find(const QByteArray &buf, int begin, const char c1)
     return pos;
 }
 
-/*! extracts the string between the current position @p pos and the first
- * occurrence of either @p c1 or comma (',') or semicolon (';') exclusively
- * and updates @p pos to point at the found delimiter or at the end of the
+/* extracts the string between the current position pos and the first
+ * occurrence of either c1 or comma (',') or semicolon (';') exclusively
+ * and updates pos to point at the found delimiter or at the end of the
  * buffer if neither character occurred.
  * \a buf buffer where to look for
  * \a pos zero-indexed position within buffer
@@ -67,10 +67,10 @@ static inline QString extract(const QByteArray &buf, int &pos, const char c1 = '
     return QString::fromLatin1(buf.mid(oldpos, pos - oldpos));
 }
 
-/*! ignores all whitespaces
+/* ignores all whitespaces
  * \a buf buffer to operate on
  * \a pos position to shift to first non-whitespace character
- *  Upon return @p pos will either point to the first non-whitespace
+ *  Upon return pos will either point to the first non-whitespace
  *  character or to the end of the buffer.
  */
 static inline void ignoreWS(const QByteArray &buf, int &pos)
@@ -81,12 +81,12 @@ static inline void ignoreWS(const QByteArray &buf, int &pos)
     }
 }
 
-/*! parses a quoted string as per rfc 822.
+/* parses a quoted string as per rfc 822.
  *
  * If trailing quote is missing, the whole rest of the buffer is returned.
  * \a buf buffer to operate on
  * \a pos position pointing to the leading quote
- * Returns the extracted string. @p pos will be updated to point to the
+ * Returns the extracted string. pos will be updated to point to the
  *  character following the trailing quote.
  */
 static QString parseQuotedString(const QByteArray &buf, int &pos)
@@ -120,7 +120,7 @@ static QString parseQuotedString(const QByteArray &buf, int &pos)
     return res;
 }
 
-/*! parses the header of a data url
+/* parses the header of a data url
  * \a url the data url
  * \a mimeOnly if the only interesting information is the MIME type
  * Returns DataHeader structure with the header information

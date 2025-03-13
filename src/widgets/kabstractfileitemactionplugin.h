@@ -79,10 +79,15 @@ class KIOWIDGETS_EXPORT KAbstractFileItemActionPlugin : public QObject
     Q_OBJECT
 
 public:
+    /*!
+     *
+     */
     explicit KAbstractFileItemActionPlugin(QObject *parent);
 
     ~KAbstractFileItemActionPlugin() override;
 
+    // TODO KF7 make this asynchronous and stoppable, so a bad plugin cannot impact too much the application process
+    // KIO could enforce a timeout and run it in a Thread
     /*!
      * Implement the actions method in the plugin in order to create actions.
      *
@@ -92,8 +97,6 @@ public:
      *
      * Returns a list of actions to be added to a contextual menu for the file items.
      */
-    // TODO KF7 make this asynchronous and stoppable, so a bad plugin cannot impact too much the application process
-    // KIO could enforce a timeout and run it in a Thread
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) = 0;
 
 Q_SIGNALS:

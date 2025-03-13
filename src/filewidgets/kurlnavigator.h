@@ -158,6 +158,8 @@ public:
      */
     bool goUp();
 
+    // KDE5: Remove the home-property. It is sufficient to invoke
+    // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     /*!
      * Goes to the home URL and remembers the old URL in the history.
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
@@ -165,16 +167,14 @@ public:
      *
      * \sa KUrlNavigator::setHomeUrl()
      */
-    // KDE5: Remove the home-property. It is sufficient to invoke
-    // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     void goHome();
 
+    // KDE5: Remove the home-property. It is sufficient to invoke
+    // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     /*!
      * Sets the home URL used by KUrlNavigator::goHome(). If no
      * home URL is set, the default home path of the user is used.
      */
-    // KDE5: Remove the home-property. It is sufficient to invoke
-    // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
     void setHomeUrl(const QUrl &url);
 
     /*!
@@ -440,7 +440,7 @@ Q_SIGNALS:
     /*!
      * When the URL is changed and the new URL (e.g.\ /home/user1/)
      * is a parent of the previous URL (e.g.\ /home/user1/data/stuff),
-     * then this signal is emitted and \p url is set to the child
+     * then this signal is emitted and \a url is set to the child
      * directory of the new URL which is an ancestor of the old URL
      * (in the example paths this would be /home/user1/data/).
      * This signal allows file managers to pre-select the directory

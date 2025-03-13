@@ -126,8 +126,8 @@ public:
      * \value Delete Delete the files/directories directly, i.e. without moving them to Trash
      * \value Trash Move the files/directories to Trash
      * \value EmptyTrash Empty the Trash
-     * \value [since 5.100] This is the same as Delete, but more text is added to the message to inform the user that moving to Trash was tried but failed due
-     * to size constraints. Typical use case is re-asking the user about deleting instead of Trashing.
+     * \value [since 5.100] DeleteInsteadOfTrash This is the same as Delete, but more text is added to the message to inform the user that moving to Trash was
+     * tried but failed due to size constraints. Typical use case is re-asking the user about deleting instead of Trashing.
      */
     enum DeletionType {
         Delete,

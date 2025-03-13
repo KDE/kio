@@ -28,7 +28,7 @@ class PreviewJobPrivate;
  *
  * This class catches a preview (thumbnail) for files.
  *
- * \brief KIO Job to get a thumbnail picture
+ * \brief KIO Job to get a thumbnail picture.
  */
 class KIOGUI_EXPORT PreviewJob : public KIO::Job
 {
@@ -109,7 +109,6 @@ public:
      * ThumbSequenceCreator supports sub-integer precision, but frontends
      * supporting only integer sequence indices may choose to round it down.
      *
-     * \sa ThumbSequenceCreator::sequenceIndexWraparoundPoint()
      * \since 5.80
      */
     float sequenceIndexWraparoundPoint() const;

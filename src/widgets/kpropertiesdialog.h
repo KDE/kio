@@ -36,8 +36,7 @@ class KPropertiesDialogPrivate;
  * The various tabs themselves will let the user view, and sometimes change,
  * information about the file or URL.
  *
- * TODO qdoc
- * \image html kpropertiesdialog.png "Example of KPropertiesDialog"
+ * \image kpropertiesdialog.png "Example of KPropertiesDialog"
  *
  * The best way to display the properties dialog is to use showDialog().
  * Otherwise, you should use (void)new KPropertiesDialog(...)

@@ -162,7 +162,7 @@ public:
     void start() override;
 
     /*!
-     * Returns whether the \a url of \a mimetype is executable.
+     * Returns whether the \a url of type \a mimetypeName is executable.
      * To be executable the file must pass the following rules:
      * -# Must reside on the local filesystem.
      * -# Must be marked as executable for the user by the filesystem.

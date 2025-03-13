@@ -63,7 +63,7 @@ private:
  * \relates KIO::DavJob
  *
  * Creates a new DavJob that issues a PROPFIND command. PROPFIND retrieves
- * the properties of the resource identified by the given \p url.
+ * the properties of the resource identified by the given \a url.
  *
  * \a url the URL of the resource
  *

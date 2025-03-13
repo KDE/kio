@@ -5,8 +5,9 @@ description = Additions to Qt Core
 
 documentationinheaders = true
 
-headerdirs = .
-sourcedirs = .
+headerdirs += .
+sourcedirs += .
+imagedirs += ../../docs/pics
 
 outputformats = HTML
 
@@ -17,4 +18,5 @@ depends += \
     kcoreaddons \
     kjobwidgets \
     kiocore \
-    kiogui
+    kiogui \
+    kiofilewidgets

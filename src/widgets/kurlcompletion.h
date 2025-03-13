@@ -32,7 +32,7 @@ class KUrlCompletionPrivate;
  * \class KUrlCompletion
  * \inmodule KIOWidgets
  *
- * \brief Completion of a single URL
+ * \brief Completion of a single URL.
  *
  * This class does completion of URLs including user directories (~user)
  * and environment variables.  Remote URLs are passed to KIO.

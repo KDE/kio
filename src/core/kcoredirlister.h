@@ -125,7 +125,7 @@ public:
     /*!
      * Run the directory lister on the given url.
      *
-     * This method causes KCoreDirLister to emit \em all the items of \a dirUrl, in any case.
+     * This method causes KCoreDirLister to emit all the items of \a dirUrl, in any case.
      * Depending on \a flags, either clear() or clearDir(const QUrl &) will be emitted first.
      *
      * The newItems() signal may be emitted more than once to supply you with KFileItems, up
@@ -304,7 +304,7 @@ public:
     void emitChanges();
 
     /*!
-     * Update the directory \a dirUrl. This method causes KCoreDirLister to \em only emit
+     * Update the directory \a dirUrl. This method causes KCoreDirLister to only emit
      * the items of \a dirUrl that actually changed compared to the current state in the
      * cache, and updates the cache.
      *
@@ -353,7 +353,6 @@ public:
      * You need to call emitChanges() afterwards.
      *
      * \a filter the new filter, QString() to disable filtering
-     * \sa matchesFilter
      */
     void setNameFilter(const QString &filter);
 
@@ -375,7 +374,6 @@ public:
      * \a mimeList a list of MIME types
      *
      * \sa clearMimeFilter
-     * \sa matchesMimeFilter
      */
     void setMimeFilter(const QStringList &mimeList);
 
@@ -391,7 +389,6 @@ public:
      * \a mimeList a list of MIME types
      *
      * \sa clearMimeFilter
-     * \sa matchesMimeFilter
      */
     void setMimeExcludeFilter(const QStringList &mimeList);
 
@@ -426,12 +423,12 @@ public:
     /*!
      * Returns the items listed for the current url().
      *
-     * This method will \em not start listing a directory, you should only call
+     * This method will not start listing a directory, you should only call
      * this in a slot connected to the finished() signal.
      *
      * The items in the KFileItemList are copies of the items used by KCoreDirLister.
      *
-     * \em which specifies whether the returned list will contain all entries
+     * \a which specifies whether the returned list will contain all entries
      *              or only the ones that passed the nameFilter(), mimeFilter(),
      *              etc. Note that the latter causes iteration over all the
      *              items, filtering them. If this is too slow for you, use the
@@ -442,7 +439,7 @@ public:
     /*!
      * Returns the items listed for the given \a dirUrl.
      *
-     * This method will \em not start listing \a dirUrl, you should only call
+     * This method will not start listing \a dirUrl, you should only call
      * this in a slot connected to the finished() signal.
      *
      * The items in the KFileItemList are copies of the items used by KCoreDirLister.
@@ -503,7 +500,7 @@ public:
 Q_SIGNALS:
     /*!
      * Tell the view that this KCoreDirLister has started to list \a dirUrl. Note that this
-     * does \em not imply that there is really a job running! I.e. KCoreDirLister::jobs()
+     * does not imply that there is really a job running! I.e. KCoreDirLister::jobs()
      * may return an empty list, in which case the items are taken from the cache.
      *
      * The view knows that openUrl should start it, so this might seem useless, but the view
@@ -626,7 +623,7 @@ Q_SIGNALS:
      *
      * This allows using a progress bar very easily. (see QProgressBar)
      *
-     * \sa percent the progress in percent
+     * \a percent the progress in percent
      */
     void percent(int percent);
 

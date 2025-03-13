@@ -175,6 +175,7 @@ public:
      * \a encoding The encoding shown in the encoding combo.
      *
      * \a startDir This can either be
+     * \list
      * \li The URL of the directory to start in.
      * \li QString() to start in the current working
      *  directory, or the last directory where a file has been
@@ -249,6 +250,7 @@ public:
      * \a encoding The encoding shown in the encoding combo.
      *
      * \a startDir This can either be
+     * \list
      * \li The URL of the directory to start in.
      * \li a relative path or a filename determining the
      *     directory to start in and the file to be selected.
@@ -261,6 +263,7 @@ public:
      * \li '::<keyword>' to start in the directory last used
      *     by a filedialog in any application that specified the
      *     same keyword.
+     * \endlist
      *
      * \a filter A shell glob or a MIME type filter that specifies which files to display.
      *    see KFileFilter::KFileFilter(const QString &label, const QStringList &filePatterns, const QStringList &mimePatterns)
@@ -292,7 +295,7 @@ private:
      * Constructs a file dialog for text files with encoding selection possibility.
      *
      * \a startDir This can either be
-     * \endlist
+     * \list
      * \li The URL of the directory to start in.
      * \li QString() to start in the current working
      *  directory, or the last directory where a file has been

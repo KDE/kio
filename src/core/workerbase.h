@@ -871,7 +871,7 @@ public:
      * see if the password is available in kpasswdserver before calling
      * this function.
      *
-     * \note A call to this function can fail and return \a false,
+     * \note A call to this function can fail and return \c false,
      * if the password server could not be started for whatever reason.
      *
      * \note This function does not store the password information
@@ -1049,8 +1049,6 @@ namespace KIO
  * \a protocol name of the protocol
  *
  * \a cmd given command
- *
- * \sa enum Command
  */
 KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 

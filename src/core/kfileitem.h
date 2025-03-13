@@ -258,6 +258,7 @@ public:
      * \li SkipMimeTypeFromContent: Always by QMimeDatabase::MatchMode::MatchExtension,
      *                                   i.e. won't access the file by stat() or opening it;
      *                                   only suitable for files, directories won't be recognized.
+     * \endlist
      * \since 5.57
      */
     KFileItem(const QUrl &url, KFileItem::MimeTypeDetermination mimeTypeDetermination);

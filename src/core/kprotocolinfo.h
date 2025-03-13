@@ -47,7 +47,6 @@ public:
      * Returns whether a protocol is installed that is able to handle \a url.
      *
      * \a url the url to check
-     * \sa name()
      */
     static bool isKnownProtocol(const QUrl &url);
 
@@ -68,7 +67,6 @@ public:
      *
      * Returns the executable of library to open, or QString() for
      *         unsupported protocols
-     * \sa KUrl::protocol()
      */
     static QString exec(const QString &protocol);
 
@@ -77,7 +75,6 @@ public:
      * For instance ftp:// appears as a filesystem with folders and files,
      * while bzip2:// appears as a single file (a stream of data),
      * and telnet:// doesn't output anything.
-     * \sa outputType
      *
      * \value T_STREAM stream of data (e.g.\ single file)
      * \value T_FILESYSTEM structured directory
@@ -92,6 +89,7 @@ public:
     };
 
     /*!
+     * \inmodule KIOCore
      * Definition of an extra field in the UDS entries, returned by a listDir operation.
      *
      * The name is the name of the column, translated.
@@ -199,7 +197,6 @@ public:
      * need to share a single config file, e.g. http and https.
      *
      * This corresponds to the "config=" field in the protocol description file.
-     * The default is the protocol name, see name()
      *
      * \a protocol the protocol to check
      *

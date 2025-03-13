@@ -20,6 +20,7 @@ class ChmodJobPrivate;
 /*!
  * \class KIO::ChmodJob
  * \inheaderfile KIO/ChmodJob
+ * \inmodule KIOCore
  *
  * \brief This job changes permissions on a list of files or directories,
  * optionally in a recursive manner.

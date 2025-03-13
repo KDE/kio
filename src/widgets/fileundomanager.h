@@ -48,6 +48,7 @@ public:
 
     /*!
      * \class KIO::FileUndoManager::UiInterface
+     * \inmodule KIOGui
      *
      * Interface for the gui handling of FileUndoManager.
      * This includes three events currently:
@@ -135,8 +136,8 @@ public:
      * \value Mkdir
      * \value Trash
      * \value[since 4.7] Put Represents the creation of a file from data in memory. Used when pasting data from clipboard or drag-n-drop
-     * \vaue[since 5.4] Represents a KIO::mkpath() job
-     * \value[since 5.42] Represents a KIO::batchRename() job. Used when renaming multiple files
+     * \value[since 5.4] Mkpath Represents a KIO::mkpath() job
+     * \value[since 5.42] BatchRename Represents a KIO::batchRename() job. Used when renaming multiple files
      */
     enum CommandType {
         Copy,

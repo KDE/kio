@@ -6,7 +6,5 @@
     \cmakecomponent KIO
     \cmaketargetitem KIOGui
 
-    \brief IO
-
-    Stuff
+    \brief GUI-related functionality for KIO.
 */

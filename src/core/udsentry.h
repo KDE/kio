@@ -49,8 +49,8 @@ KIOCORE_EXPORT bool operator!=(const UDSEntry &entry, const UDSEntry &other);
 /*!
  * \class KIO::UDSEntry
  * \inheaderfile KIO/UDSEntry
- *
- * \brief Universal Directory Service
+ * \inmodule KIOCore
+ * \brief Universal Directory Service.
  *
  * UDS entry is the data structure representing all the fields about a given URL
  * (file or directory).

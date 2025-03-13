@@ -337,7 +337,7 @@ public:
 
     /*!
      * Returns the currently used view.
-     * \sa setView
+     * \sa setViewMode
      */
     QAbstractItemView *view() const;
 
@@ -509,7 +509,7 @@ public:
      * \endcode
      * to apply it.
      *
-     * \sa setView
+     * \sa setViewMode
      * \sa setViewConfig
      * \sa writeConfig
      */
@@ -601,7 +601,8 @@ public:
      *    to /a/, "b" will be highlighted
      * \endlist
      *
-     * \sa dirHighlighting. The default is to highlight directories when going back/up.
+     * \sa dirHighlighting.
+     * The default is to highlight directories when going back/up.
      */
     virtual void setEnableDirHighlighting(bool enable);
 
@@ -735,7 +736,7 @@ protected:
      * Returns the created view
      *
      * \sa KFile::FileView
-     * \sa setView
+     * \sa setViewMode
      */
     virtual QAbstractItemView *createView(QWidget *parent, KFile::FileView viewKind);
 
@@ -984,7 +985,7 @@ Q_SIGNALS:
 
     /*!
      * Emitted whenever the current fileview is changed, either by an explicit
-     * call to setView() or by the user selecting a different view thru
+     * call to setViewMode() or by the user selecting a different view thru
      * the GUI.
      */
     void viewChanged(QAbstractItemView *newView);
@@ -1030,7 +1031,7 @@ Q_SIGNALS:
 
     /*!
      * Will notify that the icon size has changed. Since we save the icon size depending
-     * on the view type (list view or a different kind of view), a call to setView() can
+     * on the view type (list view or a different kind of view), a call to setViewMode() can
      * trigger this signal to be emitted.
      */
     void currentIconSizeChanged(int size);

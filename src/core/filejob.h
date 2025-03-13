@@ -82,7 +82,7 @@ public:
     /*!
      * Truncate
      *
-     * The worker emits truncated() on successful truncation to the specified \p length.
+     * The worker emits truncated() on successful truncation to the specified \a length.
      *
      * On error the truncated() signal is not emitted. To catch errors please
      * connect to the result() signal.

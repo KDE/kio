@@ -437,7 +437,7 @@ Q_SIGNALS:
     /*!
      * Emitted after the teardown of a device ends.
      *
-     * \note In case of an error, the \a errorMessage signal
+     * \note In case of an error, the errorMessage() signal
      * will also be emitted with a message describing the error.
      *
      * \a error Type of error that occurred, if any.

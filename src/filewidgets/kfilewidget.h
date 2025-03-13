@@ -353,7 +353,7 @@ public:
      *        KRecentDirs::add().
      *
      * \a fileName The suggested file name, if specified as part of the
-     *        \a StartDir URL.
+     *        \a startDir URL.
      *
      * Returns The URL that should be listed by default (e.g. by KFileDialog or
      *         KDirSelectDialog).

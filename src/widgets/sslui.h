@@ -11,11 +11,13 @@
 #include "kiowidgets_export.h"
 #include <ksslerroruidata.h>
 
-// TODO qdoc header file
-
 namespace KIO
 {
-/*! UI methods for handling SSL errors. */
+/*!
+ * \namespace KIO::SslUi
+ * \inheaderfile KIO/SslUi
+ * \brief UI methods for handling SSL errors.
+ */
 namespace SslUi
 {
 /*!
@@ -24,7 +26,6 @@ namespace SslUi
  * \value RecallRules Apply stored certificate rules (typically ignored errors)
  * \value StoreRules Make new ignore rules from the user's choice and store them
  * \value RecallAndStoreRules Apply stored rules and store new rules
- *
  */
 enum RulesStorage {
     RecallRules = 1,

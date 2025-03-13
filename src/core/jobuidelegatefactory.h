@@ -24,6 +24,7 @@ namespace KIO
 /*!
  * \class KIO::JobUiDelegateFactory
  * \inheaderfile KIO/JobUiDelegateFactory
+ * \inmodule KIOCore
  *
  * \brief A factory for creating job ui delegates.
  *

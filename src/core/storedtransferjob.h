@@ -110,7 +110,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice *input, const QUrl &url, i
  * \a permissions May be -1. In this case no special permission mode is set.
  *
  * \a flags Can be HideProgressInfo, Overwrite and Resume here.
- * WARNING: Setting Resume means that the data will be appended to \a dest if \a dest exists.
+ * WARNING: Setting Resume means that the data will be appended to \a url if \a url exists.
  *
  * Returns the job handling the operation.
  */

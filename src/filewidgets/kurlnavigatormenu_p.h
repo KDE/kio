@@ -33,7 +33,7 @@ Q_SIGNALS:
     void urlsDropped(QAction *action, QDropEvent *event);
 
     /*!
-     * Is emitted, if the action \p action has been clicked.
+     * Is emitted, if the action \a action has been clicked.
      */
     void mouseButtonClicked(QAction *action, Qt::MouseButton button);
 

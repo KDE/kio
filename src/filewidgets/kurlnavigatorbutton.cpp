@@ -493,7 +493,7 @@ void KUrlNavigatorButton::statFinished(KJob *job)
     }
 }
 
-/*!
+/*
  * Helper struct for sorting folder names
  */
 struct FolderNameNaturalLessThan {

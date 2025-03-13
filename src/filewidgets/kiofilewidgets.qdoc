@@ -6,7 +6,7 @@
     \cmakecomponent KIO
     \cmaketargetitem KF6::KIOFileWidgets
 
-    \brief IO
+    \brief Widgets for File Management
 
     The KIOFileWidgets library provides the file selection dialog and its components.
 

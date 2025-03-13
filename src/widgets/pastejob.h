@@ -30,7 +30,7 @@ class PasteJobPrivate;
  * If the clipboard contains data, it is saved into a file after asking
  * the user to choose a filename and the preferred data format.
  *
- * \sa KIO::pasteClipboard
+ * \sa KIO::paste
  * \since 5.4
  */
 class KIOWIDGETS_EXPORT PasteJob : public Job

@@ -156,7 +156,7 @@ private:
  * \code
  * KUriFilterData data;
  * data.setData("<text-to-search-for>");
- * data.setSearchFilteringOption(KUriFilterData::RetrievePreferredSearchProvidersOnly);
+ * data.setSearchFilteringOptions(KUriFilterData::RetrievePreferredSearchProvidersOnly);
  * bool filtered = KUriFilter::self()->filterSearchUri(data, KUriFilter::NormalTextFilter);
  * \endcode
  */
@@ -202,7 +202,6 @@ public:
      *
      * \sa setSearchFilteringOptions
      * \sa KUriFilter::filterSearchUri
-     * \sa SearchFilterOptions
      */
     enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
@@ -369,10 +368,10 @@ public:
      * You can use queryForPreferredServiceProvider to obtain the query
      * associated with the list of search providers returned by this function.
      *
-     * \sa setAlternateSearchProviders
-     * \sa setAlternateDefaultSearchProvider
-     * \sa setSearchFilteringOption
-     * \sa queryForPreferredServiceProvider
+     * \sa setAlternateSearchProviders()
+     * \sa setAlternateDefaultSearchProvider()
+     * \sa setSearchFilteringOptions()
+     * \sa queryForPreferredSearchProvider()
      */
     QStringList preferredSearchProviders() const;
 
@@ -382,8 +381,7 @@ public:
      * You can use this function to obtain the more information about the search
      * providers returned by preferredSearchProviders.
      *
-     * \sa preferredSearchProviders
-     * \sa KUriFilterSearchProvider
+     * \sa preferredSearchProviders()
      */
     KUriFilterSearchProvider queryForSearchProvider(const QString &provider) const;
 
@@ -432,7 +430,7 @@ public:
      * preferred providers have been chosen by the user through the search
      * configuration module.
      *
-     * \sa setAlternatteSearchProviders
+     * \sa setAlternateSearchProviders
      * \sa preferredSearchProviders
      */
     QStringList alternateSearchProviders() const;

@@ -49,8 +49,7 @@ class QString;
  *
  * The default window modality for the file dialog is Qt::ApplicationModal
  *
- * TODO qdoc
- * \image html kurlrequester.png "KUrlRequester"
+ * \image kurlrequester.png "KUrlRequester"
  */
 class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {

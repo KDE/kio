@@ -27,7 +27,7 @@ class QSslSocket;
  * to continue connecting in the face of SSL errors.
  * It can be used to carry the data for the UI over time or over thread boundaries.
  *
- * \sa KSslCertificateManager::askIgnoreSslErrors()
+ * \sa KIO::SslUi::askIgnoreSslErrors()
  */
 class KIOCORE_EXPORT KSslErrorUiData
 {

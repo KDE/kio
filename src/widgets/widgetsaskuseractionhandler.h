@@ -26,8 +26,8 @@ namespace KIO
  *
  * This implements KIO::AskUserActionInterface.
  *
- * \sa KIO::AskUserActionInterface()
- * \sa KIO::JobUiDelegateExtension()
+ * \sa KIO::AskUserActionInterface
+ * \sa KIO::JobUiDelegateExtension
  *
  * \since 5.78
  */

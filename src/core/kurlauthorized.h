@@ -67,7 +67,7 @@ class QString;
  *             sapplications. It also affects where users can save files.
  *             To only allow a user to open the files in his own home
  *             directory one could use:
- *             \cde
+ *             \code
  *             [KDE URL Restrictions]
  *             rule_count=3
  *               rule_1=open,,,,file,,,false
