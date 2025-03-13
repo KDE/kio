@@ -972,30 +972,10 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
     // Look whether this item was shown in any view, i.e. held by any dirlister
     const QUrl parentDir = oldItem.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     DirectoryDataHash::iterator dit = directoryData.find(parentDir);
-    QList<KCoreDirLister *> listers;
-    // Also look in listersCurrentlyListing, in case the user manages to rename during a listing
-    if (dit != directoryData.end()) {
-        listers += (*dit).listerContainer.keys();
-    }
-    if (oldItem.isDir()) {
-        // For a directory, look for dirlisters where it's the root item.
-        dit = directoryData.find(oldItem.url());
-        if (dit != directoryData.end()) {
-            // Make sure we do not add duplicate entries
-            for (const auto &holder : (*dit).listersByStatus(KCoreDirListerCacheDirectoryData::ListerStatus::Holding)) {
-                if (!listers.contains(holder)) {
-                    listers.append(holder);
-                }
-            }
-            for (const auto &lister : (*dit).listersByStatus(KCoreDirListerCacheDirectoryData::ListerStatus::Listing)) {
-                if (!listers.contains(lister)) {
-                    listers.append(lister);
-                }
-            }
-        }
-    }
+    const auto listers = (*dit).listerContainer;
+
     std::set<KCoreDirLister *> listersToRefresh;
-    for (KCoreDirLister *kdl : std::as_const(listers)) {
+    for (KCoreDirLister *kdl : std::as_const(listers).keys()) {
         // deduplicate listers
         listersToRefresh.insert(kdl);
     }
