@@ -26,11 +26,11 @@
 
 #include <KDirWatch>
 #include <kio/global.h>
+#include <kcoredirlister.h>
 
 #include <set>
 
 class QRegularExpression;
-class KCoreDirLister;
 namespace KIO
 {
 class Job;
@@ -555,12 +555,20 @@ struct KCoreDirListerCacheDirectoryData {
     // happens if more listers are requesting url at the same time and
     // one lister was stopped during the listing of files.
 
+    enum ListerStatus {
+        Listing,
+        Holding
+    };
+
+    QHash<KCoreDirLister *, ListerStatus> listerContainer;
+
     // Listers that are currently listing this url
-    QList<KCoreDirLister *> listersCurrentlyListing;
+    //QList<KCoreDirLister *> listersCurrentlyListing;
     // Listers that are currently holding this url
-    QList<KCoreDirLister *> listersCurrentlyHolding;
+   //QList<KCoreDirLister *> listersCurrentlyHolding;
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
+    QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
 };
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()

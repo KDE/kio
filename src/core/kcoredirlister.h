@@ -626,6 +626,7 @@ protected:
     virtual void jobStarted(KIO::ListJob *);
 
 private:
+
     friend class KCoreDirListerPrivate;
     std::unique_ptr<KCoreDirListerPrivate> d;
 };
