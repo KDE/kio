@@ -2809,6 +2809,11 @@ void KCoreDirListerCacheDirectoryData::insertOrModifyListers(const QList<KCoreDi
 
 void KCoreDirListerCacheDirectoryData::insertOrModifyLister(KCoreDirLister *lister, ListerStatus status)
 {
+    Q_ASSERT(lister);
+    if (!lister) {
+        return;
+    }
+
     if (m_listerContainer.contains(lister)) {
         m_listerContainer[lister] = status;
     } else {
@@ -2818,6 +2823,11 @@ void KCoreDirListerCacheDirectoryData::insertOrModifyLister(KCoreDirLister *list
 
 void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
 {
+    Q_ASSERT(lister);
+    if (!lister) {
+        return;
+    }
+
     if (m_listerContainer.contains(lister)) {
         m_listerContainer.remove(lister);
     }
