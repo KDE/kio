@@ -590,10 +590,14 @@ void KFileWidget::slotOk()
 {
     //     qDebug() << "slotOk\n";
 
-    const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
+    QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
 
-    QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
     KFile::Modes mode = d->m_ops->mode();
+    // In single file mode, escape the " symbols to allow saving them
+    if (mode & KFile::File) {
+        locationEditCurrentText = locationEditCurrentText.replace(QLatin1Char('"'), QStringLiteral("\\\""));
+    }
+    QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
 
     // Make sure that one of the modes was provided
     if (!((mode & KFile::File) || (mode & KFile::Directory) || (mode & KFile::Files))) {
