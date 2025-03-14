@@ -56,6 +56,7 @@
 #include <QProgressBar>
 #include <QRegularExpression>
 #include <QScrollBar>
+#include <QScroller>
 #include <QSplitter>
 #include <QStack>
 #include <QTimer>
@@ -217,6 +218,8 @@ public:
     bool m_shouldFetchForItems = false;
     bool m_isSaving = false;
     bool m_showOpenWithActions = false;
+    bool m_isTouchEvent = false;
+    bool m_isTouchDrag = true;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -1250,7 +1253,13 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     // If we are not hovering any items, check if there is a current index
     // set. In that case, we show the preview of that item.
     switch (event->type()) {
+    case QEvent::TouchBegin:
+        d->m_isTouchEvent = true;
+        break;
     case QEvent::MouseMove: {
+        if (d->m_isTouchEvent) {
+            return true;
+        }
         if (d->m_preview && !d->m_preview->isHidden()) {
             const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
 
@@ -1297,6 +1306,11 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             if (((!focusedIndex.isValid()) || !d->m_itemView->selectionModel()->isSelected(focusedIndex)) && (!hoveredIndex.isValid())) {
                 d->m_preview->clearPreview();
             }
+        }
+
+        if (d->m_isTouchEvent || d->m_isTouchDrag) {
+            d->m_isTouchDrag = false;
+            return true;
         }
 
         break;
@@ -1608,6 +1622,24 @@ void KDirOperator::setViewInternal(QAbstractItemView *view)
     // TODO: do a real timer and restart it after that
     d->m_pendingMimeTypes.clear();
     const bool listDir = (d->m_itemView == nullptr);
+
+    if (d->m_itemView) {
+        d->m_itemView->viewport()->removeEventFilter(this);
+    }
+    QScroller *scroller = QScroller::scroller(view->viewport());
+    QScrollerProperties scrollerProp;
+    scrollerProp.setScrollMetric(QScrollerProperties::AcceleratingFlickMaximumTime, 0.2); // QTBUG-88249
+    scroller->setScrollerProperties(scrollerProp);
+    scroller->grabGesture(view->viewport());
+    connect(scroller, &QScroller::stateChanged, this, [this](const QScroller::State newState) {
+        if (newState == QScroller::Inactive) {
+            d->m_isTouchEvent = false;
+        } else if (newState == QScroller::Dragging) {
+            d->m_isTouchDrag = true;
+        }
+    });
+    view->viewport()->grabGesture(Qt::TapGesture);
+    view->setAttribute(Qt::WA_AcceptTouchEvents);
 
     if (d->m_mode & KFile::Files) {
         view->setSelectionMode(QAbstractItemView::ExtendedSelection);
