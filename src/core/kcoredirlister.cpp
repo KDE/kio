@@ -2835,11 +2835,7 @@ void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
 
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::allListers() const
 {
-    QList<KCoreDirLister *> listers;
-    for (const auto &[lister, _] : m_listerContainer.asKeyValueRange()) {
-        listers.append(lister);
-    }
-    return listers;
+    return m_listerContainer.keys();
 }
 
 int KCoreDirListerCacheDirectoryData::listerCount()
