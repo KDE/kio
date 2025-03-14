@@ -554,26 +554,36 @@ enum class ListerStatus : uint8_t {
 // Data associated with a directory url
 // This could be in DirItem but only in the itemsInUse dict...
 struct KCoreDirListerCacheDirectoryData {
-    // A lister can be either in Listing or Holding status.
-    QHash<KCoreDirLister *, ListerStatus> listerContainer;
-
     void moveListersWithoutCachedItemsJob(const QUrl &url);
 
     /*
      * @returns A list of listers that have the given status.
      */
-    QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
+    [[nodiscard]] QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
+
+    /*
+     * @returns All listers from the container.
+     */
+    [[nodiscard]] QList<KCoreDirLister *> allListers() const;
 
     /*
      * Finds a list of KCoreDirListers in the listerContainer and modifies their status,
      * or inserts the KCoreDirListers to the container with the given status.
      */
-    void insertOrModifyListers(QList<KCoreDirLister *> listers, ListerStatus status);
+    void insertOrModifyListers(const QList<KCoreDirLister *> listers, ListerStatus status);
 
     /*
      * Modifies or inserts a new KCoreDirLister in the listerContainer with the given status.
      */
     void insertOrModifyLister(KCoreDirLister *lister, ListerStatus status);
+
+    void removeLister(KCoreDirLister *lister);
+
+    int listerCount();
+
+private:
+    // A lister can be either in Listing or Holding status.
+    QHash<KCoreDirLister *, ListerStatus> m_listerContainer;
 };
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()

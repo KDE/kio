@@ -151,7 +151,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         // if there is an update running for _url already we get into
         // the following case - it will just be restarted by updateDirectory().
 
-        dirData.listerContainer.insert(lister, ListerStatus::Listing);
+        dirData.insertOrModifyLister(lister, ListerStatus::Listing);
 
         DirItem *itemFromCache = nullptr;
         if (itemU || (!_reload && (itemFromCache = itemsCached.take(_url)))) {
@@ -220,7 +220,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
 
         // Maybe listersCurrentlyListing/listersCurrentlyHolding should be QSets?
         Q_ASSERT(!dirData.listersByStatus(ListerStatus::Listing).contains(lister));
-        dirData.listerContainer.insert(lister, ListerStatus::Listing);
+        dirData.insertOrModifyLister(lister, ListerStatus::Listing);
 
         // a new lister is listing this _url, incr watch refcount
         if (lister->d->autoUpdate) {
@@ -360,7 +360,7 @@ void KCoreDirListerCache::forgetCachedItemsJob(KCoreDirListerPrivate::CachedItem
     if (!listJob) {
         Q_ASSERT(!dirData.listersByStatus(ListerStatus::Holding).contains(lister));
         qCDebug(KIO_CORE_DIRLISTER) << "Moving from listing to holding, because no more job" << lister << _url;
-        dirData.listerContainer[lister] = ListerStatus::Holding;
+        dirData.insertOrModifyLister(lister, ListerStatus::Holding);
     } else {
         qCDebug(KIO_CORE_DIRLISTER) << "Still having a listjob" << listJob << ", so not moving to currently-holding.";
     }
@@ -405,7 +405,7 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
             stopListJob(url, silent);
         } else {
             // Leave the job running for the other dirlisters, just unsubscribe us.
-            dirData.listerContainer.remove(lister);
+            dirData.removeLister(lister);
             if (!silent) {
                 Q_EMIT lister->canceled();
                 Q_EMIT lister->listingDirCanceled(url);
@@ -494,7 +494,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
         return;
     }
     KCoreDirListerCacheDirectoryData &dirData = *dit;
-    dirData.listerContainer.remove(lister);
+    dirData.removeLister(lister);
 
     // This lister doesn't care for updates running in <url> anymore
     KIO::ListJob *job = jobForUrl(url);
@@ -506,7 +506,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
     Q_ASSERT(item);
     bool insertIntoCache = false;
 
-    if (dirData.listerContainer.isEmpty()) {
+    if (dirData.listerCount() == 0) {
         // item not in use anymore -> move into cache if complete
         directoryData.erase(dit);
         itemsInUse.remove(url);
@@ -971,10 +971,10 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
     // Look whether this item was shown in any view, i.e. held by any dirlister
     const QUrl parentDir = oldItem.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     DirectoryDataHash::iterator dit = directoryData.find(parentDir);
-    const auto listers = (*dit).listerContainer;
+    const auto listers = (*dit).allListers();
 
     std::set<KCoreDirLister *> listersToRefresh;
-    for (KCoreDirLister *lister : std::as_const(listers).keys()) {
+    for (KCoreDirLister *lister : std::as_const(listers)) {
         // deduplicate listers
         listersToRefresh.insert(lister);
     }
@@ -1664,7 +1664,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     // Collect the dirlisters which were listing the URL using that ListJob
     // plus those that were already holding that URL - they all get updated.
     dirData.moveListersWithoutCachedItemsJob(jobUrl);
-    const QList<KCoreDirLister *> listers = dirData.listerContainer.keys();
+    const QList<KCoreDirLister *> listers = dirData.allListers();
 
     // once we are updating dirs that are only in the cache this will fail!
     Q_ASSERT(!listers.isEmpty());
@@ -2792,7 +2792,7 @@ KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(ListerStatus status) const
 {
     QList<KCoreDirLister *> listers;
-    for (const auto &lister : listerContainer.asKeyValueRange()) {
+    for (const auto &lister : m_listerContainer.asKeyValueRange()) {
         if (lister.second == status) {
             listers.append(lister.first);
         }
@@ -2800,7 +2800,7 @@ QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(Lister
     return listers;
 }
 
-void KCoreDirListerCacheDirectoryData::insertOrModifyListers(QList<KCoreDirLister *> listers, ListerStatus status)
+void KCoreDirListerCacheDirectoryData::insertOrModifyListers(const QList<KCoreDirLister *> listers, ListerStatus status)
 {
     for (const auto &lister : listers) {
         insertOrModifyLister(lister, status);
@@ -2809,11 +2809,32 @@ void KCoreDirListerCacheDirectoryData::insertOrModifyListers(QList<KCoreDirListe
 
 void KCoreDirListerCacheDirectoryData::insertOrModifyLister(KCoreDirLister *lister, ListerStatus status)
 {
-    if (listerContainer.contains(lister)) {
-        listerContainer[lister] = status;
+    if (m_listerContainer.contains(lister)) {
+        m_listerContainer[lister] = status;
     } else {
-        listerContainer.insert(lister, status);
+        m_listerContainer.insert(lister, status);
     }
+}
+
+void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
+{
+    if (m_listerContainer.contains(lister)) {
+        m_listerContainer.remove(lister);
+    }
+}
+
+QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::allListers() const
+{
+    QList<KCoreDirLister *> listers;
+    for (const auto &lister : m_listerContainer.asKeyValueRange()) {
+        listers.append(lister.first);
+    }
+    return listers;
+}
+
+int KCoreDirListerCacheDirectoryData::listerCount()
+{
+    return m_listerContainer.count();
 }
 
 #include "moc_kcoredirlister.cpp"
