@@ -2727,11 +2727,7 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
         if (!kdl->d->cachedItemsJobForUrl(url)) {
             // OK, move this lister from "currently listing" to "currently holding".
 
-            // Huh? The KCoreDirLister was present twice in listersCurrentlyListing, or was in both lists?
-            Q_ASSERT(!listersByStatus(ListerStatus::Holding).contains(kdl));
-            if (!listersByStatus(ListerStatus::Holding).contains(kdl)) {
-                insertOrModifyLister(kdl, ListerStatus::Holding);
-            }
+            insertOrModifyLister(kdl, ListerStatus::Holding);
             lister_it.remove();
         } else {
             qCDebug(KIO_CORE_DIRLISTER) << "Not moving" << kdl << "to listersCurrentlyHolding because it still has job" << kdl->d->m_cachedItemsJobs;
