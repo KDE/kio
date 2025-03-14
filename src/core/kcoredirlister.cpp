@@ -2792,9 +2792,9 @@ KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(ListerStatus status) const
 {
     QList<KCoreDirLister *> listers;
-    for (const auto &lister : m_listerContainer.asKeyValueRange()) {
-        if (lister.second == status) {
-            listers.append(lister.first);
+    for (const auto &[lister, listerStatus] : m_listerContainer.asKeyValueRange()) {
+        if (listerStatus == status) {
+            listers.append(lister);
         }
     }
     return listers;
@@ -2836,8 +2836,8 @@ void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::allListers() const
 {
     QList<KCoreDirLister *> listers;
-    for (const auto &lister : m_listerContainer.asKeyValueRange()) {
-        listers.append(lister.first);
+    for (const auto &[lister, _] : m_listerContainer.asKeyValueRange()) {
+        listers.append(lister);
     }
     return listers;
 }
