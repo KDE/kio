@@ -546,16 +546,15 @@ private:
     struct ItemInUseChange;
 };
 
+enum class ListerStatus : uint8_t {
+    Listing,
+    Holding
+};
+
 // Data associated with a directory url
 // This could be in DirItem but only in the itemsInUse dict...
 struct KCoreDirListerCacheDirectoryData {
     // A lister can be either in Listing or Holding status.
-
-    enum ListerStatus {
-        Listing,
-        Holding
-    };
-
     QHash<KCoreDirLister *, ListerStatus> listerContainer;
 
     void moveListersWithoutCachedItemsJob(const QUrl &url);
