@@ -971,7 +971,21 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
     // Look whether this item was shown in any view, i.e. held by any dirlister
     const QUrl parentDir = oldItem.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     DirectoryDataHash::iterator dit = directoryData.find(parentDir);
-    const auto listers = (*dit).allListers();
+    QSet<KCoreDirLister *> listers;
+    if (dit != directoryData.end()) {
+        for (auto *lister : (*dit).allListers()) {
+            listers.insert(lister);
+        }
+    }
+    if (oldItem.isDir()) {
+        // For a directory, look for dirlisters where it's the root item.
+        dit = directoryData.find(oldItem.url());
+        if (dit != directoryData.end()) {
+            for (auto *lister : (*dit).allListers()) {
+                listers.insert(lister);
+            }
+        }
+    }
 
     std::set<KCoreDirLister *> listersToRefresh;
     for (KCoreDirLister *lister : std::as_const(listers)) {
