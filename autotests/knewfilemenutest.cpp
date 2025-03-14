@@ -8,6 +8,7 @@
 #include <QTest>
 
 #include <KIO/StoredTransferJob>
+#include <KMessageWidget>
 #include <KShell>
 #include <QDialog>
 #include <QLineEdit>
@@ -91,6 +92,28 @@ private Q_SLOTS:
     {
         QFile::remove(m_xdgConfigDir + "/user-dirs.dirs");
         QDir(m_xdgConfigDir + "/test-templates").removeRecursively();
+    }
+
+    void openActionText(KNewFileMenu *menu, const QString actionText)
+    {
+        QAction *action = menu;
+        QVERIFY(action);
+        QAction *textAct = nullptr;
+        const QList<QAction *> actionsList = action->menu()->actions();
+        for (QAction *act : actionsList) {
+            if (act->text().contains(actionText)) {
+                textAct = act;
+            }
+        }
+        QVERIFY(textAct != nullptr);
+        if (!textAct) {
+            for (const QAction *act : actionsList) {
+                qDebug() << act << act->text() << act->data();
+            }
+            const QString err = QLatin1String("action with text \"") + actionText + QLatin1String("\" not found.");
+            QVERIFY2(textAct, qPrintable(err));
+        }
+        textAct->trigger();
     }
 
     // Ensure that we can use storedPut() with a qrc file as input
@@ -209,24 +232,7 @@ private Q_SLOTS:
         menu.setSelectDirWhenAlreadyExist(true);
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
-        QAction *action = &menu;
-        QVERIFY(action);
-        QAction *textAct = nullptr;
-        const QList<QAction *> actionsList = action->menu()->actions();
-        for (QAction *act : actionsList) {
-            if (act->text().contains(actionText)) {
-                textAct = act;
-            }
-        }
-        QVERIFY(textAct != nullptr);
-        if (!textAct) {
-            for (const QAction *act : actionsList) {
-                qDebug() << act << act->text() << act->data();
-            }
-            const QString err = QLatin1String("action with text \"") + actionText + QLatin1String("\" not found.");
-            QVERIFY2(textAct, qPrintable(err));
-        }
-        textAct->trigger();
+        openActionText(&menu, actionText);
 
         QDialog *dialog;
         // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
@@ -331,6 +337,63 @@ private Q_SLOTS:
             return act->text() == QStringLiteral("my-script");
         });
         QVERIFY(itScript != list.cend());
+    }
+
+    void testForbidTildeUsername_data()
+    {
+        QString tildeUsername = QLatin1Char('~') + QDir::home().dirName();
+        QTest::addColumn<QString>("actionText"); // the action we're clicking on
+        QTest::addColumn<QString>("typedFilename"); // what the user is typing
+        QTest::addColumn<bool>("filenameAllowed"); // is the filename allowed, compared to OK button status
+
+        QTest::newRow("text file is ~username.txt") << "Text File" << tildeUsername + ".txt" << true;
+        QTest::newRow("text file is ~username") << "Text File" << tildeUsername << false;
+
+        QTest::newRow("html file is ~username.html") << "HTML File" << tildeUsername + ".html" << true;
+        QTest::newRow("html file is ~username") << "HTML File" << tildeUsername << false;
+
+        QTest::newRow("folder starts with ~") << "Folder..."
+                                              << "~folder1" << true;
+        QTest::newRow("folder name is ~username") << "Folder..." << tildeUsername << false;
+    }
+
+    void testForbidTildeUsername()
+    {
+        QFETCH(QString, actionText);
+        QFETCH(QString, typedFilename);
+        QFETCH(bool, filenameAllowed);
+
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(false);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
+        menu.checkUpToDate();
+        openActionText(&menu, actionText);
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
+        KMessageWidget *msgWidget = dialog->findChild<KMessageWidget *>();
+        QSignalSpy msgSpy(msgWidget, &KMessageWidget::showAnimationFinished);
+        QVERIFY(lineEdit);
+        lineEdit->setText(typedFilename);
+        QVERIFY(msgSpy.wait(1000));
+
+        QDialogButtonBox *buttonsList = dialog->findChild<QDialogButtonBox *>();
+        QVERIFY(buttonsList);
+        auto okButton = buttonsList->button(QDialogButtonBox::Ok);
+        QVERIFY(okButton);
+        auto cancelButton = buttonsList->button(QDialogButtonBox::Cancel);
+        QVERIFY(cancelButton);
+
+        // No need to create new file, we just want to see if the OK button is enabled or not
+        QCOMPARE(okButton->isEnabled(), filenameAllowed);
+        cancelButton->click();
     }
 
 private:
