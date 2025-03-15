@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-08 00:40+0000\n"
+"POT-Creation-Date: 2025-03-15 00:39+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -2408,70 +2408,70 @@ msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "o pali e poki"
 
-#: filewidgets/kdiroperator.cpp:304
+#: filewidgets/kdiroperator.cpp:307
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
+#: filewidgets/kdiroperator.cpp:716 filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "sina toki ala e lipu tawa weka."
 
-#: filewidgets/kdiroperator.cpp:713 filewidgets/kdiroperator.cpp:745
+#: filewidgets/kdiroperator.cpp:716 filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "ijo ala li ken kama weka"
 
-#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
+#: filewidgets/kdiroperator.cpp:760 filewidgets/kdiroperator.cpp:847
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "sina toki ala e lipu pi wile sina tawa poki jaki."
 
-#: filewidgets/kdiroperator.cpp:757 filewidgets/kdiroperator.cpp:844
+#: filewidgets/kdiroperator.cpp:760 filewidgets/kdiroperator.cpp:847
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "ijo ala li ken tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:916 filewidgets/kdiroperator.cpp:1048
+#: filewidgets/kdiroperator.cpp:919 filewidgets/kdiroperator.cpp:1051
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "poki wile li lon ala anu ken lukin ala."
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1982
 #, kde-format
 msgid "Menu"
 msgstr "ilo mute"
 
-#: filewidgets/kdiroperator.cpp:1955
+#: filewidgets/kdiroperator.cpp:1987
 #, kde-format
 msgid "Parent Folder"
 msgstr "poki mama"
 
-#: filewidgets/kdiroperator.cpp:1962
+#: filewidgets/kdiroperator.cpp:1994
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "o tawa tenpo pini"
 
-#: filewidgets/kdiroperator.cpp:1966
+#: filewidgets/kdiroperator.cpp:1998
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "o tawa tenpo kama"
 
-#: filewidgets/kdiroperator.cpp:1970
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Home Folder"
 msgstr "poki pi tomo sina"
 
-#: filewidgets/kdiroperator.cpp:1974
+#: filewidgets/kdiroperator.cpp:2006
 #, kde-format
 msgid "Reload"
 msgstr "o sin e ni"
 
-#: filewidgets/kdiroperator.cpp:1977
+#: filewidgets/kdiroperator.cpp:2009
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2479,181 +2479,181 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "poki sin"
 
-#: filewidgets/kdiroperator.cpp:1987 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:2019 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "o weka e ni tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:1993
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Delete"
 msgstr "o weka"
 
-#: filewidgets/kdiroperator.cpp:2000
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Sorting"
 msgstr "nasin pana"
 
-#: filewidgets/kdiroperator.cpp:2005
+#: filewidgets/kdiroperator.cpp:2037
 #, kde-format
 msgid "Sort by Name"
 msgstr "o nasin tan nimi"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Sort by Size"
 msgstr "o nasin tan suli"
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Sort by Date"
 msgstr "o nasin tan tenpo"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgid "Sort by Type"
 msgstr "o nasin tan kule"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Ascending"
 msgstr "tan lili tawa suli"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Descending"
 msgstr "tan suli tawa lili"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2078
 #, kde-format
 msgid "Folders First"
 msgstr "poki o lon open"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2084
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Icons View"
 msgstr "lukin pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Compact View"
 msgstr "lukin pi lipu lili"
 
-#: filewidgets/kdiroperator.cpp:2073
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Details View"
 msgstr "lukin pi lipu suli"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2124
 #, kde-format
 msgid "Icon Position"
 msgstr "poka pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2127
 #, kde-format
 msgid "Next to File Name"
 msgstr "lon poka pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Above File Name"
 msgstr "lon sewi pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2147
 #, kde-format
 msgid "Short View"
 msgstr "lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2122
+#: filewidgets/kdiroperator.cpp:2154
 #, kde-format
 msgid "Detailed View"
 msgstr "lukin pi toki mute"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2161
 #, kde-format
 msgid "Tree View"
 msgstr "lukin pi kasi lukin"
 
-#: filewidgets/kdiroperator.cpp:2136
+#: filewidgets/kdiroperator.cpp:2168
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "lukin pi kasin lukin suli"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "o ken e open poki lon lipu wan lon lukin pi sona mute"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2187
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2194
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "o sitelen e ilo lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2201
 #, kde-format
 msgid "Show Preview"
 msgstr "o sitelen e lukin lipu"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "o open e poki pi jo lipu ni"
 
-#: filewidgets/kdiroperator.cpp:2183 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2215 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "ijo lipu"
 
-#: filewidgets/kdiroperator.cpp:2192
+#: filewidgets/kdiroperator.cpp:2224
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&lukin"
 
-#: filewidgets/kdiroperator.cpp:2295 filewidgets/kdiroperator.cpp:2307
+#: filewidgets/kdiroperator.cpp:2327 filewidgets/kdiroperator.cpp:2339
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "W-A"
 
-#: filewidgets/kdiroperator.cpp:2296 filewidgets/kdiroperator.cpp:2308
+#: filewidgets/kdiroperator.cpp:2328 filewidgets/kdiroperator.cpp:2340
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-W"
 
-#: filewidgets/kdiroperator.cpp:2299
+#: filewidgets/kdiroperator.cpp:2331
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "sin li nanpa wan"
 
-#: filewidgets/kdiroperator.cpp:2300
+#: filewidgets/kdiroperator.cpp:2332
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "sin li lon pini"
 
-#: filewidgets/kdiroperator.cpp:2303
+#: filewidgets/kdiroperator.cpp:2335
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "suli li nanpa wa"
 
-#: filewidgets/kdiroperator.cpp:2304
+#: filewidgets/kdiroperator.cpp:2336
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3399,27 +3399,27 @@ msgstr "o kama e &lipu"
 msgid "Icon size: %1 pixels"
 msgstr "suli pi sitelen lili: %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2364
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "pini nimi lipu o tan kule insa lipu (%1)"
 
-#: filewidgets/kfilewidget.cpp:2366
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ilo lili <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2371
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "pini nimi lipu o tan kule insa lipu"
 
-#: filewidgets/kfilewidget.cpp:2373
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "a suitable extension"
 msgstr "ilo lili pona"
 
-#: filewidgets/kfilewidget.cpp:2381
+#: filewidgets/kfilewidget.cpp:2380
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3444,24 +3444,24 @@ msgstr ""
 "pini (.) tawa nimi lipu (mi weka e sike pini).</li></ol>\n"
 "sina sona ala la, o awen e ijo ni tan ni: ona li pona e nasin lipu."
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2854
 #, kde-format
 msgid "&File type:"
 msgstr "poki &lipu:"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2857
 #, kde-format
 msgid "&Filter:"
 msgstr "sitelen pi &lukin ante:"
 
-#: filewidgets/kfilewidget.cpp:2860
+#: filewidgets/kfilewidget.cpp:2859
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3558,49 +3558,57 @@ msgstr "sitelen palisa (/) li ken ala lon nimi poki en nimi lipu."
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "sitelen palisa (\\) li ken ala lon nimi lipu en nimi poki."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1241
+#, kde-kuit-format
+msgctxt "@error"
+msgid ""
+"Creating a file or folder with the name <filename>%1</filename> is not "
+"possible since it would overlap with the location of a user's home folder."
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1306
+#: filewidgets/knewfilemenu.cpp:1322
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "poki pi nimi <filename>%1</filename> li lon kin."
 
-#: filewidgets/knewfilemenu.cpp:1308
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "lipu pi nimi <filename>%1</filename> li awen lon."
 
-#: filewidgets/knewfilemenu.cpp:1394
+#: filewidgets/knewfilemenu.cpp:1410
 #, kde-format
 msgid "Create New"
 msgstr "o lon e lipu sin"
 
-#: filewidgets/knewfilemenu.cpp:1429
+#: filewidgets/knewfilemenu.cpp:1445
 #, kde-format
 msgid "Link to Device"
 msgstr "o lon e nasin tawa ilo"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1491
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "poki sin"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1514
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "o pali e poki"
 
-#: filewidgets/knewfilemenu.cpp:1500
+#: filewidgets/knewfilemenu.cpp:1516
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "o lon e poki sin lon %1:"
