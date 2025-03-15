@@ -50,6 +50,8 @@ static QLabel *createLabel(QWidget *parent, const QString &text, bool containerT
         QFont font = label->font();
         font.setBold(true);
         label->setFont(font);
+    } else {
+        label->setWordWrap(true);
     }
 
     label->setAlignment(Qt::AlignHCenter);
