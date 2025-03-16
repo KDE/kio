@@ -77,7 +77,7 @@ public:
 private:
     enum ScanFilesInTrashOption {
         CheckModificationTime,
-        DonTcheckModificationTime
+        DontCheckModificationTime
     };
     TrashSizeCache::SizeAndModTime scanFilesInTrash(ScanFilesInTrashOption checkDateTime = CheckModificationTime);
 

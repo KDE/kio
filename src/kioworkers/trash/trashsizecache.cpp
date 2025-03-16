@@ -139,7 +139,7 @@ QHash<QByteArray, TrashSizeCache::SizeAndModTime> TrashSizeCache::readDirCache()
 
 qint64 TrashSizeCache::calculateSize()
 {
-    return scanFilesInTrash(ScanFilesInTrashOption::DonTcheckModificationTime).size;
+    return scanFilesInTrash(ScanFilesInTrashOption::DontCheckModificationTime).size;
 }
 
 TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
