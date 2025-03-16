@@ -15,6 +15,7 @@ Name[it]=Pacchetti Fedora
 Name[ka]=Fedora-ის პაკეტები
 Name[lv]=„Fedora“ pakotnes
 Name[nl]=Fedora-pakketten
+Name[pl]=Pakiety Fedory
 Name[pt_BR]=Pacotes Fedora
 Name[ru]=Пакеты Fedora
 Name[sl]=Paketi Fedora
@@ -43,6 +44,7 @@ Query[it]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ka]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[lv]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[pl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pt_BR]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ru]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}
