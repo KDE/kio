@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 00:39+0000\n"
-"PO-Revision-Date: 2025-02-11 04:21+0100\n"
+"PO-Revision-Date: 2025-03-15 03:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3727,6 +3727,8 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"ფაილის ან საქაღალდის შექმნა სახელით <filename>%1</filename> შეუძლებელია, "
+"რადგან ის მომხმარებლის საწყის საქაღალდეს გადაფარავდა."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format

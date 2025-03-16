@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 00:39+0000\n"
-"PO-Revision-Date: 2025-03-13 22:34+0300\n"
+"PO-Revision-Date: 2025-03-15 13:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3728,6 +3728,8 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"<filename>%1</filename> adında bir dosya veya klasör oluşturmak olanaklı "
+"değildir; çünkü bu ad kullanıcının ana klasörünün konumuyla çakışacaktır."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format

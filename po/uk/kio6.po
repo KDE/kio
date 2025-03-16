@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 00:39+0000\n"
-"PO-Revision-Date: 2025-02-11 08:52+0200\n"
+"PO-Revision-Date: 2025-03-15 08:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3783,18 +3783,14 @@ msgstr ""
 "тек."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Не вдалося створити теку із назвою <filename>%1</filename>,<nl/>оскільки цю "
-"назву зарезервовано для використання операційною системою."
+"Створення файла або теки з назвою <filename>%1</filename> неможливе, "
+"оскільки призведе до конфлікту з розміщенням домашньої теки користувача."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
