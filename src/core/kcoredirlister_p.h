@@ -546,21 +546,52 @@ private:
     struct ItemInUseChange;
 };
 
+enum class ListerStatus : uint8_t {
+    Listing,
+    Holding
+};
+
 // Data associated with a directory url
 // This could be in DirItem but only in the itemsInUse dict...
 struct KCoreDirListerCacheDirectoryData {
-    // A lister can be EITHER in listersCurrentlyListing OR listersCurrentlyHolding
-    // but NOT in both at the same time.
-    // But both lists can have different listers at the same time; this
-    // happens if more listers are requesting url at the same time and
-    // one lister was stopped during the listing of files.
-
-    // Listers that are currently listing this url
-    QList<KCoreDirLister *> listersCurrentlyListing;
-    // Listers that are currently holding this url
-    QList<KCoreDirLister *> listersCurrentlyHolding;
-
     void moveListersWithoutCachedItemsJob(const QUrl &url);
+
+    /*
+     * @returns A list of listers that have the given status.
+     */
+    [[nodiscard]] QList<KCoreDirLister *> listersByStatus(ListerStatus status) const;
+
+    /*
+     * @returns All listers from the container.
+     */
+    [[nodiscard]] QList<KCoreDirLister *> allListers() const;
+
+    /*
+     * Finds a list of KCoreDirListers in the listerContainer and modifies their status,
+     * or inserts the KCoreDirListers to the container with the given status.
+     */
+    void insertOrModifyListers(const QList<KCoreDirLister *> listers, ListerStatus status);
+
+    /*
+     * Modifies or inserts a new KCoreDirLister in the listerContainer with the given status.
+     */
+    void insertOrModifyLister(KCoreDirLister *lister, ListerStatus status);
+
+    void removeLister(KCoreDirLister *lister);
+
+    int totaListerCount();
+
+    int listerCountByStatus(ListerStatus status);
+
+    /*
+     * Checks if given lister with given status is in the container.
+     * @returns If lister with given status is found, true. Otherwise false.
+     */
+    bool contains(KCoreDirLister *lister, ListerStatus status);
+
+private:
+    // A lister can be either in Listing or Holding status.
+    QHash<KCoreDirLister *, ListerStatus> m_listerContainer;
 };
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()
