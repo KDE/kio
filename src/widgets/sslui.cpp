@@ -20,11 +20,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         return true;
     }
 
-    QList<QSslError::SslError> sslErrorCodes;
-    for (const auto &error : std::as_const(ud->sslErrors)) {
-        sslErrorCodes << error.error;
-    }
-    const QList<QSslError::SslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(sslErrorCodes);
+    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(ud->sslErrors);
     if (!fatalErrors.isEmpty()) {
         // TODO message "sorry, fatal error, you can't override it"
         return false;
@@ -42,12 +38,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     if (storedRules & RecallRules) {
         rule = cm->rule(ud->certificateChain.first(), ud->host);
         // remove previously seen and acknowledged errors
-        QList<QSslError::SslError> remainingErrors;
-        for (const auto &error : std::as_const(ud->sslErrors)) {
-            if (!rule.isErrorIgnored(error.error)) {
-                remainingErrors << error.error;
-            }
-        }
+        const QList<QSslError> remainingErrors = rule.filterErrors(ud->sslErrors);
         if (remainingErrors.isEmpty()) {
             // qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
             return true;
@@ -57,8 +48,8 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     // ### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
-    for (const auto &err : std::as_const(ud->sslErrors)) {
-        message.append(err.errorString + QLatin1Char('\n'));
+    for (const QSslError &err : std::as_const(ud->sslErrors)) {
+        message.append(err.errorString() + QLatin1Char('\n'));
     }
     message = message.trimmed();
 
@@ -77,10 +68,10 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
             meh.reserve(ud->certificateChain.size());
             for (const QSslCertificate &cert : std::as_const(ud->certificateChain)) {
                 QList<QSslError::SslError> errors;
-                for (const auto &error : std::as_const(ud->sslErrors)) {
-                    if (error.certificate == cert) {
+                for (const QSslError &error : std::as_const(ud->sslErrors)) {
+                    if (error.certificate() == cert) {
                         // we keep only the error code enum here
-                        errors.append(error.error);
+                        errors.append(error.error());
                     }
                 }
                 meh.append(errors);
@@ -118,7 +109,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         // rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
 
         rule.setExpiryDateTime(ruleExpiry);
-        rule.setIgnoredErrors(sslErrorCodes);
+        rule.setIgnoredErrors(ud->sslErrors);
         cm->setRule(rule);
     }
 

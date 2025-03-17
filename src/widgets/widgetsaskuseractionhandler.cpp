@@ -516,7 +516,7 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
     for (const auto &err : std::as_const(ud->sslErrors)) {
-        message.append(err.errorString + QLatin1Char('\n'));
+        message.append(err.errorString() + QLatin1Char('\n'));
     }
     message = message.trimmed();
 
@@ -545,9 +545,9 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
             for (const QSslCertificate &cert : std::as_const(ud->certificateChain)) {
                 QList<QSslError::SslError> errors;
                 for (const auto &error : std::as_const(ud->sslErrors)) {
-                    if (error.certificate == cert) {
+                    if (error.certificate() == cert) {
                         // we keep only the error code enum here
-                        errors.append(error.error);
+                        errors.append(error.error());
                     }
                 }
                 meh.append(errors);
@@ -589,11 +589,7 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
         KSslCertificateRule rule(ud->certificateChain.first(), ud->host);
 
         rule.setExpiryDateTime(ruleExpiry);
-        QList<QSslError::SslError> sslErrorCodes;
-        for (const auto &error : std::as_const(ud->sslErrors)) {
-            sslErrorCodes << error.error;
-        }
-        rule.setIgnoredErrors(sslErrorCodes);
+        rule.setIgnoredErrors(ud->sslErrors);
         cm->setRule(rule);
     }
 

@@ -9,6 +9,7 @@
 #ifndef MOCKDELEGATEEXTENSIONS_H
 #define MOCKDELEGATEEXTENSIONS_H
 
+#include "ksslerroruidata.h"
 #include <QUrl>
 #include <askuseractioninterface.h>
 #include <untrustedprogramhandlerinterface.h>
@@ -115,6 +116,10 @@ public:
     }
 
     void askIgnoreSslErrors(const QVariantMap & /*sslErrorData*/, QWidget * /*parent*/) override
+    {
+    }
+
+    void askIgnoreSslErrors(const KSslErrorUiData & /*uiData*/, KIO::AskIgnoreSslErrorsJob::RulesStorage storedResult, QObject * /*parent*/) override
     {
     }
 

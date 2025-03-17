@@ -23,14 +23,7 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())
 {
     d->certificateChain = socket->peerCertificateChain();
-    const auto errors = socket->sslHandshakeErrors();
-    for (const auto &error : errors) {
-        Private::SslError sslError;
-        sslError.error = error.error();
-        sslError.errorString = error.errorString();
-        sslError.certificate = error.certificate();
-        d->sslErrors << sslError;
-    }
+    d->sslErrors = socket->sslHandshakeErrors();
     d->ip = socket->peerAddress().toString();
     d->host = socket->peerName();
     if (socket->isEncrypted()) {
@@ -46,13 +39,7 @@ KSslErrorUiData::KSslErrorUiData(const QNetworkReply *reply, const QList<QSslErr
 {
     const auto sslConfig = reply->sslConfiguration();
     d->certificateChain = sslConfig.peerCertificateChain();
-    for (const auto &error : sslErrors) {
-        Private::SslError sslError;
-        sslError.error = error.error();
-        sslError.errorString = error.errorString();
-        sslError.certificate = error.certificate();
-        d->sslErrors << sslError;
-    }
+    d->sslErrors << sslErrors;
     d->host = reply->request().url().host();
     d->sslProtocol = sslConfig.sessionCipher().protocolString();
     d->cipher = sslConfig.sessionCipher().name();
@@ -84,7 +71,7 @@ QDataStream &operator<<(QDataStream &out, const KSslErrorUiData &data)
 
     out << d->sslErrors.size();
     for (const auto &sslError : d->sslErrors) {
-        out << sslError.error << sslError.errorString << sslError.certificate.toPem();
+        out << sslError.error() << sslError.certificate().toPem();
     }
 
     out << d->ip
@@ -115,13 +102,15 @@ QDataStream &operator>>(QDataStream &in, KSslErrorUiData &data)
     in >> sslErrorsSize;
 
     for (int i = 0; i < sslErrorsSize; i++) {
-        KSslErrorUiData::Private::SslError sslError;
-        in >> sslError.error >> sslError.errorString;
+        QSslError::SslError sslErrorCode;
+        in >> sslErrorCode;
+
         QByteArray certificatePem;
         in >> certificatePem;
         auto certifcates = QSslCertificate::fromData(certificatePem, QSsl::Pem);
         Q_ASSERT(certifcates.isEmpty() || certifcates.size() == 1);
-        sslError.certificate = certifcates.size() == 0 ? QSslCertificate() : certifcates.at(0);
+
+        QSslError sslError(sslErrorCode, certifcates.size() == 0 ? QSslCertificate() : certifcates.at(0));
         d->sslErrors.append(sslError);
     }
 
