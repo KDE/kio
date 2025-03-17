@@ -1,5 +1,4 @@
-# Translation of kcmkio to Spanish
-# Copyright (C) 2000-2002.
+# Spanish translations for kio6.po package.
 #
 # SPDX-FileCopyrightText: 2000-2002 Pablo de Vicente <vicente@oan.es>
 # SPDX-FileCopyrightText: 2003, 2007, 2008 Jaime Robles <jaime@kde.org>
@@ -11,10 +10,10 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2013 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: kcmkio\n"
+"Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 00:39+0000\n"
-"PO-Revision-Date: 2025-02-11 19:50+0100\n"
+"PO-Revision-Date: 2025-03-16 01:35+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -22,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -2697,7 +2696,7 @@ msgstr "Volver a cargar"
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "Nueva carpeta..."
+msgstr "Nueva carpeta…"
 
 #: filewidgets/kdiroperator.cpp:2019 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2924,7 +2923,7 @@ msgstr "Carpeta raíz"
 #, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "Explorar..."
+msgstr "Explorar…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3177,7 +3176,7 @@ msgstr "Solo se pueden añadir carpetas al panel de «Lugares»."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Liberando..."
+msgstr "Liberando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1361
 #, kde-format
@@ -3189,7 +3188,7 @@ msgstr "Libe&rar"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Extrayendo con seguridad..."
+msgstr "Extrayendo con seguridad…"
 
 #: filewidgets/kfileplacesmodel.cpp:1367
 #, kde-format
@@ -3201,7 +3200,7 @@ msgstr "Extraer con &seguridad"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Desmontando..."
+msgstr "Desmontando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
@@ -3310,13 +3309,13 @@ msgstr "Abrir en nueva ventana"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Añadir entrada..."
+msgstr "Añadir entrada…"
 
 #: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Editar..."
+msgstr "&Editar…"
 
 #: filewidgets/kfileplacesview.cpp:1237
 #, kde-format
@@ -3812,6 +3811,9 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"La creación de un archivo o de una carpeta con el nombre <filename>%1</"
+"filename> no es posible porque se solaparía con la ubicación de la carpeta "
+"personal de un usuario."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
@@ -4059,7 +4061,7 @@ msgid ""
 msgstr ""
 "El archivo de entradas del escritorio\n"
 "%1\n"
-"es del tipo «Link», pero no tiene entrada URL=..."
+"es del tipo «Link», pero no tiene entrada URL=…"
 
 #: gui/openurljob.cpp:374
 #, kde-format
@@ -4099,7 +4101,7 @@ msgstr ""
 #: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "El archivo de entradas del escritorio %1 no tiene entrada Type=..."
+msgstr "El archivo de entradas del escritorio %1 no tiene entrada Type=…"
 
 #: gui/openurljob.cpp:630
 #, kde-format
@@ -4949,7 +4951,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Suma de verificación esperada (MD5, SHA1, SHA256 o SHA512)..."
+msgstr "Suma de verificación esperada (MD5, SHA1, SHA256 o SHA512)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -5230,13 +5232,13 @@ msgstr[1] "¿Realmente desea mover estos %1 elementos a la Papelera?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5375,7 +5377,7 @@ msgstr "Actualizando la configuración del sistema"
 #: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating system configuration…"
-msgstr "Actualizando la configuración del sistema..."
+msgstr "Actualizando la configuración del sistema…"
 
 #: widgets/kdirmodel.cpp:1237
 #, kde-format
@@ -5440,13 +5442,13 @@ msgstr "&Acciones"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Abrir carpeta con..."
+msgstr "&Abrir carpeta con…"
 
 #: widgets/kfileitemactions.cpp:693
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Abrir con..."
+msgstr "&Abrir con…"
 
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
@@ -5474,7 +5476,7 @@ msgstr "&Abrir con"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Otra aplicación..."
+msgstr "&Otra aplicación…"
 
 #: widgets/kfileitemdelegate.cpp:214
 #, kde-format
@@ -5536,7 +5538,7 @@ msgstr "Tamaño:"
 #: widgets/kfilepropspluginwidget.ui:350
 #, kde-format
 msgid "Change..."
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:362
@@ -5953,7 +5955,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:117
 #, kde-format
 msgid "&Browse..."
-msgstr "E&xaminar..."
+msgstr "E&xaminar…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -6073,7 +6075,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid "Add..."
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:252
@@ -6174,7 +6176,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Calculando...%1 (%2)\n"
+"Calculando…%1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:690
@@ -6196,7 +6198,7 @@ msgstr[1] "%1 subcarpetas"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:719
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Calculando...\n"
+msgstr "Calculando…\n"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:742
 #, kde-format
@@ -6222,13 +6224,13 @@ msgstr "Sin aplicación asociada"
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Crear..."
+msgstr "Crear…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:997
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1068
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1069
@@ -6614,7 +6616,7 @@ msgstr "&Sumas de verificación"
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Calculando..."
+msgstr "Calculando…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2316
 #, kde-format
@@ -6665,7 +6667,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "Comprobando suma de verificación..."
+msgstr "Comprobando suma de verificación…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2446
 #, kde-format
@@ -6808,7 +6810,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "Configurar atajos web..."
+msgstr "Configurar atajos web…"
 
 #: widgets/kurlrequester.cpp:332
 #, kde-format
@@ -6858,7 +6860,7 @@ msgstr[1] "Pegar %1 elementos"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "Pegar contenido del portapapeles..."
+msgstr "Pegar contenido del portapapeles…"
 
 #: widgets/paste.cpp:270
 #, kde-format
@@ -7354,13 +7356,3 @@ msgstr "Esto iniciará el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confía en este programa, pulse «Cancelar»"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "No se puede garantizar la seguridad del módulo de trabajo KIO para el "
-#~ "protocolo «%1», que normalmente solicita permisos elevados, porque otros "
-#~ "usuarios distintos a «root» tienen permiso para modificarlo en %2."
