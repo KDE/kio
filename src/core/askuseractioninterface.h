@@ -8,6 +8,8 @@
 #ifndef ASKUSERACTIONINTERFACE_H
 #define ASKUSERACTIONINTERFACE_H
 
+#include "askignoresslerrorsjob.h"
+#include "ksslerroruidata.h"
 #include <kio/jobuidelegateextension.h> // RenameDialog_Result, SkipDialog_Result
 #include <kiocore_export.h>
 
@@ -196,6 +198,26 @@ public:
 
     virtual void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) = 0;
 
+    /** Error rule storage behavior. */
+    enum SslRulesStorage {
+        RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
+        StoreRules = 2, ///< make new ignore rules from the user's choice and store them
+        RecallAndStoreRules = 3, ///< apply stored rules and store new rules
+    };
+
+    /**
+     * If there are errors while establishing an SSL encrypted connection to a peer, usually due to
+     * certificate issues, and since this poses a security issue, we need confirmation from the user about
+     * how they wish to proceed.
+     *
+     * @param sslErrorData the ssl error internal data
+     * @param storedRules the error rule storage behavior
+     * @param parent the parent QWidget of QWindow
+     */
+    virtual void askIgnoreSslErrors(const KSslErrorUiData &sslErrorData,
+                                    AskIgnoreSslErrorsJob::RulesStorage storedRules = AskIgnoreSslErrorsJob::RecallAndStoreRules,
+                                    QObject *parent = nullptr) = 0;
+
 Q_SIGNALS:
     /**
      * Implementations of this interface must emit this signal when the rename dialog
@@ -241,7 +263,7 @@ Q_SIGNALS:
      */
     void messageBoxResult(int result); // TODO KF6: add a QObject* to identify requests? Or return an int from the request method and pass it back here?
 
-    void askIgnoreSslErrorsResult(int result);
+    void askIgnoreSslErrorsResult(int result); // TODO KF6 replace result by a bool
 
 private:
     std::unique_ptr<AskUserActionInterfacePrivate> d;

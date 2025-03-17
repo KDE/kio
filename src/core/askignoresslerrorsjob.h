@@ -24,6 +24,8 @@ public:
     explicit AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorage storedRules = RecallAndStoreRules, QObject *parent = nullptr);
     ~AskIgnoreSslErrorsJob() override;
 
+    void setUiDelegate();
+
     /**
      * Returns whether the user decided to ignore or not the SSL errors.
      */
@@ -32,6 +34,8 @@ public:
     void start() override;
 
 private:
+    KIOCORE_NO_EXPORT void slotProcessRequest(int result);
+
     class Private;
     std::unique_ptr<Private> d;
 };

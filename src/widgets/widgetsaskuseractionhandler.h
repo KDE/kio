@@ -8,7 +8,9 @@
 #ifndef WIDGETSASKUSERACTIONHANDLER_H
 #define WIDGETSASKUSERACTIONHANDLER_H
 
+#include "askignoresslerrorsjob.h"
 #include "kiowidgets_export.h"
+#include "ksslerroruidata.h"
 #include <kio/askuseractioninterface.h>
 #include <kio/global.h>
 #include <kio/jobuidelegateextension.h>
@@ -81,6 +83,8 @@ public:
                                QWidget *parent = nullptr) override;
 
     void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) override;
+
+    void askIgnoreSslErrors(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules, QObject *parent) override;
 
     void setWindow(QWidget *window);
 
