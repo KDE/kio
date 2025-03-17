@@ -591,7 +591,7 @@ struct KCoreDirListerCacheDirectoryData {
 
 private:
     // A lister can be either in Listing or Holding status.
-    QHash<KCoreDirLister *, ListerStatus> m_listerContainer;
+    std::unordered_map<KCoreDirLister *, ListerStatus> m_listerContainer;
 };
 
 // This job tells KCoreDirListerCache to emit cached items asynchronously from listDir()

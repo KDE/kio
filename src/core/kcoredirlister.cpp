@@ -2800,7 +2800,7 @@ KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(ListerStatus status) const
 {
     QList<KCoreDirLister *> listers;
-    for (const auto &[lister, listerStatus] : m_listerContainer.asKeyValueRange()) {
+    for (const auto &[lister, listerStatus] : m_listerContainer) {
         if (listerStatus == status) {
             listers.append(lister);
         }
@@ -2822,11 +2822,7 @@ void KCoreDirListerCacheDirectoryData::insertOrModifyLister(KCoreDirLister *list
         return;
     }
 
-    if (m_listerContainer.contains(lister)) {
-        m_listerContainer[lister] = status;
-    } else {
-        m_listerContainer.insert(lister, status);
-    }
+    m_listerContainer.insert_or_assign(lister, status);
 }
 
 void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
@@ -2836,25 +2832,30 @@ void KCoreDirListerCacheDirectoryData::removeLister(KCoreDirLister *lister)
         return;
     }
 
-    if (m_listerContainer.contains(lister)) {
-        m_listerContainer.remove(lister);
+    const auto it = m_listerContainer.find(lister);
+    if (it != m_listerContainer.end()) {
+        m_listerContainer.erase(it);
     }
 }
 
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::allListers() const
 {
-    return m_listerContainer.keys();
+    QList<KCoreDirLister *> listers;
+    for (const auto &[lister, listerStatus] : m_listerContainer) {
+        listers.append(lister);
+    }
+    return listers;
 }
 
 int KCoreDirListerCacheDirectoryData::totaListerCount()
 {
-    return m_listerContainer.count();
+    return m_listerContainer.size();
 }
 
 int KCoreDirListerCacheDirectoryData::listerCountByStatus(ListerStatus status)
 {
     int count = 0;
-    for (const auto &listerStatus : m_listerContainer) {
+    for (const auto &[lister, listerStatus] : m_listerContainer) {
         if (listerStatus == status) {
             count++;
         }
@@ -2864,8 +2865,10 @@ int KCoreDirListerCacheDirectoryData::listerCountByStatus(ListerStatus status)
 
 bool KCoreDirListerCacheDirectoryData::contains(KCoreDirLister *lister, ListerStatus status)
 {
-    if (m_listerContainer.contains(lister)) {
-        return m_listerContainer[lister] == status;
+    const auto it = m_listerContainer.find(lister);
+    if (it != m_listerContainer.end()) {
+        const auto listerStatus = it->second;
+        return listerStatus == status;
     }
     return false;
 }
