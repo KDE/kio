@@ -139,6 +139,17 @@ QList<QSslError> KSslCertificateRule::filterErrors(const QList<QSslError> &error
     return ret;
 }
 
+QList<QSslError::SslError> KSslCertificateRule::filterErrors(const QList<QSslError::SslError> &errors) const
+{
+    QList<QSslError::SslError> ret;
+    for (const auto &error : errors) {
+        if (!isErrorIgnored(error)) {
+            ret.append(error);
+        }
+    }
+    return ret;
+}
+
 ////////////////////////////////////////////////////////////////////
 
 static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
@@ -444,6 +455,16 @@ QList<QSslError> KSslCertificateManager::nonIgnorableErrors(const QList<QSslErro
     // errors not handled in KSSLD
     std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const QSslError &e) {
         return e.error() == QSslError::NoPeerCertificate || e.error() == QSslError::PathLengthExceeded || e.error() == QSslError::NoSslSupport;
+    });
+    return ret;
+}
+
+QList<QSslError::SslError> KSslCertificateManager::nonIgnorableErrors(const QList<QSslError::SslError> &errors)
+{
+    QList<QSslError::SslError> ret;
+    // errors not handled in KSSLD
+    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const QSslError::SslError &e) {
+        return e == QSslError::NoPeerCertificate || e == QSslError::PathLengthExceeded || e == QSslError::NoSslSupport;
     });
     return ret;
 }

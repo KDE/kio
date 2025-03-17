@@ -31,7 +31,11 @@ void AskIgnoreSslErrorsJob::start()
         return;
     }
 
-    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(ud->sslErrors);
+    QList<QSslError::SslError> sslErrorCodes;
+    for (const auto &error : std::as_const(ud->sslErrors)) {
+        sslErrorCodes << error.error;
+    }
+    const QList<QSslError::SslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(sslErrorCodes);
     if (!fatalErrors.isEmpty()) {
         setError(KJob::UserDefinedError);
         setErrorText(i18nc("@info:status", "Fatal SSL error detected"));
@@ -54,7 +58,7 @@ void AskIgnoreSslErrorsJob::start()
     if (d->storedRules & RecallRules) {
         rule = cm->rule(ud->certificateChain.first(), ud->host);
         // remove previously seen and acknowledged errors
-        const QList<QSslError> remainingErrors = rule.filterErrors(ud->sslErrors);
+        const QList<QSslError::SslError> remainingErrors = rule.filterErrors(sslErrorCodes);
         if (remainingErrors.isEmpty()) {
             // qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
             emitResult();

@@ -10,6 +10,7 @@
 #define KSSLERRORUIDATA_H
 
 #include <kiocore_export.h>
+#include <QDataStream>
 
 #include <memory>
 
@@ -56,5 +57,8 @@ private:
     friend class Private;
     std::unique_ptr<Private> const d;
 };
+
+QDataStream &operator<<(QDataStream &, const KSslErrorUiData &);
+QDataStream &operator>>(QDataStream &, KSslErrorUiData &);
 
 #endif // KSSLERRORUIDATA_H

@@ -22,8 +22,15 @@ public:
         return uiData->d.get();
     }
 
+    // serialization of QSslError
+    struct SslError {
+        QSslError::SslError error;
+        QString errorString;
+        QSslCertificate certificate;
+    };
+
     QList<QSslCertificate> certificateChain;
-    QList<QSslError> sslErrors; // parallel list to certificateChain
+    QList<SslError> sslErrors; // parallel list to certificateChain
     QString ip;
     QString host;
     QString sslProtocol;

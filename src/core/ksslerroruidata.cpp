@@ -23,7 +23,14 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())
 {
     d->certificateChain = socket->peerCertificateChain();
-    d->sslErrors = socket->sslHandshakeErrors();
+    const auto errors = socket->sslHandshakeErrors();
+    for (const auto &error : errors) {
+        Private::SslError sslError;
+        sslError.error = error.error();
+        sslError.errorString = error.errorString();
+        sslError.certificate = error.certificate();
+        d->sslErrors << sslError;
+    }
     d->ip = socket->peerAddress().toString();
     d->host = socket->peerName();
     if (socket->isEncrypted()) {
@@ -39,7 +46,13 @@ KSslErrorUiData::KSslErrorUiData(const QNetworkReply *reply, const QList<QSslErr
 {
     const auto sslConfig = reply->sslConfiguration();
     d->certificateChain = sslConfig.peerCertificateChain();
-    d->sslErrors = sslErrors;
+    for (const auto &error : sslErrors) {
+        Private::SslError sslError;
+        sslError.error = error.error();
+        sslError.errorString = error.errorString();
+        sslError.certificate = error.certificate();
+        d->sslErrors << sslError;
+    }
     d->host = reply->request().url().host();
     d->sslProtocol = sslConfig.sessionCipher().protocolString();
     d->cipher = sslConfig.sessionCipher().name();
@@ -58,4 +71,65 @@ KSslErrorUiData &KSslErrorUiData::operator=(const KSslErrorUiData &other)
 {
     *d = *other.d;
     return *this;
+}
+
+QDataStream &operator<<(QDataStream &out, const KSslErrorUiData &data)
+{
+    auto d = KSslErrorUiData::Private::get(&data);
+
+    out << d->certificateChain.size();
+    for (const auto &certificate : d->certificateChain) {
+        out << certificate.toPem();
+    }
+
+    out << d->sslErrors.size();
+    for (const auto &sslError : d->sslErrors) {
+        out << sslError.error << sslError.errorString << sslError.certificate.toPem();
+    }
+
+    out << d->ip
+        << d->host
+        << d->sslProtocol
+        << d->cipher
+        << d->usedBits
+        << d->bits;
+    return out;
+}
+
+QDataStream &operator>>(QDataStream &in, KSslErrorUiData &data)
+{
+    auto d = const_cast<KSslErrorUiData::Private *>(KSslErrorUiData::Private::get(&data));
+
+    int certificateChainSize = 0;
+    in >> certificateChainSize;
+
+    for (int i = 0; i < certificateChainSize; i++) {
+        QByteArray certificatePem;
+        in >> certificatePem;
+        auto certifcates = QSslCertificate::fromData(certificatePem, QSsl::Pem);
+        Q_ASSERT(certifcates.isEmpty() || certifcates.size() == 1);
+        d->certificateChain.append(certifcates.size() == 0 ? QSslCertificate() : certifcates.at(0));
+    }
+
+    int sslErrorsSize = 0;
+    in >> sslErrorsSize;
+
+    for (int i = 0; i < sslErrorsSize; i++) {
+        KSslErrorUiData::Private::SslError sslError;
+        in >> sslError.error >> sslError.errorString;
+        QByteArray certificatePem;
+        in >> certificatePem;
+        auto certifcates = QSslCertificate::fromData(certificatePem, QSsl::Pem);
+        Q_ASSERT(certifcates.isEmpty() || certifcates.size() == 1);
+        sslError.certificate = certifcates.size() == 0 ? QSslCertificate() : certifcates.at(0);
+        d->sslErrors.append(sslError);
+    }
+
+    in >> d->ip
+        >> d->host
+        >> d->sslProtocol
+        >> d->cipher
+        >> d->usedBits
+        >> d->bits;
+    return in;
 }
