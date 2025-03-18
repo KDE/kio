@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:39+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2025-03-15 10:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2425,7 +2425,7 @@ msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:606
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -6853,22 +6853,22 @@ msgstr "Format de les dades:"
 msgid "Filename for dropped contents:"
 msgstr "Nom de fitxer per al contingut que s'ha deixat anar:"
 
-#: widgets/renamedialog.cpp:64
+#: widgets/renamedialog.cpp:66
 #, kde-format
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: widgets/renamedialog.cpp:73
+#: widgets/renamedialog.cpp:75
 #, kde-format
 msgid "Size: %1"
 msgstr "Mida: %1"
 
-#: widgets/renamedialog.cpp:229
+#: widgets/renamedialog.cpp:231
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Apl&ica a tot"
 
-#: widgets/renamedialog.cpp:230
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6881,7 +6881,7 @@ msgstr ""
 "A menys que premeu «Omet», també se us preguntarà en cas de conflicte amb un "
 "fitxer existent en un directori."
 
-#: widgets/renamedialog.cpp:234
+#: widgets/renamedialog.cpp:236
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6890,40 +6890,40 @@ msgstr ""
 "Quan aquest està activat, el botó premut s'aplicarà a tots els conflictes de "
 "carpeta següents per a la resta del treball actual."
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
 msgstr "&Reanomena"
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Suggereix un &nom nou"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "&Skip"
 msgstr "&Omet"
 
-#: widgets/renamedialog.cpp:249
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "No copiïs o moguis aquesta carpeta, en lloc d'això salta a l'element següent"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "No copiïs o moguis aquest fitxer, en lloc d'això salta a l'element següent"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Escriu dintre"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:266
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6936,13 +6936,13 @@ msgstr ""
 "Se us preguntarà una altra vegada en cas de conflicte amb un fitxer existent "
 "en el directori."
 
-#: widgets/renamedialog.cpp:269
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "S&obreescriu els fitxers antics"
 
-#: widgets/renamedialog.cpp:273
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6951,12 +6951,12 @@ msgstr ""
 "Els fitxers de destinació que tenen temps de modificació més antics seran "
 "sobreescrits pel d'origen, en cas contrari, s'ometran."
 
-#: widgets/renamedialog.cpp:285
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid "&Resume"
 msgstr "&Continua"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:296
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6965,67 +6965,67 @@ msgstr ""
 "Aquesta acció sobreescriurà «%1» amb ell mateix.\n"
 "Si us plau, introduïu un nom de fitxer nou:"
 
-#: widgets/renamedialog.cpp:300
+#: widgets/renamedialog.cpp:302
 #, kde-format
 msgid "C&ontinue"
 msgstr "C&ontinua"
 
-#: widgets/renamedialog.cpp:362
+#: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Voleu sobreescriure la destinació?"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:366
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Voleu fusionar el contingut de «%1» en «%2»?"
 
-#: widgets/renamedialog.cpp:372
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Origen"
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Destinació"
 
-#: widgets/renamedialog.cpp:405
+#: widgets/renamedialog.cpp:407
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "L'origen és <b>més recent</b>."
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:409
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "L'origen és <b>més antic</b>."
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "L'origen és <b>més petit per %1</b>."
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "La destinació és <b>més gran per %1</b>."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:434
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Els fitxers són <b>idèntics</b>."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Els fitxers <b>semblen idèntics</b>."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:440
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Els fitxers són <b>diferents</b>."
 
-#: widgets/renamedialog.cpp:446
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7034,22 +7034,22 @@ msgstr ""
 "Segurament els fitxers són idèntics: tenen la mateixa mida i el seu "
 "contingut és el mateix al començament, la meitat i el final."
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Ja existeix un element més antic anomenat «%1»."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Ja existeix un fitxer similar anomenat «%1»."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Ja existeix un element més recent anomenat «%1»."
 
-#: widgets/renamedialog.cpp:482
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "Reanomena:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:39+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2325,7 +2325,7 @@ msgid " (Points to %1)"
 msgstr " (%1 प्रति सूचयति)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:606
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -6674,22 +6674,22 @@ msgstr "तिथि प्रारूपम्:"
 msgid "Filename for dropped contents:"
 msgstr "पातितसामग्रीणां कृते सञ्चिकानाम:"
 
-#: widgets/renamedialog.cpp:64
+#: widgets/renamedialog.cpp:66
 #, kde-format
 msgid "Date: %1"
 msgstr "तिथि: %1"
 
-#: widgets/renamedialog.cpp:73
+#: widgets/renamedialog.cpp:75
 #, kde-format
 msgid "Size: %1"
 msgstr "आकृति: %1"
 
-#: widgets/renamedialog.cpp:229
+#: widgets/renamedialog.cpp:231
 #, kde-format
 msgid "Appl&y to All"
 msgstr "&सर्वेषु प्रयोजयन्तु"
 
-#: widgets/renamedialog.cpp:230
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6702,7 +6702,7 @@ msgstr ""
 "यावत् भवन्तः Skip न नुदन्ति तावत् भवन्तः अद्यापि निर्देशिकायां विद्यमानेन सञ्चिकायाः सह "
 "विग्रहस्य सन्दर्भे प्रार्थिताः भविष्यन्ति ।."
 
-#: widgets/renamedialog.cpp:234
+#: widgets/renamedialog.cpp:236
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6711,39 +6711,39 @@ msgstr ""
 "यदा एतत् परीक्षितं भवति तदा निपीडितं गण्डम् वर्तमानकार्यस्य अवशिष्टस्य कृते अनन्तरं सर्वेषु "
 "विग्रहेषु प्रयुक्तं भविष्यति ।."
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
 msgstr "&नामान्तरम्"
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "नव &नाम सुझात"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "&Skip"
 msgstr "&क्षिपते"
 
-#: widgets/renamedialog.cpp:249
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "एतत् पुटं प्रतिलिपिं न कुर्वन्तु वा स्थानान्तरयन्तु वा, तस्य स्थाने अग्रिमवस्तुं गच्छन्तु"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "एतां सञ्चिकां प्रतिलिपिं न कुर्वन्तु वा स्थानान्तरयन्तु वा, तस्य स्थाने अग्रिमवस्तुं प्रति गच्छन्तु"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&मध्ये लिखत"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:266
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6754,13 +6754,13 @@ msgstr ""
 "सञ्चिकाः, पुटं च विद्यमानपुटे, तस्य विद्यमानसामग्रीणां पार्श्वे प्रतिलिपिताः भविष्यन्ति ।.\n"
 "पुटे विद्यमानेन सञ्चिकायाः सह विग्रहः भवति चेत् पुनः भवन्तः प्रार्थिताः भविष्यन्ति ।."
 
-#: widgets/renamedialog.cpp:269
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&प्राचीनसञ्चिकाः अधिलेखयन्तु"
 
-#: widgets/renamedialog.cpp:273
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6769,12 +6769,12 @@ msgstr ""
 "गन्तव्यसञ्चिकाः येषां प्राचीनपरिवर्तनसमयः अस्ति, ताः स्रोतेन अधिलिखिताः भविष्यन्ति, "
 "अन्यथा लङ्घिताः ।."
 
-#: widgets/renamedialog.cpp:285
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid "&Resume"
 msgstr "&पुनर्प्रारम्भय"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:296
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6783,67 +6783,67 @@ msgstr ""
 "एषा क्रिया '%1' इत्येतत् स्वयमेव अधिलेखयिष्यति ।\n"
 "कृपया नूतनं सञ्चिकानाम लिखन्तु:"
 
-#: widgets/renamedialog.cpp:300
+#: widgets/renamedialog.cpp:302
 #, kde-format
 msgid "C&ontinue"
 msgstr "&अनुवर्तते"
 
-#: widgets/renamedialog.cpp:362
+#: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "गन्तव्यस्थानं अधिलेखयितुम् इच्छति वा ?"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:366
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "किं भवान् '%1' इत्यस्य सामग्रीं '%2' इत्यत्र विलीनं कर्तुम् इच्छति?"
 
-#: widgets/renamedialog.cpp:372
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "स्रोत"
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "गन्तव्यम्"
 
-#: widgets/renamedialog.cpp:405
+#: widgets/renamedialog.cpp:407
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "स्रोतः <b>अद्यतनतरः</b> अस्ति ।."
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:409
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "स्रोतः <b>वृद्धः</b> अस्ति ।."
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "स्रोतः <b>लघुः %1</b>ति ।."
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "स्रोतः <b>%1 इत्यनेन बृहत्तरम्</b> अस्ति."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:434
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "सञ्चिकाः <b>समानाः</b> सन्ति ।."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "सञ्चिकाः <b>समानाः</b> दृश्यन्ते ।."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:440
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "सञ्चिकाः <b>भिन्नाः</b> भवन्ति।."
 
-#: widgets/renamedialog.cpp:446
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6852,22 +6852,22 @@ msgstr ""
 "सञ्चिकाः समानाः भवितुम् अर्हन्ति : तेषां आकारः समानः भवति तथा च तेषां सामग्रीः आरम्भे, "
 "मध्ये, अन्ते च समाना भवति ।."
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "'%1' इति नामकं प्राचीनं द्रव्यं पूर्वमेव अस्ति ।."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "%1 इति नाम्ना सञ्चिका पूर्वमेव विद्यते ।."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "'%1' इति नाम्ना अद्यतनतरं द्रव्यं पूर्वमेव विद्यते ।."
 
-#: widgets/renamedialog.cpp:482
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "नामान्तरम् :"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:39+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2025-03-05 19:20+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2398,7 +2398,7 @@ msgid " (Points to %1)"
 msgstr "(%1(e)ra apuntatzen du)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:606
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -6815,22 +6815,22 @@ msgstr "Datu-formatua:"
 msgid "Filename for dropped contents:"
 msgstr "Jaregindako edukiarentzako fitxategi-izena:"
 
-#: widgets/renamedialog.cpp:64
+#: widgets/renamedialog.cpp:66
 #, kde-format
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: widgets/renamedialog.cpp:73
+#: widgets/renamedialog.cpp:75
 #, kde-format
 msgid "Size: %1"
 msgstr "Neurria: %1"
 
-#: widgets/renamedialog.cpp:229
+#: widgets/renamedialog.cpp:231
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Ezarr&i guztiei"
 
-#: widgets/renamedialog.cpp:230
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6843,7 +6843,7 @@ msgstr ""
 "Jauzi sakatu ezean jakinaraziko zaizu direktorio batean existitzen den "
 "fitxategi batekin gatazka dagoen kasuan."
 
-#: widgets/renamedialog.cpp:234
+#: widgets/renamedialog.cpp:236
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6852,39 +6852,39 @@ msgstr ""
 "Hau markatuta dagoenean sakatutako botoia aplikatuko zaie uneko lana amaitu "
 "arteko ondorengo gatazkei."
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
 msgstr "&Berrizendatu"
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Eman &izen berria"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "&Skip"
 msgstr "&Jauzi"
 
-#: widgets/renamedialog.cpp:249
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Ez kopiatu edo mugitu karpeta hau, horren ordez jauzi hurrengo elementura"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Ez kopiatu edo mugitu fitxategi hau, horren ordez jauzi hurrengora"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Idatzi informazioa"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:266
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6897,13 +6897,13 @@ msgstr ""
 "Berriro galdetuko zaizu existitzen den direktorioan fitxategi batekin "
 "gatazka sortzen bada."
 
-#: widgets/renamedialog.cpp:269
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Gainidatzi Fitxategi zaharragoak"
 
-#: widgets/renamedialog.cpp:273
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6912,12 +6912,12 @@ msgstr ""
 "Aldaketa-denbora zaharragoa duten jomugako-fitxategiak sorburukoekin "
 "gainidatziko dira, bestela jauzi egingo zaie."
 
-#: widgets/renamedialog.cpp:285
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid "&Resume"
 msgstr "&Berrekin"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:296
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6926,67 +6926,67 @@ msgstr ""
 "Ekintza honek '%1' bere buruarekin gainidatziko luke.\n"
 "Idatzi fitxategiaren izen berria:"
 
-#: widgets/renamedialog.cpp:300
+#: widgets/renamedialog.cpp:302
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Jarraitu"
 
-#: widgets/renamedialog.cpp:362
+#: widgets/renamedialog.cpp:364
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Helburua gainidatzi nahi zenuke?"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:366
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1'(e)ren edukia '%2'(e)an bateratu nahi zenituzke?"
 
-#: widgets/renamedialog.cpp:372
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Iturburua"
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Helburua"
 
-#: widgets/renamedialog.cpp:405
+#: widgets/renamedialog.cpp:407
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Iturburua <b>berriagoa</b> da."
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:409
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Iturburua <b>zaharragoa</b> da."
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Iturburua <b>%1(e)an txikiagoa da</b>."
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Iturburua <b>%1(e)an handiagoa da</b>."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:434
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Fitxategiak <b>berdin-berdinak</b> dira."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Fitxategiak <b>berdin-berdinak dirudite</b>."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:440
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Fitxategiak <b>ezberdinak</b> dira."
 
-#: widgets/renamedialog.cpp:446
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6995,22 +6995,22 @@ msgstr ""
 "Fitxategiak segur aski berdin-berdinak dira: neurri bera dute eta edukia "
 "berdina da hasieran, erdian eta bukaeran."
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "'%1' izeneko elementu zaharragoa badago dagoeneko."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' izeneko antzeko fitxategia badago dagoeneko."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "'%1' izeneko elementu berriagoa badago dagoeneko."
 
-#: widgets/renamedialog.cpp:482
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "Berrizendatu:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:39+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2303,7 +2303,7 @@ msgid " (Points to %1)"
 msgstr " (%1 သို့ညွှန်ပြသည်)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:606
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -6664,22 +6664,22 @@ msgstr "ရက်စွဲဖော်ပြပုံစံ -"
 msgid "Filename for dropped contents:"
 msgstr "ပြစ်ချခဲ့သော ဒေတာများအတွက် ဖိုင်လ်အမည် -"
 
-#: widgets/renamedialog.cpp:64
+#: widgets/renamedialog.cpp:66
 #, kde-format
 msgid "Date: %1"
 msgstr "ရက်စွဲ - %1"
 
-#: widgets/renamedialog.cpp:73
+#: widgets/renamedialog.cpp:75
 #, kde-format
 msgid "Size: %1"
 msgstr "အရွယ်အစား - %1"
 
-#: widgets/renamedialog.cpp:229
+#: widgets/renamedialog.cpp:231
 #, kde-format
 msgid "Appl&y to All"
 msgstr "အားလုံးကို သုံးလိုရစေမည်"
 
-#: widgets/renamedialog.cpp:230
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6692,7 +6692,7 @@ msgstr ""
 "'ကျော်မည်'ခလုတ်ကို မနှ်ိပ်ထားလျှင် ဒါရိုက်ထရီအတွင်း ရှိပြီးသားဖိုင်လ်နှင့် အငြင်းပွားဖွယ်ဖြစ်ပါက သင်ထံ "
 "ဆုံးဖြတ်ချက်တောင်းခံမည်ဖြစ်သည်။"
 
-#: widgets/renamedialog.cpp:234
+#: widgets/renamedialog.cpp:236
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6701,38 +6701,38 @@ msgstr ""
 "ဤအရာကို အမှန်ခြစ်ထားသည့်အခါ နှိပ်ထားသော ခလုတ်ကို လက်ရှိအလုပ်ပြီးဆုံးသည်အထိ နောက်ဖြစ်လာမည့် "
 "အငြင်းပွားမှုများအတွက် သုံးသွားမည်။"
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
 msgstr "&Rအမည်ပြောင်း"
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "&Nအမည်သစ် အကြံပြုမည်"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "&Skip"
 msgstr "&Sကျော်"
 
-#: widgets/renamedialog.cpp:249
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "ဤဖိုလ်ဒါအား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "ဤဖိုင်လ်အား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Wအတွင်းသို့ ရေးမည်"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:266
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6743,13 +6743,13 @@ msgstr ""
 "ရှိနှင့်ပြီး ဒါရိုက်ထရီအတွင်းသို့ ဖိုင််လ်နှင့်ဖိုလ်ဒါများ ကူးယူလိမ့်မည်။\n"
 "၎င်းဒါရိုက်ထရီအတွင်းရှိ ရှိပြီးသားဖိုင်လ်တစ်ခုခုနှင့် အငြင်းပွာဖွယ်ဖြစ်လာပါက သင်ထံ အကြံတောင်းမည်။"
 
-#: widgets/renamedialog.cpp:269
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Oဖိုင်လ်အိုများကို အပေါ်ကနေထပ်ရေးမည်"
 
-#: widgets/renamedialog.cpp:273
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6758,12 +6758,12 @@ msgstr ""
 "ဦးတည်ဖိုင်လ်များ၌ သက်တမ်းပိုကြာသောမွမ်းမံအချိန်ရှိလျှင် ဇစ်မြစ်ဖိုင်လ်များနှင့် အပေါ်ကထပ်ရေးမည်။ မရှိပါက "
 "ကျော်သွားမည်။"
 
-#: widgets/renamedialog.cpp:285
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid "&Resume"
 msgstr "&Rပြန်၍စတင်မည်"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:296
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6772,76 +6772,76 @@ msgstr ""
 "ဤလုပ်ဆောင်ချက်သည် '%1'ကို ၎င်းကိုယ်တိုင်နှင့် ထပ်ရေးမည်။\n"
 "အမည်သစ်ရေးပါ -"
 
-#: widgets/renamedialog.cpp:300
+#: widgets/renamedialog.cpp:302
 #, kde-format
 msgid "C&ontinue"
 msgstr "&oဆက်ရန်"
 
-#: widgets/renamedialog.cpp:362
+#: widgets/renamedialog.cpp:364
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "ဤလုပ်ဆောင်ချက်သည် ဦးတည်ဖိုင်လ်ကို ထပ်ရေးလိမ့်မည်။"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:366
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "ဤလုပ်ဆောင်ချက်သည် ဦးတည်ဖိုင်လ်ကို ထပ်ရေးလိမ့်မည်။"
 
-#: widgets/renamedialog.cpp:372
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "မူလဇစ်မြစ်"
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "ဦးတည်နေရာ"
 
-#: widgets/renamedialog.cpp:405
+#: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:409
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>older</b>."
 msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "The destination is <b>bigger by %1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "ဦးတည်နေရာသည် <b>%1 ပိုကြီးနေပါသည်</b>"
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:434
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
 msgstr "ဖိုင်လ်များ တစ်ထပ်တည်းကျသည်။"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:437
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
 msgstr "ဖိုင်လ်များ တစ်ထပ်တည်းကျပုံရသည်။"
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:440
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
 msgstr "ဖိုင်လ်များ မတူပါ။"
 
-#: widgets/renamedialog.cpp:446
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6850,22 +6850,22 @@ msgstr ""
 "ဖိုင်လ်များ တစ်ထပ်တည်းကျနိုင်ချေများသည်။ ၎င်းတို့သည် အရွယ်အစားတူ၍ ၎င်းတို့၏ပါဝင်ဒေတာများမှာ စ၊လယ်၊ဆုံးတို့၌ "
 "တူညီနေသည်။"
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "အသက်ပိုကြီးသော '%1' အမည်ရ အိုင်တမ်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "%1အမည်ရ သဏ္ဌာန်တူဖိုင်လ် ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "ပို၍လတ်တလောဖြစ်သော '%1' အမည်ရ အိုင်တမ်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: widgets/renamedialog.cpp:482
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "အမည်ပြောင်း -"
