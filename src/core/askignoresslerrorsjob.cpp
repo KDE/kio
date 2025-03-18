@@ -22,8 +22,11 @@ public:
 
 AskIgnoreSslErrorsJob::AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorage storedRules, QObject *parent)
     : KJob(parent)
-    , d(std::make_unique<AskIgnoreSslErrorsJob::Private>(uiData, storedRules, false))
+    , d(std::make_unique<AskIgnoreSslErrorsJob::Private>())
 {
+    d->uiData = uiData;
+    d->storedRules = storedRules;
+    d->ignored = false;
 }
 
 AskIgnoreSslErrorsJob::~AskIgnoreSslErrorsJob() = default;
