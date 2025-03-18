@@ -188,9 +188,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
 
     // Prepare sizes for icon
-    const int iconW = iconWidth + m_padding / 2;
+    const int iconW = iconWidth + m_padding;
     const int iconX = m_padding;
-    const int iconY = (buttonHeight - iconW) / 2;
+    const int iconY = (buttonHeight - iconWidth) / 2;
     QRect textRect;
     if (leftToRight) {
         textRect = QRect(iconW + m_padding, 0, buttonWidth - iconWidth - arrowWidth - m_padding * 2, buttonHeight);
@@ -216,9 +216,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     // Draw folder icon
     auto pixmap = icon().pixmap(iconSize(), devicePixelRatioF());
     if (leftToRight) {
-        style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
+        style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconWidth, iconWidth), Qt::AlignCenter, pixmap);
     } else {
-        style()->drawItemPixmap(&painter, QRect(textRect.right() + m_padding / 2, iconY, iconW, iconW), Qt::AlignCenter, pixmap);
+        style()->drawItemPixmap(&painter, QRect(textRect.right() + m_padding / 2, iconY, iconWidth, iconWidth), Qt::AlignCenter, pixmap);
     }
 
     // Draw gradient overlay if text is clipped
