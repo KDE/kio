@@ -132,7 +132,7 @@ QSize KUrlNavigatorButton::sizeHint() const
     // preferred width is textWidth, iconWidth and padding combined
     // add extra padding in end to make sure the space between divider and button is consistent
     // the first padding is used between icon and text, second in the end of text
-    const int width = iconWidth() + m_padding + textWidth() + arrowWidth() + m_padding;
+    const int width = m_padding + textWidth() + arrowWidth() + m_padding;
     return QSize(width, KUrlNavigatorButtonBase::sizeHint().height());
 }
 
@@ -173,7 +173,6 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     painter.setFont(adjustedFont);
 
     int buttonWidth = width();
-    int iconWidth = KUrlNavigatorButton::iconWidth();
     int arrowWidth = KUrlNavigatorButton::arrowWidth();
 
     int preferredWidth = sizeHint().width();
@@ -188,15 +187,12 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
 
     // Prepare sizes for icon
-    const int iconW = iconWidth + m_padding;
-    const int iconX = m_padding;
-    const int iconY = (buttonHeight - iconWidth) / 2;
     QRect textRect;
     if (leftToRight) {
-        textRect = QRect(iconW + m_padding, 0, buttonWidth - iconWidth - arrowWidth - m_padding * 2, buttonHeight);
+        textRect = QRect(m_padding, 0, buttonWidth - arrowWidth, buttonHeight);
     } else {
         // If no separator is drawn, we can start writing text from 0
-        textRect = QRect(m_drawSeparator ? iconW + m_padding : 0, 0, buttonWidth - iconWidth - arrowWidth - m_padding * 2, buttonHeight);
+        textRect = QRect(m_drawSeparator ? m_padding : 0, 0, buttonWidth - arrowWidth, buttonHeight);
     }
 
     QStyleOptionButton buttonOption;
@@ -211,14 +207,6 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     // Draw button graphic
     if (m_hoverOverButton) {
         style()->drawPrimitive(QStyle::PE_PanelButtonCommand, &buttonOption, &painter, this);
-    }
-
-    // Draw folder icon
-    auto pixmap = icon().pixmap(iconSize(), devicePixelRatioF());
-    if (leftToRight) {
-        style()->drawItemPixmap(&painter, QRect(iconX, iconY, iconWidth, iconWidth), Qt::AlignCenter, pixmap);
-    } else {
-        style()->drawItemPixmap(&painter, QRect(textRect.right() + m_padding / 2, iconY, iconWidth, iconWidth), Qt::AlignCenter, pixmap);
     }
 
     // Draw gradient overlay if text is clipped
@@ -257,7 +245,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         QStyleOption option;
         option.initFrom(this);
         if (leftToRight) {
-            option.rect = QRect(textRect.right() + m_padding / 2, 0, arrowWidth, buttonHeight);
+            option.rect = QRect(textRect.right() - m_padding, 0, arrowWidth, buttonHeight);
         } else {
             // Separator is the first item in RtL mode
             option.rect = QRect(0, 0, arrowWidth, buttonHeight);
@@ -563,7 +551,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     initMenu(m_subDirsMenu, 0);
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    const int popupX = !leftToRight ? width() - iconWidth() : 0;
+    const int popupX = !leftToRight ? width() : 0;
     const QPoint popupPos = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
     QPointer<QObject> guard(this);
@@ -663,11 +651,6 @@ QString KUrlNavigatorButton::plainText() const
     return dest;
 }
 
-int KUrlNavigatorButton::iconWidth() const
-{
-    return iconSize().width() * devicePixelRatioF();
-}
-
 int KUrlNavigatorButton::arrowWidth() const
 {
     // if there isn't arrow then return 0
@@ -698,7 +681,7 @@ bool KUrlNavigatorButton::isAboveSeparator(int x) const
 bool KUrlNavigatorButton::isTextClipped() const
 {
     // Ignore padding when resizing, so text doesnt go under it
-    int availableWidth = width() - arrowWidth() - m_padding * 2;
+    int availableWidth = width() - arrowWidth() - m_padding;
 
     return textWidth() >= availableWidth;
 }
