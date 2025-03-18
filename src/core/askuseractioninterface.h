@@ -263,7 +263,7 @@ Q_SIGNALS:
      */
     void messageBoxResult(int result); // TODO KF6: add a QObject* to identify requests? Or return an int from the request method and pass it back here?
 
-    void askIgnoreSslErrorsResult(int result); // TODO KF6 replace result by a bool
+    void askIgnoreSslErrorsResult(int result); // TODO KF7 replace result by a enum
 
 private:
     std::unique_ptr<AskUserActionInterfacePrivate> d;
