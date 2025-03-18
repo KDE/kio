@@ -192,7 +192,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         textRect = QRect(m_padding, 0, buttonWidth - arrowWidth, buttonHeight);
     } else {
         // If no separator is drawn, we can start writing text from 0
-        textRect = QRect(m_drawSeparator ? m_padding : 0, 0, buttonWidth - arrowWidth, buttonHeight);
+        textRect = QRect(m_drawSeparator ? arrowWidth - m_padding : 0, 0, buttonWidth - arrowWidth - m_padding, buttonHeight);
     }
 
     QStyleOptionButton buttonOption;
