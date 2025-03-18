@@ -60,12 +60,6 @@ public:
      */
     QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
 
-    /**
-     * Filter out errors that are already ignored.
-     * @since 6.13
-     */
-    QList<QSslError::SslError> filterErrors(const QList<QSslError::SslError> &errors) const;
-
 private:
     std::unique_ptr<KSslCertificateRulePrivate> const d;
 };
@@ -90,12 +84,6 @@ public:
      * @since 5.64
      */
     static QList<QSslError> nonIgnorableErrors(const QList<QSslError> &errors);
-
-    /**
-     * Returns the subset of @p errors that cannot be ignored, ie. that is considered fatal.
-     * @since 6.13
-     */
-    static QList<QSslError::SslError> nonIgnorableErrors(const QList<QSslError::SslError> &errors);
 
 private:
     friend class KSslCertificateManagerContainer;
