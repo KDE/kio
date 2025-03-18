@@ -5,6 +5,7 @@
 
 #include "kiocore_export.h"
 #include <KJob>
+#include <QFlags>
 #include <ksslerroruidata.h>
 
 namespace KIO
@@ -20,16 +21,16 @@ public:
         StoreRules = 2, ///< make new ignore rules from the user's choice and store them
         RecallAndStoreRules = 3, ///< apply stored rules and store new rules
     };
+    Q_ENUM(RulesStorage)
+    Q_DECLARE_FLAGS(RulesStorages, RulesStorage)
 
-    explicit AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorage storedRules = RecallAndStoreRules, QObject *parent = nullptr);
+    explicit AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorages storedRules = RecallAndStoreRules, QObject *parent = nullptr);
     ~AskIgnoreSslErrorsJob() override;
-
-    void setUiDelegate();
 
     /**
      * Returns whether the user decided to ignore or not the SSL errors.
      */
-    bool ignored() const;
+    [[nodiscard]] bool ignored() const;
 
     void start() override;
 
@@ -41,3 +42,5 @@ private:
 };
 
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::AskIgnoreSslErrorsJob::RulesStorages)

@@ -510,7 +510,7 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const QVariantMap &ssl
     dialog->show();
 }
 
-void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules, QObject *parent)
+void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorages storedRules, QObject *parent)
 {
     const KSslErrorUiData::Private *ud = KSslErrorUiData::Private::get(&uiData);
 
@@ -575,7 +575,7 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
 }
 
 void KIO::WidgetsAskUserActionHandler::showSslRememberDialog(const KSslErrorUiData &uiData,
-                                                             KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules,
+                                                             KIO::AskIgnoreSslErrorsJob::RulesStorages storedRules,
                                                              QObject *parent)
 {
     const KSslErrorUiData::Private *ud = KSslErrorUiData::Private::get(&uiData);

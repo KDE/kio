@@ -208,7 +208,7 @@ public:
      * @param parent the parent QWidget of QWindow
      */
     virtual void askIgnoreSslErrors(const KSslErrorUiData &sslErrorData,
-                                    AskIgnoreSslErrorsJob::RulesStorage storedRules = AskIgnoreSslErrorsJob::RecallAndStoreRules,
+                                    AskIgnoreSslErrorsJob::RulesStorages storedRules = AskIgnoreSslErrorsJob::RecallAndStoreRules,
                                     QObject *parent = nullptr) = 0;
 
 Q_SIGNALS:

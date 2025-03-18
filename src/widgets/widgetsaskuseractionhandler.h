@@ -84,13 +84,13 @@ public:
 
     void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) override;
 
-    void askIgnoreSslErrors(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules, QObject *parent) override;
+    void askIgnoreSslErrors(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorages storedRules, QObject *parent) override;
 
     void setWindow(QWidget *window);
 
 private:
     void showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget);
-    KIOWIDGETS_NO_EXPORT void showSslRememberDialog(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules, QObject *parent);
+    KIOWIDGETS_NO_EXPORT void showSslRememberDialog(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorages storedRules, QObject *parent);
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
 };
 

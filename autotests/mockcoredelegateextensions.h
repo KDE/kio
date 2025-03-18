@@ -119,7 +119,7 @@ public:
     {
     }
 
-    void askIgnoreSslErrors(const KSslErrorUiData & /*uiData*/, KIO::AskIgnoreSslErrorsJob::RulesStorage storedResult, QObject * /*parent*/) override
+    void askIgnoreSslErrors(const KSslErrorUiData & /*uiData*/, KIO::AskIgnoreSslErrorsJob::RulesStorages, QObject * /*parent*/) override
     {
     }
 

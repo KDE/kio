@@ -16,11 +16,11 @@ class KIO::AskIgnoreSslErrorsJob::Private
 {
 public:
     KSslErrorUiData uiData;
-    RulesStorage storedRules;
+    RulesStorages storedRules;
     bool ignored = false;
 };
 
-AskIgnoreSslErrorsJob::AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorage storedRules, QObject *parent)
+AskIgnoreSslErrorsJob::AskIgnoreSslErrorsJob(const KSslErrorUiData &uiData, RulesStorages storedRules, QObject *parent)
     : KJob(parent)
     , d(std::make_unique<AskIgnoreSslErrorsJob::Private>())
 {
@@ -101,4 +101,9 @@ void AskIgnoreSslErrorsJob::slotProcessRequest(int result)
     } else {
         Q_ASSERT(false); // unknow error code
     }
+}
+
+bool AskIgnoreSslErrorsJob::ignored() const
+{
+    return d->ignored;
 }

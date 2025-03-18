@@ -7,111 +7,27 @@
 
 #include "sslui.h"
 
+#include "askignoresslerrorsjob.h"
+#include "jobuidelegatefactory.h"
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <ksslcertificatemanager.h>
-#include <ksslerroruidata_p.h>
-#include <ksslinfodialog.h>
 
 bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules)
 {
-    const KSslErrorUiData::Private *ud = KSslErrorUiData::Private::get(&uiData);
-    if (ud->sslErrors.isEmpty()) {
-        return true;
-    }
-
-    const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(ud->sslErrors);
-    if (!fatalErrors.isEmpty()) {
-        // TODO message "sorry, fatal error, you can't override it"
-        return false;
-    }
-    if (ud->certificateChain.isEmpty()) {
-        // SSL without certificates is quite useless and should never happen
-        KMessageBox::error(nullptr,
-                           i18n("The remote host did not send any SSL certificates.\n"
-                                "Aborting because the identity of the host cannot be established."));
-        return false;
-    }
-
-    KSslCertificateManager *const cm = KSslCertificateManager::self();
-    KSslCertificateRule rule(ud->certificateChain.first(), ud->host);
-    if (storedRules & RecallRules) {
-        rule = cm->rule(ud->certificateChain.first(), ud->host);
-        // remove previously seen and acknowledged errors
-        const QList<QSslError> remainingErrors = rule.filterErrors(ud->sslErrors);
-        if (remainingErrors.isEmpty()) {
-            // qDebug() << "Error list empty after removing errors to be ignored. Continuing.";
-            return true;
-        }
-    }
-
-    // ### We don't ask to permanently reject the certificate
-
-    QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
-    for (const QSslError &err : std::as_const(ud->sslErrors)) {
-        message.append(err.errorString() + QLatin1Char('\n'));
-    }
-    message = message.trimmed();
-
-    int msgResult;
-    do {
-        msgResult = KMessageBox::warningTwoActionsCancel(nullptr,
-                                                         message,
-                                                         i18n("Server Authentication"),
-                                                         KGuiItem(i18n("&Details"), QStringLiteral("help-about")),
-                                                         KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
-        if (msgResult == KMessageBox::PrimaryAction) {
-            // Details was chosen - show the certificate and error details
-
-            QList<QList<QSslError::SslError>> meh; // parallel list to cert list :/
-
-            meh.reserve(ud->certificateChain.size());
-            for (const QSslCertificate &cert : std::as_const(ud->certificateChain)) {
-                QList<QSslError::SslError> errors;
-                for (const QSslError &error : std::as_const(ud->sslErrors)) {
-                    if (error.certificate() == cert) {
-                        // we keep only the error code enum here
-                        errors.append(error.error());
-                    }
-                }
-                meh.append(errors);
-            }
-
-            KSslInfoDialog *dialog = new KSslInfoDialog();
-            dialog->setSslInfo(ud->certificateChain, ud->ip, ud->host, ud->sslProtocol, ud->cipher, ud->usedBits, ud->bits, meh);
-            dialog->exec();
-        } else if (msgResult == KMessageBox::Cancel) {
-            return false;
-        }
-        // fall through on KMessageBox::SecondaryAction
-    } while (msgResult == KMessageBox::PrimaryAction);
-
+    KIO::AskIgnoreSslErrorsJob::RulesStorages rulesStorage;
     if (storedRules & StoreRules) {
-        // Save the user's choice to ignore the SSL errors.
+        rulesStorage |= KIO::AskIgnoreSslErrorsJob::RulesStorage::StoreRules;
+    }
+    if (storedRules & RecallRules) {
+        rulesStorage |= KIO::AskIgnoreSslErrorsJob::RulesStorage::RecallRules;
+    }
+    auto job = new KIO::AskIgnoreSslErrorsJob(uiData, rulesStorage);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate());
+    job->exec();
 
-        msgResult = KMessageBox::warningTwoActions(nullptr,
-                                                   i18n("Would you like to accept this "
-                                                        "certificate forever without "
-                                                        "being prompted?"),
-                                                   i18n("Server Authentication"),
-                                                   KGuiItem(i18n("&Forever"), QStringLiteral("flag-green")),
-                                                   KGuiItem(i18n("&Current Session only"), QStringLiteral("chronometer")));
-        QDateTime ruleExpiry = QDateTime::currentDateTime();
-        if (msgResult == KMessageBox::PrimaryAction) {
-            // accept forever ("for a very long time")
-            ruleExpiry = ruleExpiry.addYears(1000);
-        } else {
-            // accept "for a short time", half an hour.
-            ruleExpiry = ruleExpiry.addSecs(30 * 60);
-        }
-
-        // TODO special cases for wildcard domain name in the certificate!
-        // rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
-
-        rule.setExpiryDateTime(ruleExpiry);
-        rule.setIgnoredErrors(ud->sslErrors);
-        cm->setRule(rule);
+    if (job->error() != KJob::NoError) {
+        KMessageBox::error(nullptr, job->errorString());
     }
 
-    return true;
+    return job->ignored();
 }
