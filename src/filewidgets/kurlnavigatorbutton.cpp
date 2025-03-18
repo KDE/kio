@@ -691,8 +691,8 @@ void KUrlNavigatorButton::updateMinimumWidth()
     const int oldMinWidth = minimumWidth();
 
     int minWidth = sizeHint().width();
-    if (minWidth < 40) {
-        minWidth = 40;
+    if (minWidth < 10) {
+        minWidth = 10;
     } else if (minWidth > 150) {
         // don't let an overlong path name waste all the URL navigator space
         minWidth = 150;
