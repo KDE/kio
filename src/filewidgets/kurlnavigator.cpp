@@ -1286,12 +1286,14 @@ bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
         for (KUrlNavigatorButton *button : std::as_const(d->m_navButtons)) {
             button->setShowMnemonic(true);
         }
+        update();
         break;
 
     case QEvent::FocusOut:
         for (KUrlNavigatorButton *button : std::as_const(d->m_navButtons)) {
             button->setShowMnemonic(false);
         }
+        update();
         break;
 
     // Avoid the "Properties" action from triggering instead of new tab.
@@ -1410,9 +1412,14 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
-    QStyleOption option;
+    QStyleOptionFrame option;
     option.initFrom(this);
     option.state = QStyle::State_Sunken;
+
+    if (hasFocus()) {
+        option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
+    }
+
     // Adjust the rectangle due to how QRect coordinates work
     option.rect = option.rect.adjusted(1, 0, -1, 0);
     // Draw the background
