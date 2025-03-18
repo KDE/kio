@@ -171,7 +171,6 @@ private:
      */
     QString plainText() const;
 
-    int iconWidth() const;
     int arrowWidth() const;
     int textWidth() const;
     bool isAboveSeparator(int x) const;
