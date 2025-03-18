@@ -1838,7 +1838,8 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 
         // Handle UNESCAPED quote (") since the above ifs are
         // dealing with the escaped ones
-        if (ch.toLatin1() == '"') {
+        // Ignore this in single-file mode
+        if (ch.toLatin1() == '"' && q->mode() != KFile::Mode::File) {
             addUrl(partial_name);
             partial_name.clear();
             continue;

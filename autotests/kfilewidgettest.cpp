@@ -673,6 +673,8 @@ void KFileWidgetTest::testTokenize_data()
     // file, the whole name will not be escaped.
     QTest::newRow("quote-single-file") << QStringList{"test\"quote"} << QString("test\\\"quote");
 
+    QTest::newRow("single-file-with-two-quotes") << QStringList{"\"test\".txt"} << QString{"\\\"test\\\".txt"};
+
     // Escape multiple files. Files should also be wrapped in ""
     // Note that we are also testing quote at the end of the name
     QTest::newRow("quote-multi-file") << QStringList{"test\"quote", "test2-quote\"", "test"} << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
@@ -793,6 +795,7 @@ void KFileWidgetTest::testTokenizeForSave_data()
     // All quotes in names should be escaped, however since this is a single
     // file, the whole name will not be escaped.
     QTest::newRow("save-quote") << QString{"test\"quote"} << QString() << QString("test\\\"quote");
+    QTest::newRow("save-file-with-quotes") << QString{"\"test\".txt"} << QString() << QString{"\\\"test\\\".txt"};
 
     // Ok, enough with quotes... lets do some backslashes
     // Backslash literals in file names - Unix only case
