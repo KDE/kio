@@ -106,7 +106,12 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
         dialogText = i18n("Filename for clipboard content:");
     }
 
-    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formats, widget);
+    auto defaultFilename = suggestedFileName;
+    if (defaultFilename.isEmpty()) {
+        defaultFilename = i18nc("A default file name excluding extension for some pasted content", "pasted file");
+    }
+
+    KIO::PasteDialog dlg(QString(), dialogText, defaultFilename, formats, widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();

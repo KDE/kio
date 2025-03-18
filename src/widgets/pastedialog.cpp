@@ -19,7 +19,7 @@
 #include <QMimeType>
 #include <QVBoxLayout>
 
-KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const QString &value, const QStringList &formats, QWidget *parent)
+KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const QString &suggestedFileName, const QStringList &formats, QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(title);
@@ -36,7 +36,7 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
     m_label->setWordWrap(true);
     layout->addWidget(m_label);
 
-    m_lineEdit = new QLineEdit(value, frame);
+    m_lineEdit = new QLineEdit(suggestedFileName, frame);
     layout->addWidget(m_lineEdit);
 
     m_lineEdit->setFocus();
@@ -47,36 +47,59 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
     // Populate the combobox with nice human-readable labels
     QMimeDatabase db;
-    QStringList formatLabels;
-    formatLabels.reserve(formats.size());
     for (const QString &format : formats) {
         QMimeType mime = db.mimeTypeForName(format);
         if (mime.isValid()) {
-            formatLabels.append(i18n("%1 (%2)", mime.comment(), format));
+            auto label = i18n("%1 (%2)", mime.comment(), format);
+            m_comboBox->addItem(label, mime.name());
         } else {
-            formatLabels.append(format);
+            m_comboBox->addItem(format);
         }
     }
 
-    m_comboBox->addItems(formatLabels);
     m_lastValidComboboxFormat = formats.value(comboItem());
 
     // Get fancy: if the user changes the format, try to replace the filename extension
     connect(m_comboBox, &QComboBox::activated, this, [this, formats]() {
+        const auto format = formats.value(comboItem());
+        const auto currentText = m_lineEdit->text();
+
         QMimeDatabase db;
         const QMimeType oldMimetype = db.mimeTypeForName(m_lastValidComboboxFormat);
+        const QMimeType newMimetype = db.mimeTypeForName(format);
 
-        if (oldMimetype.isValid()) {
-            const QMimeType newMimetype = db.mimeTypeForName(formats.value(comboItem()));
+        const QString newExtension = newMimetype.preferredSuffix();
+        const QString oldExtension = oldMimetype.preferredSuffix();
 
-            if (newMimetype.isValid()) {
-                const QString oldExtension = oldMimetype.preferredSuffix();
-                const QString newExtension = newMimetype.preferredSuffix();
-                m_lineEdit->setFocus();
+        m_lastValidComboboxFormat = format;
+        if (newMimetype.isValid()) {
+            if (oldMimetype.isValid() && currentText.endsWith(oldMimetype.preferredSuffix())) {
                 m_lineEdit->setText(m_lineEdit->text().replace(oldExtension, newExtension));
-                m_lastValidComboboxFormat = formats.value(comboItem());
-                m_lineEdit->setFocus();
-                m_lineEdit->setSelection(0, m_lineEdit->text().length() - newExtension.length() - 1);
+            } else {
+                m_lineEdit->setText(currentText + QLatin1String(".") + newMimetype.preferredSuffix());
+            }
+            m_lineEdit->setSelection(0, m_lineEdit->text().length() - newExtension.length() - 1);
+            m_lineEdit->setFocus();
+        } else if (oldMimetype.isValid() && currentText.endsWith(oldMimetype.preferredSuffix())) {
+            // remove the extension
+            m_lineEdit->setText(currentText.chopped(oldExtension.length() + 1));
+            m_lineEdit->setFocus();
+        }
+    });
+
+    // update the selected format depending on the text
+    connect(m_lineEdit, &QLineEdit::textChanged, this, [this, formats]() {
+        const auto format = formats.value(comboItem());
+        const auto currentText = m_lineEdit->text();
+
+        QMimeDatabase db;
+        const QMimeType oldMimetype = db.mimeTypeForName(m_lastValidComboboxFormat);
+        QMimeType newMimetype = db.mimeTypeForFile(currentText, QMimeDatabase::MatchMode::MatchExtension);
+        if (newMimetype.isValid() && newMimetype != oldMimetype && formats.contains(newMimetype.name())) {
+            auto idxMime = m_comboBox->findData(newMimetype.name(), Qt::UserRole);
+            if (idxMime != -1) {
+                m_lastValidComboboxFormat = format;
+                m_comboBox->setCurrentIndex(idxMime);
             }
         }
     });
@@ -87,20 +110,16 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
     // Pre-fill the filename extension and select everything before it, or just
     // move the cursor appropriately
-    const QMimeType mimetype = db.mimeTypeForName(formats[comboItem()]);
-    if (mimetype.isValid() && !value.endsWith(mimetype.preferredSuffix())) {
-        m_lineEdit->setText(value + QLatin1String(".") + mimetype.preferredSuffix());
-
-        if (value.isEmpty()) {
-            m_lineEdit->setFocus();
-            // FIXME: Why do these two lines of code do nothing?
-            m_lineEdit->deselect();
-            m_lineEdit->setCursorPosition(0);
+    const QMimeType mimetype = db.mimeTypeForName(formats.value(comboItem()));
+    if (mimetype.isValid()) {
+        if (suggestedFileName.endsWith(mimetype.preferredSuffix())) {
+            m_lineEdit->setSelection(0, suggestedFileName.length() - mimetype.preferredSuffix().length() - 1);
         } else {
-            m_lineEdit->setFocus();
-            m_lineEdit->setSelection(0, value.length());
+            m_lineEdit->setText(suggestedFileName + QLatin1String(".") + mimetype.preferredSuffix());
+            m_lineEdit->setSelection(0, suggestedFileName.length());
         }
     }
+    m_lineEdit->setFocus();
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
