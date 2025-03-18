@@ -90,6 +90,7 @@ public:
 
 private:
     void showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget);
+    KIOWIDGETS_NO_EXPORT void showSslRememberDialog(const KSslErrorUiData &uiData, KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules, QObject *parent);
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
 };
 

@@ -31,6 +31,13 @@ public:
     KSslCertificateBox *issuer;
 };
 
+KSslInfoDialog::KSslInfoDialog(WId wid)
+    : KSslInfoDialog()
+{
+    QWidget *parent = QWidget::find(wid);
+    setParent(parent);
+}
+
 KSslInfoDialog::KSslInfoDialog(QWidget *parent)
     : QDialog(parent)
     , d(new KSslInfoDialogPrivate)

@@ -520,21 +520,19 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
     }
     message = message.trimmed();
 
-    int msgResult = KMessageDialog::Cancel;
-    do {
-        KMessageDialog *dialog;
-        if (auto widget = qobject_cast<QWidget *>(parent); widget != nullptr) {
-            dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, d->getParentWidget(widget));
-        } else if (auto window = qobject_cast<QWindow *>(parent); window != nullptr) {
-            dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, window->winId());
-        } else {
-            dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, nullptr);
-        }
+    KMessageDialog *dialog;
+    if (auto widget = qobject_cast<QWidget *>(parent); widget != nullptr) {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, d->getParentWidget(widget));
+    } else if (auto window = qobject_cast<QWindow *>(parent); window != nullptr) {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, window->winId());
+    } else {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, nullptr);
+    }
 
-        dialog->setCaption(i18n("Server Authentication"));
-        dialog->setButtons(KGuiItem(i18n("&Details"), QStringLiteral("help-about")), KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
+    dialog->setCaption(i18n("Server Authentication"));
+    dialog->setButtons(KGuiItem(i18n("&Details"), QStringLiteral("help-about")), KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
 
-        dialog->exec();
+    connect(dialog, &QDialog::finished, this, [this, dialog, storedRules, uiData, parent, ud](int result) {
         const auto msgResult = static_cast<KMessageDialog::ButtonType>(dialog->result());
         if (msgResult == KMessageDialog::PrimaryAction) {
             // Details was chosen - show the certificate and error details
@@ -553,28 +551,58 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
                 meh.append(errors);
             }
 
-            KSslInfoDialog *dialog = new KSslInfoDialog();
+            KSslInfoDialog *dialog;
+            if (auto widget = qobject_cast<QWidget *>(parent); widget != nullptr) {
+                dialog = new KSslInfoDialog(d->getParentWidget(widget));
+            } else if (auto window = qobject_cast<QWindow *>(parent); window != nullptr) {
+                dialog = new KSslInfoDialog(window->winId());
+            } else {
+                dialog = new KSslInfoDialog(nullptr);
+            }
             dialog->setSslInfo(ud->certificateChain, ud->ip, ud->host, ud->sslProtocol, ud->cipher, ud->usedBits, ud->bits, meh);
-            dialog->exec();
+            connect(dialog, &QDialog::finished, this, [this, uiData, storedRules, parent](int) {
+                askIgnoreSslErrors(uiData, storedRules, parent);
+            });
+            dialog->setAttribute(Qt::WA_DeleteOnClose);
+            dialog->show();
         } else if (msgResult == KMessageDialog::Cancel) {
             Q_EMIT askIgnoreSslErrorsResult(0);
             return;
         }
-        // fall through on KMessageBox::SecondaryAction
-    } while (msgResult == KMessageDialog::PrimaryAction);
 
-    if (storedRules & KIO::AskIgnoreSslErrorsJob::StoreRules) {
-        // Save the user's choice to ignore the SSL errors.
+        showSslRememberDialog(uiData, storedRules, parent);
+    });
+}
 
-        msgResult = KMessageBox::warningTwoActions(nullptr,
-                                                   i18n("Would you like to accept this "
-                                                        "certificate forever without "
-                                                        "being prompted?"),
-                                                   i18n("Server Authentication"),
-                                                   KGuiItem(i18n("&Forever"), QStringLiteral("flag-green")),
-                                                   KGuiItem(i18n("&Current Session only"), QStringLiteral("chronometer")));
+void KIO::WidgetsAskUserActionHandler::showSslRememberDialog(const KSslErrorUiData &uiData,
+                                                             KIO::AskIgnoreSslErrorsJob::RulesStorage storedRules,
+                                                             QObject *parent)
+{
+    const KSslErrorUiData::Private *ud = KSslErrorUiData::Private::get(&uiData);
+    if (!(storedRules & KIO::AskIgnoreSslErrorsJob::StoreRules)) {
+        Q_EMIT askIgnoreSslErrorsResult(1);
+    }
+
+    // Save the user's choice to ignore the SSL errors.
+    const auto message = i18n("Would you like to accept this certificate forever without being prompted?");
+    KMessageDialog *dialog;
+    if (auto widget = qobject_cast<QWidget *>(parent); widget != nullptr) {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActions, message, d->getParentWidget(widget));
+    } else if (auto window = qobject_cast<QWindow *>(parent); window != nullptr) {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActions, message, window->winId());
+    } else {
+        dialog = new KMessageDialog(KMessageDialog::WarningTwoActions, message, nullptr);
+    }
+
+    dialog->setCaption(i18n("Server Authentication"));
+    dialog->setButtons(KGuiItem(i18n("&Forever"), QStringLiteral("flag-green")), KGuiItem(i18n("&Current Session only"), QStringLiteral("chronometer")));
+    dialog->setIcon(QIcon::fromTheme(QStringLiteral("chronometer")));
+
+    connect(dialog, &QDialog::finished, this, [this, ud](int result) {
+        const auto msgResult = static_cast<KMessageDialog::ButtonType>(result);
+
         QDateTime ruleExpiry = QDateTime::currentDateTime();
-        if (msgResult == KMessageBox::PrimaryAction) {
+        if (msgResult == KMessageDialog::PrimaryAction) {
             // accept forever ("for a very long time")
             ruleExpiry = ruleExpiry.addYears(1000);
         } else {
@@ -591,9 +619,8 @@ void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const KSslErrorUiData 
         rule.setExpiryDateTime(ruleExpiry);
         rule.setIgnoredErrors(ud->sslErrors);
         cm->setRule(rule);
-    }
-
-    Q_EMIT askIgnoreSslErrorsResult(1);
+        Q_EMIT askIgnoreSslErrorsResult(1);
+    });
 }
 
 void KIO::WidgetsAskUserActionHandler::showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget)

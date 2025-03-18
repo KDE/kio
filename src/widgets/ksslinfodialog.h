@@ -41,6 +41,13 @@ public:
     explicit KSslInfoDialog(QWidget *parent = nullptr);
 
     /**
+     *  Construct a KSSL Information Dialog
+     *
+     *  @param parent the parent widget
+     */
+    explicit KSslInfoDialog(WId wid);
+
+    /**
      *  Destroy this dialog
      */
     ~KSslInfoDialog() override;
