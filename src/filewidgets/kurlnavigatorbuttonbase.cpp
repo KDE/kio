@@ -92,7 +92,7 @@ void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
 
     QStyleOptionButton buttonOption;
     buttonOption.initFrom(this);
-    buttonOption.rect = QRect(0, 0, width(), height());
+    buttonOption.rect = QRect(0, 0, width(), height()).marginsRemoved(QMargins(0, 2, 0, 2));
     buttonOption.palette = palette();
     buttonOption.features = QStyleOptionButton::Flat;
 
