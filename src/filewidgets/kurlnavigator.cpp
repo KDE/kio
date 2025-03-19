@@ -555,6 +555,8 @@ void KUrlNavigatorPrivate::switchView()
 
     q->requestActivation();
     Q_EMIT q->editableStateChanged(m_editable);
+    // Make sure the colors are updated
+    q->update();
 }
 
 void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton)
@@ -1423,6 +1425,9 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     // Adjust the rectangle due to how QRect coordinates work
     option.rect = option.rect.adjusted(1, 0, -1, 0);
     // Draw the background
+    if (!d->m_editable) {
+        option.palette.setColor(QPalette::Base, palette().alternateBase().color());
+    }
     style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
