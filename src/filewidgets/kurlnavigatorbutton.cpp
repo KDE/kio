@@ -236,9 +236,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         QStyleOption option;
         option.initFrom(this);
         option.palette = palette();
-        option.palette.setColor(QPalette::Text, fgColor);
-        option.palette.setColor(QPalette::WindowText, fgColor);
-        option.palette.setColor(QPalette::ButtonText, fgColor);
+        option.palette.setColor(QPalette::Text, palette().text().color());
+        option.palette.setColor(QPalette::WindowText, palette().text().color());
+        option.palette.setColor(QPalette::ButtonText, palette().text().color());
 
         if (leftToRight) {
             option.rect = QRect(textRect.right() - m_padding, 0, arrowWidth, buttonHeight);
