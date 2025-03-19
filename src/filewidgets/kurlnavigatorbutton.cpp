@@ -221,6 +221,9 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 
     // Draw folder name
     int textFlags = Qt::AlignVCenter;
+    // Make sure the color of the text is correct
+    QColor textColor = palette().color(QPalette::ColorGroup::Normal, QPalette::Text);
+    painter.setPen(textColor);
     if (m_showMnemonic) {
         textFlags |= Qt::TextShowMnemonic;
         painter.drawText(textRect, textFlags, text());
@@ -232,6 +235,11 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     if (m_drawSeparator) {
         QStyleOption option;
         option.initFrom(this);
+        option.palette = palette();
+        option.palette.setColor(QPalette::Text, fgColor);
+        option.palette.setColor(QPalette::WindowText, fgColor);
+        option.palette.setColor(QPalette::ButtonText, fgColor);
+
         if (leftToRight) {
             option.rect = QRect(textRect.right() - m_padding, 0, arrowWidth, buttonHeight);
         } else {
