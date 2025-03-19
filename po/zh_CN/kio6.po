@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-03-19 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2758,7 +2758,7 @@ msgid "All Supported Files"
 msgstr "所有支持的文件"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1967
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
@@ -3381,53 +3381,53 @@ msgstr "文件“%1”已存在。您想要覆盖它吗？"
 msgid "Overwrite File?"
 msgstr "您想要覆盖文件吗？"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "You can only select local files."
 msgstr "您只能选择本机文件。"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "无法处理远程文件"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
 
-#: filewidgets/kfilewidget.cpp:2217
+#: filewidgets/kfilewidget.cpp:2218
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "图标大小：%1 像素"
 
-#: filewidgets/kfilewidget.cpp:2364
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "自动选择文件扩展名 (%1) (&X)"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "扩展名 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2371
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "自动选择文件扩展名(&X)"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "适合的扩展名"
 
-#: filewidgets/kfilewidget.cpp:2380
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3450,24 +3450,24 @@ msgstr ""
 "(.) 来阻止此功能 (该句点会在保存后自动去除)。</li></ol>如果您不确定，请保持此"
 "选项为启用，这样将使得文件管理更加方便。"
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid "&File type:"
 msgstr "文件类型(&F)："
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2857
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "过滤(&F)："
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

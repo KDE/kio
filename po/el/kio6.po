@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-03-19 00:38+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2957,7 +2957,7 @@ msgid "All Supported Files"
 msgstr "Όλα τα υποστηριζόμενα αρχεία"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1967
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "All Files"
 msgstr "Όλα τα αρχεία"
@@ -3614,53 +3614,53 @@ msgstr "Το αρχείο \"%1\" υπάρχει ήδη. Επιθυμείτε τ�
 msgid "Overwrite File?"
 msgstr "Αντικατάσταση αρχείου;"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "You can only select local files."
 msgstr "Μπορείτε να επιλέξετε μόνο τοπικά αρχεία."
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Απομακρυσμένα αρχεία δε γίνονται αποδεκτά"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "All Folders"
 msgstr "Όλοι οι φάκελοι"
 
-#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "Ά&νοιγμα"
 
-#: filewidgets/kfilewidget.cpp:2217
+#: filewidgets/kfilewidget.cpp:2218
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Μέγεθος εικονιδίων: %1 εικονοστοιχεία"
 
-#: filewidgets/kfilewidget.cpp:2364
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Αυτόματη επιλογή κατάλη&ξης αρχείου (%1)"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "η κατάληξη <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2371
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Αυτόματη επιλογή κατάλη&ξης αρχείου"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "μια κατάλληλη κατάληξη"
 
-#: filewidgets/kfilewidget.cpp:2380
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3688,12 +3688,12 @@ msgstr ""
 "αφαιρεθεί αυτόματα).</li></ol>Αν δεν είστε σίγουροι, διατηρήστε αυτή την "
 "επιλογή ενεργοποιημένη καθώς καθιστά τα αρχεία σας πιο εύκολα διαχειρίσιμα."
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid "&File type:"
 msgstr "Τύπος αρχείου:"
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3702,12 +3702,12 @@ msgstr ""
 "<qt>Αυτός είναι ο επιλογέας τύπου αρχείου. Χρησιμοποιείται για την επιλογή "
 "της μορφής με την οποία θα αποθηκευτεί το αρχείο.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2857
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "&Φίλτρο:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-03-19 00:38+0000\n"
 "PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2935,7 +2935,7 @@ msgid "All Supported Files"
 msgstr "Visi palaikomi failai"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1967
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "All Files"
 msgstr "Visi failai"
@@ -3594,53 +3594,53 @@ msgstr "Failas „%1“ Jau yra. Ar norite jį perrašyti?"
 msgid "Overwrite File?"
 msgstr "Perrašyti failą?"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "You can only select local files."
 msgstr "Galite pasirinkti tik vietinius failus."
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Nuotoliniai failai nepriimami"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "All Folders"
 msgstr "Visi aplankai"
 
-#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Atverti"
 
-#: filewidgets/kfilewidget.cpp:2217
+#: filewidgets/kfilewidget.cpp:2218
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Piktogramų dydis: %1 piks."
 
-#: filewidgets/kfilewidget.cpp:2364
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatiškai parinkti failų pavadinimų &prievardžius (%1)"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> prievardis"
 
-#: filewidgets/kfilewidget.cpp:2371
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatiškai parinkti failų pavadinimų &prievardžius"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "tinkamas prievardis"
 
-#: filewidgets/kfilewidget.cpp:2380
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3667,12 +3667,12 @@ msgstr ""
 "bus panaikintas automatiškai).</li></ol>Jei nežinote ką pasirinkti, palikite "
 "šią parinktį įgalinta, nes ji padaro jūsų failus lengviau valdomus."
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid "&File type:"
 msgstr "&Failo tipas:"
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3681,12 +3681,12 @@ msgstr ""
 "<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti formatą, "
 "kuriuo bus failas bus įrašytas.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2857
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtras:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

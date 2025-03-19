@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-03-19 00:38+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3006,7 +3006,7 @@ msgid "All Supported Files"
 msgstr "Tos les fitchîs sopoirtés"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1967
+#: filewidgets/kfilewidget.cpp:1968
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3715,54 +3715,54 @@ msgstr "Li fitchî  \"%1\" egzistêye dedja. El voloz vs sipotchî ?"
 msgid "Overwrite File?"
 msgstr "Sipotchî l' fitchî?"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vos n' poloz tchoezi ki des fitchîs locås."
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fitchîs å lon nén acceptés"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Tos les ridants"
 
-#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "Dr&ovi"
 
-#: filewidgets/kfilewidget.cpp:2217
+#: filewidgets/kfilewidget.cpp:2218
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Grandeu des imådjetes: %1 picsels"
 
-#: filewidgets/kfilewidget.cpp:2364
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs (%1)"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "li cawete <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2371
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "ene cawete ki va bén"
 
-#: filewidgets/kfilewidget.cpp:2380
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3778,25 +3778,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2855
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Passete:"
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2857
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "&Passete:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

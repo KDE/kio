@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-03-19 00:38+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2930,7 +2930,7 @@ msgid "All Supported Files"
 msgstr "Барлық қолдайтын файлдар"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1967
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "All Files"
 msgstr "Бүкіл файлдар"
@@ -3613,54 +3613,54 @@ msgstr "\"%1\" деген файл бар екен. Оның үстінен жа
 msgid "Overwrite File?"
 msgstr "Үстінен жазбақсыз ба?"
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "You can only select local files."
 msgstr "Тек жергілікті файлды ғана таңдауға болады."
 
-#: filewidgets/kfilewidget.cpp:1871
+#: filewidgets/kfilewidget.cpp:1872
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Қашықтағы файл қабылданбайды"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Барлық қапшықтар"
 
-#: filewidgets/kfilewidget.cpp:2117 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Ашу"
 
-#: filewidgets/kfilewidget.cpp:2217
+#: filewidgets/kfilewidget.cpp:2218
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Таңбаша өлшемі: %1 пиксел"
 
-#: filewidgets/kfilewidget.cpp:2364
+#: filewidgets/kfilewidget.cpp:2365
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Файл жұ&рнағын (%1) автоматты түрде таңдау"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2366
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "жұрнағы <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2371
+#: filewidgets/kfilewidget.cpp:2372
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Файл жұ&рнағын автоматты түрде таңдау"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2373
 #, kde-format
 msgid "a suitable extension"
 msgstr "лайықты жұрнақ"
 
-#: filewidgets/kfilewidget.cpp:2380
+#: filewidgets/kfilewidget.cpp:2381
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3687,25 +3687,25 @@ msgstr ""
 "тасталады).</li></ol>Күмәндансаңыз, бұл параметрді қосылған күйінде "
 "қалдырыңыз, ол файлыңызды басқаруға ыңғайлы."
 
-#: filewidgets/kfilewidget.cpp:2854
+#: filewidgets/kfilewidget.cpp:2855
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Сүзгі:"
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2856
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2857
+#: filewidgets/kfilewidget.cpp:2858
 #, kde-format
 msgid "&Filter:"
 msgstr "&Сүзгі:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2860
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
