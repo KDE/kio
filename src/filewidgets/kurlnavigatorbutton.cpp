@@ -221,9 +221,6 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 
     // Draw folder name
     int textFlags = Qt::AlignVCenter;
-    // Make sure the color of the text is correct
-    QColor textColor = palette().color(QPalette::ColorGroup::Normal, QPalette::Text);
-    painter.setPen(textColor);
     if (m_showMnemonic) {
         textFlags |= Qt::TextShowMnemonic;
         painter.drawText(textRect, textFlags, text());
