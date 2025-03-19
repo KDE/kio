@@ -551,7 +551,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     initMenu(m_subDirsMenu, 0);
 
     const bool leftToRight = (layoutDirection() == Qt::LeftToRight);
-    const int popupX = !leftToRight ? width() : 0;
+    const int popupX = leftToRight ? width() - arrowWidth() : 0;
     const QPoint popupPos = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
     QPointer<QObject> guard(this);
