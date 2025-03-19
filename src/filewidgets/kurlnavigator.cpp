@@ -199,6 +199,7 @@ public:
     bool m_active = true;
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
+    bool m_backgroundEnabled = true;
 
     int m_padding = 4;
 
@@ -1410,6 +1411,18 @@ QWidget *KUrlNavigator::badgeWidget() const
     }
 }
 
+void KUrlNavigator::setBackgroundEnabled(bool enabled)
+{
+    if (d->m_backgroundEnabled != enabled) {
+        d->m_backgroundEnabled = enabled;
+    }
+}
+
+bool KUrlNavigator::backgroundEnabled() const
+{
+    return d->m_backgroundEnabled;
+}
+
 void KUrlNavigator::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
@@ -1424,11 +1437,18 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
 
     // Adjust the rectangle due to how QRect coordinates work
     option.rect = option.rect.adjusted(1, 0, -1, 0);
-    // Draw the background
-    if (!d->m_editable) {
-        option.palette.setColor(QPalette::Base, palette().alternateBase().color());
+    if (backgroundEnabled()) {
+        // Draw primitive always, but change color if not editable
+        if (!d->m_editable) {
+            option.palette.setColor(QPalette::Base, palette().alternateBase().color());
+        }
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+    } else {
+        // Draw primitive only for the input field
+        if (d->m_editable) {
+            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+        }
     }
-    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
 }
 
 #include "moc_kurlnavigator.cpp"
