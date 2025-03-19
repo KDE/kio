@@ -195,19 +195,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         textRect = QRect(m_drawSeparator ? arrowWidth - m_padding : 0, 0, buttonWidth - arrowWidth - m_padding, buttonHeight);
     }
 
-    QStyleOptionButton buttonOption;
-    buttonOption.initFrom(this);
-    buttonOption.rect = QRect(0, 0, width(), buttonHeight);
-    buttonOption.palette = palette();
-    buttonOption.palette.setColor(QPalette::Text, fgColor);
-    buttonOption.palette.setColor(QPalette::WindowText, fgColor);
-    buttonOption.palette.setColor(QPalette::ButtonText, fgColor);
-    buttonOption.features = QStyleOptionButton::Flat;
-
-    // Draw button graphic
-    if (m_hoverOverButton) {
-        style()->drawPrimitive(QStyle::PE_PanelButtonCommand, &buttonOption, &painter, this);
-    }
+    drawHoverBackground(&painter);
 
     // Draw gradient overlay if text is clipped
     painter.setPen(fgColor);
