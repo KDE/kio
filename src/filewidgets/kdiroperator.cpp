@@ -219,7 +219,7 @@ public:
     bool m_isSaving = false;
     bool m_showOpenWithActions = false;
     bool m_isTouchEvent = false;
-    bool m_isTouchDrag = true;
+    bool m_isTouchDrag = false;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -1308,7 +1308,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             }
         }
 
-        if (d->m_isTouchEvent || d->m_isTouchDrag) {
+        d->m_isTouchEvent = false;
+        if (d->m_isTouchDrag) {
             d->m_isTouchDrag = false;
             return true;
         }
