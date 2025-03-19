@@ -216,6 +216,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 {
     m_layout->setSpacing(0);
     m_layout->setContentsMargins(0, 0, 0, 0);
+    QStyleOption option;
+    option.initFrom(q);
 
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
@@ -307,6 +309,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_badgeWidgetContainer);
+    m_layout->addSpacing(q->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing, &option, q));
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
