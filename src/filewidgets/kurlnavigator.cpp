@@ -1429,7 +1429,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QStyleOptionFrame option;
     option.initFrom(this);
-    option.state = QStyle::State_Sunken;
+    option.state = QStyle::State_None;
 
     if (hasFocus()) {
         option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
