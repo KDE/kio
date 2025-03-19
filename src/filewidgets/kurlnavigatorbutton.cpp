@@ -188,11 +188,12 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 
     // Prepare sizes for icon
     QRect textRect;
+    const int textRectWidth = buttonWidth - arrowWidth - m_padding;
     if (leftToRight) {
-        textRect = QRect(m_padding, 0, buttonWidth - arrowWidth, buttonHeight);
+        textRect = QRect(m_padding, 0, textRectWidth, buttonHeight);
     } else {
         // If no separator is drawn, we can start writing text from 0
-        textRect = QRect(m_drawSeparator ? arrowWidth - m_padding : 0, 0, buttonWidth - arrowWidth - m_padding, buttonHeight);
+        textRect = QRect(m_drawSeparator ? arrowWidth - m_padding : 0, 0, textRectWidth, buttonHeight);
     }
 
     drawHoverBackground(&painter);
@@ -238,7 +239,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::ButtonText, palette().text().color());
 
         if (leftToRight) {
-            option.rect = QRect(textRect.right() - m_padding, 0, arrowWidth, buttonHeight);
+            option.rect = QRect(textRect.right(), 0, arrowWidth, buttonHeight);
         } else {
             // Separator is the first item in RtL mode
             option.rect = QRect(0, 0, arrowWidth, buttonHeight);
