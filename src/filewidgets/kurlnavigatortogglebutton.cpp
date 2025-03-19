@@ -15,7 +15,7 @@
 
 namespace KDEPrivate
 {
-static constexpr int s_iconSize = KIconLoader::SizeSmallMedium;
+static constexpr int s_iconSize = KIconLoader::SizeSmall;
 
 KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
