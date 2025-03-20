@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-19 00:38+0000\n"
+"POT-Creation-Date: 2025-03-20 00:38+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2649,226 +2649,226 @@ msgstr "Akukho nto Yokwenza"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Ulawulo olukhankanyiweyo alukho okanye aluzange lufundeke."
 
-#: filewidgets/kdiroperator.cpp:1982
+#: filewidgets/kdiroperator.cpp:1983
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:1987
+#: filewidgets/kdiroperator.cpp:1988
 #, fuzzy, kde-format
 msgid "Parent Folder"
 msgstr "Cima Ifayile"
 
-#: filewidgets/kdiroperator.cpp:1994
+#: filewidgets/kdiroperator.cpp:1995
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1998
+#: filewidgets/kdiroperator.cpp:1999
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, fuzzy, kde-format
 msgid "Home Folder"
 msgstr "Ifowuni Yasekhaya"
 
-#: filewidgets/kdiroperator.cpp:2006
+#: filewidgets/kdiroperator.cpp:2007
 #, fuzzy, kde-format
 msgid "Reload"
 msgstr "Funda"
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:2010
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Incwadi enenkcukacha Entsha:"
 
-#: filewidgets/kdiroperator.cpp:2019 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:2020 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, fuzzy, kde-format
 msgid "Move to Trash"
 msgstr "Yiya kwi %1"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "Iyacima"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Sorting"
 msgstr "Ubeko kakuhle"
 
-#: filewidgets/kdiroperator.cpp:2037
+#: filewidgets/kdiroperator.cpp:2038
 #, fuzzy, kde-format
 msgid "Sort by Name"
 msgstr "Igama lenxuwa/Igama lethambeka"
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2044
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Imboniselo Emfutshane"
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2050
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "Ngomhla"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2056
 #, fuzzy, kde-format
 msgid "Sort by Type"
 msgstr "Udidi lomshicileli:"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2065
 #, fuzzy, kde-format
 msgid "Ascending"
 msgstr " (Iyacima)"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, fuzzy, kde-format
 msgid "Descending"
 msgstr " (Iyacima)"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2079
 #, fuzzy, kde-format
 msgid "Folders First"
 msgstr "Abalawuli Kuqala"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2085
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Bonisa Iifayile Ezifihlakeleyo"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2092
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Imboniselo Emfutshane"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2099
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Imboniselo Emfutshane"
 
-#: filewidgets/kdiroperator.cpp:2105
+#: filewidgets/kdiroperator.cpp:2106
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Imboniselo Enenkcukacha"
 
-#: filewidgets/kdiroperator.cpp:2124
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Icon Position"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2127
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Next to File Name"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2133
+#: filewidgets/kdiroperator.cpp:2134
 #, fuzzy, kde-format
 msgid "Above File Name"
 msgstr "Igama lefayile Yobulali"
 
-#: filewidgets/kdiroperator.cpp:2147
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Short View"
 msgstr "Imboniselo Emfutshane"
 
-#: filewidgets/kdiroperator.cpp:2154
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Detailed View"
 msgstr "Imboniselo Enenkcukacha"
 
-#: filewidgets/kdiroperator.cpp:2161
+#: filewidgets/kdiroperator.cpp:2162
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Tree View"
 msgstr "Imboniselo Enenkcukacha"
 
-#: filewidgets/kdiroperator.cpp:2168
+#: filewidgets/kdiroperator.cpp:2169
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Detailed Tree View"
 msgstr "Imboniselo Enenkcukacha"
 
-#: filewidgets/kdiroperator.cpp:2181
+#: filewidgets/kdiroperator.cpp:2182
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Bonisa Iifayile Ezifihlakeleyo"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2195
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Bonisa Imboniso yakuqala"
 
-#: filewidgets/kdiroperator.cpp:2201
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Show Preview"
 msgstr "Bonisa Imboniso yakuqala"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2215 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2216 filewidgets/kfileplacesview.cpp:1221
 #, fuzzy, kde-format
 msgid "Properties"
 msgstr "Izinto zobumnini ze%1"
 
-#: filewidgets/kdiroperator.cpp:2224
+#: filewidgets/kdiroperator.cpp:2225
 #, fuzzy, kde-format
 msgid "&View Mode"
 msgstr "&Imboniso"
 
-#: filewidgets/kdiroperator.cpp:2327 filewidgets/kdiroperator.cpp:2339
+#: filewidgets/kdiroperator.cpp:2328 filewidgets/kdiroperator.cpp:2340
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2328 filewidgets/kdiroperator.cpp:2340
+#: filewidgets/kdiroperator.cpp:2329 filewidgets/kdiroperator.cpp:2341
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2331
+#: filewidgets/kdiroperator.cpp:2332
 #, fuzzy, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Abalawuli Kuqala"
 
-#: filewidgets/kdiroperator.cpp:2332
+#: filewidgets/kdiroperator.cpp:2333
 #, fuzzy, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Abalawuli Kuqala"
 
-#: filewidgets/kdiroperator.cpp:2335
+#: filewidgets/kdiroperator.cpp:2336
 #, fuzzy, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Abalawuli Kuqala"
 
-#: filewidgets/kdiroperator.cpp:2336
+#: filewidgets/kdiroperator.cpp:2337
 #, fuzzy, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -7097,27 +7097,27 @@ msgstr ""
 msgid "Information"
 msgstr "Iinkcukacha ze KDE SSL"
 
-#: widgets/skipdialog.cpp:47
+#: widgets/skipdialog.cpp:48
 #, fuzzy, kde-format
 msgid "Replace"
 msgstr "Iphepha"
 
-#: widgets/skipdialog.cpp:53
+#: widgets/skipdialog.cpp:54
 #, kde-format
 msgid "Retry"
 msgstr "Zama kwakhona"
 
-#: widgets/skipdialog.cpp:60
+#: widgets/skipdialog.cpp:61
 #, fuzzy, kde-format
 msgid "Replace All"
 msgstr "Iphepha"
 
-#: widgets/skipdialog.cpp:67
+#: widgets/skipdialog.cpp:68
 #, kde-format
 msgid "Skip"
 msgstr "Tsiba"
 
-#: widgets/skipdialog.cpp:71
+#: widgets/skipdialog.cpp:72
 #, fuzzy, kde-format
 #| msgid "Skip"
 msgid "Skip All"
