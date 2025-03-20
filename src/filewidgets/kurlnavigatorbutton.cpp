@@ -40,7 +40,7 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     , m_subDir()
     , m_openSubDirsTimer(nullptr)
     , m_subDirsJob(nullptr)
-    , m_padding(5)
+    , m_padding(6)
 {
     setAcceptDrops(true);
     setUrl(url);
@@ -193,7 +193,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         textRect = QRect(m_padding, 0, textRectWidth, buttonHeight);
     } else {
         // If no separator is drawn, we can start writing text from 0
-        textRect = QRect(m_drawSeparator ? arrowWidth - m_padding : 0, 0, textRectWidth, buttonHeight);
+        textRect = QRect(m_drawSeparator ? arrowWidth : 0, 0, textRectWidth, buttonHeight);
     }
 
     drawHoverBackground(&painter);
@@ -239,10 +239,10 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::ButtonText, palette().text().color());
 
         if (leftToRight) {
-            option.rect = QRect(textRect.right(), 0, arrowWidth, buttonHeight);
+            option.rect = QRect(textRect.right() - m_padding / 2, 0, arrowWidth, buttonHeight);
         } else {
             // Separator is the first item in RtL mode
-            option.rect = QRect(0, 0, arrowWidth, buttonHeight);
+            option.rect = QRect(m_padding / 2, 0, arrowWidth, buttonHeight);
         }
 
         if (!m_hoverOverArrow) {
