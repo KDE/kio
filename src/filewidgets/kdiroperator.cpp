@@ -2673,6 +2673,8 @@ void KDirOperatorPrivate::slotActivated(const QModelIndex &index)
         return;
     }
 
+    // TODO: we need to stop this selection from happening and turn it into highlight
+    // instead if the cursor is on top of emblem
     if (item.isDir()) {
         // Only allow disabling following selected directories on Tree and
         // DetailTree views as selected directories in these views still expand
