@@ -398,6 +398,8 @@ public:
      */
     bool eventFilter(QObject *object, QEvent *event) override;
 
+    QRect selectionEmblemRect() const;
+
 public Q_SLOTS:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
@@ -414,6 +416,8 @@ private:
     class Private;
     std::unique_ptr<Private> const d; /// @internal
     Q_DISABLE_COPY(KFileItemDelegate)
+
+    void drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter) const;
 };
 
 #endif // KFILEITEMDELEGATE_H
