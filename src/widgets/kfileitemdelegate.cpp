@@ -101,6 +101,8 @@ public:
     void gotNewIcon(const QModelIndex &index);
 
     void paintJobTransfers(QPainter *painter, const qreal &jobAnimationAngle, const QPoint &iconPos, const QStyleOptionViewItem &opt);
+    int scaledEmblemSize(QSize currentSize) const;
+    void setEmblemRect(QRect rect);
 
 public:
     KFileItemDelegate::InformationList informationList;
@@ -112,6 +114,7 @@ public:
     QTextOption::WrapMode wrapMode;
     bool jobTransfersVisible;
     QIcon downArrowIcon;
+    QRect emblemRect;
 
 private:
     KIO::DelegateAnimationHandler *animationHandler;
@@ -128,6 +131,7 @@ KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
     , showToolTipWhenElided(true)
     , wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere)
     , jobTransfersVisible(false)
+    , emblemRect(QRect())
     , animationHandler(new KIO::DelegateAnimationHandler(parent))
     , activeMargins(nullptr)
 {
@@ -719,6 +723,13 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
     painter->restore();
 }
 
+void KFileItemDelegate::Private::setEmblemRect(QRect rect)
+{
+    if (emblemRect != rect) {
+        emblemRect = rect;
+    }
+}
+
 void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
 {
     const KFileItem item = fileItem(index);
@@ -1119,6 +1130,10 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
     d->setActiveMargins(d->verticalLayout(opt) ? Qt::Vertical : Qt::Horizontal);
+    const auto emblemSize = d->scaledEmblemSize(option.decorationSize);
+    const qreal y = option.rect.topLeft().y() + (qreal(emblemSize) / 4);
+    const qreal x = option.rect.topLeft().x() + (qreal(emblemSize) / 4);
+    d->setEmblemRect(QRect(x, y, emblemSize, emblemSize));
 
     if (!(option.state & QStyle::State_Enabled)) {
         opt.palette.setCurrentColorGroup(QPalette::Disabled);
@@ -1176,6 +1191,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                     pixmap = d->transition(fadeFromPixmap, pixmap, state->fadeProgress());
                 }
                 painter->drawPixmap(option.rect.topLeft(), pixmap);
+                drawSelectionEmblem(option, painter);
                 if (d->jobTransfersVisible && index.column() == 0) {
                     if (index.data(KDirModel::HasJobRole).toBool()) {
                         d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
@@ -1251,6 +1267,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
+        drawSelectionEmblem(option, painter);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1263,6 +1280,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
+        drawSelectionEmblem(option, painter);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1282,12 +1300,14 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         }
 
         painter->drawPixmap(option.rect.topLeft(), pixmap);
+        drawSelectionEmblem(option, painter);
         painter->setRenderHint(QPainter::Antialiasing);
         if (d->jobTransfersVisible && index.column() == 0) {
             if (index.data(KDirModel::HasJobRole).toBool()) {
                 d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
             }
         }
+
         return;
     }
 
@@ -1306,13 +1326,45 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
+    drawSelectionEmblem(option, painter);
 
     if (d->jobTransfersVisible && index.column() == 0 && state) {
         if (index.data(KDirModel::HasJobRole).toBool()) {
             d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
         }
     }
+
     painter->restore();
+}
+
+void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter) const
+{
+    const auto state = option.state;
+    if ((state & QStyle::State_MouseOver) || (state & QStyle::State_Selected)) {
+        const QString selectionEmblem = state & QStyle::State_Selected ? QStringLiteral("emblem-remove") : QStringLiteral("emblem-added");
+        const auto emblem = QIcon::fromTheme(selectionEmblem).pixmap(d->emblemRect.size(), state & QStyle::State_MouseOver ? QIcon::Active : QIcon::Disabled);
+
+        painter->drawPixmap(d->emblemRect.topLeft(), emblem);
+    }
+}
+
+int KFileItemDelegate::Private::scaledEmblemSize(QSize currentSize) const
+{
+    const int emblemSize = qMin(currentSize.width(), currentSize.height()) / 2;
+
+    if (emblemSize <= KIconLoader::SizeSmallMedium) {
+        return KIconLoader::SizeSmall;
+    } else if (emblemSize <= KIconLoader::SizeMedium) {
+        return KIconLoader::SizeSmallMedium;
+    } else if (emblemSize <= KIconLoader::SizeLarge) {
+        return KIconLoader::SizeSmallMedium;
+    } else if (emblemSize <= KIconLoader::SizeHuge) {
+        return KIconLoader::SizeMedium;
+    } else if (emblemSize <= KIconLoader::SizeEnormous) {
+        return KIconLoader::SizeLarge;
+    }
+
+    return KIconLoader::SizeHuge;
 }
 
 QWidget *KFileItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -1549,6 +1601,11 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
     default:
         return false;
     } // switch (event->type())
+}
+
+QRect KFileItemDelegate::selectionEmblemRect() const
+{
+    return d->emblemRect;
 }
 
 #include "moc_kfileitemdelegate.cpp"
