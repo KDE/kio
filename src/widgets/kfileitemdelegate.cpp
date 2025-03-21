@@ -1130,9 +1130,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
     d->setActiveMargins(d->verticalLayout(opt) ? Qt::Vertical : Qt::Horizontal);
-    const auto emblemSize = d->scaledEmblemSize(option.decorationSize);
-    const qreal y = option.rect.topLeft().y() + (qreal(emblemSize) / 4);
-    const qreal x = option.rect.topLeft().x() + (qreal(emblemSize) / 4);
+    const auto emblemSize = d->scaledEmblemSize(opt.decorationSize);
+    const qreal y = opt.rect.topLeft().y() + (qreal(emblemSize) / 4);
+    const qreal x = opt.rect.topLeft().x() + (qreal(emblemSize) / 4);
     d->setEmblemRect(QRect(x, y, emblemSize, emblemSize));
 
     if (!(option.state & QStyle::State_Enabled)) {

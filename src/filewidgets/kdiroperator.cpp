@@ -220,6 +220,7 @@ public:
     bool m_showOpenWithActions = false;
     bool m_isTouchEvent = false;
     bool m_isTouchDrag = false;
+    bool m_isEmblemClicked = false;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -1282,6 +1283,21 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     }
     case QEvent::MouseButtonPress:
     case QEvent::MouseButtonDblClick: {
+        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
+        auto itemDelegate = d->m_itemView->itemDelegateForIndex(hoveredIndex);
+        if (itemDelegate) {
+            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+            // The selectionEmblemRect can return whatever position here for some reason?
+            // Like it may be previous hovered item position or something else
+            if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(d->m_itemView->mapFromGlobal(QCursor::pos()))) {
+                d->m_isEmblemClicked = true;
+                // TODO need to append/remove the item from selected items depending on its status
+                d->m_itemView->selectionModel()->select(hoveredIndex, QItemSelectionModel::Toggle);
+                d->m_isEmblemClicked = false;
+                return true;
+            }
+        }
+
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent) {
             // Navigate and then discard the event so it doesn't select an item on the directory navigated to.
@@ -2669,18 +2685,8 @@ void KDirOperatorPrivate::slotActivated(const QModelIndex &index)
     KFileItem item = m_dirModel->itemForIndex(dirIndex);
 
     const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
-    if (item.isNull() || (modifiers & Qt::ShiftModifier) || (modifiers & Qt::ControlModifier)) {
+    if (item.isNull() || m_isEmblemClicked || (modifiers & Qt::ShiftModifier) || (modifiers & Qt::ControlModifier)) {
         return;
-    }
-
-    auto itemDelegate = m_itemView->itemDelegateForIndex(dirIndex);
-    if (itemDelegate) {
-        auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
-            // TODO need to append/remove the item from selected items depending on its status
-            q->setCurrentItem(item);
-            return;
-        }
     }
 
     if (item.isDir()) {
