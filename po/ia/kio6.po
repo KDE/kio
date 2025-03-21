@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-02-12 10:19+0100\n"
+"PO-Revision-Date: 2025-03-20 18:31+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3788,18 +3788,15 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "Backslashes non pote esser usate in nomines de file de dossier."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Non poteva crear un dossier con le nomine <filename>%1</filename><nl/>proque "
-"illo es reservate per uso per le systema operational (o operative)"
+"Crear un file o un dossier con le nomine <filename>%1</filename> non es "
+"possibile proque illo imbrica con le location del dossier initial (domo o "
+"principal) del usator."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format

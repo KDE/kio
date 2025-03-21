@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-03-02 09:00+0100\n"
+"PO-Revision-Date: 2025-03-20 07:56+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3778,18 +3778,14 @@ msgstr ""
 "As barras invertidas non poden usarse nos nomes de ficheiros e cartafoles."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Non se puido crear un cartafol co nome <filename>%1</filename><nl/>porque é "
-"un nome reservado polo sistema operativo."
+"Non é posíbel crear un ficheiro ou cartafol chamado <filename>%1</filename> "
+"porque sobreporíase coa ruta do cartafol persoal dunha persoa usuaria."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
