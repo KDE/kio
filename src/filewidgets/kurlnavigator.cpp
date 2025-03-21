@@ -1416,9 +1416,7 @@ QWidget *KUrlNavigator::badgeWidget() const
 
 void KUrlNavigator::setBackgroundEnabled(bool enabled)
 {
-    if (d->m_backgroundEnabled != enabled) {
-        d->m_backgroundEnabled = enabled;
-    }
+    d->m_backgroundEnabled = enabled;
 }
 
 bool KUrlNavigator::backgroundEnabled() const
