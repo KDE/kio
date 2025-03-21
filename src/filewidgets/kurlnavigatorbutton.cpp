@@ -40,7 +40,7 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     , m_subDir()
     , m_openSubDirsTimer(nullptr)
     , m_subDirsJob(nullptr)
-    , m_padding(6)
+    , m_padding(5)
 {
     setAcceptDrops(true);
     setUrl(url);
@@ -239,10 +239,10 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::ButtonText, palette().text().color());
 
         if (leftToRight) {
-            option.rect = QRect(textRect.right() - m_padding / 2, 0, arrowWidth, buttonHeight);
+            option.rect = QRect(textRect.right(), 0, arrowWidth, buttonHeight);
         } else {
             // Separator is the first item in RtL mode
-            option.rect = QRect(m_padding / 2, 0, arrowWidth, buttonHeight);
+            option.rect = QRect(0, 0, arrowWidth, buttonHeight);
         }
 
         if (!m_hoverOverArrow) {
