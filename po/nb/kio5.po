@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-26 01:37+0000\n"
+"POT-Creation-Date: 2025-03-15 01:57+0000\n"
 "PO-Revision-Date: 2025-02-16 15:54+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -1169,9 +1169,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Du kan prøve å søke på nettet etter et programtillegg (en «KIO-arbeider»/"
-"«KIO worker») som støtter denne protokollen. Et mulig sted å prøve er <a "
-"href=\"https://store.kde.org/\">https://store.kde.org/</a>."
+"Du kan prøve å søke på nettet etter et programtillegg (en «KIO-"
+"arbeider»/«KIO worker») som støtter denne protokollen. Et mulig sted å prøve "
+"er <a href=\"https://store.kde.org/\">https://store.kde.org/</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -3227,8 +3227,8 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"En eller flere filer på denne enheten er i bruk av programmet <application>«"
-"%2»</application>."
+"En eller flere filer på denne enheten er i bruk av programmet "
+"<application>«%2»</application>."
 msgstr[1] ""
 "En eller flere filer på denne enheten er i bruk av følgende programmer: "
 "<application>\"%2\"</application>."
@@ -3589,27 +3589,27 @@ msgstr "&Åpne"
 msgid "Icon size: %1 pixels"
 msgstr "Ikonstørrelse: %1 piksler"
 
-#: filewidgets/kfilewidget.cpp:2472
+#: filewidgets/kfilewidget.cpp:2471
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Velg automatisk fil&etternavn «%1»"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2472
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "etternavnet <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2478
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Velg automatisk fil&etternavn"
 
-#: filewidgets/kfilewidget.cpp:2480
+#: filewidgets/kfilewidget.cpp:2479
 #, kde-format
 msgid "a suitable extension"
 msgstr "et passende etternavn"
 
-#: filewidgets/kfilewidget.cpp:2488
+#: filewidgets/kfilewidget.cpp:2487
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3636,12 +3636,12 @@ msgstr ""
 "automatisk fjernet).</li></ol> Hvis du ikke er sikker, så behold valget "
 "slått på, fordi det gjør det lettere å holde styr på filene dine."
 
-#: filewidgets/kfilewidget.cpp:2946
+#: filewidgets/kfilewidget.cpp:2945
 #, kde-format
 msgid "&File type:"
 msgstr "&Filtype:"
 
-#: filewidgets/kfilewidget.cpp:2947
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3650,12 +3650,12 @@ msgstr ""
 "<qt>Dette er filtypevelgeren. Du bruker den til å velge i hvilket format "
 "fila skal lagres.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2949
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2951
+#: filewidgets/kfilewidget.cpp:2950
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6565,11 +6565,10 @@ msgstr ""
 "<para>I denne modulen kan du tilpasse nettsøk-nøkkelord. Med nettsøk-"
 "nøkkelord kan du slå opp eller lete etter ord på Internett på en rask måte. "
 "For eksempel kan du søke etter informasjon om KDE-prosjektet med søkemotoren "
-"Google ved bare å taste <emphasis>gg:KDE</emphasis> eller "
-"<emphasis>google:KDE</emphasis>. </para><para> Hvis du velger en standard "
-"søkemotor, så kan du søke etter vanlige ord eller uttrykk i denne "
-"søkemotoren ved å taste dem inn i programmer som har støtte for dette, slik "
-"som Konqueror.</para>"
+"Google ved bare å taste <emphasis>gg:KDE</emphasis> eller <emphasis>google:"
+"KDE</emphasis>. </para><para> Hvis du velger en standard søkemotor, så kan "
+"du søke etter vanlige ord eller uttrykk i denne søkemotoren ved å taste dem "
+"inn i programmer som har støtte for dette, slik som Konqueror.</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -6588,8 +6587,8 @@ msgstr ""
 "nettverket eller lokal harddisk.</p><p>KDE leveres med mange "
 "forhåndsdefinerte nøkkelord. En eksempel er nøkkelorder for Google (TM). For "
 "å bruke den skriver du ganske enkelt «gg» fulgt av skilletegnet for "
-"nøkkelord og søkebegrepet, for eksempel <span style=\" font-weight:600;"
-"\">gg:KDE</span>.</p></body></html>"
+"nøkkelord og søkebegrepet, for eksempel <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
