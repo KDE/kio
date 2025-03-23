@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-02-15 11:15+0100\n"
+"PO-Revision-Date: 2025-03-22 12:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3741,18 +3741,14 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "Nie można użyć ukośników wstecznych w nazwach plików i katalogów."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Nie można utworzyć katalogu o nazwie <filename>%1</filename>, ponieważ jest "
-"ona zarezerwowana dla systemu operacyjnego."
+"Utworzenie pliku lub katalogu o nazwie <filename>%1</filename> jest "
+"niemożliwe, bo nachodziłoby na katalog domowy użytkownika."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format

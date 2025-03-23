@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-02-13 09:09+0100\n"
+"PO-Revision-Date: 2025-03-22 16:16+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -3760,6 +3760,9 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"Създаването на файл или папка с име <filename>%1</filename> не евъзможно, "
+"тъй като би се припокрило с местоположението на домашната папка на "
+"потребителя."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
