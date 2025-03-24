@@ -102,7 +102,7 @@ public:
 
     void paintJobTransfers(QPainter *painter, const qreal &jobAnimationAngle, const QPoint &iconPos, const QStyleOptionViewItem &opt);
     int scaledEmblemSize(QSize currentSize) const;
-    void setEmblemRect(QRect rect);
+    void setSelectionEmblemRect(QRect rect);
 
 public:
     KFileItemDelegate::InformationList informationList;
@@ -723,7 +723,7 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
     painter->restore();
 }
 
-void KFileItemDelegate::Private::setEmblemRect(QRect rect)
+void KFileItemDelegate::Private::setSelectionEmblemRect(QRect rect)
 {
     if (emblemRect != rect) {
         emblemRect = rect;
@@ -773,6 +773,8 @@ void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, c
     if (!option->icon.isNull()) {
         option->features |= QStyleOptionViewItem::HasDecoration;
     }
+
+    option->features |= QStyleOptionViewItem::HasCheckIndicator;
 
     // ### Make sure this value is always true for now
     option->showDecorationSelected = true;
@@ -1133,7 +1135,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const auto emblemSize = d->scaledEmblemSize(opt.decorationSize);
     const qreal y = opt.rect.topLeft().y() + (qreal(emblemSize) / 4);
     const qreal x = opt.rect.topLeft().x() + (qreal(emblemSize) / 4);
-    d->setEmblemRect(QRect(x, y, emblemSize, emblemSize));
+    d->setSelectionEmblemRect(QRect(x, y, emblemSize, emblemSize));
 
     if (!(option.state & QStyle::State_Enabled)) {
         opt.palette.setCurrentColorGroup(QPalette::Disabled);
@@ -1191,7 +1193,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                     pixmap = d->transition(fadeFromPixmap, pixmap, state->fadeProgress());
                 }
                 painter->drawPixmap(option.rect.topLeft(), pixmap);
-                drawSelectionEmblem(option, painter);
+                if (index.column() == 0) {
+                    drawSelectionEmblem(option, painter);
+                }
                 if (d->jobTransfersVisible && index.column() == 0) {
                     if (index.data(KDirModel::HasJobRole).toBool()) {
                         d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
@@ -1267,7 +1271,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter);
+        if (index.column() == 0) {
+            drawSelectionEmblem(option, painter);
+        }
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1280,7 +1286,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter);
+        if (index.column() == 0) {
+            drawSelectionEmblem(option, painter);
+        }
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1300,7 +1308,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         }
 
         painter->drawPixmap(option.rect.topLeft(), pixmap);
-        drawSelectionEmblem(option, painter);
+        if (index.column() == 0) {
+            drawSelectionEmblem(option, painter);
+        }
         painter->setRenderHint(QPainter::Antialiasing);
         if (d->jobTransfersVisible && index.column() == 0) {
             if (index.data(KDirModel::HasJobRole).toBool()) {
@@ -1326,7 +1336,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
-    drawSelectionEmblem(option, painter);
+    if (index.column() == 0) {
+        drawSelectionEmblem(option, painter);
+    }
 
     if (d->jobTransfersVisible && index.column() == 0 && state) {
         if (index.data(KDirModel::HasJobRole).toBool()) {
