@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-02-12 22:59+0100\n"
+"PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2103,6 +2103,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Kvankam kontakto stis farita kun la servilo, respondo ne estis ricevita ene "
+"de la tempodaŭro atribuita por ĉi tiu aldemando."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2535,6 +2537,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"La KIO-laboranto por protokolo “%1” en %2 ne estis ŝargita ĉar ĉiuj KIO-"
+"laborantoj troviĝantaj ekster %3 kaj alpetantaj altigitajn privilegiojn "
+"estas konsiderataj nesekuraj."
 
 #: core/worker.cpp:360
 #, kde-format
