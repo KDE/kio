@@ -723,21 +723,27 @@ KFileItemDelegate *KDirOperatorPrivate::fileItemDelegateForIndex(const QModelInd
 
 void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
 {
-    auto fileItemDelegate = fileItemDelegateForIndex(index);
-    if (fileItemDelegate) {
-        // TODO This is wrong for details view?
-        fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+    // Only update for this in singleclick and multiselection mode
+    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+        auto fileItemDelegate = fileItemDelegateForIndex(index);
+        if (fileItemDelegate) {
+            // TODO This is wrong for details view?
+            fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+        }
     }
 }
 
 bool KDirOperatorPrivate::isEmblemClicked(const QModelIndex index)
 {
-    auto fileItemDelegate = fileItemDelegateForIndex(index);
-    if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
-        m_isEmblemClicked = true;
-        m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
-        m_isEmblemClicked = false;
-        return true;
+    // Only check for this in singleclick and multiselection mode
+    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+        auto fileItemDelegate = fileItemDelegateForIndex(index);
+        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
+            m_isEmblemClicked = true;
+            m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
+            m_isEmblemClicked = false;
+            return true;
+        }
     }
     return false;
 }
