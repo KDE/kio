@@ -157,6 +157,7 @@ public:
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForView() const;
 
+    KFileItemDelegate *fileItemDelegateForIndex(const QModelIndex index);
     void updateSelectionEmblemRectForIndex(const QModelIndex index);
     bool isEmblemClicked(const QModelIndex index);
 
@@ -708,29 +709,35 @@ void KDirOperatorPrivate::slotToggleIgnoreCase()
     d->sorting = d->fileView->sorting();*/
 }
 
-void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
+KFileItemDelegate *KDirOperatorPrivate::fileItemDelegateForIndex(const QModelIndex index)
 {
     auto itemDelegate = m_itemView->itemDelegateForIndex(index);
     if (itemDelegate) {
         auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-        // TODO This is wrong for details view?
         if (fileItemDelegate) {
-            fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+            return fileItemDelegate;
         }
+    }
+    return nullptr;
+}
+
+void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
+{
+    auto fileItemDelegate = fileItemDelegateForIndex(index);
+    if (fileItemDelegate) {
+        // TODO This is wrong for details view?
+        fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
     }
 }
 
 bool KDirOperatorPrivate::isEmblemClicked(const QModelIndex index)
 {
-    auto itemDelegate = m_itemView->itemDelegateForIndex(index);
-    if (itemDelegate) {
-        auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
-            m_isEmblemClicked = true;
-            m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
-            m_isEmblemClicked = false;
-            return true;
-        }
+    auto fileItemDelegate = fileItemDelegateForIndex(index);
+    if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
+        m_isEmblemClicked = true;
+        m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
+        m_isEmblemClicked = false;
+        return true;
     }
     return false;
 }
