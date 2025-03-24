@@ -727,7 +727,6 @@ void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex in
     if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
         auto fileItemDelegate = fileItemDelegateForIndex(index);
         if (fileItemDelegate) {
-            // TODO This is wrong for details view?
             fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
         }
     }
@@ -738,10 +737,13 @@ bool KDirOperatorPrivate::isEmblemClicked(const QModelIndex index)
     // Only check for this in singleclick and multiselection mode
     if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
         auto fileItemDelegate = fileItemDelegateForIndex(index);
-        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
-            m_isEmblemClicked = true;
-            m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
-            m_isEmblemClicked = false;
+        auto mousePointWithHeader = m_itemView->mapFromGlobal(QCursor::pos());
+        // If we are using treeview we need to remove the header coordinates from pointer coords
+        QTreeView *treeView = qobject_cast<QTreeView *>(m_itemView);
+        if (treeView) {
+            mousePointWithHeader.setY(mousePointWithHeader.y() - treeView->header()->height());
+        }
+        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(mousePointWithHeader)) {
             return true;
         }
     }
@@ -1306,7 +1308,9 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
 
         const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
-        d->updateSelectionEmblemRectForIndex(hoveredIndex);
+        if (hoveredIndex.isValid()) {
+            d->updateSelectionEmblemRectForIndex(hoveredIndex);
+        }
 
         if (d->m_preview && !d->m_preview->isHidden()) {
             if (d->m_lastHoveredIndex == hoveredIndex) {
@@ -1340,13 +1344,20 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             case Qt::ForwardButton:
                 forward();
                 return true;
+            case Qt::MouseButton::LeftButton:
+                // Return true only if this is clicked
+                if (d->isEmblemClicked(hoveredIndex)) {
+                    // when we return true here, we also tell the
+                    // selection dragging tool to stay on
+                    d->m_isEmblemClicked = true;
+                    d->m_itemView->selectionModel()->select(hoveredIndex, QItemSelectionModel::Toggle);
+                    d->m_isEmblemClicked = false;
+                    return true;
+                }
+                break;
             default:
                 break;
             }
-        }
-        // Return this only when it's true, so other events wont be skipped
-        if (d->isEmblemClicked(hoveredIndex)) {
-            return true;
         }
         break;
     }
