@@ -399,6 +399,7 @@ public:
     bool eventFilter(QObject *object, QEvent *event) override;
 
     QRect selectionEmblemRect() const;
+    void setSelectionEmblemRect(QRect rect, int iconSize);
 
 public Q_SLOTS:
     /**

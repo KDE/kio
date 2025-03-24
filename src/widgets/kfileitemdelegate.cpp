@@ -95,14 +95,13 @@ public:
     void restartAnimation(KIO::AnimationState *state);
     QPixmap applyHoverEffect(const QPixmap &icon) const;
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
-    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const;
+    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index);
     void drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
 
     void gotNewIcon(const QModelIndex &index);
 
     void paintJobTransfers(QPainter *painter, const qreal &jobAnimationAngle, const QPoint &iconPos, const QStyleOptionViewItem &opt);
-    int scaledEmblemSize(QSize currentSize) const;
-    void setSelectionEmblemRect(QRect rect);
+    int scaledEmblemSize(int iconSize) const;
 
 public:
     KFileItemDelegate::InformationList informationList;
@@ -723,14 +722,17 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
     painter->restore();
 }
 
-void KFileItemDelegate::Private::setSelectionEmblemRect(QRect rect)
+void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
 {
-    if (emblemRect != rect) {
-        emblemRect = rect;
+    const auto emblemSize = d->scaledEmblemSize(iconSize);
+    const auto emblemRect = QRect(rect.topLeft().x(), rect.topLeft().y(), emblemSize, emblemSize);
+
+    if (d->emblemRect != emblemRect) {
+        d->emblemRect = emblemRect;
     }
 }
 
-void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
+void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index)
 {
     const KFileItem item = fileItem(index);
     bool updateFontMetrics = false;
@@ -1132,10 +1134,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QStyleOptionViewItem opt(option);
     d->initStyleOption(&opt, index);
     d->setActiveMargins(d->verticalLayout(opt) ? Qt::Vertical : Qt::Horizontal);
-    const auto emblemSize = d->scaledEmblemSize(opt.decorationSize);
-    const qreal y = opt.rect.topLeft().y() + (qreal(emblemSize) / 4);
-    const qreal x = opt.rect.topLeft().x() + (qreal(emblemSize) / 4);
-    d->setSelectionEmblemRect(QRect(x, y, emblemSize, emblemSize));
 
     if (!(option.state & QStyle::State_Enabled)) {
         opt.palette.setCurrentColorGroup(QPalette::Disabled);
@@ -1360,19 +1358,17 @@ void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainte
     }
 }
 
-int KFileItemDelegate::Private::scaledEmblemSize(QSize currentSize) const
+int KFileItemDelegate::Private::scaledEmblemSize(int iconSize) const
 {
-    const int emblemSize = qMin(currentSize.width(), currentSize.height()) / 2;
-
-    if (emblemSize <= KIconLoader::SizeSmallMedium) {
+    if (iconSize <= KIconLoader::SizeSmallMedium) {
         return KIconLoader::SizeSmall;
-    } else if (emblemSize <= KIconLoader::SizeMedium) {
+    } else if (iconSize <= KIconLoader::SizeMedium) {
         return KIconLoader::SizeSmallMedium;
-    } else if (emblemSize <= KIconLoader::SizeLarge) {
+    } else if (iconSize <= KIconLoader::SizeLarge) {
         return KIconLoader::SizeSmallMedium;
-    } else if (emblemSize <= KIconLoader::SizeHuge) {
+    } else if (iconSize <= KIconLoader::SizeHuge) {
         return KIconLoader::SizeMedium;
-    } else if (emblemSize <= KIconLoader::SizeEnormous) {
+    } else if (iconSize <= KIconLoader::SizeEnormous) {
         return KIconLoader::SizeLarge;
     }
 

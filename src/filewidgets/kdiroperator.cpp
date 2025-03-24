@@ -1258,12 +1258,20 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         d->m_isTouchEvent = true;
         break;
     case QEvent::MouseMove: {
+        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
+        auto itemDelegate = d->m_itemView->itemDelegateForIndex(hoveredIndex);
+        if (itemDelegate) {
+            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+            // The selectionEmblemRect can return whatever position here for some reason?
+            // Like it may be previous hovered item position or something else
+            if (fileItemDelegate) {
+                fileItemDelegate->setSelectionEmblemRect(d->m_itemView->visualRect(hoveredIndex), iconSize());
+            }
+        }
         if (d->m_isTouchEvent) {
             return true;
         }
         if (d->m_preview && !d->m_preview->isHidden()) {
-            const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
-
             if (d->m_lastHoveredIndex == hoveredIndex) {
                 return QWidget::eventFilter(watched, event);
             }
@@ -1289,6 +1297,8 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
             // The selectionEmblemRect can return whatever position here for some reason?
             // Like it may be previous hovered item position or something else
+            qWarning() << fileItemDelegate->selectionEmblemRect() << d->m_itemView->mapFromGlobal(QCursor::pos()) << d->m_itemView->visualRect(hoveredIndex)
+                       << hoveredIndex.data();
             if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(d->m_itemView->mapFromGlobal(QCursor::pos()))) {
                 d->m_isEmblemClicked = true;
                 // TODO need to append/remove the item from selected items depending on its status
