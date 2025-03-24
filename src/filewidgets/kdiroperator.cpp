@@ -157,6 +157,9 @@ public:
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForView() const;
 
+    void updateSelectionEmblemRectForIndex(const QModelIndex index);
+    bool isEmblemClicked(const QModelIndex index);
+
     QList<QAction *> insertOpenWithActions();
 
     // private members
@@ -703,6 +706,33 @@ void KDirOperatorPrivate::slotToggleIgnoreCase()
     else
         d->fileView->setSorting( sorting & ~QDir::IgnoreCase );
     d->sorting = d->fileView->sorting();*/
+}
+
+void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
+{
+    auto itemDelegate = m_itemView->itemDelegateForIndex(index);
+    if (itemDelegate) {
+        auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+        // TODO This is wrong for details view?
+        if (fileItemDelegate) {
+            fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+        }
+    }
+}
+
+bool KDirOperatorPrivate::isEmblemClicked(const QModelIndex index)
+{
+    auto itemDelegate = m_itemView->itemDelegateForIndex(index);
+    if (itemDelegate) {
+        auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(m_itemView->mapFromGlobal(QCursor::pos()))) {
+            m_isEmblemClicked = true;
+            m_itemView->selectionModel()->select(index, QItemSelectionModel::Toggle);
+            m_isEmblemClicked = false;
+            return true;
+        }
+    }
+    return false;
 }
 
 void KDirOperator::mkdir()
@@ -1258,19 +1288,13 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         d->m_isTouchEvent = true;
         break;
     case QEvent::MouseMove: {
-        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
-        auto itemDelegate = d->m_itemView->itemDelegateForIndex(hoveredIndex);
-        if (itemDelegate) {
-            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-            // The selectionEmblemRect can return whatever position here for some reason?
-            // Like it may be previous hovered item position or something else
-            if (fileItemDelegate) {
-                fileItemDelegate->setSelectionEmblemRect(d->m_itemView->visualRect(hoveredIndex), iconSize());
-            }
-        }
         if (d->m_isTouchEvent) {
             return true;
         }
+
+        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
+        d->updateSelectionEmblemRectForIndex(hoveredIndex);
+
         if (d->m_preview && !d->m_preview->isHidden()) {
             if (d->m_lastHoveredIndex == hoveredIndex) {
                 return QWidget::eventFilter(watched, event);
@@ -1292,21 +1316,6 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     case QEvent::MouseButtonPress:
     case QEvent::MouseButtonDblClick: {
         const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
-        auto itemDelegate = d->m_itemView->itemDelegateForIndex(hoveredIndex);
-        if (itemDelegate) {
-            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-            // The selectionEmblemRect can return whatever position here for some reason?
-            // Like it may be previous hovered item position or something else
-            qWarning() << fileItemDelegate->selectionEmblemRect() << d->m_itemView->mapFromGlobal(QCursor::pos()) << d->m_itemView->visualRect(hoveredIndex)
-                       << hoveredIndex.data();
-            if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(d->m_itemView->mapFromGlobal(QCursor::pos()))) {
-                d->m_isEmblemClicked = true;
-                // TODO need to append/remove the item from selected items depending on its status
-                d->m_itemView->selectionModel()->select(hoveredIndex, QItemSelectionModel::Toggle);
-                d->m_isEmblemClicked = false;
-                return true;
-            }
-        }
 
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent) {
@@ -1321,6 +1330,10 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             default:
                 break;
             }
+        }
+        // Return this only when it's true, so other events wont be skipped
+        if (d->isEmblemClicked(hoveredIndex)) {
+            return true;
         }
         break;
     }
