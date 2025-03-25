@@ -36,10 +36,14 @@ protected:
     bool event(QEvent *event) override;
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 private:
     bool m_hideDetailColumns;
+    bool m_isEmblemClicked;
+    bool isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePosition);
 };
 
 #endif

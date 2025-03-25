@@ -157,9 +157,7 @@ public:
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForView() const;
 
-    KFileItemDelegate *fileItemDelegateForIndex(const QModelIndex index);
     void updateSelectionEmblemRectForIndex(const QModelIndex index);
-    bool isEmblemClicked(const QModelIndex index);
 
     QList<QAction *> insertOpenWithActions();
 
@@ -224,7 +222,6 @@ public:
     bool m_showOpenWithActions = false;
     bool m_isTouchEvent = false;
     bool m_isTouchDrag = false;
-    bool m_isEmblemClicked = false;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -709,45 +706,18 @@ void KDirOperatorPrivate::slotToggleIgnoreCase()
     d->sorting = d->fileView->sorting();*/
 }
 
-KFileItemDelegate *KDirOperatorPrivate::fileItemDelegateForIndex(const QModelIndex index)
-{
-    auto itemDelegate = m_itemView->itemDelegateForIndex(index);
-    if (itemDelegate) {
-        auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-        if (fileItemDelegate) {
-            return fileItemDelegate;
-        }
-    }
-    return nullptr;
-}
-
 void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
 {
     // Only update for this in singleclick and multiselection mode
     if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        auto fileItemDelegate = fileItemDelegateForIndex(index);
-        if (fileItemDelegate) {
-            fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+        auto itemDelegate = m_itemView->itemDelegateForIndex(index);
+        if (itemDelegate) {
+            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+            if (fileItemDelegate) {
+                fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
+            }
         }
     }
-}
-
-bool KDirOperatorPrivate::isEmblemClicked(const QModelIndex index)
-{
-    // Only check for this in singleclick and multiselection mode
-    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        auto fileItemDelegate = fileItemDelegateForIndex(index);
-        auto mousePointWithHeader = m_itemView->mapFromGlobal(QCursor::pos());
-        // If we are using treeview we need to remove the header coordinates from pointer coords
-        QTreeView *treeView = qobject_cast<QTreeView *>(m_itemView);
-        if (treeView) {
-            mousePointWithHeader.setY(mousePointWithHeader.y() - treeView->header()->height());
-        }
-        if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(mousePointWithHeader)) {
-            return true;
-        }
-    }
-    return false;
 }
 
 void KDirOperator::mkdir()
@@ -1332,8 +1302,6 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     }
     case QEvent::MouseButtonPress:
     case QEvent::MouseButtonDblClick: {
-        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
-
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent) {
             // Navigate and then discard the event so it doesn't select an item on the directory navigated to.
@@ -1344,17 +1312,6 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
             case Qt::ForwardButton:
                 forward();
                 return true;
-            case Qt::MouseButton::LeftButton:
-                // Return true only if this is clicked
-                if (d->isEmblemClicked(hoveredIndex)) {
-                    // when we return true here, we also tell the
-                    // selection dragging tool to stay on
-                    d->m_isEmblemClicked = true;
-                    d->m_itemView->selectionModel()->select(hoveredIndex, QItemSelectionModel::Toggle);
-                    d->m_isEmblemClicked = false;
-                    return true;
-                }
-                break;
             default:
                 break;
             }
@@ -2732,7 +2689,7 @@ void KDirOperatorPrivate::slotActivated(const QModelIndex &index)
     KFileItem item = m_dirModel->itemForIndex(dirIndex);
 
     const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
-    if (item.isNull() || m_isEmblemClicked || (modifiers & Qt::ShiftModifier) || (modifiers & Qt::ControlModifier)) {
+    if (item.isNull() || (modifiers & Qt::ShiftModifier) || (modifiers & Qt::ControlModifier)) {
         return;
     }
 
