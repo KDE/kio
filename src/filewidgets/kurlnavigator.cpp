@@ -201,7 +201,7 @@ public:
     bool m_showFullPath = false;
     bool m_backgroundEnabled = true;
 
-    int m_padding = 4;
+    int m_padding = 5;
 
     struct {
         bool showHidden = false;
@@ -832,7 +832,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 
     // Subtract all widgets from the available width, that must be shown anyway
     // Make sure to take the padding into account
-    int availableWidth = q->width() - (m_padding * 2) - m_toggleEditableMode->minimumWidth();
+    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
 
     availableWidth -= m_badgeWidgetContainer->width();
 
@@ -844,18 +844,9 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         availableWidth -= m_schemes->width();
     }
 
-    // Check whether buttons must be hidden at all...
-    int requiredButtonWidth = 0;
-    for (const auto *button : std::as_const(m_navButtons)) {
-        requiredButtonWidth += button->minimumWidth();
-    }
+    availableWidth -= m_dropDownButton->width();
 
-    if (requiredButtonWidth > availableWidth) {
-        // At least one button must be hidden. This implies that the
-        // drop-down button must get visible, which again decreases the
-        // available width.
-        availableWidth -= m_dropDownButton->width();
-    }
+    availableWidth -= m_padding * 2;
 
     // Hide buttons...
     bool isLastButton = true;
