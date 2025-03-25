@@ -418,7 +418,7 @@ private:
     std::unique_ptr<Private> const d; /// @internal
     Q_DISABLE_COPY(KFileItemDelegate)
 
-    void drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter) const;
+    void drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, int column) const;
 };
 
 #endif // KFILEITEMDELEGATE_H
