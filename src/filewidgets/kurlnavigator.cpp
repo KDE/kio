@@ -848,7 +848,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 
     availableWidth -= m_dropDownButton->width();
 
-    availableWidth -= m_padding * 2;
+    // Count the paddings of previous button and current button
+    availableWidth -= m_padding * 4;
 
     // Hide buttons...
     bool isLastButton = true;
