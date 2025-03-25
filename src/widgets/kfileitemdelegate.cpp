@@ -95,7 +95,7 @@ public:
     void restartAnimation(KIO::AnimationState *state);
     QPixmap applyHoverEffect(const QPixmap &icon) const;
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
-    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index);
+    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const;
     void drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
 
     void gotNewIcon(const QModelIndex &index);
@@ -725,14 +725,10 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
 void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
 {
     const auto emblemSize = d->scaledEmblemSize(iconSize);
-    const auto emblemRect = QRect(rect.topLeft().x(), rect.topLeft().y(), emblemSize, emblemSize);
-
-    if (d->emblemRect != emblemRect) {
-        d->emblemRect = emblemRect;
-    }
+    d->emblemRect = QRect(rect.topLeft().x(), rect.topLeft().y(), emblemSize, emblemSize);
 }
 
-void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index)
+void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
 {
     const KFileItem item = fileItem(index);
     bool updateFontMetrics = false;
@@ -775,8 +771,6 @@ void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, c
     if (!option->icon.isNull()) {
         option->features |= QStyleOptionViewItem::HasDecoration;
     }
-
-    option->features |= QStyleOptionViewItem::HasCheckIndicator;
 
     // ### Make sure this value is always true for now
     option->showDecorationSelected = true;
@@ -1300,16 +1294,13 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         }
 
         painter->drawPixmap(option.rect.topLeft(), pixmap);
-
         drawSelectionEmblem(option, painter, index.column());
-
         painter->setRenderHint(QPainter::Antialiasing);
         if (d->jobTransfersVisible && index.column() == 0) {
             if (index.data(KDirModel::HasJobRole).toBool()) {
                 d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
             }
         }
-
         return;
     }
 
@@ -1335,7 +1326,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
         }
     }
-
     painter->restore();
 }
 
@@ -1357,14 +1347,10 @@ int KFileItemDelegate::Private::scaledEmblemSize(int iconSize) const
 {
     if (iconSize <= KIconLoader::SizeSmallMedium) {
         return KIconLoader::SizeSmall;
-    } else if (iconSize <= KIconLoader::SizeMedium) {
-        return KIconLoader::SizeSmallMedium;
-    } else if (iconSize <= KIconLoader::SizeLarge) {
-        return KIconLoader::SizeSmallMedium;
     } else if (iconSize <= KIconLoader::SizeHuge) {
-        return KIconLoader::SizeMedium;
+        return KIconLoader::SizeSmallMedium;
     } else if (iconSize <= KIconLoader::SizeEnormous) {
-        return KIconLoader::SizeLarge;
+        return KIconLoader::SizeMedium;
     }
 
     return KIconLoader::SizeHuge;
