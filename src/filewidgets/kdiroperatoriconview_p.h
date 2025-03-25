@@ -26,6 +26,8 @@ protected:
     void initViewItemOption(QStyleOptionViewItem *option) const override;
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
@@ -34,6 +36,8 @@ protected
 
 private:
     QStyleOptionViewItem::Position decorationPosition;
+    bool m_isEmblemClicked;
+    bool isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePosition);
 };
 
 #endif // KDIROPERATORICONVIEW_P_H

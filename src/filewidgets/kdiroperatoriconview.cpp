@@ -74,7 +74,16 @@ void KDirOperatorIconView::dragEnterEvent(QDragEnterEvent *event)
 
 void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
 {
-    if (!indexAt(event->pos()).isValid()) {
+    const QModelIndex index = indexAt(event->pos());
+
+    // When selection emblem is clicked, select it and don't do anything else
+    if (isSelectionEmblemClicked(index, event->pos())) {
+        m_isEmblemClicked = true;
+        selectionModel()->select(index, QItemSelectionModel::Toggle);
+        return;
+    }
+
+    if (!index.isValid()) {
         const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
         if (!(modifiers & Qt::ShiftModifier) && !(modifiers & Qt::ControlModifier)) {
             clearSelection();
@@ -82,6 +91,39 @@ void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
     }
 
     QListView::mousePressEvent(event);
+}
+
+void KDirOperatorIconView::mouseMoveEvent(QMouseEvent *event)
+{
+    // Disallow selection dragging when emblem is clicked
+    if (m_isEmblemClicked) {
+        return;
+    }
+    QListView::mouseMoveEvent(event);
+}
+
+void KDirOperatorIconView::mouseReleaseEvent(QMouseEvent *event)
+{
+    // Reset the emblem selection
+    if (m_isEmblemClicked) {
+        m_isEmblemClicked = false;
+    }
+    QListView::mouseReleaseEvent(event);
+}
+
+bool KDirOperatorIconView::isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePos)
+{
+    // Only check for this in singleclick and multiselection mode
+    if (selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+        auto itemDelegate = itemDelegateForIndex(index);
+        if (itemDelegate) {
+            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
+            if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(mousePos)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void KDirOperatorIconView::wheelEvent(QWheelEvent *event)
