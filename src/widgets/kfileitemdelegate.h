@@ -398,7 +398,14 @@ public:
      */
     bool eventFilter(QObject *object, QEvent *event) override;
 
+    /**
+     * @return The rectangle where selectionEmblem is being drawn
+     */
     QRect selectionEmblemRect() const;
+
+    /**
+     * Set the rectangle where selectionEmblem should be drawn in.
+     */
     void setSelectionEmblemRect(QRect rect, int iconSize);
 
 public Q_SLOTS:
