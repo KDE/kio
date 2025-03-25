@@ -320,7 +320,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     // Make sure pathBox does not portrude outside of the above frameLineEdit background
     const int paddingLeft = q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin);
     const int paddingRight = q->style()->pixelMetric(QStyle::PM_LayoutRightMargin);
-    q->setContentsMargins(paddingLeft, 0, paddingRight, 0);
+    q->rect().adjust(0, -1, 0, 1);
+    q->setContentsMargins(paddingLeft, 1, paddingRight, 1);
     m_pathBox->setContentsMargins(paddingLeft, 0, paddingRight, 0);
 }
 
@@ -554,6 +555,7 @@ void KUrlNavigatorPrivate::switchView()
     m_toggleEditableMode->setChecked(m_editable);
     updateContent();
     if (q->isUrlEditable()) {
+        m_pathBox->setFixedHeight(m_badgeWidgetContainer->height());
         m_pathBox->setFocus();
     }
 
@@ -1427,8 +1429,6 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
     }
 
-    // Adjust the rectangle due to how QRect coordinates work
-    option.rect = option.rect.adjusted(1, 0, -1, 0);
     if (backgroundEnabled()) {
         // Draw primitive always, but change color if not editable
         if (!d->m_editable) {
