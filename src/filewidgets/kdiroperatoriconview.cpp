@@ -6,6 +6,7 @@
 */
 
 #include "kdiroperatoriconview_p.h"
+#include "kdiroperatorselectionemblem.h"
 
 #include <QApplication>
 #include <QDragEnterEvent>
@@ -77,7 +78,7 @@ void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
     const QModelIndex index = indexAt(event->pos());
 
     // When selection emblem is clicked, select it and don't do anything else
-    if (isSelectionEmblemClicked(index, event->pos())) {
+    if (KDirOperatorSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
         m_isEmblemClicked = true;
         selectionModel()->select(index, QItemSelectionModel::Toggle);
         return;
@@ -109,21 +110,6 @@ void KDirOperatorIconView::mouseReleaseEvent(QMouseEvent *event)
         m_isEmblemClicked = false;
     }
     QListView::mouseReleaseEvent(event);
-}
-
-bool KDirOperatorIconView::isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePos)
-{
-    // Only check for this in singleclick and multiselection mode
-    if (selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        auto itemDelegate = itemDelegateForIndex(index);
-        if (itemDelegate) {
-            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-            if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(mousePos)) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
 
 void KDirOperatorIconView::wheelEvent(QWheelEvent *event)

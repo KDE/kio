@@ -5,6 +5,7 @@
 */
 
 #include "kdiroperatordetailview_p.h"
+#include "kdiroperatorselectionemblem.h"
 
 #include <KFileItemDelegate>
 #include <kdirlister.h>
@@ -119,7 +120,7 @@ void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
     // When selection emblem is clicked, select it and don't do anything else
-    if (isSelectionEmblemClicked(index, event->pos())) {
+    if (KDirOperatorSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
         m_isEmblemClicked = true;
         selectionModel()->select(index, QItemSelectionModel::Toggle);
         return;
@@ -151,21 +152,6 @@ void KDirOperatorDetailView::mouseReleaseEvent(QMouseEvent *event)
         m_isEmblemClicked = false;
     }
     QTreeView::mouseReleaseEvent(event);
-}
-
-bool KDirOperatorDetailView::isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePos)
-{
-    // Only check for this in singleclick and multiselection mode
-    if (selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        auto itemDelegate = itemDelegateForIndex(index);
-        if (itemDelegate) {
-            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-            if (fileItemDelegate && fileItemDelegate->selectionEmblemRect().contains(mousePos)) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
 
 void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QModelIndex &previous)

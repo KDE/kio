@@ -15,6 +15,7 @@
 #include "kdiroperator.h"
 #include "kdiroperatordetailview_p.h"
 #include "kdiroperatoriconview_p.h"
+#include "kdiroperatorselectionemblem.h"
 #include "kdirsortfilterproxymodel.h"
 #include "kfileitem.h"
 #include "kfilemetapreview_p.h"
@@ -156,8 +157,6 @@ public:
     int iconSizeForViewType(QAbstractItemView *itemView) const;
     void writeIconZoomSettingsIfNeeded();
     ZoomSettingsForView zoomSettingsForView() const;
-
-    void updateSelectionEmblemRectForIndex(const QModelIndex index);
 
     QList<QAction *> insertOpenWithActions();
 
@@ -704,20 +703,6 @@ void KDirOperatorPrivate::slotToggleIgnoreCase()
     else
         d->fileView->setSorting( sorting & ~QDir::IgnoreCase );
     d->sorting = d->fileView->sorting();*/
-}
-
-void KDirOperatorPrivate::updateSelectionEmblemRectForIndex(const QModelIndex index)
-{
-    // Only update for this in singleclick and multiselection mode
-    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        auto itemDelegate = m_itemView->itemDelegateForIndex(index);
-        if (itemDelegate) {
-            auto fileItemDelegate = qobject_cast<KFileItemDelegate *>(itemDelegate);
-            if (fileItemDelegate) {
-                fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(index), q->iconSize());
-            }
-        }
-    }
 }
 
 void KDirOperator::mkdir()
@@ -1279,7 +1264,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
         const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
         if (hoveredIndex.isValid()) {
-            d->updateSelectionEmblemRectForIndex(hoveredIndex);
+            KDirOperatorSelectionEmblem(d->m_itemView, hoveredIndex).updateSelectionEmblemRectForIndex(iconSize());
         }
 
         if (d->m_preview && !d->m_preview->isHidden()) {
