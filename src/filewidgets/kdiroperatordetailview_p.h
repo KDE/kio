@@ -43,7 +43,6 @@ protected:
 private:
     bool m_hideDetailColumns;
     bool m_isEmblemClicked;
-    bool isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePosition);
 };
 
 #endif

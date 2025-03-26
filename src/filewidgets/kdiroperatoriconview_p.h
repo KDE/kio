@@ -37,7 +37,6 @@ protected
 private:
     QStyleOptionViewItem::Position decorationPosition;
     bool m_isEmblemClicked;
-    bool isSelectionEmblemClicked(const QModelIndex index, const QPoint mousePosition);
 };
 
 #endif // KDIROPERATORICONVIEW_P_H
