@@ -15,9 +15,9 @@
 #include "kdiroperator.h"
 #include "kdiroperatordetailview_p.h"
 #include "kdiroperatoriconview_p.h"
-#include "kdiroperatorselectionemblem.h"
 #include "kdirsortfilterproxymodel.h"
 #include "kfileitem.h"
+#include "kfileitemselectionemblem.h"
 #include "kfilemetapreview_p.h"
 #include "knewfilemenu.h"
 #include "kpreviewwidgetbase.h"
@@ -1264,7 +1264,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
         const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
         if (hoveredIndex.isValid()) {
-            KDirOperatorSelectionEmblem(d->m_itemView, hoveredIndex).updateSelectionEmblemRectForIndex(iconSize());
+            KFileItemSelectionEmblem(d->m_itemView, hoveredIndex).updateSelectionEmblemRectForIndex(iconSize());
         }
 
         if (d->m_preview && !d->m_preview->isHidden()) {

@@ -20,9 +20,9 @@ target_sources(KF6KIOFileWidgets PRIVATE
   kdiroperator.cpp
   kdiroperatordetailview.cpp
   kdiroperatoriconview.cpp
-  kdiroperatorselectionemblem.cpp
   kdirsortfilterproxymodel.cpp #used in combination with kdirmodel.cpp
   kencodingfiledialog.cpp
+  kfileitemselectionemblem.cpp
   kfilebookmarkhandler.cpp
   kfilecopytomenu.cpp
   kfilecustomdialog.cpp

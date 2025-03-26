@@ -13,11 +13,11 @@
 class KFileItemDelegate;
 class QPoint;
 
-class KDirOperatorSelectionEmblem
+class KFileItemSelectionEmblem
 {
 public:
-    KDirOperatorSelectionEmblem(QAbstractItemView *itemView, QModelIndex index);
-    ~KDirOperatorSelectionEmblem();
+    KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index);
+    ~KFileItemSelectionEmblem();
 
     void updateSelectionEmblemRectForIndex(const int iconSize);
     bool isSelectionEmblemClicked(const QPoint mousePos);
