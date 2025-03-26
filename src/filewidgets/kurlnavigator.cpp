@@ -904,7 +904,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 void KUrlNavigatorPrivate::updateTabOrder()
 {
     QMultiMap<int, QWidget *> visibleChildrenSortedByX;
-    const auto childWidgets = q->findChildren<QWidget *>();
+    const auto childWidgets = q->findChildren<KUrlNavigatorButtonBase *>();
     for (auto childWidget : childWidgets) {
         if (childWidget->isVisible()) {
             if (q->layoutDirection() == Qt::LeftToRight) {
