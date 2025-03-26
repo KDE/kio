@@ -5,7 +5,7 @@
 */
 
 #include "kdiroperatordetailview_p.h"
-#include "kdiroperatorselectionemblem.h"
+#include "kfileitemselectionemblem.h"
 
 #include <KFileItemDelegate>
 #include <kdirlister.h>
@@ -120,7 +120,7 @@ void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
     // When selection emblem is clicked, select it and don't do anything else
-    if (KDirOperatorSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
+    if (KFileItemSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
         m_isEmblemClicked = true;
         selectionModel()->select(index, QItemSelectionModel::Toggle);
         return;

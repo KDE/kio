@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kdiroperatorselectionemblem.h"
+#include "kfileitemselectionemblem.h"
 #include "kfileitemdelegate.h"
 
 #include <QAbstractItemDelegate>
@@ -13,23 +13,23 @@
 #include <QModelIndex>
 #include <QPoint>
 
-KDirOperatorSelectionEmblem::KDirOperatorSelectionEmblem(QAbstractItemView *itemView, QModelIndex index)
+KFileItemSelectionEmblem::KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index)
 {
     m_itemView = itemView;
     m_index = index;
     m_fileItemDelegate = fileItemDelegate();
 }
 
-KDirOperatorSelectionEmblem::~KDirOperatorSelectionEmblem()
+KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
 {
 }
 
-bool KDirOperatorSelectionEmblem::isEmblemEnabled()
+bool KFileItemSelectionEmblem::isEmblemEnabled()
 {
     return m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick);
 }
 
-KFileItemDelegate *KDirOperatorSelectionEmblem::fileItemDelegate()
+KFileItemDelegate *KFileItemSelectionEmblem::fileItemDelegate()
 {
     auto itemDelegate = m_itemView->itemDelegateForIndex(m_index);
     if (itemDelegate) {
@@ -38,14 +38,14 @@ KFileItemDelegate *KDirOperatorSelectionEmblem::fileItemDelegate()
     return nullptr;
 }
 
-void KDirOperatorSelectionEmblem::updateSelectionEmblemRectForIndex(const int iconSize)
+void KFileItemSelectionEmblem::updateSelectionEmblemRectForIndex(const int iconSize)
 {
     if (isEmblemEnabled() && m_fileItemDelegate) {
         m_fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(m_index), iconSize);
     }
 }
 
-bool KDirOperatorSelectionEmblem::isSelectionEmblemClicked(const QPoint mousePos)
+bool KFileItemSelectionEmblem::isSelectionEmblemClicked(const QPoint mousePos)
 {
     return (isEmblemEnabled() && m_fileItemDelegate && m_fileItemDelegate->selectionEmblemRect().contains(mousePos));
 }
