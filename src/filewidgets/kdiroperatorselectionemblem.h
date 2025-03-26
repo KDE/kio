@@ -1,0 +1,34 @@
+/*
+    SPDX-FileCopyrightText: 2025 Akseli Lahtinen <akselmo@akselmo.dev>
+
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#ifndef KDIROPERATORSELECTIONEMBLEM_H
+#define KDIROPERATORSELECTIONEMBLEM_H
+
+#include <QAbstractItemView>
+#include <QModelIndex>
+
+class KFileItemDelegate;
+class QPoint;
+
+class KDirOperatorSelectionEmblem
+{
+public:
+    KDirOperatorSelectionEmblem(QAbstractItemView *itemView, QModelIndex index);
+    ~KDirOperatorSelectionEmblem();
+
+    void updateSelectionEmblemRectForIndex(const int iconSize);
+    bool isSelectionEmblemClicked(const QPoint mousePos);
+    bool isEmblemEnabled();
+
+private:
+    KFileItemDelegate *fileItemDelegate();
+
+    QAbstractItemView *m_itemView;
+    QModelIndex m_index;
+    KFileItemDelegate *m_fileItemDelegate;
+};
+
+#endif
