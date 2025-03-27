@@ -4,8 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KDIROPERATORSELECTIONEMBLEM_H
-#define KDIROPERATORSELECTIONEMBLEM_H
+#ifndef KFILEITEMSELECTIONEMBLEM_H
+#define KFILEITEMSELECTIONEMBLEM_H
 
 #include <QAbstractItemView>
 #include <QModelIndex>
