@@ -1413,7 +1413,7 @@ void KUrlNavigator::setBackgroundEnabled(bool enabled)
     d->m_backgroundEnabled = enabled;
 }
 
-bool KUrlNavigator::backgroundEnabled() const
+bool KUrlNavigator::isBackgroundEnabled() const
 {
     return d->m_backgroundEnabled;
 }
@@ -1430,7 +1430,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
         option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
     }
 
-    if (backgroundEnabled()) {
+    if (d->m_backgroundEnabled) {
         // Draw primitive always, but change color if not editable
         if (!d->m_editable) {
             option.palette.setColor(QPalette::Base, palette().alternateBase().color());

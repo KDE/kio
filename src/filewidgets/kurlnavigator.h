@@ -345,7 +345,7 @@ public:
      * Does not represent the input mode background.
      * @since 6.13
      */
-    bool backgroundEnabled() const;
+    bool isBackgroundEnabled() const;
 
 public Q_SLOTS:
     /**

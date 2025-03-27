@@ -1,8 +1,8 @@
 /*
-    SPDX-FileCopyrightText: 2006-2010 Peter Penz <peter.penz@gmx.at>
-    SPDX-FileCopyrightText: 2006 Aaron J. Seigo <aseigo@kde.org>
+SPDX-FileCopyrightText: 2006-2010 Peter Penz <peter.penz@gmx.at>
+SPDX-FileCopyrightText: 2006 Aaron J. Seigo <aseigo@kde.org>
 
-    SPDX-License-Identifier: LGPL-2.0-or-later
+SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "kurlnavigatorbuttonbase_p.h"
@@ -93,7 +93,6 @@ void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
     QStyleOptionButton buttonOption;
     buttonOption.initFrom(this);
     buttonOption.rect = QRect(0, 0, width(), height());
-    buttonOption.palette = palette();
     buttonOption.features = QStyleOptionButton::Flat;
 
     // Draw button graphic
