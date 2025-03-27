@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-20 00:38+0000\n"
-"PO-Revision-Date: 2025-02-11 22:11+0100\n"
+"PO-Revision-Date: 2025-03-26 17:58+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -3767,18 +3767,15 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "Bakstreck kan inte användas i fil- och katalognamn."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Kunde inte skapa en katalog vid namn <filename>%1</filename><nl/>eftersom "
-"det är reserverat för användning av operativsystemet."
+"Att skapa en fil eller katalog vid namn <filename>%1</filename> är inte "
+"möjligt eftersom det skulle överlappa med platsen för en användares "
+"hemkatalog"
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
