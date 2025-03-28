@@ -32,6 +32,7 @@
 #include <QLineEdit>
 #include <QList>
 #include <QMimeData>
+#include <QPushButton>
 #include <QStringList>
 #include <QStringLiteral>
 #include <QUrl>
@@ -85,6 +86,7 @@ private Q_SLOTS:
     void testTokenize();
     void testTokenizeForSave_data();
     void testTokenizeForSave();
+    void testThumbnailPreviewSetting();
 };
 
 void KFileWidgetTest::initTestCase()
@@ -881,6 +883,53 @@ void KFileWidgetTest::testTokenizeForSave()
     // We always only have one URL here
     QCOMPARE(urls.size(), 1);
     QCOMPARE(urls[0], fileUrl);
+}
+
+// BUG: 501743
+void KFileWidgetTest::testThumbnailPreviewSetting()
+{
+    QTemporaryDir tempDir;
+    QUrl path = QUrl::fromLocalFile(tempDir.path());
+    auto getAction = [](KFileWidget *fw) {
+        QAction *previewAction = nullptr;
+        for (auto action : fw->actions()) {
+            if (action->text() == "Show Preview") {
+                previewAction = action;
+                break;
+            }
+        }
+        return previewAction;
+    };
+
+    // Set up
+    KFileWidget fwSetup(path);
+    fwSetup.setOperationMode(KFileWidget::Saving);
+    fwSetup.setMode(KFile::File);
+    QAction *previewAction = getAction(&fwSetup);
+    QVERIFY(previewAction);
+    previewAction->setChecked(true);
+    QCOMPARE(previewAction->isChecked(), true);
+    fwSetup.cancelButton()->click();
+
+    // Check preview settings are true, then save them as false
+    KFileWidget fwPreviewTrue(path);
+    fwPreviewTrue.setOperationMode(KFileWidget::Saving);
+    fwPreviewTrue.setMode(KFile::File);
+    previewAction = getAction(&fwPreviewTrue);
+    QVERIFY(previewAction);
+    QCOMPARE(previewAction->isChecked(), true);
+    previewAction->setChecked(false);
+    QCOMPARE(previewAction->isChecked(), false);
+    fwPreviewTrue.cancelButton()->click();
+
+    // Check preview settings are saved as false
+    KFileWidget fwPreviewFalse(path);
+    fwPreviewFalse.setOperationMode(KFileWidget::Saving);
+    fwPreviewFalse.setMode(KFile::File);
+    previewAction = getAction(&fwPreviewFalse);
+    QVERIFY(previewAction);
+    QCOMPARE(previewAction->isChecked(), true);
+    fwPreviewFalse.cancelButton()->click();
 }
 
 QTEST_MAIN(KFileWidgetTest)

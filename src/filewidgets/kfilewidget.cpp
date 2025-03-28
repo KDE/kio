@@ -426,11 +426,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_ops->action(KDirOperator::ShowPreview)->setChecked(d->m_ops->isInlinePreviewShown());
     d->slotDirOpIconSizeChanged(d->m_ops->iconSize());
 
-    KFilePreviewGenerator *pg = d->m_ops->previewGenerator();
-    if (pg) {
-        d->m_ops->action(KDirOperator::ShowPreview)->setChecked(pg->isPreviewShown());
-    }
-
     // getStartUrl() above will have resolved the startDir parameter into
     // a directory and file name in the two cases: (a) where it is a
     // special "kfiledialog:" URL, or (b) where it is a plain file name

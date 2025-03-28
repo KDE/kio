@@ -1735,8 +1735,8 @@ void KDirOperator::setViewInternal(QAbstractItemView *view)
 
     const bool previewForcedToTrue = d->m_inlinePreviewState == KDirOperatorPrivate::ForcedToTrue;
     const bool previewShown = d->m_inlinePreviewState == KDirOperatorPrivate::NotForced ? d->m_showPreviews : previewForcedToTrue;
-    d->m_previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_itemView->setIconSize(previewForcedToTrue ? QSize(KIconLoader::SizeHuge, KIconLoader::SizeHuge) : QSize(d->m_iconSize, d->m_iconSize));
+    d->m_previewGenerator = new KFilePreviewGenerator(d->m_itemView);
     d->m_previewGenerator->setPreviewShown(previewShown);
     action(KDirOperator::ShowPreview)->setChecked(previewShown);
 
