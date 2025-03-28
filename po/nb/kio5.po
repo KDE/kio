@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-02-16 15:54+0100\n"
+"PO-Revision-Date: 2025-03-24 07:43+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -55,7 +55,7 @@ msgid ""
 "insufficient access to the file to perform the change."
 msgstr ""
 "<qt>Klarte ikke endre eierskapet til fila <b>%1</b>. Du har ikke "
-"tilstrekkelig rettigheter til å utføre endringa.</qt>"
+"tilstrekkelig tillatelser til å utføre endringa.</qt>"
 
 #: core/connectionbackend.cpp:108
 #, kde-format
@@ -135,12 +135,12 @@ msgstr "Fant ikke programmet «%1»"
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "Fant programmet «%1» i «%2», men det mangler «kjørbar»-rettigheten."
+msgstr "Fant programmet «%1» i «%2», men det mangler «kjørbar»-tillatelsen."
 
 #: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "Programmet «%1» mangler «kjørbar»-rettigheten."
+msgstr "Programmet «%1» mangler «kjørbar»-tillatelsen."
 
 #: core/desktopexecparser.cpp:380
 #, kde-format
@@ -309,7 +309,7 @@ msgstr "Endre attributt"
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
-msgstr "Du trenger rotrettigheter for å endre filattributt. Vil du fortsette?"
+msgstr "Du trenger rottillatelser for å endre filattributt. Vil du fortsette?"
 
 #: core/job.cpp:277
 #, kde-format
@@ -321,7 +321,7 @@ msgstr "Kopier filer"
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
-msgstr "Du trenger rotrettigheter for å fullføre kopieringa. Vil du fortsette?"
+msgstr "Du trenger rottillatelser for å fullføre kopieringa. Vil du fortsette?"
 
 #: core/job.cpp:283
 #, kde-format
@@ -334,7 +334,7 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
-"Du trenger rotrettigheter for å fullføre slettinga. Men dette kan skade "
+"Du trenger rottillatelser for å fullføre slettinga. Men dette kan skade "
 "systemet. Vil du likevel fortsette?"
 
 #: core/job.cpp:289
@@ -346,7 +346,7 @@ msgstr "Lag mappe"
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
-msgstr "Du trenger rotrettigheter for å opprette mappa. Vil du fortsette?"
+msgstr "Du trenger rottillatelser for å opprette mappa. Vil du fortsette?"
 
 #: core/job.cpp:295
 #, kde-format
@@ -358,7 +358,7 @@ msgstr "Flytt element"
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
-msgstr "Du trenger rotrettigheter for å fullføre flyttinga. Vil du fortsette?"
+msgstr "Du trenger rottillatelser for å fullføre flyttinga. Vil du fortsette?"
 
 #: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
@@ -370,7 +370,7 @@ msgstr "Endre navn"
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
-"Du trenger rotrettigheter for å fullføre endringa av navn. Vil du fortsette?"
+"Du trenger rottillatelser for å fullføre endringa av navn. Vil du fortsette?"
 
 #: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
@@ -383,7 +383,7 @@ msgstr "Lag symbolsk lenke"
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
-"Du trenger rotrettigheter for å lage symbolske lenker. Vil du fortsette?"
+"Du trenger rottillatelser for å lage symbolske lenker. Vil du fortsette?"
 
 #: core/job.cpp:313
 #, kde-format
@@ -396,7 +396,7 @@ msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
 msgstr ""
-"Du trenger rotrettigheter for å fullføre overføring av data. Vil du "
+"Du trenger rottillatelser for å fullføre overføring av data. Vil du "
 "fortsette?"
 
 #: core/job_error.cpp:33
@@ -609,7 +609,7 @@ msgstr "Klarte ikke endre navnet på fila %1."
 #: core/job_error.cpp:148
 #, kde-format
 msgid "Could not change permissions for %1."
-msgstr "Klarte ikke endre rettigheter for %1."
+msgstr "Klarte ikke endre tillatelser for %1."
 
 #: core/job_error.cpp:151
 #, kde-format
@@ -701,7 +701,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Klarte ikke slette originalfila %1.\n"
-"Kontroller tilgangsrettigheten."
+"Kontroller tilgangstillatelsen."
 
 #: core/job_error.cpp:198
 #, kde-format
@@ -710,7 +710,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Klarte ikke slette den delvis nedlastede fila %1.\n"
-"Kontroller tilgangsrettigheten."
+"Kontroller tilgangstillatelsen."
 
 #: core/job_error.cpp:201
 #, kde-format
@@ -719,7 +719,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Klarte ikke endre navnet på originalfila %1\n"
-"Kontroller tilgangsrettigheten."
+"Kontroller tilgangstillatelsen."
 
 #: core/job_error.cpp:204
 #, kde-format
@@ -728,7 +728,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Klarte ikke endre navnet på den delvis nedlastede fila %1.\n"
-"Kontroller tilgangsrettigheten."
+"Kontroller tilgangstillatelsen."
 
 #: core/job_error.cpp:207
 #, kde-format
@@ -737,7 +737,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Klarte ikke opprette symbolsk lenke %1.\n"
-"Kontroller tilgangsrettigheten."
+"Kontroller tilgangstillatelsen."
 
 #: core/job_error.cpp:210
 #, kde-format
@@ -816,9 +816,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Utvidet rettighet er ikke nødvendig,\n"
+"Utvidet tillatelse er ikke nødvendig,\n"
 "da «%1» er eiet av gjeldende bruker.\n"
-"Prøv på nytt etter å ha endret rettighetene."
+"Prøv på nytt etter å ha endret tillatelsene."
 
 #: core/job_error.cpp:257
 #, kde-format
@@ -909,7 +909,7 @@ msgstr "Ta kontakt med tjeneradministratoren for hjelp."
 #: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "Kontroller tilgangsrettighetene dine til denne ressursen."
+msgstr "Kontroller tilgangstillatelsene dine til denne ressursen."
 
 #: core/job_error.cpp:379
 #, kde-format
@@ -917,7 +917,7 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"Du har kanskje ikke tilstrekkelig tilgangsrettigheter til å utføre denne "
+"Du har kanskje ikke tilstrekkelig tilgangstillatelser til å utføre denne "
 "operasjonen på denne ressursen."
 
 #: core/job_error.cpp:382
@@ -1055,7 +1055,7 @@ msgstr ""
 #: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "Du har kanskje ikke rettigheter til å lese fila eller åpne mappa."
+msgstr "Du har kanskje ikke tillatelser til å lese fila eller åpne mappa."
 
 #: core/job_error.cpp:442
 #, kde-format
@@ -1362,7 +1362,7 @@ msgstr "Du har kanskje oppgitt feil eller ingen autentiseringsinformasjon."
 #: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
-msgstr "Kontoen din har kanskje ikke tilgangsrett til denne ressursen."
+msgstr "Kontoen din har kanskje ikke tilgangstillatelse til denne ressursen."
 
 #: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
@@ -1638,7 +1638,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Du har kanskje ikke rettigheter til å montere enheten. På UNIX-systemer er "
+"Du har kanskje ikke tillatelser til å montere enheten. På UNIX-systemer er "
 "det vanlig at bare systemadministratoren kan montere en enhet."
 
 #: core/job_error.cpp:779
@@ -1686,7 +1686,7 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Du har kanskje ikke rettigheter til å avmontere enheten. På UNIX-systemer er "
+"Du har kanskje ikke tillatelser til å avmontere enheten. På UNIX-systemer er "
 "det vanlig at bare systemadministratoren kan avmontere en enhet."
 
 #: core/job_error.cpp:803
@@ -1711,7 +1711,7 @@ msgstr ""
 #: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "Du har kanskje ikke rettigheter til å lese fra ressursen."
+msgstr "Du har kanskje ikke tillatelser til å lese fra ressursen."
 
 #: core/job_error.cpp:828
 #, kde-format
@@ -1730,7 +1730,7 @@ msgstr ""
 #: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr "Du har kanskje ikke rettigheter til å skrive til ressursen."
+msgstr "Du har kanskje ikke tillatelser til å skrive til ressursen."
 
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
@@ -1775,7 +1775,7 @@ msgstr ""
 #: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
-msgstr "Du har kanskje ikke rettigheter til å ta i mot tilkoblingen."
+msgstr "Du har kanskje ikke tillatelser til å ta i mot tilkoblingen."
 
 #: core/job_error.cpp:884
 #, kde-format
@@ -1907,7 +1907,7 @@ msgstr ""
 #: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "Klarte ikke endre rettigheter for ressursen"
+msgstr "Klarte ikke endre tillatelser for ressursen"
 
 #: core/job_error.cpp:985
 #, kde-format
@@ -1915,13 +1915,13 @@ msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Et forsøk på å endre tilgangsrettigheten til den valgte ressursen "
-"<strong>%1</strong> mislyktes."
+"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen <strong>"
+"%1</strong> mislyktes."
 
 #: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
-msgstr "Klarte ikke endre rettigheter for ressursen"
+msgstr "Klarte ikke endre tillatelser for ressursen"
 
 #: core/job_error.cpp:995
 #, kde-format
@@ -1929,8 +1929,8 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Et forsøk på å endre tilgangsrettigheten til den valgte ressursen "
-"<strong>%1</strong> mislyktes."
+"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen <strong>"
+"%1</strong> mislyktes."
 
 #: core/job_error.cpp:1003
 #, kde-format
@@ -2626,7 +2626,7 @@ msgstr "En fil eller mappe med navnet %1 finnes fra før."
 #: filewidgets/kdiroperator.cpp:751
 #, kde-format
 msgid "You do not have permission to create that folder."
-msgstr "Du har ikke rettighet til å lage den mappa."
+msgstr "Du har ikke tillatelse til å lage den mappa."
 
 #: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
@@ -3999,7 +3999,7 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "Programmet «%1» må ha kjørerettighet for å kunne startes."
+msgstr "Programmet «%1» må ha kjøreretillatelse for å kunne startes."
 
 #: gui/openurljob.cpp:441
 #, kde-format
@@ -4047,7 +4047,7 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"Klarte ikke endre rettighetene for\n"
+"Klarte ikke endre tillatelsene for\n"
 "%1"
 
 #: ioslaves/file/file.cpp:746
@@ -4083,12 +4083,12 @@ msgstr "Fant ikke programmet «umount»"
 #: ioslaves/file/file_unix.cpp:102
 #, kde-format
 msgid "Change File Permissions"
-msgstr "Endre filrettigheter"
+msgstr "Endre filtillatelser"
 
 #: ioslaves/file/file_unix.cpp:103
 #, kde-format
 msgid "New Permissions: %1"
-msgstr "Nye rettigheter: %1"
+msgstr "Nye tillatelser: %1"
 
 #: ioslaves/file/file_unix.cpp:106
 #, kde-format
@@ -4118,7 +4118,7 @@ msgstr "Lag ny mappe"
 #: ioslaves/file/file_unix.cpp:117
 #, kde-format
 msgid "Directory Permissions: %1"
-msgstr "Mapperettigheter: %1"
+msgstr "Mappetillatelser: %1"
 
 #: ioslaves/file/file_unix.cpp:120
 #, kde-format
@@ -6238,7 +6238,7 @@ msgstr "Klarer ikke lagre infokapsler"
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #, kde-format
 msgid "Could not remove %1, check permissions"
-msgstr "Kunne ikke fjerne %1. Kontroller rettigheter."
+msgstr "Kunne ikke fjerne %1. Kontroller tillatelser."
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
@@ -7096,7 +7096,7 @@ msgstr "Angre endringer"
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
-"Du trenger rotrettigheter for å angre denne handlinga. Vil du fortsette?"
+"Du trenger rottillatelser for å angre denne handlinga. Vil du fortsette?"
 
 #: widgets/fileundomanager.cpp:132
 #, kde-format
@@ -7477,7 +7477,7 @@ msgstr "Dato"
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
-msgstr "Rettigheter"
+msgstr "Tillatelser"
 
 #: widgets/kdirmodel.cpp:1240
 #, kde-format
@@ -7901,7 +7901,7 @@ msgid ""
 msgstr ""
 "Kryss av her om du vil kjøre dette programmet med et annet bruker-nummer. "
 "Hver prosess har et tilordnet brukernummer. Dette nummeret bestemmer "
-"filtilgang og andre rettigheter. Du trenger vedkommende brukers passord for "
+"filtilgang og andre tillatelser. Du trenger vedkommende brukers passord for "
 "å kunne bruke dette valget."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -8191,7 +8191,7 @@ msgid ""
 "Could not save properties due to insufficient write access to:<nl/"
 "><filename>%1</filename>."
 msgstr ""
-"Klarte ikke lagre egenskaper, grunnet manglende skriverettigheter til:<nl/"
+"Klarte ikke lagre egenskaper, grunnet manglende skrivetillatelser til:<nl/"
 "><filename>%1</filename>"
 
 #: widgets/kpropertiesdialog.cpp:234 widgets/kpropertiesdialog.cpp:249
@@ -8340,24 +8340,24 @@ msgstr "Kan vise/lese og endre/skrive"
 #: widgets/kpropertiesdialog.cpp:1861
 #, kde-format
 msgid "&Permissions"
-msgstr "&Rettigheter"
+msgstr "&Tillatelser"
 
 #: widgets/kpropertiesdialog.cpp:1873 widgets/kpropertiesdialog.cpp:2069
 #, kde-format
 msgid "Access Permissions"
-msgstr "Tilgangsrettigheter"
+msgstr "Tilgangstillatelser"
 
 #: widgets/kpropertiesdialog.cpp:1882
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] "Denne fila er en lenke og har ikke rettigheter."
-msgstr[1] "Alle filene er lenker og har ikke rettigheter."
+msgstr[0] "Denne fila er en lenke og har ikke tillatelser."
+msgstr[1] "Alle filene er lenker og har ikke tillatelser."
 
 #: widgets/kpropertiesdialog.cpp:1884
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "Bare eieren kan endre rettigheter."
+msgstr "Bare eieren kan endre tillatelser."
 
 #: widgets/kpropertiesdialog.cpp:1888
 #, kde-format
@@ -8412,7 +8412,7 @@ msgid ""
 msgstr ""
 "Slå på dette for at bare den som eier mappa kan endre navn på eller slette "
 "filer og mapper i denne mappa. Andre brukere kan bare legge til filer, hvis "
-"de har rettigheter til å «endre innhold»."
+"de har tillatelser til å «endre innhold»."
 
 #: widgets/kpropertiesdialog.cpp:1922
 #, kde-format
@@ -8426,7 +8426,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1929
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr "A&vanserte rettigheter"
+msgstr "A&vanserte tillatelser"
 
 #: widgets/kpropertiesdialog.cpp:1937
 #, kde-format
@@ -8451,7 +8451,7 @@ msgstr "Bruk endringene på alle undermapper og innholdet i dem"
 #: widgets/kpropertiesdialog.cpp:2060
 #, kde-format
 msgid "Advanced Permissions"
-msgstr "Avanserte rettigheter"
+msgstr "Avanserte tillatelser"
 
 #: widgets/kpropertiesdialog.cpp:2077
 #, kde-format
@@ -8470,7 +8470,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2085
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
-msgstr "Dette flagget gir rettighet til å se innholdet i mappa."
+msgstr "Dette flagget gir tillatelse til å se innholdet i mappa."
 
 #: widgets/kpropertiesdialog.cpp:2087
 #, kde-format
@@ -8480,7 +8480,7 @@ msgstr "Lese"
 #: widgets/kpropertiesdialog.cpp:2088
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
-msgstr "Lese-flagget gir rettighet til å se innholdet i fila."
+msgstr "Lese-flagget gir tillatelse til å se innholdet i fila."
 
 #: widgets/kpropertiesdialog.cpp:2094
 #, kde-format
@@ -8497,7 +8497,7 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"Dette flagget gir rettighet til å legge til, slette og endre navn på filer. "
+"Dette flagget gir tillatelse til å legge til, slette og endre navn på filer. "
 "Merk at sletting og navneendring kan begrenses med «Klister»-flagget."
 
 #: widgets/kpropertiesdialog.cpp:2099
@@ -8508,7 +8508,7 @@ msgstr "Skriv"
 #: widgets/kpropertiesdialog.cpp:2100
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
-msgstr "Skriv-flagget gir rettighet til å endre innholdet i fila."
+msgstr "Skriv-flagget gir tillatelse til å endre innholdet i fila."
 
 #: widgets/kpropertiesdialog.cpp:2106
 #, kde-format
@@ -8519,7 +8519,7 @@ msgstr "Gå inn i"
 #: widgets/kpropertiesdialog.cpp:2107
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
-msgstr "Slå på dette flagget for å gi rettighet til å gå inn i mappa."
+msgstr "Slå på dette flagget for å gi tillatelse til å gå inn i mappa."
 
 #: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
@@ -8530,7 +8530,7 @@ msgstr "Kjørbar"
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
-"Slå på dette flagget for å gi rettighet til å kjøre fila som et program."
+"Slå på dette flagget for å gi tillatelse til å kjøre fila som et program."
 
 #: widgets/kpropertiesdialog.cpp:2118
 #, kde-format
@@ -8581,7 +8581,7 @@ msgid ""
 "the permissions of the owner."
 msgstr ""
 "Hvis fila er kjørbar og flagget er satt, så blir fila kjørt med samme "
-"rettigheter som eieren."
+"tillatelser som eieren."
 
 #: widgets/kpropertiesdialog.cpp:2158
 #, kde-format
@@ -8598,7 +8598,7 @@ msgid ""
 "the permissions of the group."
 msgstr ""
 "Hvis denne fila er kjørbar og flagget er satt, så blir den kjørt med samme "
-"rettigheter som gruppa."
+"tillatelser som gruppa."
 
 #: widgets/kpropertiesdialog.cpp:2169
 #, kde-format
@@ -8649,20 +8649,20 @@ msgstr "Varierende (Ingen endring)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Denne fila bruker avanserte rettigheter."
-msgstr[1] "Disse filene bruker avanserte rettigheter."
+msgstr[0] "Denne fila bruker avanserte tillatelser."
+msgstr[1] "Disse filene bruker avanserte tillatelser."
 
 #: widgets/kpropertiesdialog.cpp:2503
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "Denne mappa bruker avanserte rettigheter."
-msgstr[1] "Disse mappene bruker avanserte rettigheter."
+msgstr[0] "Denne mappa bruker avanserte tillatelser."
+msgstr[1] "Disse mappene bruker avanserte tillatelser."
 
 #: widgets/kpropertiesdialog.cpp:2517
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "Disse filene bruker avanserte rettigheter."
+msgstr "Disse filene bruker avanserte tillatelser."
 
 #: widgets/kpropertiesdialog.cpp:2763
 #, kde-format
