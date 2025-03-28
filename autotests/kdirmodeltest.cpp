@@ -19,6 +19,7 @@
 #include <kprotocolinfo.h>
 
 #include <QDebug>
+#include <QElapsedTimer>
 #include <QMimeData>
 #include <QSignalSpy>
 #include <QUrl>

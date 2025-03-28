@@ -8,6 +8,7 @@
 #include <KIO/FavIconRequestJob>
 #include <KIO/TransferJob>
 #include <QDir>
+#include <QElapsedTimer>
 #include <QLoggingCategory>
 #include <QStandardPaths>
 #include <QTest>
