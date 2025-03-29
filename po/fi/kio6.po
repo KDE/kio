@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:38+0000\n"
+"POT-Creation-Date: 2025-03-29 00:39+0000\n"
 "PO-Revision-Date: 2025-02-14 19:33+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -108,7 +108,7 @@ msgid "Folder Already Exists"
 msgstr "Kansio on jo olemassa"
 
 #: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
-#: core/job_error.cpp:574 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tiedosto on jo olemassa"
@@ -2898,7 +2898,7 @@ msgid "All Supported Files"
 msgstr "Kaikki tuetut tiedostot"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1963
 #, kde-format
 msgid "All Files"
 msgstr "Kaikki tiedostot"
@@ -3326,27 +3326,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Valtava (%1 × %1)"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "You can only select one file"
 msgstr "Voit valita vain yhden tiedoston"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "More than one file provided"
 msgstr "Tarjottiin useampaa kuin yhtä tiedostoa"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "You can only select local files"
 msgstr "Voit valita vain paikallisia tiedostoja"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Etätiedostoja ei hyväksytä"
 
-#: filewidgets/kfilewidget.cpp:798
+#: filewidgets/kfilewidget.cpp:793
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3360,12 +3360,12 @@ msgstr[1] ""
 "Valittu verkko-osoite on mallia, jota ei tueta. Käytä jotakin seuraavista "
 "malleista: %2"
 
-#: filewidgets/kfilewidget.cpp:804
+#: filewidgets/kfilewidget.cpp:799
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Verkko-osoitemalli, jota ei tueta"
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:815
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3375,12 +3375,12 @@ msgstr ""
 "Useampi kuin yksi kansio on valittu, eikä tämä dialogi hyväksy kansioita."
 "Valitse vain yksi kansio luetteloidaksesi sen."
 
-#: filewidgets/kfilewidget.cpp:822
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Useampi kuin yksi kansio tarjottiin"
 
-#: filewidgets/kfilewidget.cpp:832
+#: filewidgets/kfilewidget.cpp:827
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3389,22 +3389,22 @@ msgstr ""
 "Ainakin yksi kansio ja yksi tiedosto on valittu. Tiedostojen valinnat "
 "sivuutetaan ja valittu kansio listataan"
 
-#: filewidgets/kfilewidget.cpp:833
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Tiedostoja ja kansioita valittuna"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Tiedostoa ”%1” ei löytynyt"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "Cannot open file"
 msgstr "Tiedostoa ei voida avata"
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3415,45 +3415,45 @@ msgstr ""
 "esimerkiksi sijaintisi on file:/home/konqi, painiketta napsauttamalla "
 "siirryt kansioon file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1207
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Napsauta tätä painiketta siirtyäksesi askeleen taaksepäin selaushistoriassa."
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Napsauta tätä painiketta siirtyäksesi askeleen eteenpäin selaushistoriassa."
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Napsauta tätä painiketta ladataksesi nykyisen sijainnin sisällön uudelleen."
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Napsauta tätä painiketta luodaksesi kansion."
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1214
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Näytä sijaintipaneeli"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Näytä kirjanmerkkipainike"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid "Options"
 msgstr "Asetukset"
 
-#: filewidgets/kfilewidget.cpp:1236
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3469,12 +3469,12 @@ msgstr ""
 "li><li>näytetäänkö tiedostojen esikatselu</li><li>erotetaanko kansiot "
 "tiedostoista</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1255
+#: filewidgets/kfilewidget.cpp:1250
 #, kde-format
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: filewidgets/kfilewidget.cpp:1259
+#: filewidgets/kfilewidget.cpp:1254
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3488,18 +3488,18 @@ msgstr ""
 "tiedostoikkunaa, mutta toimivat kuten kirjanmerkit KDE:ssä yleensä.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1298 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1293 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1315
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Kumoa tiedostonimen muutos"
 
-#: filewidgets/kfilewidget.cpp:1397
+#: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3512,12 +3512,12 @@ msgstr ""
 "hiiren oikealla painikkeella ja valitsemalla vaihtoehto kohdasta <b>Tekstin "
 "täydennys</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1399
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Tämä on tallennettavan tiedoston nimi."
 
-#: filewidgets/kfilewidget.cpp:1407
+#: filewidgets/kfilewidget.cpp:1402
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3526,74 +3526,74 @@ msgstr ""
 "Tämä on avattavien tiedostojen luettelo. Useampi kuin yksi tiedosto voidaan "
 "määrittää erottamalla tiedostonimet välilyönnein."
 
-#: filewidgets/kfilewidget.cpp:1412
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Tämä on avattavan tiedoston nimi."
 
-#: filewidgets/kfilewidget.cpp:1425
+#: filewidgets/kfilewidget.cpp:1420
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Sijainnit"
 
-#: filewidgets/kfilewidget.cpp:1674
+#: filewidgets/kfilewidget.cpp:1669
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Tiedosto ”%1” on jo olemassa. Haluatko varmasti korvata sen?"
 
-#: filewidgets/kfilewidget.cpp:1675
+#: filewidgets/kfilewidget.cpp:1670
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Korvataanko tiedosto?"
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "You can only select local files."
 msgstr "Voit valita vain paikallisia tiedostoja."
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Etätiedostoja ei hyväksytä"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "All Folders"
 msgstr "Kaikki kansiot"
 
-#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Avaa"
 
-#: filewidgets/kfilewidget.cpp:2218
+#: filewidgets/kfilewidget.cpp:2213
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Kuvakekoko: %1 kuvapistettä"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2360
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Valitse &tiedostopääte automaattisesti (%1)"
 
-#: filewidgets/kfilewidget.cpp:2366
+#: filewidgets/kfilewidget.cpp:2361
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pääte <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2367
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Valitse tiedostopääte &automaattisesti"
 
-#: filewidgets/kfilewidget.cpp:2373
+#: filewidgets/kfilewidget.cpp:2368
 #, kde-format
 msgid "a suitable extension"
 msgstr "sopiva tiedostopääte"
 
-#: filewidgets/kfilewidget.cpp:2381
+#: filewidgets/kfilewidget.cpp:2376
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3620,12 +3620,12 @@ msgstr ""
 "li></ol>Asetus kannattaa pitää käytössä, koska se helpottaa tiedostojen "
 "käsittelyä."
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2850
 #, kde-format
 msgid "&File type:"
 msgstr "Tiedostot&yyppi:"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2851
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3634,12 +3634,12 @@ msgstr ""
 "<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan muoto, jossa "
 "tiedosto tallennetaan.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2853
 #, kde-format
 msgid "&Filter:"
 msgstr "S&uodatin:"
 
-#: filewidgets/kfilewidget.cpp:2860
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6720,17 +6720,20 @@ msgstr "Verkkopikavalintojen asetukset…"
 msgid "Open file dialog"
 msgstr "Tiedostonavausikkuna"
 
-#: widgets/paste.cpp:69 widgets/paste.cpp:120 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Tiedostonimi leikepöydän sisällölle:"
 
-#: widgets/paste.cpp:112
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
+#: widgets/paste.cpp:111
+#, fuzzy, kde-format
+#| msgid "&Paste File"
+#| msgid_plural "&Paste %1 Files"
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "&Liitä tiedosto"
 
-#: widgets/paste.cpp:132
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6740,19 +6743,19 @@ msgstr ""
 "valittu tietomuoto ei ole enää käyttökelpoinen. Kopioi uudelleen, mitä "
 "halusit liittää."
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Liitä kansio"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Liitä tiedosto"
 
-#: widgets/paste.cpp:264
+#: widgets/paste.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6760,22 +6763,27 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Liitä kohde"
 msgstr[1] "Liitä %1 kohdetta"
 
-#: widgets/paste.cpp:266
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Liitä leikepöydän sisältö…"
 
-#: widgets/paste.cpp:270
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Liitä"
 
-#: widgets/pastedialog.cpp:43
+#: widgets/pastedialog.cpp:45
 #, kde-format
 msgid "Data format:"
 msgstr "Tietomuoto:"
+
+#: widgets/pastedialog.cpp:53
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: widgets/pastejob.cpp:71
 #, kde-format
@@ -8946,11 +8954,6 @@ msgstr "Ellet luota tähän ohjelmaan, napsauta Peru"
 
 #~ msgid "Could not find any application or handler for %1"
 #~ msgstr "Osoitteelle %1 ei löytynyt sovellusta tai käsittelijää"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "&Liitä tiedosto"
-#~ msgstr[1] "&Liitä %1 tiedostoa"
 
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"

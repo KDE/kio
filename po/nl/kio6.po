@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:38+0000\n"
+"POT-Creation-Date: 2025-03-29 00:39+0000\n"
 "PO-Revision-Date: 2025-03-15 13:35+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -95,7 +95,7 @@ msgid "Folder Already Exists"
 msgstr "Map bestaat reeds"
 
 #: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
-#: core/job_error.cpp:574 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Bestand bestaat al"
@@ -2967,7 +2967,7 @@ msgid "All Supported Files"
 msgstr "Alle ondersteunde bestanden"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1963
 #, kde-format
 msgid "All Files"
 msgstr "Alle bestanden"
@@ -3396,27 +3396,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Enorm (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "You can only select one file"
 msgstr "U kunt slechts één bestand selecteren"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "More than one file provided"
 msgstr "Meer dan één bestand aangeleverd"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "You can only select local files"
 msgstr "U kunt alleen lokale bestanden selecteren"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Niet-lokale bestanden worden niet geaccepteerd"
 
-#: filewidgets/kfilewidget.cpp:798
+#: filewidgets/kfilewidget.cpp:793
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3431,12 +3431,12 @@ msgstr[1] ""
 "De geselecteerde URL gebruikt een niet ondersteund schema. Gebruik een van "
 "de volgende schema's: %2"
 
-#: filewidgets/kfilewidget.cpp:804
+#: filewidgets/kfilewidget.cpp:799
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Niet ondersteund URL-schema"
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:815
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3447,12 +3447,12 @@ msgstr ""
 "Daarom is het niet mogelijk om te bepalen welke map geopend dient te worden. "
 "Selecteer slechts één map om de inhoud ervan weer te geven."
 
-#: filewidgets/kfilewidget.cpp:822
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Meer dan één map aangeleverd"
 
-#: filewidgets/kfilewidget.cpp:832
+#: filewidgets/kfilewidget.cpp:827
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3462,22 +3462,22 @@ msgstr ""
 "bestanden zullen worden genegeerd en de inhoud van de geselecteerde map zal "
 "worden weergegeven"
 
-#: filewidgets/kfilewidget.cpp:833
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Bestanden en mappen geselecteerd"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Het bestand \"%1\" is niet gevonden"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "Cannot open file"
 msgstr "Kan bestand niet openen"
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3488,43 +3488,43 @@ msgstr ""
 ">Bijvoorbeeld, als de huidige locatie file:/home/konqi is, dan komt u in de "
 "map file:/home als u op deze knop drukt.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1207
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Klik op deze knop om een stap terug te gaan in de bladergeschiedenis."
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Klik op deze knop om een stap verder te gaan in de bladergeschiedenis."
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Klik op deze knop om de inhoud van de huidige locatie opnieuw te laden."
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik op deze knop om een nieuwe map aan te maken."
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1214
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Locatiespaneel tonen"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Bladwijzerknop tonen"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid "Options"
 msgstr "Opties"
 
-#: filewidgets/kfilewidget.cpp:1236
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3540,12 +3540,12 @@ msgstr ""
 "van het Locatiespaneel</li> <li>bestandsvoorbeelden</li> <li>mappen "
 "gescheiden van bestanden weergeven</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1255
+#: filewidgets/kfilewidget.cpp:1250
 #, kde-format
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: filewidgets/kfilewidget.cpp:1259
+#: filewidgets/kfilewidget.cpp:1254
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3560,18 +3560,18 @@ msgstr ""
 "als de bladwijzers die u elders in KDE tegenkomt.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1298 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1293 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Naam:"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1315
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Wijziging bestandsnaam ongedaan maken"
 
-#: filewidgets/kfilewidget.cpp:1397
+#: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3584,12 +3584,12 @@ msgstr ""
 "instellen door met de rechter muisknop in het tekstgebied te klikken en in "
 "het menu <b>Tekstaanvulling</b> een andere methode te selecteren.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1399
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dit is de naam die u het bestand geeft bij het opslaan."
 
-#: filewidgets/kfilewidget.cpp:1407
+#: filewidgets/kfilewidget.cpp:1402
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3599,74 +3599,74 @@ msgstr ""
 "specificeren door meerdere bestandsnamen, gescheiden door spaties, op te "
 "geven."
 
-#: filewidgets/kfilewidget.cpp:1412
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dit is de naam van het te openen bestand."
 
-#: filewidgets/kfilewidget.cpp:1425
+#: filewidgets/kfilewidget.cpp:1420
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Plaatsen"
 
-#: filewidgets/kfilewidget.cpp:1674
+#: filewidgets/kfilewidget.cpp:1669
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Het bestand \"%1\" bestaat al. Wilt u het overschrijven?"
 
-#: filewidgets/kfilewidget.cpp:1675
+#: filewidgets/kfilewidget.cpp:1670
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Bestand overschrijven?"
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "You can only select local files."
 msgstr "U kunt alleen lokale bestanden selecteren."
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Niet lokale bestanden worden niet geaccepteerd"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "All Folders"
 msgstr "Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Openen"
 
-#: filewidgets/kfilewidget.cpp:2218
+#: filewidgets/kfilewidget.cpp:2213
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Pictogramgrootte: %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2360
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatisch bestandsnaame&xtensie selecteren (%1)"
 
-#: filewidgets/kfilewidget.cpp:2366
+#: filewidgets/kfilewidget.cpp:2361
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "De extensie <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2367
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatisch bestandsnaame&xtensie selecteren"
 
-#: filewidgets/kfilewidget.cpp:2373
+#: filewidgets/kfilewidget.cpp:2368
 #, kde-format
 msgid "a suitable extension"
 msgstr "een geschikte extensie"
 
-#: filewidgets/kfilewidget.cpp:2381
+#: filewidgets/kfilewidget.cpp:2376
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3694,12 +3694,12 @@ msgstr ""
 "zal automatisch worden verwijderd).</li></ol>Indien onzeker, laat deze optie "
 "ingeschakeld. Dit maakt het beheren van uw bestanden eenvoudiger."
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2850
 #, kde-format
 msgid "&File type:"
 msgstr "&Bestandstype:"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2851
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3708,12 +3708,12 @@ msgstr ""
 "<qt>Dit is de selector van het bestandstype. Het wordt gebruikt om het "
 "formaat te selecteren waarmee het bestand zal worden opgeslagen.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2853
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2860
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6834,17 +6834,20 @@ msgstr "Websnelkoppelingen configureren…"
 msgid "Open file dialog"
 msgstr "Bestandsdialoog openen"
 
-#: widgets/paste.cpp:69 widgets/paste.cpp:120 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Bestandsnaam voor de klembordinhoud:"
 
-#: widgets/paste.cpp:112
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
+#: widgets/paste.cpp:111
+#, fuzzy, kde-format
+#| msgid "&Paste File"
+#| msgid_plural "&Paste %1 Files"
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "Bestand &plakken"
 
-#: widgets/paste.cpp:132
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6854,19 +6857,19 @@ msgstr ""
 "gegevensopmaak is niet langer toepasbaar. Kopieer datgene dat u wilde "
 "plakken opnieuw."
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Eén map plakken"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Eén bestand plakken"
 
-#: widgets/paste.cpp:264
+#: widgets/paste.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6874,22 +6877,27 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Eén item plakken"
 msgstr[1] "%1 items plakken"
 
-#: widgets/paste.cpp:266
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Klembordinhoud plakken…"
 
-#: widgets/paste.cpp:270
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Plakken"
 
-#: widgets/pastedialog.cpp:43
+#: widgets/pastedialog.cpp:45
 #, kde-format
 msgid "Data format:"
 msgstr "Gegevensopmaak:"
+
+#: widgets/pastedialog.cpp:53
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: widgets/pastejob.cpp:71
 #, kde-format
@@ -9098,11 +9106,6 @@ msgstr "Als u dit programma niet vertrouwt, klik op Annuleren"
 
 #~ msgid "Could not find any application or handler for %1"
 #~ msgstr "Kon geen enkele toepassing of behandelaar voor %1 vinden"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "Bestand &plakken"
-#~ msgstr[1] "%1 bestanden &plakken"
 
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"

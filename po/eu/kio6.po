@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:38+0000\n"
+"POT-Creation-Date: 2025-03-29 00:39+0000\n"
 "PO-Revision-Date: 2025-03-22 15:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -102,7 +102,7 @@ msgid "Folder Already Exists"
 msgstr "Karpeta existitzen da dagoeneko"
 
 #: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
-#: core/job_error.cpp:574 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fitxategia existitzen da dagoeneko"
@@ -2916,7 +2916,7 @@ msgid "All Supported Files"
 msgstr "Onartutako fitxategi guztiak"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1963
 #, kde-format
 msgid "All Files"
 msgstr "Fitxategi guztiak"
@@ -3344,27 +3344,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Itzela (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "You can only select one file"
 msgstr "Fitxategi bakarra aukera dezakezu"
 
-#: filewidgets/kfilewidget.cpp:620
+#: filewidgets/kfilewidget.cpp:615
 #, kde-format
 msgid "More than one file provided"
 msgstr "Fitxategi bat baino gehiago hornitu da"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "You can only select local files"
 msgstr "Soilik fitxategi lokalak hauta ditzakezu"
 
-#: filewidgets/kfilewidget.cpp:791
+#: filewidgets/kfilewidget.cpp:786
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ez dira onartzen urruneko fitxategiak"
 
-#: filewidgets/kfilewidget.cpp:798
+#: filewidgets/kfilewidget.cpp:793
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3379,12 +3379,12 @@ msgstr[1] ""
 "Hautatutako URLak onartu gabeko antolaera bat erabiltzen du. Erabili ondoko "
 "antolaeretako bat: %2"
 
-#: filewidgets/kfilewidget.cpp:804
+#: filewidgets/kfilewidget.cpp:799
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Onartu gabeko URL antolaera"
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:815
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3395,12 +3395,12 @@ msgstr ""
 "karpetak onartzen, beraz ezinezkoa da bat erabakitzea sartzeko. Hautatu "
 "soilik karpeta bat zerrendatzeko."
 
-#: filewidgets/kfilewidget.cpp:822
+#: filewidgets/kfilewidget.cpp:817
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Karpeta bat baino gehiago eman da"
 
-#: filewidgets/kfilewidget.cpp:832
+#: filewidgets/kfilewidget.cpp:827
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3409,22 +3409,22 @@ msgstr ""
 "Gutxienez karpeta bat eta fitxategi bat hautatu dira. Hautatutako "
 "fitxategiei ezikusi egingo zaie, eta hautatutako karpetak zerrendatuko dira."
 
-#: filewidgets/kfilewidget.cpp:833
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Hautatutako fitxategi eta karpetak"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Ezin izan du «%1» fitxategia aurkitu"
 
-#: filewidgets/kfilewidget.cpp:851
+#: filewidgets/kfilewidget.cpp:846
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ezin da fitxategia ireki"
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3435,44 +3435,44 @@ msgstr ""
 "uneko kokalekua file:/home/konqi bada, botoi hau klikatzeak file:/home "
 "kokalekura eramango zaitu.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1207
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Egin klik botoi honi arakatze historian urrats bat atzerantz mugitzeko."
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Egin klik botoi honi arakatze historian urrats bat aurrerantz mugitzeko."
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Egin klik botoi honi uneko kokalekuaren edukiak birzamatzeko."
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Egin klik botoi honi karpeta berri bat sortzeko."
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1214
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Erakutsi «lekuak» panela"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Erakutsi «laster-markak» botoia"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid "Options"
 msgstr "Aukerak"
 
-#: filewidgets/kfilewidget.cpp:1236
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3488,12 +3488,12 @@ msgstr ""
 "li><li>fitxategien aurreikuspegiak</li><li>karpetak fitxategiengandik "
 "banatzea</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1255
+#: filewidgets/kfilewidget.cpp:1250
 #, kde-format
 msgid "Bookmarks"
 msgstr "Laster-markak"
 
-#: filewidgets/kfilewidget.cpp:1259
+#: filewidgets/kfilewidget.cpp:1254
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3508,18 +3508,18 @@ msgstr ""
 "gisa.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1298 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1293 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Izena:"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1315
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Desegin fitxategi-izen aldaketa"
 
-#: filewidgets/kfilewidget.cpp:1397
+#: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3532,12 +3532,12 @@ msgstr ""
 "<b>Testu osaketa</b> menuan hobetsitako modua hautatuz kontrolatu dezakezu.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1399
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Fitxategia izen honekin gordeko da."
 
-#: filewidgets/kfilewidget.cpp:1407
+#: filewidgets/kfilewidget.cpp:1402
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3546,74 +3546,74 @@ msgstr ""
 "Hona hemen irekiko diren fitxategien zerrenda. Hainbat fitxategi zerrendatuz "
 "(bereizlea zuriunea da) fitxategi bat baino gehiago hauta daitezke."
 
-#: filewidgets/kfilewidget.cpp:1412
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Irekiko den fitxategiaren izena da hau."
 
-#: filewidgets/kfilewidget.cpp:1425
+#: filewidgets/kfilewidget.cpp:1420
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Lekuak"
 
-#: filewidgets/kfilewidget.cpp:1674
+#: filewidgets/kfilewidget.cpp:1669
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" fitxategia badago lehendik ere. Nahi duzu gainidaztea?"
 
-#: filewidgets/kfilewidget.cpp:1675
+#: filewidgets/kfilewidget.cpp:1670
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Fitxategia gainidatzi?"
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "You can only select local files."
 msgstr "Soilik fitxategi lokalak aukera ditzakezu."
 
-#: filewidgets/kfilewidget.cpp:1872
+#: filewidgets/kfilewidget.cpp:1867
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ez dira onartzen urruneko fitxategiak"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "All Folders"
 msgstr "Karpeta guztiak"
 
-#: filewidgets/kfilewidget.cpp:2118 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2113 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Ireki"
 
-#: filewidgets/kfilewidget.cpp:2218
+#: filewidgets/kfilewidget.cpp:2213
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikonoaren tamaina: %1 pixel"
 
-#: filewidgets/kfilewidget.cpp:2365
+#: filewidgets/kfilewidget.cpp:2360
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Hautatu automatikoki fitxategiaren &luzapena (%1)"
 
-#: filewidgets/kfilewidget.cpp:2366
+#: filewidgets/kfilewidget.cpp:2361
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> luzapena"
 
-#: filewidgets/kfilewidget.cpp:2372
+#: filewidgets/kfilewidget.cpp:2367
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Hautatu automatikoki fitxategi-izenaren &luzapena"
 
-#: filewidgets/kfilewidget.cpp:2373
+#: filewidgets/kfilewidget.cpp:2368
 #, kde-format
 msgid "a suitable extension"
 msgstr "luzapen egokia"
 
-#: filewidgets/kfilewidget.cpp:2381
+#: filewidgets/kfilewidget.cpp:2376
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3640,12 +3640,12 @@ msgstr ""
 "li></ol> Zer egin jakin ezean, hobe aukera hau gaituta uzten baduzu zure "
 "fitxategiak erabilgarriagoak izateko."
 
-#: filewidgets/kfilewidget.cpp:2855
+#: filewidgets/kfilewidget.cpp:2850
 #, kde-format
 msgid "&File type:"
 msgstr "&Fitxategi mota:"
 
-#: filewidgets/kfilewidget.cpp:2856
+#: filewidgets/kfilewidget.cpp:2851
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3654,12 +3654,12 @@ msgstr ""
 "<qt>Hau da fitxategi mota hautatzailea. Fitxategia zein formatutan gordeko "
 "den hautatzeko erabiltzen da.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2853
 #, kde-format
 msgid "&Filter:"
 msgstr "&Iragazkia:"
 
-#: filewidgets/kfilewidget.cpp:2860
+#: filewidgets/kfilewidget.cpp:2855
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6751,17 +6751,20 @@ msgstr "Konfiguratu web-lasterbideak..."
 msgid "Open file dialog"
 msgstr "Ireki fitxategien elkarrizketa-koadroa"
 
-#: widgets/paste.cpp:69 widgets/paste.cpp:120 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Arbelaren edukiaren fitxategi-izena:"
 
-#: widgets/paste.cpp:112
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
+#: widgets/paste.cpp:111
+#, fuzzy, kde-format
+#| msgid "&Paste File"
+#| msgid_plural "&Paste %1 Files"
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "&Itsatsi fitxategia"
 
-#: widgets/paste.cpp:132
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6770,19 +6773,19 @@ msgstr ""
 "Arbela aldatu egin da 'itsatsi' erabili zenuenetik: hautatutako datu-"
 "formatua ezingo da gehiago aplikatu. Kopiatu berriro itsastea nahi duzuna."
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Itsatsi karpeta bat"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Itsatsi fitxategi bat"
 
-#: widgets/paste.cpp:264
+#: widgets/paste.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6790,22 +6793,27 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Itsatsi elementu bat"
 msgstr[1] "Itsatsi %1 elementu"
 
-#: widgets/paste.cpp:266
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Itsatsi arbeleko edukia..."
 
-#: widgets/paste.cpp:270
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: widgets/pastedialog.cpp:43
+#: widgets/pastedialog.cpp:45
 #, kde-format
 msgid "Data format:"
 msgstr "Datu-formatua:"
+
+#: widgets/pastedialog.cpp:53
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: widgets/pastejob.cpp:71
 #, kde-format
@@ -8988,11 +8996,6 @@ msgstr "Programa honetaz ez bazara fidatzen, edin klik Utzi botoian"
 
 #~ msgid "Could not find any application or handler for %1"
 #~ msgstr "Ezin izan du %1(r)entzako aplikaziorik edo maneiatzailerik aurkitu"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "&Itsatsi fitxategia"
-#~ msgstr[1] "&Itsatsi %1 fitxategi"
 
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"
