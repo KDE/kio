@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:39+0000\n"
-"PO-Revision-Date: 2025-03-15 03:42+0100\n"
+"PO-Revision-Date: 2025-03-29 02:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6701,12 +6701,10 @@ msgid "Filename for clipboard content:"
 msgstr "ბუფერის შემცველობის ფაილის სახელი:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&ფაილის ჩასმა"
+msgstr "ჩასმული ფაილი"
 
 #: widgets/paste.cpp:123
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:39+0000\n"
-"PO-Revision-Date: 2025-03-15 13:35+0100\n"
+"PO-Revision-Date: 2025-03-29 13:26+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6840,12 +6840,10 @@ msgid "Filename for clipboard content:"
 msgstr "Bestandsnaam voor de klembordinhoud:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Bestand &plakken"
+msgstr "geplakt bestand"
 
 #: widgets/paste.cpp:123
 #, kde-format

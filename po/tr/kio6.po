@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:39+0000\n"
-"PO-Revision-Date: 2025-03-15 13:28+0300\n"
+"PO-Revision-Date: 2025-03-29 14:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6715,12 +6715,10 @@ msgid "Filename for clipboard content:"
 msgstr "Pano içeriği için dosya adı:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste One File"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "1 Dosyayı Yapıştır"
+msgstr "yapıştırılmış dosya"
 
 #: widgets/paste.cpp:123
 #, kde-format

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:39+0000\n"
-"PO-Revision-Date: 2025-03-15 10:30+0100\n"
+"PO-Revision-Date: 2025-03-29 13:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -6804,12 +6804,10 @@ msgid "Filename for clipboard content:"
 msgstr "Nom de fitxer per al contingut del porta-retalls:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste One File"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Apega un fitxer"
+msgstr "fitxer apegat"
 
 #: widgets/paste.cpp:123
 #, kde-format

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:39+0000\n"
-"PO-Revision-Date: 2025-03-15 07:50+0100\n"
+"PO-Revision-Date: 2025-03-29 11:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4012,7 +4012,7 @@ msgid ""
 msgstr ""
 "Datoteka z vnosom za namizje\n"
 "%1\n"
-"je vrste Link (povezava), a nima vnosa URL=…"
+"je vrste Link (povezava), a nima vnosa URL=… ."
 
 #: gui/openurljob.cpp:374
 #, kde-format
@@ -6534,10 +6534,10 @@ msgstr "Različno (brez spremembe)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Te datoteke uporabljajo napredna dovoljenja"
-msgstr[1] "Ta datoteka uporablja napredna dovoljenja"
-msgstr[2] "Ti datoteki uporabljata napredni dovoljenji"
-msgstr[3] "Te datoteke uporabljajo napredna dovoljenja"
+msgstr[0] "Te datoteke uporabljajo napredna dovoljenja."
+msgstr[1] "Ta datoteka uporablja napredna dovoljenja."
+msgstr[2] "Ti datoteki uporabljata napredni dovoljenji."
+msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
@@ -6768,12 +6768,10 @@ msgid "Filename for clipboard content:"
 msgstr "Ime datoteke za vsebino odložišča:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Prilepi %1 datoteko"
+msgstr "prilepljena datoteka"
 
 #: widgets/paste.cpp:123
 #, kde-format

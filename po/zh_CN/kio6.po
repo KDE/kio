@@ -6460,12 +6460,10 @@ msgid "Filename for clipboard content:"
 msgstr "剪贴板内容的文件名："
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste One File"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "粘贴 1 个文件"
+msgstr ""
 
 #: widgets/paste.cpp:123
 #, kde-format
