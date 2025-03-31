@@ -6463,7 +6463,7 @@ msgstr "剪贴板内容的文件名："
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr ""
+msgstr "粘贴的文件"
 
 #: widgets/paste.cpp:123
 #, kde-format
