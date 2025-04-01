@@ -163,10 +163,12 @@ public:
         FilterSettings()
             : isShowingDotFiles(false)
             , dirOnlyMode(false)
+            , quickFilterMode(false)
         {
         }
         bool isShowingDotFiles;
         bool dirOnlyMode;
+        bool quickFilterMode;
         QList<QRegularExpression> lstFilters;
         QStringList mimeFilter;
         QStringList mimeExcludeFilter;

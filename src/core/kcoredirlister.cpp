@@ -2192,6 +2192,21 @@ void KCoreDirLister::setDirOnlyMode(bool dirsOnly)
     d->settings.dirOnlyMode = dirsOnly;
 }
 
+bool KCoreDirLister::quickFilterMode() const
+{
+    return d->settings.quickFilterMode;
+}
+
+void KCoreDirLister::setQuickFilterMode(bool quickFilterMode)
+{
+    if (d->settings.quickFilterMode == quickFilterMode) {
+        return;
+    }
+
+    d->prepareForSettingsChange();
+    d->settings.quickFilterMode = quickFilterMode;
+}
+
 bool KCoreDirLister::requestMimeTypeWhileListing() const
 {
     return d->requestMimeTypeWhileListing;
@@ -2390,7 +2405,12 @@ bool KCoreDirListerPrivate::matchesFilter(const KFileItem &item) const
         return false;
     }
 
-    if (item.isDir() || settings.lstFilters.isEmpty()) {
+    // Return directories always even when they don't match the name
+    if (!settings.quickFilterMode && item.isDir()) {
+        return true;
+    }
+
+    if (settings.lstFilters.isEmpty()) {
         return true;
     }
 

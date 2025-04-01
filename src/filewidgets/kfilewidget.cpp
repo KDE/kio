@@ -111,6 +111,7 @@ public:
     void initZoomWidget();
     void initLocationWidget();
     void initFilterWidget();
+    void initQuickFilterWidget();
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initPlacesPanel();
@@ -166,11 +167,13 @@ public:
     void enterUrl(const QString &);
     void locationAccepted(const QString &);
     void slotFilterChanged();
+    void slotQuickFilterChanged();
     void fileHighlighted(const KFileItem &);
     void fileSelected(const KFileItem &);
     void slotLoadingFinished();
     void togglePlacesPanel(bool show, QObject *sender = nullptr);
     void toggleBookmarks(bool);
+    void toggleQuickFilter(bool);
     void slotAutoSelectExtClicked();
     void placesViewSplitterMoved(int, int);
     void activateUrlNavigator();
@@ -250,6 +253,11 @@ public:
     KFileFilterCombo *m_filterWidget = nullptr;
     QTimer m_filterDelayTimer;
 
+    QWidget *m_quickFilter = nullptr;
+    QLineEdit *m_quickFilterEdit = nullptr;
+    QToolButton *m_quickFilterLock = nullptr;
+    QToolButton *m_quickFilterClose = nullptr;
+
     KFilePlacesModel *m_model = nullptr;
 
     // whether or not the _user_ has checked the above box
@@ -291,6 +299,7 @@ public:
 
     KToggleAction *m_toggleBookmarksAction = nullptr;
     KToggleAction *m_togglePlacesPanelAction = nullptr;
+    KToggleAction *m_toggleQuickFilterAction = nullptr;
 };
 
 Q_GLOBAL_STATIC(QUrl, lastDirectory) // to set the start path
@@ -393,6 +402,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // "Filter:" line-edit and label
     d->initFilterWidget();
 
+    d->initQuickFilterWidget();
     // the Automatically Select Extension checkbox
     // (the text, visibility etc. is set in updateAutoSelectExtension(), which is called by readConfig())
     d->m_autoSelectExtCheckBox = new QCheckBox(this);
@@ -1224,6 +1234,13 @@ void KFileWidgetPrivate::initToolbar()
         toggleBookmarks(show);
     });
 
+    m_toggleQuickFilterAction = new KToggleAction(i18n("Show Quick Filter"), q);
+    q->addAction(m_toggleQuickFilterAction);
+    m_toggleQuickFilterAction->setShortcut(QKeySequence(Qt::Key_Backslash));
+    q->connect(m_toggleQuickFilterAction, &QAction::toggled, q, [this](bool show) {
+        toggleQuickFilter(show);
+    });
+
     // Build the settings menu
     KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), q);
     q->addAction(menu);
@@ -1241,6 +1258,7 @@ void KFileWidgetPrivate::initToolbar()
     menu->addSeparator();
     menu->addAction(m_ops->action(KDirOperator::ShowHiddenFiles));
     menu->addAction(m_togglePlacesPanelAction);
+    menu->addAction(m_toggleQuickFilterAction);
     menu->addAction(m_toggleBookmarksAction);
     menu->addAction(m_ops->action(KDirOperator::ShowPreviewPanel));
 
@@ -1353,6 +1371,42 @@ void KFileWidgetPrivate::initFilterWidget()
     q->connect(&m_filterDelayTimer, &QTimer::timeout, q, [this]() {
         slotFilterChanged();
     });
+}
+
+void KFileWidgetPrivate::initQuickFilterWidget()
+{
+    m_quickFilter = new QWidget(q);
+    // Lock is used for keeping filter open when changing folders
+    m_quickFilterLock = new QToolButton(m_quickFilter);
+    m_quickFilterLock->setAutoRaise(true);
+    m_quickFilterLock->setCheckable(true);
+    m_quickFilterLock->setIcon(QIcon::fromTheme(QStringLiteral("object-unlocked")));
+    m_quickFilterLock->setToolTip(i18nc("@info:tooltip", "Keep Filter When Changing Folders"));
+
+    m_quickFilterEdit = new QLineEdit(m_quickFilter);
+    m_quickFilterEdit->setLayoutDirection(Qt::LeftToRight);
+    m_quickFilterEdit->setClearButtonEnabled(true);
+    m_quickFilterEdit->setPlaceholderText(i18n("Filter…"));
+    QObject::connect(m_quickFilterEdit, &QLineEdit::textChanged, q, [this]() {
+        slotQuickFilterChanged();
+    });
+
+    m_quickFilterClose = new QToolButton(m_quickFilter);
+    m_quickFilterClose->setAutoRaise(true);
+    m_quickFilterClose->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
+    m_quickFilterClose->setToolTip(i18nc("@info:tooltip", "Hide Filter Bar"));
+    QObject::connect(m_quickFilterClose, &QToolButton::clicked, q, [this]() {
+        toggleQuickFilter(false);
+    });
+
+    QHBoxLayout *hLayout = new QHBoxLayout(m_quickFilter);
+    hLayout->setContentsMargins(0, 0, 0, 0);
+    hLayout->addWidget(m_quickFilterLock);
+    hLayout->addWidget(m_quickFilterEdit);
+    hLayout->addWidget(m_quickFilterClose);
+
+    m_quickFilter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_quickFilter->hide();
 }
 
 void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
@@ -1489,6 +1543,7 @@ void KFileWidgetPrivate::initGUI()
                                  q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                  0);
 
+    m_lafBox->addRow(m_quickFilter);
     m_lafBox->addRow(m_locationLabel, m_locationEdit);
     m_lafBox->addRow(m_filterLabel, m_filterWidget);
     // Add the "Automatically Select Extension" checkbox
@@ -1514,7 +1569,10 @@ void KFileWidgetPrivate::initGUI()
         q->setTabOrder(m_urlNavigator, m_ops);
         // Add the other elements in the ui that aren't int he toolbar
         q->setTabOrder(m_ops, m_autoSelectExtCheckBox);
-        q->setTabOrder(m_autoSelectExtCheckBox, m_locationEdit);
+        q->setTabOrder(m_autoSelectExtCheckBox, m_quickFilterLock);
+        q->setTabOrder(m_quickFilterLock, m_quickFilterEdit);
+        q->setTabOrder(m_quickFilterEdit, m_quickFilterClose);
+        q->setTabOrder(m_quickFilterClose, m_locationEdit);
         q->setTabOrder(m_locationEdit, m_filterWidget);
         q->setTabOrder(m_filterWidget, m_okButton);
         q->setTabOrder(m_okButton, m_cancelButton);
@@ -1578,6 +1636,31 @@ void KFileWidgetPrivate::slotFilterChanged()
     m_ops->updateDir();
 
     Q_EMIT q->filterChanged(filter);
+}
+
+void KFileWidgetPrivate::slotQuickFilterChanged()
+{
+    m_filterDelayTimer.stop();
+
+    KFileFilter filter(QStringLiteral("quickFilter"), QStringList{m_quickFilterEdit->text()}, QStringList());
+
+    m_ops->clearFilter();
+    m_ops->dirLister()->setQuickFilterMode(true);
+
+    const auto filePatterns = filter.filePatterns();
+    const bool hasRegExSyntax = std::any_of(filePatterns.constBegin(), filePatterns.constEnd(), [](const QString &filter) {
+        return filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['));
+    });
+
+    if (hasRegExSyntax) {
+        m_ops->setNameFilter(filter.filePatterns().join(QLatin1Char(' ')));
+    } else {
+        m_ops->setNameFilter(QLatin1Char('*') + filePatterns.join(QLatin1Char('*')) + QLatin1Char('*'));
+    }
+    m_ops->updateDir();
+
+    Q_EMIT q->filterChanged(filter);
+    m_ops->dirLister()->setQuickFilterMode(false);
 }
 
 void KFileWidget::setUrl(const QUrl &url, bool clearforward)
@@ -1646,6 +1729,11 @@ void KFileWidgetPrivate::enterUrl(const QUrl &url)
     // gets it and we don't want to steal its focus either
     if (q->window()->focusWidget() != m_locationEdit) {
         m_ops->setFocus();
+    }
+
+    // Clear the quick filter if its not locked
+    if (!m_quickFilterLock->isChecked()) {
+        toggleQuickFilter(false);
     }
 }
 
@@ -2726,6 +2814,21 @@ void KFileWidgetPrivate::toggleBookmarks(bool show)
     }
 
     m_toggleBookmarksAction->setChecked(show);
+}
+
+void KFileWidgetPrivate::toggleQuickFilter(bool show)
+{
+    if (m_quickFilter->isVisible() == show) {
+        return;
+    }
+    m_quickFilter->setVisible(show);
+    if (show) {
+        m_quickFilterEdit->setFocus();
+    } else {
+        m_quickFilterEdit->clear();
+    }
+    m_quickFilterLock->setChecked(false);
+    m_toggleQuickFilterAction->setChecked(show);
 }
 
 // static, overloaded
