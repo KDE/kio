@@ -173,7 +173,7 @@ public:
     void slotLoadingFinished();
     void togglePlacesPanel(bool show, QObject *sender = nullptr);
     void toggleBookmarks(bool);
-    void toggleQuickFilter(bool);
+    void setQuickFilterVisible(bool);
     void slotAutoSelectExtClicked();
     void placesViewSplitterMoved(int, int);
     void activateUrlNavigator();
@@ -1238,7 +1238,7 @@ void KFileWidgetPrivate::initToolbar()
     q->addAction(m_toggleQuickFilterAction);
     m_toggleQuickFilterAction->setShortcuts(QList{QKeySequence(Qt::Key_Backslash), QKeySequence(Qt::CTRL | Qt::Key_I)});
     q->connect(m_toggleQuickFilterAction, &QAction::toggled, q, [this](bool show) {
-        toggleQuickFilter(show);
+        setQuickFilterVisible(show);
     });
 
     // Build the settings menu
@@ -1396,7 +1396,7 @@ void KFileWidgetPrivate::initQuickFilterWidget()
     m_quickFilterClose->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
     m_quickFilterClose->setToolTip(i18nc("@info:tooltip", "Hide Filter Bar"));
     QObject::connect(m_quickFilterClose, &QToolButton::clicked, q, [this]() {
-        toggleQuickFilter(false);
+        setQuickFilterVisible(false);
     });
 
     QHBoxLayout *hLayout = new QHBoxLayout(m_quickFilter);
@@ -1734,7 +1734,7 @@ void KFileWidgetPrivate::enterUrl(const QUrl &url)
 
     // Clear the quick filter if its not locked
     if (!m_quickFilterLock->isChecked()) {
-        toggleQuickFilter(false);
+        setQuickFilterVisible(false);
     }
 }
 
@@ -2817,7 +2817,7 @@ void KFileWidgetPrivate::toggleBookmarks(bool show)
     m_toggleBookmarksAction->setChecked(show);
 }
 
-void KFileWidgetPrivate::toggleQuickFilter(bool show)
+void KFileWidgetPrivate::setQuickFilterVisible(bool show)
 {
     if (m_quickFilter->isVisible() == show) {
         return;
