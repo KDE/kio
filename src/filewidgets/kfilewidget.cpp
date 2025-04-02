@@ -1648,6 +1648,7 @@ void KFileWidgetPrivate::slotQuickFilterChanged()
     m_ops->dirLister()->setQuickFilterMode(true);
 
     const auto filePatterns = filter.filePatterns();
+    // Keep the behavior here in sync with Dolphin: dolphin/src/kitemviews/private/kfileitemmodelfilter.cpp setPattern
     const bool hasRegExSyntax = std::any_of(filePatterns.constBegin(), filePatterns.constEnd(), [](const QString &filter) {
         return filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['));
     });
