@@ -1642,10 +1642,8 @@ void KFileWidgetPrivate::slotQuickFilterChanged()
 {
     m_filterDelayTimer.stop();
 
-    KFileFilter filter(QStringLiteral("quickFilter"), QStringList{m_quickFilterEdit->text()}, QStringList());
-
+    KFileFilter filter(QStringLiteral("quickFilter"), QStringList{m_quickFilterEdit->text()}, m_filterWidget->currentFilter().mimePatterns());
     m_ops->clearFilter();
-    m_ops->dirLister()->setQuickFilterMode(true);
 
     const auto filePatterns = filter.filePatterns();
     // Keep the behavior here in sync with Dolphin: dolphin/src/kitemviews/private/kfileitemmodelfilter.cpp setPattern
@@ -1653,6 +1651,7 @@ void KFileWidgetPrivate::slotQuickFilterChanged()
         return filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['));
     });
 
+    m_ops->setMimeFilter(filter.mimePatterns());
     if (hasRegExSyntax) {
         m_ops->setNameFilter(filter.filePatterns().join(QLatin1Char(' ')));
     } else {
@@ -1661,7 +1660,6 @@ void KFileWidgetPrivate::slotQuickFilterChanged()
     m_ops->updateDir();
 
     Q_EMIT q->filterChanged(filter);
-    m_ops->dirLister()->setQuickFilterMode(false);
 }
 
 void KFileWidget::setUrl(const QUrl &url, bool clearforward)
@@ -2823,12 +2821,14 @@ void KFileWidgetPrivate::setQuickFilterVisible(bool show)
         return;
     }
     m_quickFilter->setVisible(show);
+    m_filterWidget->setEnabled(!show);
     if (show) {
         m_quickFilterEdit->setFocus();
     } else {
         m_quickFilterEdit->clear();
     }
     m_quickFilterLock->setChecked(false);
+    m_ops->dirLister()->setQuickFilterMode(show);
     m_toggleQuickFilterAction->setChecked(show);
 }
 
