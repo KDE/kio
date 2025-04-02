@@ -1236,7 +1236,7 @@ void KFileWidgetPrivate::initToolbar()
 
     m_toggleQuickFilterAction = new KToggleAction(i18n("Show Quick Filter"), q);
     q->addAction(m_toggleQuickFilterAction);
-    m_toggleQuickFilterAction->setShortcut(QKeySequence(Qt::Key_Backslash));
+    m_toggleQuickFilterAction->setShortcuts(QList{QKeySequence(Qt::Key_Backslash), QKeySequence(Qt::CTRL | Qt::Key_I)});
     q->connect(m_toggleQuickFilterAction, &QAction::toggled, q, [this](bool show) {
         toggleQuickFilter(show);
     });
