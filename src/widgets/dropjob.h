@@ -29,6 +29,19 @@ enum DropJobFlag {
     DropJobDefaultFlags = 0,
     ShowMenuManually = 1, ///< show the menu manually with DropJob::showMenu
 };
+
+/**
+ * Setting flag to determine what the default behaviour should be when dropping items.
+ *
+ * @see DndBehavior
+ * @since 6.14
+ */
+Q_NAMESPACE
+enum DndBehavior : std::uint8_t {
+    AlwaysAsk = 0,
+    MoveIfSameDevice = 1, ///< Move the dragged items without showing the options menu they are on the same device
+};
+Q_ENUM_NS(DndBehavior)
 /**
  * Stores a combination of #DropJobFlag values.
  */

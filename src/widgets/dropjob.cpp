@@ -26,10 +26,12 @@
 #include <KJobWidgets>
 #include <KJobWindows>
 #include <KLocalizedString>
+#include <KMountPoint>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KProtocolManager>
 #include <KService>
+#include <KSharedConfig>
 #include <KUrlMimeData>
 
 #ifdef WITH_QTDBUS
@@ -40,6 +42,7 @@
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QMenu>
+#include <QMetaEnum>
 #include <QMimeData>
 #include <QProcess>
 #include <QTimer>
@@ -151,8 +154,11 @@ public:
     const QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
+    Qt::DropActions m_possibleActions;
+    bool m_allSourcesAreHttpUrls;
     QPoint m_relativePos;
     Qt::KeyboardModifiers m_keyboardModifiers;
+    KFileItemListProperties m_itemProps;
     bool m_hasArkFormat;
     QString m_remoteArkDBusClient;
     QString m_remoteArkDBusPath;
@@ -297,26 +303,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 {
     Q_Q(DropJob);
 
-    // Check what the source can do
-    // TODO: Determining the MIME type of the source URLs is difficult for remote URLs,
-    // we would need to KIO::stat each URL in turn, asynchronously....
-    KFileItemList fileItems;
-    fileItems.reserve(m_urls.size());
-    for (const QUrl &url : m_urls) {
-        fileItems.append(KFileItem(url));
-    }
-    const bool allSourcesAreHttpUrls = std::ranges::all_of(m_urls, [](const auto &url) {
-        return url.scheme().startsWith(QStringLiteral("http"), Qt::CaseInsensitive);
-    });
-    const KFileItemListProperties itemProps(fileItems);
-
-    Q_EMIT q->popupMenuAboutToShow(itemProps);
-
-    const bool sReading = itemProps.supportsReading();
-    // For http URLs, even though technically the protocol supports deleting,
-    // this never makes sense for a drag operation.
-    const bool sDeleting = allSourcesAreHttpUrls ? false : itemProps.supportsDeleting();
-    const bool sMoving = itemProps.supportsMoving();
+    Q_EMIT q->popupMenuAboutToShow(m_itemProps);
 
     const int separatorLength = QCoreApplication::translate("QShortcut", "+").size();
     QString seq = QKeySequence(Qt::ShiftModifier).toString(QKeySequence::NativeText);
@@ -327,8 +314,8 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     seq = QKeySequence(Qt::ControlModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength);
 
-    const QString copyActionName = allSourcesAreHttpUrls ? i18nc("@action:inmenu Download contents of URL here", "&Download Here") : i18n("&Copy Here");
-    const QIcon copyActionIcon = QIcon::fromTheme(allSourcesAreHttpUrls ? QStringLiteral("download") : QStringLiteral("edit-copy"));
+    const QString copyActionName = m_allSourcesAreHttpUrls ? i18nc("@action:inmenu Download contents of URL here", "&Download Here") : i18n("&Copy Here");
+    const QIcon copyActionIcon = QIcon::fromTheme(m_allSourcesAreHttpUrls ? QStringLiteral("download") : QStringLiteral("edit-copy"));
     QAction *popupCopyAction = new QAction(copyActionName + QLatin1Char('\t') + seq, popup);
     popupCopyAction->setIcon(copyActionIcon);
     popupCopyAction->setData(QVariant::fromValue(Qt::CopyAction));
@@ -338,23 +325,17 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 
-    if (sMoving || (sReading && sDeleting)) {
-        const bool equalDestination = std::all_of(m_urls.cbegin(), m_urls.cend(), [this](const QUrl &src) {
-            return m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash);
-        });
-
-        if (!equalDestination) {
-            popup->addAction(popupMoveAction);
-        }
+    if (m_possibleActions & Qt::MoveAction) {
+        popup->addAction(popupMoveAction);
     }
 
-    if (sReading) {
+    if (m_possibleActions & Qt::CopyAction) {
         popup->addAction(popupCopyAction);
     }
 
     popup->addAction(popupLinkAction);
 
-    addPluginActions(popup, itemProps);
+    addPluginActions(popup, m_itemProps);
 }
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
@@ -448,10 +429,41 @@ void DropJobPrivate::handleCopyToDirectory()
         return;
     }
 
+    // Check what the source can do
+    KFileItemList fileItems;
+    fileItems.reserve(m_urls.size());
+
     bool allItemsAreFromTrash = true;
+    bool allItemsAreLocal = true;
+    bool allItemsAreSameDevice = true;
     bool containsTrashRoot = false;
+    bool equalDestination = true;
+    m_allSourcesAreHttpUrls = true;
+    // Check if the default behavior has been changed to MoveAction, read from kdeglobals
+    const KConfigGroup g = KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("KDE"));
+    QMetaEnum metaEnum = QMetaEnum::fromType<DndBehavior>();
+    QString configValue = g.readEntry("dndToMove", metaEnum.valueToKey(DndBehavior::AlwaysAsk));
+    bool defaultActionIsMove = metaEnum.keyToValue(configValue.toLocal8Bit().constData());
+
+    KMountPoint::List mountPoints;
+    bool destIsLocal = m_destUrl.isLocalFile();
+    QString destDevice;
+    if (defaultActionIsMove && destIsLocal) {
+        // As getting the mount point can be slow, only do it when we need to.
+        if (mountPoints.isEmpty()) {
+            mountPoints = KMountPoint::currentMountPoints();
+        }
+        destDevice = mountPoints.findByPath(m_destUrl.path())->mountedFrom();
+    } else {
+        allItemsAreSameDevice = false;
+    }
+
     for (const QUrl &url : m_urls) {
         const bool local = url.isLocalFile();
+        if (!local) {
+            allItemsAreLocal = false;
+            allItemsAreSameDevice = false;
+        }
 #ifdef Q_OS_LINUX
         // Check if the file is already in the xdg trash folder, BUG:497390
         const QString xdgtrash = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash");
@@ -477,9 +489,49 @@ void DropJobPrivate::handleCopyToDirectory()
             allItemsAreFromTrash = false;
         }
 #endif
+
+        if (equalDestination && !m_destUrl.matches(url.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
+            equalDestination = false;
+        }
+
+        if (defaultActionIsMove && allItemsAreSameDevice) {
+            // As getting the mount point can be slow, only do it when we need to.
+            if (mountPoints.isEmpty()) {
+                mountPoints = KMountPoint::currentMountPoints();
+            }
+            const QString &sourceDevice = mountPoints.findByPath(url.path())->mountedFrom();
+            if (sourceDevice != destDevice && !KFileItem(url).isLink()) {
+                allItemsAreSameDevice = false;
+            }
+        }
+
+        if (m_allSourcesAreHttpUrls && !url.scheme().startsWith(QStringLiteral("http"), Qt::CaseInsensitive)) {
+            m_allSourcesAreHttpUrls = false;
+        }
+
+        fileItems.append(KFileItem(url));
+
         if (url.matches(m_destUrl, QUrl::StripTrailingSlash)) {
             slotDropActionDetermined(KIO::ERR_DROP_ON_ITSELF);
             return;
+        }
+    }
+    m_itemProps.setItems(fileItems);
+
+    m_possibleActions = Qt::LinkAction;
+    const bool sReading = m_itemProps.supportsReading();
+    // For http URLs, even though technically the protocol supports deleting,
+    // this never makes sense for a drag operation.
+    const bool sDeleting = m_allSourcesAreHttpUrls ? false : m_itemProps.supportsDeleting();
+    const bool sMoving = m_itemProps.supportsMoving();
+
+    if (sReading) {
+        m_possibleActions |= Qt::CopyAction;
+    }
+
+    if (sMoving || (sReading && sDeleting)) {
+        if (!equalDestination) {
+            m_possibleActions |= Qt::MoveAction;
         }
     }
 
@@ -531,6 +583,14 @@ void DropJobPrivate::handleCopyToDirectory()
         // No point in asking copy/move/link when using dragging from the trash, just move the file out.
         m_dropAction = Qt::MoveAction;
         err = KJob::NoError; // Ok
+    } else if (defaultActionIsMove && (m_possibleActions & Qt::MoveAction) && allItemsAreLocal && allItemsAreSameDevice) {
+        if (m_keyboardModifiers == Qt::NoModifier) {
+            m_dropAction = Qt::MoveAction;
+            err = KJob::NoError; // Ok
+        } else if (m_keyboardModifiers == Qt::ShiftModifier) {
+            // the user requests to show the menu
+            err = KIO::ERR_UNKNOWN;
+        }
     } else if (m_keyboardModifiers & (Qt::ControlModifier | Qt::ShiftModifier | Qt::AltModifier)) {
         // Qt determined m_dropAction from the modifiers already
         err = KJob::NoError; // Ok
