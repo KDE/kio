@@ -149,3 +149,5 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
     });
     d->m_proc->start(thumbnailer.binary(), thumbnailer.args());
 }
+
+#include "moc_standardthumbnailjob_p.cpp"

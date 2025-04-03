@@ -242,3 +242,5 @@ void OpenFileManagerWindowWindowsShellStrategy::start(const QList<QUrl> &urls, c
 } // namespace KIO
 
 #include "moc_openfilemanagerwindowjob.cpp"
+
+#include "moc_openfilemanagerwindowjob_p.cpp"
