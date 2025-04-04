@@ -722,12 +722,6 @@ void KFileItemDelegate::Private::drawTextItems(QPainter *painter,
     painter->restore();
 }
 
-void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
-{
-    const auto emblemSize = d->scaledEmblemSize(iconSize);
-    d->emblemRect = QRect(rect.topLeft().x(), rect.topLeft().y(), emblemSize, emblemSize);
-}
-
 void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
 {
     const KFileItem item = fileItem(index);
@@ -1590,6 +1584,18 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
     default:
         return false;
     } // switch (event->type())
+}
+
+void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
+{
+    const auto emblemSize = d->scaledEmblemSize(iconSize);
+
+    // With small icons, try to center the emblem on top of the icon
+    if (iconSize <= KIconLoader::SizeSmallMedium) {
+        d->emblemRect = QRect(rect.topLeft().x() + emblemSize / 4, rect.topLeft().y() + emblemSize / 4, emblemSize, emblemSize);
+    } else {
+        d->emblemRect = QRect(rect.topLeft().x(), rect.topLeft().y(), emblemSize, emblemSize);
+    }
 }
 
 QRect KFileItemDelegate::selectionEmblemRect() const
