@@ -7,16 +7,18 @@
 #ifndef KFILEITEMSELECTIONEMBLEM_H
 #define KFILEITEMSELECTIONEMBLEM_H
 
+#include <KDirOperator>
 #include <QAbstractItemView>
 #include <QModelIndex>
 
+class KFileItem;
 class KFileItemDelegate;
 class QPoint;
 
 class KFileItemSelectionEmblem
 {
 public:
-    KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index);
+    KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index, KDirOperator *dirOperator);
     ~KFileItemSelectionEmblem();
 
     void updateSelectionEmblemRectForIndex(const int iconSize);
@@ -28,7 +30,9 @@ private:
 
     QAbstractItemView *m_itemView;
     QModelIndex m_index;
+    KDirOperator *m_dirOperator;
     KFileItemDelegate *m_fileItemDelegate;
+    KFileItem m_fileItem;
     bool m_isDir;
 };
 

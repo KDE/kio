@@ -16,8 +16,10 @@
 #include <KFileItemDelegate>
 #include <KIconLoader>
 
-KDirOperatorIconView::KDirOperatorIconView(QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition)
+KDirOperatorIconView::KDirOperatorIconView(KDirOperator *dirOperator, QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition)
     : QListView(parent)
+    , m_isEmblemClicked(false)
+    , m_dirOperator(dirOperator)
 {
     setViewMode(QListView::IconMode);
     setResizeMode(QListView::Adjust);
@@ -78,7 +80,7 @@ void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
     const QModelIndex index = indexAt(event->pos());
 
     // When selection emblem is clicked, select it and don't do anything else
-    if (KFileItemSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
+    if (KFileItemSelectionEmblem(this, index, m_dirOperator).isSelectionEmblemClicked(event->pos())) {
         m_isEmblemClicked = true;
         selectionModel()->select(index, QItemSelectionModel::Toggle);
         return;

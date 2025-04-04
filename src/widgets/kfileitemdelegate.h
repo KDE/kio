@@ -9,6 +9,7 @@
 #define KFILEITEMDELEGATE_H
 
 #include "kiowidgets_export.h"
+#include <KFileItem>
 #include <QAbstractItemDelegate>
 #include <QTextOption>
 
@@ -408,7 +409,7 @@ public:
      */
     void setSelectionEmblemRect(QRect rect, int iconSize);
 
-    bool isDir(const QModelIndex &index) const;
+    KFileItem fileItem(const QModelIndex &index) const;
 
 public Q_SLOTS:
     /**

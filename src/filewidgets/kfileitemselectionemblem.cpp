@@ -13,12 +13,13 @@
 #include <QModelIndex>
 #include <QPoint>
 
-KFileItemSelectionEmblem::KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index)
+KFileItemSelectionEmblem::KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index, KDirOperator *dirOperator)
 {
     m_itemView = itemView;
     m_index = index;
     m_fileItemDelegate = fileItemDelegate();
-    m_isDir = m_fileItemDelegate->isDir(m_index);
+    m_dirOperator = dirOperator;
+    m_fileItem = m_fileItemDelegate->fileItem(m_index);
 }
 
 KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
@@ -27,8 +28,13 @@ KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
 
 bool KFileItemSelectionEmblem::isEmblemEnabled()
 {
-    return !m_isDir && m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection
-        && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick);
+    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+        if (m_fileItem.isDir()) {
+            return m_dirOperator->isSelected(m_fileItem);
+        }
+        return true;
+    }
+    return false;
 }
 
 KFileItemDelegate *KFileItemSelectionEmblem::fileItemDelegate()

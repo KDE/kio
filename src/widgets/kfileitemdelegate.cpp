@@ -1326,11 +1326,11 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
 void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, const QModelIndex &index) const
 {
-    if (isDir(index) || index.column() != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+    if (index.column() != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
         return;
     }
     const auto state = option.state;
-    if ((state & QStyle::State_MouseOver) || (state & QStyle::State_Selected)) {
+    if ((state & QStyle::State_MouseOver && !fileItem(index).isDir()) || (state & QStyle::State_Selected)) {
         const QString selectionEmblem = state & QStyle::State_Selected ? QStringLiteral("emblem-remove") : QStringLiteral("emblem-added");
         const auto emblem = QIcon::fromTheme(selectionEmblem).pixmap(d->emblemRect.size(), state & QStyle::State_MouseOver ? QIcon::Active : QIcon::Disabled);
 
@@ -1604,9 +1604,9 @@ QRect KFileItemDelegate::selectionEmblemRect() const
     return d->emblemRect;
 }
 
-bool KFileItemDelegate::isDir(const QModelIndex &index) const
+KFileItem KFileItemDelegate::fileItem(const QModelIndex &index) const
 {
-    return d->fileItem(index).isDir();
+    return d->fileItem(index);
 }
 
 #include "moc_kfileitemdelegate.cpp"

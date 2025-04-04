@@ -19,10 +19,11 @@
 #include <QMimeData>
 #include <QScrollBar>
 
-KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent)
+KDirOperatorDetailView::KDirOperatorDetailView(KDirOperator *dirOperator, QWidget *parent)
     : QTreeView(parent)
     , m_hideDetailColumns(false)
     , m_isEmblemClicked(false)
+    , m_dirOperator(dirOperator)
 {
     setRootIsDecorated(false);
     setSortingEnabled(true);
@@ -120,7 +121,7 @@ void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
     // When selection emblem is clicked, select it and don't do anything else
-    if (KFileItemSelectionEmblem(this, index).isSelectionEmblemClicked(event->pos())) {
+    if (KFileItemSelectionEmblem(this, index, m_dirOperator).isSelectionEmblemClicked(event->pos())) {
         m_isEmblemClicked = true;
         selectionModel()->select(index, QItemSelectionModel::Toggle);
         return;
