@@ -29,6 +29,7 @@ private:
     QAbstractItemView *m_itemView;
     QModelIndex m_index;
     KFileItemDelegate *m_fileItemDelegate;
+    bool m_isDir;
 };
 
 #endif

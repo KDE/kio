@@ -408,6 +408,8 @@ public:
      */
     void setSelectionEmblemRect(QRect rect, int iconSize);
 
+    bool isDir(const QModelIndex &index) const;
+
 public Q_SLOTS:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
@@ -425,7 +427,7 @@ private:
     std::unique_ptr<Private> const d; /// @internal
     Q_DISABLE_COPY(KFileItemDelegate)
 
-    void drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, int column) const;
+    void drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, const QModelIndex &index) const;
 };
 
 #endif // KFILEITEMDELEGATE_H

@@ -1156,6 +1156,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QPixmap icon = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
 
     const KFileItem fileItem = d->fileItem(index);
+    const bool isDir = fileItem.isDir();
     if (fileItem.isHidden()) {
         KIconEffect::semiTransparent(icon);
     }
@@ -1179,7 +1180,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                     pixmap = d->transition(fadeFromPixmap, pixmap, state->fadeProgress());
                 }
                 painter->drawPixmap(option.rect.topLeft(), pixmap);
-                drawSelectionEmblem(option, painter, index.column());
+                drawSelectionEmblem(option, painter, index);
                 if (d->jobTransfersVisible && index.column() == 0) {
                     if (index.data(KDirModel::HasJobRole).toBool()) {
                         d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
@@ -1255,7 +1256,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter, index.column());
+        drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1268,7 +1269,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.setRenderHint(QPainter::Antialiasing);
         style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &p, opt.widget);
         p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter, index.column());
+        drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
         d->drawFocusRect(&p, opt, focusRect);
         p.end();
@@ -1288,7 +1289,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         }
 
         painter->drawPixmap(option.rect.topLeft(), pixmap);
-        drawSelectionEmblem(option, painter, index.column());
+        drawSelectionEmblem(option, painter, index);
         painter->setRenderHint(QPainter::Antialiasing);
         if (d->jobTransfersVisible && index.column() == 0) {
             if (index.data(KDirModel::HasJobRole).toBool()) {
@@ -1313,7 +1314,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
-    drawSelectionEmblem(option, painter, index.column());
+    drawSelectionEmblem(option, painter, index);
 
     if (d->jobTransfersVisible && index.column() == 0 && state) {
         if (index.data(KDirModel::HasJobRole).toBool()) {
@@ -1323,9 +1324,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->restore();
 }
 
-void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, int column) const
+void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, const QModelIndex &index) const
 {
-    if (column != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+    if (isDir(index) || index.column() != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
         return;
     }
     const auto state = option.state;
@@ -1601,6 +1602,11 @@ void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
 QRect KFileItemDelegate::selectionEmblemRect() const
 {
     return d->emblemRect;
+}
+
+bool KFileItemDelegate::isDir(const QModelIndex &index) const
+{
+    return d->fileItem(index).isDir();
 }
 
 #include "moc_kfileitemdelegate.cpp"

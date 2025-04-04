@@ -18,6 +18,7 @@ KFileItemSelectionEmblem::KFileItemSelectionEmblem(QAbstractItemView *itemView, 
     m_itemView = itemView;
     m_index = index;
     m_fileItemDelegate = fileItemDelegate();
+    m_isDir = m_fileItemDelegate->isDir(m_index);
 }
 
 KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
@@ -26,7 +27,8 @@ KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
 
 bool KFileItemSelectionEmblem::isEmblemEnabled()
 {
-    return m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick);
+    return !m_isDir && m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection
+        && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick);
 }
 
 KFileItemDelegate *KFileItemSelectionEmblem::fileItemDelegate()
