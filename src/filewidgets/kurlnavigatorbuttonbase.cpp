@@ -1,8 +1,8 @@
 /*
-    SPDX-FileCopyrightText: 2006-2010 Peter Penz <peter.penz@gmx.at>
-    SPDX-FileCopyrightText: 2006 Aaron J. Seigo <aseigo@kde.org>
+SPDX-FileCopyrightText: 2006-2010 Peter Penz <peter.penz@gmx.at>
+SPDX-FileCopyrightText: 2006 Aaron J. Seigo <aseigo@kde.org>
 
-    SPDX-License-Identifier: LGPL-2.0-or-later
+SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "kurlnavigatorbuttonbase_p.h"
@@ -90,18 +90,14 @@ void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
 {
     const bool isHighlighted = isDisplayHintEnabled(EnteredHint) || isDisplayHintEnabled(DraggedHint) || isDisplayHintEnabled(PopupActiveHint);
 
-    QColor backgroundColor = isHighlighted ? palette().color(QPalette::Highlight) : Qt::transparent;
-    if (!m_active && isHighlighted) {
-        backgroundColor.setAlpha(128);
-    }
+    QStyleOptionButton buttonOption;
+    buttonOption.initFrom(this);
+    buttonOption.rect = QRect(0, 0, width(), height());
+    buttonOption.features = QStyleOptionButton::Flat;
 
-    if (backgroundColor != Qt::transparent) {
-        // TODO: the backgroundColor should be applied to the style
-        QStyleOptionViewItem option;
-        option.initFrom(this);
-        option.state = QStyle::State_Enabled | QStyle::State_MouseOver;
-        option.viewItemPosition = QStyleOptionViewItem::OnlyOne;
-        style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &option, painter, this);
+    // Draw button graphic
+    if (isHighlighted) {
+        style()->drawPrimitive(QStyle::PE_PanelButtonCommand, &buttonOption, painter, this);
     }
 }
 

@@ -171,14 +171,16 @@ private:
      */
     QString plainText() const;
 
-    int iconWidth() const;
-    bool isAboveIcon(int x) const;
+    int arrowWidth() const;
+    int textWidth() const;
+    bool isAboveSeparator(int x) const;
     bool isTextClipped() const;
     void updateMinimumWidth();
     void initMenu(KUrlNavigatorMenu *menu, int startIndex);
 
 private:
-    bool m_hoverOverIcon;
+    bool m_hoverOverArrow;
+    bool m_hoverOverButton;
     bool m_pendingTextChange;
     bool m_replaceButton;
     bool m_showMnemonic;

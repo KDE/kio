@@ -332,6 +332,21 @@ public:
      */
     QWidget *badgeWidget() const;
 
+    /**
+     * Sets the background painting enabled or disabled for the buttons layout.
+     * In frameless styles, its recommended to set the background to disabled.
+     * Does not affect the input mode.
+     * @since 6.14
+     */
+    void setBackgroundEnabled(bool enabled);
+
+    /**
+     * Returns true if the background of the buttons layout is being painted.
+     * Does not represent the input mode background.
+     * @since 6.14
+     */
+    bool isBackgroundEnabled() const;
+
 public Q_SLOTS:
     /**
      * Sets the location to \a url. The old URL is added to the history.

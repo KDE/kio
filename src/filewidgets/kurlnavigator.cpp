@@ -199,8 +199,9 @@ public:
     bool m_active = true;
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
+    bool m_backgroundEnabled = true;
 
-    int m_padding = 4;
+    int m_padding = 5;
 
     struct {
         bool showHidden = false;
@@ -215,6 +216,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 {
     m_layout->setSpacing(0);
     m_layout->setContentsMargins(0, 0, 0, 0);
+    QStyleOption option;
+    option.initFrom(q);
 
     q->connect(m_coreUrlNavigator, &KCoreUrlNavigator::currentLocationUrlChanged, q, [this]() {
         Q_EMIT q->urlChanged(m_coreUrlNavigator->currentLocationUrl());
@@ -306,6 +309,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_badgeWidgetContainer);
+    m_layout->addSpacing(q->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing, &option, q));
     m_layout->addWidget(m_toggleEditableMode);
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -316,7 +320,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     // Make sure pathBox does not portrude outside of the above frameLineEdit background
     const int paddingLeft = q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin);
     const int paddingRight = q->style()->pixelMetric(QStyle::PM_LayoutRightMargin);
-    q->setContentsMargins(paddingLeft, 0, paddingRight, 0);
+    q->rect().adjust(0, -1, 0, 1);
+    q->setContentsMargins(paddingLeft, 1, paddingRight, 1);
     m_pathBox->setContentsMargins(paddingLeft, 0, paddingRight, 0);
 }
 
@@ -550,11 +555,14 @@ void KUrlNavigatorPrivate::switchView()
     m_toggleEditableMode->setChecked(m_editable);
     updateContent();
     if (q->isUrlEditable()) {
+        m_pathBox->setFixedHeight(m_badgeWidgetContainer->height());
         m_pathBox->setFocus();
     }
 
     q->requestActivation();
     Q_EMIT q->editableStateChanged(m_editable);
+    // Make sure the colors are updated
+    q->update();
 }
 
 void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton)
@@ -826,7 +834,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 
     // Subtract all widgets from the available width, that must be shown anyway
     // Make sure to take the padding into account
-    int availableWidth = q->width() - (m_padding * 2) - m_toggleEditableMode->minimumWidth();
+    int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
 
     availableWidth -= m_badgeWidgetContainer->width();
 
@@ -838,18 +846,10 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         availableWidth -= m_schemes->width();
     }
 
-    // Check whether buttons must be hidden at all...
-    int requiredButtonWidth = 0;
-    for (const auto *button : std::as_const(m_navButtons)) {
-        requiredButtonWidth += button->minimumWidth();
-    }
+    availableWidth -= m_dropDownButton->width();
 
-    if (requiredButtonWidth > availableWidth) {
-        // At least one button must be hidden. This implies that the
-        // drop-down button must get visible, which again decreases the
-        // available width.
-        availableWidth -= m_dropDownButton->width();
-    }
+    // Count the paddings of previous button and current button
+    availableWidth -= m_padding * 4;
 
     // Hide buttons...
     bool isLastButton = true;
@@ -904,7 +904,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
 void KUrlNavigatorPrivate::updateTabOrder()
 {
     QMultiMap<int, QWidget *> visibleChildrenSortedByX;
-    const auto childWidgets = q->findChildren<QWidget *>();
+    const auto childWidgets = q->findChildren<KUrlNavigatorButtonBase *>();
     for (auto childWidget : childWidgets) {
         if (childWidget->isVisible()) {
             if (q->layoutDirection() == Qt::LeftToRight) {
@@ -1408,22 +1408,40 @@ QWidget *KUrlNavigator::badgeWidget() const
     }
 }
 
+void KUrlNavigator::setBackgroundEnabled(bool enabled)
+{
+    d->m_backgroundEnabled = enabled;
+}
+
+bool KUrlNavigator::isBackgroundEnabled() const
+{
+    return d->m_backgroundEnabled;
+}
+
 void KUrlNavigator::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
     QStyleOptionFrame option;
     option.initFrom(this);
-    option.state = QStyle::State_Sunken;
+    option.state = QStyle::State_None;
 
     if (hasFocus()) {
         option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
     }
 
-    // Adjust the rectangle due to how QRect coordinates work
-    option.rect = option.rect.adjusted(1, 0, -1, 0);
-    // Draw the background
-    style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+    if (d->m_backgroundEnabled) {
+        // Draw primitive always, but change color if not editable
+        if (!d->m_editable) {
+            option.palette.setColor(QPalette::Base, palette().alternateBase().color());
+        }
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+    } else {
+        // Draw primitive only for the input field
+        if (d->m_editable) {
+            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+        }
+    }
 }
 
 #include "moc_kurlnavigator.cpp"
