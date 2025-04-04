@@ -59,6 +59,7 @@ public:
     static KProcessRunner *fromApplication(const KService::Ptr &service,
                                            const QString &serviceEntryPath,
                                            const QList<QUrl> &urls,
+                                           const QString &actionName = {},
                                            KIO::ApplicationLauncherJob::RunFlags flags = {},
                                            const QString &suggestedFileName = {},
                                            const QByteArray &asn = {});

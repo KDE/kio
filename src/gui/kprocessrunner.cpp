@@ -88,6 +88,7 @@ static void modifyEnv(KProcess &process, QProcessEnvironment mod)
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &serviceEntryPath,
                                                 const QList<QUrl> &urls,
+                                                const QString &actionName,
                                                 KIO::ApplicationLauncherJob::RunFlags flags,
                                                 const QString &suggestedFileName,
                                                 const QByteArray &asn)
@@ -103,9 +104,12 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     const bool notYetSupportedOpenActivationNeeded = !urls.isEmpty();
     if (!notYetSupportedOpenActivationNeeded && DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
         const auto actions = service->actions();
-        auto action = std::find_if(actions.cbegin(), actions.cend(), [service](const KServiceAction &action) {
-            return action.exec() == service->exec();
+        auto action = std::find_if(actions.cbegin(), actions.cend(), [actionName](const KServiceAction &action) {
+            return action.name() == actionName;
         });
+        if (!actionName.isEmpty() && action == actions.cend()) {
+            qCWarning(KIO_GUI) << "Requested action" << actionName << "cannot be found for" << service->name();
+        }
         instance = new DBusActivationRunner(action != actions.cend() ? action->name() : QString());
     } else {
         instance = makeInstance();
