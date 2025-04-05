@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:39+0000\n"
+"POT-Creation-Date: 2025-04-05 00:39+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3795,7 +3795,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:589 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3803,41 +3803,41 @@ msgid "Copy"
 msgstr "Cóipeáil"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:593 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Greamaigh"
 
-#: filewidgets/kurlnavigator.cpp:613
+#: filewidgets/kurlnavigator.cpp:621
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Oscail Le"
 
-#: filewidgets/kurlnavigator.cpp:621
+#: filewidgets/kurlnavigator.cpp:629
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Oscail Le"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:638
 #, kde-format
 msgid "Edit"
 msgstr "Eagar"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgid "Navigate"
 msgstr "Nascleanúint"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Show Full Path"
 msgstr "Taispeáin an Chonair Iomlán"
 
-#: filewidgets/kurlnavigator.cpp:809
+#: filewidgets/kurlnavigator.cpp:817
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -3845,7 +3845,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "An bhfuil tú cinnte gur mian leat an mhír seo a chur sa bhruscar?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:731
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

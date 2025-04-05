@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:39+0000\n"
+"POT-Creation-Date: 2025-04-05 00:39+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -3617,7 +3617,7 @@ msgstr "o lon e poki sin lon %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:589 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
@@ -3625,12 +3625,12 @@ msgid "Copy"
 msgstr "o tu e lipu tawa lipu jo"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:593 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "o pana e lipu tan lipu jo"
 
-#: filewidgets/kurlnavigator.cpp:613
+#: filewidgets/kurlnavigator.cpp:621
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Tab"
@@ -3638,7 +3638,7 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kurlnavigator.cpp:621
+#: filewidgets/kurlnavigator.cpp:629
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Window"
@@ -3646,22 +3646,22 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:638
 #, kde-format
 msgid "Edit"
 msgstr "ante"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgid "Navigate"
 msgstr "o tawa"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Show Full Path"
 msgstr "o lukin e nasin tawa suli"
 
-#: filewidgets/kurlnavigator.cpp:809
+#: filewidgets/kurlnavigator.cpp:817
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3669,7 +3669,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "ilo li ken ala tawa e lipu <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:731
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
