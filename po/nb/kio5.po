@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-03-24 07:43+0100\n"
+"PO-Revision-Date: 2025-04-04 09:44+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
@@ -1915,8 +1915,8 @@ msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen <strong>"
-"%1</strong> mislyktes."
+"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen "
+"<strong>%1</strong> mislyktes."
 
 #: core/job_error.cpp:993
 #, kde-format
@@ -1929,8 +1929,8 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen <strong>"
-"%1</strong> mislyktes."
+"Et forsøk på å endre tilgangstillatelsen til den valgte ressursen "
+"<strong>%1</strong> mislyktes."
 
 #: core/job_error.cpp:1003
 #, kde-format
@@ -7126,7 +7126,7 @@ msgstr "A&ngre"
 #: widgets/fileundomanager.cpp:311
 #, kde-format
 msgid "Und&o: Copy"
-msgstr "A%ngre: Kopier"
+msgstr "A&ngre: Kopier"
 
 #: widgets/fileundomanager.cpp:313
 #, kde-format
