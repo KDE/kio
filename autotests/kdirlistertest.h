@@ -111,6 +111,7 @@ private Q_SLOTS:
     void testBug386763();
     void testCacheEviction();
     void testUnreadableParentDirectory();
+    void testPathWithSquareBrackets();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 

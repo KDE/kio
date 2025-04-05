@@ -54,6 +54,8 @@ private Q_SLOTS:
     void testEncodeFileName_data();
     void testEncodeFileName();
 
+    void testSquareBracketsInFileName();
+
     // KFileItemListProperties tests
     void testListProperties_data();
     void testListProperties();

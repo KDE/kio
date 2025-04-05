@@ -703,6 +703,19 @@ void KFileItemTest::testEncodeFileName()
     QCOMPARE(KIO::encodeFileName(text), expectedFileName);
 }
 
+void KFileItemTest::testSquareBracketsInFileName()
+{
+#if QT_VERSION == QT_VERSION_CHECK(6, 8, 3) || QT_VERSION == QT_VERSION_CHECK(6, 9, 0)
+    QSKIP("This test is expected to fail on Qt 6.8.3 / 6.9.0");
+#endif
+    QString dir = QStringLiteral("/tmp[%]");
+    QString file = QStringLiteral("[%].txt");
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, file);
+    KFileItem item(entry, QUrl::fromLocalFile(dir), true, true);
+    QCOMPARE(item.url(), QUrl::fromLocalFile(dir + QStringLiteral("/") + file));
+}
+
 void KFileItemTest::testListProperties_data()
 {
     QTest::addColumn<QString>("itemDescriptions");

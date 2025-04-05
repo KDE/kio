@@ -1768,4 +1768,31 @@ void KDirListerTest::testUnreadableParentDirectory() {
 #endif
 }
 
+void KDirListerTest::testPathWithSquareBrackets()
+{
+#if QT_VERSION == QT_VERSION_CHECK(6, 8, 3) || QT_VERSION == QT_VERSION_CHECK(6, 9, 0)
+    QSKIP("This test is expected to fail on Qt 6.8.3 / 6.9.0");
+#endif
+    QTemporaryDir newDir(tmpDirTemplate());
+    QFile file(newDir.filePath("[test].txt"));
+    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    file.close();
+    MyDirLister dirLister;
+    dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
+
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(dirLister.isFinished());
+
+    m_refreshedItems.clear();
+    connect(&dirLister, &KCoreDirLister::refreshItems, this, &KDirListerTest::slotRefreshItems);
+    QSignalSpy spyRefreshItems(&dirLister, &KCoreDirLister::refreshItems);
+
+    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    file.write(QByteArray("foo"));
+    file.close();
+    QVERIFY(spyRefreshItems.wait(1000));
+    QCOMPARE(m_refreshedItems.count(), 1);
+    QCOMPARE(m_refreshedItems.at(0).first.url(), QUrl::fromLocalFile(file.fileName()));
+}
+
 #include "moc_kdirlistertest.cpp"
