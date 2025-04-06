@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:39+0000\n"
-"PO-Revision-Date: 2025-03-20 09:47+0400\n"
+"PO-Revision-Date: 2025-04-05 11:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -6705,12 +6705,10 @@ msgid "Filename for clipboard content:"
 msgstr "اسم الملفّ لمحتويات الحافظة:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "لا تُل&صق شيئًا"
+msgstr "ملف مُلصق"
 
 #: widgets/paste.cpp:123
 #, kde-format

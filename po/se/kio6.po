@@ -3361,7 +3361,6 @@ msgstr "&Namma:"
 
 #: filewidgets/kfilewidget.cpp:1315
 #, fuzzy, kde-format
-#| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Gađa rievdadusaid"
