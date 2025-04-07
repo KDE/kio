@@ -1,7 +1,7 @@
 # Translation of kio4 to Korean.
 # Copyright (c) 2003, 2004, 2007-2008 Free Software Foundation, Inc.
 # KIM KyungHeon <tody@teoal.net>, 2003, 2004.
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 # JungHee Lee <daemul72@gmail.com>, 2019, 2020.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:39+0000\n"
-"PO-Revision-Date: 2024-12-10 00:51+0100\n"
+"PO-Revision-Date: 2025-04-06 23:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -2037,6 +2037,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"서버와 통신하는 데에는 성공했으나, 요청에 할당된 시간 내에 응답을 받지 못했습"
+"니다."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2456,6 +2458,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"%2에 있는 \"%1\" 플러그인의 KIO 워커를 불러오지 않았습니다. KIO 워커가 %3 경"
+"로 외부에 있고 상승된 권한을 요청한다면 안전하지 않은 것으로 간주합니다."
 
 #: core/worker.cpp:360
 #, kde-format
@@ -2491,20 +2495,16 @@ msgid "&Current Session only"
 msgstr "현재 세션만(&C)"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "새 폴더 만들기"
+msgstr "새 폴더로 이동"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "새 폴더 만들기"
+msgstr "이 항목을 포함할 새 폴더 만들기"
 
 #: filewidgets/kdiroperator.cpp:307
 #, kde-format
@@ -3414,11 +3414,10 @@ msgid "&Name:"
 msgstr "이름(&N):"
 
 #: filewidgets/kfilewidget.cpp:1315
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "변경 사항 취소"
+msgstr "파일 이름 바꾸기 실행 취소"
 
 #: filewidgets/kfilewidget.cpp:1392
 #, kde-format
@@ -3658,18 +3657,14 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 백슬래시를 사용할 수 없습니다."
 
 #: filewidgets/knewfilemenu.cpp:1241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다.<nl/>운영 체제에서 "
-"예약된 이름입니다."
+"이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다. 사용자의 홈 폴더 위"
+"치와 겹칠 수 있습니다."
 
 #: filewidgets/knewfilemenu.cpp:1250
 #, kde-format
@@ -6598,12 +6593,10 @@ msgid "Filename for clipboard content:"
 msgstr "클립보드 내용을 붙여 넣을 파일 이름:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "파일 %1개 붙여넣기(&P)"
+msgstr "붙여넣은 파일"
 
 #: widgets/paste.cpp:123
 #, kde-format
