@@ -15,6 +15,7 @@ Name[he]=תוספים והרחבות של פלזמה
 Name[ia]=Add-Ons e Extensiones de Plasma
 Name[it]=Componenti aggiuntivi ed estensioni di Plasma
 Name[ka]=Plasma-ის დამატებები და გაფართოებები
+Name[ko]=Plasma 확장 기능
 Name[lv]=„Plasma“ pielikumi un paplašinājumi
 Name[nb]=Plasma tillegg og utvidelser
 Name[nl]=Plasma Add-ons en Extensies
@@ -45,6 +46,7 @@ Query[he]=https://store.kde.org/browse?tag=\\{@}
 Query[ia]=https://store.kde.org/browse?tag=\\{@}
 Query[it]=https://store.kde.org/browse?tag=\\{@}
 Query[ka]=https://store.kde.org/browse?tag=\\{@}
+Query[ko]=https://store.kde.org/browse?tag=\\{@}
 Query[lv]=https://store.kde.org/browse?tag=\\{@}
 Query[nb]=https://store.kde.org/browse?tag=\\{@}
 Query[nl]=https://store.kde.org/browse?tag=\\{@}
