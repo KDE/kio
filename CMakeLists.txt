@@ -126,10 +126,6 @@ if(USE_DBUS)
     set(DBUS_LIB Qt6::DBus)
 endif()
 
-if (Qt6Core_VERSION VERSION_LESS 6.7.0)
-    find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
-endif()
-
 if (NOT APPLE AND NOT WIN32 AND NOT ANDROID AND NOT HAIKU)
     option(WITH_X11 "Build with X11 integration" ON)
     set(HAVE_X11 ${WITH_X11})

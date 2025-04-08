@@ -24,9 +24,6 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QStringDecoder>
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
-#include <QTextCodec>
-#endif
 
 struct KEncodingFileDialogPrivate {
     KEncodingFileDialogPrivate()
@@ -75,20 +72,12 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
 
     d->encoding->clear();
     QByteArray sEncoding = encoding.toUtf8();
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
-    const auto systemEncoding = QTextCodec::codecForLocale()->name();
-#else
     const auto systemEncoding = QStringDecoder(QStringDecoder::System).name();
-#endif
     if (sEncoding.isEmpty() || sEncoding == "System") {
         sEncoding = systemEncoding;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
-    auto encodings = QTextCodec::availableCodecs();
-#else
     auto encodings = QStringDecoder::availableCodecs();
-#endif
     std::sort(encodings.begin(), encodings.end(), [](auto &a, auto &b) {
         return (a.compare(b, Qt::CaseInsensitive) < 0);
     });
@@ -97,23 +86,6 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     int system = 0;
     bool foundRequested = false;
     for (const auto &encoding : encodings) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0)
-        QTextCodec *codecForEnc = QTextCodec::codecForName(encoding);
-
-        if (codecForEnc) {
-            d->encoding->addItem(QString::fromUtf8(encoding));
-            auto codecName = codecForEnc->name();
-            if ((codecName == sEncoding) || (encoding == sEncoding)) {
-                d->encoding->setCurrentIndex(insert);
-                foundRequested = true;
-            }
-
-            if ((codecName == systemEncoding) || (encoding == systemEncoding)) {
-                system = insert;
-            }
-            insert++;
-        }
-#else
         d->encoding->addItem(encoding);
         const auto codecName = QStringDecoder(encoding.toUtf8().constData()).name();
         if ((codecName == sEncoding) || (encoding.toUtf8() == sEncoding)) {
@@ -125,7 +97,6 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
             system = insert;
         }
         insert++;
-#endif
     }
 
     if (!foundRequested) {

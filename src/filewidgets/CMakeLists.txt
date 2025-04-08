@@ -115,9 +115,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::BookmarksWidgets
     KF6::ColorScheme
 )
-if (Qt6Core_VERSION VERSION_LESS 6.7.0)
-    target_link_libraries(KF6KIOFileWidgets PRIVATE Qt6::Core5Compat)
-endif()
 
 ecm_generate_headers(KIOFileWidgets_HEADERS
   HEADER_NAMES
