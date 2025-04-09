@@ -800,33 +800,8 @@ void KFileWidget::slotOk()
             return;
         }
 
-        // if we are given a folder when not on directory mode, let's get into it
+        // if user has typed folder name manually, open it
         if (res && !directoryMode && statJob->statResult().isDir()) {
-            // check if we were given more than one folder, in that case we don't know to which one
-            // cd
-            ++it;
-            while (it != locationEditCurrentTextList.constEnd()) {
-                QUrl checkUrl(*it);
-                KIO::StatJob *checkStatJob = KIO::stat(checkUrl, KIO::HideProgressInfo);
-                KJobWidgets::setWindow(checkStatJob, this);
-                bool res = checkStatJob->exec();
-                if (res && checkStatJob->statResult().isDir()) {
-                    KMessageBox::error(this,
-                                       i18n("More than one folder has been selected and this dialog does not accept folders, so it is not possible to decide "
-                                            "which one to enter. Please select only one folder to list it."),
-                                       i18n("More than one folder provided"));
-                    return;
-                } else if (res) {
-                    filesInList = true;
-                }
-                ++it;
-            }
-            if (filesInList) {
-                KMessageBox::information(
-                    this,
-                    i18n("At least one folder and one file has been selected. Selected files will be ignored and the selected folder will be listed"),
-                    i18n("Files and folders selected"));
-            }
             d->m_ops->setUrl(url, true);
             const bool signalsBlocked = d->m_locationEdit->lineEdit()->blockSignals(true);
             d->m_locationEdit->lineEdit()->setText(QString());
@@ -988,7 +963,19 @@ void KFileWidgetPrivate::multiSelectionChanged()
         return;
     }
 
-    setLocationText(list.targetUrlList());
+    // Allow single folder selection, so user can click "Open" to open it
+    if (list.length() == 1 && list.first().isDir()) {
+        setLocationText(list.first().targetUrl());
+        return;
+    }
+    // Remove any selected folders from the locations
+    QList<QUrl> urlList;
+    for (const auto &item : list) {
+        if (!item.isDir()) {
+            urlList.append(item.targetUrl());
+        }
+    }
+    setLocationText(urlList);
 }
 
 void KFileWidgetPrivate::setLocationText(const QUrl &url)
@@ -1306,6 +1293,9 @@ void KFileWidgetPrivate::initLocationWidget()
     q->connect(clearAction, &QAction::triggered, m_locationEdit->lineEdit(), &QLineEdit::clear);
     q->connect(m_locationEdit->lineEdit(), &QLineEdit::textEdited, q, [this, clearAction]() {
         clearAction->setVisible(m_locationEdit->lineEdit()->text().length() > 0);
+    });
+    q->connect(m_locationEdit->lineEdit(), &QLineEdit::textChanged, q, [this](const QString &text) {
+        m_okButton->setEnabled(!text.isEmpty());
     });
 
     QAction *undoAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-undo")), i18nc("@info:tooltip", "Undo filename change"), m_locationEdit->lineEdit());
