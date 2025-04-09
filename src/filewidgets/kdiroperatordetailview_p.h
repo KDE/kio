@@ -7,6 +7,7 @@
 #ifndef KDIROPERATORDETAILVIEW_P_H
 #define KDIROPERATORDETAILVIEW_P_H
 
+#include <KDirOperator>
 #include <QTreeView>
 
 #include <kfile.h>
@@ -22,7 +23,7 @@ class KDirOperatorDetailView : public QTreeView
     Q_OBJECT
 
 public:
-    explicit KDirOperatorDetailView(QWidget *parent = nullptr);
+    explicit KDirOperatorDetailView(KDirOperator *dirOperator, QWidget *parent = nullptr);
     ~KDirOperatorDetailView() override;
 
     /**
@@ -36,10 +37,14 @@ protected:
     bool event(QEvent *event) override;
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 private:
     bool m_hideDetailColumns;
+    bool m_isEmblemClicked;
+    KDirOperator *m_dirOperator;
 };
 
 #endif

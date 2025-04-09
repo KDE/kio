@@ -6,6 +6,7 @@
 */
 
 #include "kdiroperatoriconview_p.h"
+#include "kfileitemselectionemblem.h"
 
 #include <QApplication>
 #include <QDragEnterEvent>
@@ -15,8 +16,10 @@
 #include <KFileItemDelegate>
 #include <KIconLoader>
 
-KDirOperatorIconView::KDirOperatorIconView(QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition)
+KDirOperatorIconView::KDirOperatorIconView(KDirOperator *dirOperator, QWidget *parent, QStyleOptionViewItem::Position aDecorationPosition)
     : QListView(parent)
+    , m_isEmblemClicked(false)
+    , m_dirOperator(dirOperator)
 {
     setViewMode(QListView::IconMode);
     setResizeMode(QListView::Adjust);
@@ -74,7 +77,15 @@ void KDirOperatorIconView::dragEnterEvent(QDragEnterEvent *event)
 
 void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
 {
-    if (!indexAt(event->pos()).isValid()) {
+    const QModelIndex index = indexAt(event->pos());
+
+    // When selection emblem is clicked, select it and don't do anything else
+    m_isEmblemClicked = KFileItemSelectionEmblem(this, index, m_dirOperator).handleMousePressEvent(event->pos());
+    if (m_isEmblemClicked) {
+        return;
+    }
+
+    if (!index.isValid()) {
         const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
         if (!(modifiers & Qt::ShiftModifier) && !(modifiers & Qt::ControlModifier)) {
             clearSelection();
@@ -82,6 +93,24 @@ void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
     }
 
     QListView::mousePressEvent(event);
+}
+
+void KDirOperatorIconView::mouseMoveEvent(QMouseEvent *event)
+{
+    // Disallow selection dragging when emblem is clicked
+    if (m_isEmblemClicked) {
+        return;
+    }
+    QListView::mouseMoveEvent(event);
+}
+
+void KDirOperatorIconView::mouseReleaseEvent(QMouseEvent *event)
+{
+    // Reset the emblem selection
+    if (m_isEmblemClicked) {
+        m_isEmblemClicked = false;
+    }
+    QListView::mouseReleaseEvent(event);
 }
 
 void KDirOperatorIconView::wheelEvent(QWheelEvent *event)

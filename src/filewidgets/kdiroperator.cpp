@@ -17,6 +17,7 @@
 #include "kdiroperatoriconview_p.h"
 #include "kdirsortfilterproxymodel.h"
 #include "kfileitem.h"
+#include "kfileitemselectionemblem.h"
 #include "kfilemetapreview_p.h"
 #include "knewfilemenu.h"
 #include "kpreviewwidgetbase.h"
@@ -1260,9 +1261,13 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         if (d->m_isTouchEvent) {
             return true;
         }
-        if (d->m_preview && !d->m_preview->isHidden()) {
-            const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
 
+        const QModelIndex hoveredIndex = d->m_itemView->indexAt(d->m_itemView->viewport()->mapFromGlobal(QCursor::pos()));
+        if (hoveredIndex.isValid()) {
+            KFileItemSelectionEmblem(d->m_itemView, hoveredIndex, this).updateSelectionEmblemRectForIndex(iconSize());
+        }
+
+        if (d->m_preview && !d->m_preview->isHidden()) {
             if (d->m_lastHoveredIndex == hoveredIndex) {
                 return QWidget::eventFilter(watched, event);
             }
@@ -1510,11 +1515,11 @@ QAbstractItemView *KDirOperator::createView(QWidget *parent, KFile::FileView vie
 {
     QAbstractItemView *itemView = nullptr;
     if (KFile::isDetailView(viewKind) || KFile::isTreeView(viewKind) || KFile::isDetailTreeView(viewKind)) {
-        KDirOperatorDetailView *detailView = new KDirOperatorDetailView(parent);
+        KDirOperatorDetailView *detailView = new KDirOperatorDetailView(this, parent);
         detailView->setViewMode(viewKind);
         itemView = detailView;
     } else {
-        itemView = new KDirOperatorIconView(parent, decorationPosition());
+        itemView = new KDirOperatorIconView(this, parent, decorationPosition());
     }
 
     return itemView;

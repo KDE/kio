@@ -8,6 +8,7 @@
 #ifndef KDIROPERATORICONVIEW_P_H
 #define KDIROPERATORICONVIEW_P_H
 
+#include <KDirOperator>
 #include <QListView>
 
 /**
@@ -18,7 +19,9 @@ class KDirOperatorIconView : public QListView
 {
     Q_OBJECT
 public:
-    KDirOperatorIconView(QWidget *parent = nullptr, QStyleOptionViewItem::Position decorationPosition = QStyleOptionViewItem::Position::Top);
+    KDirOperatorIconView(KDirOperator *dirOperator,
+                         QWidget *parent = nullptr,
+                         QStyleOptionViewItem::Position decorationPosition = QStyleOptionViewItem::Position::Top);
     ~KDirOperatorIconView() override;
     void setDecorationPosition(QStyleOptionViewItem::Position decorationPosition);
 
@@ -26,6 +29,8 @@ protected:
     void initViewItemOption(QStyleOptionViewItem *option) const override;
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
@@ -34,6 +39,8 @@ protected
 
 private:
     QStyleOptionViewItem::Position decorationPosition;
+    bool m_isEmblemClicked;
+    KDirOperator *m_dirOperator;
 };
 
 #endif // KDIROPERATORICONVIEW_P_H

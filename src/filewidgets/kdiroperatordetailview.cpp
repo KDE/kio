@@ -5,6 +5,7 @@
 */
 
 #include "kdiroperatordetailview_p.h"
+#include "kfileitemselectionemblem.h"
 
 #include <kdirlister.h>
 #include <kdirmodel.h>
@@ -17,9 +18,11 @@
 #include <QMimeData>
 #include <QScrollBar>
 
-KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent)
+KDirOperatorDetailView::KDirOperatorDetailView(KDirOperator *dirOperator, QWidget *parent)
     : QTreeView(parent)
     , m_hideDetailColumns(false)
+    , m_isEmblemClicked(false)
+    , m_dirOperator(dirOperator)
 {
     setRootIsDecorated(false);
     setSortingEnabled(true);
@@ -115,15 +118,39 @@ void KDirOperatorDetailView::dragEnterEvent(QDragEnterEvent *event)
 
 void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 {
+    const QModelIndex index = indexAt(event->pos());
+    // When selection emblem is clicked, select it and don't do anything else
+    m_isEmblemClicked = KFileItemSelectionEmblem(this, index, m_dirOperator).handleMousePressEvent(event->pos());
+    if (m_isEmblemClicked) {
+        return;
+    }
+
     QTreeView::mousePressEvent(event);
 
-    const QModelIndex index = indexAt(event->pos());
     if (!index.isValid() || (index.column() != KDirModel::Name)) {
         const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
         if (!(modifiers & Qt::ShiftModifier) && !(modifiers & Qt::ControlModifier)) {
             clearSelection();
         }
     }
+}
+
+void KDirOperatorDetailView::mouseMoveEvent(QMouseEvent *event)
+{
+    // Disallow selection dragging when emblem is clicked
+    if (m_isEmblemClicked) {
+        return;
+    }
+    QTreeView::mouseMoveEvent(event);
+}
+
+void KDirOperatorDetailView::mouseReleaseEvent(QMouseEvent *event)
+{
+    // Reset the emblem selection
+    if (m_isEmblemClicked) {
+        m_isEmblemClicked = false;
+    }
+    QTreeView::mouseReleaseEvent(event);
 }
 
 void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
