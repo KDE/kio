@@ -221,6 +221,27 @@ public:
     void setDirOnlyMode(bool dirsOnly);
 
     /**
+     * Returns true if quickfiltering is enabled.
+     * If true, list only files that match the filter text.
+     *
+     * @return @c true if any files and folders matching filter are listed, @c false otherwise.
+     *
+     * @see setQuickFilterMode(bool)
+     */
+    bool quickFilterMode() const;
+
+    /**
+     * Call this to set the quick filtering mode on, which will filter through all the
+     * items based by their name, ignoring them if the name does not fit.
+     * This is equal to the Dolphin quick filter mode.
+     *
+     * You need to call emitChanges() afterwards.
+     *
+     * @param quickFilterMode set to @c true to list only files and folders that match the filter text.
+     */
+    void setQuickFilterMode(bool quickFilterMode);
+
+    /**
      * Checks whether this KCoreDirLister requests the MIME type of files from the worker.
      *
      * Enabling this will tell the worker used for listing that it should try to
