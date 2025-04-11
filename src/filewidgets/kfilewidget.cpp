@@ -1238,8 +1238,6 @@ void KFileWidgetPrivate::initToolbar()
              "<li>file previews</li>"
              "<li>separating folders from files</li></ul></qt>"));
 
-    menu->addAction(m_ops->action(KDirOperator::AllowExpansionInDetailsView));
-    menu->addSeparator();
     menu->addAction(m_ops->action(KDirOperator::ShowHiddenFiles));
     menu->addAction(m_togglePlacesPanelAction);
     menu->addAction(m_toggleQuickFilterAction);
