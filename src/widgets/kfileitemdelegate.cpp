@@ -1240,10 +1240,21 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
     QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
+    const bool detailView = view->selectionBehavior() != QAbstractItemView::SelectItems;
     auto textBg = opt;
     auto iconBg = opt;
     textBg.rect = textBoundingRect;
     iconBg.rect = QRect(iconPos, iconBg.decorationSize);
+
+    auto drawBackground = [textBg, iconBg, opt, style, detailView](QPainter &painter) {
+        if (detailView) {
+            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
+        } else {
+            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &textBg, &painter, opt.widget);
+            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &iconBg, &painter, opt.widget);
+        }
+    };
+
     // Create a new cached rendering of a hovered and an unhovered item.
     // We don't create a new cache for a fully hovered item, since we don't
     // know yet if a hover out animation will be run.
@@ -1257,8 +1268,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->regular);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &textBg, &p, opt.widget);
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &iconBg, &p, opt.widget);
+        drawBackground(p);
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
@@ -1271,8 +1281,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->hover);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &textBg, &p, opt.widget);
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &iconBg, &p, opt.widget);
+        drawBackground(p);
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
@@ -1314,8 +1323,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         icon = d->applyHoverEffect(icon);
     }
 
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &textBg, painter, opt.widget);
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &iconBg, painter, opt.widget);
+    drawBackground(*painter);
     painter->drawPixmap(iconPos, icon);
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
