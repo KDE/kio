@@ -1240,18 +1240,16 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
     QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
-    const bool detailView = view->selectionBehavior() != QAbstractItemView::SelectItems;
-    auto textBg = opt;
-    auto iconBg = opt;
-    textBg.rect = textBoundingRect;
-    iconBg.rect = QRect(iconPos, iconBg.decorationSize);
-
-    auto drawBackground = [textBg, iconBg, opt, style, detailView](QPainter &painter) {
-        if (detailView) {
+    auto drawBackground = [textBoundingRect, iconPos, style, view](QPainter &painter, QStyleOptionViewItem &opt) {
+        if (view->selectionBehavior() != QAbstractItemView::SelectItems) {
             style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
         } else {
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &textBg, &painter, opt.widget);
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &iconBg, &painter, opt.widget);
+            auto oldrect = opt.rect;
+            opt.rect = textBoundingRect;
+            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
+            opt.rect = QRect(iconPos, opt.decorationSize);
+            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
+            opt.rect = oldrect;
         }
     };
 
@@ -1268,7 +1266,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->regular);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        drawBackground(p);
+        drawBackground(p, opt);
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
@@ -1281,7 +1279,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.begin(&cache->hover);
         p.translate(-option.rect.topLeft());
         p.setRenderHint(QPainter::Antialiasing);
-        drawBackground(p);
+        drawBackground(p, opt);
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
@@ -1323,7 +1321,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         icon = d->applyHoverEffect(icon);
     }
 
-    drawBackground(*painter);
+    drawBackground(*painter, opt);
     painter->drawPixmap(iconPos, icon);
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
