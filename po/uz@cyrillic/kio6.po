@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:38+0000\n"
+"POT-Creation-Date: 2025-04-11 00:39+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -2783,7 +2783,7 @@ msgid "All Supported Files"
 msgstr "Ҳамма қўлланган файллар"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1949
+#: filewidgets/kfilewidget.cpp:2033
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3234,30 +3234,30 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "Сиз фақат локал файлларни танлашингиз мумкин."
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "Сиз фақат локал файлларни танлашингиз мумкин."
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, fuzzy, kde-format
 #| msgid "Remote Files Not Accepted"
 msgid "Remote files not accepted"
 msgstr "Масофдаги файллар қабул қилинмайди"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3267,22 +3267,22 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:810
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1186
+#: filewidgets/kfilewidget.cpp:1197
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<p>For instance, if the "
@@ -3296,43 +3296,49 @@ msgstr ""
 "<qt>Юқори жилдга ўтиш.<p>Масалан, агар жорий жилд file:/home/%1 бўлса, бу "
 "тугмани боссангиз file:/home жилдига ўтасиз.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1190
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Кўриш тарихида бир қадам орқага ўтиш учун шу тугмани босинг."
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Кўриш тарихида бир қадам олдинга ўтиш учун шу тугмани босинг."
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Янги жилдни яратиш учун бу тугмани босинг"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Хатчўпларни кўрсатиш"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1221
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgid "Show Quick Filter"
+msgstr "Яширилган файлларни кўрсатиш"
+
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "Мосламалар"
 
-#: filewidgets/kfilewidget.cpp:1214
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3342,12 +3348,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1252
 #, kde-format
 msgid "Bookmarks"
 msgstr "Хатчўплар"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3357,19 +3363,37 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1276 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Номи:"
 
-#: filewidgets/kfilewidget.cpp:1301
+#: filewidgets/kfilewidget.cpp:1320
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Номини ўзгартириш"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1371
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Keep Filter When Changing Folders"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1375
+#, fuzzy, kde-format
+msgid "Filter by name…"
+msgstr "Ускуна:"
+
+#: filewidgets/kfilewidget.cpp:1383
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgctxt "@info:tooltip"
+msgid "Hide Filter Bar"
+msgstr "Яширилган файлларни кўрсатиш"
+
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3378,12 +3402,12 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Cақлаш учун файлнинг номи."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3392,77 +3416,77 @@ msgstr ""
 "Очиш учун файллар рўйхати. Бўш жой билан ажратилган бир қанча файлларнинг "
 "номини кўрсатиш мумкин."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Очиш учун файлнинг номи."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1460
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Жойлар"
 
-#: filewidgets/kfilewidget.cpp:1655
+#: filewidgets/kfilewidget.cpp:1739
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1656
+#: filewidgets/kfilewidget.cpp:1740
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "Ҳаммасини а&лмаштириш"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "You can only select local files."
 msgstr "Сиз фақат локал файлларни танлашингиз мумкин."
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Масофдаги файллар қабул қилинмайди"
 
-#: filewidgets/kfilewidget.cpp:1947
+#: filewidgets/kfilewidget.cpp:2031
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Ҳамма жилдлар"
 
-#: filewidgets/kfilewidget.cpp:2099 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Очиш"
 
-#: filewidgets/kfilewidget.cpp:2199
+#: filewidgets/kfilewidget.cpp:2283
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2346
+#: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Файлнинг кенгайтмасини (%1) &авто-танлаш"
 
-#: filewidgets/kfilewidget.cpp:2347
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "кенгайтма <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2353
+#: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Файлнинг кенгайтмасини &авто-танлаш"
 
-#: filewidgets/kfilewidget.cpp:2354
+#: filewidgets/kfilewidget.cpp:2438
 #, kde-format
 msgid "a suitable extension"
 msgstr "мос келадиган кенгайтма"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2446
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3478,31 +3502,24 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2836
+#: filewidgets/kfilewidget.cpp:2933
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Филтер:"
 
-#: filewidgets/kfilewidget.cpp:2837
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2839
-#, kde-format
-msgid "&Filter:"
-msgstr "&Филтер:"
-
-#: filewidgets/kfilewidget.cpp:2841
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
-"<qt>This is the filter to apply to the file list. File names that do not "
-"match the filter will not be shown.<p>You may select from one of the preset "
-"filters in the drop down menu, or you may enter a custom filter directly "
-"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+"<qt>This is the file type selector. It is used to select the format of the "
+"files shown.</qt>"
 msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:441
@@ -7097,6 +7114,9 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#~ msgid "&Filter:"
+#~ msgstr "&Филтер:"
+
 #, fuzzy
 #~| msgid "%1 is a file, but a folder was expected."
 #~ msgid "Files and folders selected"
@@ -8004,10 +8024,6 @@ msgstr ""
 #~| msgid "Writing to %1 is not supported."
 #~ msgid "unmounting is not supported by wince."
 #~ msgstr "'%1'га ёзиш қўлланмаган."
-
-#, fuzzy
-#~ msgid "File name:"
-#~ msgstr "Ускуна:"
 
 #~ msgid "&Use cache"
 #~ msgstr "Кэшдан &фойдаланиш"

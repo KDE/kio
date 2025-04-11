@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:38+0000\n"
+"POT-Creation-Date: 2025-04-11 00:39+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2861,7 +2861,7 @@ msgid "All Supported Files"
 msgstr "Gach Comhad a dTacaítear Leis"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1949
+#: filewidgets/kfilewidget.cpp:2033
 #, kde-format
 msgid "All Files"
 msgstr "Gach Comhad"
@@ -3324,27 +3324,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "Ní féidir leat ach comhad amháin a roghnú"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "You can only select local files"
 msgstr "Ní féidir leat ach comhaid logánta a roghnú"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ní ghlactar le cianchomhaid"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3358,22 +3358,22 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:810
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Níorbh fhéidir comhad \"%1\" a aimsiú"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ní féidir an comhad a oscailt"
 
-#: filewidgets/kfilewidget.cpp:1186
+#: filewidgets/kfilewidget.cpp:1197
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3388,44 +3388,50 @@ msgstr ""
 ">Mar shampla, más é file:/home/%1 an suíomh reatha, rachaidh tú go file:/"
 "home nuair a chliceálann tú an cnaipe seo.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1190
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Cliceáil an cnaipe seo chun dul siar sa stair brabhsála."
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Cliceáil an cnaipe seo chun dul ar aghaidh sa stair brabhsála."
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Cliceáil an cnaipe seo chun inneachar an tsuímh reatha a athluchtú."
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Brúigh an cnaipe seo chun fillteán nua a chruthú."
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Taispeáin an Painéal Nascleanúna Áiteanna"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Taispeáin Leabharmharcanna"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1221
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgid "Show Quick Filter"
+msgstr "Taispeáin Comhaid Fholaithe"
+
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "Roghanna"
 
-#: filewidgets/kfilewidget.cpp:1214
+#: filewidgets/kfilewidget.cpp:1232
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3447,12 +3453,12 @@ msgstr ""
 "nascleanúna Áiteanna</li><li>réamhamhairc</li><li>dealú fillteáin agus "
 "comhaid</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1252
 #, kde-format
 msgid "Bookmarks"
 msgstr "Leabharmharcanna"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3462,19 +3468,38 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1276 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "Ai&nm:"
 
-#: filewidgets/kfilewidget.cpp:1301
+#: filewidgets/kfilewidget.cpp:1320
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Cealaigh: Athainmniú"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1371
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Keep Filter When Changing Folders"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1375
+#, fuzzy, kde-format
+#| msgid "File name:"
+msgid "Filter by name…"
+msgstr "Ainm comhaid:"
+
+#: filewidgets/kfilewidget.cpp:1383
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgctxt "@info:tooltip"
+msgid "Hide Filter Bar"
+msgstr "Taispeáin Comhaid Fholaithe"
+
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3483,12 +3508,12 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Seo é ainm an chomhaid ina sábhálfar é."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3497,75 +3522,75 @@ msgstr ""
 "Seo é liosta na gcomhad le hoscailt. Is féidir níos mó ná comhad amháin a "
 "shonrú, i liosta dealaithe ag camóga."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Seo ainm an chomhaid atá le hoscailt."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Áiteanna"
 
-#: filewidgets/kfilewidget.cpp:1655
+#: filewidgets/kfilewidget.cpp:1739
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Tá comhad \"%1\" ann cheana. An bhfuil fonn ort scríobh air?"
 
-#: filewidgets/kfilewidget.cpp:1656
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Forscríobh an Comhad?"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "You can only select local files."
 msgstr "Ní féidir ach comhaid logánta a roghnú."
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ní Ghlactar Le Cianchomhaid"
 
-#: filewidgets/kfilewidget.cpp:1947
+#: filewidgets/kfilewidget.cpp:2031
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Gach Fillteán"
 
-#: filewidgets/kfilewidget.cpp:2099 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Oscail"
 
-#: filewidgets/kfilewidget.cpp:2199
+#: filewidgets/kfilewidget.cpp:2283
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2346
+#: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Roghnaigh iar&mhír an ainm comhaid go huathoibríoch (%1)"
 
-#: filewidgets/kfilewidget.cpp:2347
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "an iarmhír: <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2353
+#: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Roghnaigh iar&mhír an ainm comhaid go huathoibríoch"
 
-#: filewidgets/kfilewidget.cpp:2354
+#: filewidgets/kfilewidget.cpp:2438
 #, kde-format
 msgid "a suitable extension"
 msgstr "iarmhír oiriúnach"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2446
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3581,37 +3606,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2836
+#: filewidgets/kfilewidget.cpp:2933
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Scagaire:"
 
-#: filewidgets/kfilewidget.cpp:2837
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2839
-#, kde-format
-msgid "&Filter:"
-msgstr "&Scagaire:"
-
-#: filewidgets/kfilewidget.cpp:2841
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
-"<qt>This is the filter to apply to the file list. File names that do not "
-"match the filter will not be shown.<p>You may select from one of the preset "
-"filters in the drop down menu, or you may enter a custom filter directly "
-"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+"<qt>This is the file type selector. It is used to select the format of the "
+"files shown.</qt>"
 msgstr ""
-"<qt>Seo é an scagaire le cur i bhfeidhm ar an liosta comhad. Ní thaispeánfar "
-"comhaid nach bhfuil comhoiriúnach don scagaire.<p>Is féidir leat ceann de na "
-"scagairí réamhshocraithe a roghnú ón roghchlár anuas, nó scagaire "
-"saincheapta a iontráil go díreach sa réimse téacs.</p><p>Ceadaítear saoróga "
-"cosúil le * agus ?.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, fuzzy, kde-format
@@ -7404,6 +7417,22 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
 
+#~ msgid "&Filter:"
+#~ msgstr "&Scagaire:"
+
+#~ msgid ""
+#~ "<qt>This is the filter to apply to the file list. File names that do not "
+#~ "match the filter will not be shown.<p>You may select from one of the "
+#~ "preset filters in the drop down menu, or you may enter a custom filter "
+#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
+#~ "</p></qt>"
+#~ msgstr ""
+#~ "<qt>Seo é an scagaire le cur i bhfeidhm ar an liosta comhad. Ní "
+#~ "thaispeánfar comhaid nach bhfuil comhoiriúnach don scagaire.<p>Is féidir "
+#~ "leat ceann de na scagairí réamhshocraithe a roghnú ón roghchlár anuas, nó "
+#~ "scagaire saincheapta a iontráil go díreach sa réimse téacs.</"
+#~ "p><p>Ceadaítear saoróga cosúil le * agus ?.</p></qt>"
+
 #~ msgid "Is &executable"
 #~ msgstr "&Inrite"
 
@@ -8855,9 +8884,6 @@ msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
 
 #~ msgid "unmounting is not supported by wince."
 #~ msgstr "ní thacaíonn wince le dífheistiú."
-
-#~ msgid "File name:"
-#~ msgstr "Ainm comhaid:"
 
 #, fuzzy
 #~| msgid ""

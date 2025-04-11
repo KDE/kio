@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:38+0000\n"
+"POT-Creation-Date: 2025-04-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2758,7 +2758,7 @@ msgid "All Supported Files"
 msgstr "所有支持的文件"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1949
+#: filewidgets/kfilewidget.cpp:2033
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
@@ -3176,27 +3176,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "超大 (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "您只能选择一个文件"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr "您提供了多个文件"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "You can only select local files"
 msgstr "您只能选择本机文件"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "无法处理远程文件"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3206,22 +3206,22 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] "您选择的 URL 使用了不支持的方案。请从下列方案中选择一种：%2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:810
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "不支持的 URL 方案"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "无法找到文件“%1”"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "Cannot open file"
 msgstr "无法打开文件"
 
-#: filewidgets/kfilewidget.cpp:1186
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3231,42 +3231,48 @@ msgstr ""
 "<qt>点击此按钮可进入上级文件夹。<br /><br />例如：如果当前位置是：file:/home/"
 "konqi，点击此按钮将切换到 file:/home。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1190
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "点击此按钮可在浏览历史中后退一步。"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "点击此按钮可在浏览历史中前进一步。"
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "点击此按钮可重新加载当前位置的内容。"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "点击此按钮可创建新文件夹。"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr "显示位置面板"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "显示书签按钮"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1221
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgid "Show Quick Filter"
+msgstr "显示隐藏文件"
+
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "选项"
 
-#: filewidgets/kfilewidget.cpp:1214
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3279,12 +3285,12 @@ msgstr ""
 "式</li><li>视图类型，包括图标和列表</li><li>是否显示隐藏文件</li><li>常用位置"
 "面板</li><li>文件预览</li><li>区分文件和文件夹</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1252
 #, kde-format
 msgid "Bookmarks"
 msgstr "书签"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3297,18 +3303,37 @@ msgstr ""
 "作方式与 KDE 其他位置的书签相同。</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1276 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "名称(&N)："
 
-#: filewidgets/kfilewidget.cpp:1301
+#: filewidgets/kfilewidget.cpp:1320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "撤销文件名更改"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1371
+#, fuzzy, kde-format
+#| msgid "Open Containing Folder"
+msgctxt "@info:tooltip"
+msgid "Keep Filter When Changing Folders"
+msgstr "打开所在文件夹"
+
+#: filewidgets/kfilewidget.cpp:1375
+#, kde-format
+msgid "Filter by name…"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1383
+#, fuzzy, kde-format
+#| msgid "Hidden Files Last"
+msgctxt "@info:tooltip"
+msgid "Hide Filter Bar"
+msgstr "隐藏文件靠后"
+
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3319,86 +3344,86 @@ msgstr ""
 "<qt>在文本框中输入时，程序将显示可能的匹配项。如果需要控制此功能，请单击鼠标"
 "右键，然后从<b>文本补全</b>菜单中选择想要的模式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "这是文件要保存为的名称。"
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "这是要打开的文件列表。如果想要指定多个文件，可以用空格分隔。"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "这是要打开的文件名。"
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "常用位置"
 
-#: filewidgets/kfilewidget.cpp:1655
+#: filewidgets/kfilewidget.cpp:1739
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "文件“%1”已存在。您想要覆盖它吗？"
 
-#: filewidgets/kfilewidget.cpp:1656
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "Overwrite File?"
 msgstr "您想要覆盖文件吗？"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "You can only select local files."
 msgstr "您只能选择本机文件。"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "无法处理远程文件"
 
-#: filewidgets/kfilewidget.cpp:1947
+#: filewidgets/kfilewidget.cpp:2031
 #, kde-format
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2099 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
 
-#: filewidgets/kfilewidget.cpp:2199
+#: filewidgets/kfilewidget.cpp:2283
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "图标大小：%1 像素"
 
-#: filewidgets/kfilewidget.cpp:2346
+#: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "自动选择文件扩展名 (%1) (&X)"
 
-#: filewidgets/kfilewidget.cpp:2347
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "扩展名 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2353
+#: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "自动选择文件扩展名(&X)"
 
-#: filewidgets/kfilewidget.cpp:2354
+#: filewidgets/kfilewidget.cpp:2438
 #, kde-format
 msgid "a suitable extension"
 msgstr "适合的扩展名"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2446
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3421,34 +3446,27 @@ msgstr ""
 "(.) 来阻止此功能 (该句点会在保存后自动去除)。</li></ol>如果您不确定，请保持此"
 "选项为启用，这样将使得文件管理更加方便。"
 
-#: filewidgets/kfilewidget.cpp:2836
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&File type:"
 msgstr "文件类型(&F)："
 
-#: filewidgets/kfilewidget.cpp:2837
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2839
-#, kde-format
-msgid "&Filter:"
-msgstr "过滤(&F)："
-
-#: filewidgets/kfilewidget.cpp:2841
-#, kde-format
+#: filewidgets/kfilewidget.cpp:2939
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This is the file type selector. It is used to select the format that "
+#| "the file will be saved as.</qt>"
 msgid ""
-"<qt>This is the filter to apply to the file list. File names that do not "
-"match the filter will not be shown.<p>You may select from one of the preset "
-"filters in the drop down menu, or you may enter a custom filter directly "
-"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
-msgstr ""
-"<qt>这是应用到文件列表的过滤条件。不符合此过滤条件的文件名将不会显示。<p>您可"
-"以从下拉菜单中选择预设的过滤条件，或者直接在文本框中输入自定义过滤条件。</"
-"p><p>允许使用 * 和 ? 等通配符。</p></qt>"
+"<qt>This is the file type selector. It is used to select the format of the "
+"files shown.</qt>"
+msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -6949,6 +6967,20 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "&Filter:"
+#~ msgstr "过滤(&F)："
+
+#~ msgid ""
+#~ "<qt>This is the filter to apply to the file list. File names that do not "
+#~ "match the filter will not be shown.<p>You may select from one of the "
+#~ "preset filters in the drop down menu, or you may enter a custom filter "
+#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
+#~ "</p></qt>"
+#~ msgstr ""
+#~ "<qt>这是应用到文件列表的过滤条件。不符合此过滤条件的文件名将不会显示。<p>"
+#~ "您可以从下拉菜单中选择预设的过滤条件，或者直接在文本框中输入自定义过滤条"
+#~ "件。</p><p>允许使用 * 和 ? 等通配符。</p></qt>"
 
 #~ msgid ""
 #~ "More than one folder has been selected and this dialog does not accept "

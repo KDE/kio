@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:38+0000\n"
+"POT-Creation-Date: 2025-04-11 00:39+0000\n"
 "PO-Revision-Date: 2025-03-26 16:07+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2901,7 +2901,7 @@ msgid "All Supported Files"
 msgstr "Visas atbalstītās datnes"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1949
+#: filewidgets/kfilewidget.cpp:2033
 #, kde-format
 msgid "All Files"
 msgstr "Visas datnes"
@@ -3331,27 +3331,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Milzīgas (%1×%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "Jūs varat atlasīt tikai vienu datni"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr "Piedāvāta vairāk nekā viena datne"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "You can only select local files"
 msgstr "Jūs varat atlasīt tikai lokālas datnes"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Attālas datnes nepieņem"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3368,22 +3368,22 @@ msgstr[2] ""
 "Atlasītā URL izmanto neatbalstītu shēmu. Lūdzu, izmantojiet kādu no šīm "
 "shēmām: %2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:810
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Neatbalstīta URL shēma"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Neizdevās atrast datni „%1“"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "Cannot open file"
 msgstr "Neizdevās atvērt datni"
 
-#: filewidgets/kfilewidget.cpp:1186
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3394,44 +3394,50 @@ msgstr ""
 ">Piemēram, ja aktīvā pape ir „file:/home/konqui“, tad šīs pogas nospiešana "
 "jūs pārcels uz mapi „file:/home“.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1190
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Nospiediet šo pogu, lai paietu vienu soli atpakaļ pārlūkošanas vēsturē."
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Nospiediet šo pogu, lai paietu vienu soli uz priekšu pārlūkošanas vēsturē."
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Nospiediet šo pogu, lai pārlādētu aktīvās vietas saturu."
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Nospiediet šo pogu, lai izveidotu jaunu mapi."
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Rādīt vietu paneli"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Rādīt grāmatzīmju pogu"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1221
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgid "Show Quick Filter"
+msgstr "Rādīt slēptās datnes"
+
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "Opcijas"
 
-#: filewidgets/kfilewidget.cpp:1214
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3446,12 +3452,12 @@ msgstr ""
 "panelim</li><li>datņu priekšskatījumiem</li><li>mapju atdalīšanai no mapēm</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1252
 #, kde-format
 msgid "Bookmarks"
 msgstr "Grāmatzīmes"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3465,18 +3471,38 @@ msgstr ""
 "datnes lodziņā, bet citādi strādā tāpat kā citas KDE grāmatzīmes.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1276 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nosaukums:"
 
-#: filewidgets/kfilewidget.cpp:1301
+#: filewidgets/kfilewidget.cpp:1320
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Atsaukt datnes pārdēvēšanu"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1371
+#, fuzzy, kde-format
+#| msgid "Open Containing Folder"
+msgctxt "@info:tooltip"
+msgid "Keep Filter When Changing Folders"
+msgstr "Atvērt saturošo mapi"
+
+#: filewidgets/kfilewidget.cpp:1375
+#, fuzzy, kde-format
+#| msgid "File name:"
+msgid "Filter by name…"
+msgstr "Faila nosaukums:"
+
+#: filewidgets/kfilewidget.cpp:1383
+#, fuzzy, kde-format
+#| msgid "Hidden Files Last"
+msgctxt "@info:tooltip"
+msgid "Hide Filter Bar"
+msgstr "Rādīt slēptās datnes"
+
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3488,12 +3514,12 @@ msgstr ""
 "varat pārvaldīt, klikšķinot ar labo peles pogu un izvēloties vēlamo režīmu "
 "no izvēlnes <b>Teksta pabeigšana</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Šis ir nosaukums, ar kādu datni saglabāt."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3502,74 +3528,74 @@ msgstr ""
 "Šis ir saraksts ar datnēm, ko varat atvērt. Varat norādīt vairākas datnes, "
 "tās atdalot ar atstarpi."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Šis ir atveramās datnes nosaukums."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Vietas"
 
-#: filewidgets/kfilewidget.cpp:1655
+#: filewidgets/kfilewidget.cpp:1739
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Datne „%1“ jau pastāv. Vai vēlaties to pārrakstīt?"
 
-#: filewidgets/kfilewidget.cpp:1656
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Vai pārrakstīt datni?"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "You can only select local files."
 msgstr "Varat atlasīt tikai lokālas datnes"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Attālas datnes nepieņem"
 
-#: filewidgets/kfilewidget.cpp:1947
+#: filewidgets/kfilewidget.cpp:2031
 #, kde-format
 msgid "All Folders"
 msgstr "Visas mapes"
 
-#: filewidgets/kfilewidget.cpp:2099 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Atvērt"
 
-#: filewidgets/kfilewidget.cpp:2199
+#: filewidgets/kfilewidget.cpp:2283
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikonas izmērs: %1 pikseļi"
 
-#: filewidgets/kfilewidget.cpp:2346
+#: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automātiski izvēlēties datnes nosaukuma &paplašinājumu (%1)"
 
-#: filewidgets/kfilewidget.cpp:2347
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "paplašinājums <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2353
+#: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automātiski izvēlēties datnes nosaukuma &paplašinājumu"
 
-#: filewidgets/kfilewidget.cpp:2354
+#: filewidgets/kfilewidget.cpp:2438
 #, kde-format
 msgid "a suitable extension"
 msgstr "piemērots paplašinājums"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2446
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3596,12 +3622,12 @@ msgstr ""
 "datnes nosaukuma).</li></ol>Ja nezināt, atstājiet šo izvēli ieslēgtu, jo tā "
 "padara datnes vieglāk pārvaldāmas."
 
-#: filewidgets/kfilewidget.cpp:2836
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&File type:"
 msgstr "&Datnes tips:"
 
-#: filewidgets/kfilewidget.cpp:2837
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3610,23 +3636,17 @@ msgstr ""
 "<qt>Šis ir datnes tipa atlasītājs. Tas ļauj norādīt saglabājamās datnes "
 "formātu.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2839
-#, kde-format
-msgid "&Filter:"
-msgstr "&Filtrs:"
-
-#: filewidgets/kfilewidget.cpp:2841
-#, kde-format
+#: filewidgets/kfilewidget.cpp:2939
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This is the file type selector. It is used to select the format that "
+#| "the file will be saved as.</qt>"
 msgid ""
-"<qt>This is the filter to apply to the file list. File names that do not "
-"match the filter will not be shown.<p>You may select from one of the preset "
-"filters in the drop down menu, or you may enter a custom filter directly "
-"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+"<qt>This is the file type selector. It is used to select the format of the "
+"files shown.</qt>"
 msgstr ""
-"<qt>Šis ir filtrs, ko varat izmantot datnes saraksta filtrēšanai. Datnes, "
-"kuru nosaukumi neatbilst filtram, nebūs redzamas.<p>Jūs varat izvēlēties "
-"kādu no esošajiem filtriem no izkrītošās izvēlnes vai ievadīt savu filtru "
-"teksta laukā.</p><p>Iespējams lietot aizstājējzīmes * un ?.</p></qt>"
+"<qt>Šis ir datnes tipa atlasītājs. Tas ļauj norādīt saglabājamās datnes "
+"formātu.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -7254,6 +7274,21 @@ msgstr "Šis palaidīs programmu:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ja neuzticaties šai programmai, spiediet „Atcelt“"
 
+#~ msgid "&Filter:"
+#~ msgstr "&Filtrs:"
+
+#~ msgid ""
+#~ "<qt>This is the filter to apply to the file list. File names that do not "
+#~ "match the filter will not be shown.<p>You may select from one of the "
+#~ "preset filters in the drop down menu, or you may enter a custom filter "
+#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
+#~ "</p></qt>"
+#~ msgstr ""
+#~ "<qt>Šis ir filtrs, ko varat izmantot datnes saraksta filtrēšanai. Datnes, "
+#~ "kuru nosaukumi neatbilst filtram, nebūs redzamas.<p>Jūs varat izvēlēties "
+#~ "kādu no esošajiem filtriem no izkrītošās izvēlnes vai ievadīt savu filtru "
+#~ "teksta laukā.</p><p>Iespējams lietot aizstājējzīmes * un ?.</p></qt>"
+
 #~ msgid ""
 #~ "More than one folder has been selected and this dialog does not accept "
 #~ "folders, so it is not possible to decide which one to enter. Please "
@@ -8919,9 +8954,6 @@ msgstr "Ja neuzticaties šai programmai, spiediet „Atcelt“"
 
 #~ msgid "unmounting is not supported by wince."
 #~ msgstr "wince neatbalsta nomontēšanu."
-
-#~ msgid "File name:"
-#~ msgstr "Faila nosaukums:"
 
 #, fuzzy
 #~| msgid ""

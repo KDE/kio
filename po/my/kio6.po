@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:38+0000\n"
+"POT-Creation-Date: 2025-04-11 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2824,7 +2824,7 @@ msgid "All Supported Files"
 msgstr "အသုံးပြုနိုင်သော ဖိုင်များအားလုံး"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:1949
+#: filewidgets/kfilewidget.cpp:2033
 #, kde-format
 msgid "All Files"
 msgstr "ဖိုင်လ်အားလုံး"
@@ -3247,27 +3247,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "အလွန်ကြီး (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "တစ်ဖိုင်လ်သာရွေးနိုင်သည်"
 
-#: filewidgets/kfilewidget.cpp:615
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr "တစ်ခုထက်ပိုသောဖိုင်လ်ပေးထားသည်"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "You can only select local files"
 msgstr "စက်တွင်းဖိုင်လ်များသာရွေးနိုင်သည်"
 
-#: filewidgets/kfilewidget.cpp:786
+#: filewidgets/kfilewidget.cpp:797
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "အဝေးဖိုင်လ်များလက်မခံပါ"
 
-#: filewidgets/kfilewidget.cpp:793
+#: filewidgets/kfilewidget.cpp:804
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3278,22 +3278,22 @@ msgid_plural ""
 msgstr[0] ""
 "ရွေးချယ်ထားသော ယူအာအယ်လ်သည် မထောက်ပံ့ထားသည့် အစီအစဥ်ပြပုံ သုံးထားသည်။ နောက်ပါ အစီအစဥ်ပြပုံ သုံးပါ- %2"
 
-#: filewidgets/kfilewidget.cpp:799
+#: filewidgets/kfilewidget.cpp:810
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "အသုံးပြု၍မရသော ယူအာအယ်လ်အစီအစဥ်ပုံ"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" ဖိုင်လ်ကိုရှာမတွေ့နိုင်ခဲ့ပါ"
 
-#: filewidgets/kfilewidget.cpp:821
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid "Cannot open file"
 msgstr "ဖိုင်လ်ဖွင့်မရပါ"
 
-#: filewidgets/kfilewidget.cpp:1186
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3303,42 +3303,48 @@ msgstr ""
 "<qt>မိခင်ဖိုလ်ဒါသို့ ဝင်ရောက်ရန် ဤခလုတ်ကိုနှိပ်ပါ။ <br/><br/> ဥပမာအားဖြင့် လက်ရှိတည်နေရာသည် file:/"
 "home/konqi ဖြစ်သည်ဆိုပါဆို ဤခလုတ်ကို နှိပ်လိုက်လျှင် file:/home သို့ရောက်သွားမည်ဖြစ်သည်။</qt>"
 
-#: filewidgets/kfilewidget.cpp:1190
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ရှောက်ကြည့်မှတ်တမ်းတွင် နောက်တစ်လှမ်းဆုတ်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1191
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ရှောက်ကြည့်မှတ်တမ်းတွင် ရှေ့တစ်လှမ်းတိုးရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1193
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "လက်ရှိတည်နေရာ၏ ဒေတာများ ပြန်တွန်းတင်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1195
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ဖိုလ်ဒါ အသစ်တည်ဆောက်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr "နေရာများ ပန်နယ် ပြမည်"
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "စာမျက်နှာမှတ်သားချက်များ ခလုတ် ပြမည်"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1221
+#, fuzzy, kde-format
+#| msgid "Show Hidden Files"
+msgid "Show Quick Filter"
+msgstr "ဖွက်ထားသောဖိုင်လ်များပြမည်"
+
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Options"
 msgstr "ရွေးချယ်ချက်များ"
 
-#: filewidgets/kfilewidget.cpp:1214
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3353,12 +3359,12 @@ msgstr ""
 "li><li>နေရာများ ပန်နယ်</li><li>ဖိုင်အကြိုပြချက်များ</li><li>ဖိုင်လ်မှ ဖိုလ်ဒါ ခွဲထားမည်</li></"
 "ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1252
 #, kde-format
 msgid "Bookmarks"
 msgstr "စာမျက်နှာမှတ်သားချက်များ"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3371,19 +3377,38 @@ msgstr ""
 ">ထိုစာမျက်နှာမှတ်သားချက်များသည် ဖိုင်လ် အပြော-ဝင်းဒိုးတွင်သာ တည်နေရာ မှတ်သားခြင်းဖြစ်သည်။</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1276 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nအမည် -"
 
-#: filewidgets/kfilewidget.cpp:1301
+#: filewidgets/kfilewidget.cpp:1320
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "ပြောင်းထားချက်များပြန်ဆုတ်"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1371
+#, fuzzy, kde-format
+#| msgid "Open Containing Folder"
+msgctxt "@info:tooltip"
+msgid "Keep Filter When Changing Folders"
+msgstr "ဖိုင်လ်ပါဝင်သောဖိုလ်ဒါကို ဖွင့်မည်"
+
+#: filewidgets/kfilewidget.cpp:1375
+#, kde-format
+msgid "Filter by name…"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1383
+#, fuzzy, kde-format
+#| msgid "Hidden Files Last"
+msgctxt "@info:tooltip"
+msgid "Hide Filter Bar"
+msgstr "ဖွက်ထားသောဖိုင်လ်များနောက်ဆုံး"
+
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3395,87 +3420,87 @@ msgstr ""
 "မောက့်စ်ညာဘက်ခလုတ်နှိပ်၍ <b>စာသားပြီးမြောက်စေမှု</b> မီနူးမှ နှစ်သက်သော ထုံးနည်းရွေး၍ ထိန်းချုပ်နိုင်သည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "သိမ်းဆည်းမည့်ဖိုင်လ်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "၎င်းသည် ဖွင့်ရမည့် ဖိုင်လ်စာရင်းဖြစ်သည်။ ဖိုင်လ်တစ်ခုမက 'နေရာလွတ်'အက္ခရာ ခြား၍ ဖော်ပြနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ဖွင့်မည့်ဖိုင်လ်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "နေရာများ"
 
-#: filewidgets/kfilewidget.cpp:1655
+#: filewidgets/kfilewidget.cpp:1739
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ဖိုင်လ် \"%1\" ရှိနှင့်ပြီးဖြစ်သည်။ ထပ်ရေးချင်ပါသလား။"
 
-#: filewidgets/kfilewidget.cpp:1656
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ဖိုင်ကို ထပ်ရေးမှာလား။"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "You can only select local files."
 msgstr "စက်တွင်းဖိုင်လ်များသာရွေးနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1853
+#: filewidgets/kfilewidget.cpp:1937
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "အဝေးဖိုင်လ်များလက်မခံပါ"
 
-#: filewidgets/kfilewidget.cpp:1947
+#: filewidgets/kfilewidget.cpp:2031
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|ဖိုလ်ဒါအားလုံး"
 
-#: filewidgets/kfilewidget.cpp:2099 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Oဖွင့်"
 
-#: filewidgets/kfilewidget.cpp:2199
+#: filewidgets/kfilewidget.cpp:2283
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "အိုင်ကွန် အရွယ်အစား - %1 ပစ်ခ်ဆယ်"
 
-#: filewidgets/kfilewidget.cpp:2346
+#: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&xဖိုင်လ်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည်် (%1)"
 
-#: filewidgets/kfilewidget.cpp:2347
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "တိုးချဲ့မှု <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2353
+#: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&xဖိုင်လ်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည််"
 
-#: filewidgets/kfilewidget.cpp:2354
+#: filewidgets/kfilewidget.cpp:2438
 #, kde-format
 msgid "a suitable extension"
 msgstr "သင့်တော်သော တိုးချဲ့စနစ်"
 
-#: filewidgets/kfilewidget.cpp:2362
+#: filewidgets/kfilewidget.cpp:2446
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3500,12 +3525,12 @@ msgstr ""
 "ထည့်၍ ပယ်ချနိုင်သည်။ (period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ "
 "သင်၏ဖိုင်လ်များကို ပိုမိုလွယ်ကူစွာ စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
 
-#: filewidgets/kfilewidget.cpp:2836
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&File type:"
 msgstr "&Fဖိုင်လ်အမျိုးအစား -"
 
-#: filewidgets/kfilewidget.cpp:2837
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3514,23 +3539,17 @@ msgstr ""
 "<qt>၎င်းသည် ဖိုင်လ်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်လ်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။"
 "</qt>"
 
-#: filewidgets/kfilewidget.cpp:2839
-#, kde-format
-msgid "&Filter:"
-msgstr "&Fစစ်ထုတ် -"
-
-#: filewidgets/kfilewidget.cpp:2841
-#, kde-format
+#: filewidgets/kfilewidget.cpp:2939
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This is the file type selector. It is used to select the format that "
+#| "the file will be saved as.</qt>"
 msgid ""
-"<qt>This is the filter to apply to the file list. File names that do not "
-"match the filter will not be shown.<p>You may select from one of the preset "
-"filters in the drop down menu, or you may enter a custom filter directly "
-"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+"<qt>This is the file type selector. It is used to select the format of the "
+"files shown.</qt>"
 msgstr ""
-"<qt>၎င်းသည် ဖိုင်လ်စာရင်းတွင်သုံးရမည့် စစ်ထုတ်ချက်ဖြစ်သည်။ စစ်ထုတ်ချက်နှင့် မကိုက်ညီသော ဖိုင်လ်အမည်များကို "
-"ပြမည်မဟုတ်တော့ပါ။<p>ကြိုသတ်မှတ်-စစ်ထုတ်ချက်များကို ဒရော့ဒေါင်းမီနူးတွင် ရွေးချယ်နိုင်သည် သို့မဟုတ် "
-"စာရေးသာရန်နေရာထဲသို့ ကိုယ်ပိုင်ဓလေ့စစ်ထုတ်ချက် ရေးသွင်းပါ။</p><p>* နှင့် ? ကဲ့သို့ ဖြစ်ချင်သလိုဖြစ်ရ-"
-"ကတ်များကို ခွင့်ပြုသည်။</p></qt>"
+"<qt>၎င်းသည် ဖိုင်လ်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်လ်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။"
+"</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, fuzzy, kde-format
@@ -7133,6 +7152,21 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "&Filter:"
+#~ msgstr "&Fစစ်ထုတ် -"
+
+#~ msgid ""
+#~ "<qt>This is the filter to apply to the file list. File names that do not "
+#~ "match the filter will not be shown.<p>You may select from one of the "
+#~ "preset filters in the drop down menu, or you may enter a custom filter "
+#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
+#~ "</p></qt>"
+#~ msgstr ""
+#~ "<qt>၎င်းသည် ဖိုင်လ်စာရင်းတွင်သုံးရမည့် စစ်ထုတ်ချက်ဖြစ်သည်။ စစ်ထုတ်ချက်နှင့် မကိုက်ညီသော ဖိုင်လ်အမည်များကို "
+#~ "ပြမည်မဟုတ်တော့ပါ။<p>ကြိုသတ်မှတ်-စစ်ထုတ်ချက်များကို ဒရော့ဒေါင်းမီနူးတွင် ရွေးချယ်နိုင်သည် သို့မဟုတ် "
+#~ "စာရေးသာရန်နေရာထဲသို့ ကိုယ်ပိုင်ဓလေ့စစ်ထုတ်ချက် ရေးသွင်းပါ။</p><p>* နှင့် ? ကဲ့သို့ ဖြစ်ချင်သလိုဖြစ်ရ-"
+#~ "ကတ်များကို ခွင့်ပြုသည်။</p></qt>"
 
 #~ msgid ""
 #~ "More than one folder has been selected and this dialog does not accept "
