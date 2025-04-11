@@ -88,7 +88,7 @@
 <para
 >Algunes pàgines intenten establir galetes des d'altres servidors als quals proporcionen la pàgina &HTML; que s'està visualitzant. Per exemple, mostren anuncis publicitaris, i estos anuncis estan en un altre ordinador, que normalment pertany a una empresa publicitària. Estos anuncis poden intentar establir una galeta, el qual els permetrà conéixer -fer un seguiment- les pàgines que visiteu en múltiples llocs web.</para>
 <para
->Si desseleccioneu esta opció, tan sols s'acceptaran explícitament les galetes que provinguen del mateix servidor web amb el qual heu connectat.</para>
+>Si desmarqueu esta opció, tan sols s'acceptaran explícitament les galetes que provinguen del mateix servidor web amb el qual heu connectat.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -171,14 +171,14 @@
 
 <para
 >Les polítiques Pregunta, Accepta, Accepta fins al final de la sessió o Rebutja es poden aplicar a un domini específic fent clic en el botó <guibutton
->Nova...</guibutton
+>Nova…</guibutton
 >, el qual vos mostrarà un diàleg. En este diàleg, podreu introduir el nom del tipus de domini (precedit per un punt) i després aplicar la política que voleu per a este domini. Cal tindre present que les entrades poden ser afegides mentre es navega, si la política general és la de demanar confirmació i escolliu una política general per a un cert amfitrió (per exemple, seleccionant <guilabel
 >Rebutja</guilabel
 > quan vos demane confirmar una galeta).</para>
 
 <para
 >També podeu seleccionar un domini específic des de la llista i fer clic damunt del botó <guibutton
->Canvia...</guibutton
+>Canvia…</guibutton
 > per a escollir una política diferent per a este domini.</para>
 
 <para
@@ -213,7 +213,7 @@
 
 <para
 >Si hi ha seleccionat un domini, podeu utilitzar <guibutton
->Configura la política...</guibutton
+>Configura la política…</guibutton
 > per a establir una política de lloc.</para>
 
 <para

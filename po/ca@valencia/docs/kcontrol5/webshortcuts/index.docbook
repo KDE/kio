@@ -141,7 +141,7 @@
 
 <para
 >Si feu doble clic damunt d'una entrada específica de la llista de proveïdors de busca o feu clic damunt del botó <guibutton
->Canvia...</guibutton
+>Canvia…</guibutton
 >, es mostraran els detalls d'esta entrada en un diàleg emergent. A més del nom descriptiu per a l'element, també podeu veure l'&URI; emprat, així com la drecera associada que podreu escriure a qualsevol lloc de &kde; a on s'espere un &URI;. Un proveïdor de busca pot tindre múltiples dreceres, separades per una coma.</para>
 
 <para
