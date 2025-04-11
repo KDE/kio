@@ -630,7 +630,8 @@ void KFileItemDelegate::Private::layoutTextItems(const QStyleOptionViewItem &opt
 
     setLayoutOptions(*labelLayout, option);
 
-    const QRect textRect = labelRectangle(option, index);
+    const QRect textArea = labelRectangle(option, index);
+    QRect textRect = subtractMargin(textArea, Private::TextMargin);
 
     // Sizes and constraints for the different text parts
     QSize maxLabelSize = textRect.size();
@@ -826,7 +827,7 @@ KFileItemDelegate::KFileItemDelegate(QObject *parent)
     d->setHorizontalMargin(Private::ItemMargin, 0, 0);
 
     // Margins for vertical mode (icon views)
-    d->setVerticalMargin(Private::TextMargin, 6, 2);
+    d->setVerticalMargin(Private::TextMargin, 6, 0);
     d->setVerticalMargin(Private::IconMargin, focusHMargin, focusVMargin);
     d->setVerticalMargin(Private::ItemMargin, 0, 0);
 
