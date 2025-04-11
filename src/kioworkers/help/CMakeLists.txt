@@ -16,8 +16,6 @@ set_package_properties(LibXml2 PROPERTIES
                        PURPOSE "Required by the KDE help system to process DocBook XML"
                       )
 
-include_directories(${LIBXML2_INCLUDE_DIR} ${LIBXSLT_INCLUDE_DIR})
-
 include(ConfigureChecks.cmake)
 configure_file(config-help.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-help.h )
 
@@ -41,9 +39,8 @@ target_link_libraries(kio_help
    KF6::Archive
    KF6::KIOCore
    KF6::DocTools
-   ${LIBXML2_LIBRARIES}
-   ${LIBXSLT_LIBRARIES}
-   ${LIBXSLT_EXSLT_LIBRARIES}
+   LibXml2::LibXml2
+   LibXslt::LibExslt
 )
 
 install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
@@ -65,9 +62,8 @@ target_link_libraries(kio_ghelp
    KF6::KIOCore
    KF6::DocTools
    Qt6::Network
-   ${LIBXML2_LIBRARIES}
-   ${LIBXSLT_LIBRARIES}
-   ${LIBXSLT_EXSLT_LIBRARIES}
+   LibXml2::LibXml2
+   LibXslt::LibExslt
 )
 if(WIN32)
     # libxml/libxslt pulls in windows.h, this breaks QDateTime
