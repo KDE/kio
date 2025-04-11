@@ -1240,8 +1240,8 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
     QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
-    auto drawBackground = [textBoundingRect, iconPos, style, view](QPainter &painter, QStyleOptionViewItem &opt) {
-        if (view->selectionBehavior() != QAbstractItemView::SelectItems) {
+    auto drawBackground = [textBoundingRect, iconPos, style](QPainter &painter, QStyleOptionViewItem &opt) {
+        if (opt.decorationPosition != QStyleOptionViewItem::Position::Top) {
             style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
         } else {
             auto oldrect = opt.rect;
