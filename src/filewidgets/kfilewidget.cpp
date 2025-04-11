@@ -172,7 +172,6 @@ public:
     void fileSelected(const KFileItem &);
     void slotLoadingFinished();
     void togglePlacesPanel(bool show, QObject *sender = nullptr);
-    void toggleBookmarks(bool);
     void setQuickFilterVisible(bool);
     void slotAutoSelectExtClicked();
     void placesViewSplitterMoved(int, int);
@@ -298,7 +297,6 @@ public:
     KConfigGroup m_configGroup;
     KConfigGroup m_stateConfigGroup;
 
-    KToggleAction *m_toggleBookmarksAction = nullptr;
     KToggleAction *m_togglePlacesPanelAction = nullptr;
     KToggleAction *m_toggleQuickFilterAction = nullptr;
 };
@@ -1212,12 +1210,6 @@ void KFileWidgetPrivate::initToolbar()
         togglePlacesPanel(show);
     });
 
-    m_toggleBookmarksAction = new KToggleAction(i18n("Show Bookmarks Button"), q);
-    q->addAction(m_toggleBookmarksAction);
-    q->connect(m_toggleBookmarksAction, &QAction::toggled, q, [this](bool show) {
-        toggleBookmarks(show);
-    });
-
     m_toggleQuickFilterAction = new KToggleAction(i18n("Show Quick Filter"), q);
     q->addAction(m_toggleQuickFilterAction);
     m_toggleQuickFilterAction->setShortcuts(QList{QKeySequence(Qt::CTRL | Qt::Key_I), QKeySequence(Qt::Key_Backslash)});
@@ -1243,7 +1235,6 @@ void KFileWidgetPrivate::initToolbar()
     menu->addAction(m_ops->action(KDirOperator::ShowHiddenFiles));
     menu->addAction(m_togglePlacesPanelAction);
     menu->addAction(m_toggleQuickFilterAction);
-    menu->addAction(m_toggleBookmarksAction);
     menu->addAction(m_ops->action(KDirOperator::ShowPreviewPanel));
 
     menu->setPopupMode(QToolButton::InstantPopup);
@@ -1258,6 +1249,12 @@ void KFileWidgetPrivate::initToolbar()
              "edit or select a bookmark.<br /><br />"
              "These bookmarks are specific to the file dialog, but otherwise operate "
              "like bookmarks elsewhere in KDE.</qt>"));
+
+    m_bookmarkHandler = new KFileBookmarkHandler(q);
+    q->connect(m_bookmarkHandler, &KFileBookmarkHandler::openUrl, q, [this](const QString &path) {
+        enterUrl(path);
+    });
+    m_bookmarkButton->setMenu(m_bookmarkHandler->menu());
 
     QWidget *midSpacer = new QWidget(q);
     midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -2061,9 +2058,6 @@ void KFileWidgetPrivate::readViewConfig()
     // Show or don't show the places panel
     togglePlacesPanel(m_configGroup.readEntry(ShowSpeedbar, true));
 
-    // show or don't show the bookmarks
-    toggleBookmarks(m_configGroup.readEntry(ShowBookmarks, false));
-
     // does the user want Automatically Select Extension?
     m_autoSelectExtChecked = m_configGroup.readEntry(AutoSelectExtChecked, DefaultAutoSelectExtChecked);
     updateAutoSelectExtension();
@@ -2102,7 +2096,6 @@ void KFileWidgetPrivate::writeViewConfig()
         tmpGroup.writeEntry(SpeedbarWidth, m_placesViewWidth);
     }
 
-    tmpGroup.writeEntry(ShowBookmarks, m_bookmarkHandler != nullptr);
     tmpGroup.writeEntry(AutoSelectExtChecked, m_autoSelectExtChecked);
     tmpGroup.writeEntry(BreadcrumbNavigation, !m_urlNavigator->isUrlEditable());
     tmpGroup.writeEntry(ShowFullPath, m_urlNavigator->showFullPath());
@@ -2772,30 +2765,6 @@ void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
 
     // if we don't show the places panel, at least show the places menu
     m_urlNavigator->setPlacesSelectorVisible(!show);
-}
-
-void KFileWidgetPrivate::toggleBookmarks(bool show)
-{
-    if (show) {
-        if (m_bookmarkHandler) {
-            return;
-        }
-        m_bookmarkHandler = new KFileBookmarkHandler(q);
-        q->connect(m_bookmarkHandler, &KFileBookmarkHandler::openUrl, q, [this](const QString &path) {
-            enterUrl(path);
-        });
-        m_bookmarkButton->setMenu(m_bookmarkHandler->menu());
-    } else if (m_bookmarkHandler) {
-        m_bookmarkButton->setMenu(nullptr);
-        delete m_bookmarkHandler;
-        m_bookmarkHandler = nullptr;
-    }
-
-    if (m_bookmarkButton) {
-        m_bookmarkButton->setVisible(show);
-    }
-
-    m_toggleBookmarksAction->setChecked(show);
 }
 
 void KFileWidgetPrivate::setQuickFilterVisible(bool show)
