@@ -25,7 +25,6 @@ static const QLatin1String PathComboCompletionMode("PathCombo Completionmode");
 static const QLatin1String LocationComboCompletionMode("LocationCombo Completionmode");
 static const QLatin1String ShowSpeedbar("Show Speedbar");
 static const QLatin1String SpeedbarWidth("Speedbar Width");
-static const QLatin1String ShowBookmarks("Show Bookmarks");
 static const QLatin1String AutoSelectExtChecked("Automatically select filename extension");
 static const QLatin1String BreadcrumbNavigation("Breadcrumb Navigation");
 static const QLatin1String ShowFullPath("Show Full Path");
