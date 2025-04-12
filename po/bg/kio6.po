@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 13:42+0100\n"
+"PO-Revision-Date: 2025-04-11 21:07+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -3424,10 +3424,9 @@ msgid "Show Bookmarks Button"
 msgstr "Бутон за показване на отметки"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Показване на скритите файлове"
+msgstr "Показване на бърз филтър"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3482,23 +3481,21 @@ msgid "Undo filename change"
 msgstr "Отмяна на промяната на името на файла"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Отваряне на съдържащата папка"
+msgstr "Запазване на филтъра при промяна на папките"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Филтриране по име…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Скритите файлове накрая"
+msgstr "Скриване лентата на филтъра"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3636,16 +3633,13 @@ msgstr ""
 "файлът ще бъде запазен.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Това е селекторът за тип файл. Използва се за избор на формата, в който "
-"файлът ще бъде запазен.</qt>"
+"<qt>Това е инструментът за избор на тип файл. Използва се за избор на "
+"формата напоказаните файлове.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

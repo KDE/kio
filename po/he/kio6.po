@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-30 07:48+0300\n"
+"PO-Revision-Date: 2025-04-11 11:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3341,10 +3341,9 @@ msgid "Show Bookmarks Button"
 msgstr "הצגת כפתור סימניות"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "הצגת קבצים מוסתרים"
+msgstr "הצגת מסנן מהיר"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3396,24 +3395,21 @@ msgid "Undo filename change"
 msgstr "הסגת שינוי שם קובץ"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "פתיחת התיקייה המכיל"
+msgstr "השארת המסנן בעת החלפת תיקיות"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "שם קובץ:"
+msgstr "סינון לפי שם…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "קבצים מוסתרים בסוף"
+msgstr "הסתרת סרגל הסינון"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3545,14 +3541,11 @@ msgid ""
 msgstr "<qt>זה בורר סוג הקובץ. הוא משמש לבחירת סוג הקובץ שיישמר.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
-msgstr "<qt>זה בורר סוג הקובץ. הוא משמש לבחירת סוג הקובץ שיישמר.</qt>"
+msgstr "<qt>זה בורר סוג הקובץ. הוא משמש לבחירת סוג הקבצים שיופיעו.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

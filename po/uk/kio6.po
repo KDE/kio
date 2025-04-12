@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 12:25+0200\n"
+"PO-Revision-Date: 2025-04-11 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3455,10 +3455,9 @@ msgid "Show Bookmarks Button"
 msgstr "Показати кнопку закладок"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Показувати приховані файли"
+msgstr "Показати швидкий фільтр"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3512,24 +3511,21 @@ msgid "Undo filename change"
 msgstr "Скасувати зміну назви файла"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Відкрити теку об'єкта"
+msgstr "Зберігати фільтрування, якщо змінюється тека"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Назва файла:"
+msgstr "Фільтрувати за назвою…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Приховані файли останніми"
+msgstr "Приховати смужку фільтрування"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3666,16 +3662,13 @@ msgstr ""
 "якому буде збережено дані файла.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Це засіб вибору типу файлів. Його використовують для вибору формату, у "
-"якому буде збережено дані файла.</qt>"
+"якому буде показано файли.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

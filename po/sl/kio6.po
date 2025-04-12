@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 11:29+0100\n"
+"PO-Revision-Date: 2025-04-11 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3438,10 +3438,9 @@ msgid "Show Bookmarks Button"
 msgstr "Pokaži gumb zaznamkov"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Pokaži skrite datoteke"
+msgstr "Pokaži hitri filter"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3494,23 +3493,21 @@ msgid "Undo filename change"
 msgstr "Razveljavi spremembo imena datoteke"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Odpri vsebujočo mapo"
+msgstr "Ohranjaj filter pri spreminjanju map"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Filter po imenu…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Skrite datoteke na koncu"
+msgstr "Skrij vrstico filtra"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3647,16 +3644,13 @@ msgstr ""
 "bo datoteka shranjena.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>To je izbirnik vrste datoteke. Uporablja se za izbiro oblike, v kateri "
-"bo datoteka shranjena.</qt>"
+"<qt>To je izbirnik vrste datoteke. Uporablja se za izbiro oblike prikazanih "
+"datotek.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

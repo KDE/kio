@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 13:26+0100\n"
+"PO-Revision-Date: 2025-04-11 10:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3489,10 +3489,9 @@ msgid "Show Bookmarks Button"
 msgstr "Bladwijzerknop tonen"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Verborgen bestanden tonen"
+msgstr "Snelfilter tonen"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3547,24 +3546,21 @@ msgid "Undo filename change"
 msgstr "Wijziging bestandsnaam ongedaan maken"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "De map openen waarin het zich bevindt"
+msgstr "Filter behouden bij wijziging van mappen"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Bestandsnaam:"
+msgstr "Op naam filteren…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Verborgen bestanden als laatste"
+msgstr "Filterbalk verbergen"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3704,16 +3700,13 @@ msgstr ""
 "formaat te selecteren waarmee het bestand zal worden opgeslagen.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Dit is de selector van het bestandstype. Het wordt gebruikt om het "
-"formaat te selecteren waarmee het bestand zal worden opgeslagen.</qt>"
+"formaat te selecteren van de te tonen bestanden.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

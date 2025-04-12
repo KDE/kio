@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 02:35+0100\n"
+"PO-Revision-Date: 2025-04-11 05:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3400,10 +3400,9 @@ msgid "Show Bookmarks Button"
 msgstr "სანიშნეების პანელის ჩვენება"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "დამალული ფაილების ჩვენება"
+msgstr "სწრაფი ფილტრის ჩვენება"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3456,23 +3455,21 @@ msgid "Undo filename change"
 msgstr "ფაილის სახელის ცვლილების გაუქმება"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "შემცველი საქაღალდის გახსნა"
+msgstr "საქაღალდეების შეცვლისას ფილტრის შენარჩუნება"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "გაფილტვრა სახელის მიხედვით…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "დამალული ფაილების ბოლოში ჩვენება"
+msgstr "ფილტრის ზოლის დამალვა"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3609,16 +3606,13 @@ msgstr ""
 "რომელშიც ეს ფაილი შეინახება.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
-"რომელშიც ეს ფაილი შეინახება.</qt>"
+"<qt>ეს ფაილის ტიპის ამრჩევია. ის ნაჩვენები ფაილების ფორმატის ასარჩევად "
+"გამოიყენება.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

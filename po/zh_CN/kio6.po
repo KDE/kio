@@ -3262,10 +3262,9 @@ msgid "Show Bookmarks Button"
 msgstr "显示书签按钮"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "显示隐藏文件"
+msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3315,11 +3314,10 @@ msgid "Undo filename change"
 msgstr "撤销文件名更改"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "打开所在文件夹"
+msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
@@ -3327,11 +3325,10 @@ msgid "Filter by name…"
 msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "隐藏文件靠后"
+msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3459,14 +3456,11 @@ msgid ""
 msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
-msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -6967,38 +6961,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "&Filter:"
-#~ msgstr "过滤(&F)："
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>这是应用到文件列表的过滤条件。不符合此过滤条件的文件名将不会显示。<p>"
-#~ "您可以从下拉菜单中选择预设的过滤条件，或者直接在文本框中输入自定义过滤条"
-#~ "件。</p><p>允许使用 * 和 ? 等通配符。</p></qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "您选择了多个文件夹，但此对话框无法处理多个文件夹，因此无法从中选出一个进行"
-#~ "输入。请只选择一个要列出的文件夹。"
-
-#~ msgid "More than one folder provided"
-#~ msgstr "您提供了多个文件夹"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "您已经选中了至少一个文件夹和一个文件。选中的文件将被忽略，只有选中的文件夹"
-#~ "会被列出"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "同时选中了文件和文件夹"

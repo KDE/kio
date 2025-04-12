@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-30 01:22+0100\n"
+"PO-Revision-Date: 2025-04-11 20:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3478,10 +3478,9 @@ msgid "Show Bookmarks Button"
 msgstr "Mostrar botón de marcadores"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Mostrar archivos ocultos"
+msgstr "Mostrar filtro rápido"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3535,23 +3534,21 @@ msgid "Undo filename change"
 msgstr "Deshacer cambio de nombre de archivo"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Abrir la carpeta contenedora"
+msgstr "Mantener los filtros cuando se cambia de carpeta"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Filtrar por nombre…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Archivos ocultos al final"
+msgstr "Ocultar la barra de filtros"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3689,16 +3686,13 @@ msgstr ""
 "que se guardará el archivo.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Selector del tipo de archivo. Se usa para seleccionar el formato en el "
-"que se guardará el archivo.</qt>"
+"<qt>Selector del tipo de archivo. Se usa para seleccionar el formato de los "
+"archivos mostrados.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -7349,42 +7343,3 @@ msgstr "Esto iniciará el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confía en este programa, pulse «Cancelar»"
-
-#~ msgid "&Filter:"
-#~ msgstr "&Filtro:"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>Este es el filtro a aplicar a la lista de archivos. Los nombres de "
-#~ "archivos que no coincidan con el filtro no se mostrarán.<p>Puede "
-#~ "seleccionar uno de los filtros predefinidos en el menú desplegable, o "
-#~ "puede introducir un filtro personalizado directamente en el área de "
-#~ "texto</p><p>Los comodines, como * y ?, están permitidos.</p></qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "Se ha seleccionado más de una carpeta y este diálogo no permite carpetas, "
-#~ "de modo que no es posible decidir en cuál de ellas se debe entrar. "
-#~ "Seleccione una única carpeta para listar su contenido."
-
-#~ msgid "More than one folder provided"
-#~ msgstr "Se ha proporcionado más de un proveedor"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "Se ha seleccionado al menos una carpeta y un archivo. Los archivos "
-#~ "seleccionados serán ignorados y se listará el contenido de la carpeta "
-#~ "seleccionada"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "Archivos y carpetas seleccionados"
