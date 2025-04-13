@@ -3264,7 +3264,7 @@ msgstr "显示书签按钮"
 #: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Show Quick Filter"
-msgstr ""
+msgstr "显示快速过滤"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3317,18 +3317,18 @@ msgstr "撤销文件名更改"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr ""
+msgstr "切换文件夹时保持过滤"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "按名称过滤…"
 
 #: filewidgets/kfilewidget.cpp:1383
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr ""
+msgstr "隐藏过滤栏"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format

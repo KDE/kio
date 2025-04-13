@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 13:59+0100\n"
+"PO-Revision-Date: 2025-04-11 10:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3467,10 +3467,9 @@ msgid "Show Bookmarks Button"
 msgstr "Mostra el botó de les adreces d'interés"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Mostra els fitxers ocults"
+msgstr "Mostra el filtre ràpid"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3525,23 +3524,21 @@ msgid "Undo filename change"
 msgstr "Desfés el canvi de nom de fitxer"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Obri la carpeta contenidora"
+msgstr "Mantín el filtre en canviar de carpeta"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Filtra per nom…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Últims els fitxers ocults"
+msgstr "Oculta la barra de filtres"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3679,16 +3676,13 @@ msgstr ""
 "format amb què es guardarà el fitxer.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Este és el selector de tipus de fitxer. S'utilitza per a seleccionar el "
-"format amb què es guardarà el fitxer.</qt>"
+"format dels fitxers què es mostraran.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -7332,42 +7326,3 @@ msgstr "Iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
-
-#~ msgid "&Filter:"
-#~ msgstr "&Filtre:"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>Este és el filtre que s'aplicarà a la llista de fitxers. Els fitxers "
-#~ "que no casen amb el filtre no es mostraran.<p>Podeu seleccionar un dels "
-#~ "filtres preseleccionats en el menú desplegable, o podeu introduir un "
-#~ "filtre a mida directament a dins de l'àrea de text.</p><p>Es permeten "
-#~ "comodins com ara «*» i «?».</p></qt>"
-
-# skip-rule: ff-enter
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "S'ha seleccionat més d'una carpeta i este diàleg no accepta carpetes, per "
-#~ "tant, no es pot decidir en quina entrar. Seleccioneu-ne només una per a "
-#~ "llistar-la."
-
-#~ msgid "More than one folder provided"
-#~ msgstr "S'ha indicat més d'una carpeta"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "S'han de seleccionar una carpeta i un fitxer com a mínim. Els fitxers "
-#~ "seleccionats s'ignoraran i es llistarà la carpeta seleccionada"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "S'han seleccionat fitxers i carpetes"
