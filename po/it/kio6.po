@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-29 22:40+0100\n"
+"PO-Revision-Date: 2025-04-11 22:03+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3481,10 +3481,9 @@ msgid "Show Bookmarks Button"
 msgstr "Mostra pulsante Segnalibri"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Mostra i file nascosti"
+msgstr "Mostra il filtro rapido"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3540,24 +3539,21 @@ msgid "Undo filename change"
 msgstr "Annulla le modifiche al nome di file"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Apri cartella contenitore"
+msgstr "Conserva il filtro quando cambi cartella"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Nome del file:"
+msgstr "Filtra per nome…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "File nascosti alla fine"
+msgstr "Nascondi la barra del filtro"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3695,16 +3691,13 @@ msgstr ""
 "formato da usare per salvare il file.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Questo è il selettore del tipo di file. È usato per selezionare il "
-"formato da usare per salvare il file.</qt>"
+"formato del file mostrato.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format

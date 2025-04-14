@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-16 15:13+0530\n"
+"PO-Revision-Date: 2025-04-13 17:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -3373,10 +3373,9 @@ msgid "Show Bookmarks Button"
 msgstr "நினைவுக்குறிகள் பட்டனைக் காட்டு"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "மறைந்துள்ள கோப்புகளைக் காட்டு"
+msgstr "விரை வடிகட்டியைக் காட்டு"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3429,24 +3428,21 @@ msgid "Undo filename change"
 msgstr "பெயர்மாற்றியதை செயல்நீக்கு"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "கொண்டுள்ள அடைவை திற"
+msgstr "வேறு அடைவுக்கு செல்லும்போது வடிகட்டியை காலியாக்காதே"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "கோப்பின் பெயர்:"
+msgstr "பெயர் படி வடிகட்டு…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "மறைந்துள்ள கோப்புகள் கடைசியாக"
+msgstr "வடிகட்டிப் பட்டையை மறை"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3581,15 +3577,12 @@ msgstr ""
 "<qt>இது கோப்பு வகை தேர்வி. கோப்பு சேமிக்கப்படும் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>இது கோப்பு வகை தேர்வி. கோப்பு சேமிக்கப்படும் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
+"<qt>இது கோப்பு வகை தேர்வி. காட்டவேண்டிய கோப்புகளின் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
@@ -6644,12 +6637,10 @@ msgid "Filename for clipboard content:"
 msgstr "பிடிப்புப் பலகையின் உள்ளடக்கத்திற்குரிய கோப்புப்பெயர்:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "கோப்பினை &ஒட்டு"
+msgstr "ஒட்டிய கோப்பு"
 
 #: widgets/paste.cpp:123
 #, kde-format
