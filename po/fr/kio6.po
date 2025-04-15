@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-03-30 11:13+0200\n"
+"PO-Revision-Date: 2025-04-12 08:23+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -3518,10 +3518,9 @@ msgid "Show Bookmarks Button"
 msgstr "Afficher le bouton Signets"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Afficher les fichiers cachés"
+msgstr "Afficher le filtre rapide"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3576,24 +3575,21 @@ msgid "Undo filename change"
 msgstr "Annuler le changement de nom de fichier"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Ouvrir le dossier contenant"
+msgstr "Conserver le filtre lors de la modification des dossiers"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Nom de fichier :"
+msgstr "Filtrer par nom…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Fichiers cachés en dernier"
+msgstr "Masquer la barre de filtres"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3732,16 +3728,13 @@ msgstr ""
 "sélectionner le format dans lequel le fichier sera enregistré.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Ceci est le sélecteur de type de fichier. Il est utilisé pour "
-"sélectionner le format dans lequel le fichier sera enregistré.</qt>"
+"sélectionner le format des fichiers affichés.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
