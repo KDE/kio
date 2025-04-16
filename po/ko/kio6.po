@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-11 00:39+0000\n"
-"PO-Revision-Date: 2025-04-06 23:14+0200\n"
+"PO-Revision-Date: 2025-04-15 23:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -3342,10 +3342,9 @@ msgid "Show Bookmarks Button"
 msgstr "책갈피 단추 표시"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "숨겨진 파일 표시"
+msgstr "빠른 필터 표시"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3397,24 +3396,21 @@ msgid "Undo filename change"
 msgstr "파일 이름 바꾸기 실행 취소"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "포함하는 폴더 열기"
+msgstr "폴더 변경 시 필터 유지"
 
 #: filewidgets/kfilewidget.cpp:1375
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "파일 이름:"
+msgstr "이름으로 필터…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "숨김 파일 마지막에"
+msgstr "필터 표시줄 숨기기"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3548,15 +3544,12 @@ msgstr ""
 "<qt>파일 형식 선택기입니다. 저장할 파일 형식을 선택할 수 있습니다.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>파일 형식 선택기입니다. 저장할 파일 형식을 선택할 수 있습니다.</qt>"
+"<qt>파일 형식 선택기입니다. 표시할 파일 형식을 선택할 수 있습니다.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
 #, kde-format
