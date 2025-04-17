@@ -3398,10 +3398,9 @@ msgid "Show Bookmarks Button"
 msgstr "Yer İmleri Düğmesini Göster"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Gizli Dosyaları Göster"
+msgstr "Tez Süzgeci Göster"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3454,23 +3453,21 @@ msgid "Undo filename change"
 msgstr "Dosya adı değişikliğini geri al"
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "İçeren Klasörü Aç"
+msgstr "Klasör değiştirirken süzgeci tut"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Ada göre süz…"
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Gizli Dosyalar En Sonda"
+msgstr "Süzgeç çubuğunu gizle"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
@@ -3607,15 +3604,12 @@ msgstr ""
 "kullanılır.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2939
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Bu, dosya türü seçicisidir. Dosyanın kaydedileceği biçimi seçmek için "
+"<qt>Bu, dosya türü seçicisidir. Gösterilen dosyaların biçimini seçmek için "
 "kullanılır.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:441
@@ -7244,218 +7238,3 @@ msgstr "Bu eylem, şu uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
-
-#~ msgid "&Filter:"
-#~ msgstr "S&üz:"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>Dosya listesine uygulanacak süzgeç. Süzgeç ile eşleşmeyen dosya "
-#~ "adları görüntülenmeyecektir.<p> Açılır menüden var olan bir tanesini "
-#~ "seçebilir veya doğrudan metin alanına süzgeç ifadenizi yazabilirsiniz.</"
-#~ "p><p>* ve ? gibi genel arama karakterlerini kullanmak da olanaklıdır.</"
-#~ "p></qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "Birden fazla klasör seçildi ancak bu pencere klasör kabul etmiyor, yani "
-#~ "hangi seçime girileceğine karar verilemiyor. Lütfen yalnızca bir klasör "
-#~ "seçin."
-
-#~ msgid "More than one folder provided"
-#~ msgstr "Birden fazla klasör verildi"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "En azından bir klasör ve bir dosya seçilmelidir. Seçilen dosyalar yok "
-#~ "sayılacak ve seçilen klasör listelenecektir"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "Dosyalar ve klasörler seçildi"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "Genelde yükseltilmiş izinler isteyen “%1” protokolü için KIO işçisinin "
-#~ "güvenliği garanti edilemiyor; çünkü kök kullanıcı dışındaki "
-#~ "kullanıcıların %2 konumunda üzerinde değişiklik yapmak için izni vardır."
-
-#~ msgid ""
-#~ "Although contact was made with the server, a response was not received "
-#~ "within the amount of time allocated for the request as follows:"
-#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#~ "settings in the KDE System Settings, by selecting Network Settings -> "
-#~ "Connection Preferences."
-#~ msgstr ""
-#~ "Sunucuyla iletişim kurulmuş olsa da, istek için ayrılan süre zarfında bir "
-#~ "yanıt alınamadı. Aşağıda belirtilen zaman ayarları, KDE Sistem Ayarları "
-#~ "altındaki Ağ Ayarları → Bağlantı Tercihleri modülünden "
-#~ "değiştirebilirsiniz: <ul><li>Bağlantı kurma zaman aşımı: %1 saniye</"
-#~ "li><li>Yanıt alma zaman aşımı: %2 saniye</li><li>Vekil sunucu erişim "
-#~ "zaman aşımı: %3 saniye</li></ul>."
-
-#~ msgid "Is &executable"
-#~ msgstr "Yü&rütülebilir"
-
-#~ msgid "New Folder..."
-#~ msgstr "Yeni Klasör…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add..."
-#~ msgstr "Ekle…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit..."
-#~ msgstr "Düzenle…"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open Folder With..."
-#~ msgstr "Klasörü Bi&rlikte Aç…"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Open With..."
-#~ msgstr "&Birlikte Aç…"
-
-#~| msgctxt "@title:window"
-#~| msgid "New Folder"
-#~ msgctxt "@title:window"
-#~ msgid "New File"
-#~ msgstr "Yeni Dosya"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Folder"
-#~ msgstr "Yeni Klasör"
-
-#~ msgid "Differences"
-#~ msgstr "Farklılıklar"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|Tüm Dosyalar"
-
-#~ msgid "No host specified."
-#~ msgstr "Hiç makine adı belirtilmemiş."
-
-#~ msgid "The server does not support the WebDAV protocol."
-#~ msgstr "Sunucu WebDAV protokolünü desteklemiyor."
-
-#~ msgid "%1 contacted. Waiting for reply..."
-#~ msgstr "%1 ile bağlantı kuruldu. Yanıt bekleniyor..."
-
-#~ msgctxt "@info Security check on url being accessed"
-#~ msgid ""
-#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
-#~ "but the website does not require authentication. This may be an attempt "
-#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
-#~ msgstr ""
-#~ "<p>\"%2\" kullanıcı adı ile \"%1\" sayfasında oturum açmak üzeresiniz; "
-#~ "ancak web sayfası kimlik doğrulaması gerektirmiyor. Bu bir kandırma "
-#~ "girişimi olabilir. </p><p>\"%1\" sayfası gitmek istediğiniz bir sayfa mı?"
-#~ "</p>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Website Access"
-#~ msgstr "Web Sitesi Erişimini Onayla"
-
-#~ msgid "Server processing request, please wait..."
-#~ msgstr "Sunucu isteği işliyor, lütfen bekleyiniz..."
-
-#~ msgid "Sending data to %1"
-#~ msgstr "%1 adresine veri gönderiliyor"
-
-#~ msgid "Retrieving %1 from %2..."
-#~ msgstr "%2 adresinden %1 alınıyor..."
-
-#~ msgid "Authentication Failed."
-#~ msgstr "Kimlik Doğrulama İşlemi Başarısız Oldu."
-
-#~ msgid "Authorization failed."
-#~ msgstr "Kimlik doğrulama işlemi başarısız oldu."
-
-#~ msgid "Unknown Authorization method."
-#~ msgstr "Bilinmeyen kimlik doğrulama yöntemi."
-
-#~ msgid "Receiving corrupt data."
-#~ msgstr "Bozuk veri alınıyor."
-
-#~ msgid ""
-#~ "You are about to leave secure mode. Transmissions will no longer be "
-#~ "encrypted.\n"
-#~ "This means that a third party could observe your data in transit."
-#~ msgstr ""
-#~ "Güvenli kipten çıkıyorsunuz. Tüm iletişim şifrelenmemiş bir şekilde "
-#~ "sürdürülecektir.\n"
-#~ "Bu nedenle sizden başkası aktarmak istediğiniz veriyi izleyebilir."
-
-#~ msgid "Security Information"
-#~ msgstr "Güvenlik Bilgisi"
-
-#~ msgid "C&ontinue Loading"
-#~ msgstr "&Yüklemeyi Sürdür"
-
-#~ msgctxt "%1 is a host name"
-#~ msgid "%1: SSL negotiation failed"
-#~ msgstr "%1: SSL görüşmesi başarısız oldu"
-
-#~ msgid ""
-#~ "You are about to enter secure mode. All transmissions will be encrypted "
-#~ "unless otherwise noted.\n"
-#~ "This means that no third party will be able to easily observe your data "
-#~ "in transit."
-#~ msgstr ""
-#~ "Güvenli kipe giriyorsunuz. Tüm iletişim şifrelenmiş bir şekilde "
-#~ "sürdürülecektir.\n"
-#~ "Bu nedenle sizden başkası aktarmak istediğiniz veriyi izleyemeyecektir."
-
-#~ msgid "Display SSL &Information"
-#~ msgstr "&SSL Bilgisini Göster"
-
-#~ msgid "C&onnect"
-#~ msgstr "&Bağlan"
-
-#~ msgid "Could not find a usable proxy configuration script"
-#~ msgstr "Kullanılabilir bir vekil sunucu yapılandırma betiği bulunamadı"
-
-#~ msgid ""
-#~ "Could not download the proxy configuration script:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Vekil sunucu yapılandırma betiği indirilemedi:\n"
-#~ "%1"
-
-#~ msgid "Could not download the proxy configuration script"
-#~ msgstr "Vekil sunucu yapılandırma betiği indirilemedi"
-
-#~ msgid ""
-#~ "The proxy configuration script is invalid:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Vekil sunucu yapılandırma betiği geçersiz:\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The proxy configuration script returned an error:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Vekil sunucu yapılandırma betiği bir hata verdi:\n"
-#~ "%1"
-
-#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-#~ msgstr "'FindProxyForURL' veya 'FindProxyForURLEx' bulunamadı"
-
-#~ msgid "Got an invalid reply when calling %1 -> %2"
-#~ msgstr "%1 -> %2 çağrılırken geçersiz yanıt alındı"

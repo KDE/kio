@@ -3388,10 +3388,9 @@ msgid "Show Bookmarks Button"
 msgstr "Zobrazit tlačítko záložek"
 
 #: filewidgets/kfilewidget.cpp:1221
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Zobrazit skryté soubory"
+msgstr "Zobrazit rychlý filtr"
 
 #: filewidgets/kfilewidget.cpp:1229
 #, kde-format
@@ -3444,11 +3443,10 @@ msgid "Undo filename change"
 msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1371
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Otevřít odpovídající složku"
+msgstr "Ponechat filtr při změně složek"
 
 #: filewidgets/kfilewidget.cpp:1375
 #, kde-format
@@ -3456,11 +3454,10 @@ msgid "Filter by name…"
 msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1383
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Skryté soubory jako poslední"
+msgstr "Skrýt filtrovací panel"
 
 #: filewidgets/kfilewidget.cpp:1432
 #, kde-format
