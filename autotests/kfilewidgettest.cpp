@@ -87,6 +87,8 @@ private Q_SLOTS:
     void testTokenizeForSave_data();
     void testTokenizeForSave();
     void testThumbnailPreviewSetting();
+    void testReplaceLocationEditFilename_data();
+    void testReplaceLocationEditFilename();
 };
 
 void KFileWidgetTest::initTestCase()
@@ -930,6 +932,89 @@ void KFileWidgetTest::testThumbnailPreviewSetting()
     QVERIFY(previewAction);
     QCOMPARE(previewAction->isChecked(), true);
     fwPreviewFalse.cancelButton()->click();
+}
+
+struct LocationTestItem {
+    bool dir;
+    QString name;
+};
+
+void KFileWidgetTest::testReplaceLocationEditFilename_data()
+{
+    QTest::addColumn<LocationTestItem>("initialItem");
+    QTest::addColumn<LocationTestItem>("selectedItem");
+    QTest::addColumn<QString>("lineEditTextResult");
+    QTest::addColumn<bool>("overrideModifiedText");
+
+    QTest::newRow("replace-dir-with-dir") << LocationTestItem(true, "folder1") << LocationTestItem(true, "folder2") << "" << false;
+    QTest::newRow("replace-dir-with-file") << LocationTestItem(true, "folder1") << LocationTestItem(false, "file1") << "file1" << true;
+    QTest::newRow("replace-file-with-file") << LocationTestItem(false, "file1") << LocationTestItem(false, "file2") << "file2" << true;
+    QTest::newRow("replace-file-with-dir") << LocationTestItem(false, "file1") << LocationTestItem(true, "folder1") << "file1" << false;
+}
+
+// BUG: 502794
+// Test that we don't override file names with folder names
+void KFileWidgetTest::testReplaceLocationEditFilename()
+{
+    QFETCH(LocationTestItem, initialItem);
+    QFETCH(LocationTestItem, selectedItem);
+    QFETCH(QString, lineEditTextResult);
+    QFETCH(bool, overrideModifiedText);
+
+    // Setup - Create folders/files in temp dir
+    QTemporaryDir tempDir;
+    const QString tempDirPath = tempDir.path();
+    QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
+    QUrl replacedUrl = QUrl::fromLocalFile(tempDirPath + QLatin1Char('/') + initialItem.name);
+    QUrl selectedUrl = QUrl::fromLocalFile(tempDirPath + QLatin1Char('/') + selectedItem.name);
+
+    auto createTestItem = [tempDirUrl](LocationTestItem item, const QUrl &url) {
+        if (item.dir) {
+            QDir(tempDirUrl.toLocalFile()).mkdir(url.toLocalFile());
+            QVERIFY(QDir(url.toLocalFile()).exists());
+        } else {
+            QFile file(url.toLocalFile());
+            if (!file.open(QIODevice::WriteOnly)) {
+                qFatal("Couldn't create %s", qPrintable(url.toLocalFile()));
+            }
+            file.write(QByteArray("Test file"));
+            file.close();
+            QVERIFY(file.exists());
+        }
+    };
+
+    createTestItem(initialItem, replacedUrl);
+    createTestItem(selectedItem, selectedUrl);
+
+    // Open the filewidget in tempdir
+    KFileWidget fw(tempDirUrl);
+    fw.setOperationMode(KFileWidget::Saving);
+
+    // Highlight the item, then another
+    auto highlightItem = [&fw](QUrl url) {
+        KFileItem fileItem(url);
+        QSignalSpy fileHighlightedSpy(fw.dirOperator(), &KDirOperator::fileHighlighted);
+        fw.dirOperator()->highlightFile(fileItem);
+        fileHighlightedSpy.wait(500);
+        QVERIFY(fileHighlightedSpy.count());
+    };
+
+    highlightItem(replacedUrl);
+    highlightItem(selectedUrl);
+
+    // Compare that we have the wanted result when selecting items
+    QCOMPARE(fw.locationEdit()->lineEdit()->text(), lineEditTextResult);
+
+    // Make sure we don't overwrite any text user has modified in some cases
+    const QString modifiedText("New Filename.txt");
+    fw.locationEdit()->setEditText(modifiedText);
+    highlightItem(selectedUrl);
+
+    if (overrideModifiedText) {
+        QCOMPARE(fw.locationEdit()->lineEdit()->text(), lineEditTextResult);
+    } else {
+        QCOMPARE(fw.locationEdit()->lineEdit()->text(), modifiedText);
+    }
 }
 
 QTEST_MAIN(KFileWidgetTest)

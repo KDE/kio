@@ -1042,6 +1042,7 @@ private:
     KIOFILEWIDGETS_NO_EXPORT void setViewInternal(QAbstractItemView *view);
 
     friend class KDirOperatorPrivate;
+    friend class KFileWidgetTest; // For testing
     std::unique_ptr<KDirOperatorPrivate> d;
 };
 

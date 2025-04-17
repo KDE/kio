@@ -900,6 +900,10 @@ void KFileWidgetPrivate::fileHighlighted(const KFileItem &i, bool isKeyNavigatio
         return;
     }
 
+    if (!i.isNull() && i.isDir() && !(m_ops->mode() & KFile::Directory)) {
+        return;
+    }
+
     const bool modified = m_locationEdit->lineEdit()->isModified();
 
     if (!(m_ops->mode() & KFile::Files)) {
