@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:39+0000\n"
+"POT-Creation-Date: 2025-04-18 00:38+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3006,7 +3006,7 @@ msgid "All Supported Files"
 msgstr "Tos les fitchîs sopoirtés"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:2033
+#: filewidgets/kfilewidget.cpp:2037
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3529,7 +3529,7 @@ msgstr "Dji n' a savou trover l' fitchî %1"
 msgid "Cannot open file"
 msgstr "Dji n' sai drovi li fitchî"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1201
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3544,56 +3544,56 @@ msgstr ""
 ">Si vos estoz, metans, dins file:/home/%1, et k' vos clitchîz sol boton, vos "
 "vos rtrovroz dins file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1205
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Clitchîz so ç' boton chal po rivni en erî d' ene asdjamblêye dins "
 "l' istorike di vosse betchtaedje."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Clitchîz so ç' boton chal po-z avanci d' ene asdjamblêye dins l' istorike do "
 "betchtaedje."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Clitchîz so ç' boton chal po rtcherdjî l' å dvins di l' eplaeçmint do "
 "moumint."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Clitchîz so ç' boton chal po fé on novea ridant."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1212
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Mostrer li rascourti après l' panea di naiviaedje"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1219
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Mostrer rmåkes"
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1225
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Mostrer fitchîs catchîs"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Options"
 msgstr "Tchuzes"
 
-#: filewidgets/kfilewidget.cpp:1232
+#: filewidgets/kfilewidget.cpp:1236
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3615,12 +3615,12 @@ msgstr ""
 "après l' panea di naiviaedje</li><li>prévoeyaedje des fitchîs</li><li>mete "
 "les ridant eshonne eyet les fitchîs eshonne</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1252
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid "Bookmarks"
 msgstr "Rimarkes"
 
-#: filewidgets/kfilewidget.cpp:1256
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3635,38 +3635,38 @@ msgstr ""
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1299 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&No:"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1324
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Rilomer"
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1375
+#: filewidgets/kfilewidget.cpp:1379
 #, fuzzy, kde-format
 #| msgid "Device name"
 msgid "Filter by name…"
 msgstr "No d' l' éndjine"
 
-#: filewidgets/kfilewidget.cpp:1383
+#: filewidgets/kfilewidget.cpp:1387
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Mostrer fitchîs catchîs"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1436
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3679,12 +3679,12 @@ msgstr ""
 "avou l' boton d' droete del sori eyet tchoezi l' metôde ki vos inmez l' mî "
 "dins l' menu <b>Completaedje do tecse</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1439
+#: filewidgets/kfilewidget.cpp:1443
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Li no k' i fåt dner å fitchî pol schaper."
 
-#: filewidgets/kfilewidget.cpp:1442
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3693,76 +3693,76 @@ msgstr ""
 "Li djivêye des fitchîs a drovi.  Vos poloz tchoezi di pus d' on fitchî: "
 "fijhoz è 'ne djivêye avou on blanc inte tchaeke no."
 
-#: filewidgets/kfilewidget.cpp:1447
+#: filewidgets/kfilewidget.cpp:1451
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "No do fitchî a drovi."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Plaeces"
 
-#: filewidgets/kfilewidget.cpp:1739
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Li fitchî  \"%1\" egzistêye dedja. El voloz vs sipotchî ?"
 
-#: filewidgets/kfilewidget.cpp:1740
+#: filewidgets/kfilewidget.cpp:1744
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Sipotchî l' fitchî?"
 
-#: filewidgets/kfilewidget.cpp:1937
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vos n' poloz tchoezi ki des fitchîs locås."
 
-#: filewidgets/kfilewidget.cpp:1937
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fitchîs å lon nén acceptés"
 
-#: filewidgets/kfilewidget.cpp:2031
+#: filewidgets/kfilewidget.cpp:2035
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Tos les ridants"
 
-#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "Dr&ovi"
 
-#: filewidgets/kfilewidget.cpp:2283
+#: filewidgets/kfilewidget.cpp:2287
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Grandeu des imådjetes: %1 picsels"
 
-#: filewidgets/kfilewidget.cpp:2430
+#: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs (%1)"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2435
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "li cawete <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2437
+#: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs"
 
-#: filewidgets/kfilewidget.cpp:2438
+#: filewidgets/kfilewidget.cpp:2442
 #, kde-format
 msgid "a suitable extension"
 msgstr "ene cawete ki va bén"
 
-#: filewidgets/kfilewidget.cpp:2446
+#: filewidgets/kfilewidget.cpp:2450
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3778,20 +3778,20 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2933
+#: filewidgets/kfilewidget.cpp:2937
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Passete:"
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2941
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2943
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

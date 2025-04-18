@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:39+0000\n"
+"POT-Creation-Date: 2025-04-18 00:38+0000\n"
 "PO-Revision-Date: 2025-04-11 11:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2822,7 +2822,7 @@ msgid "All Supported Files"
 msgstr "כל הקבצים הנתמכים"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:2033
+#: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
 msgstr "כל הקבצים"
@@ -3300,7 +3300,7 @@ msgstr "אי אפשר למצוא את הקובץ „%1”."
 msgid "Cannot open file"
 msgstr "אי אפשר לפתוח את הקובץ"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3310,47 +3310,47 @@ msgstr ""
 "<qt>לחיצה על כפתור זה תכניס אותך לתיקיית ההורה.<br /><br />למשל, אם המקום "
 "הנוכחי הוא file:/home/konqi לחיצה על כפתור זה תעביר אותך אל file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1205
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "לחיצה על כפתור זה תחזור צעד אחד אחורה בהיסטוריית העיון."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "לחיצה על כפתור זה תדלג צעד קדימה בהיסטוריית העיון."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "לחיצה על כפתור זה תטען את תוכן המקום הנוכחי מחדש."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "לחיצה על כפתור זה תיצור תיקייה חדשה."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid "Show Places Panel"
 msgstr "הצגת לוח מקומות"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "הצגת כפתור סימניות"
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Show Quick Filter"
 msgstr "הצגת מסנן מהיר"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Options"
 msgstr "אפשרויות"
 
-#: filewidgets/kfilewidget.cpp:1232
+#: filewidgets/kfilewidget.cpp:1236
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3364,12 +3364,12 @@ msgstr ""
 "ורשימה</li><li>הצגת קבצים מוסתרים</li><li>לוח מקומות</li><li>תצוגות מקדימות "
 "של קבצים</li><li>הפרדת תיקיות מקבצים</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1252
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid "Bookmarks"
 msgstr "סימניות"
 
-#: filewidgets/kfilewidget.cpp:1256
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3383,35 +3383,35 @@ msgstr ""
 "מקום אחר ב־KDE. </qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1295 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1299 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&שם:"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1324
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "הסגת שינוי שם קובץ"
 
-#: filewidgets/kfilewidget.cpp:1371
+#: filewidgets/kfilewidget.cpp:1375
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "השארת המסנן בעת החלפת תיקיות"
 
-#: filewidgets/kfilewidget.cpp:1375
+#: filewidgets/kfilewidget.cpp:1379
 #, kde-format
 msgid "Filter by name…"
 msgstr "סינון לפי שם…"
 
-#: filewidgets/kfilewidget.cpp:1383
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "הסתרת סרגל הסינון"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1436
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3423,12 +3423,12 @@ msgstr ""
 "ביכולת הזאת בלחיצה ימנית עם העכבר ובחירה במצב המועדף מהתפריט <b>השלמת טקסט</"
 "b>. </qt>"
 
-#: filewidgets/kfilewidget.cpp:1439
+#: filewidgets/kfilewidget.cpp:1443
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "זה השם בו יש לשמור את הקובץ."
 
-#: filewidgets/kfilewidget.cpp:1442
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3437,74 +3437,74 @@ msgstr ""
 "זו רשימת הקבצים לפתיחה. ניתן לציין יותר מקובץ אחד על ידי מילוי שמות של מספר "
 "קבצים, מופרדים ברווחים."
 
-#: filewidgets/kfilewidget.cpp:1447
+#: filewidgets/kfilewidget.cpp:1451
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "זה שם הקובץ לפתיחה."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "מקומות"
 
-#: filewidgets/kfilewidget.cpp:1739
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "הקובץ „%1” כבר קיים. למחוק אותו?"
 
-#: filewidgets/kfilewidget.cpp:1740
+#: filewidgets/kfilewidget.cpp:1744
 #, kde-format
 msgid "Overwrite File?"
 msgstr "לשכתב את הקובץ?"
 
-#: filewidgets/kfilewidget.cpp:1937
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "You can only select local files."
 msgstr "אפשר לבחור רק קבצים מקומיים."
 
-#: filewidgets/kfilewidget.cpp:1937
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "אי אפשר לקבל קבצים מרחוק"
 
-#: filewidgets/kfilewidget.cpp:2031
+#: filewidgets/kfilewidget.cpp:2035
 #, kde-format
 msgid "All Folders"
 msgstr "כל התיקיות"
 
-#: filewidgets/kfilewidget.cpp:2183 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&פתיחה"
 
-#: filewidgets/kfilewidget.cpp:2283
+#: filewidgets/kfilewidget.cpp:2287
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "גודל הסמל: %1 פיקסלים"
 
-#: filewidgets/kfilewidget.cpp:2430
+#: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "לבחור &סיומת קובץ אוטומטית (%1)"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2435
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "הסיומת <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2437
+#: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "בחירת &סיומת קובץ אוטומטית"
 
-#: filewidgets/kfilewidget.cpp:2438
+#: filewidgets/kfilewidget.cpp:2442
 #, kde-format
 msgid "a suitable extension"
 msgstr "סיומת מתאימה"
 
-#: filewidgets/kfilewidget.cpp:2446
+#: filewidgets/kfilewidget.cpp:2450
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3528,19 +3528,19 @@ msgstr ""
 "הקובץ (הנקודה תוסר אוטומטית).</li></ol>במקרה של ספק, עדיף להשאיר את האפשרות "
 "הזאת פעילה מאחר שהיא מקלה על ניהול הקבצים שלך."
 
-#: filewidgets/kfilewidget.cpp:2933
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&File type:"
 msgstr "&סוג קובץ:"
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2941
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>זה בורר סוג הקובץ. הוא משמש לבחירת סוג הקובץ שיישמר.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2943
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
