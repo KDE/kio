@@ -57,6 +57,7 @@
 #include <KFileUtils>
 #include <KIO/FileSystemFreeSpaceJob>
 
+#include <chrono>
 #include <list>
 #include <set>
 
@@ -65,6 +66,7 @@ Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
 Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
 
 using namespace KIO;
+using namespace std::literals::chrono_literals;
 
 // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
 static constexpr int s_reportTimeout = 200;
@@ -399,6 +401,8 @@ public:
 
     void slotReport();
 
+    void doInhibitSuspend() override;
+
     Q_DECLARE_PUBLIC(CopyJob)
 
     static inline CopyJob *newJob(const QList<QUrl> &src, const QUrl &dest, CopyJob::CopyMode mode, bool asMethod, JobFlags flags)
@@ -492,6 +496,11 @@ void CopyJobPrivate::slotStart()
             return;
         }
     }
+
+    // Avoid DBus traffic for short-lived jobs.
+    QTimer::singleShot(10s, q, [this] {
+        doInhibitSuspend();
+    });
 
     /**
        We call the functions directly instead of using signals.
@@ -734,6 +743,18 @@ bool CopyJob::doResume()
         break;
     }
     return Job::doResume();
+}
+
+void CopyJobPrivate::doInhibitSuspend()
+{
+    QString reason;
+    if (m_mode == CopyJob::Move) {
+        reason = i18nc("Reason why standby is blocked", "Files are being moved");
+    } else {
+        reason = i18nc("Reason why standby is blocked", "Files are being copied");
+    }
+
+    inhibitSuspend(reason);
 }
 
 void CopyJobPrivate::slotReport()
