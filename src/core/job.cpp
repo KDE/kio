@@ -13,12 +13,29 @@
 #include <time.h>
 
 #include <KLocalizedString>
+#include <KSandbox>
 #include <KStringHandler>
 
+#include "kiocoredebug.h"
 #include "worker_p.h"
 #include <kio/jobuidelegateextension.h>
 
+#if HAVE_QTDBUS
+#include <QDBusConnection>
+#include <QDBusPendingCallWatcher>
+
+#include "inhibit_interface.h"
+#include "portal_inhibit_interface.h"
+#include "portal_request_interface.h"
+#endif
+
 using namespace KIO;
+
+static constexpr QLatin1String g_portalServiceName{"org.freedesktop.portal.Desktop"};
+static constexpr QLatin1String g_portalInhibitObjectPath{"/org/freedesktop/portal/desktop"};
+
+static constexpr QLatin1String g_inhibitServiceName{"org.freedesktop.PowerManagement.Inhibit"};
+static constexpr QLatin1String g_inhibitObjectPath{"/org/freedesktop/PowerManagement/Inhibit"};
 
 Job::Job()
     : KCompositeJob(nullptr)
@@ -90,6 +107,124 @@ static QString url_description_string(const QUrl &url)
 
 KIO::JobPrivate::~JobPrivate()
 {
+    uninhibitSuspend();
+}
+
+void JobPrivate::doInhibitSuspend()
+{
+}
+
+void JobPrivate::inhibitSuspend(const QString &reason)
+{
+#if HAVE_QTDBUS
+    if (KSandbox::isInside()) {
+        Q_ASSERT(m_portalInhibitionRequest.path().isEmpty());
+
+        org::freedesktop::portal::Inhibit inhibitInterface{g_portalServiceName, g_portalInhibitObjectPath, QDBusConnection::sessionBus()};
+        QVariantMap args;
+        if (!reason.isEmpty()) {
+            args.insert(QStringLiteral("reason"), reason);
+        }
+        auto call = inhibitInterface.Inhibit(QString() /* TODO window. */, 4 /* Suspend */, args);
+        // This is not parented to the job, so we can properly clean up the inhibiton
+        // should the job finish before the inhibition has been processed.
+        auto *watcher = new QDBusPendingCallWatcher(call);
+        QPointer<Job> guard(q_ptr);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [this, guard, watcher, reason] {
+            QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+
+            if (reply.isError()) {
+                qCWarning(KIO_CORE).nospace() << "Failed to inhibit suspend with reason " << reason << ": " << reply.error().message();
+            } else {
+                const QDBusObjectPath requestPath = reply.value();
+
+                // By the time the inhibition returned, the job was already gone. Uninhibit again.
+                if (!guard) {
+                    org::freedesktop::portal::Request requestInterface{g_portalServiceName, requestPath.path(), QDBusConnection::sessionBus()};
+                    requestInterface.Close();
+                } else {
+                    m_portalInhibitionRequest = requestPath;
+                }
+            }
+
+            watcher->deleteLater();
+        });
+    } else {
+        Q_ASSERT(!m_inhibitionCookie);
+
+        QString appName = q_ptr->property("desktopFileName").toString();
+        if (appName.isEmpty()) {
+            // desktopFileName is in QGuiApplication but we're in KIO Core here.
+            appName = QCoreApplication::instance()->property("desktopFileName").toString();
+        }
+        if (appName.isEmpty()) {
+            appName = QCoreApplication::applicationName();
+        }
+
+        org::freedesktop::PowerManagement::Inhibit inhibitInterface{g_inhibitServiceName, g_inhibitObjectPath, QDBusConnection::sessionBus()};
+        auto call = inhibitInterface.Inhibit(appName, reason);
+        auto *watcher = new QDBusPendingCallWatcher(call);
+        QPointer<Job> guard(q_ptr);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [this, guard, watcher, appName, reason] {
+            QDBusPendingReply<uint> reply = *watcher;
+
+            if (reply.isError()) {
+                qCWarning(KIO_CORE).nospace() << "Failed to inhibit suspend for " << appName << " with reason " << reason << ": " << reply.error().message();
+            } else {
+                const uint cookie = reply.value();
+
+                if (!guard) {
+                    org::freedesktop::PowerManagement::Inhibit inhibitInterface{g_inhibitServiceName, g_inhibitObjectPath, QDBusConnection::sessionBus()};
+                    inhibitInterface.UnInhibit(cookie);
+                } else {
+                    m_inhibitionCookie = cookie;
+                }
+            }
+
+            watcher->deleteLater();
+        });
+    }
+#else
+    Q_UNUSED(reason)
+#endif
+}
+
+void JobPrivate::uninhibitSuspend()
+{
+#if HAVE_QTDBUS
+    if (!m_portalInhibitionRequest.path().isEmpty()) {
+        org::freedesktop::portal::Request requestInterface{g_portalServiceName, m_portalInhibitionRequest.path(), QDBusConnection::sessionBus()};
+        auto call = requestInterface.Close();
+        auto *watcher = new QDBusPendingCallWatcher(call, q_ptr);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, q_ptr, [this, watcher] {
+            QDBusPendingReply<> reply = *watcher;
+
+            if (reply.isError()) {
+                qCWarning(KIO_CORE) << "Failed to uninhibit suspend:" << reply.error().message();
+            } else {
+                m_portalInhibitionRequest = QDBusObjectPath();
+            }
+
+            watcher->deleteLater();
+        });
+    } else if (m_inhibitionCookie) {
+        org::freedesktop::PowerManagement::Inhibit inhibitInterface{g_inhibitServiceName, g_inhibitObjectPath, QDBusConnection::sessionBus()};
+        const int cookie = *m_inhibitionCookie;
+        auto call = inhibitInterface.UnInhibit(cookie);
+        auto *watcher = new QDBusPendingCallWatcher(call, q_ptr);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, q_ptr, [this, watcher, cookie] {
+            QDBusPendingReply<> reply = *watcher;
+
+            if (reply.isError()) {
+                qCWarning(KIO_CORE).nospace() << "Failed to uninhibit suspend for cookie" << cookie << ": " << reply.error().message();
+            } else {
+                m_inhibitionCookie.reset();
+            }
+
+            watcher->deleteLater();
+        });
+    }
+#endif
 }
 
 void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
@@ -172,7 +307,7 @@ bool Job::doSuspend()
             return false;
         }
     }
-
+    d_ptr->uninhibitSuspend();
     return true;
 }
 
@@ -183,7 +318,7 @@ bool Job::doResume()
             return false;
         }
     }
-
+    d_ptr->doInhibitSuspend();
     return true;
 }
 

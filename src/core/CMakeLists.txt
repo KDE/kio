@@ -164,6 +164,11 @@ if (HAVE_QTDBUS)
             PROPERTIES INCLUDE authinfo.h
     )
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
+
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.freedesktop.PowerManagement.Inhibit.xml inhibit_interface)
+
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.freedesktop.portal.Inhibit.xml portal_inhibit_interface)
+    qt_add_dbus_interface(kiocore_dbus_SRCS org.freedesktop.portal.Request.xml portal_request_interface)
 endif()
 
 target_sources(KF6KIOCore PRIVATE
