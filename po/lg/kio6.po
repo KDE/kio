@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:38+0000\n"
+"POT-Creation-Date: 2025-04-21 00:38+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -3945,18 +3945,18 @@ msgstr "Koona Wano Okukebera Ebifo"
 msgid "Click to Edit Location"
 msgstr "Koona Wano Okukyusamu Ekifo"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Obuyinza bwolina tebumala okutandika fayiro eno."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Ntandika %1"
 
-#: gui/applicationlauncherjob.cpp:170
+#: gui/applicationlauncherjob.cpp:173
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3965,12 +3965,12 @@ msgstr ""
 "Nnemedwa okusobozesa pulguramu empeereze %1 okutandika, omulimu ngusazzamu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Tokkirizibwa okulonda puloguramu ey'obikkula fayiro eno."
 
-#: gui/applicationlauncherjob.cpp:296
+#: gui/applicationlauncherjob.cpp:299
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -4004,7 +4004,7 @@ msgstr "Fayiro ey'akafaananyi eyitiridde obunene, okuwanula kusazzidwamu"
 msgid "No mail client found"
 msgstr "Tewali puloguramu kasitoma eya yimeero"
 
-#: gui/kprocessrunner.cpp:118
+#: gui/kprocessrunner.cpp:122
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4015,12 +4015,12 @@ msgstr ""
 "%1\n"
 "tekozeseka."
 
-#: gui/kprocessrunner.cpp:283
+#: gui/kprocessrunner.cpp:287
 #, kde-format
 msgid "Launching %1"
 msgstr "Ntandika %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:468
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

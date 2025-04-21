@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:38+0000\n"
+"POT-Creation-Date: 2025-04-21 00:38+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -3941,31 +3941,31 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nimaće prawo tutu dataju wuwjesć."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Startuju %1"
 
-#: gui/applicationlauncherjob.cpp:170
+#: gui/applicationlauncherjob.cpp:173
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nimaće prawo aplikaciju wubrać za wočinjenje tuteje dataje wočinić."
 
-#: gui/applicationlauncherjob.cpp:296
+#: gui/applicationlauncherjob.cpp:299
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3999,7 +3999,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Žadyn medij w graće %1"
 
-#: gui/kprocessrunner.cpp:118
+#: gui/kprocessrunner.cpp:122
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4011,12 +4011,12 @@ msgid ""
 "is not valid."
 msgstr "Desktop entry družiny %1 njeje znaty."
 
-#: gui/kprocessrunner.cpp:283
+#: gui/kprocessrunner.cpp:287
 #, kde-format
 msgid "Launching %1"
 msgstr "Startuju %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"

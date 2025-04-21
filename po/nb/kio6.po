@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:38+0000\n"
+"POT-Creation-Date: 2025-04-21 00:38+0000\n"
 "PO-Revision-Date: 2025-04-04 09:44+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -3868,18 +3868,18 @@ msgstr "Trykk for plasseringsnavigasjon"
 msgid "Click to Edit Location"
 msgstr "Trykk for å endre plassering"
 
-#: gui/applicationlauncherjob.cpp:122 gui/kprocessrunner.cpp:236
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du har ikke lov til å kjøre denne fila."
 
-#: gui/applicationlauncherjob.cpp:133 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Starter %1"
 
-#: gui/applicationlauncherjob.cpp:170
+#: gui/applicationlauncherjob.cpp:173
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3888,12 +3888,12 @@ msgstr ""
 "Kan ikke gjøre tjenesten %1 kjørbar. Avbryter kjøring\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:288 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Du har ikke lov til å åpne denne fila."
 
-#: gui/applicationlauncherjob.cpp:296
+#: gui/applicationlauncherjob.cpp:299
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3926,7 +3926,7 @@ msgstr "Ikonfila er for stor – avbryter nedlasting"
 msgid "No mail client found"
 msgstr "Fant ingen e-postprogram"
 
-#: gui/kprocessrunner.cpp:118
+#: gui/kprocessrunner.cpp:122
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3937,12 +3937,12 @@ msgstr ""
 "%1\n"
 "er ukjent."
 
-#: gui/kprocessrunner.cpp:283
+#: gui/kprocessrunner.cpp:287
 #, kde-format
 msgid "Launching %1"
 msgstr "Starter %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:468
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
