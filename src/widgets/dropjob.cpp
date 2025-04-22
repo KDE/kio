@@ -593,6 +593,9 @@ void DropJobPrivate::handleCopyToDirectory()
         } else if (m_keyboardModifiers == Qt::ShiftModifier) {
             // the user requests to show the menu
             err = KIO::ERR_UNKNOWN;
+        } else if (m_keyboardModifiers & (Qt::ControlModifier | Qt::AltModifier)) {
+            // Qt determined m_dropAction from the modifiers
+            err = KJob::NoError; // Ok
         }
     } else if (m_keyboardModifiers & (Qt::ControlModifier | Qt::ShiftModifier | Qt::AltModifier)) {
         // Qt determined m_dropAction from the modifiers already
