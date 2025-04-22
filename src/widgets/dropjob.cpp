@@ -502,6 +502,9 @@ void DropJobPrivate::handleCopyToDirectory()
             const QString &sourceDevice = mountPoints.findByPath(url.path())->mountedFrom();
             if (sourceDevice != destDevice && !KFileItem(url).isLink()) {
                 allItemsAreSameDevice = false;
+            } else if (sourceDevice.isEmpty()) {
+                // Sanity check in case we somehow have a local files that we can't get the mount points from.
+                allItemsAreSameDevice = false;
             }
         }
 
