@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:38+0000\n"
+"POT-Creation-Date: 2025-04-22 00:38+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -4530,28 +4530,28 @@ msgstr "Smiḍen"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:189
+#: widgets/dropjob.cpp:195
 #, kde-format
 msgid "C&ancel"
 msgstr "S&efsex"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:311
 #, kde-format
 msgid "&Move Here"
 msgstr "&Senkez ɣer da"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Sader ɣer da"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Nɣel ɣer da"
 
-#: widgets/dropjob.cpp:337
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Link Here"
 msgstr "&Qqen ɣer da"

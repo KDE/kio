@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:38+0000\n"
+"POT-Creation-Date: 2025-04-22 00:38+0000\n"
 "PO-Revision-Date: 2025-04-04 09:44+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -4908,28 +4908,28 @@ msgstr "Regn ut"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Trykk for å kopiere sjekksum til utklippstavla."
 
-#: widgets/dropjob.cpp:189
+#: widgets/dropjob.cpp:195
 #, kde-format
 msgid "C&ancel"
 msgstr "&Avbryt"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:311
 #, kde-format
 msgid "&Move Here"
 msgstr "&Flytt hit"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "%Last ned hit"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopier hit"
 
-#: widgets/dropjob.cpp:337
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lag lenke hit"

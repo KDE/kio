@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:38+0000\n"
+"POT-Creation-Date: 2025-04-22 00:38+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -4797,28 +4797,28 @@ msgstr "คำนวณ"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "คลิกเพื่อคัดลอก checksum ไปยังคลิปบอร์ด"
 
-#: widgets/dropjob.cpp:189
+#: widgets/dropjob.cpp:195
 #, kde-format
 msgid "C&ancel"
 msgstr "ย&กเลิก"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:311
 #, kde-format
 msgid "&Move Here"
 msgstr "&ย้ายมาที่นี่"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&ดาวน์โหลดที่นี่"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Copy Here"
 msgstr "&คัดลอกที่นี่"
 
-#: widgets/dropjob.cpp:337
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Link Here"
 msgstr "&ลิงค์ที่นี่"

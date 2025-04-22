@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:38+0000\n"
+"POT-Creation-Date: 2025-04-22 00:38+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -4988,17 +4988,17 @@ msgstr "Cyfrifo"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Cliciwch i ailysgrifio y gwiriogyfanswm i'r gludoffwrdd."
 
-#: widgets/dropjob.cpp:189
+#: widgets/dropjob.cpp:195
 #, kde-format
 msgid "C&ancel"
 msgstr "Diddym&u"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:311
 #, kde-format
 msgid "&Move Here"
 msgstr "Sy&mud Fan Yma"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -5006,12 +5006,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Llawrlwythiadau"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copïo Fan Yma"
 
-#: widgets/dropjob.cpp:337
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Link Here"
 msgstr "Cysy&lltu Fan Yma"

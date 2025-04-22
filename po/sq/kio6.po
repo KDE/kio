@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:38+0000\n"
+"POT-Creation-Date: 2025-04-22 00:38+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -4965,28 +4965,28 @@ msgstr "Llogarite"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klikoni që checksum-i të kopjohet në të papastër."
 
-#: widgets/dropjob.cpp:189
+#: widgets/dropjob.cpp:195
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anuloje"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:311
 #, kde-format
 msgid "&Move Here"
 msgstr "&Kaloje Këtu"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Shkarkojeni Këtu"
 
-#: widgets/dropjob.cpp:330
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopjoje Këtu"
 
-#: widgets/dropjob.cpp:337
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lidhje Këtu"
