@@ -21,15 +21,15 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-22 00:38+0000\n"
-"PO-Revision-Date: 2025-03-29 14:23+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-04-22 20:04+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3851,12 +3851,12 @@ msgstr "Düzenleme kipi"
 #: filewidgets/kurlnavigatortogglebutton.cpp:80
 #, kde-format
 msgid "Click for Location Navigation"
-msgstr "Konum Gezintisi için Tıkla"
+msgstr "Konumda dolaşmak için tıkla"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:82
 #, kde-format
 msgid "Click to Edit Location"
-msgstr "Konumu Düzenlemek için Tıkla"
+msgstr "Konumu düzenlemek için tıkla"
 
 #: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
 #, kde-format
