@@ -8,6 +8,7 @@
 #include "widgetsopenorexecutefilehandler.h"
 
 #include "executablefileopendialog_p.h"
+#include "openurljob.h"
 
 #include <KConfigGroup>
 #include <KJob>
@@ -64,7 +65,12 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
     QMimeDatabase db;
     QMimeType mime = db.mimeTypeForName(mimetype);
 
-    ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(promptMode(mime), parentWidget);
+    // TODO KF7 add url arg to promptUserOpenOrExecute.
+    QUrl url;
+    if (auto *openUrlJob = qobject_cast<KIO::OpenUrlJob *>(job)) {
+        url = openUrlJob->url();
+    }
+    ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(url, mime, promptMode(mime), parentWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setModal(true);
 

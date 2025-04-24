@@ -10,7 +10,9 @@
 
 #include <QDialog>
 
-class QCheckBox;
+#include "ui_executablefileopendialog.h"
+
+class QMimeType;
 
 /**
  * @brief Dialog shown when opening an executable file
@@ -36,16 +38,18 @@ public:
         OpenAsExecute,
     };
 
-    explicit ExecutableFileOpenDialog(Mode mode, QWidget *parent = nullptr);
-    explicit ExecutableFileOpenDialog(QWidget *parent = nullptr);
+    explicit ExecutableFileOpenDialog(const QUrl &url, const QMimeType &mimeType, Mode mode, QWidget *parent = nullptr);
 
     bool isDontAskAgainChecked() const;
+
+protected:
+    void showEvent(QShowEvent *event) override;
 
 private:
     void executeFile();
     void openFile();
 
-    QCheckBox *m_dontAskAgain;
+    Ui_ExecutableFileOpenDialog m_ui;
 };
 
 #endif // EXECUTABLEFILEOPENDIALOG_H

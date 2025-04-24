@@ -90,6 +90,7 @@ ecm_qt_export_logging_category(
 ki18n_wrap_ui(KF6KIOWidgets
   checksumswidget.ui
   certificateparty.ui
+  executablefileopendialog.ui
   sslinfo.ui
   kpropertiesdesktopadvbase.ui
   kpropertiesdesktopbase.ui
