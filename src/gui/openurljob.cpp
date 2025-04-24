@@ -102,6 +102,11 @@ KIO::OpenUrlJob::~OpenUrlJob()
 {
 }
 
+QUrl KIO::OpenUrlJob::url() const
+{
+    return d->m_url;
+}
+
 void KIO::OpenUrlJob::setDeleteTemporaryFile(bool b)
 {
     d->m_deleteTemporaryFile = b;

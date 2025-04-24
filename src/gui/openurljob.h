@@ -63,6 +63,13 @@ public:
     ~OpenUrlJob() override;
 
     /**
+     * Returns the URL the OpenUrlJob was created with.
+     *
+     * @since 6.15
+     */
+    QUrl url() const;
+
+    /**
      * Specifies that the URL passed to the application will be deleted when it exits (if the URL is a local file)
      */
     void setDeleteTemporaryFile(bool b);
