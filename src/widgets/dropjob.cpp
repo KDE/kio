@@ -442,7 +442,7 @@ void DropJobPrivate::handleCopyToDirectory()
     // Check if the default behavior has been changed to MoveAction, read from kdeglobals
     const KConfigGroup g = KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("KDE"));
     QMetaEnum metaEnum = QMetaEnum::fromType<DndBehavior>();
-    QString configValue = g.readEntry("DndToMove", metaEnum.valueToKey(DndBehavior::AlwaysAsk));
+    QString configValue = g.readEntry("DndBehavior", metaEnum.valueToKey(DndBehavior::AlwaysAsk));
     bool defaultActionIsMove = metaEnum.keyToValue(configValue.toLocal8Bit().constData());
 
     KMountPoint::List mountPoints;
