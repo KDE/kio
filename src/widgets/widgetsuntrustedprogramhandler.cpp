@@ -11,6 +11,7 @@
 #include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
+#include <KMessageDialog>
 #include <KStandardGuiItem>
 
 #include <QApplication>
@@ -94,6 +95,9 @@ protected:
 
         m_textEdit->setMinimumSize(curRect.size() + fudge);
         m_textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        // Mimicks a message box
+        KMessageDialog::beep(KMessageDialog::WarningContinueCancel, text, this);
     }
 
 private:
