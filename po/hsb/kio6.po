@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:38+0000\n"
+"POT-Creation-Date: 2025-04-27 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -7337,7 +7337,7 @@ msgstr "SSL-certifikat peera njeje walidny."
 msgid "SSL"
 msgstr "SSL"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:106
+#: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Examining"
@@ -7345,13 +7345,13 @@ msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Wobhladuju sej"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:122
+#: widgets/widgetsuntrustedprogramhandler.cpp:126
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr ""
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:132
+#: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""

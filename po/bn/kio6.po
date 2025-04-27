@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:38+0000\n"
+"POT-Creation-Date: 2025-04-27 00:39+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -6908,19 +6908,19 @@ msgstr ""
 msgid "SSL"
 msgstr "এস-এস-এল"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:106
+#: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, fuzzy, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "পরীক্ষা করা হচ্ছে"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:122
+#: widgets/widgetsuntrustedprogramhandler.cpp:126
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr ""
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:132
+#: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:38+0000\n"
+"POT-Creation-Date: 2025-04-27 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -7136,19 +7136,19 @@ msgstr "မိတ်ဆွေ အက်စ်အက်စ်အယ်လ် အ�
 msgid "SSL"
 msgstr "အက်စ်အက်စ်အယ်လ်"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:106
+#: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "သတိပေးချက်"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:122
+#: widgets/widgetsuntrustedprogramhandler.cpp:126
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လိမ့်မည် -"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:132
+#: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"

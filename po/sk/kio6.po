@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:38+0000\n"
+"POT-Creation-Date: 2025-04-27 00:39+0000\n"
 "PO-Revision-Date: 2024-08-11 20:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -7284,19 +7284,19 @@ msgstr "Reťazec SSL certifikátu druhej strany sa zdá byť poškodený."
 msgid "SSL"
 msgstr "SSL"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:106
+#: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Upozornenie"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:122
+#: widgets/widgetsuntrustedprogramhandler.cpp:126
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "Spustí sa program:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:132
+#: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"

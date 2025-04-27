@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:38+0000\n"
+"POT-Creation-Date: 2025-04-27 00:39+0000\n"
 "PO-Revision-Date: 2025-04-11 22:03+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -7334,19 +7334,19 @@ msgstr "La catena del certificato SSL del peer sembra essere danneggiata."
 msgid "SSL"
 msgstr "SSL"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:106
+#: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Avviso"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:122
+#: widgets/widgetsuntrustedprogramhandler.cpp:126
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "Sarà eseguito il programma:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:132
+#: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se non ti fidi di questo programma, fai clic su Annulla"
