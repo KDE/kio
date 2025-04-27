@@ -10,6 +10,7 @@
 #include "../utils_p.h"
 #include "kfilewidgets_debug.h"
 #include "knameandurlinputdialog.h"
+#include "ui_knewfilemenu_newfiledialog.h"
 
 #include <kdirnotify.h>
 #include <kio/copyjob.h>
@@ -30,6 +31,7 @@
 #include <KDirOperator>
 #include <KDirWatch>
 #include <KFileUtils>
+#include <KIconLoader>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -359,6 +361,11 @@ public:
      */
     void initDialog();
 
+    /**
+     * Sets the file/folder icon in the new file dialog.
+     */
+    void setIcon(const QIcon &icon);
+
     QAction *m_newFolderShortcutAction = nullptr;
     QAction *m_newFileShortcutAction = nullptr;
 
@@ -368,6 +375,7 @@ public:
     QDialog *m_fileDialog = nullptr;
     KMessageWidget *m_messageWidget = nullptr;
     QLabel *m_label = nullptr;
+    QLabel *m_iconLabel = nullptr;
     QLineEdit *m_lineEdit = nullptr;
     QDialogButtonBox *m_buttonBox = nullptr;
 
@@ -437,22 +445,19 @@ void KNewFileMenuPrivate::initDialog()
     m_fileDialog = new QDialog(m_parentWidget);
     m_fileDialog->setAttribute(Qt::WA_DeleteOnClose);
     m_fileDialog->setModal(m_modal);
-    m_fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    m_fileDialog->setWindowTitle(m_windowTitle.isEmpty() ? i18nc("@title:window", "Create New File") : m_windowTitle);
 
-    m_messageWidget = new KMessageWidget(m_fileDialog);
-    m_messageWidget->setCloseButtonVisible(false);
-    m_messageWidget->setWordWrap(true);
+    Ui_NewFileDialog ui;
+    ui.setupUi(m_fileDialog);
+
+    m_messageWidget = ui.messageWidget;
+    m_label = ui.label;
+    m_iconLabel = ui.iconLabel;
+    m_lineEdit = ui.lineEdit;
+    m_buttonBox = ui.buttonBox;
+
+    m_iconLabel->hide();
     m_messageWidget->hide();
 
-    m_label = new QLabel(m_fileDialog);
-
-    m_lineEdit = new QLineEdit(m_fileDialog);
-    m_lineEdit->setClearButtonEnabled(true);
-    m_lineEdit->setMinimumWidth(400);
-
-    m_buttonBox = new QDialogButtonBox(m_fileDialog);
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {
         _k_slotAccepted();
     });
@@ -461,15 +466,15 @@ void KNewFileMenuPrivate::initDialog()
     QObject::connect(m_fileDialog, &QDialog::finished, m_fileDialog, [this] {
         m_statRunning = false;
     });
+}
 
-    QVBoxLayout *layout = new QVBoxLayout(m_fileDialog);
-    layout->setSizeConstraint(QLayout::SetFixedSize);
-
-    layout->addWidget(m_label);
-    layout->addWidget(m_lineEdit);
-    layout->addWidget(m_buttonBox);
-    layout->addWidget(m_messageWidget);
-    layout->addStretch();
+void KNewFileMenuPrivate::setIcon(const QIcon &icon)
+{
+    if (!icon.isNull()) {
+        const QSize iconSize{KIconLoader::SizeHuge, KIconLoader::SizeHuge};
+        m_iconLabel->setPixmap(icon.pixmap(iconSize, m_fileDialog->devicePixelRatioF()));
+    }
+    m_iconLabel->setVisible(!icon.isNull());
 }
 
 bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
@@ -606,6 +611,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     }
 
     m_label->setText(entry.comment);
+    setIcon(QIcon::fromTheme(entry.icon));
 
     m_lineEdit->setText(text);
 
@@ -1513,9 +1519,11 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
     m_fileDialog->setWindowTitle(m_windowTitle.isEmpty() ? i18nc("@title:window", "Create New Folder") : m_windowTitle);
 
-    m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile)));
+    m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile | QUrl::StripTrailingSlash)));
 
     m_lineEdit->setText(name);
+
+    setIcon(QIcon::fromTheme(QStringLiteral("inode-directory")));
 
     m_creatingDirectory = true;
     _k_slotTextChanged(name); // have to save string in m_text in case user does not touch dialog

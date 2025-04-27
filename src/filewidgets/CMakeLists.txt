@@ -49,6 +49,9 @@ target_sources(KF6KIOFileWidgets PRIVATE
   ../new_file_templates/templates.qrc
 )
 
+ki18n_wrap_ui(KF6KIOFileWidgets
+  knewfilemenu_newfiledialog.ui
+)
 
 ecm_qt_export_logging_category(
     IDENTIFIER KFILEWIDGETS_LOG
