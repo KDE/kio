@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2318,7 +2318,7 @@ msgstr "(%1, Nasc le %2)"
 msgid " (Points to %1)"
 msgstr " (Dírithe ar %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3559,8 +3559,7 @@ msgstr "Ní Ghlactar Le Cianchomhaid"
 msgid "All Folders"
 msgstr "*|Gach Fillteán"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Oscail"
@@ -3898,7 +3897,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Níl cead agat feidhmchlár a roghnú chun an comhad seo a oscailt."
@@ -3963,12 +3962,12 @@ msgstr "Níorbh fhéidir comhad \"%1\" a aimsiú"
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3976,27 +3975,27 @@ msgid ""
 "is of type Link but has no URL=... entry."
 msgstr ""
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid ""
@@ -4004,12 +4003,12 @@ msgid ""
 "%2."
 msgstr "<qt>Níl creatchomhad <b>%1</b> ann.</qt>"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Níl iontráil `Type=...' i gcomhad na hiontrála deisce %1."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4017,13 +4016,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "Ní féidir an comhad a oscailt"
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."
@@ -5008,22 +5007,45 @@ msgstr ""
 msgid "&Link Here"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 á thosú"
+
+#: widgets/executablefileopendialog.cpp:80
 #, fuzzy, kde-format
 #| msgid "Do you wish to store the passphrase in your wallet file?"
 msgid "What do you wish to do with this file?"
 msgstr "An bhfuil fonn ort an frása faire a shábháil i do sparán?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Oscail"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Oscail le %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Do you wish to store the passphrase in your wallet file?"
+msgid "Would you like to launch this file?"
+msgstr "An bhfuil fonn ort an frása faire a shábháil i do sparán?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Ná fiafraigh díom arís"
-
-#: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "E&xecute"
-msgid "&Execute"
-msgstr "&Rith"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7416,6 +7438,11 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
+
+#, fuzzy
+#~| msgid "E&xecute"
+#~ msgid "&Execute"
+#~ msgstr "&Rith"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Scagaire:"

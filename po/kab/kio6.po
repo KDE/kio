@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -2112,7 +2112,7 @@ msgstr "(%1, yeqqen ɣer %2)"
 msgid " (Points to %1)"
 msgstr ""
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3248,8 +3248,7 @@ msgstr ""
 msgid "All Folders"
 msgstr "Akk ikaramen"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Ldi"
@@ -3564,7 +3563,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3625,12 +3624,12 @@ msgstr ""
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Ur yessaweḍ ara ad yeldi %1"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3638,39 +3637,39 @@ msgid ""
 "is of type Link but has no URL=... entry."
 msgstr ""
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3678,12 +3677,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ur yessaweḍ ara ad yeldi afaylu-nni."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr ""
@@ -4556,20 +4555,43 @@ msgstr "&Nɣel ɣer da"
 msgid "&Link Here"
 msgstr "&Qqen ɣer da"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Asenker n %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Ldi"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Ldi s %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, kde-format
+msgid "Would you like to launch this file?"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Ur sutur ara tikelt-nniḍen"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "S&elkem"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6696,6 +6718,9 @@ msgstr "Aya ad isenker ahil:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "If you do not trust this program, click Cancel"
+
+#~ msgid "&Execute"
+#~ msgstr "S&elkem"
 
 #~ msgid "&Filter:"
 #~ msgstr "Ams&izdeg:"

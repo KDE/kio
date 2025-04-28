@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2245,7 +2245,7 @@ msgstr "(%1，链接到 %2)"
 msgid " (Points to %1)"
 msgstr " (指向 %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3389,8 +3389,7 @@ msgstr "无法处理远程文件"
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
@@ -3721,7 +3720,7 @@ msgstr ""
 "无法将 %1 服务设置为可执行，放弃执行操作。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您没有选择此文件的打开程序的权限。"
@@ -3785,12 +3784,12 @@ msgstr "命令 <command>%1</command> 无法找到。"
 msgid "No terminal emulator found"
 msgstr "找不到终端模拟器"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "打开 %1 失败"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3801,27 +3800,27 @@ msgstr ""
 "%1\n"
 "的类型是链接，但它没有包含 URL=... 项。"
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "可执行文件“%1”位于远程文件系统中。出于安全考虑，它将不会启动。"
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "出于安全考虑，在这种情况下不允许启动可执行程序。"
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "程序“%1”需要有可执行权限才能启动。"
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3830,12 +3829,12 @@ msgstr ""
 "无法赋予文件“%1”可执行权限。\n"
 "%2。"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "桌面项目文件 %1 没有 Type=... 项。"
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3845,12 +3844,12 @@ msgstr ""
 "此文件不完整，不应打开。\n"
 "请检查您打开的应用程序和通知区域是否存在未完成的任务或下载进程。"
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "打开文件失败。"
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "程序“%1”无法启动。"
@@ -4747,20 +4746,44 @@ msgstr "复制到此位置(&C)"
 msgid "&Link Here"
 msgstr "链接到此位置(&L)"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "正在启动 %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "您想要对此文件进行什么操作？"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "打开(&O)"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "使用 %1 打开(&O)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "您想要对此文件进行什么操作？"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "不再询问"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "执行(&E)"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6961,3 +6984,6 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "&Execute"
+#~ msgstr "执行(&E)"

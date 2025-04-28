@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -2182,7 +2182,7 @@ msgstr "%1-এ লিঙ্ক (%2)"
 msgid " (Points to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3354,8 +3354,7 @@ msgstr "দূরবর্তী (রিমোট) ফাইল গ্রহণ�
 msgid "All Folders"
 msgstr "*|সব ফোল্ডার"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "খোলো (&খ)"
@@ -3690,7 +3689,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, fuzzy, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "আপনার এই ফাইলটি চালাবার অনুমতি নেই।"
@@ -3757,12 +3756,12 @@ msgstr ""
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3773,27 +3772,27 @@ msgstr ""
 "%1\n"
 "-এর ধরন লিঙ্ক (Link) কিন্তু তাতে কোনো URL=... এন্ট্রি নেই।"
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid ""
@@ -3801,12 +3800,12 @@ msgid ""
 "%2."
 msgstr "%1 নামক ফাইল বা ফোল্ডারের কোনো অস্তিত্ব নেই।"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "%1 ডেস্কটপ এন্ট্রি ফাইলে কোনো Type=... এন্ট্রি নেই।"
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3814,12 +3813,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr ""
@@ -4715,21 +4714,47 @@ msgstr ""
 msgid "&Link Here"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 চালানো হচ্ছে"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "খোলো (&খ)"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "Open with:"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "খুলতে ব্যবহার করো:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid ""
+#| "This action would overwrite '%1' with itself.\n"
+#| "Please enter a new file name:"
+msgid "Would you like to launch this file?"
+msgstr ""
+"এই ক্রিয়াটি '%1' ফাইলটিকে মুছে নিজেকেই আবার লিখবে.\n"
+"অনুগ্রহ করে নতুন একটি নাম সরবরাহ করুন:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr ""
-
-#: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "E&xecute"
-msgid "&Execute"
-msgstr "চালা&ও"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6924,6 +6949,11 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "E&xecute"
+#~ msgid "&Execute"
+#~ msgstr "চালা&ও"
 
 #, fuzzy
 #~ msgid "Files and folders selected"

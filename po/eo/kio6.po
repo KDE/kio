@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2395,7 +2395,7 @@ msgstr "(%1, Ligo al %2)"
 msgid " (Points to %1)"
 msgstr "(montras al %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3567,8 +3567,7 @@ msgstr "Foraj Dosieroj Ne Akceptitaj"
 msgid "All Folders"
 msgstr "Ĉiuj Dosierujoj"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Malfermi"
@@ -3913,7 +3912,7 @@ msgstr ""
 "Ne eblas fari la servon %1 plenumebla, ĉesigante la plenumon.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Vi ne rajtas elekti aplikaĵon por malfermi ĉi tiun dosieron."
@@ -3977,12 +3976,12 @@ msgstr "La komando <command>%1</command> ne povis esti trovata."
 msgid "No terminal emulator found"
 msgstr "Neniu fina emulilo trovita"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Malsukcesis malfermi %1"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3993,7 +3992,7 @@ msgstr ""
 "%1\n"
 "is de tipo Ligilo sed ne havas URL=... eniron."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4002,7 +4001,7 @@ msgstr ""
 "La rulebla dosiero \"%1\" troviĝas en fora dosiersistemo. Pro sekurecaj "
 "kialoj ĝi ne estos komencita."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4010,7 +4009,7 @@ msgstr ""
 "Pro sekurecaj kialoj, lanĉi plenumeblojn ne estas permesita en ĉi tiu "
 "kunteksto."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4019,7 +4018,7 @@ msgstr ""
 "La programo \"%1\" devas havi plenumeblan permeson antaŭ ol ĝi povas esti "
 "lanĉita."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4028,12 +4027,12 @@ msgstr ""
 "Ne eblas fari dosieron \"%1\" plenumebla.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "La labortabla enigdosiero %1 havas neniun Type=... eniron."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4044,12 +4043,12 @@ msgstr ""
 "Kontrolu viajn malfermitajn aplikaĵojn kaj la sciigan areon por pritraktataj "
 "taskoj aŭ elŝutoj."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Malsukcesis malfermi la dosieron."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "La programo \"%1\" ne eblis lanĉi."
@@ -4957,20 +4956,44 @@ msgstr "&Kopii ĉi tien"
 msgid "&Link Here"
 msgstr "&Ligi ĉi tien"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Lanĉante %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Kion vi volas fari kun ĉi tiu dosiero?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Malfermi"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Malfermi per %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "Kion vi volas fari kun ĉi tiu dosiero?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Ne demandu denove"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Efektivigi"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7267,6 +7290,9 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
+
+#~ msgid "&Execute"
+#~ msgstr "&Efektivigi"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Filtrilo:"

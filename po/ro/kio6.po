@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2417,7 +2417,7 @@ msgstr "(%1, legătură către %2)"
 msgid " (Points to %1)"
 msgstr "(Indică către %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3613,8 +3613,7 @@ msgstr "Fișierele distante nu sunt acceptate."
 msgid "All Folders"
 msgstr "Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
@@ -3973,7 +3972,7 @@ msgstr ""
 "Serviciul %1 nu a putut fi făcut executabil, se abandonează execuția.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4040,12 +4039,12 @@ msgstr "Comanda <command>%1</command> nu a fost găsită."
 msgid "No terminal emulator found"
 msgstr "Nu a fost găsit niciun emulator de terminal"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Nu s-a putut deschide %1"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4056,7 +4055,7 @@ msgstr ""
 "%1\n"
 "este de tip Legătură dar nu are o înregistrare URL=..."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4065,7 +4064,7 @@ msgstr ""
 "Fișierul executabil „%1” e amplasat pe un sistem de fișiere distant. Din "
 "motive de siguranță, acesta nu va fi pornit."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4073,7 +4072,7 @@ msgstr ""
 "Din motive de securitate, lansarea executabilelor nu e permisă în acest "
 "context."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4082,7 +4081,7 @@ msgstr ""
 "Programul „%1” trebuie să aibă permisiuni executabile înainte să poată fi "
 "lansat."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4091,13 +4090,13 @@ msgstr ""
 "Fișierul „%1” nu poate fi făcut executabil.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Fișierul cu înregistrări de birou %1 nu conține o înregistrare Type=..."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4108,12 +4107,12 @@ msgstr ""
 "Verificați aplicațiile deschise și zona de notificare pentru sarcini sau "
 "descărcări în curs."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Deschiderea fișierului a eșuat."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programul „%1” nu a putut fi lansat."
@@ -5032,20 +5031,44 @@ msgstr "&Copiază aici"
 msgid "&Link Here"
 msgstr "&Leagă aici"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Se lansează %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Ce doriți să faceți cu acest fișier?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Deschide"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Deschide cu %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "Ce doriți să faceți cu acest fișier?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Nu mai întreba"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Execută"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7425,6 +7448,9 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgid "&Execute"
+#~ msgstr "&Execută"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Filtru:"

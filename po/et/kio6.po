@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2383,7 +2383,7 @@ msgstr "(%1, viit asukohale %2)"
 msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3566,8 +3566,7 @@ msgstr "Võrgus asuvaid faile ei aktsepteerita"
 msgid "All Folders"
 msgstr "*|Kõik kataloogid"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Ava"
@@ -3923,7 +3922,7 @@ msgstr ""
 "Teenust %1 ei õnnestunud muuta käivitatavaks, käivitamisest loobutakse.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Sul puuduvad õigused valida rakendust selle faili avamiseks."
@@ -3990,12 +3989,12 @@ msgstr "Faili \"%1\" ei leitud"
 msgid "No terminal emulator found"
 msgstr "Ühtegi terminaliemulaatorit ei leitud"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1 avamine nurjus"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4006,7 +4005,7 @@ msgstr ""
 "%1\n"
 "on viida tüüpi, kuid ei sisalda kirjet URL=..."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4015,7 +4014,7 @@ msgstr ""
 "Täitmisfail \"%1\" asub kaugfailisüsteemis. Turvalisuse huvides seda ei "
 "käivitata."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4023,14 +4022,14 @@ msgstr ""
 "Turvakaalutlustel ei ole selles kontekstis täitmisfailide käivitamine "
 "lubatud."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Programm \"%1\" vajab käivitusõigust, enne kui seda saab käivitada."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4039,12 +4038,12 @@ msgstr ""
 "Faili \"%1\" muutmine käivitatavaks nurjus.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Töölaua kirje fail %1 ei sisalda kirjet Type=..."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4055,12 +4054,12 @@ msgstr ""
 "Vaata, kas faili allalaadimine on ehk alles pooleli või kas mõni avatud "
 "rakendus salvestab parajasti seda faili."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Faili avamine nurjus."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmi \"%1\" pole võimalik käivitada."
@@ -4975,20 +4974,44 @@ msgstr "&Kopeeri siia"
 msgid "&Link Here"
 msgstr "&Lingi siia"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 käimapanek"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Mida selle failiga ette võtta?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Ava"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Ava rakendusega %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "Mida selle failiga ette võtta?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Rohkem ei küsita"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Käivita"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7319,6 +7342,9 @@ msgstr "See käivitab programmi:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
+
+#~ msgid "&Execute"
+#~ msgstr "&Käivita"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Filter:"

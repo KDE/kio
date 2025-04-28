@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2400,7 +2400,7 @@ msgstr "Pautan ke %1 (%2)"
 msgid " (Points to %1)"
 msgstr "Tuding ke:"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3581,8 +3581,7 @@ msgstr "Fail Jauh Tidak Diterima"
 msgid "All Folders"
 msgstr "*|Semua Folder"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Buka"
@@ -3915,7 +3914,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, fuzzy, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Anda tidak diberikan kuasa untuk membuka fail ini."
@@ -3979,12 +3978,12 @@ msgstr "Kunci yang dipinta tidak dapat diberikan. %1"
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3995,7 +3994,7 @@ msgstr ""
 "%1\n"
 "ialah jenis Link tetapi tiada URL=...entry."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, fuzzy, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4004,20 +4003,20 @@ msgstr ""
 "<qt>Fail <b>%1</b> adalah program boleh laksana. Untuk sekuriti, ia tidak "
 "akan dimulakan.</qt>"
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, fuzzy, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4026,12 +4025,12 @@ msgstr ""
 "<qt>Tidak dapat menjalankan arahan yang dinyatakan. Fail atau folder <b>%1</"
 "b> tidak wujud.</qt>"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fail input ruang kerja %1 tiada Jenis=... entry"
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4039,12 +4038,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, fuzzy, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Kunci yang dipinta tidak dapat diberikan. %1"
@@ -4927,20 +4926,41 @@ msgstr ""
 msgid "&Link Here"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Melancarkan %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, fuzzy, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Anda ingin simpan frasa laluan dalam fail wallet anda?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Buka"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "Buka dengan:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+msgid "Would you like to launch this file?"
+msgstr "Anda ingin simpan frasa laluan dalam fail wallet anda?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr ""
-
-#: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-msgid "&Execute"
-msgstr "Jalankan"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7203,6 +7223,10 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgid "&Execute"
+#~ msgstr "Jalankan"
 
 #~ msgid "&Filter:"
 #~ msgstr "Tapi&s:"

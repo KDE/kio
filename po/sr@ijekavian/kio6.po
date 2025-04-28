@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2413,7 +2413,7 @@ msgstr "(%1, веза ка %2)"
 msgid " (Points to %1)"
 msgstr " (показује на %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3675,8 +3675,7 @@ msgstr "Удаљени фајлови се не прихватају"
 msgid "All Folders"
 msgstr "*|Све фасцикле"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Отвори"
@@ -4027,7 +4026,7 @@ msgid ""
 "%2."
 msgstr "Не могу да учиним сервис %1 извршним, обустављам извршавање."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Нисте овлашћени да изаберете програм за отварање овог фајла."
@@ -4093,13 +4092,13 @@ msgstr "Не могу да нађем фајл ‘%1’"
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
 # literal-segment: URL=
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4110,7 +4109,7 @@ msgstr ""
 "%1\n"
 "типа је везе, али нема унос „URL=...“."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4122,20 +4121,20 @@ msgstr ""
 "<qt>Фајл <tt>%1</tt> је извршни програм. Неће бити покренут из безбједносних "
 "разлога.</qt>"
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, fuzzy, kde-format
 #| msgid "Unable to make the service %1 executable, aborting execution"
 msgid ""
@@ -4143,12 +4142,12 @@ msgid ""
 "%2."
 msgstr "Не могу да учиним сервис %1 извршним, обустављам извршавање."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Фајл уноса површи ‘%1’ нема унос „Type=...“."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4156,13 +4155,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "Не могу да отворим фајл"
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."
@@ -5148,21 +5147,45 @@ msgstr "&Копирај овде"
 msgid "&Link Here"
 msgstr "По&вежи овде"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Покрећем %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, fuzzy, kde-format
 #| msgid "What do you wish to do with this executable file?"
 msgid "What do you wish to do with this file?"
 msgstr "Шта желите да урадите са овим извршним фајлом?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Отвори"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this executable file?"
+msgid "Would you like to launch this file?"
+msgstr "Шта желите да урадите са овим извршним фајлом?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Не питај више"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Изврши"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7632,6 +7655,9 @@ msgstr "Ово ће покренути програм:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не вјерујете програму, кликните на „Одустани“."
+
+#~ msgid "&Execute"
+#~ msgstr "&Изврши"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Филтер:"

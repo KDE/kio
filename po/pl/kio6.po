@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2025-03-22 12:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2371,7 +2371,7 @@ msgstr "(%1, dowiązanie do %2)"
 msgid " (Points to %1)"
 msgstr " (Wskazuje na: %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3555,8 +3555,7 @@ msgstr "Zdalne pliki odrzucone"
 msgid "All Folders"
 msgstr "Wszystkie katalogi"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Otwórz"
@@ -3906,7 +3905,7 @@ msgstr ""
 "wykonywania.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nie masz uprawnień do wyboru aplikacji do otworzenia tego pliku."
@@ -3971,12 +3970,12 @@ msgstr "Nie udało się znaleźć polecenia <command>%1</command>."
 msgid "No terminal emulator found"
 msgstr "Nie znaleziono żadnego emulatora terminala"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Nie udało się otworzyć %1"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3987,7 +3986,7 @@ msgstr ""
 "%1\n"
 "opisuje odnośnik, ale nie zawiera wpisu URL=..."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3996,14 +3995,14 @@ msgstr ""
 "Plik wykonywalny \"%1\" znajduje się na zdalnym systemie plików. Dla "
 "zachowania bezpieczeństwa nie zostanie on uruchomiony."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Dla zachowania bezpieczeństwa, wyłączono wykonywanie plików w tym przypadku."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4012,7 +4011,7 @@ msgstr ""
 "Do program \"%1\" trzeba mieć uprawnienia do wykonywania, zanim zostanie on "
 "uruchomiony."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4021,12 +4020,12 @@ msgstr ""
 "Nie można nadać plikowi \"%1\" uprawnień do wykonywania.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Plik elementu pulpitu %1 nie zawiera wpisu Type=..."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4037,12 +4036,12 @@ msgstr ""
 "Sprawdź czy nie ma trwających zadań w otwartych aplikacjach lub pobierań w "
 "obszarze powiadomień."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nie można otworzyć pliku."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Nie można uruchomić programu \"%1\"."
@@ -4954,20 +4953,44 @@ msgstr "S&kopiuj tutaj"
 msgid "&Link Here"
 msgstr "&Dowiąż tutaj"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Uruchamianie %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Co zrobić z tym plikiem?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Otwórz"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Otwórz w %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "Co zrobić z tym plikiem?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Nie pytaj ponownie"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Wykonaj"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7281,6 +7304,9 @@ msgstr "To uruchomi program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jeśli nie ufasz temu programowi, naciśnij Anuluj"
+
+#~ msgid "&Execute"
+#~ msgstr "&Wykonaj"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Filtr:"

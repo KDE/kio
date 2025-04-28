@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2025-04-15 23:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2315,7 +2315,7 @@ msgstr "(%1, %2(으)로 향한 링크)"
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3474,8 +3474,7 @@ msgstr "원격 파일을 사용할 수 없음"
 msgid "All Folders"
 msgstr "모든 폴더"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
@@ -3813,7 +3812,7 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 앱을 선택할 권한이 없습니다."
@@ -3877,12 +3876,12 @@ msgstr "<command>%1</command> 명령을 찾을 수 없습니다."
 msgid "No terminal emulator found"
 msgstr "터미널 에뮬레이터를 찾을 수 없음"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1을(를) 열 수 없음"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3893,7 +3892,7 @@ msgstr ""
 "데스크톱 항목 파일이\n"
 "링크 형식이지만, URL=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3902,20 +3901,20 @@ msgstr ""
 "실행 파일 \"%1\"이(가) 원격 파일 시스템에 있습니다. 안전을 위해 이 작업은 시"
 "작되지 않습니다."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "보안상의 이유로 이 문맥에서 실행 파일을 실행할 수 없습니다."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" 프로그램을 실행하려면 실행 가능 권한이 있어야 합니다."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3924,12 +3923,12 @@ msgstr ""
 "\"%1\" 파일을 실행 파일로 만들 수 없습니다.\n"
 "%2"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "데스크톱 항목 파일 %1에 Type=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3939,12 +3938,12 @@ msgstr ""
 "이 파일은 완전하지 않으며 열어서는 안 됩니다.\n"
 "열린 앱과 알림 영역에서 대기 중인 작업이나 다운로드를 확인하십시오."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "파일을 열 수 없습니다."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
@@ -4851,20 +4850,44 @@ msgstr "여기로 복사(&C)"
 msgid "&Link Here"
 msgstr "여기로 링크(&L)"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 실행 중"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "이 파일로 무엇을 하시겠습니까?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "열기(&O)"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "이 파일로 무엇을 하시겠습니까?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "다시 묻지 않음"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "실행(&E)"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7103,6 +7126,9 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid "&Execute"
+#~ msgstr "실행(&E)"
 
 #~ msgid "&Filter:"
 #~ msgstr "필터(&F):"

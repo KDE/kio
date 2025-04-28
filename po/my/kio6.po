@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2302,7 +2302,7 @@ msgstr "(%1၊ %2သို့လင့်ခ်ချိတ်)"
 msgid " (Points to %1)"
 msgstr " (%1 သို့ညွှန်ပြသည်)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3469,8 +3469,7 @@ msgstr "အဝေးဖိုင်လ်များလက်မခံပါ"
 msgid "All Folders"
 msgstr "*|ဖိုလ်ဒါအားလုံး"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Oဖွင့်"
@@ -3821,7 +3820,7 @@ msgstr ""
 "ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ဤဖိုင်လ်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
@@ -3886,12 +3885,12 @@ msgstr "\"%1\" ဖိုင်လ်ကိုရှာမတွေ့နို�
 msgid "No terminal emulator found"
 msgstr "တာမီနယ်အီမျူလေတာ မတွေ့ပါ"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1ကိုမဖွင့်နိုင်ခဲ့ပါ"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3902,27 +3901,27 @@ msgstr ""
 "%1\n"
 "သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "လုပ်ဆောင်-ဖိုင်လ် \"%1\" သည် အဝေးဖိုင်လ်စနစ်တွင်ရှိသည်။ လုံခြုရေးအရ ၎င်းကို စတင်မည်မဟုတ်ပါ။"
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "လုံခြုံရေးအရ ဤဆက်စပ်နေရာတွင် လုပ်ဆောင်-ဖိုင်လ်များ လွှင့်တင်ခြင်း ခွင့်မပြုထားပါ။"
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်နိုင်ရန် မောင်းနှင်ရန် ခွင့်ပြုချက် လိုအပ်သည်််။"
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3931,12 +3930,12 @@ msgstr ""
 "ဖိုင်လ် \"%1\" ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ။\n"
 "%2။"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3947,12 +3946,12 @@ msgstr ""
 "သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
 "စစ်ကြည့်ပါ။"
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ဖိုင်လ်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မရပါ။"
@@ -4856,20 +4855,44 @@ msgstr "&Cဤနေရာသို့ကူးယူရန်"
 msgid "&Link Here"
 msgstr "&Lဤနေရာသို့လင့်ခ်ချိတ်ရန်"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 လွှင်တင်နေသည်"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "ဤဖိုင်လ်ကို သင်ဘာလုပ်ချင်သလဲ။"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Oဖွင့်"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "ဤဖိုင်လ်ကို သင်ဘာလုပ်ချင်သလဲ။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Eဆောင်ရွက်ရန်"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7152,6 +7175,9 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "&Execute"
+#~ msgstr "&Eဆောင်ရွက်ရန်"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Fစစ်ထုတ် -"

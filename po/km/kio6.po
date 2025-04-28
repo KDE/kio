@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2346,7 +2346,7 @@ msgstr "(%1 តភ្ជាប់​ទៅ %2)"
 msgid " (Points to %1)"
 msgstr " (ចង្អុល​ទៅ %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3579,8 +3579,7 @@ msgstr "មិន​ទទួល​យក​ឯកសារ​ពី​ចម្
 msgid "All Folders"
 msgstr "*|ថត​ទាំងអស់"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "បើក"
@@ -3926,7 +3925,7 @@ msgid ""
 "%2."
 msgstr "មិនអាច​ធ្វើ​ឲ្យ​សេវា %1 ប្រតិបត្តិបាន​បានទេ បោះបង់បង់​កា​រប្រតិបត្តិ"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "អ្នក​មិនត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​បើក​កម្មវិធី​ដើម្បី​បើក​ឯកសារ​នេះ​ឡើយ ។"
@@ -3997,12 +3996,12 @@ msgstr "មិនអាច​រកឃើញ​ឯកសារ \"%1\" ទេ"
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4013,7 +4012,7 @@ msgstr ""
 "%1\n"
 "គឺ​ជា​ប្រភេទ​តំណ ប៉ុន្តែ​មិន​មាន​ធាតុ URL=... ។"
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4025,20 +4024,20 @@ msgstr ""
 "<qt>ឯកសារ <b>%1</b> គឺ​ជា​កម្មវិធី​ដែល​អាច​ប្រតិបត្តិ​បាន ។ ដើម្បី​ឲ្យមាន​សុវត្ថិភាព វា​នឹង​មិន​ចាប់ផ្តើម​"
 "ទេ ។</qt>"
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid ""
@@ -4046,12 +4045,12 @@ msgid ""
 "%2."
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ឯកសារ​ធាតុ​ផ្ទៃតុ %1 មិន​មាន​ធាតុ Type=... ឡើយ ។"
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4059,13 +4058,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."
@@ -4989,22 +4988,45 @@ msgstr ""
 msgid "&Link Here"
 msgstr ""
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "បើក %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, fuzzy, kde-format
 #| msgid "Do you wish to store the passphrase in your wallet file?"
 msgid "What do you wish to do with this file?"
 msgstr "តើ​អ្នក​ចង់​រក្សាទុក​ឃ្លា​សម្ងាត់​ក្នុង​ឯកសារ​កាបូប​របស់​អ្នក​ឬ​ទេ ?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "បើក"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "បើក​ជាមួយ %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Do you wish to store the passphrase in your wallet file?"
+msgid "Would you like to launch this file?"
+msgstr "តើ​អ្នក​ចង់​រក្សាទុក​ឃ្លា​សម្ងាត់​ក្នុង​ឯកសារ​កាបូប​របស់​អ្នក​ឬ​ទេ ?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "កុំ​សួរ​ម្ដង​ទៀត"
-
-#: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Exec"
-msgid "&Execute"
-msgstr "ប្រតិបត្តិ"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7363,6 +7385,11 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
+
+#, fuzzy
+#~| msgid "Exec"
+#~ msgid "&Execute"
+#~ msgstr "ប្រតិបត្តិ"
 
 #~ msgid "&Filter:"
 #~ msgstr "តម្រង ៖ "

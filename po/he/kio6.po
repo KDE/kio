@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2025-04-11 11:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2309,7 +2309,7 @@ msgstr "(%1, קישור אל %2)"
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3473,8 +3473,7 @@ msgstr "אי אפשר לקבל קבצים מרחוק"
 msgid "All Folders"
 msgstr "כל התיקיות"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&פתיחה"
@@ -3807,7 +3806,7 @@ msgstr ""
 "לא ניתן להפוך את השירות %1 לזמין להפעלה, ההפעלה מבוטלת.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "אין לך הרשאה לבחור תוכנית לפתיחת קובץ זה."
@@ -3871,12 +3870,12 @@ msgstr "לא ניתן למצוא את הפקודה <command>%1</command>."
 msgid "No terminal emulator found"
 msgstr "לא נמצא מדמה מסוף"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "הפתיחה של %1 נכשלה"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3887,27 +3886,27 @@ msgstr ""
 "%1\n"
 "הוא מסוג קישור אבל אין בו רשומת URL=…‎."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "קובץ ההפעלה „%1” נמצא במערכת קבצים מרוחקת. מטעמי אבטחה הוא לא יופעל."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "מטעמי אבטחה, הפעלת יישומים אסורה בהקשר הזה."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "לתוכנית „%1” צריכות להיות הרשאות הרצה לפני שניתן להריץ אותה."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3916,12 +3915,12 @@ msgstr ""
 "לא ניתן לגרום לקובץ „%1” להיות זמין להפעלה.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "לקובץ רשומת שולחן העבודה %1 אין רשומת Type=…‎."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3932,12 +3931,12 @@ msgstr ""
 "נא לבדוק בין היישומים הפתוחים ואזור ההתראות שלך אם יש משימות או הורדות "
 "ממתינות."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "פתיחת הקובץ נכשלה."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "אי אפשר להפעיל את התוכנית „%1”."
@@ -4837,20 +4836,44 @@ msgstr "ה&עתקה לכאן"
 msgid "&Link Here"
 msgstr "&קישור לכאן"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "%1 מופעל"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "מה לעשות עם הקובץ הזה?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&פתיחה"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&פתיחה עם %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "מה לעשות עם הקובץ הזה?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "לא לשאול שוב"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "ה&רצה"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7142,6 +7165,9 @@ msgstr "יפעיל את התוכנית:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם זאת אינה תוכנית מהימנה, ללחוץ על ביטול"
+
+#~ msgid "&Execute"
+#~ msgstr "ה&רצה"
 
 #~ msgid "&Filter:"
 #~ msgstr "&סינון:"

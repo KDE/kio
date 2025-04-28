@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -2429,7 +2429,7 @@ msgstr "(%1, Nyunzi egguka ku %2)"
 msgid " (Points to %1)"
 msgstr " (Egguka ku %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3617,8 +3617,7 @@ msgstr "Fayiro Eziri Ebunaayira Tezikkiribwa"
 msgid "All Folders"
 msgstr "Materekero Gonna"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&Bikkula"
@@ -3965,7 +3964,7 @@ msgstr ""
 "Nnemedwa okusobozesa pulguramu empeereze %1 okutandika, omulimu ngusazzamu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Tokkirizibwa okulonda puloguramu ey'obikkula fayiro eno."
@@ -4031,12 +4030,12 @@ msgstr "Puloguramu ey'ekiragiro <command>%1</command> terabika."
 msgid "No terminal emulator found"
 msgstr "Tewali puloguramu egeegeenya ekiwandikiro"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Nnemedwa okubikkula %1"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4047,7 +4046,7 @@ msgstr ""
 "%1\n"
 "ya kika kya Link naye w'eraga URL eggukirwako wereere."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4056,7 +4055,7 @@ msgstr ""
 "Fayiro eya puloguramu \"%1\" eri ku sisitemu eya fayiro ey'ebunaayira. "
 "Olw'ensonga za kwerinda tejja okutandikibwa."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4064,14 +4063,14 @@ msgstr ""
 "Olw'ensonga za bya kwerinda, puloguramu tezikkiriziba okutandikibwa mu "
 "mbeera eriwo kakano."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Okutandika puloguramu \"%1\" kyetaagisa okukyusa ndukusa ezigiriko."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4080,12 +4079,12 @@ msgstr ""
 "Nnemedwa okusobozesa fayiro \"%1\" okutandikibwa nga puloguramu.\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fayiro ey'enyunzi ey'awakolerwa %1 ebulamu omuko gwa Type=... ."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4096,12 +4095,12 @@ msgstr ""
 "Kebera puloguramu zo ezibumbujja n'obubaka obulabikira awakolerwa okulaba "
 "oba waliwo emirimu egya ku fayiro oba okuwanula egitannaba okuggwa."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nnemedwa okubikkula fayiro."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Tekisobose okutandika puloguramu \"%1\"."
@@ -5022,20 +5021,44 @@ msgstr "&Teeka Wano Kkopi"
 msgid "&Link Here"
 msgstr "&Kolawo Nyunzi Egguka wano"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "Ntandika %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Fayiro eno kiki ky'oyagala okugikolako?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&Bikkula"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&Bikkuza %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "Fayiro eno kiki ky'oyagala okugikolako?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "Olulala kikolebwebukozi"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&Tandika"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7365,6 +7388,9 @@ msgstr "Kino kijja okutandika puloguramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
+
+#~ msgid "&Execute"
+#~ msgstr "&Tandika"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Sunsuza:"

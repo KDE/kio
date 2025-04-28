@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2324,7 +2324,7 @@ msgstr "(%1, %2 इत्यस्य सम्बन्धितुम्)"
 msgid " (Points to %1)"
 msgstr " (%1 प्रति सूचयति)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
 #: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
@@ -3491,8 +3491,7 @@ msgstr "दूरस्थसञ्चिकाः न स्वीकृता�
 msgid "All Folders"
 msgstr "सर्वाणि पुटानि"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:742
 #, kde-format
 msgid "&Open"
 msgstr "&उद्घाटयतु"
@@ -3834,7 +3833,7 @@ msgstr ""
 "%1 सेवां कार्यान्वयनीयं कर्तुं असमर्थः, निष्पादनं निरस्तं करोति ।\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:644
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "एतां सञ्चिकां उद्घाटयितुं भवान् अनुप्रयोगं चिन्वितुं अधिकृतः नास्ति ।."
@@ -3898,12 +3897,12 @@ msgstr "<command>%1</command> इति आदेशः न लब्धः ।.
 msgid "No terminal emulator found"
 msgstr "कोऽपि टर्मिनल् एमुलेटरः न लब्धः"
 
-#: gui/openurljob.cpp:158
+#: gui/openurljob.cpp:163
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1 उद्घाटयितुं असफलम्"
 
-#: gui/openurljob.cpp:296
+#: gui/openurljob.cpp:301
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3914,7 +3913,7 @@ msgstr ""
 "%1\n"
 "Link प्रकारस्य अस्ति किन्तु URL=... निवेशः नास्ति ।."
 
-#: gui/openurljob.cpp:374
+#: gui/openurljob.cpp:379
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3923,20 +3922,20 @@ msgstr ""
 "कार्यान्वयनीयसञ्चिका \"%1\" दूरस्थसञ्चिकातन्त्रे स्थिता अस्ति । सुरक्षाकारणात् तस्य आरम्भः न "
 "भविष्यति।."
 
-#: gui/openurljob.cpp:410
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "सुरक्षाकारणात् अस्मिन् सन्दर्भे कार्यान्वयनीयानां प्रारम्भस्य अनुमतिः नास्ति ।."
 
-#: gui/openurljob.cpp:440
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" इति कार्यक्रमस्य प्रारम्भात् पूर्वं कार्यान्वयनीय-अनुमतिः आवश्यकी अस्ति ।."
 
-#: gui/openurljob.cpp:451
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3945,12 +3944,12 @@ msgstr ""
 "\"%1\" सञ्चिकां कार्यान्वयनीयं कर्तुं असमर्थम् ।\n"
 "%2."
 
-#: gui/openurljob.cpp:537
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "कार्यमुख प्रविष्टिसञ्चिका %1 इत्यस्य Type=... प्रविष्टिः नास्ति ।."
 
-#: gui/openurljob.cpp:630
+#: gui/openurljob.cpp:635
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3961,12 +3960,12 @@ msgstr ""
 "भवतः उद्घाटितानि अनुप्रयोगाः सूचनाक्षेत्रं च पश्यन्तु यत् किमपि लम्बितकार्यं वा अवारोपण वा "
 "भवति।."
 
-#: gui/openurljob.cpp:656
+#: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
 msgstr "सञ्चिकां उद्घाटयितुं असफलम्।."
 
-#: gui/openurljob.cpp:690
+#: gui/openurljob.cpp:695
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" इति कार्यक्रमः प्रारब्धः न अभवत् ।."
@@ -4868,20 +4867,44 @@ msgstr "&अत्र प्रतिलिख्यताम्"
 msgid "&Link Here"
 msgstr "&अत्र सम्बन्धितु"
 
-#: widgets/executablefileopendialog.cpp:21
+#: widgets/executablefileopendialog.cpp:72
+#, fuzzy, kde-format
+#| msgid "Launching %1"
+msgctxt "@action:button Launch script"
+msgid "&Launch"
+msgstr "प्रक्षेपण %1"
+
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "एतेन सञ्चिकायाः किं कर्तुम् इच्छसि ?"
 
-#: widgets/executablefileopendialog.cpp:24
+#: widgets/executablefileopendialog.cpp:83
+#, fuzzy, kde-format
+#| msgid "&Open"
+msgctxt "@action:button"
+msgid "&Open"
+msgstr "&उद्घाटयतु"
+
+#: widgets/executablefileopendialog.cpp:85
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgctxt "@action:button"
+msgid "&Open with %1"
+msgstr "&एतेन उद्घाटयन्तु %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/executablefileopendialog.ui:26
+#, fuzzy, kde-format
+#| msgid "What do you wish to do with this file?"
+msgid "Would you like to launch this file?"
+msgstr "एतेन सञ्चिकायाः किं कर्तुम् इच्छसि ?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:95
 #, kde-format
 msgid "Do not ask again"
 msgstr "पुनः मा पृच्छतु"
-
-#: widgets/executablefileopendialog.cpp:34
-#, kde-format
-msgid "&Execute"
-msgstr "&निष्पादयतु"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7149,6 +7172,9 @@ msgstr "एतेन कार्यक्रमः आरभ्यते :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "यदि भवान् अस्मिन् कार्यक्रमे विश्वासं न करोति तर्हि रद्द (Cancel) नुदतु"
+
+#~ msgid "&Execute"
+#~ msgstr "&निष्पादयतु"
 
 #~ msgid "&Filter:"
 #~ msgstr "&छानकाः:"
