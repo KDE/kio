@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-28 00:38+0000\n"
-"PO-Revision-Date: 2025-04-11 05:52+0200\n"
+"PO-Revision-Date: 2025-04-28 04:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4918,11 +4918,10 @@ msgid "&Link Here"
 msgstr "&აქ ბმული"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "%1-ის გაშვება"
+msgstr "გა&შვება"
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4930,25 +4929,22 @@ msgid "What do you wish to do with this file?"
 msgstr "რა გნებავთ, ამ ფაილს უქნათ?"
 
 #: widgets/executablefileopendialog.cpp:83
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&გახსნა"
 
 #: widgets/executablefileopendialog.cpp:85
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "%1-ით &გახსნა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "რა გნებავთ, ამ ფაილს უქნათ?"
+msgstr "გნებავთ, გაუშვათ ეს ფაილი?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:95
