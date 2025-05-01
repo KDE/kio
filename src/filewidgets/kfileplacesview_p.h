@@ -58,6 +58,9 @@ public:
     void setHoveredHeaderArea(const QModelIndex &index);
     void setHoveredAction(const QModelIndex &index);
 
+    QModelIndex emptyingTrashIndex() const;
+    void setEmptyingTrashIndex(const QModelIndex &index);
+
     qreal contentsOpacity(const QModelIndex &index) const;
 
     bool pointIsHeaderArea(const QPoint &pos) const;
@@ -100,6 +103,7 @@ private:
     qreal m_disappearingOpacity;
 
     qreal m_busyAnimationRotation = 0.0;
+    QPersistentModelIndex m_emptyingTrashIndex;
 
     bool m_showHoverIndication;
     QPersistentModelIndex m_hoveredHeaderArea;

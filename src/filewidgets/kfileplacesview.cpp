@@ -154,7 +154,8 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
 
     const auto accessibility = placesModel->deviceAccessibility(index);
-    const bool isBusy = (accessibility == KFilePlacesModel::SetupInProgress || accessibility == KFilePlacesModel::TeardownInProgress);
+    const bool isBusy = (accessibility == KFilePlacesModel::SetupInProgress || accessibility == KFilePlacesModel::TeardownInProgress)
+        || (m_emptyingTrashIndex.isValid() && m_emptyingTrashIndex == index);
 
     QIcon actionIcon;
     if (isBusy) {
@@ -456,6 +457,16 @@ void KFilePlacesViewDelegate::setHoveredHeaderArea(const QModelIndex &index)
 void KFilePlacesViewDelegate::setHoveredAction(const QModelIndex &index)
 {
     m_hoveredAction = index;
+}
+
+QModelIndex KFilePlacesViewDelegate::emptyingTrashIndex() const
+{
+    return m_emptyingTrashIndex;
+}
+
+void KFilePlacesViewDelegate::setEmptyingTrashIndex(const QModelIndex &index)
+{
+    m_emptyingTrashIndex = index;
 }
 
 bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos) const
@@ -769,9 +780,11 @@ public:
     void itemAppearUpdate(qreal value);
     void itemDisappearUpdate(qreal value);
     void enableSmoothItemResizing();
-    void slotEmptyTrash();
+    void slotEmptyTrash(const QModelIndex &index);
 
     void deviceBusyAnimationValueChanged(const QVariant &value);
+    void startOrStopBusyAnimation();
+    void setEmptyingTrashIndex(const QModelIndex &index);
 
     KFilePlacesView *const q;
 
@@ -1123,8 +1136,9 @@ void KFilePlacesViewPrivate::writeConfig()
     cg.sync();
 }
 
-void KFilePlacesViewPrivate::slotEmptyTrash()
+void KFilePlacesViewPrivate::slotEmptyTrash(const QModelIndex &index)
 {
+    QPersistentModelIndex persistentIndex(index);
     auto *parentWindow = q->window();
 
     using AskIface = KIO::AskUserActionInterface;
@@ -1132,7 +1146,24 @@ void KFilePlacesViewPrivate::slotEmptyTrash()
                                                     AskIface::EmptyTrash,
                                                     AskIface::DefaultConfirmation,
                                                     parentWindow);
+    QObject::connect(emptyTrashJob, &KIO::DeleteOrTrashJob::started, q, [this, persistentIndex] {
+        m_delegate->setEmptyingTrashIndex(persistentIndex);
+        startOrStopBusyAnimation();
+    });
+    QObject::connect(emptyTrashJob, &KJob::finished, q, [this] {
+        m_delegate->setEmptyingTrashIndex({});
+        startOrStopBusyAnimation();
+    });
     emptyTrashJob->start();
+}
+
+void KFilePlacesViewPrivate::startOrStopBusyAnimation()
+{
+    if (!m_busyDevices.isEmpty() || m_delegate->emptyingTrashIndex().isValid()) {
+        m_deviceBusyAnimation.start();
+    } else {
+        m_deviceBusyAnimation.stop();
+    }
 }
 
 void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
@@ -1327,7 +1358,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     if (result) {
         if (result == emptyTrash) {
-            d->slotEmptyTrash();
+            d->slotEmptyTrash(index);
 
         } else if (result == eject) {
             placesModel->requestEject(index);
@@ -2136,6 +2167,9 @@ void KFilePlacesViewPrivate::deviceBusyAnimationValueChanged(const QVariant &val
     for (const auto &idx : std::as_const(m_busyDevices)) {
         q->update(idx);
     }
+    if (m_delegate->emptyingTrashIndex().isValid()) {
+        q->update(m_delegate->emptyingTrashIndex());
+    }
 }
 
 void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
@@ -2156,12 +2190,7 @@ void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex 
         }
 
         d->m_busyDevices = busyDevices;
-
-        if (busyDevices.isEmpty()) {
-            d->m_deviceBusyAnimation.stop();
-        } else {
-            d->m_deviceBusyAnimation.start();
-        }
+        d->startOrStopBusyAnimation();
     }
 }
 
