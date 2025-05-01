@@ -74,6 +74,17 @@ public:
      */
     void start() override;
 
+Q_SIGNALS:
+    /**
+     * Emitted when the actual delete or trash job has been started.
+     *
+     * This can be used to display a busy indicator after the user has confirmed
+     * this operation.
+     *
+     * @since 6.15
+     */
+    void started();
+
 private:
     void slotResult(KJob *job) override;
 

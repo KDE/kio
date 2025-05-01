@@ -87,6 +87,8 @@ void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &u
         // show the "File is too large to Trash" error message
         job->uiDelegate()->setAutoErrorHandlingEnabled(false);
         q->addSubjob(job);
+
+        Q_EMIT q->started();
     }
 }
 
