@@ -7035,6 +7035,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "&Execute"
-#~ msgstr "&Daga"
