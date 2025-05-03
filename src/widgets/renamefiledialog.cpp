@@ -129,7 +129,6 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         }
 
         QLabel *infoLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), page);
-        mainLayout->addWidget(infoLabel);
         d->spinBox = new QSpinBox(page);
         d->spinBox->setMinimum(0);
         d->spinBox->setMaximum(1'000'000'000);
@@ -137,12 +136,29 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         d->spinBox->setValue(1);
         d->spinBox->setDisplayIntegerBase(10);
 
+        QLabel *previewLabel = new QLabel(i18nc("@info As in file name renaming preview", "Preview:"), page);
+        QLineEdit *preview = new QLineEdit(page);
+        preview->setReadOnly(true);
+        preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        auto updatePreview = [this, preview](const QString &text) {
+            const KFileItem &firstItem = d->items.constFirst();
+
+            const QString previewText = QString(text).replace(QStringLiteral("#"), QString::number(d->spinBox->value()));
+            preview->setText(QStringLiteral("%1.%2").arg(previewText, firstItem.suffix()));
+        };
+        connect(d->lineEdit, &QLineEdit::textChanged, this, updatePreview);
+        updatePreview(d->lineEdit->text());
+
+        // Layout
         QHBoxLayout *horizontalLayout = new QHBoxLayout;
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout->addWidget(infoLabel);
         horizontalLayout->addWidget(d->spinBox);
 
         topLayout->addLayout(horizontalLayout);
+
+        topLayout->addWidget(previewLabel);
+        topLayout->addWidget(preview);
     }
 
     d->lineEdit->setFocus();
