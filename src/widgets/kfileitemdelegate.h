@@ -401,14 +401,21 @@ public:
 
     /**
      * @return The rectangle where selectionEmblem is being drawn
+     *
+     * @since 6.14
      */
     QRect selectionEmblemRect() const;
 
     /**
      * Set the rectangle where selectionEmblem should be drawn in.
+     *
+     * @since 6.14
      */
     void setSelectionEmblemRect(QRect rect, int iconSize);
 
+    /*!
+     * @since 6.14
+     */
     KFileItem fileItem(const QModelIndex &index) const;
 
 public Q_SLOTS:

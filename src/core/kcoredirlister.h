@@ -227,6 +227,8 @@ public:
      * @return @c true if any files and folders matching filter are listed, @c false otherwise.
      *
      * @see setQuickFilterMode(bool)
+     *
+     * @since 6.14
      */
     bool quickFilterMode() const;
 
@@ -238,6 +240,8 @@ public:
      * You need to call emitChanges() afterwards.
      *
      * @param quickFilterMode set to @c true to list only files and folders that match the filter text.
+     *
+     * @since 6.14
      */
     void setQuickFilterMode(bool quickFilterMode);
 
