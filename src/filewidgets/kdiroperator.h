@@ -996,7 +996,7 @@ Q_SIGNALS:
      * multiselection mode. In the latter case, @p item is a null KFileItem.
      * You can access the selected items with selectedItems().
      */
-    void fileHighlighted(const KFileItem &item, bool isKeyNavigation);
+    void fileHighlighted(const KFileItem &item);
     void dirActivated(const KFileItem &item);
     void fileSelected(const KFileItem &item);
     /**
