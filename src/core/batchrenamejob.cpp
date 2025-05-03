@@ -22,16 +22,12 @@ using namespace KIO;
 class KIO::BatchRenameJobPrivate : public KIO::JobPrivate
 {
 public:
-    BatchRenameJobPrivate(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
+    BatchRenameJobPrivate(const QList<QUrl> &src, const std::function<QString(const QStringView view, int index)> renamefunction, int index, JobFlags flags)
         : JobPrivate()
         , m_srcList(src)
-        , m_newName(newName)
         , m_index(index)
-        , m_placeHolder(placeHolder)
+        , m_renamefunction(renamefunction)
         , m_listIterator(m_srcList.constBegin())
-        , m_allExtensionsDifferent(true)
-        , m_useIndex(true)
-        , m_appendIndex(false)
         , m_flags(flags)
     {
         // There occur four cases when renaming multiple files,
@@ -44,45 +40,12 @@ public:
         // In this case nothing is substituted and all files have the same $newName.
         // 4. At least two files have same extension and $newName contains an invalid placeholder.
         // In this case $index is appended to $newName.
-
-        // Check for extensions.
-        std::set<QString> extensions;
-        QMimeDatabase db;
-        for (const QUrl &url : std::as_const(m_srcList)) {
-            const QString extension = db.suffixForFileName(url.path());
-            const auto [it, isInserted] = extensions.insert(extension);
-            if (!isInserted) {
-                m_allExtensionsDifferent = false;
-                break;
-            }
-        }
-
-        // Check for exactly one placeholder character or exactly one sequence of placeholders.
-        int pos = newName.indexOf(placeHolder);
-        if (pos != -1) {
-            while (pos < newName.size() && newName.at(pos) == placeHolder) {
-                pos++;
-            }
-        }
-        const bool validPlaceholder = (newName.indexOf(placeHolder, pos) == -1);
-
-        if (!validPlaceholder) {
-            if (!m_allExtensionsDifferent) {
-                m_appendIndex = true;
-            } else {
-                m_useIndex = false;
-            }
-        }
     }
 
     QList<QUrl> m_srcList;
-    QString m_newName;
     int m_index;
-    QChar m_placeHolder;
+    const std::function<QString(const QStringView view, int index)> m_renamefunction;
     QList<QUrl>::const_iterator m_listIterator;
-    bool m_allExtensionsDifferent;
-    bool m_useIndex;
-    bool m_appendIndex;
     QUrl m_oldUrl;
     QUrl m_newUrl; // for fileRenamed signal
     const JobFlags m_flags;
@@ -95,9 +58,10 @@ public:
 
     QString indexedName(const QString &name, int index, QChar placeHolder) const;
 
-    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
+    static inline BatchRenameJob *
+    newJob(const QList<QUrl> &src, const std::function<QString(const QStringView view, int index)> renamefunction, int index, JobFlags flags)
     {
-        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, newName, index, placeHolder, flags));
+        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, renamefunction, index, flags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -162,12 +126,18 @@ void BatchRenameJobPrivate::slotStart()
     }
 
     if (m_listIterator != m_srcList.constEnd()) {
-        QString newName = indexedName(m_newName, m_index, m_placeHolder);
-        const QUrl oldUrl = *m_listIterator;
         QMimeDatabase db;
-        const QString extension = db.suffixForFileName(oldUrl.path());
-        if (!extension.isEmpty()) {
-            newName += QLatin1Char('.') + extension;
+        const QUrl oldUrl = *m_listIterator;
+        const QString oldFileName = oldUrl.fileName();
+        const QString extension = db.suffixForFileName(oldFileName);
+        int lastPoint = oldFileName.lastIndexOf(QLatin1Char('.'));
+        QString fileNameNoExt = oldFileName.left(lastPoint);
+
+        QString newName = m_renamefunction(fileNameNoExt, m_index);
+
+        const auto suffix = QLatin1Char('.') + extension;
+        if (!extension.isEmpty() && !newName.endsWith(suffix)) {
+            newName += suffix;
         }
 
         m_oldUrl = oldUrl;
@@ -216,7 +186,56 @@ void BatchRenameJob::slotResult(KJob *job)
 
 BatchRenameJob *KIO::batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, KIO::JobFlags flags)
 {
-    return BatchRenameJobPrivate::newJob(src, newName, index, placeHolder, flags);
+    bool allExtensionsDifferent = true;
+
+    // Check for extensions.
+    std::set<QString> extensions;
+    QMimeDatabase db;
+    for (const QUrl &url : std::as_const(src)) {
+        const QString extension = db.suffixForFileName(url.path());
+        const auto [it, isInserted] = extensions.insert(extension);
+        if (!isInserted) {
+            allExtensionsDifferent = false;
+            break;
+        }
+    }
+
+    // Check for exactly one placeholder character or exactly one sequence of placeholders.
+    int pos = newName.indexOf(placeHolder);
+    if (pos != -1) {
+        while (pos < newName.size() && newName.at(pos) == placeHolder) {
+            pos++;
+        }
+    }
+    const bool validPlaceholder = (newName.indexOf(placeHolder, pos) == -1);
+
+    bool appendIndex = false;
+    if (!validPlaceholder) {
+        if (!allExtensionsDifferent) {
+            appendIndex = true;
+        }
+    }
+
+    std::function<QString(const QStringView view, int index)> function;
+    if (appendIndex) {
+        function = [newName](const QStringView view, int index) {
+            Q_UNUSED(view);
+            return QString(newName).append(QString::number(index));
+        };
+    } else {
+        function = [newName, placeHolder](const QStringView view, int index) {
+            Q_UNUSED(view);
+            return QString(newName).replace(placeHolder, QString::number(index));
+        };
+    }
+
+    return BatchRenameJobPrivate::newJob(src, std::move(function), index, flags);
+}
+
+BatchRenameJob *
+KIO::batchRename(const QList<QUrl> &src, const std::function<QString(const QStringView view, int index)> function, int index, KIO::JobFlags flags)
+{
+    return BatchRenameJobPrivate::newJob(src, function, index, flags);
 }
 
 #include "moc_batchrenamejob.cpp"
