@@ -221,7 +221,6 @@ public:
     bool m_showOpenWithActions = false;
     bool m_isTouchEvent = false;
     bool m_isTouchDrag = false;
-    bool m_keyNavigation = false;
 
     QList<QUrl> m_itemsToBeSetAsCurrent;
     QStringList m_supportedSchemes;
@@ -1430,19 +1429,6 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 return true;
             }
         }
-        // Only use tab key to escape the view navigation
-        if (evt->key() == Qt::Key_Tab) {
-            d->m_keyNavigation = false;
-            d->slotSelectionChanged();
-            // When saving we need to return here,
-            // otherwise we skip over the next item with our tab press
-            // since we focus on that item in slotSelectionChanged
-            if (d->m_isSaving) {
-                return true;
-            }
-        } else {
-            d->m_keyNavigation = true;
-        }
         break;
     }
     case QEvent::Resize: {
@@ -1847,7 +1833,6 @@ void KDirOperator::selectFile(const KFileItem &item)
     QApplication::restoreOverrideCursor();
 
     Q_EMIT fileSelected(item);
-    d->m_keyNavigation = false;
 }
 
 void KDirOperator::highlightFile(const KFileItem &item)
@@ -1856,8 +1841,7 @@ void KDirOperator::highlightFile(const KFileItem &item)
         d->m_preview->showPreview(item.url());
     }
 
-    Q_EMIT fileHighlighted(item, d->m_keyNavigation);
-    d->m_keyNavigation = false;
+    Q_EMIT fileHighlighted(item);
 }
 
 void KDirOperator::setCurrentItem(const QUrl &url)
