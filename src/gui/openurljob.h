@@ -65,7 +65,7 @@ public:
     /**
      * Returns the URL the OpenUrlJob was created with.
      *
-     * @since 6.15
+     * @since 6.14
      */
     QUrl url() const;
 
