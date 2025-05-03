@@ -16,6 +16,7 @@
 #include <KJobWidgets>
 #include <KLocalizedString>
 
+#include <QComboBox>
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -31,21 +32,41 @@ class Q_DECL_HIDDEN RenameFileDialog::RenameFileDialogPrivate
 {
 public:
     RenameFileDialogPrivate(const KFileItemList &items)
-        : lineEdit(nullptr)
+        : placeHolderEdit(nullptr)
         , items(items)
-        , spinBox(nullptr)
+        , indexSpinBox(nullptr)
         , renameOneItem(false)
         , allExtensionsDifferent(true)
     {
     }
 
+    enum RenameOperation {
+        Enumerate,
+        Replace,
+        // Prepend,
+        // Append
+    };
+
     QList<QUrl> renamedItems;
-    QLineEdit *lineEdit;
+    QLabel *placeHolderLabel;
+    QLineEdit *placeHolderEdit;
     KFileItemList items;
-    QSpinBox *spinBox;
+    QLabel *indexLabel;
+    QSpinBox *indexSpinBox;
     QPushButton *okButton;
+
+    QLabel *patternLabel;
+    QLineEdit *patternLineEdit;
+    QLabel *replacementLabel;
+    QLineEdit *replacementEdit;
+
+    QLabel *previewLabel;
+    QLineEdit *preview;
+
     bool renameOneItem;
     bool allExtensionsDifferent;
+
+    RenameOperation operation = Enumerate;
 };
 
 RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
@@ -77,20 +98,65 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
     QVBoxLayout *topLayout = new QVBoxLayout(page);
 
-    QLabel *editLabel = nullptr;
     QString newName;
     if (d->renameOneItem) {
         newName = items.first().name();
-        editLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), page);
-        editLabel->setTextFormat(Qt::PlainText);
+        d->placeHolderLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), page);
+        d->placeHolderLabel->setTextFormat(Qt::PlainText);
     } else {
+        QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
+        QComboBox *comboRenameType = new QComboBox(page);
+        comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
+
+        QHBoxLayout *renameTypeChoice = new QHBoxLayout;
+        renameTypeChoice->setContentsMargins(0, 0, 0, 0);
+        renameTypeChoice->addWidget(renameTypeChoiceLabel);
+        renameTypeChoice->addWidget(comboRenameType);
+        topLayout->addLayout(renameTypeChoice);
+
+        connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotTypeChoiceChanged);
+
         newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
-        editLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", itemCount), page);
+        d->placeHolderLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", itemCount), page);
+
+        d->indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), page);
+        d->indexSpinBox = new QSpinBox(page);
+        d->indexSpinBox->setMinimum(0);
+        d->indexSpinBox->setMaximum(1'000'000'000);
+        d->indexSpinBox->setSingleStep(1);
+        d->indexSpinBox->setValue(1);
+        d->indexSpinBox->setDisplayIntegerBase(10);
+        d->indexLabel->setBuddy(d->indexSpinBox);
+        connect(d->indexSpinBox, &QSpinBox::valueChanged, this, &RenameFileDialog::slotTextChanged);
+
+        d->previewLabel = new QLabel(i18nc("@info As in file name renaming preview", "Preview:"), page);
+        d->preview = new QLineEdit(page);
+        d->preview->setReadOnly(true);
+        d->preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+
+        d->patternLabel = new QLabel(i18nc("@info replace as in replace with", "Replace:"), page);
+        d->patternLineEdit = new QLineEdit(page);
+        d->patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
+        d->patternLabel->setBuddy(d->patternLineEdit);
+
+        d->replacementLabel = new QLabel(i18nc("@info with as in replace with", "With:"), page);
+        d->replacementEdit = new QLineEdit(page);
+        d->replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
+        d->replacementLabel->setBuddy(d->replacementEdit);
+
+        d->patternLabel->hide();
+        d->patternLineEdit->hide();
+        d->replacementLabel->hide();
+        d->replacementEdit->hide();
+
+        connect(d->patternLineEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
+        connect(d->replacementEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
     }
 
-    d->lineEdit = new QLineEdit(page);
-    mainLayout->addWidget(d->lineEdit);
-    connect(d->lineEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
+    d->placeHolderEdit = new QLineEdit(page);
+    d->placeHolderLabel->setBuddy(d->placeHolderEdit);
+    mainLayout->addWidget(d->placeHolderEdit);
+    connect(d->placeHolderEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
 
     int selectionLength = newName.length();
     if (d->renameOneItem) {
@@ -108,11 +174,11 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         --selectionLength;
     }
 
-    d->lineEdit->setText(newName);
-    d->lineEdit->setSelection(0, selectionLength);
+    d->placeHolderEdit->setText(newName);
+    d->placeHolderEdit->setSelection(0, selectionLength);
 
-    topLayout->addWidget(editLabel);
-    topLayout->addWidget(d->lineEdit);
+    topLayout->addWidget(d->placeHolderLabel);
+    topLayout->addWidget(d->placeHolderEdit);
 
     if (!d->renameOneItem) {
         QMimeDatabase db;
@@ -128,44 +194,43 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
             extensions.insert(extension);
         }
 
-        QLabel *infoLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), page);
-        d->spinBox = new QSpinBox(page);
-        d->spinBox->setMinimum(0);
-        d->spinBox->setMaximum(1'000'000'000);
-        d->spinBox->setSingleStep(1);
-        d->spinBox->setValue(1);
-        d->spinBox->setDisplayIntegerBase(10);
-
-        QLabel *previewLabel = new QLabel(i18nc("@info As in file name renaming preview", "Preview:"), page);
-        QLineEdit *preview = new QLineEdit(page);
-        preview->setReadOnly(true);
-        preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-        auto updatePreview = [this, preview](const QString &text) {
-            const KFileItem &firstItem = d->items.constFirst();
-
-            const QString previewText = QString(text).replace(QStringLiteral("#"), QString::number(d->spinBox->value()));
-            preview->setText(QStringLiteral("%1.%2").arg(previewText, firstItem.suffix()));
-        };
-        connect(d->lineEdit, &QLineEdit::textChanged, this, updatePreview);
-        updatePreview(d->lineEdit->text());
-
         // Layout
-        QHBoxLayout *horizontalLayout = new QHBoxLayout;
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout->addWidget(infoLabel);
-        horizontalLayout->addWidget(d->spinBox);
+        QHBoxLayout *indexLayout = new QHBoxLayout;
+        indexLayout->setContentsMargins(0, 0, 0, 0);
+        indexLayout->addWidget(d->indexLabel);
+        indexLayout->addWidget(d->indexSpinBox);
+        topLayout->addLayout(indexLayout);
 
-        topLayout->addLayout(horizontalLayout);
+        QHBoxLayout *replaceLayout = new QHBoxLayout;
+        replaceLayout->setContentsMargins(0, 0, 0, 0);
+        replaceLayout->addWidget(d->patternLabel);
+        replaceLayout->addWidget(d->patternLineEdit);
+        replaceLayout->addWidget(d->replacementLabel);
+        replaceLayout->addWidget(d->replacementEdit);
+        topLayout->addLayout(replaceLayout);
 
-        topLayout->addWidget(previewLabel);
-        topLayout->addWidget(preview);
+        topLayout->addWidget(d->previewLabel);
+        topLayout->addWidget(d->preview);
     }
 
-    d->lineEdit->setFocus();
+    d->placeHolderEdit->setFocus();
 }
 
 RenameFileDialog::~RenameFileDialog()
 {
+}
+
+static QString replaceFunction(const QStringView fileName, const QString &pattern, const QString &replacement)
+{
+    auto output = QString(fileName);
+    if (pattern.isEmpty()) {
+        return output;
+    }
+    output.replace(pattern, replacement);
+    while (output.startsWith(QLatin1Char(' '))) {
+        output = output.mid(1);
+    }
+    return output;
 }
 
 void RenameFileDialog::slotAccepted()
@@ -176,7 +241,7 @@ void RenameFileDialog::slotAccepted()
     }
 
     const QList<QUrl> srcList = d->items.urlList();
-    const QString newName = d->lineEdit->text();
+    const QString newName = d->placeHolderEdit->text();
     KIO::FileUndoManager::CommandType cmdType;
     KIO::Job *job = nullptr;
     if (d->renameOneItem) {
@@ -188,9 +253,27 @@ void RenameFileDialog::slotAccepted()
         d->renamedItems << newUrl;
         job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
     } else {
-        d->renamedItems.reserve(d->items.count());
         cmdType = KIO::FileUndoManager::BatchRename;
-        job = KIO::batchRename(srcList, newName, d->spinBox->value(), QLatin1Char('#'));
+        d->renamedItems.reserve(d->items.count());
+
+        switch (d->operation) {
+        case RenameFileDialogPrivate::Enumerate: {
+            job = KIO::batchRename(srcList, newName, d->indexSpinBox->value(), QLatin1Char('#'));
+            break;
+        }
+        case RenameFileDialogPrivate::Replace: {
+            auto pattern = d->patternLineEdit->text();
+            auto replacement = d->replacementEdit->text();
+            std::function<QString(const QStringView view, int index)> renameFunction = [pattern, replacement](const QStringView view, int index) {
+                Q_UNUSED(index);
+                return replaceFunction(view, pattern, replacement);
+            };
+
+            job = KIO::batchRename(srcList, renameFunction, d->indexSpinBox->value());
+            break;
+        }
+        }
+
         connect(qobject_cast<KIO::BatchRenameJob *>(job), &KIO::BatchRenameJob::fileRenamed, this, &RenameFileDialog::slotFileRenamed);
     }
 
@@ -204,22 +287,97 @@ void RenameFileDialog::slotAccepted()
     accept();
 }
 
-void RenameFileDialog::slotTextChanged(const QString &newName)
+void RenameFileDialog::slotTypeChoiceChanged(int index)
 {
-    bool enable = !newName.isEmpty() && (newName != QLatin1String("..")) && (newName != QLatin1String("."));
-    if (enable && !d->renameOneItem) {
-        const int count = newName.count(QLatin1Char('#'));
-        if (count == 0) {
-            // Renaming multiple files without '#' will only work if all extensions are different.
-            enable = d->allExtensionsDifferent;
-        } else {
-            // Ensure that the new name contains exactly one # (or a connected sequence of #'s)
-            const int first = newName.indexOf(QLatin1Char('#'));
-            const int last = newName.lastIndexOf(QLatin1Char('#'));
-            enable = (last - first + 1 == count);
-        }
+    if (d->renameOneItem) {
+        return;
     }
-    d->okButton->setEnabled(enable);
+
+    d->indexSpinBox->hide();
+    d->indexLabel->hide();
+
+    d->placeHolderLabel->hide();
+    d->placeHolderEdit->hide();
+
+    d->patternLabel->hide();
+    d->patternLineEdit->hide();
+    d->replacementLabel->hide();
+    d->replacementEdit->hide();
+
+    if (index == RenameFileDialogPrivate::Enumerate) {
+        d->operation = RenameFileDialogPrivate::Enumerate;
+
+        d->indexSpinBox->show();
+        d->indexLabel->show();
+
+        d->placeHolderLabel->show();
+        d->placeHolderEdit->show();
+    } else if (index == RenameFileDialogPrivate::Replace) {
+        d->operation = RenameFileDialogPrivate::Replace;
+
+        d->patternLabel->show();
+        d->patternLineEdit->show();
+        d->replacementLabel->show();
+        d->replacementEdit->show();
+    }
+
+    slotTextChanged();
+
+    adjustSize();
+}
+
+void RenameFileDialog::slotTextChanged()
+{
+    const auto placeholder = d->placeHolderEdit->text();
+    if (d->renameOneItem) {
+        bool enabled = !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String("."));
+        d->okButton->setEnabled(enabled);
+        return;
+    }
+
+    const KFileItem &firstItem = d->items.constFirst();
+
+    bool enabled = false;
+    switch (d->operation) {
+    case RenameFileDialogPrivate::Enumerate: {
+        auto previewText = QString(placeholder);
+        const int countDash = placeholder.count(QLatin1Char('#'));
+        if (countDash == 0) {
+            // append # at the end
+            previewText += QLatin1Char('#');
+        }
+        auto indexStart = d->indexSpinBox ? d->indexSpinBox->value() : 1;
+
+        // look for consecutive # groups
+        static const QRegularExpression regex(QStringLiteral("#+"));
+        auto matchDashes = regex.globalMatch(previewText);
+
+        QRegularExpressionMatch lastMatchDashes;
+        int matchCount = 0;
+        while (matchDashes.hasNext()) {
+            lastMatchDashes = matchDashes.next();
+            matchCount++;
+        }
+        Q_ASSERT(matchCount > 0); // since we add # at the end always
+
+        previewText = previewText.replace(lastMatchDashes.capturedStart(0), lastMatchDashes.capturedLength(0), QString::number(indexStart));
+
+        d->preview->setText(QStringLiteral("%1.%2").arg(previewText, firstItem.suffix()));
+
+        enabled = !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String(".")) && matchCount == 1;
+        break;
+    }
+
+    case RenameFileDialogPrivate::Replace: {
+        auto previewText = replaceFunction(firstItem.name(), d->patternLineEdit->text(), d->replacementEdit->text());
+        d->preview->setText(previewText);
+
+        enabled = !d->patternLineEdit->text().isEmpty() && previewText != firstItem.name();
+        break;
+    }
+    }
+
+    d->okButton->setEnabled(enabled);
 }
 
 void RenameFileDialog::slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl)

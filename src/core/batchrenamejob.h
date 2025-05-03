@@ -81,8 +81,10 @@ private:
  */
 KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags = DefaultFlags);
 
-KIOCORE_EXPORT BatchRenameJob *
-batchRename(const QList<QUrl> &src, const std::function<QString(const QStringView view, int index)> renamefunction, int index, KIO::JobFlags flags);
+KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &src,
+                                           const std::function<QString(const QStringView view, int index)> renameFunction,
+                                           int index,
+                                           KIO::JobFlags flags = DefaultFlags);
 }
 
 #endif
