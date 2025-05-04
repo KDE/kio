@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-28 00:38+0000\n"
+"POT-Creation-Date: 2025-05-04 00:39+0000\n"
 "PO-Revision-Date: 2025-04-13 17:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2529,248 +2529,248 @@ msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "இந்த உருப்படிகளுக்கு புதிய அடைவை உருவாக்குவது"
 
-#: filewidgets/kdiroperator.cpp:309
+#: filewidgets/kdiroperator.cpp:308
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:717 filewidgets/kdiroperator.cpp:749
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "அழிப்பதற்கு நீங்கள் எந்த கோப்பையும் தேர்வு செய்யவில்லை."
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:717 filewidgets/kdiroperator.cpp:749
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "அழிக்க ஏதுமில்லை"
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:761 filewidgets/kdiroperator.cpp:848
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "அகற்றுவதற்கு நீங்கள் எந்த கோப்பையும் தேர்வு செய்யவில்லை."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:761 filewidgets/kdiroperator.cpp:848
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "அகற்ற எதுவும் இல்லை"
 
-#: filewidgets/kdiroperator.cpp:921 filewidgets/kdiroperator.cpp:1053
+#: filewidgets/kdiroperator.cpp:920 filewidgets/kdiroperator.cpp:1052
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "குறிப்பிட்ட அடைவு இல்லை, அல்லது அதனை படிக்க முடியவில்லை."
 
-#: filewidgets/kdiroperator.cpp:2004
+#: filewidgets/kdiroperator.cpp:1988
 #, kde-format
 msgid "Menu"
 msgstr "பட்டி"
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:1993
 #, kde-format
 msgid "Parent Folder"
 msgstr "தாய் அடைவு"
 
-#: filewidgets/kdiroperator.cpp:2016
+#: filewidgets/kdiroperator.cpp:2000
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "பின்னே செல்"
 
-#: filewidgets/kdiroperator.cpp:2020
+#: filewidgets/kdiroperator.cpp:2004
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "முன்னே செல்"
 
-#: filewidgets/kdiroperator.cpp:2024
+#: filewidgets/kdiroperator.cpp:2008
 #, kde-format
 msgid "Home Folder"
 msgstr "முகப்பு அடைவு"
 
-#: filewidgets/kdiroperator.cpp:2028
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Reload"
 msgstr "மீளேற்று"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2015
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "புதிய அடைவு…"
 
-#: filewidgets/kdiroperator.cpp:2041 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:2025 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "அகற்றிடத்துக்கு நகர்த்து"
 
-#: filewidgets/kdiroperator.cpp:2047
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Delete"
 msgstr "அழி"
 
-#: filewidgets/kdiroperator.cpp:2054
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Sorting"
 msgstr "வரிசைப்படுத்தல்"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Sort by Name"
 msgstr "பெயர் வாரியாக வரிசைப்படுத்து"
 
-#: filewidgets/kdiroperator.cpp:2065
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Sort by Size"
 msgstr "அளவால் வரிசைப்படுத்து"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgid "Sort by Date"
 msgstr "தேதிப்படி வரிசைப்படுத்து"
 
-#: filewidgets/kdiroperator.cpp:2077
+#: filewidgets/kdiroperator.cpp:2061
 #, kde-format
 msgid "Sort by Type"
 msgstr "வகை வாரியாக வரிசைப்படுத்து"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
 
-#: filewidgets/kdiroperator.cpp:2093
+#: filewidgets/kdiroperator.cpp:2077
 #, kde-format
 msgid "Descending"
 msgstr "இறங்குவரிசை"
 
-#: filewidgets/kdiroperator.cpp:2100
+#: filewidgets/kdiroperator.cpp:2084
 #, kde-format
 msgid "Folders First"
 msgstr "அடைவுகள் முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2090
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "மறைந்துள்ள கோப்புகள் கடைசியாக"
 
-#: filewidgets/kdiroperator.cpp:2113
+#: filewidgets/kdiroperator.cpp:2097
 #, kde-format
 msgid "Icons View"
 msgstr "சின்னங்கள் காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2120
+#: filewidgets/kdiroperator.cpp:2104
 #, kde-format
 msgid "Compact View"
 msgstr "சுருக்கமான காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2127
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Details View"
 msgstr "விவரமான காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2146
+#: filewidgets/kdiroperator.cpp:2130
 #, kde-format
 msgid "Icon Position"
 msgstr "சின்னத்தின் இருப்பிடம்"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Next to File Name"
 msgstr "கோப்பின் பெயருக்கு பக்கத்தில்"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Above File Name"
 msgstr "கோப்பின் பெயருக்கு மேல்"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2153
 #, kde-format
 msgid "Short View"
 msgstr "குறுகிய காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Detailed View"
 msgstr "விவரமான காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2183
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Tree View"
 msgstr "கிளைப்பட காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2190
+#: filewidgets/kdiroperator.cpp:2174
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "விவரமான கிளைப்பட காட்சிமுறை"
 
-#: filewidgets/kdiroperator.cpp:2203
+#: filewidgets/kdiroperator.cpp:2187
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "விவர காட்சிமுறையில் விரிவாக்கத்தை அனுமதி"
 
-#: filewidgets/kdiroperator.cpp:2209
+#: filewidgets/kdiroperator.cpp:2193
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "மறைந்துள்ள கோப்புகளைக் காட்டு"
 
-#: filewidgets/kdiroperator.cpp:2216
+#: filewidgets/kdiroperator.cpp:2200
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "முன்தோற்ற பலகையை காட்டு"
 
-#: filewidgets/kdiroperator.cpp:2223
+#: filewidgets/kdiroperator.cpp:2207
 #, kde-format
 msgid "Show Preview"
 msgstr "முன்தோற்றத்தை காட்டு"
 
-#: filewidgets/kdiroperator.cpp:2230
+#: filewidgets/kdiroperator.cpp:2214
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "கொண்டுள்ள அடைவை திற"
 
-#: filewidgets/kdiroperator.cpp:2237 filewidgets/kfileplacesview.cpp:1221
+#: filewidgets/kdiroperator.cpp:2221 filewidgets/kfileplacesview.cpp:1221
 #, kde-format
 msgid "Properties"
 msgstr "பண்புகள்"
 
-#: filewidgets/kdiroperator.cpp:2246
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "&View Mode"
 msgstr "&காட்சி முறை"
 
-#: filewidgets/kdiroperator.cpp:2349 filewidgets/kdiroperator.cpp:2361
+#: filewidgets/kdiroperator.cpp:2333 filewidgets/kdiroperator.cpp:2345
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "ஃ–அ"
 
-#: filewidgets/kdiroperator.cpp:2350 filewidgets/kdiroperator.cpp:2362
+#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "அ–ஃ"
 
-#: filewidgets/kdiroperator.cpp:2353
+#: filewidgets/kdiroperator.cpp:2337
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "புதியது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2354
+#: filewidgets/kdiroperator.cpp:2338
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "பழையது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2357
+#: filewidgets/kdiroperator.cpp:2341
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "பெரியது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2358
+#: filewidgets/kdiroperator.cpp:2342
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
