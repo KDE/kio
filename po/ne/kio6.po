@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-05-05 00:38+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave सिर्जना गर्न अक्षम: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -68,7 +68,7 @@ msgstr ""
 "%1 सिमलिङ्क सिर्जना गर्न सकेन ।\n"
 "कृपया अनुमति जाँच गर्नुहोस् ।"
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:181
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -78,7 +78,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:189
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -88,23 +88,36 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1395 core/job_error.cpp:585
+#: core/copyjob.cpp:750
+#, fuzzy, kde-format
+#| msgid "Device name"
+msgctxt "Reason why standby is blocked"
+msgid "Files are being moved"
+msgstr "यन्त्र नाम"
+
+#: core/copyjob.cpp:752
+#, kde-format
+msgctxt "Reason why standby is blocked"
+msgid "Files are being copied"
+msgstr ""
+
+#: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "फोल्डर पहिल्यै अवस्थित छ"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "फाइल पहिल्यै अवस्थित छ"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "फोल्डरको रूपमा पहिल्यै अवस्थित छ"
 
-#: core/copyjob.cpp:1873 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
@@ -209,14 +222,14 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1 (%2)"
 
-#: core/job.cpp:97
+#: core/job.cpp:232
 #, fuzzy, kde-format
 #| msgid "Moving"
 msgctxt "@title job"
 msgid "Moving"
 msgstr "सार्दै"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
 #: widgets/fileundomanager.cpp:142
 #, fuzzy, kde-format
 #| msgid "Source"
@@ -224,7 +237,7 @@ msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "स्रोत:"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
 #: widgets/fileundomanager.cpp:143
 #, fuzzy, kde-format
 #| msgid "Destination"
@@ -232,177 +245,177 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: core/job.cpp:105
+#: core/job.cpp:240
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: core/job.cpp:113
+#: core/job.cpp:248
 #, fuzzy, kde-format
 #| msgid "Copying"
 msgctxt "@title job"
 msgid "Copying"
 msgstr "प्रतिलिपि गर्दै"
 
-#: core/job.cpp:121
+#: core/job.cpp:256
 #, fuzzy, kde-format
 #| msgid "Creating directory"
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "फोल्डर सिर्जना गर्दै"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "डाइरेक्टरी"
 
-#: core/job.cpp:128
+#: core/job.cpp:263
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "मेट्दै"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "फाइल"
 
-#: core/job.cpp:135
+#: core/job.cpp:270
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr ""
 
-#: core/job.cpp:142
+#: core/job.cpp:277
 #, fuzzy, kde-format
 #| msgid "Transferring"
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "स्थानान्तरण गर्दै"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, fuzzy, kde-format
 #| msgid "Mounting"
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "माउन्ट गर्दै"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgid "Device"
 msgstr "यन्त्र"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:284 core/job.cpp:289
 #, kde-format
 msgid "Mountpoint"
 msgstr "माउन्ट बिन्दु"
 
-#: core/job.cpp:154
+#: core/job.cpp:289
 #, fuzzy, kde-format
 #| msgid "Unmounting"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "अनमाउन्ट गर्दै"
 
-#: core/job.cpp:264
+#: core/job.cpp:399
 #, kde-format
 msgid "Change Attribute"
 msgstr ""
 
-#: core/job.cpp:266
+#: core/job.cpp:401
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:270
+#: core/job.cpp:405
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "Copy Files"
 msgstr "*|सबै फाइल"
 
-#: core/job.cpp:272
+#: core/job.cpp:407
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:276
+#: core/job.cpp:411
 #, kde-format
 msgid "Delete Files"
 msgstr "फाइलहरू मेट्नुहोस्"
 
-#: core/job.cpp:278
+#: core/job.cpp:413
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:282
+#: core/job.cpp:417
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgid "Create Folder"
 msgstr "फोल्डर सिर्जना गर्न सकेन"
 
-#: core/job.cpp:284
+#: core/job.cpp:419
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:288
+#: core/job.cpp:423
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Move Items"
 msgstr "रद्दी टोकरीमा सार्नुहोस्"
 
-#: core/job.cpp:290
+#: core/job.cpp:425
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: core/job.cpp:296
+#: core/job.cpp:431
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
 #: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
 msgstr "साङ्केतिक लिङ्क सिर्जना गर्न सकेन"
 
-#: core/job.cpp:302
+#: core/job.cpp:437
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:306
+#: core/job.cpp:441
 #, fuzzy, kde-format
 #| msgid "Transferring"
 msgid "Transfer data"
 msgstr "स्थानान्तरण गर्दै"
 
-#: core/job.cpp:308
+#: core/job.cpp:443
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2534,18 +2547,27 @@ msgstr "खुलिरहेको फाइल %1 प्रोटोकलस�
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकल %1 ले %2 कार्य समर्थन गर्दैन ।"
 
-#: core/worker.cpp:330
+#: core/worker.cpp:353
+#, kde-format
+msgctxt "@info %2 is a path"
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+
+#: core/worker.cpp:380
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "अज्ञात प्रोटोकल '%1' ।"
 
-#: core/worker.cpp:341
+#: core/worker.cpp:391
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' प्रोटोकलका लागि io-slave फेला पार्न सकिदैन ।"
 
-#: core/worker.cpp:348
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2554,13 +2576,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:360
+#: core/worker.cpp:410
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' प्रोटोकलका लागि io-slave फेला पार्न सकिदैन ।"
 
-#: core/worker.cpp:400
+#: core/worker.cpp:450
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3784,20 +3806,13 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:441
-#, fuzzy, kde-format
-#| msgid "Create new file type"
-msgctxt "@title:window"
-msgid "Create New File"
-msgstr "नयाँ फाइल प्रकार सिर्जना गर्नुहोस्"
-
-#: filewidgets/knewfilemenu.cpp:481
+#: filewidgets/knewfilemenu.cpp:486
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "भण्डारण गर्नुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:492
+#: filewidgets/knewfilemenu.cpp:497
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3807,31 +3822,31 @@ msgstr ""
 "<qt>निर्दिष्ट गरिएको आदेश चलाउन असक्षम भयो । फाइल वा फोल्डर <b>%1</b> अवस्थित छैन ।"
 "</qt>"
 
-#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:707
+#: filewidgets/knewfilemenu.cpp:713
 #, fuzzy, kde-format
 #| msgid "Destination URL"
 msgid "Create link to URL"
 msgstr "गन्तव्य यूआरएल"
 
-#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
+#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1068
+#: filewidgets/knewfilemenu.cpp:1074
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1173
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3839,7 +3854,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1181
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3847,7 +3862,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3856,27 +3871,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1201
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1211
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1223
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1241
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3884,54 +3899,54 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1250
+#: filewidgets/knewfilemenu.cpp:1256
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1322
+#: filewidgets/knewfilemenu.cpp:1328
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'%1' नाम भएको एउटा पुरानो वस्तु पहिले नै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1324
+#: filewidgets/knewfilemenu.cpp:1330
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "%1 नाम गरिएको फाइल पहिल्यै अवस्थित छ ।"
 
-#: filewidgets/knewfilemenu.cpp:1410
+#: filewidgets/knewfilemenu.cpp:1416
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "सिर्जना गर्नुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1445
+#: filewidgets/knewfilemenu.cpp:1451
 #, fuzzy, kde-format
 #| msgid "Device"
 msgid "Link to Device"
 msgstr "यन्त्र"
 
-#: filewidgets/knewfilemenu.cpp:1491
+#: filewidgets/knewfilemenu.cpp:1497
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नयाँ फोल्डर"
 
-#: filewidgets/knewfilemenu.cpp:1514
+#: filewidgets/knewfilemenu.cpp:1520
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "फोल्डर सिर्जना गर्न सकेन"
 
-#: filewidgets/knewfilemenu.cpp:1516
+#: filewidgets/knewfilemenu.cpp:1522
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3940,6 +3955,14 @@ msgid "Create new folder in %1:"
 msgstr ""
 "यसमा नयाँ फोल्डर सिर्जना गर्नुहोस्:\n"
 "%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
+#: filewidgets/knewfilemenu_newfiledialog.ui:20
+#, fuzzy, kde-format
+#| msgid "Create new file type"
+msgctxt "@title:window"
+msgid "Create New File"
+msgstr "नयाँ फाइल प्रकार सिर्जना गर्नुहोस्"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)

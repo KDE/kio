@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-05-05 00:38+0000\n"
 "PO-Revision-Date: 2025-03-26 16:07+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nevar izveidot KIO strādnieku: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -66,7 +66,7 @@ msgstr ""
 "Nevar izveidot simbolisko saiti „%1“.\n"
 "Mērķa datņu sistēma (%2) neatbalsta simboliskās saites."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:181
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -81,7 +81,7 @@ msgstr ""
 "Atlasot „Aizvietot“ programma aizvietos visas neatļautās rakstzīmes "
 "(galamērķa mapju nosaukumā) ar zemsvītru „_“."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:189
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -96,23 +96,36 @@ msgstr ""
 "Atlasot „Aizvietot“ programma aizvietos visas neatļautās rakstzīmes "
 "(galamērķa datņu nosaukumā) ar zemsvītru „_“."
 
-#: core/copyjob.cpp:1395 core/job_error.cpp:585
+#: core/copyjob.cpp:750
+#, fuzzy, kde-format
+#| msgid "File Changed"
+msgctxt "Reason why standby is blocked"
+msgid "Files are being moved"
+msgstr "Datne ir mainīta"
+
+#: core/copyjob.cpp:752
+#, kde-format
+msgctxt "Reason why standby is blocked"
+msgid "Files are being copied"
+msgstr ""
+
+#: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mape jau pastāv"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datne jau pastāv"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jau pastāv kā mape"
 
-#: core/copyjob.cpp:1873 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Atkritne"
@@ -209,102 +222,102 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:97
+#: core/job.cpp:232
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Pārvietošana"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Avots"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
 #: widgets/fileundomanager.cpp:143
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Galamērķis"
 
-#: core/job.cpp:105
+#: core/job.cpp:240
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Pārdēvēšana"
 
-#: core/job.cpp:113
+#: core/job.cpp:248
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Kopēšana"
 
-#: core/job.cpp:121
+#: core/job.cpp:256
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Mapes veidošana"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "Mape"
 
-#: core/job.cpp:128
+#: core/job.cpp:263
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Dzēšana"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "Datne"
 
-#: core/job.cpp:135
+#: core/job.cpp:270
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Analizē"
 
-#: core/job.cpp:142
+#: core/job.cpp:277
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Pārsūta"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Montēšana"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgid "Device"
 msgstr "Ierīce"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:284 core/job.cpp:289
 #, kde-format
 msgid "Mountpoint"
 msgstr "Montēšanas punkts"
 
-#: core/job.cpp:154
+#: core/job.cpp:289
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Atmontēšana"
 
-#: core/job.cpp:264
+#: core/job.cpp:399
 #, kde-format
 msgid "Change Attribute"
 msgstr "Mainīt atribūtu"
 
-#: core/job.cpp:266
+#: core/job.cpp:401
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
@@ -313,12 +326,12 @@ msgstr ""
 "Lai mainītu datnes atribūtus, ir nepieciešamas saknes lietotāja tiesības. "
 "Vai vēlaties turpināt?"
 
-#: core/job.cpp:270
+#: core/job.cpp:405
 #, kde-format
 msgid "Copy Files"
 msgstr "Kopēt datnes"
 
-#: core/job.cpp:272
+#: core/job.cpp:407
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
@@ -327,12 +340,12 @@ msgstr ""
 "Lai pabeigtu kopēšanu, ir nepieciešamas saknes lietotāja tiesības. Vai "
 "vēlaties turpināt?"
 
-#: core/job.cpp:276
+#: core/job.cpp:411
 #, kde-format
 msgid "Delete Files"
 msgstr "Dzēst datnes"
 
-#: core/job.cpp:278
+#: core/job.cpp:413
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -341,12 +354,12 @@ msgstr ""
 "Lai pabeigtu dzēšanu, ir nepieciešamas saknes lietotāja tiesības. Tomēr "
 "dzēšana ar šādām tiesībām var sabojāt sistēmu. Vai vēlaties turpināt?"
 
-#: core/job.cpp:282
+#: core/job.cpp:417
 #, kde-format
 msgid "Create Folder"
 msgstr "Izveidot mapi"
 
-#: core/job.cpp:284
+#: core/job.cpp:419
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
@@ -354,12 +367,12 @@ msgstr ""
 "Lai izveidotu šo mapi, ir nepieciešamas saknes lietotāja tiesības. Vai "
 "vēlaties turpināt?"
 
-#: core/job.cpp:288
+#: core/job.cpp:423
 #, kde-format
 msgid "Move Items"
 msgstr "Pārvietot vienumus"
 
-#: core/job.cpp:290
+#: core/job.cpp:425
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
@@ -368,12 +381,12 @@ msgstr ""
 "Lai pabeigtu pārvietošanu, ir nepieciešamas saknes lietotāja tiesības. Vai "
 "vēlaties turpināt?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "Pārdēvēt"
 
-#: core/job.cpp:296
+#: core/job.cpp:431
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
@@ -381,13 +394,13 @@ msgstr ""
 "Lai pabeigtu pārdēvēšanu, ir nepieciešamas saknes lietotāja tiesības. Vai "
 "vēlaties turpināt?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Izveidot simbolisko saiti"
 
-#: core/job.cpp:302
+#: core/job.cpp:437
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
@@ -395,12 +408,12 @@ msgstr ""
 "Lai izveidotu simbolisko saiti, ir nepieciešamas saknes lietotāja tiesības. "
 "Vai vēlaties turpināt?"
 
-#: core/job.cpp:306
+#: core/job.cpp:441
 #, kde-format
 msgid "Transfer data"
 msgstr "Pārsūta datus"
 
-#: core/job.cpp:308
+#: core/job.cpp:443
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2508,17 +2521,29 @@ msgstr "„%1“ protokols neatbalsta datņu atvēršanu."
 msgid "Protocol %1 does not support action %2."
 msgstr "„%1“ protokols neatbalsta darbību %2."
 
-#: core/worker.cpp:330
+#: core/worker.cpp:353
+#, kde-format
+msgctxt "@info %2 is a path"
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+"KIO strādnieka drošība darbam ar „%1“ protokolu, kas parasti lūdz "
+"paaugstinātas privilēģijas, šobrīd nav garantējama, jo tiesības rediģēt „%2“ "
+"ir sniegtas lietotājiem, kas nav saknes lietotāji."
+
+#: core/worker.cpp:380
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nezināms protokols — „%1“."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:391
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nevarēja atrast KIO strādnieku protokolam „%1“."
 
-#: core/worker.cpp:348
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2530,12 +2555,12 @@ msgstr ""
 "kas atrodas ārpus „%3“ un lūdz paaugstinātas tiesības, tiek uzskatīti par "
 "nedrošiem."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:410
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Nevarēja izveidot ligzdu, lai palaistu KIO strādnieku „%1“ protokolam."
 
-#: core/worker.cpp:400
+#: core/worker.cpp:450
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nevar atrast KIO strādnieku „%1“ protokolam"
@@ -3647,45 +3672,39 @@ msgstr ""
 "<qt>Šis ir datnes tipa atlasītājs. Tas ļauj norādīt saglabājamās datnes "
 "formātu.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:441
-#, kde-format
-msgctxt "@title:window"
-msgid "Create New File"
-msgstr "Izveidot jaunu datni"
-
-#: filewidgets/knewfilemenu.cpp:481
+#: filewidgets/knewfilemenu.cpp:486
 #, kde-format
 msgid "Sorry"
 msgstr "Atvainojiet"
 
-#: filewidgets/knewfilemenu.cpp:492
+#: filewidgets/knewfilemenu.cpp:497
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Veidnes datne <b>%1</b> nepastāv.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
 #, kde-format
 msgid "Name for new link:"
 msgstr "Jaunās saites nosaukums"
 
-#: filewidgets/knewfilemenu.cpp:707
+#: filewidgets/knewfilemenu.cpp:713
 #, kde-format
 msgid "Create link to URL"
 msgstr "Izveidot saiti uz URL"
 
-#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
+#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1068
+#: filewidgets/knewfilemenu.cpp:1074
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Ierakstiet „%1“ datnes nosaukumu:"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1173
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3695,7 +3714,7 @@ msgstr ""
 "Nosaukumu „<filename>%1</filename>“ nav atļauts izmantot, jo to ir "
 "rezervējusi operētājsistēma."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1181
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3705,7 +3724,7 @@ msgstr ""
 "Nosaukums „<filename>%1</filename>“ sākas ar punktu, kas nozīmē, ka datne "
 "pēc noklusējuma nebūs redzama."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3717,29 +3736,29 @@ msgstr ""
 "kārtojot alfabētiski, būs redzama pirms citiem vienumiem. Tomēr tas var "
 "novest arī pie citām dīvainībām."
 
-#: filewidgets/knewfilemenu.cpp:1201
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Slīpsvītru izmantošana mapju nosaukumā novedīs pie apakšmapju izveides, "
 "piemēram:"
 
-#: filewidgets/knewfilemenu.cpp:1211
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Slīpsvītru izmantošana mapju nosaukumos izveidos apakšmapes."
 
-#: filewidgets/knewfilemenu.cpp:1223
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Slīpsvītras nevar izmantot datņu un mapju nosaukumos."
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Apvērstās slīpsvītras nevar izmantot datņu un mapju nosaukumos."
 
-#: filewidgets/knewfilemenu.cpp:1241
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3749,7 +3768,7 @@ msgstr ""
 "Datnes vai mapes izveide ar nosaukumu <filename>%1</filename> nav iespējama, "
 "jo tā pārklātos ar lietotāja mājas mapi."
 
-#: filewidgets/knewfilemenu.cpp:1250
+#: filewidgets/knewfilemenu.cpp:1256
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3758,44 +3777,51 @@ msgstr ""
 "Nav ieteicams datņu un mapju nosaukumus sākt ar tildi, jo tas var būt "
 "mulsinoši vai bīstami, ja vienumu dzēšanai izmantojat termināli."
 
-#: filewidgets/knewfilemenu.cpp:1322
+#: filewidgets/knewfilemenu.cpp:1328
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mape ar nosaukumu „<filename>%1</filename>“ jau pastāv."
 
-#: filewidgets/knewfilemenu.cpp:1324
+#: filewidgets/knewfilemenu.cpp:1330
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Datne ar nosaukumu „<filename>%1</filename>“ jau pastāv."
 
-#: filewidgets/knewfilemenu.cpp:1410
+#: filewidgets/knewfilemenu.cpp:1416
 #, kde-format
 msgid "Create New"
 msgstr "Izveidot jaunu"
 
-#: filewidgets/knewfilemenu.cpp:1445
+#: filewidgets/knewfilemenu.cpp:1451
 #, kde-format
 msgid "Link to Device"
 msgstr "Saite uz ierīci"
 
-#: filewidgets/knewfilemenu.cpp:1491
+#: filewidgets/knewfilemenu.cpp:1497
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Jauna mape"
 
-#: filewidgets/knewfilemenu.cpp:1514
+#: filewidgets/knewfilemenu.cpp:1520
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Izveidot jaunu mapi"
 
-#: filewidgets/knewfilemenu.cpp:1516
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Izveidot jaunu mapi mapē „%1“"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
+#: filewidgets/knewfilemenu_newfiledialog.ui:20
+#, kde-format
+msgctxt "@title:window"
+msgid "Create New File"
+msgstr "Izveidot jaunu datni"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -7336,16 +7362,6 @@ msgstr "Ja neuzticaties šai programmai, spiediet „Atcelt“"
 
 #~ msgid "Files and folders selected"
 #~ msgstr "Atlasītas datnes un mapes"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "KIO strādnieka drošība darbam ar „%1“ protokolu, kas parasti lūdz "
-#~ "paaugstinātas privilēģijas, šobrīd nav garantējama, jo tiesības rediģēt "
-#~ "„%2“ ir sniegtas lietotājiem, kas nav saknes lietotāji."
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-05-05 00:38+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -47,7 +47,7 @@ msgstr "ไม่สามารถแก้ไขเจ้าของ ขอ�
 msgid "Unable to create KIO worker: %1"
 msgstr "ไม่สามารถสร้าง KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "ไม่สามารถสร้าง symlink %1 ได้\n"
 "ระบบไฟล์ปลายทาง (%2) ไม่รองรับ symlink"
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:181
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "ระบบไฟล์ปลายทาง (%2) ไม่อนุญาตให้ใช้ตัวอักษรต่อไปนี้ในชื่อโฟลเดอร์: %3\n"
 "การเลือกแทนที่จะแทนที่ตัวอักษรที่ไม่ถูกต้อง (ในชื่อโฟลเดอร์ปลายทาง) ด้วยเครื่องหมายขีดล่าง \"_\""
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:189
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,23 +85,36 @@ msgstr ""
 "ระบบไฟล์ปลายทาง (%2) ไม่อนุญาตให้ใช้ตัวอักษรต่อไปนี้ในชื่อไฟล์: %3\n"
 "การเลือกแทนที่จะแทนที่ตัวอักษรที่ไม่ถูกต้อง (ในชื่อไฟล์ปลายทาง) ด้วยเครื่องหมายขีดล่าง \"_\""
 
-#: core/copyjob.cpp:1395 core/job_error.cpp:585
+#: core/copyjob.cpp:750
+#, fuzzy, kde-format
+#| msgid "File Changed"
+msgctxt "Reason why standby is blocked"
+msgid "Files are being moved"
+msgstr "ชื่อเปลี่ยน"
+
+#: core/copyjob.cpp:752
+#, kde-format
+msgctxt "Reason why standby is blocked"
+msgid "Files are being copied"
+msgstr ""
+
+#: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "มีโฟลเดอร์นี้อยู่ก่อนแล้ว"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "มีแฟ้มนี้อยู่แล้ว"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "มีอยู่ก่อนแล้วโดยเป็นโฟลเดอร์"
 
-#: core/copyjob.cpp:1873 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ถังขยะ"
@@ -190,184 +203,184 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:97
+#: core/job.cpp:232
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "ทำการย้าย"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "ต้นทาง"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
 #: widgets/fileundomanager.cpp:143
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "ปลายทาง"
 
-#: core/job.cpp:105
+#: core/job.cpp:240
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "&เปลี่ยนชื่อ"
 
-#: core/job.cpp:113
+#: core/job.cpp:248
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "ทำสำเนา"
 
-#: core/job.cpp:121
+#: core/job.cpp:256
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "ทำการสร้างไดเรกทอรี"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "ไดเรกทอรี"
 
-#: core/job.cpp:128
+#: core/job.cpp:263
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "ทำการลบ"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "แฟ้ม"
 
-#: core/job.cpp:135
+#: core/job.cpp:270
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "ทำการตรวจสอบ"
 
-#: core/job.cpp:142
+#: core/job.cpp:277
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "ทำการถ่ายโอน"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "ทำการเมานท์"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgid "Device"
 msgstr "อุปกรณ์"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:284 core/job.cpp:289
 #, kde-format
 msgid "Mountpoint"
 msgstr "จุดเมานท์"
 
-#: core/job.cpp:154
+#: core/job.cpp:289
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "ยกเลิกการเมานท์"
 
-#: core/job.cpp:264
+#: core/job.cpp:399
 #, kde-format
 msgid "Change Attribute"
 msgstr "การเปลี่ยนแปลงคุณสมบัติ"
 
-#: core/job.cpp:266
+#: core/job.cpp:401
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะเปลี่ยนคุณสมบัติของไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:270
+#: core/job.cpp:405
 #, kde-format
 msgid "Copy Files"
 msgstr "คัดลอกไฟล์"
 
-#: core/job.cpp:272
+#: core/job.cpp:407
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะคัดลอกไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:276
+#: core/job.cpp:411
 #, kde-format
 msgid "Delete Files"
 msgstr "ลบแฟ้ม"
 
-#: core/job.cpp:278
+#: core/job.cpp:413
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะลบไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:282
+#: core/job.cpp:417
 #, kde-format
 msgid "Create Folder"
 msgstr "สร้างโฟลเดอร์"
 
-#: core/job.cpp:284
+#: core/job.cpp:419
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะสร้างโฟลเดอร์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:288
+#: core/job.cpp:423
 #, kde-format
 msgid "Move Items"
 msgstr "ย้ายรายการ"
 
-#: core/job.cpp:290
+#: core/job.cpp:425
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะเคลื่อนย้ายไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "เปลี่ยนชื่อ"
 
-#: core/job.cpp:296
+#: core/job.cpp:431
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะเปลี่ยนชื่อของไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "สร้างการเชื่อมโยงแบบสัญลักษณ์"
 
-#: core/job.cpp:302
+#: core/job.cpp:437
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะสร้าง symlink ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:306
+#: core/job.cpp:441
 #, kde-format
 msgid "Transfer data"
 msgstr "ถ่ายโอนข้อมูล"
 
-#: core/job.cpp:308
+#: core/job.cpp:443
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2421,17 +2434,28 @@ msgstr "ยังไม่รองรับการเปิดแฟ้มก
 msgid "Protocol %1 does not support action %2."
 msgstr "โพรโทคอล %1 ยังไม่รองรับการกระทำ %2"
 
-#: core/worker.cpp:330
+#: core/worker.cpp:353
+#, kde-format
+msgctxt "@info %2 is a path"
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+"ความปลอดภัยของ KIO worker สำหรับโปรโตคอล '%1' ซึ่งโดยทั่วไปจะขอสิทธิ์ขั้นสูง "
+"ไม่สามารถรับประกันได้เนื่องจากผู้ใช้ที่ไม่ใช่ root ที่มีสิทธิ์ในการแก้ไขที่ %2"
+
+#: core/worker.cpp:380
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "ไม่รู้จักโพรโทคอล '%1'"
 
-#: core/worker.cpp:341
+#: core/worker.cpp:391
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "ไม่พบ KIO worker สำหรับโพรโทคอล '%1'"
 
-#: core/worker.cpp:348
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2442,12 +2466,12 @@ msgstr ""
 "KIO worker สําหรับโปรโตคอล \"%1\" ใน %2 ไม่ได้ถูกโหลด เนื่องจาก KIO worker "
 "ทั้งหมดที่อยู่นอก %3 และขอสิทธิ์การใช้งานที่ยกระดับจะถือว่าไม่ปลอดภัย"
 
-#: core/worker.cpp:360
+#: core/worker.cpp:410
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "ไม่สามารถสร้างซ็อกเก็ตสำหรับการเปิดตัว KIO worker สำหรับโปรโตคอล '%1' ได้"
 
-#: core/worker.cpp:400
+#: core/worker.cpp:450
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "ไม่พบไฟล์ปฏิบัติการ 'kioworker' ที่ '%1'"
@@ -3532,45 +3556,39 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>นี่คือตัวเลือกประเภทไฟล์ ใช้เพื่อเลือกรูปแบบที่จะบันทึกไฟล์</qt>"
 
-#: filewidgets/knewfilemenu.cpp:441
-#, kde-format
-msgctxt "@title:window"
-msgid "Create New File"
-msgstr "สร้างไฟล์ใหม่"
-
-#: filewidgets/knewfilemenu.cpp:481
+#: filewidgets/knewfilemenu.cpp:486
 #, kde-format
 msgid "Sorry"
 msgstr "ขออภัย"
 
-#: filewidgets/knewfilemenu.cpp:492
+#: filewidgets/knewfilemenu.cpp:497
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ยังไม่มีแฟ้มแม่แบบ <b>%1</b> อยู่</qt>"
 
-#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
 #, kde-format
 msgid "Name for new link:"
 msgstr "ชื่อสำหรับลิงค์ใหม่:"
 
-#: filewidgets/knewfilemenu.cpp:707
+#: filewidgets/knewfilemenu.cpp:713
 #, kde-format
 msgid "Create link to URL"
 msgstr "สร้างลิงก์ไปยัง URL"
 
-#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
+#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1068
+#: filewidgets/knewfilemenu.cpp:1074
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1173
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3579,7 +3597,7 @@ msgid ""
 msgstr ""
 "ไม่สามารถใช้ชื่อ <filename>%1</filename> ได้เนื่องจากมีการสงวนไว้สำหรับใช้โดยระบบปฏิบัติการ"
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1181
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3587,7 +3605,7 @@ msgid ""
 "default."
 msgstr "ชื่อ <filename>%1</filename> ขึ้นต้นด้วยจุด ซึ่งจะทำให้ถูกซ่อนไปโดยปกติ"
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3599,27 +3617,27 @@ msgstr ""
 "ซึ่งจะทำให้ชื่อนั้นปรากฏก่อนรายการอื่นเมื่อจัดเรียงตามตัวอักษร นอกเหนือจากความแปลกประหลาดอื่นๆ "
 "ที่อาจเกิดขึ้น"
 
-#: filewidgets/knewfilemenu.cpp:1201
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อยดังนี้:"
 
-#: filewidgets/knewfilemenu.cpp:1211
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อย"
 
-#: filewidgets/knewfilemenu.cpp:1223
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้เครื่องหมายทับในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้แบ็กสแลชในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1241
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3629,7 +3647,7 @@ msgstr ""
 "การสร้างไฟล์หรือโฟลเดอร์ที่ชื่อ <filename>%1</filename> เป็นไปไม่ได้ "
 "เนื่องจากจะทับซ้อนกับตำแหน่งของโฟลเดอร์โฮมของผู้ใช้"
 
-#: filewidgets/knewfilemenu.cpp:1250
+#: filewidgets/knewfilemenu.cpp:1256
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3638,44 +3656,51 @@ msgstr ""
 "ไม่แนะนำให้เริ่มชื่อไฟล์หรือโฟลเดอร์ด้วยเครื่องหมายติลเดอ (~) "
 "เพราะอาจสร้างความสับสนหรืออันตรายได้เมื่อใช้เทอร์มินัลเพื่อลบข้อมูล"
 
-#: filewidgets/knewfilemenu.cpp:1322
+#: filewidgets/knewfilemenu.cpp:1328
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "มีรายการที่ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1324
+#: filewidgets/knewfilemenu.cpp:1330
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1410
+#: filewidgets/knewfilemenu.cpp:1416
 #, kde-format
 msgid "Create New"
 msgstr "สร้างใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1445
+#: filewidgets/knewfilemenu.cpp:1451
 #, kde-format
 msgid "Link to Device"
 msgstr "เชื่อมโยงไปยังอุปกรณ์"
 
-#: filewidgets/knewfilemenu.cpp:1491
+#: filewidgets/knewfilemenu.cpp:1497
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1514
+#: filewidgets/knewfilemenu.cpp:1520
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1516
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
+#: filewidgets/knewfilemenu_newfiledialog.ui:20
+#, kde-format
+msgctxt "@title:window"
+msgid "Create New File"
+msgstr "สร้างไฟล์ใหม่"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -7126,15 +7151,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 
 #~ msgid "Files and folders selected"
 #~ msgstr "แฟ้มและโฟลเดอร์ต่าง ๆ ที่เลือกไว้"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "ความปลอดภัยของ KIO worker สำหรับโปรโตคอล '%1' ซึ่งโดยทั่วไปจะขอสิทธิ์ขั้นสูง "
-#~ "ไม่สามารถรับประกันได้เนื่องจากผู้ใช้ที่ไม่ใช่ root ที่มีสิทธิ์ในการแก้ไขที่ %2"
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "

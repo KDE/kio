@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-05-05 00:38+0000\n"
 "PO-Revision-Date: 2025-04-15 23:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -60,7 +60,7 @@ msgstr ""
 "심볼릭 링크 \"%1\"을(를) 만들 수 없습니다.\n"
 "대상 파일 시스템(%2)에서 심볼릭 링크를 지원하지 않습니다."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:181
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -74,7 +74,7 @@ msgstr ""
 "바꾸기를 선택하면 (대상 폴더 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:189
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -88,23 +88,36 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1395 core/job_error.cpp:585
+#: core/copyjob.cpp:750
+#, fuzzy, kde-format
+#| msgid "File Changed"
+msgctxt "Reason why standby is blocked"
+msgid "Files are being moved"
+msgstr "파일 변경됨"
+
+#: core/copyjob.cpp:752
+#, kde-format
+msgctxt "Reason why standby is blocked"
+msgid "Files are being copied"
+msgstr ""
+
+#: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1719 core/copyjob.cpp:2424
+#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:1873 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
@@ -193,126 +206,126 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:97
+#: core/job.cpp:232
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "이동 중"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "원본"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
 #: widgets/fileundomanager.cpp:143
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "대상"
 
-#: core/job.cpp:105
+#: core/job.cpp:240
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "이름 바꾸는 중"
 
-#: core/job.cpp:113
+#: core/job.cpp:248
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "복사 중"
 
-#: core/job.cpp:121
+#: core/job.cpp:256
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:137
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "디렉터리"
 
-#: core/job.cpp:128
+#: core/job.cpp:263
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "파일"
 
-#: core/job.cpp:135
+#: core/job.cpp:270
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "검사 중"
 
-#: core/job.cpp:142
+#: core/job.cpp:277
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "전송 중"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "마운트 중"
 
-#: core/job.cpp:149
+#: core/job.cpp:284
 #, kde-format
 msgid "Device"
 msgstr "장치"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:284 core/job.cpp:289
 #, kde-format
 msgid "Mountpoint"
 msgstr "마운트 지점"
 
-#: core/job.cpp:154
+#: core/job.cpp:289
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "마운트 해제 중"
 
-#: core/job.cpp:264
+#: core/job.cpp:399
 #, kde-format
 msgid "Change Attribute"
 msgstr "속성 변경"
 
-#: core/job.cpp:266
+#: core/job.cpp:401
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr "파일 속성을 변경하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:270
+#: core/job.cpp:405
 #, kde-format
 msgid "Copy Files"
 msgstr "파일 복사"
 
-#: core/job.cpp:272
+#: core/job.cpp:407
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr "복사 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:276
+#: core/job.cpp:411
 #, kde-format
 msgid "Delete Files"
 msgstr "파일 지우기"
 
-#: core/job.cpp:278
+#: core/job.cpp:413
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -321,59 +334,59 @@ msgstr ""
 "삭제 작업을 진행하려면 루트 권한이 필요하지만 시스템을 망가트릴 수 있습니다. "
 "계속 진행하시겠습니까?"
 
-#: core/job.cpp:282
+#: core/job.cpp:417
 #, kde-format
 msgid "Create Folder"
 msgstr "폴더 만들기"
 
-#: core/job.cpp:284
+#: core/job.cpp:419
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr "폴더를 만들려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:288
+#: core/job.cpp:423
 #, kde-format
 msgid "Move Items"
 msgstr "항목 이동"
 
-#: core/job.cpp:290
+#: core/job.cpp:425
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr "이동 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "이름 변경"
 
-#: core/job.cpp:296
+#: core/job.cpp:431
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "이름을 바꾸려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:641
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "심볼릭 링크 만들기"
 
-#: core/job.cpp:302
+#: core/job.cpp:437
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 "심볼릭 링크를 만들하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job.cpp:306
+#: core/job.cpp:441
 #, kde-format
 msgid "Transfer data"
 msgstr "데이터 전송"
 
-#: core/job.cpp:308
+#: core/job.cpp:443
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2440,17 +2453,28 @@ msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
 
-#: core/worker.cpp:330
+#: core/worker.cpp:353
+#, kde-format
+msgctxt "@info %2 is a path"
+msgid ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
+msgstr ""
+"'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아닌 "
+"다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
+
+#: core/worker.cpp:380
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:391
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:348
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2461,12 +2485,12 @@ msgstr ""
 "%2에 있는 \"%1\" 플러그인의 KIO 워커를 불러오지 않았습니다. KIO 워커가 %3 경"
 "로 외부에 있고 상승된 권한을 요청한다면 안전하지 않은 것으로 간주합니다."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:410
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:400
+#: core/worker.cpp:450
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -3550,45 +3574,39 @@ msgid ""
 msgstr ""
 "<qt>파일 형식 선택기입니다. 표시할 파일 형식을 선택할 수 있습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:441
-#, kde-format
-msgctxt "@title:window"
-msgid "Create New File"
-msgstr "새 파일 만들기"
-
-#: filewidgets/knewfilemenu.cpp:481
+#: filewidgets/knewfilemenu.cpp:486
 #, kde-format
 msgid "Sorry"
 msgstr "죄송합니다"
 
-#: filewidgets/knewfilemenu.cpp:492
+#: filewidgets/knewfilemenu.cpp:497
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:638 filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
 #, kde-format
 msgid "Name for new link:"
 msgstr "새 링크 이름:"
 
-#: filewidgets/knewfilemenu.cpp:707
+#: filewidgets/knewfilemenu.cpp:713
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL로 향한 링크 만들기"
 
-#: filewidgets/knewfilemenu.cpp:748 filewidgets/knewfilemenu.cpp:803
+#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1068
+#: filewidgets/knewfilemenu.cpp:1074
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 파일 이름 입력:"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1173
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3598,7 +3616,7 @@ msgstr ""
 "<filename>%1</filename> 이름을 사용할 수 없습니다. 운영 체제에서 예약된 이름"
 "입니다."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1181
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3607,7 +3625,7 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> 이름이 점으로 시작하므로 기본적으로 숨겨집니다."
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3618,27 +3636,27 @@ msgstr ""
 "<filename>%1</filename> 이름이 공백으로 시작합니다. 가나다순으로 정렬했을 때 "
 "다른 항목보다 더 먼저 표시될 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1201
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "폴더 이름에 슬래시를 사용하면 다음과 같이 하위 폴더가 생성됨:"
 
-#: filewidgets/knewfilemenu.cpp:1211
+#: filewidgets/knewfilemenu.cpp:1217
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "폴더 이름에 슬래시를 사용하면 하위 폴더가 생성됩니다."
 
-#: filewidgets/knewfilemenu.cpp:1223
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 백슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1241
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3648,7 +3666,7 @@ msgstr ""
 "이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다. 사용자의 홈 폴더 위"
 "치와 겹칠 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1250
+#: filewidgets/knewfilemenu.cpp:1256
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3657,44 +3675,51 @@ msgstr ""
 "파일이나 폴더 이름을 물결표(~)로 시작하는 것은 추천하지 않습니다. 혼동할 가능"
 "성이 있으며 터미널에서 항목을 삭제할 때 위험할 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1322
+#: filewidgets/knewfilemenu.cpp:1328
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 디렉터리가 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1324
+#: filewidgets/knewfilemenu.cpp:1330
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 파일이 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1410
+#: filewidgets/knewfilemenu.cpp:1416
 #, kde-format
 msgid "Create New"
 msgstr "새로 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1445
+#: filewidgets/knewfilemenu.cpp:1451
 #, kde-format
 msgid "Link to Device"
 msgstr "장치로 향한 링크"
 
-#: filewidgets/knewfilemenu.cpp:1491
+#: filewidgets/knewfilemenu.cpp:1497
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: filewidgets/knewfilemenu.cpp:1514
+#: filewidgets/knewfilemenu.cpp:1520
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1516
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
+#: filewidgets/knewfilemenu_newfiledialog.ui:20
+#, kde-format
+msgctxt "@title:window"
+msgid "Create New File"
+msgstr "새 파일 만들기"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -7165,15 +7190,6 @@ msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오
 
 #~ msgid "Files and folders selected"
 #~ msgstr "파일과 폴더 선택됨"
-
-#~ msgctxt "@info %2 is a path"
-#~ msgid ""
-#~ "The security of the KIO worker for protocol ’%1’, which typically asks "
-#~ "for elevated permissions, can not be guaranteed because users other than "
-#~ "root have permission to modify it at %2."
-#~ msgstr ""
-#~ "'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아"
-#~ "닌 다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
 
 #~ msgid ""
 #~ "Although contact was made with the server, a response was not received "
