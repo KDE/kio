@@ -144,7 +144,6 @@ bool KFileItemListProperties::supportsWriting() const
 
 bool KFileItemListProperties::supportsMoving() const
 {
-    qWarning() << "move" << d->m_supportsMoving << KProtocolManager::supportsMoving(d->m_items.first().url());
     return d->m_supportsMoving && d->m_supportsDeleting;
 }
 
