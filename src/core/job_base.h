@@ -65,6 +65,7 @@ public:
 
     /*!
      * Sets the UI delegate extension to be used by this job.
+     *
      * The default UI delegate extension is KIO::defaultJobUiDelegateExtension()
      */
     void setUiDelegateExtension(JobUiDelegateExtension *extension);
@@ -72,20 +73,20 @@ public:
 protected:
     /*!
      * Abort this job.
-     * This kills all subjobs and deletes the job.
      *
+     * This kills all subjobs and deletes the job.
      */
     bool doKill() override;
 
     /*!
      * Suspend this job
-     * \sa resume
+     * \sa resume()
      */
     bool doSuspend() override;
 
     /*!
      * Resume this job
-     * \sa suspend
+     * \sa suspend()
      */
     bool doResume() override;
 

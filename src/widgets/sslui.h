@@ -16,6 +16,7 @@ namespace KIO
 /*!
  * \namespace KIO::SslUi
  * \inheaderfile KIO/SslUi
+ * \inmodule KIOWidgets
  * \brief UI methods for handling SSL errors.
  */
 namespace SslUi

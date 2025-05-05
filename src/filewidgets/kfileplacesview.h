@@ -47,7 +47,7 @@ public:
     using TeardownFunction = std::function<void(const QModelIndex &)>;
 
     /*!
-     * Whether hidden places, if any, are currently shown.
+     * Returns whether hidden places, if any, are currently shown.
      * \since 5.91
      */
     bool allPlacesShown() const;

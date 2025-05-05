@@ -165,7 +165,7 @@ public:
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
      * and KUrlNavigator::historyChanged() are emitted.
      *
-     * \sa KUrlNavigator::setHomeUrl()
+     * \sa setHomeUrl()
      */
     void goHome();
 
@@ -226,7 +226,7 @@ public:
 
     /*!
      * Returns \c true, if the URL navigator is in the active mode.
-     * \sa KUrlNavigator::setActive()
+     * \sa setActive()
      */
     bool isActive() const;
 
@@ -376,7 +376,7 @@ public Q_SLOTS:
     /*!
      * Activates the URL navigator (KUrlNavigator::isActive() will return true)
      * and emits the signal KUrlNavigator::activated().
-     * \sa KUrlNavigator::setActive()
+     * \sa setActive()
      */
     void requestActivation();
 
@@ -387,14 +387,14 @@ Q_SIGNALS:
     /*!
      * Is emitted, if the URL navigator has been activated by
      * an user interaction
-     * \sa KUrlNavigator::setActive()
+     * \sa setActive()
      */
     void activated();
 
     /*!
      * Is emitted, if the location URL has been changed e. g. by
      * the user.
-     * \sa KUrlNavigator::setUrl()
+     * \sa setUrl()
      */
     void urlChanged(const QUrl &url);
 

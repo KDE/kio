@@ -157,7 +157,8 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * \relates KIO::StatJob
  *
  * Find all details for one file or directory.
- * This version of the call includes two additional booleans, \a sideIsSource and \a details.
+ *
+ * This version includes two additional parameters, \a side and \a details.
  *
  * \a url the URL of the file
  *

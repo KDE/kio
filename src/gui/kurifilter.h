@@ -576,24 +576,8 @@ public:
      */
     void setSearchFilteringOptions(SearchFilterOptions options);
 
-    /*!
-     * Overloaded assignment operator.
-     *
-     * This function allows you to easily assign a QUrl
-     * to a KUriFilterData object.
-     *
-     * Returns an instance of a KUriFilterData object.
-     */
     KUriFilterData &operator=(const QUrl &url);
 
-    /*!
-     * Overloaded assignment operator.
-     *
-     * This function allows you to easily assign a QString to a KUriFilterData
-     * object.
-     *
-     * Returns an instance of a KUriFilterData object.
-     */
     KUriFilterData &operator=(const QString &url);
 
 private:

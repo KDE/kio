@@ -125,8 +125,7 @@ protected:
  *
  * \a flags Can be HideProgressInfo here
  *
- * \a includeHidden true for all files, false to cull out UNIX hidden
- *                      files/dirs (whose names start with dot)
+ * \a listFlags Can be used to control whether hidden files are included
  *
  * Returns the job handling the operation.
  */
@@ -145,8 +144,7 @@ KIOCORE_EXPORT ListJob *listDir(const QUrl &url, JobFlags flags = DefaultFlags, 
  *
  * \a flags Can be HideProgressInfo here
  *
- * \a includeHidden true for all files, false to cull out UNIX hidden
- *                      files/dirs (whose names start with dot)
+ * \a listFlags Can be used to control whether hidden files are included
  *
  * Returns the job handling the operation.
  */

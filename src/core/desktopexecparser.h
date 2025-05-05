@@ -76,7 +76,7 @@ public:
     QString errorMessage() const;
 
     /*!
-     * Returns the list of protocols which the application supports.
+     * Returns the list of protocols which the application \a service supports.
      * This can be a list of actual protocol names, or just "KIO" for KIO-based apps.
      */
     static QStringList supportedProtocols(const KService &service);

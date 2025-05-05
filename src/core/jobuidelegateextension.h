@@ -78,6 +78,8 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(SkipDialog_Options)
  * \value Result_Resume
  * \value Result_Rename
  * \value Result_Retry
+ * \value Result_ResumeAll
+ * \value Result_AutoRename
  * \value [since 5.77] Result_OverwriteWhenOlder Can be returned only when multiple files are passed, Option overwrite is passed and files modification times
  * are valid
  * \value [since 5.86] Result_ReplaceInvalidChars Can be returned if the user selects to replace any character disallowed by the destination filesystem with an

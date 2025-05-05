@@ -83,7 +83,6 @@ public:
      *
      * Call this method right after instantiating KFileWidget.
      *
-     * \sa operationMode
      * \sa KFileWidget::OperationMode
      */
     void setOperationMode(KFileWidget::OperationMode op);

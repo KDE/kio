@@ -480,7 +480,8 @@ public:
      * \a which the timestamp
      *
      * Returns the time asked for, QDateTime() if not available
-     * \a timeString()
+     *
+     * \sa timeString()
      */
     Q_INVOKABLE QDateTime time(KFileItem::FileTimes which) const;
 
@@ -491,7 +492,8 @@ public:
      * \a which the timestamp
      *
      * Returns a formatted string of the requested time.
-     * \a time
+     *
+     * \sa time()
      */
     Q_INVOKABLE QString timeString(KFileItem::FileTimes which = ModificationTime) const;
 

@@ -26,7 +26,7 @@ namespace KIO
 
 // Definition of enum Command has been moved to global.h
 
-/*!
+/*
  * Identifiers for KIO informational messages.
  */
 enum Info {
@@ -47,7 +47,7 @@ enum Info {
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
-/*!
+/*
  * Identifiers for KIO data messages.
  */
 enum Message {

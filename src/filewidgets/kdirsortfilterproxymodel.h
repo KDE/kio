@@ -83,6 +83,7 @@ public:
      * \since 5.95
      */
     void setSortHiddenFilesLast(bool hiddenFilesLast);
+
     /*!
      *
      */

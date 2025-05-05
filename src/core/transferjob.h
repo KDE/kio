@@ -247,7 +247,8 @@ KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, Job
  * \a permissions May be -1. In this case no special permission mode is set.
  *
  * \a flags Can be HideProgressInfo, Overwrite and Resume here.
- * WARNING: Setting Resume means that the data will be appended to \a dest if \a dest exists.
+ *
+ * \warning Setting Resume means that the data will be appended to \a dest if \a dest exists.
  *
  * Returns the job handling the operation.
  */
@@ -266,13 +267,13 @@ KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags
  *
  * \a postData is the data that you want to send and
  *
- * \a contentType is the complete HTTP header line that
+ * \c contentType is the complete HTTP header line that
  * specifies the content's MIME type, for example
  * "Content-Type: text/xml".
  *
  * You MUST specify content-type!
  *
- * Often \a contentType is
+ * Often \c contentType is
  * "Content-Type: application/x-www-form-urlencoded" and
  * the \a postData is then an ASCII string (without null-termination!)
  * with characters like space, linefeed and percent escaped like %20,

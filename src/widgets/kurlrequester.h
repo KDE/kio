@@ -165,14 +165,14 @@ public:
     QFileDialog::AcceptMode acceptMode() const;
 
     /*!
-     * Sets the filters for the file dialog.
+     * Sets the name \a filters for the file dialog.
      * \sa QFileDialog::setNameFilters()
      * \since 5.108
      */
     void setNameFilters(const QStringList &filters);
 
     /*!
-     * Sets the filters for the file dialog.
+     * Sets the name \a filter for the file dialog.
      * \sa QFileDialog::setNameFilter()
      * \since 5.108
      */

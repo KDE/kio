@@ -89,7 +89,7 @@ public:
     void setIgnoreMaximumSize(bool ignoreSize = true);
 
     /*!
-     * Sets the sequence index given to the thumb creators.
+     * Sets the sequence \a index given to the thumb creators.
      * Use the sequence index, it is possible to create alternative
      * icons for the same item. For example it may allow iterating through
      * the items of a directory, or the frames of a video.

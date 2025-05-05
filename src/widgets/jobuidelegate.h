@@ -95,7 +95,7 @@ public:
      *
      * \a deletionType the type of deletion (Delete for real deletion, Trash otherwise)
      *
-     * \a confirmation see ConfirmationType. Normally set to DefaultConfirmation.
+     * \a confirmationType see ConfirmationType. Normally set to DefaultConfirmation.
      *
      * \note The window passed to setWindow is used as the parent for the message box.
      *
