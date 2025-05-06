@@ -26,16 +26,19 @@
 #include <kprotocolmanager.h>
 #include <kurifilter.h>
 
+#include <KCollapsibleGroupBox>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KDirOperator>
 #include <KDirWatch>
 #include <KFileUtils>
+#include <KIconDialog>
 #include <KIconLoader>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
+#include <KSharedConfig>
 #include <KShell>
 
 #include <QActionGroup>
@@ -43,6 +46,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QDir>
+#include <QFontDatabase>
 #include <QLabel>
 #include <QLineEdit>
 #include <QList>
@@ -76,6 +80,22 @@ static QString expandTilde(const QString &name, bool isfile = false)
 
     // If a tilde mark cannot be properly expanded, KShell::tildeExpand returns an empty string
     return !expandedName.isEmpty() ? expandedName : name;
+}
+
+static bool isDefaultFolderIcon(const QString &iconName)
+{
+    return iconName.isEmpty() || iconName == QLatin1String("folder") || iconName == QLatin1String("inode-directory");
+}
+
+static bool canPickFolderIcon(const QUrl &url)
+{
+    // TODO mostLocalUrl? But that would mean stat'ing when opening the dialog as opposed to only when accepting.
+    return url.isLocalFile() || KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local");
+}
+
+static KConfigGroup stateConfig()
+{
+    return KConfigGroup(KSharedConfig::openStateConfig(), QStringLiteral("New File Menu"));
 }
 
 // Singleton, with data shared by all KNewFileMenu instances
@@ -377,6 +397,11 @@ public:
     QLabel *m_label = nullptr;
     QLabel *m_iconLabel = nullptr;
     QLineEdit *m_lineEdit = nullptr;
+    KCollapsibleGroupBox *m_chooseIconBox = nullptr;
+    QGridLayout *m_folderIconGrid = nullptr;
+    // Exclusive QButtonGroup doesn't allow no button be checked...
+    QActionGroup *m_iconGroup = nullptr;
+    QPushButton *m_chooseIconButton = nullptr;
     QDialogButtonBox *m_buttonBox = nullptr;
 
     // This is used to allow _k_slotTextChanged to know whether it's being used to
@@ -453,9 +478,15 @@ void KNewFileMenuPrivate::initDialog()
     m_label = ui.label;
     m_iconLabel = ui.iconLabel;
     m_lineEdit = ui.lineEdit;
+    m_chooseIconBox = ui.chooseIconBox;
+    m_folderIconGrid = ui.folderIconGrid;
     m_buttonBox = ui.buttonBox;
+    m_chooseIconButton = ui.chooseIconButton;
+
+    ui.iconHintLabel->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
 
     m_iconLabel->hide();
+    m_chooseIconBox->hide();
     m_messageWidget->hide();
 
     QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {
@@ -470,6 +501,7 @@ void KNewFileMenuPrivate::initDialog()
 
 void KNewFileMenuPrivate::setIcon(const QIcon &icon)
 {
+    m_iconLabel->setProperty("iconName", icon.name());
     if (!icon.isNull()) {
         const QSize iconSize{KIconLoader::SizeHuge, KIconLoader::SizeHuge};
         m_iconLabel->setPixmap(icon.pixmap(iconSize, m_fileDialog->devicePixelRatioF()));
@@ -956,6 +988,21 @@ void KNewFileMenuPrivate::slotCreateDirectory()
         KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkdir, QList<QUrl>(), url, job);
     }
     job->setProperty("newDirectoryURL", url);
+    if (canPickFolderIcon(url)) {
+        KConfigGroup cfg = stateConfig();
+        cfg.writeEntry("ShowFolderIconPicker", m_chooseIconBox->isExpanded());
+
+        const QString customIconName = m_iconLabel->property("iconName").toString();
+        if (!isDefaultFolderIcon(customIconName)) {
+            job->setProperty("newDirectoryIconName", customIconName);
+
+            QStringList icons = cfg.readEntry("FolderIcons", QStringList());
+            // Move to the end of the list.
+            icons.removeOne(customIconName);
+            icons.append(customIconName);
+            cfg.writeEntry("FolderIcons", icons);
+        }
+    }
     job->uiDelegate()->setAutoErrorHandlingEnabled(true);
     KJobWidgets::setWindow(job, m_parentWidget);
 
@@ -1523,7 +1570,119 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
     m_lineEdit->setText(name);
 
-    setIcon(QIcon::fromTheme(QStringLiteral("inode-directory")));
+    const QString defaultFolderIconName = QStringLiteral("inode-directory");
+    setIcon(QIcon::fromTheme(defaultFolderIconName));
+
+    if (canPickFolderIcon(m_baseUrl)) {
+        m_iconGroup = new QActionGroup{m_fileDialog};
+        m_iconGroup->setExclusionPolicy(QActionGroup::ExclusionPolicy::ExclusiveOptional);
+
+        static constexpr int s_folderIconsCount = 2 * 10 - 1; // default icon is always added.
+
+        int x = 0;
+        int y = 0;
+        QStringList icons = {// colors.
+                             // default folder icon goes here.
+                             QStringLiteral("folder-red"),
+                             QStringLiteral("folder-yellow"),
+                             QStringLiteral("folder-orange"),
+                             QStringLiteral("folder-green"),
+                             QStringLiteral("folder-cyan"),
+                             QStringLiteral("folder-blue"),
+                             QStringLiteral("folder-violet"),
+                             QStringLiteral("folder-brown"),
+                             QStringLiteral("folder-grey"),
+                             // emblems.
+                             QStringLiteral("folder-bookmark"),
+                             QStringLiteral("folder-cloud"),
+                             QStringLiteral("folder-development"),
+                             QStringLiteral("folder-games"),
+                             QStringLiteral("folder-mail"),
+                             QStringLiteral("folder-music"),
+                             QStringLiteral("folder-print"),
+                             QStringLiteral("folder-tar"),
+                             QStringLiteral("folder-temp"),
+                             QStringLiteral("folder-important")};
+
+        const QStringList storedFolderIcons = stateConfig().readEntry(QStringLiteral("FolderIcons"), QStringList());
+        for (const QString &icon : storedFolderIcons) {
+            if (!icons.contains(icon)) {
+                icons.append(icon);
+            }
+        }
+
+        while (icons.size() > s_folderIconsCount) {
+            icons.removeFirst();
+        }
+
+        icons.prepend(defaultFolderIconName);
+
+        for (const QString &icon : icons) {
+            const bool isFirstButton = (x == 0 && y == 0);
+
+            auto *action = new QAction{m_iconGroup};
+            action->setIcon(QIcon::fromTheme(icon));
+
+            const QString displayName = isFirstButton ? i18n("Default") : icon;
+            action->setToolTip(displayName);
+            action->setCheckable(true);
+            action->setChecked(isFirstButton);
+
+            auto *button = new QToolButton{m_fileDialog};
+            button->setDefaultAction(action);
+            button->setToolButtonStyle(Qt::ToolButtonIconOnly);
+            button->setIconSize(QSize(KIconLoader::SizeMedium, KIconLoader::SizeMedium));
+
+            m_folderIconGrid->addWidget(button, y, x++);
+            if (x == icons.size() / 2) {
+                x = 0;
+                ++y;
+            }
+        }
+
+        // TODO fix tab order...
+
+        QObject::connect(m_iconGroup, &QActionGroup::triggered, q, [this](QAction *action) {
+            setIcon(action->icon());
+            // We need ExclusiveOptional so that custom icon can have no button checked
+            // but we never want the user uncheck a button manually.
+            action->setChecked(true);
+        });
+        QObject::connect(m_chooseIconButton, &QPushButton::clicked, q, [this] {
+            KIconDialog dialog{m_fileDialog};
+            dialog.setup(KIconLoader::Desktop, KIconLoader::Place);
+            const QString currentIconName = m_iconLabel->property("iconName").toString();
+            if (!isDefaultFolderIcon(currentIconName)) {
+                dialog.setSelectedIcon(currentIconName);
+            }
+            const QString iconName = dialog.openDialog();
+            if (iconName.isEmpty()) {
+                return;
+            }
+
+            if (isDefaultFolderIcon(iconName)) {
+                m_iconGroup->actions().first()->setChecked(true);
+            } else {
+                const auto actions = m_iconGroup->actions();
+                for (auto *action : actions) {
+                    // No break so none are checked when no preset was found.
+                    action->setChecked(action->icon().name() == iconName);
+                }
+            }
+
+            // setChecked does not emit triggered, update the icon manually.
+            if (m_iconGroup->checkedAction()) {
+                setIcon(m_iconGroup->checkedAction()->icon());
+            } else {
+                setIcon(QIcon::fromTheme(iconName));
+            }
+        });
+
+        if (stateConfig().readEntry("ShowFolderIconPicker", false)) {
+            m_chooseIconBox->setExpanded(true);
+        }
+        m_chooseIconBox->show();
+    }
 
     m_creatingDirectory = true;
     _k_slotTextChanged(name); // have to save string in m_text in case user does not touch dialog
@@ -1613,6 +1772,14 @@ void KNewFileMenu::slotResult(KJob *job)
         // Was this a copy or a mkdir?
         if (job->property("newDirectoryURL").isValid()) {
             QUrl newDirectoryURL = job->property("newDirectoryURL").toUrl();
+            const QString newDirectoryIconName = job->property("newDirectoryIconName").toString();
+
+            // Apply custom folder icon, if applicable.
+            if (!isDefaultFolderIcon(newDirectoryIconName)) {
+                const QUrl localUrl = d->mostLocalUrl(newDirectoryURL);
+                KDesktopFile desktopFile{localUrl.toLocalFile() + QLatin1String("/.directory")};
+                desktopFile.desktopGroup().writeEntry(QStringLiteral("Icon"), newDirectoryIconName);
+            }
             Q_EMIT directoryCreated(newDirectoryURL);
         } else {
             KIO::CopyJob *copyJob = ::qobject_cast<KIO::CopyJob *>(job);

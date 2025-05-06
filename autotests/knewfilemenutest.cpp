@@ -7,6 +7,9 @@
 
 #include <QTest>
 
+#include <KCollapsibleGroupBox>
+#include <KConfigGroup>
+#include <KDesktopFile>
 #include <KIO/StoredTransferJob>
 #include <KMessageWidget>
 #include <KShell>
@@ -17,6 +20,9 @@
 #include <knewfilemenu.h>
 #include <kpropertiesdialog.h>
 
+#include <QFileInfo>
+#include <QGridLayout>
+#include <QLabel>
 #include <QPushButton>
 #include <QSignalSpy>
 #include <QStandardPaths>
@@ -92,6 +98,7 @@ private Q_SLOTS:
     {
         QFile::remove(m_xdgConfigDir + "/user-dirs.dirs");
         QDir(m_xdgConfigDir + "/test-templates").removeRecursively();
+        QFile::remove(QStandardPaths::writableLocation(QStandardPaths::GenericStateLocation) + "/knewfilemenuteststaterc");
     }
 
     void openActionText(KNewFileMenu *menu, const QString actionText)
@@ -395,6 +402,138 @@ private Q_SLOTS:
         QCOMPARE(okButton->isEnabled(), filenameAllowed);
         cancelButton->click();
     }
+
+    void testNoCustomIconOnFile()
+    {
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(false);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
+        menu.checkUpToDate();
+
+        openActionText(&menu, QStringLiteral("Text File"));
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        KCollapsibleGroupBox *chooseIconBox = dialog->findChild<KCollapsibleGroupBox *>();
+        QVERIFY(chooseIconBox);
+        QVERIFY(!chooseIconBox->isVisibleTo(dialog));
+        QVERIFY(!chooseIconBox->isExpanded());
+    }
+
+    void testFolderIconCollection_data()
+    {
+        QTest::addColumn<int>("buttonIndex");
+        QTest::addColumn<QString>("iconName");
+        QTest::addColumn<bool>("expectsIcon");
+
+        QTest::newRow("default") << 0 << QStringLiteral("inode-directory") << false;
+        QTest::newRow("red") << 1 << QStringLiteral("folder-red") << true;
+        QTest::newRow("yellow") << 2 << QStringLiteral("folder-yellow") << true;
+        QTest::newRow("orange") << 3 << QStringLiteral("folder-orange") << true;
+        QTest::newRow("green") << 4 << QStringLiteral("folder-green") << true;
+        QTest::newRow("cyan") << 5 << QStringLiteral("folder-cyan") << true;
+        QTest::newRow("blue") << 6 << QStringLiteral("folder-blue") << true;
+        QTest::newRow("violet") << 7 << QStringLiteral("folder-violet") << true;
+        QTest::newRow("brown") << 8 << QStringLiteral("folder-brown") << true;
+        QTest::newRow("grey") << 9 << QStringLiteral("folder-grey") << true;
+
+        QTest::newRow("bookmark") << 10 << QStringLiteral("folder-bookmark") << true;
+        QTest::newRow("cloud") << 11 << QStringLiteral("folder-cloud") << true;
+        QTest::newRow("development") << 12 << QStringLiteral("folder-development") << true;
+        QTest::newRow("games") << 13 << QStringLiteral("folder-games") << true;
+        QTest::newRow("mail") << 14 << QStringLiteral("folder-mail") << true;
+        QTest::newRow("music") << 15 << QStringLiteral("folder-music") << true;
+        QTest::newRow("print") << 16 << QStringLiteral("folder-print") << true;
+        QTest::newRow("tar") << 17 << QStringLiteral("folder-tar") << true;
+        QTest::newRow("temp") << 18 << QStringLiteral("folder-temp") << true;
+        QTest::newRow("important") << 19 << QStringLiteral("folder-important") << true;
+    }
+
+    void testFolderIconCollection()
+    {
+        QFETCH(int, buttonIndex);
+        QFETCH(QString, iconName);
+        QFETCH(bool, expectsIcon);
+
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(false);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
+        menu.checkUpToDate();
+
+        openActionText(&menu, QStringLiteral("Folder..."));
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        KCollapsibleGroupBox *chooseIconBox = dialog->findChild<KCollapsibleGroupBox *>();
+        QVERIFY(chooseIconBox);
+        QVERIFY(chooseIconBox->isVisibleTo(dialog));
+
+        // It should remember that it was expanded.
+        if (buttonIndex == 0) {
+            QVERIFY(!chooseIconBox->isExpanded());
+        } else {
+            QVERIFY(chooseIconBox->isExpanded());
+        }
+
+        chooseIconBox->setExpanded(true);
+
+        QGridLayout *folderIconGrid = chooseIconBox->findChild<QGridLayout *>();
+        QVERIFY(folderIconGrid);
+        QCOMPARE(folderIconGrid->count(), 20);
+
+        QLabel *iconLabel = dialog->findChild<QLabel *>("iconLabel");
+        QVERIFY(iconLabel);
+
+        const QString defaultFolderIconName = QStringLiteral("inode-directory");
+        QCOMPARE(iconLabel->property("iconName").toString(), defaultFolderIconName);
+
+        QToolButton *firstIconButton = qobject_cast<QToolButton *>(folderIconGrid->itemAt(0)->widget());
+        QVERIFY(firstIconButton);
+        QCOMPARE(firstIconButton->icon().name(), defaultFolderIconName);
+        QVERIFY(firstIconButton->isChecked());
+
+        QToolButton *button = qobject_cast<QToolButton *>(folderIconGrid->itemAt(buttonIndex)->widget());
+        QVERIFY(button);
+        QCOMPARE(button->icon().name(), iconName);
+
+        button->click();
+        QVERIFY(button->isChecked());
+        QCOMPARE(iconLabel->property("iconName").toString(), iconName);
+
+        QDialogButtonBox *buttonsList = dialog->findChild<QDialogButtonBox *>();
+        QVERIFY(buttonsList);
+        auto okButton = buttonsList->button(QDialogButtonBox::Ok);
+        QVERIFY(okButton);
+
+        QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
+        okButton->click();
+
+        QVERIFY(folderSpy.wait(1000));
+        QUrl emittedUrl = folderSpy.at(0).at(0).toUrl();
+
+        const QString desktopPath = emittedUrl.toLocalFile() + QLatin1String("/.directory");
+        QCOMPARE(QFileInfo::exists(desktopPath), expectsIcon);
+
+        if (expectsIcon) {
+            KDesktopFile desktopFile{desktopPath};
+            QCOMPARE(desktopFile.readIcon(), iconName);
+        }
+    }
+
+    // TODO test custom folder icon and that it remembers it.
+    // But that needs access to KNewFileMenuPrivate and therefore a bit of shuffling of files and classes.
 
 private:
     QTemporaryDir m_tmpDir;
