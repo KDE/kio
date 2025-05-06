@@ -11,6 +11,7 @@
 #include "job_p.h"
 
 #include <QMimeDatabase>
+#include <QRegularExpression>
 #include <QTimer>
 
 #include <KLocalizedString>
@@ -171,34 +172,80 @@ void BatchRenameJob::slotResult(KJob *job)
     d->slotStart();
 }
 
-BatchRenameJob *KIO::batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, KIO::JobFlags flags)
+BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newName, int index, QChar placeHolder, KIO::JobFlags flags)
 {
-    std::function<QString(const QStringView view, int index)> function = [newName, placeHolder](const QStringView view, int index) {
-        Q_UNUSED(view);
-
-        auto output = QString(newName);
-        QString indexString = QString::number(index);
-        // Insert leading zeros if necessary
-        int minIndexLength = output.count(placeHolder);
-        if (minIndexLength == 0) {
-            // Append #
-            output += QLatin1Char('#');
-            minIndexLength = 1;
+    bool allExtensionsDifferent = true;
+    // Check for extensions.
+    std::set<QString> extensions;
+    QMimeDatabase db;
+    for (const QUrl &url : std::as_const(srcList)) {
+        const QString extension = db.suffixForFileName(url.path());
+        const auto [it, isInserted] = extensions.insert(extension);
+        if (!isInserted) {
+            allExtensionsDifferent = false;
+            break;
         }
-        indexString.prepend(QString(minIndexLength - indexString.length(), QLatin1Char('0')));
+    }
 
-        // Replace the index placeholders by the indexString
-        const int placeHolderStart = output.indexOf(placeHolder);
-        return output.replace(placeHolderStart, minIndexLength, indexString);
-    };
+    // look for consecutive # groups
+    static const QRegularExpression regex(QStringLiteral("%1+").arg(placeHolder));
 
-    return BatchRenameJobPrivate::newJob(src, std::move(function), index, flags);
-}
+    auto matchDashes = regex.globalMatch(newName);
+    QRegularExpressionMatch lastMatchDashes;
+    int matchCount = 0;
+    while (matchDashes.hasNext()) {
+        lastMatchDashes = matchDashes.next();
+        matchCount++;
+    }
+
+    bool validPlaceholder = matchCount == 1;
+
+    int placeHolderStart = lastMatchDashes.capturedStart(0);
+    int placeHolderLength = lastMatchDashes.capturedLength(0);
+
+    QString pattern(newName);
+
+    if (!validPlaceholder) {
+        if (allExtensionsDifferent) {
+            // pattern: my-file
+            // in: file-a.txt file-b.md
+        } else {
+            // pattern: my-file
+            // in: file-a.txt file-b.txt
+            // effective pattern: my-file#
+            placeHolderLength = 1;
+            placeHolderStart = pattern.length();
+            pattern.append(placeHolder);
+        }
+    }
+
+    std::function<QString(const QStringView view, int index)> function =
+        [pattern, allExtensionsDifferent, validPlaceholder, placeHolderStart, placeHolderLength](const QStringView view, int index) {
+            Q_UNUSED(view);
+
+            QString indexString = QString::number(index);
+
+            if (!validPlaceholder) {
+                if (allExtensionsDifferent) {
+                    // pattern: my-file
+                    // in: file-a.txt file-b.md
+                    return pattern;
+                }
+            }
+
+            // Insert leading zeros if necessary
+            indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+
+            return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
+        };
+
+    return BatchRenameJobPrivate::newJob(srcList, std::move(function), index, flags);
+};
 
 BatchRenameJob *
-KIO::batchRename(const QList<QUrl> &src, const std::function<QString(const QStringView view, int index)> renameFunction, int index, KIO::JobFlags flags)
+KIO::batchRename(const QList<QUrl> &srcList, const std::function<QString(const QStringView view, int index)> renameFunction, int index, KIO::JobFlags flags)
 {
-    return BatchRenameJobPrivate::newJob(src, renameFunction, index, flags);
+    return BatchRenameJobPrivate::newJob(srcList, renameFunction, index, flags);
 }
 
 #include "moc_batchrenamejob.cpp"
