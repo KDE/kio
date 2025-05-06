@@ -110,7 +110,13 @@ private Q_SLOTS:
         job->setUiDelegate(nullptr);
         QSignalSpy spy(job, &KIO::BatchRenameJob::fileRenamed);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
-        QCOMPARE(spy.count(), oldFilenames.count());
+
+        QStringList result;
+        for (const auto &signal : spy) {
+            // collects the resulting filenames
+            result.append(signal[1].toUrl().fileName());
+        }
+        QCOMPARE(result, newFilenames);
         QCOMPARE(job->processedAmount(KJob::Items), oldFilenames.count());
         QCOMPARE(job->totalAmount(KJob::Items), oldFilenames.count());
         QVERIFY(!checkFileExistence(oldFilenames));
