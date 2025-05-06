@@ -784,23 +784,30 @@ void PreviewJobPrivate::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &
 void PreviewJobPrivate::createThumbnailViaLocalCopy(const QUrl &url)
 {
     Q_Q(PreviewJob);
-    state = PreviewJobPrivate::STATE_GETORIG;
-    QTemporaryFile localFile;
 
-    // Some thumbnailers, like libkdcraw, depend on the file extension being
-    // correct
-    const KFileItem &item = currentItem.item;
-    const QString extension = item.suffix();
-    if (!extension.isEmpty()) {
-        localFile.setFileTemplate(QStringLiteral("%1.%2").arg(localFile.fileTemplate(), extension));
+    // Only download for the first sequence
+    if (!sequenceIndex) {
+        // No plugin support access to this remote content, copy the file
+        // to the local machine, then create the thumbnail
+        state = PreviewJobPrivate::STATE_GETORIG;
+        QTemporaryFile localFile;
+
+        // Some thumbnailers, like libkdcraw, depend on the file extension being
+        // correct
+        const KFileItem &item = currentItem.item;
+        const QString extension = item.suffix();
+        if (!extension.isEmpty()) {
+            localFile.setFileTemplate(QStringLiteral("%1.%2").arg(localFile.fileTemplate(), extension));
+        }
+
+        localFile.setAutoRemove(false);
+        localFile.open();
+        tempName = localFile.fileName();
+        const QUrl currentURL = item.mostLocalUrl();
+        KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+        q->addSubjob(job);
     }
-
-    localFile.setAutoRemove(false);
-    localFile.open();
-    tempName = localFile.fileName();
-    KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
-    job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-    q->addSubjob(job);
 }
 
 PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &path)
