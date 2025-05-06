@@ -911,9 +911,9 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     bool save = bSave && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !sequenceIndex;
 
     bool isRemoteProtocol = currentItem.item.localPath().isEmpty();
-    CachePolicy cachePolicy = isRemoteProtocol ? CachePolicy::Prevent : canBeCached(pixPath);
+    currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
 
-    if (cachePolicy == CachePolicy::Unknown) {
+    if (currentDeviceCachePolicy == CachePolicy::Unknown) {
         // If Unknown is returned, creating thumbnail should be called again by slotResult
         return;
     }
@@ -968,7 +968,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
-    job->addMetaData(QStringLiteral("cache"), QString::number(cachePolicy == CachePolicy::Allow));
+    job->addMetaData(QStringLiteral("cache"), QString::number(currentDeviceCachePolicy == CachePolicy::Allow));
     if (sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString::number(sequenceIndex));
     }
