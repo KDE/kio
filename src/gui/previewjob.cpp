@@ -633,7 +633,10 @@ void PreviewJob::slotResult(KJob *job)
             return;
         }
 
-        d->createThumbnail(static_cast<KIO::FileCopyJob *>(job)->destUrl().toLocalFile());
+        QString pixPath = static_cast<KIO::FileCopyJob *>(job)->destUrl().toLocalFile();
+        if (!pixPath.isEmpty()) {
+            d->createThumbnail(pixPath);
+        }
         return;
     }
     case PreviewJobPrivate::STATE_CREATETHUMB: {
