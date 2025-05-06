@@ -2460,7 +2460,12 @@ msgid "Protocol %1 does not support action %2."
 msgstr "لا يدعم الميفاق %1 الإجراء %2."
 
 #: core/worker.cpp:353
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info %2 is a path"
+#| msgid ""
+#| "The security of the KIO worker for protocol ’%1’, which typically asks "
+#| "for elevated permissions, can not be guaranteed because users other than "
+#| "root have permission to modify it at %2."
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "

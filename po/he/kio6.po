@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-30 09:30+0300\n"
+"PO-Revision-Date: 2025-05-05 13:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -99,17 +99,16 @@ msgstr ""
 "בחירה בהחלפה תחליף את התווים השגויים (בשמות קובצי היעד) בקו תחתי „_”."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "הקובץ השתנה"
+msgstr "קבצים מועברים"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "קבצים מועתקים"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format

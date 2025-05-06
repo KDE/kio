@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-28 11:08+0200\n"
+"PO-Revision-Date: 2025-05-05 10:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -90,17 +90,16 @@ msgstr ""
 "bestemming) vervangen door een onderstreping \"_\"."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Bestand is gewijzigd"
+msgstr "Bestanden worden verplaatst"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Bestanden worden gekopieerd"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format

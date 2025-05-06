@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-28 11:47+0300\n"
+"PO-Revision-Date: 2025-05-05 09:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -96,17 +96,16 @@ msgstr ""
 "назві файла призначення) на символ підкреслювання «_»."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Файл було змінено"
+msgstr "Пересуваємо файли"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Копіюємо файли"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format

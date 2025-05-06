@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-28 10:05+0200\n"
+"PO-Revision-Date: 2025-05-05 07:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -104,17 +104,16 @@ msgstr ""
 "zamenjani s podčrtajem »_«."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Datoteka spremenjena"
+msgstr "Datoteke se premikajo"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Datoteke se kopirajo"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format

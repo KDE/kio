@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-28 09:26+0200\n"
+"PO-Revision-Date: 2025-05-05 13:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -96,17 +96,16 @@ msgstr ""
 "del fitxer de destinació) amb un subratllat «_»."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "El fitxer ha canviat"
+msgstr "S'estan movent els fitxers"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "S'estan copiant els fitxers"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -2570,6 +2569,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"La seguretat del procés de treball KIO per al protocol «%1», que sol·licita "
+"permisos elevats, no es pot garantir perquè els usuaris que no siguin "
+"administrador tenen permís per modificar-lo a %2."
 
 #: core/worker.cpp:380
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-05 00:38+0000\n"
-"PO-Revision-Date: 2025-04-28 04:21+0200\n"
+"PO-Revision-Date: 2025-05-05 03:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -90,17 +90,16 @@ msgstr ""
 "შეიცვლება ქვედახაზით \"_\"."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "ფაილი შეცვლილია"
+msgstr "მიმდინარეობს ფაილების გადატანა"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "მიმდინარეობს ფაილების კოპირება"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
