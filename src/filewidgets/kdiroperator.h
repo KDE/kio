@@ -724,6 +724,13 @@ public:
      */
     void showOpenWithActions(bool enable);
 
+    /*!
+     * @returns true if the user was using keys to navigate.
+     *
+     * \since 6.14
+     */
+    bool usingKeyNavigation();
+
 protected:
     /*!
      * A view factory for creating predefined fileviews. Called internally by setView,

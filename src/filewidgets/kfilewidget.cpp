@@ -168,7 +168,7 @@ public:
     void locationAccepted(const QString &);
     void slotMimeFilterChanged();
     void slotQuickFilterChanged();
-    void fileHighlighted(const KFileItem &);
+    void fileHighlighted(const KFileItem &, bool);
     void fileSelected(const KFileItem &);
     void slotLoadingFinished();
     void togglePlacesPanel(bool show, QObject *sender = nullptr);
@@ -894,7 +894,7 @@ void KFileWidget::accept()
     d->m_ops->close();
 }
 
-void KFileWidgetPrivate::fileHighlighted(const KFileItem &i)
+void KFileWidgetPrivate::fileHighlighted(const KFileItem &i, bool isKeyNavigation)
 {
     if ((m_locationEdit->hasFocus() && !m_locationEdit->currentText().isEmpty())) { // don't disturb
         return;
@@ -933,7 +933,7 @@ void KFileWidgetPrivate::fileHighlighted(const KFileItem &i)
     // rename it if desired
     // Note that double-clicking will override this and overwrite regardless of
     // single/double click mouse setting (see slotViewDoubleClicked() )
-    if (m_operationMode == KFileWidget::Saving) {
+    if (!isKeyNavigation && m_operationMode == KFileWidget::Saving) {
         m_locationEdit->setFocus();
     }
 }
@@ -1100,7 +1100,7 @@ void KFileWidgetPrivate::initDirOpWidgets()
         urlEntered(url);
     });
     q->connect(m_ops, &KDirOperator::fileHighlighted, q, [this](const KFileItem &item) {
-        fileHighlighted(item);
+        fileHighlighted(item, m_ops->usingKeyNavigation());
     });
     q->connect(m_ops, &KDirOperator::fileSelected, q, [this](const KFileItem &item) {
         fileSelected(item);
