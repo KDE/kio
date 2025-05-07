@@ -787,26 +787,28 @@ void PreviewJobPrivate::createThumbnailViaLocalCopy(const QUrl &url)
     Q_Q(PreviewJob);
 
     // Only download for the first sequence
-    if (!sequenceIndex) {
-        // No plugin support access to this remote content, copy the file
-        // to the local machine, then create the thumbnail
-        state = PreviewJobPrivate::STATE_GETORIG;
-
-        const KFileItem &item = currentItem.item;
-
-        // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
-        QString krun_writable =
-            QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/%1/").arg(QCoreApplication::applicationPid());
-        QDir().mkpath(krun_writable);
-        QString tmp = QStringLiteral("%1%2.%3")
-                          .arg(krun_writable)
-                          .arg(QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces))
-                          .arg(item.suffix());
-
-        KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(tmp), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
-        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-        q->addSubjob(job);
+    if (sequenceIndex) {
+        cleanupTempFile();
+        determineNextFile();
+        return;
     }
+    // No plugin support access to this remote content, copy the file
+    // to the local machine, then create the thumbnail
+    state = PreviewJobPrivate::STATE_GETORIG;
+    const KFileItem &item = currentItem.item;
+
+    // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
+    QString krun_writable =
+        QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/%1/").arg(QCoreApplication::applicationPid());
+    QDir().mkpath(krun_writable);
+    tempName = QStringLiteral("%1%2.%3")
+                        .arg(krun_writable)
+                        .arg(QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces))
+                        .arg(item.suffix());
+
+    KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+    job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+    q->addSubjob(job);
 }
 
 PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &path)
