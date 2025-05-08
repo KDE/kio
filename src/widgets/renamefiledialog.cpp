@@ -139,9 +139,8 @@ public:
         // Layout
         indexLayout = new QHBoxLayout;
         indexLayout->setContentsMargins(0, 0, 0, 0);
-        indexLayout->addWidget(indexLabel);
         indexLayout->addWidget(indexSpinBox);
-
+        indexLayout->addWidget(indexLabel);
         layout->addLayout(indexLayout);
 
         QObject::connect(indexSpinBox, &QSpinBox::valueChanged, updateCallback);
@@ -259,12 +258,12 @@ public:
     {
         Q_UNUSED(items)
 
-        patternLabel = new QLabel(i18nc("@info replace as in replace with", "Replace:"), parent);
+        patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), parent);
         patternLineEdit = new QLineEdit(parent);
         patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
         patternLabel->setBuddy(patternLineEdit);
 
-        replacementLabel = new QLabel(i18nc("@info with as in replace with", "With:"), parent);
+        replacementLabel = new QLabel(i18nc("@info with as in replacing [value] with [value]", "With:"), parent);
         replacementEdit = new QLineEdit(parent);
         replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
         replacementLabel->setBuddy(replacementEdit);
@@ -274,6 +273,7 @@ public:
 
         replaceLayout = new QHBoxLayout();
         replaceLayout->setContentsMargins(0, 0, 0, 0);
+
         replaceLayout->addWidget(patternLabel);
         replaceLayout->addWidget(patternLineEdit);
         replaceLayout->addWidget(replacementLabel);
@@ -390,6 +390,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
         QHBoxLayout *renameTypeChoice = new QHBoxLayout;
         renameTypeChoice->setContentsMargins(0, 0, 0, 0);
+
         renameTypeChoice->addWidget(renameTypeChoiceLabel);
         renameTypeChoice->addWidget(comboRenameType);
         topLayout->addLayout(renameTypeChoice);
@@ -463,7 +464,6 @@ void RenameFileDialog::slotAccepted()
     KIO::FileUndoManager::self()->recordJob(cmdType, srcList, parentUrl, job);
 
     connect(job, &KJob::result, this, &RenameFileDialog::slotResult);
-    connect(job, &KJob::result, this, &QObject::deleteLater);
 
     accept();
 }
@@ -482,7 +482,6 @@ void RenameFileDialog::slotOperationChanged(int index)
         }
     }
 
-    using namespace std::placeholders;
     std::function<void()> updateCallback = std::bind(&RenameFileDialog::slotStateChanged, this);
     d->implementation->init(d->items, this, d->m_contentLayout, updateCallback);
 
@@ -513,6 +512,7 @@ void RenameFileDialog::slotResult(KJob *job)
     } else {
         Q_EMIT error(job);
     }
+    job->deleteLater();
 }
 
 } // namespace KIO
