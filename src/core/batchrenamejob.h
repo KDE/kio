@@ -79,6 +79,7 @@ private:
  * Returns a pointer to the job handling the operation.
  * \since 5.42
  */
+// TODO KF7 remove
 KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &srcList, const QString &newName, int index, QChar placeHolder, JobFlags flags = DefaultFlags);
 
 /*!
@@ -93,6 +94,7 @@ KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &srcList, const QSt
  * \a index The integer(incremented after renaming a file) to add to the base name.
  *
  * Returns a pointer to the job handling the operation.
+ *
  * \since 6.15
  */
 KIOCORE_EXPORT BatchRenameJob *batchRename(const QList<QUrl> &srcList,
