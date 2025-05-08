@@ -26,39 +26,314 @@
 #include <QShowEvent>
 #include <QSpinBox>
 
+namespace
+{
+/// design pattern strategy
+class ReplaceOperationImplementation
+{
+public:
+    ReplaceOperationImplementation() { };
+    virtual ~ReplaceOperationImplementation() { };
+
+    virtual void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) = 0;
+    virtual const std::function<QString(const QStringView fileName, int index)> renameFunction() = 0;
+    virtual bool enabled(const QUrl &url, const QStringView fileName) = 0;
+    virtual int startIndex()
+    {
+        return 1;
+    };
+};
+
+class SingleFileRenameImplementation : public ReplaceOperationImplementation
+{
+public:
+    ~SingleFileRenameImplementation() override
+    {
+        delete fileNameEdit;
+        delete fileNameLabel;
+    }
+
+    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    {
+        Q_UNUSED(updateCallback)
+
+        QString newName = items.first().name();
+        fileNameLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), parent);
+        fileNameLabel->setTextFormat(Qt::PlainText);
+
+        int selectionLength = newName.length();
+        // If the current item is a directory, select the whole file name.
+        if (!items.first().isDir()) {
+            QMimeDatabase db;
+            const QString extension = db.suffixForFileName(items.first().name());
+            if (extension.length() > 0) {
+                // Don't select the extension
+                selectionLength -= extension.length() + 1;
+            }
+        }
+
+        fileNameEdit = new QLineEdit(newName, parent);
+        fileNameEdit->setSelection(0, selectionLength);
+
+        QObject::connect(fileNameEdit, &QLineEdit::textChanged, updateCallback);
+
+        layout->addWidget(fileNameLabel);
+        layout->addWidget(fileNameEdit);
+
+        fileNameEdit->setFocus();
+    }
+
+    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    {
+        return [this](const QStringView fileName, int index) {
+            Q_UNUSED(fileName)
+            Q_UNUSED(index)
+            return fileNameEdit->text();
+        };
+    }
+
+    bool enabled(const QUrl &oldUrl, const QStringView fileName) override
+    {
+        const auto placeholder = fileNameEdit->text();
+
+        bool fileExists = false;
+        if (oldUrl.isLocalFile()) {
+            QUrl newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
+            newUrl.setPath(newUrl.path() + KIO::encodeFileName(fileName.toString()));
+            fileExists = QFile::exists(newUrl.toLocalFile());
+        }
+        return !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String(".")) && !fileExists;
+    }
+
+    QLineEdit *fileNameEdit;
+    QLabel *fileNameLabel;
+};
+
+class EnumerateImplementation : public ReplaceOperationImplementation
+{
+public:
+    ~EnumerateImplementation() override
+    {
+        delete placeHolderEdit;
+        delete indexLabel;
+        delete indexSpinBox;
+        delete indexLayout;
+    }
+
+    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    {
+        indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), parent);
+        indexSpinBox = new QSpinBox(parent);
+        indexSpinBox->setMinimum(0);
+        indexSpinBox->setMaximum(1'000'000'000);
+        indexSpinBox->setSingleStep(1);
+        indexSpinBox->setValue(1);
+        indexSpinBox->setDisplayIntegerBase(10);
+        indexLabel->setBuddy(indexSpinBox);
+
+        auto newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
+        placeHolderEdit = new QLineEdit(newName, parent);
+
+        layout->addWidget(placeHolderEdit);
+
+        // Layout
+        indexLayout = new QHBoxLayout;
+        indexLayout->setContentsMargins(0, 0, 0, 0);
+        indexLayout->addWidget(indexLabel);
+        indexLayout->addWidget(indexSpinBox);
+
+        layout->addLayout(indexLayout);
+
+        QObject::connect(indexSpinBox, &QSpinBox::valueChanged, updateCallback);
+        QObject::connect(placeHolderEdit, &QLineEdit::textChanged, updateCallback);
+
+        placeHolderEdit->setFocus();
+
+        // Check for extensions.
+        std::set<QString> extensions;
+        QMimeDatabase db;
+        for (const auto &fileItem : std::as_const(items)) {
+            const QString extension = fileItem.suffix();
+            const auto [it, isInserted] = extensions.insert(extension);
+            if (!isInserted) {
+                allExtensionsDifferent = false;
+                break;
+            }
+        }
+    }
+
+    int startIndex() override
+    {
+        return indexSpinBox->value();
+    }
+
+    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    {
+        auto newName = placeHolderEdit->text();
+        auto placeHolder = QLatin1Char('#');
+
+        // look for consecutive # groups
+        static const QRegularExpression regex(QStringLiteral("%1+").arg(placeHolder));
+
+        auto matchDashes = regex.globalMatch(newName);
+        QRegularExpressionMatch lastMatchDashes;
+        int matchCount = 0;
+        while (matchDashes.hasNext()) {
+            lastMatchDashes = matchDashes.next();
+            matchCount++;
+        }
+
+        validPlaceholder = matchCount == 1;
+
+        int placeHolderStart = lastMatchDashes.capturedStart(0);
+        int placeHolderLength = lastMatchDashes.capturedLength(0);
+
+        QString pattern(newName);
+
+        if (!validPlaceholder) {
+            if (allExtensionsDifferent) {
+                // pattern: my-file
+                // in: file-a.txt file-b.md
+            } else {
+                // pattern: my-file
+                // in: file-a.txt file-b.txt
+                // effective pattern: my-file#
+                placeHolderLength = 1;
+                placeHolderStart = pattern.length();
+                pattern.append(placeHolder);
+            }
+        }
+        bool allExtensionsDiff = allExtensionsDifferent;
+        bool valid = validPlaceholder;
+
+        std::function<QString(const QStringView fileName, int index)> function =
+            [pattern, allExtensionsDiff, valid, placeHolderStart, placeHolderLength](const QStringView fileName, int index) {
+                Q_UNUSED(fileName);
+
+                QString indexString = QString::number(index);
+
+                if (!valid) {
+                    if (allExtensionsDiff) {
+                        // pattern: my-file
+                        // in: file-a.txt file-b.md
+                        return pattern;
+                    }
+                }
+
+                // Insert leading zeros if necessary
+                indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+
+                return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
+            };
+        return function;
+    }
+
+    bool enabled(const QUrl & /*url*/, const QStringView /* fileName */) override
+    {
+        const auto placeholder = placeHolderEdit->text();
+        return !placeholder.isEmpty() && (validPlaceholder || allExtensionsDifferent);
+    }
+
+    bool validPlaceholder = false;
+    bool allExtensionsDifferent = true;
+    QLineEdit *placeHolderEdit;
+    QHBoxLayout *indexLayout;
+    QLabel *indexLabel;
+    QSpinBox *indexSpinBox;
+};
+
+class ReplaceImplementation : public ReplaceOperationImplementation
+{
+public:
+    ~ReplaceImplementation() override
+    {
+        delete patternLabel;
+        delete patternLineEdit;
+        delete replacementLabel;
+        delete replacementEdit;
+
+        delete replaceLayout;
+    }
+
+    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    {
+        Q_UNUSED(items)
+
+        patternLabel = new QLabel(i18nc("@info replace as in replace with", "Replace:"), parent);
+        patternLineEdit = new QLineEdit(parent);
+        patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
+        patternLabel->setBuddy(patternLineEdit);
+
+        replacementLabel = new QLabel(i18nc("@info with as in replace with", "With:"), parent);
+        replacementEdit = new QLineEdit(parent);
+        replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
+        replacementLabel->setBuddy(replacementEdit);
+
+        QObject::connect(patternLineEdit, &QLineEdit::textChanged, updateCallback);
+        QObject::connect(replacementEdit, &QLineEdit::textChanged, updateCallback);
+
+        replaceLayout = new QHBoxLayout();
+        replaceLayout->setContentsMargins(0, 0, 0, 0);
+        replaceLayout->addWidget(patternLabel);
+        replaceLayout->addWidget(patternLineEdit);
+        replaceLayout->addWidget(replacementLabel);
+        replaceLayout->addWidget(replacementEdit);
+
+        layout->addLayout(replaceLayout);
+
+        patternLineEdit->setFocus();
+    }
+
+    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    {
+        auto pattern = patternLineEdit->text();
+        auto replacement = replacementEdit->text();
+        std::function<QString(const QStringView fileName, int index)> renameFunction = [pattern, replacement](const QStringView fileName, int index) {
+            Q_UNUSED(index);
+
+            auto output = QString(fileName);
+            if (pattern.isEmpty()) {
+                return output;
+            }
+            output.replace(pattern, replacement);
+            while (output.startsWith(QLatin1Char(' '))) {
+                output = output.mid(1);
+            }
+            return output;
+        };
+        return renameFunction;
+    }
+
+    bool enabled(const QUrl &url, const QStringView /* fileName */) override
+    {
+        const auto pattern = patternLineEdit->text();
+        return !pattern.isEmpty() && url.fileName().contains(pattern);
+    }
+
+    QHBoxLayout *replaceLayout;
+    QLabel *patternLabel;
+    QLineEdit *patternLineEdit;
+    QLabel *replacementLabel;
+    QLineEdit *replacementEdit;
+};
+}
+
 namespace KIO
 {
+
 class Q_DECL_HIDDEN RenameFileDialog::RenameFileDialogPrivate
 {
 public:
     RenameFileDialogPrivate(const KFileItemList &items)
-        : placeHolderEdit(nullptr)
-        , items(items)
-        , indexSpinBox(nullptr)
+        : items(items)
         , renameOneItem(false)
         , allExtensionsDifferent(true)
     {
     }
 
-    enum RenameOperation {
-        Enumerate,
-        Replace,
-        // Prepend,
-        // Append
-    };
-
     QList<QUrl> renamedItems;
-    QLabel *placeHolderLabel;
-    QLineEdit *placeHolderEdit;
     KFileItemList items;
-    QLabel *indexLabel;
-    QSpinBox *indexSpinBox;
     QPushButton *okButton;
-
-    QLabel *patternLabel;
-    QLineEdit *patternLineEdit;
-    QLabel *replacementLabel;
-    QLineEdit *replacementEdit;
 
     QLabel *previewLabel;
     QLineEdit *preview;
@@ -66,7 +341,18 @@ public:
     bool renameOneItem;
     bool allExtensionsDifferent;
 
+    QVBoxLayout *m_contentLayout;
+
+    enum RenameOperation {
+        // SingleFileRename
+        Enumerate,
+        Replace,
+        // Prepend / Append
+        // Regex
+    };
+
     RenameOperation operation = Enumerate;
+    std::unique_ptr<ReplaceOperationImplementation> implementation;
 };
 
 RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
@@ -75,9 +361,8 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 {
     setMinimumWidth(320);
 
-    const int itemCount = items.count();
-    Q_ASSERT(itemCount >= 1);
-    d->renameOneItem = (itemCount == 1);
+    Q_ASSERT(items.count() >= 1);
+    d->renameOneItem = items.count() == 1;
 
     setWindowTitle(d->renameOneItem ? i18nc("@title:window", "Rename Item") : i18nc("@title:window", "Rename Items"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -98,12 +383,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
     QVBoxLayout *topLayout = new QVBoxLayout(page);
 
-    QString newName;
-    if (d->renameOneItem) {
-        newName = items.first().name();
-        d->placeHolderLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), page);
-        d->placeHolderLabel->setTextFormat(Qt::PlainText);
-    } else {
+    if (!d->renameOneItem) {
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
         QComboBox *comboRenameType = new QComboBox(page);
         comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
@@ -114,123 +394,34 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         renameTypeChoice->addWidget(comboRenameType);
         topLayout->addLayout(renameTypeChoice);
 
-        connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotTypeChoiceChanged);
-
-        newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
-        d->placeHolderLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", itemCount), page);
-
-        d->indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), page);
-        d->indexSpinBox = new QSpinBox(page);
-        d->indexSpinBox->setMinimum(0);
-        d->indexSpinBox->setMaximum(1'000'000'000);
-        d->indexSpinBox->setSingleStep(1);
-        d->indexSpinBox->setValue(1);
-        d->indexSpinBox->setDisplayIntegerBase(10);
-        d->indexLabel->setBuddy(d->indexSpinBox);
-        connect(d->indexSpinBox, &QSpinBox::valueChanged, this, &RenameFileDialog::slotTextChanged);
+        connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
 
         d->previewLabel = new QLabel(i18nc("@info As in file name renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
         d->preview->setReadOnly(true);
         d->preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
 
-        d->patternLabel = new QLabel(i18nc("@info replace as in replace with", "Replace:"), page);
-        d->patternLineEdit = new QLineEdit(page);
-        d->patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
-        d->patternLabel->setBuddy(d->patternLineEdit);
-
-        d->replacementLabel = new QLabel(i18nc("@info with as in replace with", "With:"), page);
-        d->replacementEdit = new QLineEdit(page);
-        d->replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
-        d->replacementLabel->setBuddy(d->replacementEdit);
-
-        d->patternLabel->hide();
-        d->patternLineEdit->hide();
-        d->replacementLabel->hide();
-        d->replacementEdit->hide();
-
-        connect(d->patternLineEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
-        connect(d->replacementEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
+        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), parent);
+        topLayout->addWidget(renameLabel);
     }
 
-    d->placeHolderEdit = new QLineEdit(page);
-    d->placeHolderLabel->setBuddy(d->placeHolderEdit);
-    mainLayout->addWidget(d->placeHolderEdit);
-    connect(d->placeHolderEdit, &QLineEdit::textChanged, this, &RenameFileDialog::slotTextChanged);
-
-    int selectionLength = newName.length();
-    if (d->renameOneItem) {
-        // If the current item is a directory, select the whole file name.
-        if (!items.first().isDir()) {
-            QMimeDatabase db;
-            const QString extension = db.suffixForFileName(items.first().name());
-            if (extension.length() > 0) {
-                // Don't select the extension
-                selectionLength -= extension.length() + 1;
-            }
-        }
-    } else {
-        // Don't select the # character
-        --selectionLength;
-    }
-
-    d->placeHolderEdit->setText(newName);
-    d->placeHolderEdit->setSelection(0, selectionLength);
-
-    topLayout->addWidget(d->placeHolderLabel);
-    topLayout->addWidget(d->placeHolderEdit);
+    d->m_contentLayout = new QVBoxLayout();
+    topLayout->addLayout(d->m_contentLayout);
 
     if (!d->renameOneItem) {
-        QMimeDatabase db;
-        QSet<QString> extensions;
-        for (const KFileItem &item : std::as_const(d->items)) {
-            const QString extension = db.suffixForFileName(item.name());
-
-            if (extensions.contains(extension)) {
-                d->allExtensionsDifferent = false;
-                break;
-            }
-
-            extensions.insert(extension);
-        }
-
-        // Layout
-        QHBoxLayout *indexLayout = new QHBoxLayout;
-        indexLayout->setContentsMargins(0, 0, 0, 0);
-        indexLayout->addWidget(d->indexLabel);
-        indexLayout->addWidget(d->indexSpinBox);
-        topLayout->addLayout(indexLayout);
-
-        QHBoxLayout *replaceLayout = new QHBoxLayout;
-        replaceLayout->setContentsMargins(0, 0, 0, 0);
-        replaceLayout->addWidget(d->patternLabel);
-        replaceLayout->addWidget(d->patternLineEdit);
-        replaceLayout->addWidget(d->replacementLabel);
-        replaceLayout->addWidget(d->replacementEdit);
-        topLayout->addLayout(replaceLayout);
-
         topLayout->addWidget(d->previewLabel);
         topLayout->addWidget(d->preview);
+
+        d->operation = RenameFileDialogPrivate::Enumerate;
     }
 
-    d->placeHolderEdit->setFocus();
+    // initialize UI
+    slotOperationChanged(0);
+    slotStateChanged();
 }
 
 RenameFileDialog::~RenameFileDialog()
 {
-}
-
-static QString replaceFunction(const QStringView fileName, const QString &pattern, const QString &replacement)
-{
-    auto output = QString(fileName);
-    if (pattern.isEmpty()) {
-        return output;
-    }
-    output.replace(pattern, replacement);
-    while (output.startsWith(QLatin1Char(' '))) {
-        output = output.mid(1);
-    }
-    return output;
 }
 
 void RenameFileDialog::slotAccepted()
@@ -241,39 +432,29 @@ void RenameFileDialog::slotAccepted()
     }
 
     const QList<QUrl> srcList = d->items.urlList();
-    const QString newName = d->placeHolderEdit->text();
+    d->renamedItems.reserve(d->items.count());
+
     KIO::FileUndoManager::CommandType cmdType;
     KIO::Job *job = nullptr;
+
     if (d->renameOneItem) {
         Q_ASSERT(d->items.count() == 1);
         cmdType = KIO::FileUndoManager::Rename;
         const QUrl oldUrl = d->items.constFirst().url();
         QUrl newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
-        newUrl.setPath(newUrl.path() + KIO::encodeFileName(newName));
-        d->renamedItems << newUrl;
+        newUrl.setPath(newUrl.path() + KIO::encodeFileName(d->implementation->renameFunction()(oldUrl.fileName(), 1)));
+
         job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
+        connect(qobject_cast<KIO::CopyJob *>(job),
+                &KIO::CopyJob::copyingDone,
+                this,
+                [this](KIO::Job * /* job */, const QUrl &from, const QUrl &to, const QDateTime & /*mtime*/, bool /*directory*/, bool /*renamed*/) {
+                    slotFileRenamed(from, to);
+                });
     } else {
         cmdType = KIO::FileUndoManager::BatchRename;
-        d->renamedItems.reserve(d->items.count());
 
-        switch (d->operation) {
-        case RenameFileDialogPrivate::Enumerate: {
-            job = KIO::batchRename(srcList, newName, d->indexSpinBox->value(), QLatin1Char('#'));
-            break;
-        }
-        case RenameFileDialogPrivate::Replace: {
-            auto pattern = d->patternLineEdit->text();
-            auto replacement = d->replacementEdit->text();
-            std::function<QString(const QStringView view, int index)> renameFunction = [pattern, replacement](const QStringView view, int index) {
-                Q_UNUSED(index);
-                return replaceFunction(view, pattern, replacement);
-            };
-
-            job = KIO::batchRename(srcList, renameFunction, d->indexSpinBox->value());
-            break;
-        }
-        }
-
+        job = KIO::batchRename(srcList, d->implementation->renameFunction(), d->implementation->startIndex());
         connect(qobject_cast<KIO::BatchRenameJob *>(job), &KIO::BatchRenameJob::fileRenamed, this, &RenameFileDialog::slotFileRenamed);
     }
 
@@ -287,97 +468,36 @@ void RenameFileDialog::slotAccepted()
     accept();
 }
 
-void RenameFileDialog::slotTypeChoiceChanged(int index)
+void RenameFileDialog::slotOperationChanged(int index)
 {
     if (d->renameOneItem) {
-        return;
+        d->implementation.reset(new SingleFileRenameImplementation());
+    } else {
+        if (index == RenameFileDialogPrivate::Enumerate) {
+            d->operation = RenameFileDialogPrivate::Enumerate;
+            d->implementation.reset(new EnumerateImplementation());
+        } else if (index == RenameFileDialogPrivate::Replace) {
+            d->operation = RenameFileDialogPrivate::Replace;
+            d->implementation.reset(new ReplaceImplementation());
+        }
     }
 
-    d->indexSpinBox->hide();
-    d->indexLabel->hide();
+    using namespace std::placeholders;
+    std::function<void()> updateCallback = std::bind(&RenameFileDialog::slotStateChanged, this);
+    d->implementation->init(d->items, this, d->m_contentLayout, updateCallback);
 
-    d->placeHolderLabel->hide();
-    d->placeHolderEdit->hide();
-
-    d->patternLabel->hide();
-    d->patternLineEdit->hide();
-    d->replacementLabel->hide();
-    d->replacementEdit->hide();
-
-    if (index == RenameFileDialogPrivate::Enumerate) {
-        d->operation = RenameFileDialogPrivate::Enumerate;
-
-        d->indexSpinBox->show();
-        d->indexLabel->show();
-
-        d->placeHolderLabel->show();
-        d->placeHolderEdit->show();
-    } else if (index == RenameFileDialogPrivate::Replace) {
-        d->operation = RenameFileDialogPrivate::Replace;
-
-        d->patternLabel->show();
-        d->patternLineEdit->show();
-        d->replacementLabel->show();
-        d->replacementEdit->show();
-    }
-
-    slotTextChanged();
-
+    slotStateChanged();
     adjustSize();
 }
 
-void RenameFileDialog::slotTextChanged()
+void RenameFileDialog::slotStateChanged()
 {
-    const auto placeholder = d->placeHolderEdit->text();
-    if (d->renameOneItem) {
-        bool enabled = !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String("."));
-        d->okButton->setEnabled(enabled);
-        return;
-    }
-
-    const KFileItem &firstItem = d->items.constFirst();
-
-    bool enabled = false;
-    switch (d->operation) {
-    case RenameFileDialogPrivate::Enumerate: {
-        auto previewText = QString(placeholder);
-        const int countDash = placeholder.count(QLatin1Char('#'));
-        if (countDash == 0) {
-            // append # at the end
-            previewText += QLatin1Char('#');
-        }
-        auto indexStart = d->indexSpinBox ? d->indexSpinBox->value() : 1;
-
-        // look for consecutive # groups
-        static const QRegularExpression regex(QStringLiteral("#+"));
-        auto matchDashes = regex.globalMatch(previewText);
-
-        QRegularExpressionMatch lastMatchDashes;
-        int matchCount = 0;
-        while (matchDashes.hasNext()) {
-            lastMatchDashes = matchDashes.next();
-            matchCount++;
-        }
-        Q_ASSERT(matchCount > 0); // since we add # at the end always
-
-        previewText = previewText.replace(lastMatchDashes.capturedStart(0), lastMatchDashes.capturedLength(0), QString::number(indexStart));
-
-        d->preview->setText(QStringLiteral("%1.%2").arg(previewText, firstItem.suffix()));
-
-        enabled = !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String(".")) && matchCount == 1;
-        break;
-    }
-
-    case RenameFileDialogPrivate::Replace: {
-        auto previewText = replaceFunction(firstItem.name(), d->patternLineEdit->text(), d->replacementEdit->text());
+    const auto firstItem = d->items.first().url();
+    auto previewText = d->implementation->renameFunction()(firstItem.fileName(), d->implementation->startIndex());
+    if (!d->renameOneItem) {
         d->preview->setText(previewText);
-
-        enabled = !d->patternLineEdit->text().isEmpty() && previewText != firstItem.name();
-        break;
     }
-    }
-
-    d->okButton->setEnabled(enabled);
+    d->okButton->setEnabled(d->implementation->enabled(firstItem, previewText));
 }
 
 void RenameFileDialog::slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl)
