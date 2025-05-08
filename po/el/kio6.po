@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-07 00:39+0000\n"
+"POT-Creation-Date: 2025-05-08 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2653,248 +2653,248 @@ msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "Δημιουργία νέου φακέλου"
 
-#: filewidgets/kdiroperator.cpp:308
+#: filewidgets/kdiroperator.cpp:309
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:717 filewidgets/kdiroperator.cpp:749
+#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Δεν επιλέξατε κάποιο αρχείο για διαγραφή."
 
-#: filewidgets/kdiroperator.cpp:717 filewidgets/kdiroperator.cpp:749
+#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Τίποτα για διαγραφή"
 
-#: filewidgets/kdiroperator.cpp:761 filewidgets/kdiroperator.cpp:848
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Δεν επιλέξατε κάποιο αρχείο για μετακίνηση στα απορρίμματα."
 
-#: filewidgets/kdiroperator.cpp:761 filewidgets/kdiroperator.cpp:848
+#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Τίποτα για απορρίμματα"
 
-#: filewidgets/kdiroperator.cpp:920 filewidgets/kdiroperator.cpp:1052
+#: filewidgets/kdiroperator.cpp:921 filewidgets/kdiroperator.cpp:1053
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Ο καθορισμένος φάκελος δεν υπάρχει ή δεν ήταν αναγνώσιμος."
 
-#: filewidgets/kdiroperator.cpp:1988
+#: filewidgets/kdiroperator.cpp:2009
 #, kde-format
 msgid "Menu"
 msgstr "Μενού"
 
-#: filewidgets/kdiroperator.cpp:1993
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Parent Folder"
 msgstr "Γονικός φάκελος"
 
-#: filewidgets/kdiroperator.cpp:2000
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Μετάβαση πίσω"
 
-#: filewidgets/kdiroperator.cpp:2004
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Μετάβαση εμπρός"
 
-#: filewidgets/kdiroperator.cpp:2008
+#: filewidgets/kdiroperator.cpp:2029
 #, kde-format
 msgid "Home Folder"
 msgstr "Προσωπικός φάκελος"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
-#: filewidgets/kdiroperator.cpp:2015
+#: filewidgets/kdiroperator.cpp:2036
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Νέος φάκελος…"
 
-#: filewidgets/kdiroperator.cpp:2025 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Μετακίνηση στα απορρίμματα"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Sorting"
 msgstr "Ταξινόμηση"
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ταξινόμηση ανά όνομα"
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ταξινόμηση ανά μέγεθος"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2076
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ταξινόμηση ανά ημερομηνία"
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2082
 #, kde-format
 msgid "Sort by Type"
 msgstr "Ταξινόμηση ανά τύπο"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Ascending"
 msgstr "Φθίνουσα"
 
-#: filewidgets/kdiroperator.cpp:2077
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Folders First"
 msgstr "Πρώτα οι φάκελοι"
 
-#: filewidgets/kdiroperator.cpp:2090
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Κρυφά αρχεία στο τέλος"
 
-#: filewidgets/kdiroperator.cpp:2097
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Icons View"
 msgstr "Προβολή εικονιδίων"
 
-#: filewidgets/kdiroperator.cpp:2104
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Compact View"
 msgstr "Συμπαγής προβολή"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Details View"
 msgstr "Λεπτομερής προβολή"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2151
 #, kde-format
 msgid "Icon Position"
 msgstr "Θέση εικονιδίου"
 
-#: filewidgets/kdiroperator.cpp:2133
+#: filewidgets/kdiroperator.cpp:2154
 #, kde-format
 msgid "Next to File Name"
 msgstr "Δίπλα στο όνομα αρχείου"
 
-#: filewidgets/kdiroperator.cpp:2139
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Above File Name"
 msgstr "Πάνω από το όνομα αρχείου"
 
-#: filewidgets/kdiroperator.cpp:2153
+#: filewidgets/kdiroperator.cpp:2174
 #, kde-format
 msgid "Short View"
 msgstr "Σύντομη προβολή"
 
-#: filewidgets/kdiroperator.cpp:2160
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Detailed View"
 msgstr "Λεπτομερής προβολή"
 
-#: filewidgets/kdiroperator.cpp:2167
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Tree View"
 msgstr "Προβολή δέντρου"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Λεπτομερής προβολή δέντρου"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Να επιτρέπεται η επέκταση στην Προβολή λεπτομερειών"
 
-#: filewidgets/kdiroperator.cpp:2193
+#: filewidgets/kdiroperator.cpp:2214
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Εμφάνιση κρυφών αρχείων"
 
-#: filewidgets/kdiroperator.cpp:2200
+#: filewidgets/kdiroperator.cpp:2221
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Εμφάνιση πίνακα προεπισκόπησης"
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2228
 #, kde-format
 msgid "Show Preview"
 msgstr "Εμφάνιση προεπισκόπησης"
 
-#: filewidgets/kdiroperator.cpp:2214
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Άνοιγμα περιέχοντος φακέλου"
 
-#: filewidgets/kdiroperator.cpp:2221 filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kdiroperator.cpp:2242 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
 msgstr "Ιδιότητες"
 
-#: filewidgets/kdiroperator.cpp:2230
+#: filewidgets/kdiroperator.cpp:2251
 #, kde-format
 msgid "&View Mode"
 msgstr "Λειτουργία &προβολής"
 
-#: filewidgets/kdiroperator.cpp:2333 filewidgets/kdiroperator.cpp:2345
+#: filewidgets/kdiroperator.cpp:2354 filewidgets/kdiroperator.cpp:2366
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Ω-Α"
 
-#: filewidgets/kdiroperator.cpp:2334 filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2355 filewidgets/kdiroperator.cpp:2367
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "Α-Ω"
 
-#: filewidgets/kdiroperator.cpp:2337
+#: filewidgets/kdiroperator.cpp:2358
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Νεότερα πρώτα"
 
-#: filewidgets/kdiroperator.cpp:2338
+#: filewidgets/kdiroperator.cpp:2359
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Παλαιότερα πρώτα"
 
-#: filewidgets/kdiroperator.cpp:2341
+#: filewidgets/kdiroperator.cpp:2362
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Μεγαλύτερα πρώτα"
 
-#: filewidgets/kdiroperator.cpp:2342
+#: filewidgets/kdiroperator.cpp:2363
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
