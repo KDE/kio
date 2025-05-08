@@ -26,6 +26,8 @@
 #include <QShowEvent>
 #include <QSpinBox>
 
+#include <set>
+
 namespace
 {
 /// design pattern strategy
@@ -139,8 +141,8 @@ public:
         // Layout
         indexLayout = new QHBoxLayout;
         indexLayout->setContentsMargins(0, 0, 0, 0);
-        indexLayout->addWidget(indexSpinBox);
         indexLayout->addWidget(indexLabel);
+        indexLayout->addWidget(indexSpinBox);
         layout->addLayout(indexLayout);
 
         QObject::connect(indexSpinBox, &QSpinBox::valueChanged, updateCallback);
@@ -491,12 +493,18 @@ void RenameFileDialog::slotOperationChanged(int index)
 
 void RenameFileDialog::slotStateChanged()
 {
-    const auto firstItem = d->items.first().url();
-    auto previewText = d->implementation->renameFunction()(firstItem.fileName(), d->implementation->startIndex());
+    const auto firstItem = d->items.first();
+    auto previewText = d->implementation->renameFunction()(firstItem.url().fileName(), d->implementation->startIndex());
+
+    const QString suffix = QLatin1Char('.') + firstItem.suffix();
+    if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix)) {
+        previewText.append(suffix);
+    }
+
     if (!d->renameOneItem) {
         d->preview->setText(previewText);
     }
-    d->okButton->setEnabled(d->implementation->enabled(firstItem, previewText));
+    d->okButton->setEnabled(d->implementation->enabled(firstItem.url(), previewText));
 }
 
 void RenameFileDialog::slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl)
