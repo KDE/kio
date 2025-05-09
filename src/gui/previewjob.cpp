@@ -800,7 +800,12 @@ void PreviewJobPrivate::createThumbnailViaLocalCopy(const QUrl &url)
     // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
     QString krun_writable =
         QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/%1/").arg(QCoreApplication::applicationPid());
-    QDir().mkpath(krun_writable);
+    if (!QDir().mkpath(krun_writable)) {
+        qCWarning(KIO_GUI) << "Could not create a cache folder for preview creation:" << krun_writable;
+        cleanupTempFile();
+        determineNextFile();
+        return;
+    }
     tempName = QStringLiteral("%1%2.%3")
                         .arg(krun_writable)
                         .arg(QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces))
