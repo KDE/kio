@@ -71,7 +71,7 @@ public:
      * Is invoked when the preview job has been finished and
      * removes the job from the m_previewJobs list.
      */
-    void slotPreviewJobFinished(KJob *job);
+    void slotPreviewJobFinished(KIO::PreviewJob *job);
 
     /* Synchronizes the icon of all items with the clipboard of cut items. */
     void updateCutItems();
@@ -241,7 +241,7 @@ public:
     QAbstractItemView *m_itemView = nullptr;
     QTimer *m_iconUpdateTimer = nullptr;
     QTimer *m_scrollAreaTimer = nullptr;
-    QList<KJob *> m_previewJobs;
+    QList<KIO::PreviewJob *> m_previewJobs;
     QPointer<KDirModel> m_dirModel;
     QAbstractProxyModel *m_proxyModel = nullptr;
 
@@ -282,6 +282,8 @@ public:
     QStringList m_enabledPlugins;
 
     std::unique_ptr<TileSet> m_tileSet;
+
+    QHash<QUrl, bool> m_itemPreviewHasSequences;
 };
 
 /*
@@ -496,6 +498,19 @@ void KFilePreviewGeneratorPrivate::requestSequenceIcon(const QModelIndex &index,
         }
 
         KFileItem item = dirModel->itemForIndex(index);
+        const QUrl itemUrl = item.mostLocalUrl();
+
+        // Reset the hash if we're not comparing to same item
+        if (!m_itemPreviewHasSequences.contains(itemUrl)) {
+            // We want to sequence the first time item appears,
+            // so that preview is created. We only know after the first sequence,
+            // if there is more to be done.
+            m_itemPreviewHasSequences.insert(itemUrl, true);
+        } else {
+            if (!m_itemPreviewHasSequences.value(itemUrl)) {
+                return;
+            }
+        }
         if (sequenceIndex == 0) {
             m_sequenceIndices.remove(item.url());
         } else {
@@ -592,6 +607,9 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
         if (it != m_sequenceIndices.end()) {
             m_sequenceIndices.erase(it);
         }
+
+        // The job has now figured out if the preview supports sequencing, so we can update our hash table
+        m_itemPreviewHasSequences.insert(item.mostLocalUrl(), job->handlesSequences());
     }
 
     if (!m_previewShown) {
@@ -647,7 +665,7 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
     m_dispatchedItems.append(item);
 }
 
-void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KJob *job)
+void KFilePreviewGeneratorPrivate::slotPreviewJobFinished(KIO::PreviewJob *job)
 {
     const int index = m_previewJobs.indexOf(job);
     m_previewJobs.removeAt(index);
