@@ -286,6 +286,21 @@ public:
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
 
     /*!
+     * Returns true if DirModel is set to allow requesting sequences.
+     */
+    bool allowRequestSequenceIcon() const;
+
+    /*!
+     * Tells the DirModel if requesting icon sequences is allowed.
+     * This is useful when, for example, DirOperator is hovering over an
+     * icon preview that does not support more than the first sequence (initial icon).
+     * Instead of doing any unnecessary work, tell the DirOperator to skip any requests.
+     *
+     * \a allow Allow requesting.
+     */
+    void setAllowRequestSequenceIcon(bool allow);
+
+    /*!
      * Enable/Disable the displaying of an animated overlay that is shown for any destination
      * urls (in the view). When enabled, the animations (if any) will be drawn automatically.
      *

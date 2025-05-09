@@ -299,6 +299,7 @@ public:
     QMap<KDirModelNode *, QList<QUrl>> m_urlsBeingFetched;
     QHash<QUrl, KDirModelNode *> m_nodeHash; // global node hash: url -> node
     QStringList m_allCurrentDestUrls; // list of all dest urls that have jobs on them (e.g. copy, download)
+    bool m_allowRequestSequenceIcon = true;
 };
 
 KDirModelNode *KDirModelPrivate::nodeForUrl(const QUrl &_url) const // O(1), well, O(length of url as a string)
@@ -1096,7 +1097,19 @@ QModelIndex KDirModel::sibling(int row, int column, const QModelIndex &index) co
 
 void KDirModel::requestSequenceIcon(const QModelIndex &index, int sequenceIndex)
 {
-    Q_EMIT needSequenceIcon(index, sequenceIndex);
+    if (d->m_allowRequestSequenceIcon) {
+        Q_EMIT needSequenceIcon(index, sequenceIndex);
+    }
+}
+
+bool KDirModel::allowRequestSequenceIcon() const
+{
+    return d->m_allowRequestSequenceIcon;
+}
+
+void KDirModel::setAllowRequestSequenceIcon(bool allow)
+{
+    d->m_allowRequestSequenceIcon = allow;
 }
 
 void KDirModel::setJobTransfersVisible(bool show)
