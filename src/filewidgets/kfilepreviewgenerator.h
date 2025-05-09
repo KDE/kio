@@ -95,6 +95,16 @@ public:
      */
     QStringList enabledPlugins() const;
 
+    /*!
+     * Returns true if the File Item URL the preview was generated for supports
+     * more than one sequence. Initial sequence is always supported, since that
+     * is the first preview image.
+     *
+     * \a mostLocalUrl The URL of the fileitem. Use KFileItem::mostLocalUrl()
+     *    which also works with remote items.
+     */
+    bool urlSupportsSequences(const QUrl &mostLocalUrl) const;
+
 public Q_SLOTS:
     /*!
      * Updates the icons for all items. Usually it is only

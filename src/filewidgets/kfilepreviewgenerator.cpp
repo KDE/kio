@@ -1235,4 +1235,13 @@ QStringList KFilePreviewGenerator::enabledPlugins() const
     return d->m_enabledPlugins;
 }
 
+bool KFilePreviewGenerator::urlSupportsSequences(const QUrl &mostLocalUrl) const
+{
+    if (d->m_itemPreviewHasSequences.contains(mostLocalUrl)) {
+        return d->m_itemPreviewHasSequences.value(mostLocalUrl);
+    }
+    // Url always supports the first sequence
+    return true;
+}
+
 #include "moc_kfilepreviewgenerator.cpp"
