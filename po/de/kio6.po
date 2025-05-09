@@ -2603,6 +2603,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Die Sicherheit des KIO-Dienstes für das Protokoll „%1“ zur Abfrage "
+"übergeordneter Berechtigungen ist nicht gewährleistet, da außer dem Benutzer "
+"„root“ auch andere die Berechtigung zum Ändern bei %2 haben."
 
 #: core/worker.cpp:380
 #, kde-format
