@@ -410,6 +410,8 @@ void PreviewJobPrivate::startPreview()
             item.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             item.plugin = plugin;
             items.push_back(item);
+            auto handlesSequencesValue = item.plugin.value(QStringLiteral("HandleSequences"), false) ? QStringLiteral("1") : QStringLiteral("0");
+            thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), handlesSequencesValue);
 
             if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
                 const QUrl url = fileItem.targetUrl();
