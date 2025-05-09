@@ -199,9 +199,11 @@ void DelegateAnimationHandler::sequenceTimerTimeout()
 
     KDirModel *dirModel = dynamic_cast<KDirModel *>(model);
     if (dirModel) {
-        // qDebug() << "requesting" << currentSequenceIndex;
-        dirModel->requestSequenceIcon(index, currentSequenceIndex);
-        iconSequenceTimer.start(); // Some upper-bound interval is needed, in case items are not generated
+        if (dirModel->allowRequestSequenceIcon()) {
+            // qDebug() << "requesting" << currentSequenceIndex;
+            dirModel->requestSequenceIcon(index, currentSequenceIndex);
+            iconSequenceTimer.start(); // Some upper-bound interval is needed, in case items are not generated
+        }
     }
 }
 
