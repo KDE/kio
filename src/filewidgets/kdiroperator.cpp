@@ -1282,6 +1282,13 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
 
             const QModelIndex currentIndex = d->m_itemView->selectionModel() ? d->m_itemView->selectionModel()->currentIndex() : QModelIndex();
 
+            // Tell the dirModel when we allow requesting icon sequences, so we don't do unnecessary work
+            if (hoveredIndex.isValid()) {
+                const KFileItem hoveredItem = d->m_itemView->model()->data(hoveredIndex, KDirModel::FileItemRole).value<KFileItem>();
+                bool itemHasSequencing = d->m_previewGenerator->urlSupportsSequences(hoveredItem.mostLocalUrl());
+                d->m_dirModel->setAllowRequestSequenceIcon(itemHasSequencing);
+            }
+
             if (!hoveredIndex.isValid() && currentIndex.isValid() && (d->m_lastHoveredIndex != currentIndex)) {
                 const KFileItem item = d->m_itemView->model()->data(currentIndex, KDirModel::FileItemRole).value<KFileItem>();
                 if (!item.isNull()) {
