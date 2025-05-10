@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2025-05-06 22:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -397,7 +397,7 @@ msgstr ""
 "Yeniden adlandırmayı tamamlamak için yönetici ayrıcalıkları gerekir. "
 "Sürdürmek istiyor musunuz?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3635,39 +3635,39 @@ msgstr ""
 "<qt>Bu, dosya türü seçicisidir. Gösterilen dosyaların biçimini seçmek için "
 "kullanılır.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "Üzgünüm"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt><b>%1</b> şablon dosyası yok.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "Yeni bağlantının adı:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL’ye bağlantı oluştur"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 dosyası adını gir:"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3677,7 +3677,7 @@ msgstr ""
 "<filename>%1</filename> adı işletim sisteminin kullanımı için ayrıldığından "
 "kullanılamıyor."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3687,7 +3687,7 @@ msgstr ""
 "<filename>%1</filename> adı bir nokta ile başlıyor; dolayısıyla öntanımlı "
 "olarak gizlenecektir."
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3699,29 +3699,29 @@ msgstr ""
 "olarak sıralarken diğer dosyaların önünde görüntülenmesine ve bunun gibi "
 "diğer garipliklere neden olabilir."
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Klasör adlarında bölü işareti kullanmak, aşağıdaki gibi alt klasörler "
 "oluşturacaktır:"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Klasör adlarında bölü işareti kullanmak alt klasörler oluşturacaktır."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Dosya ve klasör adlarında bölü işareti kullanılamaz."
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Dosya ve klasör adlarında ters bölü kullanılamaz."
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3731,7 +3731,7 @@ msgstr ""
 "<filename>%1</filename> adında bir dosya veya klasör oluşturmak olanaklı "
 "değildir; çünkü bu ad kullanıcının ana klasörünün konumuyla çakışacaktır."
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3741,44 +3741,50 @@ msgstr ""
 "olabileceğinden, bir dosya veya klasör adını yaklaşık işaretiyle başlatmanız "
 "önerilmez."
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı bir dizin halihazırda var."
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> adlı bir dosya zaten var."
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "Yeni Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "Aygıta Bağlantı"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 içinde yeni klasör oluştur:"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgid "Owner (Default)"
+msgid "Default"
+msgstr "Sahibi (Öntanımlı)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3786,6 +3792,27 @@ msgstr "%1 içinde yeni klasör oluştur:"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Yeni Dosya Oluştur"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "%1 için Uygulama Seç"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "B&ir simge seç:"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)

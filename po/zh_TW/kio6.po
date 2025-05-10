@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2025-05-05 22:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -374,7 +374,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "完成重新命名需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3501,39 +3501,39 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>此為檔案類型選取器，用來要顯示的檔案格式。</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "抱歉"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>樣本檔 <b>%1</b> 不存在。</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "新連結名稱："
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "建立網址連結"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "輸入 %1 檔案名稱："
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3543,7 +3543,7 @@ msgstr ""
 "無法使用 <filename>%1</filename> 名稱，<nl/>因為這個檔案名稱被作業系統作為保"
 "留用途。"
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3551,7 +3551,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> 名稱是以點 (.) 開頭的，因此預設會被隱藏起來。"
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3562,27 +3562,27 @@ msgstr ""
 "此名稱 <filename>%1</filename> 以空白字元開頭，會造成它在依名稱排序時出現在其"
 "他項目前，以及其他可能發生的怪現象。"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾，類似："
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "在資料夾名稱中使用斜槓 (/) 會建立子資料夾。"
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "斜槓 (/) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "反斜槓 (\\) 不能用在檔案及資料夾名稱中。"
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3592,7 +3592,7 @@ msgstr ""
 "無法建立名稱為 <filename>%1</filename> 的檔案或資料夾，因為這個名稱會與使用者"
 "的家資料夾位置重疊。"
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3601,44 +3601,51 @@ msgstr ""
 "不建議使用波浪號 (~) 作為檔案或資料夾名稱的開頭，因為波浪號可能會在使用終端機"
 "刪除東西時產生誤解及危險。"
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的資料夾已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的檔案已經存在。"
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "新增"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "連結到裝置"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "建立新資料夾"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "在 %1 建立新資料夾："
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox The default character set"
+#| msgid "Default"
+msgid "Default"
+msgstr "預設"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3646,6 +3653,27 @@ msgstr "在 %1 建立新資料夾："
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "建立新檔案"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "為 %1 選擇應用程式"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "選擇圖示(&I)："
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -8291,10 +8319,6 @@ msgstr "若您不信任此程式，請點擊「取消」"
 #~ msgctxt "Space as keyword delimiter"
 #~ msgid "Space"
 #~ msgstr "空白"
-
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "預設"
 
 #~ msgid "Modify Web Shortcut"
 #~ msgstr "變更網頁捷徑"

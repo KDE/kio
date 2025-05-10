@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -375,7 +375,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "नामान्तरम् पूर्णं कर्तुं मूलविशेषाधिकाराः आवश्यकाः सन्ति । किं त्वं प्रगन्तुं इच्छसि ?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3598,39 +3598,39 @@ msgstr ""
 "<qt>एषः सञ्चिकाप्रकारचयनकः अस्ति । सञ्चिका यस्मिन् प्रारूपे रक्षिता भविष्यति तस्य चयनार्थं "
 "तस्य उपयोगः भवति ।.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "क्षम्यताम्‌"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>सारूप्यसञ्चिका <b>%1</b> नास्ति ।.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "नूतनसम्बन्धस्य नाम :"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL इत्यस्य सम्बन्धम् रचयन्तु"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 सञ्चिकानाम प्रविष्टं कुर्वन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3640,7 +3640,7 @@ msgstr ""
 "<filename>%1</filename> इति नाम उपयोक्तुं न शक्यते यतः एतत् प्रचालनतन्त्रेण उपयोगाय "
 "आरक्षितम् अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3650,7 +3650,7 @@ msgstr ""
 "<filename>%1</filename> इति नाम बिन्दुना आरभ्यते, अतः पूर्वनिर्धारितरूपेण गोपनीयं "
 "भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3661,27 +3661,27 @@ msgstr ""
 "<filename>%1</filename> इति नाम रिक्तस्थानेन आरभ्यते, यस्य परिणामः भविष्यति यत् अन्येषु "
 "सम्भाव्यविचित्रेषु वर्णमालानुसारं क्रमणं कुर्वन् अन्यवस्तूनाम् पूर्वं दर्शितं भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "पुटनामेषु स्लैशस्य (/) उपयोगेन उपपुटं निर्मास्यति, यथा:"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "पुटनामेषु स्लैशस्य (/) उपयोगेन उपपुटस्य निर्माणं भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "सञ्चिका-पुट-नाम्नि स्लैश (/)-इत्यस्य उपयोगः कर्तुं न शक्यते ।."
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "सञ्चिका-पुट-नाम्नि पृष्ठस्लैश (\\) - प्रयोगः कर्तुं न शक्यते ।."
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3689,7 +3689,7 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3698,44 +3698,50 @@ msgstr ""
 "सञ्चिकायाः अथवा पुटनामस्य आरम्भः tilde इत्यनेन न अनुशंसितः यतः वस्तूनि विलोपयितुं टर्मिनल् "
 "इत्यस्य उपयोगं कुर्वन् भ्रान्तिकं वा भयङ्करं वा भवितुम् अर्हति ।."
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नामयुक्तं पुटं पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नाम्ना सञ्चिका पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "नूतनं सृजतु"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "यन्त्रस्य सम्बन्धम् स्थापितु"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नूतनं पुटम्"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "नूतनं पुटं निर्मातुम्"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 मध्ये नूतनं पुटं रचयन्तु:"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgid "Owner (Default)"
+msgid "Default"
+msgstr "स्वामी (पूर्वनिर्धारितम्)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3743,6 +3749,27 @@ msgstr "%1 मध्ये नूतनं पुटं रचयन्तु:"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "नूतनं सञ्चिकां रचयन्तु"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "%1 कृते अनुप्रयोगं चिनोतु"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "एकं चिह्नं चिनोतु:"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)

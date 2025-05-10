@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -371,7 +371,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3704,13 +3704,13 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "Zawěsćić"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3720,31 +3720,31 @@ msgstr ""
 "<qt>Njemóžu komando wuwjesć. Dataja abo zapisk <b>%1</b> njeeksistujetej.</"
 "qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgid "Create link to URL"
 msgstr "Stworjene:"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Jako &hinaši wužiwar startować"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3752,7 +3752,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3760,7 +3760,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3769,27 +3769,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3797,56 +3797,62 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Něšto tajke starše z mjenom '%1' hižo eksistuje."
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Dataja %1 hižo eksistuje."
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgid "Create New"
 msgstr "Stworjene:"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Device"
 msgid "Link to Device"
 msgstr "Grat"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, fuzzy, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nowy zapisk..."
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Zapisk stworić"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, fuzzy, kde-format
 msgid "Create new folder in %1:"
 msgstr "Nowy zapisk stworić w:"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgid "Default"
+msgid "Default"
+msgstr "Standard"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3855,6 +3861,27 @@ msgstr "Nowy zapisk stworić w:"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Nowu datajowu družinu stworić"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "Wubjerće program za %1"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "Wubjerće p&iktogram:"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -8641,12 +8668,6 @@ msgstr ""
 #~ msgctxt "Space as keyword delimiter"
 #~ msgid "Space"
 #~ msgstr "Swobodne:"
-
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "Standard"
 
 #, fuzzy
 #~| msgctxt "items: folders, files (size)"

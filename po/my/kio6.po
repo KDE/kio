@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -368,7 +368,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "အမည်ပြောင်းလဲခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3572,33 +3572,33 @@ msgstr ""
 "<qt>၎င်းသည် ဖိုင်လ်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်လ်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။"
 "</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "စိတ်မကောင်းပါဘူး"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>မူကြမ်းဖိုင်လ် <b>%1</b> မရှိပါ။</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "လင့်ခ်အသစ်တွက် အမည် -"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "ယူအာအယ်လ် သို့ လင့်ခ် ဖန်တီးရန်"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3606,7 +3606,7 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "ကွဲပြားသောအမည်ရေးပါ"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3616,7 +3616,7 @@ msgstr ""
 "<filename>%1</filename>အမည်သုံးမရပါ။ အဘယ့်ကြောင့်ဆိုသော် "
 "စီမံစနစ်မှအသုံးပြုရန်သိမ်းထားသောကြောင့်ဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3624,7 +3624,7 @@ msgid ""
 "default."
 msgstr "'<filename>%1</filename>'အမည်သည် အစက်နှင့်စတင်သောကြောင့် မူလသတ်မှတ်ချက်အရ ဖွက်ထားပါမည်။"
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3635,27 +3635,27 @@ msgstr ""
 "'<filename>%1</filename>'အမည်သည် နေရာလွတ်အက္ခရာနှင့် စတင်သောကြောင့် အက္ခရာစဥ်ဖြင့် ပြသရာတွင် "
 "၎င်းကို အခြားထူးဆန်းအမည်များနှင့်အတူ ရှေ့ဆုံးတွင်ပြသမည်။"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "ဖိုလ်ဒါအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုလ်ဒါများကို တည်ဆောက်လိမ့်မည်၊ နောက်ပါကဲ့သို့ -"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "ဖိုလ်ဒါအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုလ်ဒါများကို တည်ဆောက်လိမ့်မည်။"
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "မျဥ်းစောင်း('/')ကို ဖိုင်လ်၊ ဖိုလ်ဒါအမည်များတွင် သုံးမရပါ။"
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ပြောင်းပြန်မျဥ်းစောင်း('\\')ကို ဖိုင်လ်၊ ဖိုလ်ဒါအမည်များတွင် သုံးမရပါ။"
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -3669,7 +3669,7 @@ msgstr ""
 "<filename>%1</filename>အမည်ဖြင့် ဖိုလ်ဒါတည်ဆောက်မရပါ။<nl/>အဘယ့်ကြောင့်ဆိုသော် "
 "စီမံစနစ်မှအသုံးပြုရန်သိမ်းထားသောကြောင့်ဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3678,45 +3678,52 @@ msgstr ""
 "ဖိုင်လ်၊ ဖိုလ်ဒါ အမည်ပေးရာတွင် တယ်ဒါး('~') နှင့်စတင်ခြင်းကို အားမပေးပါ။ အဘယ်ကြောင့်ဆိုသော် တာမီနယ်တွင် "
 "ဖိုင်လ်၊ဖိုလ်ဒါများ ဖျက်ရာတွင် အငြင်းပွားဖွယ် သို့ အန္တရာယ်များဖွယ် ဖြစ်လိမ့်မည်။"
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename>အမည်ရ ဒါရိုက်ထရီ ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename>အမည်ရ ဖိုင်လ်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "အသစ်ဖန်တီးရန်"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "စက်သို့လင့်ခ်ချိတ်ရန်"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "ဖိုလ်ဒါအသစ်"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ဖိုလ်ဒါတည်ဆောက်ရန်"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1တွင် ဖိုလ်ဒါအသစ်တည်ဆောက်မည် -"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox The default character set"
+#| msgid "Default"
+msgid "Default"
+msgstr "မူလသတ်မှတ်ချက်"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3725,6 +3732,27 @@ msgstr "%1တွင် ဖိုလ်ဒါအသစ်တည်ဆောက်
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "ဖိုင်လ်အမျိုးအစားသစ်ဖန်တီးမည်"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "%1အတွက် အပ္ပလီကေးရှင်းရွေးရန်"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "&iအိုင်ကွန် ရွေးရန် -"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -8495,10 +8523,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 #~ msgctxt "Space as keyword delimiter"
 #~ msgid "Space"
 #~ msgstr "'နေရာလွတ်'အက္ခရာ"
-
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "မူလသတ်မှတ်ချက်"
 
 #~ msgid "Modify Web Shortcut"
 #~ msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းမွမ်းမံမည်"

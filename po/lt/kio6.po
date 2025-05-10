@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -396,7 +396,7 @@ msgstr ""
 "Norint užbaigti pervadinimą, reikia supernaudotojo (root) teisių. Ar norite "
 "tęsti?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3713,39 +3713,39 @@ msgstr ""
 "<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti formatą, "
 "kuriuo bus failas bus įrašytas.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "Apgailestaujame"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Šablono failo <b>%1</b> nėra.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "Naujos nuorodos pavadinimas:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "Sukurti nuorodą į URL"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Įveskite %1 failo pavadinimą:"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3755,7 +3755,7 @@ msgstr ""
 "Negalima naudoti <filename>%1</filename> pavadinimo, nes jį savoms reikmėms "
 "gali naudoti operacinė sistema."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3765,7 +3765,7 @@ msgstr ""
 "Pavadinimas <filename>%1</filename> prasideda tašku, todėl pagal numatymą, "
 "šis failas ar aplankas bus paslėptas."
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3777,31 +3777,31 @@ msgstr ""
 "rikiuojant pagal abėcėlę, bus rodomas prieš visus kitus elementus, kas savo "
 "ruožtu gali atrodyti keistai."
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Pasvirojo brūkšnio naudojimas aplankų pavadinime sukurs poaplankius, štai "
 "taip:"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Pasvirojo brūkšnio naudojimas aplankų pavadinime sukurs poaplankius."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 "Pasvirieji brūkšniai negali būti naudojami failų ir aplankų pavadinimuose."
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Kairiniai brūkšniai negali būti naudojami failų ir aplankų pavadinimuose."
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -3815,7 +3815,7 @@ msgstr ""
 "Nepavyko sukurti aplanko vardu <filename>%1</filename><nl/>, nes jis skirtas "
 "operacinei sistemai."
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3825,44 +3825,51 @@ msgstr ""
 "nes tai gali būti painu ar pavojingą naudojant terminalą tam tikrų dalykų "
 "ištrynimui."
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Katalogas, pavadinimu <filename>%1</filename>, jau yra."
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Failas, pavadinimu <filename>%1</filename>, jau yra."
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "Sukurti naują"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "Nuoroda į įrenginį"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Naujas aplankas"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Sukurti naują aplanką"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Sukurti naują aplanką ties %1:"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox The default character set"
+#| msgid "Default"
+msgid "Default"
+msgstr "Numatytas"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3870,6 +3877,27 @@ msgstr "Sukurti naują aplanką ties %1:"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Sukurti naują failą"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "Pasirinkite programą, skirtą %1"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "Pasirinkite &piktogramą:"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -8751,10 +8779,6 @@ msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
 #~ msgctxt "Space as keyword delimiter"
 #~ msgid "Space"
 #~ msgstr "Tarpas"
-
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "Numatytas"
 
 #~ msgid "New Web Shortcut"
 #~ msgstr "Nauja žiniatinklio nuoroda"

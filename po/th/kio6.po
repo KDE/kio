@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:39+0000\n"
+"POT-Creation-Date: 2025-05-10 00:39+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -363,7 +363,7 @@ msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะเปลี่ยนชื่อของไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:647
+#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
@@ -3556,39 +3556,39 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>นี่คือตัวเลือกประเภทไฟล์ ใช้เพื่อเลือกรูปแบบที่จะบันทึกไฟล์</qt>"
 
-#: filewidgets/knewfilemenu.cpp:486
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "ขออภัย"
 
-#: filewidgets/knewfilemenu.cpp:497
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ยังไม่มีแฟ้มแม่แบบ <b>%1</b> อยู่</qt>"
 
-#: filewidgets/knewfilemenu.cpp:644 filewidgets/knewfilemenu.cpp:709
+#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
 msgid "Name for new link:"
 msgstr "ชื่อสำหรับลิงค์ใหม่:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
 msgstr "สร้างลิงก์ไปยัง URL"
 
-#: filewidgets/knewfilemenu.cpp:754 filewidgets/knewfilemenu.cpp:809
+#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1074
+#: filewidgets/knewfilemenu.cpp:1121
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3597,7 +3597,7 @@ msgid ""
 msgstr ""
 "ไม่สามารถใช้ชื่อ <filename>%1</filename> ได้เนื่องจากมีการสงวนไว้สำหรับใช้โดยระบบปฏิบัติการ"
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1228
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3605,7 +3605,7 @@ msgid ""
 "default."
 msgstr "ชื่อ <filename>%1</filename> ขึ้นต้นด้วยจุด ซึ่งจะทำให้ถูกซ่อนไปโดยปกติ"
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3617,27 +3617,27 @@ msgstr ""
 "ซึ่งจะทำให้ชื่อนั้นปรากฏก่อนรายการอื่นเมื่อจัดเรียงตามตัวอักษร นอกเหนือจากความแปลกประหลาดอื่นๆ "
 "ที่อาจเกิดขึ้น"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อยดังนี้:"
 
-#: filewidgets/knewfilemenu.cpp:1217
+#: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อย"
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้เครื่องหมายทับในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้แบ็กสแลชในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3647,7 +3647,7 @@ msgstr ""
 "การสร้างไฟล์หรือโฟลเดอร์ที่ชื่อ <filename>%1</filename> เป็นไปไม่ได้ "
 "เนื่องจากจะทับซ้อนกับตำแหน่งของโฟลเดอร์โฮมของผู้ใช้"
 
-#: filewidgets/knewfilemenu.cpp:1256
+#: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3656,44 +3656,50 @@ msgstr ""
 "ไม่แนะนำให้เริ่มชื่อไฟล์หรือโฟลเดอร์ด้วยเครื่องหมายติลเดอ (~) "
 "เพราะอาจสร้างความสับสนหรืออันตรายได้เมื่อใช้เทอร์มินัลเพื่อลบข้อมูล"
 
-#: filewidgets/knewfilemenu.cpp:1328
+#: filewidgets/knewfilemenu.cpp:1375
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "มีรายการที่ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1330
+#: filewidgets/knewfilemenu.cpp:1377
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1416
+#: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
 msgid "Create New"
 msgstr "สร้างใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgid "Link to Device"
 msgstr "เชื่อมโยงไปยังอุปกรณ์"
 
-#: filewidgets/knewfilemenu.cpp:1497
+#: filewidgets/knewfilemenu.cpp:1544
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1520
+#: filewidgets/knewfilemenu.cpp:1567
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1522
+#: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
+
+#: filewidgets/knewfilemenu.cpp:1626
+#, fuzzy, kde-format
+#| msgid "Default"
+msgid "Default"
+msgstr "ค่าปริยาย"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3701,6 +3707,27 @@ msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
 msgctxt "@title:window"
 msgid "Create New File"
 msgstr "สร้างไฟล์ใหม่"
+
+#. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
+#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#, fuzzy, kde-format
+#| msgid "Choose Application for %1"
+msgid "Choose custom icon or color"
+msgstr "เลือกโปรแกรมสำหรับ %1"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
+#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#, fuzzy, kde-format
+#| msgid "Choose an &icon:"
+msgctxt "@action:button"
+msgid "Choose Other Icon…"
+msgstr "เลือกไ&อคอน:"
+
+#. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#, kde-format
+msgid "You can change the icon later in folder properties."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -8368,12 +8395,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~| msgid "Default password:"
 #~ msgid "Default Web &search keyword:"
 #~ msgstr "รหัสผ่านปริยาย:"
-
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "ค่าปริยาย"
 
 #, fuzzy
 #~| msgctxt "items: folders, files (size)"
