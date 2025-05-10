@@ -20,7 +20,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-K_PLUGIN_CLASS_WITH_JSON(DropIntoNewFolderPlugin, "dropnewintonewfolder.json")
+K_PLUGIN_CLASS_WITH_JSON(DropIntoNewFolderPlugin, "dropintonewfolderPlugin.json")
 
 DropIntoNewFolderPlugin::DropIntoNewFolderPlugin(QObject *parent, const QVariantList &)
     : KIO::DndPopupMenuPlugin(parent)
@@ -86,5 +86,5 @@ void DropIntoNewFolderPlugin::slotTriggered()
     menu->createDirectory();
 }
 
-#include "dropnewintonewfolderPlugin.moc"
+#include "dropintonewfolderPlugin.moc"
 #include "moc_dropintonewfolderPlugin.cpp"

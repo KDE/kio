@@ -1,5 +1,5 @@
 
-set(dropnewintonewfolderPlugin_SRCS dropintonewfolderPlugin.cpp)
+set(dropintonewfolderPlugin_SRCS dropintonewfolderPlugin.cpp)
 
 kcoreaddons_add_plugin(dropintonewfolder
     SOURCES ${dropintonewfolderPlugin_SRCS}
