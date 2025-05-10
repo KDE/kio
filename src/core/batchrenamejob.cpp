@@ -47,7 +47,7 @@ public:
 
     QList<QUrl> m_srcList;
     int m_index;
-    const std::function<QString(const QStringView view, int index)> m_renamefunction;
+    const std::function<QString(const QStringView currentFileName, int index)> m_renamefunction;
     QList<QUrl>::const_iterator m_listIterator;
     bool m_useIndex;
     bool m_appendIndex;
@@ -246,8 +246,10 @@ BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newN
     return BatchRenameJobPrivate::newJob(srcList, std::move(function), index, flags);
 };
 
-BatchRenameJob *
-KIO::batchRename(const QList<QUrl> &srcList, const std::function<QString(const QStringView view, int index)> renameFunction, int index, KIO::JobFlags flags)
+BatchRenameJob *KIO::batchRenameWithFunction(const QList<QUrl> &srcList,
+                                             const std::function<QString(const QStringView view, int index)> renameFunction,
+                                             int index,
+                                             KIO::JobFlags flags)
 {
     return BatchRenameJobPrivate::newJob(srcList, renameFunction, index, flags);
 }
