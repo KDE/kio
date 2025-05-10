@@ -773,7 +773,6 @@ void KFileWidget::slotOk()
     // this is the general loop for the File and Files mode. Obviously we know
     // that the File mode will iterate only one time here
     QList<QUrl>::ConstIterator it = locationEditCurrentTextList.constBegin();
-    bool filesInList = false;
     while (it != locationEditCurrentTextList.constEnd()) {
         QUrl url(*it);
 
@@ -827,7 +826,6 @@ void KFileWidget::slotOk()
             if (!onlyDirectoryMode || (res && statJob->statResult().isDir())) {
                 d->m_urlList << url;
             }
-            filesInList = true;
         } else {
             KMessageBox::error(this, i18n("The file \"%1\" could not be found", url.toDisplayString(QUrl::PreferLocalFile)), i18n("Cannot open file"));
             return; // do not emit accepted() if we had ExistingOnly flag and stat failed

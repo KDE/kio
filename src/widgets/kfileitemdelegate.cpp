@@ -1156,7 +1156,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QPixmap icon = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
 
     const KFileItem fileItem = d->fileItem(index);
-    const bool isDir = fileItem.isDir();
     if (fileItem.isHidden()) {
         KIconEffect::semiTransparent(icon);
     }
