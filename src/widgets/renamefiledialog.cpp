@@ -38,12 +38,8 @@ public:
     virtual ~ReplaceOperationAbstractStrategy() { };
 
     virtual void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) = 0;
-    virtual const std::function<QString(const QStringView fileName, int index)> renameFunction() = 0;
+    virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
     virtual bool enabled(const QUrl &url, const QStringView fileName) = 0;
-    virtual int startIndex()
-    {
-        return 1;
-    };
 };
 
 class SingleFileRenameStrategy : public ReplaceOperationAbstractStrategy
@@ -85,11 +81,9 @@ public:
         fileNameEdit->setFocus();
     }
 
-    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    const std::function<QString(const QStringView fileName)> renameFunction() override
     {
-        return [this](const QStringView fileName, int index) {
-            Q_UNUSED(fileName)
-            Q_UNUSED(index)
+        return [this](const QStringView /*fileName */) {
             return fileNameEdit->text();
         };
     }
@@ -164,12 +158,7 @@ public:
         }
     }
 
-    int startIndex() override
-    {
-        return indexSpinBox->value();
-    }
-
-    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    const std::function<QString(const QStringView fileName)> renameFunction() override
     {
         auto newName = placeHolderEdit->text();
         auto placeHolder = QLatin1Char('#');
@@ -208,8 +197,9 @@ public:
         bool allExtensionsDiff = allExtensionsDifferent;
         bool valid = validPlaceholder;
 
-        std::function<QString(const QStringView fileName, int index)> function =
-            [pattern, allExtensionsDiff, valid, placeHolderStart, placeHolderLength](const QStringView fileName, int index) {
+        index = indexSpinBox->value();
+        std::function<QString(const QStringView fileName)> function =
+            [pattern, allExtensionsDiff, valid, placeHolderStart, placeHolderLength, this](const QStringView fileName) {
                 Q_UNUSED(fileName);
 
                 QString indexString = QString::number(index);
@@ -224,6 +214,7 @@ public:
 
                 // Insert leading zeros if necessary
                 indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+                ++index;
 
                 return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
             };
@@ -242,6 +233,7 @@ public:
     QHBoxLayout *indexLayout;
     QLabel *indexLabel;
     QSpinBox *indexSpinBox;
+    int index;
 };
 
 class ReplaceStrategy : public ReplaceOperationAbstractStrategy
@@ -287,13 +279,11 @@ public:
         patternLineEdit->setFocus();
     }
 
-    const std::function<QString(const QStringView fileName, int index)> renameFunction() override
+    const std::function<QString(const QStringView fileName)> renameFunction() override
     {
         auto pattern = patternLineEdit->text();
         auto replacement = replacementEdit->text();
-        std::function<QString(const QStringView fileName, int index)> renameFunction = [pattern, replacement](const QStringView fileName, int index) {
-            Q_UNUSED(index);
-
+        std::function<QString(const QStringView fileName)> renameFunction = [pattern, replacement](const QStringView fileName) {
             auto output = QString(fileName);
             if (pattern.isEmpty()) {
                 return output;
@@ -445,7 +435,7 @@ void RenameFileDialog::slotAccepted()
         cmdType = KIO::FileUndoManager::Rename;
         const QUrl oldUrl = d->items.constFirst().url();
         QUrl newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
-        newUrl.setPath(newUrl.path() + KIO::encodeFileName(d->renameStrategy->renameFunction()(oldUrl.fileName(), 1)));
+        newUrl.setPath(newUrl.path() + KIO::encodeFileName(d->renameStrategy->renameFunction()(oldUrl.fileName())));
 
         job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
         connect(qobject_cast<KIO::CopyJob *>(job),
@@ -457,7 +447,7 @@ void RenameFileDialog::slotAccepted()
     } else {
         cmdType = KIO::FileUndoManager::BatchRename;
 
-        job = KIO::batchRenameWithFunction(srcList, d->renameStrategy->renameFunction(), d->renameStrategy->startIndex());
+        job = KIO::batchRenameWithFunction(srcList, d->renameStrategy->renameFunction());
         connect(qobject_cast<KIO::BatchRenameJob *>(job), &KIO::BatchRenameJob::fileRenamed, this, &RenameFileDialog::slotFileRenamed);
     }
 
@@ -497,7 +487,7 @@ void RenameFileDialog::slotOperationChanged(int index)
 void RenameFileDialog::slotStateChanged()
 {
     const auto firstItem = d->items.first();
-    auto previewText = d->renameStrategy->renameFunction()(firstItem.url().fileName(), d->renameStrategy->startIndex());
+    auto previewText = d->renameStrategy->renameFunction()(firstItem.url().fileName());
 
     const QString suffix = QLatin1Char('.') + firstItem.suffix();
     if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix)) {
