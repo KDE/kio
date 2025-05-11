@@ -83,6 +83,7 @@ private:
 KIOCORE_EXPORT BatchRenameJob *
 batchRename(const QList<QUrl> &srcList, const QString &newName, int startIndex, QChar placeHolder, JobFlags flags = DefaultFlags);
 
+using renameFunctionType = std::function<QString(const QStringView currentFileNameWithoutExtension)>;
 /*!
  * \relates KIO::BatchRenameJob
  *
@@ -92,17 +93,11 @@ batchRename(const QList<QUrl> &srcList, const QString &newName, int startIndex, 
  *
  * \a renameFunction A function used to find the new name of each input files
  *
- * \a startIndex The integer(incremented after renaming a file) to add to the base name.
- *
  * Returns a pointer to the job handling the operation.
  *
  * \since 6.15
  */
-KIOCORE_EXPORT BatchRenameJob *
-batchRenameWithFunction(const QList<QUrl> &srcList,
-                        const std::function<QString(const QStringView currentFileNameWithoutExtension, int currentIndex)> renameFunction,
-                        int startIndex,
-                        KIO::JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT BatchRenameJob *batchRenameWithFunction(const QList<QUrl> &srcList, const renameFunctionType renameFunction, KIO::JobFlags flags = DefaultFlags);
 }
 
 #endif
