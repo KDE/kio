@@ -15,6 +15,7 @@
 #include <KJobUiDelegate>
 #include <KJobWidgets>
 #include <KLocalizedString>
+#include <KMessageWidget>
 
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -30,6 +31,26 @@
 
 namespace
 {
+
+enum Result {
+    Ok,
+    Invalid
+};
+
+struct ValidationResult {
+    Result result;
+    QString text;
+    KMessageWidget::MessageType type;
+};
+inline ValidationResult ok()
+{
+    return ValidationResult{Result::Ok, QString(), KMessageWidget::MessageType::Information};
+};
+inline ValidationResult invalid(const QString &text, KMessageWidget::MessageType type = KMessageWidget::MessageType::Warning)
+{
+    return ValidationResult{Result::Invalid, text, type};
+};
+
 /// design pattern strategy
 class ReplaceOperationAbstractStrategy
 {
@@ -39,7 +60,7 @@ public:
 
     virtual QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) = 0;
     virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
-    virtual bool enabled(const QUrl &url, const QStringView fileName) = 0;
+    virtual ValidationResult validate(const QUrl &url, const QStringView fileName) = 0;
 };
 
 enum RenameStrategy {
@@ -100,17 +121,26 @@ public:
         };
     }
 
-    bool enabled(const QUrl &oldUrl, const QStringView fileName) override
+    ValidationResult validate(const QUrl &oldUrl, const QStringView fileName) override
     {
         const auto placeholder = fileNameEdit->text();
-
+        if (placeholder.isEmpty()) {
+            return invalid(QString());
+        }
+        QUrl newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
+        newUrl.setPath(newUrl.path() + KIO::encodeFileName(fileName.toString()));
         bool fileExists = false;
-        if (oldUrl.isLocalFile()) {
-            QUrl newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
-            newUrl.setPath(newUrl.path() + KIO::encodeFileName(fileName.toString()));
+        if (oldUrl.isLocalFile() && newUrl != oldUrl) {
             fileExists = QFile::exists(newUrl.toLocalFile());
         }
-        return !placeholder.isEmpty() && (placeholder != QLatin1String("..")) && (placeholder != QLatin1String(".")) && !fileExists;
+        if (fileExists) {
+            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists", newUrl.fileName()),
+                           KMessageWidget::MessageType::Error);
+        }
+        if (placeholder == QLatin1String("..") || (placeholder == QLatin1String("."))) {
+            return invalid(xi18nc("@info %1 is an invalid filename", "Invalid FileName <filename>%1</filename>", placeholder));
+        }
+        return ok();
     }
 
     QLineEdit *fileNameEdit;
@@ -234,10 +264,16 @@ public:
         return function;
     }
 
-    bool enabled(const QUrl & /*url*/, const QStringView /* fileName */) override
+    ValidationResult validate(const QUrl & /*url*/, const QStringView /* fileName */) override
     {
         const auto placeholder = placeHolderEdit->text();
-        return !placeholder.isEmpty() && (validPlaceholder || allExtensionsDifferent);
+        if (placeholder.isEmpty()) {
+            return invalid(QString());
+        }
+        if (!validPlaceholder && !allExtensionsDifferent) {
+            return invalid(i18nc("@info", "Invalid filename: it should contain one sequence of #, unless all the files have different file extensions."));
+        }
+        return ok();
     }
 
     bool validPlaceholder = false;
@@ -306,10 +342,16 @@ public:
         return renameFunction;
     }
 
-    bool enabled(const QUrl &url, const QStringView /* fileName */) override
+    ValidationResult validate(const QUrl &url, const QStringView /* fileName */) override
     {
         const auto pattern = patternLineEdit->text();
-        return !pattern.isEmpty() && url.fileName().contains(pattern);
+        if (pattern.isEmpty()) {
+            return invalid(QString());
+        }
+        if (!url.fileName().contains(pattern)) {
+            return invalid(i18nc("@info pattern as in text replacement pattern", "File name does not contain the pattern."));
+        }
+        return ok();
     }
 
     QLineEdit *patternLineEdit;
@@ -334,6 +376,7 @@ public:
     KFileItemList items;
     QPushButton *okButton;
 
+    KMessageWidget *messageWidget;
     QLabel *previewLabel;
     QLineEdit *preview;
 
@@ -399,6 +442,11 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
     d->m_contentWidget = new QWidget();
     d->m_topLayout->addWidget(d->m_contentWidget);
+
+    d->messageWidget = new KMessageWidget(page);
+    d->messageWidget->setCloseButtonVisible(false);
+    d->messageWidget->setWordWrap(true);
+    d->m_topLayout->addWidget(d->messageWidget);
 
     if (!d->renameOneItem) {
         d->m_topLayout->addWidget(d->previewLabel);
@@ -482,10 +530,11 @@ void RenameFileDialog::slotOperationChanged(int index)
     delete d->m_contentWidget;
     d->m_contentWidget = newWidget;
 
-    slotStateChanged();
     adjustSize();
 
     setUpdatesEnabled(true);
+
+    slotStateChanged();
 }
 
 void RenameFileDialog::slotStateChanged()
@@ -494,7 +543,7 @@ void RenameFileDialog::slotStateChanged()
     auto previewText = d->renameStrategy->renameFunction()(firstItem.url().fileName());
 
     const QString suffix = QLatin1Char('.') + firstItem.suffix();
-    if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix)) {
+    if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix) && !previewText.isEmpty() && previewText != suffix) {
         previewText.append(suffix);
     }
 
@@ -502,7 +551,20 @@ void RenameFileDialog::slotStateChanged()
         d->preview->setText(previewText);
         d->preview->setAccessibleName(previewText);
     }
-    d->okButton->setEnabled(d->renameStrategy->enabled(firstItem.url(), previewText));
+    ValidationResult validationResult;
+    if (previewText.isEmpty()) {
+        validationResult = invalid(i18n("@info Resulting would have an empty filename"), KMessageWidget::MessageType::Error);
+    } else {
+        validationResult = d->renameStrategy->validate(firstItem.url(), previewText);
+    }
+    d->okButton->setEnabled(validationResult.result == Result::Ok);
+    if (validationResult.result == Result::Ok || validationResult.text.isEmpty()) {
+        d->messageWidget->hide();
+    } else {
+        d->messageWidget->setMessageType(validationResult.type);
+        d->messageWidget->setText(validationResult.text);
+        d->messageWidget->animatedShow();
+    }
 }
 
 void RenameFileDialog::slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl)
