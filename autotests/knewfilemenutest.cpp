@@ -98,7 +98,6 @@ private Q_SLOTS:
     {
         QFile::remove(m_xdgConfigDir + "/user-dirs.dirs");
         QDir(m_xdgConfigDir + "/test-templates").removeRecursively();
-        QFile::remove(QStandardPaths::writableLocation(QStandardPaths::GenericStateLocation) + "/knewfilemenuteststaterc");
     }
 
     void openActionText(KNewFileMenu *menu, const QString actionText)

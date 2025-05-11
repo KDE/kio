@@ -95,7 +95,7 @@ static bool canPickFolderIcon(const QUrl &url)
 
 static KConfigGroup stateConfig()
 {
-    return KConfigGroup(KSharedConfig::openStateConfig(), QStringLiteral("New File Menu"));
+    return KConfigGroup(KSharedConfig::openStateConfig(QStringLiteral("kiostaterc")), QStringLiteral("New File Menu"));
 }
 
 // Singleton, with data shared by all KNewFileMenu instances
