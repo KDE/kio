@@ -37,9 +37,17 @@ public:
     ReplaceOperationAbstractStrategy() { };
     virtual ~ReplaceOperationAbstractStrategy() { };
 
-    virtual void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) = 0;
+    virtual QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) = 0;
     virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
     virtual bool enabled(const QUrl &url, const QStringView fileName) = 0;
+};
+
+enum RenameStrategy {
+    // SingleFileRename
+    Enumerate,
+    Replace,
+    // Prepend / Append
+    // Regex
 };
 
 class SingleFileRenameStrategy : public ReplaceOperationAbstractStrategy
@@ -51,12 +59,15 @@ public:
         delete fileNameLabel;
     }
 
-    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
     {
         Q_UNUSED(updateCallback)
 
+        QWidget *widget = new QWidget(parent);
+        auto layout = new QVBoxLayout(widget);
+
         QString newName = items.first().name();
-        fileNameLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), parent);
+        fileNameLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), widget);
         fileNameLabel->setTextFormat(Qt::PlainText);
 
         int selectionLength = newName.length();
@@ -70,8 +81,9 @@ public:
             }
         }
 
-        fileNameEdit = new QLineEdit(newName, parent);
+        fileNameEdit = new QLineEdit(newName, widget);
         fileNameEdit->setSelection(0, selectionLength);
+        widget->setFocusProxy(fileNameEdit);
 
         QObject::connect(fileNameEdit, &QLineEdit::textChanged, updateCallback);
 
@@ -79,6 +91,8 @@ public:
         layout->addWidget(fileNameEdit);
 
         fileNameEdit->setFocus();
+
+        return widget;
     }
 
     const std::function<QString(const QStringView fileName)> renameFunction() override
@@ -116,10 +130,13 @@ public:
         delete indexLayout;
     }
 
-    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
     {
-        indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), parent);
-        indexSpinBox = new QSpinBox(parent);
+        QWidget *widget = new QWidget(parent);
+        auto layout = new QVBoxLayout(widget);
+
+        indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), widget);
+        indexSpinBox = new QSpinBox(widget);
         indexSpinBox->setMinimum(0);
         indexSpinBox->setMaximum(1'000'000'000);
         indexSpinBox->setSingleStep(1);
@@ -128,9 +145,10 @@ public:
         indexLabel->setBuddy(indexSpinBox);
 
         auto newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
-        placeHolderEdit = new QLineEdit(newName, parent);
+        placeHolderEdit = new QLineEdit(newName, widget);
 
         layout->addWidget(placeHolderEdit);
+        widget->setFocusProxy(placeHolderEdit);
 
         // Layout
         indexLayout = new QHBoxLayout;
@@ -156,6 +174,8 @@ public:
                 break;
             }
         }
+
+        return widget;
     }
 
     const std::function<QString(const QStringView fileName)> renameFunction() override
@@ -249,17 +269,20 @@ public:
         delete replaceLayout;
     }
 
-    void init(const KFileItemList &items, QWidget *parent, QBoxLayout *layout, std::function<void()> &updateCallback) override
+    QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
     {
+        QWidget *widget = new QWidget(parent);
+        auto layout = new QVBoxLayout(widget);
         Q_UNUSED(items)
 
-        patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), parent);
-        patternLineEdit = new QLineEdit(parent);
+        patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), widget);
+        patternLineEdit = new QLineEdit(widget);
         patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
         patternLabel->setBuddy(patternLineEdit);
+        widget->setFocusProxy(patternLineEdit);
 
-        replacementLabel = new QLabel(i18nc("@info with as in replacing [value] with [value]", "With:"), parent);
-        replacementEdit = new QLineEdit(parent);
+        replacementLabel = new QLabel(i18nc("@info with as in replacing [value] with [value]", "With:"), widget);
+        replacementEdit = new QLineEdit(widget);
         replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
         replacementLabel->setBuddy(replacementEdit);
 
@@ -276,7 +299,7 @@ public:
 
         layout->addLayout(replaceLayout);
 
-        patternLineEdit->setFocus();
+        return widget;
     }
 
     const std::function<QString(const QStringView fileName)> renameFunction() override
@@ -334,15 +357,8 @@ public:
     bool renameOneItem;
     bool allExtensionsDifferent;
 
-    QVBoxLayout *m_contentLayout;
-
-    enum RenameStrategy {
-        // SingleFileRename
-        Enumerate,
-        Replace,
-        // Prepend / Append
-        // Regex
-    };
+    QVBoxLayout *m_topLayout;
+    QWidget *m_contentWidget;
 
     std::unique_ptr<ReplaceOperationAbstractStrategy> renameStrategy;
 };
@@ -351,8 +367,6 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     : QDialog(parent)
     , d(new RenameFileDialogPrivate(items))
 {
-    setMinimumWidth(320);
-
     Q_ASSERT(items.count() >= 1);
     d->renameOneItem = items.count() == 1;
 
@@ -373,7 +387,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     mainLayout->addWidget(page);
     mainLayout->addWidget(buttonBox);
 
-    QVBoxLayout *topLayout = new QVBoxLayout(page);
+    d->m_topLayout = new QVBoxLayout(page);
 
     if (!d->renameOneItem) {
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
@@ -385,7 +399,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
         renameTypeChoice->addWidget(renameTypeChoiceLabel);
         renameTypeChoice->addWidget(comboRenameType);
-        topLayout->addLayout(renameTypeChoice);
+        d->m_topLayout->addLayout(renameTypeChoice);
 
         connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
 
@@ -397,19 +411,19 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
             i18nc("@info Accessible description of the field containg a new filename after renaming preview", "New Filename Preview"));
 
         auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), parent);
-        topLayout->addWidget(renameLabel);
+        d->m_topLayout->addWidget(renameLabel);
     }
 
-    d->m_contentLayout = new QVBoxLayout();
-    topLayout->addLayout(d->m_contentLayout);
+    d->m_contentWidget = new QWidget();
+    d->m_topLayout->addWidget(d->m_contentWidget);
 
     if (!d->renameOneItem) {
-        topLayout->addWidget(d->previewLabel);
-        topLayout->addWidget(d->preview);
+        d->m_topLayout->addWidget(d->previewLabel);
+        d->m_topLayout->addWidget(d->preview);
     }
 
     // initialize UI
-    slotOperationChanged(RenameFileDialogPrivate::Enumerate);
+    slotOperationChanged(RenameStrategy::Enumerate);
     slotStateChanged();
 
     setMinimumWidth(width());
@@ -469,16 +483,21 @@ void RenameFileDialog::slotOperationChanged(int index)
     if (d->renameOneItem) {
         d->renameStrategy.reset(new SingleFileRenameStrategy());
     } else {
-        if (index == RenameFileDialogPrivate::Enumerate) {
+        if (index == RenameStrategy::Enumerate) {
             d->renameStrategy.reset(new EnumerateStrategy());
-        } else if (index == RenameFileDialogPrivate::Replace) {
+        } else if (index == RenameStrategy::Replace) {
             d->renameStrategy.reset(new ReplaceStrategy());
         }
     }
 
     std::function<void()> updateCallback = std::bind(&RenameFileDialog::slotStateChanged, this);
 
-    d->renameStrategy->init(d->items, this, d->m_contentLayout, updateCallback);
+    auto newWidget = d->renameStrategy->init(d->items, this, updateCallback);
+    d->m_topLayout->replaceWidget(d->m_contentWidget, newWidget);
+    newWidget->setFocus();
+
+    delete d->m_contentWidget;
+    d->m_contentWidget = newWidget;
 
     slotStateChanged();
     adjustSize();
