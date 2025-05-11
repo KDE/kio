@@ -389,10 +389,12 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
         connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
 
-        d->previewLabel = new QLabel(i18nc("@info As in file name renaming preview", "Preview:"), page);
+        d->previewLabel = new QLabel(i18nc("@info As in filename renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
         d->preview->setReadOnly(true);
         d->preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        d->preview->setAccessibleDescription(
+            i18nc("@info Accessible description of the field containg a new filename after renaming preview", "New Filename Preview"));
 
         auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), parent);
         topLayout->addWidget(renameLabel);
@@ -496,6 +498,7 @@ void RenameFileDialog::slotStateChanged()
 
     if (!d->renameOneItem) {
         d->preview->setText(previewText);
+        d->preview->setAccessibleName(previewText);
     }
     d->okButton->setEnabled(d->renameStrategy->enabled(firstItem.url(), previewText));
 }
