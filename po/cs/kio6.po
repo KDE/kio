@@ -4947,8 +4947,7 @@ msgid "What do you wish to do with this file?"
 msgstr "Co si přejete provést s tímto souborem?"
 
 #: widgets/executablefileopendialog.cpp:83
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Otevřít"

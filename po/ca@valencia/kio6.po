@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-10 00:39+0000\n"
-"PO-Revision-Date: 2025-05-05 13:29+0200\n"
+"PO-Revision-Date: 2025-05-10 10:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3454,31 +3454,35 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>Cliqueu este botó per a anar cap a la carpeta pare.<br /><br />Per "
-"exemple, si la ubicació actual és file:/home/konqui, clicar este botó vos "
-"portarà a file:/home.</qt>"
+"<qt>Cliqueu damunt d'este botó per a anar cap a la carpeta pare.<br /><br /"
+">Per exemple, si la ubicació actual és file:/home/konqui, clicar damunt "
+"d'este botó vos portarà a file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1205
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
-"Cliqueu este botó per a anar un pas arrere en l'historial de navegació."
+"Cliqueu damunt d'este botó per a anar un pas arrere en l'historial de "
+"navegació."
 
 #: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
-msgstr "Cliqueu este botó per a anar un pas avant en l'historial de navegació."
+msgstr ""
+"Cliqueu damunt d'este botó per a anar un pas avant en l'historial de "
+"navegació."
 
 #: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
-"Cliqueu este botó per a tornar a carregar el contingut de la ubicació actual."
+"Cliqueu damunt d'este botó per a tornar a carregar el contingut de la "
+"ubicació actual."
 
 #: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr "Cliqueu este botó per a crear una carpeta nova."
+msgstr "Cliqueu damunt d'este botó per a crear una carpeta nova."
 
 #: filewidgets/kfilewidget.cpp:1212
 #, kde-format
@@ -3573,7 +3577,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt>Potser se vos presentaran possibles coincidències en teclejar en l'àrea "
-"de text. Esta característica es pot controlar fent clic amb el botó dret del "
+"de text. Esta característica es pot controlar clicant amb el botó dret del "
 "ratolí i seleccionant un mode preferit del menú <b>Compleció del text</b>.</"
 "qt>"
 
@@ -3675,14 +3679,14 @@ msgstr ""
 "Esta opció activa algunes característiques pràctiques per a guardar fitxers "
 "amb extensions:<br /><ol><li>S'actualitzarà tota extensió especificada en "
 "l'àrea de text <b>%1</b> si canvieu el tipus de fitxer a guardar.<br /><br /"
-"></li><li>Si no s'especifica cap extensió en l'àrea de text <b>%2</b> en "
-"clicar <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el fitxer "
-"encara no existix). Esta extensió està basada en el tipus de fitxer que heu "
-"triat per a guardar.<br /><br />Si no voleu que KDE proporcione una extensió "
-"per al nom de fitxer, podeu desmarcar esta opció o bé podeu suprimir-la "
-"afegint un punt «.» al final del nom de fitxer (al final el punt s'eliminarà "
-"automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
-"farà més manejables els vostres fitxers."
+"></li><li>Si no s'especifica cap extensió en l'àrea de text <b>%2</b> quan "
+"es clique en <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el "
+"fitxer encara no existix). Esta extensió està basada en el tipus de fitxer "
+"que heu triat per a guardar.<br /><br />Si no voleu que KDE proporcione una "
+"extensió per al nom de fitxer, podeu desmarcar esta opció o bé podeu "
+"suprimir-la afegint un punt «.» al final del nom de fitxer (al final el punt "
+"s'eliminarà automàticament).</li></ol>Si no esteu segur, deixeu l'opció "
+"activada, ja que farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2937
 #, kde-format
@@ -3853,10 +3857,9 @@ msgid "Create new folder in %1:"
 msgstr "Crea una carpeta nova a %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgid "Owner (Default)"
+#, kde-format
 msgid "Default"
-msgstr "Propietari (Predeterminat)"
+msgstr "Predeterminat"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3867,24 +3870,22 @@ msgstr "Crea un fitxer nou"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Tria l'aplicació per a %1"
+msgstr "Seleccioneu una icona o color personalitzat"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Seleccioneu una &icona:"
+msgstr "Seleccioneu una altra icona…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Després podreu canviar la icona a les propietats de la carpeta."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5651,8 +5652,8 @@ msgid ""
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu el programa que s'ha d'utilitzar per a obrir <b>%1</b>. Si "
-"el programa no es troba en la llista, introduïu el nom o cliqueu en el botó "
-"«Navega».</qt>"
+"el programa no es troba en la llista, introduïu el nom o cliqueu damunt del "
+"botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:569
 #, kde-format
@@ -5694,8 +5695,8 @@ msgid ""
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu el programa que cal afegir per al tipus de fitxer: <b>%1</"
-"b>. Si el programa no es troba en la llista, introduïu el nom o cliqueu en "
-"el botó «Navega».</qt>"
+"b>. Si el programa no es troba en la llista, introduïu el nom o cliqueu "
+"damunt del botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:630
 #, kde-format
@@ -5704,7 +5705,7 @@ msgid ""
 "the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu un programa. Si el programa no es troba en la llista, "
-"introduïu el nom o cliqueu en el botó «Navega».</qt>"
+"introduïu el nom o cliqueu damunt del botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:676
 #, kde-format
@@ -6077,10 +6078,10 @@ msgstr ""
 "fitxer, el sistema hauria de ser informat quant a les capacitats de cada "
 "aplicació per a manipular estes extensions i tipus MIME.</p>\n"
 "<p> Si voleu associar esta aplicació amb un o més tipus MIME que no es "
-"troben en la llista, cliqueu en el botó <b>Afig</b> de davall. Si hi ha un o "
-"més tipus de fitxers que esta aplicació no pot manipular, potser voldreu "
-"eliminar-los de la llista fent clic en el botó <b>Elimina</b> de davall.</"
-"p></qt>"
+"troben en la llista, cliqueu damunt del botó <b>Afig</b> de davall. Si hi ha "
+"un o més tipus de fitxers que esta aplicació no pot manipular, potser "
+"voldreu eliminar-los de la llista clicant damunt del botó <b>Elimina</b> de "
+"davall.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:196
@@ -6107,8 +6108,8 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
-"Cliqueu en este botó si voleu afegir un tipus de fitxer (tipus MIME) que la "
-"vostra aplicació pot manipular."
+"Cliqueu damunt d'este botó si voleu afegir un tipus de fitxer (tipus MIME) "
+"que la vostra aplicació pot manipular."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -6124,8 +6125,8 @@ msgid ""
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
 "Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació no "
-"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu en "
-"este botó."
+"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu "
+"damunt d'este botó."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:255
@@ -7396,4 +7397,4 @@ msgstr "Iniciarà el programa:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
+msgstr "Si no confieu en este programa, cliqueu en «Cancel·la»"

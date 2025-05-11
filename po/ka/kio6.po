@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-10 00:39+0000\n"
-"PO-Revision-Date: 2025-05-05 03:49+0200\n"
+"PO-Revision-Date: 2025-05-10 03:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3687,7 +3687,7 @@ msgid ""
 "default."
 msgstr ""
 "სახელი: <filename>%1</filename> წერტილით იწყება, რაც ნიშნავს, რომ "
-"ნაგულისხმებად ის დამალული იქნება."
+"ნაგულისხმევად ის დამალული იქნება."
 
 #: filewidgets/knewfilemenu.cpp:1236
 #, kde-kuit-format
@@ -3780,11 +3780,9 @@ msgid "Create new folder in %1:"
 msgstr "ახალი საქაღალდის შექმნა %1-ში:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ნაგულისხმევი"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3795,24 +3793,22 @@ msgstr "ახალი ფაილის შექმნა"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "აირჩიეთ აპლიკაცია %1-სთვის"
+msgstr "აირჩიეთ სასურველი ხატულა, ან ფერი"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "აირჩიეთ ხა&ტულა:"
+msgstr "სხვა ხატულას არჩევა…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "ხატულას შეცვლა მოგვიანებით, საქაღალდის თვისებებიდან შეგიძლიათ."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5230,7 +5226,7 @@ msgstr "მომხმარებელი"
 #: widgets/kacleditwidget.cpp:254
 #, kde-format
 msgid "Owner (Default)"
-msgstr "მფლობელი (ნაგულისხმები)"
+msgstr "მფლობელი (ნაგულისხმევი)"
 
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
@@ -5245,7 +5241,7 @@ msgstr "ჩანაწერის ტიპი"
 #: widgets/kacleditwidget.cpp:394
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "ამ საქაღალდეში ახალი ფაილების ნაგულისხმები ტიპი"
+msgstr "ამ საქაღალდეში ახალი ფაილების ნაგულისხმევი ტიპი"
 
 #: widgets/kacleditwidget.cpp:401
 #, kde-format
