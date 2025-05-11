@@ -55,8 +55,6 @@ class SingleFileRenameStrategy : public ReplaceOperationAbstractStrategy
 public:
     ~SingleFileRenameStrategy() override
     {
-        delete fileNameEdit;
-        delete fileNameLabel;
     }
 
     QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
@@ -67,7 +65,7 @@ public:
         auto layout = new QVBoxLayout(widget);
 
         QString newName = items.first().name();
-        fileNameLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), widget);
+        auto fileNameLabel = new QLabel(xi18nc("@label:textbox", "Rename the item <filename>%1</filename> to:", newName), widget);
         fileNameLabel->setTextFormat(Qt::PlainText);
 
         int selectionLength = newName.length();
@@ -116,7 +114,6 @@ public:
     }
 
     QLineEdit *fileNameEdit;
-    QLabel *fileNameLabel;
 };
 
 class EnumerateStrategy : public ReplaceOperationAbstractStrategy
@@ -124,10 +121,6 @@ class EnumerateStrategy : public ReplaceOperationAbstractStrategy
 public:
     ~EnumerateStrategy() override
     {
-        delete placeHolderEdit;
-        delete indexLabel;
-        delete indexSpinBox;
-        delete indexLayout;
     }
 
     QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
@@ -135,7 +128,7 @@ public:
         QWidget *widget = new QWidget(parent);
         auto layout = new QVBoxLayout(widget);
 
-        indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), widget);
+        auto indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), widget);
         indexSpinBox = new QSpinBox(widget);
         indexSpinBox->setMinimum(0);
         indexSpinBox->setMaximum(1'000'000'000);
@@ -151,7 +144,7 @@ public:
         widget->setFocusProxy(placeHolderEdit);
 
         // Layout
-        indexLayout = new QHBoxLayout;
+        auto indexLayout = new QHBoxLayout;
         indexLayout->setContentsMargins(0, 0, 0, 0);
         indexLayout->addWidget(indexLabel);
         indexLayout->addWidget(indexSpinBox);
@@ -181,7 +174,7 @@ public:
     const std::function<QString(const QStringView fileName)> renameFunction() override
     {
         auto newName = placeHolderEdit->text();
-        auto placeHolder = QLatin1Char('#');
+        const auto placeHolder = QLatin1Char('#');
 
         // look for consecutive # groups
         static const QRegularExpression regex(QStringLiteral("%1+").arg(placeHolder));
@@ -250,8 +243,6 @@ public:
     bool validPlaceholder = false;
     bool allExtensionsDifferent = true;
     QLineEdit *placeHolderEdit;
-    QHBoxLayout *indexLayout;
-    QLabel *indexLabel;
     QSpinBox *indexSpinBox;
     int index;
 };
@@ -261,27 +252,22 @@ class ReplaceStrategy : public ReplaceOperationAbstractStrategy
 public:
     ~ReplaceStrategy() override
     {
-        delete patternLabel;
-        delete patternLineEdit;
-        delete replacementLabel;
-        delete replacementEdit;
-
-        delete replaceLayout;
     }
 
     QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
     {
-        QWidget *widget = new QWidget(parent);
-        auto layout = new QVBoxLayout(widget);
         Q_UNUSED(items)
 
-        patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), widget);
+        QWidget *widget = new QWidget(parent);
+        auto layout = new QVBoxLayout(widget);
+
+        auto patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), widget);
         patternLineEdit = new QLineEdit(widget);
         patternLineEdit->setPlaceholderText(i18nc("@info placeholder text", "Pattern"));
         patternLabel->setBuddy(patternLineEdit);
         widget->setFocusProxy(patternLineEdit);
 
-        replacementLabel = new QLabel(i18nc("@info with as in replacing [value] with [value]", "With:"), widget);
+        auto replacementLabel = new QLabel(i18nc("@info with as in replacing [value] with [value]", "With:"), widget);
         replacementEdit = new QLineEdit(widget);
         replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
         replacementLabel->setBuddy(replacementEdit);
@@ -289,7 +275,7 @@ public:
         QObject::connect(patternLineEdit, &QLineEdit::textChanged, updateCallback);
         QObject::connect(replacementEdit, &QLineEdit::textChanged, updateCallback);
 
-        replaceLayout = new QHBoxLayout();
+        auto replaceLayout = new QHBoxLayout();
         replaceLayout->setContentsMargins(0, 0, 0, 0);
 
         replaceLayout->addWidget(patternLabel);
@@ -326,10 +312,7 @@ public:
         return !pattern.isEmpty() && url.fileName().contains(pattern);
     }
 
-    QHBoxLayout *replaceLayout;
-    QLabel *patternLabel;
     QLineEdit *patternLineEdit;
-    QLabel *replacementLabel;
     QLineEdit *replacementEdit;
 };
 }
