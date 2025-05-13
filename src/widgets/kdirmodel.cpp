@@ -101,10 +101,21 @@ public:
         m_preview = icn;
     }
 
+    bool previewHandlesSequences()
+    {
+        return m_previewHandlesSequences;
+    }
+
+    void setPreviewHandlesSequences(bool handlesSequences)
+    {
+        m_previewHandlesSequences = handlesSequences;
+    }
+
 private:
     KFileItem m_item;
     KDirModelDirNode *const m_parent;
     QIcon m_preview;
+    bool m_previewHandlesSequences = true; // First sequence is always allowed
 };
 
 // Specialization for directory nodes
@@ -915,6 +926,11 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 }
             }
             break;
+        case HandleSequencesRole:
+            if (index.column() == Name) {
+                return node->previewHandlesSequences();
+            }
+            break;
         case Qt::TextAlignmentRole:
             if (index.column() == Size) {
                 // use a right alignment for L2R and R2L languages
@@ -1031,6 +1047,14 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
                 node->setPreview(qvariant_cast<QPixmap>(value));
             }
             Q_EMIT dataChanged(index, index);
+            return true;
+        }
+        break;
+    case HandleSequencesRole:
+        if (index.column() == Name) {
+            KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
+            Q_ASSERT(node);
+            node->setPreviewHandlesSequences(value.toBool());
             return true;
         }
         break;

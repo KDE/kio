@@ -1015,6 +1015,11 @@ void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, i
 
     q->connect(job, &KIO::PreviewJob::gotPreview, q, [this, job](const KFileItem &item, const QPixmap &pixmap) {
         addToPreviewQueue(item, pixmap, job);
+        m_dirModel->setData(m_dirModel->indexForItem(item), job->handlesSequences(), KDirModel::HandleSequencesRole);
+    });
+
+    q->connect(job, &KIO::PreviewJob::failed, q, [this, job](const KFileItem &item) {
+        m_dirModel->setData(m_dirModel->indexForItem(item), job->handlesSequences(), KDirModel::HandleSequencesRole);
     });
 
     q->connect(job, &KIO::PreviewJob::finished, q, [this, job]() {

@@ -180,6 +180,7 @@ public:
         FileItemRole = 0x07A263FF,
         ChildCountRole = 0x2C4D0A40,
         HasJobRole = 0x01E555A5,
+        HandleSequencesRole = 0x1E642272,
     };
 
     /*!
