@@ -34,9 +34,6 @@ public:
 
     void showUntrustedProgramWarning(KJob *job, const QString &programName) override;
 
-    // Compat code for KRun::runUrl. Will disappear before KF6
-    bool execUntrustedProgramWarning(QWidget *window, const QString &programName);
-
     void setWindow(QWidget *window);
 
 private:

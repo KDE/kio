@@ -188,12 +188,6 @@ void KIO::WidgetsUntrustedProgramHandler::showUntrustedProgramWarning(KJob *job,
     dialog->show();
 }
 
-bool KIO::WidgetsUntrustedProgramHandler::execUntrustedProgramWarning(QWidget *window, const QString &programName)
-{
-    QDialog *dialog = createDialog(window, programName);
-    return dialog->exec() == QDialog::Accepted;
-}
-
 void KIO::WidgetsUntrustedProgramHandler::setWindow(QWidget *window)
 {
     d->m_parentWidget = window;
