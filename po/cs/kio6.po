@@ -82,11 +82,10 @@ msgid ""
 msgstr ""
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Soubor změněn"
+msgstr ""
 
 #: core/copyjob.cpp:752
 #, kde-format
@@ -3757,10 +3756,9 @@ msgid "Create new folder in %1:"
 msgstr "Vytvořit novou složku v %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgid "Owner (Default)"
+#, kde-format
 msgid "Default"
-msgstr "Vlastník (výchozí)"
+msgstr "Výchozí"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3771,18 +3769,16 @@ msgstr "Vytvořit nový soubor"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Vyberte aplikaci pro %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Vyberte &ikonu:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
@@ -4935,11 +4931,10 @@ msgid "&Link Here"
 msgstr "Vytvořit &odkaz zde"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Spouštím %1"
+msgstr ""
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4953,18 +4948,16 @@ msgid "&Open"
 msgstr "&Otevřít"
 
 #: widgets/executablefileopendialog.cpp:85
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
-msgstr "&Otevřít pomocí %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Co si přejete provést s tímto souborem?"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:95
@@ -6716,12 +6709,10 @@ msgid "Filename for clipboard content:"
 msgstr "Název souboru pro obsah schránky:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste One File"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Vložit jeden soubor"
+msgstr ""
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -7262,43 +7253,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "&Execute"
-#~ msgstr "&Spustit"
-
-#~ msgid "&Filter:"
-#~ msgstr "&Maska:"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>Tato maska se použije na seznam souborů. Soubory, jejichž názvy "
-#~ "neodpovídají masce, nebudou zobrazeny. <p>Můžete zvolit jeden z "
-#~ "přednastavených filtrů z rozbalovací nabídky nebo zadat svůj vlastní do "
-#~ "editačního pole.</p><p>Jsou povoleny zástupné znaky jako * nebo ?.</p> </"
-#~ "qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "Byla vybrána více než jedna složka, ale tento dialog nepřijímá složky. "
-#~ "Prosím, vyberte pouze jednu složku, kterou si přejete zobrazit."
-
-#~ msgid "More than one folder provided"
-#~ msgstr "Zadána více než jedna složka"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "Byla vybrána nejméně jedna složka a soubor. Vybrané soubory budou "
-#~ "ignorované a obsah vybrané složky bude zobrazen"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "Vybrány soubory a složky"

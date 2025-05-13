@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 g.sora <g.sora@tiscali.it>
-# giovanni <g.sora@tiscali.it>, 2024.
+# giovanni <g.sora@tiscali.it>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:38+0000\n"
-"PO-Revision-Date: 2025-05-09 17:03+0200\n"
+"PO-Revision-Date: 2025-05-12 15:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3847,9 +3847,7 @@ msgid "Create new folder in %1:"
 msgstr "Crea nove dossier in %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Predefinite"
 
@@ -3862,24 +3860,22 @@ msgstr "Crea nove file"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Selige application pro %1"
+msgstr "Selige icone o color personaliste"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Selige un icone:"
+msgstr "Selige altere icone..."
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Tu pote cambiar le icone plus tarde in proprietates de dossier."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)

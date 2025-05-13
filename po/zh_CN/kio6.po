@@ -89,17 +89,16 @@ msgstr ""
 "选择“替换”将把目标文件名称中的所有无效字符替换为下划线“_”。"
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "文件已更改"
+msgstr "文件正在移动"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "文件正在复制"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -2387,6 +2386,8 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"“%1”协议的 KIO 工作程序的安全性无法得到保证，因为除 root 用户外，其他用户在 "
+"%2 处有权对其进行修改，而该协议通常会要求用户进行提权操作。"
 
 #: core/worker.cpp:380
 #, kde-format
@@ -3481,7 +3482,7 @@ msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的�
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
-msgstr ""
+msgstr "<qt>这是文件类型选择器。它用于选择所显示文件的格式。</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3622,10 +3623,9 @@ msgid "Create new folder in %1:"
 msgstr "新建文件夹到 %1："
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgid "Owner (Default)"
+#, kde-format
 msgid "Default"
-msgstr "所有者 (默认)"
+msgstr "默认"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3636,24 +3636,22 @@ msgstr "创建新文件"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "选择用于打开 %1 的应用程序"
+msgstr "选择自定义图标或颜色"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "选择图标(&I)："
+msgstr "选择其他图标…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "您可以稍后在文件夹属性中更改图标。"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -4797,11 +4795,10 @@ msgid "&Link Here"
 msgstr "链接到此位置(&L)"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "正在启动 %1"
+msgstr "启动(&L)"
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4809,25 +4806,22 @@ msgid "What do you wish to do with this file?"
 msgstr "您想要对此文件进行什么操作？"
 
 #: widgets/executablefileopendialog.cpp:83
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "打开(&O)"
 
 #: widgets/executablefileopendialog.cpp:85
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "使用 %1 打开(&O)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "您想要对此文件进行什么操作？"
+msgstr "您想要启动此文件吗？"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:95
@@ -7034,6 +7028,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "&Execute"
-#~ msgstr "执行(&E)"
