@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:38+0000\n"
+"POT-Creation-Date: 2025-05-14 00:40+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -5447,43 +5447,43 @@ msgstr "Memperbarui Konfigurasi Sistem"
 msgid "Updating system configuration…"
 msgstr "Memperbarui konfigurasi sistem."
 
-#: widgets/kdirmodel.cpp:1237
+#: widgets/kdirmodel.cpp:1261
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nama"
 
-#: widgets/kdirmodel.cpp:1239
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Ukuran"
 
-#: widgets/kdirmodel.cpp:1241
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tanggal"
 
-#: widgets/kdirmodel.cpp:1243
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Perizinan"
 
-#: widgets/kdirmodel.cpp:1245
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Pemilik"
 
-#: widgets/kdirmodel.cpp:1247
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grup"
 
-#: widgets/kdirmodel.cpp:1249
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

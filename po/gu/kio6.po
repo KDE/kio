@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:38+0000\n"
+"POT-Creation-Date: 2025-05-14 00:40+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -5169,43 +5169,43 @@ msgstr "સિસ્ટમ રૂપરેખાંકન સુધારે છ
 msgid "Updating system configuration…"
 msgstr "સિસ્ટમ રૂપરેખાંકન સુધારે છે."
 
-#: widgets/kdirmodel.cpp:1237
+#: widgets/kdirmodel.cpp:1261
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "નામ"
 
-#: widgets/kdirmodel.cpp:1239
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "કદ"
 
-#: widgets/kdirmodel.cpp:1241
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "તારીખ"
 
-#: widgets/kdirmodel.cpp:1243
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "પરવાનગીઓ"
 
-#: widgets/kdirmodel.cpp:1245
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "માલિક"
 
-#: widgets/kdirmodel.cpp:1247
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "સમૂહ"
 
-#: widgets/kdirmodel.cpp:1249
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

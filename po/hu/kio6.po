@@ -3,13 +3,13 @@
 # Marcell Lengyel <miketkf@yahoo.com>, 1999.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011, 2015.
 # Balázs Úr <urbalazs@gmail.com>, 2012.
-# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2024, 2025 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-06-20 22:17+0200\n"
+"POT-Creation-Date: 2025-05-14 00:40+0000\n"
+"PO-Revision-Date: 2025-05-13 21:27+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -91,17 +91,16 @@ msgstr ""
 "nevében) egy aláhúzással („_”)."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "A fájl megváltozott"
+msgstr "A fájlok áthelyezése folyamatban van"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "A fájlok másolása folyamatban van"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3241,9 +3240,7 @@ msgid "Reformat or Edit with Partition Manager"
 msgstr "Újraformázás vagy szerkesztés a Partíciókezelővel"
 
 #: filewidgets/kfileplacesview.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3457,10 +3454,9 @@ msgid "Show Bookmarks Button"
 msgstr "A könyvjelzők gomb mutatása"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Rejtett fájlok megjelenítése"
+msgstr "Gyorsszűrő megjelenítése"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3828,9 +3824,7 @@ msgid "Create new folder in %1:"
 msgstr "Új mappa létrehozása itt: %1"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -5370,19 +5364,19 @@ msgstr "Név"
 #, kde-format
 msgctxt "read permission"
 msgid "r"
-msgstr "o"
+msgstr "Olvasás"
 
 #: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "write permission"
 msgid "w"
-msgstr "í"
+msgstr "Írás"
 
 #: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
-msgstr "v"
+msgstr "Végrehajtás"
 
 #: widgets/kacleditwidget.cpp:601
 #, kde-format
@@ -5399,43 +5393,43 @@ msgstr "A rendszerbeállítások frissítése"
 msgid "Updating system configuration…"
 msgstr "A rendszerbeállítások frissítése…"
 
-#: widgets/kdirmodel.cpp:1237
+#: widgets/kdirmodel.cpp:1261
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Név"
 
-#: widgets/kdirmodel.cpp:1239
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Méret"
 
-#: widgets/kdirmodel.cpp:1241
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dátum"
 
-#: widgets/kdirmodel.cpp:1243
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Hozzáférési jogok"
 
-#: widgets/kdirmodel.cpp:1245
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: widgets/kdirmodel.cpp:1247
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Csoport"
 
-#: widgets/kdirmodel.cpp:1249
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -6344,16 +6338,14 @@ msgid "Allow &executing file as program"
 msgstr "Ez a jogosultság teszi lehetővé programfájl esetén a végrehajtást."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1219
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Az alapértelmezett felhasználónév:"
+msgstr "Törlés vagy átnevezés:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1219
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Futtatás"
+msgstr "Végrehajtás:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
@@ -6830,12 +6822,10 @@ msgid "Filename for clipboard content:"
 msgstr "Fájlnév a vágólap tartalmához:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Fájl be&illesztése"
+msgstr "beillesztett fájl"
 
 #: widgets/paste.cpp:123
 #, kde-format

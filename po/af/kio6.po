@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:38+0000\n"
+"POT-Creation-Date: 2025-05-14 00:40+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -5662,49 +5662,49 @@ msgstr "Besig om Stelsel Opstelling Op te dateer"
 msgid "Updating system configuration…"
 msgstr "Besig om Stelsel Opstelling Op te dateer"
 
-#: widgets/kdirmodel.cpp:1237
+#: widgets/kdirmodel.cpp:1261
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Naam"
 
-#: widgets/kdirmodel.cpp:1239
+#: widgets/kdirmodel.cpp:1263
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Grootte"
 
-#: widgets/kdirmodel.cpp:1241
+#: widgets/kdirmodel.cpp:1265
 #, fuzzy, kde-format
 #| msgid "Date"
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1243
+#: widgets/kdirmodel.cpp:1267
 #, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Regte"
 
-#: widgets/kdirmodel.cpp:1245
+#: widgets/kdirmodel.cpp:1269
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Eienaar"
 
-#: widgets/kdirmodel.cpp:1247
+#: widgets/kdirmodel.cpp:1271
 #, fuzzy, kde-format
 #| msgid "Group"
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Groep"
 
-#: widgets/kdirmodel.cpp:1249
+#: widgets/kdirmodel.cpp:1273
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "@title:column"
