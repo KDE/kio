@@ -89,13 +89,13 @@ struct KIO::PreviewItem {
 class KIO::GetFilePreviewJob : public KIO::Job
 {
 public:
-    GetFilePreviewJob(const PreviewItem &item, const QSize &size)
+    GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem)
         : m_item(item)
         , m_width(size.width())
         , m_height(size.height())
         , m_cacheSize(0)
-        , m_scaleItem(true)
-        , m_saveItem(true)
+        , m_scaleItem(scaleItem)
+        , m_saveItem(saveItem)
         , m_ignoreMaximumSize(false)
         , m_sequenceIndex(0)
         , m_succeeded(false)
@@ -615,6 +615,7 @@ void PreviewJobPrivate::determineNextFile()
         KIO::Job *job = KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+        // Add getFilePreviewJobs as subjobs, this seems to start the job too?
         q->addSubjob(job);
     }
 }
@@ -623,6 +624,7 @@ void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
 
+    qWarning() << "Result of " << job;
     removeSubjob(job);
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
     switch (d->state) {
