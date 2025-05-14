@@ -21,6 +21,7 @@ class KPluginMetaData;
 namespace KIO
 {
 class PreviewJobPrivate;
+class FilePreviewJob;
 /*!
  * \class KIO::PreviewJob
  * \inmodule KIOGui
