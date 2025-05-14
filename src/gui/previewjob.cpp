@@ -87,6 +87,66 @@ struct KIO::PreviewItem {
     bool standardThumbnailer = false;
 };
 
+class KIO::GetFilePreviewJob : public KIO::Job
+{
+public:
+    GetFilePreviewJob(const PreviewItem &item, const QSize &size)
+        : m_item(item)
+        , m_width(size.width())
+        , m_height(size.height())
+        , m_cacheSize(0)
+        , m_scaleItem(true)
+        , m_saveItem(true)
+        , m_ignoreMaximumSize(false)
+        , m_sequenceIndex(0)
+        , m_succeeded(false)
+        , m_maximumLocalSize(0)
+        , m_maximumRemoteSize(0)
+    {
+        // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
+        m_thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+    }
+
+    enum {
+        STATE_STATORIG, // if the thumbnail exists
+        STATE_GETORIG, // if we create it
+        STATE_CREATETHUMB, // thumbnail:/ worker
+        STATE_DEVICE_INFO, // additional state check to get needed device ids
+    } m_state;
+
+    enum CachePolicy {
+        Prevent,
+        Allow,
+        Unknown
+    } currentDeviceCachePolicy = Unknown;
+
+    const PreviewItem m_item;
+    int m_width;
+    int m_height;
+    short m_cacheSize;
+    bool m_scaleItem;
+    bool m_saveItem;
+    bool m_ignoreMaximumSize;
+    int m_sequenceIndex;
+    bool m_succeeded;
+    // If the file to create a thumb for was a temp file, this is its name
+    QString m_tempName;
+    KIO::filesize_t m_maximumLocalSize;
+    KIO::filesize_t m_maximumRemoteSize;
+    QString m_thumbRoot;
+
+    bool statResultThumbnail();
+    void getOrCreateThumbnail();
+    void createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &localUrl);
+    void createThumbnailViaLocalCopy(const QUrl &url);
+    CachePolicy canBeCached(const QString &path);
+    void createThumbnail(const QString &pixPath);
+    void slotStandardThumbData(KIO::Job *job, const QImage &thumbData);
+    void slotThumbData(KIO::Job *job, const QByteArray &data);
+    void saveThumbnailData(QImage &thumb);
+    void emitPreview(const QImage &thumb);
+};
+
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -1098,6 +1158,9 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
         pixmap.setDevicePixelRatio(ratio);
         Q_EMIT q->gotPreview(currentItem.item, pixmap);
     }
+    pix.setDevicePixelRatio(ratio);
+    // Emit result of currentGetFilePreviewJob
+    Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
