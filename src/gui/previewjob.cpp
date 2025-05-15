@@ -102,6 +102,9 @@ public:
         , m_succeeded(false)
         , m_maximumLocalSize(0)
         , m_maximumRemoteSize(0)
+        , m_enableRemoteFolderThumbnail(false)
+        , m_shmid(-1)
+        , m_shmaddr(nullptr)
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
         m_thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
@@ -118,13 +121,28 @@ public:
         Prevent,
         Allow,
         Unknown
-    } currentDeviceCachePolicy = Unknown;
+    } m_currentDeviceCachePolicy = Unknown;
 
+    QStringList m_enabledPlugins;
+    // The current item
     const PreviewItem m_item;
+    // The modification time of that URL
+    QDateTime m_tOrig;
+    // Path to thumbnail cache for the current size
+    QString m_thumbPath;
+    // Original URL of current item in RFC2396 format
+    // (file:///path/to/a%20file instead of file:/path/to/a file)
+    QByteArray m_origName;
+    // Thumbnail file name for current item
+    QString m_thumbName;
+    // Size of thumbnail
     int m_width;
     int m_height;
+    // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
     short m_cacheSize;
+    // Whether the thumbnail should be scaled
     bool m_scaleItem;
+    // Whether we should save the thumbnail
     bool m_saveItem;
     bool m_ignoreMaximumSize;
     int m_sequenceIndex;
@@ -133,7 +151,29 @@ public:
     QString m_tempName;
     KIO::filesize_t m_maximumLocalSize;
     KIO::filesize_t m_maximumRemoteSize;
+    // Manage preview for locally mounted remote directories
+    bool m_enableRemoteFolderThumbnail;
+    // Shared memory segment Id. The segment is allocated to a size
+    // of extent x extent x 4 (32 bit image) on first need.
+    int m_shmid;
+    // And the data area
+    uchar *m_shmaddr;
+    // Size of the shm segment
+    size_t m_shmsize;
+    // Root of thumbnail cache
     QString m_thumbRoot;
+    // Metadata returned from the KIO thumbnail worker
+    QMap<QString, QString> m_thumbnailWorkerMetaData;
+    qreal m_devicePixelRatio = s_defaultDevicePixelRatio;
+    static const int m_idUnknown = -1;
+    // Id of a device storing currently processed file
+    int m_currentDeviceId = 0;
+    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
+    QMap<QString, int> m_deviceIdMap;
+    // the path of a unique temporary directory
+    QString m_tempDirPath;
+    // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
+    bool m_tryKioFuse = true;
 
     bool statResultThumbnail();
     void getOrCreateThumbnail();
@@ -145,6 +185,93 @@ public:
     void slotThumbData(KIO::Job *job, const QByteArray &data);
     void saveThumbnailData(QImage &thumb);
     void emitPreview(const QImage &thumb);
+    int getDeviceId(const QString &path);
+    struct StandardThumbnailerData {
+        QString exec;
+        QStringList mimetypes;
+    };
+
+    static QList<KPluginMetaData> loadAvailablePlugins()
+    {
+        static QList<KPluginMetaData> jsonMetaDataPlugins;
+        if (jsonMetaDataPlugins.isEmpty()) {
+            jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
+            for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
+                // Check if our own plugins support the mimetype. If so, we use the plugin instead
+                // and ignore the standard thumbnailer
+                auto handledMimes = thumbnailer.second.mimetypes;
+                for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
+                    for (const auto &mime : handledMimes) {
+                        if (plugin.mimeTypes().contains(mime)) {
+                            handledMimes.removeOne(mime);
+                        }
+                    }
+                }
+                if (handledMimes.isEmpty()) {
+                    continue;
+                }
+
+                QMimeDatabase db;
+                // We only need the first mimetype since the names/comments are often shared between multiple types
+                auto mime = db.mimeTypeForName(handledMimes.first());
+                auto name = mime.name().isEmpty() ? handledMimes.first() : mime.name();
+                if (!mime.comment().isEmpty()) {
+                    name = mime.comment();
+                }
+                if (name.isEmpty()) {
+                    continue;
+                }
+                // the plugin metadata
+                QJsonObject kplugin;
+                kplugin[QStringLiteral("MimeTypes")] = QJsonValue::fromVariant(handledMimes);
+                kplugin[QStringLiteral("Name")] = name;
+                kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
+
+                QJsonObject root;
+                root[QStringLiteral("CacheThumbnail")] = true;
+                root[QStringLiteral("KPlugin")] = kplugin;
+
+                KPluginMetaData standardThumbnailerPlugin(root, thumbnailer.first);
+                jsonMetaDataPlugins.append(standardThumbnailerPlugin);
+            }
+        }
+        return jsonMetaDataPlugins;
+    }
+
+    static QMap<QString, StandardThumbnailerData> standardThumbnailers()
+    {
+        //         mimetype, exec
+        static QMap<QString, StandardThumbnailerData> standardThumbs;
+        if (standardThumbs.empty()) {
+            QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
+            const auto thumbnailerPaths = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")});
+            for (const QString &thumbnailerPath : thumbnailerPaths) {
+                const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
+                StandardThumbnailerData data;
+                QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
+                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QString{}).split(QStringLiteral(";"));
+                mimetypes.removeAll(QLatin1String(""));
+                QString exec = thumbnailerConfig.readEntry("Exec", QString{});
+                if (!exec.isEmpty() && !mimetypes.isEmpty()) {
+                    data.exec = exec;
+                    data.mimetypes = mimetypes;
+                    standardThumbs.insert(thumbnailerName, data);
+                }
+            }
+        }
+        return standardThumbs;
+    }
+
+    void start() override
+    {
+        qWarning() << "starting job for " << m_item.item.name();
+    }
+
+Q_SIGNALS:
+    void gotPreview(const KFileItem &item, const QPixmap &preview);
+
+private:
+    QDir createTemporaryDir();
 };
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
