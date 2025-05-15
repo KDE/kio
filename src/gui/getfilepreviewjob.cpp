@@ -93,7 +93,88 @@ void GetFilePreviewJob::start()
 
 void GetFilePreviewJob::slotResult(KJob *job)
 {
-    qWarning() << "subjob result " << job;
+    qWarning() << "Result of " << job;
+    removeSubjob(job);
+    Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
+    if (job->error()) {
+        qCWarning(KIO_GUI) << "Job failed" << job->errorString();
+        return;
+    }
+    const KIO::UDSEntry statResult = static_cast<KIO::StatJob *>(job)->statResult();
+    m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+    m_tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+
+    const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
+    if (size == 0) {
+        qCWarning(KIO_GUI) << "GetFilePreviewJob: skipping an empty file, migth be a broken symlink" << m_currentItem.item.url();
+        return;
+    }
+
+    bool skipCurrentItem = false;
+    const QUrl itemUrl = d->currentItem.item.mostLocalUrl();
+    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !d->currentItem.item.isSlow()) {
+        skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize && !d->currentItem.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+    } else {
+        // For remote items the "IgnoreMaximumSize" plugin property is not respected
+        // Also we need to check if remote (but locally mounted) folder preview is enabled
+        skipCurrentItem = (!d->ignoreMaximumSize && size > d->maximumRemoteSize) || (d->currentItem.item.isDir() && !d->enableRemoteFolderThumbnail);
+    }
+    if (skipCurrentItem) {
+        d->determineNextFile();
+        return;
+    }
+
+    bool pluginHandlesSequences = d->currentItem.plugin.value(QStringLiteral("HandleSequences"), false);
+    if (!d->currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) || (d->sequenceIndex && pluginHandlesSequences)) {
+        // This preview will not be cached, no need to look for a saved thumbnail
+        // Just create it, and be done
+        d->getOrCreateThumbnail();
+        return;
+    }
+
+    if (d->statResultThumbnail()) {
+        d->succeeded = true;
+        d->determineNextFile();
+        return;
+    }
+
+    d->getOrCreateThumbnail();
+    return;
+
+case PreviewJobPrivate::STATE_DEVICE_INFO: {
+    KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
+    int id;
+    QString path = statJob->url().toLocalFile();
+    if (job->error()) {
+        // We set id to 0 to know we tried getting it
+        qCWarning(KIO_GUI) << "Cannot read information about filesystem under path" << path;
+        id = 0;
+    } else {
+        id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+    }
+    d->deviceIdMap[path] = id;
+    d->createThumbnail(d->currentItem.item.localPath());
+    return;
+}
+case PreviewJobPrivate::STATE_GETORIG: {
+    if (job->error()) {
+        d->cleanupTempFile();
+        d->determineNextFile();
+        return;
+    }
+
+    QString pixPath = static_cast<KIO::FileCopyJob *>(job)->destUrl().toLocalFile();
+    if (!pixPath.isEmpty()) {
+        d->createThumbnail(pixPath);
+    }
+    return;
+}
+case PreviewJobPrivate::STATE_CREATETHUMB: {
+    d->cleanupTempFile();
+    d->determineNextFile();
+    return;
+}
+}
 }
 
 void GetFilePreviewJob::cleanupTempFile()
