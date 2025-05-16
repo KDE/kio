@@ -1085,7 +1085,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         KBookmarkGroup group = d->bookmarkManager->root();
 
         for (const QUrl &url : urls) {
-            KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatBasic);
+            KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatBasic | KIO::StatResolveSymlink);
 
             if (!job->exec()) {
                 Q_EMIT errorMessage(i18nc("Placeholder is error message", "Could not add to the Places panel: %1", job->errorString()));
