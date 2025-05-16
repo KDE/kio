@@ -35,6 +35,7 @@
 #include <QImage>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QObject>
 #include <QPixmap>
@@ -1083,15 +1084,20 @@ void PreviewJobPrivate::saveThumbnailData(QImage &thumb)
 void PreviewJobPrivate::emitPreview(const QImage &thumb)
 {
     Q_Q(PreviewJob);
-    QPixmap pix;
     const qreal ratio = thumb.devicePixelRatio();
-    if (thumb.width() > width * ratio || thumb.height() > height * ratio) {
-        pix = QPixmap::fromImage(thumb.scaled(QSize(width * ratio, height * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    } else {
-        pix = QPixmap::fromImage(thumb);
+
+    QImage preview = thumb;
+    if (preview.width() > width * ratio || preview.height() > height * ratio) {
+        preview = preview.scaled(QSize(width * ratio, height * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
-    pix.setDevicePixelRatio(ratio);
-    Q_EMIT q->gotPreview(currentItem.item, pix);
+
+    Q_EMIT q->generated(currentItem.item, preview);
+
+    if (q->isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
+        QPixmap pixmap = QPixmap::fromImage(preview);
+        pixmap.setDevicePixelRatio(ratio);
+        Q_EMIT q->gotPreview(currentItem.item, pixmap);
+    }
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()

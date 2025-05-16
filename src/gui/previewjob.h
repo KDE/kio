@@ -167,6 +167,9 @@ Q_SIGNALS:
      * \a item the file of the preview
      *
      * \a preview the preview image
+     *
+     * \note If you need a preview as a QImage object, use the generated() signal.
+     * \sa generated()
      */
     void gotPreview(const KFileItem &item, const QPixmap &preview);
     /*!
@@ -177,6 +180,12 @@ Q_SIGNALS:
      * \a item the file that failed
      */
     void failed(const KFileItem &item);
+    /*!
+     * Emitted when a \a preview for \a item has been successfully generated.
+     *
+     * \since 6.15
+     */
+    void generated(const KFileItem &item, const QImage &preview);
 
 protected Q_SLOTS:
     void slotResult(KJob *job) override;
