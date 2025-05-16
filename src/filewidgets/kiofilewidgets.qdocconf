@@ -10,6 +10,8 @@ sourcedirs += .
 
 outputformats = HTML
 
+navigation.landingpage = "KIO"
+
 depends += \
     kde \
     qtcore \
