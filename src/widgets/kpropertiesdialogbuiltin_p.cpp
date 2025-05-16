@@ -664,7 +664,7 @@ void KFilePropsPlugin::slotFreeSpaceResult(KJob *_job)
         const qint64 size = job->size();
         const qint64 available = job->availableSize();
         const quint64 used = size - available;
-        const int percentUsed = qRound(100.0 * qreal(used) / qreal(size));
+        const int percentUsed = (size == 0) ? 0 : qRound(100.0 * qreal(used) / qreal(size));
 
         d->m_ui->capacityBar->setText(i18nc("Available space out of total partition size (percent used)",
                                             "%1 free of %2 (%3% used)",
