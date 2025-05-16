@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:40+0000\n"
-"PO-Revision-Date: 2025-02-14 19:33+0200\n"
+"PO-Revision-Date: 2025-04-20 16:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -3753,18 +3753,14 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "Kenoviivaa ei voi käyttää tiedostojen tai kansioiden nimissä."
 
 #: filewidgets/knewfilemenu.cpp:1294
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Ei voitu luoda kansiota nimeltä <filename>%1</filename>,<nl/>koska nimi on "
-"käyttöjärjestelmän varaama."
+"Tiedostoa tai kansiota nimeltä <filename>%1</filename> ei voida luoda, koska "
+"se limittyisi käyttäjän kotikansion sijainnin kanssa."
 
 #: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
@@ -6794,12 +6790,10 @@ msgid "Filename for clipboard content:"
 msgstr "Tiedostonimi leikepöydän sisällölle:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Liitä tiedosto"
+msgstr "liitetty tiedosto"
 
 #: widgets/paste.cpp:123
 #, kde-format
