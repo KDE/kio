@@ -569,6 +569,7 @@ public:
      */
     bool followSelectedDirectories() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
     /*!
      * Starts and returns a KIO::DeleteJob to delete the given \a items.
      *
@@ -579,8 +580,11 @@ public:
      * \a ask specifies whether a confirmation dialog should be shown
      *
      * \a showProgress passed to the DeleteJob to show a progress dialog
+     * \deprecated[6.15]
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 15, "Use KIO::DeleteOrTrashJob instead")
     virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr, bool ask = true, bool showProgress = true);
+#endif
 
     /*!
      * Clears the forward and backward history.
@@ -642,6 +646,7 @@ public:
      */
     virtual void setDropOptions(int options);
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
     /*!
      * Starts and returns a KIO::CopyJob to trash the given \a items.
      *
@@ -650,7 +655,9 @@ public:
      * \a ask specifies whether a confirmation dialog should be shown
      * \a showProgress passed to the CopyJob to show a progress dialog
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 15, "Use KIO::DeleteOrTrashJob instead")
     virtual KIO::CopyJob *trash(const KFileItemList &items, QWidget *parent, bool ask = true, bool showProgress = true);
+#endif
 
     /*!
      * Returns the preview generator for the current view.

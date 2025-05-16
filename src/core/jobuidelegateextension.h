@@ -126,6 +126,7 @@ protected:
     virtual ~JobUiDelegateExtension();
 
 public:
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 15)
     /*!
      * The type of deletion: real deletion, moving the files to the trash
      * or emptying the trash
@@ -170,7 +171,9 @@ public:
      *
      * Returns \c true if confirmed
      */
+    KIOCORE_DEPRECATED_VERSION(6, 15, "Use AskUserActionInterface::askUserDelete instead")
     virtual bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) = 0;
+#endif
 
     /*!
      * \value UpdateContent

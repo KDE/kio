@@ -40,11 +40,14 @@
 #include <KUrlMimeData>
 #include <kfileitemdelegate.h>
 #include <kfilepreviewgenerator.h>
+#include <kio/askuseractioninterface.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/deleteortrashjob.h>
 #include <kio/jobuidelegate.h>
+#include <kio/jobuidelegatefactory.h>
 #include <kio/previewjob.h>
+#include <kio/widgetsaskuseractionhandler.h>
 #include <kpropertiesdialog.h>
 
 #include <QActionGroup>
@@ -712,6 +715,7 @@ void KDirOperator::mkdir()
     d->m_newFileMenu->createDirectory();
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
 KIO::DeleteJob *KDirOperator::del(const KFileItemList &items, QWidget *parent, bool ask, bool showProgress)
 {
     if (items.isEmpty()) {
@@ -742,6 +746,7 @@ KIO::DeleteJob *KDirOperator::del(const KFileItemList &items, QWidget *parent, b
 
     return nullptr;
 }
+#endif
 
 void KDirOperator::deleteSelected()
 {
@@ -756,6 +761,7 @@ void KDirOperator::deleteSelected()
     deleteJob->start();
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
 KIO::CopyJob *KDirOperator::trash(const KFileItemList &items, QWidget *parent, bool ask, bool showProgress)
 {
     if (items.isEmpty()) {
@@ -782,6 +788,7 @@ KIO::CopyJob *KDirOperator::trash(const KFileItemList &items, QWidget *parent, b
 
     return nullptr;
 }
+#endif
 
 KFilePreviewGenerator *KDirOperator::previewGenerator() const
 {

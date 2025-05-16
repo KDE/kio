@@ -175,6 +175,7 @@ void KIO::JobUiDelegate::unregisterWindow(QWidget *window)
     s_static()->slotUnregisterWindow(window);
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
 bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType)
 {
     QString keyName;
@@ -300,6 +301,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
     }
     return true;
 }
+#endif
 
 KIO::ClipboardUpdater *KIO::JobUiDelegate::createClipboardUpdater(Job *job, ClipboardUpdaterMode mode)
 {

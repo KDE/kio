@@ -12,6 +12,7 @@
 #ifndef KIO_JOBUIDELEGATE_H
 #define KIO_JOBUIDELEGATE_H
 
+#include "kiowidgets_export.h"
 #include <KDialogJobUiDelegate>
 #include <kio/askuseractioninterface.h>
 #include <kio/global.h>
@@ -85,6 +86,7 @@ public:
      */
     static void unregisterWindow(QWidget *window);
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
     /*!
      * Ask for confirmation before deleting/trashing \a urls.
      *
@@ -100,8 +102,11 @@ public:
      * \note The window passed to setWindow is used as the parent for the message box.
      *
      * Returns true if confirmed
+     *
+     * \deprecated[6.15] Use AskUserActionInterface::askUserDelete
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
+#endif
 
     /*!
      * Creates a clipboard updater
