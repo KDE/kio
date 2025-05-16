@@ -29,7 +29,7 @@ class GetFilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem);
+    GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem, const QString thumbPath);
 
     struct StandardThumbnailerData {
         QString exec;
@@ -51,7 +51,7 @@ public:
 
     QStringList m_enabledPlugins;
     // The current item
-    const PreviewItem m_currentItem;
+    const KIO::PreviewItem m_currentItem;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -101,15 +101,28 @@ public:
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
     bool m_tryKioFuse = true;
 
+    /*
+    - After stat, we either skip file or getOrCreateThumbnail
+    - OR
+    - If we get original, take it
+    - If we need to create new one, check if caching is done
+        - If caching is done, run the jobs for it
+        - Then create thumbnail
+    - Then return it
+    */
+
+    void start() override;
+    void statFile();
     void getOrCreateThumbnail();
-    void createThumbnailViaFuse(const QUrl &, const QUrl &);
-    void createThumbnailViaLocalCopy(const QUrl &);
     bool statResultThumbnail();
     void createThumbnail(const QString &);
+    void createThumbnailViaFuse(const QUrl &, const QUrl &);
+    void createThumbnailViaLocalCopy(const QUrl &);
     void cleanupTempFile();
-    void emitPreview(const QImage &thumb);
+    void slotResult(KJob *job) override;
 
     void startPreview();
+    void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
@@ -120,12 +133,13 @@ public:
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QMap<QString, StandardThumbnailerData> standardThumbnailers();
 
-    void start() override;
-    void slotResult(KJob *job) override;
-
 Q_SIGNALS:
     void gotPreview(const KFileItem &item, const QPixmap &preview);
     void failed(const KFileItem &item);
+
+private Q_SLOTS:
+    void slotStatFile(KJob *job);
+    void slotGetOrCreateThumbnail(KJob *job);
 
 private:
     QDir createTemporaryDir();

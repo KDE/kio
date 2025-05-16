@@ -10,6 +10,7 @@
 
 #include "previewjob.h"
 #include "filecopyjob.h"
+#include "getfilepreviewjob_p.h"
 #include "kiogui_debug.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
@@ -74,17 +75,7 @@ static qreal s_defaultDevicePixelRatio = 1.0;
 static constexpr int s_kioFuseMountTimeout = 10000;
 }
 
-namespace KIO
-{
-struct PreviewItem;
-}
 using namespace KIO;
-
-struct KIO::PreviewItem {
-    KFileItem item;
-    KPluginMetaData plugin;
-    bool standardThumbnailer = false;
-};
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
@@ -185,7 +176,6 @@ public:
     void cleanupTempFile();
     void determineNextFile();
     void emitPreview(const QImage &thumb);
-
     void startPreview();
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
@@ -552,11 +542,13 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job = KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
-        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-        job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+        GetFilePreviewJob *job = new GetFilePreviewJob(currentItem, QSize(width, height), bScale, bSave, thumbPath);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
-        q->addSubjob(job);
+        q->connect(job, &GetFilePreviewJob::gotPreview, q, [this, q](const KFileItem &item, const QPixmap &pix) {
+            Q_EMIT q->gotPreview(item, pix);
+            determineNextFile();
+        });
+        job->start();
     }
 }
 
@@ -564,9 +556,11 @@ void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
 
-    qWarning() << "Result of " << job;
+    qWarning() << "PreviewJob Result of " << job;
     removeSubjob(job);
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
+    d->determineNextFile();
+    return;
     switch (d->state) {
     case PreviewJobPrivate::STATE_STATORIG: {
         if (job->error()) { // that's no good news...
