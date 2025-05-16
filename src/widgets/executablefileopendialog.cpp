@@ -72,9 +72,16 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(const QUrl &url, const QMimeT
     QPushButton *launchButton = new QPushButton(i18nc("@action:button Launch script", "&Launch"), this);
     launchButton->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
 
+    // Script execution settings UI is in Dolphin, not KIO, only show the explanation
+    // on how to undo "dont ask again" when Dolphin is the default file manager.
+    const auto fileManagerService = KApplicationTrader::preferredService(QStringLiteral("inode/directory"));
+    m_ui.dontAgainHelpButton->setVisible(fileManagerService && fileManagerService->desktopEntryName() == QLatin1String("org.kde.dolphin"));
+
     if (mode == OnlyExecute) {
+        m_ui.dontAgainCheckBox->setText(i18nc("@option:check", "Launch executable files without asking"));
         connect(launchButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::executeFile);
     } else if (mode == OpenAsExecute) {
+        m_ui.dontAgainCheckBox->setText(i18nc("@option:check Open in the associated app", "Open executable files in the default application without asking"));
         connect(launchButton, &QPushButton::clicked, this, &ExecutableFileOpenDialog::openFile);
     } else { // mode == OpenOrExecute
         m_ui.label->setText(i18n("What do you wish to do with this file?"));

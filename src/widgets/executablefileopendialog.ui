@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>215</width>
-    <height>144</height>
+    <width>276</width>
+    <height>152</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,11 +90,22 @@
     </layout>
    </item>
    <item>
-    <widget class="QCheckBox" name="dontAgainCheckBox">
-     <property name="text">
-      <string>Do not ask again</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item alignment="Qt::AlignmentFlag::AlignLeft">
+      <widget class="QCheckBox" name="dontAgainCheckBox">
+       <property name="text">
+        <string comment="@option:check Always open/launch executable files (dont ask again)">Remember for all executable files</string>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignmentFlag::AlignLeft">
+      <widget class="KContextualHelpButton" name="dontAgainHelpButton">
+       <property name="contextualHelpText">
+        <string comment="@info:tooltip How to undo do not ask again">You can undo this under &quot;Confirmations&quot; in Dolphin file manager settings.</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -108,6 +119,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KContextualHelpButton</class>
+   <extends>QToolButton</extends>
+   <header>kcontextualhelpbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
