@@ -130,6 +130,24 @@ public:
     void setDevicePixelRatio(qreal dpr);
 
     /*!
+     * Returns \c true if the PreviewJob produces previews as QImage objects; otherwise the PreviewJob
+     * produces previews as QPixmap objects.
+     *
+     * By default, useImage() is \c false.
+     *
+     * \sa generated()
+     * \since 6.15
+     */
+    bool useImage() const;
+
+    /*!
+     * Sets whether the PreviewJob produces previews as QImage objects to \a useImage.
+     *
+     * \since 6.15
+     */
+    void setUseImage(bool useImage);
+
+    /*!
      * Returns a list of all available preview plugins. The list
      * contains the basenames of the plugins' .desktop files (no path,
      * no .desktop).
@@ -167,6 +185,8 @@ Q_SIGNALS:
      * \a item the file of the preview
      *
      * \a preview the preview image
+     *
+     * \note This signal will be emitted only if useImage() is \c false.
      */
     void gotPreview(const KFileItem &item, const QPixmap &preview);
     /*!
@@ -177,6 +197,13 @@ Q_SIGNALS:
      * \a item the file that failed
      */
     void failed(const KFileItem &item);
+    /*!
+     * Emitted when a \a preview for \a item has been successfully generated.
+     *
+     * \note This signal will be emitted only if useImage() is \c true.
+     * \since 6.15
+     */
+    void generated(const KFileItem &item, const QImage &preview);
 
 protected Q_SLOTS:
     void slotResult(KJob *job) override;
