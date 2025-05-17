@@ -490,7 +490,6 @@ public:
      * You must not delete the KConfig or KConfigGroup object (and master config object) before
      * either deleting the KDirOperator or  calling setViewConfig(0); or something like that
      *
-     * \sa viewConfig
      * \sa viewConfigGroup
      */
     virtual void setViewConfig(KConfigGroup &configGroup);

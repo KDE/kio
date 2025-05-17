@@ -304,7 +304,7 @@ public:
      *
      * \a iconName The new icon of the place
      *
-     * \a appName The new application-local filter for the place (\sa addPlace()).
+     * \a appName The new application-local filter for the place (see addPlace()).
      */
     Q_INVOKABLE void
     editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());

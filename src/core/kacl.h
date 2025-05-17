@@ -167,7 +167,7 @@ public:
      * of the entries in the list does not exists, or setting of the ACL
      * entry fails for any reason, the ACL will be left unchanged.
      * Returns success or failure */
-    bool setAllGroupPermissions(const ACLGroupPermissionsList &);
+    bool setAllGroupPermissions(const ACLGroupPermissionsList &list);
 
     /*! Sets the whole list from a string. If the string in \a aclStr represents
      * a valid ACL, it will be set, otherwise the ACL remains unchanged.

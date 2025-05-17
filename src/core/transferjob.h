@@ -248,7 +248,7 @@ KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, Job
  *
  * \a flags Can be HideProgressInfo, Overwrite and Resume here.
  *
- * \warning Setting Resume means that the data will be appended to \a dest if \a dest exists.
+ * \warning Setting Resume means that the data will be appended to \a url if \a url exists.
  *
  * Returns the job handling the operation.
  */

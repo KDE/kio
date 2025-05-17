@@ -524,7 +524,7 @@ public:
     /*!
      * Returns the MIME type of the file item.
      *
-     * If \a delayedMimeTypes was used in the constructor, this will determine
+     * If \c delayedMimeTypes was used in the constructor, this will determine
      * the MIME type first. Equivalent to determineMimeType()->name()
      */
     QString mimetype() const;

@@ -173,6 +173,7 @@ public:
      * \value FileItemRole Returns the KFileItem for a given index. roleName is "fileItem".
      * \value ChildCountRole Returns the number of items in a directory, or ChildCountUnknown. roleName is "childCount".
      * \value HasJobRole Returns whether or not there is a job on an item (file/directory). roleName is "hasJob".
+     * \value HandleSequencesRole
      */
     enum AdditionalRoles {
         // Note: use   printf "0x%08X\n" $(($RANDOM*$RANDOM))

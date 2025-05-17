@@ -34,6 +34,7 @@ public:
 
     /*!
      * List of mount points.
+     * \inmodule KIOCore
      */
     class KIOCORE_EXPORT List : public QList<Ptr>
     {

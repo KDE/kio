@@ -264,7 +264,7 @@ public:
      * the dialog applies to a single file or URL.
      *
      * \a _name new filename, encoded.
-     * \sa FilePropsDialogPlugin::applyChanges
+     * \sa KPropertiesDialogPlugin::applyChanges()
      */
     void rename(const QString &_name);
 
