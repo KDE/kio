@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:40+0000\n"
+"POT-Creation-Date: 2025-05-17 00:38+0000\n"
 "PO-Revision-Date: 2025-03-22 12:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2596,248 +2596,248 @@ msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "Utwórz nowy katalog dla tych rzeczy"
 
-#: filewidgets/kdiroperator.cpp:309
+#: filewidgets/kdiroperator.cpp:312
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Nie wybrano pliku do usunięcia."
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Nie ma czego usuwać"
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Nie wybrano pliku do wyrzucenia do kosza."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Nie ma czego wyrzucić do kosza"
 
-#: filewidgets/kdiroperator.cpp:921 filewidgets/kdiroperator.cpp:1053
+#: filewidgets/kdiroperator.cpp:928 filewidgets/kdiroperator.cpp:1060
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Wybrany katalog nie istnieje lub brak praw do odczytu."
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:2016
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:2014
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgid "Parent Folder"
 msgstr "Katalog nadrzędny"
 
-#: filewidgets/kdiroperator.cpp:2021
+#: filewidgets/kdiroperator.cpp:2028
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Idź wstecz"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Idź naprzód"
 
-#: filewidgets/kdiroperator.cpp:2029
+#: filewidgets/kdiroperator.cpp:2036
 #, kde-format
 msgid "Home Folder"
 msgstr "Katalog domowy"
 
-#: filewidgets/kdiroperator.cpp:2033
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Reload"
 msgstr "Wczytaj ponownie"
 
-#: filewidgets/kdiroperator.cpp:2036
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Nowy katalog…"
 
-#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:270
-#: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
+#: filewidgets/kdiroperator.cpp:2053 widgets/jobuidelegate.cpp:271
+#: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Wyrzuć do kosza"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Delete"
 msgstr "Usuń"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "Sorting"
 msgstr "Uszereguj"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Sort by Name"
 msgstr "Uszereguj wg nazwy"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2077
 #, kde-format
 msgid "Sort by Size"
 msgstr "Uszereguj wg rozmiaru"
 
-#: filewidgets/kdiroperator.cpp:2076
+#: filewidgets/kdiroperator.cpp:2083
 #, kde-format
 msgid "Sort by Date"
 msgstr "Uszereguj wg daty"
 
-#: filewidgets/kdiroperator.cpp:2082
+#: filewidgets/kdiroperator.cpp:2089
 #, kde-format
 msgid "Sort by Type"
 msgstr "Uszereguj wg rodzaju"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Ascending"
 msgstr "Rosnąco"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Descending"
 msgstr "Malejąco"
 
-#: filewidgets/kdiroperator.cpp:2105
+#: filewidgets/kdiroperator.cpp:2112
 #, kde-format
 msgid "Folders First"
 msgstr "Najpierw katalogi"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Pliki ukryte jako ostatnie"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Icons View"
 msgstr "Widok ikonowy"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Compact View"
 msgstr "Widok zwarty"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Details View"
 msgstr "Widok szczegółowy"
 
-#: filewidgets/kdiroperator.cpp:2151
+#: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Icon Position"
 msgstr "Położenie ikon"
 
-#: filewidgets/kdiroperator.cpp:2154
+#: filewidgets/kdiroperator.cpp:2161
 #, kde-format
 msgid "Next to File Name"
 msgstr "Obok nazwy pliku"
 
-#: filewidgets/kdiroperator.cpp:2160
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Above File Name"
 msgstr "Nad nazwą pliku"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Short View"
 msgstr "Widok skrócony"
 
-#: filewidgets/kdiroperator.cpp:2181
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Detailed View"
 msgstr "Widok szczegółowy"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Tree View"
 msgstr "Widok drzewa"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Widok szczegółowy drzewa"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Zezwól na rozszerzanie w widoku szczegółowym"
 
-#: filewidgets/kdiroperator.cpp:2214
+#: filewidgets/kdiroperator.cpp:2221
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Pokaż ukryte pliki"
 
-#: filewidgets/kdiroperator.cpp:2221
+#: filewidgets/kdiroperator.cpp:2228
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Pokaż panel podglądu"
 
-#: filewidgets/kdiroperator.cpp:2228
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Show Preview"
 msgstr "Pokaż podgląd"
 
-#: filewidgets/kdiroperator.cpp:2235
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Otwórz jego katalog"
 
-#: filewidgets/kdiroperator.cpp:2242 filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kdiroperator.cpp:2249 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
 msgstr "Właściwości"
 
-#: filewidgets/kdiroperator.cpp:2251
+#: filewidgets/kdiroperator.cpp:2258
 #, kde-format
 msgid "&View Mode"
 msgstr "Tryb &widoku"
 
-#: filewidgets/kdiroperator.cpp:2354 filewidgets/kdiroperator.cpp:2366
+#: filewidgets/kdiroperator.cpp:2361 filewidgets/kdiroperator.cpp:2373
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2355 filewidgets/kdiroperator.cpp:2367
+#: filewidgets/kdiroperator.cpp:2362 filewidgets/kdiroperator.cpp:2374
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2358
+#: filewidgets/kdiroperator.cpp:2365
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Najpierw najnowsze"
 
-#: filewidgets/kdiroperator.cpp:2359
+#: filewidgets/kdiroperator.cpp:2366
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Najpierw najstarsze"
 
-#: filewidgets/kdiroperator.cpp:2362
+#: filewidgets/kdiroperator.cpp:2369
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Najpierw największe"
 
-#: filewidgets/kdiroperator.cpp:2363
+#: filewidgets/kdiroperator.cpp:2370
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -5019,19 +5019,31 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "Uruchamianie %1"
 
-#: widgets/executablefileopendialog.cpp:80
+#: widgets/executablefileopendialog.cpp:81
+#, kde-format
+msgctxt "@option:check"
+msgid "Launch executable files without asking"
+msgstr ""
+
+#: widgets/executablefileopendialog.cpp:84
+#, kde-format
+msgctxt "@option:check Open in the associated app"
+msgid "Open executable files in the default application without asking"
+msgstr ""
+
+#: widgets/executablefileopendialog.cpp:87
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Co zrobić z tym plikiem?"
 
-#: widgets/executablefileopendialog.cpp:83
+#: widgets/executablefileopendialog.cpp:90
 #, fuzzy, kde-format
 #| msgid "&Open"
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Otwórz"
 
-#: widgets/executablefileopendialog.cpp:85
+#: widgets/executablefileopendialog.cpp:92
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgctxt "@action:button"
@@ -5046,10 +5058,19 @@ msgid "Would you like to launch this file?"
 msgstr "Co zrobić z tym plikiem?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:95
+#: widgets/executablefileopendialog.ui:97
 #, kde-format
-msgid "Do not ask again"
-msgstr "Nie pytaj ponownie"
+msgctxt "@option:check Always open/launch executable files (dont ask again)"
+msgid "Remember for all executable files"
+msgstr ""
+
+#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
+#: widgets/executablefileopendialog.ui:104
+#, kde-format
+msgctxt "@info:tooltip How to undo do not ask again"
+msgid ""
+"You can undo this under \"Confirmations\" in Dolphin file manager settings."
+msgstr ""
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5151,7 +5172,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Potwierdzenie cofnięcia kopiowania pliku"
 
-#: widgets/jobuidelegate.cpp:229
+#: widgets/jobuidelegate.cpp:230
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5162,13 +5183,13 @@ msgstr ""
 "Czy na pewno trwale usunąć tę rzecz?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Trwałe usuwanie"
 
-#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
+#: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
@@ -5176,7 +5197,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Usuń trwale"
 
-#: widgets/jobuidelegate.cpp:242
+#: widgets/jobuidelegate.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5195,7 +5216,7 @@ msgstr[2] ""
 "Czy na pewno trwale usunąć te %1 rzeczy?<nl/><nl/><emphasis "
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5205,13 +5226,13 @@ msgstr ""
 "Czy na pewno trwale usunąć wszystkie rzeczy z kosza?<nl/><nl/><emphasis "
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Opróżnij kosz"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5220,7 +5241,7 @@ msgid ""
 msgstr ""
 "Czy na pewno chcesz wyrzucić tę rzecz do kosza?<nl/><filename>%1</filename>"
 
-#: widgets/jobuidelegate.cpp:278
+#: widgets/jobuidelegate.cpp:279
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
@@ -7363,6 +7384,9 @@ msgstr "To uruchomi program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jeśli nie ufasz temu programowi, naciśnij Anuluj"
+
+#~ msgid "Do not ask again"
+#~ msgstr "Nie pytaj ponownie"
 
 #~ msgid "&Execute"
 #~ msgstr "&Wykonaj"

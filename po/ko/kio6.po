@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:40+0000\n"
+"POT-Creation-Date: 2025-05-17 00:38+0000\n"
 "PO-Revision-Date: 2025-04-15 23:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2530,248 +2530,248 @@ msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "이 항목을 포함할 새 폴더 만들기"
 
-#: filewidgets/kdiroperator.cpp:309
+#: filewidgets/kdiroperator.cpp:312
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "지울 파일을 선택하지 않았습니다."
 
-#: filewidgets/kdiroperator.cpp:718 filewidgets/kdiroperator.cpp:750
+#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "지울 것 없음"
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "휴지통에 버릴 파일을 선택하지 않았습니다."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:849
+#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "버릴 것 없음"
 
-#: filewidgets/kdiroperator.cpp:921 filewidgets/kdiroperator.cpp:1053
+#: filewidgets/kdiroperator.cpp:928 filewidgets/kdiroperator.cpp:1060
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "지정한 폴더가 없거나 읽을 수 없습니다."
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:2016
 #, kde-format
 msgid "Menu"
 msgstr "메뉴"
 
-#: filewidgets/kdiroperator.cpp:2014
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgid "Parent Folder"
 msgstr "부모 폴더"
 
-#: filewidgets/kdiroperator.cpp:2021
+#: filewidgets/kdiroperator.cpp:2028
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "뒤로 이동"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "앞으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2029
+#: filewidgets/kdiroperator.cpp:2036
 #, kde-format
 msgid "Home Folder"
 msgstr "홈 폴더"
 
-#: filewidgets/kdiroperator.cpp:2033
+#: filewidgets/kdiroperator.cpp:2040
 #, kde-format
 msgid "Reload"
 msgstr "새로 고침"
 
-#: filewidgets/kdiroperator.cpp:2036
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "새 폴더…"
 
-#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:270
-#: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:290
+#: filewidgets/kdiroperator.cpp:2053 widgets/jobuidelegate.cpp:271
+#: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "휴지통으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Delete"
 msgstr "삭제"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "Sorting"
 msgstr "정렬"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Sort by Name"
 msgstr "이름순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2077
 #, kde-format
 msgid "Sort by Size"
 msgstr "크기순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2076
+#: filewidgets/kdiroperator.cpp:2083
 #, kde-format
 msgid "Sort by Date"
 msgstr "날짜순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2082
+#: filewidgets/kdiroperator.cpp:2089
 #, kde-format
 msgid "Sort by Type"
 msgstr "형식순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Ascending"
 msgstr "오름차순"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Descending"
 msgstr "내림차순"
 
-#: filewidgets/kdiroperator.cpp:2105
+#: filewidgets/kdiroperator.cpp:2112
 #, kde-format
 msgid "Folders First"
 msgstr "폴더 우선"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "숨김 파일 마지막에"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Icons View"
 msgstr "아이콘 보기"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Compact View"
 msgstr "축소된 보기"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Details View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2151
+#: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Icon Position"
 msgstr "아이콘 위치"
 
-#: filewidgets/kdiroperator.cpp:2154
+#: filewidgets/kdiroperator.cpp:2161
 #, kde-format
 msgid "Next to File Name"
 msgstr "파일 이름 옆"
 
-#: filewidgets/kdiroperator.cpp:2160
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Above File Name"
 msgstr "파일 이름 위"
 
-#: filewidgets/kdiroperator.cpp:2174
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Short View"
 msgstr "간단히 보기"
 
-#: filewidgets/kdiroperator.cpp:2181
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Detailed View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Tree View"
 msgstr "트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "자세한 트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "자세히 보기 확장 허용"
 
-#: filewidgets/kdiroperator.cpp:2214
+#: filewidgets/kdiroperator.cpp:2221
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "숨겨진 파일 표시"
 
-#: filewidgets/kdiroperator.cpp:2221
+#: filewidgets/kdiroperator.cpp:2228
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "미리 보기 패널 표시"
 
-#: filewidgets/kdiroperator.cpp:2228
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Show Preview"
 msgstr "미리 보기 표시"
 
-#: filewidgets/kdiroperator.cpp:2235
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "포함하는 폴더 열기"
 
-#: filewidgets/kdiroperator.cpp:2242 filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kdiroperator.cpp:2249 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
 msgstr "속성"
 
-#: filewidgets/kdiroperator.cpp:2251
+#: filewidgets/kdiroperator.cpp:2258
 #, kde-format
 msgid "&View Mode"
 msgstr "보기 모드(&V)"
 
-#: filewidgets/kdiroperator.cpp:2354 filewidgets/kdiroperator.cpp:2366
+#: filewidgets/kdiroperator.cpp:2361 filewidgets/kdiroperator.cpp:2373
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "힣-가"
 
-#: filewidgets/kdiroperator.cpp:2355 filewidgets/kdiroperator.cpp:2367
+#: filewidgets/kdiroperator.cpp:2362 filewidgets/kdiroperator.cpp:2374
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "가-힣"
 
-#: filewidgets/kdiroperator.cpp:2358
+#: filewidgets/kdiroperator.cpp:2365
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "새 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2359
+#: filewidgets/kdiroperator.cpp:2366
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "오래된 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2362
+#: filewidgets/kdiroperator.cpp:2369
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "큰 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2363
+#: filewidgets/kdiroperator.cpp:2370
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4910,19 +4910,31 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "%1 실행 중"
 
-#: widgets/executablefileopendialog.cpp:80
+#: widgets/executablefileopendialog.cpp:81
+#, kde-format
+msgctxt "@option:check"
+msgid "Launch executable files without asking"
+msgstr ""
+
+#: widgets/executablefileopendialog.cpp:84
+#, kde-format
+msgctxt "@option:check Open in the associated app"
+msgid "Open executable files in the default application without asking"
+msgstr ""
+
+#: widgets/executablefileopendialog.cpp:87
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "이 파일로 무엇을 하시겠습니까?"
 
-#: widgets/executablefileopendialog.cpp:83
+#: widgets/executablefileopendialog.cpp:90
 #, fuzzy, kde-format
 #| msgid "&Open"
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "열기(&O)"
 
-#: widgets/executablefileopendialog.cpp:85
+#: widgets/executablefileopendialog.cpp:92
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgctxt "@action:button"
@@ -4937,10 +4949,20 @@ msgid "Would you like to launch this file?"
 msgstr "이 파일로 무엇을 하시겠습니까?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:95
+#: widgets/executablefileopendialog.ui:97
+#, fuzzy, kde-format
+#| msgid "'%1' is not an executable file."
+msgctxt "@option:check Always open/launch executable files (dont ask again)"
+msgid "Remember for all executable files"
+msgstr "'%1'이(가) 실행 파일이 아닙니다."
+
+#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
+#: widgets/executablefileopendialog.ui:104
 #, kde-format
-msgid "Do not ask again"
-msgstr "다시 묻지 않음"
+msgctxt "@info:tooltip How to undo do not ask again"
+msgid ""
+"You can undo this under \"Confirmations\" in Dolphin file manager settings."
+msgstr ""
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5040,7 +5062,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "파일 복사 실행 취소 확인"
 
-#: widgets/jobuidelegate.cpp:229
+#: widgets/jobuidelegate.cpp:230
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5051,13 +5073,13 @@ msgstr ""
 "이 항목을 완전히 삭제하시겠습니까?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
 msgstr "완전히 삭제"
 
-#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
+#: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
@@ -5065,7 +5087,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "완전히 삭제"
 
-#: widgets/jobuidelegate.cpp:242
+#: widgets/jobuidelegate.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5078,7 +5100,7 @@ msgstr[0] ""
 "항목 %1개를 완전히 삭제하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업"
 "은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5088,13 +5110,13 @@ msgstr ""
 "휴지통에서 모든 항목을 완전히 삭제하시겠습니까?<nl/><nl/><emphasis "
 "strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5102,7 +5124,7 @@ msgid ""
 "filename>"
 msgstr "다음 항목을 휴지통에 버리시겠습니까?<nl/><filename>%1</filename>"
 
-#: widgets/jobuidelegate.cpp:278
+#: widgets/jobuidelegate.cpp:279
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
@@ -7180,6 +7202,9 @@ msgstr "다음 프로그램을 시작합니다:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
 
+#~ msgid "Do not ask again"
+#~ msgstr "다시 묻지 않음"
+
 #~ msgid "&Execute"
 #~ msgstr "실행(&E)"
 
@@ -8941,9 +8966,6 @@ msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오
 #~ msgstr ""
 #~ "휴지통이 최대 크기에 도달했습니다!\n"
 #~ "휴지통을 수동으로 정리하십시오."
-
-#~ msgid "'%1' is not an executable file."
-#~ msgstr "'%1'이(가) 실행 파일이 아닙니다."
 
 #~ msgid "'%1' not found, please type a valid program name."
 #~ msgstr "'%1을(를) 찾을 수 없습니다. 올바른 프로그램 이름을 입력하십시오."

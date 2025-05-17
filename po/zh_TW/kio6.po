@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:40+0000\n"
-"PO-Revision-Date: 2025-05-05 22:52+0900\n"
+"PO-Revision-Date: 2025-05-16 15:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -30,8 +30,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
-"Kenduest Lee,Chao-Hsiung Liao,林耕宇, Jeff Huang,Yi-Jyun Pan,Kisaragi Hiu"
+msgstr "Kenduest Lee,Chao-Hsiung Liao,林耕宇, Jeff Huang,Yi-Jyun Pan,Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -893,8 +892,7 @@ msgstr "(不明)"
 msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
-msgstr ""
-"請聯絡適合的電腦支援組織，例如系統管理員或技術支援小組，以取得進一步的協助。"
+msgstr "請聯絡適合的電腦支援組織，例如系統管理員或技術支援小組，以取得進一步的協助。"
 
 #: core/job_error.cpp:378
 #, kde-format
@@ -941,8 +939,7 @@ msgstr "您可能遇到了程式中的錯誤。"
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
-msgstr ""
-"這最有可能是程式中的錯誤所導致。請考慮提交一份完整的錯誤報告，詳情如下。"
+msgstr "這最有可能是程式中的錯誤所導致。請考慮提交一份完整的錯誤報告，詳情如下。"
 
 #: core/job_error.cpp:399
 #, kde-format
@@ -978,8 +975,7 @@ msgstr "您的網路連線可能有問題。"
 msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
-msgstr ""
-"您的網路設定可能有問題。如果您最近存取網際網路沒有問題，這就不太可能了。"
+msgstr "您的網路設定可能有問題。如果您最近存取網際網路沒有問題，這就不太可能了。"
 
 #: core/job_error.cpp:419
 #, kde-format
@@ -1047,8 +1043,7 @@ msgstr "無法開啟資源進行寫入"
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
-msgstr ""
-"這就是說，該檔案 <strong>%1</strong> 無法按請求寫入，因為無法取得寫入權限。"
+msgstr "這就是說，該檔案 <strong>%1</strong> 無法按請求寫入，因為無法取得寫入權限。"
 
 #: core/job_error.cpp:457
 #, kde-format
@@ -1090,8 +1085,7 @@ msgstr "內部錯誤"
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
-msgstr ""
-"在您的電腦上提供 <strong>%1</strong> 協定存取的程式報告了一個內部錯誤。"
+msgstr "在您的電腦上提供 <strong>%1</strong> 協定存取的程式報告了一個內部錯誤。"
 
 #: core/job_error.cpp:484
 #, kde-format
@@ -1355,8 +1349,7 @@ msgstr "無法進入資料夾"
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
-msgstr ""
-"這就是說，試圖進入 (即開啟) 要求的資料夾 <strong>%1</strong> 時被拒絕了。"
+msgstr "這就是說，試圖進入 (即開啟) 要求的資料夾 <strong>%1</strong> 時被拒絕了。"
 
 #: core/job_error.cpp:652
 #, kde-format
@@ -1448,8 +1441,7 @@ msgstr "無法建立 Socket"
 msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
-msgstr ""
-"這是一個相當技術性的錯誤，無法建立所需的網路通訊裝置 (socket, 承接口)。"
+msgstr "這是一個相當技術性的錯誤，無法建立所需的網路通訊裝置 (socket, 承接口)。"
 
 #: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
 #: core/job_error.cpp:881
@@ -1505,8 +1497,7 @@ msgstr "往伺服器的連線意外地關閉了"
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
 "was closed at an unexpected point in the communication."
-msgstr ""
-"雖然往 <strong>%1</strong> 的連線已經設立了，但通訊其間這個連線意外地中斷了。"
+msgstr "雖然往 <strong>%1</strong> 的連線已經設立了，但通訊其間這個連線意外地中斷了。"
 
 #: core/job_error.cpp:742
 #, kde-format
@@ -1973,8 +1964,7 @@ msgstr "伺服器上提供 <strong>%1</strong> 協定的存取的程式報告內
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
-msgstr ""
-"這大概是因為該伺服器程式內部有錯誤。請考慮依照下列指示提交完整的錯誤報告。"
+msgstr "這大概是因為該伺服器程式內部有錯誤。請考慮依照下列指示提交完整的錯誤報告。"
 
 #: core/job_error.cpp:1089
 #, kde-format
@@ -1998,8 +1988,7 @@ msgstr "逾時錯誤"
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
-msgstr ""
-"雖然有成功與伺服器建立聯繫，但是在請求所分配到的時間內沒有收到伺服器的回應。"
+msgstr "雖然有成功與伺服器建立聯繫，但是在請求所分配到的時間內沒有收到伺服器的回應。"
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2242,8 +2231,7 @@ msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
-msgstr ""
-"無法傳輸檔案 <filename>%1</filename>，因為目標檔案系統不支援這麼大的檔案"
+msgstr "無法傳輸檔案 <filename>%1</filename>，因為目標檔案系統不支援這麼大的檔案"
 
 #: core/job_error.cpp:1262
 #, kde-format
@@ -3080,8 +3068,7 @@ msgid ""
 msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
-msgstr[0] ""
-"裝置上的一或多個檔案正被以下應用程式開啟：<application>%2</application>。"
+msgstr[0] "裝置上的一或多個檔案正被以下應用程式開啟：<application>%2</application>。"
 
 #: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-format
@@ -3641,7 +3628,7 @@ msgid "Create new folder in %1:"
 msgstr "在 %1 建立新資料夾："
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
 msgid "Default"
@@ -3656,24 +3643,24 @@ msgstr "建立新檔案"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
-msgstr "為 %1 選擇應用程式"
+msgstr "選擇自訂圖示或色彩"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "選擇圖示(&I)："
+msgstr "選擇其他圖示…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "之後也能從資料夾屬性修改圖示。"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -4280,8 +4267,7 @@ msgstr ""
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
-msgstr ""
-"您必須為下列的代理伺服器提供一組使用者名稱和密碼，才能夠取得存取網站的權限。"
+msgstr "您必須為下列的代理伺服器提供一組使用者名稱和密碼，才能夠取得存取網站的權限。"
 
 #: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:374
 #, kde-format
@@ -5826,8 +5812,7 @@ msgstr "描述"
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
-msgstr ""
-"如果你想要加入您的應用程式可以處理的檔案類型（mime 類型），請按這個按鈕。"
+msgstr "如果你想要加入您的應用程式可以處理的檔案類型（mime 類型），請按這個按鈕。"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -5892,8 +5877,7 @@ msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
-msgstr ""
-"無法儲存屬性。沒有足夠的存取權來寫入檔案：<nl/><filename>%1</filename>。"
+msgstr "無法儲存屬性。沒有足夠的存取權來寫入檔案：<nl/><filename>%1</filename>。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
@@ -6225,8 +6209,7 @@ msgstr "特殊屬性"
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
-msgstr ""
-"特殊的旗標。對整個資料夾都有效，這個旗標精確的意思可以在右手邊的欄位看到。"
+msgstr "特殊的旗標。對整個資料夾都有效，這個旗標精確的意思可以在右手邊的欄位看到。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1428
 #, kde-format
