@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:38+0000\n"
-"PO-Revision-Date: 2025-05-10 07:21+0200\n"
+"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"PO-Revision-Date: 2025-05-17 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3595,7 +3595,7 @@ msgstr "Oddaljene datoteke niso sprejete"
 msgid "All Folders"
 msgstr "Vse mape"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
 #, kde-format
 msgid "&Open"
 msgstr "&Odpri"
@@ -5016,13 +5016,13 @@ msgstr "Zagon"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Zaženi izvedljive datoteke brez vprašanja"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Odpri izvedljive datoteke v privzeti aplikaciji brez vprašanja"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5052,7 +5052,7 @@ msgstr "Ali želite zagnati to datoteko?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Zapomni si za vse izvedljive datoteke"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5061,6 +5061,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"To lahko razveljavite v razdelku \"Potrditve\" v nastavitvah upravljalnika "
+"datotek Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5456,41 +5458,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Dejanja"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Odpri mapo z…"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Odpri z…"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Odpri mapo z %1"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Odpri z %1"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Odpri mapo z"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Odpri z"
 
-#: widgets/kfileitemactions.cpp:774
+#: widgets/kfileitemactions.cpp:781
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

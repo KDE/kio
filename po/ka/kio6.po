@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:38+0000\n"
-"PO-Revision-Date: 2025-05-10 03:48+0200\n"
+"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"PO-Revision-Date: 2025-05-17 04:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3557,7 +3557,7 @@ msgstr "დაშორებული ფაილები მიუღებ�
 msgid "All Folders"
 msgstr "ყველა საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
@@ -4976,13 +4976,13 @@ msgstr "გა&შვება"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "შესრულებადი ფაილების გაშვება კითხვის გარეშე"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "შესრულებადი ფაილების გახსნა ნაგულისხმევ აპლიკაციაში კითხვის გარეშე"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5012,7 +5012,7 @@ msgstr "გნებავთ, გაუშვათ ეს ფაილი?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "დამახსოვრება ყველა შესრულებადი ფაილისთვის"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5021,6 +5021,7 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"გაუქმება \"დადასტურებების\" მენიუში შეგიძლიათ, Dolphin-ის მორგების ფანჯარაში."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5406,41 +5407,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&ქმედებები"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&საქაღალდის პროგრამით გახსნა…"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&გამხსნელი პროგრამა…"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&საქაღალდის %1-ით გახსნა"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1-ით &გახსნა"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&საქაღალდის პროგრამით გახსნა"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&გამხსნელი პროგრამა"
 
-#: widgets/kfileitemactions.cpp:774
+#: widgets/kfileitemactions.cpp:781
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:38+0000\n"
+"POT-Creation-Date: 2025-05-18 00:39+0000\n"
 "PO-Revision-Date: 2025-03-22 15:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3603,7 +3603,7 @@ msgstr "Ez dira onartzen urruneko fitxategiak"
 msgid "All Folders"
 msgstr "Karpeta guztiak"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
 #, kde-format
 msgid "&Open"
 msgstr "&Ireki"
@@ -5480,41 +5480,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ekintzak"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Ireki karpeta honekin..."
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Ireki &honekin..."
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ireki karpeta %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Ireki %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Ireki karpeta honekin"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Ireki &honekin"
 
-#: widgets/kfileitemactions.cpp:774
+#: widgets/kfileitemactions.cpp:781
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

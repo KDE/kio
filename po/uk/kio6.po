@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:38+0000\n"
-"PO-Revision-Date: 2025-05-10 09:11+0300\n"
+"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"PO-Revision-Date: 2025-05-17 09:00+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3613,7 +3613,7 @@ msgstr "Віддалені файли не приймаються"
 msgid "All Folders"
 msgstr "Всі теки"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
 #, kde-format
 msgid "&Open"
 msgstr "&Відкрити"
@@ -5044,13 +5044,13 @@ msgstr "З&апустити"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Запускати виконувані файли без підтвердження"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Відкрити виконувані файли у типовій програмі без підтвердження"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5077,11 +5077,10 @@ msgstr "Хочете запустити цей файл?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
-#, fuzzy, kde-format
-#| msgid "'%1' is not an executable file."
+#, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr "«%1» не є виконуваним файлом."
+msgstr "Запам'ятати для усіх виконуваних файлів"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5090,6 +5089,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Ви можете скасувати це у розділі «Підтвердження» програми для керування "
+"файлами Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5489,41 +5490,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Дії"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "В&ідкрити теку за допомогою…"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "В&ідкрити за допомогою…"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "В&ідкрити теку за допомогою %1"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open with %1"
 msgstr "В&ідкрити за допомогою %1"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "В&ідкрити теку за допомогою"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "В&ідкрити за допомогою"
 
-#: widgets/kfileitemactions.cpp:774
+#: widgets/kfileitemactions.cpp:781
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

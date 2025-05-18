@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:38+0000\n"
+"POT-Creation-Date: 2025-05-18 00:39+0000\n"
 "PO-Revision-Date: 2025-03-22 12:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2512,12 +2512,7 @@ msgid "Protocol %1 does not support action %2."
 msgstr "Protokół %1 nie obsługuje działania %2."
 
 #: core/worker.cpp:353
-#, fuzzy, kde-format
-#| msgctxt "@info %2 is a path"
-#| msgid ""
-#| "The security of the KIO worker for protocol ’%1’, which typically asks "
-#| "for elevated permissions, can not be guaranteed because users other than "
-#| "root have permission to modify it at %2."
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -3585,7 +3580,7 @@ msgstr "Zdalne pliki odrzucone"
 msgid "All Folders"
 msgstr "Wszystkie katalogi"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:742
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
 #, kde-format
 msgid "&Open"
 msgstr "&Otwórz"
@@ -5459,41 +5454,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Dzi&ałania"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Otwórz katalog w…"
 
-#: widgets/kfileitemactions.cpp:693
+#: widgets/kfileitemactions.cpp:700
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Otwórz w…"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Otwórz katalog w %1"
 
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:738
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Otwórz w %1"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Otwórz katalog w"
 
-#: widgets/kfileitemactions.cpp:763
+#: widgets/kfileitemactions.cpp:770
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Otwórz w"
 
-#: widgets/kfileitemactions.cpp:774
+#: widgets/kfileitemactions.cpp:781
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
