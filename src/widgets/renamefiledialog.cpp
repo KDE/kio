@@ -52,11 +52,11 @@ inline ValidationResult invalid(const QString &text, KMessageWidget::MessageType
 };
 
 /// design pattern strategy
-class ReplaceOperationAbstractStrategy
+class RenameOperationAbstractStrategy
 {
 public:
-    ReplaceOperationAbstractStrategy() { };
-    virtual ~ReplaceOperationAbstractStrategy() { };
+    RenameOperationAbstractStrategy() { };
+    virtual ~RenameOperationAbstractStrategy() { };
 
     virtual QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) = 0;
     virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
@@ -71,7 +71,7 @@ enum RenameStrategy {
     // Regex
 };
 
-class SingleFileRenameStrategy : public ReplaceOperationAbstractStrategy
+class SingleFileRenameStrategy : public RenameOperationAbstractStrategy
 {
 public:
     ~SingleFileRenameStrategy() override
@@ -146,7 +146,7 @@ public:
     QLineEdit *fileNameEdit;
 };
 
-class EnumerateStrategy : public ReplaceOperationAbstractStrategy
+class EnumerateStrategy : public RenameOperationAbstractStrategy
 {
 public:
     ~EnumerateStrategy() override
@@ -283,7 +283,7 @@ public:
     int index;
 };
 
-class ReplaceStrategy : public ReplaceOperationAbstractStrategy
+class ReplaceStrategy : public RenameOperationAbstractStrategy
 {
 public:
     ~ReplaceStrategy() override
@@ -386,7 +386,7 @@ public:
     QVBoxLayout *m_topLayout;
     QWidget *m_contentWidget;
 
-    std::unique_ptr<ReplaceOperationAbstractStrategy> renameStrategy;
+    std::unique_ptr<RenameOperationAbstractStrategy> renameStrategy;
 };
 
 RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
