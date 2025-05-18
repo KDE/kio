@@ -37,6 +37,7 @@ enum Result {
     Invalid
 };
 
+/// TODO c++23 port to std::expected
 struct ValidationResult {
     Result result;
     QString text;
