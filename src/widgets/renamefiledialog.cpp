@@ -52,11 +52,11 @@ inline ValidationResult invalid(const QString &text, KMessageWidget::MessageType
 };
 
 /// design pattern strategy
-class RenameOperationAbstractStrategy
+class ReplaceOperationAbstractStrategy
 {
 public:
-    RenameOperationAbstractStrategy() { };
-    virtual ~RenameOperationAbstractStrategy() { };
+    ReplaceOperationAbstractStrategy() { };
+    virtual ~ReplaceOperationAbstractStrategy() { };
 
     virtual QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) = 0;
     virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
@@ -71,7 +71,7 @@ enum RenameStrategy {
     // Regex
 };
 
-class SingleFileRenameStrategy : public RenameOperationAbstractStrategy
+class SingleFileRenameStrategy : public ReplaceOperationAbstractStrategy
 {
 public:
     ~SingleFileRenameStrategy() override
@@ -134,11 +134,11 @@ public:
             fileExists = QFile::exists(newUrl.toLocalFile());
         }
         if (fileExists) {
-            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists", newUrl.fileName()),
+            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists.", newUrl.fileName()),
                            KMessageWidget::MessageType::Error);
         }
         if (placeholder == QLatin1String("..") || (placeholder == QLatin1String("."))) {
-            return invalid(xi18nc("@info %1 is an invalid filename", "Invalid FileName <filename>%1</filename>", placeholder));
+            return invalid(xi18nc("@info %1 is an invalid filename", "<filename>%1</filename> is not a valid file name.", placeholder));
         }
         return ok();
     }
@@ -146,7 +146,7 @@ public:
     QLineEdit *fileNameEdit;
 };
 
-class EnumerateStrategy : public RenameOperationAbstractStrategy
+class EnumerateStrategy : public ReplaceOperationAbstractStrategy
 {
 public:
     ~EnumerateStrategy() override
@@ -283,7 +283,7 @@ public:
     int index;
 };
 
-class ReplaceStrategy : public RenameOperationAbstractStrategy
+class ReplaceStrategy : public ReplaceOperationAbstractStrategy
 {
 public:
     ~ReplaceStrategy() override
@@ -386,7 +386,7 @@ public:
     QVBoxLayout *m_topLayout;
     QWidget *m_contentWidget;
 
-    std::unique_ptr<RenameOperationAbstractStrategy> renameStrategy;
+    std::unique_ptr<ReplaceOperationAbstractStrategy> renameStrategy;
 };
 
 RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
