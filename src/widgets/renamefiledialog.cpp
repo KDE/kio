@@ -60,7 +60,7 @@ public:
 
     virtual QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) = 0;
     virtual const std::function<QString(const QStringView fileName)> renameFunction() = 0;
-    virtual ValidationResult validate(const QUrl &url, const QStringView fileName) = 0;
+    virtual ValidationResult validate(const KFileItemList &items, const QStringView fileName) = 0;
 };
 
 enum RenameStrategy {
@@ -121,8 +121,9 @@ public:
         };
     }
 
-    ValidationResult validate(const QUrl &oldUrl, const QStringView fileName) override
+    ValidationResult validate(const KFileItemList &items, const QStringView fileName) override
     {
+        const auto oldUrl = items.at(0).url();
         const auto placeholder = fileNameEdit->text();
         if (placeholder.isEmpty()) {
             return invalid(QString());
@@ -264,7 +265,7 @@ public:
         return function;
     }
 
-    ValidationResult validate(const QUrl & /*url*/, const QStringView /* fileName */) override
+    ValidationResult validate(const KFileItemList & /*items*/, const QStringView /* fileName */) override
     {
         const auto placeholder = placeHolderEdit->text();
         if (placeholder.isEmpty()) {
@@ -326,8 +327,8 @@ public:
 
     const std::function<QString(const QStringView fileName)> renameFunction() override
     {
-        auto pattern = patternLineEdit->text();
-        auto replacement = replacementEdit->text();
+        const auto pattern = patternLineEdit->text();
+        const auto replacement = replacementEdit->text();
         std::function<QString(const QStringView fileName)> renameFunction = [pattern, replacement](const QStringView fileName) {
             auto output = QString(fileName);
             if (pattern.isEmpty()) {
@@ -342,14 +343,25 @@ public:
         return renameFunction;
     }
 
-    ValidationResult validate(const QUrl &url, const QStringView /* fileName */) override
+    ValidationResult validate(const KFileItemList &items, const QStringView /* fileName */) override
     {
         const auto pattern = patternLineEdit->text();
         if (pattern.isEmpty()) {
             return invalid(QString());
         }
-        if (!url.fileName().contains(pattern)) {
-            return invalid(i18nc("@info pattern as in text replacement pattern", "File name does not contain the pattern."));
+        auto any_match = std::any_of(items.cbegin(), items.cend(), [pattern](const KFileItem &item) {
+            return item.url().fileName().contains(pattern);
+        });
+        if (!any_match) {
+            return invalid(i18nc("@info pattern as in text replacement pattern", "No file name contain the pattern."));
+        }
+        const auto replacement = replacementEdit->text();
+        if (replacement.isEmpty()) {
+            if (std::any_of(items.cbegin(), items.cend(), [pattern](const KFileItem &item) {
+                    return item.url().fileName() == pattern;
+                })) {
+                return invalid(i18nc("@info pattern as in text replacement pattern", "The Pattern would cause a file to have an empty file name."));
+            }
         }
         return ok();
     }
@@ -555,7 +567,7 @@ void RenameFileDialog::slotStateChanged()
     if (previewText.isEmpty()) {
         validationResult = invalid(i18n("@info Resulting would have an empty filename"), KMessageWidget::MessageType::Error);
     } else {
-        validationResult = d->renameStrategy->validate(firstItem.url(), previewText);
+        validationResult = d->renameStrategy->validate(d->items, previewText);
     }
     d->okButton->setEnabled(validationResult.result == Result::Ok);
     if (validationResult.result == Result::Ok || validationResult.text.isEmpty()) {
