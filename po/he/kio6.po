@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-18 00:39+0000\n"
-"PO-Revision-Date: 2025-05-11 18:55+0300\n"
+"PO-Revision-Date: 2025-05-18 17:06+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4894,13 +4894,13 @@ msgstr "ה&רצה"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "הרצת קובצי הפעלה בלי לשאול"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "לפתוח קובצי הפעלה ביישום ברירת המחדל בלי לשאול"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4930,7 +4930,7 @@ msgstr "להריץ את הקובץ הזה?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "לזכור לכל קובצי ההפעלה"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4938,7 +4938,7 @@ msgstr ""
 msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
+msgstr "אפשר לבטל את זה תחת „אישורים” בהגדרות מנהל הקבצים Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format

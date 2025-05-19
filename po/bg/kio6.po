@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-18 00:39+0000\n"
-"PO-Revision-Date: 2025-05-14 17:00+0200\n"
+"PO-Revision-Date: 2025-05-18 11:56+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -5022,13 +5022,14 @@ msgstr "&Стартиране"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Стартиране на изпълними файлове без запитване"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Отваряне на изпълними файлове в приложението по подразбиране без запитване"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5058,7 +5059,7 @@ msgstr "Искате ли да стартирате този файл?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Запомняне за всички изпълними файлове"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5067,6 +5068,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Можете да отмените това в „Потвърждения“ в настройките на файловия мениджър "
+"Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
