@@ -580,13 +580,8 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
 
         KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(pluginId);
         if (!abstractPlugin) {
-            auto result = KPluginFactory::instantiatePlugin<KAbstractFileItemActionPlugin>(jsonMetadata, this);
-            if (result) {
-                abstractPlugin = result.plugin;
-                m_loadedPlugins.insert(pluginId, abstractPlugin);
-            } else {
-                qCWarning(KIO_WIDGETS) << "Couldn't load plugin:" << pluginId << result.errorText << result.errorReason;
-            }
+            abstractPlugin = KPluginFactory::instantiatePlugin<KAbstractFileItemActionPlugin>(jsonMetadata, this).plugin;
+            m_loadedPlugins.insert(pluginId, abstractPlugin);
         }
         if (abstractPlugin) {
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
