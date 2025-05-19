@@ -126,7 +126,7 @@ protected:
     virtual ~JobUiDelegateExtension();
 
 public:
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 15)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 15)
     /*!
      * The type of deletion: real deletion, moving the files to the trash
      * or emptying the trash
