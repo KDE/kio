@@ -593,7 +593,7 @@ void RenameFileDialog::slotResult(KJob *job)
     } else {
         Q_EMIT error(job);
     }
-    job->deleteLater();
+    // job->deleteLater();
 }
 
 } // namespace KIO
