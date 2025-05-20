@@ -173,7 +173,6 @@ public:
         placeHolderEdit = new QLineEdit(newName, widget);
 
         layout->addWidget(placeHolderEdit);
-        widget->setFocusProxy(placeHolderEdit);
 
         // Layout
         auto indexLayout = new QHBoxLayout;
@@ -187,6 +186,9 @@ public:
 
         placeHolderEdit->setSelection(0, newName.length() - 1);
         placeHolderEdit->setFocus();
+
+        widget->setTabOrder(placeHolderEdit, indexSpinBox);
+        widget->setFocusProxy(placeHolderEdit);
 
         // Check for extensions.
         std::set<QString> extensions;
