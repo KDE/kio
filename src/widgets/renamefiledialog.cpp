@@ -434,6 +434,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
         QComboBox *comboRenameType = new QComboBox(page);
         comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
+        renameTypeChoiceLabel->setBuddy(comboRenameType);
 
         QHBoxLayout *renameTypeChoice = new QHBoxLayout;
         renameTypeChoice->setContentsMargins(0, 0, 0, 0);
