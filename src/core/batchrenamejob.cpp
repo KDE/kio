@@ -214,27 +214,27 @@ BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newN
         }
     }
 
-    renameFunctionType function = [pattern, allExtensionsDifferent, validPlaceholder, placeHolderStart, placeHolderLength, startIndex](const QStringView view) {
-        Q_UNUSED(view);
+    renameFunctionType function =
+        [pattern, allExtensionsDifferent, validPlaceholder, placeHolderStart, placeHolderLength, index = startIndex](const QStringView view) mutable {
+            Q_UNUSED(view);
 
-        static int index = startIndex;
-        QString indexString = QString::number(index);
+            QString indexString = QString::number(index);
 
-        if (!validPlaceholder) {
-            if (allExtensionsDifferent) {
-                // pattern: my-file
-                // in: file-a.txt file-b.md
-                return pattern;
+            if (!validPlaceholder) {
+                if (allExtensionsDifferent) {
+                    // pattern: my-file
+                    // in: file-a.txt file-b.md
+                    return pattern;
+                }
             }
-        }
 
-        // Insert leading zeros if necessary
-        indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+            // Insert leading zeros if necessary
+            indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
 
-        ++index;
+            ++index;
 
-        return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
-    };
+            return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
+        };
 
     return BatchRenameJobPrivate::newJob(srcList, std::move(function), flags);
 };
