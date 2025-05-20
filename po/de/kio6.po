@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2025-02-23 17:15+0100\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3673,7 +3673,7 @@ msgstr "Dateien auf entfernten Rechnern sind nicht erlaubt"
 msgid "All Folders"
 msgstr "Alle Ordner"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "Öff&nen"
@@ -5573,41 +5573,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aktionen"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Ordner öff&nen mit …"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Öff&nen mit …"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ordner mit %1 öffnen"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Mit %1 öffnen"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Ordner öff&nen mit"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Öff&nen mit"
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

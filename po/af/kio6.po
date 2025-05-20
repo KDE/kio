@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3776,7 +3776,7 @@ msgstr "Afgeleë Lêers word nie aanvaar nie"
 msgid "All Folders"
 msgstr "*|Alle Gidse"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "Open"
@@ -5752,47 +5752,47 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Aksies"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Open Met"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Open Met"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Open met:"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Open met:"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Open Met"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Open Met"
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -3500,7 +3500,7 @@ msgstr ""
 msgid "All Folders"
 msgstr "എല്ലാ ഫയലുകളും"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "തുറക്കുക (&O)"
@@ -5269,43 +5269,43 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "1 ഫയല്‍"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "1 ഫയല്‍"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, fuzzy, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 "ഇവിടെ പുതിയ ഫോള്‍ഡര്‍ ഉണ്ടാക്കുക:\n"
 "%1"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "1 ഫയല്‍"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

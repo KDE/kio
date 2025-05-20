@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2025-05-17 17:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3650,7 +3650,7 @@ msgstr "Niet lokale bestanden worden niet geaccepteerd"
 msgid "All Folders"
 msgstr "Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "&Openen"
@@ -5524,41 +5524,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Acties"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Map &openen met…"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Openen met…"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Map &openen met %1"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open with %1"
 msgstr "Met %1 &openen"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Map &openen met"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Openen met"
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

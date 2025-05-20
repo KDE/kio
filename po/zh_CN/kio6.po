@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3412,7 +3412,7 @@ msgstr "无法处理远程文件"
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
@@ -4804,13 +4804,13 @@ msgstr "启动(&L)"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "直接运行可执行文件，不请求用户确认"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "直接使用在默认应用程序打开可执行文件，不请求用户确认"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4840,7 +4840,7 @@ msgstr "您想要启动此文件吗？"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "为所有可执行文件记住此状态"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4848,7 +4848,7 @@ msgstr ""
 msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
+msgstr "您可以在 Dolphin 文件管理器设置中的“请求确认”选项卡中撤销此操作。"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5226,41 +5226,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "操作(&A)"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "打开文件夹方式(&O)…"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "打开方式(&O)…"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "用 %1 打开文件夹(&O)"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open with %1"
 msgstr "使用 %1 打开(&O)"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "打开文件夹方式(&O)"
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "打开方式(&O)"
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

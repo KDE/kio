@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:39+0000\n"
+"POT-Creation-Date: 2025-05-20 00:39+0000\n"
 "PO-Revision-Date: 2024-03-16 22:22+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -3290,7 +3290,7 @@ msgstr "Nun s'acepten los ficheros remotos"
 msgid "All Folders"
 msgstr "Toles carpetes"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:749
+#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
@@ -5047,43 +5047,43 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aiciones"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 #| msgid "Open With:"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Ábrese con:"
 
-#: widgets/kfileitemactions.cpp:700
+#: widgets/kfileitemactions.cpp:698
 #, fuzzy, kde-format
 #| msgid "Open With:"
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Ábrese con:"
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:738
+#: widgets/kfileitemactions.cpp:736
 #, kde-format
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:770
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:781
+#: widgets/kfileitemactions.cpp:779
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
