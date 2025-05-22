@@ -1354,6 +1354,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
 {
     bool isDir = (d->pmode == PermissionsOnlyDirs) || (d->pmode == PermissionsMixed);
     QDialog dlg(properties);
+    dlg.setWindowModality(Qt::WindowModal);
     dlg.setModal(true);
     dlg.setWindowTitle(i18n("Advanced Permissions"));
 
@@ -2880,6 +2881,7 @@ void KDesktopPropsPlugin::slotAdvanced()
 {
     auto *dlg = new QDialog(d->m_frame);
     dlg->setObjectName(QStringLiteral("KPropertiesDesktopAdv"));
+    dlg->setWindowModality(Qt::WindowModal);
     dlg->setModal(true);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Advanced Options for %1", properties->url().fileName()));
