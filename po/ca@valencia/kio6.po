@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-20 00:39+0000\n"
-"PO-Revision-Date: 2025-05-10 10:33+0200\n"
+"PO-Revision-Date: 2025-05-17 13:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3018,8 +3018,8 @@ msgid ""
 msgstr ""
 "<qt>Esta és la ubicació associada amb l'entrada. Es pot utilitzar qualsevol "
 "URL vàlid. Per exemple:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp."
-"kde.org/pub/kde/stable<br /><br />Clicant en el botó a la vora del quadro "
-"d'edició de text podeu navegar cap a un URL apropiat.</qt>"
+"kde.org/pub/kde/stable<br /><br />Clicant damunt del botó a la vora del "
+"quadro d'edició de text podeu navegar cap a un URL apropiat.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3033,7 +3033,7 @@ msgid ""
 "on the button to select a different icon.</qt>"
 msgstr ""
 "<qt>Esta és la icona que apareixerà en el quadro dels llocs.<br /><br /"
-">Cliqueu en el botó per a seleccionar una icona diferent.</qt>"
+">Cliqueu damunt del botó per a seleccionar una icona diferent.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
@@ -3680,13 +3680,13 @@ msgstr ""
 "amb extensions:<br /><ol><li>S'actualitzarà tota extensió especificada en "
 "l'àrea de text <b>%1</b> si canvieu el tipus de fitxer a guardar.<br /><br /"
 "></li><li>Si no s'especifica cap extensió en l'àrea de text <b>%2</b> quan "
-"es clique en <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el "
-"fitxer encara no existix). Esta extensió està basada en el tipus de fitxer "
-"que heu triat per a guardar.<br /><br />Si no voleu que KDE proporcione una "
-"extensió per al nom de fitxer, podeu desmarcar esta opció o bé podeu "
-"suprimir-la afegint un punt «.» al final del nom de fitxer (al final el punt "
-"s'eliminarà automàticament).</li></ol>Si no esteu segur, deixeu l'opció "
-"activada, ja que farà més manejables els vostres fitxers."
+"es clique damunt <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si "
+"el fitxer encara no existix). Esta extensió està basada en el tipus de "
+"fitxer que heu triat per a guardar.<br /><br />Si no voleu que KDE "
+"proporcione una extensió per al nom de fitxer, podeu desmarcar esta opció o "
+"bé podeu suprimir-la afegint un punt «.» al final del nom de fitxer (al "
+"final el punt s'eliminarà automàticament).</li></ol>Si no esteu segur, "
+"deixeu l'opció activada, ja que farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2935
 #, kde-format
@@ -4978,7 +4978,7 @@ msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)…"
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr ""
-"Feu clic per a apegar la suma de verificació des del porta-retalls al camp "
+"Cliqueu per a apegar la suma de verificació des del porta-retalls al camp "
 "d'entrada."
 
 #. i18n: MD5 is the hashing algorithm
@@ -5029,7 +5029,7 @@ msgstr "Calcula"
 #: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "Feu clic per a copiar la suma de verificació a dins del porta-retalls."
+msgstr "Cliqueu per a copiar la suma de verificació a dins del porta-retalls."
 
 #: widgets/dropjob.cpp:195
 #, kde-format
@@ -5067,13 +5067,14 @@ msgstr "&Inicia"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Inicia els fitxers executables sense preguntar"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Obri els fitxers executables a l'aplicació predeterminada sense preguntar"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5103,7 +5104,7 @@ msgstr "Voleu iniciar este fitxer?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Recorda per a tots els fitxers executables"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5112,6 +5113,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Podeu desfer açò a «Confirmacions» dins de la configuració del gestor de "
+"fitxers Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7178,7 +7181,7 @@ msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "Canvia el nom d'%1 element seleccionat a:"
-msgstr[1] "Canvia el nom els %1 elements seleccionats a:"
+msgstr[1] "Canvia el nom dels %1 elements seleccionats a:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -7418,7 +7421,4 @@ msgstr "Iniciarà el programa:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Si no confieu en este programa, cliqueu en «Cancel·la»"
-
-#~ msgid "Do not ask again"
-#~ msgstr "No ho tornes a preguntar"
+msgstr "Si no confieu en este programa, cliqueu damunt «Cancel·la»"

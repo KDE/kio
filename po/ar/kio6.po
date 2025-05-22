@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-20 00:39+0000\n"
-"PO-Revision-Date: 2025-05-14 17:08+0400\n"
+"PO-Revision-Date: 2025-05-19 18:30+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -4952,13 +4952,14 @@ msgstr "&شغّل"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "تشغيل الملفات القابلة للتنفيذ دون طلب"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"افتح الملفات القابلة للتنفيذ في التطبيق الافتراضي دون الحاجة إلى السؤال"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4988,7 +4989,7 @@ msgstr "هل تريد تشغيل هذا الملفّ؟"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "تذكر لجميع الملفات القابلة للتنفيذ"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4997,6 +4998,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"يمكنك التراجع عن هذا الإجراء من خلال \"التأكيدات\" في إعدادات مدير ملفات "
+"دولفين."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format

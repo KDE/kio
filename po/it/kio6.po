@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-20 00:39+0000\n"
-"PO-Revision-Date: 2025-05-12 22:58+0200\n"
+"PO-Revision-Date: 2025-05-19 15:00+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5085,13 +5085,13 @@ msgstr "&Avvia"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Avvia i file eseguibili senza chiedere"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Apri i file eseguibili nell'applicazione predefinita senza chiedere"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5118,11 +5118,10 @@ msgstr "Vuoi avviare questo file?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
-#, fuzzy, kde-format
-#| msgid "'%1' is not an executable file."
+#, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr "«%1» non è un file eseguibile."
+msgstr "Ricorda per tutti i file eseguibili"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5131,6 +5130,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"È possibile annullare questo nella voce «Conferme» delle impostazioni del "
+"gestore file."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
