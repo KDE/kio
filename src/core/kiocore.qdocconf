@@ -21,3 +21,17 @@ depends += \
     kiowidgets \
     kiofilewidgets \
     kconfigcore
+
+qhp.projects            = KIOCore
+
+qhp.KIOCore.file                = kiocore.qhp
+qhp.KIOCore.namespace           = org.kde.kiocore.$QT_VERSION_TAG
+qhp.KIOCore.virtualFolder       = kiocore
+qhp.KIOCore.indexTitle          = KIOCore
+qhp.KIOCore.indexRoot           =
+
+qhp.KIOCore.subprojects         = classes
+qhp.KIOCore.subprojects.classes.title = C++ Classes
+qhp.KIOCore.subprojects.classes.indexTitle = KIO Core C++ Classes
+qhp.KIOCore.subprojects.classes.selectors = class fake:headerfile
+qhp.KIOCore.subprojects.classes.sortPages = true

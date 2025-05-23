@@ -20,3 +20,17 @@ depends += \
     kconfigcore \
     kiocore \
     kservice
+
+qhp.projects            = KIOGui
+
+qhp.KIOGui.file                = kiogui.qhp
+qhp.KIOGui.namespace           = org.kde.kiogui.$QT_VERSION_TAG
+qhp.KIOGui.virtualFolder       = kiogui
+qhp.KIOGui.indexTitle          = KIOGui
+qhp.KIOGui.indexRoot           =
+
+qhp.KIOGui.subprojects         = classes
+qhp.KIOGui.subprojects.classes.title = C++ Classes
+qhp.KIOGui.subprojects.classes.indexTitle = KIO Gui C++ Classes
+qhp.KIOGui.subprojects.classes.selectors = class fake:headerfile
+qhp.KIOGui.subprojects.classes.sortPages = true

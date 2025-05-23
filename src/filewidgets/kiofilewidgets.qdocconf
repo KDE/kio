@@ -26,3 +26,17 @@ depends += \
     solid \
     kcompletion \
     kconfigcore
+
+qhp.projects            = KIOFileWidgets
+
+qhp.KIOFileWidgets.file                = kiofilewidgets.qhp
+qhp.KIOFileWidgets.namespace           = org.kde.kiofilewidgets.$QT_VERSION_TAG
+qhp.KIOFileWidgets.virtualFolder       = kiofilewidgets
+qhp.KIOFileWidgets.indexTitle          = KIO FileWidgets
+qhp.KIOFileWidgets.indexRoot           =
+
+qhp.KIOFileWidgets.subprojects         = classes
+qhp.KIOFileWidgets.subprojects.classes.title = C++ Classes
+qhp.KIOFileWidgets.subprojects.classes.indexTitle = KIO FileWidgets C++ Classes
+qhp.KIOFileWidgets.subprojects.classes.selectors = class fake:headerfile
+qhp.KIOFileWidgets.subprojects.classes.sortPages = true
