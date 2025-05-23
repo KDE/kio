@@ -110,7 +110,7 @@ void KEMailClientLauncherJob::start()
 #else
     const QString url = mailToUrl().toString();
     const QString sOpen = QStringLiteral("open");
-    ShellExecuteW(0, (LPCWSTR)sOpen.utf16(), (LPCWSTR)url.utf16(), 0, 0, SW_NORMAL);
+    ShellExecuteW(nullptr, (LPCWSTR)sOpen.utf16(), (LPCWSTR)url.utf16(), nullptr, nullptr, SW_NORMAL);
     emitDelayedResult();
 #endif
 }
