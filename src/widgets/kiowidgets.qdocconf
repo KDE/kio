@@ -34,6 +34,6 @@ qhp.KIOWidgets.indexRoot           =
 
 qhp.KIOWidgets.subprojects         = classes
 qhp.KIOWidgets.subprojects.classes.title = C++ Classes
-qhp.KIOWidgets.subprojects.classes.indexTitle = KIO Core C++ Classes
+qhp.KIOWidgets.subprojects.classes.indexTitle = KIO Widgets C++ Classes
 qhp.KIOWidgets.subprojects.classes.selectors = class fake:headerfile
 qhp.KIOWidgets.subprojects.classes.sortPages = true
