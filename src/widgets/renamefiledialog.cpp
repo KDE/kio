@@ -160,6 +160,9 @@ public:
         QWidget *widget = new QWidget(parent);
         auto layout = new QVBoxLayout(widget);
 
+        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), widget);
+        layout->addWidget(renameLabel);
+
         auto indexLabel = new QLabel(i18nc("@info", "# will be replaced by ascending numbers starting with:"), widget);
         indexSpinBox = new QSpinBox(widget);
         indexSpinBox->setMinimum(0);
@@ -300,6 +303,9 @@ public:
 
         QWidget *widget = new QWidget(parent);
         auto layout = new QVBoxLayout(widget);
+
+        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), widget);
+        layout->addWidget(renameLabel);
 
         auto patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), widget);
         patternLineEdit = new QLineEdit(widget);
@@ -451,9 +457,6 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         d->preview->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         d->preview->setAccessibleDescription(
             i18nc("@info Accessible description of the field containg a new filename after renaming preview", "New Filename Preview"));
-
-        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), parent);
-        d->m_topLayout->addWidget(renameLabel);
     }
 
     d->m_contentWidget = new QWidget();
