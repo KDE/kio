@@ -40,3 +40,5 @@ qhp.KIOFileWidgets.subprojects.classes.title = C++ Classes
 qhp.KIOFileWidgets.subprojects.classes.indexTitle = KIO FileWidgets C++ Classes
 qhp.KIOFileWidgets.subprojects.classes.selectors = class fake:headerfile
 qhp.KIOFileWidgets.subprojects.classes.sortPages = true
+
+tagfile = kiofilewidgets.tags

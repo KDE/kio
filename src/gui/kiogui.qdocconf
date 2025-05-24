@@ -34,3 +34,5 @@ qhp.KIOGui.subprojects.classes.title = C++ Classes
 qhp.KIOGui.subprojects.classes.indexTitle = KIO Gui C++ Classes
 qhp.KIOGui.subprojects.classes.selectors = class fake:headerfile
 qhp.KIOGui.subprojects.classes.sortPages = true
+
+tagfile = kiogui.tags

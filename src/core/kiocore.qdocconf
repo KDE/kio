@@ -35,3 +35,5 @@ qhp.KIOCore.subprojects.classes.title = C++ Classes
 qhp.KIOCore.subprojects.classes.indexTitle = KIO Core C++ Classes
 qhp.KIOCore.subprojects.classes.selectors = class fake:headerfile
 qhp.KIOCore.subprojects.classes.sortPages = true
+
+tagfile = kiocore.tags
