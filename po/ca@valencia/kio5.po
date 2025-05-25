@@ -1006,7 +1006,7 @@ msgid ""
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
 "Potser hi ha hagut un problema amb la vostra configuració de xarxa. Si "
-"recentment heu estat accedint a Internet sense problemes, açò és poc "
+"recentment heu sigut accedint a Internet sense problemes, açò és poc "
 "probable."
 
 #: core/job_error.cpp:415
@@ -2043,7 +2043,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "Hi pot haver un problema amb la configuració de la vostra xarxa, "
-"específicament el nom del servidor intermediari. Si heu estat accedint "
+"específicament el nom del servidor intermediari. Si heu sigut accedint "
 "recentment a Internet sense problemes, açò és poc probable."
 
 #: core/job_error.cpp:1046
@@ -3053,8 +3053,8 @@ msgid ""
 msgstr ""
 "<qt>Esta és la ubicació associada amb l'entrada. Es pot utilitzar qualsevol "
 "URL vàlid. Per exemple:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp."
-"kde.org/pub/kde/stable<br /><br />Clicant en el botó a la vora del quadro "
-"d'edició de text podeu navegar cap a un URL apropiat.</qt>"
+"kde.org/pub/kde/stable<br /><br />Clicant damunt del botó a la vora del "
+"quadro d'edició de text podeu navegar cap a un URL apropiat.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3068,7 +3068,7 @@ msgid ""
 "on the button to select a different icon.</qt>"
 msgstr ""
 "<qt>Esta és la icona que apareixerà en el quadro dels llocs.<br /><br /"
-">Cliqueu en el botó per a seleccionar una icona diferent.</qt>"
+">Cliqueu damunt del botó per a seleccionar una icona diferent.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
@@ -3495,31 +3495,35 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>Cliqueu este botó per a anar cap a la carpeta pare.<br /><br />Per "
-"exemple, si la ubicació actual és file:/home/konqui, clicar este botó vos "
-"portarà a file:/home.</qt>"
+"<qt>Cliqueu damunt d'este botó per a anar cap a la carpeta pare.<br /><br /"
+">Per exemple, si la ubicació actual és file:/home/konqui, clicar damunt "
+"d'este botó vos portarà a file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
-"Cliqueu este botó per a anar un pas arrere en l'historial de navegació."
+"Cliqueu damunt d'este botó per a anar un pas arrere en l'historial de "
+"navegació."
 
 #: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
-msgstr "Cliqueu este botó per a anar un pas avant en l'historial de navegació."
+msgstr ""
+"Cliqueu damunt d'este botó per a anar un pas avant en l'historial de "
+"navegació."
 
 #: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
-"Cliqueu este botó per a tornar a carregar el contingut de la ubicació actual."
+"Cliqueu damunt d'este botó per a tornar a carregar el contingut de la "
+"ubicació actual."
 
 #: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr "Cliqueu este botó per a crear una carpeta nova."
+msgstr "Cliqueu damunt d'este botó per a crear una carpeta nova."
 
 #: filewidgets/kfilewidget.cpp:1325
 #, kde-format
@@ -3694,14 +3698,14 @@ msgstr ""
 "Esta opció activa algunes característiques pràctiques per a guardar fitxers "
 "amb extensions:<br /><ol><li>S'actualitzarà tota extensió especificada en "
 "l'àrea de text <b>%1</b> si canvieu el tipus de fitxer a guardar.<br /><br /"
-"></li><li>Si no s'especifica cap extensió en l'àrea de text <b>%2</b> en "
-"clicar <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el fitxer "
-"encara no existix). Esta extensió està basada en el tipus de fitxer que heu "
-"triat per a guardar.<br /><br />Si no voleu que KDE proporcione una extensió "
-"per al nom de fitxer, podeu desmarcar esta opció o bé podeu suprimir-la "
-"afegint un punt «.» al final del nom de fitxer (al final el punt s'eliminarà "
-"automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
-"farà més manejables els vostres fitxers."
+"></li><li>Si no s'especifica cap extensió en l'àrea de text <b>%2</b> quan "
+"es clique damunt <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si "
+"el fitxer encara no existix). Esta extensió està basada en el tipus de "
+"fitxer que heu triat per a guardar.<br /><br />Si no voleu que KDE "
+"proporcione una extensió per al nom de fitxer, podeu desmarcar esta opció o "
+"bé podeu suprimir-la afegint un punt «.» al final del nom de fitxer (al "
+"final el punt s'eliminarà automàticament).</li></ol>Si no esteu segur, "
+"deixeu l'opció activada, ja que farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2945
 #, kde-format
@@ -4744,7 +4748,7 @@ msgstr ""
 "senzillament rebutjar o acceptar-ho tot. Per exemple, potser voldreu "
 "acceptar totes les galetes del vostre lloc web de compra preferit. Per a fer "
 "açò, tot el que cal fer és anar fins al lloc en concret i, quan se vos "
-"presenta el diàleg de galetes, cliqueu en <i>Este domini</i> davall la "
+"presenta el diàleg de galetes, cliqueu damunt <i>Este domini</i> davall la "
 "pestanya «Aplica a» i trieu acceptar o senzillament especificar el nom del "
 "lloc en la pestanya <i>Política específica de domini</i> i establir-la a "
 "acceptar. Açò us permet rebre galetes de llocs web de confiança sense rebre "
@@ -4909,13 +4913,13 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Per a afegir una política nova, senzillament cliqueu en el botó <b>Afig…</b> "
-"i proporcioneu la informació necessària. Per a canviar una política "
-"existent, cliqueu en el botó <b>Canvia…</b> i trieu la política nova del "
-"diàleg de polítiques. Clicant en el botó <b>Suprimix</b> s'eliminarà la "
-"política seleccionada, fent que per a este domini s'utilitze la política "
-"predeterminada, mentre que <b>Suprimix-ho tot</b> eliminarà totes les "
-"polítiques específiques de lloc.\n"
+"Per a afegir una política nova, senzillament cliqueu damunt del botó <b>Afig…"
+"</b> i proporcioneu la informació necessària. Per a canviar una política "
+"existent, cliqueu damunt del botó <b>Canvia…</b> i trieu la política nova "
+"del diàleg de polítiques. Quan es clique damunt del botó <b>Suprimix</b> "
+"s'eliminarà la política seleccionada, fent que per a este domini s'utilitze "
+"la política predeterminada, mentre que <b>Suprimix-ho tot</b> eliminarà "
+"totes les polítiques específiques de lloc.\n"
 "</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
@@ -5468,8 +5472,9 @@ msgstr ""
 "<qt>\n"
 "Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
 "servidor intermediari HTTP, p. ex., <b>HTTP_PROXY</b>.<p>\n"
-"De manera alternativa, podeu clicar en el botó <b>«Detecta automàticament»</"
-"b> per a provar el descobriment automàtic d'esta variable.</p>\n"
+"De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
+"p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
@@ -5494,8 +5499,9 @@ msgstr ""
 "<qt>\n"
 "Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
 "servidor intermediari HTTPS, p. ex., <b>HTTPS_PROXY</b>.<p>\n"
-"De manera alternativa, podeu clicar en el botó <b>«Detecta automàticament»</"
-"b> per a provar el descobriment automàtic d'esta variable.</p>\n"
+"De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
+"p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
@@ -5520,8 +5526,9 @@ msgstr ""
 "<qt>\n"
 "Introduïu el nom de la variable d'entorn, p. ex., <b>FTP_PROXY</b>, emprada "
 "per a guardar l'adreça del servidor intermediari FTP.<p>\n"
-"De manera alternativa, podeu clicar en el botó <b>«Detecta automàticament»</"
-"b> per a provar el descobriment automàtic d'esta variable.</p>\n"
+"De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
+"p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
@@ -5545,8 +5552,9 @@ msgstr ""
 "<qt>\n"
 "Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
 "servidor intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>\n"
-"De manera alternativa, podeu clicar en el botó <b>«Detecta automàticament»</"
-"b> per a provar el descobriment automàtic d'esta variable.</p>\n"
+"De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
+"p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
@@ -5567,8 +5575,8 @@ msgid ""
 msgstr ""
 "<qt>Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça "
 "del servidor intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>De manera "
-"alternativa, podeu clicar en el botó <b>«Detecta automàticament»</b> per a "
-"provar el descobriment automàtic d'esta variable.</p></qt>"
+"alternativa, podeu clicar damunt del botó <b>«Detecta automàticament»</b> "
+"per a provar el descobriment automàtic d'esta variable.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5586,8 +5594,8 @@ msgstr ""
 "Introduïu la variable d'entorn utilitzada per a guardar les adreces dels "
 "llocs per als quals no s'ha d'utilitzar el servidor intermediari, p. ex., "
 "<b>NO_PROXY</b>.<p>\n"
-"De manera alternativa, podeu clicar en el botó <b>«Detecta automàticament»</"
-"b> per a provar el descobriment automàtic d'esta variable.\n"
+"De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'esta variable.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
@@ -5609,7 +5617,7 @@ msgstr ""
 "<qt>Introduïu la variable d'entorn utilitzada per a guardar les adreces dels "
 "llocs per als quals no s'ha d'utilitzar la configuració de servidor "
 "intermediari, p. ex., <b>NO_PROXY</b>.<p>De manera alternativa, podeu clicar "
-"en el botó <b>«Detecta automàticament»</b> per a provar el descobriment "
+"damunt del botó <b>«Detecta automàticament»</b> per a provar el descobriment "
 "automàtic d'esta variable.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
@@ -7135,7 +7143,7 @@ msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)…"
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr ""
-"Feu clic per a apegar la suma de verificació des del porta-retalls al camp "
+"Cliqueu per a apegar la suma de verificació des del porta-retalls al camp "
 "d'entrada."
 
 #. i18n: MD5 is the hashing algorithm
@@ -7186,7 +7194,7 @@ msgstr "Calcula"
 #: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "Feu clic per a copiar la suma de verificació a dins del porta-retalls."
+msgstr "Cliqueu per a copiar la suma de verificació a dins del porta-retalls."
 
 #: widgets/dropjob.cpp:181
 #, kde-format
@@ -7820,8 +7828,8 @@ msgid ""
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu el programa que s'ha d'utilitzar per a obrir <b>%1</b>. Si "
-"el programa no es troba en la llista, introduïu el nom o cliqueu en el botó "
-"«Navega».</qt>"
+"el programa no es troba en la llista, introduïu el nom o cliqueu damunt del "
+"botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -7863,8 +7871,8 @@ msgid ""
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu el programa que cal afegir per al tipus de fitxer: <b>%1</"
-"b>. Si el programa no es troba en la llista, introduïu el nom o cliqueu en "
-"el botó «Navega».</qt>"
+"b>. Si el programa no es troba en la llista, introduïu el nom o cliqueu "
+"damunt del botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
@@ -7873,7 +7881,7 @@ msgid ""
 "the browse button.</qt>"
 msgstr ""
 "<qt>Seleccioneu un programa. Si el programa no es troba en la llista, "
-"introduïu el nom o cliqueu en el botó «Navega».</qt>"
+"introduïu el nom o cliqueu damunt del botó «Navega».</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
@@ -8264,10 +8272,10 @@ msgstr ""
 "fitxer, el sistema hauria de ser informat quant a les capacitats de cada "
 "aplicació per a manipular estes extensions i tipus MIME.</p>\n"
 "<p> Si voleu associar esta aplicació amb un o més tipus MIME que no es "
-"troben en la llista, cliqueu en el botó <b>Afig</b> de davall. Si hi ha un o "
-"més tipus de fitxers que esta aplicació no pot manipular, potser voldreu "
-"eliminar-los de la llista clicant en el botó <b>Elimina</b> de davall.</p></"
-"qt>"
+"troben en la llista, cliqueu damunt del botó <b>Afig</b> de davall. Si hi ha "
+"un o més tipus de fitxers que esta aplicació no pot manipular, potser "
+"voldreu eliminar-los de la llista clicant damunt del botó <b>Elimina</b> de "
+"davall.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:189
@@ -8294,8 +8302,8 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
-"Cliqueu en este botó si voleu afegir un tipus de fitxer (tipus MIME) que la "
-"vostra aplicació pot manipular."
+"Cliqueu damunt d'este botó si voleu afegir un tipus de fitxer (tipus MIME) "
+"que la vostra aplicació pot manipular."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:238
@@ -8311,8 +8319,8 @@ msgid ""
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
 "Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació no "
-"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu en "
-"este botó."
+"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu "
+"damunt d'este botó."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -9348,7 +9356,7 @@ msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "Canvia el nom d'%1 element seleccionat a:"
-msgstr[1] "Canvia el nom els %1 elements seleccionats a:"
+msgstr[1] "Canvia el nom dels %1 elements seleccionats a:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -9564,4 +9572,4 @@ msgstr "Iniciarà el programa:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:131
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
+msgstr "Si no confieu en este programa, cliqueu damunt «Cancel·la»"
