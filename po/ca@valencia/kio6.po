@@ -1018,7 +1018,7 @@ msgid ""
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
 "Potser hi ha hagut un problema amb la vostra configuració de xarxa. Si "
-"recentment heu estat accedint a Internet sense problemes, açò és poc "
+"recentment heu sigut accedint a Internet sense problemes, açò és poc "
 "probable."
 
 #: core/job_error.cpp:419
@@ -2055,7 +2055,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "Hi pot haver un problema amb la configuració de la vostra xarxa, "
-"específicament el nom del servidor intermediari. Si heu estat accedint "
+"específicament el nom del servidor intermediari. Si heu sigut accedint "
 "recentment a Internet sense problemes, açò és poc probable."
 
 #: core/job_error.cpp:1050
@@ -4509,7 +4509,7 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Heu de donar un nom d'usuari i una contrasenya per a l'amfitrió intermediari "
+"Heu de donar un nom d'usuari i una contrasenya per al servidor intermediari "
 "llistat davall abans que se vos permeta accedir a altres llocs."
 
 #: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:374

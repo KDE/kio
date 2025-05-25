@@ -1,8 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kio package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2025 Kizito Birabwa <kbirabwa@yahoo.co.uk>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
@@ -10,13 +9,13 @@ msgstr ""
 "POT-Creation-Date: 2025-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language-Team: Luganda\n"
 "Language: lg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -90,17 +89,16 @@ msgstr ""
 "fayiro ekolebwawo) wajja okuddawo ka \"_\"."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Fayiro Ekyuse"
+msgstr "Waliwo fayiro ezisimbulizibwa"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Waliwo fayiro ezikolebwamu koppi"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -2150,6 +2148,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Kompyuta eweereza yafunye okukoowola naye yo teyanukulidde mu kiseera "
+"ekitegekedwa."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2602,6 +2602,10 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Puloguramu eyeyazikibwa eya KIO mu %2 ekola ku mpulizagana ey'ekika kya "
+"\"%1\" tetandikidwa kubanga.  Puloguramu ez'eyazikibwa eza KIO, ng'eno, "
+"ezitali munda mu %3 nga ate z'etaaga okweyongeza bunyinza zibalibwa nga "
+"eziteesigika."
 
 #: core/worker.cpp:410
 #, kde-format
@@ -2639,20 +2643,16 @@ msgid "&Current Session only"
 msgstr "L&utuula Luno Lwokka"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Kolawo !terekero Ppya"
+msgstr "Twala mu Tterekero Ppya"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Kolawo !terekero Ppya"
+msgstr "Bino Bikolere Tterekero Ppya"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
@@ -3503,10 +3503,9 @@ msgid "Show Bookmarks Button"
 msgstr "Wabewo Ppeesa erya Bukwatakifo"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Fayiro Nkise Zirabike"
+msgstr "Leeta eby'ensunsula ebyangungu"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3554,30 +3553,27 @@ msgid "&Name:"
 msgstr "&Linnya:"
 
 #: filewidgets/kfilewidget.cpp:1322
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Jjulula Ebikyusidwa"
+msgstr "Zawo erinnya kkadde erya fayiro"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Bikkula Tterekero Bino Mwe Biri"
+msgstr "Bw'odda mu tterekera eddala ekisunsuzibwa kyo kisigale nga tekikikyuse"
 
 #: filewidgets/kfilewidget.cpp:1377
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Sunsulira ku mannya..."
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Sembyayo Fayiro Enkise"
+msgstr "Kisa akabaawo ak'eby'ensunsula"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3714,14 +3710,11 @@ msgid ""
 msgstr "<qt>Wano w'olondera ekika kya fayiro ekinaakazibwa.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2941
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
-msgstr "<qt>Wano w'olondera ekika kya fayiro ekinaakazibwa.</qt>"
+msgstr "<qt>Wano w'olondera ekika kya fayiro ezinaalagibwa.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3819,6 +3812,8 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"Fayiro oba tterekero ppya tekiisoboke okugituma <filename>%1</filename> "
+"kubanga kijjakukontana n'etterekero lya akawunti y'omu ku bakozesa."
 
 #: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
@@ -3862,7 +3857,7 @@ msgstr "Tterekero Ppya"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Kolawo !terekero Ppya"
+msgstr "Kolawo Tterekero Ppya"
 
 #: filewidgets/knewfilemenu.cpp:1569
 #, kde-format
@@ -3870,10 +3865,9 @@ msgid "Create new folder in %1:"
 msgstr "Kolawo tterekero ppya mu %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgid "Owner (Default)"
+#, kde-format
 msgid "Default"
-msgstr "Nannyini (Ekya bulijjo)"
+msgstr "Ekya bulijjo"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3884,24 +3878,22 @@ msgstr "Kolawo Fayiro Empya"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Londa Puloguramu enaakola ku %1"
+msgstr "Weyiiyize langi oba akafaananyi"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Londa aka&faananyi akayunzi:"
+msgstr "Londa akafaananyi akalala..."
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Akafaananyi oyinza okukakyusa edda mu nteekateeka za tterekero."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5076,23 +5068,24 @@ msgid "&Link Here"
 msgstr "&Kolawo Nyunzi Egguka wano"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Ntandika %1"
+msgstr "&Tandika"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Kompyuta fayiro eza puloguramu ezitandikenga nga tesoose kubuuza"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Kompyuta fayiro ez'ebiragiro ezikebezenga puloguramu eyategekebwa "
+"okwekubiirwa nga tesoose kubuuza"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5100,32 +5093,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Fayiro eno kiki ky'oyagala okugikolako?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Bikkula"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Bikkuza %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Fayiro eno kiki ky'oyagala okugikolako?"
+msgstr "Fayiro eno etandikibwe?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Eno ekozesebwenga bulijjo okukebera fayiro ez'ebiragiro"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5134,6 +5124,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Bino osobola okubijjululira mu katunda ak'eby'enkakasa aka mu nteekateeka "
+"ez'ekiteekateekafayiro Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6917,12 +6909,10 @@ msgid "Filename for clipboard content:"
 msgstr "Teekawo erinnya lya fayiro oba ebiri awaterekebwa ebikoppedwa:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste One File"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Paatiikawo Fayiro Emu"
+msgstr "fayiro empaatiike"
 
 #: widgets/paste.cpp:123
 #, kde-format
