@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:39+0000\n"
-"PO-Revision-Date: 2025-03-22 15:30+0100\n"
+"PO-Revision-Date: 2025-05-25 13:33+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -97,17 +97,16 @@ msgstr ""
 "izenean) azpimarrarekin «_» ordeztuko ditu."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Fitxategia aldatu da"
+msgstr "Fitxategiak mugitzen ari dira"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Fitxategiak kopiatzen ari dira"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3463,10 +3462,9 @@ msgid "Show Bookmarks Button"
 msgstr "Erakutsi «laster-markak» botoia"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Erakutsi ezkutuko fitxategiak"
+msgstr "Erakutsi iragazki bizkorra"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3521,24 +3519,21 @@ msgid "Undo filename change"
 msgstr "Desegin fitxategi-izen aldaketa"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Ireki hau barnean duen karpeta"
+msgstr "Mantendu iragazkia karpeta aldatzean"
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Fitxategi-izena:"
+msgstr "Iragazi izenaren arabera…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Ezkutuko fitxategiak amaieran"
+msgstr "Ezkutatu iragazki-barra"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3675,16 +3670,13 @@ msgstr ""
 "den hautatzeko erabiltzen da.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2941
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Hau da fitxategi mota hautatzailea. Fitxategia zein formatutan gordeko "
-"den hautatzeko erabiltzen da.</qt>"
+"<qt>Hau fitxategi mota hautatzailea da. Erakutsitako fitxategien formatua "
+"hautatzeko erabiltzen da.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3834,9 +3826,7 @@ msgid "Create new folder in %1:"
 msgstr "Sortu karpeta berria hemen, %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
 
@@ -3849,24 +3839,22 @@ msgstr "Sortu fitxategi berria"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Hautatu %1(r)en aplikazioa"
+msgstr "Hautatu neurriko ikonoa edo kolorea"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Aukeratu &ikono bat:"
+msgstr "Hautatu beste ikono bat..."
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Ikonoa geroago alda dezakezu karpetaren propietateetan."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5035,23 +5023,22 @@ msgid "&Link Here"
 msgstr "Es&tekatu hona"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "%1 abiarazten"
+msgstr "&Abiarazi"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Abiarazi fitxategi-exekutagarriak galdetu gabe"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Ireki fitxategi-exekutagarriak lehenetsitako aplikazioan galdetu gabe"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5059,32 +5046,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Zer egin nahi duzu fitxategi honekin?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Ireki"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Ireki %1(r)ekin"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Zer egin nahi duzu fitxategi honekin?"
+msgstr "Fitxategi hau abiarazi nahi zenuke?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Gogoratu fitxategi-exekutagarri guztietarako"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5093,6 +5077,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Hau desegin dezakezu Dolphin fitxategi-kudeatzailearen ezarpenetako"
+"\"Berrespenak\" barnean."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6845,12 +6831,10 @@ msgid "Filename for clipboard content:"
 msgstr "Arbelaren edukiaren fitxategi-izena:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Itsatsi fitxategia"
+msgstr "itsatsitako fitxategia"
 
 #: widgets/paste.cpp:123
 #, kde-format
