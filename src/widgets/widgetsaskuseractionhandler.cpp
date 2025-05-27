@@ -250,17 +250,17 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         res.dialogType = KMessageDialog::WarningTwoActions;
         if (res.isSingleUrl) {
             res.text = xi18nc("@info",
-                              "Moving this item to Trash failed as it is too large."
+                              "The trash is too full to accept this file."
                               " Permanently delete it instead?<nl/><nl/>"
                               "<filename>%1</filename><nl/><nl/>"
                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                               res.prettyList.at(0));
         } else {
             res.text = xi18ncp("@info",
-                               "Moving this %1 item to Trash failed as it is too large."
+                               "The trash is too full to accept this %1 file."
                                " Permanently delete it instead?<nl/>"
                                "<emphasis strong='true'>This action cannot be undone.</emphasis>",
-                               "Moving these %1 items to Trash failed as they are too large."
+                               "The trash is too full to accept these %1 files."
                                " Permanently delete them instead?<nl/><nl/>"
                                "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                                urlCount);
