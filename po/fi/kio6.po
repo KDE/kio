@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:39+0000\n"
-"PO-Revision-Date: 2025-04-20 16:33+0300\n"
+"PO-Revision-Date: 2025-05-25 16:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -103,17 +103,16 @@ msgstr ""
 "alaviivoilla (”_”)."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Tiedosto on muuttunut"
+msgstr "Tiedostoja siirretään"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Tiedostoja kopioidaan"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3445,10 +3444,9 @@ msgid "Show Bookmarks Button"
 msgstr "Näytä kirjanmerkkipainike"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Näytä piilotiedostot"
+msgstr "Näytä pikasuodatin"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3502,24 +3500,21 @@ msgid "Undo filename change"
 msgstr "Kumoa tiedostonimen muutos"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Avaa yläkansio"
+msgstr "Säilytä suodatin vaihdettaessa kansioita"
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Tiedostonimi:"
+msgstr "Suodata nimellä…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Piilotiedostot viimeisiksi"
+msgstr "Piilota suodatusrivi"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3656,16 +3651,13 @@ msgstr ""
 "tiedosto tallennetaan.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2941
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan muoto, jossa "
-"tiedosto tallennetaan.</qt>"
+"<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan näytettävät "
+"tiedostot.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3812,9 +3804,7 @@ msgid "Create new folder in %1:"
 msgstr "Luo uusi kansio kohteeseen %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Oletus"
 
@@ -3827,24 +3817,22 @@ msgstr "Luo uusi tiedosto"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Valitse sovellus tiedostotyypille %1"
+msgstr "Valitse mukautettu kuvake tai väri"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Valitse &kuvake:"
+msgstr "Valitse toinen kuvake…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Kuvakkeen voi myöhemmin vaihtaa kansion ominaisuuksista."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5014,23 +5002,22 @@ msgid "&Link Here"
 msgstr "&Linkitä tähän"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Käynnistetään %1"
+msgstr "&Käynnistä"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Käynnistä ohjelmatiedostot kysymättä"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Avaa ohjelmatiedostot oletussovellukseen kysymättä"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5038,32 +5025,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Mitä haluat tehdä tälle tiedostolle?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
-msgstr "&Avaa"
+msgstr "A&vaa"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
-msgstr "A&vaa ohjelmalla %1"
+msgstr "Avaa &ohjelmalla %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Mitä haluat tehdä tälle tiedostolle?"
+msgstr "Haluaisitko käynnistää tämän tiedoston?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Muista kaikille ohjelmatiedostoille"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5072,6 +5056,7 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Tämän voi myöhemmin kumota Dolphinin asetusten kohdassa ”Vahvistukset”."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
