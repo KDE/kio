@@ -590,9 +590,10 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         }
         if (abstractPlugin) {
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
-            const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
+            const bool addToActionsMenu = jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false);
+            const QList<QAction *> actions = abstractPlugin->actions(m_props, addToActionsMenu ? actionsMenu : mainMenu);
             itemCount += actions.count();
-            if (jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false)) {
+            if (addToActionsMenu) {
                 actionsMenu->addActions(actions);
             } else {
                 mainMenu->addActions(actions);
