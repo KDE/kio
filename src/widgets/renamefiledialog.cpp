@@ -454,7 +454,6 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         d->previewLabel = new QLabel(i18nc("@info As in filename renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
         d->preview->setReadOnly(true);
-        d->preview->setFocusPolicy(Qt::FocusPolicy::ClickFocus);
         d->preview->setAccessibleDescription(
             i18nc("@info Accessible description of the field containg a new filename after renaming preview", "New Filename Preview"));
         d->previewLabel->setBuddy(d->preview);
