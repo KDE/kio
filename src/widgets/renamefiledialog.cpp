@@ -363,7 +363,7 @@ public:
             return item.url().fileName().contains(pattern);
         });
         if (!any_match) {
-            return invalid(i18nc("@info pattern as in text replacement pattern", "No file name contain the pattern."));
+            return invalid(i18nc("@info pattern as in text replacement pattern", "No file name contains the pattern."));
         }
         const auto replacement = replacementEdit->text();
         if (replacement.isEmpty()) {
