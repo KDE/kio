@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:39+0000\n"
-"PO-Revision-Date: 2025-03-26 16:07+0200\n"
+"PO-Revision-Date: 2025-05-26 16:43+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -97,17 +97,16 @@ msgstr ""
 "(galamērķa datņu nosaukumā) ar zemsvītru „_“."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Datne ir mainīta"
+msgstr "Notiek datņu pārvietošana"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Notiek datņu kopēšana"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3452,10 +3451,9 @@ msgid "Show Bookmarks Button"
 msgstr "Rādīt grāmatzīmju pogu"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Rādīt slēptās datnes"
+msgstr "Rādīt ātro filtru"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3508,24 +3506,21 @@ msgid "Undo filename change"
 msgstr "Atsaukt datnes pārdēvēšanu"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Atvērt saturošo mapi"
+msgstr "Saglabāt filtru, mainot mapes"
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Faila nosaukums:"
+msgstr "Filtrēt pēc nosaukuma…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Rādīt slēptās datnes"
+msgstr "Slēpt filtra joslu"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3661,16 +3656,13 @@ msgstr ""
 "formātu.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2941
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Šis ir datnes tipa atlasītājs. Tas ļauj norādīt saglabājamās datnes "
-"formātu.</qt>"
+"<qt>Šis ir datņu tipa atlasītājs. Tas ļauj norādīt parādāmo datņu formātu.</"
+"qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3817,11 +3809,9 @@ msgid "Create new folder in %1:"
 msgstr "Izveidot jaunu mapi mapē „%1“"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
-msgstr "Noklusētais"
+msgstr "Noklusējuma"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3832,24 +3822,22 @@ msgstr "Izveidot jaunu datni"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Izvēlieties programmu „%1“ atvēršanai"
+msgstr "Izvēlieties pielāgotu ikonu vai krāsu"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Izvēlieties &ikonu:"
+msgstr "Izvēlēties citu ikonu…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Ikonu varat nomainīt arī vēlāk mapes īpašību lodziņā"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5009,23 +4997,22 @@ msgid "&Link Here"
 msgstr "&Saitēt šeit"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Palaiž „%1“"
+msgstr "&Palaist"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Palaist izpildāmās datnes nevaicājot"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Atvērt izpildāmās datnes noklusējuma programmā nevaicājot"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5033,32 +5020,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Ko vēlaties darīt ar šo datni?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Atvērt"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Atvērt ar „%1“"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Ko vēlaties darīt ar šo datni?"
+msgstr "Vai vēlaties palaist šo datni?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Atcerēties visām izpildāmajām datnēm"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5067,6 +5051,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Varat atcelt šo izvēli „Dolphin“ datņu pārvaldītāja iestatījumu "
+"„Apstiprinājumi“ sadaļā."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6821,12 +6807,10 @@ msgid "Filename for clipboard content:"
 msgstr "Datnes nosaukums starpliktuves saturam:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Ielīmēt %1 failu"
+msgstr "ielīmēta datne"
 
 #: widgets/paste.cpp:123
 #, kde-format
