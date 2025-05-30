@@ -103,6 +103,7 @@ public:
 
         fileNameEdit = new QLineEdit(newName, widget);
         fileNameEdit->setSelection(0, selectionLength);
+        fileNameLabel->setBuddy(fileNameEdit);
         widget->setFocusProxy(fileNameEdit);
 
         QObject::connect(fileNameEdit, &QLineEdit::textChanged, updateCallback);
