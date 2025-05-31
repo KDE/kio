@@ -79,11 +79,11 @@ private:
  * Returns a pointer to the job handling the operation.
  * \since 5.42
  */
-// TODO KF7 remove
+// TODO KF7 remove, replaces by batchRenameWithFunction
 KIOCORE_EXPORT BatchRenameJob *
 batchRename(const QList<QUrl> &srcList, const QString &newName, int startIndex, QChar placeHolder, JobFlags flags = DefaultFlags);
 
-using renameFunctionType = std::function<QString(const QStringView currentFileNameWithoutExtension)>;
+using renameFunctionType = std::function<QString(QStringView currentFileNameWithoutExtension)>;
 /*!
  * \relates KIO::BatchRenameJob
  *
@@ -95,7 +95,7 @@ using renameFunctionType = std::function<QString(const QStringView currentFileNa
  *
  * Returns a pointer to the job handling the operation.
  *
- * \since 6.15
+ * \since 6.16
  */
 KIOCORE_EXPORT BatchRenameJob *batchRenameWithFunction(const QList<QUrl> &srcList, const renameFunctionType renameFunction, KIO::JobFlags flags = DefaultFlags);
 }
