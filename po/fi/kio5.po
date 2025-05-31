@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2023-07-25 14:05+0300\n"
+"PO-Revision-Date: 2025-05-29 15:18+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -439,7 +439,7 @@ msgstr ""
 #: core/job_error.cpp:45
 #, kde-format
 msgid "Malformed URL %1."
-msgstr "Virheellinen URL %1."
+msgstr "Virheellinen verkko-osoite %1."
 
 #: core/job_error.cpp:48
 #, kde-format
@@ -1143,11 +1143,10 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
-"Kirjoittamasi resurssin osoite eli <strong>U</strong>niform <strong>R</"
-"strong>esource <strong>L</strong>ocator (URL) ei ollut oikeassa muodossa. "
-"Muoto on yleensä:<blockquote><strong>yhteyskäytäntö://käyttäjä:salasana@www."
-"esimerkki.org:portti/hakemisto/tiedosto.pääte?kysely=arvo</strong></"
-"blockquote>"
+"Annettu resurssiosoite (<strong>U</strong>niform <strong>R</strong>esource "
+"<strong>L</strong>ocator, URL) ei ollut oikeassa muodossa. Muoto on yleensä:"
+"<blockquote><strong>yhteyskäytäntö://käyttäjä:salasana@www.esimerkki.org:"
+"portti/hakemisto/tiedosto.pääte?kysely=arvo</strong></blockquote>"
 
 #: core/job_error.cpp:491
 #, kde-format
@@ -1191,7 +1190,7 @@ msgstr ""
 #: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
-msgstr "URL ei viittaa resurssiin."
+msgstr "Verkko-osoite ei viittaa resurssiin."
 
 #: core/job_error.cpp:511
 #, kde-format
@@ -1204,8 +1203,8 @@ msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr ""
-"Kirjoittamasi osoite eli <strong>U</strong>niform <strong>R</strong>esource "
-"<strong>L</strong>ocation (URL) ei viittaa mihinkään resurssiin."
+"Annettu osoite (<strong>U</strong>niform <strong>R</strong>esource "
+"<strong>L</strong>ocation, URL) ei viittaa mihinkään resurssiin."
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1599,9 +1598,9 @@ msgid ""
 "strong>ocator (URL) that you entered did not refer to a valid mechanism of "
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
-"Syötetty <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
-"strong>ocation (URL) ei ole oikea mekanismi resurssin <strong>%1%2</strong> "
-"pääsyyn."
+"Annettu verkko-osoite (<strong>U</strong>niform <strong>R</strong>esource "
+"<strong>L</strong>ocation, URL) ei ole oikea mekanismi resurssin <strong>"
+"%1%2</strong> käyttöön."
 
 #: core/job_error.cpp:754
 #, kde-format
@@ -4355,7 +4354,7 @@ msgstr "Koko roskakori:"
 #: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
-msgstr "Virheellinen URL %1"
+msgstr "Virheellinen verkko-osoite %1"
 
 #: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
@@ -5736,7 +5735,7 @@ msgstr "Älä lähetä"
 #: kioexec/main.cpp:59
 #, kde-format
 msgid "Invalid URL: %1"
-msgstr "Virheellinen URL: %1"
+msgstr "Virheellinen verkko-osoite: %1"
 
 #: kioexec/main.cpp:65
 #, kde-format
@@ -5749,7 +5748,7 @@ msgid ""
 "The URL %1\n"
 "is malformed"
 msgstr ""
-"URL %1\n"
+"Verkko-osoite %1\n"
 "on virheellinen"
 
 #: kioexec/main.cpp:84
@@ -5758,8 +5757,8 @@ msgid ""
 "Remote URL %1\n"
 "not allowed with --tempfiles switch"
 msgstr ""
-"Etä-URL %1\n"
-"ei sallittu --tempfiles-valinnan kanssa"
+"Etäverkko-osoitetta %1\n"
+"ei sallita --tempfiles-valitsimen kanssa"
 
 #: kioexec/main.cpp:236
 #, kde-format
@@ -5837,7 +5836,7 @@ msgstr "Oswald Buddenhagen"
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr ""
-"Kohtele URL-osoitteita kuten paikallisiakin tiedostoja ja poista ne "
+"Kohtele verkko-osoitteita kuten paikallisiakin tiedostoja ja poista ne "
 "jälkikäteen"
 
 #: kioexec/main.cpp:302
@@ -5853,7 +5852,7 @@ msgstr "Suoritettava komento"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "URL tai paikallinen tiedosto, jota käytetään komennolle 'command'"
+msgstr "Verkko-osoite tai paikallinen tiedosto, jota ”komennolle” käytetään"
 
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
@@ -6088,7 +6087,7 @@ msgctxt "%1: request type, %2: url"
 msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
-msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla. "
+msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla."
 
 #: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
 #, kde-format
@@ -6191,9 +6190,9 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
-"<p>Olet kirjautumassa sivulle ”%1” käyttäjätunnuksella ”%2”, mutta se ei "
-"tarvitse tunnistautumista. Sinua saatetaan petkuttaa.</p><p>Onko ”%1” "
-"varmasti se sivu, jolle haluat siirtyä?</p>"
+"<p>Olet kirjautumassa sivulle ”%1” käyttäjätunnuksella ”%2”, joka ei vaadi "
+"tunnistautumista. Sinua saatetaan huijata.</p><p>Onko ”%1” varmasti sivu, "
+"jolle haluat siirtyä?</p>"
 
 #: kioworkers/http/http.cpp:2992
 #, kde-format
