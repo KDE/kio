@@ -367,10 +367,14 @@ public:
         }
         const auto replacement = replacementEdit->text();
         if (replacement.isEmpty()) {
-            if (std::any_of(items.cbegin(), items.cend(), [pattern](const KFileItem &item) {
-                    return item.url().fileName() == pattern;
-                })) {
-                return invalid(i18nc("@info pattern as in text replacement pattern", "The Pattern would cause a file to have an empty file name."));
+            auto it = std::find_if(items.cbegin(), items.cend(), [pattern](const KFileItem &item) {
+                return item.url().fileName() == pattern;
+            });
+            if (it != items.cend()) {
+                return invalid(xi18nc("@info pattern as in text replacement pattern",
+                                      "Replacing “%1” with an empty replacement would cause <filename>%2</filename> to have an empty file name.",
+                                      pattern,
+                                      it->url().fileName()));
             }
         }
         return ok();
