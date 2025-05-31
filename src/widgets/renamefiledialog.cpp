@@ -409,6 +409,7 @@ public:
     bool renameOneItem;
     bool allExtensionsDifferent;
 
+    QComboBox *comboRenameType;
     QVBoxLayout *m_topLayout;
     QWidget *m_contentWidget;
 
@@ -443,18 +444,18 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
     if (!d->renameOneItem) {
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
-        QComboBox *comboRenameType = new QComboBox(page);
-        comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
-        renameTypeChoiceLabel->setBuddy(comboRenameType);
+        d->comboRenameType = new QComboBox(page);
+        d->comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
+        renameTypeChoiceLabel->setBuddy(d->comboRenameType);
 
         QHBoxLayout *renameTypeChoice = new QHBoxLayout;
         renameTypeChoice->setContentsMargins(0, 0, 0, 0);
 
         renameTypeChoice->addWidget(renameTypeChoiceLabel);
-        renameTypeChoice->addWidget(comboRenameType);
+        renameTypeChoice->addWidget(d->comboRenameType);
         d->m_topLayout->addLayout(renameTypeChoice);
 
-        connect(comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
+        connect(d->comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
 
         d->previewLabel = new QLabel(i18nc("@info As in filename renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
@@ -477,7 +478,6 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
     // initialize UI
     slotOperationChanged(RenameStrategy::Enumerate);
-    slotStateChanged();
 
     setMinimumWidth(width());
 }
@@ -548,9 +548,15 @@ void RenameFileDialog::slotOperationChanged(int index)
     auto newWidget = d->renameStrategy->init(d->items, this, updateCallback);
     d->m_topLayout->replaceWidget(d->m_contentWidget, newWidget);
     newWidget->setFocus();
+    newWidget->setFocusPolicy(Qt::FocusPolicy::StrongFocus);
 
     delete d->m_contentWidget;
     d->m_contentWidget = newWidget;
+
+    setTabOrder(d->comboRenameType, d->m_contentWidget);
+    if (!d->renameOneItem) {
+        setTabOrder(d->m_contentWidget, d->preview);
+    }
 
     adjustSize();
 
