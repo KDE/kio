@@ -61,19 +61,30 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     }
 
     // Hide SSHFS network device mounted by kdeconnect, since we already have the kdeconnect:// place.
-    if (isDevice() && m_access && device().vendor() == QLatin1String("fuse.sshfs")) {
+    if (isDevice() && !isHidden() && m_access && device().vendor() == QLatin1String("fuse.sshfs")) {
         const QString storageFilePath = m_access->filePath();
-        // Not using findByPath() as it resolves symlinks, potentially blocking,
-        // but here we know we query for an existing actual mount point.
-        const auto mountPoints = KMountPoint::currentMountPoints();
-        auto it = std::find_if(mountPoints.cbegin(), mountPoints.cend(), [&storageFilePath](const KMountPoint::Ptr &mountPoint) {
-            return mountPoint->mountPoint() == storageFilePath;
-        });
-        if (it != mountPoints.cend()) {
-            if ((*it)->mountedFrom().startsWith(QLatin1String("kdeconnect@"))) {
-                // Hide only if the user never set the "Hide" checkbox on the device.
-                if (m_bookmark.metaDataItem(QStringLiteral("IsHidden")).isEmpty()) {
-                    setHidden(true);
+        // kdeconnect mounts into runtime dir or temp, anyone else cannot be kdeconnect.
+        QString runtimePath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+        if (runtimePath.isEmpty()) {
+            runtimePath = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+        }
+        if (!runtimePath.isEmpty()) {
+            runtimePath.append(QLatin1Char('/'));
+        }
+
+        if (runtimePath.isEmpty() || storageFilePath.startsWith(runtimePath)) {
+            // Not using findByPath() as it resolves symlinks, potentially blocking,
+            // but here we know we query for an existing actual mount point.
+            const auto mountPoints = KMountPoint::currentMountPoints();
+            auto it = std::find_if(mountPoints.cbegin(), mountPoints.cend(), [&storageFilePath](const KMountPoint::Ptr &mountPoint) {
+                return mountPoint->mountPoint() == storageFilePath;
+            });
+            if (it != mountPoints.cend()) {
+                if ((*it)->mountedFrom().startsWith(QLatin1String("kdeconnect@"))) {
+                    // Hide only if the user never set the "Hide" checkbox on the device.
+                    if (m_bookmark.metaDataItem(QStringLiteral("IsHidden")).isEmpty()) {
+                        setHidden(true);
+                    }
                 }
             }
         }
