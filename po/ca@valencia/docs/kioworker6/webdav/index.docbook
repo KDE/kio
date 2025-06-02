@@ -28,7 +28,7 @@
 >A</emphasis
 >uthoring i <emphasis
 >V</emphasis
->ersioning) per a la World Wide Web. Us permetrà la gestió senzilla de documents i scripts en un servidor &HTTP;, i disposa de característiques addicionals dissenyades per a simplificar la gestió de versions entre múltiples autors.</para>
+>ersioning) per a la World Wide Web. Us permetrà la gestió senzilla de documents i scripts en un servidor &HTTP;, i disposa de característiques addicionals dissenyades per a simplificar la gestió de versions entre diversos autors.</para>
 
 <para
 >L'ús d'este protocol és simple. Introduïu la ubicació que voleu veure, pareixent a un &URL; &HTTP; excepte pel prefix del nom del protocol webdav://. Per exemple, <userinput
@@ -55,7 +55,7 @@
 <para
 ><acronym
 >WebDAV</acronym
-> permet l'accés a l'script que invoca per a presentar la pàgina específica, de manera que es poden fer canvis en el mateix script.</para>
+> us permet l'accés a l'script que invoca per a presentar la pàgina específica, de manera que es poden fer canvis en el mateix script.</para>
 </listitem>
 </varlistentry>
 <varlistentry>

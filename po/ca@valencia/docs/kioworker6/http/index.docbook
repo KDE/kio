@@ -29,17 +29,17 @@
 >rotocol.</para>
 
 <para
->El procés de treball «http» és utilitzat per totes les aplicacions &kde; per a gestionar les connexions amb servidors &HTTP;, és a dir, amb servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
+>El procés de treball KIO http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions a servidors &HTTP;, és a dir, a servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
 
 <para
->Podeu utilitzar el procés de treball «https» en &konqueror; introduint un &URL;. <userinput
+>Podeu utilitzar el procés de treball KIO https en &konqueror; introduint un &URL;. <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput
 >.</para>
 
 <para
->«https» és «http» encapsulat en un flux SSL/TLS.</para>
+>https és http encapsulat en un flux SSL/TLS.</para>
 <para
 >SSL és el protocol «Secure Sockets Layer» (Capa de Connexió Segura), un protocol de seguretat que proporciona privadesa de comunicacions a Internet. El protocol permet que les aplicacions client/servidor es comuniquen d'una forma que està dissenyada per a previndre l'escolta, l'alteració i la falsificació de missatges. </para>
 <para

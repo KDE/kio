@@ -39,7 +39,7 @@
 
 <tip
 ><para
->Per favor, no envieu un correu electrònic a l'autor d'esta pàgina per a trobar el document que falta. Només vos dirà que seguiu les instruccions en esta pàgina. </para
+>Per favor, no envieu un correu electrònic a l'autor d'esta pàgina per a trobar el document que falta. Només vos dirà que seguiu les instruccions d'esta pàgina. </para
 ></tip>
 
 <simplesect>
@@ -52,17 +52,17 @@
 >. Si la trobeu en este lloc, la vostra distribució la pot estar enviant en un paquet a part (&pex;, anomenat plasma-doc per a la documentació relacionada amb &plasma;). Per favor, utilitzeu el gestor de paquets de la vostra distribució per a trobar i instal·lar la documentació que falta.</para>
 
 <para
->Si utilitzeu una distribució basada en codi font, com la Gentoo, assegureu-vos que no hi ha cap opció de configuració (indicadors «USE» en la Gentoo) que podrien haver desactivat la instal·lació de la documentació. </para>
+>Si utilitzeu una distribució basada en codi font, com Gentoo, assegureu-vos que no hi ha cap opció de configuració (indicadors «USE» en Gentoo) que podrien haver desactivat la instal·lació de la documentació. </para>
 
 <para
 >Si ja ho heu fet, però encara obteniu esta pàgina en comptes del manual de l'aplicació, probablement heu trobat un error en el sistema d'ajuda. En este cas, informeu-ne en el <ulink url="https://bugs.kde.org/"
 >Seguidor d'errors de &kde;</ulink
-> (escriviu-hi en anglés) davall el producte KIO. </para>
+> (escriviu-hi en anglés). </para>
 
 <para
 >Si no trobeu cap documentació en el <ulink url="https://docs.kde.org/"
->lloc &kde; Documentation</ulink
->, l'aplicació podria no disposar de documentació fora de línia. Informeu-ne en el <ulink url="https://bugs.kde.org/"
+>lloc de la documentació de &kde;</ulink
+>, l'aplicació podria no disposar de documentació fora de línia. Informeu-ne al <ulink url="https://bugs.kde.org/"
 >Seguidor d'errors de &kde;</ulink
 > (escriviu-hi en anglés) davall el producte per a l'aplicació. </para>
 
@@ -74,7 +74,7 @@
 >. </para>
 
 <para
->Per a aplicacions no &kde;, Poseu-vos en contacte amb l'autor de l'aplicació per a determinar si hi ha disponible documentació fora de línia.</para>
+>Per a aplicacions no &kde;, poseu-vos en contacte amb l'autor de l'aplicació per a determinar si hi ha disponible documentació fora de línia.</para>
 </simplesect>
 
 </article>
