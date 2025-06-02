@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-05-30 11:30+0300\n"
+"PO-Revision-Date: 2025-06-01 22:01+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -6422,9 +6422,9 @@ msgid "Retry"
 msgstr ""
 
 #: kpasswdserver/kpasswdserver.cpp:788
-#, fuzzy, kde-format
+#, kde-format
 msgid "Authentication Dialog"
-msgstr "דו־שיח אימות"
+msgstr "חלונית אימות"
 
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
@@ -6437,8 +6437,7 @@ msgid "You do not have permission to access the %1 protocol."
 msgstr "יכול להיות שאין לך הרשאה לגשת לפרוטוקול %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Name label from web search keyword column"
 msgid "Name"
 msgstr "שם"
@@ -6465,8 +6464,7 @@ msgid ""
 msgstr ""
 
 #: urifilters/ikws/ikwsopts.cpp:203
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox No default web search keyword"
 msgid "None"
 msgstr "ללא"
@@ -7077,19 +7075,17 @@ msgstr ""
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
 #: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
-#, fuzzy, kde-format
-#| msgid "Delete Entry"
+#, kde-format
 msgid "Delete Permanently"
-msgstr "מחק רשומה"
+msgstr "מחיקה לצמיתות"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:269
-#, fuzzy, kde-format
-#| msgid "Delete Entry"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "מחק רשומה"
+msgstr "מחיקה לצמיתות"
 
 #: widgets/jobuidelegate.cpp:293
 #, fuzzy, kde-kuit-format
@@ -7110,17 +7106,14 @@ msgstr[1] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
 
 #: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"למחוק לצמיתות את כל הפריטים מהאשפה?<nl/><nl/><emphasis strong='true'>זו "
+"פעולה בלתי הפיכה.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
@@ -7129,23 +7122,19 @@ msgid "Empty Trash"
 msgstr "נקה אשפה"
 
 #: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
-#, fuzzy, kde-kuit-format
-#| msgid "Do you really want to move this item to the trash?"
-#| msgid_plural "Do you really want to move these %1 items to the trash?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
-msgstr "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
+msgstr "להעביר את הפריט הזה לאשפה?<nl/><filename>%1</filename>"
 
 #: widgets/jobuidelegate.cpp:329
-#, fuzzy, kde-format
-#| msgid "Do you really want to move this item to the trash?"
-#| msgid_plural "Do you really want to move these %1 items to the trash?"
+#, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
-msgstr[1] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
+msgstr[0] "להעביר את הפריט הזה לאשפה?"
+msgstr[1] "להעביר את %1 הפריטים האלה לאשפה?"
 
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
@@ -7158,66 +7147,57 @@ msgid "SSL"
 msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "הוסף..."
+msgstr "הוספה…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "ערוך"
+msgstr "עריכה…"
 
 #: widgets/kacleditwidget.cpp:79
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr "מחק"
+msgstr "מחיקה"
 
 #: widgets/kacleditwidget.cpp:227
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "בעלים"
 
 #: widgets/kacleditwidget.cpp:231
-#, fuzzy, kde-format
-#| msgid "Owning Group"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "קבוצת בעלים"
 
 #: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
-#, fuzzy, kde-format
-#| msgid "Others"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "אחרים"
 
 #: widgets/kacleditwidget.cpp:239
-#, fuzzy, kde-format
-#| msgid "Mask"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
-msgstr "סינון"
+msgstr "מסכה"
 
 #: widgets/kacleditwidget.cpp:243
-#, fuzzy, kde-format
-#| msgid "Named User"
+#, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
-msgstr "שם משתמש"
+msgstr "משתמש עם שם"
 
 #: widgets/kacleditwidget.cpp:254
-#, fuzzy, kde-format
-#| msgid " (Default)"
+#, kde-format
 msgid "Owner (Default)"
-msgstr " (ברירת מחדל)"
+msgstr "בעלים (ברירת מחדל)"
 
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
@@ -7508,15 +7488,13 @@ msgstr "מיקום:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:335
-#, fuzzy, kde-format
-#| msgid "Chan&ge..."
+#, kde-format
 msgid "Change..."
-msgstr "שי&נוי..."
+msgstr "שינוי…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:347
-#, fuzzy, kde-format
-#| msgid "Contents:"
+#, kde-format
 msgid "Content:"
 msgstr "תוכן:"
 
@@ -7540,16 +7518,15 @@ msgstr "נוצר:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:400
-#, fuzzy, kde-format
-#| msgid "File system:"
+#, kde-format
 msgid "File System:"
 msgstr "מערכת קבצים:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:430
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown size"
-msgstr "שרת מארח לא מוכר"
+msgstr "גודל לא ידוע"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:453
@@ -7566,10 +7543,9 @@ msgstr "ניגש:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:483
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open With:"
-msgstr "פתח באמצעות"
+msgstr "פתיחה עם:"
 
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
@@ -7687,9 +7663,9 @@ msgid ""
 msgstr "&שמור את שיוך התוכנית עבור סוג קובץ זה"
 
 #: widgets/kopenwithdialog.cpp:753
-#, fuzzy, kde-format
+#, kde-format
 msgid "Terminal options"
-msgstr "אפשרויות מ&סוף:"
+msgstr "אפשרויות מסוף"
 
 #: widgets/kopenwithdialog.cpp:758
 #, kde-format
@@ -7750,15 +7726,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Run in terminal"
-msgstr "הפעל ב&מסוף"
+msgstr "הרצה במסוף"
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Terminal options:"
-msgstr "אפשרויות מ&סוף:"
+msgstr "אפשרויות מסוף:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:71
@@ -7773,9 +7749,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "Do not close when command exits"
-msgstr "א&ל תסגור כאשר הפקודה מסתיימת"
+msgstr "לא לסגור כשהפקודה מסתיימת"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
 #: widgets/kpropertiesdesktopadvbase.ui:87
@@ -7801,9 +7777,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
-#, fuzzy, kde-format
+#, kde-format
 msgid "Run as a different user"
-msgstr "הפעל ב&תור משתמש אחר"
+msgstr "הפעלה כמשתמש אחר"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:119
@@ -7856,9 +7832,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enable launch feedback"
-msgstr "אפשר משוב ל&גבי הפעלה"
+msgstr "הפעלת משוב שיגור"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -7990,10 +7966,9 @@ msgstr "&נתיב עבודה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgid "FIXME: Document this"
+#, kde-format
 msgid "Arguments:"
-msgstr "תקן אותי: תעד זאת"
+msgstr "ארגומנטים:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8094,17 +8069,14 @@ msgid "Ad&vanced Options"
 msgstr "אפשרויות &מתקדמות"
 
 #: widgets/kpropertiesdialog.cpp:177
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"<qt>אין אפשרות לשמור את המאפיינים. אין לך הרשאות גישה מספיקות כדי לכתוב אל "
-"<b>%1</b>.</qt>"
+"לא ניתן לשמור מאפיינים עקב גישה לא מספקת לכתיבה אל:<nl/><filename>%1</"
+"filename>."
 
 #: widgets/kpropertiesdialog.cpp:234 widgets/kpropertiesdialog.cpp:249
 #: widgets/kpropertiesdialog.cpp:261 widgets/kpropertiesdialog.cpp:279
@@ -8144,11 +8116,9 @@ msgid "Refresh"
 msgstr "רענן"
 
 #: widgets/kpropertiesdialog.cpp:1246
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu Create New"
-#| msgid "%1"
+#, kde-format
 msgid "%1:"
-msgstr "%1"
+msgstr "%1:"
 
 #: widgets/kpropertiesdialog.cpp:1356
 #, kde-format
@@ -8157,10 +8127,10 @@ msgid "%1 free of %2 (%3% used)"
 msgstr "%1 מתוך %2 (%3% בשימוש)"
 
 #: widgets/kpropertiesdialog.cpp:1363
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
-msgstr "שרת מארח לא מוכר"
+msgstr "גודל לא ידוע"
 
 #: widgets/kpropertiesdialog.cpp:1373
 #, kde-format
@@ -8186,16 +8156,14 @@ msgstr[0] "תת־תיקייה אחת"
 msgstr[1] "%1 תת־תיקיות"
 
 #: widgets/kpropertiesdialog.cpp:1405
-#, fuzzy, kde-format
-#| msgid "Calculating..."
+#, kde-format
 msgid "Calculating...\n"
-msgstr "מחשב..."
+msgstr "מחושב…\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
-#, fuzzy, kde-format
-#| msgid "At least %1"
+#, kde-format
 msgid "At least %1\n"
-msgstr "לפחות %1"
+msgstr "לפחות %1\n"
 
 #: widgets/kpropertiesdialog.cpp:1474
 #, kde-format
@@ -8203,63 +8171,51 @@ msgid "The new file name is empty."
 msgstr "שם הקובץ החדש ריק."
 
 #: widgets/kpropertiesdialog.cpp:1672
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "סוגי קבצי &נתמכים:"
+msgstr "אין סוג קובץ רשום"
 
 #: widgets/kpropertiesdialog.cpp:1674
-#, fuzzy, kde-format
-#| msgid "Choose Application"
+#, kde-format
 msgid "No associated application"
-msgstr "בחר תוכנית"
+msgstr "אין יישום משויך"
 
 #: widgets/kpropertiesdialog.cpp:1680
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "נוצר:"
+msgstr "יצירה…"
 
 #: widgets/kpropertiesdialog.cpp:1683
-#, fuzzy, kde-format
-#| msgid "Chan&ge..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "שי&נוי..."
+msgstr "שינוי…"
 
 #: widgets/kpropertiesdialog.cpp:1759 widgets/kpropertiesdialog.cpp:1760
 #: widgets/kpropertiesdialog.cpp:1762
-#, fuzzy
-#| msgid "Accessed:"
 msgid "No Access"
-msgstr "ניגש:"
+msgstr "אין גישה"
 
 #: widgets/kpropertiesdialog.cpp:1759
 msgid "Can Only View"
 msgstr ""
 
 #: widgets/kpropertiesdialog.cpp:1759
-#, fuzzy
-#| msgid "Can View & Modify Content"
 msgid "Can View & Modify"
-msgstr "יכול להציג את התוכן ולשנותו"
+msgstr "אפשר לצפות ולערוך"
 
 #: widgets/kpropertiesdialog.cpp:1760
-#, fuzzy
-#| msgid "Can View Content"
 msgid "Can Only View Content"
-msgstr "יכול להציג את התוכן"
+msgstr "אפשר רק לצפות בתוכן"
 
 #: widgets/kpropertiesdialog.cpp:1760
 msgid "Can View & Modify Content"
 msgstr "יכול להציג את התוכן ולשנותו"
 
 #: widgets/kpropertiesdialog.cpp:1762
-#, fuzzy
-#| msgid "Can View Content"
 msgid "Can Only View/Read Content"
-msgstr "יכול להציג את התוכן"
+msgstr "אפשר רק לצפות/לקרוא תוכן"
 
 #: widgets/kpropertiesdialog.cpp:1762
 msgid "Can View/Read & Modify/Write"
@@ -8587,10 +8543,10 @@ msgstr ""
 
 #: widgets/kpropertiesdialog.cpp:2828 widgets/kpropertiesdialog.cpp:2839
 #: widgets/kpropertiesdialog.cpp:2850 widgets/kpropertiesdialog.cpp:2861
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "מחשב..."
+msgstr "מחושב…"
 
 #: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
@@ -8645,10 +8601,11 @@ msgid "URL:"
 msgstr "כתובת:"
 
 #: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3495
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
-msgstr "רק תוכניות במערכת הקבצים המקומית נתמכות."
+msgstr ""
+"אי אפשר לשמור את המאפיינים. יש תמיכה רק ברשומות במערכות הקבצים המקומיות."
 
 #: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
@@ -8780,9 +8737,9 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "שינוי &מדיניות ..."
+msgstr "הגדרת קיצורי אינטרנט…"
 
 #: widgets/kurlrequester.cpp:395
 #, kde-format
@@ -8865,9 +8822,9 @@ msgid "Data format:"
 msgstr "תבנית נתונים:"
 
 #: widgets/pastejob.cpp:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filename for dropped contents:"
-msgstr "שם קובץ עבור תכולת לוח העריכה:"
+msgstr "שם קובץ לתוכן שנגרר:"
 
 #: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
 #, kde-format
@@ -8949,11 +8906,10 @@ msgstr ""
 "המערכת תשאל אותך במקרה של התנגשות עם קובץ קיים במערכת."
 
 #: widgets/renamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid "Overwrite File?"
+#, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "לשכתב את הקובץ?"
+msgstr "&שכתוב קבצים ישנים"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
@@ -9002,22 +8958,19 @@ msgid "Differences"
 msgstr ""
 
 #: widgets/renamedialog.cpp:418
-#, fuzzy, kde-format
-#| msgid "Warning, the destination is more recent."
+#, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr "הזהרה: היעד יותר חדש."
+msgstr "היעד <b>קטן ב־%1</b>"
 
 #: widgets/renamedialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "the extension <b>%1</b>"
+#, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr "הסיומת <b>%1</b>"
+msgstr "היעד <b>גדול ב־%1</b>"
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The new file name is empty."
+#, kde-format
 msgid "The files are identical."
-msgstr "שם הקובץ החדש ריק."
+msgstr "הקבצים זהים."
 
 #: widgets/renamedialog.cpp:438
 #, kde-format
@@ -9025,10 +8978,9 @@ msgid "The files seem identical."
 msgstr ""
 
 #: widgets/renamedialog.cpp:441
-#, fuzzy, kde-format
-#| msgid "The new file name is empty."
+#, kde-format
 msgid "The files are different."
-msgstr "שם הקובץ החדש ריק."
+msgstr "הקבצים שונים."
 
 #: widgets/renamedialog.cpp:449
 #, kde-format
@@ -9058,25 +9010,22 @@ msgid "Rename:"
 msgstr "שנה שם:"
 
 #: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
-msgstr "&שנה שם"
+msgstr "שינוי שם פריט"
 
 #: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
-msgstr "&שנה שם"
+msgstr "שינוי שמות פריטים"
 
 #: widgets/renamefiledialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
-msgstr "&שנה שם"
+msgstr "&שינוי שם"
 
 #: widgets/renamefiledialog.cpp:84
 #, kde-kuit-format
@@ -9085,22 +9034,20 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:87
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
 "the end character"
 msgid "New name #"
-msgstr "שם קובץ:"
+msgstr "שם חדש #"
 
 #: widgets/renamefiledialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "Change the selected identifier text."
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "שינוי הזיהוי הנבחר."
-msgstr[1] "שינוי הזיהוי הנבחר."
+msgstr[0] "לשנות את שם הפריט הנבחר לכדי:"
+msgstr[1] "לשנות את שמות %1 הפריטים הנבחרים לכדי:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -9119,10 +9066,9 @@ msgid "Retry"
 msgstr ""
 
 #: widgets/skipdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgid "Replace All"
-msgstr "החלף"
+msgstr "החלפה של הכול"
 
 #: widgets/skipdialog.cpp:67
 #, kde-format
@@ -9130,10 +9076,9 @@ msgid "Skip"
 msgstr "דלג"
 
 #: widgets/skipdialog.cpp:71
-#, fuzzy, kde-format
-#| msgid "Skip"
+#, kde-format
 msgid "Skip All"
-msgstr "דלג"
+msgstr "לדלג על הכול"
 
 #. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
 #: widgets/sslinfo.ui:17
@@ -9218,25 +9163,18 @@ msgstr ""
 "מבטל כיוון שאין אפשרות לאמת את זהות השרת."
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"למחוק את הפריט הזה לצמיתות?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>זו פעולה בלתי הפיכה.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:241
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this %1 item?<nl/><nl/><emphasis "
@@ -9245,30 +9183,26 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"למחוק את הפריט הזה לצמיתות?<nl/><nl/><emphasis strong='true'>זו פעולה בלתי "
+"הפיכה.</emphasis>"
 msgstr[1] ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"למחוק את %1 הפריטים האלה לצמיתות?<nl/><nl/><emphasis strong='true'>זו פעולה "
+"בלתי הפיכה.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:254
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"העברת הפריט הזה לאשפה נכשלה כי הוא גדול מדי. למחוק לצמיתות במקום?<nl/><nl/"
+"><filename>%1</filename><nl/><nl/><emphasis strong='true'>זו פעולה בלתי "
+"הפיכה.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9279,9 +9213,11 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"העברת הפריט הזה לאשפה נכשלה כיוון שהוא גדול מדי. למחוק אותו לצמיתות במקום?"
+"<nl/><emphasis strong='true'>זו פעולה בלתי הפיכה.</emphasis>"
 msgstr[1] ""
-"האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+"העברת %1 הפריטים הזה לאשפה נכשלה כיוון שהם גדולים מדי. למחוק אותם לצמיתות "
+"במקום?<nl/><emphasis strong='true'>זו פעולה בלתי הפיכה.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
