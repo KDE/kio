@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:39+0000\n"
+"POT-Creation-Date: 2025-06-04 00:39+0000\n"
 "PO-Revision-Date: 2025-04-04 09:44+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2997,49 +2997,49 @@ msgstr ""
 "bruker dette programmet «%1». <br /><br />Hvis ikke, blir oppføringa "
 "tilgjengelig i alle programmer.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:210
+#: filewidgets/kfileplacesitem.cpp:221
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Steder"
 
-#: filewidgets/kfileplacesitem.cpp:213
+#: filewidgets/kfileplacesitem.cpp:224
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Fjernlager"
 
-#: filewidgets/kfileplacesitem.cpp:216
+#: filewidgets/kfileplacesitem.cpp:227
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Nylige"
 
-#: filewidgets/kfileplacesitem.cpp:219
+#: filewidgets/kfileplacesitem.cpp:230
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Søk etter"
 
-#: filewidgets/kfileplacesitem.cpp:222
+#: filewidgets/kfileplacesitem.cpp:233
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Enheter"
 
-#: filewidgets/kfileplacesitem.cpp:225
+#: filewidgets/kfileplacesitem.cpp:236
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Flyttbare enheter"
 
-#: filewidgets/kfileplacesitem.cpp:228
+#: filewidgets/kfileplacesitem.cpp:239
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Merkelapper"
 
-#: filewidgets/kfileplacesitem.cpp:333
+#: filewidgets/kfileplacesitem.cpp:344
 #, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"

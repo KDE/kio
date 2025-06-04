@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:39+0000\n"
+"POT-Creation-Date: 2025-06-04 00:39+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -2813,53 +2813,53 @@ msgid ""
 "entry will be available in all applications.</qt>"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:210
+#: filewidgets/kfileplacesitem.cpp:221
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@item"
 msgid "Places"
 msgstr "Lec'hiadurioù"
 
-#: filewidgets/kfileplacesitem.cpp:213
+#: filewidgets/kfileplacesitem.cpp:224
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@item"
 msgid "Remote"
 msgstr "Lemel"
 
-#: filewidgets/kfileplacesitem.cpp:216
+#: filewidgets/kfileplacesitem.cpp:227
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:219
+#: filewidgets/kfileplacesitem.cpp:230
 #, fuzzy, kde-format
 #| msgid "&Search:"
 msgctxt "@item"
 msgid "Search For"
 msgstr "&Klask :"
 
-#: filewidgets/kfileplacesitem.cpp:222
+#: filewidgets/kfileplacesitem.cpp:233
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgctxt "@item"
 msgid "Devices"
 msgstr "Trobarzhelloù"
 
-#: filewidgets/kfileplacesitem.cpp:225
+#: filewidgets/kfileplacesitem.cpp:236
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:228
+#: filewidgets/kfileplacesitem.cpp:239
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:333
+#: filewidgets/kfileplacesitem.cpp:344
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "@info:tooltip path (mounted from)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:39+0000\n"
+"POT-Creation-Date: 2025-06-04 00:39+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3050,7 +3050,7 @@ msgstr ""
 "كۆرسىتىشنى ئويلىسىڭىز بۇ ئورۇننى تاللاڭ.<br /><br />ئەگەر بۇ تاللانما "
 "تاللانمىسا بۇ تۈر ھەممە قوللىنىشچان پروگراممىدا كۆرۈنىدۇ.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:210
+#: filewidgets/kfileplacesitem.cpp:221
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Places"
@@ -3058,27 +3058,27 @@ msgctxt "@item"
 msgid "Places"
 msgstr "ئورۇنلار"
 
-#: filewidgets/kfileplacesitem.cpp:213
+#: filewidgets/kfileplacesitem.cpp:224
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@item"
 msgid "Remote"
 msgstr "چىقىرىۋەت"
 
-#: filewidgets/kfileplacesitem.cpp:216
+#: filewidgets/kfileplacesitem.cpp:227
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:219
+#: filewidgets/kfileplacesitem.cpp:230
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@item"
 msgid "Search For"
 msgstr "ئىزدە"
 
-#: filewidgets/kfileplacesitem.cpp:222
+#: filewidgets/kfileplacesitem.cpp:233
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Devices"
@@ -3086,19 +3086,19 @@ msgctxt "@item"
 msgid "Devices"
 msgstr "ئۈسكۈنىلەر"
 
-#: filewidgets/kfileplacesitem.cpp:225
+#: filewidgets/kfileplacesitem.cpp:236
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:228
+#: filewidgets/kfileplacesitem.cpp:239
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:333
+#: filewidgets/kfileplacesitem.cpp:344
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "@info:tooltip path (mounted from)"

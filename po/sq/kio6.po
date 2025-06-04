@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:39+0000\n"
+"POT-Creation-Date: 2025-06-04 00:39+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -3038,49 +3038,49 @@ msgstr ""
 "përdoret aplikacioni i tanishëm (%1).<br /><br />Nëse ky rregullim nuk "
 "përzgjidhet, zëri do të jetë i passhëm në krejt aplikacionet.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:210
+#: filewidgets/kfileplacesitem.cpp:221
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Vende"
 
-#: filewidgets/kfileplacesitem.cpp:213
+#: filewidgets/kfileplacesitem.cpp:224
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "I largët"
 
-#: filewidgets/kfileplacesitem.cpp:216
+#: filewidgets/kfileplacesitem.cpp:227
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Së fundi"
 
-#: filewidgets/kfileplacesitem.cpp:219
+#: filewidgets/kfileplacesitem.cpp:230
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Kërkoni Për"
 
-#: filewidgets/kfileplacesitem.cpp:222
+#: filewidgets/kfileplacesitem.cpp:233
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Pajisje"
 
-#: filewidgets/kfileplacesitem.cpp:225
+#: filewidgets/kfileplacesitem.cpp:236
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Pajisje të Heqshme"
 
-#: filewidgets/kfileplacesitem.cpp:228
+#: filewidgets/kfileplacesitem.cpp:239
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
 msgstr "Etiketa"
 
-#: filewidgets/kfileplacesitem.cpp:333
+#: filewidgets/kfileplacesitem.cpp:344
 #, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
