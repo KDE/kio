@@ -581,7 +581,8 @@ void RenameFileDialog::slotStateChanged()
     }
     ValidationResult validationResult;
     if (previewText.isEmpty()) {
-        validationResult = invalid(i18n("@info Resulting would have an empty filename"), KMessageWidget::MessageType::Error);
+        validationResult =
+            invalid(xi18nc("@info", "<filename>%1</filename> cannot be renamed to an empty file name.", firstItem.name()), KMessageWidget::MessageType::Error);
     } else {
         validationResult = d->renameStrategy->validate(d->items, previewText);
     }
