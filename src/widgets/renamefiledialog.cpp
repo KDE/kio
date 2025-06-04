@@ -279,7 +279,7 @@ public:
             return invalid(QString());
         }
         if (!validPlaceholder && !allExtensionsDifferent) {
-            return invalid(i18nc("@info", "Invalid filename: it should contain one sequence of #, unless all the files have different file extensions."));
+            return invalid(i18nc("@info", "Invalid filename: The new name should contain one sequence of #, unless all the files have different file extensions."));
         }
         return ok();
     }
