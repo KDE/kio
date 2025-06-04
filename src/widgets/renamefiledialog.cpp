@@ -47,9 +47,9 @@ inline ValidationResult ok()
 {
     return ValidationResult{Result::Ok, QString(), KMessageWidget::MessageType::Information};
 };
-inline ValidationResult invalid(const QString &text, KMessageWidget::MessageType type = KMessageWidget::MessageType::Warning)
+inline ValidationResult invalid(const QString &text)
 {
-    return ValidationResult{Result::Invalid, text, type};
+    return ValidationResult{Result::Invalid, text, KMessageWidget::MessageType::Error};
 };
 
 /// design pattern strategy
@@ -137,8 +137,7 @@ public:
             fileExists = QFile::exists(newUrl.toLocalFile());
         }
         if (fileExists) {
-            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists.", newUrl.fileName()),
-                           KMessageWidget::MessageType::Error);
+            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists.", newUrl.fileName()));
         }
         if (placeholder == QLatin1String("..") || (placeholder == QLatin1String("."))) {
             return invalid(xi18nc("@info %1 is an invalid filename", "<filename>%1</filename> is not a valid file name.", placeholder));
@@ -581,8 +580,7 @@ void RenameFileDialog::slotStateChanged()
     }
     ValidationResult validationResult;
     if (previewText.isEmpty()) {
-        validationResult =
-            invalid(xi18nc("@info", "<filename>%1</filename> cannot be renamed to an empty file name.", firstItem.name()), KMessageWidget::MessageType::Error);
+        validationResult = invalid(xi18nc("@info", "<filename>%1</filename> cannot be renamed to an empty file name.", firstItem.name()));
     } else {
         validationResult = d->renameStrategy->validate(d->items, previewText);
     }
