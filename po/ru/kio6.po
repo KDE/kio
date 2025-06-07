@@ -23,8 +23,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:39+0000\n"
-"PO-Revision-Date: 2025-02-28 16:41+0300\n"
+"POT-Creation-Date: 2025-06-07 00:39+0000\n"
+"PO-Revision-Date: 2025-06-06 17:25+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -115,17 +115,16 @@ msgstr ""
 "будут замены на символ подчёркивания (_)."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Файл изменён"
+msgstr "Выполняется перемещение файлов"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Выполняется копирование файлов"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -2554,6 +2553,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Невозможно гарантировать безопасность вспомогательного процесса ввода/вывода "
+"для протокола «%1», который обычно требует наличия расширенных прав доступа, "
+"так как отличные от root пользователи могут изменять его в %2."
 
 #: core/worker.cpp:380
 #, kde-format
@@ -3484,10 +3486,9 @@ msgid "Show Bookmarks Button"
 msgstr "Показать кнопку закладок"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Показывать скрытые файлы"
+msgstr "Показать быстрый фильтр"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3541,24 +3542,21 @@ msgid "Undo filename change"
 msgstr "Отменить изменение имени файла"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Открыть содержащую папку"
+msgstr "Оставлять фильтр при смене папок"
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Имя файла:"
+msgstr "Фильтр по имени…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Скрытые объекты в конце"
+msgstr "Скрыть панель фильтра"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3693,16 +3691,13 @@ msgstr ""
 "сохранён файл.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2941
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Это выбор типа файла. Он служит для выбора формата, в котором будет "
-"сохранён файл.</qt>"
+"<qt>Это выбор типа файла. Он служит для выбора формата отображаемых файлов.</"
+"qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3790,18 +3785,14 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "Нельзя использовать обратные косые черты в именах файлов и папок."
 
 #: filewidgets/knewfilemenu.cpp:1294
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Ошибка создания папки «<filename>%1</filename><nl/>»: такое имя "
-"зарезервировано для использования операционной системой."
+"Невозможно создать файл или папку с именем <filename>%1</filename>, так как "
+"оно уже используется для расположения домашней папки пользователя."
 
 #: filewidgets/knewfilemenu.cpp:1303
 #, kde-format
@@ -3853,9 +3844,7 @@ msgid "Create new folder in %1:"
 msgstr "Создать новую папку в %1:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -3868,24 +3857,22 @@ msgstr "Создание нового файла"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Выбор приложения для %1"
+msgstr "Выбор другого значка или цвета"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "&Значок:"
+msgstr "Выбрать другой значок…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Позднее значок можно будет изменить в разделе настройки свойств папки."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5048,23 +5035,24 @@ msgid "&Link Here"
 msgstr "&Создать ссылку"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Запускается %1"
+msgstr "&Запустить"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Запускать исполняемые файлы без подтверждения"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Открывать исполняемые файлы в приложении по умолчанию без запроса "
+"подтверждения"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5072,32 +5060,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Что сделать с этим файлом?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Открыть"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "Открыть &с помощью %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Что сделать с этим файлом?"
+msgstr "Запустить этот файл?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Запомнить для всех исполняемых файлов"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5106,6 +5091,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Это можно отменить в соответствующем разделе настройки параметров диспетчера "
+"файлов Dolphin («Подтверждения»)."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6882,12 +6869,10 @@ msgid "Filename for clipboard content:"
 msgstr "Имя файла для содержимого буфера обмена:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Вставить %1 файл"
+msgstr "вставленный файл"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -7352,28 +7337,41 @@ msgstr[3] ""
 "действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Moving this item to Trash failed as it is too large. Permanently delete "
+#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+#| "strong='true'>This action cannot be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
-"Moving this item to Trash failed as it is too large. Permanently delete it "
-"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>This action cannot be undone.</emphasis>"
+"The trash is too full to accept this file. Permanently delete it instead?<nl/"
+"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
+"cannot be undone.</emphasis>"
 msgstr ""
 "Этот объект не удалось переместить в корзину из-за слишком большого размера. "
 "Безвозвратно удалить его?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Moving this %1 item to Trash failed as it is too large. Permanently "
+#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
+#| "undone.</emphasis>"
+#| msgid_plural ""
+#| "Moving these %1 items to Trash failed as they are too large. Permanently "
+#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
+#| "be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
-"Moving this %1 item to Trash failed as it is too large. Permanently delete "
-"it instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-"emphasis>"
+"The trash is too full to accept this %1 file. Permanently delete it instead?"
+"<nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgid_plural ""
-"Moving these %1 items to Trash failed as they are too large. Permanently "
-"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
-"undone.</emphasis>"
+"The trash is too full to accept these %1 files. Permanently delete them "
+"instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
 msgstr[0] ""
 "Эти объекты (%1) не удалось переместить в корзину из-за слишком большого "
 "размера. Безвозвратно удалить их?<nl/><emphasis strong='true'>Это действие "
