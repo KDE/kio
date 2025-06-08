@@ -1,7 +1,7 @@
 # Translation for kio6.po to Euskara/Basque (eu).
 # Copyright (C) 2003-2025 This file is copyright:
 # This file is distributed under the same license as the kio package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos <marcos@euskalgnu.org>, 2003, 2005, 2006, 2007, 2008, 2010.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:39+0000\n"
-"PO-Revision-Date: 2025-05-25 13:33+0200\n"
+"PO-Revision-Date: 2025-06-07 20:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -7288,33 +7288,19 @@ msgstr[1] ""
 "strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Elementu hau zakarrontzira eramatea huts egin du handiegia delako. Horren "
-"ordez betirako ezabatu?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Zakarrontzia fitxategi hau onartzeko beteegi dago. Horren ordez betirako "
+"ezabatu?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7324,13 +7310,11 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"%1 elementu hau zakarrontzira eramatea huts egin du handiegia delako.Horren "
-"ordez betirako ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin da "
-"desegin.</emphasis>"
+"Zakarrontzia fitxategi hau (%1) onartzeko beteegi dago.Horren ordez betirako "
+"ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 msgstr[1] ""
-"%1 elementu hauek zakarrontzira eramatea huts egin du handiegiak direlako."
-"Horren ordez betirako ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin "
-"da desegin.</emphasis>"
+"Zakarrontzia %1 fitxategi hauk onartzeko beteegi dago.Horren ordez betirako "
+"ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
