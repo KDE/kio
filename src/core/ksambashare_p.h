@@ -21,10 +21,9 @@ public:
     explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
 
-    static bool isSambaInstalled();
     void setUserSharePath();
 
-    static int runProcess(const QString &progName, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
+    static int runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
     static QString testparmParamValue(const QString &parameterName);
 
     QByteArray getNetUserShareInfo();
