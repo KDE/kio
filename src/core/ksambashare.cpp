@@ -47,22 +47,6 @@ KSambaSharePrivate::~KSambaSharePrivate()
 {
 }
 
-bool KSambaSharePrivate::isSambaInstalled()
-{
-    const bool daemonExists =
-        !QStandardPaths::findExecutable(QStringLiteral("smbd"), {QStringLiteral("/usr/sbin/"), QStringLiteral("/usr/local/sbin/")}).isEmpty();
-    if (!daemonExists) {
-        qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find smbd";
-    }
-
-    const bool clientExists = !QStandardPaths::findExecutable(QStringLiteral("testparm")).isEmpty();
-    if (!clientExists) {
-        qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find testparm tool, most likely samba-client isn't installed";
-    }
-
-    return daemonExists && clientExists;
-}
-
 void KSambaSharePrivate::setUserSharePath()
 {
     const QString rawString = testparmParamValue(QStringLiteral("usershare path"));
@@ -72,18 +56,11 @@ void KSambaSharePrivate::setUserSharePath()
     }
 }
 
-int KSambaSharePrivate::runProcess(const QString &progName, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr)
+int KSambaSharePrivate::runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr)
 {
     QProcess process;
-
     process.setProcessChannelMode(QProcess::SeparateChannels);
-    const QString exec = QStandardPaths::findExecutable(progName);
-    if (exec.isEmpty()) {
-        qCWarning(KIO_CORE) << "Could not find an executable named:" << progName;
-        return -1;
-    }
-
-    process.start(exec, args);
+    process.start(fullExecutablePath, args);
     // TODO: make it async in future
     process.waitForFinished();
 
@@ -94,7 +71,9 @@ int KSambaSharePrivate::runProcess(const QString &progName, const QStringList &a
 
 QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
 {
-    if (!isSambaInstalled()) {
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("testparm"));
+    if (exec.isEmpty()) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'testparm' tool, most likely samba-client isn't installed";
         return QString();
     }
 
@@ -108,7 +87,7 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
         parameterName,
     };
 
-    runProcess(QStringLiteral("testparm"), args, stdOut, stdErr);
+    runProcess(exec, args, stdOut, stdErr);
 
     // TODO: parse and process error messages.
     // create a parser for the error output and
@@ -159,7 +138,13 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
 
 QByteArray KSambaSharePrivate::getNetUserShareInfo()
 {
-    if (skipUserShare || !isSambaInstalled()) {
+    if (skipUserShare) {
+        return QByteArray();
+    }
+
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
+    if (exec.isEmpty()) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
         return QByteArray();
     }
 
@@ -171,7 +156,7 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
         QStringLiteral("info"),
     };
 
-    runProcess(QStringLiteral("net"), args, stdOut, stdErr);
+    runProcess(exec, args, stdOut, stdErr);
 
     if (!stdErr.isEmpty()) {
         if (stdErr.contains("You do not have permission to create a usershare")) {
@@ -310,7 +295,9 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
     // TODO:
     // * check for usershare max shares
 
-    if (!isSambaInstalled()) {
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
+    if (exec.isEmpty()) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
         return KSambaShareData::UserShareSystemError;
     }
 
@@ -334,7 +321,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
     };
 
     QByteArray stdOut;
-    int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
+    int ret = runProcess(exec, args, stdOut, m_stdErr);
 
     // TODO: parse and process error messages.
     if (!m_stdErr.isEmpty()) {
@@ -356,7 +343,9 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
 
 KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData &shareData)
 {
-    if (!isSambaInstalled()) {
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
+    if (exec.isEmpty()) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
         return KSambaShareData::UserShareSystemError;
     }
 
@@ -371,7 +360,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
     };
 
     QByteArray stdOut;
-    int ret = runProcess(QStringLiteral("net"), args, stdOut, m_stdErr);
+    int ret = runProcess(exec, args, stdOut, m_stdErr);
 
     // TODO: parse and process error messages.
     if (!m_stdErr.isEmpty()) {
