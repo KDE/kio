@@ -64,6 +64,7 @@ Query[ca]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ca@valencia]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[es]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[eu]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[he]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&t=kde&kl=he
 Query[ka]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[nl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[sl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
@@ -71,3 +72,4 @@ Query[sv]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[tr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[uk]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[x-test]=xxhttps://duckduckgo.com/?sites=cppreference.com&q=\\{@}xx
+Query[zh_TW]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
