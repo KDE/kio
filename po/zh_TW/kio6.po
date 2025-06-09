@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:39+0000\n"
-"PO-Revision-Date: 2025-05-19 21:29+0900\n"
+"PO-Revision-Date: 2025-06-08 23:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -6995,33 +6995,18 @@ msgstr[0] ""
 "作無法復原。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"由於此項目太大，無法將它移動至垃圾桶。要改成永久刪除它嗎？<nl/><nl/"
-"><filename>%1</filename><nl/><nl/><emphasis strong='true'>此動作無法復原。</"
-"emphasis>"
+"垃圾桶太滿而無法接受這個檔案。要改成永久刪除它們嗎？<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>此動作無法復原。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7031,9 +7016,8 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"由於這 %1 個項目太大，無法將它們移動至垃圾桶。要改成永久刪除它們嗎？<nl/><nl/"
-"><filename>%1</filename><nl/><nl/><emphasis strong='true'>此動作無法復原。</"
-"emphasis>"
+"垃圾桶太滿而無法接受這 %1 個檔案。要改成永久刪除它們嗎？<nl/><nl/><emphasis "
+"strong='true'>此動作無法復原。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
