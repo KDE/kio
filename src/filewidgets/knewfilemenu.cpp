@@ -1617,6 +1617,8 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
         icons.prepend(defaultFolderIconName);
 
+        QWidget *lastWidget = m_chooseIconBox;
+
         for (const QString &icon : icons) {
             const bool isFirstButton = (x == 0 && y == 0);
 
@@ -1633,6 +1635,9 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
             button->setToolButtonStyle(Qt::ToolButtonIconOnly);
             button->setIconSize(QSize(KIconLoader::SizeMedium, KIconLoader::SizeMedium));
 
+            QWidget::setTabOrder(lastWidget, button);
+            lastWidget = button;
+
             m_folderIconGrid->addWidget(button, y, x++);
             if (x == icons.size() / 2) {
                 x = 0;
@@ -1640,7 +1645,7 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
             }
         }
 
-        // TODO fix tab order...
+        QWidget::setTabOrder(lastWidget, m_chooseIconButton);
 
         QObject::connect(m_iconGroup, &QActionGroup::triggered, q, [this](QAction *action) {
             setIcon(action->icon());
