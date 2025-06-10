@@ -6973,18 +6973,16 @@ msgstr[0] ""
 "销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"这个项目太大，无法移动到回收站。您想要彻底删除它吗？<nl/><nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -6994,8 +6992,6 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"这 %1 个项目太大，无法移动到回收站。您想要彻底删除它们吗？<nl/><nl/"
-"><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
