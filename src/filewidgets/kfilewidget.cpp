@@ -1649,9 +1649,11 @@ void KFileWidgetPrivate::updateNameFilter(const KFileFilter &filter)
 
 void KFileWidget::setUrl(const QUrl &url, bool clearforward)
 {
-    //     qDebug();
-
-    d->m_ops->setUrl(url, clearforward);
+    if (url.isLocalFile() && QDir::isRelativePath(url.path())) {
+        d->m_ops->setUrl(QUrl::fromLocalFile(QDir::currentPath() + u'/' + url.path()), clearforward);
+    } else {
+        d->m_ops->setUrl(url, clearforward);
+    }
 }
 
 // Protected
@@ -2859,16 +2861,19 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass, QSt
 
             ret = QUrl::fromLocalFile(KRecentDirs::dir(recentDirClass));
         } else { // not special "kfiledialog" URL
+            ret = startDir;
+            if (startDir.isLocalFile() && QDir::isRelativePath(startDir.path())) {
+                ret = QUrl::fromLocalFile(QDir::currentPath() + u'/' + startDir.path());
+            }
+
             // "foo.png" only gives us a file name, the default start dir will be used.
             // "file:foo.png" (from KHTML/webkit, due to fromPath()) means the same
             //   (and is the reason why we don't just use QUrl::isRelative()).
 
             // In all other cases (startDir contains a directory path, or has no
             // fileName for us anyway, such as smb://), startDir is indeed a dir url.
-
-            if (!startDir.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path().isEmpty() || startDir.fileName().isEmpty()) {
+            if (!ret.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path().isEmpty() || ret.fileName().isEmpty()) {
                 // can use start directory
-                ret = startDir; // will be checked by stat later
                 // If we won't be able to list it (e.g. http), then use default
                 if (!KProtocolManager::supportsListing(ret)) {
                     useDefaultStartDir = true;
