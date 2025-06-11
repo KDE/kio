@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:39+0000\n"
-"PO-Revision-Date: 2025-04-15 23:39+0200\n"
+"PO-Revision-Date: 2025-06-10 23:24+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -89,17 +89,16 @@ msgstr ""
 "합니다."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "파일 변경됨"
+msgstr "파일이 이동 중"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "파일이 복사 중"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3715,9 +3714,7 @@ msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
 
 #: filewidgets/knewfilemenu.cpp:1626
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "기본값"
 
@@ -3730,24 +3727,22 @@ msgstr "새 파일 만들기"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "%1에 사용할 앱 선택"
+msgstr "사용자 정의 아이콘이나 색상 선택"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "아이콘 선택(&I):"
+msgstr "다른 아이콘 선택…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -4904,23 +4899,22 @@ msgid "&Link Here"
 msgstr "여기로 링크(&L)"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "%1 실행 중"
+msgstr "실행(&L)"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "실행 파일을 묻지 않고 실행"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "실행 가능한 파일을 묻지 않고 기본 앱으로 열기"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4928,33 +4922,29 @@ msgid "What do you wish to do with this file?"
 msgstr "이 파일로 무엇을 하시겠습니까?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "열기(&O)"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "이 파일로 무엇을 하시겠습니까?"
+msgstr "이 파일을 실행하시겠습니까?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
-#, fuzzy, kde-format
-#| msgid "'%1' is not an executable file."
+#, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr "'%1'이(가) 실행 파일이 아닙니다."
+msgstr "모든 실행 파일에 대해서 기억"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4962,7 +4952,7 @@ msgstr "'%1'이(가) 실행 파일이 아닙니다."
 msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
+msgstr "Dolphin 파일 관리자 설정의 \"확인\"에서 이 설정을 취소할 수 있습니다."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -7123,33 +7113,19 @@ msgstr[0] ""
 "은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"이 항목을 휴지통에 버리기에는 너무 큽니다. 대신 이 항목을 완전히 삭제하시겠습"
-"니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>이 작"
-"업은 실행 취소할 수 없습니다.</emphasis>"
+"이 항목을 휴지통에 버리기에는 휴지통의 공간이 부족합니다. 대신 이 항목을 완전"
+"히 삭제하시겠습니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7159,9 +7135,9 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"항목 %1개가 너무 커서 휴지통에 버릴 수 없습니다. 대신 완전히 삭제하시겠습니"
-"까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</"
-"emphasis>"
+"항목 %1개를 휴지통에 버리기에는 휴지통의 공간이 부족합니다. 대신 완전히 삭제"
+"하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습"
+"니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
