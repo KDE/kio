@@ -1020,20 +1020,6 @@ void KDirOperatorPrivate::updateSorting(QDir::SortFlags sort)
     m_proxyModel->setSortFoldersFirst(m_sorting & QDir::DirsFirst);
     m_proxyModel->sort(sortColumn(), sortOrder());
 
-    // TODO: The headers from QTreeView don't take care about a sorting
-    // change of the proxy model hence they must be updated the manually.
-    // This is done here by a qobject_cast, but it would be nicer to:
-    // - provide a signal 'sortingChanged()'
-    // - connect KDirOperatorDetailView() with this signal and update the
-    //   header internally
-    QTreeView *treeView = qobject_cast<QTreeView *>(m_itemView);
-    if (treeView != nullptr) {
-        QHeaderView *headerView = treeView->header();
-        headerView->blockSignals(true);
-        headerView->setSortIndicator(sortColumn(), sortOrder());
-        headerView->blockSignals(false);
-    }
-
     assureVisibleSelection();
 }
 
