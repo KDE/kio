@@ -19,6 +19,225 @@
      <property name="verticalSpacing">
       <number>10</number>
      </property>
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="iconLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="KIconButton" name="iconButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="iconSize">
+          <number>48</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="iconLabel">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="fileNameLayout">
+       <item>
+        <widget class="QLineEdit" name="fileNameLineEdit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="fileNameLabel">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="KSeparator" name="kseparator_2"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="typeLabel">
+       <property name="text">
+        <string>Type:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QVBoxLayout" name="mimeTypeLayout">
+       <item>
+        <widget class="QLabel" name="mimeCommentLabel">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="contentLabel">
+       <property name="text">
+        <string>Content:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="magicMimeCommentLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="defaultHandlerLabel_Left">
+       <property name="text">
+        <string>Open With:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <layout class="QHBoxLayout" name="defaultHandlerLayout">
+       <item>
+        <widget class="QLabel" name="defaultHandlerIcon">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="defaultHandlerLabel">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="configureMimeBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Change...</string>
+         </property>
+         <property name="icon">
+          <iconset theme="configure"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="locationLabel_Left">
+       <property name="text">
+        <string>Location:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="KSqueezedTextLabel" name="locationLabel">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="sizeLabelLeft">
+       <property name="text">
+        <string>Size:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="sizeLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
      <item row="7" column="1">
       <widget class="QWidget" name="sizeBtnWidget" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -84,142 +303,10 @@
        </layout>
       </widget>
      </item>
-     <item row="14" column="1">
-      <widget class="QLabel" name="fsLabel">
+     <item row="8" column="0">
+      <widget class="QLabel" name="symlinkTargetLabel">
        <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <layout class="QHBoxLayout" name="iconLayout">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="KIconButton" name="iconButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="iconSize">
-          <number>48</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="iconLabel">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="0" colspan="2">
-      <widget class="KSeparator" name="kseparator_2"/>
-     </item>
-     <item row="16" column="0">
-      <widget class="QLabel" name="mountSrcLabel_Left">
-       <property name="text">
-        <string>Mounted From:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="1">
-      <widget class="QLabel" name="modifiedTimeLabel">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="KSqueezedTextLabel" name="locationLabel">
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <layout class="QVBoxLayout" name="mimeTypeLayout">
-       <item>
-        <widget class="QLabel" name="mimeCommentLabel">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="9" column="0" colspan="2">
-      <widget class="KMessageWidget" name="symlinkTargetMessageWidget">
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-       <property name="messageType">
-        <enum>KMessageWidget::Error</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="sizeLabel">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-       </property>
-      </widget>
-     </item>
-     <item row="17" column="0">
-      <widget class="QLabel" name="freespaceLabel">
-       <property name="text">
-        <string>Free Space:</string>
+        <string>Points to:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -253,33 +340,20 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="typeLabel">
-       <property name="text">
-        <string>Type:</string>
+     <item row="9" column="0" colspan="2">
+      <widget class="KMessageWidget" name="symlinkTargetMessageWidget">
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
-       </property>
-      </widget>
-     </item>
-     <item row="16" column="1">
-      <widget class="QLabel" name="mountSrcLabel">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       <property name="messageType">
+        <enum>KMessageWidget::Error</enum>
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="locationLabel_Left">
+     <item row="10" column="0">
+      <widget class="QLabel" name="createdTimeLabel_Left">
        <property name="text">
-        <string>Location:</string>
+        <string>Created:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -296,70 +370,76 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="sizeLabelLeft">
+     <item row="11" column="0">
+      <widget class="QLabel" name="modifiedTimeLabel_Left">
        <property name="text">
-        <string>Size:</string>
+        <string>Modified:</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <layout class="QHBoxLayout" name="defaultHandlerLayout">
-       <item>
-        <widget class="QLabel" name="defaultHandlerIcon">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="defaultHandlerLabel">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="configureMimeBtn">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Change...</string>
-         </property>
-         <property name="icon">
-          <iconset theme="configure"/>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="contentLabel">
+     <item row="11" column="1">
+      <widget class="QLabel" name="modifiedTimeLabel">
        <property name="text">
-        <string>Content:</string>
+        <string/>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="accessTimeLabel_Left">
+       <property name="text">
+        <string>Accessed:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLabel" name="accessTimeLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0" colspan="2">
+      <widget class="KSeparator" name="fsSeparator"/>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="fsLabel_Left">
+       <property name="text">
+        <string>File System:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLabel" name="fsLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="mountPointLabel_Left">
+       <property name="text">
+        <string>Mounted On:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -379,65 +459,38 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="symlinkTargetLabel">
+     <item row="16" column="0">
+      <widget class="QLabel" name="mountSrcLabel_Left">
        <property name="text">
-        <string>Points to:</string>
+        <string>Mounted From:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
-      <widget class="QLabel" name="modifiedTimeLabel_Left">
+     <item row="16" column="1">
+      <widget class="QLabel" name="mountSrcLabel">
        <property name="text">
-        <string>Modified:</string>
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="0">
+      <widget class="QLabel" name="freespaceLabel">
+       <property name="text">
+        <string>Free Space:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-     </item>
-     <item row="10" column="0">
-      <widget class="QLabel" name="createdTimeLabel_Left">
-       <property name="text">
-        <string>Created:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="0">
-      <widget class="QLabel" name="fsLabel_Left">
-       <property name="text">
-        <string>File System:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <layout class="QHBoxLayout" name="fileNameLayout">
-       <item>
-        <widget class="QLineEdit" name="fileNameLineEdit"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="fileNameLabel">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
      <item row="17" column="1">
       <widget class="KCapacityBar" name="capacityBar">
@@ -446,59 +499,6 @@
        </property>
        <property name="drawTextMode">
         <enum>KCapacityBar::DrawTextOutline</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="magicMimeCommentLabel">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="13" column="0" colspan="2">
-      <widget class="KSeparator" name="fsSeparator"/>
-     </item>
-     <item row="15" column="0">
-      <widget class="QLabel" name="mountPointLabel_Left">
-       <property name="text">
-        <string>Mounted On:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="1">
-      <widget class="QLabel" name="accessTimeLabel">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="0">
-      <widget class="QLabel" name="accessTimeLabel_Left">
-       <property name="text">
-        <string>Accessed:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="defaultHandlerLabel_Left">
-       <property name="text">
-        <string>Open With:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
