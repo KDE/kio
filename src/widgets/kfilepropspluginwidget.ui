@@ -156,6 +156,9 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+         </property>
         </widget>
        </item>
        <item>
@@ -263,6 +266,9 @@
             <property name="icon">
              <iconset theme="view-refresh"/>
             </property>
+            <property name="toolTip">
+             <string>Determine the folder size</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -272,6 +278,9 @@
             </property>
             <property name="icon">
              <iconset theme="dialog-cancel"/>
+            </property>
+            <property name="toolTip">
+             <string>Stop determining the folder size</string>
             </property>
            </widget>
           </item>
@@ -332,6 +341,9 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="accessibleName">
+          <string>Show target</string>
          </property>
          <property name="icon">
           <iconset theme="go-jump"/>

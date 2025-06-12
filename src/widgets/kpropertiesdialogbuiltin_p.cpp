@@ -81,6 +81,7 @@
 #include <QSizePolicy>
 #include <QStyle>
 #include <QtConcurrentRun>
+#include <QTextDocumentFragment>
 
 #include "ui_checksumswidget.h"
 #include "ui_kfilepropspluginwidget.h"
@@ -360,6 +361,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->fileNameLineEdit->setText(filename);
         connect(d->m_ui->fileNameLineEdit, &QLineEdit::textChanged, this, &KFilePropsPlugin::nameFileChanged);
     }
+    d->m_ui->fileNameLineEdit->setPlaceholderText(hasDirs ? i18nc("@info:placeholder", "Enter folder name") : i18nc("@info:placeholder", "Enter file name"));
 
     // Mimetype widgets
     if (!mimeComment.isEmpty() && !isTrash) {
@@ -387,6 +389,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->defaultHandlerIcon->hide();
         d->m_ui->defaultHandlerLabel->hide();
     }
+    d->m_ui->typeLabel->setBuddy(d->m_ui->mimeCommentLabel);
 
 #ifdef Q_OS_WIN
     d->m_ui->defaultHandlerLabel_Left->hide();
@@ -401,6 +404,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->contentLabel->hide();
         d->m_ui->magicMimeCommentLabel->hide();
     }
+    d->m_ui->defaultHandlerLabel_Left->setBuddy(d->m_ui->defaultHandlerLabel);
 
     d->m_ui->configureMimeBtn->setVisible(KAuthorized::authorizeAction(QStringLiteral("editfiletype")) && !d->m_ui->defaultHandlerLabel->isHidden());
 
@@ -414,6 +418,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->locationLabel->setAlignment(Qt::AlignRight);
         }
     }
+    d->m_ui->locationLabel_Left->setBuddy(d->m_ui->locationLabel);
 
     // Size widgets
     if (!hasDirs) { // Only files [and symlinks]
@@ -441,13 +446,18 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->stopCalculateSizeBtn->setEnabled(false);
         }
     }
+    d->m_ui->sizeLabelLeft->setBuddy(d->m_ui->sizeLabel);
 
     // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
         d->m_ui->symlinkTargetEdit->setText(firstItem.linkDest());
-        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, [this]() {
+        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
             setDirty();
+            d->m_ui->symlinkTargetOpenDir->setToolTip(xi18nc("@info:tooltip Go to path %1", "Show <filename>%1</filename>", text));
+            d->m_ui->symlinkTargetOpenDir->setAccessibleDescription(QTextDocumentFragment::fromHtml(d->m_ui->symlinkTargetOpenDir->toolTip()).toPlainText());
         });
+        d->m_ui->symlinkTargetOpenDir->setToolTip(xi18nc("@info:tooltip Go to path %1", "Show <filename>%1</filename>", firstItem.linkDest()));
+        d->m_ui->symlinkTargetOpenDir->setAccessibleDescription(QTextDocumentFragment::fromHtml(d->m_ui->symlinkTargetOpenDir->toolTip()).toPlainText());
 
         connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
             // The most local URL is needed to resolve symlinks in virtual locations like "desktop:/"
@@ -471,6 +481,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->symlinkTargetEdit->hide();
         d->m_ui->symlinkTargetOpenDir->hide();
     }
+    d->m_ui->symlinkTargetLabel->setBuddy(d->m_ui->symlinkTargetEdit);
 
     // Time widgets
     if (!d->bMultiple) {
@@ -503,6 +514,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->accessTimeLabel->hide();
         d->m_ui->accessTimeLabel_Left->hide();
     }
+    d->m_ui->createdTimeLabel_Left->setBuddy(d->m_ui->createdTimeLabel);
+    d->m_ui->modifiedTimeLabel_Left->setBuddy(d->m_ui->modifiedTimeLabel);
+    d->m_ui->accessTimeLabel_Left->setBuddy(d->m_ui->accessTimeLabel);
 
     // File system and mount point widgets
     if (hasDirs) { // only for directories
@@ -526,6 +540,10 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->capacityBar->hide();
         d->hideMountPointLabels();
     }
+    d->m_ui->fsLabel_Left->setBuddy(d->m_ui->fsLabel);
+    d->m_ui->mountPointLabel_Left->setBuddy(d->m_ui->mountPointLabel);
+    d->m_ui->mountSrcLabel_Left->setBuddy(d->m_ui->mountSrcLabel);
+    d->m_ui->freespaceLabel->setBuddy(d->m_ui->capacityBar);
 
     // UDSEntry extra fields
     // To determine extra fields, use the original URL, not the mostLocalUrl.
@@ -564,7 +582,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             }
 
             d->m_ui->gridLayout->addWidget(squeezedLabel, curRow++, 1);
-            squeezedLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+            squeezedLabel->setTextInteractionFlags(Qt::TextBrowserInteraction | Qt::TextSelectableByKeyboard);
+            label->setBuddy(squeezedLabel);
         }
     }
 }
@@ -993,9 +1012,11 @@ void KFilePropsPlugin::updateDefaultHandler(const QString &mimeType)
     if (isGeneric) {
         d->m_ui->configureMimeBtn->setText(i18nc("@action:button Create new file type", "Create…"));
         d->m_ui->configureMimeBtn->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
+        d->m_ui->configureMimeBtn->setToolTip(QString());
     } else {
         d->m_ui->configureMimeBtn->setText(i18nc("@action:button", "Change…"));
         d->m_ui->configureMimeBtn->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
+        d->m_ui->configureMimeBtn->setToolTip(i18nc("@info:tooltip", "Change the default application for opening files of type “%1”.", d->mimeType));
     }
 }
 
