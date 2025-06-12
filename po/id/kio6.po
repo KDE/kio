@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -2960,7 +2960,7 @@ msgid "All Supported Files"
 msgstr "Semua berkas Didukung"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:2035
+#: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
 msgstr "Semua berkas"
@@ -3601,63 +3601,63 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "Tempat"
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "berkas \"%1\" sudah ada. Apakah Anda ingin menimpanya?"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1744
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Timpa berkas?"
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "You can only select local files."
 msgstr "Anda hanya bisa memilih berkas lokal."
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Berkas Jarak Jauh Tidak Disetujui"
 
-#: filewidgets/kfilewidget.cpp:2033
+#: filewidgets/kfilewidget.cpp:2035
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Semua Folder"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "Buka"
 
-#: filewidgets/kfilewidget.cpp:2285
+#: filewidgets/kfilewidget.cpp:2287
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ukuran ikon: %1 pixel"
 
-#: filewidgets/kfilewidget.cpp:2432
+#: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Pilih secara otomatis e&kstensi nama berkas (%1)"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2435
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ekstensi <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2439
+#: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Pilih secara otomatis e&kstensi nama-berkas"
 
-#: filewidgets/kfilewidget.cpp:2440
+#: filewidgets/kfilewidget.cpp:2442
 #, kde-format
 msgid "a suitable extension"
 msgstr "sebuah ekstensi yang sesuai"
 
-#: filewidgets/kfilewidget.cpp:2448
+#: filewidgets/kfilewidget.cpp:2450
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3685,12 +3685,12 @@ msgstr ""
 "li></ol>Jika tidak yakin, pertahankan opsi ini tetap difungsikan oleh "
 "karenanya membuat berkas-file Anda lebih dapat dikelola."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2940
 #, kde-format
 msgid "&File type:"
 msgstr "Tipe &berkas:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3699,7 +3699,7 @@ msgstr ""
 "<qt>Ini adalah pemilih tipe berkas. Ini digunakan untuk memilih format si "
 "berkas yang akan disimpan sebagai apa.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2941
+#: filewidgets/kfilewidget.cpp:2946
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "

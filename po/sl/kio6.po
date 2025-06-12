@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2025-06-07 06:12+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2936,7 +2936,7 @@ msgid "All Supported Files"
 msgstr "Vse podprte datoteke"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:2035
+#: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
 msgstr "Vse datoteke"
@@ -3570,62 +3570,62 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "Mesta"
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Datoteka »%1« že obstaja. Ali jo želite prepisati?"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1744
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Prepišem datoteko?"
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "You can only select local files."
 msgstr "Izberete lahko le krajevne datoteke."
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Oddaljene datoteke niso sprejete"
 
-#: filewidgets/kfilewidget.cpp:2033
+#: filewidgets/kfilewidget.cpp:2035
 #, kde-format
 msgid "All Folders"
 msgstr "Vse mape"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
 #, kde-format
 msgid "&Open"
 msgstr "&Odpri"
 
-#: filewidgets/kfilewidget.cpp:2285
+#: filewidgets/kfilewidget.cpp:2287
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Velikost ikone: %1 slik. točk"
 
-#: filewidgets/kfilewidget.cpp:2432
+#: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Samodejno izberi &pripono datoteke (%1)"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2435
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pripona <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2439
+#: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Samodejno izberi &pripono datoteke"
 
-#: filewidgets/kfilewidget.cpp:2440
+#: filewidgets/kfilewidget.cpp:2442
 #, kde-format
 msgid "a suitable extension"
 msgstr "primerna pripona"
 
-#: filewidgets/kfilewidget.cpp:2448
+#: filewidgets/kfilewidget.cpp:2450
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3652,12 +3652,12 @@ msgstr ""
 "niste prepričani, potem pustite to možnost omogočeno, ker se bo potem dalo z "
 "vašimi datotekami bolje upravljati."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2940
 #, kde-format
 msgid "&File type:"
 msgstr "Vrsta datoteke:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3666,7 +3666,7 @@ msgstr ""
 "<qt>To je izbirnik vrste datoteke. Uporablja se za izbiro oblike, v kateri "
 "bo datoteka shranjena.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2941
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

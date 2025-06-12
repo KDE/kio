@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3030,7 +3030,7 @@ msgid "All Supported Files"
 msgstr "Alle Ondersteunde Lêers"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
-#: filewidgets/kfilewidget.cpp:2035
+#: filewidgets/kfilewidget.cpp:2037
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3749,64 +3749,64 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1744
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "Oorskryf Alle"
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "You can only select local files."
 msgstr "Jy kan slegs kies plaaslike lêers."
 
-#: filewidgets/kfilewidget.cpp:1939
+#: filewidgets/kfilewidget.cpp:1941
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Afgeleë Lêers word nie aanvaar nie"
 
-#: filewidgets/kfilewidget.cpp:2033
+#: filewidgets/kfilewidget.cpp:2035
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Alle Gidse"
 
-#: filewidgets/kfilewidget.cpp:2185 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "Open"
 
-#: filewidgets/kfilewidget.cpp:2285
+#: filewidgets/kfilewidget.cpp:2287
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2432
+#: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Kies die lêernaam uitbreiding (%1) outomaties"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2435
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "die uitbreiding <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2439
+#: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Kies lêernaam uitbreiding outomaties"
 
-#: filewidgets/kfilewidget.cpp:2440
+#: filewidgets/kfilewidget.cpp:2442
 #, kde-format
 msgid "a suitable extension"
 msgstr "'n geldige uitbreiding"
 
-#: filewidgets/kfilewidget.cpp:2448
+#: filewidgets/kfilewidget.cpp:2450
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3846,20 +3846,20 @@ msgstr ""
 "ol>As jy onseker is, hou hierdie opsie aktief, want dit maak die bestuur van "
 "lêername makliker."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2940
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "Filter:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2941
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
