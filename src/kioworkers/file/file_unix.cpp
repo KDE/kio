@@ -1158,7 +1158,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
     if (isfile) {
         // qDebug() << "Deleting file "<< url;
 
-        if (unlink(_path.data()) == -1) {
+        if (::unlink(_path.data()) == -1) {
             Error errCode = KIO::ERR_CANNOT_DELETE;
             if ((errno == EACCES) || (errno == EPERM)) {
                 errCode = KIO::ERR_ACCESS_DENIED;
