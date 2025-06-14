@@ -13,23 +13,22 @@ endif()
 add_subdirectory(kioworker)
 
 if (NOT KIOCORE_ONLY)
-add_subdirectory(gui)
-add_subdirectory(widgets)
+    add_subdirectory(gui)
+    add_subdirectory(widgets)
 
-if (HAVE_QTDBUS)
-    add_subdirectory(kpasswdserver)
-    add_subdirectory(kioexec)
-endif()
+    if (HAVE_QTDBUS)
+        add_subdirectory(kpasswdserver)
+        add_subdirectory(kioexec)
+    endif()
 
-if (NOT ANDROID)
-    add_subdirectory(filewidgets)
-    add_subdirectory(urifilters)
-endif()
+    if (NOT ANDROID)
+        add_subdirectory(filewidgets)
+        add_subdirectory(urifilters)
+    endif()
 
-if(BUILD_DESIGNERPLUGIN AND HAVE_QTDBUS)
-    add_subdirectory(designer)
-endif()
-
+    if(BUILD_DESIGNERPLUGIN AND HAVE_QTDBUS)
+        add_subdirectory(designer)
+    endif()
 endif()
 
 ecm_qt_install_logging_categories(
