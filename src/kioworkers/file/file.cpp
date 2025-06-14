@@ -214,7 +214,13 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         if (!QFile::remove(path)) {
             Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
-            execWithElevatedPrivilege(DEL, {path}, errCode);
+            auto result = execWithElevatedPrivilege(DEL, {path}, errCode);
+            if (!result.success()) {
+                if (!resultWasCancelled(result)) {
+                    return result;
+                }
+                return WorkerResult::pass();
+            }
         }
     }
 
@@ -227,16 +233,20 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
                     // TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
-                    return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+                    return result;
                 }
-                return WorkerResult::pass();
             }
             dirCreated = true;
         }
 
         if (dirCreated) {
             if (permissions != -1) {
-                return chmod(url, permissions);
+                auto result = chmod(url, permissions);
+                if (!result.success()) {
+                    if (!resultWasCancelled(result)) {
+                        return result;
+                    }
+                }
             }
             return WorkerResult::pass();
         }
@@ -297,7 +307,7 @@ WorkerResult FileProtocol::get(const QUrl &url)
         auto result = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errCode);
         if (!result.success()) {
             if (!resultWasCancelled(result)) {
-                return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
+                return result;
             }
             return WorkerResult::pass();
         }
@@ -641,7 +651,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                         }
                     }
 
-                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_READ;
+                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING;
                     auto result = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errCode);
                     if (!result.success()) {
                         if (!resultWasCancelled(result)) {
