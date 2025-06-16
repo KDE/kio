@@ -65,7 +65,8 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     KIOWIDGETS_NO_EXPORT void slotAccepted();
-    KIOWIDGETS_NO_EXPORT void slotTextChanged(const QString &newName);
+    KIOWIDGETS_NO_EXPORT void slotOperationChanged(int index);
+    KIOWIDGETS_NO_EXPORT void slotStateChanged();
     KIOWIDGETS_NO_EXPORT void slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
     KIOWIDGETS_NO_EXPORT void slotResult(KJob *job);
 

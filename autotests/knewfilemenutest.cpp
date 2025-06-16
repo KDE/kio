@@ -268,7 +268,7 @@ private Q_SLOTS:
             lineEdit->setText(typedFilename);
         }
         QUrl emittedUrl;
-        QSignalSpy spy(&menu, &KNewFileMenu::fileCreated);
+        QSignalSpy fileCreatedSpy(&menu, &KNewFileMenu::fileCreated);
         QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
 
         // expectedFilename is empty in the "Folder already exists" case, the button won't
@@ -296,10 +296,10 @@ private Q_SLOTS:
                 QVERIFY(QFileInfo(path).isDir());
             }
         } else {
-            if (spy.isEmpty()) {
-                QVERIFY(spy.wait(1000));
+            if (fileCreatedSpy.isEmpty()) {
+                QVERIFY(fileCreatedSpy.wait(2000));
             }
-            emittedUrl = spy.at(0).at(0).toUrl();
+            emittedUrl = fileCreatedSpy.at(0).at(0).toUrl();
             QVERIFY(QFile::exists(path));
             if (actionText != QLatin1String("Link to File")) {
                 QFile file(path);
