@@ -26,6 +26,7 @@
 #include <QPushButton>
 #include <QShowEvent>
 #include <QSpinBox>
+#include <QTimer>
 
 #include <set>
 
@@ -68,7 +69,7 @@ enum RenameStrategy {
     // SingleFileRename
     Enumerate,
     Replace,
-    // Prepend / Append
+    AddText,
     // Regex
 };
 
@@ -137,7 +138,7 @@ public:
             fileExists = QFile::exists(newUrl.toLocalFile());
         }
         if (fileExists) {
-            return invalid(xi18nc("@info error a file already exists", "A File named <filename>%1</filename> already exists.", newUrl.fileName()));
+            return invalid(xi18nc("@info error a file already exists", "A file named <filename>%1</filename> already exists.", newUrl.fileName()));
         }
         if (placeholder == QLatin1String("..") || (placeholder == QLatin1String("."))) {
             return invalid(xi18nc("@info %1 is an invalid filename", "<filename>%1</filename> is not a valid file name.", placeholder));
@@ -305,7 +306,9 @@ public:
         QWidget *widget = new QWidget(parent);
         auto layout = new QVBoxLayout(widget);
 
-        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item to:", "Rename the %1 selected items to:", items.count()), widget);
+        auto renameLabel = new QLabel(
+            i18ncp("@label:textbox by: [Replacing: xx] [With: yy]", "Rename the %1 selected item by:", "Rename the %1 selected items by:", items.count()),
+            widget);
         layout->addWidget(renameLabel);
 
         auto patternLabel = new QLabel(i18nc("@info replace as in replacing [value] with [value]", "Replacing:"), widget);
@@ -383,6 +386,109 @@ public:
     QLineEdit *patternLineEdit;
     QLineEdit *replacementEdit;
 };
+
+class AddTextStrategy : public RenameOperationAbstractStrategy
+{
+public:
+    ~AddTextStrategy() override
+    {
+    }
+
+    QWidget *init(const KFileItemList &items, QWidget *parent, std::function<void()> &updateCallback) override
+    {
+        Q_UNUSED(items)
+
+        QWidget *widget = new QWidget(parent);
+        auto layout = new QVBoxLayout(widget);
+
+        auto renameLabel = new QLabel(i18ncp("@label:textbox", "Rename the %1 selected item:", "Rename the %1 selected items:", items.count()), widget);
+        layout->addWidget(renameLabel);
+
+        auto textLabel = new QLabel(i18nc("@label:textbox add text to a filename", "Add Text:"), widget);
+        textLineEdit = new QLineEdit(widget);
+        textLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Text to add"));
+        textLabel->setBuddy(textLineEdit);
+        widget->setFocusProxy(textLineEdit);
+
+        beforeAfterCombo = new QComboBox(widget);
+        beforeAfterCombo->addItems({i18nc("@item:inlistbox as in insert text before filename", "Before filename"),
+                                    i18nc("@item:inlistbox as in insert text after filename", "After filename")});
+
+        QObject::connect(textLineEdit, &QLineEdit::textChanged, updateCallback);
+        QObject::connect(beforeAfterCombo, &QComboBox::currentIndexChanged, updateCallback);
+
+        auto addTextLayout = new QHBoxLayout();
+        addTextLayout->setContentsMargins(0, 0, 0, 0);
+
+        addTextLayout->addWidget(textLabel);
+        addTextLayout->addWidget(textLineEdit);
+        addTextLayout->addWidget(beforeAfterCombo);
+
+        layout->addLayout(addTextLayout);
+
+        return widget;
+    }
+
+    const std::function<QString(const QStringView fileName)> renameFunction() override
+    {
+        const auto textToAdd = textLineEdit->text();
+        const auto append = beforeAfterCombo->currentIndex() == 1;
+        std::function<QString(const QStringView fileName)> renameFunction = [textToAdd, append](const QStringView fileName) {
+            QString output = fileName.toString();
+            if (textToAdd.isEmpty()) {
+                return output;
+            }
+
+            QMimeDatabase db;
+            const QString extension = db.suffixForFileName(output);
+
+            if (!extension.isEmpty()) {
+                output = output.chopped(extension.length() + 1);
+            }
+            if (append) {
+                output = output + textToAdd;
+            } else {
+                // prepend
+                output = textToAdd + output;
+            }
+            if (!extension.isEmpty()) {
+                output += QLatin1Char('.') + extension;
+            }
+            return output;
+        };
+        return renameFunction;
+    }
+
+    ValidationResult validate(const KFileItemList &items, const QStringView /* fileName */) override
+    {
+        const auto prefix = textLineEdit->text();
+        if (prefix.isEmpty()) {
+            return invalid(QString());
+        }
+        const auto rename = renameFunction();
+        QUrl newUrl;
+
+        auto it = std::find_if(items.cbegin(), items.cend(), [&rename, &newUrl](const KFileItem &item) {
+            bool fileExists = false;
+            auto oldUrl = item.url();
+            newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
+            newUrl.setPath(newUrl.path() + KIO::encodeFileName(rename(item.url().fileName())));
+            if (oldUrl.isLocalFile() && newUrl != oldUrl) {
+                fileExists = QFile::exists(newUrl.toLocalFile());
+            }
+
+            return fileExists;
+        });
+        if (it != items.cend()) {
+            return invalid(xi18nc("@info error a file already exists", "A file named <filename>%1</filename> already exists.", newUrl.fileName()));
+        }
+        return ok();
+    }
+
+    QLineEdit *textLineEdit;
+    QLineEdit *appendEdit;
+    QComboBox *beforeAfterCombo;
+};
 }
 
 namespace KIO
@@ -445,7 +551,8 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     if (!d->renameOneItem) {
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
         d->comboRenameType = new QComboBox(page);
-        d->comboRenameType->addItems({i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text")});
+        d->comboRenameType->addItems(
+            {i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text"), i18nc("@info renaming operation", "Add text")});
         renameTypeChoiceLabel->setBuddy(d->comboRenameType);
 
         QHBoxLayout *renameTypeChoice = new QHBoxLayout;
@@ -472,14 +579,14 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     d->m_topLayout->addWidget(d->messageWidget);
 
     if (!d->renameOneItem) {
-        d->m_topLayout->addWidget(d->previewLabel);
-        d->m_topLayout->addWidget(d->preview);
+        d->m_topLayout->addWidget(d->previewLabel, Qt::AlignBottom);
+        d->m_topLayout->addWidget(d->preview, Qt::AlignBottom);
     }
 
     // initialize UI
     slotOperationChanged(RenameStrategy::Enumerate);
 
-    setMinimumWidth(width());
+    setFixedWidth(sizeHint().width());
 }
 
 RenameFileDialog::~RenameFileDialog()
@@ -540,6 +647,8 @@ void RenameFileDialog::slotOperationChanged(int index)
             d->renameStrategy.reset(new EnumerateStrategy());
         } else if (index == RenameStrategy::Replace) {
             d->renameStrategy.reset(new ReplaceStrategy());
+        } else if (index == RenameStrategy::AddText) {
+            d->renameStrategy.reset(new AddTextStrategy());
         }
     }
 
@@ -557,8 +666,6 @@ void RenameFileDialog::slotOperationChanged(int index)
         setTabOrder(d->comboRenameType, d->m_contentWidget);
         setTabOrder(d->m_contentWidget, d->preview);
     }
-
-    adjustSize();
 
     setUpdatesEnabled(true);
 
@@ -588,6 +695,9 @@ void RenameFileDialog::slotStateChanged()
     d->okButton->setEnabled(validationResult.result == Result::Ok);
     if (validationResult.result == Result::Ok || validationResult.text.isEmpty()) {
         d->messageWidget->hide();
+        QTimer::singleShot(0, this, [this]() {
+            adjustSize();
+        });
     } else {
         d->messageWidget->setMessageType(validationResult.type);
         d->messageWidget->setText(validationResult.text);
