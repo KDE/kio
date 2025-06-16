@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-12 00:39+0000\n"
-"PO-Revision-Date: 2025-06-08 23:58+0900\n"
+"PO-Revision-Date: 2025-06-15 18:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -4972,8 +4972,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"您真的要從垃圾桶中永久刪除這個項目嗎？<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>此動作無法復原。</emphasis>"
+"您真的要永久刪除這個項目嗎？<nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>此動作無法復原。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
@@ -4999,8 +4999,8 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"您要從垃圾桶中永久刪除 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動作"
-"無法復原。</emphasis>"
+"您真的要永久刪除這 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動作無法"
+"復原。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
@@ -6978,8 +6978,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"您真的要從垃圾桶中永久刪除這個項目嗎？<nl/><nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>此動作無法復原。</emphasis>"
+"您真的要永久刪除這個項目嗎？<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>此動作無法復原。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
@@ -6991,8 +6991,8 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"您要從垃圾桶中永久刪除這 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動"
-"作無法復原。</emphasis>"
+"您真的要永久刪除這 %1 個項目嗎？<nl/><nl/><emphasis strong='true'>此動作無法"
+"復原。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
 #, kde-kuit-format
