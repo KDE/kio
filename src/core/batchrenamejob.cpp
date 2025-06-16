@@ -11,6 +11,7 @@
 #include "job_p.h"
 
 #include <QMimeDatabase>
+#include <QRegularExpression>
 #include <QTimer>
 
 #include <KLocalizedString>
@@ -22,16 +23,11 @@ using namespace KIO;
 class KIO::BatchRenameJobPrivate : public KIO::JobPrivate
 {
 public:
-    BatchRenameJobPrivate(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
+    BatchRenameJobPrivate(const QList<QUrl> &src, const renameFunctionType renamefunction, JobFlags flags)
         : JobPrivate()
         , m_srcList(src)
-        , m_newName(newName)
-        , m_index(index)
-        , m_placeHolder(placeHolder)
+        , m_renamefunction(renamefunction)
         , m_listIterator(m_srcList.constBegin())
-        , m_allExtensionsDifferent(true)
-        , m_useIndex(true)
-        , m_appendIndex(false)
         , m_flags(flags)
     {
         // There occur four cases when renaming multiple files,
@@ -44,45 +40,11 @@ public:
         // In this case nothing is substituted and all files have the same $newName.
         // 4. At least two files have same extension and $newName contains an invalid placeholder.
         // In this case $index is appended to $newName.
-
-        // Check for extensions.
-        std::set<QString> extensions;
-        QMimeDatabase db;
-        for (const QUrl &url : std::as_const(m_srcList)) {
-            const QString extension = db.suffixForFileName(url.path());
-            const auto [it, isInserted] = extensions.insert(extension);
-            if (!isInserted) {
-                m_allExtensionsDifferent = false;
-                break;
-            }
-        }
-
-        // Check for exactly one placeholder character or exactly one sequence of placeholders.
-        int pos = newName.indexOf(placeHolder);
-        if (pos != -1) {
-            while (pos < newName.size() && newName.at(pos) == placeHolder) {
-                pos++;
-            }
-        }
-        const bool validPlaceholder = (newName.indexOf(placeHolder, pos) == -1);
-
-        if (!validPlaceholder) {
-            if (!m_allExtensionsDifferent) {
-                m_appendIndex = true;
-            } else {
-                m_useIndex = false;
-            }
-        }
     }
 
     QList<QUrl> m_srcList;
-    QString m_newName;
-    int m_index;
-    QChar m_placeHolder;
+    const renameFunctionType m_renamefunction;
     QList<QUrl>::const_iterator m_listIterator;
-    bool m_allExtensionsDifferent;
-    bool m_useIndex;
-    bool m_appendIndex;
     QUrl m_oldUrl;
     QUrl m_newUrl; // for fileRenamed signal
     const JobFlags m_flags;
@@ -93,11 +55,9 @@ public:
     void slotStart();
     void slotReport();
 
-    QString indexedName(const QString &name, int index, QChar placeHolder) const;
-
-    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, JobFlags flags)
+    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const renameFunctionType renamefunction, JobFlags flags)
     {
-        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, newName, index, placeHolder, flags));
+        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, renamefunction, flags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -128,31 +88,6 @@ BatchRenameJob::~BatchRenameJob()
 {
 }
 
-QString BatchRenameJobPrivate::indexedName(const QString &name, int index, QChar placeHolder) const
-{
-    if (!m_useIndex) {
-        return name;
-    }
-
-    QString newName = name;
-    QString indexString = QString::number(index);
-
-    if (m_appendIndex) {
-        newName.append(indexString);
-        return newName;
-    }
-
-    // Insert leading zeros if necessary
-    const int minIndexLength = name.count(placeHolder);
-    indexString.prepend(QString(minIndexLength - indexString.length(), QLatin1Char('0')));
-
-    // Replace the index placeholders by the indexString
-    const int placeHolderStart = newName.indexOf(placeHolder);
-    newName.replace(placeHolderStart, minIndexLength, indexString);
-
-    return newName;
-}
-
 void BatchRenameJobPrivate::slotStart()
 {
     Q_Q(BatchRenameJob);
@@ -161,27 +96,46 @@ void BatchRenameJobPrivate::slotStart()
         q->setTotalAmount(KJob::Items, m_srcList.count());
     }
 
-    if (m_listIterator != m_srcList.constEnd()) {
-        QString newName = indexedName(m_newName, m_index, m_placeHolder);
-        const QUrl oldUrl = *m_listIterator;
-        QMimeDatabase db;
-        const QString extension = db.suffixForFileName(oldUrl.path());
-        if (!extension.isEmpty()) {
-            newName += QLatin1Char('.') + extension;
-        }
-
-        m_oldUrl = oldUrl;
-        m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
-        m_newUrl.setPath(m_newUrl.path() + KIO::encodeFileName(newName));
-
-        KIO::Job *job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
-        job->setParentJob(q);
-        q->addSubjob(job);
-    } else {
+    if (m_listIterator == m_srcList.constEnd()) {
         m_reportTimer.stop();
         slotReport();
         q->emitResult();
+        return;
     }
+
+    QMimeDatabase db;
+    const QUrl oldUrl = *m_listIterator;
+    const QString oldFileName = oldUrl.fileName();
+    const QString extension = db.suffixForFileName(oldFileName);
+    int lastPoint = oldFileName.lastIndexOf(QLatin1Char('.'));
+    QString fileNameNoExt = oldFileName.left(lastPoint);
+
+    QString newName = m_renamefunction(fileNameNoExt);
+
+    const QString suffix = QLatin1Char('.') + extension;
+    if (!extension.isEmpty() && !newName.endsWith(suffix)) {
+        newName += suffix;
+    }
+
+    m_oldUrl = oldUrl;
+    m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
+    m_newUrl.setPath(m_newUrl.path() + KIO::encodeFileName(newName));
+
+    if (m_newUrl == m_oldUrl) {
+        // skip
+
+        // We still must emit fileRenamed so users have
+        // the corresponding number of files in the output
+        Q_EMIT q->fileRenamed(*m_listIterator, m_newUrl);
+
+        ++m_listIterator;
+        slotStart();
+        return;
+    }
+
+    KIO::Job *job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
+    job->setParentJob(q);
+    q->addSubjob(job);
 }
 
 void BatchRenameJobPrivate::slotReport()
@@ -210,13 +164,84 @@ void BatchRenameJob::slotResult(KJob *job)
 
     Q_EMIT fileRenamed(*d->m_listIterator, d->m_newUrl);
     ++d->m_listIterator;
-    ++d->m_index;
     d->slotStart();
 }
 
-BatchRenameJob *KIO::batchRename(const QList<QUrl> &src, const QString &newName, int index, QChar placeHolder, KIO::JobFlags flags)
+BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newName, int startIndex, QChar placeHolder, KIO::JobFlags flags)
 {
-    return BatchRenameJobPrivate::newJob(src, newName, index, placeHolder, flags);
+    bool allExtensionsDifferent = true;
+    // Check for extensions.
+    std::set<QString> extensions;
+    QMimeDatabase db;
+    for (const QUrl &url : std::as_const(srcList)) {
+        const QString extension = db.suffixForFileName(url.path());
+        const auto [it, isInserted] = extensions.insert(extension);
+        if (!isInserted) {
+            allExtensionsDifferent = false;
+            break;
+        }
+    }
+
+    // look for consecutive # groups
+    static const QRegularExpression regex(QStringLiteral("%1+").arg(placeHolder));
+
+    auto matchDashes = regex.globalMatch(newName);
+    QRegularExpressionMatch lastMatchDashes;
+    int matchCount = 0;
+    while (matchDashes.hasNext()) {
+        lastMatchDashes = matchDashes.next();
+        matchCount++;
+    }
+
+    bool validPlaceholder = matchCount == 1;
+
+    int placeHolderStart = lastMatchDashes.capturedStart(0);
+    int placeHolderLength = lastMatchDashes.capturedLength(0);
+
+    QString pattern(newName);
+
+    if (!validPlaceholder) {
+        if (allExtensionsDifferent) {
+            // pattern: my-file
+            // in: file-a.txt file-b.md
+        } else {
+            // pattern: my-file
+            // in: file-a.txt file-b.txt
+            // effective pattern: my-file#
+            placeHolderLength = 1;
+            placeHolderStart = pattern.length();
+            pattern.append(placeHolder);
+        }
+    }
+
+    renameFunctionType function =
+        [pattern, allExtensionsDifferent, validPlaceholder, placeHolderStart, placeHolderLength, index = startIndex](const QStringView view) mutable {
+            Q_UNUSED(view);
+
+            QString indexString = QString::number(index);
+
+            if (!validPlaceholder) {
+                if (allExtensionsDifferent) {
+                    // pattern: my-file
+                    // in: file-a.txt file-b.md
+                    return pattern;
+                }
+            }
+
+            // Insert leading zeros if necessary
+            indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+
+            ++index;
+
+            return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
+        };
+
+    return BatchRenameJobPrivate::newJob(srcList, std::move(function), flags);
+};
+
+BatchRenameJob *KIO::batchRenameWithFunction(const QList<QUrl> &srcList, const renameFunctionType renameFunction, KIO::JobFlags flags)
+{
+    return BatchRenameJobPrivate::newJob(srcList, renameFunction, flags);
 }
 
 #include "moc_batchrenamejob.cpp"
