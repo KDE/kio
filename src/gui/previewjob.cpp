@@ -455,6 +455,7 @@ void PreviewJobPrivate::startPreview()
             }
         }
         thumbPath = thumbRoot + thumbDir;
+        QDir().mkpath(thumbRoot);
 
         if (!QDir(thumbPath).exists() && !QDir(thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
             qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
@@ -543,6 +544,8 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
+        qWarning() << "thumbPath in determineNextFile" << thumbPath;
+
         GetFilePreviewJob *job = new GetFilePreviewJob(currentItem, QSize(width, height), bScale, bSave, thumbPath);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
         q->connect(job, &GetFilePreviewJob::gotPreview, q, [this, q](const KFileItem &item, const QPixmap &pix) {
@@ -1094,9 +1097,6 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
         pixmap.setDevicePixelRatio(ratio);
         Q_EMIT q->gotPreview(currentItem.item, pixmap);
     }
-    pix.setDevicePixelRatio(ratio);
-    // Emit result of currentGetFilePreviewJob
-    Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()

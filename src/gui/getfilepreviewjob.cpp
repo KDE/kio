@@ -61,6 +61,13 @@
 
 using namespace KIO;
 
+// TODO Things we need to set before running:
+//  setDevicePixelRatio
+//  setIgnoreMaximumSize
+//  setDefaultDevicePixelRatio ?
+//  setScaleType
+//  setSequenceIndex
+
 GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem, const QString thumbPath)
     : m_currentItem(item)
     , m_thumbPath(thumbPath)
@@ -168,7 +175,7 @@ void GetFilePreviewJob::slotResult(KJob *job)
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
         return;
     }
-    statResultThumbnail();
+    qWarning() << "stat" << statResultThumbnail();
 }
 
 void GetFilePreviewJob::cleanupTempFile()
