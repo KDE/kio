@@ -73,6 +73,7 @@ namespace
 static qreal s_defaultDevicePixelRatio = 1.0;
 // Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
 static constexpr int s_kioFuseMountTimeout = 10000;
+static constexpr int s_previewJobTimeout = 10000;
 }
 
 namespace KIO
@@ -557,6 +558,17 @@ void PreviewJobPrivate::determineNextFile()
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
+
+        QTimer *timer = new QTimer(q);
+        q->connect(timer, &QTimer::timeout, q, [q, this]() {
+            if (!q->isFinished()) {
+                qCWarning(KIO_GUI) << "Creating thumbnail took too long for file:" << currentItem.item.url();
+                Q_EMIT q->failed(currentItem.item);
+                q->kill();
+            }
+        });
+        timer->setSingleShot(true);
+        timer->start(s_previewJobTimeout);
     }
 }
 
