@@ -1,8 +1,8 @@
 #ifndef KIO_GETFILEPREVIEWJOB_H
 #define KIO_GETFILEPREVIEWJOB_H
 
-#include "kiogui_export.h"
 #include "previewjob.h"
+#include "worker_p.h"
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KPluginMetaData>
@@ -37,6 +37,7 @@ class GetFilePreviewJob : public KIO::Job
     Q_OBJECT
 public:
     GetFilePreviewJob(const PreviewItem &item);
+    ~GetFilePreviewJob();
 
     struct StandardThumbnailerData {
         QString exec;
@@ -115,7 +116,6 @@ public:
     - Then return it
     */
 
-    void start() override;
     void statFile();
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -147,6 +147,13 @@ private Q_SLOTS:
 private:
     QDir createTemporaryDir();
 };
+
+inline GetFilePreviewJob *getFilePreviewJob(const PreviewItem &item)
+{
+    auto job = new GetFilePreviewJob(item);
+    job->statFile();
+    return job;
+}
 }
 
 #endif

@@ -15,17 +15,6 @@
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID) && !defined(Q_OS_HAIKU)
-#define WITH_SHM 1
-#else
-#define WITH_SHM 0
-#endif
-
-#if WITH_SHM
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#endif
-
 #include <algorithm>
 #include <limits>
 
@@ -93,8 +82,6 @@ public:
         , maximumLocalSize(0)
         , maximumRemoteSize(0)
         , enableRemoteFolderThumbnail(false)
-        , shmid(-1)
-        , shmaddr(nullptr)
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
@@ -140,13 +127,6 @@ public:
     KIO::filesize_t maximumRemoteSize;
     // Manage preview for locally mounted remote directories
     bool enableRemoteFolderThumbnail;
-    // Shared memory segment Id. The segment is allocated to a size
-    // of extent x extent x 4 (32 bit image) on first need.
-    int shmid;
-    // And the data area
-    uchar *shmaddr;
-    // Size of the shm segment
-    size_t shmsize;
     // Root of thumbnail cache
     QString thumbRoot;
     // Metadata returned from the KIO thumbnail worker
@@ -290,12 +270,6 @@ PreviewJob::~PreviewJob()
         QDir tempDir(d->m_tempDirPath);
         tempDir.removeRecursively();
     }
-#if WITH_SHM
-    if (d->shmaddr) {
-        shmdt((char *)d->shmaddr);
-        shmctl(d->shmid, IPC_RMID, nullptr);
-    }
-#endif
 }
 
 void PreviewJob::setScaleType(ScaleType type)
@@ -313,6 +287,7 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
+    qWarning() << "starting preview";
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
@@ -380,6 +355,7 @@ void PreviewJobPrivate::startPreview()
         previewItem.scaleType = scaleType;
         previewItem.size = QSize(width, height);
         previewItem.thumbPath = thumbPath;
+
         const QString mimeType = previewItem.item.mimetype();
         KPluginMetaData plugin;
 
@@ -418,6 +394,7 @@ void PreviewJobPrivate::startPreview()
         if (plugin.isValid()) {
             previewItem.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             previewItem.plugin = plugin;
+
             bool handlesSequencesValue = previewItem.plugin.value(QStringLiteral("HandleSequences"), false);
             thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(handlesSequencesValue));
             if (scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
@@ -445,6 +422,7 @@ void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
 
+    qWarning() << "Remove item " << url;
     auto it = std::find_if(d->items.cbegin(), d->items.cend(), [&url](const PreviewItem &pItem) {
         return url == pItem.item.url();
     });
@@ -509,13 +487,12 @@ void PreviewJobPrivate::determineNextFile()
         items.pop_front();
         succeeded = false;
 
-        GetFilePreviewJob *job = new GetFilePreviewJob(currentItem);
-        q->addSubjob(job);
+        GetFilePreviewJob *job = KIO::getFilePreviewJob(currentItem);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
         q->connect(job, &GetFilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
             Q_EMIT q->gotPreview(item, pix);
         });
-        job->start();
+        q->addSubjob(job);
     }
 }
 
@@ -523,10 +500,16 @@ void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
 
-    qWarning() << "PreviewJob Result of " << job;
     removeSubjob(job);
+    qWarning() << "PreviewJob Result of " << job << job->error();
+    if (job->error() > 0) {
+        qWarning() << job->errorString();
+    }
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
-    d->determineNextFile();
+    if (job->error()) {
+        d->determineNextFile();
+        return;
+    }
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()

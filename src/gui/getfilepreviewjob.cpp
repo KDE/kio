@@ -91,31 +91,62 @@ GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item)
     m_scaleType = item.scaleType;
     m_ignoreMaximumSize = item.ignoreMaximumSize;
     m_sequenceIndex = item.sequenceIndex;
+    m_devicePixelRatio = item.devicePixelRatio;
+
+#if WITH_SHM
+    size_t requiredSize = m_size.width() * m_devicePixelRatio * m_size.height() * m_devicePixelRatio * 4;
+    if (m_shmid == -1 || m_shmsize < requiredSize) {
+        if (m_shmaddr) {
+            // clean previous shared memory segment
+            shmdt((char *)m_shmaddr);
+            m_shmaddr = nullptr;
+            shmctl(m_shmid, IPC_RMID, nullptr);
+            m_shmid = -1;
+        }
+        if (requiredSize > 0) {
+            m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
+            if (m_shmid != -1) {
+                m_shmsize = requiredSize;
+                m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
+                if (m_shmaddr == (uchar *)-1) {
+                    shmctl(m_shmid, IPC_RMID, nullptr);
+                    m_shmaddr = nullptr;
+                    m_shmid = -1;
+                }
+            }
+        }
+    }
+#endif
 }
 
-void GetFilePreviewJob::start()
+GetFilePreviewJob::~GetFilePreviewJob()
 {
-    qWarning() << "Started GetFilePreviewJob for " << m_currentItem.item.name();
-    /*
-    - After stat, we either skip file or getOrCreateThumbnail
-    - OR
-    - If we get original, take it
-    - If we need to create new one, check if caching is done
-        - If caching is done, run the jobs for it
-        - Then create thumbnail
-    - Then return it
-    */
-    statFile();
+#if WITH_SHM
+    if (m_shmaddr) {
+        shmdt((char *)m_shmaddr);
+        shmctl(m_shmid, IPC_RMID, nullptr);
+    }
+#endif
 }
+
+/*
+- After stat, we either skip file or getOrCreateThumbnail
+- OR
+- If we get original, take it
+- If we need to create new one, check if caching is done
+    - If caching is done, run the jobs for it
+    - Then create thumbnail
+- Then return it
+*/
 
 void GetFilePreviewJob::statFile()
 {
-    qWarning() << "Stat file";
+    qWarning() << "Stat file" << m_currentItem.item.targetUrl();
     KIO::Job *job = KIO::stat(m_currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
-    job->start();
+    addSubjob(job);
 }
 
 void GetFilePreviewJob::slotStatFile(KJob *job)
@@ -176,7 +207,9 @@ void GetFilePreviewJob::slotResult(KJob *job)
     cleanupTempFile();
     if (job->error()) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
-        return;
+    }
+    if (subjobs().length() == 0) {
+        emitResult();
     }
 }
 
@@ -287,8 +320,7 @@ void GetFilePreviewJob::getOrCreateThumbnail()
 
     if (item.isDir() || !KProtocolInfo::isKnownProtocol(item.targetUrl().scheme())) {
         // Skip remote dirs (bug 208625)
-        // cleanupTempFile();
-        // determineNextFile();
+        cleanupTempFile();
         return;
     }
     // The plugin does not support this remote content, either copy the
@@ -467,7 +499,7 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
 
     bool save = m_scaleType == PreviewJob::ScaledAndCached && m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
 
-    qWarning() << "save" << save << " - s" << m_scaleType << m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) << m_sequenceIndex;
+    qWarning() << "save" << save << " - " << m_scaleType << m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) << m_sequenceIndex;
 
     bool isRemoteProtocol = m_currentItem.item.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
@@ -507,6 +539,7 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
     }
 
     // Using thumbnailer plugin
+    qWarning() << "using plugin";
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
@@ -531,30 +564,7 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
     if (m_sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_sequenceIndex));
     }
-
 #if WITH_SHM
-    size_t requiredSize = thumb_width * m_devicePixelRatio * thumb_height * m_devicePixelRatio * 4;
-    if (m_shmid == -1 || m_shmsize < requiredSize) {
-        if (m_shmaddr) {
-            // clean previous shared memory segment
-            shmdt((char *)m_shmaddr);
-            m_shmaddr = nullptr;
-            shmctl(m_shmid, IPC_RMID, nullptr);
-            m_shmid = -1;
-        }
-        if (requiredSize > 0) {
-            m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
-            if (m_shmid != -1) {
-                m_shmsize = requiredSize;
-                m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
-                if (m_shmaddr == (uchar *)-1) {
-                    shmctl(m_shmid, IPC_RMID, nullptr);
-                    m_shmaddr = nullptr;
-                    m_shmid = -1;
-                }
-            }
-        }
-    }
     if (m_shmid != -1) {
         job->addMetaData(QStringLiteral("shmid"), QString::number(m_shmid));
     }
@@ -569,6 +579,7 @@ void GetFilePreviewJob::slotStandardThumbData(KIO::Job *job, const QImage &thumb
     if (thumbData.isNull()) {
         // let succeeded in false state
         // failed will get called in determineNextFile()
+        qWarning() << "thumbdata is null!!";
         return;
     }
 
@@ -602,6 +613,7 @@ void GetFilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
         // fallback a raw QImage
         str >> thumb;
     }
+    qWarning() << thumb;
 
     slotStandardThumbData(job, thumb);
 }
