@@ -59,23 +59,21 @@
 #include "kiofuse_interface.h"
 #endif
 
+namespace
+{
+static qreal s_defaultDevicePixelRatio = 1.0;
+// Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
+static constexpr int s_kioFuseMountTimeout = 10000;
+}
+
 using namespace KIO;
 
-// TODO Things we need to set before running:
-//  setDevicePixelRatio
-//  setIgnoreMaximumSize
-//  setDefaultDevicePixelRatio ?
-//  setScaleType
-//  setSequenceIndex
-
-GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem, const QString thumbPath)
+GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item)
     : m_currentItem(item)
-    , m_thumbPath(thumbPath)
-    , m_width(size.width())
-    , m_height(size.height())
+    , m_thumbPath(QString())
+    , m_size(QSize())
     , m_cacheSize(0)
-    , m_scaleItem(scaleItem)
-    , m_saveItem(saveItem)
+    , m_scaleType(PreviewJob::ScaleType::ScaledAndCached)
     , m_ignoreMaximumSize(false)
     , m_sequenceIndex(0)
     , m_succeeded(false)
@@ -87,6 +85,12 @@ GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item, const QSize &size,
 {
     // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
     m_thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+
+    m_thumbPath = item.thumbPath;
+    m_size = item.size;
+    m_scaleType = item.scaleType;
+    m_ignoreMaximumSize = item.ignoreMaximumSize;
+    m_sequenceIndex = item.sequenceIndex;
 }
 
 void GetFilePreviewJob::start()
@@ -111,7 +115,7 @@ void GetFilePreviewJob::statFile()
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
-    addSubjob(job);
+    job->start();
 }
 
 void GetFilePreviewJob::slotStatFile(KJob *job)
@@ -144,7 +148,6 @@ void GetFilePreviewJob::slotStatFile(KJob *job)
         skipCurrentItem = (!m_ignoreMaximumSize && size > m_maximumRemoteSize) || (m_currentItem.item.isDir() && !m_enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
-        qWarning() << "Skipping";
         return;
     }
 
@@ -169,13 +172,12 @@ void GetFilePreviewJob::slotResult(KJob *job)
 {
     qWarning() << "Result of " << job;
     removeSubjob(job);
-    Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
+    qWarning() << "subjobs" << subjobs();
     cleanupTempFile();
     if (job->error()) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
         return;
     }
-    qWarning() << "stat" << statResultThumbnail();
 }
 
 void GetFilePreviewJob::cleanupTempFile()
@@ -217,6 +219,7 @@ bool GetFilePreviewJob::statResultThumbnail()
 
     QImage thumb;
     QFile thumbFile(m_thumbPath + m_thumbName);
+    qWarning() << m_thumbPath << m_thumbName;
     if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
         qWarning() << "3";
         return false;
@@ -462,7 +465,9 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
 
     // state = PreviewJobPrivate::STATE_CREATETHUMB;
 
-    bool save = m_saveItem && m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
+    bool save = m_scaleType == PreviewJob::ScaledAndCached && m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
+
+    qWarning() << "save" << save << " - s" << m_scaleType << m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) << m_sequenceIndex;
 
     bool isRemoteProtocol = m_currentItem.item.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
@@ -492,7 +497,7 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
             return;
         }
 
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, m_width * m_devicePixelRatio, pixPath, tempDir.path());
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, m_size.width() * m_devicePixelRatio, pixPath, tempDir.path());
         addSubjob(job);
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
@@ -510,8 +515,8 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
     connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
-    int thumb_width = m_width;
-    int thumb_height = m_height;
+    int thumb_width = m_size.width();
+    int thumb_height = m_size.height();
     if (save) {
         thumb_width = thumb_height = m_cacheSize;
     }
@@ -603,7 +608,7 @@ void GetFilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
 
 void GetFilePreviewJob::saveThumbnailData(QImage &thumb)
 {
-    const bool save = m_saveItem && !m_sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
+    const bool save = m_scaleType == PreviewJob::ScaledAndCached && !m_sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
         && m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
         && (!m_currentItem.item.targetUrl().isLocalFile()
             || !m_currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot));
@@ -634,8 +639,8 @@ void GetFilePreviewJob::emitPreview(const QImage &thumb)
     qWarning() << "emitPreview";
     QPixmap pix;
     const qreal ratio = thumb.devicePixelRatio();
-    if (thumb.width() > m_width * ratio || thumb.height() > m_height * ratio) {
-        pix = QPixmap::fromImage(thumb.scaled(QSize(m_width * ratio, m_height * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    if (thumb.width() > m_size.width() * ratio || thumb.height() > m_size.height() * ratio) {
+        pix = QPixmap::fromImage(thumb.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
         pix = QPixmap::fromImage(thumb);
     }

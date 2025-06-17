@@ -2,6 +2,7 @@
 #define KIO_GETFILEPREVIEWJOB_H
 
 #include "kiogui_export.h"
+#include "previewjob.h"
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KPluginMetaData>
@@ -20,6 +21,12 @@ struct PreviewItem {
     KFileItem item;
     KPluginMetaData plugin;
     bool standardThumbnailer = false;
+    QSize size;
+    QString thumbPath;
+    qreal devicePixelRatio;
+    bool ignoreMaximumSize;
+    int sequenceIndex;
+    PreviewJob::ScaleType scaleType;
 };
 
 static qreal s_defaultDevicePixelRatio = 1.0;
@@ -29,7 +36,7 @@ class GetFilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    GetFilePreviewJob(const PreviewItem &item, const QSize &size, const bool scaleItem, const bool saveItem, const QString thumbPath);
+    GetFilePreviewJob(const PreviewItem &item);
 
     struct StandardThumbnailerData {
         QString exec;
@@ -62,14 +69,11 @@ public:
     // Thumbnail file name for current item
     QString m_thumbName;
     // Size of thumbnail
-    int m_width;
-    int m_height;
+    QSize m_size;
     // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
     short m_cacheSize;
-    // Whether the thumbnail should be scaled
-    bool m_scaleItem;
-    // Whether we should save the thumbnail
-    bool m_saveItem;
+    // Whether the thumbnail should be scaled and/or saved
+    PreviewJob::ScaleType m_scaleType;
     bool m_ignoreMaximumSize;
     int m_sequenceIndex;
     bool m_succeeded;
@@ -121,7 +125,6 @@ public:
     void cleanupTempFile();
     void slotResult(KJob *job) override;
 
-    void startPreview();
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
