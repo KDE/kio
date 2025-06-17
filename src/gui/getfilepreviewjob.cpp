@@ -203,14 +203,11 @@ void GetFilePreviewJob::slotResult(KJob *job)
 {
     qWarning() << "Result of " << job;
     removeSubjob(job);
-    qWarning() << "subjobs" << subjobs();
-    cleanupTempFile();
     if (job->error()) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
     }
-    if (subjobs().length() == 0) {
-        emitResult();
-    }
+    qWarning() << m_currentItem.item.url() << " = " << m_thumbPath + m_thumbName;
+    emitResult();
 }
 
 void GetFilePreviewJob::cleanupTempFile()
@@ -544,10 +541,10 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
     thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
     KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
-    addSubjob(job);
     connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
+    addSubjob(job);
     int thumb_width = m_size.width();
     int thumb_height = m_size.height();
     if (save) {

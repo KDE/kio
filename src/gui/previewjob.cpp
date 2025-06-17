@@ -149,12 +149,6 @@ public:
 
     void determineNextFile();
     void startPreview();
-    void slotThumbData(KIO::Job *, const QByteArray &);
-    void slotStandardThumbData(KIO::Job *, const QImage &);
-    // Checks if thumbnail is on encrypted partition different than thumbRoot
-    CachePolicy canBeCached(const QString &path);
-    int getDeviceId(const QString &path);
-    void saveThumbnailData(QImage &thumb);
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -162,77 +156,6 @@ public:
         QString exec;
         QStringList mimetypes;
     };
-
-    static QList<KPluginMetaData> loadAvailablePlugins()
-    {
-        static QList<KPluginMetaData> jsonMetaDataPlugins;
-        if (jsonMetaDataPlugins.isEmpty()) {
-            jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
-            for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
-                // Check if our own plugins support the mimetype. If so, we use the plugin instead
-                // and ignore the standard thumbnailer
-                auto handledMimes = thumbnailer.second.mimetypes;
-                for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
-                    for (const auto &mime : handledMimes) {
-                        if (plugin.mimeTypes().contains(mime)) {
-                            handledMimes.removeOne(mime);
-                        }
-                    }
-                }
-                if (handledMimes.isEmpty()) {
-                    continue;
-                }
-
-                QMimeDatabase db;
-                // We only need the first mimetype since the names/comments are often shared between multiple types
-                auto mime = db.mimeTypeForName(handledMimes.first());
-                auto name = mime.name().isEmpty() ? handledMimes.first() : mime.name();
-                if (!mime.comment().isEmpty()) {
-                    name = mime.comment();
-                }
-                if (name.isEmpty()) {
-                    continue;
-                }
-                // the plugin metadata
-                QJsonObject kplugin;
-                kplugin[QStringLiteral("MimeTypes")] = QJsonValue::fromVariant(handledMimes);
-                kplugin[QStringLiteral("Name")] = name;
-                kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
-
-                QJsonObject root;
-                root[QStringLiteral("CacheThumbnail")] = true;
-                root[QStringLiteral("KPlugin")] = kplugin;
-
-                KPluginMetaData standardThumbnailerPlugin(root, thumbnailer.first);
-                jsonMetaDataPlugins.append(standardThumbnailerPlugin);
-            }
-        }
-        return jsonMetaDataPlugins;
-    }
-
-    static QMap<QString, StandardThumbnailerData> standardThumbnailers()
-    {
-        //         mimetype, exec
-        static QMap<QString, StandardThumbnailerData> standardThumbs;
-        if (standardThumbs.empty()) {
-            QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
-            const auto thumbnailerPaths = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")});
-            for (const QString &thumbnailerPath : thumbnailerPaths) {
-                const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
-                StandardThumbnailerData data;
-                QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
-                QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QString{}).split(QStringLiteral(";"));
-                mimetypes.removeAll(QLatin1String(""));
-                QString exec = thumbnailerConfig.readEntry("Exec", QString{});
-                if (!exec.isEmpty() && !mimetypes.isEmpty()) {
-                    data.exec = exec;
-                    data.mimetypes = mimetypes;
-                    standardThumbs.insert(thumbnailerName, data);
-                }
-            }
-        }
-        return standardThumbs;
-    }
 
 private:
     QDir createTemporaryDir();
@@ -289,7 +212,7 @@ void PreviewJobPrivate::startPreview()
     Q_Q(PreviewJob);
     qWarning() << "starting preview";
     // Load the list of plugins to determine which MIME types are supported
-    const QList<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    const QList<KPluginMetaData> plugins = KIO::GetFilePreviewJob::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
 
     auto setUpCaching = [this](PreviewItem *previewItem) {
@@ -490,6 +413,7 @@ void PreviewJobPrivate::determineNextFile()
         GetFilePreviewJob *job = KIO::getFilePreviewJob(currentItem);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
         q->connect(job, &GetFilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
+            qWarning() << "connectGot preview";
             Q_EMIT q->gotPreview(item, pix);
         });
         q->addSubjob(job);
@@ -506,21 +430,21 @@ void PreviewJob::slotResult(KJob *job)
         qWarning() << job->errorString();
     }
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
-    if (job->error()) {
+    qWarning() << "items left" << d->items.size();
+    if (d->items.size() > 0) {
         d->determineNextFile();
-        return;
     }
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
 {
-    return PreviewJobPrivate::loadAvailablePlugins();
+    return GetFilePreviewJob::loadAvailablePlugins();
 }
 
 QStringList PreviewJob::availablePlugins()
 {
     QStringList result;
-    const auto plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    const auto plugins = KIO::GetFilePreviewJob::loadAvailablePlugins();
     for (const KPluginMetaData &plugin : plugins) {
         result << plugin.pluginId();
     }
@@ -542,7 +466,7 @@ QStringList PreviewJob::defaultPlugins()
 QStringList PreviewJob::supportedMimeTypes()
 {
     QStringList result;
-    const auto plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    const auto plugins = KIO::GetFilePreviewJob::loadAvailablePlugins();
     for (const KPluginMetaData &plugin : plugins) {
         result += plugin.mimeTypes();
     }
