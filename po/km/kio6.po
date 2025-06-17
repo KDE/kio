@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-12 00:39+0000\n"
+"POT-Creation-Date: 2025-06-17 00:39+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -7163,34 +7163,40 @@ msgstr "មាន​ធាតុ​​ថ្មីៗ​ដែល​មាន​
 msgid "Rename:"
 msgstr "ប្តូរឈ្មោះ ៖"
 
-#: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "&Rename"
-msgctxt "@title:window"
-msgid "Rename Item"
-msgstr "ប្តូរឈ្មោះ "
-
-#: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "&Rename"
-msgctxt "@title:window"
-msgid "Rename Items"
-msgstr "ប្តូរឈ្មោះ "
-
-#: widgets/renamefiledialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "&Rename"
-msgctxt "@action:button"
-msgid "&Rename"
-msgstr "ប្តូរឈ្មោះ "
-
-#: widgets/renamefiledialog.cpp:84
+#: widgets/renamefiledialog.cpp:90
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:87
+#: widgets/renamefiledialog.cpp:140
+#, fuzzy, kde-kuit-format
+#| msgid "A file named %1 already exists."
+msgctxt "@info error a file already exists"
+msgid "A File named <filename>%1</filename> already exists."
+msgstr "មាន​ឯកសារ​ដែល​មាន​ឈ្មោះ %1 រួច​ហើយ ។"
+
+#: widgets/renamefiledialog.cpp:143
+#, kde-kuit-format
+msgctxt "@info %1 is an invalid filename"
+msgid "<filename>%1</filename> is not a valid file name."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
+#, fuzzy, kde-format
+#| msgid "Change the selected identifier text."
+msgctxt "@label:textbox"
+msgid "Rename the %1 selected item to:"
+msgid_plural "Rename the %1 selected items to:"
+msgstr[0] "ផ្លាស់ប្ដូរ​អត្ថបទ​កម្មវិធី​កំណត់​អត្តសញ្ញាណ​ដែល​បាន​ជ្រើស ។"
+
+#: widgets/renamefiledialog.cpp:166
+#, kde-format
+msgctxt "@info"
+msgid "# will be replaced by ascending numbers starting with:"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:175
 #, fuzzy, kde-format
 #| msgid "File name:"
 msgctxt ""
@@ -7199,18 +7205,107 @@ msgctxt ""
 msgid "New name #"
 msgstr "ឈ្មោះ​ឯកសារ ៖"
 
-#: widgets/renamefiledialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "Change the selected identifier text."
-msgctxt "@label:textbox"
-msgid "Rename the %1 selected item to:"
-msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "ផ្លាស់ប្ដូរ​អត្ថបទ​កម្មវិធី​កំណត់​អត្តសញ្ញាណ​ដែល​បាន​ជ្រើស ។"
-
-#: widgets/renamefiledialog.cpp:131
+#: widgets/renamefiledialog.cpp:282
 #, kde-format
 msgctxt "@info"
-msgid "# will be replaced by ascending numbers starting with:"
+msgid ""
+"Invalid filename: The new name should contain one sequence of #, unless all "
+"the files have different file extensions."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:311
+#, fuzzy, kde-format
+#| msgid "Replace"
+msgctxt "@info replace as in replacing [value] with [value]"
+msgid "Replacing:"
+msgstr "ជំនួស​"
+
+#: widgets/renamefiledialog.cpp:313
+#, kde-format
+msgctxt "@info placeholder text"
+msgid "Pattern"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:317
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgctxt "@info with as in replacing [value] with [value]"
+msgid "With:"
+msgstr "បើក​ជាមួយ"
+
+#: widgets/renamefiledialog.cpp:319
+#, fuzzy, kde-format
+#| msgid "Replace"
+msgctxt "@info placeholder text"
+msgid "Replacement"
+msgstr "ជំនួស​"
+
+#: widgets/renamefiledialog.cpp:366
+#, kde-format
+msgctxt "@info pattern as in text replacement pattern"
+msgid "No file name contains the pattern."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:375
+#, kde-kuit-format
+msgctxt "@info pattern as in text replacement pattern"
+msgid ""
+"Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
+"to have an empty file name."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:426
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@title:window"
+msgid "Rename Item"
+msgstr "ប្តូរឈ្មោះ "
+
+#: widgets/renamefiledialog.cpp:426
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@title:window"
+msgid "Rename Items"
+msgstr "ប្តូរឈ្មោះ "
+
+#: widgets/renamefiledialog.cpp:437
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@action:button"
+msgid "&Rename"
+msgstr "ប្តូរឈ្មោះ "
+
+#: widgets/renamefiledialog.cpp:446
+#, fuzzy, kde-format
+#| msgid "Default user name:"
+msgctxt "@info"
+msgid "How to rename:"
+msgstr "ឈ្មោះ​អ្នក​ប្រើ​លំនាំ​ដើម ៖"
+
+#: widgets/renamefiledialog.cpp:448
+#, kde-format
+msgctxt "@info renaming operation"
+msgid "Enumerate"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:448
+#, fuzzy, kde-format
+#| msgid "Replace"
+msgctxt "@info renaming operation"
+msgid "Replace text"
+msgstr "ជំនួស​"
+
+#: widgets/renamefiledialog.cpp:460
+#, fuzzy, kde-format
+#| msgid "Show Preview"
+msgctxt "@info As in filename renaming preview"
+msgid "Preview:"
+msgstr "បង្ហាញ​ការ​មើល​ជាមុន"
+
+#: widgets/renamefiledialog.cpp:584
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 
 #: widgets/skipdialog.cpp:29
