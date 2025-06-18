@@ -71,6 +71,8 @@
 
 using namespace KIO;
 
+namespace
+{
 /* 512 kB */
 static constexpr int s_maxIPCSize = 1024 * 512;
 
@@ -82,6 +84,11 @@ static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 
     return false;
 }
+bool isPermIssue(int err)
+{
+    return err == EACCES || err == EPERM;
+}
+};
 
 static const QString socketPath()
 {
@@ -579,7 +586,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             if (S_ISLNK(buffDest.st_mode)) {
                 // qDebug() << "copy(): LINK DESTINATION";
                 if (!QFile::remove(dest)) {
-                    const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE_ORIGINAL;
+                    const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE_ORIGINAL;
                     auto result = execWithElevatedPrivilege(DEL, {_dest}, errCode);
                     if (!result.success()) {
                         return result;
@@ -597,7 +604,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     QFile srcFile(src);
     if (!srcFile.open(QIODevice::ReadOnly)) {
-        const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_READING;
+        const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_READING;
         auto result = tryOpen(srcFile, _src, O_RDONLY, S_IRUSR, errCode);
         if (!result.success()) {
             return result;
@@ -610,7 +617,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     QFile destFile(dest);
     if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING;
+        const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING;
         auto result = tryOpen(destFile, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errCode);
         if (!result.success()) {
             return result;
@@ -620,7 +627,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     // _mode == -1 means don't touch dest permissions, leave it with the system default ones
     if (_mode != -1) {
         if (::chmod(_dest.constData(), _mode) == -1) {
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHMOD;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHMOD;
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
             // Eat the error if the filesystem apparently doesn't support chmod.
             // This test isn't fullproof though, vboxsf (VirtualBox shared folder) supports
@@ -692,7 +699,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
-                    const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                    const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                     auto result = execWithElevatedPrivilege(DEL, {_dest}, errCode);
                     if (!result.success()) {
                         return result;
@@ -705,7 +712,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             const Error errCodeCopy = errno == EPERM ? KIO::ERR_CANNOT_OPEN_FOR_WRITING : KIO::ERR_CANNOT_WRITE;
 
             if (!QFile::remove(dest)) { // don't keep partly copied file
-                const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                 auto result = execWithElevatedPrivilege(DEL, {_dest}, errCode);
                 if (!result.success()) {
                     return result;
@@ -738,7 +745,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
-                    const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                    const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                     auto result = execWithElevatedPrivilege(DEL, {_dest}, errCode);
                     if (!result.success()) {
                         return result;
@@ -764,7 +771,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 }
 
                 if (!QFile::remove(dest)) { // don't keep partly copied file
-                    const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                    const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                     auto result = execWithElevatedPrivilege(DEL, {_dest}, errCode);
                     if (!result.success()) {
                         return result;
@@ -805,7 +812,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         ut[1].tv_usec = 0;
         if (::futimes(destFile.handle(), ut) != 0) {
 #endif
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
             if (!tryChangeFileAttr(UTIME, {_dest, qint64(buffSrc.st_atime), qint64(buffSrc.st_mtime)}, errCode).success()) {
                 qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
             }
@@ -815,9 +822,8 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     destFile.close();
 
     if (wasKilled()) {
-        qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
         if (!QFile::remove(dest)) { // don't keep partly copied file
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
             execWithElevatedPrivilege(DEL, {_dest}, errCode);
         }
         return WorkerResult::fail(KIO::ERR_USER_CANCELED, dest);
@@ -827,7 +833,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << destFile.errorString();
 
         if (!QFile::remove(dest)) { // don't keep partly copied file
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
             execWithElevatedPrivilege(DEL, {_dest}, errCode);
         }
 
@@ -853,7 +859,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 qCWarning(KIO_FILE) << "Couldn't chown destFile" << _dest << "(" << strerror(errno) << ")";
             }
         } else {
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHOWN;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHOWN;
             if (!tryChangeFileAttr(CHOWN, {_dest, buffSrc.st_uid, buffSrc.st_gid}, errCode).success()) {
                 qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
             }
@@ -1104,7 +1110,7 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &destUrl, K
         if (flags & KIO::Overwrite) {
             // Try to delete the destination
             if (::unlink(dest_c.constData()) != 0) {
-                const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                const Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                 auto result = execWithElevatedPrivilege(DEL, {dest}, errCode);
                 if (!result.success()) {
                     return result;
@@ -1159,12 +1165,12 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
         // qDebug() << "Deleting file "<< url;
 
         if (::unlink(_path.data()) == -1) {
-            Error errCode = KIO::ERR_CANNOT_DELETE;
-            if ((errno == EACCES) || (errno == EPERM)) {
-                errCode = KIO::ERR_ACCESS_DENIED;
-            } else if (errno == EISDIR) {
-                errCode = KIO::ERR_IS_DIRECTORY;
+            if (errno == EISDIR) {
+                qCWarning(KIO_FILE) << "Calling del() with isfile=true with a directory input";
+                return WorkerResult::fail(KIO::ERR_IS_DIRECTORY);
             }
+
+            Error errCode = isPermIssue(errno) ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
             auto result = execWithElevatedPrivilege(DEL, {_path}, errCode);
             if (!result.success()) {
                 return result;
@@ -1184,7 +1190,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
             }
         }
         if (QT_RMDIR(_path.data()) == -1) {
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
+            const Error errCode = isPermIssue(errno) ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
             auto result = execWithElevatedPrivilege(RMDIR, {_path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
