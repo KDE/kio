@@ -27,6 +27,9 @@ struct PreviewItem {
     bool ignoreMaximumSize;
     int sequenceIndex;
     PreviewJob::ScaleType scaleType;
+    bool enableRemoteFolderThumbnail;
+    int maximumLocalSize;
+    int maximumRemoteSize;
 };
 
 static qreal s_defaultDevicePixelRatio = 1.0;
@@ -141,7 +144,7 @@ Q_SIGNALS:
     void failed(const KFileItem &item);
 
 private Q_SLOTS:
-    bool slotStatFile(KJob *job);
+    void slotStatFile(KJob *job);
     void slotGetOrCreateThumbnail(KJob *job);
 
 private:

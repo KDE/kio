@@ -208,10 +208,13 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
-    qWarning() << "starting preview";
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::GetFilePreviewJob::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+    maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+    maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
+    enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
     auto setUpCaching = [this](PreviewItem *previewItem) {
         const int longer = std::max(width, height);
@@ -276,6 +279,9 @@ void PreviewJobPrivate::startPreview()
         previewItem.scaleType = scaleType;
         previewItem.size = QSize(width, height);
         previewItem.thumbPath = thumbPath;
+        previewItem.maximumLocalSize = maximumLocalSize;
+        previewItem.maximumRemoteSize = maximumRemoteSize;
+        previewItem.enableRemoteFolderThumbnail = enableRemoteFolderThumbnail;
 
         const QString mimeType = previewItem.item.mimetype();
         KPluginMetaData plugin;
@@ -330,11 +336,6 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-    maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
-    enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
-
     initialItems.clear();
     determineNextFile();
 }
@@ -343,7 +344,6 @@ void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
 
-    qWarning() << "Remove item " << url;
     auto it = std::find_if(d->items.cbegin(), d->items.cend(), [&url](const PreviewItem &pItem) {
         return url == pItem.item.url();
     });
@@ -405,7 +405,6 @@ void PreviewJobPrivate::determineNextFile()
         GetFilePreviewJob *job = KIO::getFilePreviewJob(currentItem);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
         q->connect(job, &GetFilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
-            qWarning() << "connectGot preview";
             Q_EMIT q->gotPreview(item, pix);
         });
         q->addSubjob(job);
@@ -417,12 +416,10 @@ void PreviewJob::slotResult(KJob *job)
     Q_D(PreviewJob);
 
     removeSubjob(job);
-    qWarning() << "PreviewJob Result of " << job << job->error();
     if (job->error() > 0) {
-        qWarning() << job->errorString();
+        qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
-    qWarning() << "items left" << d->items.size();
     if (d->items.size() > 0) {
         d->determineNextFile();
     }
