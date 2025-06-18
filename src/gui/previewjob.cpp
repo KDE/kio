@@ -86,13 +86,6 @@ public:
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
-    enum {
-        STATE_STATORIG, // if the thumbnail exists
-        STATE_GETORIG, // if we create it
-        STATE_CREATETHUMB, // thumbnail:/ worker
-        STATE_DEVICE_INFO, // additional state check to get needed device ids
-    } state;
-
     KFileItemList initialItems;
     QStringList enabledPlugins;
     // Our todo list :)
@@ -100,15 +93,8 @@ public:
     std::list<PreviewItem> items;
     // The current item
     PreviewItem currentItem;
-    // The modification time of that URL
-    QDateTime tOrig;
     // Path to thumbnail cache for the current size
     QString thumbPath;
-    // Original URL of current item in RFC2396 format
-    // (file:///path/to/a%20file instead of file:/path/to/a file)
-    QByteArray origName;
-    // Thumbnail file name for current item
-    QString thumbName;
     // Size of thumbnail
     int width;
     int height;
@@ -116,11 +102,8 @@ public:
     short cacheSize;
     // Whether the thumbnail should be scaled ando/or saved
     PreviewJob::ScaleType scaleType;
-
     bool ignoreMaximumSize;
     int sequenceIndex;
-    // If the file to create a thumb for was a temp file, this is its name
-    QString tempName;
     KIO::filesize_t maximumLocalSize;
     KIO::filesize_t maximumRemoteSize;
     // Manage preview for locally mounted remote directories
@@ -130,30 +113,13 @@ public:
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
     qreal devicePixelRatio = s_defaultDevicePixelRatio;
-    static const int idUnknown = -1;
-    // Id of a device storing currently processed file
-    int currentDeviceId = 0;
-    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
-    QMap<QString, int> deviceIdMap;
-    enum CachePolicy {
-        Prevent,
-        Allow,
-        Unknown
-    } currentDeviceCachePolicy = Unknown;
     // the path of a unique temporary directory
     QString m_tempDirPath;
-    // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
-    bool tryKioFuse = true;
 
     void determineNextFile();
     void startPreview();
 
     Q_DECLARE_PUBLIC(PreviewJob)
-
-    struct StandardThumbnailerData {
-        QString exec;
-        QStringList mimetypes;
-    };
 
 private:
     QDir createTemporaryDir();
@@ -398,7 +364,6 @@ void PreviewJobPrivate::determineNextFile()
         return;
     } else {
         // First, stat the orig file
-        state = PreviewJobPrivate::STATE_STATORIG;
         currentItem = items.front();
         items.pop_front();
 

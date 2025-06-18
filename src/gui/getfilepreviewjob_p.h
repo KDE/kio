@@ -109,16 +109,6 @@ public:
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
     bool m_tryKioFuse = true;
 
-    /*
-    - After stat, we either skip file or getOrCreateThumbnail
-    - OR
-    - If we get original, take it
-    - If we need to create new one, check if caching is done
-        - If caching is done, run the jobs for it
-        - Then create thumbnail
-    - Then return it
-    */
-
     void statFile();
     void getOrCreateThumbnail();
     bool statResultThumbnail();
