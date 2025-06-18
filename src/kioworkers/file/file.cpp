@@ -213,13 +213,15 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     // Remove existing file or symlink, if requested (#151851)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         if (!QFile::remove(path)) {
+            if (errno == EISDIR) {
+                return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
+            }
             Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
             auto result = execWithElevatedPrivilege(DEL, {path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
                     return result;
                 }
-                return WorkerResult::pass();
             }
         }
     }
