@@ -145,16 +145,17 @@ void GetFilePreviewJob::statFile()
     KIO::Job *job = KIO::stat(m_currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
-    connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
+    // connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
+    m_state = STATE_STATORIG;
     addSubjob(job);
 }
 
-void GetFilePreviewJob::slotStatFile(KJob *job)
+bool GetFilePreviewJob::slotStatFile(KJob *job)
 {
     qWarning() << "slotStatFile";
     if (job->error()) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
-        return;
+        return true;
     }
     const QUrl itemUrl = m_currentItem.item.mostLocalUrl();
     const KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
@@ -167,7 +168,7 @@ void GetFilePreviewJob::slotStatFile(KJob *job)
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0) {
         qCWarning(KIO_GUI) << "GetFilePreviewJob: skipping an empty file, migth be a broken symlink" << m_currentItem.item.url();
-        return;
+        return true;
     }
 
     bool skipCurrentItem = false;
@@ -179,7 +180,7 @@ void GetFilePreviewJob::slotStatFile(KJob *job)
         skipCurrentItem = (!m_ignoreMaximumSize && size > m_maximumRemoteSize) || (m_currentItem.item.isDir() && !m_enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
-        return;
+        return true;
     }
 
     bool pluginHandlesSequences = m_currentItem.plugin.value(QStringLiteral("HandleSequences"), false);
@@ -187,16 +188,16 @@ void GetFilePreviewJob::slotStatFile(KJob *job)
         // This preview will not be cached, no need to look for a saved thumbnail
         // Just create it, and be done
         getOrCreateThumbnail();
-        return;
+        return false;
     }
 
     if (statResultThumbnail()) {
         m_succeeded = true;
-        return;
+        return true;
     }
 
     getOrCreateThumbnail();
-    return;
+    return false;
 }
 
 void GetFilePreviewJob::slotResult(KJob *job)
@@ -206,12 +207,59 @@ void GetFilePreviewJob::slotResult(KJob *job)
     if (job->error()) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
     }
-    qWarning() << m_currentItem.item.url() << " = " << m_thumbPath + m_thumbName;
-    emitResult();
+    switch (m_state) {
+    case STATE_STATORIG: {
+        qWarning() << "STATORIG";
+        if (slotStatFile(job)) {
+            emitResult();
+        }
+        return;
+    }
+    case STATE_GETORIG: {
+        qWarning() << "GETORIG";
+        if (job->error()) {
+            cleanupTempFile();
+            emitResult();
+            return;
+        }
+        auto fileCopyJob = static_cast<KIO::FileCopyJob *>(job);
+        auto pixPath = fileCopyJob->destUrl().toLocalFile();
+        if (!pixPath.isEmpty()) {
+            createThumbnail(pixPath);
+        }
+        return;
+    }
+    case STATE_CREATETHUMB: {
+        qWarning() << "CREATETHUMB";
+        cleanupTempFile();
+        emitResult();
+        return;
+    }
+    case STATE_DEVICE_INFO: {
+        qWarning() << "DEVICE_INFO";
+        KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
+        int id;
+        QString path = statJob->url().toLocalFile();
+        if (job->error()) {
+            // We set id to 0 to know we tried getting it
+            qCWarning(KIO_GUI) << "Cannot read information about filesystem under path" << path;
+            id = 0;
+        } else {
+            id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+        }
+        m_deviceIdMap[path] = id;
+        createThumbnail(m_currentItem.item.localPath());
+        return;
+    }
+    }
+
+    // qWarning() << m_currentItem.item.url() << " = " << m_thumbPath + m_thumbName;
+    // emitResult();
 }
 
 void GetFilePreviewJob::cleanupTempFile()
 {
+    return;
     if (!m_tempName.isEmpty()) {
         Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
         QFile::remove(m_tempName);
@@ -249,7 +297,7 @@ bool GetFilePreviewJob::statResultThumbnail()
 
     QImage thumb;
     QFile thumbFile(m_thumbPath + m_thumbName);
-    qWarning() << m_thumbPath << m_thumbName;
+    qWarning() << "path" << m_thumbPath << m_thumbName;
     if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
         qWarning() << "3";
         return false;
@@ -334,6 +382,7 @@ void GetFilePreviewJob::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &
 {
 #if defined(WITH_QTDBUS) && !defined(Q_OS_ANDROID)
     qWarning() << "createThumbnailViaFuse";
+    m_state = STATE_GETORIG;
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
     kiofuse_iface.setTimeout(s_kioFuseMountTimeout);
     QDBusPendingReply<QString> reply = kiofuse_iface.mountUrl(fileUrl.toString());
@@ -383,7 +432,7 @@ void GetFilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
     qWarning() << "createThumbnailViaLocalCopy";
     // No plugin support access to this remote content, copy the file
     // to the local machine, then create the thumbnail
-    // state = PreviewJobPrivate::STATE_GETORIG;
+    m_state = STATE_GETORIG;
     const KFileItem &item = m_currentItem.item;
 
     // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
@@ -400,7 +449,7 @@ void GetFilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
 
     KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(m_tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-    connect(job, &KIO::FileCopyJob::result, this, &GetFilePreviewJob::slotGetOrCreateThumbnail);
+    // connect(job, &KIO::FileCopyJob::result, this, &GetFilePreviewJob::slotGetOrCreateThumbnail);
     job->start();
 }
 
@@ -466,8 +515,13 @@ int GetFilePreviewJob::getDeviceId(const QString &path)
     QUrl url = QUrl::fromLocalFile(path);
     if (!url.isValid()) {
         qCWarning(KIO_GUI) << "Could not get device id for file preview, Invalid url" << path;
+        return 0;
     }
-    return 0;
+    m_state = STATE_DEVICE_INFO;
+    KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+    job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+    addSubjob(job);
+    return m_idUnknown;
 }
 
 QDir GetFilePreviewJob::createTemporaryDir()
@@ -492,7 +546,7 @@ void GetFilePreviewJob::createThumbnail(const QString &pixPath)
     QFileInfo info(pixPath);
     Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
 
-    // state = PreviewJobPrivate::STATE_CREATETHUMB;
+    m_state = STATE_CREATETHUMB;
 
     bool save = m_scaleType == PreviewJob::ScaledAndCached && m_currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
 

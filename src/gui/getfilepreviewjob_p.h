@@ -141,7 +141,7 @@ Q_SIGNALS:
     void failed(const KFileItem &item);
 
 private Q_SLOTS:
-    void slotStatFile(KJob *job);
+    bool slotStatFile(KJob *job);
     void slotGetOrCreateThumbnail(KJob *job);
 
 private:

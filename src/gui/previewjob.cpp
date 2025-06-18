@@ -78,7 +78,6 @@ public:
         , scaleType(PreviewJob::ScaleType::ScaledAndCached)
         , ignoreMaximumSize(false)
         , sequenceIndex(0)
-        , succeeded(false)
         , maximumLocalSize(0)
         , maximumRemoteSize(0)
         , enableRemoteFolderThumbnail(false)
@@ -120,7 +119,6 @@ public:
 
     bool ignoreMaximumSize;
     int sequenceIndex;
-    bool succeeded;
     // If the file to create a thumb for was a temp file, this is its name
     QString tempName;
     KIO::filesize_t maximumLocalSize;
@@ -394,11 +392,6 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
-    if (!currentItem.item.isNull()) {
-        if (!succeeded) {
-            Q_EMIT q->failed(currentItem.item);
-        }
-    }
     // No more items ?
     if (items.empty()) {
         q->emitResult();
@@ -408,7 +401,6 @@ void PreviewJobPrivate::determineNextFile()
         state = PreviewJobPrivate::STATE_STATORIG;
         currentItem = items.front();
         items.pop_front();
-        succeeded = false;
 
         GetFilePreviewJob *job = KIO::getFilePreviewJob(currentItem);
         // Add getFilePreviewJobs as subjobs, this seems to start the job too?
