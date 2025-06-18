@@ -79,7 +79,7 @@ static constexpr NAME_MAX = 0;
 #endif
 #endif
 
-enum DestinationState {
+enum DestinationState : std::uint8_t {
     DEST_NOT_STATED,
     DEST_IS_DIR,
     DEST_IS_FILE,
@@ -103,7 +103,7 @@ enum DestinationState {
  *     STATE_SETTING_DIR_ATTRIBUTES (setNextDirAttribute, iterating over d->m_directoriesCopied)
  *     done.
  */
-enum CopyJobState {
+enum CopyJobState : std::uint8_t {
     STATE_INITIAL,
     STATE_STATING,
     STATE_RENAMING,
