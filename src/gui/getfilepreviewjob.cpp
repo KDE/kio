@@ -67,6 +67,16 @@ static constexpr int s_kioFuseMountTimeout = 10000;
 }
 
 using namespace KIO;
+class FilePreviewStatJob : public KIO::Job
+{
+public:
+    FilePreviewStatJob(const QStringList paths);
+
+    void getDeviceId(const QString &path);
+    void slotResult(KJob *job) override;
+
+    QMap<QString, int> m_deviceIdMap;
+};
 
 GetFilePreviewJob::GetFilePreviewJob(const PreviewItem &item)
     : m_currentItem(item)
@@ -130,6 +140,7 @@ GetFilePreviewJob::~GetFilePreviewJob()
 }
 
 /*
+- Get cache information first
 - After stat, we either skip file or getOrCreateThumbnail
 - OR
 - If we get original, take it
@@ -141,13 +152,20 @@ GetFilePreviewJob::~GetFilePreviewJob()
 
 void GetFilePreviewJob::statFile()
 {
-    qWarning() << "Stat file" << m_currentItem.item.targetUrl();
-    KIO::Job *job = KIO::stat(m_currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
-    job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-    job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
-    // connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
-    m_state = STATE_STATORIG;
-    addSubjob(job);
+    qWarning() << "asklfljsd";
+    auto *firstJob = new FilePreviewStatJob(QStringList{m_thumbRoot, m_currentItem.item.localPath()});
+    firstJob->start();
+    connect(firstJob, &KIO::Job::result, this, [this](KJob *job) {
+        FilePreviewStatJob *previewJob = static_cast<FilePreviewStatJob *>(job);
+        m_deviceIdMap = previewJob->m_deviceIdMap;
+        qWarning() << "Stat file" << m_currentItem.item.targetUrl();
+        KIO::Job *statJob = KIO::stat(m_currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+        statJob->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+        statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+        // connect(job, &KIO::Job::result, this, &GetFilePreviewJob::slotStatFile);
+        m_state = STATE_STATORIG;
+        addSubjob(statJob);
+    });
 }
 
 bool GetFilePreviewJob::slotStatFile(KJob *job)
@@ -164,6 +182,7 @@ bool GetFilePreviewJob::slotStatFile(KJob *job)
     m_tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
     int id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
     m_deviceIdMap[statJob->url().toLocalFile()] = id;
+    qWarning() << m_deviceIdMap << statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0) {
@@ -781,6 +800,45 @@ QMap<QString, KIO::GetFilePreviewJob::StandardThumbnailerData> GetFilePreviewJob
         }
     }
     return standardThumbs;
+}
+
+FilePreviewStatJob::FilePreviewStatJob(const QStringList paths)
+{
+    for (auto path : paths) {
+        getDeviceId(path);
+    }
+}
+
+void FilePreviewStatJob::slotResult(KJob *job)
+{
+    KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
+    int id;
+    QString path = statJob->url().toLocalFile();
+    if (job->error()) {
+        // We set id to 0 to know we tried getting it
+        qCWarning(KIO_GUI) << "Cannot read information about filesystem under path" << path;
+        id = 0;
+    } else {
+        id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+    }
+    m_deviceIdMap[path] = id;
+    removeSubjob(job);
+    if (!hasSubjobs()) {
+        qWarning() << "FilePreviewStatJob Done with subjobs, bye!" << m_deviceIdMap;
+        emitResult();
+    }
+}
+
+void FilePreviewStatJob::getDeviceId(const QString &path)
+{
+    QUrl url = QUrl::fromLocalFile(path);
+    if (!url.isValid()) {
+        qCWarning(KIO_GUI) << "Could not get device id for file preview, Invalid url" << path;
+        return;
+    }
+    KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+    job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+    addSubjob(job);
 }
 
 #include "moc_getfilepreviewjob_p.cpp"
