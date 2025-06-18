@@ -211,7 +211,10 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     // Remove existing file or symlink, if requested (#151851)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         if (!QFile::remove(path)) {
-            execWithElevatedPrivilege(DEL, {path}, errno);
+            if (errno == EISDIR) {
+                return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
+            }
+            execWithElevatedPrivilege(DEL, {path}, errCode);
         }
     }
 
