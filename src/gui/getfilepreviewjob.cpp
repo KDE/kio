@@ -231,8 +231,9 @@ void GetFilePreviewJob::slotStatFile(KJob *job)
 void GetFilePreviewJob::slotResult(KJob *job)
 {
     removeSubjob(job);
-    if (job->error()) {
+    if (job->error() || !m_succeeded) {
         qCWarning(KIO_GUI) << "Job failed" << job->errorString();
+        Q_EMIT failed(m_currentItem.item);
     }
 }
 
