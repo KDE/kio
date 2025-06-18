@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:39+0000\n"
-"PO-Revision-Date: 2025-06-07 19:46+0300\n"
+"PO-Revision-Date: 2025-06-17 08:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -484,12 +484,12 @@ msgstr "%1 dosyası veya klasörü yok."
 #: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "%1 adlı bir dosya zaten var."
+msgstr "%1 adlı bir dosya halihazırda var."
 
 #: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "%1 adlı bir klasör zaten var."
+msgstr "%1 adlı bir klasör halihazırda var."
 
 #: core/job_error.cpp:77
 #, kde-format
@@ -3751,7 +3751,7 @@ msgstr "<filename>%1</filename> adlı bir dizin halihazırda var."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename> adlı bir dosya zaten var."
+msgstr "<filename>%1</filename> adlı bir dosya halihazırda var."
 
 #: filewidgets/knewfilemenu.cpp:1463
 #, kde-format
@@ -4717,7 +4717,7 @@ msgstr "Geçersiz protokol kombinasyonu."
 #: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr "Dosya zaten çöp kutusunda."
+msgstr "Dosya halihazırda çöp kutusunda."
 
 #: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
@@ -7057,20 +7057,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "<filename>%1</filename> ögesinin yeni adı:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename> adlı bir dosya zaten var."
+msgstr "<filename>%1</filename> adlı bir dosya halihazırda var."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename>, yürütülebilir bir program gibi görünmüyor."
+msgstr "<filename>%1</filename>, geçerli bir dosya adı değil."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7101,39 +7097,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Geçersiz dosya ado: Yeni ad, tüm dosyaların uzantısı farklı değilse bir # "
+"içermelidir."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Değiştir"
+msgstr "Şu:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Dizgi"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Birlikte aç:"
+msgstr "Şununla değiştiriliyor:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Değiştir"
+msgstr "İkâme"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Hiçbir dosya adı bu dizgiyi içermiyor."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7142,6 +7137,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"“%1” ögesini boş bir ikâmeyle değiştirmek, <filename>%2</filename> "
+"dosyasının adının boş kalmasına neden olur."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7162,39 +7159,34 @@ msgid "&Rename"
 msgstr "&Yeniden Adlandır"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Sil veya yeniden adlandır:"
+msgstr "Şöyle yeniden adlandır:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Numaralandır"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Değiştir"
+msgstr "Metni başkasıyla değiştir"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Önizlemeyi Göster"
+msgstr "Önizleme:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename>, yürütülebilir bir program gibi görünmüyor."
+msgstr "<filename>%1</filename> dosyasının adı boş bırakılamaz."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

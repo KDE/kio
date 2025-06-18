@@ -3,24 +3,25 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # Sebastià Pla i Sanz <sps@sastia.com>, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006.
 # Albert Astals Cid <aacid@kde.org>, 2007.
 # Robert Millan <rmh@aybabtu.com>, 2009.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:39+0000\n"
-"PO-Revision-Date: 2025-06-07 09:23+0200\n"
+"PO-Revision-Date: 2025-06-17 08:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -7150,20 +7151,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Canvia el nom de l'element <filename>%1</filename> a:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
 msgstr "Ja existix un fitxer amb nom <filename>%1</filename>."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> no pareix que siga un programa executable."
+msgstr "<filename>%1</filename> no és un nom vàlid de fitxer."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7194,39 +7191,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Nom de fitxer no vàlid: el nom nou hauria de contindre una seqüència de #, "
+"llevat que tots els fitxers tinguen extensions de fitxer diferents."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Substituïx"
+msgstr "Substituïx:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Patró"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Obri amb:"
+msgstr "Per:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Substituïx"
+msgstr "Substitució"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Cap nom de fitxer conté el patró."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7235,6 +7231,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Substituint «%1» per un reemplaçament buit provocaria que <filename>%2</"
+"filename> tinguera un nom de fitxer buit."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7255,39 +7253,35 @@ msgid "&Rename"
 msgstr "Ca&nvia el nom"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Suprimix o canvia el nom:"
+msgstr "Com canviar de nom:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Enumera"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Substituïx"
+msgstr "Substituïx text"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Mostra la vista prèvia"
+msgstr "Vista prèvia:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> no pareix que siga un programa executable."
+msgstr ""
+"<filename>%1</filename> no es pot canviar el nom a un nom de fitxer buit."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

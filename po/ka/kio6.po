@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:39+0000\n"
-"PO-Revision-Date: 2025-06-07 04:45+0200\n"
+"PO-Revision-Date: 2025-06-17 04:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7045,20 +7045,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "მიუთითეთ <filename>%1</filename> -ის ახალი სახელი:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
-msgstr "ფაილი სახელით<filename>%1</filename> უკვე არსებობს."
+msgstr "ფაილი სახელით <filename>%1</filename> უკვე არსებობს."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> გამშვებ ფაილს არ გავს."
+msgstr "<filename>%1</filename> სწორი ფაილის სახელი არაა."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7089,39 +7085,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"არასწორი ფაილის სახელი: ახალი სახელი უნდა შეიცავდეს #-ის ერთ მიმდევრობას იმ "
+"შემთხვევის გარდა, როცა ყველა ფაილს სხვადსხვა ფაილის გაფართოებები აქვს."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "ჩანაცვლება"
+msgstr "ჩანაცვლება:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "ნიმუში"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "გამხსნელი პროგრამა:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "ჩანაცვლება"
+msgstr "შემცვლელი"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "ფაილის სახელები ნიმუშს არ შეიცავს."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7130,6 +7125,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"\"%1\"-ის ჩანაცვლება სიცარიელით გამოიწვევს, რომ ფაილს <filename>%2</"
+"filename> ცარიელი სახელი ექნება."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7150,39 +7147,34 @@ msgid "&Rename"
 msgstr "&გადარქმევა"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "წაშლა ან სახელის გადარქმევა:"
+msgstr "როგორ მოხდება სახელის გადარქმევა:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "ჩამონათვალი"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "ჩანაცვლება"
+msgstr "ტექსტის ჩანაცვლება"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "გადახედვის ჩვენება"
+msgstr "მინიატურა:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> გამშვებ ფაილს არ გავს."
+msgstr "<filename>%1</filename>-ის სახელი ცარიელზე ვერ შეიცვლება."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

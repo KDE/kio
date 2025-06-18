@@ -6789,20 +6789,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "重命名项目 <filename>%1</filename> 为："
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
-msgstr "名为 <filename>%1</filename> 的文件已经存在。"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> 不是一个可执行程序。"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -6834,11 +6830,10 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "替换"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
@@ -6847,18 +6842,16 @@ msgid "Pattern"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "打开方式："
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "替换"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
@@ -6893,11 +6886,10 @@ msgid "&Rename"
 msgstr "重命名(&R)"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "删除或者重命名："
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
@@ -6906,26 +6898,22 @@ msgid "Enumerate"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "替换"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "显示预览"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> 不是一个可执行程序。"
+msgstr ""
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
