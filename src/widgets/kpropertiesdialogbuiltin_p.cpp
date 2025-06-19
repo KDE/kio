@@ -389,7 +389,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->defaultHandlerIcon->hide();
         d->m_ui->defaultHandlerLabel->hide();
     }
-    d->m_ui->typeLabel->setBuddy(d->m_ui->mimeCommentLabel);
 
 #ifdef Q_OS_WIN
     d->m_ui->defaultHandlerLabel_Left->hide();
@@ -404,7 +403,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->contentLabel->hide();
         d->m_ui->magicMimeCommentLabel->hide();
     }
-    d->m_ui->defaultHandlerLabel_Left->setBuddy(d->m_ui->defaultHandlerLabel);
 
     d->m_ui->configureMimeBtn->setVisible(KAuthorized::authorizeAction(QStringLiteral("editfiletype")) && !d->m_ui->defaultHandlerLabel->isHidden());
 
@@ -418,7 +416,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->locationLabel->setAlignment(Qt::AlignRight);
         }
     }
-    d->m_ui->locationLabel_Left->setBuddy(d->m_ui->locationLabel);
 
     // Size widgets
     if (!hasDirs) { // Only files [and symlinks]
@@ -446,7 +443,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->stopCalculateSizeBtn->setEnabled(false);
         }
     }
-    d->m_ui->sizeLabelLeft->setBuddy(d->m_ui->sizeLabel);
 
     // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
@@ -481,7 +477,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->symlinkTargetEdit->hide();
         d->m_ui->symlinkTargetOpenDir->hide();
     }
-    d->m_ui->symlinkTargetLabel->setBuddy(d->m_ui->symlinkTargetEdit);
 
     // Time widgets
     if (!d->bMultiple) {
@@ -514,9 +509,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->accessTimeLabel->hide();
         d->m_ui->accessTimeLabel_Left->hide();
     }
-    d->m_ui->createdTimeLabel_Left->setBuddy(d->m_ui->createdTimeLabel);
-    d->m_ui->modifiedTimeLabel_Left->setBuddy(d->m_ui->modifiedTimeLabel);
-    d->m_ui->accessTimeLabel_Left->setBuddy(d->m_ui->accessTimeLabel);
 
     // File system and mount point widgets
     if (hasDirs) { // only for directories
@@ -540,10 +532,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_ui->capacityBar->hide();
         d->hideMountPointLabels();
     }
-    d->m_ui->fsLabel_Left->setBuddy(d->m_ui->fsLabel);
-    d->m_ui->mountPointLabel_Left->setBuddy(d->m_ui->mountPointLabel);
-    d->m_ui->mountSrcLabel_Left->setBuddy(d->m_ui->mountSrcLabel);
-    d->m_ui->freespaceLabel->setBuddy(d->m_ui->capacityBar);
 
     // UDSEntry extra fields
     // To determine extra fields, use the original URL, not the mostLocalUrl.

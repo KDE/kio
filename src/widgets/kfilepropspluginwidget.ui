@@ -90,6 +90,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
        </property>
+       <property name="buddy">
+        <cstring>mimeCommentLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="2" column="1">
@@ -136,6 +139,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>defaultHandlerLabel</cstring>
        </property>
       </widget>
      </item>
@@ -200,6 +206,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>locationLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="5" column="1">
@@ -225,6 +234,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+       </property>
+       <property name="buddy">
+        <cstring>sizeLabel</cstring>
        </property>
       </widget>
      </item>
@@ -320,6 +332,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>symlinkTargetEdit</cstring>
+       </property>
       </widget>
      </item>
      <item row="8" column="1">
@@ -370,6 +385,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>createdTimeLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="10" column="1">
@@ -390,6 +408,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>modifiedTimeLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="11" column="1">
@@ -409,6 +430,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>accessTimeLabel</cstring>
        </property>
       </widget>
      </item>
@@ -433,6 +457,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>fsLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="14" column="1">
@@ -455,6 +482,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>mountPointLabel</cstring>
        </property>
       </widget>
      </item>
@@ -479,6 +509,9 @@
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
+       <property name="buddy">
+        <cstring>mountSrcLabel</cstring>
+       </property>
       </widget>
      </item>
      <item row="16" column="1">
@@ -501,6 +534,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>capacityBar</cstring>
        </property>
       </widget>
      </item>
