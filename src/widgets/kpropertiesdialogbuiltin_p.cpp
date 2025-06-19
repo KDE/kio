@@ -446,6 +446,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
+        d->m_ui->symlinkTargetEdit->setPlaceholderText(i18nc("@info:placeholder", "Enter target location"));
         d->m_ui->symlinkTargetEdit->setText(firstItem.linkDest());
         connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
             setDirty();
