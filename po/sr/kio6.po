@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:39+0000\n"
+"POT-Creation-Date: 2025-06-21 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3331,7 +3331,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:354
-#: widgets/kpropertiesdialogbuiltin_p.cpp:670
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5156,7 +5156,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
 #: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
-#: widgets/kfilepropspluginwidget.ui:42
+#: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
 msgstr "Израчунај"
@@ -5546,7 +5546,7 @@ msgstr "Власник"
 msgid "Owning Group"
 msgstr "Власничка група"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "Others"
 msgstr "Остали"
@@ -5745,20 +5745,118 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "непознат"
 
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:88
+#, kde-format
+msgid "Type:"
+msgstr "Тип:"
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:118
+#, fuzzy, kde-format
+#| msgid "Contents:"
+msgid "Content:"
+msgstr "Садржај:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:138
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "Отвори помоћу"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:192
+#, fuzzy, kde-format
+#| msgid "Chan&ge..."
+msgid "Change..."
+msgstr "&Измени..."
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:204 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Локација:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:233
+#, kde-format
+msgid "Size:"
+msgstr "Величина:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:282
+#, kde-format
+msgid "Determine the folder size"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:52
+#: widgets/kfilepropspluginwidget.ui:289
 #, kde-format
 msgid "Stop"
 msgstr "Заустави"
 
+#. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:295
+#, kde-format
+msgid "Stop determining the folder size"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:62
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Explore in Filelight"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:330
+#, kde-format
+msgid "Points to:"
+msgstr "Веза ка:"
+
+#. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
+#: widgets/kfilepropspluginwidget.ui:361
+#, fuzzy, kde-format
+#| msgctxt "Warning about executing unknown .desktop file"
+#| msgid "Warning"
+msgid "Show target"
+msgstr "Упозорење"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:383
+#, fuzzy, kde-format
+#| msgid "Created:"
+msgid "Created:"
+msgstr "Стварање:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:406
+#, kde-format
+msgid "Modified:"
+msgstr "Измена:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Accessed:"
+msgstr "Приступ:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:455
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
+msgstr "Фајл систем:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:481
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted On:"
+msgstr "Монтирање:"
+
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:146
+#: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted From:"
@@ -5766,98 +5864,20 @@ msgstr "Монтирање:"
 
 # >> @item:inlistbox Keyword delimiter character
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:222
+#: widgets/kfilepropspluginwidget.ui:533
 #, fuzzy, kde-format
 #| msgctxt "Space as keyword delimiter"
 #| msgid "Space"
 msgid "Free Space:"
 msgstr "размак"
 
-#. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:259
-#, kde-format
-msgid "Type:"
-msgstr "Тип:"
-
-#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Локација:"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:302
-#, kde-format
-msgid "Size:"
-msgstr "Величина:"
-
-#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:350
-#, fuzzy, kde-format
-#| msgid "Chan&ge..."
-msgid "Change..."
-msgstr "&Измени..."
-
-#. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:362
-#, fuzzy, kde-format
-#| msgid "Contents:"
-msgid "Content:"
-msgstr "Садржај:"
-
-#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:385
-#, kde-format
-msgid "Points to:"
-msgstr "Веза ка:"
-
-#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:395
-#, kde-format
-msgid "Modified:"
-msgstr "Измена:"
-
-#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:405
-#, fuzzy, kde-format
-#| msgid "Created:"
-msgid "Created:"
-msgstr "Стварање:"
-
-#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:415
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
-msgstr "Фајл систем:"
-
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:445
+#: widgets/kfilepropspluginwidget.ui:546
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unknown size"
 msgid "Unknown size"
 msgstr "непозната величина"
-
-#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:468
-#, fuzzy, kde-format
-#| msgid "Mounted on:"
-msgid "Mounted On:"
-msgstr "Монтирање:"
-
-#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:488
-#, kde-format
-msgid "Accessed:"
-msgstr "Приступ:"
-
-#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:498
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "Отвори помоћу"
 
 #: widgets/kopenwithdialog.cpp:299
 #, kde-format
@@ -6409,7 +6429,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:110
+#: widgets/kpropertiesdialogbuiltin_p.cpp:111
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<qt>Could not save properties. You do not have sufficient access to write "
@@ -6422,38 +6442,69 @@ msgstr ""
 "<qt>Није могуће сачувати својства. Немате одговарајуће дозволе за упис у <tt>"
 "%1</tt>.</qt>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:231
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Опште"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enter a different name"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Изабери друго име"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enter a different name"
+msgctxt "@info:placeholder"
+msgid "Enter file name"
+msgstr "Изабери друго име"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:438
-#: widgets/kpropertiesdialogbuiltin_p.cpp:710
+#: widgets/kpropertiesdialogbuiltin_p.cpp:440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:718
 #, kde-format
 msgid "Refresh"
 msgstr "Освежи"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:556
+#: widgets/kpropertiesdialogbuiltin_p.cpp:449
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter target location"
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:456
+#, fuzzy, kde-kuit-format
+#| msgid "Do you really want to move this item to the trash?"
+#| msgid_plural "Do you really want to move these %1 items to the trash?"
+msgctxt "@info:tooltip Go to path %1"
+msgid "Show <filename>%1</filename>"
+msgstr "Желите ли заиста да баците ову %1 ставку у смеће?"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu Create New"
 #| msgid "%1"
 msgid "%1:"
 msgstr "%1|/|$[аку %1]"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:677
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "непозната величина"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:687
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6462,8 +6513,8 @@ msgstr ""
 "Рачунам... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:690
-#: widgets/kpropertiesdialogbuiltin_p.cpp:705
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:713
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -6472,8 +6523,8 @@ msgstr[1] "%1 фајла"
 msgstr[2] "%1 фајлова"
 msgstr[3] "1 фајл"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:691
-#: widgets/kpropertiesdialogbuiltin_p.cpp:706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
@@ -6482,105 +6533,111 @@ msgstr[1] "%1 потфасцикле"
 msgstr[2] "%1 потфасцикли"
 msgstr[3] "1 потфасцикла"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgid "Calculating...\n"
 msgstr "Рачунам..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
 #, fuzzy, kde-format
 #| msgid "At least %1"
 msgid "At least %1\n"
 msgstr "Барем %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:788
+#: widgets/kpropertiesdialogbuiltin_p.cpp:796
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Ново име фајла је празно."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, fuzzy, kde-format
 #| msgid "&Supported file types:"
 msgid "No registered file type"
 msgstr "&Подржани типови фајлова:"
 
 # >> @title:window
-#: widgets/kpropertiesdialogbuiltin_p.cpp:988
+#: widgets/kpropertiesdialogbuiltin_p.cpp:996
 #, fuzzy, kde-format
 #| msgid "Choose Application"
 msgid "No associated application"
 msgstr "Избор програма"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Стварање:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:997
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, fuzzy, kde-format
 #| msgid "Chan&ge..."
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "&Измени..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Change the default application for opening files of type “%1”."
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 #, fuzzy
 #| msgid "Accessed:"
 msgid "No Access"
 msgstr "Приступ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
 msgstr ""
 
 # >> @item:inlistbox Permissions
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #, fuzzy
 #| msgid "Can View & Modify Content"
 msgid "Can View & Modify"
 msgstr "приказ и измена садржаја"
 
 # >> @item:inlistbox Permissions
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #, fuzzy
 #| msgid "Can View Content"
 msgid "Can Only View Content"
 msgstr "приказ садржаја"
 
 # >> @item:inlistbox Permissions
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify Content"
 msgstr "приказ и измена садржаја"
 
 # >> @item:inlistbox Permissions
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 #, fuzzy
 #| msgid "Can View Content"
 msgid "Can Only View/Read Content"
 msgstr "приказ садржаја"
 
 # >> @item:inlistbox Permissions
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can View/Read & Modify/Write"
 msgstr "приказ/читање и измена/писање"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1170
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "&Permissions"
 msgstr "&Дозволе"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
 msgstr "Дозволе приступа"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6589,37 +6646,37 @@ msgstr[1] "Сви фајлови су везе и немају дозволе."
 msgstr[2] "Сви фајлови су везе и немају дозволе."
 msgstr[3] "Овај фајл је веза и нема дозволе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1193
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Само власник може да мења дозволе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&wner:"
 msgstr "&Власник:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Одређује радње које су дозвољене власнику."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Група:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Одређује радње које су дозвољене члановима групе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "O&thers:"
 msgstr "&Остали:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6629,31 +6686,31 @@ msgstr ""
 "власник ни чланови групе."
 
 # Јасно из контекста да је у питању фасцикла
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, fuzzy, kde-format
 #| msgid "Only own&er can rename and delete folder content"
 msgid "Only own&er can delete or rename contents"
 msgstr "Само в&ласник може да преименује и брише садржај"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, fuzzy, kde-format
 #| msgid "Enable this flag to allow executing the file as a program."
 msgid "Allow &executing file as program"
 msgstr "Поставите ову заставицу да дозволите извршавање фајла као програма."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgid "Delete or rename:"
 msgstr "Подразумевано корисничко име:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgid "Execute:"
 msgstr "&Изврши"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6664,7 +6721,7 @@ msgstr ""
 "садржане фајлове и фасцикле. Остали корисници могу само да додају нове "
 "фајлове, ако је дата дозвола за измену садржаја."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6673,75 +6730,75 @@ msgstr ""
 "Укључите ову опцију да означите фајл као извршан. Ово има смисла само за "
 "програме и скрипте, и неопходно је ако желите да их извршавате."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "&Напредне дозволе"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
 #, kde-format
 msgid "Ownership"
 msgstr "Власништво"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "User:"
 msgstr "Корисник:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
 #, kde-format
 msgid "Group:"
 msgstr "Група:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Примени измене на све потфасцикле и њихов садржај"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Напредне дозволе"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "Class"
 msgstr "класа"
 
 # >> @title:column
 # „...ставки“ јасно из контекста, ружно овако преломљено
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "Show\n"
 "Entries"
 msgstr "приказ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ова заставица омогућава приказивање садржаја фасцикле."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Read"
 msgstr "читање"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Заставица читања омогућава приказивање садржаја фајла."
 
 # >> @title:column
 # „...ставки“ јасно из контекста, ружно овако преломљено
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "Write\n"
 "Entries"
 msgstr "упис"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6750,43 +6807,43 @@ msgstr ""
 "Ова заставица омогућава додавање, преименовање и брисање фајлова. Брисање и "
 "преименовање могу бити ограничени лепљивом заставицом."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Write"
 msgstr "упис"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Заставица за писање омогућава измену садржаја фајла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "улаз"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Поставите ову заставицу да дозволите улазак у фасциклу."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Exec"
 msgstr "извршна"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Поставите ову заставицу да дозволите извршавање фајла као програма."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "Special"
 msgstr "посебно"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6795,24 +6852,24 @@ msgstr ""
 "Посебна заставица. Важи за целу фасциклу, тачно значење можете видети у "
 "десној колони."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "Посебна заставица. Тачно значење можете видети у десној колони."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "User"
 msgstr "Корисник"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid "Group"
 msgstr "Група"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6820,7 +6877,7 @@ msgid ""
 msgstr ""
 "Са овом заставицом власник фасцикле ће бити власник свих нових фајлова."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6829,14 +6886,14 @@ msgstr ""
 "Ако је фајл извршни, уз ову заставицу ће бити извршаван са дозволама "
 "власника."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
 "Са овом заставицом група фасцикле ће бити коришћена за све нове фајлове."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6844,7 +6901,7 @@ msgid ""
 msgstr ""
 "Ако је фајл извршни, уз ову заставица ће бити извршаван са дозволама групе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6854,7 +6911,7 @@ msgstr ""
 "брисати и преименовати фајлове. Иначе, сви са дозволом писања могу то да "
 "раде."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1476
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6863,33 +6920,33 @@ msgstr ""
 "Лепљива заставица на фајлу се игнорише под Линуксом, али се може користити "
 "на другим системима."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
 #, kde-format
 msgid "Set UID"
 msgstr "стави УИД"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
 #, kde-format
 msgid "Set GID"
 msgstr "стави ГИД"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "лепљива"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1658
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Link"
 msgstr "Веза"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Променљиво (без измене)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1789
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6898,7 +6955,7 @@ msgstr[1] "Ови фајлови користе напредне дозволе.
 msgstr[2] "Ови фајлови користе напредне дозволе."
 msgstr[3] "Овај фајл користи напредне дозволе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1811
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6907,21 +6964,21 @@ msgstr[1] "Ове фасцикле користе напредне дозвол�
 msgstr[2] "Ове фасцикле користе напредне дозволе."
 msgstr[3] "Ова фасцикла користи напредне дозволе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1825
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Ови фајлови користе напредне дозволе."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2073
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Контролне суме"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2128
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2139
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2150
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2161
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Calculating..."
@@ -6929,29 +6986,29 @@ msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Рачунам..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Неправилна контролна сума."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2320
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Дати унос није правилна МД5, СХА‑1 или СХА‑256 контролна сума."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
 #, kde-format
 msgid "Checksums match."
 msgstr "Контролне суме се поклапају."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2334
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Израчуната контролна сума поклапа се са очекиваном."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2346
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6962,13 +7019,13 @@ msgstr ""
 "преузимање. Покушајте поново да преузмете фајл.<br/>Ако овера и после тога "
 "не пролази, обратите се некоме на извору фајла."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Израчуната контролна сума разликује се од очекиване."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
 #, fuzzy, kde-format
 #| msgctxt "notify the user about a computation in the background"
 #| msgid "Verifying checksum..."
@@ -6976,18 +7033,18 @@ msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Оверавам контролну суму..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "U&RL"
 msgstr "УРЛ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
 #, kde-format
 msgid "URL:"
 msgstr "УРЛ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2522
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2793
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6995,27 +7052,27 @@ msgstr ""
 "Није могуће сачувати својства. Подржане су само ставке на локалним фајл "
 "системима."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2593
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
 #, kde-format
 msgid "&Application"
 msgstr "&Програм"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2733
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Додај тип фајла за %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Одаберите један или више типова за додавање:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2872
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Извршни фајлови су подржани само на локалном фајл систему."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2887
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Напредне опције за %1"
@@ -9026,12 +9083,6 @@ msgstr "Ако не верујете програму, кликните на „
 #~ msgstr ""
 #~ "<para>Прорачунати највећи простор на диску који се може користити за "
 #~ "смеће.</para>"
-
-#, fuzzy
-#~| msgctxt "Warning about executing unknown .desktop file"
-#~| msgid "Warning"
-#~ msgid "Show a Warning"
-#~ msgstr "Упозорење"
 
 # >> @item:inlistbox When limit reached
 #~ msgid "Delete Oldest Files From Trash"

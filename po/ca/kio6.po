@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:39+0000\n"
+"POT-Creation-Date: 2025-06-21 00:39+0000\n"
 "PO-Revision-Date: 2025-06-17 08:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3282,7 +3282,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:354
-#: widgets/kpropertiesdialogbuiltin_p.cpp:670
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5009,7 +5009,7 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
 #: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
-#: widgets/kfilepropspluginwidget.ui:42
+#: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
 msgstr "Calcula"
@@ -5364,7 +5364,7 @@ msgstr "Propietari"
 msgid "Owning Group"
 msgstr "Grup propietari"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "Others"
 msgstr "Altres"
@@ -5550,107 +5550,126 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:52
-#, kde-format
-msgid "Stop"
-msgstr "Atura"
-
-#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:62
-#, kde-format
-msgid "Explore in Filelight"
-msgstr "Explora en el Filelight"
-
-#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:146
-#, kde-format
-msgid "Mounted From:"
-msgstr "Muntat des de:"
-
-#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:222
-#, kde-format
-msgid "Free Space:"
-msgstr "Espai lliure:"
-
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:259
+#: widgets/kfilepropspluginwidget.ui:88
 #, kde-format
 msgid "Type:"
 msgstr "Tipus:"
 
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:118
+#, kde-format
+msgid "Content:"
+msgstr "Contingut:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:138
+#, kde-format
+msgid "Open With:"
+msgstr "Obre amb:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:192
+#, kde-format
+msgid "Change..."
+msgstr "Canvia..."
+
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:204 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Ubicació:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:302
+#: widgets/kfilepropspluginwidget.ui:233
 #, kde-format
 msgid "Size:"
 msgstr "Mida:"
 
-#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:350
+#. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
-msgid "Change..."
-msgstr "Canvia..."
+msgid "Determine the folder size"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:362
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:289
 #, kde-format
-msgid "Content:"
-msgstr "Contingut:"
+msgid "Stop"
+msgstr "Atura"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:295
+#, kde-format
+msgid "Stop determining the folder size"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:302
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Explora en el Filelight"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:385
+#: widgets/kfilepropspluginwidget.ui:330
 #, kde-format
 msgid "Points to:"
 msgstr "Apunta a:"
 
-#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:395
-#, kde-format
-msgid "Modified:"
-msgstr "Modificat:"
+#. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
+#: widgets/kfilepropspluginwidget.ui:361
+#, fuzzy, kde-format
+#| msgid "Show Preview"
+msgid "Show target"
+msgstr "Mostra la vista prèvia"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:405
+#: widgets/kfilepropspluginwidget.ui:383
 #, kde-format
 msgid "Created:"
 msgstr "Creat:"
 
-#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:415
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:406
 #, kde-format
-msgid "File System:"
-msgstr "Sistema de fitxers:"
-
-#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:445
-#, kde-format
-msgid "Unknown size"
-msgstr "Mida desconeguda"
-
-#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:468
-#, kde-format
-msgid "Mounted On:"
-msgstr "Muntat a:"
+msgid "Modified:"
+msgstr "Modificat:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:488
+#: widgets/kfilepropspluginwidget.ui:429
 #, kde-format
 msgid "Accessed:"
 msgstr "Accedit:"
 
-#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:498
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "Open With:"
-msgstr "Obre amb:"
+msgid "File System:"
+msgstr "Sistema de fitxers:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:481
+#, kde-format
+msgid "Mounted On:"
+msgstr "Muntat a:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:507
+#, kde-format
+msgid "Mounted From:"
+msgstr "Muntat des de:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:533
+#, kde-format
+msgid "Free Space:"
+msgstr "Espai lliure:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:546
+#, kde-format
+msgid "Unknown size"
+msgstr "Mida desconeguda"
 
 #: widgets/kopenwithdialog.cpp:299
 #, kde-format
@@ -6186,7 +6205,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr "Compartició"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:110
+#: widgets/kpropertiesdialogbuiltin_p.cpp:111
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6196,36 +6215,67 @@ msgstr ""
 "No s'han pogut desar les propietats a causa d'un accés d'escriptura "
 "insuficient a:<nl/><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:231
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&General"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Introduïu el nom del fitxer %1:"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter file name"
+msgstr "Introduïu el nom del fitxer %1:"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Explora en el %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:438
-#: widgets/kpropertiesdialogbuiltin_p.cpp:710
+#: widgets/kpropertiesdialogbuiltin_p.cpp:440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:718
 #, kde-format
 msgid "Refresh"
 msgstr "Actualitza"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:556
+#: widgets/kpropertiesdialogbuiltin_p.cpp:449
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter target location"
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:456
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@info:tooltip Go to path %1"
+msgid "Show <filename>%1</filename>"
+msgstr "No s'ha pogut transferir <filename>%1</filename>"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:677
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:687
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6234,138 +6284,144 @@ msgstr ""
 "S'està calculant... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:690
-#: widgets/kpropertiesdialogbuiltin_p.cpp:705
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:713
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 fitxer"
 msgstr[1] "%1 fitxers"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:691
-#: widgets/kpropertiesdialogbuiltin_p.cpp:706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 subcarpeta"
 msgstr[1] "%1 subcarpetes"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "Calculating...\n"
 msgstr "S'està calculant...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
 #, kde-format
 msgid "At least %1\n"
 msgstr "Com a mínim %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:788
+#: widgets/kpropertiesdialogbuiltin_p.cpp:796
 #, kde-format
 msgid "The new file name is empty."
 msgstr "El nom del fitxer nou està buit."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No registered file type"
 msgstr "Tipus de fitxer no registrat"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:988
+#: widgets/kpropertiesdialogbuiltin_p.cpp:996
 #, kde-format
 msgid "No associated application"
 msgstr "No hi ha associada cap aplicació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Crea…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:997
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Canvia…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Change the default application for opening files of type “%1”."
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
 msgstr "Sense accés"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
 msgstr "Només pot veure"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can View & Modify"
 msgstr "Pot veure i modificar"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View Content"
 msgstr "Només pot veure el contingut"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify Content"
 msgstr "Pot veure i modificar el contingut"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can Only View/Read Content"
 msgstr "Només pot veure/llegir el contingut"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can View/Read & Modify/Write"
 msgstr "Pot veure/llegir i modificar/escriure"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1170
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "&Permissions"
 msgstr "&Permisos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
 msgstr "Permisos d'accés"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Aquest fitxer és un enllaç i no té permisos."
 msgstr[1] "Tots els fitxers són enllaços i no tenen permisos."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1193
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Només el propietari pot canviar els permisos."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&wner:"
 msgstr "&Propietari:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Especifica les accions que el propietari té permès fer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&up:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Especifica les accions que els membres del grup tenen permès fer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "O&thers:"
 msgstr "Al&tres:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6374,27 +6430,27 @@ msgstr ""
 "Especifica les accions que tots els usuaris, que no són el propietari ni "
 "estan al grup, tenen permès fer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Només el propi&etari pot suprimir o reanomenar el contingut"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Permet &executar el fitxer com a programa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Suprimeix o reanomena:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Execute:"
 msgstr "Executa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6406,7 +6462,7 @@ msgstr ""
 "només podran afegir fitxers nous, el qual requereix permís de «Modifica el "
 "contingut»."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6415,42 +6471,42 @@ msgstr ""
 "Activeu aquesta opció per a marcar el fitxer com executable. Això només té "
 "sentit per a programes i scripts. Cal quan els voleu executar."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Permisos a&vançats"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
 #, kde-format
 msgid "Ownership"
 msgstr "Propietat"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "User:"
 msgstr "Usuari:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
 #, kde-format
 msgid "Group:"
 msgstr "Grup:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Aplica els canvis a totes les subcarpetes i el seu contingut"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Permisos avançats"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "Class"
 msgstr "Classe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "Show\n"
@@ -6459,22 +6515,22 @@ msgstr ""
 "Mostra les\n"
 "entrades"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Aquest indicador permet veure el contingut de la carpeta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Read"
 msgstr "Lectura"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "L'indicador de lectura permet veure el contingut del fitxer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "Write\n"
@@ -6483,7 +6539,7 @@ msgstr ""
 "Escriptura de\n"
 "les entrades"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6493,44 +6549,44 @@ msgstr ""
 "present que suprimir i canviar el nom es pot limitar usant l'indicador "
 "d'apegalós."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Write"
 msgstr "Escriptura"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "L'indicador d'escriptura permet modificar el contingut del fitxer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Entrada"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Activeu aquest indicador per a permetre entrar a la carpeta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Exec"
 msgstr "Execució"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Activa aquest indicador per a permetre executar el fitxer com a programa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "Special"
 msgstr "Especial"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6539,7 +6595,7 @@ msgstr ""
 "Indicador especial. És vàlid per a tota la carpeta, el significat exacte de "
 "l'indicador es pot veure a la columna de la dreta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6548,17 +6604,17 @@ msgstr ""
 "Indicador especial. El significat exacte de l'indicador es pot veure a la "
 "columna de la dreta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "User"
 msgstr "Usuari"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid "Group"
 msgstr "Grup"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6567,7 +6623,7 @@ msgstr ""
 "Si aquest indicador està activat, el propietari d'aquesta carpeta serà el "
 "propietari de tots els fitxers nous."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6576,7 +6632,7 @@ msgstr ""
 "Si aquest fitxer és un executable i l'indicador està activat, s'executarà "
 "amb els permisos de l'usuari."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6584,7 +6640,7 @@ msgstr ""
 "Si aquest indicador està activat, el grup d'aquesta carpeta s'associarà amb "
 "tots els fitxers nous."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6593,7 +6649,7 @@ msgstr ""
 "Si aquest fitxer és un executable i l'indicador està activat, s'executarà "
 "amb els permisos del grup."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6603,7 +6659,7 @@ msgstr ""
 "l'administrador poden suprimir o reanomenar fitxers. Altrament, tothom amb "
 "permisos d'escriptura ho pot fer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1476
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6612,90 +6668,90 @@ msgstr ""
 "L'indicador d'apegalós a un fitxer s'ignora a Linux, però pot usar-se en "
 "alguns sistemes"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
 #, kde-format
 msgid "Set UID"
 msgstr "Estableix l'UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
 #, kde-format
 msgid "Set GID"
 msgstr "Estableix la GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Apegalós"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1658
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Link"
 msgstr "Enllaç"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Variant (Sense canvis)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1789
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Aquest fitxer usa permisos avançats"
 msgstr[1] "Aquests fitxers usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1811
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Aquesta carpeta usa permisos avançats."
 msgstr[1] "Aquestes carpetes usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1825
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Aquests fitxers usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2073
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Sumes de verifi&cació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2128
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2139
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2150
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2161
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "S'està calculant…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Suma de verificació no vàlida."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2320
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "L'entrada indicada no és cap suma de verificació vàlida MD5, SHA1 o SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
 #, kde-format
 msgid "Checksums match."
 msgstr "Les sumes de verificació coincideixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2334
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "La suma de verificació calculada i l'esperada coincideixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2346
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6706,30 +6762,30 @@ msgstr ""
 "baixada fallida. Intenteu tornar a baixar el fitxer.<br/>Si la verificació "
 "encara falla, contacteu amb l'origen del fitxer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "La suma de verificació calculada i l'esperada difereixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "S'està comprovant la suma de verificació…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2522
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2793
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6737,27 +6793,27 @@ msgstr ""
 "No s'han pogut desar les propietats. Només s'accepten entrades en el sistema "
 "de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2593
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2733
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Afegeix un tipus de fitxer per a %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleccioneu un o més tipus de fitxer a afegir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2872
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Només s'accepten executables al sistema de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2887
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opcions avançades per a %1"

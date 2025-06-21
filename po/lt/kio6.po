@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:39+0000\n"
+"POT-Creation-Date: 2025-06-21 00:39+0000\n"
 "PO-Revision-Date: 2025-01-11 13:33+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -3279,7 +3279,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:354
-#: widgets/kpropertiesdialogbuiltin_p.cpp:670
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5018,7 +5018,7 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
 #: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
-#: widgets/kfilepropspluginwidget.ui:42
+#: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
 msgstr "Skaičiuoti"
@@ -5380,7 +5380,7 @@ msgstr "Savininkas"
 msgid "Owning Group"
 msgstr "Savininkų grupė"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "Others"
 msgstr "Kiti"
@@ -5568,107 +5568,126 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:52
-#, kde-format
-msgid "Stop"
-msgstr "Stabdyti"
-
-#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:62
-#, kde-format
-msgid "Explore in Filelight"
-msgstr "Tyrinėti Filelight programoje"
-
-#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:146
-#, kde-format
-msgid "Mounted From:"
-msgstr "Prijungta iš:"
-
-#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:222
-#, kde-format
-msgid "Free Space:"
-msgstr "Laisva vieta:"
-
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:259
+#: widgets/kfilepropspluginwidget.ui:88
 #, kde-format
 msgid "Type:"
 msgstr "Tipas:"
 
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:118
+#, kde-format
+msgid "Content:"
+msgstr "Turinys:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:138
+#, kde-format
+msgid "Open With:"
+msgstr "Atverti naudojant:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:192
+#, kde-format
+msgid "Change..."
+msgstr "Keisti..."
+
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:204 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Vieta:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:302
+#: widgets/kfilepropspluginwidget.ui:233
 #, kde-format
 msgid "Size:"
 msgstr "Dydis:"
 
-#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:350
+#. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
-msgid "Change..."
-msgstr "Keisti..."
+msgid "Determine the folder size"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:362
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:289
 #, kde-format
-msgid "Content:"
-msgstr "Turinys:"
+msgid "Stop"
+msgstr "Stabdyti"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:295
+#, kde-format
+msgid "Stop determining the folder size"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:302
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Tyrinėti Filelight programoje"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:385
+#: widgets/kfilepropspluginwidget.ui:330
 #, kde-format
 msgid "Points to:"
 msgstr "Veda į:"
 
-#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:395
-#, kde-format
-msgid "Modified:"
-msgstr "Keista:"
+#. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
+#: widgets/kfilepropspluginwidget.ui:361
+#, fuzzy, kde-format
+#| msgid "Show a Warning"
+msgid "Show target"
+msgstr "Rodyti įspėjimą"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:405
+#: widgets/kfilepropspluginwidget.ui:383
 #, kde-format
 msgid "Created:"
 msgstr "Sukurta:"
 
-#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:415
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:406
 #, kde-format
-msgid "File System:"
-msgstr "Failų sistema:"
-
-#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:445
-#, kde-format
-msgid "Unknown size"
-msgstr "Nežinomas dydis"
-
-#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:468
-#, kde-format
-msgid "Mounted On:"
-msgstr "Prijungta ties:"
+msgid "Modified:"
+msgstr "Keista:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:488
+#: widgets/kfilepropspluginwidget.ui:429
 #, kde-format
 msgid "Accessed:"
 msgstr "Naudota:"
 
-#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:498
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "Open With:"
-msgstr "Atverti naudojant:"
+msgid "File System:"
+msgstr "Failų sistema:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:481
+#, kde-format
+msgid "Mounted On:"
+msgstr "Prijungta ties:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:507
+#, kde-format
+msgid "Mounted From:"
+msgstr "Prijungta iš:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:533
+#, kde-format
+msgid "Free Space:"
+msgstr "Laisva vieta:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:546
+#, kde-format
+msgid "Unknown size"
+msgstr "Nežinomas dydis"
 
 #: widgets/kopenwithdialog.cpp:299
 #, kde-format
@@ -6206,7 +6225,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr "Bendrinti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:110
+#: widgets/kpropertiesdialogbuiltin_p.cpp:111
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6216,36 +6235,67 @@ msgstr ""
 "Nepavyko įrašyti dėl nepakankamos rašymo prieigos prie:<nl/><filename>%1</"
 "filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:231
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Bendros"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Įveskite %1 failo pavadinimą:"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter file name"
+msgstr "Įveskite %1 failo pavadinimą:"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Tyrinėti %1 programoje"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:438
-#: widgets/kpropertiesdialogbuiltin_p.cpp:710
+#: widgets/kpropertiesdialogbuiltin_p.cpp:440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:718
 #, kde-format
 msgid "Refresh"
 msgstr "Įkelti iš naujo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:556
+#: widgets/kpropertiesdialogbuiltin_p.cpp:449
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter target location"
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:456
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@info:tooltip Go to path %1"
+msgid "Show <filename>%1</filename>"
+msgstr "Nepavyko perduoti <filename>%1</filename>"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:677
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Nežinomas dydis"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:687
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6254,8 +6304,8 @@ msgstr ""
 "Skaičiuojama... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:690
-#: widgets/kpropertiesdialogbuiltin_p.cpp:705
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:713
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -6264,8 +6314,8 @@ msgstr[1] "%1 failai"
 msgstr[2] "%1 failų"
 msgstr[3] "%1 failas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:691
-#: widgets/kpropertiesdialogbuiltin_p.cpp:706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
@@ -6274,85 +6324,91 @@ msgstr[1] "%1 poaplankiai"
 msgstr[2] "%1 poaplankių"
 msgstr[3] "%1 poaplankis"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Skaičiuojama...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
 #, kde-format
 msgid "At least %1\n"
 msgstr "Bent %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:788
+#: widgets/kpropertiesdialogbuiltin_p.cpp:796
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Naujas failo pavadinimas yra tuščias."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No registered file type"
 msgstr "Nėra registruoto failo tipo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:988
+#: widgets/kpropertiesdialogbuiltin_p.cpp:996
 #, kde-format
 msgid "No associated application"
 msgstr "Nėra susietos programos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Sukurti…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:997
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Keisti…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Change the default application for opening files of type “%1”."
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
 msgstr "Nėra prieigos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
 msgstr "Gali tik žiūrėti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1068
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can View & Modify"
 msgstr "Gali žiūrėti ir keisti turinį"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View Content"
 msgstr "Gali tik žiūrėti turinį"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1069
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify Content"
 msgstr "Gali žiūrėti ir keisti turinį"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can Only View/Read Content"
 msgstr "Gali tik žiūrėti/skaityti turinį"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can View/Read & Modify/Write"
 msgstr "Gali žiūrėti/skaityti ir keisti/rašyti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1170
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "&Permissions"
 msgstr "&Leidimai"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
 msgstr "Prieigos leidimai"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6361,37 +6417,37 @@ msgstr[1] "Visi failai yra nuorodos ir neturi leidimų."
 msgstr[2] "Visi failai yra nuorodos ir neturi leidimų."
 msgstr[3] "Visi failai yra nuorodos ir neturi leidimų."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1193
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Tik savininkas gali keisti leidimus."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1200
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&wner:"
 msgstr "Sa&vininkas:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Nurodo veiksmus, kuriuos gali atlikti savininkas."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1205
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&upė:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Nuorodo veiksmus, kuriuos gali atlikti grupės nariai."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "O&thers:"
 msgstr "K&iti:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6400,27 +6456,27 @@ msgstr ""
 "Nurodo veiksmus, kuriuos visi naudotojai, kuriems failas/aplankas "
 "nepriklauso ir kurie nepriklauso savininko grupei, gali daryti."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Tik savi&ninkas gali ištrinti ar pervadinti turinį"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "L&eisti vykdyti failą kaip programą"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Ištrinti ar pervadinti:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1219
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Execute:"
 msgstr "Vykdyti:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6431,7 +6487,7 @@ msgstr ""
 "failus ir aplankus suteikti tik aplanko savininkui. Kiti naudotojai gali tik "
 "pridėti naujus failus, tam reikia turėti „turinio keitimo“ leidimą."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6440,42 +6496,42 @@ msgstr ""
 "Įjunkite šią parinktį norėdami pažymėti failą kaip vykdomąjį. Tai prasminga "
 "tik programoms ir scenarijams. To reikia norint vykdyti failą."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "&Išplėstiniai leidimai"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
 #, kde-format
 msgid "Ownership"
 msgstr "Nuosavybė"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "User:"
 msgstr "Naudotojas:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
 #, kde-format
 msgid "Group:"
 msgstr "Grupė:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1316
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Taikyti pakeitimus visiems poaplankiams ir jų turiniui"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Išplėstiniai leidimai"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "Class"
 msgstr "Klasė"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "Show\n"
@@ -6484,22 +6540,22 @@ msgstr ""
 "Rodyti\n"
 "įrašus"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ši vėliavėlė leidžia peržiūrėti aplanko turinį."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Read"
 msgstr "Skaityti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Skaitymo vėliavėlė leidžia peržiūrėti failo turinį."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "Write\n"
@@ -6508,7 +6564,7 @@ msgstr ""
 "Rašyti\n"
 "įrašus"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6518,43 +6574,43 @@ msgstr ""
 "dėmesį, kad galimybė trinti ir pervadinti failus gali būti apribota "
 "panaudojus vėliavėlę „Lipni“."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Write"
 msgstr "Rašyti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Rašymo vėliavėlė leidžia keisti failo turinį."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Įeiti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Pažymėkite šią vėliavėlę norėdami leisti įeiti į aplanką."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Exec"
 msgstr "Vykdyti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Pažymėkite šią vėliavėlę norėdami leisti vykdyti failą kaip programą."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "Special"
 msgstr "Speciali"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1425
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6563,7 +6619,7 @@ msgstr ""
 "Speciali vėliavėlė. Galioja visam aplankui, jos tikslią prasmę galite matyti "
 "dešiniajame stulpelyje."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6571,17 +6627,17 @@ msgid ""
 msgstr ""
 "Speciali vėliavėlė. Jos tikslią prasmę galite matyti dešiniajame stulpelyje."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1434
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "User"
 msgstr "Naudotojas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid "Group"
 msgstr "Grupė"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6590,7 +6646,7 @@ msgstr ""
 "Jei ši vėliavėlė pažymėta, šio aplanko savininkas automatiškai taps visų "
 "naujų failų aplanke savininku."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6599,7 +6655,7 @@ msgstr ""
 "Jei failas yra vykdomasis ir nustatyta ši vėliavėlė, jis bus vykdomas "
 "savininko leidimais."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6607,7 +6663,7 @@ msgstr ""
 "Jei vėliavėlė įjungta, šio aplanko grupė bus nustatyta visiems naujiems "
 "failams."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6616,7 +6672,7 @@ msgstr ""
 "Jei šis failas yra vykdomasis ir nustatyta ši vėliavėlė, jis bus vykdomas "
 "grupės leidimais."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6626,7 +6682,7 @@ msgstr ""
 "(root) galės ištrinti ar pervadinti failus. Kitu atveju visi, turintys "
 "rašymo leidimus, galėtų tai daryti."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1476
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6635,33 +6691,33 @@ msgstr ""
 "„Lipni“ vėliavėlė, nustatyta failui, yra ignoruojama Linux, tačiau gali būti "
 "naudojama kai kuriose sistemose"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1537
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
 #, kde-format
 msgid "Set UID"
 msgstr "Nustatyti UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1541
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
 #, kde-format
 msgid "Set GID"
 msgstr "Nustatyti GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Lipni"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1658
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Link"
 msgstr "Nuoroda"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Permainingas (nėra pakeitimų)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1789
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6670,7 +6726,7 @@ msgstr[1] "Šie failai naudoja išplėstinius leidimus."
 msgstr[2] "Šie failai naudoja išplėstinius leidimus."
 msgstr[3] "Šie failai naudoja išplėstinius leidimus."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1811
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6679,32 +6735,32 @@ msgstr[1] "Šie aplankai naudoja išplėstinius leidimus."
 msgstr[2] "Šie aplankai naudoja išplėstinius leidimus."
 msgstr[3] "Šie aplankai naudoja išplėstinius leidimus."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1825
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Šie failai naudoja išplėstinius leidimus."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2063
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2073
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Kontrolinės sumos"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2128
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2139
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2150
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2161
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Skaičiuojama…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2317
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Netinkama kontrolinė suma."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2320
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
@@ -6712,18 +6768,18 @@ msgstr ""
 "Pateiktoji kontrolinė suma nėra nei MD5, nei SHA1, nei SHA256 kontrolinė "
 "suma."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
 #, kde-format
 msgid "Checksums match."
 msgstr "Kontrolinės sumos sutampa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2334
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Apskaičiuotoji kontrolinė suma atitinka tą, kurios tikėtasi."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2346
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6734,57 +6790,57 @@ msgstr ""
 "atsisiuntimo. Pabandykite atsisiųsti failą iš naujo.<br/>Jei patikrinimas "
 "vis tiek patiria nesėkmę, susisiekite su failo šaltiniu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2351
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Apskaičiuotoji kontrolinė suma skiriasi nuo tos, kurios tikėtasi."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2359
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Tikrinama kontrolinė suma…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2522
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2793
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "Nepavyksta įrašyti savybių. Palaikomi tik vietinės failų sistemos failai."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2593
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
 #, kde-format
 msgid "&Application"
 msgstr "Progr&ama"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2733
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Pridėti %1 failo tipą"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2734
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Pažymėkite vieną ar daugiau norimų pridėti failo tipų:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2872
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Palaikomi tik vietinės failų sistemos vykdomieji failai."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2887
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Išplėstinės %1 parinktys"
@@ -8797,9 +8853,6 @@ msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
 #~ msgstr ""
 #~ "<para>Tai yra paskaičiuotas didžiausias vietos diske kiekis, kuris bus "
 #~ "naudojamas šiukšlinei.</para>"
-
-#~ msgid "Show a Warning"
-#~ msgstr "Rodyti įspėjimą"
 
 #~ msgid "Delete Oldest Files From Trash"
 #~ msgstr "Trinti seniausius failus iš šiukšlinės"
