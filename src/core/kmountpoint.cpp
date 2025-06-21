@@ -362,7 +362,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
                 // handle bind mounts
                 if (mp->d->m_mountedFrom != mp->d->m_mountPoint) {
-                    if (QT_STATBUF buff; QT_LSTAT(mp->d->m_mountPoint.toLatin1().constData(), &buff) == 0) {
+                    if (QT_STATBUF buff; QT_LSTAT(mnt_fs_get_target(fs), &buff) == 0) {
                         mp->d->m_deviceId = buff.st_dev;
                     }
                 } else {

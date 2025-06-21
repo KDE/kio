@@ -39,6 +39,8 @@ void KMountPointTest::testCurrentMountPoints()
         if (!mountPoint->realDeviceName().isEmpty() && !mountWithDevice) {
             mountWithDevice = mountPoint;
         }
+
+        QVERIFY(mountPoints.findByPath(mountPoint->mountPoint()) != nullptr);
     }
 
     if (!mountWithDevice) {
