@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:39+0000\n"
-"PO-Revision-Date: 2025-06-07 22:17+0200\n"
+"PO-Revision-Date: 2025-06-21 12:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -5548,7 +5548,7 @@ msgstr "Големина:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Определяне размера на папката"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5560,7 +5560,7 @@ msgstr "Спиране"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Спиране на определянето на размера на папката"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5576,10 +5576,9 @@ msgstr "Връзка към:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgid "Show target"
-msgstr "Преглед"
+msgstr "Показване на целта"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6175,20 +6174,16 @@ msgid "&General"
 msgstr "О&бщи"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Въведете %1 име на файл:"
+msgstr "Въведете името на директорията"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Въведете %1 име на файл:"
+msgstr "Въведете името на файла"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6206,16 +6201,14 @@ msgstr "Обновяване"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Въведете местоположение"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "<filename> %1 </filename> не може да се прехвърли"
+msgstr "Показване на <filename> %1 </filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6295,6 +6288,7 @@ msgstr "Промяна…"
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
+"Променяне на приложението по подразбиране за отваряне на файлове от тип „%1“."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -7146,20 +7140,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Преименуване на елемента <filename> %1 </filename> на:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
 msgstr "Вече съществува файл с име <filename> %1 </filename>."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> не изглежда да е изпълнима програма."
+msgstr "<filename>%1</filename> не е правилно име на файл."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7190,39 +7180,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Невалидно име на файл: Новото име трябва да съдържа поредица от символи #, "
+"освен ако файловете не са с различни файлови разширения."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Замяна"
+msgstr "Заместване на:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Шаблон"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Отваряне с:"
+msgstr "С:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Замяна"
+msgstr "Заместване"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Няма име на файл, което да отговаря на шаблона."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7231,6 +7220,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Заместването на „%1“ с празен заместител ще доведе до това <filename>%2</"
+"filename> да има празно име на файл."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7251,39 +7242,35 @@ msgid "&Rename"
 msgstr "&Преименуване"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Изтриване или преименуване:"
+msgstr "Начин на преименуване:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Номериране"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Замяна"
+msgstr "Заместване на текст"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Преглед"
+msgstr "Преглед:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> не изглежда да е изпълнима програма."
+msgstr ""
+"<filename>%1</filename> не може да бъде преименуван с празно име на файл."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7516,66 +7503,3 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
-
-#~ msgid "Do not ask again"
-#~ msgstr "Изключване на въпроса"
-
-#~ msgid "&Execute"
-#~ msgstr "&Изпълняване"
-
-#~ msgid "&Filter:"
-#~ msgstr "&Филтър:"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt>Списък от филтри за файловете. Ще се покажат само тези файлове, чиито "
-#~ "имена са във филтъра.<p>Можете да изберете някой от фиксираните филтри от "
-#~ "падащото меню или да зададете нов директно в полето.</p><p>Символи като "
-#~ "\"*\" и \"?\" са позволени.</p></qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "Избрани са повече от една папка и този диалогов прозорец не приема папки, "
-#~ "така че не е възможно да решите, коя да въведете. Моля изберете само една "
-#~ "папка, за да я покажете."
-
-#~ msgid "More than one folder provided"
-#~ msgstr "Зададена е повече от една папка"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "Избрана е поне една папка и един файл. Избраните файлове ще бъдат "
-#~ "игнорира и избраната папка ще бъде в списъка"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "Маркирани файлове и директории"
-
-#~ msgid ""
-#~ "Although contact was made with the server, a response was not received "
-#~ "within the amount of time allocated for the request as follows:"
-#~ "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
-#~ "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
-#~ "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
-#~ "settings in the KDE System Settings, by selecting Network Settings -> "
-#~ "Connection Preferences."
-#~ msgstr ""
-#~ "Въпреки че е осъществен контакт със сървъра, отговор не е получен в "
-#~ "рамките на времето, определено за заявката, както следва:<ul><li> Време "
-#~ "за изчакване за установяване на връзка: %1 секунди </li><li> Време за "
-#~ "изчакване за получаване на отговор: %2 секунди </li><li> Време за "
-#~ "изчакване за достъп до прокси сървъри: %3 секунди </li></ul> Моля, "
-#~ "обърнете внимание, че можете да промените тези настройки в KDE Системни "
-#~ "настройки, като изберете Настройки на Мрежа ->Предпочитания за връзка."
-
-#~ msgid "Is &executable"
-#~ msgstr "&Изпълним файл (програма)"
