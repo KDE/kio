@@ -67,6 +67,14 @@ public:
 
 using namespace KIO;
 
+namespace
+{
+bool isPermIssue(int err)
+{
+    return err == EACCES || err == EPERM;
+}
+};
+
 static constexpr int s_maxIPCSize = 1024 * 32;
 
 static QString readLogFile(const QByteArray &_filename);
@@ -189,7 +197,7 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &url, const QDateTime 
         utbuf.actime = statbuf.st_atime; // access time, unchanged
         utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
         if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
+            Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
             auto result = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
@@ -216,7 +224,7 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
             if (errno == EISDIR) {
                 return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
             }
-            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+            Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
             auto result = execWithElevatedPrivilege(DEL, {path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
@@ -230,7 +238,7 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
         bool dirCreated = QDir().mkdir(path);
         if (!dirCreated) {
-            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_MKDIR;
+            Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_MKDIR;
             auto result = execWithElevatedPrivilege(MKDIR, {path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
@@ -305,7 +313,7 @@ WorkerResult FileProtocol::get(const QUrl &url)
 
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_READING;
+        Error errCode = isPermIssue(errno) ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_READING;
         auto result = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errCode);
         if (!result.success()) {
             if (!resultWasCancelled(result)) {
@@ -652,7 +660,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                         }
                     }
 
-                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING;
+                    Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING;
                     auto result = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errCode);
                     if (!result.success()) {
                         if (!resultWasCancelled(result)) {
@@ -719,13 +727,13 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
         // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
             if (!QFile::remove(dest_orig)) {
-                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                 execWithElevatedPrivilege(DEL, {dest_orig}, errCode);
             }
         }
 
         if (!QFile::rename(dest, dest_orig)) {
-            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RENAME_PARTIAL;
+            Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RENAME_PARTIAL;
             auto result = execWithElevatedPrivilege(RENAME, {dest, dest_orig}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
@@ -745,7 +753,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
             // couldn't chmod. Eat the error if the filesystem apparently doesn't support it.
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
             if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
-                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHOWN;
+                Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHOWN;
                 if (!tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errCode).success()) {
                     warning(i18n("Could not change permissions for\n%1", dest_orig));
                 }
@@ -783,7 +791,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 utbuf.actime = dest_statbuf.st_atime;
                 utbuf.modtime = dt.toSecsSinceEpoch();
                 if (utime(QFile::encodeName(dest_orig).constData(), &utbuf) != 0) {
-                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
+                    Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
                     tryChangeFileAttr(UTIME, {dest_orig, qint64(utbuf.actime), qint64(utbuf.modtime)}, errCode);
                 }
 #endif
@@ -985,7 +993,7 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
         } else {
             // qDebug() << "QFile::remove" << itemPath;
             if (!QFile::remove(itemPath)) {
-                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
                 auto result = execWithElevatedPrivilege(DEL, {itemPath}, errCode);
                 if (!result.success()) {
                     return result;
@@ -997,7 +1005,7 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
     for (const QString &itemPath : std::as_const(dirsToDelete)) {
         // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
-            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
+            Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
             auto result = execWithElevatedPrivilege(RMDIR, {itemPath}, errCode);
             if (!result.success()) {
                 return result;
