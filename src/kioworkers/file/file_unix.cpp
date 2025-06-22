@@ -639,7 +639,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                     return result;
                 }
             } else {
-                return KIO::WorkerResult::fail(errCode);
+                return KIO::WorkerResult::fail(errCode, dest);
             }
         }
     }
