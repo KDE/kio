@@ -578,7 +578,6 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
         } else {
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest_orig);
         }
-        return WorkerResult::pass();
     }
 
     // Don't change permissions of the original file
