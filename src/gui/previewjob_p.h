@@ -21,16 +21,17 @@ struct PreviewItem {
     KFileItem item;
     KPluginMetaData plugin;
     bool standardThumbnailer = false;
-    QSize size;
+    QSize size = QSize();
     QString thumbPath;
-    qreal devicePixelRatio;
-    bool ignoreMaximumSize;
-    int sequenceIndex;
-    PreviewJob::ScaleType scaleType;
-    bool enableRemoteFolderThumbnail;
-    int maximumLocalSize;
-    int maximumRemoteSize;
-    int cacheSize;
+    qreal devicePixelRatio = 1.0;
+    bool ignoreMaximumSize = false;
+    int sequenceIndex = 0;
+    PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
+    bool enableRemoteFolderThumbnail = false;
+    int maximumLocalSize = 0;
+    int maximumRemoteSize = 0;
+    int cacheSize = 0;
+    QMap<QString, int> deviceIdMap;
 };
 
 // Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
@@ -47,6 +48,22 @@ public:
         QStringList mimetypes;
     };
 
+    void beginJob();
+    QMap<QString, QString> thumbnailWorkerMetaData();
+    QMap<QString, int> deviceIdMap();
+    static QList<KPluginMetaData> loadAvailablePlugins();
+    static QMap<QString, StandardThumbnailerData> standardThumbnailers();
+
+Q_SIGNALS:
+    void generated(const KFileItem &item, const QImage &preview);
+    void gotPreview(const KFileItem &item, const QPixmap &preview);
+    void failed(const KFileItem &item);
+
+private Q_SLOTS:
+    void slotStatFile(KJob *job);
+    void slotGetOrCreateThumbnail(KJob *job);
+
+private:
     enum CachePolicy {
         Prevent,
         Allow,
@@ -55,7 +72,7 @@ public:
 
     QStringList m_enabledPlugins;
     // The current item
-    const KIO::PreviewItem m_currentItem;
+    const KIO::PreviewItem m_item;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -110,6 +127,7 @@ public:
     void createThumbnailViaLocalCopy(const QUrl &);
     void cleanupTempFile();
     void finishJob();
+    QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
@@ -118,27 +136,13 @@ public:
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
-
-    static QList<KPluginMetaData> loadAvailablePlugins();
-    static QMap<QString, StandardThumbnailerData> standardThumbnailers();
-
-Q_SIGNALS:
-    void generated(const KFileItem &item, const QImage &preview);
-    void gotPreview(const KFileItem &item, const QPixmap &preview);
-    void failed(const KFileItem &item);
-
-private Q_SLOTS:
-    void slotStatFile(KJob *job);
-    void slotGetOrCreateThumbnail(KJob *job);
-
-private:
     QDir createTemporaryDir();
 };
 
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
 {
     auto job = new FilePreviewJob(item, thumbRoot);
-    job->statFile();
+    job->beginJob();
     return job;
 }
 }
