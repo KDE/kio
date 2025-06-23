@@ -391,9 +391,7 @@ void PreviewJob::slotResult(KJob *job)
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
     Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
-    if (d->items.size() > 0) {
-        d->determineNextFile();
-    }
+    d->determineNextFile();
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()

@@ -47,13 +47,6 @@ public:
         QStringList mimetypes;
     };
 
-    enum {
-        STATE_STATORIG, // if the thumbnail exists
-        STATE_GETORIG, // if we create it
-        STATE_CREATETHUMB, // thumbnail:/ worker
-        STATE_DEVICE_INFO, // additional state check to get needed device ids
-    } m_state;
-
     enum CachePolicy {
         Prevent,
         Allow,
@@ -116,7 +109,7 @@ public:
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
     void cleanupTempFile();
-    void slotResult(KJob *job) override;
+    void finishJob();
 
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
