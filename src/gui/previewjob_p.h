@@ -30,16 +30,16 @@ struct PreviewItem {
     bool enableRemoteFolderThumbnail;
     int maximumLocalSize;
     int maximumRemoteSize;
+    int cacheSize;
 };
 
-static qreal s_defaultDevicePixelRatio = 1.0;
 // Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
 static constexpr int s_kioFuseMountTimeout = 10000;
 class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item);
+    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot);
     ~FilePreviewJob();
 
     struct StandardThumbnailerData {
@@ -91,7 +91,7 @@ public:
     QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
-    qreal m_devicePixelRatio = s_defaultDevicePixelRatio;
+    qreal m_devicePixelRatio;
     static const int m_idUnknown = -1;
     // Id of a device storing currently processed file
     int m_currentDeviceId = 0;
@@ -135,9 +135,9 @@ private:
     QDir createTemporaryDir();
 };
 
-inline FilePreviewJob *filePreviewJob(const PreviewItem &item)
+inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
 {
-    auto job = new FilePreviewJob(item);
+    auto job = new FilePreviewJob(item, thumbRoot);
     job->statFile();
     return job;
 }

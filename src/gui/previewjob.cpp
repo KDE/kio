@@ -61,8 +61,6 @@
 namespace
 {
 static qreal s_defaultDevicePixelRatio = 1.0;
-// Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
-static constexpr int s_kioFuseMountTimeout = 10000;
 }
 
 using namespace KIO;
@@ -72,15 +70,10 @@ class KIO::PreviewJobPrivate : public KIO::JobPrivate
 public:
     PreviewJobPrivate(const KFileItemList &items, const QSize &size)
         : initialItems(items)
-        , width(size.width())
-        , height(size.height())
-        , cacheSize(0)
+        , size(size)
         , scaleType(PreviewJob::ScaleType::ScaledAndCached)
         , ignoreMaximumSize(false)
         , sequenceIndex(0)
-        , maximumLocalSize(0)
-        , maximumRemoteSize(0)
-        , enableRemoteFolderThumbnail(false)
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
@@ -90,31 +83,19 @@ public:
     QStringList enabledPlugins;
     // Our todo list :)
     // We remove the first item at every step, so use std::list
+    QSize size;
     std::list<PreviewItem> items;
     // The current item
     PreviewItem currentItem;
-    // Path to thumbnail cache for the current size
-    QString thumbPath;
-    // Size of thumbnail
-    int width;
-    int height;
-    // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
-    short cacheSize;
     // Whether the thumbnail should be scaled ando/or saved
     PreviewJob::ScaleType scaleType;
     bool ignoreMaximumSize;
     int sequenceIndex;
-    KIO::filesize_t maximumLocalSize;
-    KIO::filesize_t maximumRemoteSize;
-    // Manage preview for locally mounted remote directories
-    bool enableRemoteFolderThumbnail;
     // Root of thumbnail cache
     QString thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
     qreal devicePixelRatio = s_defaultDevicePixelRatio;
-    // the path of a unique temporary directory
-    QString m_tempDirPath;
 
     void determineNextFile();
     void startPreview();
@@ -152,11 +133,6 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 
 PreviewJob::~PreviewJob()
 {
-    Q_D(PreviewJob);
-    if (!d->m_tempDirPath.isEmpty()) {
-        QDir tempDir(d->m_tempDirPath);
-        tempDir.removeRecursively();
-    }
 }
 
 void PreviewJob::setScaleType(ScaleType type)
@@ -178,12 +154,10 @@ void PreviewJobPrivate::startPreview()
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
     KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-    maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
-    enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
     auto setUpCaching = [this](PreviewItem *previewItem) {
-        const int longer = std::max(width, height);
+        short cacheSize = 0;
+        const int longer = std::max(size.width(), size.height());
         if (longer <= 128) {
             cacheSize = 128;
         } else if (longer <= 256) {
@@ -216,12 +190,13 @@ void PreviewJobPrivate::startPreview()
                 break;
             }
         }
-        thumbPath = thumbRoot + thumbDir;
+        QString thumbPath = thumbRoot + thumbDir;
         QDir().mkpath(thumbRoot);
         if (!QDir(thumbPath).exists() && !QDir(thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
             qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
         }
         previewItem->thumbPath = thumbPath;
+        previewItem->cacheSize = cacheSize;
     };
 
     // Using thumbnailer plugin
@@ -243,11 +218,11 @@ void PreviewJobPrivate::startPreview()
         previewItem.sequenceIndex = sequenceIndex;
         previewItem.ignoreMaximumSize = ignoreMaximumSize;
         previewItem.scaleType = scaleType;
-        previewItem.size = QSize(width, height);
-        previewItem.thumbPath = thumbPath;
-        previewItem.maximumLocalSize = maximumLocalSize;
-        previewItem.maximumRemoteSize = maximumRemoteSize;
-        previewItem.enableRemoteFolderThumbnail = enableRemoteFolderThumbnail;
+        previewItem.size = size;
+        previewItem.maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+        previewItem.maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
+        ;
+        previewItem.enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
         const QString mimeType = previewItem.item.mimetype();
         KPluginMetaData plugin;
@@ -367,7 +342,7 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
 
-        FilePreviewJob *job = KIO::filePreviewJob(currentItem);
+        FilePreviewJob *job = KIO::filePreviewJob(currentItem, thumbRoot);
         // Add filePreviewJobs as subjobs, this seems to start the job too?
         q->connect(job, &FilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
             Q_EMIT q->gotPreview(item, pix);
@@ -385,7 +360,10 @@ void PreviewJobPrivate::determineNextFile()
 void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
-
+    FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(job);
+    if (previewJob) {
+        d->thumbnailWorkerMetaData = previewJob->m_thumbnailWorkerMetaData;
+    }
     removeSubjob(job);
     if (job->error() > 0) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
