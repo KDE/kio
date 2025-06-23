@@ -96,6 +96,8 @@ public:
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
     qreal devicePixelRatio = s_defaultDevicePixelRatio;
+    // Cache the deviceIdMap so we dont need to stat the files every time
+    QMap<QString, int> deviceIdMap;
 
     void determineNextFile();
     void startPreview();
@@ -214,15 +216,6 @@ void PreviewJobPrivate::startPreview()
     for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem previewItem;
         previewItem.item = fileItem;
-        previewItem.devicePixelRatio = devicePixelRatio;
-        previewItem.sequenceIndex = sequenceIndex;
-        previewItem.ignoreMaximumSize = ignoreMaximumSize;
-        previewItem.scaleType = scaleType;
-        previewItem.size = size;
-        previewItem.maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-        previewItem.maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
-        ;
-        previewItem.enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
 
         const QString mimeType = previewItem.item.mimetype();
         KPluginMetaData plugin;
@@ -262,6 +255,15 @@ void PreviewJobPrivate::startPreview()
         if (plugin.isValid()) {
             previewItem.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             previewItem.plugin = plugin;
+            previewItem.devicePixelRatio = devicePixelRatio;
+            previewItem.sequenceIndex = sequenceIndex;
+            previewItem.ignoreMaximumSize = ignoreMaximumSize;
+            previewItem.scaleType = scaleType;
+            previewItem.size = size;
+            previewItem.maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+            previewItem.maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
+            previewItem.enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
+            previewItem.deviceIdMap = deviceIdMap;
 
             bool handlesSequencesValue = previewItem.plugin.value(QStringLiteral("HandleSequences"), false);
             thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(handlesSequencesValue));
@@ -362,7 +364,8 @@ void PreviewJob::slotResult(KJob *job)
     Q_D(PreviewJob);
     FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(job);
     if (previewJob) {
-        d->thumbnailWorkerMetaData = previewJob->m_thumbnailWorkerMetaData;
+        d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
+        d->deviceIdMap = previewJob->deviceIdMap();
     }
     removeSubjob(job);
     if (job->error() > 0) {
