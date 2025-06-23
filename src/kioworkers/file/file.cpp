@@ -67,14 +67,6 @@ public:
 
 using namespace KIO;
 
-namespace
-{
-bool isPermIssue(int err)
-{
-    return err == EACCES || err == EPERM;
-}
-};
-
 static constexpr int s_maxIPCSize = 1024 * 32;
 
 static QString readLogFile(const QByteArray &_filename);
@@ -145,6 +137,11 @@ FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
 
 FileProtocol::~FileProtocol()
 {
+}
+
+bool FileProtocol::isPermIssue(int error)
+{
+    return error == EACCES || error == EPERM;
 }
 
 WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
@@ -225,12 +222,8 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
                 return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
             }
             Error errCode = isPermIssue(errno) ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
-            auto result = execWithElevatedPrivilege(DEL, {path}, errCode);
-            if (!result.success()) {
-                if (!resultWasCancelled(result)) {
-                    return result;
-                }
-            }
+            // if we can't remove the file the end of the function will be ERR_FILE_ALREADY_EXIST
+            execWithElevatedPrivilege(DEL, {path}, errCode);
         }
     }
 
