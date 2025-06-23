@@ -514,7 +514,7 @@ static QHash<QString, QString> getSampleXattrs()
 
 bool JobTest::checkXattrFsSupport(const QString &dir)
 {
-    const QString writeTest = dir + "/fsXattrTestFile";
+    const QString writeTest = dir + "fsXattrTestFile";
     createTestFile(writeTest);
     bool ret = setXattr(writeTest);
     QFile::remove(writeTest);

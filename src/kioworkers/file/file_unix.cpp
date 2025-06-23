@@ -84,10 +84,6 @@ static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 
     return false;
 }
-bool isPermIssue(int err)
-{
-    return err == EACCES || err == EPERM;
-}
 };
 
 static const QString socketPath()
@@ -636,10 +632,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 auto result = tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode);
                 if (!result.success()) {
                     qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
-                    return result;
                 }
-            } else {
-                return KIO::WorkerResult::fail(errCode, dest);
             }
         }
     }
@@ -1082,7 +1075,7 @@ WorkerResult FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::
 
     if (::rename(_src.data(), _dest.data()) == -1) {
         auto errCode = KIO::ERR_CANNOT_RENAME;
-        if ((errno == EACCES) || (errno == EPERM)) {
+        if (isPermIssue(errno)) {
             errCode = KIO::ERR_WRITE_ACCESS_DENIED;
         } else if (errno == EXDEV) {
             errCode = KIO::ERR_UNSUPPORTED_ACTION;
@@ -1131,7 +1124,7 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &destUrl, K
     }
 
     // Permission error, could be that the filesystem doesn't support symlinks
-    if (errno == EPERM) {
+    if (isPermIssue(errno)) {
         // "dest" doesn't exist, get the filesystem type of the parent dir
         const QString parentDir = destUrl.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile();
         const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(parentDir);
@@ -1233,14 +1226,10 @@ WorkerResult FileProtocol::chown(const QUrl &url, const QString &owner, const QS
 
     if (::chown(_path.constData(), uid, gid) == -1) {
         Error errCode = KIO::ERR_CANNOT_CHOWN;
-        switch (errno) {
-        case EPERM:
-        case EACCES:
+        if (isPermIssue(errno)) {
             errCode = KIO::ERR_ACCESS_DENIED;
-            break;
-        case ENOSPC:
+        } else if (errno == ENOSPC) {
             errCode = KIO::ERR_DISK_FULL;
-            break;
         }
         auto result = execWithElevatedPrivilege(CHOWN, {_path, uid, gid}, errCode);
         if (!result.success()) {
@@ -1297,9 +1286,9 @@ WorkerResult FileProtocol::execWithElevatedPrivilege(ActionType action, const QV
     KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation(operationDetails);
     if (opStatus != KIO::OperationAllowed) {
         if (opStatus == KIO::OperationCanceled) {
-            return WorkerResult::fail(KIO::ERR_USER_CANCELED, QString());
+            return WorkerResult::fail(KIO::ERR_USER_CANCELED, operationDetails);
         }
-        return WorkerResult::fail(errCode);
+        return WorkerResult::fail(errCode, operationDetails);
     }
 
     const QUrl targetUrl = QUrl::fromLocalFile(args.first().toString()); // target is always the first item.
