@@ -636,10 +636,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 auto result = tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode);
                 if (!result.success()) {
                     qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
-                    return result;
                 }
-            } else {
-                return KIO::WorkerResult::fail(errCode, dest);
             }
         }
     }
