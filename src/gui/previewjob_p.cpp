@@ -59,13 +59,6 @@
 #include "kiofuse_interface.h"
 #endif
 
-namespace
-{
-static qreal s_defaultDevicePixelRatio = 1.0;
-// Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
-static constexpr int s_kioFuseMountTimeout = 10000;
-}
-
 using namespace KIO;
 class FilePreviewStatJob : public KIO::Job
 {
@@ -78,7 +71,7 @@ public:
     QMap<QString, int> m_deviceIdMap;
 };
 
-FilePreviewJob::FilePreviewJob(const PreviewItem &item)
+FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot)
     : m_currentItem(item)
     , m_thumbPath(QString())
     , m_size(QSize())
@@ -92,10 +85,8 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item)
     , m_enableRemoteFolderThumbnail(false)
     , m_shmid(-1)
     , m_shmaddr(nullptr)
+    , m_thumbRoot(thumbRoot)
 {
-    // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
-    m_thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
-
     m_thumbPath = item.thumbPath;
     m_size = item.size;
     m_scaleType = item.scaleType;
@@ -105,6 +96,7 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item)
     m_maximumLocalSize = item.maximumLocalSize;
     m_maximumRemoteSize = item.maximumRemoteSize;
     m_enableRemoteFolderThumbnail = item.enableRemoteFolderThumbnail;
+    m_cacheSize = item.cacheSize;
 
 #if WITH_SHM
     size_t requiredSize = m_size.width() * m_devicePixelRatio * m_size.height() * m_devicePixelRatio * 4;
@@ -245,6 +237,10 @@ void FilePreviewJob::cleanupTempFile()
         Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
         QFile::remove(m_tempName);
         m_tempName.clear();
+    }
+    if (!m_tempDirPath.isEmpty()) {
+        QDir tempDir(m_tempDirPath);
+        tempDir.removeRecursively();
     }
 }
 
