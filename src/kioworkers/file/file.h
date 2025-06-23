@@ -93,6 +93,9 @@ private:
     // Close without calling finish(). Use this to close after error.
     void closeWithoutFinish();
 
+protected:
+    bool isPermIssue(int error);
+
 private:
     QFile *mFile;
 
