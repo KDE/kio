@@ -5347,10 +5347,9 @@ msgstr "指向："
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgid "Show target"
-msgstr "显示预览"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5916,20 +5915,16 @@ msgid "&General"
 msgstr "常规(&G)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "输入 %1 文件名："
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "输入 %1 文件名："
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -5951,12 +5946,10 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "无法传输文件 <filename>%1</filename>"
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format

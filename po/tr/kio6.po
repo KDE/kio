@@ -7154,31 +7154,31 @@ msgstr ""
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Şu:"
+msgstr "Şu"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr "Dizgi"
+msgstr "dizgiyi"
 
 #: widgets/renamefiledialog.cpp:317
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Şununla değiştiriliyor:"
+msgstr "şununla"
 
 #: widgets/renamefiledialog.cpp:319
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "İkâme"
+msgstr "değiştir"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr "Hiçbir dosya adı bu dizgiyi içermiyor."
+msgstr "Bu dizgiyi içeren bir dosya adı yok."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format

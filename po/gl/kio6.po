@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 12:22+0200\n"
+"PO-Revision-Date: 2025-06-22 15:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -102,17 +102,16 @@ msgstr ""
 "ficheiro de destino) por unha barra baixa («_»)."
 
 #: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
+#, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being moved"
-msgstr "Ficheiro cambiado"
+msgstr "Hai ficheiros movéndose"
 
 #: core/copyjob.cpp:752
 #, kde-format
 msgctxt "Reason why standby is blocked"
 msgid "Files are being copied"
-msgstr ""
+msgstr "Hai ficheiros copiándose"
 
 #: core/copyjob.cpp:1414 core/job_error.cpp:585
 #, kde-format
@@ -3474,10 +3473,9 @@ msgid "Show Bookmarks Button"
 msgstr "Amosar o botón de marcadores"
 
 #: filewidgets/kfilewidget.cpp:1223
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Amosar os ficheiros agochados"
+msgstr "Amosar o filtro rápido"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
@@ -3530,24 +3528,21 @@ msgid "Undo filename change"
 msgstr "Desfacer o cambio de nome de ficheiro."
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Abrir o cartafol contedor"
+msgstr "Manter o filtro ao cambiar de cartafol."
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Nome do ficheiro:"
+msgstr "Filtrar por nome…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Ficheiros agochados ao final"
+msgstr "Agochar a barra de filtro"
 
 # skip-rule: noPT-2010-dual_mostrar
 #: filewidgets/kfilewidget.cpp:1434
@@ -3686,16 +3681,13 @@ msgstr ""
 "co que se gardará o ficheiro.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2946
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 "<qt>Este é o selector de tipo de ficheiro. Úsase para seleccionar o formato "
-"co que se gardará o ficheiro.</qt>"
+"dos ficheiros que se amosan.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3856,24 +3848,22 @@ msgstr "Crear un ficheiro novo"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:63
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Escolla a aplicación para %1"
+msgstr "Escoller unha icona ou cor personalizada"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:113
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "&Escoller unha icona:"
+msgstr "Escoller outra icona…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Pode cambiar a icona máis tarde nas propiedades do cartafol."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5042,23 +5032,23 @@ msgid "&Link Here"
 msgstr "&Ligar aquí"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Iniciando %1"
+msgstr "&Iniciar"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Iniciar ficheiros executábeis sen preguntar."
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Abrir ficheiros executábeis na aplicación predeterminada sen preguntar."
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5079,17 +5069,16 @@ msgstr "&Abrir con %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Que quere facer con este ficheiro?"
+msgstr "Quere iniciar o ficheiro?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Lembrar para todos os ficheiros executábeis."
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5098,6 +5087,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Pode desfacer isto na sección de «Confirmacións» da configuración do xestor "
+"de ficheiros Dolphin."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5576,7 +5567,7 @@ msgstr "Tamaño:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Determinar o tamaño do cartafol."
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5588,7 +5579,7 @@ msgstr "Deter"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Deixar de determinar o tamaño do cartafol."
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5604,10 +5595,9 @@ msgstr "Apunta a:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Mostrar un aviso"
+msgstr "Amosar o destino"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6203,20 +6193,16 @@ msgid "&General"
 msgstr "&Xeral"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Escriba o nome de ficheiro de %1:"
+msgstr "Escriba o nome do cartafol"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Escriba o nome de ficheiro de %1:"
+msgstr "Escriba o nome do ficheiro"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6234,16 +6220,14 @@ msgstr "Refrescar"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Insira a localización de destino"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Non é posíbel transferir <filename>%1</filename>"
+msgstr "Amosar <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6323,6 +6307,8 @@ msgstr "Cambiar…"
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
+"Cambiar a aplicación coa que se abren os ficheiros de tipo «%1» de maneira "
+"predeterminada."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -6908,12 +6894,10 @@ msgid "Filename for clipboard content:"
 msgstr "Ficheiro para o contido do portapapeis:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Pegar o ficheiro"
+msgstr "ficheiro pegado"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -7179,20 +7163,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Renomear o elemento <filename>%1</filename> a:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
 msgstr "Xa existe un ficheiro chamado <filename>%1</filename>."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> non parece un programa executábel."
+msgstr "<filename>%1</filename> non é un nome de ficheiro válido."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7223,39 +7203,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"O nome de ficheiro non é válido: debe conter unha secuencia de «#» a non ser "
+"que todos os ficheiros teñan extensións de ficheiro distintas."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Substituír"
+msgstr "Substituíndo:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Padrón"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Abrir con:"
+msgstr "Por:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Substituír"
+msgstr "Substitución"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Ningún nome de ficheiro contén o padrón."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7264,6 +7243,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Substituír «%1» por nada deixaría baleiro o nome de ficheiro de <filename>"
+"%2</filename>."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7284,39 +7265,34 @@ msgid "&Rename"
 msgstr "&Renomear"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Eliminar ou renomear:"
+msgstr "Como renomear:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Enumerar"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Substituír"
+msgstr "Substituír o texto"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Amosar a vista previa"
+msgstr "Vista previa:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> non parece un programa executábel."
+msgstr "<filename>%1</filename> non pode renomearse cun nome baleiro."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7468,33 +7444,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Esta acción non se pode desfacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Botar este elemento no lixo fallou porque é grande de máis. Quere eliminalo "
-"permanentemente no seu lugar?<nl/><nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Esta acción non se pode desfacer.</emphasis>"
+"O lixo está cheo de máis para aceptar este ficheiro. Prefire eliminalo "
+"permanentemente?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Esta acción non pode desfacerse.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7504,13 +7466,13 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Botar este elemento no lixo fallou porque é grande de máis. Quere eliminalo "
-"permanentemente no seu lugar?<nl/><emphasis strong='true'>Esta acción non se "
-"pode desfacer.</emphasis>"
+"O lixo está cheo de máis para aceptar este ficheiro. Prefire eliminalo "
+"permanentemente?<nl/><emphasis strong='true'>Esta acción non pode desfacerse."
+"</emphasis>"
 msgstr[1] ""
-"Botar estes %1 elementos no lixo fallou porque son grandes de máis. Quere "
-"eliminalos permanentemente no seu lugar?<nl/><emphasis strong='true'>Esta "
-"acción non se pode desfacer.</emphasis>"
+"O lixo está cheo de máis para aceptar estes %1 ficheiros. Prefire eliminalos "
+"permanentemente?<nl/><emphasis strong='true'>Esta acción non pode desfacerse."
+"</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
