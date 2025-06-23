@@ -372,6 +372,9 @@ void PreviewJobPrivate::determineNextFile()
         q->connect(job, &FilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
             Q_EMIT q->gotPreview(item, pix);
         });
+        q->connect(job, &FilePreviewJob::generated, q, [q](const KFileItem &item, const QImage &pix) {
+            Q_EMIT q->generated(item, pix);
+        });
         q->connect(job, &FilePreviewJob::failed, q, [q](const KFileItem &item) {
             Q_EMIT q->failed(item);
         });
