@@ -659,14 +659,17 @@ void FilePreviewJob::emitPreview(const QImage &thumb)
 {
     QPixmap pix;
     const qreal ratio = thumb.devicePixelRatio();
-    if (thumb.width() > m_size.width() * ratio || thumb.height() > m_size.height() * ratio) {
-        pix = QPixmap::fromImage(thumb.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    } else {
-        pix = QPixmap::fromImage(thumb);
+
+    QImage preview = thumb;
+    if (preview.width() > m_size.width() * ratio || preview.height() > m_size.height() * ratio) {
+        preview = preview.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
-    pix.setDevicePixelRatio(ratio);
-    // Emit result of currentFilePreviewJob
-    Q_EMIT gotPreview(m_currentItem.item, pix);
+
+    Q_EMIT generated(m_currentItem.item, preview);
+
+    QPixmap pixmap = QPixmap::fromImage(preview);
+    pixmap.setDevicePixelRatio(ratio);
+    Q_EMIT gotPreview(m_currentItem.item, pixmap);
 }
 
 QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
@@ -759,7 +762,9 @@ void FilePreviewStatJob::slotResult(KJob *job)
     } else {
         id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
     }
-    m_deviceIdMap[path] = id;
+    if (!path.isEmpty()) {
+        m_deviceIdMap[path] = id;
+    }
     removeSubjob(job);
     if (!hasSubjobs()) {
         emitResult();
@@ -769,11 +774,6 @@ void FilePreviewStatJob::slotResult(KJob *job)
 void FilePreviewStatJob::getDeviceId(const QString &path)
 {
     QUrl url = QUrl::fromLocalFile(path);
-    if (!url.isValid()) {
-        qCWarning(KIO_GUI) << "Could not get device id for file preview, Invalid url" << path;
-        m_deviceIdMap[path] = 0;
-        return;
-    }
     KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     addSubjob(job);
