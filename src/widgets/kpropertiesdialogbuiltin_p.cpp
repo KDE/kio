@@ -2135,46 +2135,42 @@ void KChecksumsPlugin::slotInvalidateCache()
 
 void KChecksumsPlugin::slotShowMd5()
 {
-    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-
-    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
+    d->m_ui.md5LineEdit->show(); // Show before hiding. This way keyboard focus goes from md5Button to md5LineEdit.
     d->m_ui.md5Button->hide();
+    d->m_ui.md5Label->setBuddy(d->m_ui.md5LineEdit);
     d->m_ui.horizontalSpacerMd5->changeSize(0, 0);
 
-    showChecksum(QCryptographicHash::Md5, label, d->m_ui.md5CopyButton);
+    showChecksum(QCryptographicHash::Md5, d->m_ui.md5LineEdit, d->m_ui.md5CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha1()
 {
-    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-
-    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
+    d->m_ui.sha1LineEdit->show(); // Show before hiding. This way keyboard focus goes from sha1Button to sha1LineEdit.
     d->m_ui.sha1Button->hide();
+    d->m_ui.sha1Label->setBuddy(d->m_ui.sha1LineEdit);
     d->m_ui.horizontalSpacerSha1->changeSize(0, 0);
 
-    showChecksum(QCryptographicHash::Sha1, label, d->m_ui.sha1CopyButton);
+    showChecksum(QCryptographicHash::Sha1, d->m_ui.sha1LineEdit, d->m_ui.sha1CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha256()
 {
-    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-
-    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
+    d->m_ui.sha256LineEdit->show();
     d->m_ui.sha256Button->hide();
+    d->m_ui.sha256Label->setBuddy(d->m_ui.sha256LineEdit);
     d->m_ui.horizontalSpacerSha256->changeSize(0, 0);
 
-    showChecksum(QCryptographicHash::Sha256, label, d->m_ui.sha256CopyButton);
+    showChecksum(QCryptographicHash::Sha256, d->m_ui.sha256LineEdit, d->m_ui.sha256CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha512()
 {
-    auto label = new QLineEdit(i18nc("@info:progress", "Calculating…"), &d->m_widget);
-
-    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha512Button, label);
+    d->m_ui.sha512LineEdit->show();
     d->m_ui.sha512Button->hide();
+    d->m_ui.sha512Label->setBuddy(d->m_ui.sha512LineEdit);
     d->m_ui.horizontalSpacerSha512->changeSize(0, 0);
 
-    showChecksum(QCryptographicHash::Sha512, label, d->m_ui.sha512CopyButton);
+    showChecksum(QCryptographicHash::Sha512, d->m_ui.sha512LineEdit, d->m_ui.sha512CopyButton);
 }
 
 void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
@@ -2372,16 +2368,15 @@ void KChecksumsPlugin::setVerifyState()
 
 void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLineEdit *label, QPushButton *copyButton)
 {
-    label->setReadOnly(true);
-
     const QString checksum = cachedChecksum(algorithm);
 
     // Checksum in cache, nothing else to do.
     if (!checksum.isEmpty()) {
         label->setText(checksum);
         label->setCursorPosition(0);
-        label->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         return;
+    } else {
+        label->setText(i18nc("@info:progress", "Calculating…"));
     }
 
     // Calculate checksum in another thread.
@@ -2392,7 +2387,6 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLi
 
         label->setText(checksum);
         label->setCursorPosition(0);
-        label->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         cacheChecksum(checksum, algorithm);
 
         copyButton->show();

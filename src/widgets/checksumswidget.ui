@@ -19,6 +19,9 @@
      <property name="wordWrap">
       <bool>true</bool>
      </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+     </property>
     </widget>
    </item>
    <item>
@@ -50,6 +53,9 @@
      <property name="text">
       <string notr="true">Feedback</string>
      </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+     </property>
     </widget>
    </item>
    <item>
@@ -63,12 +69,18 @@
         <property name="text">
          <string extracomment="MD5 is the hashing algorithm">MD5:</string>
         </property>
+        <property name="buddy">
+         <cstring>md5Button</cstring>
+        </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="sha1Label">
         <property name="text">
          <string extracomment="SHA1 is the hashing algorithm">SHA1:</string>
+        </property>
+        <property name="buddy">
+         <cstring>sha1Button</cstring>
         </property>
        </widget>
       </item>
@@ -77,12 +89,18 @@
         <property name="text">
          <string extracomment="SHA256 is the hashing algorithm">SHA256:</string>
         </property>
+        <property name="buddy">
+         <cstring>sha256Button</cstring>
+        </property>
        </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="sha512Label">
         <property name="text">
          <string extracomment="SHA512 is the hashing algorithm">SHA512:</string>
+        </property>
+        <property name="buddy">
+         <cstring>sha512Button</cstring>
         </property>
        </widget>
       </item>
@@ -107,6 +125,16 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="md5LineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="md5CopyButton">
@@ -146,6 +174,16 @@
          </spacer>
         </item>
         <item>
+         <widget class="QLineEdit" name="sha1LineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="sha1CopyButton">
           <property name="toolTip">
            <string>Click to copy the checksum to the clipboard.</string>
@@ -183,6 +221,16 @@
          </spacer>
         </item>
         <item>
+         <widget class="QLineEdit" name="sha256LineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="sha256CopyButton">
           <property name="toolTip">
            <string>Click to copy the checksum to the clipboard.</string>
@@ -218,6 +266,16 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="sha512LineEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="sha512CopyButton">
