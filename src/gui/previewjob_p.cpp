@@ -1,3 +1,9 @@
+/*
+ *  This file is part of the KDE libraries
+ *  SPDX-FileCopyrightText: 2025 Akseli Lahtinen <akselmo@akselmo.dev>
+ *
+ *  SPDX-License-Identifier: LGPL-2.0-or-later
+ */
 
 #include "previewjob_p.h"
 #include "filecopyjob.h"
@@ -5,6 +11,7 @@
 #include "previewjob.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
+#include "transferjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID) && !defined(Q_OS_HAIKU)
 #define WITH_SHM 1
@@ -16,9 +23,6 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #endif
-
-#include <algorithm>
-#include <limits>
 
 #include <QCryptographicHash>
 #include <QDir>
@@ -48,8 +52,6 @@
 #include <KSharedConfig>
 #include <Solid/Device>
 #include <Solid/StorageAccess>
-
-#include "job_p.h"
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -125,17 +127,6 @@ FilePreviewJob::~FilePreviewJob()
 #endif
     cleanupTempFile();
 }
-
-/*
-- Get cache information first
-- After stat, we either skip file or getOrCreateThumbnail
-- OR
-- If we get original, take it
-- If we need to create new one, check if caching is done
-    - If caching is done, run the jobs for it
-    - Then create thumbnail
-- Then return it
-*/
 
 void FilePreviewJob::beginJob()
 {
@@ -227,7 +218,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         return;
     }
 
-    if (statResultThumbnail()) {
+    if (loadThumbnailFromCache()) {
         m_succeeded = true;
         finishJob();
         return;
@@ -259,7 +250,7 @@ void FilePreviewJob::cleanupTempFile()
     }
 }
 
-bool FilePreviewJob::statResultThumbnail()
+bool FilePreviewJob::loadThumbnailFromCache()
 {
     if (m_thumbPath.isEmpty()) {
         return false;
@@ -659,7 +650,6 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
 
 void FilePreviewJob::emitPreview(const QImage &thumb)
 {
-    QPixmap pix;
     const qreal ratio = thumb.devicePixelRatio();
 
     QImage preview = thumb;
@@ -758,7 +748,7 @@ QMap<QString, int> FilePreviewJob::deviceIdMap()
 // Stat multiple files at same time
 FilePreviewStatJob::FilePreviewStatJob(const QStringList paths)
 {
-    for (auto path : paths) {
+    for (const QString &path : paths) {
         getDeviceId(path);
     }
 }
