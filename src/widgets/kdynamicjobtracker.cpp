@@ -11,7 +11,6 @@
 #include "kuiserver_interface.h"
 
 #include <KJobTrackerInterface>
-#include <KUiServerJobTracker>
 #include <KUiServerV2JobTracker>
 #include <KWidgetJobTracker>
 #include <kio/jobtracker.h>
@@ -24,7 +23,6 @@
 #include <QXmlStreamReader>
 
 struct AllTrackers {
-    KUiServerJobTracker *kuiserverTracker;
     KUiServerV2JobTracker *kuiserverV2Tracker;
     KWidgetJobTracker *widgetTracker;
 };
@@ -38,7 +36,6 @@ public:
 
     ~KDynamicJobTrackerPrivate()
     {
-        delete kuiserverTracker;
         delete kuiserverV2Tracker;
         delete widgetTracker;
     }
@@ -58,7 +55,6 @@ public:
         return false;
     }
 
-    KUiServerJobTracker *kuiserverTracker = nullptr;
     KUiServerV2JobTracker *kuiserverV2Tracker = nullptr;
     KWidgetJobTracker *widgetTracker = nullptr;
     QMap<KJob *, AllTrackers> trackers;
@@ -96,7 +92,6 @@ void KDynamicJobTracker::registerJob(KJob *job)
     // always add an entry, even with no trackers used at all,
     // so unregisterJob() will work as normal
     AllTrackers &trackers = d->trackers[job];
-    trackers.kuiserverTracker = nullptr;
     trackers.kuiserverV2Tracker = nullptr;
     trackers.widgetTracker = nullptr;
 
@@ -181,19 +176,9 @@ void KDynamicJobTracker::registerJob(KJob *job)
         return;
     }
 
-    // No point in trying to set up V1 if calling the service above failed.
-    if (d->jobViewServerSupport != KDynamicJobTrackerPrivate::Error) {
-        if (!d->kuiserverTracker) {
-            d->kuiserverTracker = new KUiServerJobTracker();
-        }
-
-        trackers.kuiserverTracker = d->kuiserverTracker;
-        trackers.kuiserverTracker->registerJob(job);
-    }
-
     // If kuiserver isn't available or it tells us a job tracker is required
     // create a widget tracker.
-    if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error) {
+    if (d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error || d->jobViewServerSupport == KDynamicJobTrackerPrivate::V2NotSupported) {
         useWidgetsFallback();
     }
 }
@@ -210,13 +195,8 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
     }
 
     const AllTrackers &trackers = it.value();
-    KUiServerJobTracker *kuiserverTracker = trackers.kuiserverTracker;
     KUiServerV2JobTracker *kuiserverV2Tracker = trackers.kuiserverV2Tracker;
     KWidgetJobTracker *widgetTracker = trackers.widgetTracker;
-
-    if (kuiserverTracker) {
-        kuiserverTracker->unregisterJob(job);
-    }
 
     if (kuiserverV2Tracker) {
         kuiserverV2Tracker->unregisterJob(job);
