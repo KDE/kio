@@ -9,11 +9,8 @@
 */
 
 #include "previewjob.h"
-#include "filecopyjob.h"
 #include "kiogui_debug.h"
 #include "previewjob_p.h"
-#include "standardthumbnailjob_p.h"
-#include "statjob.h"
 
 #include <algorithm>
 #include <limits>
@@ -55,7 +52,6 @@
 #include <QDBusError>
 #include <QDBusReply>
 
-#include "kiofuse_interface.h"
 #endif
 
 namespace

@@ -1,8 +1,14 @@
+/*
+ *  This file is part of the KDE libraries
+ *  SPDX-FileCopyrightText: 2025 Akseli Lahtinen <akselmo@akselmo.dev>
+ *
+ *  SPDX-License-Identifier: LGPL-2.0-or-later
+ */
+
 #ifndef KIO_PREVIEWJOB_P_H
 #define KIO_PREVIEWJOB_P_H
 
 #include "previewjob.h"
-#include "worker_p.h"
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KPluginMetaData>
@@ -36,6 +42,28 @@ struct PreviewItem {
 
 // Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
 static constexpr int s_kioFuseMountTimeout = 10000;
+
+/*
+ * This job does multiple small chained jobs to get the thumbnail for an item,
+ * and returns the result.
+ *
+ * First, it attempts to get the device id's for the given paths: thumbRoot and item.localUrl
+ * However if past jobs have already done this, it can reuse the old deviceId table and skip
+ * getting the device id's again.
+ *
+ * Device id's are required for checking if the thumbnail can be cached.
+ *
+ * After getting all this information, if the item has sequenceId higher than 0,
+ * we just get the next item in the sequence and return that result.
+ *
+ * If we're not sequencing, first we try to pull the thumbnail from the cache.
+ * If that is succesful, we just return the file and end the job.
+ *
+ * If not succesful, it's likely we do not have thumbnail for this item, so
+ * we generate one, either by using thumbnailerPlugin or standardThumbnailer.
+ *
+ * We then return the result, whatever it may be.
+ */
 class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
@@ -49,6 +77,7 @@ public:
     };
 
     void beginJob();
+
     QMap<QString, QString> thumbnailWorkerMetaData();
     QMap<QString, int> deviceIdMap();
     static QList<KPluginMetaData> loadAvailablePlugins();
@@ -121,12 +150,11 @@ private:
 
     void statFile();
     void getOrCreateThumbnail();
-    bool statResultThumbnail();
+    bool loadThumbnailFromCache();
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
     void cleanupTempFile();
-    void finishJob();
     QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
@@ -137,6 +165,9 @@ private:
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
     QDir createTemporaryDir();
+
+    // Used to finish the job and emit result
+    void finishJob();
 };
 
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
