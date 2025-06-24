@@ -340,7 +340,7 @@ public:
         const auto pattern = patternLineEdit->text();
         const auto replacement = replacementEdit->text();
         std::function<QString(const QStringView fileName)> renameFunction = [pattern, replacement](const QStringView fileName) {
-            auto output = QString(fileName);
+            auto output = fileName.toString();
             if (pattern.isEmpty()) {
                 return output;
             }
