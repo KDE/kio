@@ -5,8 +5,8 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef KIO_PREVIEWJOB_P_H
-#define KIO_PREVIEWJOB_P_H
+#ifndef KIO_FILEPREVIEWJOB_H
+#define KIO_FILEPREVIEWJOB_H
 
 #include "previewjob.h"
 #include <KConfigGroup>
