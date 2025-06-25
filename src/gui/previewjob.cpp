@@ -341,12 +341,13 @@ void PreviewJobPrivate::determineNextFile()
         items.pop_front();
 
         FilePreviewJob *job = KIO::filePreviewJob(currentItem, thumbRoot);
-        // Add filePreviewJobs as subjobs, this seems to start the job too?
-        q->connect(job, &FilePreviewJob::gotPreview, q, [q](const KFileItem &item, const QPixmap &pix) {
-            Q_EMIT q->gotPreview(item, pix);
-        });
-        q->connect(job, &FilePreviewJob::generated, q, [q](const KFileItem &item, const QImage &pix) {
-            Q_EMIT q->generated(item, pix);
+        q->connect(job, &FilePreviewJob::gotPreview, q, [q, this](const KFileItem &item, const QImage &image) {
+            Q_EMIT q->generated(item, image);
+            if (q->isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
+                QPixmap pixmap = QPixmap::fromImage(image);
+                pixmap.setDevicePixelRatio(devicePixelRatio);
+                Q_EMIT q->gotPreview(currentItem.item, pixmap);
+            }
         });
         q->connect(job, &FilePreviewJob::failed, q, [q](const KFileItem &item) {
             Q_EMIT q->failed(item);
