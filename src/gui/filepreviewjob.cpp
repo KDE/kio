@@ -24,31 +24,9 @@
 #include <sys/shm.h>
 #endif
 
-#include <QCryptographicHash>
-#include <QDir>
-#include <QDirIterator>
-#include <QFile>
-#include <QImage>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QMimeDatabase>
-#include <QObject>
-#include <QPixmap>
-#include <QRegularExpression>
-#include <QSaveFile>
-#include <QStandardPaths>
-#include <QTemporaryDir>
-#include <QTemporaryFile>
-#include <QTimer>
-#include <QUuid>
-
 #include <KConfigGroup>
 #include <KFileUtils>
-#include <KLocalizedString>
-#include <KMountPoint>
-#include <KPluginMetaData>
 #include <KProtocolInfo>
-#include <KService>
 #include <KSharedConfig>
 #include <Solid/Device>
 #include <Solid/StorageAccess>
@@ -56,7 +34,6 @@
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusError>
-#include <QDBusReply>
 
 #include "kiofuse_interface.h"
 #endif

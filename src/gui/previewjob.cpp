@@ -12,45 +12,18 @@
 #include "filepreviewjob.h"
 #include "kiogui_debug.h"
 
-#include <algorithm>
-#include <limits>
-
-#include <QCryptographicHash>
-#include <QDir>
-#include <QDirIterator>
-#include <QFile>
-#include <QImage>
-#include <QJsonArray>
-#include <QJsonDocument>
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QMetaMethod>
 #include <QMimeDatabase>
-#include <QObject>
 #include <QPixmap>
-#include <QRegularExpression>
-#include <QSaveFile>
 #include <QStandardPaths>
-#include <QTemporaryDir>
-#include <QTemporaryFile>
-#include <QTimer>
-#include <QUuid>
-
-#include <KConfigGroup>
-#include <KFileUtils>
-#include <KLocalizedString>
-#include <KMountPoint>
-#include <KPluginMetaData>
-#include <KProtocolInfo>
-#include <KService>
-#include <KSharedConfig>
-#include <Solid/Device>
-#include <Solid/StorageAccess>
 
 #include "job_p.h"
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusError>
-#include <QDBusReply>
 
 #endif
 

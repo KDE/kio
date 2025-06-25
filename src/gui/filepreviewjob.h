@@ -9,15 +9,10 @@
 #define KIO_FILEPREVIEWJOB_H
 
 #include "previewjob.h"
-#include <KConfigGroup>
-#include <KFileUtils>
 #include <KPluginMetaData>
-#include <KSharedConfig>
 #include <QDir>
 #include <QImage>
-#include <QMimeDatabase>
 #include <QSize>
-#include <QStandardPaths>
 #include <kfileitem.h>
 #include <kio/job.h>
 
@@ -144,7 +139,7 @@ private:
     QString m_tempDirPath;
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
     bool m_tryKioFuse = true;
-
+    // The preview image. If when emitting return this is empty, job can be considered as failed.
     QImage m_preview;
 
     void statFile();
