@@ -402,8 +402,7 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
         emitResult();
         return;
     }
-    m_tempName =
-        QStringLiteral("%1%2.%3").arg(krun_writable).arg(QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces)).arg(item.suffix());
+    m_tempName = QStringLiteral("%1%2.%3").arg(krun_writable, QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces), item.suffix());
 
     KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(m_tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
