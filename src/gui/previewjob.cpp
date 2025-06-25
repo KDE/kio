@@ -9,8 +9,8 @@
 */
 
 #include "previewjob.h"
+#include "filepreviewjob.h"
 #include "kiogui_debug.h"
-#include "previewjob_p.h"
 
 #include <algorithm>
 #include <limits>

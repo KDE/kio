@@ -5,7 +5,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#include "previewjob_p.h"
+#include "filepreviewjob.h"
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
 #include "previewjob.h"
@@ -782,4 +782,4 @@ void FilePreviewStatJob::getDeviceId(const QString &path)
     addSubjob(job);
 }
 
-#include "moc_previewjob_p.cpp"
+#include "moc_filepreviewjob.cpp"
