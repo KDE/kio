@@ -14,6 +14,7 @@
 #include <KPluginMetaData>
 #include <KSharedConfig>
 #include <QDir>
+#include <QImage>
 #include <QMimeDatabase>
 #include <QSize>
 #include <QStandardPaths>
@@ -78,14 +79,12 @@ public:
 
     void beginJob();
 
-    QMap<QString, QString> thumbnailWorkerMetaData();
-    QMap<QString, int> deviceIdMap();
+    QMap<QString, QString> thumbnailWorkerMetaData() const;
+    QMap<QString, int> deviceIdMap() const;
+    QImage previewImage() const;
+    PreviewItem item() const;
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QMap<QString, StandardThumbnailerData> standardThumbnailers();
-
-Q_SIGNALS:
-    void gotPreview(const KFileItem &item, const QImage &preview);
-    void failed(const KFileItem &item);
 
 private Q_SLOTS:
     void slotStatFile(KJob *job);
@@ -118,7 +117,6 @@ private:
     PreviewJob::ScaleType m_scaleType;
     bool m_ignoreMaximumSize;
     int m_sequenceIndex;
-    bool m_succeeded;
     // If the file to create a thumb for was a temp file, this is its name
     QString m_tempName;
     KIO::filesize_t m_maximumLocalSize;
@@ -147,6 +145,8 @@ private:
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
     bool m_tryKioFuse = true;
 
+    QImage m_preview;
+
     void statFile();
     void getOrCreateThumbnail();
     bool loadThumbnailFromCache();
@@ -164,9 +164,6 @@ private:
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
     QDir createTemporaryDir();
-
-    // Used to finish the job and emit result
-    void finishJob();
 };
 
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
