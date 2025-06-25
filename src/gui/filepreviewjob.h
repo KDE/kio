@@ -84,8 +84,7 @@ public:
     static QMap<QString, StandardThumbnailerData> standardThumbnailers();
 
 Q_SIGNALS:
-    void generated(const KFileItem &item, const QImage &preview);
-    void gotPreview(const KFileItem &item, const QPixmap &preview);
+    void gotPreview(const KFileItem &item, const QImage &preview);
     void failed(const KFileItem &item);
 
 private Q_SLOTS:

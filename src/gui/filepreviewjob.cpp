@@ -657,11 +657,7 @@ void FilePreviewJob::emitPreview(const QImage &thumb)
         preview = preview.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
-    Q_EMIT generated(m_item.item, preview);
-
-    QPixmap pixmap = QPixmap::fromImage(preview);
-    pixmap.setDevicePixelRatio(ratio);
-    Q_EMIT gotPreview(m_item.item, pixmap);
+    Q_EMIT gotPreview(m_item.item, preview);
 }
 
 QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
