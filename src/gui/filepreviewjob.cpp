@@ -596,7 +596,7 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
         int height;
         QImage::Format format;
         qreal imgDevicePixelRatio;
-        // TODO KF6: add a version number as first parameter
+        // TODO KF7: add a version number as first parameter
         str >> width >> height >> format >> imgDevicePixelRatio;
         thumb = QImage(m_shmaddr, width, height, format).copy();
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
