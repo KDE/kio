@@ -89,7 +89,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
     _url.setPath(QDir::cleanPath(_url.path())); // kill consecutive slashes
 
     // like this we don't have to worry about trailing slashes any further
-    _url = _url.adjusted(QUrl::StripTrailingSlash);
+    _url = cleanUpTrailingSlash(_url);
 
     QString resolved;
     if (_url.isLocalFile()) {
@@ -378,7 +378,7 @@ void KCoreDirListerCache::stop(KCoreDirLister *lister, bool silent)
 void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u, bool silent)
 {
     QUrl url(_u);
-    url = url.adjusted(QUrl::StripTrailingSlash);
+    url = cleanUpTrailingSlash(url);
 
     KCoreDirListerPrivate::CachedItemsJob *cachedItemsJob = lister->d->cachedItemsJobForUrl(url);
     if (cachedItemsJob) {
@@ -486,7 +486,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
 {
     qCDebug(KIO_CORE_DIRLISTER) << lister << " _url: " << _url;
 
-    const QUrl url = _url.adjusted(QUrl::StripTrailingSlash);
+    const QUrl url = cleanUpTrailingSlash(_url);
 
     DirectoryDataHash::iterator dit = directoryData.find(url);
     if (dit == directoryData.end()) {
@@ -588,9 +588,9 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 {
     qCDebug(KIO_CORE_DIRLISTER) << _dir;
 
-    QUrl dir = _dir.adjusted(QUrl::StripTrailingSlash);
+    QUrl dir = cleanUpTrailingSlash(_dir);
     if (!checkUpdate(dir)) {
-        auto parentDir = dir.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        auto parentDir = cleanUpTrailingSlash(dir.adjusted(QUrl::RemoveFilename));
         if (checkUpdate(parentDir)) {
             // if the parent is in use, update it instead
             dir = parentDir;
@@ -710,7 +710,7 @@ KFileItem KCoreDirListerCache::itemForUrl(const QUrl &url) const
 
 KCoreDirListerCache::DirItem *KCoreDirListerCache::dirItemForUrl(const QUrl &dir) const
 {
-    const QUrl url = dir.adjusted(QUrl::StripTrailingSlash);
+    const QUrl url = cleanUpTrailingSlash(dir);
     DirItem *item = itemsInUse.value(url);
     if (!item) {
         item = itemsCached[url];
@@ -748,9 +748,9 @@ KFileItem KCoreDirListerCache::findByName(const KCoreDirLister *lister, const QS
 KFileItem KCoreDirListerCache::findByUrl(const KCoreDirLister *lister, const QUrl &_u) const
 {
     QUrl url(_u);
-    url = url.adjusted(QUrl::StripTrailingSlash);
+    url = cleanUpTrailingSlash(url);
 
-    const QUrl parentDir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    const QUrl parentDir = cleanUpTrailingSlash(url.adjusted(QUrl::RemoveFilename));
     DirItem *dirItem = dirItemForUrl(parentDir);
     if (dirItem) {
         // If lister is set, check that it contains this dir
@@ -816,7 +816,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
             }
         }
 
-        const QUrl parentDir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        const QUrl parentDir = cleanUpTrailingSlash(url.adjusted(QUrl::RemoveFilename));
         const QList<QUrl> parentDirUrls = directoriesForCanonicalPath(parentDir);
         for (const QUrl &dir : parentDirUrls) {
             DirItem *dirItem = dirItemForUrl(dir);
@@ -872,7 +872,7 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList) // from 
             pendingRemoteUpdates.insert(fileitem);
             // For remote files, we won't be able to figure out the new information,
             // we have to do a update (directory listing)
-            const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+            const QUrl dir = cleanUpTrailingSlash(url.adjusted(QUrl::RemoveFilename));
             if (!dirsToUpdate.contains(dir)) {
                 dirsToUpdate.prepend(dir);
             }
@@ -897,7 +897,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
     printDebug();
 #endif
 
-    QUrl oldurl = src.adjusted(QUrl::StripTrailingSlash);
+    QUrl oldurl = cleanUpTrailingSlash(src);
     KFileItem fileitem = findByUrl(nullptr, oldurl);
     if (fileitem.isNull()) {
         qCDebug(KIO_CORE_DIRLISTER) << "Item not found:" << oldurl;
@@ -968,7 +968,7 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
 {
     qCDebug(KIO_CORE_DIRLISTER) << "old:" << oldItem.name() << oldItem.url() << "new:" << fileitem.name() << fileitem.url();
     // Look whether this item was shown in any view, i.e. held by any dirlister
-    const QUrl parentDir = oldItem.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    const QUrl parentDir = cleanUpTrailingSlash(oldItem.url().adjusted(QUrl::RemoveFilename));
     DirectoryDataHash::iterator dit = directoryData.find(parentDir);
     std::set<KCoreDirLister *> listers;
     if (dit != directoryData.end()) {
@@ -994,7 +994,7 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
             lister->d->rootFileItem = fileitem;
             lister->d->addRefreshItem(directoryUrl, oldRootItem, fileitem);
         } else {
-            directoryUrl = directoryUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+            directoryUrl = cleanUpTrailingSlash(directoryUrl.adjusted(QUrl::RemoveFilename));
             lister->d->addRefreshItem(directoryUrl, oldItem, fileitem);
         }
     }
@@ -1027,7 +1027,7 @@ QList<QUrl> KCoreDirListerCache::directoriesForCanonicalPath(const QUrl &dir) co
 void KCoreDirListerCache::slotFileDirty(const QString &path)
 {
     qCDebug(KIO_CORE_DIRLISTER) << path;
-    QUrl url = QUrl::fromLocalFile(path).adjusted(QUrl::StripTrailingSlash);
+    QUrl url = cleanUpTrailingSlash(QUrl::fromLocalFile(path));
     // File or dir?
     bool isDir;
     const KFileItem item = itemForUrl(url);
@@ -1049,7 +1049,7 @@ void KCoreDirListerCache::slotFileDirty(const QString &path)
         }
     }
     // Also do this for dirs, e.g. to handle permission changes
-    const QList<QUrl> urls = directoriesForCanonicalPath(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+    const QList<QUrl> urls = directoriesForCanonicalPath(cleanUpTrailingSlash(url.adjusted(QUrl::RemoveFilename)));
     for (const QUrl &dir : urls) {
         QUrl aliasUrl(dir);
         aliasUrl.setPath(Utils::concatPaths(aliasUrl.path(), url.fileName()));
@@ -1090,7 +1090,7 @@ void KCoreDirListerCache::handleFileDirty(const QUrl &url)
 {
     // A file: do we know about it already?
     const KFileItem &existingItem = findByUrl(nullptr, url);
-    const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    const QUrl dir = cleanUpTrailingSlash(url.adjusted(QUrl::RemoveFilename));
     if (existingItem.isNull()) {
         // No - update the parent dir then
         handleDirDirty(dir);
@@ -1112,7 +1112,7 @@ void KCoreDirListerCache::slotFileCreated(const QString &path) // from KDirWatch
     // XXX: how to avoid a complete rescan here?
     // We'd need to stat that one file separately and refresh the item(s) for it.
     QUrl fileUrl(QUrl::fromLocalFile(path));
-    itemsAddedInDirectory(fileUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+    itemsAddedInDirectory(cleanUpTrailingSlash(fileUrl.adjusted(QUrl::RemoveFilename)));
 }
 
 void KCoreDirListerCache::slotFileDeleted(const QString &path) // from KDirWatch
@@ -1121,7 +1121,7 @@ void KCoreDirListerCache::slotFileDeleted(const QString &path) // from KDirWatch
     const QString fileName = QFileInfo(path).fileName();
     QUrl dirUrl(QUrl::fromLocalFile(path));
     QStringList fileUrls;
-    const QList<QUrl> urls = directoriesForCanonicalPath(dirUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+    const QList<QUrl> urls = directoriesForCanonicalPath(cleanUpTrailingSlash(dirUrl.adjusted(QUrl::RemoveFilename)));
     for (const QUrl &url : urls) {
         QUrl urlInfo(url);
         urlInfo.setPath(Utils::concatPaths(urlInfo.path(), fileName));
@@ -1133,7 +1133,7 @@ void KCoreDirListerCache::slotFileDeleted(const QString &path) // from KDirWatch
 void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &entries)
 {
     QUrl url(joburl(static_cast<KIO::ListJob *>(job)));
-    url = url.adjusted(QUrl::StripTrailingSlash);
+    url = cleanUpTrailingSlash(url);
 
     qCDebug(KIO_CORE_DIRLISTER) << "new entries for " << url;
 
@@ -1245,7 +1245,7 @@ void KCoreDirListerCache::slotResult(KJob *j)
     runningListJobs.remove(job);
 
     QUrl jobUrl(joburl(job));
-    jobUrl = jobUrl.adjusted(QUrl::StripTrailingSlash); // need remove trailing slashes again, in case of redirections
+    jobUrl = cleanUpTrailingSlash(jobUrl); // need remove trailing slashes again, in case of redirections
 
     qCDebug(KIO_CORE_DIRLISTER) << "finished listing" << jobUrl;
 
@@ -1337,8 +1337,8 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     QUrl newUrl(url);
 
     // strip trailing slashes
-    oldUrl = oldUrl.adjusted(QUrl::StripTrailingSlash);
-    newUrl = newUrl.adjusted(QUrl::StripTrailingSlash);
+    oldUrl = cleanUpTrailingSlash(oldUrl);
+    newUrl = cleanUpTrailingSlash(newUrl);
 
     if (oldUrl == newUrl) {
         qCDebug(KIO_CORE_DIRLISTER) << "New redirection url same as old, giving up.";
@@ -1546,7 +1546,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
             // Update URL in dir item and in itemsInUse
             dir->redirect(newDirUrl);
 
-            itemsToChange.emplace_back(oldDirUrl.adjusted(QUrl::StripTrailingSlash), newDirUrl.adjusted(QUrl::StripTrailingSlash), dir);
+            itemsToChange.emplace_back(cleanUpTrailingSlash(oldDirUrl), cleanUpTrailingSlash(newDirUrl), dir);
             // Rename all items under that dir
             // If all items of the directory change the same part of their url, the order is not
             // changed, therefore just change it in the list.
@@ -1590,8 +1590,8 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_newUrl)
 {
     qCDebug(KIO_CORE_DIRLISTER) << _oldUrl << "->" << _newUrl;
-    const QUrl oldUrl = _oldUrl.adjusted(QUrl::StripTrailingSlash);
-    const QUrl newUrl = _newUrl.adjusted(QUrl::StripTrailingSlash);
+    const QUrl oldUrl = cleanUpTrailingSlash(_oldUrl);
+    const QUrl newUrl = cleanUpTrailingSlash(_newUrl);
 
     KIO::ListJob *job = jobForUrl(oldUrl);
     if (job) {
@@ -1664,7 +1664,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     KIO::ListJob *job = static_cast<KIO::ListJob *>(j);
 
     QUrl jobUrl(joburl(job));
-    jobUrl = jobUrl.adjusted(QUrl::StripTrailingSlash); // need remove trailing slashes again, in case of redirections
+    jobUrl = cleanUpTrailingSlash(jobUrl); // need remove trailing slashes again, in case of redirections
 
     qCDebug(KIO_CORE_DIRLISTER) << "finished update" << jobUrl;
 
@@ -1860,7 +1860,7 @@ KIO::ListJob *KCoreDirListerCache::jobForUrl(const QUrl &url, KIO::ListJob *not_
 {
     for (auto it = runningListJobs.cbegin(); it != runningListJobs.cend(); ++it) {
         KIO::ListJob *job = it.key();
-        const QUrl jobUrl = joburl(job).adjusted(QUrl::StripTrailingSlash);
+        const QUrl jobUrl = cleanUpTrailingSlash(joburl(job));
 
         if (jobUrl == url && job != not_job) {
             return job;
@@ -1927,7 +1927,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
     // Idea: tell all the KCoreDirListers that they should forget the dir
     //       and then remove it from the cache.
 
-    QUrl dirUrl(_dirUrl.adjusted(QUrl::StripTrailingSlash));
+    QUrl dirUrl(cleanUpTrailingSlash(_dirUrl));
 
     // Separate itemsInUse iteration and calls to forgetDirs (which modify itemsInUse)
     QList<QUrl> affectedItems;
@@ -2815,6 +2815,20 @@ KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir
     }
 
     return {};
+}
+
+QUrl KCoreDirListerCache::cleanUpTrailingSlash(const QUrl &url) const
+{
+    // Url is just a scheme or it's local, we can return it with regular clean
+    if (url.path().isEmpty() || url.isLocalFile()) {
+        return url.adjusted(QUrl::StripTrailingSlash);
+    }
+    QString cleanedPath = url.adjusted(QUrl::StripTrailingSlash).toString();
+    if (cleanedPath.endsWith(QLatin1Char('/'))) {
+        cleanedPath.chop(1);
+    }
+
+    return QUrl(cleanedPath);
 }
 
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(ListerStatus status) const

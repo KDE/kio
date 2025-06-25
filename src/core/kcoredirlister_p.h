@@ -374,6 +374,16 @@ private:
      */
     CacheHiddenFile *cachedDotHiddenForDir(const QString &dir);
 
+    /*! Due to QTBUG-35921 we sometimes get a trailing slash even
+     * if we expect it to be removed with remote files, since
+     * on remote file systems we do not know if foo/bar/ and foo/bar is the same
+     * item or not.
+     * This makes sure the trailing slash is completely removed from @p url
+     * and returns the cleaned url on remote files. On local files it
+     * runs the default Qt::StripTrailingSlash adjustment.
+     */
+    QUrl cleanUpTrailingSlash(const QUrl &url) const;
+
 #ifndef NDEBUG
     void printDebug();
 #endif
