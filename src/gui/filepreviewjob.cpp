@@ -81,7 +81,6 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_scaleType(m_item.scaleType)
     , m_ignoreMaximumSize(m_item.ignoreMaximumSize)
     , m_sequenceIndex(m_item.sequenceIndex)
-    , m_succeeded(false)
     , m_maximumLocalSize(m_item.maximumLocalSize)
     , m_maximumRemoteSize(m_item.maximumRemoteSize)
     , m_enableRemoteFolderThumbnail(m_item.enableRemoteFolderThumbnail)
@@ -90,6 +89,7 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_thumbRoot(thumbRoot)
     , m_devicePixelRatio(m_item.devicePixelRatio)
     , m_deviceIdMap(m_item.deviceIdMap)
+    , m_preview(QImage())
 {
 #if WITH_SHM
     size_t requiredSize = m_size.width() * m_devicePixelRatio * m_size.height() * m_devicePixelRatio * 4;
@@ -181,7 +181,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
         qCDebug(KIO_GUI) << "Job failed" << job->errorString();
-        finishJob();
+        emitResult();
         return;
     }
     const QUrl itemUrl = m_item.item.mostLocalUrl();
@@ -193,7 +193,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0) {
         qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, migth be a broken symlink" << m_item.item.url();
-        finishJob();
+        emitResult();
         return;
     }
 
@@ -206,7 +206,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         skipCurrentItem = (!m_ignoreMaximumSize && size > m_maximumRemoteSize) || (m_item.item.isDir() && !m_enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
-        finishJob();
+        emitResult();
         return;
     }
 
@@ -219,22 +219,12 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     if (loadThumbnailFromCache()) {
-        m_succeeded = true;
-        finishJob();
+        emitResult();
         return;
     }
 
     getOrCreateThumbnail();
     return;
-}
-
-void FilePreviewJob::finishJob()
-{
-    if (!m_succeeded) {
-        qCDebug(KIO_GUI) << "Job failed";
-        Q_EMIT failed(m_item.item);
-    }
-    emitResult();
 }
 
 void FilePreviewJob::cleanupTempFile()
@@ -337,7 +327,7 @@ void FilePreviewJob::getOrCreateThumbnail()
 
     if (item.isDir() || !KProtocolInfo::isKnownProtocol(item.targetUrl().scheme())) {
         // Skip remote dirs (bug 208625)
-        finishJob();
+        emitResult();
         return;
     }
     // The plugin does not support this remote content, either copy the
@@ -390,14 +380,14 @@ void FilePreviewJob::slotGetOrCreateThumbnail(KJob *job)
             return;
         }
     }
-    finishJob();
+    emitResult();
 }
 
 void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
 {
     // Only download for the first sequence
     if (m_sequenceIndex) {
-        finishJob();
+        emitResult();
         return;
     }
     // No plugin support access to this remote content, copy the file
@@ -409,7 +399,7 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
         QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/%1/").arg(QCoreApplication::applicationPid());
     if (!QDir().mkpath(krun_writable)) {
         qCWarning(KIO_GUI) << "Could not create a cache folder for preview creation:" << krun_writable;
-        finishJob();
+        emitResult();
         return;
     }
     m_tempName =
@@ -512,7 +502,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
 
     if (m_currentDeviceCachePolicy == CachePolicy::Unknown) {
-        finishJob();
+        emitResult();
         return;
     }
 
@@ -540,7 +530,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
-        connect(job, &KIO::StandardThumbnailJob::result, this, &FilePreviewJob::finishJob);
+        connect(job, &KIO::StandardThumbnailJob::result, this, &FilePreviewJob::emitResult);
         job->start();
         return;
     }
@@ -553,7 +543,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
-    connect(job, &KIO::TransferJob::result, this, &FilePreviewJob::finishJob);
+    connect(job, &KIO::TransferJob::result, this, &FilePreviewJob::emitResult);
     int thumb_width = m_size.width();
     int thumb_height = m_size.height();
     if (save) {
@@ -592,7 +582,6 @@ void FilePreviewJob::slotStandardThumbData(KIO::Job *job, const QImage &thumbDat
     saveThumbnailData(thumb);
 
     emitPreview(thumb);
-    m_succeeded = true;
 }
 
 void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
@@ -657,7 +646,8 @@ void FilePreviewJob::emitPreview(const QImage &thumb)
         preview = preview.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
-    Q_EMIT gotPreview(m_item.item, preview);
+    m_preview = preview;
+    emitResult();
 }
 
 QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
@@ -731,14 +721,24 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
     return standardThumbs;
 }
 
-QMap<QString, QString> FilePreviewJob::thumbnailWorkerMetaData()
+QMap<QString, QString> FilePreviewJob::thumbnailWorkerMetaData() const
 {
     return m_thumbnailWorkerMetaData;
 }
 
-QMap<QString, int> FilePreviewJob::deviceIdMap()
+QMap<QString, int> FilePreviewJob::deviceIdMap() const
 {
     return m_deviceIdMap;
+}
+
+QImage FilePreviewJob::previewImage() const
+{
+    return m_preview;
+}
+
+PreviewItem FilePreviewJob::item() const
+{
+    return m_item;
 }
 
 // Stat multiple files at same time

@@ -341,17 +341,6 @@ void PreviewJobPrivate::determineNextFile()
         items.pop_front();
 
         FilePreviewJob *job = KIO::filePreviewJob(currentItem, thumbRoot);
-        q->connect(job, &FilePreviewJob::gotPreview, q, [q, this](const KFileItem &item, const QImage &image) {
-            Q_EMIT q->generated(item, image);
-            if (q->isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
-                QPixmap pixmap = QPixmap::fromImage(image);
-                pixmap.setDevicePixelRatio(devicePixelRatio);
-                Q_EMIT q->gotPreview(currentItem.item, pixmap);
-            }
-        });
-        q->connect(job, &FilePreviewJob::failed, q, [q](const KFileItem &item) {
-            Q_EMIT q->failed(item);
-        });
         q->addSubjob(job);
     }
 }
@@ -361,8 +350,20 @@ void PreviewJob::slotResult(KJob *job)
     Q_D(PreviewJob);
     FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(job);
     if (previewJob) {
-        d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
-        d->deviceIdMap = previewJob->deviceIdMap();
+        auto fileItem = previewJob->item().item;
+        if (!previewJob->previewImage().isNull()) {
+            d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
+            d->deviceIdMap = previewJob->deviceIdMap();
+            auto previewImage = previewJob->previewImage();
+            Q_EMIT generated(fileItem, previewImage);
+            if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
+                QPixmap pixmap = QPixmap::fromImage(previewImage);
+                pixmap.setDevicePixelRatio(d->devicePixelRatio);
+                Q_EMIT gotPreview(fileItem, pixmap);
+            }
+        } else {
+            Q_EMIT failed(fileItem);
+        }
     }
     removeSubjob(job);
     if (job->error() > 0) {
