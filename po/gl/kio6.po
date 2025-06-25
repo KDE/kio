@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:39+0000\n"
 "PO-Revision-Date: 2025-06-22 15:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -3870,14 +3870,14 @@ msgstr "Pode cambiar a icona máis tarde nas propiedades do cartafol."
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
+#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
+#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Pegar"
@@ -4943,13 +4943,13 @@ msgstr ""
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: widgets/checksumswidget.ui:29
+#: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
 msgstr "Suma de comprobación esperada (MD5, SHA512 or SHA256)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
-#: widgets/checksumswidget.ui:36
+#: widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr ""
@@ -4957,28 +4957,28 @@ msgstr ""
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:64
+#: widgets/checksumswidget.ui:70
 #, kde-format
 msgid "MD5:"
 msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:71
+#: widgets/checksumswidget.ui:80
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:78
+#: widgets/checksumswidget.ui:90
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:85
+#: widgets/checksumswidget.ui:100
 #, kde-format
 msgid "SHA512:"
 msgstr "SHA512:"
@@ -4988,8 +4988,8 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
-#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
+#: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
+#: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
 #: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
@@ -4999,8 +4999,8 @@ msgstr "Calcular"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
-#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
+#: widgets/checksumswidget.ui:142 widgets/checksumswidget.ui:189
+#: widgets/checksumswidget.ui:236 widgets/checksumswidget.ui:283
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Prema para copiar a suma de comprobación ao portapapeis."
@@ -6684,21 +6684,12 @@ msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Sumas de &comprobación"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
-#, kde-format
-msgctxt "@info:progress"
-msgid "Calculating…"
-msgstr "Calculando…"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Suma de comprobación incorrecta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
@@ -6706,18 +6697,18 @@ msgstr ""
 "A entrada fornecida non é unha suma de comprobación MD5, SHA1 ou SHA256 "
 "correcta."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
 #, kde-format
 msgid "Checksums match."
 msgstr "A suma de comprobación coincide."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "A suma de comprobación calculada coincide coa esperada."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2352
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6728,30 +6719,36 @@ msgstr ""
 "descarga. Probe a descargar de novo o ficheiro.<br/>Se a comprobación "
 "continúa fallando, contacte coa fonte do ficheiro."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2357
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "A suma de comprobación calculada non coincide coa esperada."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2365
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Comprobando a suma de comprobación…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2379
+#, kde-format
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "Calculando…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2797
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6759,27 +6756,27 @@ msgstr ""
 "Non foi posíbel gardar as propiedades. Só se permite usar executábeis en "
 "sistemas de ficheiros locais."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2597
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicación"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2737
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Engadir un tipo de ficheiro para %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2738
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Escolla un ou máis tipos de ficheiro para engadir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2876
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Só se permite usar executábeis en sistemas de ficheiros locais."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2891
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opcións avanzadas para %1"

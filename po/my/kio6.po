@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3759,14 +3759,14 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
+#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
+#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "ကူးယူရန်"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "ပွား"
@@ -4817,41 +4817,41 @@ msgstr ""
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: widgets/checksumswidget.ui:29
+#: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
 msgstr "မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း(အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
-#: widgets/checksumswidget.ui:36
+#: widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr "ကလစ်ဘုတ်မှ ပေါင်းလဒ်စစ်တမ်းအား စာသွင်း-ကွက်လပ်သို့ ပွားရန် နှိပ်ပါ။"
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:64
+#: widgets/checksumswidget.ui:70
 #, kde-format
 msgid "MD5:"
 msgstr "အမ်ဒီ၅ -"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:71
+#: widgets/checksumswidget.ui:80
 #, kde-format
 msgid "SHA1:"
 msgstr "အက်စ်အိပ့်ချ်အေ၁ -"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:78
+#: widgets/checksumswidget.ui:90
 #, kde-format
 msgid "SHA256:"
 msgstr "အက်စ်အိပ်ချ်အေ၂၅၆ -"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:85
+#: widgets/checksumswidget.ui:100
 #, kde-format
 msgid "SHA512:"
 msgstr "အက်စ်အိပ်ချ်အေ၅၁၂ -"
@@ -4861,8 +4861,8 @@ msgstr "အက်စ်အိပ်ချ်အေ၅၁၂ -"
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
-#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
+#: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
+#: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
 #: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
@@ -4872,8 +4872,8 @@ msgstr "တွက်ချက်ရန်"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
-#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
+#: widgets/checksumswidget.ui:142 widgets/checksumswidget.ui:189
+#: widgets/checksumswidget.ui:236 widgets/checksumswidget.ui:283
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "ကလစ်ဘုတ်သို့ ပေါင်းလဒ်စစ်တမ်း ကူးယူရန် နှိပ်ပါ။"
@@ -6543,40 +6543,29 @@ msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&hပေါင်းလဒ်စစ်တမ်းများ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
-msgctxt "@info:progress"
-msgid "Calculating…"
-msgstr "တွက်နေသည်…"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Invalid checksum."
 msgstr "မမှန်ကန်သော ပေါင်းလဒ်စစ်တမ်း။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "ပေးချက်သည် မှန်ကန်သော အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆ ပေါင်းလဒ်စစ်တမ်း မဟုတ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
 #, kde-format
 msgid "Checksums match."
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2352
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6586,13 +6575,13 @@ msgstr ""
 "<p>ပေါင်းလဒ်စစ်တမ်းများ မကိုက်ပါ။</p>အမှားပါသောဒေါင်းလုတ်တစ်ခုကြောင့်ဖြစ်နိုင်သည်။ ဖိုင်ကို "
 "နောက်တစ်ကြိမ်ဒေါင်းလုတ်ဆွဲကြည့်ပါ။<br/>အကယ်၍ စစ်ဆေးခြင်း မအောင်မြင်လျှင် ဖိုင်လ်ဇစ်မြစ်ကို ဆက်သွယ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2357
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကွဲပြားသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2365
 #, fuzzy, kde-format
 #| msgctxt "notify the user about a computation in the background"
 #| msgid "Verifying checksum..."
@@ -6600,45 +6589,53 @@ msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2379
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating..."
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "တွက်နေသည်…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgid "U&RL"
 msgstr "&Rယူအာအယ်လ်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "URL:"
 msgstr "ယူအာအယ်လ် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2797
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်လ်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2597
 #, kde-format
 msgid "&Application"
 msgstr "&Aအပ္ပလီကေးရှင်း"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2737
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 အတွက်ဖိုင်လ်အမျိုးအစားထည့်မည်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2738
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်လ်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2876
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်လ်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2891
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 အတွက် အဆင့်မြင့်ရွေးချယ်စရာများ"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:39+0000\n"
 "PO-Revision-Date: 2025-06-19 22:26+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3676,14 +3676,14 @@ msgstr "之後也能從資料夾屬性修改圖示。"
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
+#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
+#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "複製"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "貼上"
@@ -4723,41 +4723,41 @@ msgstr ""
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: widgets/checksumswidget.ui:29
+#: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
 msgstr "預期的總和檢查碼 (MD5、SHA1、SHA256 或 SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
-#: widgets/checksumswidget.ui:36
+#: widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr "點選以從剪貼簿貼上檢查碼到輸入區。"
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:64
+#: widgets/checksumswidget.ui:70
 #, kde-format
 msgid "MD5:"
 msgstr "MD5："
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:71
+#: widgets/checksumswidget.ui:80
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1："
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:78
+#: widgets/checksumswidget.ui:90
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256："
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:85
+#: widgets/checksumswidget.ui:100
 #, kde-format
 msgid "SHA512:"
 msgstr "SHA512："
@@ -4767,8 +4767,8 @@ msgstr "SHA512："
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
-#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
+#: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
+#: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
 #: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
@@ -4778,8 +4778,8 @@ msgstr "計算"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
-#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
+#: widgets/checksumswidget.ui:142 widgets/checksumswidget.ui:189
+#: widgets/checksumswidget.ui:236 widgets/checksumswidget.ui:283
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "點選以複製檢查碼到剪貼簿中。"
@@ -6410,38 +6410,29 @@ msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "總和檢查碼(&H)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
-#, kde-format
-msgctxt "@info:progress"
-msgid "Calculating…"
-msgstr "計算中…"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Invalid checksum."
 msgstr "無效的總和檢查碼。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "給定的輸入不是有效的 MD5、SHA1 或 SHA256 總和檢查碼。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
 #, kde-format
 msgid "Checksums match."
 msgstr "總和檢查碼符合。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "計算出來的總和檢查碼與預期中的符合。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2352
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6451,56 +6442,62 @@ msgstr ""
 "<p>總和檢查碼不符合。</p>這可能是中間有失誤的下載所導致。請試著重新下載檔案。"
 "<br/>若驗證持續失敗，請連絡 原始檔案的提供者。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2357
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "計算出來的總和檢查碼與預期中的不同。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2365
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "正在檢查總和碼…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2379
+#, kde-format
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "計算中…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgid "U&RL"
 msgstr "URL(&R)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2797
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "無法儲存屬性。只支援本地檔案系統的項目。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2597
 #, kde-format
 msgid "&Application"
 msgstr "應用程式(&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2737
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "加入 %1 的檔案類型"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2738
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "選擇一個或多個要加入的檔案類型："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2876
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支援本地檔案系統的執行檔。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2891
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的進階選項"

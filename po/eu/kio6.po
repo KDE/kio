@@ -14,15 +14,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:39+0000\n"
-"PO-Revision-Date: 2025-06-07 20:21+0200\n"
+"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"PO-Revision-Date: 2025-06-24 19:42+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -3861,14 +3861,14 @@ msgstr "Ikonoa geroago alda dezakezu karpetaren propietateetan."
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
+#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
+#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopiatu"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Itsatsi"
@@ -4935,41 +4935,41 @@ msgstr ""
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: widgets/checksumswidget.ui:29
+#: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
 msgstr "Esperotako egiaztapen-batura (MD5, SHA1, SHA256 edo SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
-#: widgets/checksumswidget.ui:36
+#: widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr "Klik egin egiaztapen-batura arbeletik sarrera eremura itsasteko."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:64
+#: widgets/checksumswidget.ui:70
 #, kde-format
 msgid "MD5:"
 msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:71
+#: widgets/checksumswidget.ui:80
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:78
+#: widgets/checksumswidget.ui:90
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:85
+#: widgets/checksumswidget.ui:100
 #, kde-format
 msgid "SHA512:"
 msgstr "SHA512:"
@@ -4979,8 +4979,8 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
-#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
+#: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
+#: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
 #: widgets/kfilepropspluginwidget.ui:276
 #, kde-format
 msgid "Calculate"
@@ -4990,8 +4990,8 @@ msgstr "Kalkulatu"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
-#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
+#: widgets/checksumswidget.ui:142 widgets/checksumswidget.ui:189
+#: widgets/checksumswidget.ui:236 widgets/checksumswidget.ui:283
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klik egin egiaztapen-batura arbelera kopiatzeko."
@@ -5560,7 +5560,7 @@ msgstr "Tamaina:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Zehaztu karpetaren neurria"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5572,7 +5572,7 @@ msgstr "Gelditu"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Utzi karpetaren neurria zehazteari"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5588,10 +5588,9 @@ msgstr "Hona apuntatzen du:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Erakutsi abisu bat"
+msgstr "Erakutsi jomuga"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6184,20 +6183,16 @@ msgid "&General"
 msgstr "&Orokorra"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Sartu %1(e)ren fitxategi-izena:"
+msgstr "Sartu karpetaren izena"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Sartu %1(e)ren fitxategi-izena:"
+msgstr "Sartu fitxategiaren izena"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6215,16 +6210,14 @@ msgstr "Freskatu"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Sartu jomugako kokapena"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Cannot transfer <filename>%1</filename>"
+msgstr "Erakutsi <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6303,7 +6296,7 @@ msgstr "Aldatu..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Aldatu \"%1\" motako fitxategiak irekitzeko aplikazio lehenetsia."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -6680,39 +6673,30 @@ msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "E&giaztapen-baturak"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2138
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2160
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2171
-#, kde-format
-msgctxt "@info:progress"
-msgid "Calculating…"
-msgstr "Kalkulatzen..."
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
 #, kde-format
 msgid "Invalid checksum."
 msgstr "egiaztapen-batura baliogabea."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Emandako sarrerakoa ez da MD5, SHA1 edo SHA256 egiaztapen-batura balioduna."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2341
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
 #, kde-format
 msgid "Checksums match."
 msgstr "Egiaztapen-baturak bat datoz."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2344
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Kalkulatutako eta esperotako egiaztapen-baturak bat datoz."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2356
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2352
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6723,30 +6707,36 @@ msgstr ""
 "Saiatu fitxategia berriz jaisten.<br/>Hala ere egiaztapenak huts egingo "
 "balu, jarri harremanean fitxategiaren iturburuarekin."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2361
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2357
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Kalkulatutako eta esperotako egiaztapen-baturak ez datoz bat."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2365
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Egiaztapen-batura egiaztatzen..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2379
+#, kde-format
+msgctxt "@info:progress"
+msgid "Calculating…"
+msgstr "Kalkulatzen..."
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgid "U&RL"
 msgstr "U&RLa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
 #, kde-format
 msgid "URL:"
 msgstr "URLa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2532
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2803
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2797
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6754,27 +6744,27 @@ msgstr ""
 "Ezin izan ditu propietateak gorde. Fitxategi-sistema lokaleko sarrerak baino "
 "ez dira onartzen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2603
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2597
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikazioa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2743
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2737
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Gehitu fitxategi-mota honentzat: %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2744
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2738
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Hautatu fitxategi-mota bat edo gehiago gehitzeko:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2882
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2876
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Fitxategi-sistema lokaleko exekutagarriak baino ez dira onartzen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2897
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2891
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Aukera aurreratuak %1(r)entzako"
@@ -7155,20 +7145,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Aldatu <filename>%1</filename> honela:"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
 msgstr "Lehendik ere badago <filename>%1</filename> izeneko fitxategi bat."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "Ez du ematen <filename>%1</filename> programa exekutagarria denik."
+msgstr "<filename>%1</filename> ez da fitxategi-izen balioduna."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7199,39 +7185,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Fitxategi-izen baliogabea: Izen berriak # sekuentzia bat izan beharko luke, "
+"fitxategi guztiek fitxategi-luzapen ezberdina ez badute."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Ordeztu"
+msgstr "Ordeztea:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Eredua"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Ireki honekin:"
+msgstr "Honekin:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Ordeztu"
+msgstr "Ordezkapena"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Ez dago eredua duen fitxategi-izenik."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7240,6 +7225,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"\"%1\" hutsik dagoen ordezkapen batekin ordezkatzea <filename>%2</"
+"filename>(e)k fitxategi-izen huts bat izatea eragingo luke."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7260,39 +7247,35 @@ msgid "&Rename"
 msgstr "&Berrizendatu"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Ezabatu edo berrizendatu:"
+msgstr "Nola berrizendatu:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Zenbakitu"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Ordeztu"
+msgstr "Ordeztu testua"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Erakutsi aurrebista"
+msgstr "Aurreikusi:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "Ez du ematen <filename>%1</filename> programa exekutagarria denik."
+msgstr ""
+"<filename>%1</filename> ezin du berrizendatu fitxategi-izen huts batekin."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
