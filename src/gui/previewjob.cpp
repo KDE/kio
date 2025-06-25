@@ -369,7 +369,6 @@ void PreviewJob::slotResult(KJob *job)
     if (job->error() > 0) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
-    Q_ASSERT(!hasSubjobs()); // We should have only one job at a time ...
     d->determineNextFile();
 }
 
