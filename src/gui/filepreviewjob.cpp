@@ -105,7 +105,7 @@ FilePreviewJob::~FilePreviewJob()
     cleanupTempFile();
 }
 
-void FilePreviewJob::beginJob()
+void FilePreviewJob::start()
 {
     // If our deviceIdMap does not have these items, run FilePreviewStatJob to get them
     auto parentDir = parentDirPath(m_item.item.localPath());
