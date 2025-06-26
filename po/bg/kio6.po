@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"POT-Creation-Date: 2025-06-26 00:39+0000\n"
 "PO-Revision-Date: 2025-06-21 12:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -3813,7 +3813,7 @@ msgstr "Създаване на нова папка"
 msgid "Create new folder in %1:"
 msgstr "Създаване на нова папка в %1:"
 
-#: filewidgets/knewfilemenu.cpp:1626
+#: filewidgets/knewfilemenu.cpp:1628
 #, kde-format
 msgid "Default"
 msgstr "По подразбиране"

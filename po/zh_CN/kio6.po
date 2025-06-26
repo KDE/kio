@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"POT-Creation-Date: 2025-06-26 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3622,7 +3622,7 @@ msgstr "创建新文件夹"
 msgid "Create new folder in %1:"
 msgstr "新建文件夹到 %1："
 
-#: filewidgets/knewfilemenu.cpp:1626
+#: filewidgets/knewfilemenu.cpp:1628
 #, kde-format
 msgid "Default"
 msgstr "默认"
@@ -5319,7 +5319,7 @@ msgstr "大小："
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "检测文件夹的大小"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5331,7 +5331,7 @@ msgstr "停止"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "停止检测文件夹的大小"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5349,7 +5349,7 @@ msgstr "指向："
 #: widgets/kfilepropspluginwidget.ui:361
 #, kde-format
 msgid "Show target"
-msgstr ""
+msgstr "显示目标"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5918,13 +5918,13 @@ msgstr "常规(&G)"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr ""
+msgstr "输入文件夹名称"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr ""
+msgstr "输入文件名"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -5942,14 +5942,14 @@ msgstr "刷新"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "输入目标位置"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
 #, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr ""
+msgstr "显示 <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6026,7 +6026,7 @@ msgstr "更改…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "更改用于打开“%1”文件类型的默认应用程序。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079

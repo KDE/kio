@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"POT-Creation-Date: 2025-06-26 00:39+0000\n"
 "PO-Revision-Date: 2024-10-09 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3755,7 +3755,7 @@ msgstr "Vytvořit novou složku"
 msgid "Create new folder in %1:"
 msgstr "Vytvořit novou složku v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1626
+#: filewidgets/knewfilemenu.cpp:1628
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"POT-Creation-Date: 2025-06-26 00:39+0000\n"
 "PO-Revision-Date: 2025-06-18 15:34+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3873,7 +3873,7 @@ msgstr "Crea una nuova cartella"
 msgid "Create new folder in %1:"
 msgstr "Crea una nuova cartella in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1626
+#: filewidgets/knewfilemenu.cpp:1628
 #, kde-format
 msgid "Default"
 msgstr "Predefinita"

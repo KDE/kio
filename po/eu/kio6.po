@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:39+0000\n"
+"POT-Creation-Date: 2025-06-26 00:39+0000\n"
 "PO-Revision-Date: 2025-06-24 19:42+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3825,7 +3825,7 @@ msgstr "Sortu karpeta berria"
 msgid "Create new folder in %1:"
 msgstr "Sortu karpeta berria hemen, %1:"
 
-#: filewidgets/knewfilemenu.cpp:1626
+#: filewidgets/knewfilemenu.cpp:1628
 #, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
