@@ -315,6 +315,7 @@ void PreviewJobPrivate::determineNextFile()
 
         FilePreviewJob *job = KIO::filePreviewJob(currentItem, thumbRoot);
         q->addSubjob(job);
+        job->start();
     }
 }
 

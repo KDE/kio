@@ -72,7 +72,7 @@ public:
         QStringList mimetypes;
     };
 
-    void beginJob();
+    void start() override;
 
     QMap<QString, QString> thumbnailWorkerMetaData() const;
     QMap<QString, int> deviceIdMap() const;
@@ -164,7 +164,6 @@ private:
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
 {
     auto job = new FilePreviewJob(item, thumbRoot);
-    job->beginJob();
     return job;
 }
 }
