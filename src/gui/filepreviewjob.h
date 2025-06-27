@@ -148,7 +148,6 @@ private:
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
-    void cleanupTempFile();
     QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
@@ -158,7 +157,6 @@ private:
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
-    QDir createTemporaryDir();
 };
 
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)

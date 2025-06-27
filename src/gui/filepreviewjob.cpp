@@ -102,7 +102,16 @@ FilePreviewJob::~FilePreviewJob()
         shmctl(m_shmid, IPC_RMID, nullptr);
     }
 #endif
-    cleanupTempFile();
+    if (!m_tempName.isEmpty()) {
+        Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
+        QFile::remove(m_tempName);
+        m_tempName.clear();
+    }
+    if (!m_tempDirPath.isEmpty()) {
+        Q_ASSERT(m_tempDirPath.startsWith(QStandardPaths::writableLocation(QStandardPaths::TempLocation)));
+        QDir tempDir(m_tempDirPath);
+        tempDir.removeRecursively();
+    }
 }
 
 void FilePreviewJob::start()
@@ -202,19 +211,6 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     getOrCreateThumbnail();
     return;
-}
-
-void FilePreviewJob::cleanupTempFile()
-{
-    if (!m_tempName.isEmpty()) {
-        Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
-        QFile::remove(m_tempName);
-        m_tempName.clear();
-    }
-    if (!m_tempDirPath.isEmpty()) {
-        QDir tempDir(m_tempDirPath);
-        tempDir.removeRecursively();
-    }
 }
 
 bool FilePreviewJob::loadThumbnailFromCache()
@@ -451,22 +447,6 @@ int FilePreviewJob::getDeviceId(const QString &path)
     return m_idUnknown;
 }
 
-QDir FilePreviewJob::createTemporaryDir()
-{
-    if (m_tempDirPath.isEmpty()) {
-        auto tempDir = QTemporaryDir();
-        Q_ASSERT(tempDir.isValid());
-
-        tempDir.setAutoRemove(false);
-        // restrict read access to current User
-        QFile::setPermissions(tempDir.path(), QFile::Permission::ReadOwner | QFile::Permission::WriteOwner | QFile::Permission::ExeOwner);
-
-        m_tempDirPath = tempDir.path();
-    }
-
-    return QDir(m_tempDirPath);
-}
-
 void FilePreviewJob::createThumbnail(const QString &pixPath)
 {
     QFileInfo info(pixPath);
@@ -496,13 +476,24 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
             qCWarning(KIO_GUI) << "The exec entry for standard thumbnailer " << m_item.plugin.name() << " was empty!";
             return;
         }
-        auto tempDir = createTemporaryDir();
-        if (pixPath.startsWith(tempDir.path())) {
+
+        if (m_tempDirPath.isEmpty()) {
+            auto tempDir = QTemporaryDir();
+            Q_ASSERT(tempDir.isValid());
+
+            tempDir.setAutoRemove(false);
+            // restrict read access to current User
+            QFile::setPermissions(tempDir.path(), QFile::Permission::ReadOwner | QFile::Permission::WriteOwner | QFile::Permission::ExeOwner);
+
+            m_tempDirPath = tempDir.path();
+        }
+
+        if (pixPath.startsWith(m_tempDirPath)) {
             // don't generate thumbnails for images already in temporary directory
             return;
         }
 
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, m_size.width() * m_devicePixelRatio, pixPath, tempDir.path());
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
