@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-26 00:39+0000\n"
-"PO-Revision-Date: 2025-06-12 13:22+0400\n"
+"PO-Revision-Date: 2025-06-26 10:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -5495,7 +5495,7 @@ msgstr "الحجم:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "أوجد حجم المجلد"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5507,7 +5507,7 @@ msgstr "توقّف"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "توقف عن إيجاد حجم المجلد"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5523,10 +5523,9 @@ msgstr "يشير إلى:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "أظهر تحذير"
+msgstr "أظهر المقصد"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6114,20 +6113,16 @@ msgid "&General"
 msgstr "&عامّ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "أدخل اسم الملف %1:"
+msgstr "أَدْخِل اسم المجلد"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "أدخل اسم الملف %1:"
+msgstr "أَدْخِل اسم المَلَف"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6145,16 +6140,14 @@ msgstr "أنعِش"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "أدخل مكان الهدف"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "لا يمكن نقل <filename>%1</filename>"
+msgstr "أظهر <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6241,7 +6234,7 @@ msgstr "غيّر…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "غيّر التطبيق المبدئي لفتح الملفات من النوع ”%1“."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -7103,20 +7096,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "غير العنصر <filename>%1</filename>إلى :"
 
 #: widgets/renamefiledialog.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A File named <filename>%1</filename> already exists."
-msgstr "يوجد ملفّ له اسم <filename>%1</filename> بالفعل."
+msgstr "الملف المسمى <filename>%1</filename> موجود مسبقاً."
 
 #: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "لا يبدو الملف <filename>%1</filename> برنامجا تنفيذيا."
+msgstr "لا يبدو الملف <filename>%1</filename> اسم ملف صحيحا."
 
 #: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
 #, kde-format
@@ -7151,39 +7140,38 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"اسم ملف غير صالح: يجب أن يحتوي الاسم الجديد على تسلسل واحد من #، إلا إذا "
+"كانت جميع الملفات لها امتدادات ملفات مختلفة."
 
 #: widgets/renamefiledialog.cpp:311
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "استبدل"
+msgstr "يستبدل بـ:"
 
 #: widgets/renamefiledialog.cpp:313
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "النمط"
 
 #: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "افتح باستخدام:"
+msgstr "هذا:"
 
 #: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "استبدل"
+msgstr "البديل"
 
 #: widgets/renamefiledialog.cpp:366
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "لا يحتوي اسم الملف على النمط."
 
 #: widgets/renamefiledialog.cpp:375
 #, kde-kuit-format
@@ -7192,6 +7180,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"سيؤدي تغيير \"%1\" إلى بديل فارغ إلى جعل اسم الملف <filename>%2</filename> "
+"فارغًا."
 
 #: widgets/renamefiledialog.cpp:426
 #, kde-format
@@ -7212,39 +7202,34 @@ msgid "&Rename"
 msgstr "&غيّر الاسم"
 
 #: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "أمحو أو أعد التسمية:"
+msgstr "طريقة تغير الاسم:"
 
 #: widgets/renamefiledialog.cpp:448
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "عدّ"
 
 #: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "استبدل"
+msgstr "استبدل النصّ"
 
 #: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "اعرض معاينة"
+msgstr "معاينة:"
 
 #: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "لا يبدو الملف <filename>%1</filename> برنامجا تنفيذيا."
+msgstr "لا يمكن تغيير تسمية <filename>%1</filename> إلى اسم ملف فارغ."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
