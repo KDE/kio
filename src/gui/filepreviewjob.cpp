@@ -31,6 +31,11 @@
 #include <KFileUtils>
 #include <KProtocolInfo>
 #include <KSharedConfig>
+#include <QCoreApplication>
+#include <QCryptographicHash>
+#include <QMimeDatabase>
+#include <QSaveFile>
+#include <QTemporaryDir>
 #include <Solid/Device>
 #include <Solid/StorageAccess>
 
