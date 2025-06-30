@@ -477,6 +477,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         }
         if (exec.isEmpty()) {
             qCWarning(KIO_GUI) << "The exec entry for standard thumbnailer " << m_item.plugin.name() << " was empty!";
+            emitResult();
             return;
         }
 
@@ -493,6 +494,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
 
         if (pixPath.startsWith(m_tempDirPath)) {
             // don't generate thumbnails for images already in temporary directory
+            emitResult();
             return;
         }
 
@@ -545,6 +547,7 @@ void FilePreviewJob::slotStandardThumbData(KIO::Job *job, const QImage &thumbDat
     if (thumbData.isNull()) {
         // let succeeded in false state
         // failed will get called in determineNextFile()
+        emitResult();
         return;
     }
 
