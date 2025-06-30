@@ -42,10 +42,10 @@
 #endif
 
 using namespace KIO;
-class FilePreviewStatJob : public KIO::Job
+class FileDeviceJob : public KIO::Job
 {
 public:
-    FilePreviewStatJob(const QStringList paths);
+    FileDeviceJob(const QStringList paths);
 
     void getDeviceId(const QString &path);
     void slotResult(KJob *job) override;
@@ -121,9 +121,9 @@ void FilePreviewJob::start()
     }
 
     if (!paths.isEmpty()) {
-        auto *firstJob = new FilePreviewStatJob(paths);
+        auto *firstJob = new FileDeviceJob(paths);
         connect(firstJob, &KIO::Job::result, this, [this](KJob *job) {
-            FilePreviewStatJob *previewStatJob = static_cast<FilePreviewStatJob *>(job);
+            FileDeviceJob *previewStatJob = static_cast<FileDeviceJob *>(job);
             for (auto item : previewStatJob->m_deviceIdMap.asKeyValueRange()) {
                 m_deviceIdMap.insert(item.first, item.second);
             }
@@ -706,14 +706,14 @@ PreviewItem FilePreviewJob::item() const
 }
 
 // Stat multiple files at same time
-FilePreviewStatJob::FilePreviewStatJob(const QStringList paths)
+FileDeviceJob::FileDeviceJob(const QStringList paths)
 {
     for (const QString &path : paths) {
         getDeviceId(path);
     }
 }
 
-void FilePreviewStatJob::slotResult(KJob *job)
+void FileDeviceJob::slotResult(KJob *job)
 {
     KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     int id;
@@ -734,7 +734,7 @@ void FilePreviewStatJob::slotResult(KJob *job)
     }
 }
 
-void FilePreviewStatJob::getDeviceId(const QString &path)
+void FileDeviceJob::getDeviceId(const QString &path)
 {
     QUrl url = QUrl::fromLocalFile(path);
     KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
