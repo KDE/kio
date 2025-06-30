@@ -1,6 +1,9 @@
 /*
  *  This file is part of the KDE libraries
  *  SPDX-FileCopyrightText: 2025 Akseli Lahtinen <akselmo@akselmo.dev>
+ *  SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
+ *  SPDX-FileCopyrightText: 2000 Carsten Pfeiffer <pfeiffer@kde.org>
+ *  SPDX-FileCopyrightText: 2001 Malte Starostik <malte.starostik@t-online.de>
  *
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
