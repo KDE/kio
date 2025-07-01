@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:39+0000\n"
+"POT-Creation-Date: 2025-07-01 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6828,38 +6828,40 @@ msgstr "已存在名为“%1”的较新项目。"
 msgid "Rename:"
 msgstr "重命名："
 
-#: widgets/renamefiledialog.cpp:90
+#: widgets/renamefiledialog.cpp:91
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "重命名项目 <filename>%1</filename> 为："
 
-#: widgets/renamefiledialog.cpp:140
-#, kde-kuit-format
+#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info error a file already exists"
+#| msgid "A File named <filename>%1</filename> already exists."
 msgctxt "@info error a file already exists"
-msgid "A File named <filename>%1</filename> already exists."
+msgid "A file named <filename>%1</filename> already exists."
 msgstr "名为 <filename>%1</filename> 的文件已存在。"
 
-#: widgets/renamefiledialog.cpp:143
+#: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> 不是有效的文件名。"
 
-#: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
+#: widgets/renamefiledialog.cpp:164
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "重命名 %1 个选中项目为："
 
-#: widgets/renamefiledialog.cpp:166
+#: widgets/renamefiledialog.cpp:167
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# 会被替换为升序数字，起始数字为："
 
-#: widgets/renamefiledialog.cpp:175
+#: widgets/renamefiledialog.cpp:176
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6867,7 +6869,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "新文件名 #"
 
-#: widgets/renamefiledialog.cpp:282
+#: widgets/renamefiledialog.cpp:283
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6875,37 +6877,47 @@ msgid ""
 "the files have different file extensions."
 msgstr "无效的文件名：新文件名应包含一组“#”，除非所有文件的扩展名都不同。"
 
-#: widgets/renamefiledialog.cpp:311
+#: widgets/renamefiledialog.cpp:310
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Rename the %1 selected item to:"
+#| msgid_plural "Rename the %1 selected items to:"
+msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
+msgid "Rename the %1 selected item by:"
+msgid_plural "Rename the %1 selected items by:"
+msgstr[0] "重命名 %1 个选中项目为："
+
+#: widgets/renamefiledialog.cpp:314
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "使用："
 
-#: widgets/renamefiledialog.cpp:313
+#: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "命名模式"
 
-#: widgets/renamefiledialog.cpp:317
+#: widgets/renamefiledialog.cpp:320
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "替换："
 
-#: widgets/renamefiledialog.cpp:319
+#: widgets/renamefiledialog.cpp:322
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "替换"
 
-#: widgets/renamefiledialog.cpp:366
+#: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "没有包含该命名模式的文件名。"
 
-#: widgets/renamefiledialog.cpp:375
+#: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -6913,49 +6925,93 @@ msgid ""
 "to have an empty file name."
 msgstr "将“%1”替换为空白将导致 <filename>%2</filename> 文件名为空。"
 
-#: widgets/renamefiledialog.cpp:426
+#: widgets/renamefiledialog.cpp:404
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Rename the %1 selected item to:"
+#| msgid_plural "Rename the %1 selected items to:"
+msgctxt "@label:textbox"
+msgid "Rename the %1 selected item:"
+msgid_plural "Rename the %1 selected items:"
+msgstr[0] "重命名 %1 个选中项目为："
+
+#: widgets/renamefiledialog.cpp:407
+#, kde-format
+msgctxt "@label:textbox add text to a filename"
+msgid "Add Text:"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:409
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Text to add"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:414
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgctxt "@item:inlistbox as in insert text before filename"
+msgid "Before filename"
+msgstr "输入文件名"
+
+#: widgets/renamefiledialog.cpp:415
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgctxt "@item:inlistbox as in insert text after filename"
+msgid "After filename"
+msgstr "输入文件名"
+
+#: widgets/renamefiledialog.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "重命名项目"
 
-#: widgets/renamefiledialog.cpp:426
+#: widgets/renamefiledialog.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "重命名项目"
 
-#: widgets/renamefiledialog.cpp:437
+#: widgets/renamefiledialog.cpp:543
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "重命名(&R)"
 
-#: widgets/renamefiledialog.cpp:446
+#: widgets/renamefiledialog.cpp:552
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "如何重命名："
 
-#: widgets/renamefiledialog.cpp:448
+#: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "枚举"
 
-#: widgets/renamefiledialog.cpp:448
+#: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "替换文本"
 
-#: widgets/renamefiledialog.cpp:460
+#: widgets/renamefiledialog.cpp:555
+#, kde-format
+msgctxt "@info renaming operation"
+msgid "Add text"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:567
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "预览："
 
-#: widgets/renamefiledialog.cpp:584
+#: widgets/renamefiledialog.cpp:691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

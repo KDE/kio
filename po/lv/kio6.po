@@ -12,15 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:39+0000\n"
-"PO-Revision-Date: 2025-05-26 16:43+0300\n"
+"POT-Creation-Date: 2025-07-01 00:39+0000\n"
+"PO-Revision-Date: 2025-06-27 16:28+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -5538,7 +5538,7 @@ msgstr "Izmērs:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Noteikt mapes izmēru"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5550,7 +5550,7 @@ msgstr "Apturēt"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Beigt noteikt mapes izmēru"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5566,10 +5566,9 @@ msgstr "Norāda uz:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Rādīt brīdinājumu"
+msgstr "Rādīt mērķi"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6163,20 +6162,16 @@ msgid "&General"
 msgstr "&Pamata"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Ierakstiet „%1“ datnes nosaukumu:"
+msgstr "Ierakstiet mapes nosaukumu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Ierakstiet „%1“ datnes nosaukumu:"
+msgstr "Ierakstiet datnes nosaukumu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6194,16 +6189,14 @@ msgstr "Pārlādēt"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Ierakstiet mērķa vietu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Nevar pārsūtīt „<filename>%1</filename>“"
+msgstr "Rādīt „<filename>%1</filename>“"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6284,13 +6277,13 @@ msgstr "Mainīt…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Mainīt noklusējuma programmu „%1“ datņu atvēšanai"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
-msgstr "Nav pieejas"
+msgstr "Nav piekļuves"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
@@ -7120,29 +7113,27 @@ msgstr "Jau pastāv jaunāka datne ar nosaukumu „%1“."
 msgid "Rename:"
 msgstr "Pārdēvēt:"
 
-#: widgets/renamefiledialog.cpp:90
+#: widgets/renamefiledialog.cpp:91
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Pārdēvēt vienumu <filename>%1</filename> par:"
 
-#: widgets/renamefiledialog.cpp:140
+#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#| msgctxt "@info error a file already exists"
+#| msgid "A File named <filename>%1</filename> already exists."
 msgctxt "@info error a file already exists"
-msgid "A File named <filename>%1</filename> already exists."
-msgstr "Datne ar nosaukumu „<filename>%1</filename>“ jau pastāv."
+msgid "A file named <filename>%1</filename> already exists."
+msgstr "Datne ar nosaukumu <filename>%1</filename> jau pastāv."
 
-#: widgets/renamefiledialog.cpp:143
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#: widgets/renamefiledialog.cpp:144
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "Izskatās, ka „<filename>%1</filename>“ nav izpildāma datne."
+msgstr "<filename>%1</filename> nav derīgs datnes nosaukums"
 
-#: widgets/renamefiledialog.cpp:163 widgets/renamefiledialog.cpp:308
+#: widgets/renamefiledialog.cpp:164
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -7151,13 +7142,13 @@ msgstr[0] "Pārdēvēt atlasīto %1 vienumu par:"
 msgstr[1] "Pārdēvēt atlasītos %1 vienumus par:"
 msgstr[2] "Pārdēvēt atlasīto %1 vienumu par:"
 
-#: widgets/renamefiledialog.cpp:166
+#: widgets/renamefiledialog.cpp:167
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# aizstās ar skaitli augošā secībā, sākot ar:"
 
-#: widgets/renamefiledialog.cpp:175
+#: widgets/renamefiledialog.cpp:176
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7165,107 +7156,161 @@ msgctxt ""
 msgid "New name #"
 msgstr "Jauns nosaukums #"
 
-#: widgets/renamefiledialog.cpp:282
+#: widgets/renamefiledialog.cpp:283
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Nederīgs datnes nosaukums: jaunajam nosaukumam jāsatur viena # secības, "
+"izņemot gadījumu, ja katrai datnes ir savas paplašinājums."
 
-#: widgets/renamefiledialog.cpp:311
+#: widgets/renamefiledialog.cpp:310
 #, fuzzy, kde-format
-#| msgid "Replace"
+#| msgctxt "@label:textbox"
+#| msgid "Rename the %1 selected item to:"
+#| msgid_plural "Rename the %1 selected items to:"
+msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
+msgid "Rename the %1 selected item by:"
+msgid_plural "Rename the %1 selected items by:"
+msgstr[0] "Pārdēvēt atlasīto %1 vienumu par:"
+msgstr[1] "Pārdēvēt atlasītos %1 vienumus par:"
+msgstr[2] "Pārdēvēt atlasīto %1 vienumu par:"
+
+#: widgets/renamefiledialog.cpp:314
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Aizvietot"
+msgstr "Aizvieto:"
 
-#: widgets/renamefiledialog.cpp:313
+#: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Paraugs"
 
-#: widgets/renamefiledialog.cpp:317
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#: widgets/renamefiledialog.cpp:320
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Atvērt ar:"
+msgstr "Ar:"
 
-#: widgets/renamefiledialog.cpp:319
-#, fuzzy, kde-format
-#| msgid "Replace"
+#: widgets/renamefiledialog.cpp:322
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Aizvietot"
+msgstr "Aizvietojums"
 
-#: widgets/renamefiledialog.cpp:366
+#: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Neviena datne nesatur paraugu."
 
-#: widgets/renamefiledialog.cpp:375
+#: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"„%1“ aizvietošana ar tukšumu liktu <filename>%2</filename> saturēt tukšu "
+"datnes nosaukumu."
 
-#: widgets/renamefiledialog.cpp:426
+#: widgets/renamefiledialog.cpp:404
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Rename the %1 selected item to:"
+#| msgid_plural "Rename the %1 selected items to:"
+msgctxt "@label:textbox"
+msgid "Rename the %1 selected item:"
+msgid_plural "Rename the %1 selected items:"
+msgstr[0] "Pārdēvēt atlasīto %1 vienumu par:"
+msgstr[1] "Pārdēvēt atlasītos %1 vienumus par:"
+msgstr[2] "Pārdēvēt atlasīto %1 vienumu par:"
+
+#: widgets/renamefiledialog.cpp:407
+#, kde-format
+msgctxt "@label:textbox add text to a filename"
+msgid "Add Text:"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:409
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Text to add"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:414
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgctxt "@item:inlistbox as in insert text before filename"
+msgid "Before filename"
+msgstr "Ierakstiet datnes nosaukumu"
+
+#: widgets/renamefiledialog.cpp:415
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgctxt "@item:inlistbox as in insert text after filename"
+msgid "After filename"
+msgstr "Ierakstiet datnes nosaukumu"
+
+#: widgets/renamefiledialog.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "Pārdēvēt vienumu"
 
-#: widgets/renamefiledialog.cpp:426
+#: widgets/renamefiledialog.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "Pārdēvēt vienumus"
 
-#: widgets/renamefiledialog.cpp:437
+#: widgets/renamefiledialog.cpp:543
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&Pārdēvēt"
 
-#: widgets/renamefiledialog.cpp:446
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#: widgets/renamefiledialog.cpp:552
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Dzēst vai pārdēvēt:"
+msgstr "Kā pārdēvēt:"
 
-#: widgets/renamefiledialog.cpp:448
+#: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Uzskaitīt"
 
-#: widgets/renamefiledialog.cpp:448
-#, fuzzy, kde-format
-#| msgid "Replace"
+#: widgets/renamefiledialog.cpp:555
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Aizvietot"
+msgstr "Aizvietot tekstu"
 
-#: widgets/renamefiledialog.cpp:460
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#: widgets/renamefiledialog.cpp:555
+#, kde-format
+msgctxt "@info renaming operation"
+msgid "Add text"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:567
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Rādīt priekšskatījumu"
+msgstr "Priekšskatījums:"
 
-#: widgets/renamefiledialog.cpp:584
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#: widgets/renamefiledialog.cpp:691
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "Izskatās, ka „<filename>%1</filename>“ nav izpildāma datne."
+msgstr "<filename>%1</filename> nevar pārdēvēt par neko."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7420,33 +7465,19 @@ msgstr[2] ""
 "strong='true'>Šo darbību atsaukt nevarēs.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Šī vienumu pārvietošana uz atkritni neizdevās, jo tas ir pārāk liels. Vai to "
-"neatgriezeniski dzēst?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Atkritne ir pārāk pilna, lai tajā pārvietotu šo datni. Vai datni dzēst "
+"neatgriezeniski?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Šo darbību atsaukt nebūs iespējams.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7456,17 +7487,17 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Šī %1 vienuma pārvietošana uz atkritni neizdevās, jo tas ir par lielu. Vai "
-"to neatgriezeniski izdzēst?<nl/><emphasis strong='true'>Šo darbību atsaukt "
-"vairs nevarēs.</emphasis>"
+"Atkritne ir pārāk tukša šīs %1 datnes pārvietošanai. Vai datni dzēst "
+"neatgriezeniski?<nl/><emphasis strong='true'>Šo darbību atsaukt vairs "
+"nevarēs.</emphasis>"
 msgstr[1] ""
-"Šo %1 vienumu pārvietošana uz atkritni neizdevās, jo tie ir par lielu. Vai "
-"tos neatgriezeniski izdzēst?<nl/><emphasis strong='true'>Šo darbību atsaukt "
-"vairs nevarēs.</emphasis>"
+"Atkritne ir pārāk tukša šo %1 datņu pārvietošanai. Vai datnes dzēst "
+"neatgriezeniski?<nl/><emphasis strong='true'>Šo darbību atsaukt vairs "
+"nevarēs.</emphasis>"
 msgstr[2] ""
-"Šo %1 vienumu pārvietošana uz atkritni neizdevās, jo tie ir par lielu. Vai "
-"tos neatgriezeniski izdzēst?<nl/><emphasis strong='true'>Šo darbību atsaukt "
-"vairs nevarēs.</emphasis>"
+"Atkritne ir pārāk tukša šo %1 datņu pārvietošanai. Vai datnes dzēst "
+"neatgriezeniski?<nl/><emphasis strong='true'>Šo darbību atsaukt vairs "
+"nevarēs.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
