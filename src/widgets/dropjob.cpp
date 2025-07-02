@@ -303,8 +303,6 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 {
     Q_Q(DropJob);
 
-    Q_EMIT q->popupMenuAboutToShow(m_itemProps);
-
     const int separatorLength = QCoreApplication::translate("QShortcut", "+").size();
     QString seq = QKeySequence(Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength); // chop superfluous '+'
@@ -641,6 +639,7 @@ void DropJobPrivate::slotDropActionDetermined(int error)
         });
 
         fillPopupMenu(menu);
+        Q_EMIT q->popupMenuAboutToShow(m_itemProps);
         QObject::connect(menu, &QMenu::triggered, q, [this](QAction *action) {
             m_triggered = true;
             slotTriggered(action);
