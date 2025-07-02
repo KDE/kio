@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-19 22:26+0900\n"
+"PO-Revision-Date: 2025-07-01 19:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -5335,7 +5335,7 @@ msgstr "大小："
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "判斷資料夾大小"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5347,7 +5347,7 @@ msgstr "停止"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "停止判斷資料夾大小"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5363,10 +5363,9 @@ msgstr "指向："
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "顯示警告"
+msgstr "顯示目標"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5938,20 +5937,16 @@ msgid "&General"
 msgstr "一般(&G)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "輸入 %1 檔案名稱："
+msgstr "輸入資料夾名稱"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "輸入 %1 檔案名稱："
+msgstr "輸入檔案名稱"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -5969,16 +5964,14 @@ msgstr "更新"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "輸入目標位置"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "無法傳輸 <filename>%1</filename>"
+msgstr "顯示 <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6055,7 +6048,7 @@ msgstr "變更…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "變更開啟類型為「%1」的檔案的預設應用程式。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -6864,9 +6857,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "重新命名「%1」項目至："
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "名為 <filename>%1</filename> 的檔案已經存在。"
@@ -6908,14 +6899,11 @@ msgstr ""
 "無效檔案名稱：新的檔案名稱應該包含一串 \"#\"，除非所有檔案的副檔名都不一樣。"
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "重新命名 %1 個選取項目至："
+msgstr[0] "重新命名 %1 個已選項目的方式："
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -6956,42 +6944,35 @@ msgid ""
 msgstr "將「%1」取代為空白替代會使 <filename>%2</filename> 的檔名變成空的。"
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "重新命名 %1 個選取項目至："
+msgstr[0] "重新命名 %1 個已選項目："
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "新增文字："
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "要新增的文字"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "輸入 %1 檔案名稱："
+msgstr "到檔案名稱前方"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "輸入 %1 檔案名稱："
+msgstr "到檔案名稱後方"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7033,7 +7014,7 @@ msgstr "取代文字"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "新增文字"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

@@ -3,24 +3,24 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # Sebastià Pla i Sanz <sps@sastia.com>, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006.
 # Albert Astals Cid <aacid@kde.org>, 2007.
 # Robert Millan <rmh@aybabtu.com>, 2009.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 10:31+0200\n"
+"PO-Revision-Date: 2025-07-01 12:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -7186,9 +7186,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Reanomena l'element <filename>%1</filename> a:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Ja existeix un fitxer amb nom <filename>%1</filename>."
@@ -7232,15 +7230,12 @@ msgstr ""
 "llevat que tots els fitxers tinguin extensions de fitxer diferents."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Reanomena %1 element seleccionat a:"
-msgstr[1] "Reanomena els %1 elements seleccionats a:"
+msgstr[0] "Reanomena %1 element seleccionat:"
+msgstr[1] "Reanomena els %1 elements seleccionats:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7283,43 +7278,36 @@ msgstr ""
 "filename> tingués un nom de fitxer buit."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Reanomena %1 element seleccionat a:"
-msgstr[1] "Reanomena els %1 elements seleccionats a:"
+msgstr[0] "Reanomena l'%1 element seleccionat:"
+msgstr[1] "Reanomena els %1 elements seleccionats:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Afegeix text:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Text a afegir"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Introduïu el nom del fitxer"
+msgstr "Abans del nom de fitxer"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Introduïu el nom del fitxer"
+msgstr "Després del nom de fitxer"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7361,7 +7349,7 @@ msgstr "Substitueix text"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Afegeix text"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
@@ -7608,9 +7596,3 @@ msgstr "Això iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
-
-#~ msgid "Do not ask again"
-#~ msgstr "No ho tornis a preguntar"
-
-#~ msgid "&Execute"
-#~ msgstr "&Executa"

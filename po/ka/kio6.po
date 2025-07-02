@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 06:17+0200\n"
+"PO-Revision-Date: 2025-07-01 04:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7091,9 +7091,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "მიუთითეთ <filename>%1</filename> -ის ახალი სახელი:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "ფაილი სახელით <filename>%1</filename> უკვე არსებობს."
@@ -7137,15 +7135,12 @@ msgstr ""
 "შემთხვევის გარდა, როცა ყველა ფაილს სხვადსხვა ფაილის გაფართოებები აქვს."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "მიუთითეთ %1 მონიშნული ჩანაწერის ახალი სახელი:"
-msgstr[1] "მიუთითეთ %1 მონიშნული ჩანაწერის ახალი სახელი:"
+msgstr[0] "%1 მონიშნული ელემენტის სახელის გადარქმევა პირობით:"
+msgstr[1] "%1 მონიშნული ელემენტის სახელის გადარქმევა პირობით:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7188,43 +7183,36 @@ msgstr ""
 "filename> ცარიელი სახელი ექნება."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "მიუთითეთ %1 მონიშნული ჩანაწერის ახალი სახელი:"
-msgstr[1] "მიუთითეთ %1 მონიშნული ჩანაწერის ახალი სახელი:"
+msgstr[0] "%1 მონიშნული ელემენტის სახელის გადარქმევა:"
+msgstr[1] "%1 მონიშნული ელემენტის სახელის გადარქმევა:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "ტექსტის დამატება:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "დასამატებელი ტექსტი"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "შეიყვანეთ ფაილის სახელი"
+msgstr "ფაილის სახელამდე"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "შეიყვანეთ ფაილის სახელი"
+msgstr "ფაილის სახელის შემდეგ"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7266,7 +7254,7 @@ msgstr "ტექსტის ჩანაცვლება"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "ტექსტის დამატება"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

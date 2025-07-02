@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 06:39+0200\n"
+"PO-Revision-Date: 2025-07-01 07:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6665,7 +6665,7 @@ msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "Te mape uporabljajo napredna dovoljenja."
+msgstr[0] "Te mape uporabljajo napredna dovoljenja"
 msgstr[1] "Ta mapa uporablja napredna dovoljenja."
 msgstr[2] "Ti mapi uporabljata napredna dovoljenja."
 msgstr[3] "Te mape uporabljajo napredna dovoljenja."
@@ -7159,9 +7159,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Preimenuj postavko <filename>%1</filename> v:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Datoteka z imenom <filename>%1</filename> že obstaja."
@@ -7207,17 +7205,14 @@ msgstr ""
 "razen če imajo vse datoteke različne končnice datotek."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Preimenuj %1 izbranih postavk v:"
-msgstr[1] "Preimenuj %1 izbrano postavko v:"
-msgstr[2] "Preimenuj %1 izbrani postavki v:"
-msgstr[3] "Preimenuj %1 izbrane postavke v:"
+msgstr[0] "Preimenuj %1 izbranih postavk z:"
+msgstr[1] "Preimenuj %1 izbrano postavko z:"
+msgstr[2] "Preimenuj %1 izbrani postavki z:"
+msgstr[3] "Preimenuj %1 izbrane postavke z:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7260,45 +7255,38 @@ msgstr ""
 "filename> ostalo prazno."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Preimenuj %1 izbranih postavk v:"
-msgstr[1] "Preimenuj %1 izbrano postavko v:"
-msgstr[2] "Preimenuj %1 izbrani postavki v:"
-msgstr[3] "Preimenuj %1 izbrane postavke v:"
+msgstr[0] "Preimenuj %1 izbranih postavk:"
+msgstr[1] "Preimenuj %1 izbrano postavko:"
+msgstr[2] "Preimenuj %1 izbrani postavki:"
+msgstr[3] "Preimenuj %1 izbrane postavke:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Dodaj besedilo:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Besedilo za dodati"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Vnesite ime datoteke"
+msgstr "Pred imenom datoteke"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Vnesite ime datoteke"
+msgstr "Za imenom datoteke"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7340,7 +7328,7 @@ msgstr "Zamenjaj besedilo"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Dodaj besedilo"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

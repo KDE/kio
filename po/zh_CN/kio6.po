@@ -6835,12 +6835,10 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "重命名项目 <filename>%1</filename> 为："
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "名为 <filename>%1</filename> 的文件已存在。"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
@@ -6878,14 +6876,11 @@ msgid ""
 msgstr "无效的文件名：新文件名应包含一组“#”，除非所有文件的扩展名都不同。"
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "重命名 %1 个选中项目为："
+msgstr[0] ""
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -6926,14 +6921,11 @@ msgid ""
 msgstr "将“%1”替换为空白将导致 <filename>%2</filename> 文件名为空。"
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "重命名 %1 个选中项目为："
+msgstr[0] ""
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
@@ -6948,20 +6940,16 @@ msgid "Text to add"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "输入文件名"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "输入文件名"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
