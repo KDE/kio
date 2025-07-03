@@ -62,20 +62,51 @@ static bool checkGpuWithSwitcheroo()
     QList<QVariantMap> gpus;
     arg >> gpus;
 
-    for (const auto &gpu : gpus) {
-        bool defaultGpu = qvariant_cast<bool>(gpu[QStringLiteral("Default")]);
-        if (!defaultGpu) {
-            s_gpuCheck = GpuCheck::Present;
-            QStringList envList = qvariant_cast<QStringList>(gpu[QStringLiteral("Environment")]);
-            for (int i = 0; i + 1 < envList.size(); i += 2) {
-                s_gpuEnv.insert(envList[i], envList[i + 1]);
-            }
-            return true;
+    if (gpus.isEmpty()) {
+        // No GPU(s) found
+        return false;
+    } else if (gpus.size() == 1) {
+        // There is only one GPU, no need to check for others
+        s_gpuCheck = GpuCheck::Absent;
+        return true;
+    }
+
+    QVariantMap defaultGpu;
+    QVariantMap firstDiscreteGpu;
+    QVariantMap firstNonDefaultGpu;
+
+    for (const auto &gpu : std::as_const(gpus)) {
+        if (defaultGpu.isEmpty() && gpu[QStringLiteral("Default")].toBool()) {
+            defaultGpu = gpu;
+        } else if (firstNonDefaultGpu.isEmpty()) {
+            firstNonDefaultGpu = gpu;
         }
+        if (firstDiscreteGpu.isEmpty() && gpu[QStringLiteral("Discrete")].toBool()) {
+            firstDiscreteGpu = gpu;
+        }
+    }
+
+    if (!defaultGpu.isEmpty() && defaultGpu[QStringLiteral("Discrete")].toBool()) {
+        // If the default GPU is discrete there is no need to do anything special
+        s_gpuCheck = GpuCheck::Absent;
+        return true;
+    }
+
+    // Otherwise prefer the discrete GPU over any other random non-default GPU (legacy behavior)
+    for (const auto &gpu : {firstDiscreteGpu, firstNonDefaultGpu}) {
+        if (gpu.isEmpty()) {
+            continue;
+        }
+        s_gpuCheck = GpuCheck::Present;
+        auto envList = gpu[QStringLiteral("Environment")].toStringList();
+        for (int i = 0; i + 1 < envList.size(); i += 2) {
+            s_gpuEnv.insert(envList[i], envList[i + 1]);
+        }
+        return true;
     }
 #endif
 
-    // No non-default GPU found
+    // No discrete or non-default GPU found
     s_gpuCheck = GpuCheck::Absent;
     return true;
 }
