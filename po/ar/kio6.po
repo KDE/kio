@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-26 10:13+0400\n"
+"PO-Revision-Date: 2025-07-03 09:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -7096,9 +7096,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "غير العنصر <filename>%1</filename>إلى :"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "الملف المسمى <filename>%1</filename> موجود مسبقاً."
@@ -7146,10 +7144,7 @@ msgstr ""
 "كانت جميع الملفات لها امتدادات ملفات مختلفة."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7201,47 +7196,40 @@ msgstr ""
 "فارغًا."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
 msgstr[0] "غيّر اسم %1 ملف المحدد إلى:"
-msgstr[1] "غيّر اسم الملف المحدد إلى:"
-msgstr[2] "غيّر اسم الملفين المحددين إلى:"
-msgstr[3] "غيّر اسم %1 ملفات المحددة إلى:"
-msgstr[4] "غيّر اسم %1 ملفا المحدد إلى:"
+msgstr[1] "غيّر اسم %1 ملف المحددة إلى:"
+msgstr[2] "غيّر اسم %1 ملف المحددة إلى:"
+msgstr[3] "غيّر اسم %1 ملف المحددة إلى:"
+msgstr[4] "غيّر اسم %1 ملف المحددة إلى:"
 msgstr[5] "غيّر اسم %1 ملف المحددة إلى:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "أضف نصًّا:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "ال&نص المراد إضافته"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "أَدْخِل اسم المَلَف"
+msgstr "قبل اسم المَلَف"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "أَدْخِل اسم المَلَف"
+msgstr "بعد اسم المَلَف"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7283,7 +7271,7 @@ msgstr "استبدل النصّ"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "أضف نصًّا"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

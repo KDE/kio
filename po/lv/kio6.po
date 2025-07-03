@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-27 16:28+0300\n"
+"PO-Revision-Date: 2025-07-02 17:27+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -7120,9 +7120,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Pārdēvēt vienumu <filename>%1</filename> par:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Datne ar nosaukumu <filename>%1</filename> jau pastāv."
@@ -7167,16 +7165,13 @@ msgstr ""
 "izņemot gadījumu, ja katrai datnes ir savas paplašinājums."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "Pārdēvēt atlasīto %1 vienumu par:"
 msgstr[1] "Pārdēvēt atlasītos %1 vienumus par:"
-msgstr[2] "Pārdēvēt atlasīto %1 vienumu par:"
+msgstr[2] "Pārdēvēt atlasītos %1 vienumus par:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7219,44 +7214,37 @@ msgstr ""
 "datnes nosaukumu."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
 msgstr[0] "Pārdēvēt atlasīto %1 vienumu par:"
 msgstr[1] "Pārdēvēt atlasītos %1 vienumus par:"
-msgstr[2] "Pārdēvēt atlasīto %1 vienumu par:"
+msgstr[2] "Pārdēvēt atlasītos %1 vienumus par:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Pievienot tekstu:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Pievienojamais teksts"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Ierakstiet datnes nosaukumu"
+msgstr "Pirms datnes nosaukuma"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Ierakstiet datnes nosaukumu"
+msgstr "Pēc datnes nosaukuma"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7298,7 +7286,7 @@ msgstr "Aizvietot tekstu"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Pievienot tekstu"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
