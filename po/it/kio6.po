@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-22 19:36+0200\n"
+"PO-Revision-Date: 2025-07-01 18:35+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7215,9 +7215,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Rinomina l'elemento <filename>%1</filename> in:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Esiste già un file chiamato <filename>%1</filename>."
@@ -7261,15 +7259,12 @@ msgstr ""
 "meno che tutti i file non abbiano un'estensione diversa."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Rinomina l'elemento selezionato in:"
-msgstr[1] "Rinomina i %1 elementi selezionati in:"
+msgstr[0] "Rinomina l'elemento selezionato con:"
+msgstr[1] "Rinomina i %1 elementi selezionati con:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7312,43 +7307,36 @@ msgstr ""
 "avrà un nome di file vuoto."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Rinomina l'elemento selezionato in:"
-msgstr[1] "Rinomina i %1 elementi selezionati in:"
+msgstr[0] "Rinomina l'elemento selezionato con:"
+msgstr[1] "Rinomina i %1 elementi selezionati con:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Aggiungi testo:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Testo da aggiungere"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Inserisci il nome del file"
+msgstr "Prima del nome del file"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Inserisci il nome del file"
+msgstr "Dopo il nome del file"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7390,7 +7378,7 @@ msgstr "Sostituisci testo"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Aggiungi testo"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

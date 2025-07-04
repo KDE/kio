@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-01 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 21:49+0200\n"
+"PO-Revision-Date: 2025-07-03 15:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -7140,12 +7140,10 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Byt namn på objektet <filename>%1</filename> till:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "En fil med namn <filename>%1</filename> finns redan."
+msgstr "En fil kallad <filename>%1</filename> finns redan."
 
 #: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
@@ -7186,14 +7184,11 @@ msgstr ""
 "alla filer har olika filändelser."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Byt namn på det markerade objektet till:"
+msgstr[0] "Byt namn på %1 markerat objekt till:"
 msgstr[1] "Byt namn på de %1 markerade objekten till:"
 
 #: widgets/renamefiledialog.cpp:314
@@ -7237,43 +7232,36 @@ msgstr ""
 "filename> får ett tomt filnamn."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Byt namn på det markerade objektet till:"
+msgstr[0] "Byt namn på %1 markerat objekt till:"
 msgstr[1] "Byt namn på de %1 markerade objekten till:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Lägg till text:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Text att lägga till"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Ange filnamn"
+msgstr "Före filnamn"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Ange filnamn"
+msgstr "Efter filnamn"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7315,7 +7303,7 @@ msgstr "Ersätt text"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Lägg till text"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
