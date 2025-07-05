@@ -169,7 +169,7 @@ private:
     static bool isSha1(const QString &input);
     static bool isSha256(const QString &input);
     static bool isSha512(const QString &input);
-    static QString computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path);
+    static QPair<QString, bool> computeChecksum(QCryptographicHash::Algorithm algorithm, const KFileItemList &items);
     static QCryptographicHash::Algorithm detectAlgorithm(const QString &input);
 
     void setDefaultState();
@@ -181,6 +181,9 @@ private:
 
     QString cachedChecksum(QCryptographicHash::Algorithm algorithm) const;
     void cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm);
+
+    bool cachedMultiFileMatch(QCryptographicHash::Algorithm algorithm) const;
+    void cacheMultiFileMatch(const bool &isMatch, QCryptographicHash::Algorithm algorithm);
 
     class KChecksumsPluginPrivate;
     std::unique_ptr<KChecksumsPluginPrivate> d;

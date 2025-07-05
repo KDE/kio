@@ -11,6 +11,7 @@
 
 #include "../utils_p.h"
 #include "config-kiowidgets.h"
+#include "kfileitem.h"
 #include "kio_widgets_debug.h"
 
 #include <gpudetection_p.h>
@@ -2072,6 +2073,12 @@ public:
     QString m_sha1;
     QString m_sha256;
     QString m_sha512;
+
+    bool m_multiFileMode{false};
+    bool m_md5Matches{false};
+    bool m_sha1Matches{false};
+    bool m_sha256Matches{false};
+    bool m_sha512Matches{false};
 };
 
 KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
@@ -2095,6 +2102,11 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     connect(d->m_ui.sha256Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha256);
     connect(d->m_ui.sha512Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha512);
 
+    // NOTE we only watch the first file for changes
+    // - if there is only one file, then this is the only path
+    // - if there are multiple file, the first one is the one we're comparing against
+    // - properly watching all paths would be complicated because we would have to
+    //   work around limits to the number of files supported by QFileSystemWatcher...
     d->fileWatcher.addPath(properties->item().localPath());
     connect(&d->fileWatcher, &QFileSystemWatcher::fileChanged, this, &KChecksumsPlugin::slotInvalidateCache);
 
@@ -2149,12 +2161,17 @@ KChecksumsPlugin::~KChecksumsPlugin() = default;
 
 bool KChecksumsPlugin::supports(const KFileItemList &items)
 {
-    if (items.count() != 1) {
+    if (items.count() < 1) {
         return false;
     }
 
-    const KFileItem &item = items.first();
-    return item.isFile() && !item.localPath().isEmpty() && item.isReadable() && !item.isLink();
+    for (const auto &i : items) {
+        if (!i.isFile() || i.localPath().isEmpty() || !i.isReadable() || i.isLink()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void KChecksumsPlugin::slotInvalidateCache()
@@ -2234,9 +2251,11 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
     }
 
     // Calculate checksum in another thread.
-    auto futureWatcher = new QFutureWatcher<QString>(this);
-    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=, this]() {
-        const QString checksum = futureWatcher->result();
+    using CheckType = QPair<QString, bool>;
+
+    auto futureWatcher = new QFutureWatcher<CheckType>(this);
+    connect(futureWatcher, &QFutureWatcher<CheckType>::finished, this, [=, this]() {
+        const QString checksum = futureWatcher->result().first;
         futureWatcher->deleteLater();
 
         cacheChecksum(checksum, algorithm);
@@ -2269,7 +2288,7 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
     // Notify the user about the background computation.
     setVerifyState();
 
-    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
+    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->items());
     futureWatcher->setFuture(future);
 }
 
@@ -2297,17 +2316,33 @@ bool KChecksumsPlugin::isSha512(const QString &input)
     return regex.match(input).hasMatch();
 }
 
-QString KChecksumsPlugin::computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path)
+QPair<QString, bool> KChecksumsPlugin::computeChecksum(QCryptographicHash::Algorithm algorithm, const KFileItemList &items)
 {
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly)) {
-        return QString();
+    auto getChecksum = [&](const QString &path) {
+        QFile file(path);
+        if (!file.open(QIODevice::ReadOnly)) {
+            return QString();
+        }
+
+        QCryptographicHash hash(algorithm);
+        hash.addData(&file);
+
+        return QString::fromLatin1(hash.result().toHex());
+    };
+
+    QString comparedSum = getChecksum(items.first().localPath());
+    bool matches = true;
+
+    for (qsizetype i = 1; i < items.count(); ++i) {
+        auto sum = getChecksum(items[i].localPath());
+
+        if (sum != comparedSum) {
+            matches = false;
+            break;
+        }
     }
 
-    QCryptographicHash hash(algorithm);
-    hash.addData(&file);
-
-    return QString::fromLatin1(hash.result().toHex());
+    return {comparedSum, matches};
 }
 
 QCryptographicHash::Algorithm KChecksumsPlugin::detectAlgorithm(const QString &input)
@@ -2342,6 +2377,14 @@ void KChecksumsPlugin::setDefaultState()
     d->m_ui.feedbackLabel->hide();
     d->m_ui.lineEdit->setPalette(palette);
     d->m_ui.lineEdit->setToolTip(QString());
+
+    if (properties->items().count() > 1) {
+        d->m_multiFileMode = true;
+
+        d->m_ui.label->hide();
+        d->m_ui.lineEdit->hide();
+        d->m_ui.pasteButton->hide();
+    }
 }
 
 void KChecksumsPlugin::setInvalidChecksumState()
@@ -2402,29 +2445,55 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLi
 {
     const QString checksum = cachedChecksum(algorithm);
 
-    // Checksum in cache, nothing else to do.
+    // Reset colors before calculating
+    KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+    QPalette palette = d->m_widget.palette();
+    QColor defaultColor = d->m_widget.palette().color(QPalette::Base);
+    palette.setColor(QPalette::Base, defaultColor);
+    label->setPalette(palette);
+
+    // Checksum in cache, nothing else to do
     if (!checksum.isEmpty()) {
         label->setText(checksum);
         label->setCursorPosition(0);
+        copyButton->show();
+
+        if (d->m_multiFileMode) {
+            d->m_ui.feedbackLabel->show();
+
+            if (cachedMultiFileMatch(algorithm)) {
+                QColor positiveColor = colorScheme.background(KColorScheme::PositiveBackground).color();
+                palette.setColor(QPalette::Base, positiveColor);
+                label->setPalette(palette);
+                d->m_ui.feedbackLabel->setText(i18n("The checksums of all files are identical."));
+            } else {
+                QColor negativeColor = colorScheme.background(KColorScheme::NegativeBackground).color();
+                palette.setColor(QPalette::Base, negativeColor);
+                label->setPalette(palette);
+                d->m_ui.feedbackLabel->setText(i18n("The selected files have different checksums."));
+            }
+        }
+
         return;
     } else {
         label->setText(i18nc("@info:progress", "Calculating…"));
     }
 
-    // Calculate checksum in another thread.
-    auto futureWatcher = new QFutureWatcher<QString>(this);
-    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=, this]() {
-        const QString checksum = futureWatcher->result();
+    // Calculate checksum in another thread
+    using CheckType = QPair<QString, bool>;
+
+    auto futureWatcher = new QFutureWatcher<CheckType>(this);
+    connect(futureWatcher, &QFutureWatcher<CheckType>::finished, this, [=, this]() {
+        const CheckType result = futureWatcher->result();
         futureWatcher->deleteLater();
 
-        label->setText(checksum);
-        label->setCursorPosition(0);
-        cacheChecksum(checksum, algorithm);
+        cacheChecksum(result.first, algorithm);
+        cacheMultiFileMatch(result.second, algorithm);
 
-        copyButton->show();
+        showChecksum(algorithm, label, copyButton); // actually show cached result
     });
 
-    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
+    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->items());
     futureWatcher->setFuture(future);
 }
 
@@ -2460,6 +2529,44 @@ void KChecksumsPlugin::cacheChecksum(const QString &checksum, QCryptographicHash
         break;
     case QCryptographicHash::Sha512:
         d->m_sha512 = checksum;
+        break;
+    default:
+        return;
+    }
+}
+
+bool KChecksumsPlugin::cachedMultiFileMatch(QCryptographicHash::Algorithm algorithm) const
+{
+    switch (algorithm) {
+    case QCryptographicHash::Md5:
+        return d->m_md5Matches;
+    case QCryptographicHash::Sha1:
+        return d->m_sha1Matches;
+    case QCryptographicHash::Sha256:
+        return d->m_sha256Matches;
+    case QCryptographicHash::Sha512:
+        return d->m_sha512Matches;
+    default:
+        break;
+    }
+
+    return false;
+}
+
+void KChecksumsPlugin::cacheMultiFileMatch(const bool &isMatch, QCryptographicHash::Algorithm algorithm)
+{
+    switch (algorithm) {
+    case QCryptographicHash::Md5:
+        d->m_md5Matches = isMatch;
+        break;
+    case QCryptographicHash::Sha1:
+        d->m_sha1Matches = isMatch;
+        break;
+    case QCryptographicHash::Sha256:
+        d->m_sha256Matches = isMatch;
+        break;
+    case QCryptographicHash::Sha512:
+        d->m_sha512Matches = isMatch;
         break;
     default:
         return;
