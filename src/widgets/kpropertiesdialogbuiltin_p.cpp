@@ -2121,7 +2121,9 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
 
     setDefaultState();
 
-    if (properties->items().count() <= CHECKSUM_AUTOCALC_COUNT) {
+    if (properties->items().count() == 1 && detectAlgorithm(clipboard->text()) != QCryptographicHash::Md4) {
+        d->m_ui.lineEdit->setText(clipboard->text());
+    } else if (properties->items().count() <= CHECKSUM_AUTOCALC_COUNT) {
         decltype(properties->item().size()) combined_size = 0;
 
         for (const auto &i : properties->items()) {
