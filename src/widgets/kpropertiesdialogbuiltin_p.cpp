@@ -2428,6 +2428,7 @@ void KChecksumsPlugin::setMismatchState()
              "This may be due to a faulty download. Try re-downloading the file.<br/>"
              "If the verification still fails, contact the source of the file."));
     d->m_ui.feedbackLabel->show();
+    d->m_ui.feedbackLabel->setWordWrap(true);
     d->m_ui.lineEdit->setPalette(palette);
     d->m_ui.lineEdit->setToolTip(i18nc("@info:tooltip", "The computed checksum and the expected checksum differ."));
 }
