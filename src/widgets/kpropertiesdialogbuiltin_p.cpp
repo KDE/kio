@@ -2354,6 +2354,7 @@ void KChecksumsPlugin::setDefaultState()
         d->m_multiFileMode = true;
 
         d->m_ui.label->hide();
+        d->m_ui.kseparator->hide();
         d->m_ui.lineEdit->hide();
         d->m_ui.pasteButton->hide();
     }
@@ -2433,6 +2434,7 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLi
 
         if (d->m_multiFileMode) {
             d->m_ui.feedbackLabel->show();
+            d->m_ui.kseparator->show();
 
             if (cachedMultiFileMatch(algorithm)) {
                 QColor positiveColor = colorScheme.background(KColorScheme::PositiveBackground).color();
