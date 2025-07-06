@@ -105,15 +105,6 @@ extern "C" {
 #endif
 }
 
-/* The checksum plugin will automatically calculate checksums when opened for
-   files smaller than this threshold. The combined file size of all files must
-   be below the FILESIZE threshold, and the number of files must be below the
-   COUNT threshold.
-   The values are chosen so that calculation will be quick for most users.
-*/
-#define CHECKSUM_AUTOCALC_FILESIZE 100 * 1024 * 1024 // MiB
-#define CHECKSUM_AUTOCALC_COUNT 10
-
 using namespace KDEPrivate;
 
 static QString couldNotSaveMsg(const QString &path)
@@ -2135,25 +2126,6 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
 
     if (properties->items().count() == 1 && detectAlgorithm(clipboard->text()) != QCryptographicHash::Md4) {
         d->m_ui.lineEdit->setText(clipboard->text());
-    } else if (properties->items().count() <= CHECKSUM_AUTOCALC_COUNT) {
-        decltype(properties->item().size()) combined_size = 0;
-
-        for (const auto &i : properties->items()) {
-            combined_size += i.size();
-        }
-
-        if (combined_size <= CHECKSUM_AUTOCALC_FILESIZE) {
-            connect(properties, &KPropertiesDialog::currentPageChanged, this, [=, this](KPageWidgetItem *current, auto *_) {
-                if (current->widget() != &this->d->m_widget) {
-                    return;
-                }
-
-                slotShowMd5();
-                slotShowSha1();
-                slotShowSha256();
-                slotShowSha512();
-            });
-        }
     }
 }
 
