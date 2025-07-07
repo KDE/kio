@@ -76,7 +76,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="labelenvvars">
        <property name="text">
-        <string>Environment Variables:</string>
+        <string>Environment variables:</string>
        </property>
        <property name="buddy">
         <cstring>envarsEdit</cstring>
