@@ -22,6 +22,7 @@ target_sources(KF6KIOGui PRIVATE
    kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
    previewjob.cpp
+   filepreviewjob.cpp
    thumbnailcreator.cpp
    gpudetection.cpp
    kurifilter.cpp
