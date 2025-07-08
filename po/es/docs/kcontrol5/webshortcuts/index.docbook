@@ -185,7 +185,7 @@
 
 <para
 >Si pulsa dos veces sobre una entrada en particular en la lista de los proveedores de búsquedas definidos o pulsa el botón <guibutton
->Cambiar...</guibutton
+>Cambiar…</guibutton
 >, los detalles de esa entrada se muestran en un diálogo emergente. Además de la descripción para el elemento, puede ver la &URI; utilizada, así como el acceso rápido que puede introducir en cualquier sitio de &kde; donde se espera una &URI;. Un proveedor de búsquedas en particular puede tener varios accesos rápidos, separados por una coma.</para>
 
 <para

@@ -213,14 +213,14 @@
 
 <para
 >La política Solicitar, Aceptar, Aceptar hasta el final de la sesión o Rechazar se puede aplicar a un dominio específico pulsando el botón <guibutton
->Nuevo...</guibutton
+>Nuevo…</guibutton
 >, lo que mostrará un cuadro de diálogo. En este diálogo, puede escribir el nombre de dominio (con un punto precediéndolo) y después seleccionar la política que desea aplicar a ese dominio. Tenga en cuenta que las entradas se pueden añadir mientras navega si la política general es la de solicitar confirmación y elige una política general para un servidor en concreto (por ejemplo, seleccionando <guilabel
 >Rechazar</guilabel
 > cuando se le solicite confirmación para una cookie).</para>
 
 <para
 >También puede seleccionar un dominio de máquinas específico de la lista, y pulsar sobre el botón <guibutton
->Modificar...</guibutton
+>Modificar…</guibutton
 > para seleccionar opciones diferentes para ese dominio en concreto.</para>
 
 <para
@@ -255,7 +255,7 @@
 
 <para
 >Si se selecciona un dominio, puede establecer una política para el sitio con <guibutton
->Configurar política...</guibutton
+>Configurar política…</guibutton
 >.</para>
 
 <para

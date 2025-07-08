@@ -185,7 +185,7 @@
 > para permitir que aplicaciones gráficas y no gráficas compartan la misma información de configuración del proxy.</para>
 <para
 >Si sabe que esto le es aplicable, seleccione esta opción y pulse el botón <guibutton
->Detectar automáticamente...</guibutton
+>Detectar automáticamente…</guibutton
 > para proporcionar los nombres de las variables de entorno utilizadas para configurar la dirección de los servidores proxy.</para>
 <!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
 <para
