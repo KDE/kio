@@ -49,7 +49,7 @@ void KTerminalLauncherJob::setProcessEnvironment(const QProcessEnvironment &envi
     d->m_environment = environment;
 }
 
-bool KTerminalLauncherJob::canCreateTerminalCommand() const
+bool KTerminalLauncherJob::canCreateTerminalCommand()
 {
     determineFullCommand();  // checks m_fullCommand
     return error() == KJob::NoError;

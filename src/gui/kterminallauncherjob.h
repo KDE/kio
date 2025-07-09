@@ -95,7 +95,7 @@ public:
      *
      * @return true if a launch command could be constructed, false otherwise.
      */
-    bool KTerminalLauncherJob::canCreateTerminalCommand() const;
+    bool canCreateTerminalCommand();
 
     /*!
      * Starts the job.
