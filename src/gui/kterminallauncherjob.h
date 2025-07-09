@@ -80,6 +80,24 @@ public:
     void setProcessEnvironment(const QProcessEnvironment &environment);
 
     /*!
+     * Checks whether the command to launch a terminal can be constructed.
+     *
+     * This function allows you to determine in advance whether the terminal launch
+     * setup is valid and a command line could be successfully constructed.
+     * It is entirely optional to call this — it does not affect the behavior of start().
+     *
+     * This is useful if you want to avoid calling start() just to catch an error,
+     * for example to conditionally show or hide a GUI element depending on whether
+     * launching a terminal is likely to succeed.
+     *
+     * While you can also call start() directly and handle any errors after the fact,
+     * this function offers a lightweight way to check feasibility beforehand.
+     *
+     * @return true if a launch command could be constructed, false otherwise.
+     */
+    bool KTerminalLauncherJob::canCreateTerminalCommand() const;
+
+    /*!
      * Starts the job.
      * You must call this, after having called all the necessary setters.
      */
