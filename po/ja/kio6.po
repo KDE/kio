@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -4923,23 +4923,23 @@ msgstr "クリックしてチェックサムをクリップボードにコピー
 msgid "C&ancel"
 msgstr "キャンセル(&A)"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "ここに移動(&M)"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ここにダウンロード(&D)"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "ここにコピー(&C)"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "ここにリンク(&L)"
@@ -5846,26 +5846,38 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "ここには、用途に応じてこのアプリケーションの説明を入力します。例えば、ダイヤ"
 "ルアップ用アプリケーション (KPPP) なら「ダイヤルアップツール」というふうに。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "説明(&D):"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "一般(&G)"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "ここには、役に立つと思われるコメントを入力します。"
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"ここには、用途に応じてこのアプリケーションの説明を入力します。例えば、ダイヤ"
+"ルアップ用アプリケーション (KPPP) なら「ダイヤルアップツール」というふうに。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5875,8 +5887,9 @@ msgstr "コメント(&E):"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "環境変数:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7489,6 +7502,12 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
+
+#~ msgid "&Description:"
+#~ msgstr "説明(&D):"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "ここには、役に立つと思われるコメントを入力します。"
 
 #~ msgid "Do not ask again"
 #~ msgstr "次回から確認しない"

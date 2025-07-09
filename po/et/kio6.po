@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -5002,12 +5002,12 @@ msgstr "Klõpsa kontrollsuuma kopeerimiseks lõikepuhvrisse."
 msgid "C&ancel"
 msgstr "Loo&bu"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "Lii&guta siia"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -5015,12 +5015,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Allalaadimised"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopeeri siia"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lingi siia"
@@ -5941,26 +5941,37 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Siia saab kirjutada faili kirjelduse, näiteks sissehelistamisrakenduse "
 "(KPPP) kohta võiks kirjutada \"Sissehelistamisrakendus\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "Kirjel&dus:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "&Kasutajanimi:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Siia saab kirjutada kommentaari, kui pead seda vajalikuks."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Siia saab kirjutada faili kirjelduse, näiteks sissehelistamisrakenduse "
+"(KPPP) kohta võiks kirjutada \"Sissehelistamisrakendus\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5972,7 +5983,7 @@ msgstr "Komm&entaar:"
 #: widgets/kpropertiesdesktopbase.ui:79
 #, fuzzy, kde-format
 #| msgid "Use preset proxy environment &variables"
-msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Pu&hverserveri eelseadistatud keskkonnamuutujate kasutamine"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7622,6 +7633,12 @@ msgstr "See käivitab programmi:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
+
+#~ msgid "&Description:"
+#~ msgstr "Kirjel&dus:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Siia saab kirjutada kommentaari, kui pead seda vajalikuks."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Rohkem ei küsita"
@@ -10294,9 +10311,6 @@ msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Kä&su lõpetamisel ei suleta"
-
-#~ msgid "&Username:"
-#~ msgstr "&Kasutajanimi:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

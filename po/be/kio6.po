@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -5018,23 +5018,23 @@ msgstr "Націсніце, каб скапіяваць кантрольную �
 msgid "C&ancel"
 msgstr "&Скасаваць"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Перамясціць сюды"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Спампаваць сюды"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Скапіяваць сюды"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Спасылка"
@@ -5978,10 +5978,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Увядзіце тут апісанне гэтай праграмы паводле яе прызначэння. Напрыклад: "
 "праграма камутаванага доступу (KPPP) будзе \"Інструмент камутаванага доступу"
@@ -5989,16 +5992,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Апісанне:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "&Імя карыстальніка:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Увядзіце тут карысны каментар."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Увядзіце тут апісанне гэтай праграмы паводле яе прызначэння. Напрыклад: "
+"праграма камутаванага доступу (KPPP) будзе \"Інструмент камутаванага доступу"
+"\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6008,8 +6020,9 @@ msgstr "Кам&ентар:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Зменныя асяроддзя:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7689,6 +7702,12 @@ msgstr "Гэта запусціць праграму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
+
+#~ msgid "&Description:"
+#~ msgstr "&Апісанне:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Увядзіце тут карысны каментар."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Больш не пытацца"
@@ -9999,9 +10018,6 @@ msgstr "Калі вы не давяраеце гэтай праграме, на�
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Не за&крываць, калі каманда завяршае працу"
-
-#~ msgid "&Username:"
-#~ msgstr "&Імя карыстальніка:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

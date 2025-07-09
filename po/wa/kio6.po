@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -5182,23 +5182,23 @@ msgstr ""
 msgid "C&ancel"
 msgstr ""
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -6133,22 +6133,25 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
 #, kde-format
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Discrijhaedje:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "No d' &uzeu:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Dinez on tecse di rawete po ç' pårtaedje ci, s' i vs plait."
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6160,7 +6163,7 @@ msgstr "&Rawete:"
 #: widgets/kpropertiesdesktopbase.ui:79
 #, fuzzy, kde-format
 #| msgid "Use preset proxy environment &variables"
-msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Eployî prédefineyes &variåves d' evironmint procsi"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7749,6 +7752,13 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "&Description:"
+#~ msgstr "&Discrijhaedje:"
+
+#, fuzzy
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Dinez on tecse di rawete po ç' pårtaedje ci, s' i vs plait."
 
 #, fuzzy
 #~| msgid "Exec"
@@ -9406,9 +9416,6 @@ msgstr ""
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Èn nén &clore cwand l' comande finixh"
-
-#~ msgid "&Username:"
-#~ msgstr "No d' &uzeu:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2025-07-02 17:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -4956,23 +4956,23 @@ msgstr "Sağlama toplamını panoya kopyalamak için tıklayın."
 msgid "C&ancel"
 msgstr "İ&ptal"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "Buraya &Taşı"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Buraya İ&ndir"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "Buraya Ko&pyala"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "Bu&raya Bağlantıla"
@@ -5885,26 +5885,38 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Bu uygulama hakkında, kullanımına uyar şekilde bir açıklama yazın. Örneğin: "
 "Çevirmeli Ağ Uygulaması (KPPP) için “Çevirmeli Bağlantı Aracı”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Açıklama:"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "&Genel"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Gereksinim duyabileceğiniz herhangi bir açıklamayı buraya yazın."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Bu uygulama hakkında, kullanımına uyar şekilde bir açıklama yazın. Örneğin: "
+"Çevirmeli Ağ Uygulaması (KPPP) için “Çevirmeli Bağlantı Aracı”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5914,8 +5926,9 @@ msgstr "&Yorum:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Çevre Değişkenleri:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7511,6 +7524,12 @@ msgstr "Bu eylem, şu uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
+
+#~ msgid "&Description:"
+#~ msgstr "&Açıklama:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Gereksinim duyabileceğiniz herhangi bir açıklamayı buraya yazın."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Bir daha sorma"

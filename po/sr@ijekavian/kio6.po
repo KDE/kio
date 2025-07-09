@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -5177,23 +5177,23 @@ msgstr "Кликните да копирате контролну суму у к
 msgid "C&ancel"
 msgstr "&Одустани"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Премести овде"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Копирај овде"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "По&вежи овде"
@@ -6174,10 +6174,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Унесите овдје опис програма, на основу његове намјене. На примјер: програм "
 "за модемско позивање на Интернет (КППП) могао би се описати као „Модемом на "
@@ -6185,16 +6188,26 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Опис:"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "&Опште"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Унесите овдје какав год користан коментар."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Унесите овдје опис програма, на основу његове намјене. На примјер: програм "
+"за модемско позивање на Интернет (КППП) могао би се описати као „Модемом на "
+"Интернет“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6204,9 +6217,10 @@ msgstr "&Коментар:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show the &value of the environment variables"
+msgid "Environment variables:"
+msgstr "Прикажи &вриједности промјенљивих окружења"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7932,6 +7946,12 @@ msgstr "Ово ће покренути програм:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не вјерујете програму, кликните на „Одустани“."
 
+#~ msgid "&Description:"
+#~ msgstr "&Опис:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Унесите овдје какав год користан коментар."
+
 #~ msgid "Do not ask again"
 #~ msgstr "Не питај више"
 
@@ -8985,9 +9005,6 @@ msgstr "Ако не вјерујете програму, кликните на �
 #~ "садржи адресе сајтова за које не треба користити горње поставке проксија."
 #~ "</p><p>Другачије, можете кликнути на дугме <i>Откриј аутоматски</i> како "
 #~ "би се покушало аутоматско откривање одговарајуће промјенљиве.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Прикажи &вриједности промјенљивих окружења"
 
 #~ msgid "Manually enter proxy server configuration information."
 #~ msgstr "Унесите ручно податке за подешавање прокси сервера."

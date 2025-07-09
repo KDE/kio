@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -5050,23 +5050,23 @@ msgstr ""
 msgid "C&ancel"
 msgstr ""
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -5987,21 +5987,24 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
 #, kde-format
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Wopisanje:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "Mjeno w&užiwarja:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
 #, kde-format
-msgid "Type any comment you think is useful here."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
@@ -6014,7 +6017,7 @@ msgstr "Kom&entar:"
 #: widgets/kpropertiesdesktopbase.ui:79
 #, fuzzy, kde-format
 #| msgid "Use preset proxy environment &variables"
-msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Wot systema postajena proxyjowe &wariable wužiwać"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7650,6 +7653,9 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "&Description:"
+#~ msgstr "&Wopisanje:"
 
 #, fuzzy
 #~| msgid "Exec"
@@ -9726,9 +9732,6 @@ msgstr ""
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "&Njezačiń po zakónčenju přikaza"
-
-#~ msgid "&Username:"
-#~ msgstr "Mjeno w&užiwarja:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -4976,12 +4976,12 @@ msgstr "Bấm để chép giá trị tổng kiểm vào bảng nháp."
 msgid "C&ancel"
 msgstr "H&uỷ"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Chuyển vào đây"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4989,12 +4989,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Tải về"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "Ché&p vào đây"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Liên kết đến đây"
@@ -5913,26 +5913,38 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Gõ vào đây mô tả về ứng dụng này, dựa vào công dụng của nó. Ví dụ: một ứng "
 "dụng quay số (KPPP) sẽ là \"Công cụ quay số\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Mô tả:"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "Ch&ung"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Gõ vào đây bất kì chú thích nào mà bạn nghĩ là hữu ích."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Gõ vào đây mô tả về ứng dụng này, dựa vào công dụng của nó. Ví dụ: một ứng "
+"dụng quay số (KPPP) sẽ là \"Công cụ quay số\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5942,8 +5954,9 @@ msgstr "&Chú thích:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Biến môi trường:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7570,6 +7583,12 @@ msgstr "Việc này sẽ khởi động chương trình đó:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
+
+#~ msgid "&Description:"
+#~ msgstr "&Mô tả:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Gõ vào đây bất kì chú thích nào mà bạn nghĩ là hữu ích."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Đừng hỏi lại"

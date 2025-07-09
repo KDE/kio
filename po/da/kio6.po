@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-10-29 10:47+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -5011,23 +5011,23 @@ msgstr "Klik for at kopiere tjeksummen til udklipsholderen."
 msgid "C&ancel"
 msgstr "&Annullér"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Flyt hertil"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Download her"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopiér hertil"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Link hertil"
@@ -5943,26 +5943,37 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Indskriv beskrivelsen af dette program her, baseret på dets brug. Eksempel: "
 "et opkaldsprogram (KPPP) ville være \"Opkaldsredskab\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Beskrivelse:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "&Brugernavn:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Indskriv enhver kommentar du mener er nyttig her."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Indskriv beskrivelsen af dette program her, baseret på dets brug. Eksempel: "
+"et opkaldsprogram (KPPP) ville være \"Opkaldsredskab\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5972,8 +5983,9 @@ msgstr "Komm&entar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Miljøvariabler:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7597,6 +7609,12 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke har tillid til dette program, så tryk på Annullér"
+
+#~ msgid "&Description:"
+#~ msgstr "&Beskrivelse:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Indskriv enhver kommentar du mener er nyttig her."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Spørg ikke igen"
@@ -10292,9 +10310,6 @@ msgstr "Hvis du ikke har tillid til dette program, så tryk på Annullér"
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Luk &ikke når kommando afslutter"
-
-#~ msgid "&Username:"
-#~ msgstr "&Brugernavn:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

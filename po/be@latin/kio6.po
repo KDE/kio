@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -5125,12 +5125,12 @@ msgstr "Nacisnicie, kab skapijavać kantroĺnuju sumu ŭ bufier abmienu."
 msgid "C&ancel"
 msgstr "&Skasavać"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pieramiascić siudy"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -5138,12 +5138,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Spampoŭvanni"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Skapijavać siudy"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Spasylka"
@@ -6116,10 +6116,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Uviadzicie tut apisannie hetaj prahramy pavodlie jaje pryznačennia. "
 "Napryklad: prahrama kamutavanaha dostupu (KPPP) budzie \"Instrumient "
@@ -6127,16 +6130,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Apisannie:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "&Imia karystaĺnika:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Uviadzicie tut karysny kamientar."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Uviadzicie tut apisannie hetaj prahramy pavodlie jaje pryznačennia. "
+"Napryklad: prahrama kamutavanaha dostupu (KPPP) budzie \"Instrumient "
+"kamutavanaha dostupu\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6146,9 +6158,10 @@ msgstr "Kam&jentar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show the &value of the environment variables"
+msgid "Environment variables:"
+msgstr "Pakazać &značenni zmiennych asiaroddzia"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7885,6 +7898,12 @@ msgstr "Heta zapuscić prahramu:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 
+#~ msgid "&Description:"
+#~ msgstr "&Apisannie:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Uviadzicie tut karysny kamientar."
+
 #~ msgid "Do not ask again"
 #~ msgstr "Boĺš nie pytacca"
 
@@ -9046,9 +9065,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~ "možacie nacisnuć na knopku <b>&quot;Aŭtamatyčnaje vyjaŭliennie&quot;</b>, "
 #~ "kab pasprabavać vykanać aŭtamatyčnaje vyjaŭliennie hetaj zmiennaj.</p></"
 #~ "qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Pakazać &značenni zmiennych asiaroddzia"
 
 #~ msgid "Manually enter proxy server configuration information."
 #~ msgstr "Ulasnaručny ŭvod kanfihuracyi proksi-sierviera."
@@ -10379,9 +10395,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Nie za&kryvać, kali kamanda zaviaršaje pracu"
-
-#~ msgid "&Username:"
-#~ msgstr "&Imia karystaĺnika:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

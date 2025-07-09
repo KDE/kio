@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -5069,23 +5069,23 @@ msgstr ""
 msgid "C&ancel"
 msgstr "Қайту"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -6042,10 +6042,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Қолдану қызметіне негізделген қолданбаның сипаттамасын келтіріңіз. Мысалы, "
 "(KPPP) қашықтан қатынау қолданбасының сипаттамасы \"Желіге қашықтан қатынау"
@@ -6053,16 +6056,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Сипаттамасы:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "&Пайдаланушының атауы:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Мағыналы түсініктемені келтіріңіз."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Қолдану қызметіне негізделген қолданбаның сипаттамасын келтіріңіз. Мысалы, "
+"(KPPP) қашықтан қатынау қолданбасының сипаттамасы \"Желіге қашықтан қатынау"
+"\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6074,7 +6086,7 @@ msgstr "&Түсініктеме:"
 #: widgets/kpropertiesdesktopbase.ui:79
 #, fuzzy, kde-format
 #| msgid "Use preset proxy environment &variables"
-msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Алдын-ала орнатылған прокси орта &айнымалылар қолданылсын"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7737,6 +7749,12 @@ msgstr "Жегілетін бағдарлама:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Бағдарлама күдікті десеңіз 'Қайту' дегенді басыңыз"
+
+#~ msgid "&Description:"
+#~ msgstr "&Сипаттамасы:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Мағыналы түсініктемені келтіріңіз."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Ендігәрі сұралмасын"
@@ -10082,9 +10100,6 @@ msgstr "Бағдарлама күдікті десеңіз 'Қайту' деге
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "Команда орындалған соң жабыл&масын"
-
-#~ msgid "&Username:"
-#~ msgstr "&Пайдаланушының атауы:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

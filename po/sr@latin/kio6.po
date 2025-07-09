@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -5179,23 +5179,23 @@ msgstr "Kliknite da kopirate kontrolnu sumu u klipbord."
 msgid "C&ancel"
 msgstr "&Odustani"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Premesti ovde"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopiraj ovde"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "Po&veži ovde"
@@ -6176,10 +6176,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Unesite ovde opis programa, na osnovu njegove namene. Na primer: program za "
 "modemsko pozivanje na Internet (KPPP) mogao bi se opisati kao „Modemom na "
@@ -6187,16 +6190,26 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Opis:"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "&Opšte"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Unesite ovde kakav god koristan komentar."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Unesite ovde opis programa, na osnovu njegove namene. Na primer: program za "
+"modemsko pozivanje na Internet (KPPP) mogao bi se opisati kao „Modemom na "
+"Internet“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6206,9 +6219,10 @@ msgstr "&Komentar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show the &value of the environment variables"
+msgid "Environment variables:"
+msgstr "Prikaži &vrednosti promenljivih okruženja"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7934,6 +7948,12 @@ msgstr "Ovo će pokrenuti program:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ako ne verujete programu, kliknite na „Odustani“."
 
+#~ msgid "&Description:"
+#~ msgstr "&Opis:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Unesite ovde kakav god koristan komentar."
+
 #~ msgid "Do not ask again"
 #~ msgstr "Ne pitaj više"
 
@@ -8983,9 +9003,6 @@ msgstr "Ako ne verujete programu, kliknite na „Odustani“."
 #~ "sadrži adrese sajtova za koje ne treba koristiti gornje postavke proksija."
 #~ "</p><p>Drugačije, možete kliknuti na dugme <i>Otkrij automatski</i> kako "
 #~ "bi se pokušalo automatsko otkrivanje odgovarajuće promenljive.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Prikaži &vrednosti promenljivih okruženja"
 
 #~ msgid "Manually enter proxy server configuration information."
 #~ msgstr "Unesite ručno podatke za podešavanje proksi servera."

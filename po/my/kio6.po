@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -4883,12 +4883,12 @@ msgstr "ကလစ်ဘုတ်သို့ ပေါင်းလဒ်စစ�
 msgid "C&ancel"
 msgstr "&aပယ်ဖျက်"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mဤနေရာသို့ရွေ့ယူရန်"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4896,12 +4896,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ဒေါင်းလုတ်"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Cဤနေရာသို့ကူးယူရန်"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lဤနေရာသို့လင့်ခ်ချိတ်ရန်"
@@ -5809,26 +5809,38 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) အတွက်ဆို "
 "\"ဖုန်းခေါ်ကိရိယာ\"။"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Dဖော်ပြချက် -"
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "&Gယေဘုယျ"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "အသုံးဝင်သည်ဟုထင်သော မှတ်ချက်များ ရိုက်သွင်းပါ။"
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) အတွက်ဆို "
+"\"ဖုန်းခေါ်ကိရိယာ\"။"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5838,9 +5850,10 @@ msgstr "&eမှတ်ချက် -"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show the &value of the environment variables"
+msgid "Environment variables:"
+msgstr "&vစစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ၏ တန်ဖိုး ပြမည်"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7454,6 +7467,12 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
 
+#~ msgid "&Description:"
+#~ msgstr "&Dဖော်ပြချက် -"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "အသုံးဝင်သည်ဟုထင်သော မှတ်ချက်များ ရိုက်သွင်းပါ။"
+
 #~ msgid "Do not ask again"
 #~ msgstr "နောက်ထပ်မမေးပါနှင့်"
 
@@ -8468,9 +8487,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 #~ "<qt>စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင် ရေးသွင်းပါ။ သာဓက။ ။ကြားခံဆာဗာအသုံးမပြုသင့်သော ဆိုက်များ၏ "
 #~ "လိပ်စာများကို သိမ်းဆည်းရန်သုံးသည့် <b>NO_PROXY</b>။<p> အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် "
 #~ "<b>&quot;အလိုအလျောက်ရှာဖွေ&quot;</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "&vစစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ၏ တန်ဖိုး ပြမည်"
 
 #~ msgid "Manually enter proxy server configuration information."
 #~ msgstr "ကြားခံဆာဗာပြင်ဆင်မှုဆိုင်ရာအချက်အလက်များ ကိုယ်တိုင်ရိုက်သွင်းမည်။"

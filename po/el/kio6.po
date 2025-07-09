@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -5068,23 +5068,23 @@ msgstr "Κλικ για αντιγραφή του αθροίσματος ελέ�
 msgid "C&ancel"
 msgstr "Ακύ&ρωση"
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr "&Μετακίνηση εδώ"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr "Αντιγρα&φή εδώ"
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr "&Δεσμός εδώ"
@@ -6014,10 +6014,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "Δώστε εδώ την περιγραφή για αυτή την εφαρμογή, βασισμένη στη χρήση της. "
 "Παραδείγματα: μια εφαρμογή dial up (KPPP) θα έχει περιγραφή \"Εργαλείο dial "
@@ -6025,16 +6028,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "&Περιγραφή:"
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Generic name:"
+msgstr "Ό&νομα χρήστη:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "Δώστε εδώ οποιοδήποτε σχόλιο θεωρείτε ότι είναι χρήσιμο."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"Δώστε εδώ την περιγραφή για αυτή την εφαρμογή, βασισμένη στη χρήση της. "
+"Παραδείγματα: μια εφαρμογή dial up (KPPP) θα έχει περιγραφή \"Εργαλείο dial "
+"up\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6044,8 +6056,9 @@ msgstr "&Σχόλιο:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
+#, fuzzy, kde-format
+#| msgid "Environment Variables:"
+msgid "Environment variables:"
 msgstr "Μεταβλητές περιβάλλοντος:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
@@ -7703,6 +7716,12 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#~ msgid "&Description:"
+#~ msgstr "&Περιγραφή:"
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "Δώστε εδώ οποιοδήποτε σχόλιο θεωρείτε ότι είναι χρήσιμο."
 
 #~ msgid "Do not ask again"
 #~ msgstr "Να μην ξαναγίνει η ερώτηση"
@@ -10559,9 +10578,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 
 #~ msgid "Do not &close when command exits"
 #~ msgstr "&Να μην κλείσει όταν η εντολή εκτελεστεί"
-
-#~ msgid "&Username:"
-#~ msgstr "Ό&νομα χρήστη:"
 
 #~ msgid ""
 #~ "Unable to create io-slave:\n"

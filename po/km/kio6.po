@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:39+0000\n"
+"POT-Creation-Date: 2025-07-09 00:39+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -5017,23 +5017,23 @@ msgstr ""
 msgid "C&ancel"
 msgstr ""
 
-#: widgets/dropjob.cpp:311
+#: widgets/dropjob.cpp:309
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:324
+#: widgets/dropjob.cpp:322
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -5983,26 +5983,38 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
-"Type the description of this application, based on its use, here. Examples: "
-"a dial up application (KPPP) would be \"Dial up tool\"."
+"Type a generic name for the application here. Examples: an image viewing "
+"application would be \"Image Viewer\"."
 msgstr ""
 "សូម​វាយ​បញ្ចូល​សេចក្ដី​ពិពណ៌នា​របស់​កម្មវិធី​នេះ ដោយ​មានមូលដ្ឋាន​លើ​ការ​ប្រើ​ប្រាស់​របស់​វា ។ ឧទាហរណ៍ កម្មវិធី​​"
 "ហៅចេញ (KPPP) នឹង​ជា \"ឧបករណ៍​ហៅ​ចេញ \" ។"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, kde-format
-msgid "&Description:"
-msgstr "សេចក្ដី​ពិពណ៌នា ៖ "
+#, fuzzy, kde-format
+#| msgctxt "@title:tab File properties"
+#| msgid "&General"
+msgid "&Generic name:"
+msgstr "ទូទៅ"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, kde-format
-msgid "Type any comment you think is useful here."
-msgstr "សូម​វាយ​បញ្ចូល​មតិយោបល់​ណាមួយ​ដែល​អ្នក​គិត​ថា​មាន​ប្រយោជន៍ ។"
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type the description of this application, based on its use, here. "
+#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"an image viewing application would be \"View and edit images\"."
+msgstr ""
+"សូម​វាយ​បញ្ចូល​សេចក្ដី​ពិពណ៌នា​របស់​កម្មវិធី​នេះ ដោយ​មានមូលដ្ឋាន​លើ​ការ​ប្រើ​ប្រាស់​របស់​វា ។ ឧទាហរណ៍ កម្មវិធី​​"
+"ហៅចេញ (KPPP) នឹង​ជា \"ឧបករណ៍​ហៅ​ចេញ \" ។"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6012,9 +6024,10 @@ msgstr "មតិយោបល់ ៖ "
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, kde-format
-msgid "Environment Variables:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show the &value of the environment variables"
+msgid "Environment variables:"
+msgstr "បង្ហាញ​តម្លៃ​អថេរ​បរិស្ថាន"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7655,6 +7668,12 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
 
+#~ msgid "&Description:"
+#~ msgstr "សេចក្ដី​ពិពណ៌នា ៖ "
+
+#~ msgid "Type any comment you think is useful here."
+#~ msgstr "សូម​វាយ​បញ្ចូល​មតិយោបល់​ណាមួយ​ដែល​អ្នក​គិត​ថា​មាន​ប្រយោជន៍ ។"
+
 #~ msgid "Do not ask again"
 #~ msgstr "កុំ​សួរ​ម្ដង​ទៀត"
 
@@ -8786,9 +8805,6 @@ msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​ក
 #~ "<qt>បញ្ចូល​អថេរ​បរិស្ថាន ឧ. <b>NO_PROXY</b> ដែល​បាន​ប្រើ​ដើម្បី​រក្សា​ទុក​អាសយដ្ឋាន​របស់​"
 #~ "តំបន់បណ្ដាញ ដែល​ការ​កំណត់​ប្រូកស៊ី​ខាងលើ​មិន​គួរ​ត្រូវ​បាន​ប្រើ ។<p>ជា​ជម្រើស អ្នក​អាច​ចុច​ប៊ូតុង <b>\"រក​"
 #~ "ឃើញ​ស្វ័យប្រវត្តិ\"</b> ដើម្បី​ឲ្យ​វា​រក​ឃើញ​អថេរ​នេះ​ដោយ​ស្វ័យប្រវត្តិ ។</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "បង្ហាញ​តម្លៃ​អថេរ​បរិស្ថាន"
 
 #  i18n: file kproxydlg_ui.ui line 222
 #~ msgid "Manually enter proxy server configuration information."
