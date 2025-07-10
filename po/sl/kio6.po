@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:39+0000\n"
-"PO-Revision-Date: 2025-07-01 07:21+0200\n"
+"PO-Revision-Date: 2025-07-09 07:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -5932,49 +5932,40 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Napišite opis tega programa glede na njegovo uporabo. Primer: klicni program "
-"(KPPP) bi bil »Klicno orodje«."
+"Tukaj vnesite generično ime aplikacije. Primeri: aplikacija za ogled slik bi "
+"bila »Pregledovalnik slik«."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "Splošno"
+msgstr "&Generično ime:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Napišite opis tega programa glede na njegovo uporabo. Primer: klicni program "
-"(KPPP) bi bil »Klicno orodje«."
+"Tukaj vnesite opis te aplikacije glede na njeno uporabo. Primeri: aplikacija "
+"za ogled slik bi bila »Ogled in urejanje slik«."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
 #, kde-format
 msgid "Comm&ent:"
-msgstr "Opomb&a:"
+msgstr "Opomba:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Spremenljivke okolja:"
 
@@ -6326,7 +6317,7 @@ msgstr "Lahko samo ogleduje"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can View & Modify"
-msgstr "Mogoča ogled in spreminjanje vsebine"
+msgstr "Mogoča ogled in spreminjanje"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View Content"

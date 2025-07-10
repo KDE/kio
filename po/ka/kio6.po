@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:39+0000\n"
-"PO-Revision-Date: 2025-07-01 04:10+0200\n"
+"PO-Revision-Date: 2025-07-09 05:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5877,38 +5877,31 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"აკრიფეთ აპლიკაციის აღწერა, მისი გამოყენებიდან გამომდინარე. მაგ: მოდემის "
-"აპლიკაცია (KPPP) უნდა იყოს \"ინტერნეტის პროგრამა\"."
+"აკრიფეთ აპლიკაციის აღწერა, მისი გამოყენებიდან გამომდინარე. მაგ: სურათების "
+"გამხსნელი აპლიკაცია უნდა იყოს \"სურათების დამთვალიერებელი\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&ზოგადი"
+msgstr "ზო&გადი სახელი:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"აკრიფეთ აპლიკაციის აღწერა, მისი გამოყენებიდან გამომდინარე. მაგ: მოდემის "
-"აპლიკაცია (KPPP) უნდა იყოს \"ინტერნეტის პროგრამა\"."
+"აკრიფეთ აპლიკაციის აღწერა, მისი გამოყენებიდან გამომდინარე. მაგ: "
+"გამოსახულებების დათვალიერების პროგრამა უნდა იყოს \"გამოსახულებების ნახვა და "
+"ჩასწორება\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5918,8 +5911,7 @@ msgstr "&კომენტარი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "გარემოს ცვლადები:"
 
