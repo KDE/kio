@@ -80,7 +80,7 @@ public:
     void setProcessEnvironment(const QProcessEnvironment &environment);
 
     /*!
-     * Checks whether the command to launch a terminal can be constructed.
+     * Checks whether the command to launch a terminal can be constructed and sets it.
      *
      * This function allows you to determine in advance whether the terminal launch
      * setup is valid and a command line could be successfully constructed.
@@ -97,7 +97,7 @@ public:
      *
      * \since 6.17
      */
-    bool canCreateTerminalCommand();
+    bool prepare();
 
     /*!
      * Starts the job.
