@@ -58,8 +58,7 @@ bool KTerminalLauncherJob::prepare()
 
 void KTerminalLauncherJob::start()
 {
-    determineFullCommand();
-    if (error()) {
+    if (!prepare()) {
         emitDelayedResult();
     } else {
         auto *subjob = new KIO::CommandLauncherJob(d->m_fullCommand, this);
