@@ -93,7 +93,12 @@ public:
      * While you can also call start() directly and handle any errors after the fact,
      * this function offers a lightweight way to check feasibility beforehand.
      *
+     * The start() function calls this internally, so you only need to call prepare()
+     * directly if you want to validate the command separately from actually starting
+     * the terminal.
+     *
      * \return true if a launch command could be constructed, false otherwise.
+     * \sa start()
      *
      * \since 6.17
      */
