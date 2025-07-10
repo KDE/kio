@@ -93,7 +93,9 @@ public:
      * While you can also call start() directly and handle any errors after the fact,
      * this function offers a lightweight way to check feasibility beforehand.
      *
-     * @return true if a launch command could be constructed, false otherwise.
+     * \return true if a launch command could be constructed, false otherwise.
+     *
+     * \since 6.17
      */
     bool canCreateTerminalCommand();
 
