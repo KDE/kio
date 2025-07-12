@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:39+0000\n"
-"PO-Revision-Date: 2025-05-29 15:18+0300\n"
+"PO-Revision-Date: 2025-07-10 19:43+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -5535,7 +5535,7 @@ msgstr "Koko:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Määritä kansion koko"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5547,7 +5547,7 @@ msgstr "Pysäytä"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Lakkaa määrittämästä kansion kokoa"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5563,10 +5563,9 @@ msgstr "Osoittaa:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Näytä varoitus"
+msgstr "Näytä kohde"
 
 # Luontiaika, eikä se, joka on luonut.
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
@@ -6166,20 +6165,16 @@ msgid "&General"
 msgstr "&Perustiedot"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Syötä tiedostonimi (%1):"
+msgstr "Anna kansion nimi"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Syötä tiedostonimi (%1):"
+msgstr "Anna tiedostonimi"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:429
 #, kde-format
@@ -6197,16 +6192,14 @@ msgstr "Päivitä"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Anna kohdesijainti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:453
 #: widgets/kpropertiesdialogbuiltin_p.cpp:456
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Tiedostoa <filename>%1</filename> ei voi siirtää"
+msgstr "Näytä <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
@@ -6285,7 +6278,7 @@ msgstr "Muuta…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Vaihda oletussovellusta, johon tyypin ”%1” tiedostot avataan"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
@@ -7134,12 +7127,10 @@ msgid "A file named <filename>%1</filename> already exists."
 msgstr "Tiedosto nimeltä <filename>%1</filename> on jo olemassa."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> ei näyttäisi olevan ohjelmatiedosto."
+msgstr "<filename>%1</filename> ei ole kelvollinen tiedostonimi."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7170,6 +7161,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Virheellinen tiedostonimi: uuden nimen tulisi sisältää jono #-merkkejä, "
+"ellei kaikilla tiedostoilla ole eri tiedostopäätteitä."
 
 #: widgets/renamefiledialog.cpp:310
 #, fuzzy, kde-format
@@ -7183,37 +7176,34 @@ msgstr[0] "Muuta %1 valitun kohteen nimeksi:"
 msgstr[1] "Muuta %1 valitun kohteen nimiksi:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Korvaa"
+msgstr "Korvattava:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Kuvio"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Avaa ohjelmalla:"
+msgstr "Korvaava:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Korvaa"
+msgstr "Korvaus"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Mikään tiedostonimi ei sisällä kuviota."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7222,6 +7212,7 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Jos ”%1” korvataan tyhjällä, <filename>%2</filename> saisi tyhjän nimen"
 
 #: widgets/renamefiledialog.cpp:404
 #, fuzzy, kde-format
@@ -7281,24 +7272,22 @@ msgid "&Rename"
 msgstr "M&uuta nimeä"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Poista tai muuta nimeä:"
+msgstr "Miten nimiä muutetaan:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Luettele"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Korvaa"
+msgstr "Korvaa teksti"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7307,19 +7296,16 @@ msgid "Add text"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Näytä esikatselu"
+msgstr "Esikatselu:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> ei näyttäisi olevan ohjelmatiedosto."
+msgstr "Tiedoston <filename>%1</filename> nimeä ei voi muuttaa tyhjäksi."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7471,33 +7457,19 @@ msgstr[1] ""
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Tämän kohteen siirto roskakoriin epäonnistui, koska se on liian iso. "
-"Poistetaanko se pysyvästi?<nl/><nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
+"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
+"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Toimintoa ei "
+"voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7507,13 +7479,11 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Tämän kohteen siirto roskakoriin epäonnistui, koska se on liian iso. "
-"Poistetaanko se pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi "
-"kumota.</emphasis>"
+"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
+"><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 msgstr[1] ""
-"Näiden %1 kohteen siirto roskakoriin epäonnistui, koska ne ovat liian isoja. "
-"Poistetaanko ne pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi "
-"kumota.</emphasis>"
+"Roskakori on liian täynnä näille %1 tiedostolle. Poistetaanko se pysyvästi?"
+"<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
