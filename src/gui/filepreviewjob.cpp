@@ -655,6 +655,7 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
             }
             // the plugin metadata
             QJsonObject kplugin;
+            kplugin[QStringLiteral("Id")] = thumbnailer.id;
             kplugin[QStringLiteral("MimeTypes")] = QJsonValue::fromVariant(handledMimes);
             kplugin[QStringLiteral("Name")] = name;
             kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
@@ -663,7 +664,7 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
             root[QStringLiteral("CacheThumbnail")] = true;
             root[QStringLiteral("KPlugin")] = kplugin;
 
-            KPluginMetaData standardThumbnailerPlugin(root, thumbnailer.first);
+            KPluginMetaData standardThumbnailerPlugin(root, QString());
             jsonMetaDataPlugins.append(standardThumbnailerPlugin);
         }
     }
@@ -686,6 +687,7 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
             const QString exec = thumbnailerConfig.readEntry("Exec", QString{});
             if (!exec.isEmpty() && !mimetypes.isEmpty()) {
                 StandardThumbnailerData data;
+                data.id = thumbnailerName;
                 data.exec = exec;
                 data.mimetypes = mimetypes;
                 standardThumbs.insert(thumbnailerName, data);

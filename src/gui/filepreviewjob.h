@@ -65,6 +65,7 @@ public:
     ~FilePreviewJob();
 
     struct StandardThumbnailerData {
+        QString id;
         QString exec;
         QStringList mimetypes;
     };
