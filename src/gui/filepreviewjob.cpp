@@ -678,7 +678,8 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
         QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
         const auto thumbnailerPaths = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")});
         for (const QString &thumbnailerPath : thumbnailerPaths) {
-            const KConfigGroup thumbnailerConfig(KSharedConfig::openConfig(thumbnailerPath), QStringLiteral("Thumbnailer Entry"));
+            const KConfig thumbnailerFile(thumbnailerPath);
+            const KConfigGroup thumbnailerConfig = thumbnailerFile.group(QStringLiteral("Thumbnailer Entry"));
             StandardThumbnailerData data;
             QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
             QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QString{}).split(QStringLiteral(";"));
