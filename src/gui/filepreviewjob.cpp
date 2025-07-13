@@ -465,10 +465,10 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     if (m_item.standardThumbnailer) {
         // Using /usr/share/thumbnailers
         QString exec;
-        for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
-            for (const auto &mimetype : std::as_const(thumbnailer.second.mimetypes)) {
+        for (const auto &thumbnailer : standardThumbnailers()) {
+            for (const auto &mimetype : std::as_const(thumbnailer.mimetypes)) {
                 if (m_item.plugin.supportsMimeType(mimetype)) {
-                    exec = thumbnailer.second.exec;
+                    exec = thumbnailer.exec;
                 }
             }
         }
@@ -628,10 +628,10 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
     static QList<KPluginMetaData> jsonMetaDataPlugins;
     if (jsonMetaDataPlugins.isEmpty()) {
         jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
-        for (const auto &thumbnailer : standardThumbnailers().asKeyValueRange()) {
+        for (const auto &thumbnailer : standardThumbnailers()) {
             // Check if our own plugins support the mimetype. If so, we use the plugin instead
             // and ignore the standard thumbnailer
-            auto handledMimes = thumbnailer.second.mimetypes;
+            auto handledMimes = thumbnailer.mimetypes;
             for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
                 for (const auto &mime : handledMimes) {
                     if (plugin.mimeTypes().contains(mime)) {
@@ -671,10 +671,10 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
     return jsonMetaDataPlugins;
 }
 
-QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::standardThumbnailers()
+QList<KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::standardThumbnailers()
 {
     // mimetype, exec
-    static QMap<QString, StandardThumbnailerData> standardThumbs;
+    static QList<StandardThumbnailerData> standardThumbs;
     if (standardThumbs.empty()) {
         const QStringList dirs =
             QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
@@ -690,7 +690,7 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
                 data.id = thumbnailerName;
                 data.exec = exec;
                 data.mimetypes = mimetypes;
-                standardThumbs.insert(thumbnailerName, data);
+                standardThumbs.append(data);
             }
         }
     }

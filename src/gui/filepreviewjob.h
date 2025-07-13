@@ -77,7 +77,7 @@ public:
     QImage previewImage() const;
     PreviewItem item() const;
     static QList<KPluginMetaData> loadAvailablePlugins();
-    static QMap<QString, StandardThumbnailerData> standardThumbnailers();
+    static QList<StandardThumbnailerData> standardThumbnailers();
 
 private Q_SLOTS:
     void slotStatFile(KJob *job);
