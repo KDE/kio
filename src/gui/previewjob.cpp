@@ -186,7 +186,6 @@ void PreviewJobPrivate::startPreview()
         previewItem.item = fileItem;
 
         const QString mimeType = previewItem.item.mimetype();
-        KPluginMetaData plugin;
 
         auto pluginIt = mimeMap.constFind(mimeType);
         if (pluginIt == mimeMap.constEnd()) {
@@ -217,10 +216,8 @@ void PreviewJobPrivate::startPreview()
         }
 
         if (pluginIt != mimeMap.constEnd()) {
-            plugin = *pluginIt;
-        }
+            const KPluginMetaData plugin = *pluginIt;
 
-        if (plugin.isValid()) {
             previewItem.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
             previewItem.plugin = plugin;
             previewItem.devicePixelRatio = devicePixelRatio;
