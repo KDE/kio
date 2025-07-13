@@ -682,8 +682,7 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
             const KConfigGroup thumbnailerConfig = thumbnailerFile.group(QStringLiteral("Thumbnailer Entry"));
             StandardThumbnailerData data;
             QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
-            QStringList mimetypes = thumbnailerConfig.readEntry("MimeType", QString{}).split(QStringLiteral(";"));
-            mimetypes.removeAll(QLatin1String(""));
+            QStringList mimetypes = thumbnailerConfig.readXdgListEntry("MimeType");
             QString exec = thumbnailerConfig.readEntry("Exec", QString{});
             if (!exec.isEmpty() && !mimetypes.isEmpty()) {
                 data.exec = exec;
