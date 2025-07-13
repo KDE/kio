@@ -7303,9 +7303,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "&Description:"
-#~ msgstr "&Válddahus:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Čále vaikko makkár gohččuma deikke maid jáhkat lea ávkkalaš dása."

@@ -7568,9 +7568,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk «Avbryt»."
-
-#~ msgid "&Description:"
-#~ msgstr "&Beskrivelse:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Skriv en passende kommentar som kan være nyttig her."
