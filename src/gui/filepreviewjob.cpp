@@ -672,18 +672,19 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
 
 QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::standardThumbnailers()
 {
-    //         mimetype, exec
+    // mimetype, exec
     static QMap<QString, StandardThumbnailerData> standardThumbs;
     if (standardThumbs.empty()) {
-        QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
+        const QStringList dirs =
+            QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
         const auto thumbnailerPaths = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.thumbnailer")});
         for (const QString &thumbnailerPath : thumbnailerPaths) {
             const KConfig thumbnailerFile(thumbnailerPath);
             const KConfigGroup thumbnailerConfig = thumbnailerFile.group(QStringLiteral("Thumbnailer Entry"));
             StandardThumbnailerData data;
-            QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
-            QStringList mimetypes = thumbnailerConfig.readXdgListEntry("MimeType");
-            QString exec = thumbnailerConfig.readEntry("Exec", QString{});
+            const QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
+            const QStringList mimetypes = thumbnailerConfig.readXdgListEntry("MimeType");
+            const QString exec = thumbnailerConfig.readEntry("Exec", QString{});
             if (!exec.isEmpty() && !mimetypes.isEmpty()) {
                 data.exec = exec;
                 data.mimetypes = mimetypes;
