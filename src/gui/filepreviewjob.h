@@ -29,9 +29,6 @@ struct PreviewItem {
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
-    bool enableRemoteFolderThumbnail = false;
-    int maximumLocalSize = 0;
-    int maximumRemoteSize = 0;
     int cacheSize = 0;
     QMap<QString, int> deviceIdMap;
 };
@@ -114,10 +111,6 @@ private:
     int m_sequenceIndex;
     // If the file to create a thumb for was a temp file, this is its name
     QString m_tempName;
-    KIO::filesize_t m_maximumLocalSize;
-    KIO::filesize_t m_maximumRemoteSize;
-    // Manage preview for locally mounted remote directories
-    bool m_enableRemoteFolderThumbnail;
     // Shared memory segment Id. The segment is allocated to a size
     // of extent x extent x 4 (32 bit image) on first need.
     int m_shmid;

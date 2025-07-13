@@ -66,9 +66,6 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_scaleType(m_item.scaleType)
     , m_ignoreMaximumSize(m_item.ignoreMaximumSize)
     , m_sequenceIndex(m_item.sequenceIndex)
-    , m_maximumLocalSize(m_item.maximumLocalSize)
-    , m_maximumRemoteSize(m_item.maximumRemoteSize)
-    , m_enableRemoteFolderThumbnail(m_item.enableRemoteFolderThumbnail)
     , m_shmid(-1)
     , m_shmaddr(nullptr)
     , m_thumbRoot(thumbRoot)
@@ -183,12 +180,16 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     bool skipCurrentItem = false;
+    const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_item.item.isSlow()) {
-        skipCurrentItem = !m_ignoreMaximumSize && size > m_maximumLocalSize && !m_item.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+        const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+        skipCurrentItem = !m_ignoreMaximumSize && size > maximumLocalSize && !m_item.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
     } else {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
         // Also we need to check if remote (but locally mounted) folder preview is enabled
-        skipCurrentItem = (!m_ignoreMaximumSize && size > m_maximumRemoteSize) || (m_item.item.isDir() && !m_enableRemoteFolderThumbnail);
+        const KIO::filesize_t maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
+        const bool enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
+        skipCurrentItem = (!m_ignoreMaximumSize && size > maximumRemoteSize) || (m_item.item.isDir() && !enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
         emitResult();

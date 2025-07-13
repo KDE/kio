@@ -124,7 +124,6 @@ void PreviewJobPrivate::startPreview()
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
-    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
 
     auto setUpCaching = [this](PreviewItem *previewItem) {
         short cacheSize = 0;
@@ -229,9 +228,6 @@ void PreviewJobPrivate::startPreview()
             previewItem.ignoreMaximumSize = ignoreMaximumSize;
             previewItem.scaleType = scaleType;
             previewItem.size = size;
-            previewItem.maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-            previewItem.maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
-            previewItem.enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
             previewItem.deviceIdMap = deviceIdMap;
 
             bool handlesSequencesValue = previewItem.plugin.value(QStringLiteral("HandleSequences"), false);
