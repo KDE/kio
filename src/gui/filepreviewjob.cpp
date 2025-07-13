@@ -560,14 +560,16 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
     // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
     QDataStream str(data);
 
+    int width;
+    int height;
+    QImage::Format format;
+    qreal imgDevicePixelRatio;
+    // TODO KF7: add a version number as first parameter
+    // always read those, even when !WITH_SHM, because the other side always writes them
+    str >> width >> height >> format >> imgDevicePixelRatio;
+
 #if WITH_SHM
     if (m_shmaddr != nullptr) {
-        int width;
-        int height;
-        QImage::Format format;
-        qreal imgDevicePixelRatio;
-        // TODO KF7: add a version number as first parameter
-        str >> width >> height >> format >> imgDevicePixelRatio;
         thumb = QImage(m_shmaddr, width, height, format).copy();
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
     }
