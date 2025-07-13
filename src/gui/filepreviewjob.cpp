@@ -681,11 +681,11 @@ QMap<QString, KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::stan
         for (const QString &thumbnailerPath : thumbnailerPaths) {
             const KConfig thumbnailerFile(thumbnailerPath);
             const KConfigGroup thumbnailerConfig = thumbnailerFile.group(QStringLiteral("Thumbnailer Entry"));
-            StandardThumbnailerData data;
             const QString thumbnailerName = QFileInfo(thumbnailerPath).baseName();
             const QStringList mimetypes = thumbnailerConfig.readXdgListEntry("MimeType");
             const QString exec = thumbnailerConfig.readEntry("Exec", QString{});
             if (!exec.isEmpty() && !mimetypes.isEmpty()) {
+                StandardThumbnailerData data;
                 data.exec = exec;
                 data.mimetypes = mimetypes;
                 standardThumbs.insert(thumbnailerName, data);
