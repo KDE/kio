@@ -31,13 +31,15 @@
 #include <KFileUtils>
 #include <KProtocolInfo>
 #include <KSharedConfig>
+#include <Solid/Device>
+#include <Solid/StorageAccess>
+
 #include <QCoreApplication>
 #include <QCryptographicHash>
+#include <QJsonArray>
 #include <QMimeDatabase>
 #include <QSaveFile>
 #include <QTemporaryDir>
-#include <Solid/Device>
-#include <Solid/StorageAccess>
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -591,56 +593,16 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
 {
     static QList<KPluginMetaData> jsonMetaDataPlugins;
     if (jsonMetaDataPlugins.isEmpty()) {
+        // Insert plugins first so they take precedence over standard thumbnailers
         jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
-        const auto thumbnailers = standardThumbnailers();
-        for (const auto &thumbnailer : thumbnailers) {
-            // Check if our own plugins support the mimetype. If so, we use the plugin instead
-            // and ignore the standard thumbnailer
-            auto handledMimes = thumbnailer.mimetypes;
-            for (const auto &plugin : std::as_const(jsonMetaDataPlugins)) {
-                for (const auto &mime : handledMimes) {
-                    if (plugin.mimeTypes().contains(mime)) {
-                        handledMimes.removeOne(mime);
-                    }
-                }
-            }
-            if (handledMimes.isEmpty()) {
-                continue;
-            }
-
-            QMimeDatabase db;
-            // We only need the first mimetype since the names/comments are often shared between multiple types
-            auto mime = db.mimeTypeForName(handledMimes.first());
-            auto name = mime.name().isEmpty() ? handledMimes.first() : mime.name();
-            if (!mime.comment().isEmpty()) {
-                name = mime.comment();
-            }
-            if (name.isEmpty()) {
-                continue;
-            }
-            // the plugin metadata
-            QJsonObject kplugin;
-            kplugin[QStringLiteral("Id")] = thumbnailer.id;
-            kplugin[QStringLiteral("MimeTypes")] = QJsonValue::fromVariant(handledMimes);
-            kplugin[QStringLiteral("Name")] = name;
-            kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
-
-            QJsonObject root;
-            root[QStringLiteral("CacheThumbnail")] = true;
-            root[QStringLiteral("Exec")] = thumbnailer.exec;
-            root[QStringLiteral("KPlugin")] = kplugin;
-
-            KPluginMetaData standardThumbnailerPlugin(root, QString());
-            jsonMetaDataPlugins.append(standardThumbnailerPlugin);
-        }
+        jsonMetaDataPlugins << standardThumbnailers();
     }
     return jsonMetaDataPlugins;
 }
 
-QList<KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::standardThumbnailers()
+QList<KPluginMetaData> FilePreviewJob::standardThumbnailers()
 {
-    // mimetype, exec
-    static QList<StandardThumbnailerData> standardThumbs;
+    static QList<KPluginMetaData> standardThumbs;
     if (standardThumbs.empty()) {
         const QStringList dirs =
             QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("thumbnailers/"), QStandardPaths::LocateDirectory);
@@ -648,16 +610,35 @@ QList<KIO::FilePreviewJob::StandardThumbnailerData> FilePreviewJob::standardThum
         for (const QString &thumbnailerPath : thumbnailerPaths) {
             const KConfig thumbnailerFile(thumbnailerPath);
             const KConfigGroup thumbnailerConfig = thumbnailerFile.group(QStringLiteral("Thumbnailer Entry"));
-            const QString thumbnailerName = QFileInfo(thumbnailerPath).completeBaseName();
             const QStringList mimetypes = thumbnailerConfig.readXdgListEntry("MimeType");
             const QString exec = thumbnailerConfig.readEntry("Exec", QString{});
-            if (!exec.isEmpty() && !mimetypes.isEmpty()) {
-                StandardThumbnailerData data;
-                data.id = thumbnailerName;
-                data.exec = exec;
-                data.mimetypes = mimetypes;
-                standardThumbs.append(data);
+
+            if (exec.isEmpty() || mimetypes.isEmpty()) {
+                continue;
             }
+
+            QMimeDatabase db;
+            // We only need the first mimetype since the names/comments are often shared between multiple types
+            auto mime = db.mimeTypeForName(mimetypes.first());
+            auto name = mime.name().isEmpty() ? mimetypes.first() : mime.name();
+            if (!mime.comment().isEmpty()) {
+                name = mime.comment();
+            }
+
+            // the plugin metadata
+            QJsonObject kplugin;
+            kplugin[QStringLiteral("Id")] = QFileInfo(thumbnailerPath).completeBaseName();
+            kplugin[QStringLiteral("MimeTypes")] = QJsonArray::fromStringList(mimetypes);
+            kplugin[QStringLiteral("Name")] = name;
+            kplugin[QStringLiteral("Description")] = QStringLiteral("standardthumbnailer");
+
+            QJsonObject root;
+            root[QStringLiteral("CacheThumbnail")] = true;
+            root[QStringLiteral("Exec")] = exec;
+            root[QStringLiteral("KPlugin")] = kplugin;
+
+            KPluginMetaData standardThumbnailerPlugin(root, QString());
+            standardThumbs.append(standardThumbnailerPlugin);
         }
     }
     return standardThumbs;
