@@ -578,6 +578,7 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
     if (thumb.isNull()) {
         // fallback a raw QImage
         str >> thumb;
+        thumb.setDevicePixelRatio(imgDevicePixelRatio);
     }
 
     slotStandardThumbData(job, thumb);
