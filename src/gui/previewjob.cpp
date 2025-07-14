@@ -174,7 +174,7 @@ void PreviewJobPrivate::startPreview()
         bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
-            if (pluginIsEnabled) {
+            if (pluginIsEnabled && !mimeMap.contains(mimeType)) {
                 mimeMap.insert(mimeType, plugin);
             }
         }
