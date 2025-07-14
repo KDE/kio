@@ -465,7 +465,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     if (m_item.standardThumbnailer) {
         // Using /usr/share/thumbnailers
         QString exec;
-        for (const auto &thumbnailer : standardThumbnailers()) {
+        const auto thumbnailers = standardThumbnailers();
+        for (const auto &thumbnailer : thumbnailers) {
             for (const auto &mimetype : std::as_const(thumbnailer.mimetypes)) {
                 if (m_item.plugin.supportsMimeType(mimetype)) {
                     exec = thumbnailer.exec;
@@ -628,7 +629,8 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
     static QList<KPluginMetaData> jsonMetaDataPlugins;
     if (jsonMetaDataPlugins.isEmpty()) {
         jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
-        for (const auto &thumbnailer : standardThumbnailers()) {
+        const auto thumbnailers = standardThumbnailers();
+        for (const auto &thumbnailer : thumbnailers) {
             // Check if our own plugins support the mimetype. If so, we use the plugin instead
             // and ignore the standard thumbnailer
             auto handledMimes = thumbnailer.mimetypes;
