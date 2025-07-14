@@ -463,22 +463,6 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     }
 
     if (m_item.standardThumbnailer) {
-        // Using /usr/share/thumbnailers
-        QString exec;
-        const auto thumbnailers = standardThumbnailers();
-        for (const auto &thumbnailer : thumbnailers) {
-            for (const auto &mimetype : std::as_const(thumbnailer.mimetypes)) {
-                if (m_item.plugin.supportsMimeType(mimetype)) {
-                    exec = thumbnailer.exec;
-                }
-            }
-        }
-        if (exec.isEmpty()) {
-            qCWarning(KIO_GUI) << "The exec entry for standard thumbnailer " << m_item.plugin.name() << " was empty!";
-            emitResult();
-            return;
-        }
-
         if (m_tempDirPath.isEmpty()) {
             auto tempDir = QTemporaryDir();
             Q_ASSERT(tempDir.isValid());
@@ -496,7 +480,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
             return;
         }
 
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(exec, m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
+        KIO::StandardThumbnailJob *job =
+            new KIO::StandardThumbnailJob(m_item.plugin.value(u"Exec"), m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
@@ -664,6 +649,7 @@ QList<KPluginMetaData> FilePreviewJob::loadAvailablePlugins()
 
             QJsonObject root;
             root[QStringLiteral("CacheThumbnail")] = true;
+            root[QStringLiteral("Exec")] = thumbnailer.exec;
             root[QStringLiteral("KPlugin")] = kplugin;
 
             KPluginMetaData standardThumbnailerPlugin(root, QString());
