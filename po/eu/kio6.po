@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:39+0000\n"
-"PO-Revision-Date: 2025-07-12 13:51+0200\n"
+"PO-Revision-Date: 2025-07-13 15:37+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2723,12 +2723,12 @@ msgstr "Sailkatu motaren arabera"
 #: filewidgets/kdiroperator.cpp:2089
 #, kde-format
 msgid "Ascending"
-msgstr "Gorakorra"
+msgstr "Goranzkoa"
 
 #: filewidgets/kdiroperator.cpp:2096
 #, kde-format
 msgid "Descending"
-msgstr "Beherakorra"
+msgstr "Beheranzkoa"
 
 #: filewidgets/kdiroperator.cpp:2103
 #, kde-format
