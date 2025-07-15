@@ -591,6 +591,8 @@ void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
         const QString scheme = url.scheme();
         if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto")) {
             m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
+        } else if (url.path().isEmpty()) {
+            m_mimeType = db.mimeTypeForName(QLatin1String("inode/directory"));
         } else {
             m_mimeType = db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension);
         }
