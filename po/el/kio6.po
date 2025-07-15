@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-09 00:39+0000\n"
+"POT-Creation-Date: 2025-07-15 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3294,7 +3294,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:354
-#: widgets/kpropertiesdialogbuiltin_p.cpp:678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:679
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -5406,7 +5406,7 @@ msgstr "Ιδιοκτήτης"
 msgid "Owning Group"
 msgstr "Ομάδα ιδιοκτησίας"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1453
 #, kde-format
 msgid "Others"
 msgstr "Άλλοι"
@@ -6268,7 +6268,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr "Κοινοποίηση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:111
+#: widgets/kpropertiesdialogbuiltin_p.cpp:112
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6278,13 +6278,13 @@ msgstr ""
 "Αδυναμία αποθήκευσης ιδιοτήτων λόγω ανεπαρκούς πρόσβασης εγγραφής στο:<nl/"
 "><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:231
+#: widgets/kpropertiesdialogbuiltin_p.cpp:232
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Γενικά"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -6292,7 +6292,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Εισάγετε ένα διαφορετικό όνομα"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:364
+#: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -6300,26 +6300,26 @@ msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Εισάγετε ένα διαφορετικό όνομα"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:429
+#: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Εξερεύνηση σε %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:440
-#: widgets/kpropertiesdialogbuiltin_p.cpp:718
+#: widgets/kpropertiesdialogbuiltin_p.cpp:441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:719
 #, kde-format
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:450
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:453
-#: widgets/kpropertiesdialogbuiltin_p.cpp:456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:454
+#: widgets/kpropertiesdialogbuiltin_p.cpp:457
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -6327,18 +6327,18 @@ msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Αδύνατη η μεταφορά <filename>%1</filename>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:563
+#: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:685
+#: widgets/kpropertiesdialogbuiltin_p.cpp:686
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Άγνωστο μέγεθος"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:696
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6347,146 +6347,146 @@ msgstr ""
 "Υπολογισμός... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
-#: widgets/kpropertiesdialogbuiltin_p.cpp:713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 αρχείο"
 msgstr[1] "%1 αρχεία"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
-#: widgets/kpropertiesdialogbuiltin_p.cpp:714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:700
+#: widgets/kpropertiesdialogbuiltin_p.cpp:715
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 υποφάκελος"
 msgstr[1] "%1 υποφάκελοι"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:727
+#: widgets/kpropertiesdialogbuiltin_p.cpp:728
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Υπολογισμός...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:750
+#: widgets/kpropertiesdialogbuiltin_p.cpp:751
 #, kde-format
 msgid "At least %1\n"
 msgstr "Τουλάχιστον %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:797
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Το νέο όνομα αρχείου είναι κενό."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgid "No registered file type"
 msgstr "Κανένας καταχωρημένος τύπος αρχείου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:996
+#: widgets/kpropertiesdialogbuiltin_p.cpp:997
 #, kde-format
 msgid "No associated application"
 msgstr "Καμία σχετική εφαρμογή"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1003
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Δημιουργία…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1007
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Αλλαγή…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
 #, fuzzy
 #| msgid "Accessed:"
 msgid "No Access"
 msgstr "Χωρίς πρόσβαση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View"
 msgstr "Μόνο προβολή"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify"
 msgstr "Προβολή και τροποποίηση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
 msgid "Can Only View Content"
 msgstr "Μόνο προβολή περιεχομένου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
 msgid "Can View & Modify Content"
 msgstr "Προβολή και τροποποίηση περιεχομένου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
 msgid "Can Only View/Read Content"
 msgstr "Μόνο προβολή/ανάγνωση περιεχομένου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
 msgid "Can View/Read & Modify/Write"
 msgstr "Εμφάνιση/Ανάγνωση & Τροποποίηση/Εγγραφή"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
 #, kde-format
 msgid "&Permissions"
 msgstr "Ά&δειες"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "Access Permissions"
 msgstr "Άδειες πρόσβασης"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Αυτό το αρχείο είναι ένας δεσμός και δεν έχει άδειες."
 msgstr[1] "Όλα τα αρχεία είναι δεσμοί και δεν έχουν άδειες."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Μόνο ο ιδιοκτήτης μπορεί να αλλάξει άδειες."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid "O&wner:"
 msgstr "&Ιδιοκτήτης:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Καθορίζει τις ενέργειες που ο ιδιοκτήτης επιτρέπεται να κάνει."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Ομάδα:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Καθορίζει τις ενέργειες που τα μέλη της ομάδας επιτρέπεται να κάνουν."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
 #, kde-format
 msgid "O&thers:"
 msgstr "Ά&λλοι:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6495,7 +6495,7 @@ msgstr ""
 "Καθορίζει τις ενέργειες που όλοι οι χρήστες, που δεν είναι ούτε ο ιδιοκτήτης "
 "ούτε στην ομάδα, επιτρέπεται να κάνουν."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, fuzzy, kde-format
 #| msgid "Only own&er can rename and delete folder content"
 msgid "Only own&er can delete or rename contents"
@@ -6503,7 +6503,7 @@ msgstr ""
 "Μόνο ο &ιδιοκτήτης μπορεί να μετονομάσει και να διαγράψει το περιεχόμενο του "
 "φακέλου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, fuzzy, kde-format
 #| msgid "Enable this flag to allow executing the file as a program."
 msgid "Allow &executing file as program"
@@ -6511,18 +6511,18 @@ msgstr ""
 "Ενεργοποιήστε αυτή τη σημαία ώστε να επιτρέπεται η εκτέλεση του αρχείου σαν "
 "ένα πρόγραμμα."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgid "Delete or rename:"
 msgstr "Προκαθορισμένο όνομα χρήστη:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid "Execute:"
 msgstr "Εκτέλεση:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1231
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6534,7 +6534,7 @@ msgstr ""
 "αυτόν. Άλλοι χρήστες μπορούν μόνο να προσθέσουν νέα αρχεία, το οποίο απαιτεί "
 "την άδεια 'Τροποποίηση περιεχομένου'."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6544,42 +6544,42 @@ msgstr ""
 "Αυτό έχει νόημα μόνο για προγράμματα και σενάρια. Απαιτείται όταν θέλετε να "
 "τα εκτελέσετε."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1239
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Προχωρημένες ά&δειες"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
 #, kde-format
 msgid "Ownership"
 msgstr "Ιδιοκτησία"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1255
 #, kde-format
 msgid "User:"
 msgstr "Χρήστης:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1293
 #, kde-format
 msgid "Group:"
 msgstr "Ομάδα:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1327
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Εφαρμογή των αλλαγών σε όλους τους υποφακέλους και τα περιεχόμενά τους"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Προχωρημένες άδειες"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
 #, kde-format
 msgid "Class"
 msgstr "Κλάση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid ""
 "Show\n"
@@ -6588,22 +6588,22 @@ msgstr ""
 "Εμφάνιση\n"
 "καταχωρήσεων"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Αυτή η σημαία επιτρέπει την προβολή του περιεχομένου του φακέλου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "Read"
 msgstr "Ανάγνωση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Η σημαία Ανάγνωση επιτρέπει την προβολή του περιεχομένου του αρχείου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
 msgid ""
 "Write\n"
@@ -6612,7 +6612,7 @@ msgstr ""
 "Εγγραφή\n"
 "καταχωρήσεων"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6622,46 +6622,46 @@ msgstr ""
 "Σημειώστε ότι η διαγραφή και η μετονομασία μπορεί να περιοριστεί "
 "χρησιμοποιώντας τη σημαία Κολλημένο."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "Write"
 msgstr "Εγγραφή"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr ""
 "Η σημαία Εγγραφή επιτρέπει την τροποποίηση του περιεχομένου του αρχείου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Είσοδος"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Ενεργοποιήστε αυτή τη σημαία ώστε να επιτρέπεται η είσοδος στο φάκελο."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Exec"
 msgstr "Εκτέλεση"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Ενεργοποιήστε αυτή τη σημαία ώστε να επιτρέπεται η εκτέλεση του αρχείου σαν "
 "ένα πρόγραμμα."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "Special"
 msgstr "Ειδικό"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6670,7 +6670,7 @@ msgstr ""
 "Ειδική σημαία. Ισχύει για όλο το φάκελο, η ακριβής έννοια της σημαίας μπορεί "
 "να φανεί στη δεξιά στήλη."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6678,17 +6678,17 @@ msgid ""
 msgstr ""
 "Ειδική σημαία. Η ακριβής έννοια της σημαίας μπορεί να φανεί στη δεξιά στήλη."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
 #, kde-format
 msgid "User"
 msgstr "Χρήστης"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
 #, kde-format
 msgid "Group"
 msgstr "Ομάδα"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6697,7 +6697,7 @@ msgstr ""
 "Αν αυτή η σημαία οριστεί, ο ιδιοκτήτης αυτού του φακέλου θα είναι ο "
 "ιδιοκτήτης όλων των νέων αρχείων."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6706,7 +6706,7 @@ msgstr ""
 "Αν αυτό το αρχείο είναι εκτελέσιμο και η σημαία είναι ορισμένη, θα "
 "εκτελεστεί με τις άδειες του ιδιοκτήτη."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6714,7 +6714,7 @@ msgstr ""
 "Αν αυτή η σημαία οριστεί, η ομάδα αυτού του φακέλου θα ορίζεται σε όλα τα "
 "νέα αρχεία."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1475
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6723,7 +6723,7 @@ msgstr ""
 "Αν αυτό το αρχείο είναι εκτελέσιμο και η σημαία είναι ορισμένη, θα "
 "εκτελεστεί με τις άδειες της ομάδας."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1482
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6733,7 +6733,7 @@ msgstr ""
 "root μπορούν να διαγράψουν ή να μετονομάσουν αρχεία. Αλλιώς οποιοσδήποτε με "
 "άδειες εγγραφής μπορεί να το κάνει αυτό."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1487
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6742,81 +6742,81 @@ msgstr ""
 "Η σημαία Κολλημένο σε ένα αρχείο αγνοείται στο Linux, αλλά μπορεί να "
 "χρησιμοποιηθεί σε μερικά συστήματα"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1548
 #, kde-format
 msgid "Set UID"
 msgstr "Ορισμός UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1552
 #, kde-format
 msgid "Set GID"
 msgstr "Ορισμός GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1556
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Κολλημένο"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
 #, kde-format
 msgid "Link"
 msgstr "Δεσμός"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1689
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Μεταβαλλόμενο (χωρίς αλλαγή)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1800
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Αυτό το αρχείο χρησιμοποιεί προχωρημένες άδειες"
 msgstr[1] "Αυτά τα αρχεία χρησιμοποιούν προχωρημένες άδειες"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Αυτός ο φάκελος χρησιμοποιεί προχωρημένες άδειες."
 msgstr[1] "Αυτοί οι φάκελοι χρησιμοποιούν προχωρημένες άδειες."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1836
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Αυτά τα αρχεία χρησιμοποιούν προχωρημένες άδειες."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2073
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2080
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Αθροίσματα ελέγχου"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2323
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Μη έγκυρο άθροισμα ελέγχου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2374
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Αυτό που δόθηκε δεν αποτελεί ένα έγκυρο MD5, SHA1 ή SHA256 άθροισμα ελέγχου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2337
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
 #, kde-format
 msgid "Checksums match."
 msgstr "Τα αθροίσματα ελέγχου ταιριάζουν."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2340
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2388
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Το υπολογισμένο και το αναμενόμενο άθροισμα ελέγχου ταιριάζουν."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2352
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2400
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6827,36 +6827,48 @@ msgstr ""
 "Δοκιμάστε να λάβετε ξανά το αρχείο.<br/>Αν η επαλήθευση αποτύχει και πάλι "
 "επικοινωνήστε με τον πάροχο του αρχείου."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2357
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Το υπολογισμένο και το αναμενόμενο άθροισμα ελέγχου διαφέρουν."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2365
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Επαλήθευση αθροίσματος ελέγχου..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2443
+#, fuzzy, kde-format
+#| msgid "The files are <b>identical</b>."
+msgid "The checksums of all files are identical."
+msgstr "Τα αρχεία είναι <b>παρόμοια</b>."
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2448
+#, fuzzy, kde-format
+#| msgid "The files are <b>different</b>."
+msgid "The selected files have different checksums."
+msgstr "Τα αρχεία είναι <b>διαφορετικά</b>."
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Υπολογισμός..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2565
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2571
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2640
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2911
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6864,27 +6876,27 @@ msgstr ""
 "Δεν ήταν δυνατή η αποθήκευση των ιδιοτήτων. Μόνο καταχωρήσεις σε τοπικά "
 "συστήματα αρχείων υποστηρίζονται."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2597
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2711
 #, kde-format
 msgid "&Application"
 msgstr "&Εφαρμογή"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2737
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Προσθήκη τύπου αρχείου για %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2738
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2852
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Επιλέξτε έναν ή περισσότερους τύπους αρχείου για προσθήκη:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2876
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2990
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Μόνο εκτελέσιμα σε τοπικά συστήματα αρχείων υποστηρίζονται."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2891
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3005
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Προχωρημένες επιλογές για %1"
