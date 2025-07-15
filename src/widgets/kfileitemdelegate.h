@@ -135,7 +135,7 @@ public:
      *
      * Note that KFileItemDelegate will not call KFileItem::determineMimeType() if
      * KFileItem::isMimeTypeKnown() returns false, so if you want to display MIME types
-     * you should use a KMimeTypeResolver with the model and the view, to ensure that MIME
+     * you should call KFileItem::determineMimeType() yourself, to ensure that MIME
      * types are resolved. If the MIME type isn't known, "Unknown" will be displayed until
      * the MIME type has been successfully resolved.
      *

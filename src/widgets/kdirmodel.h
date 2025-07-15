@@ -123,7 +123,7 @@ public:
 
     /*!
      * Notify the model that the item at this index has changed.
-     * For instance because KMimeTypeResolver called determineMimeType on it.
+     * For instance because its mimetype was resolved.
      * This makes the model emit its dataChanged signal at this index, so that views repaint.
      * Note that for most things (renaming, changing size etc.), KDirLister's signals tell the model already.
      */

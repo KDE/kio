@@ -182,9 +182,9 @@ public:
      * Delayed MIME types feature:
      * If enabled, MIME types will be fetched on demand, which leads to a
      * faster initial directory listing, where icons get progressively replaced
-     * with the correct one while KMimeTypeResolver is going through the items
-     * with unknown or imprecise MIME type (e.g. files with no extension or an
-     * unknown extension).
+     * with the correct one while you run KFileItem::determineMimeType() through
+     * the items with unknown or imprecise MIME type (e.g. files with no extension
+     * or an unknown extension).
      */
     void setDelayedMimeTypes(bool delayedMimeTypes);
 
