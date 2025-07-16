@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:39+0000\n"
-"PO-Revision-Date: 2025-07-09 03:52+0100\n"
+"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"PO-Revision-Date: 2025-07-16 00:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2427,17 +2427,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error sin documentar"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1496
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Enlace simbólico a %1)"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1498
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, enlace a %2)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
@@ -6790,16 +6790,14 @@ msgid "Verifying checksum…"
 msgstr "Comprobando suma de verificación…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Los archivos son <b>idénticos</b>."
+msgstr "Las sumas de verificación de todos los archivos son idénticas."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Los archivos son <b>distintos</b>."
+msgstr "Los archivos seleccionados tienen sumas de verificación distintas."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format

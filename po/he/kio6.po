@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:39+0000\n"
-"PO-Revision-Date: 2025-07-09 22:41+0300\n"
+"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"PO-Revision-Date: 2025-07-15 07:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2306,17 +2306,17 @@ msgstr "נא לפרמט את כונן היעד כך שישתמש במערכת ק
 msgid "Undocumented Error"
 msgstr "שגיאה לא מתועדת"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1496
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(קישור סמלי אל %1)"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1498
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, קישור אל %2)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"
@@ -6573,16 +6573,14 @@ msgid "Verifying checksum…"
 msgstr "סיכום הביקורת מאומת…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "הקבצים <b>זהים</b>."
+msgstr "סיכום הביקורת של כל הקבצים זהה."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "הקבצים <b>שונים</b>."
+msgstr "לקבצים הנבחרים יש סיכומי ביקורת שונים."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format

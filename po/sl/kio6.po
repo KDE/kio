@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:39+0000\n"
-"PO-Revision-Date: 2025-07-09 07:19+0200\n"
+"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"PO-Revision-Date: 2025-07-15 06:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2392,17 +2392,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentirana napaka"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1496
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbolna povezava do %1)"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1498
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1,  povezava do %2)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Kaže na %1):"
@@ -6731,16 +6731,14 @@ msgid "Verifying checksum…"
 msgstr "Preverjanje nadzorne vsote…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Datoteki sta <b>identični</b>."
+msgstr "Kontrolne vsote vseh datotek so enake."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Datoteki sta <b>različni</b>."
+msgstr "Izbrane datoteke imajo različne kontrolne vsote."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:39+0000\n"
-"PO-Revision-Date: 2025-07-10 13:31+0200\n"
+"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"PO-Revision-Date: 2025-07-15 10:12+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2434,17 +2434,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ongedocumenteerde fout"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1496
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolische koppeling naar %1)"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1498
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, koppeling naar %2)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Verwijst naar %1)"
@@ -6805,16 +6805,14 @@ msgid "Verifying checksum…"
 msgstr "Controlesom controleren…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "De bestanden zijn <b>identiek</b>."
+msgstr "De controlesommen van alle bestanden zijn identiek."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "De bestanden zijn <b>verschillend</b>."
+msgstr "De geselecteerde bestanden hebben verschillende controlesommen."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
