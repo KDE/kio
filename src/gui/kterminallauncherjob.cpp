@@ -49,10 +49,16 @@ void KTerminalLauncherJob::setProcessEnvironment(const QProcessEnvironment &envi
     d->m_environment = environment;
 }
 
+// prepares for launching but doesn't actually launch yet. sets error on error
+bool KTerminalLauncherJob::prepare()
+{
+    determineFullCommand(); // checks and sets m_fullCommand
+    return error() == KJob::NoError;
+}
+
 void KTerminalLauncherJob::start()
 {
-    determineFullCommand();
-    if (error()) {
+    if (!prepare()) {
         emitDelayedResult();
     } else {
         auto *subjob = new KIO::CommandLauncherJob(d->m_fullCommand, this);

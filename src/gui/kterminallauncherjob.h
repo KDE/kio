@@ -80,6 +80,24 @@ public:
     void setProcessEnvironment(const QProcessEnvironment &environment);
 
     /*!
+     * Checks whether the command to launch a terminal can be constructed and sets it.
+     *
+     * The start() function calls this internally, so you only need to call prepare()
+     * directly if you want to validate the command separately from actually starting
+     * the terminal.
+     *
+     * This is useful if you want to avoid calling start() just to catch an error,
+     * for example to conditionally show or hide a GUI element depending on whether
+     * launching a terminal is likely to succeed.
+     *
+     * \return true if a launch command could be constructed, false otherwise.
+     * \sa start()
+     *
+     * \since 6.17
+     */
+    bool prepare();
+
+    /*!
      * Starts the job.
      * You must call this, after having called all the necessary setters.
      */
