@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"POT-Creation-Date: 2025-07-17 00:38+0000\n"
 "PO-Revision-Date: 2025-07-02 17:27+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4013,7 +4013,7 @@ msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
 msgstr "Komandu „<command>%1</command>“ neatrada."
 
-#: gui/kterminallauncherjob.cpp:124
+#: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
 msgstr "Nav atrasts termināļa emulators"

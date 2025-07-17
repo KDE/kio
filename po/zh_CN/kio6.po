@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"POT-Creation-Date: 2025-07-17 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3827,7 +3827,7 @@ msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
 msgstr "命令 <command>%1</command> 无法找到。"
 
-#: gui/kterminallauncherjob.cpp:124
+#: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
 msgstr "找不到终端模拟器"
@@ -6431,12 +6431,12 @@ msgstr "正在验证校验和…"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
 #, kde-format
 msgid "The checksums of all files are identical."
-msgstr ""
+msgstr "所有文件的校验和大小相同。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
 #, kde-format
 msgid "The selected files have different checksums."
-msgstr ""
+msgstr "所选文件的校验和不同。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format

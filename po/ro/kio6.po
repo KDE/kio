@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"POT-Creation-Date: 2025-07-17 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -4085,7 +4085,7 @@ msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
 msgstr "Comanda <command>%1</command> nu a fost găsită."
 
-#: gui/kterminallauncherjob.cpp:124
+#: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
 msgstr "Nu a fost găsit niciun emulator de terminal"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"POT-Creation-Date: 2025-07-17 00:38+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -4011,7 +4011,7 @@ msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
 msgstr "Không tìm được lệnh <command>%1</command>."
 
-#: gui/kterminallauncherjob.cpp:124
+#: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
 msgstr "Không tìm thấy trình giả lập thiết bị đầu cuối nào"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:40+0000\n"
+"POT-Creation-Date: 2025-07-17 00:38+0000\n"
 "PO-Revision-Date: 2025-05-18 20:29+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3956,7 +3956,7 @@ msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
 msgstr "<command>%1</command> எனும் கட்டளையைக் கண்டுபிடிக்க முடியவில்லை"
 
-#: gui/kterminallauncherjob.cpp:124
+#: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
 msgstr "எந்த முனையக் கருவியும் கண்டுபிடிக்கப்படவில்லை"
