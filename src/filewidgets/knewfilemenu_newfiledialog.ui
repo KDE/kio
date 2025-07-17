@@ -44,6 +44,9 @@
      </item>
      <item alignment="Qt::AlignmentFlag::AlignVCenter">
       <widget class="QLineEdit" name="lineEdit">
+       <property name="placeholderText">
+        <string>Enter file name</string>
+       </property>
        <property name="minimumSize">
         <size>
          <width>400</width>

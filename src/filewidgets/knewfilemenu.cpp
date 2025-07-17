@@ -1569,6 +1569,7 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
     m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile | QUrl::StripTrailingSlash)));
 
     m_lineEdit->setText(name);
+    m_lineEdit->setPlaceholderText(i18nc("@info:placeholder", "Enter folder name"));
 
     const QString defaultFolderIconName = QStringLiteral("inode-directory");
     setIcon(QIcon::fromTheme(defaultFolderIconName));
