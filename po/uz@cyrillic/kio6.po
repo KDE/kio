@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3693,7 +3693,14 @@ msgstr ""
 "Қуйидаги манзилда янги жилдни яратиш:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Бошқа ф&ойдаланувчи сифатида бажариш"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -3707,15 +3714,22 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "&Яратиш"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Enter file name"
+msgstr "Бошқа ф&ойдаланувчи сифатида бажариш"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "%1 учун дастурни танланг"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3723,7 +3737,7 @@ msgid "Choose Other Icon…"
 msgstr "&Нишончани танлаш:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6023,13 +6037,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Умумий"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgid "Ru&n as a different user"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Бошқа ф&ойдаланувчи сифатида бажариш"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format

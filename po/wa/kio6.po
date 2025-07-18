@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3969,7 +3969,14 @@ msgstr ""
 "Fé on novea ridant dins:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Enonder come èn ôte &uzeu"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -3983,15 +3990,22 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "A&hiver"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Enter file name"
+msgstr "Enonder come èn ôte &uzeu"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Tchoezi on programe po %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3999,7 +4013,7 @@ msgid "Choose Other Icon…"
 msgstr "Tchoezixhoz ene &imådjete:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6353,13 +6367,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Djenerå"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgid "Ru&n as a different user"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Enonder come èn ôte &uzeu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format

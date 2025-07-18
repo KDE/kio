@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2025-07-16 00:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3864,7 +3864,13 @@ msgstr "Crear nueva carpeta"
 msgid "Create new folder in %1:"
 msgstr "Crear nueva carpeta en %1:"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Introduzca el nombre de la carpeta"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, kde-format
 msgid "Default"
 msgstr "Predeterminado"
@@ -3876,21 +3882,29 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Crear nuevo archivo"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgid "Enter file name"
+msgstr "Introduzca el nombre del archivo"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "Escoger icono o color personalizado"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Escoger otro icono…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6244,12 +6258,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&General"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Introduzca el nombre de la carpeta"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format

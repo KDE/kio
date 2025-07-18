@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2025-06-10 23:24+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3713,7 +3713,15 @@ msgstr "새 폴더 만들기"
 msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "%1 파일 이름 입력:"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, kde-format
 msgid "Default"
 msgstr "기본값"
@@ -3725,21 +3733,29 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "새 파일 만들기"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgid "Enter file name"
+msgstr "%1 파일 이름 입력:"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "사용자 정의 아이콘이나 색상 선택"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "다른 아이콘 선택…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
@@ -6044,14 +6060,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "일반(&G)"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "%1 파일 이름 입력:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format

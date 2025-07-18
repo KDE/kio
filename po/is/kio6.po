@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2024-12-13 09:57+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -3811,7 +3811,15 @@ msgstr "Búa til nýja möppu"
 msgid "Create new folder in %1:"
 msgstr "Búa til nýja möppu í: %1"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Sláðu inn %1 skrárheiti:"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -3825,15 +3833,23 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Búa til nýja skrá"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Prompt for new file of type"
+#| msgid "Enter %1 filename:"
+msgid "Enter file name"
+msgstr "Sláðu inn %1 skrárheiti:"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Veldu forrit fyrir %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3841,7 +3857,7 @@ msgid "Choose Other Icon…"
 msgstr "Veldu &tákn:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6170,14 +6186,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "Al&mennt"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Sláðu inn %1 skrárheiti:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format

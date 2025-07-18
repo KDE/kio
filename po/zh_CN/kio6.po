@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3622,7 +3622,13 @@ msgstr "创建新文件夹"
 msgid "Create new folder in %1:"
 msgstr "新建文件夹到 %1："
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "输入文件夹名称"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, kde-format
 msgid "Default"
 msgstr "默认"
@@ -3634,21 +3640,29 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "创建新文件"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgid "Enter file name"
+msgstr "输入文件名"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "选择自定义图标或颜色"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "选择其他图标…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "您可以稍后在文件夹属性中更改图标。"
@@ -5916,12 +5930,6 @@ msgstr "无法保存属性，因为写入权限不足：<nl/><filename>%1</filen
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "常规(&G)"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "输入文件夹名称"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format

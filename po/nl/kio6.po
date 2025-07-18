@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2025-07-15 10:12+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3876,7 +3876,13 @@ msgstr "Nieuwe map aanmaken"
 msgid "Create new folder in %1:"
 msgstr "Nieuwe map aanmaken in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Mapnaam invoeren"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, kde-format
 msgid "Default"
 msgstr "Standaard"
@@ -3888,21 +3894,29 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Nieuw bestand aanmaken"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Enter file name"
+msgid "Enter file name"
+msgstr "Bestandsnaam invoeren"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "Kies aangepast pictogram of kleur"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Kies een ander pictogram…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "U kunt het pictogram later in eigenschappen van map wijzigen."
@@ -6260,12 +6274,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Algemeen"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Mapnaam invoeren"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format

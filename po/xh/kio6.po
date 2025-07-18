@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -3903,7 +3903,14 @@ msgstr "Ayinakwenza Umngxuma"
 msgid "Create new folder in %1:"
 msgstr "Yenza ulawulo olutsha kwi:"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "Se&benzisa njengomsebenzisi owahlukileyo"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, fuzzy, kde-format
 msgid "Default"
 msgstr "(Okudaliweyo)"
@@ -3915,15 +3922,22 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "Yenza ulawulo olutsha kwi:"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Enter file name"
+msgstr "Se&benzisa njengomsebenzisi owahlukileyo"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Khetha Isicelo se %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3931,7 +3945,7 @@ msgid "Choose Other Icon…"
 msgstr "Khetha uphawu &lomfanekiso:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6233,13 +6247,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Ngokubanzi"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgid "Ru&n as a different user"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "Se&benzisa njengomsebenzisi owahlukileyo"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:38+0000\n"
+"POT-Creation-Date: 2025-07-18 00:38+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3765,7 +3765,14 @@ msgstr ""
 "नया फ़ोल्डर:\n"
 "%1 में बनाएँ"
 
-#: filewidgets/knewfilemenu.cpp:1628
+#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@info:placeholder"
+msgid "Enter folder name"
+msgstr "भिन्न उपयोक्ता जैसे चलाएँ (&n)"
+
+#: filewidgets/knewfilemenu.cpp:1629
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -3779,15 +3786,22 @@ msgctxt "@title:window"
 msgid "Create New File"
 msgstr "नई फ़ाइल क़िस्में बनाएँ"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Enter file name"
+msgstr "भिन्न उपयोक्ता जैसे चलाएँ (&n)"
+
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:63
+#: filewidgets/knewfilemenu_newfiledialog.ui:66
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr " %1 के लिए अनुप्रयोग चुनें"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:113
+#: filewidgets/knewfilemenu_newfiledialog.ui:116
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3795,7 +3809,7 @@ msgid "Choose Other Icon…"
 msgstr "एक प्रतीक चुनें (&i)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:129
+#: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -6156,13 +6170,6 @@ msgstr ""
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "सामान्य (&G)"
-
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgid "Ru&n as a different user"
-msgctxt "@info:placeholder"
-msgid "Enter folder name"
-msgstr "भिन्न उपयोक्ता जैसे चलाएँ (&n)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
