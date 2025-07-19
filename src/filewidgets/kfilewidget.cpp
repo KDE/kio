@@ -273,6 +273,7 @@ public:
     bool m_inAccept = false; // true between beginning and end of accept()
     bool m_confirmOverwrite = false;
     bool m_differentHierarchyLevelItemsEntered = false;
+    bool m_currentDirSelectable = false;
 
     const std::array<short, 8> m_stdIconSizes = {
         KIconLoader::SizeSmall,
@@ -762,6 +763,13 @@ void KFileWidget::slotOk()
                 locationEditCurrentTextList = {url};
             }
         }
+    } else if (d->m_operationMode == Saving && d->m_ops->mode() & KFile::Directory && d->m_currentDirSelectable && d->m_locationEdit->currentText().isEmpty()) {
+
+        // select the current Url
+        d->m_url = d->m_ops->url();
+
+        Q_EMIT accepted();
+        return;
     }
 
     // restore it
@@ -1313,7 +1321,7 @@ void KFileWidgetPrivate::initLocationWidget()
         clearAction->setVisible(m_locationEdit->lineEdit()->text().length() > 0);
     });
     q->connect(m_locationEdit->lineEdit(), &QLineEdit::textChanged, q, [this](const QString &text) {
-        m_okButton->setEnabled(!text.isEmpty());
+        m_okButton->setEnabled((m_operationMode == KFileWidget::OperationMode::Saving && m_ops->mode() & KFile::Directory && m_currentDirSelectable) || !text.isEmpty());
     });
 
     QAction *undoAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-undo")), i18nc("@info:tooltip", "Undo filename change"), m_locationEdit->lineEdit());
@@ -2035,6 +2043,14 @@ void KFileWidget::setMode(KFile::Modes m)
     }
 
     d->updateAutoSelectExtension();
+}
+
+void KFileWidget::setCurrentDirSelectable(bool selectable)
+{
+    d->m_currentDirSelectable = selectable;
+    if (d->m_operationMode == KFileWidget::OperationMode::Saving && d->m_ops->mode() & KFile::Directory && d->m_currentDirSelectable && d->m_locationEdit->lineEdit()->text().isEmpty()) {
+        d->m_okButton->setEnabled(true);
+    }
 }
 
 KFile::Modes KFileWidget::mode() const
