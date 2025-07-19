@@ -293,6 +293,14 @@ public:
     void setLocationLabel(const QString &text);
 
     /*!
+     * When in operation mode Saving and mode KFile::Directory,
+     * allow to consider the empty location valid and correspond to the current Url in the dialog
+     *
+     * \since 6.17
+     */
+    void setCurrentDirSelectable(bool selectable);
+
+    /*!
      * Returns a pointer to the OK-Button in the filedialog.
      * Note that the button is hidden and unconnected when using KFileWidget alone;
      * KFileDialog shows it and connects to it.
