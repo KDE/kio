@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-18 00:38+0000\n"
-"PO-Revision-Date: 2025-07-16 00:26+0100\n"
+"PO-Revision-Date: 2025-07-18 16:01+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3884,9 +3884,7 @@ msgstr "Crear nuevo archivo"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Introduzca el nombre del archivo"
 

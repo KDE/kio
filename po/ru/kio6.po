@@ -24,14 +24,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-18 00:38+0000\n"
-"PO-Revision-Date: 2025-06-17 10:53+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2025-07-18 18:09+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.07.80\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -3844,12 +3844,10 @@ msgid "Create new folder in %1:"
 msgstr "Создать новую папку в %1:"
 
 #: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Ввести другое имя файла %1:"
+msgstr "Введите имя папки"
 
 #: filewidgets/knewfilemenu.cpp:1629
 #, kde-format
@@ -3865,11 +3863,9 @@ msgstr "Создание нового файла"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Ввести другое имя файла %1:"
+msgstr "Введите имя файла"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:66
@@ -5596,7 +5592,7 @@ msgstr "Размер:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Определить размер папки"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5608,7 +5604,7 @@ msgstr "Остановить"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Прекратить определение размера папки"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5624,10 +5620,9 @@ msgstr "Указывает на:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Показывать предупреждение"
+msgstr "Показать цель"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5973,39 +5968,32 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Введите описание этого приложения, основанное на его назначении. Например, "
-"для приложения удалённого доступа к сети (KPPP) можно ввести «Удалённый "
-"доступ к сети»."
+"Введите общее название этого приложения, основанное на его назначении. "
+"Например,  для приложения для просмотра изображений можно ввести «Просмотр "
+"изображений."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Имя пользователя:"
+msgstr "&Общее название:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
 "Введите описание этого приложения, основанное на его назначении. Например, "
-"для приложения удалённого доступа к сети (KPPP) можно ввести «Удалённый "
-"доступ к сети»."
+"для приложения для просмотра изображений можно ввести «Просмотр и "
+"редактирование изображений»."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6015,8 +6003,7 @@ msgstr "Комм&ентарий:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Переменные окружения:"
 
@@ -6238,12 +6225,10 @@ msgid "&General"
 msgstr "&Основное"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Ввести другое имя файла %1:"
+msgstr "Введите имя файла"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6261,16 +6246,14 @@ msgstr "Обновить"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Введите каталог назначения"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Не удалось передать «<filename>%1</filename>»"
+msgstr "Открыть <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6354,6 +6337,8 @@ msgstr "Изменить…"
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
+"Изменить приложение по умолчанию, к котором будет открываться файлы с типом "
+"«%1»."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -6780,16 +6765,14 @@ msgid "Verifying checksum…"
 msgstr "Проверка контрольной суммы…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Файлы <b>идентичны</b>."
+msgstr "Контрольные суммы всех файлов идентичны."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Файлы <b>различаются</b>."
+msgstr "Контрольные суммы выделенных файлов различаются."
 
 # BUGME: it's a label, not a button --aspotashev
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
@@ -7227,9 +7210,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Не удалось передать <filename>%1</filename> в:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Файл с именем <filename>%1</filename> уже существует."
@@ -7271,19 +7252,18 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Недопустимое имя файла: новое имя должно содержать одну последовательность "
+"символов «#»,если только у всех файлов не разные расширения."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Переименовать %1 выделенный объект в:"
-msgstr[1] "Переименовать %1 выделенных объекта в:"
-msgstr[2] "Переименовать %1 выделенных объекта в:"
-msgstr[3] "Переименовать выделенный объект в:"
+msgstr[0] "Переименовать %1 выделенный объект:"
+msgstr[1] "Переименовать %1 выделенных объекта:"
+msgstr[2] "Переименовать %1 выделенных объектов:"
+msgstr[3] "Переименовать выделенный объект:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7322,47 +7302,42 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Замена «%1» на пустую строку приведёт к тому, что файл <filename>%2</"
+"filename> будет иметь пустое имя."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Переименовать %1 выделенный объект в:"
-msgstr[1] "Переименовать %1 выделенных объекта в:"
-msgstr[2] "Переименовать %1 выделенных объекта в:"
-msgstr[3] "Переименовать выделенный объект в:"
+msgstr[0] "Переименовать %1 выделенный объект:"
+msgstr[1] "Переименовать %1 выделенных объекта:"
+msgstr[2] "Переименовать %1 выделенных объектов:"
+msgstr[3] "Переименовать выделенный объект:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Добавить текст:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Добавляемый текст"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Ввести другое имя файла %1:"
+msgstr "Перед именем файла"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Ввести другое имя файла %1:"
+msgstr "После имени файла"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7404,7 +7379,7 @@ msgstr "Замена текста"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Добавление текста"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

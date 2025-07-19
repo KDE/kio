@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-18 00:38+0000\n"
-"PO-Revision-Date: 2025-07-15 06:34+0200\n"
+"PO-Revision-Date: 2025-07-18 06:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3836,9 +3836,7 @@ msgstr "Ustvari novo datoteko"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Vnesite ime datoteke"
 
@@ -6677,7 +6675,7 @@ msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "Te mape uporabljajo napredna dovoljenja"
+msgstr[0] "Te mape uporabljajo napredna dovoljenja."
 msgstr[1] "Ta mapa uporablja napredna dovoljenja."
 msgstr[2] "Ti mapi uporabljata napredna dovoljenja."
 msgstr[3] "Te mape uporabljajo napredna dovoljenja."
