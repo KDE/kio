@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-18 00:38+0000\n"
-"PO-Revision-Date: 2025-07-17 23:07+0300\n"
+"PO-Revision-Date: 2025-07-19 22:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3800,11 +3800,9 @@ msgstr "Yeni Dosya Oluştur"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
-msgstr "Dosya adını gir…"
+msgstr "Dosya adı gir…"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:66

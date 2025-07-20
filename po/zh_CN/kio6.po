@@ -3644,7 +3644,7 @@ msgstr "创建新文件"
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
 #, kde-format
 msgid "Enter file name"
-msgstr ""
+msgstr "输入文件名"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:66
