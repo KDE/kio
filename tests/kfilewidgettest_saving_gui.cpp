@@ -19,7 +19,9 @@ int main(int argc, char **argv)
 
     // Do some args
     QCommandLineParser parser;
+    parser.addOption(QCommandLineOption(QStringLiteral("folder"), QStringLiteral("Select folder")));
     parser.addOption(QCommandLineOption(QStringLiteral("multiple"), QStringLiteral("Allows multiple files selection")));
+    parser.addOption(QCommandLineOption(QStringLiteral("existing-only"), QStringLiteral("Filter to only existing files/directories")));
     parser.addPositionalArgument(QStringLiteral("folder"), QStringLiteral("The initial folder"));
     parser.process(app);
     QStringList posargs = parser.positionalArguments();
@@ -31,11 +33,20 @@ int main(int argc, char **argv)
     qDebug() << "Starting at" << folder;
     KFileWidget *fileWidget = new KFileWidget(folder);
     fileWidget->setOperationMode(KFileWidget::Saving);
-    if (parser.isSet(QStringLiteral("multiple"))) {
-        fileWidget->setMode(KFile::Files);
-    } else {
-        fileWidget->setMode(KFile::File);
+
+    KFile::Modes mode = static_cast<KFile::Mode>(0);
+    if (parser.isSet(QStringLiteral("existing-only"))) {
+        mode |= KFile::ExistingOnly;
     }
+    if (parser.isSet(QStringLiteral("folder"))) {
+        mode |= KFile::Directory;
+    } else if (parser.isSet(QStringLiteral("multiple"))) {
+        mode |= KFile::Files;
+    } else {
+        mode |= KFile::File;
+    }
+    fileWidget->setMode(mode);
+
     fileWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     fileWidget->okButton()->show();
