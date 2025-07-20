@@ -2317,9 +2317,24 @@ void KFileWidgetPrivate::slotIconSizeSliderMoved(int size)
 
 void KFileWidgetPrivate::slotViewDoubleClicked(const QModelIndex &index)
 {
+    if (!index.isValid()) {
+        return;
+    }
     // double clicking to save should only work on files
-    if (m_operationMode == KFileWidget::Saving && index.isValid() && m_ops->selectedItems().constFirst().isFile()) {
+    auto fileItem = m_ops->selectedItems().constFirst();
+    if (m_operationMode == KFileWidget::Saving && fileItem.isFile()) {
         q->slotOk();
+        return;
+    }
+
+    // dirs are instead opened by KDirOperator firing urlEntered
+    if (fileItem.isDir()) {
+        // the folder is going to be opened, no need to keep its name in the locationEdit
+        if (fileItem.name() == m_locationEdit->currentText() || fileItem.url().toString() == m_locationEdit->currentText()) {
+            m_locationEdit->blockSignals(true);
+            m_locationEdit->setCurrentText(QString());
+            m_locationEdit->blockSignals(false);
+        }
     }
 }
 
