@@ -648,7 +648,7 @@ void KFileWidgetTest::testCreateNestedNewFolders()
         const QString name = QStringLiteral("folder%1").arg(i);
         lineEdit->setText(name);
         // simulate the time the user will take to type the new folder name
-        QTest::qWait(1000);
+        QTest::qWait(300);
 
         dialog->accept();
 
@@ -995,7 +995,6 @@ void KFileWidgetTest::testReplaceLocationEditFilename()
         KFileItem fileItem(url);
         QSignalSpy fileHighlightedSpy(fw.dirOperator(), &KDirOperator::fileHighlighted);
         fw.dirOperator()->highlightFile(fileItem);
-        fileHighlightedSpy.wait(500);
         QVERIFY(fileHighlightedSpy.count());
     };
 
