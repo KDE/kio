@@ -97,11 +97,13 @@ public:
      */
     static Worker *createWorker(const QString &protocol, const QUrl &url, int &error, QString &error_text);
 
+#ifdef BUILD_TESTING
     /*!
      * Can be used for testing to inject a mock worker for the kio-test fake protocol.\
      * This function does not participate in ownership. The caller must ensure the factory is valid throughout worker creation needs.
      */
     KIOCORE_EXPORT static void setTestWorkerFactory(const std::weak_ptr<KIO::WorkerFactory> &factory);
+#endif
 
     // == communication with connected kioworker ==
     // whenever possible prefer these methods over the respective
@@ -218,7 +220,9 @@ private:
     QElapsedTimer m_contact_started;
     QElapsedTimer m_idleSince;
     int m_refCount = 1;
+#ifdef BUILD_TESTING
     static inline std::weak_ptr<KIO::WorkerFactory> s_testFactory; // for testing purposes, can be set to a mock factory
+#endif
 };
 
 }

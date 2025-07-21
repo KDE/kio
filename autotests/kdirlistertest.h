@@ -13,8 +13,9 @@
 #include <QObject>
 #include <QSignalSpy>
 #include <QTemporaryDir>
+#include <QTemporaryFile>
 #include <kdirlister.h>
-
+#include <kio/workerbase.h>
 #include <memory>
 
 Q_DECLARE_METATYPE(KFileItemList)
@@ -113,7 +114,7 @@ private Q_SLOTS:
     void testCacheEviction();
     void testUnreadableParentDirectory();
     void testPathWithSquareBrackets();
-    void testRedirect();
+    void testSFTPRedirect();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 
