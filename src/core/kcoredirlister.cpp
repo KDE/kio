@@ -1391,15 +1391,18 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     const QList<KCoreDirLister *> allListers = listers + holders;
 
     DirItem *newDir = itemsInUse.value(newUrl);
-    if (newDir) {
+
+    // get the job if one's running for newUrl already (can be a list-job or an update-job), but
+    // do not return this 'job', which would happen because of the use of redirectionURL()
+    // This is nullptr if the url has same job as given as the parameter to this slot.
+    KIO::ListJob *oldJob = jobForUrl(newUrl, job);
+
+    // Do not list files again if the jobForUrl is the current job.
+    if (newDir && oldJob) {
         qCDebug(KIO_CORE_DIRLISTER) << newUrl << "already in use";
 
         // only in this case there can newUrl already be in listersCurrentlyListing or listersCurrentlyHolding
         delete dir;
-
-        // get the job if one's running for newUrl already (can be a list-job or an update-job), but
-        // do not return this 'job', which would happen because of the use of redirectionURL()
-        KIO::ListJob *oldJob = jobForUrl(newUrl, job);
 
         // listers of newUrl with oldJob: forget about the oldJob and use the already running one
         // which will be converted to an updateJob
@@ -2819,16 +2822,7 @@ KCoreDirListerCache::CacheHiddenFile *KCoreDirListerCache::cachedDotHiddenForDir
 
 QUrl KCoreDirListerCache::cleanUpTrailingSlash(const QUrl &url) const
 {
-    // Url is just a scheme or it's local, we can return it with regular clean
-    if (url.path().isEmpty() || url.isLocalFile()) {
-        return url.adjusted(QUrl::StripTrailingSlash);
-    }
-    QString cleanedPath = url.adjusted(QUrl::StripTrailingSlash).toString();
-    if (cleanedPath.endsWith(QLatin1Char('/'))) {
-        cleanedPath.chop(1);
-    }
-
-    return QUrl(cleanedPath);
+    return url.adjusted(QUrl::StripTrailingSlash);
 }
 
 QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::listersByStatus(ListerStatus status) const
