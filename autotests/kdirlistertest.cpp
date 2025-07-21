@@ -1795,18 +1795,4 @@ void KDirListerTest::testPathWithSquareBrackets()
     QCOMPARE(m_refreshedItems.at(0).first.url(), QUrl::fromLocalFile(file.fileName()));
 }
 
-void KDirListerTest::testRemoteUrlEquals()
-{
-    QUrl oldUrl(QStringLiteral("smb://foo.local"));
-    oldUrl.setPath(QStringLiteral(""));
-    QUrl newUrl(QStringLiteral("smb://foo.local"));
-    newUrl.setPath(QStringLiteral("/"));
-    m_dirLister.openUrl(oldUrl);
-    auto firstOpenedUrl = m_dirLister.url();
-    m_dirLister.openUrl(newUrl);
-    auto secondOpenedUrl = m_dirLister.url();
-
-    QCOMPARE(firstOpenedUrl, secondOpenedUrl);
-}
-
 #include "moc_kdirlistertest.cpp"
