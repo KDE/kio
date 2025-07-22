@@ -1064,9 +1064,10 @@ QString KFileItem::mimeComment() const
     // the MIME type to be determined, which is done here, and possibly delayed...
     if (isLocalUrl && !d->isSlow() && mime.inherits(QStringLiteral("application/x-desktop"))) {
         KDesktopFile cfg(url.toLocalFile());
-        QString comment = cfg.desktopGroup().readEntry("Comment");
-        if (!comment.isEmpty()) {
-            return comment;
+
+        // Display "Link" instead of the destination mime
+        if (cfg.hasLinkType()) {
+            return QStringLiteral("Link");
         }
     }
 
