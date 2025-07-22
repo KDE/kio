@@ -2,7 +2,7 @@
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2000 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
-    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2023-2025 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -39,6 +39,7 @@
 #include "workerfactory.h"
 #include "workerthread_p.h"
 
+using namespace Qt::StringLiterals;
 using namespace KIO;
 
 static constexpr int s_workerConnectionTimeoutMin = 2;
@@ -375,6 +376,15 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
         return new DataProtocol();
     }
 
+    if (protocol.startsWith("kio-test"_L1)) {
+        auto *worker = new Worker(protocol);
+        const QUrl workerAddress = worker->m_workerConnServer->address();
+        auto *thread = new WorkerThread(worker, s_testFactory.lock().get(), workerAddress.toString().toLocal8Bit());
+        thread->start();
+        worker->setWorkerThread(thread);
+        return worker;
+    }
+
     const QString _name = KProtocolInfo::exec(protocol);
     if (_name.isEmpty()) {
         error_text = i18n("Unknown protocol '%1'.", protocol);
@@ -464,6 +474,11 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     worker->setPID(pid);
 
     return worker;
+}
+
+void KIO::Worker::setTestWorkerFactory(const std::weak_ptr<KIO::WorkerFactory> &factory)
+{
+    s_testFactory = factory;
 }
 
 #include "moc_worker_p.cpp"
