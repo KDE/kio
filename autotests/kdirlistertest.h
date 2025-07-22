@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2025 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -112,7 +113,7 @@ private Q_SLOTS:
     void testCacheEviction();
     void testUnreadableParentDirectory();
     void testPathWithSquareBrackets();
-    void testRemoteUrlEquals();
+    void testRedirect();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 

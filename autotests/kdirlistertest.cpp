@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2025 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -9,6 +10,9 @@
 
 #include "jobuidelegatefactory.h"
 #include "kiotesthelper.h"
+#include "worker_p.h"
+#include "workerbase.h"
+#include "workerfactory.h"
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/jobuidelegateextension.h>
@@ -24,6 +28,8 @@
 #include <QDebug>
 #include <QTemporaryFile>
 #include <QTest>
+
+using namespace Qt::StringLiterals;
 
 QTEST_MAIN(KDirListerTest)
 
@@ -1795,18 +1801,26 @@ void KDirListerTest::testPathWithSquareBrackets()
     QCOMPARE(m_refreshedItems.at(0).first.url(), QUrl::fromLocalFile(file.fileName()));
 }
 
-void KDirListerTest::testRemoteUrlEquals()
+void KDirListerTest::testRedirect()
 {
-    QUrl oldUrl(QStringLiteral("smb://foo.local"));
-    oldUrl.setPath(QStringLiteral(""));
-    QUrl newUrl(QStringLiteral("smb://foo.local"));
-    newUrl.setPath(QStringLiteral("/"));
-    m_dirLister.openUrl(oldUrl);
-    auto firstOpenedUrl = m_dirLister.url();
-    m_dirLister.openUrl(newUrl);
-    auto secondOpenedUrl = m_dirLister.url();
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            // FIXME put a mock worker here
+            Q_ASSERT(false);
+            return nullptr;
+        }
+    };
+    auto factory = std::make_shared<Factory>();
+    KIO::Worker::setTestWorkerFactory(factory);
 
-    QCOMPARE(firstOpenedUrl, secondOpenedUrl);
+    MyDirLister dirLister;
+    dirLister.openUrl(QUrl(u"kio-test://foo@bar"_s));
+
+    QVERIFY(dirLister.spyStarted.wait(500));
 }
 
 #include "moc_kdirlistertest.cpp"

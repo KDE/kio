@@ -3,6 +3,7 @@
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2000 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
+    SPDX-FileCopyrightText: 2025 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -27,6 +28,7 @@ class DataProtocol;
 class ProtoQueue;
 class SimpleJobPrivate;
 class UserNotificationHandler;
+class WorkerFactory;
 
 // Do not use this class directly, outside of KIO. Only use the Worker pointer
 // that is returned by the scheduler for passing it around.
@@ -94,6 +96,12 @@ public:
      * Returns 0 on failure, or a pointer to a worker otherwise.
      */
     static Worker *createWorker(const QString &protocol, const QUrl &url, int &error, QString &error_text);
+
+    /*!
+     * Can be used for testing to inject a mock worker for the kio-test fake protocol.\
+     * This function does not participate in ownership. The caller must ensure the factory is valid throughout worker creation needs.
+     */
+    KIOCORE_EXPORT static void setTestWorkerFactory(const std::weak_ptr<KIO::WorkerFactory> &factory);
 
     // == communication with connected kioworker ==
     // whenever possible prefer these methods over the respective
@@ -210,6 +218,7 @@ private:
     QElapsedTimer m_contact_started;
     QElapsedTimer m_idleSince;
     int m_refCount = 1;
+    static inline std::weak_ptr<KIO::WorkerFactory> s_testFactory; // for testing purposes, can be set to a mock factory
 };
 
 }
