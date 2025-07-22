@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-18 00:38+0000\n"
-"PO-Revision-Date: 2025-07-03 11:08+0200\n"
+"PO-Revision-Date: 2025-07-16 09:27+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.07.80\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -6069,39 +6069,31 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Donnez la description de cette application, selon son utilisation. "
-"Exemples : une numéroteur téléphonique (KPPP) serait « Outil de numérotation "
-"téléphonique »."
+"Saisir ici un nom générique pour cette application. Exemple : une "
+"application d'affichage d'images serait « Afficheur d'images »."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "Nom d'&utilisateur :"
+msgstr "Nom &générique :"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Donnez la description de cette application, selon son utilisation. "
-"Exemples : une numéroteur téléphonique (KPPP) serait « Outil de numérotation "
-"téléphonique »."
+"Saisir la description de cette application, selon son utilisation. Exemple : "
+"une application d'affichage d'images serait « Afficher et modifier des "
+"images »."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6111,8 +6103,7 @@ msgstr "Comm&entaire :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Variables d'environnement :"
 
@@ -6870,16 +6861,15 @@ msgid "Verifying checksum…"
 msgstr "Vérification de la somme de contrôle..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Les fichiers sont <b>identiques</b>."
+msgstr "Les sommes de contrôle de tous les fichiers sont identiques."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Les fichiers sont <b>différents</b>."
+msgstr ""
+"Les fichiers sélectionnés possèdent des sommes de contrôle différentes."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
