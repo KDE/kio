@@ -1394,7 +1394,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
 
     // get the job if one's running for newUrl already (can be a list-job or an update-job), but
     // do not return this 'job', which would happen because of the use of redirectionURL()
-    // This is nullptr if the url has same job as given as the parameter to this slot.
+    // This is nullptr if the url has the same job for the given parameter to this slot.
     KIO::ListJob *oldJob = jobForUrl(newUrl, job);
 
     // Do not list files again if the jobForUrl is the current job.
