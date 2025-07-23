@@ -88,6 +88,7 @@ public:
         , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
         , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
         , m_dropAction(dropEvent->dropAction())
+        , m_possibleActions(dropEvent->possibleActions())
         , m_relativePos(dropEvent->position().toPoint())
         , m_keyboardModifiers(dropEvent->modifiers())
         , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
@@ -519,21 +520,19 @@ void DropJobPrivate::handleCopyToDirectory()
     }
     m_itemProps.setItems(fileItems);
 
-    m_possibleActions = Qt::LinkAction;
+    m_possibleActions |= Qt::LinkAction;
     const bool sReading = m_itemProps.supportsReading();
     // For http URLs, even though technically the protocol supports deleting,
     // this never makes sense for a drag operation.
     const bool sDeleting = m_allSourcesAreHttpUrls ? false : m_itemProps.supportsDeleting();
     const bool sMoving = m_itemProps.supportsMoving();
 
-    if (sReading) {
-        m_possibleActions |= Qt::CopyAction;
+    if (!sReading) {
+        m_possibleActions &= ~Qt::CopyAction;
     }
 
-    if (sMoving || (sReading && sDeleting)) {
-        if (!equalDestination) {
-            m_possibleActions |= Qt::MoveAction;
-        }
+    if (!(sMoving || (sReading && sDeleting)) || equalDestination) {
+        m_possibleActions &= ~Qt::MoveAction;
     }
 
     const bool trashing = m_destUrl.scheme() == QLatin1String("trash");
