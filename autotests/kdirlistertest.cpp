@@ -17,6 +17,7 @@
 #include <kio/deletejob.h>
 #include <kio/jobuidelegateextension.h>
 #include <kio/simplejob.h>
+#include <kio/udsentry.h>
 #include <kprotocolinfo.h>
 
 #ifdef WITH_QTDBUS
@@ -1801,26 +1802,102 @@ void KDirListerTest::testPathWithSquareBrackets()
     QCOMPARE(m_refreshedItems.at(0).first.url(), QUrl::fromLocalFile(file.fileName()));
 }
 
-void KDirListerTest::testRedirect()
+void KDirListerTest::testSFTPRedirect()
 {
+    // This mock worker is needed to emulate very specific redirection case.
     class Factory : public KIO::WorkerFactory
     {
     public:
         using KIO::WorkerFactory::WorkerFactory;
         std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
         {
-            // FIXME put a mock worker here
-            Q_ASSERT(false);
-            return nullptr;
+            class RedirectWorker : public KIO::WorkerBase
+            {
+            public:
+                RedirectWorker(const QByteArray &pool, const QByteArray &app)
+                    : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+                {
+                }
+
+                // This emulates the behavior sftp:// protocol does, when connecting to
+                // sftp://user@host -> it redirects to sftp://user@host/home/user
+                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
+                {
+                    if (url.toString() == u"kio-test://foo@bar"_s) {
+                        QUrl redir(url);
+                        redir.setPath(u"/home/foo"_s);
+                        redirection(redir);
+
+                        // It is important to return a pass() here, otherwise the DirItem will not be marked complete and
+                        // consequently isn't inserted into the cache.
+                        return KIO::WorkerResult::pass();
+                    }
+
+                    if (url.toString() == u"kio-test://foo@bar/home/foo"_s) {
+                        // Create fake entries
+                        KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+                        entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+                        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1.json"));
+                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                        entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+                        entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+                        entry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+                        listEntry(entry);
+
+                        KIO::UDSEntry entry2;
+                        entry2.fastInsert(KIO::UDSEntry::UDS_SIZE, 10);
+                        entry2.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+                        entry2.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+                        entry2.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2.txt"));
+                        entry2.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                        entry2.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+                        entry2.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+                        entry2.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+                        listEntry(entry2);
+
+                        KIO::UDSEntry dotEntry;
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+                        dotEntry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+                        listEntry(dotEntry);
+
+                        return KIO::WorkerResult::pass();
+                    }
+
+                    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("Unsupported URL: %1").arg(url.toString()));
+                }
+            };
+
+            return std::unique_ptr<KIO::WorkerBase>(new RedirectWorker(pool, app));
         }
     };
     auto factory = std::make_shared<Factory>();
     KIO::Worker::setTestWorkerFactory(factory);
-
+    QUrl testUrl(u"kio-test://foo@bar"_s);
     MyDirLister dirLister;
-    dirLister.openUrl(QUrl(u"kio-test://foo@bar"_s));
+    // Mimic what dolphin does: upon redirection we open the redirected url. This is needless but exercises specific code paths.
+    connect(&dirLister, &KCoreDirLister::redirection, this, [&dirLister](const QUrl &oldUrl, const QUrl &newUrl) {
+        Q_UNUSED(oldUrl);
+        dirLister.openUrl(newUrl);
+    });
+    dirLister.openUrl(testUrl);
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    // Make sure we have the items listed properly on the first time.
+    QVERIFY(dirLister.items().count() == 2);
 
-    QVERIFY(dirLister.spyStarted.wait(500));
+    // This should not crash!
+    dirLister.openUrl(testUrl);
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    // This should not list any items: We have already done it in the previous iteration.
+    // If this lists items, the view (for example in Dolphin) will have the items duplicated.
+    QVERIFY(dirLister.items().count() == 0);
 }
 
 #include "moc_kdirlistertest.cpp"
