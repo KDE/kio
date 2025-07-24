@@ -251,7 +251,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
     }
 
     if (pathInfo.isRelative()) {
-        if (pathInfo.makeAbsolute()) {
+        if (!pathInfo.makeAbsolute()) {
             return KSambaShareData::UserSharePathNotAbsolute;
         }
     }
