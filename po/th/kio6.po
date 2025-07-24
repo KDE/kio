@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-18 00:38+0000\n"
+"POT-Creation-Date: 2025-07-24 00:39+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -5348,19 +5348,19 @@ msgstr "&เปิดด้วย %1"
 msgid "&Open with %1"
 msgstr "เ&ปิดด้วย %1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&เปิดใช้ด้วย"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "เปิดใช้&ด้วย"
 
-#: widgets/kfileitemactions.cpp:779
+#: widgets/kfileitemactions.cpp:788
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

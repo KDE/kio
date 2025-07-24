@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-18 00:38+0000\n"
+"POT-Creation-Date: 2025-07-24 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -5558,7 +5558,7 @@ msgstr "W&očinić z %1"
 msgid "&Open with %1"
 msgstr "W&očinić z %1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5566,13 +5566,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "W&očinić z"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "W&očinić z"
 
-#: widgets/kfileitemactions.cpp:779
+#: widgets/kfileitemactions.cpp:788
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

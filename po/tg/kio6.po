@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-18 00:38+0000\n"
+"POT-Creation-Date: 2025-07-24 00:39+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -5452,7 +5452,7 @@ msgstr "&Кушодан ба воситаи %1"
 msgid "&Open with %1"
 msgstr "&Кушодан ба воситаи %1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5460,13 +5460,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Кушодан ба воситаи"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Кушодан ба воситаи"
 
-#: widgets/kfileitemactions.cpp:779
+#: widgets/kfileitemactions.cpp:788
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

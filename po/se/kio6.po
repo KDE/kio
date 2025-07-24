@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-18 00:38+0000\n"
+"POT-Creation-Date: 2025-07-24 00:39+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -5279,19 +5279,19 @@ msgstr ""
 msgid "&Open with %1"
 msgstr "Raba %1 &prográmmain"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:779
+#: widgets/kfileitemactions.cpp:788
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
