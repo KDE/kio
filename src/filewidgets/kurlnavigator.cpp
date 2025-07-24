@@ -290,6 +290,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     });
 
     m_badgeWidgetContainer = new QWidget(q);
+    m_badgeWidgetContainer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     auto badgeLayout = new QHBoxLayout(m_badgeWidgetContainer);
     badgeLayout->setContentsMargins(0, 0, 0, 0);
 
