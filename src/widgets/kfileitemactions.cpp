@@ -36,6 +36,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusMessage>
+#include <QDBusUnixFileDescriptor>
 #endif
 #include <algorithm>
 #include <kio_widgets_debug.h>
@@ -707,11 +708,22 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         QObject::connect(openWithAction, &QAction::triggered, this, [this] {
             const auto &items = m_fileOpenList;
             for (const auto &fileItem : items) {
+                auto local = fileItem.isLocalFile();
                 QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
                                                                       QLatin1String("/org/freedesktop/portal/desktop"),
                                                                       QLatin1String("org.freedesktop.portal.OpenURI"),
-                                                                      QLatin1String("OpenURI"));
-                message << QString() << fileItem.url() << QVariantMap{};
+                                                                      local ? QLatin1String("OpenFile") : QLatin1String("OpenURI"));
+                QVariant uriOrFd;
+                if (local) {
+                    QFile localFile(fileItem.localPath());
+                    if (!localFile.open(QIODevice::ReadOnly))
+                        continue;
+
+                    uriOrFd = QVariant::fromValue(QDBusUnixFileDescriptor(localFile.handle()));
+                } else {
+                    uriOrFd = fileItem.url();
+                }
+                message << QString() << uriOrFd << QVariantMap{};
                 QDBusConnection::sessionBus().asyncCall(message);
             }
         });
