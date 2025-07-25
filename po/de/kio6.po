@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-24 00:39+0000\n"
+"POT-Creation-Date: 2025-07-25 00:39+0000\n"
 "PO-Revision-Date: 2025-02-23 17:15+0100\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3962,7 +3962,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:597 kioworkers/file/file_unix.cpp:133
+#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
 #: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
 #: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
 #, kde-format
@@ -3970,39 +3970,39 @@ msgid "Copy"
 msgstr "Kopieren"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:601 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Einfügen"
 
-#: filewidgets/kurlnavigator.cpp:621
+#: filewidgets/kurlnavigator.cpp:622
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "„%1“ in neuem Unterfenster öffnen"
 
-#: filewidgets/kurlnavigator.cpp:629
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "„%1“ in neuem Fenster öffnen"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:639
 #, kde-format
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:642
 #, kde-format
 msgid "Navigate"
 msgstr "Navigieren"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:657
 #, kde-format
 msgid "Show Full Path"
 msgstr "Vollständigen Pfad anzeigen"
 
-#: filewidgets/kurlnavigator.cpp:817
+#: filewidgets/kurlnavigator.cpp:818
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
