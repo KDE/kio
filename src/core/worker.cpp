@@ -376,6 +376,7 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
         return new DataProtocol();
     }
 
+#ifdef BUILD_TESTING
     if (protocol.startsWith("kio-test"_L1)) {
         auto *worker = new Worker(protocol);
         const QUrl workerAddress = worker->m_workerConnServer->address();
@@ -384,6 +385,7 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
         worker->setWorkerThread(thread);
         return worker;
     }
+#endif
 
     const QString _name = KProtocolInfo::exec(protocol);
     if (_name.isEmpty()) {
@@ -476,9 +478,11 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     return worker;
 }
 
+#ifdef BUILD_TESTING
 void KIO::Worker::setTestWorkerFactory(const std::weak_ptr<KIO::WorkerFactory> &factory)
 {
     s_testFactory = factory;
 }
+#endif
 
 #include "moc_worker_p.cpp"

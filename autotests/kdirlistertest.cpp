@@ -1804,6 +1804,7 @@ void KDirListerTest::testPathWithSquareBrackets()
 
 void KDirListerTest::testSFTPRedirect()
 {
+#ifdef BUILD_TESTING
     // This mock worker is needed to emulate very specific redirection case.
     class Factory : public KIO::WorkerFactory
     {
@@ -1882,6 +1883,10 @@ void KDirListerTest::testSFTPRedirect()
     // This should not list any items: We have already done it in the previous iteration.
     // If this lists items, the view (for example in Dolphin) will have the items duplicated.
     QVERIFY(dirLister.items().count() == 0);
+
+#else
+    QSKIP("BUILD_TESTING flag must be enabled for this test, since the TestWorker is built only with that enabled.");
+#endif
 }
 
 #include "moc_kdirlistertest.cpp"

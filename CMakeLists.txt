@@ -161,6 +161,10 @@ if (KF6DocTools_FOUND)
      add_subdirectory(docs)
 endif()
 
+if(BUILD_TESTING)
+    add_definitions(-DBUILD_TESTING)
+endif()
+
 include(CheckLibraryExists)
 add_subdirectory(src)
 
