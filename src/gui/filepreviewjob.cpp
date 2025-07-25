@@ -73,20 +73,6 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_deviceIdMap(m_item.deviceIdMap)
     , m_preview(QImage())
 {
-#if WITH_SHM
-    size_t requiredSize = m_size.width() * m_devicePixelRatio * m_size.height() * m_devicePixelRatio * 4;
-    if (m_shmid == -1 && requiredSize > 0) {
-        m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
-        if (m_shmid != -1) {
-            m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
-            if (m_shmaddr == (uchar *)-1) {
-                shmctl(m_shmid, IPC_RMID, nullptr);
-                m_shmaddr = nullptr;
-                m_shmid = -1;
-            }
-        }
-    }
-#endif
 }
 
 FilePreviewJob::~FilePreviewJob()
@@ -515,9 +501,20 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_sequenceIndex));
     }
 #if WITH_SHM
-    if (m_shmid != -1) {
-        job->addMetaData(QStringLiteral("shmid"), QString::number(m_shmid));
+    size_t requiredSize = thumb_width * m_devicePixelRatio * thumb_height * m_devicePixelRatio * 4;
+    if (m_shmid == -1 && requiredSize > 0) {
+        m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
+        if (m_shmid != -1) {
+            m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
+            if (m_shmaddr == (uchar *)-1) {
+                shmctl(m_shmid, IPC_RMID, nullptr);
+                m_shmaddr = nullptr;
+                m_shmid = -1;
+            }
+        }
     }
+
+    job->addMetaData(QStringLiteral("shmid"), QString::number(m_shmid));
 #endif
     job->start();
 }
