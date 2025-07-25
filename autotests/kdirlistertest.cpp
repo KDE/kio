@@ -1835,38 +1835,22 @@ void KDirListerTest::testSFTPRedirect()
 
                     if (url.toString() == u"kio-test://foo@bar/home/foo"_s) {
                         // Create fake entries
-                        KIO::UDSEntry entry;
-                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
-                        entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
-                        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
-                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1.json"));
-                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
-                        entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
-                        entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
-                        entry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
-                        listEntry(entry);
+                        auto fakeEntry = [](QString name, int size) {
+                            KIO::UDSEntry entry;
+                            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
+                            entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+                            entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+                            entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
+                            entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                            entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+                            entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+                            entry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+                            return entry;
+                        };
 
-                        KIO::UDSEntry entry2;
-                        entry2.fastInsert(KIO::UDSEntry::UDS_SIZE, 10);
-                        entry2.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
-                        entry2.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
-                        entry2.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2.txt"));
-                        entry2.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
-                        entry2.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
-                        entry2.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
-                        entry2.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
-                        listEntry(entry2);
-
-                        KIO::UDSEntry dotEntry;
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
-                        dotEntry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
-                        listEntry(dotEntry);
+                        listEntry(fakeEntry(QStringLiteral("filename1.json"), 10));
+                        listEntry(fakeEntry(QStringLiteral("filename2.txt"), 1000));
+                        listEntry(fakeEntry(QStringLiteral("."), 1));
 
                         return KIO::WorkerResult::pass();
                     }
