@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-07-07 17:42+0300\n"
+"PO-Revision-Date: 2025-07-24 11:40+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6494,10 +6494,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "Default password:"
+#, kde-format
 msgid "Default Web &search keyword:"
-msgstr "ססמת ברירת מחדל:"
+msgstr "מילת מפתח כברירת מחדל ל&חיפוש באינטרנט:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6623,7 +6622,7 @@ msgstr "נא למלא כאן את השם הקריא לבני אדם של ספק 
 #: urifilters/ikws/searchproviderdlg_ui.ui:23
 #, kde-format
 msgid "Shortcut &name:"
-msgstr ""
+msgstr "שם &קיצור הדרך:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
@@ -6663,13 +6662,13 @@ msgstr ""
 #: urifilters/ikws/searchproviderdlg_ui.ui:48
 #, kde-format
 msgid "Shortcut &URL:"
-msgstr ""
+msgstr "&כתובת קיצור הדרך:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
-msgstr ""
+msgstr "נא לבחור את ערכת התווים שתשמש להצפנת שאילתת החיפוש שלך."
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
@@ -6706,7 +6705,7 @@ msgstr ""
 #: urifilters/ikws/searchproviderdlg_ui.ui:119
 #, kde-format
 msgid "&Shortcuts:"
-msgstr ""
+msgstr "&קיצורי דרך:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:132
