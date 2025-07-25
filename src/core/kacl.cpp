@@ -603,6 +603,7 @@ bool KACL::setACL(const QString &aclStr)
 {
     bool ret = false;
 #if HAVE_POSIX_ACL
+    qWarning() << "a" << aclStr.toLatin1().constData();
     acl_t temp = acl_from_text(aclStr.toLatin1().constData());
     if (acl_valid(temp) != 0) {
         // TODO errno is set, what to do with it here?

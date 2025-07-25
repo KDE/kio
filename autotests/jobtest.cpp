@@ -2902,6 +2902,8 @@ void JobTest::cancelCopyAndCleanDest()
     f.close();
     QCOMPARE(f.size(), sz);
 
+    qWarning() << "dest" << destFile;
+
     if (overwrite) {
         createTestFile(destFile);
     }

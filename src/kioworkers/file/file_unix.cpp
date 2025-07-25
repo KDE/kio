@@ -563,6 +563,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     QT_STATBUF buffDest;
     bool dest_exists = (QT_LSTAT(_dest.data(), &buffDest) != -1);
+    qWarning() << "dest exists?" << dest_exists;
     if (dest_exists) {
         if (same_inode(buffDest, buffSrc)) {
             return WorkerResult::fail(KIO::ERR_IDENTICAL_FILES, dest);
@@ -627,6 +628,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             }
             return result;
         }
+        qWarning() << "hä?";
         return WorkerResult::pass();
     }
 
@@ -659,6 +661,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
     int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
     if (ret != -1) {
+        qWarning() << "fs?";
         sizeProcessed = srcSize;
         processedSize(srcSize);
     }
@@ -667,10 +670,14 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     bool existingDestDeleteAttempted = false;
 
+    qWarning() << "p1" << sizeProcessed;
     processedSize(sizeProcessed);
+
+    qWarning() << "waskilled" << wasKilled();
 
 #if HAVE_COPY_FILE_RANGE
     while (!wasKilled() && sizeProcessed < srcSize) {
+        qWarning() << "do";
         if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
             QThread::msleep(50);
         }
@@ -815,6 +822,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     if (wasKilled()) {
         qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
         if (!QFile::remove(dest)) { // don't keep partly copied file
+            qWarning() << "didn't work";
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
         return WorkerResult::fail(KIO::ERR_USER_CANCELED, dest);
