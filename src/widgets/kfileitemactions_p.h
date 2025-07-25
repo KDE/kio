@@ -8,6 +8,7 @@
 #ifndef KFILEITEMACTIONS_P_H
 #define KFILEITEMACTIONS_P_H
 
+#include "config-kiowidgets.h"
 #include "kabstractfileitemactionplugin.h"
 #include <KConfig>
 #include <KDesktopFileAction>

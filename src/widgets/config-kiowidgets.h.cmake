@@ -12,3 +12,5 @@
 #cmakedefine01 HAVE_SYS_STAT_H
 /* Defined if sys/xattr.h exists */
 #cmakedefine01 HAVE_SYS_XATTR_H
+/* Defined if has Wayland support */
+#cmakedefine01 HAVE_WAYLAND

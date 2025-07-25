@@ -21,11 +21,15 @@
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KSandbox>
+#include <KWindowSystem>
 #include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
 #include <kdirnotify.h>
 #include <kurlauthorized.h>
 
+#include <KWaylandExtras>
+
+#include <QApplication>
 #include <QFile>
 #include <QMenu>
 #include <QMimeDatabase>
@@ -705,7 +709,8 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 #ifdef WITH_QTDBUS
     if (KSandbox::isInside() && !m_fileOpenList.isEmpty()) {
         auto openWithAction = makeOpenWithAction();
-        QObject::connect(openWithAction, &QAction::triggered, this, [this] {
+
+        auto sendMessage = [this](const QString &token) {
             const auto &items = m_fileOpenList;
             for (const auto &fileItem : items) {
                 auto local = fileItem.isLocalFile();
@@ -723,10 +728,30 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
                 } else {
                     uriOrFd = fileItem.url();
                 }
-                message << QString() << uriOrFd << QVariantMap{};
+                message << QString() << uriOrFd;
+                message << (token.isNull() ? QVariantMap{} : QVariantMap{{QStringLiteral("activation_token"), token}});
                 QDBusConnection::sessionBus().asyncCall(message);
             }
+        };
+#if HAVE_WAYLAND
+        if (KWindowSystem::isPlatformWayland() && !qGuiApp->allWindows().isEmpty()) {
+            QObject::connect(openWithAction, &QAction::triggered, this, [] {
+                auto window = qGuiApp->allWindows().constFirst();
+                KWaylandExtras::requestXdgActivationToken(window, KWaylandExtras::lastInputSerial(window), {});
+            });
+            QObject::connect(KWaylandExtras::self(), &KWaylandExtras::xdgActivationTokenArrived, this, [sendMessage](int, const QString &token) {
+                sendMessage(token);
+            });
+        } else {
+            QObject::connect(openWithAction, &QAction::triggered, this, [sendMessage] {
+                sendMessage({});
+            });
+        }
+#else
+        QObject::connect(openWithAction, &QAction::triggered, this, [sendMessage] {
+            sendMessage({});
         });
+#endif
         topMenu->insertAction(before, openWithAction);
         return;
     }
