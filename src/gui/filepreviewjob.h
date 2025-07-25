@@ -33,6 +33,27 @@ struct PreviewItem {
     QMap<QString, int> deviceIdMap;
 };
 
+class SHM
+{
+public:
+    SHM(int id, uchar *address);
+    ~SHM();
+
+    static std::unique_ptr<SHM> create(int size);
+
+    Q_DISABLE_COPY(SHM);
+
+    int id() const;
+    uchar *address() const;
+
+private:
+    // Shared memory segment Id. The segment is allocated to a size
+    // of extent x extent x 4 (32 bit image) on first need.
+    int m_id;
+    // And the data area
+    uchar *m_address;
+};
+
 // Time (in milliseconds) to wait for kio-fuse in a PreviewJob before giving up.
 static constexpr int s_kioFuseMountTimeout = 10000;
 
@@ -112,11 +133,8 @@ private:
     int m_sequenceIndex;
     // If the file to create a thumb for was a temp file, this is its name
     QString m_tempName;
-    // Shared memory segment Id. The segment is allocated to a size
-    // of extent x extent x 4 (32 bit image) on first need.
-    int m_shmid;
-    // And the data area
-    uchar *m_shmaddr;
+    // The shared memory
+    std::unique_ptr<SHM> m_shm;
     // Root of thumbnail cache
     QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker

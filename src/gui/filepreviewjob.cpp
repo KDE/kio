@@ -66,8 +66,6 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_scaleType(m_item.scaleType)
     , m_ignoreMaximumSize(m_item.ignoreMaximumSize)
     , m_sequenceIndex(m_item.sequenceIndex)
-    , m_shmid(-1)
-    , m_shmaddr(nullptr)
     , m_thumbRoot(thumbRoot)
     , m_devicePixelRatio(m_item.devicePixelRatio)
     , m_deviceIdMap(m_item.deviceIdMap)
@@ -77,12 +75,6 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
 
 FilePreviewJob::~FilePreviewJob()
 {
-#if WITH_SHM
-    if (m_shmaddr) {
-        shmdt((char *)m_shmaddr);
-        shmctl(m_shmid, IPC_RMID, nullptr);
-    }
-#endif
     if (!m_tempName.isEmpty()) {
         Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
         QFile::remove(m_tempName);
@@ -500,22 +492,14 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     if (m_sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_sequenceIndex));
     }
-#if WITH_SHM
+
     size_t requiredSize = thumb_width * m_devicePixelRatio * thumb_height * m_devicePixelRatio * 4;
-    if (m_shmid == -1 && requiredSize > 0) {
-        m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
-        if (m_shmid != -1) {
-            m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
-            if (m_shmaddr == (uchar *)-1) {
-                shmctl(m_shmid, IPC_RMID, nullptr);
-                m_shmaddr = nullptr;
-                m_shmid = -1;
-            }
-        }
+    m_shm = SHM::create(requiredSize);
+
+    if (m_shm) {
+        job->addMetaData(QStringLiteral("shmid"), QString::number(m_shm->id()));
     }
 
-    job->addMetaData(QStringLiteral("shmid"), QString::number(m_shmid));
-#endif
     job->start();
 }
 
@@ -550,12 +534,10 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
     // always read those, even when !WITH_SHM, because the other side always writes them
     str >> width >> height >> format >> imgDevicePixelRatio;
 
-#if WITH_SHM
-    if (m_shmaddr != nullptr) {
-        thumb = QImage(m_shmaddr, width, height, format).copy();
+    if (m_shm) {
+        thumb = QImage(m_shm->address(), width, height, format).copy();
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
     }
-#endif
 
     if (thumb.isNull()) {
         // fallback a raw QImage
@@ -736,6 +718,52 @@ void FileDeviceJob::getDeviceId(const QString &path)
     KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     addSubjob(job);
+}
+
+std::unique_ptr<SHM> SHM::create(int size)
+{
+#if WITH_SHM
+    int id = shmget(IPC_PRIVATE, size, IPC_CREAT | 0600);
+
+    if (id == -1) {
+        return nullptr;
+    }
+
+    uchar *address = (uchar *)(shmat(id, nullptr, SHM_RDONLY));
+
+    if (address == (uchar *)-1) {
+        shmctl(id, IPC_RMID, nullptr);
+        return nullptr;
+    }
+
+    return std::make_unique<SHM>(id, address);
+#else
+    return nullptr;
+#endif
+}
+
+int SHM::id() const
+{
+    return m_id;
+}
+
+uchar *SHM::address() const
+{
+    return m_address;
+}
+
+SHM::~SHM()
+{
+#if WITH_SHM
+    shmdt((char *)m_address);
+    shmctl(m_id, IPC_RMID, nullptr);
+#endif
+}
+
+SHM::SHM(int id, uchar *address)
+    : m_id(id)
+    , m_address(address)
+{
 }
 
 #include "moc_filepreviewjob.cpp"
