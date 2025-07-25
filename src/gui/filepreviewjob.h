@@ -117,8 +117,6 @@ private:
     int m_shmid;
     // And the data area
     uchar *m_shmaddr;
-    // Size of the shm segment
-    size_t m_shmsize;
     // Root of thumbnail cache
     QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker

@@ -75,10 +75,9 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
 {
 #if WITH_SHM
     size_t requiredSize = m_size.width() * m_devicePixelRatio * m_size.height() * m_devicePixelRatio * 4;
-    if ((m_shmid == -1 || m_shmsize < requiredSize) && requiredSize > 0) {
+    if (m_shmid == -1 && requiredSize > 0) {
         m_shmid = shmget(IPC_PRIVATE, requiredSize, IPC_CREAT | 0600);
         if (m_shmid != -1) {
-            m_shmsize = requiredSize;
             m_shmaddr = (uchar *)(shmat(m_shmid, nullptr, SHM_RDONLY));
             if (m_shmaddr == (uchar *)-1) {
                 shmctl(m_shmid, IPC_RMID, nullptr);
