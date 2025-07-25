@@ -9,6 +9,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KUriFilter>
+#include <KUser>
 #include <QLoggingCategory>
 
 #include <KPluginMetaData>
@@ -238,7 +239,13 @@ void KUriFilterTest::localFiles_data()
         addRow("~/.bashrc", QDir::homePath() + QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
     }
     addRow("~", QDir::homePath(), KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")), QStringLiteral("/tmp"));
-    addRow("~bin", nullptr, KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")));
+
+    // this test case relies on the 'bin' user being there
+    KUser user("bin");
+    if (user.isValid()) {
+        addRow("~bin", nullptr, KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")));
+    }
+
     addRow("~does_not_exist", nullptr, KUriFilterData::Error, QStringList(QStringLiteral("kshorturifilter")));
     addRow("~/does_not_exist", QDir::homePath() + "/does_not_exist", KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
 
