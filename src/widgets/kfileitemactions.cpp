@@ -27,7 +27,9 @@
 #include <kdirnotify.h>
 #include <kurlauthorized.h>
 
+#if HAVE_WAYLAND
 #include <KWaylandExtras>
+#endif
 
 #include <QApplication>
 #include <QFile>
