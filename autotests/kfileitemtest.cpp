@@ -71,12 +71,7 @@ void KFileItemTest::testPermissionsString()
                        QFile::ReadOwner | QFile::WriteOwner | QFile::ExeUser | QFile::ReadGroup | QFile::ExeGroup | QFile::ReadOther | QFile::ExeOther));
     QFile folderFile(tempDir.path() + "/afolder");
     KFileItem folderItem(QUrl::fromLocalFile(folderFile.fileName()), QString(), KFileItem::Unknown);
-#ifdef Q_OS_FREEBSD
-    // QDir::mkdir does not apply permissions correctly on FreeBSD
-    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwx------")); // 700
-#else
     QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxr-xr-x")); // 755
-#endif
     QVERIFY(folderItem.isReadable());
     QCOMPARE(folderItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("afolder (Folder)")));
 
