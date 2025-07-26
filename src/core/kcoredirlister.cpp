@@ -172,6 +172,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
                 itemFromCache->decAutoUpdate();
             }
 
+            qWarning() << "started 1";
             Q_EMIT lister->started(_url);
 
             // List items from the cache in a delayed manner, just like things would happen
@@ -668,6 +669,7 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     qCDebug(KIO_CORE_DIRLISTER) << "update started in" << dir;
 
     for (KCoreDirLister *lister : listers) {
+        qWarning() << "started 2";
         lister->jobStarted(job);
     }
 
@@ -675,10 +677,12 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
         if (!killed) {
             for (KCoreDirLister *holder : holders) {
                 holder->jobStarted(job);
+                qWarning() << "started 3";
                 Q_EMIT holder->started(dir);
             }
         } else {
             for (KCoreDirLister *holder : holders) {
+                qWarning() << "started 4";
                 holder->jobStarted(job);
             }
         }
