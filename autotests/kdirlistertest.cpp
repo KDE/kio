@@ -45,7 +45,7 @@ void KDirListerTest::initTestCase()
     // To avoid failing on broken locally defined MIME types
     QStandardPaths::setTestModeEnabled(true);
 
-    m_tempDir.reset(new QTemporaryDir(tmpDirTemplate()));
+    m_tempDir.reset(new QTemporaryDir(homeTmpDir()));
 
     // No message dialogs
     KIO::setDefaultJobUiDelegateExtension(nullptr);
@@ -364,7 +364,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     const int origItemCount = m_items.count();
     QCOMPARE(fileCount(), origItemCount);
     const QString path = tempPath();
-    QTemporaryFile tempFile(tmpDirTemplate() + QStringLiteral("_normal_file"));
+    QTemporaryFile tempFile(homeTmpDir() + QStringLiteral("_normal_file"));
     QVERIFY(tempFile.open());
     const QString symPath = tempFile.fileName() + "_link";
     tempFile.close();
@@ -839,7 +839,7 @@ void KDirListerTest::testConcurrentListingAndStop()
     MyDirLister dirLister2;
 
     // Use a new tempdir for this test, so that we don't use the cache at all.
-    QTemporaryDir tempDir(tmpDirTemplate());
+    QTemporaryDir tempDir(homeTmpDir());
     const QString path = tempDir.path() + '/';
     createTestFile(path + "file_1");
     createTestFile(path + "file_2");
@@ -1031,7 +1031,7 @@ void KDirListerTest::testBug211472()
 {
     m_items.clear();
 
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     const QString path = newDir.path() + "/newsubdir/";
     QDir().mkdir(path);
     MyDirLister dirLister;
@@ -1202,7 +1202,7 @@ void KDirListerTest::testListEmptyDirFromCache() // #278431
 {
     m_items.clear();
 
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     const QUrl url = QUrl::fromLocalFile(newDir.path());
 
     // List and watch an empty dir
@@ -1238,7 +1238,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
 {
     m_items.clear();
 
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     const QString path = newDir.path() + '/';
 
     // List and watch an empty dir
@@ -1290,7 +1290,7 @@ void KDirListerTest::testRemoveWatchedDirectory()
 {
     m_items.clear();
 
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     const QString path = newDir.path() + '/';
 
     // List and watch an empty dir
@@ -1331,7 +1331,7 @@ void KDirListerTest::testRemoveWatchedDirectory()
 
 void KDirListerTest::testDirPermissionChange()
 {
-    QTemporaryDir tempDir(tmpDirTemplate());
+    QTemporaryDir tempDir(homeTmpDir());
 
     const QString path = tempDir.path() + '/';
     const QString subdir = path + QLatin1String("subdir");
@@ -1476,7 +1476,7 @@ void KDirListerTest::testRenameDirectory() // #401552
 void KDirListerTest::testRequestMimeType()
 {
     // Use a new tempdir and lister instance for this test, so that we don't use any cache at all.
-    QTemporaryDir tempDir(tmpDirTemplate());
+    QTemporaryDir tempDir(homeTmpDir());
     QString path = tempDir.path() + QLatin1Char('/');
 
     createTestFile(path + "/file_1");
@@ -1538,7 +1538,7 @@ void KDirListerTest::testMimeFilter_data()
 void KDirListerTest::testMimeFilter()
 {
     // Use a new tempdir and lister instance for this test, so that we don't use any cache at all.
-    QTemporaryDir tempDir(tmpDirTemplate());
+    QTemporaryDir tempDir(homeTmpDir());
     QString path = tempDir.path() + '/';
 
     QFETCH(QStringList, files);
@@ -1588,7 +1588,7 @@ void KDirListerTest::testDeleteCurrentDir()
 
 void KDirListerTest::testForgetDir()
 {
-    QTemporaryDir tempDir(tmpDirTemplate());
+    QTemporaryDir tempDir(homeTmpDir());
     QString path = tempDir.path();
     createTestFile(path + "/file_1");
 
@@ -1658,7 +1658,7 @@ void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
 // and stop watching a directory because a separate lister left a directory open in another lister
 void KDirListerTest::testBug386763()
 {
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     const QString path = newDir.path() + "/newsubdir/";
     const QString otherpath = newDir.path() + "/othersubdir/";
 
@@ -1697,7 +1697,7 @@ void KDirListerTest::testBug386763()
 
 void KDirListerTest::testCacheEviction()
 {
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
 
     MyDirLister dirLister;
     dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
@@ -1723,7 +1723,7 @@ void KDirListerTest::testCacheEviction()
 
 void KDirListerTest::testUnreadableParentDirectory() {
 #ifdef WITH_QTDBUS
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     MyDirLister dirLister;
 
     const QString hiddenPath = newDir.path() + QString("/hidden");
@@ -1773,7 +1773,7 @@ void KDirListerTest::testPathWithSquareBrackets()
 #if QT_VERSION == QT_VERSION_CHECK(6, 8, 3) || QT_VERSION == QT_VERSION_CHECK(6, 9, 0)
     QSKIP("This test is expected to fail on Qt 6.8.3 / 6.9.0");
 #endif
-    QTemporaryDir newDir(tmpDirTemplate());
+    QTemporaryDir newDir(homeTmpDir());
     QFile file(newDir.filePath("[test].txt"));
     QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text));
     file.close();
