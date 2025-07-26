@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-07-24 11:40+0300\n"
+"PO-Revision-Date: 2025-07-25 08:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -6324,10 +6324,9 @@ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
 msgstr "אין אפשרות למצוא \"FindProxyForURL\" או \"FindProxyForURLEx\""
 
 #: kpac/script.cpp:692
-#, fuzzy, kde-format
-#| msgid "Got an invalid reply when calling %1"
+#, kde-format
 msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "התקבלה תשובה לא תקינה כעת הקריאה אל %1"
+msgstr "התקבלה תגובה שגויה בקריאה %1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
@@ -8601,9 +8600,9 @@ msgstr ""
 "קיימים.</qt>"
 
 #: widgets/krun.cpp:492
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not find any application or handler for %1"
-msgstr "אין אפשרות לשנות את הבעלות על %1."
+msgstr "לא ניתן למצוא יישום או גורם שמטפל ב־%1"
 
 #: widgets/ksslinfodialog.cpp:39
 #, kde-format
