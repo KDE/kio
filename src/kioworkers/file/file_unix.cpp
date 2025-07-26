@@ -655,12 +655,16 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     off_t sizeProcessed = 0;
 
+    const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
+
 #ifdef FICLONE
-    // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-    int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
-    if (ret != -1) {
-        sizeProcessed = srcSize;
-        processedSize(srcSize);
+    if (!slowTestMode) {
+        // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
+        int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
+        if (ret != -1) {
+            sizeProcessed = srcSize;
+            processedSize(srcSize);
+        }
     }
     // if fs does not support reflinking, files are on different devices...
 #endif
@@ -671,7 +675,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
 #if HAVE_COPY_FILE_RANGE
     while (!wasKilled() && sizeProcessed < srcSize) {
-        if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
+        if (slowTestMode) {
             QThread::msleep(50);
         }
 
