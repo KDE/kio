@@ -139,6 +139,15 @@ void SystemdProcessRunner::startProcess()
                 }
             });
 
+    const auto program = [this] {
+        // Workaround for Plasma in a flatpak. The paths inside do not correspond to the paths on the outside so we first
+        // need to run the process through a launch helper.
+        // We leave the argv as-is so as to not confuse anything. Though the launcher will exec into the real program anyway, so it probably doesn't matter.
+        if (auto launcher = qEnvironmentVariable("KIO_SYSTEMD_LAUNCHER"); !launcher.isEmpty()) {
+            return launcher;
+        }
+        return m_process->program().first();
+    }();
     const QStringList argv = escapeArguments(m_process->program());
 
     // Ask systemd for a new transient service
@@ -156,7 +165,7 @@ void SystemdProcessRunner::startProcess()
                                                                             // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
                                           {QStringLiteral("Environment"), prepareEnvironment(m_process->processEnvironment())},
                                           {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
-                                          {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), argv, false}})},
+                                          {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{program, argv, false}})},
                                       },
                                       {} // aux is currently unused and should be passed as empty array.
         );

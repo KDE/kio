@@ -340,7 +340,8 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // Extract the name of the binary to execute from the full Exec line, to see if it exists
     const QString binary = executablePath(exec);
     QString executableFullPath;
-    if (!binary.isEmpty()) { // skip all this if the Exec line is a complex shell command
+    // skip all this if the Exec line is a complex shell command or when using a redirection launcher
+    if (!binary.isEmpty() || !qEnvironmentVariableIsEmpty("KIO_SYSTEMD_LAUNCHER")) {
         if (QDir::isRelativePath(binary)) {
             // Resolve the executable to ensure that helpers in libexec are found.
             // Too bad for commands that need a shell - they must reside in $PATH.
