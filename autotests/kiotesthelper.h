@@ -28,7 +28,7 @@
 // to be used in QTemporaryDir constructor, will ensure absolute path temporary directory
 QString tmpDirTemplate()
 {
-    return QDir::tempPath() + QStringLiteral("/kiotests_XXXXXX");
+    return QDir::homePath() + QStringLiteral("/kiotests_XXXXXX");
 }
 
 QString homeTmpDir()
