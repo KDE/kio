@@ -1288,7 +1288,8 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     // Using a tilde to begin a file or folder name is not recommended
     else if (text.startsWith(QLatin1Char('~'))) {
 #ifndef Q_OS_WIN
-        if (KShell::tildeExpand(text).startsWith(QStringLiteral("/home/")) && text.length() > 1) {
+        const bool wasExpanded = !KShell::tildeExpand(text).startsWith(QStringLiteral("~"));
+        if (wasExpanded && text.length() > 1) {
             m_messageWidget->setText(
                 xi18nc("@error",
                        "Creating a file or folder with the name <filename>%1</filename> is not possible since it would overlap with the location of a user's home folder.",
