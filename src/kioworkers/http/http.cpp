@@ -259,7 +259,12 @@ HTTPProtocol::Response
 HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders)
 {
     QBuffer buffer(&inputData);
-    return makeRequest(url, method, &buffer, dataMode, extraHeaders);
+    /* QNetworkRequest sends "Content-Length: 0" for all requests when the device != nullptr,
+     * even if data is empty. Per RFC9110, "A user agent SHOULD NOT send a Content-Length header
+     * field when the request message does not contain content and the method semantics do not
+     * anticipate such data." Semantically, HTTP_GET and HTTP_HEAD shouldn't send the header when
+     * the data is empty. Workaround here until Qt behavior is modified. */
+    return makeRequest(url, method, (method == KIO::HTTP_GET || method == KIO::HTTP_HEAD) && inputData.isEmpty() ? nullptr : &buffer, dataMode, extraHeaders);
 }
 
 static QString protocolForProxyType(QNetworkProxy::ProxyType type)
