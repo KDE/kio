@@ -435,7 +435,7 @@ private Q_SLOTS:
 
         // When dropping the source file onto the directory
         QUrl destUrl = QUrl::fromLocalFile(dest);
-        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
+        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction | Qt::MoveAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
@@ -447,6 +447,7 @@ private Q_SLOTS:
         QVERIFY(spyShow.wait());
         QTRY_VERIFY(findPopup());
         QMenu *popup = findPopup();
+
         QCOMPARE(int(popupDropActions(popup)), int(offeredActions));
 
         // And when selecting action number <triggerActionNumber>
