@@ -48,7 +48,7 @@ void DeleteJobTest::deleteFileTestCase()
         QVERIFY(spy.isValid());
         QVERIFY(spy.wait(100000));
         QCOMPARE(job->error(), KJOB_NO_ERROR);
-        QVERIFY(!tempFile.exists());
+        QVERIFY(!QFile::exists(path));
     }
 }
 
