@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nu se poate crea lucrătorul KIO: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3635,7 +3635,7 @@ msgstr "Fișierele distante nu sunt acceptate."
 msgid "All Folders"
 msgstr "Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
@@ -3805,7 +3805,7 @@ msgstr "Barele oblice nu pot fi folosite în denumiri de fișiere și dosare."
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Barele inverse nu pot fi folosite în denumiri de fișiere și dosare."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -3819,7 +3819,7 @@ msgstr ""
 "Nu se poate crea un dosar cu denumirea <filename>%1</filename><nl/>deoarece "
 "e rezervată pentru uz de către sistemul de operare."
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3829,47 +3829,47 @@ msgstr ""
 "deoarece poate crea confuzie sau fi periculoasă la folosirea terminalului "
 "pentru a șterge lucruri."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Există deja un dosar cu denumirea <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Există deja un fișier cu denumirea <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "Creează nou"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "Legătură la dispozitiv"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Dosar nou"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Creare dosar"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Creează dosar nou în %1:"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3877,7 +3877,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Introduceți altă denumire"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -4453,22 +4453,22 @@ msgstr ""
 "Sursă: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nu s-a putut copia fișierul din %1 în %2. (Nr. eroare: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Niciun mediu în dispozitiv pentru %1"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nu s-a putut obține id. utilizatorului pentru numele de utilizator %1"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nu s-a putut obține id. grupului pentru denumirea de grup %1"
@@ -5070,17 +5070,17 @@ msgstr "Calculează"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Apăsați pentru a copia suma de control în clipboard."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "R&enunță"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mută aici"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -5088,12 +5088,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Descărcări"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copiază aici"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "&Leagă aici"
@@ -5533,24 +5533,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tip"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "Deschide c&u %1"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Acțiuni"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open Folder With"
@@ -5558,7 +5558,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Deschide d&osarul cu"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5566,29 +5566,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Deschide dosarul cu %1"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Deschide cu %1"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Deschide d&osarul cu"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

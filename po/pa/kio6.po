@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3442,7 +3442,7 @@ msgstr "ਰਿਮੋਟ ਫਾਇਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
 msgid "All Folders"
 msgstr "ਸਭ ਫੋਲਡਰ"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "ਖੋਲ੍ਹੋ(&O)"
@@ -3587,7 +3587,7 @@ msgstr ""
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3595,54 +3595,54 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ਨਾਂ ਨਾਲ ਡਾਇਰੈਕਟਰੀ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ਨਾਂ ਨਾਲ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "ਨਵਾਂ ਬਣਾਓ"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "ਡਿਵਾਈਸ ਲਈ ਲਿੰਕ"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "ਨਵਾਂ ਫੋਲਡਰ"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 ਵਿੱਚ ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਓ:"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3650,7 +3650,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ਵੱਖਰਾ ਨਾਂ ਦਿਓ"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -4202,22 +4202,22 @@ msgstr ""
 "ਸਰੋਤ: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 ਤੋਂ %2 ਲਈ ਫਾਇਲ ਦੀ ਕਾਪੀ ਹੋ ਨਹੀਂ ਸਕਦੀ ਹੈ। (ਗਲਤੀ: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 ਲਈ ਡਿਵਾਈਸ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤੋਂਕਾਰ ID ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਿਆ"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
@@ -4803,17 +4803,17 @@ msgstr "ਗਿਣੋ"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "ਰੱਦ ਕਰੋ(&a)"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "ਇੱਥੇ ਭੇਜੋ(&M)"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4821,12 +4821,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "ਇੱਥੇ ਕਾਪੀ ਕਰੋ(&C)"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "ਇੱਥੇ ਲਿੰਕ ਬਣਾਓ(&L)"
@@ -5253,24 +5253,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ਕਿਸਮ"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 ਨਾਲ ਖੋਲ੍ਹੋ(&w)"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "ਐਕਸ਼ਨ(&A)"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open Folder With"
@@ -5278,7 +5278,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "ਫੋਲਡਰ ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5286,29 +5286,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "ਫੋਲਡਰ %1 ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "ਫੋਲਡਰ ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ(&O)"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2025-07-21 01:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3497,7 +3497,7 @@ msgstr "원격 파일을 사용할 수 없음"
 msgid "All Folders"
 msgstr "모든 폴더"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
@@ -3655,7 +3655,7 @@ msgstr "파일이나 폴더 이름에 슬래시를 사용할 수 없습니다."
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 백슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3665,7 +3665,7 @@ msgstr ""
 "이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다. 사용자의 홈 폴더 위"
 "치와 겹칠 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3674,52 +3674,52 @@ msgstr ""
 "파일이나 폴더 이름을 물결표(~)로 시작하는 것은 추천하지 않습니다. 혼동할 가능"
 "성이 있으며 터미널에서 항목을 삭제할 때 위험할 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 디렉터리가 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 파일이 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "새로 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "장치로 향한 링크"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "폴더 이름 입력"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
 msgid "Default"
 msgstr "기본값"
@@ -4272,22 +4272,22 @@ msgstr ""
 "원본: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
@@ -4884,28 +4884,28 @@ msgstr "계산하기"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "체크섬을 클립보드에 복사하려면 클릭하십시오."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "취소(&A)"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "여기로 이동(&M)"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "여기에 다운로드(&D)"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "여기로 복사(&C)"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "여기로 링크(&L)"
@@ -5325,58 +5325,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "종류"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1(으)로 열기(&W)|/|%1$[으 %1]로 열기(&W)"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "작업(&A)"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "다음으로 폴더 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "다음으로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

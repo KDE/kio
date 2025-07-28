@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO कार्यकर्ता निर्मातुं असमर्थः: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3516,7 +3516,7 @@ msgstr "दूरस्थसञ्चिकाः न स्वीकृता�
 msgid "All Folders"
 msgstr "सर्वाणि पुटानि"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "&उद्घाटयतु"
@@ -3681,7 +3681,7 @@ msgstr "सञ्चिका-पुट-नाम्नि स्लैश (/)-�
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "सञ्चिका-पुट-नाम्नि पृष्ठस्लैश (\\) - प्रयोगः कर्तुं न शक्यते ।."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3689,7 +3689,7 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3698,46 +3698,46 @@ msgstr ""
 "सञ्चिकायाः अथवा पुटनामस्य आरम्भः tilde इत्यनेन न अनुशंसितः यतः वस्तूनि विलोपयितुं टर्मिनल् "
 "इत्यस्य उपयोगं कुर्वन् भ्रान्तिकं वा भयङ्करं वा भवितुम् अर्हति ।."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नामयुक्तं पुटं पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नाम्ना सञ्चिका पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "नूतनं सृजतु"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "यन्त्रस्य सम्बन्धम् स्थापितु"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नूतनं पुटम्"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "नूतनं पुटं निर्मातुम्"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 मध्ये नूतनं पुटं रचयन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3745,7 +3745,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "%1 सञ्चिकानाम प्रविष्टं कुर्वन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, fuzzy, kde-format
 #| msgid "Owner (Default)"
 msgid "Default"
@@ -4300,22 +4300,22 @@ msgstr ""
 "स्रोतः : %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 इत्यस्य कृते उपकरणे कोऽपि माध्यमः नास्ति"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "दत्तस्य उपयोक्तृनाम %1 कृते उपयोक्तृ-तादात्म्यम् (user id) प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
@@ -4910,28 +4910,28 @@ msgstr "गणनां कुरुत"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "चेकसमं (checksum) अंशफलक प्रति प्रतिलिखितुं क्लिक् कुर्वन्तु ।."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "&रद्दं कुर्वन्तु"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "&अत्र संस्थापयन्तु"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&अत्र अवारोपण कुर्वन्तु"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "&अत्र प्रतिलिख्यताम्"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "&अत्र सम्बन्धितु"
@@ -5363,58 +5363,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकारः"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "&एतेन उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&क्रियाः"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु…"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&एतेन उद्घाटयन्तु…"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "&एतेन उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&एतेन उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

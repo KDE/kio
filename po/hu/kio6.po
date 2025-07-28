@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2025-07-26 21:53+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3595,7 +3595,7 @@ msgstr "Távoli fájlokat nem lehet megadni"
 msgid "All Folders"
 msgstr "Minden mappa"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "Meg&nyitás"
@@ -3763,7 +3763,7 @@ msgstr "A perjel nem használható fájl- és mappanevekben."
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "A fordított perjel nem használható fájl- és mappanevekben."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -3777,7 +3777,7 @@ msgstr ""
 "Nem lehet létrehozni <filename>%1</filename> nevű mappát,<nl/>mivel az az "
 "operációs rendszer számára van fenntartva."
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3786,46 +3786,46 @@ msgstr ""
 "Nem ajánlott tildével kezdeni a fájl- és mappaneveket, mert zavaró vagy "
 "veszélyes lehet, ha a terminált használja törlésre."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Már létezik <filename>%1</filename> nevű mappa."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Már létezik <filename>%1</filename> nevű fájl."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "Új létrehozása"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "Eszközre mutató link"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Új mappa"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Új mappa létrehozása"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Új mappa létrehozása itt: %1"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3833,7 +3833,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Adjon meg másik nevet"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
 msgid "Default"
 msgstr "Alapértelmezett"
@@ -4401,22 +4401,22 @@ msgstr ""
 "Forrás: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
@@ -5020,17 +5020,17 @@ msgstr "Számolás"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Kattintson az ellenőrzőösszeg vágólapra másolásához."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "Mégs&em"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "Át&helyezés ide"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -5038,12 +5038,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Letöltések"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Másolás ide"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "&Hivatkozás ide"
@@ -5474,58 +5474,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Típus"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "Megny&itás ezzel: %1"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Mű&veletek"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Mappa me&gnyitás mással…"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "M&egnyitás mással…"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Mappa megny&itása ezzel: %1"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "Megny&itás ezzel: %1"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Mappa me&gnyitás mással"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "M&egnyitás mással"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

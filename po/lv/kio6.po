@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2025-07-02 17:27+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nevar izveidot KIO strādnieku: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3584,7 +3584,7 @@ msgstr "Attālas datnes nepieņem"
 msgid "All Folders"
 msgstr "Visas mapes"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "&Atvērt"
@@ -3750,7 +3750,7 @@ msgstr "Slīpsvītras nevar izmantot datņu un mapju nosaukumos."
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Apvērstās slīpsvītras nevar izmantot datņu un mapju nosaukumos."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3760,7 +3760,7 @@ msgstr ""
 "Datnes vai mapes izveide ar nosaukumu <filename>%1</filename> nav iespējama, "
 "jo tā pārklātos ar lietotāja mājas mapi."
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3769,52 +3769,52 @@ msgstr ""
 "Nav ieteicams datņu un mapju nosaukumus sākt ar tildi, jo tas var būt "
 "mulsinoši vai bīstami, ja vienumu dzēšanai izmantojat termināli."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mape ar nosaukumu „<filename>%1</filename>“ jau pastāv."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Datne ar nosaukumu „<filename>%1</filename>“ jau pastāv."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "Izveidot jaunu"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "Saite uz ierīci"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Jauna mape"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Izveidot jaunu mapi"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Izveidot jaunu mapi mapē „%1“"
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Ierakstiet mapes nosaukumu"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
 msgid "Default"
 msgstr "Noklusējuma"
@@ -4369,22 +4369,22 @@ msgstr ""
 "Avots: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nevar kopēt datni no „%1“ uz „%2“. (Kļūda: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nav atrasts „%1“ datu nesējs"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nevar atrast lietotāja ID lietotājvārdam „%1“"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nevar atrast grupas ID grupas nosaukumam „%1“"
@@ -4984,28 +4984,28 @@ msgstr "Aprēķināt"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klikšķiniet, lai kontrolsummu kopētu no starpliktuves."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "At&celt"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pārvietot šeit"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Lejupielādēt šeit"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopēt šeit"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "&Saitēt šeit"
@@ -5440,58 +5440,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tips"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "At&vērt ar „%1“"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "D&arbības"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Atvērt mapi ar…"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Atvērt ar…"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Atvērt mapi ar „%1“"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Atvērt ar „%1“"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Atvērt mapi ar"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Atvērt ar"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

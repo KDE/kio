@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:39+0000\n"
+"POT-Creation-Date: 2025-07-28 00:38+0000\n"
 "PO-Revision-Date: 2025-07-19 15:03+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1142
+#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3529,7 +3529,7 @@ msgstr "தொலைக் கோப்புகள் ஏற்றுக் 
 msgid "All Folders"
 msgstr "எல்லா அடைவுகள்"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:747
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
@@ -3691,7 +3691,7 @@ msgstr "கோப்புகள் மற்றும் அடைவுகள�
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "பின்சாய்க்கோடுகளை கோப்புகள் மற்றும் அடைவுகளின் பெயர்களில் பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1294
+#: filewidgets/knewfilemenu.cpp:1295
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3701,7 +3701,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் ஓர் பயனரின் முகப்பு அடைவின் இருப்பிடமாக உள்ளதால் "
 "அப்பெயரைக் கொண்ட கோப்பையோ அடைவையோ உருவாக்க முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1303
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3710,52 +3710,52 @@ msgstr ""
 "டில்டெ (~) தனைக் கொண்டு கோப்பு அல்லது அடைவின் பெயரைத் தொடங்குதல் பரிந்துரைக்கப்படாதது. "
 "ஏனென்றால் முனையத்தில் அதை அகற்றும்போது குழப்பம் உண்டாகலாம்."
 
-#: filewidgets/knewfilemenu.cpp:1375
+#: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு அடைவு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1377
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு கோப்பு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1463
+#: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
 msgid "Create New"
 msgstr "புதியதை உருவாக்கு"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgid "Link to Device"
 msgstr "சாதனத்துக்கு இணைப்பு"
 
-#: filewidgets/knewfilemenu.cpp:1544
+#: filewidgets/knewfilemenu.cpp:1545
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "புதிய அடைவு"
 
-#: filewidgets/knewfilemenu.cpp:1567
+#: filewidgets/knewfilemenu.cpp:1568
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "புதிய அடைவை உருவாக்குவது"
 
-#: filewidgets/knewfilemenu.cpp:1569
+#: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 -இல் புதிய அடைவை உருவாக்கு: "
 
-#: filewidgets/knewfilemenu.cpp:1572 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "அடைவிற்கான பெயரை உள்ளிடவும்:"
 
-#: filewidgets/knewfilemenu.cpp:1629
+#: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
 msgid "Default"
 msgstr "இயல்பிருப்பு"
@@ -4309,22 +4309,22 @@ msgstr ""
 "மூலம்: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:716
+#: kioworkers/file/file_unix.cpp:720
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr " %1 -இலிருந்து %2 -க்கு கோப்பினை நகலெடுக்க இயலவில்லை. (சிக்கல் எண்: %3)"
 
-#: kioworkers/file/file_unix.cpp:940
+#: kioworkers/file/file_unix.cpp:944
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 -க்குரிய ஊடகம் சாதனத்தில் இல்லை"
 
-#: kioworkers/file/file_unix.cpp:1232
+#: kioworkers/file/file_unix.cpp:1236
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 என்ற பயனர் பெயருக்கான பயனர் எண்ணை பெற இயலவில்லை"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1247
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"
@@ -4920,28 +4920,28 @@ msgstr "கணி"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "சரிகாண்தொகையை பிடிப்புப்பலகைக்கு நகலெடுக்க அழுத்தவும்."
 
-#: widgets/dropjob.cpp:195
+#: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
 msgstr "&ரத்து செய்"
 
-#: widgets/dropjob.cpp:309
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
 msgstr "இங்கு &நகர்த்து"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "இங்கு &பதிவிறக்கு"
 
-#: widgets/dropjob.cpp:315
+#: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
 msgstr "இங்கு &நகலெடு"
 
-#: widgets/dropjob.cpp:322
+#: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
 msgstr "இங்கு &இணை"
@@ -5369,58 +5369,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "வகை"
 
-#: widgets/kfileitemactions.cpp:394
+#: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 -&ஆல் திற"
 
-#: widgets/kfileitemactions.cpp:396
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:533
+#: widgets/kfileitemactions.cpp:540
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&செயல்கள்"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&அடைவை செயலியில் திற…"
 
-#: widgets/kfileitemactions.cpp:698
+#: widgets/kfileitemactions.cpp:705
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&செயலியில் திற…"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1 -ஆல் அடைவை &திற"
 
-#: widgets/kfileitemactions.cpp:736
+#: widgets/kfileitemactions.cpp:775
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 -ஆல் &திற"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&அடைவை இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:777
+#: widgets/kfileitemactions.cpp:816
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:788
+#: widgets/kfileitemactions.cpp:827
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
