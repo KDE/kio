@@ -179,9 +179,23 @@ public:
     bool isUndoAvailable() const;
 
     /*!
+     * Returns true if redo is possible. Usually used for enabling/disabling the redo action.
+     *
+     * \since 6.17
+     */
+    bool isRedoAvailable() const;
+
+    /*!
      * Returns the current text for the undo action.
      */
     QString undoText() const;
+
+    /*!
+     * Returns the current text for the redo action.
+     *
+     * \since 6.17
+     */
+    QString redoText() const;
 
     /*!
      * These two functions are useful when wrapping FileUndoManager and adding custom commands.
@@ -209,6 +223,18 @@ public Q_SLOTS:
      */
     void undo(); // TODO pass QWindow*, for askUserInterface->askUserDelete and error handling etc.
 
+    /*!
+     * Redoes the last command
+     * Remember to call uiInterface()->setParentWidget(parentWidget) first,
+     * if you have multiple mainwindows.
+     *
+     * This operation is asynchronous.
+     * undoJobFinished will be emitted once the redo is complete.
+     *
+     * \since 6.17
+     */
+    void redo();
+
 Q_SIGNALS:
     /*!
      * Emitted when the value of isUndoAvailable() changes
@@ -216,12 +242,26 @@ Q_SIGNALS:
     void undoAvailable(bool avail);
 
     /*!
+     * Emitted when the value of isRedoAvailable() changes
+     *
+     * \since 6.17
+     */
+    void redoAvailable(bool avail);
+
+    /*!
      * Emitted when the value of undoText() changes
      */
     void undoTextChanged(const QString &text);
 
     /*!
-     * Emitted when an undo job finishes. Used for unit testing.
+     * Emitted when the value of redoText() changes
+     *
+     * \since 6.17
+     */
+    void redoTextChanged(const QString &text);
+
+    /*!
+     * Emitted when an undo (or redo) job finishes. Used for unit testing.
      */
     void undoJobFinished();
 

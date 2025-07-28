@@ -44,6 +44,7 @@ private Q_SLOTS:
 
 private:
     void doUndo();
+    void doRedo();
     TestUiInterface *m_uiInterface;
 };
 

@@ -263,6 +263,14 @@ void FileUndoManagerTest::doUndo()
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents); // wait for undo job to finish
 }
 
+void FileUndoManagerTest::doRedo()
+{
+    QEventLoop eventLoop;
+    connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished, &eventLoop, &QEventLoop::quit);
+    FileUndoManager::self()->redo();
+    eventLoop.exec(QEventLoop::ExcludeUserInputEvents); // wait for undo job to finish
+}
+
 void FileUndoManagerTest::testCopyFiles()
 {
     // Initially inspired from JobTest::copyFileToSamePartition()
@@ -275,8 +283,12 @@ void FileUndoManagerTest::testCopyFiles()
 
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), &FileUndoManager::undoAvailable);
     QVERIFY(spyUndoAvailable.isValid());
-    QSignalSpy spyTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
-    QVERIFY(spyTextChanged.isValid());
+    QSignalSpy spyUndoTextChanged(FileUndoManager::self(), &FileUndoManager::undoTextChanged);
+    QVERIFY(spyUndoTextChanged.isValid());
+    QSignalSpy spyRedoAvailable(FileUndoManager::self(), &FileUndoManager::redoAvailable);
+    QVERIFY(spyRedoAvailable.isValid());
+    QSignalSpy spyRedoTextChanged(FileUndoManager::self(), &FileUndoManager::redoTextChanged);
+    QVERIFY(spyRedoTextChanged.isValid());
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -289,25 +301,57 @@ void FileUndoManagerTest::testCopyFiles()
     // might have to wait for dbus signal here... but this is currently disabled.
     // QTest::qWait( 20 );
     QVERIFY(FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(!FileUndoManager::self()->isRedoAvailable());
     QCOMPARE(spyUndoAvailable.count(), 1);
-    QCOMPARE(spyTextChanged.count(), 1);
+    QCOMPARE(spyRedoAvailable.count(), 0);
+    QCOMPARE(spyUndoTextChanged.count(), 1);
+    QCOMPARE(spyRedoTextChanged.count(), 0);
     m_uiInterface->clear();
 
-    m_uiInterface->setNextReplyToConfirmDeletion(false); // act like the user didn't confirm
-    FileUndoManager::self()->undo();
-    auto *lastMock = m_uiInterface->askUserMockInterface();
-    QCOMPARE(lastMock->m_askUserDeleteCalled, 1);
-    QVERIFY(QFile::exists(destFile())); // nothing happened yet
-
-    // OK, now do it
     m_uiInterface->clear();
     m_uiInterface->setNextReplyToConfirmDeletion(true);
     doUndo();
 
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
-    QVERIFY(spyUndoAvailable.count() >= 2); // it's in fact 3, due to lock/unlock emitting it as well
-    QCOMPARE(spyTextChanged.count(), 2);
-    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
+    QVERIFY(FileUndoManager::self()->isRedoAvailable());
+    QCOMPARE(spyUndoAvailable.count(), 2);
+    QCOMPARE(spyRedoAvailable.count(), 1);
+    QCOMPARE(spyUndoTextChanged.count(), 2);
+    QCOMPARE(spyRedoTextChanged.count(), 1);
+
+    // Check that undo worked
+    QVERIFY(!QFile::exists(destFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(!QFile::exists(destLink()));
+    QVERIFY(!QFileInfo(destLink()).isSymLink());
+#endif
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doRedo();
+
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(!FileUndoManager::self()->isRedoAvailable());
+    QCOMPARE(spyUndoAvailable.count(), 3);
+    QCOMPARE(spyRedoAvailable.count(), 2);
+    QCOMPARE(spyUndoTextChanged.count(), 3);
+    QCOMPARE(spyRedoTextChanged.count(), 2);
+
+    QVERIFY(QFile::exists(destFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(QFileInfo(destLink()).isSymLink());
+#endif
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(FileUndoManager::self()->isRedoAvailable());
+    QCOMPARE(spyUndoAvailable.count(), 4);
+    QCOMPARE(spyRedoAvailable.count(), 3);
+    QCOMPARE(spyUndoTextChanged.count(), 4);
+    QCOMPARE(spyRedoTextChanged.count(), 3);
 
     // Check that undo worked
     QVERIFY(!QFile::exists(destFile()));
@@ -327,6 +371,25 @@ void FileUndoManagerTest::testMoveFiles()
     FileUndoManager::self()->recordCopyJob(job);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(!QFile::exists(srcFile())); // the source moved
+    QVERIFY(QFile::exists(destFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(!QFileInfo(srcLink()).isSymLink());
+    // Don't use QFile::exists, it's a broken symlink...
+    QVERIFY(QFileInfo(destLink()).isSymLink());
+#endif
+
+    doUndo();
+
+    QVERIFY(QFile::exists(srcFile())); // the source is back
+    QVERIFY(!QFile::exists(destFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(QFileInfo(srcLink()).isSymLink());
+    QVERIFY(!QFileInfo(destLink()).isSymLink());
+#endif
+
+    doRedo();
 
     QVERIFY(!QFile::exists(srcFile())); // the source moved
     QVERIFY(QFile::exists(destFile()));
@@ -365,6 +428,16 @@ void FileUndoManagerTest::testCopyDirectory()
 
     checkTestDirectory(srcSubDir());
     QVERIFY(!QFile::exists(destSubDir()));
+
+    doRedo();
+
+    checkTestDirectory(srcSubDir()); // src untouched
+    checkTestDirectory(destSubDir());
+
+    doUndo();
+
+    checkTestDirectory(srcSubDir());
+    QVERIFY(!QFile::exists(destSubDir()));
 }
 
 void FileUndoManagerTest::testCopyEmptyDirectory()
@@ -377,6 +450,16 @@ void FileUndoManagerTest::testCopyEmptyDirectory()
     FileUndoManager::self()->recordCopyJob(job);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFileInfo(src).isDir()); // untouched
+    QVERIFY(QFileInfo(destEmptyDir).isDir());
+
+    doUndo();
+
+    QVERIFY(QFileInfo(src).isDir()); // untouched
+    QVERIFY(!QFile::exists(destEmptyDir));
+
+    doRedo();
 
     QVERIFY(QFileInfo(src).isDir()); // untouched
     QVERIFY(QFileInfo(destEmptyDir).isDir());
@@ -406,6 +489,16 @@ void FileUndoManagerTest::testMoveDirectory()
 
     checkTestDirectory(srcSubDir());
     QVERIFY(!QFile::exists(destSubDir()));
+
+    doRedo();
+
+    QVERIFY(!QFile::exists(srcSubDir()));
+    checkTestDirectory(destSubDir());
+
+    doUndo();
+
+    checkTestDirectory(srcSubDir());
+    QVERIFY(!QFile::exists(destSubDir()));
 }
 
 void FileUndoManagerTest::testRenameFile()
@@ -416,6 +509,8 @@ void FileUndoManagerTest::testRenameFile()
     lst.append(oldUrl);
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), &FileUndoManager::undoAvailable);
     QVERIFY(spyUndoAvailable.isValid());
+    QSignalSpy spyRedoAvailable(FileUndoManager::self(), &FileUndoManager::redoAvailable);
+    QVERIFY(spyRedoAvailable.isValid());
     KIO::Job *job = KIO::moveAs(oldUrl, newUrl, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::Rename, lst, newUrl, job);
@@ -425,11 +520,28 @@ void FileUndoManagerTest::testRenameFile()
     QVERIFY(!QFile::exists(srcFile()));
     QVERIFY(QFileInfo(newUrl.toLocalFile()).isFile());
     QCOMPARE(spyUndoAvailable.count(), 1);
+    QCOMPARE(spyRedoAvailable.count(), 1);
 
     doUndo();
 
     QVERIFY(QFile::exists(srcFile()));
     QVERIFY(!QFileInfo(newUrl.toLocalFile()).isFile());
+    QCOMPARE(spyUndoAvailable.count(), 2);
+    QCOMPARE(spyRedoAvailable.count(), 2);
+
+    doRedo();
+
+    QVERIFY(!QFile::exists(srcFile()));
+    QVERIFY(QFileInfo(newUrl.toLocalFile()).isFile());
+    QCOMPARE(spyUndoAvailable.count(), 3);
+    QCOMPARE(spyRedoAvailable.count(), 3);
+
+    doUndo();
+
+    QVERIFY(QFile::exists(srcFile()));
+    QVERIFY(!QFileInfo(newUrl.toLocalFile()).isFile());
+    QCOMPARE(spyUndoAvailable.count(), 4);
+    QCOMPARE(spyRedoAvailable.count(), 4);
 }
 
 void FileUndoManagerTest::testRenameDir()
@@ -443,6 +555,16 @@ void FileUndoManagerTest::testRenameDir()
     FileUndoManager::self()->recordJob(FileUndoManager::Rename, lst, newUrl, job);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(!QFile::exists(srcSubDir()));
+    QVERIFY(QFileInfo(newUrl.toLocalFile()).isDir());
+
+    doUndo();
+
+    QVERIFY(QFile::exists(srcSubDir()));
+    QVERIFY(!QFileInfo(newUrl.toLocalFile()).isDir());
+
+    doRedo();
 
     QVERIFY(!QFile::exists(srcSubDir()));
     QVERIFY(QFileInfo(newUrl.toLocalFile()).isDir());
@@ -478,6 +600,15 @@ void FileUndoManagerTest::testCreateSymlink()
     doUndo();
 
     QVERIFY(!QFile::exists(path));
+
+    doRedo();
+
+    QVERIFY(QFile::exists(path));
+    QVERIFY(QFileInfo(path).isSymLink());
+
+    doUndo();
+
+    QVERIFY(!QFile::exists(path));
 }
 
 void FileUndoManagerTest::testCreateDir()
@@ -494,12 +625,18 @@ void FileUndoManagerTest::testCreateDir()
     QVERIFY(QFileInfo(path).isDir());
 
     m_uiInterface->clear();
-    m_uiInterface->setNextReplyToConfirmDeletion(false); // act like the user didn't confirm
-    FileUndoManager::self()->undo();
-    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
-    QVERIFY(QFile::exists(path)); // nothing happened yet
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
 
-    // OK, now do it
+    QVERIFY(!QFile::exists(path));
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doRedo();
+
+    QVERIFY(QFile::exists(path));
+    QVERIFY(QFileInfo(path).isDir());
+
     m_uiInterface->clear();
     m_uiInterface->setNextReplyToConfirmDeletion(true);
     doUndo();
@@ -525,8 +662,23 @@ void FileUndoManagerTest::testMkpath()
     doUndo();
 
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
-    QCOMPARE(m_uiInterface->askUserMockInterface()->m_askUserDeleteCalled, 1);
+    QVERIFY(FileUndoManager::self()->isRedoAvailable());
+    QVERIFY(!QFile::exists(path));
 
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doRedo();
+
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(!FileUndoManager::self()->isRedoAvailable());
+    QVERIFY(QFileInfo(path).isDir());
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(FileUndoManager::self()->isRedoAvailable());
     QVERIFY(!QFile::exists(path));
 }
 
@@ -565,7 +717,29 @@ void FileUndoManagerTest::testTrashFiles()
     QVERIFY(QFileInfo(srcLink()).isSymLink());
 #endif
     QVERIFY(QFile::exists(srcSubDir()));
+    // We can't check that the trash is empty; other partitions might have their own trash
 
+    doRedo();
+
+    // Check that things got removed
+    QVERIFY(!QFile::exists(srcFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(!QFileInfo(srcLink()).isSymLink());
+#endif
+    QVERIFY(!QFile::exists(srcSubDir()));
+
+    // check trash?
+    // Let's just check that it's not empty. kio_trash has its own unit tests anyway.
+    QVERIFY(cfg.hasGroup(QStringLiteral("Status")));
+    QCOMPARE(cfg.group(QStringLiteral("Status")).readEntry("Empty", true), false);
+
+    doUndo();
+
+    QVERIFY(QFile::exists(srcFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(QFileInfo(srcLink()).isSymLink());
+#endif
+    QVERIFY(QFile::exists(srcSubDir()));
     // We can't check that the trash is empty; other partitions might have their own trash
 }
 
@@ -645,6 +819,16 @@ void FileUndoManagerTest::testModifyFileBeforeUndo()
 
     checkTestDirectory(srcSubDir());
     QVERIFY(!QFile::exists(destSubDir()));
+
+    doRedo();
+
+    checkTestDirectory(srcSubDir()); // src untouched
+    checkTestDirectory(destSubDir());
+
+    doUndo();
+
+    checkTestDirectory(srcSubDir());
+    QVERIFY(!QFile::exists(destSubDir()));
 }
 
 void FileUndoManagerTest::testPasteClipboardUndo()
@@ -676,6 +860,16 @@ void FileUndoManagerTest::testPasteClipboardUndo()
     doUndo();
     clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
     QCOMPARE(clipboardUrls, urls);
+
+    // Check if the clipboard was updated after redo operation
+    doRedo();
+    clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
+    QCOMPARE(clipboardUrls, urls2);
+
+    // Check if the clipboard was updated after undo operation
+    doUndo();
+    clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
+    QCOMPARE(clipboardUrls, urls);
 }
 
 void FileUndoManagerTest::testBatchRename()
@@ -695,6 +889,24 @@ void FileUndoManagerTest::testBatchRename()
     job->setUiDelegate(nullptr);
     FileUndoManager::self()->recordJob(FileUndoManager::BatchRename, srcList, QUrl(), job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(createUrl("newfile001.txt").path()));
+    QVERIFY(QFile::exists(createUrl("newfile002.mkv").path()));
+    QVERIFY(QFile::exists(createUrl("newfile003.cpp").path()));
+    QVERIFY(!QFile::exists(srcList.at(0).path()));
+    QVERIFY(!QFile::exists(srcList.at(1).path()));
+    QVERIFY(!QFile::exists(srcList.at(2).path()));
+
+    doUndo();
+
+    QVERIFY(!QFile::exists(createUrl("newfile###.txt").path()));
+    QVERIFY(!QFile::exists(createUrl("newfile###.mkv").path()));
+    QVERIFY(!QFile::exists(createUrl("newfile###.cpp").path()));
+    QVERIFY(QFile::exists(srcList.at(0).path()));
+    QVERIFY(QFile::exists(srcList.at(1).path()));
+    QVERIFY(QFile::exists(srcList.at(2).path()));
+
+    doRedo();
 
     QVERIFY(QFile::exists(createUrl("newfile001.txt").path()));
     QVERIFY(QFile::exists(createUrl("newfile002.mkv").path()));
@@ -740,7 +952,7 @@ void FileUndoManagerTest::testUndoCopyOfDeletedFile()
     QSignalSpy spyUndoAvailable(FileUndoManager::self(), &FileUndoManager::undoAvailable);
     QVERIFY(spyUndoAvailable.isValid());
     doUndo();
-    QVERIFY(spyUndoAvailable.count() >= 2); // it's in fact 3, due to lock/unlock emitting it as well
+    QCOMPARE(spyUndoAvailable.count(), 1);
     QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
     QVERIFY(!FileUndoManager::self()->isUndoAvailable());
 }

@@ -41,7 +41,7 @@ using namespace KIO;
 
 static const char *undoStateToString(UndoState state)
 {
-    static const char *const s_undoStateToString[] = {"MAKINGDIRS", "MOVINGFILES", "STATINGFILE", "REMOVINGDIRS", "REMOVINGLINKS"};
+    static const char *const s_undoStateToString[] = {"MAKINGDIRS", "MOVINGFILES", "STATINGFILE", "MOVINGLINK", "TRASHINGFILES", "REMOVINGDIRS"};
     return s_undoStateToString[state];
 }
 
@@ -126,15 +126,14 @@ public:
 
     ~UndoJob() override = default;
 
-    virtual void kill(bool) // TODO should be doKill
-    {
-        FileUndoManager::self()->d->stopUndo(true);
-        KIO::Job::doKill();
-    }
-
     void emitCreatingDir(const QUrl &dir)
     {
         Q_EMIT description(this, i18n("Creating directory"), qMakePair(i18n("Directory"), dir.toDisplayString()));
+    }
+
+    void emitCopying(const QUrl &src, const QUrl &dst)
+    {
+        Q_EMIT description(this, i18n("Copying"), qMakePair(i18n("Source"), src.toDisplayString()), qMakePair(i18n("Destination"), dst.toDisplayString()));
     }
 
     void emitMovingOrRenaming(const QUrl &src, const QUrl &dest, FileUndoManager::CommandType cmdType)
@@ -148,19 +147,37 @@ public:
                            {destMsg, dest.toDisplayString()});
     }
 
+    void emitTrashing()
+    {
+        Q_EMIT description(this, i18n("Moving to Trash"));
+    }
+
     void emitDeleting(const QUrl &url)
     {
         Q_EMIT description(this, i18n("Deleting"), qMakePair(i18n("File"), url.toDisplayString()));
     }
+
     void emitResult()
     {
         KIO::Job::emitResult();
     }
+
+protected:
+    bool doKill() override
+    {
+        FileUndoManager::self()->d->stopUndoOrRedo(true);
+        return KIO::Job::doKill();
+    }
 };
 
-CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job)
+CommandRecorder::CommandRecorder(FileUndoManager::CommandType op,
+                                 const QList<QUrl> &src,
+                                 const QUrl &dst,
+                                 std::function<void(UndoCommand)> onFinished,
+                                 KIO::Job *job)
     : QObject(job)
     , m_cmd(op, src, dst, FileUndoManager::self()->newCommandSerialNumber())
+    , m_onFinished(onFinished)
 {
     connect(job, &KJob::result, this, &CommandRecorder::slotResult);
     if (auto *copyJob = qobject_cast<KIO::CopyJob *>(job)) {
@@ -189,12 +206,12 @@ void CommandRecorder::slotResult(KJob *job)
     // expected to be empty
     if (qobject_cast<KIO::CopyJob *>(job)) {
         if (!m_cmd.m_opQueue.isEmpty()) {
-            FileUndoManager::self()->d->addCommand(m_cmd);
+            m_onFinished(m_cmd);
         }
         return;
     }
 
-    FileUndoManager::self()->d->addCommand(m_cmd);
+    m_onFinished(m_cmd);
 }
 
 void CommandRecorder::slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed)
@@ -249,8 +266,8 @@ FileUndoManagerPrivate::FileUndoManagerPrivate(FileUndoManager *qq)
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(dbusPath, this);
     dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("lock"), this, SLOT(slotLock()));
-    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("pop"), this, SLOT(slotPop()));
-    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("push"), this, SLOT(slotPush(QByteArray)));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("pop"), this, SLOT(slotPopUndoCommand()));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("push"), this, SLOT(slotPushUndoCommand(QByteArray)));
     dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("unlock"), this, SLOT(slotUnlock()));
 #endif
 }
@@ -264,8 +281,11 @@ FileUndoManager::~FileUndoManager() = default;
 
 void FileUndoManager::recordJob(CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job)
 {
-    // This records what the job does and calls addCommand when done
-    (void)new CommandRecorder(op, src, dst, job);
+    // This records what the job does and calls addUndoCommand when done
+    auto onFinished = [this](UndoCommand cmd) {
+        d->addUndoCommand(cmd);
+    };
+    (void)new CommandRecorder(op, src, dst, onFinished, job);
     Q_EMIT jobRecordingStarted(op);
 }
 
@@ -288,24 +308,30 @@ void FileUndoManager::recordCopyJob(KIO::CopyJob *copyJob)
     recordJob(commandType, copyJob->srcUrls(), copyJob->destUrl(), copyJob);
 }
 
-void FileUndoManagerPrivate::addCommand(const UndoCommand &cmd)
+void FileUndoManagerPrivate::addUndoCommand(const UndoCommand &cmd)
 {
-    pushCommand(cmd);
+    clearRedoStack();
+    pushUndoCommand(cmd);
     Q_EMIT q->jobRecordingFinished(cmd.m_type);
 }
 
 bool FileUndoManager::isUndoAvailable() const
 {
-    return !d->m_commands.isEmpty() && !d->m_lock;
+    return !d->m_undoCommands.isEmpty() && !d->m_lock;
+}
+
+bool FileUndoManager::isRedoAvailable() const
+{
+    return !d->m_redoCommands.isEmpty() && !d->m_lock;
 }
 
 QString FileUndoManager::undoText() const
 {
-    if (d->m_commands.isEmpty()) {
+    if (d->m_undoCommands.isEmpty()) {
         return i18n("Und&o");
     }
 
-    FileUndoManager::CommandType t = d->m_commands.top().m_type;
+    FileUndoManager::CommandType t = d->m_undoCommands.top().m_type;
     switch (t) {
     case FileUndoManager::Copy:
         return i18n("Und&o: Copy");
@@ -330,6 +356,37 @@ QString FileUndoManager::undoText() const
     return QString();
 }
 
+QString FileUndoManager::redoText() const
+{
+    if (d->m_redoCommands.isEmpty()) {
+        return i18n("&Redo");
+    }
+
+    FileUndoManager::CommandType t = d->m_redoCommands.top().m_type;
+    switch (t) {
+    case FileUndoManager::Copy:
+        return i18n("&Redo: Copy");
+    case FileUndoManager::Link:
+        return i18n("&Redo: Link");
+    case FileUndoManager::Move:
+        return i18n("&Redo: Move");
+    case FileUndoManager::Rename:
+        return i18n("&Redo: Rename");
+    case FileUndoManager::Trash:
+        return i18n("&Redo: Trash");
+    case FileUndoManager::Mkdir:
+        return i18n("&Redo: Create Folder");
+    case FileUndoManager::Mkpath:
+        return i18n("&Redo: Create Folder(s)");
+    case FileUndoManager::Put:
+        return i18n("&Redo: Create File");
+    case FileUndoManager::BatchRename:
+        return i18n("&Redo: Batch Rename");
+    }
+    /* NOTREACHED */
+    return QString();
+}
+
 quint64 FileUndoManager::newCommandSerialNumber()
 {
     return ++(d->m_nextCommandIndex);
@@ -337,8 +394,8 @@ quint64 FileUndoManager::newCommandSerialNumber()
 
 quint64 FileUndoManager::currentCommandSerialNumber() const
 {
-    if (!d->m_commands.isEmpty()) {
-        const UndoCommand &cmd = d->m_commands.top();
+    if (!d->m_undoCommands.isEmpty()) {
+        const UndoCommand &cmd = d->m_undoCommands.top();
         Q_ASSERT(cmd.m_valid);
         return cmd.m_serialNumber;
     }
@@ -348,63 +405,36 @@ quint64 FileUndoManager::currentCommandSerialNumber() const
 
 void FileUndoManager::undo()
 {
-    Q_ASSERT(!d->m_commands.isEmpty()); // forgot to record before calling undo?
+    Q_ASSERT(!d->m_undoCommands.isEmpty()); // forgot to record before calling undo?
 
-    // Make a copy of the command to undo before slotPop() pops it.
-    UndoCommand cmd = d->m_commands.last();
+    // Make a copy of the command to undo before slotPopUndoCommand() pops it.
+    UndoCommand cmd = d->m_undoCommands.last();
     Q_ASSERT(cmd.m_valid);
-    d->m_currentCmd = cmd;
-    const CommandType commandType = cmd.m_type;
+    d->m_currentCmd = d->m_cmdToBePushed = cmd;
 
-    // Note that m_opQueue is empty for simple operations like Mkdir.
-    const auto &opQueue = d->m_currentCmd.m_opQueue;
-
-    // Let's first ask for confirmation if we need to delete any file (#99898)
-    QList<QUrl> itemsToDelete;
-    for (auto it = opQueue.crbegin(); it != opQueue.crend(); ++it) {
-        const BasicOperation &op = *it;
-        const auto destination = op.m_dst;
-        if (op.m_type == BasicOperation::File && commandType == FileUndoManager::Copy) {
-            if (destination.isLocalFile() && !QFileInfo::exists(destination.toLocalFile())) {
-                continue;
-            }
-            itemsToDelete.append(destination);
-        } else if (commandType == FileUndoManager::Mkpath) {
-            itemsToDelete.append(destination);
-        }
-    }
-    if (commandType == FileUndoManager::Mkdir || commandType == FileUndoManager::Put) {
-        itemsToDelete.append(d->m_currentCmd.m_dst);
-    }
-    if (!itemsToDelete.isEmpty()) {
-        AskUserActionInterface *askUserInterface = nullptr;
-        d->m_uiInterface->virtual_hook(UiInterface::HookGetAskUserActionInterface, &askUserInterface);
-        if (askUserInterface) {
-            if (!d->m_connectedToAskUserInterface) {
-                d->m_connectedToAskUserInterface = true;
-                QObject::connect(askUserInterface, &KIO::AskUserActionInterface::askUserDeleteResult, this, [this](bool allowDelete) {
-                    if (allowDelete) {
-                        d->startUndo();
-                    }
-                });
-            }
-
-            // Because undo can happen with an accidental Ctrl-Z, we want to always confirm.
-            askUserInterface->askUserDelete(itemsToDelete,
-                                            KIO::AskUserActionInterface::Delete,
-                                            KIO::AskUserActionInterface::ForceConfirmation,
-                                            d->m_uiInterface->parentWidget());
-            return;
-        }
-    }
-
-    d->startUndo();
+    d->startUndoOrRedo(false);
 }
 
-void FileUndoManagerPrivate::startUndo()
+void FileUndoManager::redo()
 {
-    slotPop();
+    Q_ASSERT(!d->m_redoCommands.isEmpty()); // forgot to record before calling redo?
+
+    // Make a copy of the command to redo before slotPopRedoCommand() pops it.
+    UndoCommand cmd = d->m_redoCommands.last();
+    Q_ASSERT(cmd.m_valid);
+    d->m_currentCmd = d->m_cmdToBePushed = cmd;
+
+    d->startUndoOrRedo(true);
+}
+
+void FileUndoManagerPrivate::startUndoOrRedo(bool redo)
+{
     slotLock();
+    if (redo) {
+        popRedoCommand();
+    } else {
+        slotPopUndoCommand();
+    }
 
     m_dirCleanupStack.clear();
     m_dirStack.clear();
@@ -421,39 +451,68 @@ void FileUndoManagerPrivate::startUndo()
             m_undoState = MAKINGDIRS;
             // Collect all the dirs that have to be created in case of a move undo.
             if (m_currentCmd.isMoveOrRename()) {
-                m_dirStack.push((*it).m_src);
+                if (redo) {
+                    m_dirCleanupStack.prepend((*it).m_src);
+                } else {
+                    m_dirStack.push((*it).m_src);
+                }
             }
             // Collect all dirs that have to be deleted
             // from the destination in both cases (copy and move).
-            m_dirCleanupStack.prepend((*it).m_dst);
-        } else if (type == BasicOperation::Link) {
-            m_fileCleanupStack.prepend((*it).m_dst);
+            if (redo) {
+                m_dirStack.push((*it).m_dst);
+            } else {
+                m_dirCleanupStack.prepend((*it).m_dst);
+            }
         }
     }
-    auto isBasicOperation = [this](const BasicOperation &op) {
-        return (op.m_type == BasicOperation::Directory && !op.m_renamed) //
-            || (op.m_type == BasicOperation::Link && !m_currentCmd.isMoveOrRename());
+    auto isBasicOperation = [](const BasicOperation &op) {
+        return (op.m_type == BasicOperation::Directory && !op.m_renamed);
     };
     opQueue.erase(std::remove_if(opQueue.begin(), opQueue.end(), isBasicOperation), opQueue.end());
 
     const FileUndoManager::CommandType commandType = m_currentCmd.m_type;
     if (commandType == FileUndoManager::Put) {
-        m_fileCleanupStack.append(m_currentCmd.m_dst);
+        if (redo) {
+            m_cmdToBePushed.m_opQueue.clear();
+        } else {
+            m_fileTrashStack.append(m_currentCmd.m_dst);
+        }
+    } else if (commandType == FileUndoManager::Mkdir) {
+        if (redo) {
+            m_undoState = MAKINGDIRS;
+            m_dirStack.push(m_currentCmd.m_dst);
+        } else {
+            m_dirCleanupStack.push(m_currentCmd.m_dst);
+        }
+    } else if (commandType == FileUndoManager::Trash && redo) {
+        m_fileTrashStack.append(m_currentCmd.m_src);
+        m_currentCmd.m_opQueue.clear();
     }
 
     qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(m_undoState);
     m_undoJob = new UndoJob(m_uiInterface->showProgressInfo());
-    auto undoFunc = [this]() {
-        undoStep();
+    auto func = [this, redo]() {
+        processStep(redo);
     };
-    QMetaObject::invokeMethod(this, undoFunc, Qt::QueuedConnection);
+    auto onFinished = [this, redo](KJob *job) {
+        if (!job->error()) {
+            if (redo) {
+                pushUndoCommand(m_cmdToBePushed);
+            } else {
+                pushRedoCommand(m_cmdToBePushed);
+            }
+        }
+    };
+    connect(m_undoJob, &KIO::UndoJob::result, this, onFinished);
+    QMetaObject::invokeMethod(this, func, Qt::QueuedConnection);
 }
 
-void FileUndoManagerPrivate::stopUndo(bool step)
+void FileUndoManagerPrivate::stopUndoOrRedo(bool step)
 {
     m_currentCmd.m_opQueue.clear();
     m_dirCleanupStack.clear();
-    m_fileCleanupStack.clear();
+    m_fileTrashStack.clear();
     m_undoState = REMOVINGDIRS;
     m_undoJob = nullptr;
 
@@ -464,18 +523,18 @@ void FileUndoManagerPrivate::stopUndo(bool step)
     m_currentJob = nullptr;
 
     if (step) {
-        undoStep();
+        processStep(false);
     }
 }
 
-void FileUndoManagerPrivate::slotResult(KJob *job)
+void FileUndoManagerPrivate::slotUndoResult(KJob *job)
 {
     m_currentJob = nullptr;
     if (job->error()) {
         qWarning() << job->errorString();
         m_uiInterface->jobError(static_cast<KIO::Job *>(job));
         delete m_undoJob;
-        stopUndo(false);
+        stopUndoOrRedo(false);
     } else if (m_undoState == STATINGFILE) {
         const BasicOperation op = m_currentCmd.m_opQueue.head();
         // qDebug() << "stat result for " << op.m_dst;
@@ -486,12 +545,31 @@ void FileUndoManagerPrivate::slotResult(KJob *job)
             QDateTime srcTime = op.m_mtime.toLocalTime();
             QDateTime destTime = mtime.toLocalTime();
             if (!m_uiInterface->copiedFileWasModified(op.m_src, op.m_dst, srcTime, destTime)) {
-                stopUndo(false);
+                stopUndoOrRedo(false);
             }
+        }
+    } else if (m_undoState == TRASHINGFILES) {
+        Q_ASSERT(m_currentCmd.m_type == FileUndoManager::Put && m_cmdToBePushed.m_src.size() == 1);
+        std::swap(m_cmdToBePushed.m_src.front(), m_cmdToBePushed.m_dst);
+        for (BasicOperation &op : m_cmdToBePushed.m_opQueue) {
+            std::swap(op.m_src, op.m_dst);
         }
     }
 
-    undoStep();
+    processStep(false);
+}
+
+void FileUndoManagerPrivate::slotRedoResult(KJob *job)
+{
+    m_currentJob = nullptr;
+    if (job->error()) {
+        qWarning() << job->errorString();
+        m_uiInterface->jobError(static_cast<KIO::Job *>(job));
+        delete m_undoJob;
+        stopUndoOrRedo(false);
+    }
+
+    processStep(true);
 }
 
 void FileUndoManagerPrivate::addDirToUpdate(const QUrl &url)
@@ -501,7 +579,7 @@ void FileUndoManagerPrivate::addDirToUpdate(const QUrl &url)
     }
 }
 
-void FileUndoManagerPrivate::undoStep()
+void FileUndoManagerPrivate::processStep(bool redo)
 {
     m_currentJob = nullptr;
 
@@ -509,12 +587,16 @@ void FileUndoManagerPrivate::undoStep()
         stepMakingDirectories();
     }
 
-    if (m_undoState == MOVINGFILES || m_undoState == STATINGFILE) {
-        stepMovingFiles();
+    if (m_undoState == MOVINGFILES || m_undoState == STATINGFILE || m_undoState == MOVINGLINK) {
+        if (redo) {
+            redoStepMovingFiles();
+        } else {
+            undoStepMovingFiles();
+        }
     }
 
-    if (m_undoState == REMOVINGLINKS) {
-        stepRemovingLinks();
+    if (m_undoState == TRASHINGFILES) {
+        stepTrashingFiles(redo);
     }
 
     if (m_undoState == REMOVINGDIRS) {
@@ -525,7 +607,7 @@ void FileUndoManagerPrivate::undoStep()
         if (m_uiInterface) {
             KJobWidgets::setWindow(m_currentJob, m_uiInterface->parentWidget());
         }
-        QObject::connect(m_currentJob, &KJob::result, this, &FileUndoManagerPrivate::slotResult);
+        QObject::connect(m_currentJob, &KJob::result, this, redo ? &FileUndoManagerPrivate::slotRedoResult : &FileUndoManagerPrivate::slotUndoResult);
     }
 }
 
@@ -542,13 +624,62 @@ void FileUndoManagerPrivate::stepMakingDirectories()
     }
 }
 
+void FileUndoManagerPrivate::stepTrashingFiles(bool redo)
+{
+    if (!m_fileTrashStack.empty()) {
+        m_currentJob = KIO::trash(m_fileTrashStack, KIO::HideProgressInfo);
+        m_currentJob->setParentJob(m_undoJob);
+        auto onFinished = [this](UndoCommand cmd) {
+            m_cmdToBePushed = cmd;
+        };
+        new CommandRecorder(m_currentCmd.m_type, m_fileTrashStack, QUrl(QStringLiteral("trash:/")), onFinished, m_currentJob);
+        connect(m_currentJob, &KJob::result, this, redo ? &FileUndoManagerPrivate::slotRedoResult : &FileUndoManagerPrivate::slotUndoResult);
+        m_undoJob->emitTrashing();
+
+        while (!m_fileTrashStack.empty()) {
+            const QUrl url = m_fileTrashStack.pop().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+            addDirToUpdate(url);
+        }
+    } else {
+        m_undoState = REMOVINGDIRS;
+    }
+}
+
+void FileUndoManagerPrivate::stepRemovingDirectories()
+{
+    if (!m_dirCleanupStack.isEmpty()) {
+        QUrl dir = m_dirCleanupStack.pop();
+        // qDebug() << "rmdir" << dir;
+        m_currentJob = KIO::rmdir(dir);
+        m_currentJob->setParentJob(m_undoJob);
+        m_undoJob->emitDeleting(dir);
+        addDirToUpdate(dir);
+    } else {
+        m_currentCmd.m_valid = false;
+        m_currentJob = nullptr;
+        if (m_undoJob) {
+            // qDebug() << "deleting undojob";
+            m_undoJob->emitResult();
+            m_undoJob = nullptr;
+        }
+#ifdef WITH_QTDBUS
+        for (const QUrl &url : std::as_const(m_dirsToUpdate)) {
+            // qDebug() << "Notifying FilesAdded for " << url;
+            org::kde::KDirNotify::emitFilesAdded(url);
+        }
+#endif
+        slotUnlock();
+        Q_EMIT q->undoJobFinished();
+    }
+}
+
 // Misnamed method: It moves files back, but it also
 // renames directories back, recreates symlinks,
 // deletes copied files, and restores trashed files.
-void FileUndoManagerPrivate::stepMovingFiles()
+void FileUndoManagerPrivate::undoStepMovingFiles()
 {
     if (m_currentCmd.m_opQueue.isEmpty()) {
-        m_undoState = REMOVINGLINKS;
+        m_undoState = TRASHINGFILES;
         return;
     }
 
@@ -560,8 +691,14 @@ void FileUndoManagerPrivate::stepMovingFiles()
         m_currentJob = KIO::rename(op.m_dst, op.m_src, KIO::HideProgressInfo);
         m_undoJob->emitMovingOrRenaming(op.m_dst, op.m_src, m_currentCmd.m_type);
     } else if (op.m_type == BasicOperation::Link) {
-        // qDebug() << "symlink" << op.m_target << op.m_src;
-        m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::Overwrite | KIO::HideProgressInfo);
+        if (m_currentCmd.isMoveOrRename() && m_undoState != MOVINGLINK) { // Moving or renaming a link is done in two steps
+            m_currentJob = KIO::symlink(op.m_target, op.m_src, KIO::HideProgressInfo);
+            m_undoState = MOVINGLINK; // temporarily
+            return;
+        } else {
+            m_currentJob = KIO::file_delete(op.m_dst);
+            m_undoState = MOVINGFILES;
+        }
     } else if (m_currentCmd.m_type == FileUndoManager::Copy) {
         if (m_undoState == MOVINGFILES) { // dest not stat'ed yet
             // Before we delete op.m_dst, let's check if it was modified (#20532)
@@ -594,97 +731,139 @@ void FileUndoManagerPrivate::stepMovingFiles()
     addDirToUpdate(url);
 }
 
-void FileUndoManagerPrivate::stepRemovingLinks()
+void FileUndoManagerPrivate::redoStepMovingFiles()
 {
-    // qDebug() << "REMOVINGLINKS";
-    if (!m_fileCleanupStack.isEmpty()) {
-        const QUrl file = m_fileCleanupStack.pop();
-        // qDebug() << "file_delete" << file;
-        m_currentJob = KIO::file_delete(file, KIO::HideProgressInfo);
-        m_currentJob->setParentJob(m_undoJob);
-        m_undoJob->emitDeleting(file);
-
-        const QUrl url = file.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        addDirToUpdate(url);
-    } else {
-        m_undoState = REMOVINGDIRS;
-
-        if (m_dirCleanupStack.isEmpty() && m_currentCmd.m_type == FileUndoManager::Mkdir) {
-            m_dirCleanupStack << m_currentCmd.m_dst;
-        }
+    if (m_currentCmd.m_opQueue.isEmpty()) {
+        m_undoState = TRASHINGFILES;
+        return;
     }
-}
 
-void FileUndoManagerPrivate::stepRemovingDirectories()
-{
-    if (!m_dirCleanupStack.isEmpty()) {
-        QUrl dir = m_dirCleanupStack.pop();
-        // qDebug() << "rmdir" << dir;
-        m_currentJob = KIO::rmdir(dir);
-        m_currentJob->setParentJob(m_undoJob);
-        m_undoJob->emitDeleting(dir);
-        addDirToUpdate(dir);
-    } else {
-        m_currentCmd.m_valid = false;
-        m_currentJob = nullptr;
-        if (m_undoJob) {
-            // qDebug() << "deleting undojob";
-            m_undoJob->emitResult();
-            m_undoJob = nullptr;
+    const BasicOperation op = m_currentCmd.m_opQueue.head();
+    Q_ASSERT(op.m_valid);
+    if (op.m_type == BasicOperation::Directory || op.m_type == BasicOperation::Item) {
+        Q_ASSERT(op.m_renamed);
+        // qDebug() << "rename" << op.m_dst << op.m_src;
+        m_currentJob = KIO::rename(op.m_src, op.m_dst, KIO::HideProgressInfo);
+        m_undoJob->emitMovingOrRenaming(op.m_src, op.m_dst, m_currentCmd.m_type);
+    } else if (op.m_type == BasicOperation::Link) {
+        if (m_currentCmd.isMoveOrRename() && m_undoState != MOVINGLINK) { // Moving or renaming a link is done in two steps
+            m_currentJob = KIO::file_delete(op.m_src);
+            m_undoState = MOVINGLINK; // temporarily
+            return;
+        } else {
+            m_currentJob = KIO::symlink(op.m_target, op.m_dst);
+            m_undoState = MOVINGFILES;
         }
-#ifdef WITH_QTDBUS
-        for (const QUrl &url : std::as_const(m_dirsToUpdate)) {
-            // qDebug() << "Notifying FilesAdded for " << url;
-            org::kde::KDirNotify::emitFilesAdded(url);
-        }
-#endif
-        Q_EMIT q->undoJobFinished();
-        slotUnlock();
+    } else if (m_currentCmd.m_type == FileUndoManager::Copy) {
+        m_currentJob = KIO::file_copy(op.m_src, op.m_dst, -1, KIO::HideProgressInfo);
+        m_undoJob->emitCopying(op.m_src, op.m_dst);
+    } else if (m_currentCmd.isMoveOrRename() || m_currentCmd.m_type == FileUndoManager::Put) {
+        m_currentJob = KIO::file_move(op.m_src, op.m_dst, -1, KIO::HideProgressInfo);
+        m_currentJob->uiDelegateExtension()->createClipboardUpdater(m_currentJob, JobUiDelegateExtension::UpdateContent);
+        m_undoJob->emitMovingOrRenaming(op.m_src, op.m_dst, m_currentCmd.m_type);
     }
+
+    if (m_currentJob) {
+        m_currentJob->setParentJob(m_undoJob);
+    }
+
+    m_currentCmd.m_opQueue.dequeue();
+    // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
+    // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
+    QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    addDirToUpdate(url);
+
+    url = op.m_src.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    addDirToUpdate(url);
 }
 
 // const ref doesn't work due to QDataStream
-void FileUndoManagerPrivate::slotPush(QByteArray data)
+void FileUndoManagerPrivate::slotPushUndoCommand(QByteArray data)
 {
     QDataStream strm(&data, QIODevice::ReadOnly);
     UndoCommand cmd;
     strm >> cmd;
-    pushCommand(cmd);
+    clearRedoStack();
+    pushUndoCommand(cmd);
 }
 
-void FileUndoManagerPrivate::pushCommand(const UndoCommand &cmd)
+void FileUndoManagerPrivate::pushUndoCommand(const UndoCommand &cmd)
 {
-    m_commands.push(cmd);
-    Q_EMIT q->undoAvailable(true);
+    m_undoCommands.push(cmd);
+    if (m_undoCommands.size() == 1 && !m_lock) {
+        Q_EMIT q->undoAvailable(true);
+    }
     Q_EMIT q->undoTextChanged(q->undoText());
 }
 
-void FileUndoManagerPrivate::slotPop()
+void FileUndoManagerPrivate::slotPopUndoCommand()
 {
-    m_commands.pop();
-    Q_EMIT q->undoAvailable(q->isUndoAvailable());
+    m_undoCommands.pop();
+    if (m_undoCommands.empty() && !m_lock) {
+        Q_EMIT q->undoAvailable(false);
+    }
     Q_EMIT q->undoTextChanged(q->undoText());
 }
 
 void FileUndoManagerPrivate::slotLock()
 {
     //  Q_ASSERT(!m_lock);
+    if (q->isUndoAvailable()) {
+        Q_EMIT q->undoAvailable(false);
+    }
+    if (q->isRedoAvailable()) {
+        Q_EMIT q->redoAvailable(false);
+    }
     m_lock = true;
-    Q_EMIT q->undoAvailable(q->isUndoAvailable());
 }
 
 void FileUndoManagerPrivate::slotUnlock()
 {
     //  Q_ASSERT(m_lock);
     m_lock = false;
-    Q_EMIT q->undoAvailable(q->isUndoAvailable());
+    if (q->isUndoAvailable()) {
+        Q_EMIT q->undoAvailable(true);
+    }
+    if (q->isRedoAvailable()) {
+        Q_EMIT q->redoAvailable(true);
+    }
+}
+
+void FileUndoManagerPrivate::pushRedoCommand(const UndoCommand &cmd)
+{
+    m_redoCommands.push(cmd);
+    if (m_redoCommands.size() == 1 && !m_lock) {
+        Q_EMIT q->redoAvailable(true);
+    }
+    Q_EMIT q->redoTextChanged(q->redoText());
+}
+
+void FileUndoManagerPrivate::popRedoCommand()
+{
+    m_redoCommands.pop();
+    if (m_redoCommands.empty() && !m_lock) {
+        Q_EMIT q->redoAvailable(false);
+    }
+    Q_EMIT q->redoTextChanged(q->redoText());
+}
+
+void FileUndoManagerPrivate::clearRedoStack()
+{
+    bool wasEmpty = m_redoCommands.empty();
+    m_redoCommands.clear();
+    if (!wasEmpty && !m_lock) {
+        Q_EMIT q->redoAvailable(false);
+    }
+    if (!wasEmpty) {
+        Q_EMIT q->redoTextChanged(q->redoText());
+    }
 }
 
 QByteArray FileUndoManagerPrivate::get() const
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
-    stream << m_commands;
+    stream << m_undoCommands;
     return data;
 }
 

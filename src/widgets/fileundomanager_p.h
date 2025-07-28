@@ -87,12 +87,12 @@ public:
 };
 
 // This class listens to a job, collects info while it's running (for copyjobs)
-// and when the job terminates, on success, it calls addCommand in the undomanager.
+// and when the job terminates, on success, it calls addUndoCommand in the undomanager.
 class CommandRecorder : public QObject
 {
     Q_OBJECT
 public:
-    CommandRecorder(FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
+    CommandRecorder(FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, std::function<void(UndoCommand)> onFinished, KIO::Job *job);
 
 private Q_SLOTS:
     void slotResult(KJob *job);
@@ -104,14 +104,16 @@ private Q_SLOTS:
 
 private:
     UndoCommand m_cmd;
+    std::function<void(UndoCommand)> m_onFinished;
 };
 
 enum UndoState {
     MAKINGDIRS = 0,
     MOVINGFILES,
     STATINGFILE,
+    MOVINGLINK,
+    TRASHINGFILES,
     REMOVINGDIRS,
-    REMOVINGLINKS,
 };
 
 // The private class is, exceptionally, a real QObject
@@ -124,33 +126,38 @@ public:
 
     ~FileUndoManagerPrivate() override = default;
 
-    void pushCommand(const UndoCommand &cmd);
+    void pushUndoCommand(const UndoCommand &cmd);
+    void pushRedoCommand(const UndoCommand &cmd);
+    void popRedoCommand();
+    void clearRedoStack();
 
     void addDirToUpdate(const QUrl &url);
 
-    void startUndo();
+    void startUndoOrRedo(bool redo);
     void stepMakingDirectories();
-    void stepMovingFiles();
-    void stepRemovingLinks();
+    void stepTrashingFiles(bool redo);
     void stepRemovingDirectories();
+    void undoStepMovingFiles();
+    void redoStepMovingFiles();
 
     /// called by FileUndoManagerAdaptor
     QByteArray get() const;
 
     friend class UndoJob;
     /// called by UndoJob
-    void stopUndo(bool step);
+    void stopUndoOrRedo(bool step);
 
     friend class UndoCommandRecorder;
     /// called by UndoCommandRecorder
-    void addCommand(const UndoCommand &cmd);
+    void addUndoCommand(const UndoCommand &cmd);
 
-    QStack<UndoCommand> m_commands;
+    QStack<UndoCommand> m_undoCommands;
+    QStack<UndoCommand> m_redoCommands;
 
     KIO::Job *m_currentJob = nullptr;
     QStack<QUrl> m_dirStack;
     QStack<QUrl> m_dirCleanupStack;
-    QStack<QUrl> m_fileCleanupStack; // files and links
+    QStack<QUrl> m_fileTrashStack;
     QList<QUrl> m_dirsToUpdate;
     std::unique_ptr<FileUndoManager::UiInterface> m_uiInterface;
 
@@ -160,6 +167,7 @@ public:
     FileUndoManager *const q;
 
     UndoCommand m_currentCmd;
+    UndoCommand m_cmdToBePushed;
     UndoState m_undoState;
     bool m_lock = false;
     bool m_connectedToAskUserInterface = false;
@@ -177,13 +185,14 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     // Those four slots are connected to DBUS signals
-    void slotPush(QByteArray);
-    void slotPop();
+    void slotPushUndoCommand(QByteArray);
+    void slotPopUndoCommand();
     void slotLock();
     void slotUnlock();
 
-    void undoStep();
-    void slotResult(KJob *);
+    void processStep(bool redo);
+    void slotUndoResult(KJob *);
+    void slotRedoResult(KJob *);
 };
 
 } // namespace
