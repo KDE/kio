@@ -741,9 +741,14 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
                 auto window = qGuiApp->allWindows().constFirst();
                 KWaylandExtras::requestXdgActivationToken(window, KWaylandExtras::lastInputSerial(window), {});
             });
-            QObject::connect(KWaylandExtras::self(), &KWaylandExtras::xdgActivationTokenArrived, this, [sendMessage](int, const QString &token) {
-                sendMessage(token);
-            });
+            QObject::connect(
+                KWaylandExtras::self(),
+                &KWaylandExtras::xdgActivationTokenArrived,
+                this,
+                [sendMessage](int, const QString &token) {
+                    sendMessage(token);
+                },
+                Qt::SingleShotConnection);
         } else {
             QObject::connect(openWithAction, &QAction::triggered, this, [sendMessage] {
                 sendMessage({});
