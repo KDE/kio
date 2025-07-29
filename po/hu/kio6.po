@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
-"PO-Revision-Date: 2025-07-26 21:53+0200\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"PO-Revision-Date: 2025-07-28 22:46+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -46,7 +46,7 @@ msgstr ""
 #: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót: %1"
+msgstr "Nem sikerült létrehozni ezt a KIO szolgáltatást: %1"
 
 #: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
 #, kde-format
@@ -220,14 +220,14 @@ msgid "Moving"
 msgstr "Áthelyezés"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Forrás"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Mappa létrehozása"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -263,7 +263,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Törlés"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -806,7 +806,7 @@ msgstr "Nem sikerült kapcsolatba lépni a helyi jelszókiszolgálóval"
 #: core/job_error.cpp:249
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nem sikerült létrehozni ezt a KIO feldolgozót. %1"
+msgstr "Nem sikerült létrehozni ezt a KIO szolgáltatás. %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -1189,8 +1189,8 @@ msgid ""
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "Rá lehet keresni az interneten olyan szoftverbővítményekre (ezeket „KIO "
-"feldolgozóknak” hívják), amelyek lehetővé teszik a protokoll használatát. A "
-"javasolt keresési helyek tartalmazzák a <a href=\"https://store.kde.org/"
+"szolgáltatásoknak” hívják), amelyek lehetővé teszik a protokoll használatát. "
+"A javasolt keresési helyek tartalmazzák a <a href=\"https://store.kde.org/"
 "\">KDE Store</a>-t."
 
 #: core/job_error.cpp:514
@@ -2115,7 +2115,7 @@ msgid ""
 "within the amount of time allocated for the request."
 msgstr ""
 "Bár kapcsolat létesült a szerverrel, a kérésre a megadott időn belül nem "
-"érkezett válasz. "
+"érkezett válasz."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2340,7 +2340,7 @@ msgstr "A(z) %1 protokoll inicializálása nem sikerült"
 #: core/job_error.cpp:1244
 #, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nem sikerült létrehozni a KIO feldolgozót"
+msgstr "Nem sikerült létrehozni a KIO szolgáltatást"
 
 #: core/job_error.cpp:1246
 #, kde-format
@@ -2348,7 +2348,7 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Nem sikerült elindítani azt a KIO feldolgozót, amely a(z) <strong>%1</"
+"Nem sikerült elindítani azt a KIO szolgáltatást, amely a(z) <strong>%1</"
 "strong> protokollt kezeli. Ennek különféle technikai okai lehetnek."
 
 #: core/job_error.cpp:1251
@@ -2530,7 +2530,7 @@ msgstr "Fájlmegnyitást nem támogat a(z) %1 protokoll."
 msgid "Protocol %1 does not support action %2."
 msgstr "A(z) %1 protokoll nem támogatja ezt a műveletet: %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2538,18 +2538,21 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"A(z) „%1” protokoll KIO szolgáltatás (amely általában megnövelt "
+"jogosultságokat kér) biztonsága nem garantálható, mert a root-on kívüli "
+"felhasználók is jogosultak módosítani azt a(z) %2 helyen."
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Ismeretlen protokoll: „%1”."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "A(z) „%1” protokollhoz tartozó KIO feldolgozó nem található."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2557,14 +2560,18 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"A(z) %2 helyen található „%1” protokoll KIO szolgáltatása nem került "
+"betöltésre, mert az összes KIO szolgáltatás a(z) %3 útvonalon kívül "
+"található, és a megnövelt jogosultságok iránti kérés nem számít "
+"biztonságosnak."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nem lehet létrehozni socketet a(z) „%1” protokollt kezelő KIO feldolgozóhoz."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nem található a „kioworker” végrehajtható itt: „%1”"
@@ -2593,20 +2600,16 @@ msgid "&Current Session only"
 msgstr "&Csak a jelenlegi munkamenetben"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Új mappa létrehozása"
+msgstr "Áthelyezés új mappába"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Új mappa létrehozása"
+msgstr "Új mappa létrehozása ezeknek az elemeknek"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
@@ -3063,11 +3066,10 @@ msgid "Tags"
 msgstr "Címkék"
 
 #: filewidgets/kfileplacesitem.cpp:344
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Hiba: %2)"
+msgstr "%1 (innen: %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3506,31 +3508,27 @@ msgid "&Name:"
 msgstr "Né&v:"
 
 #: filewidgets/kfilewidget.cpp:1322
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Módosítások visszavonása"
+msgstr "Fájlnév-módosítás visszavonása"
 
 #: filewidgets/kfilewidget.cpp:1373
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Tartalmazó mappa megnyitása"
+msgstr "Szűrő megtartása mappa váltásakor"
 
 #: filewidgets/kfilewidget.cpp:1377
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Fájlnév:"
+msgstr "Szűrés névre…"
 
 #: filewidgets/kfilewidget.cpp:1385
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Rejtett fájlok leghátul"
+msgstr "Szűrősor elrejtése"
 
 #: filewidgets/kfilewidget.cpp:1434
 #, kde-format
@@ -3595,7 +3593,7 @@ msgstr "Távoli fájlokat nem lehet megadni"
 msgid "All Folders"
 msgstr "Minden mappa"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "Meg&nyitás"
@@ -3667,16 +3665,13 @@ msgstr ""
 "kiválasztására használják.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2946
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Ez egy fájltípusválasztó. A fájl mentésekor használt formátum "
-"kiválasztására használják.</qt>"
+"<qt>Ez a fájltípus-választó. A megjelenített fájlok formátumának "
+"kiválasztására szolgál.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3705,12 +3700,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1121
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Adjon meg másik nevet"
+msgstr "Adja meg a(z) %1-fájl nevét:"
 
 #: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
@@ -3764,18 +3757,14 @@ msgid "Backslashes cannot be used in file and folder names."
 msgstr "A fordított perjel nem használható fájl- és mappanevekben."
 
 #: filewidgets/knewfilemenu.cpp:1295
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Nem lehet létrehozni <filename>%1</filename> nevű mappát,<nl/>mivel az az "
-"operációs rendszer számára van fenntartva."
+"<filename>%1</filename> nevű fájl vagy mappa létrehozása nem lehetséges, "
+"mivel ez átfedésben lenne a felhasználó home mappájának helyével."
 
 #: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
@@ -3826,12 +3815,10 @@ msgid "Create new folder in %1:"
 msgstr "Új mappa létrehozása itt: %1"
 
 #: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Adjon meg másik nevet"
+msgstr "Adja meg a mappanevet"
 
 #: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
@@ -3847,32 +3834,28 @@ msgstr "Új fájl létrehozása"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgid "Enter file name"
-msgstr "Adjon meg másik nevet"
+msgstr "Adja meg a fájlnevet"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Alkalmazás hozzárendelése ehhez: %1"
+msgstr "Egyéni ikon vagy szín választása"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:116
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Válasszon egy &ikont:"
+msgstr "Másik ikon választása…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:132
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Az ikont később a mappa tulajdonságaiban módosíthatja."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3919,12 +3902,10 @@ msgid "Show Full Path"
 msgstr "Teljes elérési út"
 
 #: filewidgets/kurlnavigator.cpp:818
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "A(z) <filename>%1</filename> nem vihető át"
+msgstr "Ugrás a(z) <filename>%1</filename> útvonal bármely helyére"
 
 #: filewidgets/kurlnavigatorbutton.cpp:731
 #, kde-format
@@ -3936,7 +3917,7 @@ msgstr "Több"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Ugrás a helyre az útvonalon"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -5031,12 +5012,10 @@ msgid "&Move Here"
 msgstr "Át&helyezés ide"
 
 #: widgets/dropjob.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Letöltések"
+msgstr "&Letöltés ide"
 
 #: widgets/dropjob.cpp:316
 #, kde-format
@@ -5049,23 +5028,24 @@ msgid "&Link Here"
 msgstr "&Hivatkozás ide"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "%1 indítása"
+msgstr "Indí&tás"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Végrehajtható fájlok futtatása kérdés nélkül"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
 msgstr ""
+"Végrehajtható fájlok megnyitása az alapértelmezett alkalmazásban, kérdés "
+"nélkül"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5073,32 +5053,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Mit szeretne tenni ezzel a fájllal?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "Meg&nyitás"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "Megny&itás ezzel: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Mit szeretne tenni ezzel a fájllal?"
+msgstr "Szeretné elindítani ezt a fájlt?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Megjegyzés minden végrehajtható fájlhoz"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5107,6 +5084,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Ezt a Dolphin fájlkezelő beállításaiban, a „Megerősítések” alatt lehet "
+"visszavonni."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -5119,77 +5098,159 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "A művelet visszavonásához root jogosultság szükséges. Folytatja?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "Könyvtár létrehozása"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "Forrás"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "Cél"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Másolás"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "Mozgatás"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "Átnevezés"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "Áthelyezés a Kukába"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "Törlés"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "&Visszavonás"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Visszavonás: Másolás"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Visszavonás: Link"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Visszavonás: Áthelyezás"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Visszavonás: Átnevezés"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Visszavonás: Kukába"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Visszavonás: Könyvtár létrehozása"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Visszavonás: Mappák létrehozása"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Visszavonás: Fájl létrehozása"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Visszavonás: Tömeges átnevezés"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "&Visszavonás: Másolás"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "&Visszavonás: Link"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "&Visszavonás: Áthelyezás"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "&Visszavonás: Átnevezés"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "&Visszavonás: Kukába"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "&Visszavonás: Könyvtár létrehozása"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "&Visszavonás: Mappák létrehozása"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "&Visszavonás: Fájl létrehozása"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&Visszavonás: Tömeges átnevezés"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5202,7 +5263,7 @@ msgstr ""
 "Visszavonás esetén ez a fájl törlődni fog.\n"
 "Biztosan törölni szeretné: %4?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Visszavonás: Másolás megerősítése"
@@ -5503,29 +5564,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "M&egnyitás mással…"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Mappa megny&itása ezzel: %1"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "Megny&itás ezzel: %1"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Mappa me&gnyitás mással"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "M&egnyitás mással"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -5585,7 +5646,7 @@ msgstr "Méret:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Mappaméret meghatározása"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5597,7 +5658,7 @@ msgstr "Állj"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Mappaméret meghatározásának leállítása"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5613,10 +5674,9 @@ msgstr "Ide mutat:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Figyelmeztetés megjelenítése"
+msgstr "Cél megjelenítése"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5963,37 +6023,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Ide lehet beírni az alkalmazás rövid leírását. Például: a telefonos tárcsázó "
-"(KPPP) leírása lehet például \"Ez egy tárcsázóprogram\"."
+"Ide lehet beírni az alkalmazás általános nevét. Például egy képnézegető "
+"alkalmazás neve lehetne „Képmegjelenítő”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Felhasználónév:"
+msgstr "Á&ltalános név:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Ide lehet beírni az alkalmazás rövid leírását. Például: a telefonos tárcsázó "
-"(KPPP) leírása lehet például \"Ez egy tárcsázóprogram\"."
+"Ide lehet beírni az alkalmazás rövid leírását. Például egy képnézegető "
+"alkalmazás esetében ez lehetne „Képek megtekintése és szerkesztése”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6003,8 +6056,7 @@ msgstr "Meg&jegyzés:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Környezeti változók:"
 
@@ -6223,12 +6275,10 @@ msgid "&General"
 msgstr "Á&ltalános"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Adjon meg másik nevet"
+msgstr "Adja meg a fájlnevet"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6246,16 +6296,14 @@ msgstr "Frissítés"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Adja meg a célhelyet"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "A(z) <filename>%1</filename> nem vihető át"
+msgstr "<filename>%1</filename> megjelenítése"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6335,6 +6383,8 @@ msgstr "Módosítás…"
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
+"Módosítja a(z) „%1” típusú fájlok megnyitásához használt alapértelmezett "
+"alkalmazást."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -6424,17 +6474,14 @@ msgstr ""
 "tulajdonosok és nem szerepelnek a csoportban sem)."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr ""
-"Csak a t&ulajdonos nevezheti át ill. törölheti a mappában található elemeket"
+msgstr "Csak a t&ulajdonos törölheti vagy nevezheti át a tartalmakat"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Ez a jogosultság teszi lehetővé programfájl esetén a végrehajtást."
+msgstr "Fájl programként végrehajtásának &engedélyezése"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
@@ -6761,16 +6808,14 @@ msgid "Verifying checksum…"
 msgstr "Ellenőrzőösszegek ellenőrzése…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "A fájlok <b>azonosak</b>."
+msgstr "Az összes fájl ellenőrzőösszege megegyezik."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "A fájlok <b>különbözőek</b>."
+msgstr "A kiválasztott fájlok ellenőrzőösszegei eltérőek."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -7114,16 +7159,6 @@ msgstr "Szeretné felülírni a célt?"
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Szeretné beolvasztani a(z) „%1” tartalmát ebbe: „%2”?"
 
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "Forrás"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "Cél"
-
 #: widgets/renamedialog.cpp:407
 #, kde-format
 msgid "The source is <b>more recent</b>."
@@ -7195,20 +7230,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "A(z) <filename>%1</filename> átnevezése erre:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Már létezik <filename>%1</filename> nevű fájl."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "A(z) <filename>%1</filename> nem tűnik végrehajtható programnak."
+msgstr "A(z) <filename>%1</filename> érvénytelen fájlnév."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7239,41 +7270,37 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Érvénytelen fájlnév: Az új névnek tartalmaznia kell egy # karaktert, kivéve, "
+"ha az összes fájl kiterjesztése különböző."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "A(z) %1 kijelölt elem átnevezése erre:"
-msgstr[1] "A(z) %1 kijelölt elem átnevezése erre:"
+msgstr[0] "%1 kijelölt elem átnevezése a következőképpen:"
+msgstr[1] "%1 kijelölt elem átnevezése a következőképpen:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Csere"
+msgstr "Cserélendő:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Minta"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Megnyitás mással:"
+msgstr "Ezzel:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Csere"
@@ -7282,7 +7309,7 @@ msgstr "Csere"
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Egyetlen fájlnév sem tartalmazza a mintát."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7291,45 +7318,40 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"A(z) „%1” cseréje üres helyettesítéssel azt eredményezné, hogy a(z) "
+"<filename>%2</filename> fájl neve üres lenne."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "A(z) %1 kijelölt elem átnevezése erre:"
-msgstr[1] "A(z) %1 kijelölt elem átnevezése erre:"
+msgstr[0] "%1 kijelölt elem átnevezése:"
+msgstr[1] "%1 kijelölt elem átnevezése:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Szöveg hozzáadása:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Hozzáadandó szöveg"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Adjon meg másik nevet"
+msgstr "Fájlnév előtt"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Adjon meg másik nevet"
+msgstr "Fájlnév után"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7350,45 +7372,40 @@ msgid "&Rename"
 msgstr "Átneve&zés"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Törlés vagy átnevezés:"
+msgstr "Átnevezés módja:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Felsorolás"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Csere"
+msgstr "Szöveg cseréje"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Szöveg hozzáadása"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Gyorsnézet"
+msgstr "Előnézet:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "A(z) <filename>%1</filename> nem tűnik végrehajtható programnak."
+msgstr "A(z) <filename>%1</filename> nem nevezhető át üres fájlnévre."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7539,33 +7556,19 @@ msgstr[1] ""
 "művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Az elem áthelyezése a Kukába nem sikerült, mert túl nagy. Törli helyette "
+"A Kuka túlságosan tele van ahhoz, hogy ezt a fájlt befogadja. Törli helyette "
 "véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>A művelet nem vonható vissza.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7575,9 +7578,8 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"%1 elem áthelyezése a Kukába nem sikerült, mert túl nagy. Törli helyette "
-"véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>A művelet nem vonható vissza.</emphasis>"
+"A Kuka túl tele van ahhoz, hogy befogadja ezt a(z) %1 fájlt. Törli helyette "
+"véglegesen?<emphasis strong='true'>A művelet nem vonható vissza.</emphasis>"
 msgstr[1] ""
 "%1 elem áthelyezése a Kukába nem sikerült, mert túl nagyok. Törli ezeket "
 "helyette véglegesen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2025-07-19 15:03+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -225,14 +225,14 @@ msgid "Moving"
 msgstr "நகர்த்தல்"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "மூலம்"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -256,7 +256,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "அடைவை உருவாக்குதல்"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -268,7 +268,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "அகற்றுதல்"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2473,7 +2473,7 @@ msgstr "%1 நெறிமுறையைக் கொண்டு கோப்�
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆதரிக்காது."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2484,17 +2484,17 @@ msgstr ""
 "சாதாரணமாக ரூட் அனுமதியை கோரும் '%1' நெறிமுறைக்கான KIO பணியின் பாதுகாப்பை "
 "உறுதிசெய்ய முடியவில்லை. ரூட் அல்லாத பயனர்களும் அதை %2 தனில் மாற்ற அனுமதி உள்ளது."
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "தெரியாத நெறிமுறை '%1'."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' நெறிமுறைக்கான KIO ஆதரவுநிரலை கண்டுபிடிக்க முடியவில்லை."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2505,14 +2505,14 @@ msgstr ""
 "\"%1\" எனும் நெறிமுறைக்கான KIO பின்னிரல் (%2 தனில் உள்ளது) ஏற்றப்படவில்லை, ஏனெனில் %3-"
 "இல் இல்லாத நிரல்களுக்கு ரூட் உரிமை வழங்குவது பாதுகாப்பற்றது."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "'%1' என்ற நெறிமுறைக்கான KIO ஆதரவுநிரலை இயக்க தேவைப்படும் சாக்கெடை உருவாக்க "
 "முடியவில்லை."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' -இல் 'kioworker' நிரலை கண்டுபிடிக்க முடியவில்லை"
@@ -3529,7 +3529,7 @@ msgstr "தொலைக் கோப்புகள் ஏற்றுக் 
 msgid "All Folders"
 msgstr "எல்லா அடைவுகள்"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
@@ -5014,77 +5014,159 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "இந்த செயலை தவிர்ப்பதற்கு ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "அடைவு உருவாக்கப் படுகிறது"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "மூலம்"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "சேருமிடம்"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "நகலெடுத்தல்"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "நகர்த்தப்படுகிறது"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "மறுபெயரிடப்படுகிறது"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "அகற்றிடத்துக்கு நகர்த்து"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "அகற்றப் படுகிறது"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "&செயல்நீக்கு"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&செயல்நீக்கு: நகலெடுத்தது"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "செயல்நீக்கு: இணைத்தது"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&செயல்நீக்கு: நகர்த்தியது"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&செயல்நீக்கு: மறுபெயரித்தது"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&செயல்நீக்கு: அகற்றியது"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&செயல்நீக்கு: அடைவை உருவாக்கியது"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&செயல்நீக்கு: அடைவுகளை உருவாக்கியது"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&செயல்நீக்கு: கோப்பை உருவாக்கியது"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&செயல்நீக்கு: மொத்தமாக மறுபெயரிட்டது"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "&செயல்நீக்கு: நகலெடுத்தது"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "செயல்நீக்கு: இணைத்தது"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "&செயல்நீக்கு: நகர்த்தியது"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "&செயல்நீக்கு: மறுபெயரித்தது"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "&செயல்நீக்கு: அகற்றியது"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "&செயல்நீக்கு: அடைவை உருவாக்கியது"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "&செயல்நீக்கு: அடைவுகளை உருவாக்கியது"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "&செயல்நீக்கு: கோப்பை உருவாக்கியது"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&செயல்நீக்கு: மொத்தமாக மறுபெயரிட்டது"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5097,7 +5179,7 @@ msgstr ""
 "நகலெடுத்ததை தவிர்த்தல் கோப்பை அழிக்கும், மேலும் அனைத்து மாற்றங்களை இழப்பீர்கள்.\n"
 "கண்டிப்பாக %4-ஐ அழிக்க வேண்டுமா?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "கோப்பு நகலெடுத்தலை உறுதிப்படுத்தியதை செயல்நீக்கு"
@@ -5398,29 +5480,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&செயலியில் திற…"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1 -ஆல் அடைவை &திற"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 -ஆல் &திற"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&அடைவை இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -6978,16 +7060,6 @@ msgstr "சேருமிடத்தை மேலெழுத வேண்ட�
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1' என்பதன் உள்ளடக்கத்தை '%2' என்பதுடன் ஒன்றுசேர்க்க வேண்டுமா?"
-
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "மூலம்"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "சேருமிடம்"
 
 #: widgets/renamedialog.cpp:407
 #, kde-format

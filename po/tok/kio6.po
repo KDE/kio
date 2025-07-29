@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -219,14 +219,14 @@ msgid "Moving"
 msgstr "ilo li tawa e ijo"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "tan ijo"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "mi lon e poki sin"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -263,7 +263,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "mi weka e lipu"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2352,7 +2352,7 @@ msgstr "ilo %1 li ken ala open e lipu."
 msgid "Protocol %1 does not support action %2."
 msgstr "toki ilo %1 li ken ala pali %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2361,18 +2361,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "mi sona ala e nasin toki ilo '%1'."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "mi ken ala alasa e ilo lili pi nasin toki ilo '%1'."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2381,13 +2381,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "mi ken ala open e nasin toki tawa ilo tawa toki ilo '%1'."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3409,7 +3409,7 @@ msgstr "lipu lon ilo ante li pona ala"
 msgid "All Folders"
 msgstr "*|poki ale"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "o kama e &lipu"
@@ -4877,78 +4877,160 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "weka pi pali ni li wile ken wawa. sina wile ala wile awen?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "poki lipu li kama lon"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "tan ijo"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "pini ijo"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "mi lon e lipu sama lipu ante"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "ilo li tawa e ijo"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Renaming"
 msgstr "o ante e nimi"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "o weka e ni tawa poki jaki"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "ilo li weka e ni"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "o weka e pali"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "o &weka e sama lipu"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "o &weka e lon nasin"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "o &weka e tawa"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "o &weka e ante nimi"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "o &weka e tawa jaki"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "o &weka e lon lipu"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "o &weka e ante pi nimi mute"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "o &weka e sama lipu"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "o &weka e lon nasin"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "o &weka e tawa"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "o &weka e ante nimi"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "o &weka e tawa jaki"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "o &weka e lon poki"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "o &weka e lon poki"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "o &weka e lon lipu"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "o &weka e ante pi nimi mute"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4961,7 +5043,7 @@ msgstr ""
 "sina wile weka e sama lipu la, ante ni li kama weka kin.\n"
 "sina wile ala wile weka e lipu %4?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "o weka e wile pona pi sama lipu"
@@ -5264,29 +5346,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "o &lukin e ni kepeken"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "o &open e poki kepeken %1"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "o &open kepeken %1"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "o &open e poki kepeken"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "o &lukin e ni kepeken"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
@@ -6798,16 +6880,6 @@ msgstr "pali ni li weka e lipu lon pini tawa."
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "pali ni li weka e lipu lon pini tawa."
-
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "tan ijo"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "pini ijo"
 
 #: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format

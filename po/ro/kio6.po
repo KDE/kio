@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -225,14 +225,14 @@ msgid "Moving"
 msgstr "Mutare"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Sursă"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -256,7 +256,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Creare dosar"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -268,7 +268,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Ștergere"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2557,7 +2557,7 @@ msgstr "Nu este suportată deschiderea fișierelor cu protocolul %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocolul %1 nu suportă acțiunea %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2566,18 +2566,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol necunoscut „%1”."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nu am găsit dispozitivul I/E pentru protocolul „%1”."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2586,14 +2586,14 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nu se poate crea soclul pentru lansarea io-slave pentru protocolul „%1”."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3635,7 +3635,7 @@ msgstr "Fișierele distante nu sunt acceptate."
 msgid "All Folders"
 msgstr "Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
@@ -5171,77 +5171,159 @@ msgstr ""
 "Desfacerea acestei operații necesită drepturi de administrator. Doriți să "
 "continuați?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "Creez dosarul"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "Sursă"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "Destinație"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Copiere"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "Mut"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "Redenumire"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "Mută în coșul de gunoi"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "Șterg"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "&Desfă"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Desfă: Copiere"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Desfă: Legătură"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Desfă: Mutare"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Desfă: Redenumire"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Desfă: Gunoi"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Desfă: Creare dosar"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Desfă: Creare dosar(e)"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Desfă: Creare fișier"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Desfă: Redenumire în lot"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "&Desfă: Copiere"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "&Desfă: Legătură"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "&Desfă: Mutare"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "&Desfă: Redenumire"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "&Desfă: Gunoi"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "&Desfă: Creare dosar"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "&Desfă: Creare dosar(e)"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "&Desfă: Creare fișier"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&Desfă: Redenumire în lot"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5255,7 +5337,7 @@ msgstr ""
 "pierdute.\n"
 "Sigur ștergeți %4?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Confirmarea desfacerii copierii fișierului"
@@ -5566,29 +5648,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Deschide dosarul cu %1"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Deschide cu %1"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Deschide d&osarul cu"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
@@ -7235,16 +7317,6 @@ msgstr "Doriți să suprascrieți destinația?"
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Doriți să îmbinați conținutul din „%1” în „%2”?"
-
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "Sursă"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "Destinație"
 
 #: widgets/renamedialog.cpp:407
 #, kde-format

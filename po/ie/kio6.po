@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -220,14 +220,14 @@ msgid "Moving"
 msgstr "Motion"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Orígin"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Creation de un fólder"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -263,7 +263,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Remotion"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2353,7 +2353,7 @@ msgstr "Apertion de files ne es supportat per protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocol %1 ne supporta li action %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2362,18 +2362,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Ínconosset protocol «%1»."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ne successat trovar un io-slave por protocol «%1»."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2382,13 +2382,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ne successat crear un socket por lansar io-slave por protocol «%1»."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3391,7 +3391,7 @@ msgstr "Lontan files es ínacceptabil"
 msgid "All Folders"
 msgstr "*|Omni fólderes"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Aperter"
@@ -4886,77 +4886,159 @@ msgid ""
 msgstr ""
 "Li privilegies del superusator es besonat por defar ti operation. Continuar?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "Creation de un fólder"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "Orígin"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "Destination"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Copiation"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "Motion"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "Renomination"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "Mover al Paper-corb"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "Remotion"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "&Defar"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Defar: copiar"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Defar: ligar"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Defar: mover"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Defar: renominar"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Defar: mover al Paper-corb"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Defar: crear un fólder"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Defar: crear fólder(es)"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Defar: crear un file"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Defar: renominar in masse"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "&Defar: copiar"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "&Defar: ligar"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "&Defar: mover"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "&Defar: renominar"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "&Defar: mover al Paper-corb"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "&Defar: crear un fólder"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "&Defar: crear fólder(es)"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "&Defar: crear un file"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&Defar: renominar in masse"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4969,7 +5051,7 @@ msgstr ""
 "esser perdet.\n"
 "Esque vu vole remover %4?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Defar un copiation de file"
@@ -5278,29 +5360,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Aperter per"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Aperter li fólder per %1"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Aperter per %1"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Aperter li fólder per"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Aperter per"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
@@ -6864,16 +6946,6 @@ msgstr "Ti action va superscrir li destination."
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Ti action va superscrir li destination."
-
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "Orígin"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "Destination"
 
 #: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -219,14 +219,14 @@ msgid "Moving"
 msgstr "Iyashukuma"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, fuzzy, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Imvelaphi:"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, fuzzy, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -252,7 +252,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -264,7 +264,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr " (Iyacima)"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, fuzzy, kde-format
 msgid "File"
@@ -2562,7 +2562,7 @@ msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2571,18 +2571,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, fuzzy, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Umthetho olandelwayo ongaziwayo '%1'.\n"
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2591,13 +2591,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3700,7 +3700,7 @@ msgstr "Iifayile Ezibekwe kude Azamkelwanga"
 msgid "All Folders"
 msgstr "*|Zonke Iifayile"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Vula"
@@ -5197,81 +5197,154 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, fuzzy, kde-format
+msgid "Source"
+msgstr "Imvelaphi:"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, fuzzy, kde-format
+msgid "Destination"
+msgstr "Indawo ephelela kuyo:"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Iyakhuphela"
+
+#: widgets/fileundomanager.cpp:145
 #, fuzzy, kde-format
 #| msgid "Moving"
 msgid "Moving"
 msgstr "Iyashukuma"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Renaming"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+msgid "Moving to Trash"
+msgstr "Yiya kwi %1"
+
+#: widgets/fileundomanager.cpp:157
 #, fuzzy, kde-format
 msgid "Deleting"
 msgstr " (Iyacima)"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, fuzzy, kde-format
 msgid "Und&o: Trash"
 msgstr "Umonakalo"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, fuzzy, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, fuzzy, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, fuzzy, kde-format
 msgid "Und&o: Create File"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Batch Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, kde-format
+msgid "&Redo: Copy"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:370
+#, kde-format
+msgid "&Redo: Link"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:372
+#, kde-format
+msgid "&Redo: Move"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgid "&Redo: Rename"
+msgstr "&Yinike igama kwakhona"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+msgid "&Redo: Trash"
+msgstr "Umonakalo"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+msgid "&Redo: Create Folder"
+msgstr "Ayinakwenza Umngxuma"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+msgid "&Redo: Create Folder(s)"
+msgstr "Ayinakwenza Umngxuma"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+msgid "&Redo: Create File"
+msgstr "Ayinakwenza Umngxuma"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&Yinike igama kwakhona"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5280,7 +5353,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, fuzzy, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Uqwalaselo Lomshicileli"
@@ -5586,33 +5659,33 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Vula nge:"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Vula nge:"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7115,16 +7188,6 @@ msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr ""
 "Le ntshukumo izakubhala ngaphezulu i '%1' ngokunokwayo.\n"
 "Ufuna ukuyinika igama kwakhona endaweni yoko?"
-
-#: widgets/renamedialog.cpp:374
-#, fuzzy, kde-format
-msgid "Source"
-msgstr "Imvelaphi:"
-
-#: widgets/renamedialog.cpp:376
-#, fuzzy, kde-format
-msgid "Destination"
-msgstr "Indawo ephelela kuyo:"
 
 #: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format

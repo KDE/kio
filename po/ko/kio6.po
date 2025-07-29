@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2025-07-21 01:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -212,14 +212,14 @@ msgid "Moving"
 msgstr "이동 중"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "원본"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -255,7 +255,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2452,7 +2452,7 @@ msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2463,17 +2463,17 @@ msgstr ""
 "'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아닌 "
 "다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2484,12 +2484,12 @@ msgstr ""
 "%2에 있는 \"%1\" 플러그인의 KIO 워커를 불러오지 않았습니다. KIO 워커가 %3 경"
 "로 외부에 있고 상승된 권한을 요청한다면 안전하지 않은 것으로 간주합니다."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -3497,7 +3497,7 @@ msgstr "원격 파일을 사용할 수 없음"
 msgid "All Folders"
 msgstr "모든 폴더"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
@@ -4977,77 +4977,159 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "이 작업을 취소하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "원본"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "대상"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "복사 중"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "이동 중"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "이름 바꾸는 중"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "휴지통으로 이동"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "실행 취소(&O)"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "실행 취소: 복사(&O)"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "실행 취소: 링크 걸기(&O)"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "실행 취소: 이동(&O)"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "실행 취소: 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "실행 취소: 휴지통에 버리기(&O)"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "실행 취소: 파일 생성(&O)"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "실행 취소: 일괄 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "실행 취소: 복사(&O)"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "실행 취소: 링크 걸기(&O)"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "실행 취소: 이동(&O)"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "실행 취소: 이름 변경(&O)"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "실행 취소: 휴지통에 버리기(&O)"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "실행 취소: 폴더 생성(&O)"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "실행 취소: 폴더 생성(&O)"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "실행 취소: 파일 생성(&O)"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "실행 취소: 일괄 이름 변경(&O)"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5059,7 +5141,7 @@ msgstr ""
 "파일 복사를 실행 취소하면 파일을 지우며 모든 변경 사항이 삭제됩니다.\n"
 "%4을(를) 삭제하시겠습니까?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "파일 복사 실행 취소 확인"
@@ -5354,29 +5436,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "다음으로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -6913,16 +6995,6 @@ msgstr "대상을 덮어쓰시겠습니까?"
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1'의 내용을 '%2'에 합치시겠습니까?"
-
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "원본"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "대상"
 
 #: widgets/renamedialog.cpp:407
 #, kde-format

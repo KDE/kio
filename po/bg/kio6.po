@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
-"PO-Revision-Date: 2025-06-21 12:12+0200\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"PO-Revision-Date: 2025-07-28 17:50+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -220,14 +220,14 @@ msgid "Moving"
 msgstr "Преместване"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Източник"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Създаване на директория"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -263,7 +263,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Изтриване"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2518,7 +2518,7 @@ msgstr "Протоколът „%1“ не поддържа създаване �
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколът %1 не поддържа операцията %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2530,17 +2530,17 @@ msgstr ""
 "разрешения, не може да бъде гарантирана, тъй като потребители, различни от "
 "root, имат разрешение да го променят на %2."
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Неизвестен протокол „%1“."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Липсва KIO worker за протокола „%1“."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2552,13 +2552,13 @@ msgstr ""
 "worker, които се намират извън %3 и изискват повишени привилегии, се считат "
 "за несигурни."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не може да се създаде сокет за стартиране на KIO Worker за протокол „%1“."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не може да се намери изпълним 'kioworker' на „%1“"
@@ -3584,7 +3584,7 @@ msgstr "Отдалечени файлове не се приемат"
 msgid "All Folders"
 msgstr "Всички директории"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Отваряне"
@@ -3833,9 +3833,7 @@ msgstr "Създаване на нов файл"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Въведете името на файла"
 
@@ -5096,77 +5094,159 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr "Отмяната на тази операция изисква root права. Искате ли да продължите?"
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
 msgstr "Създаване на директория"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, kde-format
+msgid "Source"
+msgstr "Източник"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, kde-format
+msgid "Destination"
+msgstr "Назначение"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Копиране"
+
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Moving"
 msgstr "Преместване"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
 msgstr "Преименуване"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "Преместване в кошчето"
+
+#: widgets/fileundomanager.cpp:157
 #, kde-format
 msgid "Deleting"
 msgstr "Изтриване"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "Отм&яна"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "Отмя&на: копиране"
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr "Отмя&на: създаване на връзка"
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr "Отмя&на: преместване"
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "Отм&яна: преименуване"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "Отм&яна: преместване в кошчето"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Отм&яна: създаване на директория"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Отм&яна: Създаване на папка (и)"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "Отм&яна: Създаване на файл"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Отм&яна: Преименуване на партида"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, fuzzy, kde-format
+#| msgid "Und&o: Copy"
+msgid "&Redo: Copy"
+msgstr "Отмя&на: копиране"
+
+#: widgets/fileundomanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "Und&o: Link"
+msgid "&Redo: Link"
+msgstr "Отмя&на: създаване на връзка"
+
+#: widgets/fileundomanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Und&o: Move"
+msgid "&Redo: Move"
+msgstr "Отмя&на: преместване"
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "Und&o: Rename"
+msgid "&Redo: Rename"
+msgstr "Отм&яна: преименуване"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgid "Und&o: Trash"
+msgid "&Redo: Trash"
+msgstr "Отм&яна: преместване в кошчето"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "Отм&яна: създаване на директория"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Und&o: Create Folder(s)"
+msgid "&Redo: Create Folder(s)"
+msgstr "Отм&яна: Създаване на папка (и)"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Und&o: Create File"
+msgid "&Redo: Create File"
+msgstr "Отм&яна: Създаване на файл"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "Und&o: Batch Rename"
+msgid "&Redo: Batch Rename"
+msgstr "Отм&яна: Преименуване на партида"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5178,7 +5258,7 @@ msgstr ""
 "Отмяната на копирането ще изтрие файла и промените ще бъдат загубени.\n"
 "Искате ли да изтриете %4?"
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Отмяна на копирането"
@@ -5480,29 +5560,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Отваряне с…"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Отваряне на папка с %1"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open with %1"
 msgstr "Отваряне &с %1"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Отваряне на папка с"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Отваряне &с"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -5940,40 +6020,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Въведете описание на програмата. Това е кратък текст, който описва какво "
-"прави програмата или за какво може да бъде използвана. Примерно \"Пасианс\", "
-"може да има описание \"Игра с карти\"."
+"Въведете тук общо име за приложението. Примери: приложение за преглед на "
+"изображения би било „Преглед на изображения“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "О&бщи"
+msgstr "О&бщо име"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Въведете описание на програмата. Това е кратък текст, който описва какво "
-"прави програмата или за какво може да бъде използвана. Примерно \"Пасианс\", "
-"може да има описание \"Игра с карти\"."
+"Въведете тук описание на приложението. Примери: Описание на приложение за "
+"преглед на изображения би било „Преглед и редактиране на приложение“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5983,8 +6053,7 @@ msgstr "Ком&ентар:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Променливи на средата:"
 
@@ -6730,16 +6799,14 @@ msgid "Verifying checksum…"
 msgstr "Проверка на контролната сума…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Файловете са <b>идентични</b>."
+msgstr "Контролните суми на всички файлове са идентични."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Файловете са <b>различни</b>."
+msgstr "Избраните файлове имат различни контролни суми."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -7090,16 +7157,6 @@ msgstr "Искате ли да презапишете местоназначен
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Искате ли да се слее съдържанието на \"'%1\" в „%2“?"
 
-#: widgets/renamedialog.cpp:374
-#, kde-format
-msgid "Source"
-msgstr "Източник"
-
-#: widgets/renamedialog.cpp:376
-#, kde-format
-msgid "Destination"
-msgstr "Назначение"
-
 #: widgets/renamedialog.cpp:407
 #, kde-format
 msgid "The source is <b>more recent</b>."
@@ -7171,9 +7228,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Преименуване на елемента <filename> %1 </filename> на:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Вече съществува файл с име <filename> %1 </filename>."
@@ -7217,10 +7272,7 @@ msgstr ""
 "освен ако файловете не са с различни файлови разширения."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7268,43 +7320,36 @@ msgstr ""
 "filename> да има празно име на файл."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Преименуване на %1 избран елемент на:"
-msgstr[1] "Преименуване на %1 избрани елементи на:"
+msgstr[0] "Преименуване на %1 избран елемент:"
+msgstr[1] "Преименуване на %1 избрани елементи:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Добавяне на текст:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Текст за добавяне"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Въведете името на файла"
+msgstr "Преди името на файла"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Въведете името на файла"
+msgstr "След името на файла"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7346,7 +7391,7 @@ msgstr "Заместване на текст"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Добавяне на текст"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:38+0000\n"
+"POT-Creation-Date: 2025-07-29 00:38+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -217,7 +217,7 @@ msgid "Moving"
 msgstr "Кўчирилмоқда"
 
 #: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:141
 #, fuzzy, kde-format
 #| msgid "Source"
 msgctxt "The source of a file operation"
@@ -225,7 +225,7 @@ msgid "Source"
 msgstr "Манба"
 
 #: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
-#: widgets/fileundomanager.cpp:143
+#: widgets/fileundomanager.cpp:142
 #, fuzzy, kde-format
 #| msgid "Destination"
 msgctxt "The destination of a file operation"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Жилд яратилмоқда"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:137
+#: core/job.cpp:257 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
@@ -263,7 +263,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Ўчирилмоқда"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:153
+#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
@@ -2372,7 +2372,7 @@ msgstr "%1 протоколи билан жилдни яратиш қўллан�
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 протоколи %2 амалини қўлламайди."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:354
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2381,18 +2381,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:380
+#: core/worker.cpp:392
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Номаълум протокол '%1'."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:403
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "%1 протоколи учун КЧ-слейв топилмади."
 
-#: core/worker.cpp:398
+#: core/worker.cpp:410
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2401,13 +2401,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:410
+#: core/worker.cpp:422
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "%1 протоколи учун КЧ-слейв топилмади."
 
-#: core/worker.cpp:450
+#: core/worker.cpp:462
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3477,7 +3477,7 @@ msgstr "Масофдаги файллар қабул қилинмайди"
 msgid "All Folders"
 msgstr "*|Ҳамма жилдлар"
 
-#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:786
+#: filewidgets/kfilewidget.cpp:2187 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Очиш"
@@ -4985,86 +4985,168 @@ msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 msgid "Creating directory"
 msgstr "Жилд яратиш"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#, fuzzy, kde-format
+#| msgid "Source"
+msgid "Source"
+msgstr "Манба"
+
+#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgid "Destination"
+msgstr "Манзил"
+
+#: widgets/fileundomanager.cpp:136
+#, fuzzy, kde-format
+#| msgctxt "@title job"
+#| msgid "Copying"
+msgid "Copying"
+msgstr "Нусха олинмоқда"
+
+#: widgets/fileundomanager.cpp:145
 #, fuzzy, kde-format
 #| msgid "Moving"
 msgid "Moving"
 msgstr "Кўчирилмоқда"
 
-#: widgets/fileundomanager.cpp:146
+#: widgets/fileundomanager.cpp:145
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Renaming"
 msgstr "&Номини ўзгартириш"
 
-#: widgets/fileundomanager.cpp:153
+#: widgets/fileundomanager.cpp:152
+#, fuzzy, kde-format
+#| msgid "Move to Trash"
+msgid "Moving to Trash"
+msgstr "Чиқиндилар қутисига кўчириш"
+
+#: widgets/fileundomanager.cpp:157
 #, fuzzy, kde-format
 msgid "Deleting"
 msgstr " (Ўчирилмоқда)"
 
-#: widgets/fileundomanager.cpp:305
+#: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
 msgstr "&Бекор қилиш"
 
-#: widgets/fileundomanager.cpp:311
+#: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:313
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:315
+#: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:317
+#: widgets/fileundomanager.cpp:343
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Rename"
 msgstr "&Номини ўзгартириш"
 
-#: widgets/fileundomanager.cpp:319
+#: widgets/fileundomanager.cpp:345
 #, fuzzy, kde-format
 #| msgctxt "to trash"
 #| msgid "&Trash"
 msgid "Und&o: Trash"
 msgstr "&Чиқиндилар қутисига"
 
-#: widgets/fileundomanager.cpp:321
+#: widgets/fileundomanager.cpp:347
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgid "Und&o: Create Folder"
 msgstr "Жилдни яратиб бўлмади"
 
-#: widgets/fileundomanager.cpp:323
+#: widgets/fileundomanager.cpp:349
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgid "Und&o: Create Folder(s)"
 msgstr "Жилдни яратиб бўлмади"
 
-#: widgets/fileundomanager.cpp:325
+#: widgets/fileundomanager.cpp:351
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgid "Und&o: Create File"
 msgstr "Жилдни яратиб бўлмади"
 
-#: widgets/fileundomanager.cpp:327
+#: widgets/fileundomanager.cpp:353
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Batch Rename"
 msgstr "&Номини ўзгартириш"
 
-#: widgets/fileundomanager.cpp:728
+#: widgets/fileundomanager.cpp:362
+#, kde-format
+msgid "&Redo"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:368
+#, kde-format
+msgid "&Redo: Copy"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:370
+#, kde-format
+msgid "&Redo: Link"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:372
+#, kde-format
+msgid "&Redo: Move"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:374
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgid "&Redo: Rename"
+msgstr "&Номини ўзгартириш"
+
+#: widgets/fileundomanager.cpp:376
+#, fuzzy, kde-format
+#| msgctxt "to trash"
+#| msgid "&Trash"
+msgid "&Redo: Trash"
+msgstr "&Чиқиндилар қутисига"
+
+#: widgets/fileundomanager.cpp:378
+#, fuzzy, kde-format
+#| msgid "Could Not Create Folder"
+msgid "&Redo: Create Folder"
+msgstr "Жилдни яратиб бўлмади"
+
+#: widgets/fileundomanager.cpp:380
+#, fuzzy, kde-format
+#| msgid "Could Not Create Folder"
+msgid "&Redo: Create Folder(s)"
+msgstr "Жилдни яратиб бўлмади"
+
+#: widgets/fileundomanager.cpp:382
+#, fuzzy, kde-format
+#| msgid "Could Not Create Folder"
+msgid "&Redo: Create File"
+msgstr "Жилдни яратиб бўлмади"
+
+#: widgets/fileundomanager.cpp:384
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgid "&Redo: Batch Rename"
+msgstr "&Номини ўзгартириш"
+
+#: widgets/fileundomanager.cpp:907
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5073,7 +5155,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:738
+#: widgets/fileundomanager.cpp:917
 #, fuzzy, kde-format
 #| msgid "Updating System Configuration"
 msgid "Undo File Copy Confirmation"
@@ -5377,33 +5459,33 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Дастур билан очиш"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Дастур билан очиш:"
 
-#: widgets/kfileitemactions.cpp:775
+#: widgets/kfileitemactions.cpp:780
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Дастур билан очиш:"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Дастур билан очиш"
 
-#: widgets/kfileitemactions.cpp:816
+#: widgets/kfileitemactions.cpp:821
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Дастур билан очиш"
 
-#: widgets/kfileitemactions.cpp:827
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -6920,18 +7002,6 @@ msgstr "Манзил файлининг номини ўзгартиринг."
 #| msgid "Choose a different filename for the destination file."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Манзил файлининг номини ўзгартиринг."
-
-#: widgets/renamedialog.cpp:374
-#, fuzzy, kde-format
-#| msgid "Source"
-msgid "Source"
-msgstr "Манба"
-
-#: widgets/renamedialog.cpp:376
-#, fuzzy, kde-format
-#| msgid "Destination"
-msgid "Destination"
-msgstr "Манзил"
 
 #: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format
