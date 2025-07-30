@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-18 16:01+0100\n"
+"PO-Revision-Date: 2025-07-29 13:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -5168,9 +5168,7 @@ msgid "Destination"
 msgstr "Destino"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Copiando"
 
@@ -5185,10 +5183,9 @@ msgid "Renaming"
 msgstr "Cambio de nombre"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Mover a la papelera"
+msgstr "Moviendo a la papelera"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5248,61 +5245,52 @@ msgstr "&Deshacer: Cambiar nombre por lotes"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Rehacer"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&Deshacer: Copiar"
+msgstr "&Rehacer: Copiar"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&Deshacer: Enlazar"
+msgstr "&Rehacer: Enlazar"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&Deshacer: Mover"
+msgstr "&Rehacer: Mover"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&Deshacer: Cambiar de nombre"
+msgstr "&Rehacer: Cambiar de nombre"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&Deshacer: Tirar a la papelera"
+msgstr "&Rehacer: Tirar a la papelera"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&Deshacer: Crear carpeta"
+msgstr "&Rehacer: Crear carpeta"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&Deshacer: Crear carpeta(s)"
+msgstr "&Rehacer: Crear carpetas"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&Deshacer: Crear archivo"
+msgstr "&Rehacer: Crear archivo"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&Deshacer: Cambiar nombre por lotes"
+msgstr "&Rehacer: Cambiar nombre por lotes"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format

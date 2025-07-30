@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-18 06:29+0200\n"
+"PO-Revision-Date: 2025-07-29 06:44+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2590,7 +2590,7 @@ msgstr "Trajno"
 #: core/workerinterface.cpp:364 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
-msgstr "Nadaljuj"
+msgstr "&Nadaljuj"
 
 #: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
@@ -2966,7 +2966,7 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
 msgid "L&abel:"
-msgstr "&Oznaka:"
+msgstr "Oznaka:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
@@ -2989,7 +2989,7 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
 msgid "&Location:"
-msgstr "&Mesto:"
+msgstr "Mesto:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:105
 #, kde-format
@@ -3008,7 +3008,7 @@ msgstr "Izberite &ikono:"
 #: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
 msgid "&Only show when using this application (%1)"
-msgstr "Poka&ži le med uporabo programa (%1)"
+msgstr "Pokaži le med uporabo programa (%1)"
 
 #: filewidgets/kfileplaceeditdialog.cpp:139
 #, kde-format
@@ -3174,7 +3174,7 @@ msgstr "Varno odstranjevanje …"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
-msgstr "&Varno odstrani"
+msgstr "Varno odstrani"
 
 #: filewidgets/kfileplacesmodel.cpp:1372
 #, kde-format
@@ -3299,7 +3299,7 @@ msgstr "Dodaj vnos …"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "Ur&edi …"
+msgstr "Ur&edi…"
 
 #: filewidgets/kfileplacesview.cpp:1268
 #, kde-format
@@ -3328,7 +3328,7 @@ msgstr "Skrij odsek"
 #: filewidgets/kfileplacesview.cpp:1288
 #, kde-format
 msgid "&Show All Entries"
-msgstr "Pokaži &vse vnose"
+msgstr "Pokaži v&se vnose"
 
 #: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
@@ -3508,7 +3508,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1297 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
-msgstr "&Ime:"
+msgstr "Ime:"
 
 #: filewidgets/kfilewidget.cpp:1322
 #, kde-format
@@ -3608,7 +3608,7 @@ msgstr "Velikost ikone: %1 slik. točk"
 #: filewidgets/kfilewidget.cpp:2434
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "Samodejno izberi &pripono datoteke (%1)"
+msgstr "Samodejno izberi pripono datoteke (%1)"
 
 #: filewidgets/kfilewidget.cpp:2435
 #, kde-format
@@ -3618,7 +3618,7 @@ msgstr "pripona <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2441
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "Samodejno izberi &pripono datoteke"
+msgstr "Samodejno izberi pripono datoteke"
 
 #: filewidgets/kfilewidget.cpp:2442
 #, kde-format
@@ -4995,7 +4995,7 @@ msgstr "Kliknite, da kopirate nadzorno vsoto v odložišče."
 #: widgets/dropjob.cpp:196
 #, kde-format
 msgid "C&ancel"
-msgstr "P&rekliči"
+msgstr "Prekliči"
 
 #: widgets/dropjob.cpp:310
 #, kde-format
@@ -5011,12 +5011,12 @@ msgstr "Prejemi sem"
 #: widgets/dropjob.cpp:316
 #, kde-format
 msgid "&Copy Here"
-msgstr "&Kopiraj sem"
+msgstr "Kopiraj sem"
 
 #: widgets/dropjob.cpp:323
 #, kde-format
 msgid "&Link Here"
-msgstr "Po&veži sem"
+msgstr "Poveži sem"
 
 #: widgets/executablefileopendialog.cpp:72
 #, kde-format
@@ -5105,9 +5105,7 @@ msgid "Destination"
 msgstr "Cilj"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopiranje"
 
@@ -5122,10 +5120,9 @@ msgid "Renaming"
 msgstr "Preimenovanje"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Premakni v Smeti"
+msgstr "Premikanje v Smeti"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5135,111 +5132,102 @@ msgstr "Brisanje"
 #: widgets/fileundomanager.cpp:331
 #, kde-format
 msgid "Und&o"
-msgstr "&Razveljavi"
+msgstr "Razveljavi"
 
 #: widgets/fileundomanager.cpp:337
 #, kde-format
 msgid "Und&o: Copy"
-msgstr "Ra&zveljavi: kopiraj"
+msgstr "Razveljavi: kopiraj"
 
 #: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
-msgstr "Ra&zveljavi: poveži"
+msgstr "Razveljavi: poveži"
 
 #: widgets/fileundomanager.cpp:341
 #, kde-format
 msgid "Und&o: Move"
-msgstr "Raz&veljavi: premakni"
+msgstr "Razveljavi: premakni"
 
 #: widgets/fileundomanager.cpp:343
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "Ra&zveljavi: preimenuj"
+msgstr "Razveljavi: preimenuj"
 
 #: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "Ra&zveljavi: v Smeti"
+msgstr "Razveljavi: v Smeti"
 
 #: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
-msgstr "Ra&zveljavi: ustvari mapo"
+msgstr "Razveljavi: ustvari mapo"
 
 #: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "Ra&zveljavi: ustvari mape"
+msgstr "Razveljavi: ustvari mape"
 
 #: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "Ra&zveljavi: ustvari datoteko"
+msgstr "Razveljavi: ustvari datoteko"
 
 #: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "Razveljavi: paketn&o preimenuj"
+msgstr "Razveljavi: paketno preimenuj"
 
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "Uveljavi"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "Ra&zveljavi: kopiraj"
+msgstr "Uveljavi: kopiraj"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "Ra&zveljavi: poveži"
+msgstr "Uveljavi: poveži"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "Raz&veljavi: premakni"
+msgstr "Uveljavi: premakni"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "Ra&zveljavi: preimenuj"
+msgstr "Uveljavi: preimenuj"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "Ra&zveljavi: v Smeti"
+msgstr "Uveljavi: Smeti"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "Ra&zveljavi: ustvari mapo"
+msgstr "Uveljavi: ustvari mapo"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Ra&zveljavi: ustvari mape"
+msgstr "Uveljavi: ustvari mape"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Ra&zveljavi: ustvari datoteko"
+msgstr "Uveljavi: ustvari datoteko"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Razveljavi: paketn&o preimenuj"
+msgstr "Uveljavi: paketno preimenuj"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5538,7 +5526,7 @@ msgstr "Vrsta"
 #: widgets/kfileitemactions.cpp:401
 #, kde-format
 msgid "Open &with %1"
-msgstr "Odpri &z %1"
+msgstr "Odpri z %1"
 
 #: widgets/kfileitemactions.cpp:403
 #, kde-format
@@ -5550,7 +5538,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
-msgstr "&Dejanja"
+msgstr "Dejanja"
 
 #: widgets/kfileitemactions.cpp:705
 #, kde-format
@@ -5590,7 +5578,7 @@ msgstr "&Odpri z"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Drug program…"
+msgstr "Drug program…"
 
 #: widgets/kfileitemdelegate.cpp:217
 #, kde-format
@@ -5845,8 +5833,8 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Zapomni si povezavo s programom za vse datoteke naslednje vrste\n"
-"»%1« (%2)"
+"Zapomni si povezavo s programom za vse datoteke naslednje vrste\n"
+"\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:744
 #, kde-format
@@ -5854,8 +5842,8 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Zapomni si povezavo s programom za vse datoteke vrste\n"
-"»%1«"
+"Zapomni si povezavo s programom za vse datoteke vrste\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:754
 #, kde-format
@@ -5870,7 +5858,7 @@ msgstr "Zaženi v &terminalu"
 #: widgets/kopenwithdialog.cpp:777
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr "&Ne zapri, ko se ukaz konča"
+msgstr "Ne zapri, ko se ukaz konča"
 
 #: widgets/kopenwithdialog.cpp:796
 #, kde-format
@@ -6090,7 +6078,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:117
 #, kde-format
 msgid "&Browse..."
-msgstr "Pre&brskaj …"
+msgstr "Pre&brskaj…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -6140,7 +6128,7 @@ msgstr "Nastavi delovno mapo za vaš program."
 #: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "&Work path:"
-msgstr "&Delovna pot:"
+msgstr "Delovna pot:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -6239,7 +6227,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr "Nap&redne možnosti"
+msgstr "Napredne možnosti"
 
 #: widgets/kpropertiesdialog.cpp:145 widgets/kpropertiesdialog.cpp:160
 #: widgets/kpropertiesdialog.cpp:172 widgets/kpropertiesdialog.cpp:190
@@ -6426,7 +6414,7 @@ msgstr "Mogoči ogled in branje ter spreminjanje in pisanje"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1181
 #, kde-format
 msgid "&Permissions"
-msgstr "&Dovoljenja"
+msgstr "Dovoljenja"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1192
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1380
@@ -6451,7 +6439,7 @@ msgstr "Samo lastnik lahko spremeni dovoljenja."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
 msgid "O&wner:"
-msgstr "&Lastnik:"
+msgstr "Lastnik:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
@@ -6461,7 +6449,7 @@ msgstr "Določa dejanja, ki jih lahko naredi lastnik."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1216
 #, kde-format
 msgid "Gro&up:"
-msgstr "S&kupina:"
+msgstr "Skupina:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
@@ -6471,7 +6459,7 @@ msgstr "Določa dejanja, ki jih lahko naredijo člani skupine."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1221
 #, kde-format
 msgid "O&thers:"
-msgstr "D&rugi:"
+msgstr "Drugi:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
@@ -6749,7 +6737,7 @@ msgstr "Različno (brez spremembe)"
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Te datoteke uporabljajo napredna dovoljenja."
-msgstr[1] "Ta datoteka uporablja napredna dovoljenja."
+msgstr[1] "Ta datoteka uporablja napredna dovoljenja"
 msgstr[2] "Ti datoteki uporabljata napredni dovoljenji."
 msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 
@@ -6771,7 +6759,7 @@ msgstr "Te datoteke uporabljajo napredna dovoljenja."
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
-msgstr "Nadzorne &vsote"
+msgstr "Nadzorne vsote"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2371
 #, kde-format
@@ -6856,7 +6844,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2711
 #, kde-format
 msgid "&Application"
-msgstr "&Program"
+msgstr "Program"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
@@ -7066,7 +7054,7 @@ msgstr "Velikost: %1"
 #: widgets/renamedialog.cpp:231
 #, kde-format
 msgid "Appl&y to All"
-msgstr "U&veljavi za vse"
+msgstr "Uveljavi za vse"
 
 #: widgets/renamedialog.cpp:232
 #, kde-format
@@ -7093,7 +7081,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
-msgstr "Pre&imenuj"
+msgstr "P&reimenuj"
 
 #: widgets/renamedialog.cpp:244
 #, kde-format
@@ -7103,7 +7091,7 @@ msgstr "Predlagaj &novo ime"
 #: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "&Skip"
-msgstr "&Preskoči"
+msgstr "Preskoči"
 
 #: widgets/renamedialog.cpp:251
 #, kde-format
@@ -7122,7 +7110,7 @@ msgstr ""
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
-msgstr "Piši &v"
+msgstr "Piši v"
 
 #: widgets/renamedialog.cpp:266
 #, kde-format
@@ -7154,7 +7142,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:287
 #, kde-format
 msgid "&Resume"
-msgstr "Na&daljuj"
+msgstr "Nadaljuj"
 
 #: widgets/renamedialog.cpp:296
 #, kde-format

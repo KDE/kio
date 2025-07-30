@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-18 11:32+0300\n"
+"PO-Revision-Date: 2025-07-29 09:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -5133,9 +5133,7 @@ msgid "Destination"
 msgstr "Призначення"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Копіювання"
 
@@ -5150,10 +5148,9 @@ msgid "Renaming"
 msgstr "Перейменування"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Пересунути в смітник"
+msgstr "Пересування до смітника"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5213,61 +5210,52 @@ msgstr "&Скасувати: Пакетне перейменування"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Повторити"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&Скасувати: Копіювання"
+msgstr "&Повторити: Копіювання"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&Скасувати: Створення посилання"
+msgstr "&Повторити: Створення посилання"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&Скасувати: Пересування"
+msgstr "&Повторити: Пересування"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&Скасувати: Перейменування"
+msgstr "&Повторити: Перейменування"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&Скасувати: Викидання"
+msgstr "&Повторити: Викидання"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&Скасувати: Створення теки"
+msgstr "&Повторити: Створення теки"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&Скасувати: Створення тек"
+msgstr "&Повторити: Створення тек"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&Скасувати: Створення файла"
+msgstr "&Повторити: Створення файла"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&Скасувати: Пакетне перейменування"
+msgstr "&Повторити: Пакетне перейменування"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
