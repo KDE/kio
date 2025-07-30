@@ -1135,6 +1135,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     }
 
     const QAbstractItemView *view = qobject_cast<const QAbstractItemView *>(opt.widget);
+    const qreal dpr = painter->device()->devicePixelRatioF();
 
     // Check if the item is being animated
     // ========================================================================
@@ -1153,7 +1154,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     }
 
     QIcon::State iconState = option.state & QStyle::State_Open ? QIcon::On : QIcon::Off;
-    QPixmap icon = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
+    QPixmap icon = opt.icon.pixmap(opt.decorationSize, dpr, iconMode, iconState);
 
     const KFileItem fileItem = d->fileItem(index);
     if (fileItem.isHidden()) {
@@ -1258,8 +1259,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // know yet if a hover out animation will be run.
     // ========================================================================
     if (state && (state->hoverProgress() < 1 || state->fadeProgress() < 1)) {
-        const qreal dpr = painter->device()->devicePixelRatioF();
-
         cache = new KIO::CachedRendering(opt.state, option.rect.size(), index, dpr);
 
         QPainter p;
