@@ -218,12 +218,6 @@ void KUrlComboBox::setUrls(const QStringList &_urls, OverLoadResolving remove)
             u.setUrl(*it);
         }
 
-        // Don't restore if file doesn't exist anymore
-        if (u.isLocalFile() && !QFile::exists(u.toLocalFile())) {
-            ++it;
-            continue;
-        }
-
         std::unique_ptr<KUrlComboBoxPrivate::KUrlComboItem> item(new KUrlComboBoxPrivate::KUrlComboItem(u, d->getIcon(u)));
         d->insertUrlItem(item.get());
         d->itemList.push_back(std::move(item));
