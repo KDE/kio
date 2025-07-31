@@ -21,15 +21,15 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-19 22:17+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"PO-Revision-Date: 2025-07-30 18:39+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5076,9 +5076,7 @@ msgid "Destination"
 msgstr "Hedef"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopyalanıyor"
 
@@ -5090,13 +5088,12 @@ msgstr "Taşınıyor"
 #: widgets/fileundomanager.cpp:145
 #, kde-format
 msgid "Renaming"
-msgstr "Yeniden Adlandırma"
+msgstr "Yeniden Adlandırılıyor"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Çöp Kutusuna Taşı"
+msgstr "Çöp Kutusuna Taşınıyor"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5116,7 +5113,7 @@ msgstr "Ger&i Al: Kopyala"
 #: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o: Link"
-msgstr "Ger&i Al: Bağlantı Yap"
+msgstr "Ger&i Al: Bağlantıla"
 
 #: widgets/fileundomanager.cpp:341
 #, kde-format
@@ -5156,61 +5153,52 @@ msgstr "Ger&i Al: Toplu Yeniden Adlandır"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Yinele"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "Ger&i Al: Kopyala"
+msgstr "&Yinele: Kopyala"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "Ger&i Al: Bağlantı Yap"
+msgstr "&Yinele: Bağlantıla"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "Ger&i Al: Taşı"
+msgstr "&Yinele: Taşı"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "Ger&i Al: Yeniden Adlandır"
+msgstr "&Yinele: Yeniden Adlandır"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "Ger&i Al: Çöp Kutusuna Taşı"
+msgstr "&Yinele: Çöp Kutusuna Taşı"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "Ger&i Al: Klasör Oluştur"
+msgstr "&Yinele: Klasör Oluştur"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Ger&i Al: Klasör(ler) Oluştur"
+msgstr "&Yinele: Klasör(ler) Oluştur"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Ger&i Al: Dosya Oluştur"
+msgstr "&Yinele: Dosya Oluştur"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Ger&i Al: Toplu Yeniden Adlandır"
+msgstr "&Yinele: Toplu Yeniden Adlandır"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format

@@ -4889,11 +4889,9 @@ msgid "Destination"
 msgstr "目标"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
-msgstr "正在复制"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:145
 #, kde-format
@@ -4906,10 +4904,9 @@ msgid "Renaming"
 msgstr "正在重命名"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "移动到回收站"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -4972,58 +4969,49 @@ msgid "&Redo"
 msgstr ""
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "撤销：复制(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "撤销：链接(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "撤销：移动(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "撤销：重命名(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "撤销：移动到回收站(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "撤销：创建文件夹(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "撤销：创建文件夹(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "撤销：创建文件(&O)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "撤销(&O)：批量重命名"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
