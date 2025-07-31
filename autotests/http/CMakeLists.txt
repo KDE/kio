@@ -48,3 +48,7 @@ target_link_libraries(customheadertest PRIVATE Qt::Network Qt::Test KF6::KIOCore
 
 add_executable(responsecodetest responsecodetest.cpp)
 target_link_libraries(responsecodetest PRIVATE Qt::Network Qt::Test KF6::KIOCore)
+
+add_executable(contentlengthtest contentlengthtest.cpp)
+target_link_libraries(contentlengthtest PRIVATE Qt::Network Qt::Test KF6::KIOCore)
+

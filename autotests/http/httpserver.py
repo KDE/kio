@@ -284,3 +284,18 @@ def headers_pizza():
         return "🤌"
     else:
         return Response("", status=400)
+
+@app.route("/content-length", methods = ['GET'])
+def contentlength_get():
+    if 'Content-Length' in request.headers:
+        return Response("Unexpected Content-Length in GET request", status=400)
+    else:
+        return "No Content-Length header in GET request."
+
+@app.route("/content-length", methods = ['POST'])
+def contentlength_post():
+    if 'Content-Length' in request.headers:
+        content_length = request.content_length
+        return f"Content-Length: {content_length} bytes in POST request"
+    else:
+        return Response("Content-Length header not found in POST request.", status=400)
