@@ -1,6 +1,6 @@
 /*
 
-    SPDX-FileCopyrightText: 2025 Robby Stephenson <robby@periapsis.org
+    SPDX-FileCopyrightText: 2025 Robby Stephenson <robby@periapsis.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
