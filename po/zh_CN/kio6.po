@@ -4891,7 +4891,7 @@ msgstr "目标"
 #: widgets/fileundomanager.cpp:136
 #, kde-format
 msgid "Copying"
-msgstr ""
+msgstr "正在复制"
 
 #: widgets/fileundomanager.cpp:145
 #, kde-format
@@ -4906,7 +4906,7 @@ msgstr "正在重命名"
 #: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Moving to Trash"
-msgstr ""
+msgstr "正在移动到回收站"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -4966,52 +4966,52 @@ msgstr "撤销(&O)：批量重命名"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "重做(&R)"
 
 #: widgets/fileundomanager.cpp:368
 #, kde-format
 msgid "&Redo: Copy"
-msgstr ""
+msgstr "重做：复制(&R)"
 
 #: widgets/fileundomanager.cpp:370
 #, kde-format
 msgid "&Redo: Link"
-msgstr ""
+msgstr "重做：链接(&R)"
 
 #: widgets/fileundomanager.cpp:372
 #, kde-format
 msgid "&Redo: Move"
-msgstr ""
+msgstr "重做：移动(&R)"
 
 #: widgets/fileundomanager.cpp:374
 #, kde-format
 msgid "&Redo: Rename"
-msgstr ""
+msgstr "重做：重命名(&R)"
 
 #: widgets/fileundomanager.cpp:376
 #, kde-format
 msgid "&Redo: Trash"
-msgstr ""
+msgstr "重做：移动到回收站(&R)"
 
 #: widgets/fileundomanager.cpp:378
 #, kde-format
 msgid "&Redo: Create Folder"
-msgstr ""
+msgstr "重做：创建文件夹(&R)"
 
 #: widgets/fileundomanager.cpp:380
 #, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr ""
+msgstr "重做：创建文件夹(&R)"
 
 #: widgets/fileundomanager.cpp:382
 #, kde-format
 msgid "&Redo: Create File"
-msgstr ""
+msgstr "重做：创建文件(&R)"
 
 #: widgets/fileundomanager.cpp:384
 #, kde-format
 msgid "&Redo: Batch Rename"
-msgstr ""
+msgstr "重做：批量重命名(&R)"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format

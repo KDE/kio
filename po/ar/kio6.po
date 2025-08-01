@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-15 23:15+0400\n"
+"PO-Revision-Date: 2025-07-31 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1012,7 +1012,7 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
-"ربما كانت هناك مشكلة في ضبط الشبكة. إذا كنت تقوم بالوصول إلى الإنترنت بدون "
+"ربما كانت هناك مشكلة في ضبط الشبكة. إذا كنت تقوم بالوصول إلى الإنترنت دون "
 "مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك. "
 
 #: core/job_error.cpp:419
@@ -1976,7 +1976,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "ربما كانت هناك مشكلة في ضبط الشبكة، خصوصا في اسم وكيل الإنترنت. إذا كنت تقوم "
-"بالوصول إلى الإنترنت بدون مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك."
+"بالوصول إلى الإنترنت دون مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك."
 
 #: core/job_error.cpp:1050
 #, kde-format

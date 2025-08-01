@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-10 19:43+0300\n"
+"PO-Revision-Date: 2025-07-14 11:22+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -6001,37 +6001,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Anna sovelluksen kuvaus sen käyttötarkoitukseen liittyen. Esimerkiksi "
-"puhelinsoitto-ohjelma KPPP voisi olla ”Puhelinverkkoyhteyden soitto-ohjelma”."
+"Kirjoita tähän sovelluksen yleisnimi. Esimerkki: kuvakatselusovelluksesta se "
+"olisi ”kuvakatselin”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Käyttäjätunnus:"
+msgstr "&Yleisnimi:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Anna sovelluksen kuvaus sen käyttötarkoitukseen liittyen. Esimerkiksi "
-"puhelinsoitto-ohjelma KPPP voisi olla ”Puhelinverkkoyhteyden soitto-ohjelma”."
+"Kirjoita tähän sovelluksesta sen käyttöön perustuva kuvaus. Esimerkki: "
+"kuvankatselusovelluksesta se voisi olla ”Näytä ja muokkaa kuvia”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6041,10 +6034,9 @@ msgstr "Komm&entti:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
-msgstr "Ympäristömuuttujat"
+msgstr "Ympäristömuuttujat:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7212,9 +7204,7 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Muuta tiedoston <filename>%1</filename> nimeksi:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Tiedosto nimeltä <filename>%1</filename> on jo olemassa."
@@ -7257,16 +7247,14 @@ msgstr ""
 "Virheellinen tiedostonimi: uuden nimen tulisi sisältää jono #-merkkejä, "
 "ellei kaikilla tiedostoilla ole eri tiedostopäätteitä."
 
+# *** TARKISTA: Kontekstijonokaan ei auta selvittämään, mihin ”by” viittaa.
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Muuta %1 valitun kohteen nimeksi:"
-msgstr[1] "Muuta %1 valitun kohteen nimiksi:"
+msgstr[0] "Muuta valitun kohteen nimeä ohjelmalla:"
+msgstr[1] "Muuta %1 valitun kohteen nimeä ohjelmalla:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7308,10 +7296,7 @@ msgstr ""
 "Jos ”%1” korvataan tyhjällä, <filename>%2</filename> saisi tyhjän nimen"
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
@@ -7322,29 +7307,25 @@ msgstr[1] "Muuta %1 valitun kohteen nimiksi:"
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Lisää teksti:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Lisättävä teksti"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Syötä tiedostonimi (%1):"
+msgstr "Ennen tiedostonimeä"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Syötä tiedostonimi (%1):"
+msgstr "Tiedostonimen jälkeen"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7386,7 +7367,7 @@ msgstr "Korvaa teksti"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Lisää teksti"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
