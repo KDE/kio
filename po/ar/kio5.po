@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-05-14 17:08+0400\n"
+"PO-Revision-Date: 2025-07-31 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1000,7 +1000,7 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
-"ربما كانت هناك مشكلة في ضبط الشبكة. إذا كنت تقوم بالوصول إلى الإنترنت بدون "
+"ربما كانت هناك مشكلة في ضبط الشبكة. إذا كنت تقوم بالوصول إلى الإنترنت دون "
 "مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك. "
 
 #: core/job_error.cpp:415
@@ -1964,7 +1964,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "ربما كانت هناك مشكلة في ضبط الشبكة، خصوصا في اسم وكيل الإنترنت. إذا كنت تقوم "
-"بالوصول إلى الإنترنت بدون مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك."
+"بالوصول إلى الإنترنت دون مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك."
 
 #: core/job_error.cpp:1046
 #, kde-format
@@ -4616,11 +4616,11 @@ msgstr ""
 "المنافع الكعك ؛ فإن كِيدِي توفر لك القدرة على تخصيص طريقة التعامل مع الكعك . "
 "فقد ترغب أن تجعل سياسة كِيدِي هي طلب الإذن لأي خادم يريد أن ينشئ كعك ، وقد "
 "ترغب في السماح للمتاجرك الإلكترونية المفضلة التي تثق فيها أن تنشئ كعك كما "
-"تريد ، فيمكنك وضع سياسة قبول الكعك بدون طلب الإذن لهذه المواقع. </p> كل ما "
+"تريد ، فيمكنك وضع سياسة قبول الكعك دون طلب الإذن لهذه المواقع. </p> كل ما "
 "عليك هو أن تذهب إلى ذاك الموقع و عندما يظهر لك مربع حوار الكعك ، انقر على "
 "<i> هذا المجال </i> تحت لسان 'طبق على' و اختر اسمح أو  حدد بكل بساطة اسم "
 "الموقع في لسان <i> سياسة المجالات الخاصة </i> ثم وافق على قبولها ، هذا يمكنك "
-"من استقبال كعك من المواقع الموثوقة بدون الحاجة إلى سؤالك كل مرة تستقبل فيها "
+"من استقبال كعك من المواقع الموثوقة دون الحاجة إلى سؤالك كل مرة تستقبل فيها "
 "الكعك."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
@@ -6513,7 +6513,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inlistbox No default web search keyword"
 msgid "None"
-msgstr "بدون"
+msgstr "لا شيء"
 
 #: urifilters/ikws/ikwsopts.cpp:247 urifilters/ikws/kurisearchfilter.cpp:83
 #, kde-format
@@ -6614,9 +6614,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt> \n"
-"حدد محرك البحث المراد استخدامه لمربعات الإدخال التي توفر تلقائيًاخدمات البحث "
+"حدد محرك البحث المراد استخدامه لمربعات الإدخال التي توفر تلقائيًا خدمات البحث "
 "عندما تكتب كلمات وعبارات عادية بدلاً من عنوان القياسية.لتعطيل هذه الميزة حدد "
-"<b> بدون </b> من القائمة. \n"
+"<b> لا شيء </b> من القائمة. \n"
 "</qt> "
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
@@ -6638,8 +6638,8 @@ msgstr ""
 "<html><head/><body> <p> حدد اختصار ويب مبدئي. </p> <p> يتيح ذلك للتطبيقات "
 "تحويل الكلمة أو العبارة المكتوبة تلقائيًا إلى استعلامات كلمات رئيسية لبحث "
 "الويب عندما لا يمكن تصفيتها إلى عنوان مناسب. </p> <p> لتعطيل هذه الوظيفة ، "
-"حدد <span style = \"font-weight: 600;\"> بدون</span> من القائمة. </p></body> "
-"</html> "
+"حدد <span style = \"font-weight: 600;\"> لا شيء</span> من القائمة. </p></"
+"body> </html> "
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
