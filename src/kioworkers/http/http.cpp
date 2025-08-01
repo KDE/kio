@@ -264,7 +264,7 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &
      * send a Content-Length header field when the request message does not contain content and
      * the method semantics do not anticipate such data." Semantically, HTTP_GET, HTTP_HEAD,
      * and others shouldn't send the header when the data is empty. Workaround that behavior
-     * here until Qt is modified. */
+     * here until and if Qt is modified. https://bugreports.qt.io/browse/QTBUG-138848 */
     const bool noBodyWhenEmpty = (method == KIO::HTTP_GET || method == KIO::HTTP_HEAD || method == KIO::HTTP_DELETE);
     QBuffer buffer(&inputData);
     QIODevice *bodyDevice = (noBodyWhenEmpty && inputData.isEmpty()) ? nullptr : &buffer;
