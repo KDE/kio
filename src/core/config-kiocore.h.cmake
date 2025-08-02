@@ -7,8 +7,6 @@
 /* Defined if sys/acl.h exists */
 #cmakedefine01 HAVE_SYS_ACL_H
 
-#cmakedefine01 HAVE_QTDBUS
-
 #define KDE_INSTALL_FULL_LIBEXECDIR_KF "${KDE_INSTALL_FULL_LIBEXECDIR_KF}"
 
 #define KDE_INSTALL_FULL_KIO_PLUGINDIR "${KDE_INSTALL_FULL_PLUGINDIR}/kf6/kio/"

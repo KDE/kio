@@ -12,8 +12,6 @@
 #ifndef KIO_JOB_P_H
 #define KIO_JOB_P_H
 
-#include "config-kiocore.h"
-
 #include "commands_p.h"
 #include "global.h"
 #include "jobtracker.h"
@@ -27,12 +25,6 @@
 #include <QUrl>
 #include <kio/jobuidelegateextension.h>
 #include <kio/jobuidelegatefactory.h>
-
-#if HAVE_QTDBUS
-#include <QDBusObjectPath>
-
-#include <optional>
-#endif
 
 /* clang-format off */
 #define KIO_ARGS \
@@ -92,10 +84,6 @@ public:
     MetaData m_outgoingMetaData;
     JobUiDelegateExtension *m_uiDelegateExtension;
     Job *q_ptr;
-#if HAVE_QTDBUS
-    std::optional<uint> m_inhibitionCookie; // fdo.
-    QDBusObjectPath m_portalInhibitionRequest; // portal.
-#endif
     // For privilege operation
     bool m_privilegeExecutionEnabled;
     QString m_title, m_message;
@@ -103,10 +91,6 @@ public:
 
     QByteArray privilegeOperationData();
     void slotSpeed(KJob *job, unsigned long speed);
-
-    void inhibitSuspend(const QString &reason);
-    void uninhibitSuspend();
-    virtual void doInhibitSuspend();
 
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitRenaming(KIO::Job *, const QUrl &src, const QUrl &dest);
