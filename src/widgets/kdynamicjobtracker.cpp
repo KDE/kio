@@ -10,6 +10,7 @@
 #include "kio_widgets_debug.h"
 #include "kuiserver_interface.h"
 
+#include <KInhibitionJobTracker>
 #include <KJobTrackerInterface>
 #include <KUiServerV2JobTracker>
 #include <KWidgetJobTracker>
@@ -25,6 +26,7 @@
 struct AllTrackers {
     KUiServerV2JobTracker *kuiserverV2Tracker;
     KWidgetJobTracker *widgetTracker;
+    KInhibitionJobTracker *inhibitionTracker;
 };
 
 class KDynamicJobTrackerPrivate
@@ -38,6 +40,7 @@ public:
     {
         delete kuiserverV2Tracker;
         delete widgetTracker;
+        delete inhibitionTracker;
     }
 
     static bool hasDBusInterface(const QString &introspectionData, const QString &interface)
@@ -57,6 +60,7 @@ public:
 
     KUiServerV2JobTracker *kuiserverV2Tracker = nullptr;
     KWidgetJobTracker *widgetTracker = nullptr;
+    KInhibitionJobTracker *inhibitionTracker = nullptr;
     QMap<KJob *, AllTrackers> trackers;
 
     enum JobViewServerSupport {
@@ -94,6 +98,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
     AllTrackers &trackers = d->trackers[job];
     trackers.kuiserverV2Tracker = nullptr;
     trackers.widgetTracker = nullptr;
+    trackers.inhibitionTracker = nullptr;
 
     auto useWidgetsFallback = [this, canHaveWidgets, &trackers, job] {
         if (canHaveWidgets) {
@@ -117,6 +122,15 @@ void KDynamicJobTracker::registerJob(KJob *job)
     if (!QDBusConnection::sessionBus().interface()) {
         useWidgetsFallback();
         return;
+    }
+
+    if (!job->property("kio_no_inhibit_suspend").toBool()) {
+        if (!d->inhibitionTracker) {
+            d->inhibitionTracker = new KInhibitionJobTracker();
+        }
+
+        trackers.inhibitionTracker = d->inhibitionTracker;
+        trackers.inhibitionTracker->registerJob(job);
     }
 
     const QString kuiserverService = QStringLiteral("org.kde.kuiserver");
@@ -197,6 +211,7 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
     const AllTrackers &trackers = it.value();
     KUiServerV2JobTracker *kuiserverV2Tracker = trackers.kuiserverV2Tracker;
     KWidgetJobTracker *widgetTracker = trackers.widgetTracker;
+    KInhibitionJobTracker *inhibitionTracker = trackers.inhibitionTracker;
 
     if (kuiserverV2Tracker) {
         kuiserverV2Tracker->unregisterJob(job);
@@ -204,6 +219,10 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
 
     if (widgetTracker) {
         widgetTracker->unregisterJob(job);
+    }
+
+    if (inhibitionTracker) {
+        inhibitionTracker->unregisterJob(job);
     }
 
     d->trackers.erase(it);
