@@ -47,7 +47,10 @@ public:
         Unscaled,
         Scaled,
         ScaledAndCached,
+        Square,
+        SquareAndCached,
     };
+    // TODO KF7 use proper flag for this
 
     /*!
      * \a items List of files to create previews for.

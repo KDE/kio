@@ -91,6 +91,9 @@ FilePreviewJob::~FilePreviewJob()
 
 void FilePreviewJob::start()
 {
+    if ((m_scaleType == PreviewJob::Square || m_scaleType == PreviewJob::SquareAndCached) && m_size.height() != m_size.width()) {
+        qCWarning(KIO_GUI) << Q_FUNC_INFO << "Invalid dimension given for a square image" << m_size;
+    }
     // If our deviceIdMap does not have these items, run FilePreviewStatJob to get them
     auto parentDir = parentDirPath(m_item.item.localPath());
     QStringList paths;
@@ -431,7 +434,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     QFileInfo info(pixPath);
     Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
 
-    bool save = m_scaleType == PreviewJob::ScaledAndCached && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
+    bool save = (m_scaleType == PreviewJob::ScaledAndCached || m_scaleType == PreviewJob::SquareAndCached)
+        && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
 
     bool isRemoteProtocol = m_item.item.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
@@ -487,6 +491,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("mimeType"), m_item.item.mimetype());
     job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+    job->addMetaData(QStringLiteral("square"), QString::number(m_scaleType == KIO::PreviewJob::Square || m_scaleType == KIO::PreviewJob::SquareAndCached));
     job->addMetaData(QStringLiteral("plugin"), m_item.plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), m_enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_devicePixelRatio));
@@ -552,8 +557,8 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
 
 void FilePreviewJob::saveThumbnailData(QImage &thumb)
 {
-    const bool save = m_scaleType == PreviewJob::ScaledAndCached && !m_sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
-        && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true)
+    const bool save = (m_scaleType == PreviewJob::ScaledAndCached || m_scaleType == PreviewJob::SquareAndCached) && !m_sequenceIndex
+        && m_currentDeviceCachePolicy == CachePolicy::Allow && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true)
         && (!m_item.item.targetUrl().isLocalFile() || !m_item.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot));
 
     if (save) {
