@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-07-31 18:37+0400\n"
+"PO-Revision-Date: 2025-08-03 15:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -6506,8 +6506,8 @@ msgid ""
 "keywords can be shown at one time."
 msgstr ""
 "حدد هذا المربع لتحديد الكلمة الأساسية المميزة للبحث على الويب كما تفضل. <nl /"
-"> يتم استخدام الكلمات الرئيسية المفضلة لبحث الويب في الأماكن التي يمكن فيها "
-"عرض عدد قليل فقط من الكلمات الرئيسية المحددة في وقت واحد. "
+"> يتم استخدام الكلمات الرئيسة المفضلة لبحث الويب في الأماكن التي يمكن فيها "
+"عرض عدد قليل فقط من الكلمات الرئيسة المحددة في وقت واحد. "
 
 #: urifilters/ikws/ikwsopts.cpp:203
 #, kde-format
@@ -6555,10 +6555,10 @@ msgid ""
 msgstr ""
 "<html><head/><body> <p> مكن كلمات بحث الويب. </p> <p> تتيح لك كلمات بحث "
 "الويب الوصول بسرعة إلى المعلومات الموجودة على الإنترنت أو على محرك الأقراص "
-"الثابتة أو البحث عنها. </p> <p> تأتي كِيدِي مع العديد من الكلمات الرئيسية "
-"المحددة مسبقًا. يمكن استخدام إحدى هذه الكلمات الرئيسية لإجراء بحث Google "
-"(TM) ؛ لاستخدامها ، ما عليك سوى كتابة الكلمة الرئيسية \"gg\" متبوعةً بمحدد "
-"الكلمات الرئيسية ومصطلح البحث ، على سبيل المثال <span style = \"font-"
+"الثابتة أو البحث عنها. </p> <p> تأتي كِيدِي مع العديد من الكلمات الرئيسة "
+"المحددة مسبقًا. يمكن استخدام إحدى هذه الكلمات الرئيسة لإجراء بحث Google "
+"(TM) ؛ لاستخدامها ، ما عليك سوى كتابة الكلمة الرئيسة \"gg\" متبوعةً بمحدد "
+"الكلمات الرئيسة ومصطلح البحث ، على سبيل المثال <span style = \"font-"
 "weight:600;\"> gg:كِيدِي </span>. </p> </body> </html> "
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
@@ -6636,7 +6636,7 @@ msgid ""
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
 "<html><head/><body> <p> حدد اختصار ويب مبدئي. </p> <p> يتيح ذلك للتطبيقات "
-"تحويل الكلمة أو العبارة المكتوبة تلقائيًا إلى استعلامات كلمات رئيسية لبحث "
+"تحويل الكلمة أو العبارة المكتوبة تلقائيًا إلى استعلامات كلمات رئيسة لبحث "
 "الويب عندما لا يمكن تصفيتها إلى عنوان مناسب. </p> <p> لتعطيل هذه الوظيفة ، "
 "حدد <span style = \"font-weight: 600;\"> لا شيء</span> من القائمة. </p></"
 "body> </html> "
@@ -6655,7 +6655,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:185
 #, kde-format
 msgid "&Keyword delimiter:"
-msgstr "فاصل الكلمات ال&رئيسية: "
+msgstr "فاصل الكلمات ال&رئيسة:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:204
@@ -6798,7 +6798,7 @@ msgstr "&مسار الاختصار:"
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
-msgstr "حدد مجموعة الأحرف التي سيتم استخدامها لتشفير استعلام البحث الخاص بك. "
+msgstr "حدد مجموعة الأحرف التي ستستخدم لترميز استعلام بحثك."
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
@@ -6842,7 +6842,7 @@ msgstr "الا&ختصارات:"
 #: urifilters/ikws/searchproviderdlg_ui.ui:132
 #, kde-format
 msgid "Select the character set that will be used to encode your search query"
-msgstr "حدد مجموعة الأحرف التي سيتم استخدامها لتشفير استعلام البحث الخاص بك "
+msgstr "حدد مجموعة الأحرف التي ستستخدم لترميز استعلام بحثك"
 
 #. i18n: ectx: property (text), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
