@@ -11,6 +11,7 @@
 #include "previewjob.h"
 #include "filepreviewjob.h"
 #include "kiogui_debug.h"
+#include "kprotocolinfo.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -54,8 +55,6 @@ public:
     // We remove the first item at every step, so use std::list
     QSize size;
     std::list<PreviewItem> items;
-    // The current item
-    PreviewItem currentItem;
     // Whether the thumbnail should be scaled ando/or saved
     PreviewJob::ScaleType scaleType;
     bool ignoreMaximumSize;
@@ -75,6 +74,7 @@ public:
 
 private:
     QDir createTemporaryDir();
+    int maximumWorkers = 1;
 };
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
@@ -95,6 +95,8 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
     }
+
+    d->maximumWorkers = KProtocolInfo::maxWorkers(QStringLiteral("thumbnail"));
 
     // Return to event loop first, determineNextFile() might delete this;
     QTimer::singleShot(0, this, [d]() {
@@ -256,11 +258,14 @@ void PreviewJob::removeItem(const QUrl &url)
         d->items.erase(it);
     }
 
-    if (d->currentItem.item.url() == url) {
-        KJob *job = subjobs().first();
-        job->kill();
-        removeSubjob(job);
-        d->determineNextFile();
+    for (auto subjob : subjobs()) {
+        FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(subjob);
+        if (previewJob && previewJob->item().item.url() == url) {
+            subjob->kill();
+            removeSubjob(subjob);
+            d->determineNextFile();
+            break;
+        }
     }
 }
 
@@ -297,16 +302,17 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
-    // No more items ?
-    if (items.empty()) {
+
+    if (q->subjobs().count() == 0 && items.empty()) {
         q->emitResult();
         return;
-    } else {
-        // First, stat the orig file
-        currentItem = items.front();
-        items.pop_front();
+    }
 
-        FilePreviewJob *job = KIO::filePreviewJob(currentItem, thumbRoot);
+    const int jobsToRun = qMin((int)items.size(), maximumWorkers - q->subjobs().count());
+    for (int i = 0; i < jobsToRun; i++) {
+        auto item = items.front();
+        items.pop_front();
+        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot);
         q->addSubjob(job);
         job->start();
     }
