@@ -92,28 +92,30 @@ FilePreviewJob::~FilePreviewJob()
 void FilePreviewJob::start()
 {
     // If our deviceIdMap does not have these items, run FilePreviewStatJob to get them
-    auto parentDir = parentDirPath(m_item.item.localPath());
-    QStringList paths;
-    if (!m_deviceIdMap.contains(m_thumbRoot)) {
-        paths.append(m_thumbRoot);
-    }
-    if (!parentDir.isEmpty() && !m_deviceIdMap.contains(parentDir)) {
-        paths.append(parentDir);
-    }
+    QTimer::singleShot(0, this, [this]() {
+        auto parentDir = parentDirPath(m_item.item.localPath());
+        QStringList paths;
+        if (!m_deviceIdMap.contains(m_thumbRoot)) {
+            paths.append(m_thumbRoot);
+        }
+        if (!parentDir.isEmpty() && !m_deviceIdMap.contains(parentDir)) {
+            paths.append(parentDir);
+        }
 
-    if (!paths.isEmpty()) {
-        auto *firstJob = new FileDeviceJob(paths);
-        connect(firstJob, &KIO::Job::result, this, [this](KJob *job) {
-            FileDeviceJob *previewStatJob = static_cast<FileDeviceJob *>(job);
-            for (auto item : previewStatJob->m_deviceIdMap.asKeyValueRange()) {
-                m_deviceIdMap.insert(item.first, item.second);
-            }
+        if (!paths.isEmpty()) {
+            auto *firstJob = new FileDeviceJob(paths);
+            connect(firstJob, &KIO::Job::result, this, [this](KJob *job) {
+                FileDeviceJob *previewStatJob = static_cast<FileDeviceJob *>(job);
+                for (auto item : previewStatJob->m_deviceIdMap.asKeyValueRange()) {
+                    m_deviceIdMap.insert(item.first, item.second);
+                }
+                statFile();
+            });
+            firstJob->start();
+        } else {
             statFile();
-        });
-        firstJob->start();
-    } else {
-        statFile();
-    }
+        }
+    });
 }
 
 QString FilePreviewJob::parentDirPath(const QString &path) const
