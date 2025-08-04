@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-19 15:03+0530\n"
+"PO-Revision-Date: 2025-08-03 12:33+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -5030,11 +5030,9 @@ msgid "Destination"
 msgstr "சேருமிடம்"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
-msgstr "நகலெடுத்தல்"
+msgstr "நகலெடுக்கப்படுகிறது"
 
 #: widgets/fileundomanager.cpp:145
 #, kde-format
@@ -5047,10 +5045,9 @@ msgid "Renaming"
 msgstr "மறுபெயரிடப்படுகிறது"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "அகற்றிடத்துக்கு நகர்த்து"
+msgstr "அகற்றிடத்துக்கு நகர்த்தப்படுகிறது"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5110,61 +5107,52 @@ msgstr "&செயல்நீக்கு: மொத்தமாக மறு�
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&மீளச்செய்"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&செயல்நீக்கு: நகலெடுத்தது"
+msgstr "&மீளச்செய்: நகலெடுத்தது"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "செயல்நீக்கு: இணைத்தது"
+msgstr "&மீளச்செய்: இணைத்தது"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&செயல்நீக்கு: நகர்த்தியது"
+msgstr "&மீளச்செய்: நகர்த்தியது"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&செயல்நீக்கு: மறுபெயரித்தது"
+msgstr "&மீளச்செய்: மறுபெயரித்தது"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&செயல்நீக்கு: அகற்றியது"
+msgstr "&மீளச்செய்: அகற்றியது"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&செயல்நீக்கு: அடைவை உருவாக்கியது"
+msgstr "&மீளச்செய்: அடைவை உருவாக்கியது"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&செயல்நீக்கு: அடைவுகளை உருவாக்கியது"
+msgstr "&மீளச்செய்: அடைவுகளை உருவாக்கியது"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&செயல்நீக்கு: கோப்பை உருவாக்கியது"
+msgstr "&மீளச்செய்: கோப்பை உருவாக்கியது"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&செயல்நீக்கு: மொத்தமாக மறுபெயரிட்டது"
+msgstr "&மீளச்செய்: மொத்தமாக மறுபெயரிட்டது"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format

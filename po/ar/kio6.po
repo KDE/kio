@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-31 18:37+0400\n"
+"PO-Revision-Date: 2025-08-03 15:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3768,9 +3768,7 @@ msgstr "أنشئ ملفا جديدا"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "أَدْخِل اسم المَلَف"
 
@@ -5042,9 +5040,7 @@ msgid "Destination"
 msgstr "المقصد"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "ينسخ"
 
@@ -5059,10 +5055,9 @@ msgid "Renaming"
 msgstr "إعادة تسمية"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "انقل إلى المهملات"
+msgstr "ينقل إلى المهملات"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5122,61 +5117,52 @@ msgstr "أر&جع: إعادة تسمية الدُفعة "
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "أعِ&د"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&تراجع عن: النّسخ"
+msgstr "أعِ&د: النّسخ"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&تراجع عن: الرّبط"
+msgstr "أعِ&د: الرّبط"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&تراجع عن: النّقل"
+msgstr "أعِ&د: النّقل"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&تراجع عن: تغيير الاسم"
+msgstr "أعِ&د: تغيير الاسم"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&تراجع عن: الرّمي"
+msgstr "أعِ&د: الرّمي"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&تراجع عن: إنشاء المجلّد"
+msgstr "أعِ&د: إنشاء المجلّد"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&تراجع عن: إنشاء المجلّدات"
+msgstr "أعِ&د: إنشاء المجلّدات"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&تراجع عن: إنشاء الملفّ"
+msgstr "أعِ&د: إنشاء الملفّ"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "أر&جع: إعادة تسمية الدُفعة "
+msgstr "أعِ&د: إعادة تسمية الدُفعة"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
