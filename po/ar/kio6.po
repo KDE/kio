@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-08-03 15:16+0400\n"
+"PO-Revision-Date: 2025-08-04 15:09+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3274,7 +3274,7 @@ msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
 "panel"
 msgid "Auto Resize"
-msgstr "تحجيم آلي"
+msgstr "تحجيم آليّ"
 
 #: filewidgets/kfileplacesview.cpp:1433
 #, kde-format
@@ -3584,8 +3584,8 @@ msgstr ""
 "إلى نهاية اسم الملف (إذا لم يكن اسم الملف كذلك موجود مسبقا). يعتمد هذا "
 "الامتداد على نوع الملف الذي اخترت الحفظ فيه. <br /> <br />إذا كنت لا تريد من "
 "كِيدِي توفير امتداد لاسم الملف ، فيمكنك إما إيقاف تشغيل هذا الخيار أو يمكنك "
-"منعه عن طريق إضافة نقطة (.) إلى نهاية اسم الملف (ستتم إزالة الفترة تلقائيًا). "
-"</li> </ol>إذا لم تكن متأكدًا ، احتفظ بهذا الخيار ممكّنًا لأنه يجعل ملفاتك أكثر "
+"منعه عن طريق إضافة نقطة (.) إلى نهاية اسم الملف (ستتم إزالة الفترة آليًّا). </"
+"li> </ol>إذا لم تكن متأكدًا ، احتفظ بهذا الخيار ممكّنًا لأنه يجعل ملفاتك أكثر "
 "قابلية للإدارة. "
 
 #: filewidgets/kfilewidget.cpp:2940
@@ -4970,8 +4970,7 @@ msgstr "تشغيل الملفات القابلة للتنفيذ دون طلب"
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
-"افتح الملفات القابلة للتنفيذ في التطبيق الافتراضي دون الحاجة إلى السؤال"
+msgstr "افتح الملفات القابلة للتنفيذ في التطبيق المبدئي دون الحاجة إلى السؤال"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -6432,7 +6431,7 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"فعّل هذا الخيار للسماح للمالك فقط بحذف وإعادة تسمية المحتويات من ملفات "
+"مكّن هذا الخيار للسماح للمالك فقط بحذف وإعادة تسمية المحتويات من ملفات "
 "ومجلدات. المستخدمون الآخرون يستطيعون إضافة ملفات جديدة فقط، مما يتطلب إذن "
 "تعديل محتوى."
 
@@ -6442,7 +6441,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"فعّل هذا الخيار لتحديد الملف كملف تنفيذي. هذا فقط يحمل معنى واضحا للبرامج "
+"مكّن هذا الخيار لتحديد الملف كملف تنفيذي. هذا فقط يحمل معنى واضحا للبرامج "
 "والبرامج النصية. وهي تفضل عندما تريد أن تنفذها."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1239
@@ -6541,7 +6540,7 @@ msgstr "أدخل"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1420
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
-msgstr "فعّل هذه الإشارة للسماح بدخول المجلد."
+msgstr "مكّن هذه الإشارة للسماح بدخول المجلد."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
@@ -6551,7 +6550,7 @@ msgstr "تنفيذ"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "فعّل هذه الإشارة للسماح بتنفيذ الملف كبرنامج."
+msgstr "مكّن هذه الإشارة للسماح بتنفيذ الملف كبرنامج."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
