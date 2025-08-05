@@ -2635,7 +2635,6 @@ void KFileWidgetPrivate::updateFilter()
     }
 }
 
-// applies only to a file that doesn't already exist
 void KFileWidgetPrivate::appendExtension(QUrl &url)
 {
     //     qDebug();
@@ -2656,20 +2655,6 @@ void KFileWidgetPrivate::appendExtension(QUrl &url)
 
     const bool suppressExtension = (dot == len - 1);
     const bool unspecifiedExtension = !fileName.endsWith(m_extension);
-
-    // don't KIO::Stat if unnecessary
-    if (!(suppressExtension || unspecifiedExtension)) {
-        return;
-    }
-
-    // exists?
-    KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
-    KJobWidgets::setWindow(statJob, q);
-    bool res = statJob->exec();
-    if (res) {
-        //         qDebug() << "\tfile exists - won't append extension";
-        return;
-    }
 
     // suppress automatically append extension?
     if (suppressExtension) {
