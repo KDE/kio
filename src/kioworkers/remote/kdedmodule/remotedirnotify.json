@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides change notification for network folders",
-        "Description[ar]": "يقدم تنبيه إذا ما غيرت مجلدات الشبكة",
+        "Description[ar]": "يقدم إشعار عندما تُغير مجلدات الشبكة",
         "Description[az]": "Şəbəkə qovluqlarındakı dəyişiklik bildirişini göstərir",
         "Description[be]": "Апавяшчае пра змены ў сеткавых каталогах",
         "Description[bg]": "Уведомления за промени в мрежови папки",
