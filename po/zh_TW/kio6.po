@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-07-01 19:54+0900\n"
+"PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3660,9 +3660,7 @@ msgstr "建立新檔案"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "輸入檔案名稱"
 
@@ -4907,9 +4905,7 @@ msgid "Destination"
 msgstr "目的地"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "複製中"
 
@@ -4924,10 +4920,9 @@ msgid "Renaming"
 msgstr "重新命名中"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "移到垃圾桶"
+msgstr "正在移到垃圾桶"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -4987,61 +4982,52 @@ msgstr "復原：批次重新命名(&O)"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "重做(&R)"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "復原：複製(&O)"
+msgstr "重做：複製(&R)"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "復原：連結(&O)"
+msgstr "重做：連結(&R)"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "復原：移動(&O)"
+msgstr "重做：移動(&R)"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "復原：重新命名(&O)"
+msgstr "重做：重新命名(&R)"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "復原：丟到垃圾桶(&O)"
+msgstr "重做：丟到垃圾桶(&R)"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "復原：建立資料夾(&O)"
+msgstr "重做：建立資料夾(&R)"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "復原：建立資料夾(&O)"
+msgstr "重做：建立資料夾(&R)"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "復原：建立檔案(&O)"
+msgstr "重做：建立檔案(&R)"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "復原：批次重新命名(&O)"
+msgstr "重做：批次重新命名(&R)"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5793,38 +5779,29 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"在這裡輸入這個應用程式的描述，可根據它的用途。例如：一個撥號應用程式 (KPPP) "
-"應該是「撥號工具」。"
+"在這裡輸入應用程式的通用名稱。例如：一個影像檢視應用程式會是「影像檢視器」。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "一般(&G)"
+msgstr "通用名稱(&G):"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"在這裡輸入這個應用程式的描述，可根據它的用途。例如：一個撥號應用程式 (KPPP) "
-"應該是「撥號工具」。"
+"在這裡輸入這個應用程式的描述，可根據它的用途。例如：一個影像檢視應用程式會是"
+"「檢視並編輯影像」。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5834,8 +5811,7 @@ msgstr "備註(&E)："
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "環境變數："
 
@@ -6551,16 +6527,14 @@ msgid "Verifying checksum…"
 msgstr "正在檢查總和碼…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "檔案<b>相同</b>。"
+msgstr "所有檔案的檢查碼皆相同。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "檔案<b>不同</b>。"
+msgstr "所選檔案檢查碼不同。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
