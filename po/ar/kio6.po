@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-08-05 13:36+0400\n"
+"PO-Revision-Date: 2025-08-06 17:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -922,7 +922,7 @@ msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr ""
-"راسل نظام دعم الحاسوب المناسب ، سواءً مدير النظام أو مجموعة الدعم الفني لمزيد "
+"راسل نظام دعم الحاسوب المناسب، سواءً مدير النظام أو مجموعة الدعم الفني لمزيد "
 "من المساعدة."
 
 #: core/job_error.cpp:378
@@ -993,12 +993,12 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
-"عندما يفشل كل شيء آخر ، رجاءً ساعد فريق كِيدِي أو المشرف الخارجي لهذا البرنامج "
-"من خلال إرسال تقرير خطأ عالي الجودة. إذا وفر البرنامج من قبل طرف ثالث ، يرجى "
-"الاتصال بهم مباشرة.بخلاف ذلك ، انظر أولاً لمعرفة ما إذا كان قد أُرسل الخطأ "
-"نفسه بواسطة شخص آخر من خلال البحث في <a href=\"https://bugs.kde.org/\">موقع "
-"علل كِيدِي</a>.إذا لم يكن الأمر كذلك ، فقم بتدوين التفاصيل الواردة أعلاه ، وقم "
-"بتضمينها في تقرير الخطأ ، بالإضافة إلى العديد من التفاصيل الأخرى التي تعتقد "
+"عندما يفشل كل شيء آخر، رجاءً ساعد فريق كِيدِي أو المشرف الخارجي لهذا البرنامج "
+"من خلال إرسال تقرير خطأ عالي الجودة. إذا وفر البرنامج من قبل طرف ثالث، يرجى "
+"الاتصال بهم مباشرة.بخلاف ذلك، انظر أولاً لمعرفة ما إذا كان قد أُرسل الخطأ نفسه "
+"بواسطة شخص آخر من خلال البحث في <a href=\"https://bugs.kde.org/\">موقع علل "
+"كِيدِي</a>.إذا لم يكن الأمر كذلك، فقم بتدوين التفاصيل الواردة أعلاه، وقم "
+"بتضمينها في تقرير الخطأ، بالإضافة إلى العديد من التفاصيل الأخرى التي تعتقد "
 "أنها قد تساعدك."
 
 #: core/job_error.cpp:411
@@ -1013,7 +1013,7 @@ msgid ""
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
 "ربما كانت هناك مشكلة في ضبط الشبكة. إذا كنت تقوم بالوصول إلى الإنترنت دون "
-"مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك. "
+"مشاكل مؤخرًا، فمن غير المرجح أن يحدث ذلك. "
 
 #: core/job_error.cpp:419
 #, kde-format
@@ -1213,7 +1213,7 @@ msgid ""
 "programming error."
 msgstr ""
 "يمكن لكِيدِي التواصل عبر بروتوكول داخل بروتوكول ؛ يستعمل البروتوكول المحدد في "
-"مثل هذه الحالات، لكن من البين أن الحال على غير ذلك. هذا حدث نادر ، غالبا ما "
+"مثل هذه الحالات، لكن من البين أن الحال على غير ذلك. هذا حدث نادر، غالبا ما "
 "أنه يشير إلى خطأ برمجي."
 
 #: core/job_error.cpp:529
@@ -1473,8 +1473,8 @@ msgid ""
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
 "تستطيع بيئات يونكس بشكل عام ربط ملف أو مجلد باسم منفصل و/أو موقع. أثناء "
-"عملية النسخ المطلوبة ، وجد برنامج كِيدِي رابط أو سلسلة من الروابط والتي تنتج "
-"في حلقة لا نهائية - على سبيل المثال كان الملف مرتبط بنفسه."
+"عملية النسخ المطلوبة، وجد برنامج كِيدِي رابط أو سلسلة من الروابط والتي تنتج في "
+"حلقة لا نهائية - على سبيل المثال كان الملف مرتبط بنفسه."
 
 #: core/job_error.cpp:702
 #, kde-format
@@ -1502,7 +1502,7 @@ msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr ""
-"قد يكون اتصال الشبكة غير معد بشكل صحيح ، أو أن واجهة الشبكة لا يمكن تفعيلها."
+"قد يكون اتصال الشبكة غير معد بشكل صحيح، أو أن واجهة الشبكة لا يمكن تفعيلها."
 
 #: core/job_error.cpp:714
 #, kde-format
@@ -1560,7 +1560,7 @@ msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
 msgstr ""
-"من الممكن أنه حصل خطأ ميفاقي ، مما أدى لأن يغلق الخادم الاتصال كرد على الخطأ."
+"من الممكن أنه حصل خطأ ميفاقي، مما أدى لأن يغلق الخادم الاتصال كرد على الخطأ."
 
 #: core/job_error.cpp:748
 #, kde-format
@@ -1592,7 +1592,7 @@ msgid ""
 "programming error."
 msgstr ""
 "كِيدِي قادرة على التواصل من خلال ميفاق ضمن ميفاق. حدد هذا الطلب استخدام ميفاق "
-"معين على هذا النحو ، ولكن هذا الميفاق غير قادر على مثل هذا الإجراء. هذا حدث "
+"معين على هذا النحو، ولكن هذا الميفاق غير قادر على مثل هذا الإجراء. هذا حدث "
 "نادر ومن المحتمل أن يشير إلى خطأ في البرمجة. "
 
 #: core/job_error.cpp:766
@@ -1829,7 +1829,7 @@ msgstr "فشلت محاولة إنشاء المجلّد المطلوب."
 #: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr "قد لا يكون الموقع الذي سيتم إنشاء المجلد فيه موجودًا. "
+msgstr "قد لا يكون الموقع الذي سيُنشئ المجلد فيه موجودًا."
 
 #: core/job_error.cpp:943
 #, kde-format
@@ -1976,7 +1976,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "ربما كانت هناك مشكلة في ضبط الشبكة، خصوصا في اسم وكيل الإنترنت. إذا كنت تقوم "
-"بالوصول إلى الإنترنت دون مشاكل مؤخرًا ، فمن غير المرجح أن يحدث ذلك."
+"بالوصول إلى الإنترنت دون مشاكل مؤخرًا، فمن غير المرجح أن يحدث ذلك."
 
 #: core/job_error.cpp:1050
 #, kde-format
@@ -1995,7 +1995,7 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"على الرغم من أنك زودت بتفاصيل الاستيثاق الصحيحة ، إلا أن الاستيثاق فشل لأن "
+"على الرغم من أنك زودت بتفاصيل الاستيثاق الصحيحة، إلا أن الاستيثاق فشل لأن "
 "الطريقة التي يستخدمها الخادم ليست مدعومة من برنامج كِيدِي الذي يطبق ميفاق %1."
 
 #: core/job_error.cpp:1062
@@ -2045,8 +2045,7 @@ msgstr "راسل إدارة الخادوم لإعلامهم بالمشكلة."
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
-msgstr ""
-"إذا كنت تعرف من هم مؤلفو برنامج الخادم ، فأرسل تقرير العلة لهم مباشرة. "
+msgstr "إذا كنت تعرف من هم مؤلفو برنامج الخادم، فأرسل تقرير العلة لهم مباشرة. "
 
 #: core/job_error.cpp:1097
 #, kde-format
@@ -2059,8 +2058,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
-"على الرغم من الاتصال بالخادم، إلا أنه لم يتم تلقي رد خلال المدة الزمنية "
-"المخصصة للطلب."
+"على الرغم من الاتصال بالخادم، إلا أنه لم يتلقى رد خلال المدة الزمنية المخصصة "
+"للطلب."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2908,7 +2907,7 @@ msgid ""
 msgstr ""
 "<qt>هذا المكان مرتبط بالمدخلة. يمكن استخدام أي عنوان صحيح، على سبيل المثال::"
 "<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/kde/"
-"stable<br /><br />بالنقر فوق الزر الموجود بجوار مربع تحرير النص ، يمكنك "
+"stable<br /><br />بالنقر فوق الزر الموجود بجوار مربع تحرير النص، يمكنك "
 "التصفح للوصول إلى عنوان مناسب. </qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
@@ -2943,7 +2942,7 @@ msgid ""
 "entry will be available in all applications.</qt>"
 msgstr ""
 "<qt> حدد هذا الإعداد إذا كنت تريد أن تظهر هذا المدخلة فقط عند استخدام "
-"التطبيق الحالي (%1). <br /><br /> إذا لم إذا لم تحدد هذا الإعداد ، فستكون "
+"التطبيق الحالي (%1). <br /><br /> إذا لم إذا لم تحدد هذا الإعداد، فستكون "
 "المدخلة متاحة في جميع التطبيقات. </qt> "
 
 #: filewidgets/kfileplacesitem.cpp:221
@@ -3435,7 +3434,7 @@ msgid ""
 msgstr ""
 "<qt> يتيح لك هذا الزر وضع إشارة مرجعية على مواقع محددة. انقر فوق هذا الزر "
 "لفتح قائمة الإشارات المرجعية حيث يمكنك إضافة إشارة مرجعية أو تحريرها أو "
-"تحديدها. <br /> <br /> هذه الإشارات المرجعية خاصة بمربع حوار الملف ، ولكنها "
+"تحديدها. <br /> <br /> هذه الإشارات المرجعية خاصة بمربع حوار الملف، ولكنها "
 "تعمل بخلاف ذلك مثل الإشارات المرجعية في مكان آخر في كِيدِي. </qt> "
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
@@ -3578,15 +3577,14 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 "يتيح هذا الخيار بعض الميزات الملائمة لحفظ الملفات بتنسيق الامتدادات: <br /"
-"><ol> <li> سيتم تحديث أي امتداد محدد في منطقة النص <b>%1</b> إذا قمت بتغيير "
-"نوع الملف الذي تريد الحفظ فيه. <br /> <br /> </li><li> إذا لم يتم تحديد أي "
-"امتداد في منطقة النص <b>%2</b> عند النقر فوق <b> حفظ </b> ، فستتم إضافة%3 "
-"إلى نهاية اسم الملف (إذا لم يكن اسم الملف كذلك موجود مسبقا). يعتمد هذا "
-"الامتداد على نوع الملف الذي اخترت الحفظ فيه. <br /> <br />إذا كنت لا تريد من "
-"كِيدِي توفير امتداد لاسم الملف ، فيمكنك إما إيقاف تشغيل هذا الخيار أو يمكنك "
-"منعه عن طريق إضافة نقطة (.) إلى نهاية اسم الملف (ستتم إزالة الفترة آليًّا). </"
-"li> </ol>إذا لم تكن متأكدًا ، احتفظ بهذا الخيار ممكّنًا لأنه يجعل ملفاتك أكثر "
-"قابلية للإدارة. "
+"><ol> <li> سيُحدث أي امتداد محدد في منطقة النص <b>%1</b> إذا غيرت نوع الملف "
+"الذي تريد الحفظ فيه. <br /> <br /> </li><li> إذا لم يُحدد أي امتداد في منطقة "
+"النص <b>%2</b> عند النقر فوق <b> حفظ </b>، فستُضاف %3 إلى نهاية اسم الملف "
+"(إذا لم يكن اسم الملف كذلك موجود مسبقا). يعتمد هذا الامتداد على نوع الملف "
+"الذي اخترت الحفظ فيه. <br /> <br />إذا كنت لا تريد من كِيدِي توفير امتداد لاسم "
+"الملف، فيمكنك إما إيقاف تشغيل هذا الخيار أو يمكنك منعه عن طريق إضافة نقطة "
+"(.) إلى نهاية اسم الملف (ستُزال الفترة آليًّا). </li> </ol>إذا لم تكن متأكدًا، "
+"احتفظ بهذا الخيار ممكّنًا لأنه يجعل ملفاتك أكثر قابلية للإدارة."
 
 #: filewidgets/kfilewidget.cpp:2940
 #, kde-format
@@ -3673,7 +3671,7 @@ msgstr ""
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
-"سيؤدي استخدام الخطوط المائلة في أسماء المجلدات إلى إنشاء مجلدات فرعية ، مثل: "
+"سيؤدي استخدام الخطوط المائلة في أسماء المجلدات إلى إنشاء مجلدات فرعية، مثل: "
 
 #: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
@@ -3998,7 +3996,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
-msgstr "لأسباب أمنية ، لا يُسمح بتشغيل الملفات التنفيذية في هذا السياق. "
+msgstr "لأسباب أمنية، لا يُسمح بتشغيل الملفات التنفيذية في هذا السياق. "
 
 #: gui/openurljob.cpp:445
 #, kde-format
@@ -4479,7 +4477,7 @@ msgstr "<b>%1</b> عند <b>%2</b>"
 #: kioworkers/http/http.cpp:1334
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
-msgstr "خلاف ذلك ، كان الطلب قد نجح. "
+msgstr "خلاف ذلك، كان الطلب قد نجح. "
 
 # من هنا إلى أسفل ثاني معامل لـ
 # An unexpected error (%1) occurred while attempting to %2.
@@ -4681,8 +4679,8 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"لم يعد المجلد %1 موجودًا ، لذا لا يمكن استعادة هذا العنصر إلى موقعه الأصلي. "
-"يمكنك إما إعادة إنشاء هذا المجلد واستخدام عملية الاستعادة مرة أخرى ، أو سحب "
+"لم يعد المجلد %1 موجودًا، لذا لا يمكن استعادة هذا العنصر إلى موقعه الأصلي. "
+"يمكنك إما إعادة إنشاء هذا المجلد واستخدام عملية الاستعادة مرة أخرى، أو سحب "
 "العنصر إلى أي مكان آخر لاستعادته."
 
 #: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
@@ -5171,7 +5169,7 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
-"لقد نسخ الملف %1 من %2 ، ولكن بعد ذلك يبدو أنه عدل هنا %3.\n"
+"لقد نسخ الملف %1 من %2، ولكن بعد ذلك يبدو أنه عدل هنا %3.\n"
 "إن التراجع عن النسخ سيحذف الملف وجميع التعديلات ستفقد.\n"
 "أمتأكد أنك تريد حذف %4 ؟"
 
@@ -5731,7 +5729,7 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
-"اكتب لتصفية التطبيقات أدناه ، أو حدد اسم الأمر. \n"
+"اكتب لتصفية التطبيقات أدناه، أو حدد اسم الأمر. \n"
 "اضغط على السهم لأسفل للتنقل في النتائج. "
 
 #: widgets/kopenwithdialog.cpp:699
@@ -6146,8 +6144,8 @@ msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
 "Bus options or to run it as a different user."
 msgstr ""
-"انقر هنا لتعديل طريقة عمل هذا التطبيق، أو تشغيل رد الفعل ، أو خيارات D-Bus "
-"أو ليشغلها كمستخدم آخر."
+"انقر هنا لتعديل طريقة عمل هذا التطبيق، أو تشغيل رد الفعل، أو خيارات D-Bus أو "
+"ليشغلها كمستخدم آخر."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:281
@@ -6401,7 +6399,7 @@ msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr ""
-"يحدّد الأعمال لكل المستخدمين غير المالكين أو في غير المجموعة ، التي مصرّح لهم "
+"يحدّد الأعمال لكل المستخدمين غير المالكين أو في غير المجموعة، التي مصرّح لهم "
 "بعملها."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
@@ -6563,7 +6561,7 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
-"إشارة خاصة مسموحة لكامل المجلد ، المعنى المحدد للإشارة ممكن أن ترى على عمود "
+"إشارة خاصة مسموحة لكامل المجلد، المعنى المحدد للإشارة ممكن أن ترى على عمود "
 "الناحية اليمنى."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1440
@@ -6589,7 +6587,7 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
-"إذا وضعت هذه الإشارة ،فإن مالك هذا المجلد سيكون المالك لجميع الملفات الجديدة."
+"إذا وضعت هذه الإشارة،فإن مالك هذا المجلد سيكون المالك لجميع الملفات الجديدة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1464
 #, kde-format
@@ -6597,14 +6595,14 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"إذا كان هذا الملف تنفيذي وتم وضع الإشارة ، ستكون تنفيذية مع صلاحيات المالك."
+"إذا كان هذا الملف تنفيذي و وُضع عليه إشارة، ستكون تنفيذية مع صلاحيات المالك."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1471
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
-"إذا وضعت هذه الإشارة ،فإن مجموعة هذا المجلد ستكون لجميع الملفات الجديدة."
+"إذا وضعت هذه الإشارة،فإن مجموعة هذا المجلد ستكون لجميع الملفات الجديدة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1475
 #, kde-format
@@ -6612,8 +6610,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"إذا كان هذا الملف تنفيذي ووضعت الإشارة ، فستكون تنفيذية مع الصلاحيات "
-"المجموعة."
+"إذا كان هذا الملف تنفيذي ووضعت الإشارة، فستكون تنفيذية مع الصلاحيات المجموعة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1482
 #, kde-format
@@ -6630,7 +6627,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"الإشارة اللاصقة على ملف يتم تجاهلها في نظام لينكس، ولكن ممكن أن تستخدم على "
+"الإشارة اللاصقة على ملف تُتجاهل في نظام لينكس، ولكن من الممكن أن تستخدم على "
 "بعض الأنظمة"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1548
@@ -6767,7 +6764,7 @@ msgstr "المسار:"
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
-msgstr "لا يمكن حفظ الخصائص ، تُدعم فقط المدخلات على أنظمة الملفات  المحلية."
+msgstr "لا يمكن حفظ الخصائص، تُدعم فقط المدخلات على أنظمة الملفات  المحلية."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2711
 #, kde-format
@@ -6998,10 +6995,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"عند تحديد هذا الخيار ، سيتم تطبيق الزر الذي يتم الضغط عليه على كافة تعارضات "
-"المجلدات اللاحقة لبقية المهمة الحالية. \n"
-"ما لم تضغط على \"تخطي\" ، ستتواصل مطالبتك بإجراء حل في حالة وجود تعارض مع "
-"ملف موجود في الدليل."
+"عند تحديد هذا الخيار، سيُطبق الزر الذي سيُضغط عليه على كافة تعارضات المجلدات "
+"اللاحقة لبقية المهمة الحالية. \n"
+"ما لم تضغط على \"تخطِ\"، ستتواصل مطالبتك بإجراء حل في حالة وجود تعارض مع ملف "
+"موجود في الدليل."
 
 #: widgets/renamedialog.cpp:236
 #, kde-format
@@ -7009,8 +7006,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"عند تحديد هذا الخيار ، سيتم تطبيق الزر الذي يتم الضغط عليه على جميع "
-"التعارضات اللاحقة للفترة المتبقية من الوظيفة الحالية."
+"عند تحديد هذا الخيار، سيُطبق الزر الذي سيُضغط عليه على جميع التعارضات اللاحقة "
+"للفترة المتبقية من الوظيفة الحالية."
 
 #: widgets/renamedialog.cpp:242
 #, kde-format
@@ -7051,7 +7048,7 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"الملفات و المجلدات ستنسخ في الدليل الموجود ، مع محتوياتها الموجودة.\n"
+"الملفات و المجلدات ستنسخ في الدليل الموجود، مع محتوياتها الموجودة.\n"
 "سوف تنبه مرة أخرى في حالة تعارض مع ملف موجود في الدليل."
 
 #: widgets/renamedialog.cpp:271
@@ -7066,8 +7063,7 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
-"سيكتب فوق ملفات المقصد التي لها أوقات تعديل أقدم من قبل المصدر ، وإلا سيتم "
-"تخطيها."
+"سيكتب فوق ملفات المقصد التي لها أوقات تعديل أقدم من المصدر، وإلا ستُتخطى."
 
 #: widgets/renamedialog.cpp:287
 #, kde-format
