@@ -38,6 +38,7 @@ ecm_setup_version(
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
+option(KIOGUI_ONLY "Build only KIOCore + KIOGui." OFF)
 
 # Enable state assertion by default on Jenkins and from-git builds.
 # This option should eventually be dropped and always be enabled.
@@ -54,7 +55,6 @@ add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Des
 
 option(USE_FTPD_WSGIDAV_UNITTEST "Use ftpd Ruby Gem (for ftptest) and wsgidav Python module (for webdavtest) in unittests. Note that this is a temporary option that will be removed when distros add those packages in their repos." OFF)
 
-find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
@@ -66,28 +66,27 @@ if (NOT ANDROID)
 endif()
 
 if (NOT KIOCORE_ONLY)
-find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6ColorScheme ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6Completion ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6ItemViews ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6JobWidgets ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
+    find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
+    if (NOT KIOGUI_ONLY)
+        find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6ColorScheme ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6Completion ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6ItemViews ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6JobWidgets ${KF_DEP_VERSION} REQUIRED)
+        find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 
-find_package(KF6KDED ${KF_DEP_VERSION})
-set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session services"
-                       TYPE RUNTIME
-                       PURPOSE "KDED is used at runtime for proxy management and cookie storage"
-                      )
+        find_package(KF6KDED ${KF_DEP_VERSION})
+        set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session services"
+                            TYPE RUNTIME
+                            PURPOSE "KDED is used at runtime for proxy management and cookie storage")
 
-find_package(SwitcherooControl)
-set_package_properties(SwitcherooControl PROPERTIES
-    TYPE RUNTIME
-    PURPOSE "Hybrid GPU support"
-)
-
+        find_package(SwitcherooControl)
+        set_package_properties(SwitcherooControl PROPERTIES
+            TYPE RUNTIME
+            PURPOSE "Hybrid GPU support")
+    endif()
 endif()
 
 if (UNIX AND NOT ANDROID)
@@ -170,7 +169,7 @@ add_subdirectory(src)
 
 if(BUILD_TESTING)
     add_subdirectory(autotests)
-    if (NOT KIOCORE_ONLY)
+    if (NOT KIOCORE_ONLY AND NOT KIOGUI_ONLY)
         add_subdirectory(tests)
     endif()
 endif()

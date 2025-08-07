@@ -3,7 +3,6 @@ add_subdirectory(core)
 # KIOCore-only executables
 if (NOT ANDROID)
     add_subdirectory(kioworkers)
-    add_subdirectory(schemehandlers)
 endif()
 
 if (HAVE_QTDBUS)
@@ -14,20 +13,26 @@ add_subdirectory(kioworker)
 
 if (NOT KIOCORE_ONLY)
     add_subdirectory(gui)
-    add_subdirectory(widgets)
-
-    if (HAVE_QTDBUS)
-        add_subdirectory(kpasswdserver)
-        add_subdirectory(kioexec)
-    endif()
-
     if (NOT ANDROID)
-        add_subdirectory(filewidgets)
-        add_subdirectory(urifilters)
+        add_subdirectory(schemehandlers)
     endif()
 
-    if(BUILD_DESIGNERPLUGIN AND HAVE_QTDBUS)
-        add_subdirectory(designer)
+    if (NOT KIOGUI_ONLY)
+        add_subdirectory(widgets)
+
+        if (HAVE_QTDBUS)
+            add_subdirectory(kpasswdserver)
+            add_subdirectory(kioexec)
+        endif()
+
+        if (NOT ANDROID)
+            add_subdirectory(filewidgets)
+            add_subdirectory(urifilters)
+        endif()
+
+        if(BUILD_DESIGNERPLUGIN AND HAVE_QTDBUS)
+            add_subdirectory(designer)
+        endif()
     endif()
 endif()
 
