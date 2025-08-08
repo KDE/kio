@@ -64,7 +64,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
-    const QList<KFileFilter> types = [&filters] {
+    const QList<KFileFilter> validFilters = [&filters] {
         QList<KFileFilter> res;
         res.reserve(filters.size());
         std::ranges::copy_if(filters, std::back_inserter(res), [](const KFileFilter &f) {
@@ -73,7 +73,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
         return res;
     }();
 
-    if (types.isEmpty()) {
+    if (validFilters.isEmpty()) {
         d->m_filters = {d->m_defaultFilter};
         addItem(d->m_defaultFilter.label());
 
@@ -81,20 +81,20 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
         return;
     }
 
-    d->m_allTypes = defaultFilter.isEmpty() && (types.count() > 1);
+    d->m_allTypes = defaultFilter.isEmpty() && (validFilters.count() > 1);
 
-    if (!types.isEmpty() && types.first().mimePatterns().isEmpty()) {
+    if (!validFilters.isEmpty() && validFilters.first().mimePatterns().isEmpty()) {
         d->m_allTypes = false;
     }
 
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment
     QHash<QString, int> allTypeComments;
-    for (const KFileFilter &filter : types) {
+    for (const KFileFilter &filter : validFilters) {
         allTypeComments[filter.label()] += 1;
     }
 
-    for (const KFileFilter &filter : types) {
+    for (const KFileFilter &filter : validFilters) {
         const QStringList mimeTypes = filter.mimePatterns();
 
         const bool isAllFileFilters = std::any_of(mimeTypes.cbegin(), mimeTypes.cend(), [&db](const QString &mimeTypeName) {
