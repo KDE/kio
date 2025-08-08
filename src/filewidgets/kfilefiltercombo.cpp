@@ -183,6 +183,8 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
     }
 
     d->m_lastFilter = currentText();
+
+    Q_EMIT filterChanged();
 }
 
 KFileFilter KFileFilterCombo::currentFilter() const
