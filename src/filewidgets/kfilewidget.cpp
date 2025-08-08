@@ -166,7 +166,7 @@ public:
     void enterUrl(const QUrl &);
     void enterUrl(const QString &);
     void locationAccepted(const QString &);
-    void slotMimeFilterChanged();
+    void slotFileFilterChanged();
     void slotQuickFilterChanged();
     void fileHighlighted(const KFileItem &, bool);
     void fileSelected(const KFileItem &);
@@ -1351,14 +1351,14 @@ void KFileWidgetPrivate::initFilterWidget()
     m_filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     m_filterLabel->setBuddy(m_filterWidget);
     q->connect(m_filterWidget, &KFileFilterCombo::filterChanged, q, [this]() {
-        slotMimeFilterChanged();
+        slotFileFilterChanged();
     });
 
     m_filterDelayTimer.setSingleShot(true);
     m_filterDelayTimer.setInterval(300);
     q->connect(m_filterWidget, &QComboBox::editTextChanged, &m_filterDelayTimer, qOverload<>(&QTimer::start));
     q->connect(&m_filterDelayTimer, &QTimer::timeout, q, [this]() {
-        slotMimeFilterChanged();
+        slotFileFilterChanged();
     });
 }
 
@@ -1594,7 +1594,7 @@ void KFileWidgetPrivate::initGUI()
     updateTabOrder();
 }
 
-void KFileWidgetPrivate::slotMimeFilterChanged()
+void KFileWidgetPrivate::slotFileFilterChanged()
 {
     m_filterDelayTimer.stop();
 
