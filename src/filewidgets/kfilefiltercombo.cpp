@@ -60,7 +60,6 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
 {
     clear();
     d->m_filters.clear();
-    QString delim = QStringLiteral(", ");
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
@@ -156,7 +155,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
                 allComments << filter.label();
             }
 
-            allSupportedFilesFilter = KFileFilter(allComments.join(delim), allFilePatterns, allMimePatterns);
+            allSupportedFilesFilter = KFileFilter(allComments.join(QStringLiteral(", ")), allFilePatterns, allMimePatterns);
         } else {
             allSupportedFilesFilter = KFileFilter(i18n("All Supported Files"), allFilePatterns, allMimePatterns);
         }
