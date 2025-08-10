@@ -1,7 +1,7 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
-Comment[ar]=ضبط وسيط الشّبكة
+Comment[ar]=ضبط وكيل الشّبكة
 Comment[az]=Şəbəkə Proxy Tənzimləmələri
 Comment[be]=Канфігурацыя сеткавага проксі
 Comment[be@latin]=Kanfihuracyja sietkavaha proksi
@@ -70,7 +70,7 @@ Comment[zh_TW]=網路代理組態
 
 [Event/script-error]
 Name=Invalid Proxy Script
-Name[ar]=سكرِبت وسيط غير صالح
+Name[ar]=سكرِبت وكيل غير صالح
 Name[az]=Xətalı Proxy Skripti
 Name[be]=Хібны скрыпт проксі
 Name[be@latin]=Chibny skrypt proksi
@@ -138,7 +138,7 @@ Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
 Name[zh_TW]=不合法的代理文稿
 Comment=The downloaded proxy configuration script is invalid
-Comment[ar]=سكرِبت ضبط الوسيط المُنزّل غير صالح
+Comment[ar]=سكرِبت ضبط الوكيل المُنزّل غير صالح
 Comment[az]=Yüklənmiş proksi konfiqurasiya skripti etibarsızdır
 Comment[be]=Спампаваны скрыпт канфігурацыі проксі хібны
 Comment[be@latin]=Spampavany skrypt kanfihuracyi proksi chibny
@@ -278,7 +278,7 @@ Name[x-test]=xxScript Download Errorxx
 Name[zh_CN]=脚本下载错误
 Name[zh_TW]=文稿下載錯誤
 Comment=The proxy configuration script could not be downloaded
-Comment[ar]=تعذّر تحميل سكرِبت تضبيط الوسيط
+Comment[ar]=تعذّر تحميل سكرِبت ضبط الوكيل
 Comment[az]=Proksi konfiqurasiya skriptini yükləmək olmur
 Comment[be]=Немагчыма спампаваць скрыпт наладжвання проксі
 Comment[be@latin]=Niemahčyma spampavać skrypt naladžvannia proksi
@@ -418,7 +418,7 @@ Name[x-test]=xxScript Evaluation Errorxx
 Name[zh_CN]=脚本执行错误
 Name[zh_TW]=文稿執行錯誤
 Comment=There was an error executing the proxy configuration script
-Comment[ar]=حصل خطأ في تنفيذ سكرِبت تضبيط الوسيط
+Comment[ar]=حصل خطأ في تنفيذ سكرِبت ضبط الوكيل
 Comment[az]=Proksi konfiqurasiya skriptini yerinə yetirərkən xəta baş verdi
 Comment[be]=Падчас выканання скрыпта наладжвання проксі адбылася памылка
 Comment[be@latin]=Padčas vykanannia skrypta naladžvannia proksi adbylasia pamylka
