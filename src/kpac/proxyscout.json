@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "Automatic proxy configuration",
-        "Description[ar]": "ضبط آليّ للوسيط",
+        "Description[ar]": "ضبط آليّ للوكيل",
         "Description[az]": "Proxy-nin Avtomatik Ayarlanması",
         "Description[be@latin]": "Aŭtamatyčnaje naladžvannie proksi",
         "Description[be]": "Аўтаматычнае наладжванне проксі",
@@ -63,7 +63,7 @@
         "Description[zh_CN]": "自动代理配置",
         "Description[zh_TW]": "自動代理伺服器組態",
         "Name": "Network Proxy Configuration",
-        "Name[ar]": "ضبط وسيط الشبكة",
+        "Name[ar]": "ضبط وكيل الشبكة",
         "Name[az]": "Şəbəkə Proxy Ayarları",
         "Name[be@latin]": "Kanfihuracyja sietkavaha proksi",
         "Name[be]": "Канфігурацыя сеткавага проксі",
