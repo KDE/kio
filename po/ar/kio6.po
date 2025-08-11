@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-29 00:38+0000\n"
-"PO-Revision-Date: 2025-08-09 22:22+0400\n"
+"PO-Revision-Date: 2025-08-10 22:39+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -66,7 +66,7 @@ msgid ""
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
 "تعذّر إنشاء رابط النظام %1.\n"
-"نظام ملفات المقصد (%2) لا يدعم روابط النظام."
+"نظام ملفات المقصد (%2) لا توفر روابط النظام."
 
 #: core/copyjob.cpp:181
 #, kde-format
@@ -454,7 +454,7 @@ msgstr "المسار %1 مشوّه."
 #: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
-msgstr "الميفاق %1 غير مدعوم."
+msgstr "الميفاق %1 غير متاح."
 
 #: core/job_error.cpp:55
 #, kde-format
@@ -670,7 +670,7 @@ msgstr ""
 #: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "فشل الاستيثاق، استيثاق %1 غير مدعوم"
+msgstr "فشل الاستيثاق، استيثاق %1 غير متاح"
 
 #: core/job_error.cpp:176
 #, kde-format
@@ -769,7 +769,7 @@ msgid ""
 "The destination filesystem doesn't support symlinks."
 msgstr ""
 "تعذّر إنشاء رابط النظام %1.\n"
-"نظام ملفات المقصد لا يدعم روابط النظام."
+"نظام ملفات المقصد لا يتيح روابط النظام."
 
 #: core/job_error.cpp:220
 #, kde-format
@@ -829,7 +829,7 @@ msgid ""
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
 "لا يمكن نقل <filename>%1</filename> بسبب أنه ضخم جدا. نظام الملفات المُستقبِل "
-"يدعم ملفات ذات حجم لا يتعدى 4 غيغابايت."
+"يتيح ملفات ذات حجم لا يتعدى 4 غيغابايت."
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -1151,19 +1151,19 @@ msgstr ""
 #: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
-msgstr "الميفاق %1 غير مدعوم"
+msgstr "الميفاق %1 غير متاح"
 
 #: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
 "currently installed on this computer."
-msgstr "لا تدعم برامج «كِيدِي» المثبّتة الميفاق <strong>%1</strong> حاليًّا."
+msgstr "لا تتيح برامج «كِيدِي» المثبّتة الميفاق <strong>%1</strong> حاليًّا."
 
 #: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
-msgstr "قد لا يكون الميفاق المطلوب مدعومًا."
+msgstr "قد لا يكون الميفاق المطلوب متاحًا."
 
 #: core/job_error.cpp:502
 #, kde-format
@@ -1171,7 +1171,7 @@ msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr ""
-"قد تكون إصدارات الميفاق %1 المدعومة على هذا الحاسوب وعلى الخادوم غير متوافقة."
+"قد تكون إصدارات الميفاق %1 المتاحة على هذا الحاسوب وعلى الخادوم غير متوافقة."
 
 #: core/job_error.cpp:506
 #, kde-format
@@ -1181,7 +1181,7 @@ msgid ""
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "يمكنك البحث في الشّابكة عن ملحق برمجي (يُسمّى «تابع دخل/خرج كِيدِي KIO worker») "
-"يدعم هذا الميفاق. يمكنك البحث في الأماكن الآتية مبدئيًّا: <a href=\"https://"
+"يتيح هذا الميفاق. يمكنك البحث في الأماكن الآتية مبدئيًّا: <a href=\"https://"
 "store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:514
@@ -1212,14 +1212,14 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"يمكن لكِيدِي التواصل عبر بروتوكول داخل بروتوكول ؛ يستعمل البروتوكول المحدد في "
+"يمكن لكِيدِي التواصل عبر بروتوكول داخل بروتوكول؛ يستعمل البروتوكول المحدد في "
 "مثل هذه الحالات، لكن من البين أن الحال على غير ذلك. هذا حدث نادر، غالبا ما "
 "أنه يشير إلى خطأ برمجي."
 
 #: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr "الإجراء غير مدعوم: %1"
+msgstr "الإجراء غير متاح: %1"
 
 #: core/job_error.cpp:531
 #, kde-format
@@ -1227,7 +1227,7 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"لا يدعم برنامج كِيدِي الذي ينفّذ ميفاق <strong>%1</strong> الإجراء المطلوب."
+"لا يتيح برنامج كِيدِي الذي ينفّذ ميفاق <strong>%1</strong> الإجراء المطلوب."
 
 #: core/job_error.cpp:535
 #, kde-format
@@ -1418,7 +1418,7 @@ msgid ""
 "so."
 msgstr ""
 "يعني هذا حدوث طلب يتطلّب تحديد محتويات المجلّد، ولكنّ يتعذّر على برنامج «كِيدِي» "
-"الذي يدعم هذا الميفاق فعل ذلك."
+"الذي يتيح هذا الميفاق فعل ذلك."
 
 #: core/job_error.cpp:663
 #, kde-format
@@ -1873,7 +1873,7 @@ msgstr ""
 #: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "قد لا يدعم الميفاق أو الخادوم استئناف الملفّات."
+msgstr "قد لا يتيح الميفاق أو الخادوم استئناف الملفّات."
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -1986,7 +1986,7 @@ msgstr "تحقّق من إعدادات الوكيل وأعِد المحاولة.
 #: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "فشل الاستيثاق: الطّريقة %1 غير مدعومة"
+msgstr "فشل الاستيثاق: الطّريقة %1 غير متاحة"
 
 #: core/job_error.cpp:1056
 #, kde-format
@@ -1996,7 +1996,7 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "على الرغم من أنك زودت بتفاصيل الاستيثاق الصحيحة، إلا أن الاستيثاق فشل لأن "
-"الطريقة التي يستخدمها الخادم ليست مدعومة من برنامج كِيدِي الذي يطبق ميفاق %1."
+"الطريقة التي يستخدمها الخادم ليست متاحة من برنامج كِيدِي الذي يطبق ميفاق %1."
 
 #: core/job_error.cpp:1062
 #, kde-format
@@ -2005,7 +2005,7 @@ msgid ""
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
 "رجاءً بلغ عن العلة في <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
-"</a> لتعّرف فريق كِيدِي بطريقة الاستيثاق غير المدعومة."
+"</a> لتعّرف فريق كِيدِي بطريقة الاستيثاق غير المتاحة."
 
 #: core/job_error.cpp:1069
 #, kde-format
@@ -2306,14 +2306,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 "لا يمكن نقل الملف <filename>%1</filename> بسبب أن نظام الملفات المقصد لا "
-"يدعم ملفات بهذا الحجم"
+"يتيح ملفات بهذا الحجم"
 
 #: core/job_error.cpp:1262
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
-msgstr "أعد تهيئة قرص المقصد ليستخدم نظام ملفات يدعم ملفات بهذا الحجم."
+msgstr "أعد تهيئة قرص المقصد ليستخدم نظام ملفات يتيح ملفات بهذا الحجم."
 
 #: core/job_error.cpp:1267
 #, kde-format
@@ -2375,22 +2375,22 @@ msgstr ""
 #: core/slavebase.cpp:853
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
-msgstr "فتح الاتّصالات ليس مدعومًا مع الميفاق %1."
+msgstr "فتح الاتّصالات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:855
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
-msgstr "إغلاق الاتّصالات ليس مدعومًا مع الميفاق %1."
+msgstr "إغلاق الاتّصالات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:857
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "النّفاذ إلى الملفّات ليس مدعومًا مع الميفاق %1."
+msgstr "النّفاذ إلى الملفّات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:859
 #, kde-format
 msgid "Writing to %1 is not supported."
-msgstr "الكتابة في %1 غير مدعومة."
+msgstr "الكتابة في %1 غير متاحة."
 
 #: core/slavebase.cpp:861
 #, kde-format
@@ -2400,62 +2400,62 @@ msgstr "لا إجراءات خاصّة متوفّرة للميفاق %1."
 #: core/slavebase.cpp:863
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
-msgstr "سرد المجلّدات ليس مدعومًا مع الميفاق %1."
+msgstr "سرد المجلّدات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:865
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
-msgstr "جلب البيانات من %1 ليس مدعومًا."
+msgstr "جلب البيانات من %1 ليس متاحًا."
 
 #: core/slavebase.cpp:867
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "جلب معلومات نوع MIME من %1 ليس مدعومًا."
+msgstr "جلب معلومات نوع MIME من %1 ليس متاحًا."
 
 #: core/slavebase.cpp:869
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "تغيير أسماء الملفّات أو نقلها عبر %1 ليس مدعومًا."
+msgstr "تغيير أسماء الملفّات أو نقلها عبر %1 ليس متاحًا."
 
 #: core/slavebase.cpp:871
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "إنشاء الروابط الرّمزيّة ليس مدعومًا مع الميفاق %1."
+msgstr "إنشاء الروابط الرّمزيّة ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:873
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "نسخ الملفّات عبر %1 ليس مدعومًا."
+msgstr "نسخ الملفّات عبر %1 ليس متاحًا."
 
 #: core/slavebase.cpp:875
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "حذف الملفّات من %1 ليس مدعومًا."
+msgstr "حذف الملفّات من %1 ليس متاحًا."
 
 #: core/slavebase.cpp:877
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "إنشاء المجلّدات ليس مدعومًا مع الميفاق %1."
+msgstr "إنشاء المجلّدات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:879
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
-msgstr "تغيير صفات الملفّات ليس مدعومًا مع الميفاق %1."
+msgstr "تغيير صفات الملفّات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:881
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "تغيير ملكيّة الملفّات ليس مدعومًا مع الميفاق %1."
+msgstr "تغيير ملكيّة الملفّات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:883
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "فتح الملفّات ليس مدعومًا مع الميفاق %1."
+msgstr "فتح الملفّات ليس متاحًا مع الميفاق %1."
 
 #: core/slavebase.cpp:885
 #, kde-format
 msgid "Protocol %1 does not support action %2."
-msgstr "لا يدعم الميفاق %1 الإجراء %2."
+msgstr "لا يتيح الميفاق %1 الإجراء %2."
 
 #: core/worker.cpp:354
 #, kde-format
@@ -2857,7 +2857,7 @@ msgstr "‏%1 (‏%2)"
 #: filewidgets/kfilefiltercombo.cpp:165
 #, kde-format
 msgid "All Supported Files"
-msgstr "كلّ الملفّات المدعومة"
+msgstr "كلّ الملفّات المتاحة"
 
 #: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
 #: filewidgets/kfilewidget.cpp:2037
@@ -3327,23 +3327,22 @@ msgid ""
 msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
-msgstr[0] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام النسق التالي: %2"
+msgstr[0] "يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام النسق التالي: %2"
 msgstr[1] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام أحد الأنساق التالية: %2"
+"يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام أحد الأنساق التالية: %2"
 msgstr[2] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام أحد الأنساق التالية: %2"
+"يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام أحد الأنساق التالية: %2"
 msgstr[3] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام أحد الأنساق التالية: %2"
+"يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام أحد الأنساق التالية: %2"
 msgstr[4] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام أحد الأنساق التالية: %2"
+"يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام أحد الأنساق التالية: %2"
 msgstr[5] ""
-"يستخدم العنوان المحدد نسق غير مدعوم. الرجاء استخدام أحد الأنساق التالية: %2"
+"يستخدم العنوان المحدد نسق غير متاح. الرجاء استخدام أحد الأنساق التالية: %2"
 
 #: filewidgets/kfilewidget.cpp:809
 #, kde-format
 msgid "Unsupported URL scheme"
-msgstr "نسق عنوان غير مدعوم"
+msgstr "نسق عنوان غير متاح"
 
 #: filewidgets/kfilewidget.cpp:830
 #, kde-format
@@ -4611,7 +4610,7 @@ msgstr "تعذر منح القفل المطلوب. %1"
 #: kioworkers/http/http.cpp:1462
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "لا يدعم الخادوم نوع الطّلب للمتن."
+msgstr "لا يتيح الخادوم نوع الطّلب للمتن."
 
 #: kioworkers/http/http.cpp:1467 kioworkers/http/http.cpp:1584
 #, kde-format
@@ -4696,7 +4695,7 @@ msgstr "هذا الملفّ في سلّة المهملات بالفعل."
 #: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
 msgid "not supported"
-msgstr "ليس مدعومًا"
+msgstr "ليس متاحًا"
 
 #: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
@@ -6091,7 +6090,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:196
 #, kde-format
 msgid "&Supported file types:"
-msgstr "أنواع الملفّات المد&عومة:"
+msgstr "أنواع الملفّات ال&متاحة:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:227
@@ -6764,7 +6763,7 @@ msgstr "المسار:"
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
-msgstr "لا يمكن حفظ الخصائص، تُدعم فقط المدخلات على أنظمة الملفات  المحلية."
+msgstr "لا يمكن حفظ الخصائص، تُتاح فقط المدخلات على أنظمة الملفات  المحلية."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2711
 #, kde-format
@@ -6784,7 +6783,7 @@ msgstr "اختر نوع أو أكثر لإضافتها:"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2990
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "تُدعم فقط الملفات التنفيذية على أنظمة الملفات المحلية."
+msgstr "تُتاح فقط الملفات التنفيذية على أنظمة الملفات المحلية."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:3005
 #, kde-format
