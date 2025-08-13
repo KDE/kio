@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"POT-Creation-Date: 2025-08-13 00:39+0000\n"
 "PO-Revision-Date: 2025-08-03 12:33+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -66,7 +66,7 @@ msgstr ""
 "\"%1\" என்ற குறியிணைப்பு உருவாக்க முடியவில்லை.\n"
 "சேருமிட கோப்பு முறைமை (%2) குறியிணைப்புகளை ஆதரிக்காது."
 
-#: core/copyjob.cpp:181
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -81,7 +81,7 @@ msgstr ""
 "'மாற்று' என்பதை தேர்ந்தெடுத்தல் சேருமிட அடைவுப்பெயரிலுள்ள செல்லுபடியாகாத எழுத்துகளை "
 "அடிக்கீறு (அதாவது \"_\") கொண்டு மாற்றும்."
 
-#: core/copyjob.cpp:189
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -96,35 +96,23 @@ msgstr ""
 "'மாற்று' என்பதை தேர்ந்தெடுத்தல், சேருமிட கோப்புப்பெயரிலுள்ள செல்லுபடியாகாத எழுத்துகளை "
 "அடிக்கீறு (அதாவது \"_\") கொண்டு மாற்றும்."
 
-#: core/copyjob.cpp:750
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being moved"
-msgstr "கோப்புகள் நகர்த்தப்படுகின்றன"
-
-#: core/copyjob.cpp:752
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being copied"
-msgstr "கோப்புகளை நகலெடுக்கப்படுகின்றன"
-
-#: core/copyjob.cpp:1414 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "அடைவு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "கோப்பு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ஏற்கனவே அடைவாக உள்ளது"
 
-#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "அகற்றிடம்"
@@ -218,126 +206,126 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:232
+#: core/job.cpp:97
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "நகர்த்தல்"
 
-#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
+#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "மூலம்"
 
-#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
+#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: core/job.cpp:240
+#: core/job.cpp:105
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "மறுபெயரிடல்"
 
-#: core/job.cpp:248
+#: core/job.cpp:113
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "நகலெடுத்தல்"
 
-#: core/job.cpp:256
+#: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "அடைவை உருவாக்குதல்"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "அடைவு"
 
-#: core/job.cpp:263
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "அகற்றுதல்"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "கோப்பு"
 
-#: core/job.cpp:270
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "ஆராய்தல்"
 
-#: core/job.cpp:277
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "பரிமாற்றம்"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "ஏற்றுதல்"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgid "Device"
 msgstr "கருவி"
 
-#: core/job.cpp:284 core/job.cpp:289
+#: core/job.cpp:149 core/job.cpp:154
 #, kde-format
 msgid "Mountpoint"
 msgstr "ஏற்ற மையம்"
 
-#: core/job.cpp:289
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "இறக்குதல்"
 
-#: core/job.cpp:399
+#: core/job.cpp:264
 #, kde-format
 msgid "Change Attribute"
 msgstr "பண்பை மாற்றுதல்"
 
-#: core/job.cpp:401
+#: core/job.cpp:266
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr "கோப்பு பண்புகளை மாற்ற ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:405
+#: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
 msgstr "கோப்புகளை நகலெடுத்தல்"
 
-#: core/job.cpp:407
+#: core/job.cpp:272
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr "நகலெடுப்பதை தொடர ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:411
+#: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
 msgstr "கோப்புக்களை நீக்குதல்"
 
-#: core/job.cpp:413
+#: core/job.cpp:278
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -346,58 +334,58 @@ msgstr ""
 "நீக்குவதை தொடர ரூட் உரிமை தேவை. ஆனால், அவ்வாறு செய்தல் உங்கள் கணினிக்கு சேதம் "
 "விளைவிக்கலாம். தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:417
+#: core/job.cpp:282
 #, kde-format
 msgid "Create Folder"
 msgstr "அடைவை உருவாக்குதல்"
 
-#: core/job.cpp:419
+#: core/job.cpp:284
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr "இந்த அடைவை உருவாக்க ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:423
+#: core/job.cpp:288
 #, kde-format
 msgid "Move Items"
 msgstr "உருப்படிகளை நகர்த்து"
 
-#: core/job.cpp:425
+#: core/job.cpp:290
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr "நகர்த்தலை தொடர ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "மறுபெயரிடு"
 
-#: core/job.cpp:431
+#: core/job.cpp:296
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "பெயரை மாற்ற ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "குறியிணைப்பை உருவாக்கு"
 
-#: core/job.cpp:437
+#: core/job.cpp:302
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr "குறியிணைப்பை உருவாக்க ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:441
+#: core/job.cpp:306
 #, kde-format
 msgid "Transfer data"
 msgstr "தரவு இடமாற்றம்"
 
-#: core/job.cpp:443
+#: core/job.cpp:308
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2866,18 +2854,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|அனைத்து கோப்புகள்"
 
-#: filewidgets/kfilefiltercombo.cpp:128
+#: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:165
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "ஆதரவுள்ள எல்லாக் கோப்புகளும்"
 
-#: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
+#: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
@@ -3768,26 +3756,26 @@ msgid "Create New File"
 msgstr "புதிய கோப்பை உருவாக்குவது"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#: filewidgets/knewfilemenu_newfiledialog.ui:51
 #, kde-format
 msgid "Enter file name"
 msgstr "கோப்பிற்கான பெயரை உள்ளிடவும்"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:66
+#: filewidgets/knewfilemenu_newfiledialog.ui:69
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "விருப்பமான சின்னத்தையோ நிறத்தையோ தேர்வு செய்வது"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:116
+#: filewidgets/knewfilemenu_newfiledialog.ui:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "வேறு சின்னத்தை தேர்வு செய்வது…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:132
+#: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -7529,6 +7517,14 @@ msgstr "இது கீழ்கண்ட நிரலை இயக்கும
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "இந்த நிரல் நம்பகமானது இல்லையெனில் ரத்து செய்யுங்கள்"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being moved"
+#~ msgstr "கோப்புகள் நகர்த்தப்படுகின்றன"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being copied"
+#~ msgstr "கோப்புகளை நகலெடுக்கப்படுகின்றன"
 
 #~ msgid "&Description:"
 #~ msgstr "&விவரணம்:"

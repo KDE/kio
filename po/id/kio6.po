@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"POT-Creation-Date: 2025-08-13 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Tidak dapat membuat pekerja KIO: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -61,7 +61,7 @@ msgstr ""
 "Tidak bisa membuat tautan simbolis \"%1\".\n"
 "Sistem berkas tujuan (%2) belum mendukung tautan simbolis symlinks."
 
-#: core/copyjob.cpp:181
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -75,7 +75,7 @@ msgstr ""
 "Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama folder "
 "tujuan) dengan garis bawah \"_\"."
 
-#: core/copyjob.cpp:189
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -89,36 +89,23 @@ msgstr ""
 "Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama file "
 "tujuan) dengan garis bawah \"_\"."
 
-#: core/copyjob.cpp:750
-#, fuzzy, kde-format
-#| msgid "File Changed"
-msgctxt "Reason why standby is blocked"
-msgid "Files are being moved"
-msgstr "berkas Diubah"
-
-#: core/copyjob.cpp:752
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being copied"
-msgstr ""
-
-#: core/copyjob.cpp:1414 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Folder Sudah Ada"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "berkas Sudah Ada"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Sudah Ada sebagai Folder"
 
-#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Tong Sampah"
@@ -213,102 +200,102 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:232
+#: core/job.cpp:97
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Memindah"
 
-#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
+#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Sumber"
 
-#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
+#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Tujuan"
 
-#: core/job.cpp:240
+#: core/job.cpp:105
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Pengubahan nama"
 
-#: core/job.cpp:248
+#: core/job.cpp:113
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Menyalin"
 
-#: core/job.cpp:256
+#: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Menciptakan direktori"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "Direktori"
 
-#: core/job.cpp:263
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Menghapus"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "berkas"
 
-#: core/job.cpp:270
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Memeriksa"
 
-#: core/job.cpp:277
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Mentransfer"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Mengait"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgid "Device"
 msgstr "Peranti"
 
-#: core/job.cpp:284 core/job.cpp:289
+#: core/job.cpp:149 core/job.cpp:154
 #, kde-format
 msgid "Mountpoint"
 msgstr "Titik kait"
 
-#: core/job.cpp:289
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Melepas kait"
 
-#: core/job.cpp:399
+#: core/job.cpp:264
 #, kde-format
 msgid "Change Attribute"
 msgstr "Ubah Atribut"
 
-#: core/job.cpp:401
+#: core/job.cpp:266
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
@@ -317,12 +304,12 @@ msgstr ""
 "Hak istimewa root diperlukan untuk mengubah atribut berkas. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:405
+#: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
 msgstr "Salin berkas"
 
-#: core/job.cpp:407
+#: core/job.cpp:272
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
@@ -331,12 +318,12 @@ msgstr ""
 "Hak istimewa root diperlukan untuk melengkapi operasi salin. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:411
+#: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
 msgstr "Hapus berkas"
 
-#: core/job.cpp:413
+#: core/job.cpp:278
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -346,12 +333,12 @@ msgstr ""
 "melakukan hal itu mungkin dapat merusak sistemmu. Apakah Anda ingin "
 "meneruskan?"
 
-#: core/job.cpp:417
+#: core/job.cpp:282
 #, kde-format
 msgid "Create Folder"
 msgstr "Ciptakan Folder"
 
-#: core/job.cpp:419
+#: core/job.cpp:284
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
@@ -359,12 +346,12 @@ msgstr ""
 "Hak istimewa root diperlukan untuk menciptakan folder ini. Apakah Anda ingin "
 "meneruskan?"
 
-#: core/job.cpp:423
+#: core/job.cpp:288
 #, kde-format
 msgid "Move Items"
 msgstr "Pindah Item"
 
-#: core/job.cpp:425
+#: core/job.cpp:290
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
@@ -373,12 +360,12 @@ msgstr ""
 "Hak istimewa root diperlukan untuk melengkapi operasi pindah. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "Ubah nama"
 
-#: core/job.cpp:431
+#: core/job.cpp:296
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
@@ -386,13 +373,13 @@ msgstr ""
 "Hak istimewa root diperlukan untuk melengkapi pengubahan nama. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Ciptakan TautanSimbolis"
 
-#: core/job.cpp:437
+#: core/job.cpp:302
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
@@ -400,12 +387,12 @@ msgstr ""
 "Hak istimewa root diperlukan untuk menciptakan sebuah tautan simbolis. "
 "Apakah Anda ingin meneruskan?"
 
-#: core/job.cpp:441
+#: core/job.cpp:306
 #, kde-format
 msgid "Transfer data"
 msgstr "Transfer data"
 
-#: core/job.cpp:443
+#: core/job.cpp:308
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2948,18 +2935,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Semua berkas"
 
-#: filewidgets/kfilefiltercombo.cpp:128
+#: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:165
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "Semua berkas Didukung"
 
-#: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
+#: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
@@ -3888,7 +3875,7 @@ msgid "Create New File"
 msgstr "Ciptakan Tipe File Baru"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#: filewidgets/knewfilemenu_newfiledialog.ui:51
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3896,14 +3883,14 @@ msgid "Enter file name"
 msgstr "Masukkan sebuah Nama Berbeda"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:66
+#: filewidgets/knewfilemenu_newfiledialog.ui:69
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Pilihlah Aplikasi untuk %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:116
+#: filewidgets/knewfilemenu_newfiledialog.ui:119
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3911,7 +3898,7 @@ msgid "Choose Other Icon…"
 msgstr "Pilihlah sebuah &ikon:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:132
+#: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
@@ -7809,6 +7796,12 @@ msgstr "Ini akan menjalankan program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jika Anda tidak percaya program ini, klik Batal"
+
+#, fuzzy
+#~| msgid "File Changed"
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being moved"
+#~ msgstr "berkas Diubah"
 
 #~ msgid "&Description:"
 #~ msgstr "&Deskripsi:"

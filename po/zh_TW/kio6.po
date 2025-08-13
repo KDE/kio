@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"POT-Creation-Date: 2025-08-13 00:39+0000\n"
 "PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "無法建立 KIO worker： %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -71,7 +71,7 @@ msgstr ""
 "無法建立符號連結「%1」。\n"
 "目標檔案系統 (%2) 不支援符號連結。"
 
-#: core/copyjob.cpp:181
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -84,7 +84,7 @@ msgstr ""
 "目標檔案系統 (%2) 不允許資料夾名稱使用以下字元：%3\n"
 "選取「取代」將會把目的資料夾名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:189
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -97,35 +97,23 @@ msgstr ""
 "目標檔案系統 (%2) 不允許檔案名稱使用以下字元：%3\n"
 "選取「取代」將會把目的檔案名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:750
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being moved"
-msgstr "正在移動檔案"
-
-#: core/copyjob.cpp:752
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being copied"
-msgstr "正在複製檔案"
-
-#: core/copyjob.cpp:1414 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "資料夾已存在"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "檔案已存在"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"
@@ -214,184 +202,184 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1：%2"
 
-#: core/job.cpp:232
+#: core/job.cpp:97
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "移動中"
 
-#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
+#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "來源"
 
-#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
+#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "目的地"
 
-#: core/job.cpp:240
+#: core/job.cpp:105
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "重新命名中"
 
-#: core/job.cpp:248
+#: core/job.cpp:113
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "複製中"
 
-#: core/job.cpp:256
+#: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "建立目錄中"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "目錄"
 
-#: core/job.cpp:263
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "刪除中"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "檔案"
 
-#: core/job.cpp:270
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "檢視中"
 
-#: core/job.cpp:277
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "傳輸中"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "掛載中"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgid "Device"
 msgstr "裝置"
 
-#: core/job.cpp:284 core/job.cpp:289
+#: core/job.cpp:149 core/job.cpp:154
 #, kde-format
 msgid "Mountpoint"
 msgstr "掛載點"
 
-#: core/job.cpp:289
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "卸載中"
 
-#: core/job.cpp:399
+#: core/job.cpp:264
 #, kde-format
 msgid "Change Attribute"
 msgstr "變更屬性"
 
-#: core/job.cpp:401
+#: core/job.cpp:266
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr "變更檔案屬性需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:405
+#: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
 msgstr "複製檔案"
 
-#: core/job.cpp:407
+#: core/job.cpp:272
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr "完成複製操作需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:411
+#: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
 msgstr "刪除檔案"
 
-#: core/job.cpp:413
+#: core/job.cpp:278
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr "完成刪除操作需要 root 權限。不過，這可能會毀損您的系統。您想要繼續嗎？"
 
-#: core/job.cpp:417
+#: core/job.cpp:282
 #, kde-format
 msgid "Create Folder"
 msgstr "建立資料夾"
 
-#: core/job.cpp:419
+#: core/job.cpp:284
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr "建立此資料夾需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:423
+#: core/job.cpp:288
 #, kde-format
 msgid "Move Items"
 msgstr "移動項目"
 
-#: core/job.cpp:425
+#: core/job.cpp:290
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr "完成移動操作需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "重新命名"
 
-#: core/job.cpp:431
+#: core/job.cpp:296
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "完成重新命名需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "建立符號連結"
 
-#: core/job.cpp:437
+#: core/job.cpp:302
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr "建立符號連結需要 root 權限。您想要繼續嗎？"
 
-#: core/job.cpp:441
+#: core/job.cpp:306
 #, kde-format
 msgid "Transfer data"
 msgstr "傳輸資料"
 
-#: core/job.cpp:443
+#: core/job.cpp:308
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2784,18 +2772,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|所有檔案"
 
-#: filewidgets/kfilefiltercombo.cpp:128
+#: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:165
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "所有支援的檔案"
 
-#: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
+#: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
@@ -3659,26 +3647,26 @@ msgid "Create New File"
 msgstr "建立新檔案"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#: filewidgets/knewfilemenu_newfiledialog.ui:51
 #, kde-format
 msgid "Enter file name"
 msgstr "輸入檔案名稱"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:66
+#: filewidgets/knewfilemenu_newfiledialog.ui:69
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "選擇自訂圖示或色彩"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:116
+#: filewidgets/knewfilemenu_newfiledialog.ui:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "選擇其他圖示…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:132
+#: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "之後也能從資料夾屬性修改圖示。"
@@ -7328,6 +7316,14 @@ msgstr "這會啟動此程式："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "若您不信任此程式，請點擊「取消」"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being moved"
+#~ msgstr "正在移動檔案"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being copied"
+#~ msgstr "正在複製檔案"
 
 #~ msgid "&Description:"
 #~ msgstr "描述(&D)："

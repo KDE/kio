@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:38+0000\n"
+"POT-Creation-Date: 2025-08-13 00:39+0000\n"
 "PO-Revision-Date: 2025-07-29 12:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Niet in staat KIO-worker aan te maken: %1"
 
-#: core/copyjob.cpp:169 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "Het bestandssysteem van de bestemming (%2) ondersteunt geen symbolische "
 "koppelingen."
 
-#: core/copyjob.cpp:181
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -74,7 +74,7 @@ msgstr ""
 "Vervangen kiezen zal elk ongeldig teken (in de mapnaam op de bestemming) "
 "vervangen door een onderstreping \"_\"."
 
-#: core/copyjob.cpp:189
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -89,35 +89,23 @@ msgstr ""
 "Vervangen kiezen zal elk ongeldig teken (in de bestandsnaam op de "
 "bestemming) vervangen door een onderstreping \"_\"."
 
-#: core/copyjob.cpp:750
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being moved"
-msgstr "Bestanden worden verplaatst"
-
-#: core/copyjob.cpp:752
-#, kde-format
-msgctxt "Reason why standby is blocked"
-msgid "Files are being copied"
-msgstr "Bestanden worden gekopieerd"
-
-#: core/copyjob.cpp:1414 core/job_error.cpp:585
+#: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Map bestaat reeds"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Bestand bestaat al"
 
-#: core/copyjob.cpp:1738 core/copyjob.cpp:2443
+#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Bestaat reeds als map"
 
-#: core/copyjob.cpp:1892 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Prullenbak"
@@ -212,102 +200,102 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:232
+#: core/job.cpp:97
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Verplaatsen"
 
-#: core/job.cpp:233 core/job.cpp:241 core/job.cpp:249 core/job.cpp:278
+#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Bron"
 
-#: core/job.cpp:234 core/job.cpp:242 core/job.cpp:250
+#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Bestemming"
 
-#: core/job.cpp:240
+#: core/job.cpp:105
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Bezig met hernoemen"
 
-#: core/job.cpp:248
+#: core/job.cpp:113
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Kopiëren"
 
-#: core/job.cpp:256
+#: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Map wordt aangemaakt"
 
-#: core/job.cpp:257 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:441
 #, kde-format
 msgid "Directory"
 msgstr "Map"
 
-#: core/job.cpp:263
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Verwijderen"
 
-#: core/job.cpp:264 core/job.cpp:271 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
 #: widgets/kurlrequester.cpp:440
 #, kde-format
 msgid "File"
 msgstr "Bestand"
 
-#: core/job.cpp:270
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Onderzoeken"
 
-#: core/job.cpp:277
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Overdragen"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Aankoppelen"
 
-#: core/job.cpp:284
+#: core/job.cpp:149
 #, kde-format
 msgid "Device"
 msgstr "Apparaat"
 
-#: core/job.cpp:284 core/job.cpp:289
+#: core/job.cpp:149 core/job.cpp:154
 #, kde-format
 msgid "Mountpoint"
 msgstr "Aankoppelpunt"
 
-#: core/job.cpp:289
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Afkoppelen"
 
-#: core/job.cpp:399
+#: core/job.cpp:264
 #, kde-format
 msgid "Change Attribute"
 msgstr "Attribuut wijzigen"
 
-#: core/job.cpp:401
+#: core/job.cpp:266
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
@@ -316,12 +304,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het wijzigen van attributen van "
 "bestanden. Wilt u doorgaan?"
 
-#: core/job.cpp:405
+#: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
 msgstr "Bestanden kopiëren"
 
-#: core/job.cpp:407
+#: core/job.cpp:272
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
@@ -330,12 +318,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
 "kopieeractie. Wilt u doorgaan?"
 
-#: core/job.cpp:411
+#: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
 msgstr "Bestanden verwijderen"
 
-#: core/job.cpp:413
+#: core/job.cpp:278
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -344,12 +332,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
 "verwijderactie. Dat doen kan echter uw systeem beschadigen. Wilt u doorgaan?"
 
-#: core/job.cpp:417
+#: core/job.cpp:282
 #, kde-format
 msgid "Create Folder"
 msgstr "Map aanmaken"
 
-#: core/job.cpp:419
+#: core/job.cpp:284
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
@@ -357,12 +345,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het aanmaken van deze map. Wilt u "
 "doorgaan?"
 
-#: core/job.cpp:423
+#: core/job.cpp:288
 #, kde-format
 msgid "Move Items"
 msgstr "Items verplaatsen"
 
-#: core/job.cpp:425
+#: core/job.cpp:290
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
@@ -371,12 +359,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
 "verplaatsingsactie. Wilt u doorgaan?"
 
-#: core/job.cpp:429 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Rename"
 msgstr "Hernoemen"
 
-#: core/job.cpp:431
+#: core/job.cpp:296
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
@@ -384,13 +372,13 @@ msgstr ""
 "Er zijn root-privileges vereist voor het volledig uitvoeren van het "
 "hernoemen. Wilt u doorgaan?"
 
-#: core/job.cpp:435 filewidgets/knewfilemenu.cpp:679
+#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symbolische koppeling aanmaken"
 
-#: core/job.cpp:437
+#: core/job.cpp:302
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
@@ -398,12 +386,12 @@ msgstr ""
 "Er zijn root-privileges vereist voor het aanmaken van een symbolische "
 "koppeling. Wilt u doorgaan?"
 
-#: core/job.cpp:441
+#: core/job.cpp:306
 #, kde-format
 msgid "Transfer data"
 msgstr "Gegevens overbrengen"
 
-#: core/job.cpp:443
+#: core/job.cpp:308
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2979,18 +2967,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Alle bestanden"
 
-#: filewidgets/kfilefiltercombo.cpp:128
+#: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:165
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "Alle ondersteunde bestanden"
 
-#: filewidgets/kfilefiltercombo.cpp:174 filewidgets/kfilefiltercombo.cpp:176
+#: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:2037
 #, kde-format
 msgid "All Files"
@@ -3895,26 +3883,26 @@ msgid "Create New File"
 msgstr "Nieuw bestand aanmaken"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:48
+#: filewidgets/knewfilemenu_newfiledialog.ui:51
 #, kde-format
 msgid "Enter file name"
 msgstr "Bestandsnaam invoeren"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:66
+#: filewidgets/knewfilemenu_newfiledialog.ui:69
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "Kies aangepast pictogram of kleur"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:116
+#: filewidgets/knewfilemenu_newfiledialog.ui:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Kies een ander pictogram…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:132
+#: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "U kunt het pictogram later in eigenschappen van map wijzigen."
@@ -7723,6 +7711,14 @@ msgstr "Dit start het programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Als u dit programma niet vertrouwt, klik op Annuleren"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being moved"
+#~ msgstr "Bestanden worden verplaatst"
+
+#~ msgctxt "Reason why standby is blocked"
+#~ msgid "Files are being copied"
+#~ msgstr "Bestanden worden gekopieerd"
 
 #~ msgid "&Description:"
 #~ msgstr "B&eschrijving:"
