@@ -255,7 +255,9 @@ void FilePreviewJob::slotStatFile(KJob *job)
         emitResult();
         return;
     }
-    const QUrl itemUrl = m_item.item.mostLocalUrl();
+    bool isLocal;
+
+    const QUrl itemUrl = m_item.item.mostLocalUrl(&isLocal);
     const KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     const KIO::UDSEntry statResult = statJob->statResult();
     m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
@@ -266,6 +268,23 @@ void FilePreviewJob::slotStatFile(KJob *job)
     } else {
         preparePluginForMimetype(statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE));
     }
+
+    if (isLocal) {
+        const QFileInfo localFile(itemUrl.toLocalFile());
+        const QString canonicalPath = localFile.canonicalFilePath();
+        m_origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
+        if (m_origName.isEmpty()) {
+            qCDebug(KIO_GUI) << "Failed to convert" << itemUrl << "to canonical path, possibly a broken symlink";
+            emitResult();
+        }
+    } else {
+        // Don't include the password if any
+        m_origName = m_item.item.targetUrl().toEncoded(QUrl::RemovePassword);
+    }
+
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(m_origName);
+    m_thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0) {
@@ -313,25 +332,6 @@ bool FilePreviewJob::loadThumbnailFromCache()
     if (m_thumbPath.isEmpty()) {
         return false;
     }
-
-    bool isLocal;
-    const QUrl url = m_item.item.mostLocalUrl(&isLocal);
-    if (isLocal) {
-        const QFileInfo localFile(url.toLocalFile());
-        const QString canonicalPath = localFile.canonicalFilePath();
-        m_origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
-        if (m_origName.isEmpty()) {
-            qCDebug(KIO_GUI) << "Failed to convert" << url << "to canonical path, possibly a broken symlink";
-            return false;
-        }
-    } else {
-        // Don't include the password if any
-        m_origName = m_item.item.targetUrl().toEncoded(QUrl::RemovePassword);
-    }
-
-    QCryptographicHash md5(QCryptographicHash::Md5);
-    md5.addData(m_origName);
-    m_thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
     QImage thumb;
     QFile thumbFile(m_thumbPath + m_thumbName);
