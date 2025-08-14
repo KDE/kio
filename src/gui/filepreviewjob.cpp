@@ -338,7 +338,21 @@ bool FilePreviewJob::loadThumbnailFromCache()
     if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
         return false;
     }
+    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
+    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
+    thumb.setDevicePixelRatio(m_devicePixelRatio);
 
+    if (!isCacheValid(thumb)) {
+        return false;
+    }
+
+    // Found it, use it
+    emitPreview(thumb);
+    return true;
+}
+
+bool FilePreviewJob::isCacheValid(const QImage &thumb)
+{
     if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(m_origName)
         || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != m_tOrig.toSecsSinceEpoch()) {
         return false;
@@ -349,10 +363,6 @@ bool FilePreviewJob::loadThumbnailFromCache()
         // Thumb::Size is not required, but if it is set it should match
         return false;
     }
-
-    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
-    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
-    thumb.setDevicePixelRatio(m_devicePixelRatio);
 
     QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
 
@@ -377,9 +387,6 @@ bool FilePreviewJob::loadThumbnailFromCache()
             return false;
         }
     }
-
-    // Found it, use it
-    emitPreview(thumb);
     return true;
 }
 
