@@ -149,6 +149,7 @@ private:
     void statFile();
     void getOrCreateThumbnail();
     bool loadThumbnailFromCache();
+    bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
