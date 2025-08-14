@@ -40,6 +40,7 @@
 #include <QMimeDatabase>
 #include <QSaveFile>
 #include <QTemporaryDir>
+#include <QtConcurrent/QtConcurrent>
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -311,48 +312,52 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     bool pluginHandlesSequences = m_plugin.value(QStringLiteral("HandleSequences"), false);
-    if (!m_plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_sequenceIndex && pluginHandlesSequences)) {
+    if (!m_plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_sequenceIndex && pluginHandlesSequences) || m_thumbPath.isEmpty()) {
         // This preview will not be cached, no need to look for a saved thumbnail
         // Just create it, and be done
         getOrCreateThumbnail();
         return;
     }
 
-    if (loadThumbnailFromCache()) {
-        emitResult();
-        return;
-    }
+    auto watcher = new QFutureWatcher<QImage>(this);
+    connect(watcher, &QFutureWatcher<QImage>::finished, this, [this, watcher]() {
+        watcher->deleteLater();
+        QImage thumb = watcher->result();
+        if (isCacheValid(thumb)) {
+            emitPreview(thumb);
+            emitResult();
+        } else {
+            getOrCreateThumbnail();
+        }
 
-    getOrCreateThumbnail();
-    return;
+    });
+    QFuture<QImage> future = QtConcurrent::run(
+        loadThumbnailFromCache,
+        m_thumbPath + m_thumbName,
+        m_devicePixelRatio
+        );
+
+    watcher->setFuture(future);
 }
 
-bool FilePreviewJob::loadThumbnailFromCache()
+QImage FilePreviewJob::loadThumbnailFromCache(const QString &path, qreal dpr)
 {
-    if (m_thumbPath.isEmpty()) {
-        return false;
-    }
-
     QImage thumb;
-    QFile thumbFile(m_thumbPath + m_thumbName);
+    QFile thumbFile(path);
     if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
-        return false;
+        return QImage();
     }
     // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
     // When a thumbnail is DPR-invariant, use the DPR passed in the request.
-    thumb.setDevicePixelRatio(m_devicePixelRatio);
-
-    if (!isCacheValid(thumb)) {
-        return false;
-    }
-
-    // Found it, use it
-    emitPreview(thumb);
-    return true;
+    thumb.setDevicePixelRatio(dpr);
+    return thumb;
 }
 
 bool FilePreviewJob::isCacheValid(const QImage &thumb)
 {
+    if (thumb.isNull()) {
+        return false;
+    }
     if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(m_origName)
         || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != m_tOrig.toSecsSinceEpoch()) {
         return false;
