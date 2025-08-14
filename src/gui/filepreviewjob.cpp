@@ -694,11 +694,18 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
             signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
         }
         thumb.setText(QStringLiteral("Software"), signature);
-        QSaveFile saveFile(m_thumbPath + m_thumbName);
-        if (saveFile.open(QIODevice::WriteOnly)) {
-            if (thumb.save(&saveFile, "PNG")) {
-                saveFile.commit();
-            }
+        // we don't need to block for the saving to complete, it can run in it's own time
+        QFuture<void> future = QtConcurrent::run(saveThumbnailToCache, thumb, m_thumbPath + m_thumbName);
+    }
+}
+
+void FilePreviewJob::saveThumbnailToCache(const QImage &thumb, const QString &path)
+{
+    QEventLoopLocker lock; // stop the application from quitting until we finish
+    QSaveFile saveFile(path);
+    if (saveFile.open(QIODevice::WriteOnly)) {
+        if (thumb.save(&saveFile, "PNG")) {
+            saveFile.commit();
         }
     }
 }

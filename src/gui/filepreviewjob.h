@@ -164,8 +164,8 @@ private:
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
-
     void preparePluginForMimetype(const QString &mimeType);
+    static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
 inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap)
