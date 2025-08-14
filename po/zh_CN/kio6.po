@@ -7293,11 +7293,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being moved"
-#~ msgstr "文件正在移动"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being copied"
-#~ msgstr "文件正在复制"

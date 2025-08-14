@@ -620,7 +620,7 @@ msgstr "تعذّر تغيير اسم الملفّ %1."
 #: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
-msgstr "تعذّر تغيير تصاريح %1."
+msgstr "تعذّر تغيير أذونات %1."
 
 #: core/job_error.cpp:155
 #, kde-format
@@ -712,7 +712,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر حذف الملفّ %1 الأصليّ.\n"
-"رجاءً افحص التّصاريح."
+"رجاءً افحص الأذونات."
 
 #: core/job_error.cpp:202
 #, kde-format
@@ -721,7 +721,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر حذف الملفّ %1 الجزئيّ.\n"
-"رجاءً افحص التّصاريح."
+"رجاءً افحص الأذونات."
 
 #: core/job_error.cpp:205
 #, kde-format
@@ -730,7 +730,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر تغيير اسم الملفّ %1 الأصليّ.\n"
-"رجاءً افحص التّصاريح."
+"رجاءً افحص الأذونات."
 
 #: core/job_error.cpp:208
 #, kde-format
@@ -739,7 +739,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر تغيير اسم الملفّ %1 الجزئيّ.\n"
-"رجاءً افحص التّصاريح."
+"رجاءً افحص الأذونات."
 
 #: core/job_error.cpp:211
 #, kde-format
@@ -748,7 +748,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر إنشاء الرّابط الرّمزيّ %1.\n"
-"رجاءً افحص التّصاريح."
+"رجاءً افحص الأذونات."
 
 #: core/job_error.cpp:214
 #, kde-format
@@ -921,7 +921,7 @@ msgstr "راسل مدير الخادوم لمساعدة إضافيّة."
 #: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "افحص تصاريح النّفاذ إلى هذا المورد لديك."
+msgstr "افحص أذونات النّفاذ إلى هذا المورد لديك."
 
 #: core/job_error.cpp:383
 #, kde-format
@@ -929,7 +929,7 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"قد لا تكون تصاريح النّفاذ لديك كافية لإجراء العمليّة المطلوبة على هذا المورد."
+"قد لا تكون أذونات النّفاذ لديك كافية لإجراء العمليّة المطلوبة على هذا المورد."
 
 #: core/job_error.cpp:386
 #, kde-format
@@ -1053,12 +1053,12 @@ msgid ""
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
 "يعني هذا أنّه تعذّر جلب محتويات الملفّ أو المجلّد <strong>%1</strong> بسبب تعذّر "
-"الحصول على تصريح القراءة."
+"الحصول على إذْن القراءة."
 
 #: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "قد لا تملك تصريح قراءة الملفّ أو فتح المجلّد."
+msgstr "قد لا تملك إذْن قراءة الملفّ أو فتح المجلّد."
 
 #: core/job_error.cpp:446
 #, kde-format
@@ -1072,7 +1072,7 @@ msgid ""
 "requested, because access with permission to write could not be obtained."
 msgstr ""
 "يعني هذا أنّ تعذّرت الكتابة في الملفّ <strong>%1</strong> كما طُلب بسبب تعذّر "
-"الحصول على تصريح الكتابة."
+"الحصول على إذْن الكتابة."
 
 #: core/job_error.cpp:457
 #, kde-format
@@ -1353,7 +1353,7 @@ msgstr "ربما قدمت تفاصيل مصادقة غير صحيحة أو لا 
 #: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
-msgstr "قد لا يملك حسابك تصاريح النّفاذ إلى المورد المحدّد."
+msgstr "قد لا يملك حسابك أذونات النّفاذ إلى المورد المحدّد."
 
 #: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
@@ -1619,7 +1619,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"قد لا تكون لديك تصاريح لتمهيد (”ضمّ“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
+"قد لا تكون لديك أذونات لتمهيد (”ضمّ“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
 "امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:783
@@ -1668,7 +1668,7 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"قد لا تكون لديك تصاريح لإلغاء تمهيد (”إزالة ضمّ“) الجهاز. على أنظمة يونكس، "
+"قد لا تكون لديك أذونات لإلغاء تمهيد (”إزالة ضمّ“) الجهاز. على أنظمة يونكس، "
 "غالبًا ما تكون امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:807
@@ -1693,7 +1693,7 @@ msgstr ""
 #: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "قد لا تملك تصريح قراءة مورد."
+msgstr "قد لا تملك إذْن قراءة مورد."
 
 #: core/job_error.cpp:832
 #, kde-format
@@ -1712,7 +1712,7 @@ msgstr ""
 #: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr "قد لا تملك تصريح الكتابة في المورد."
+msgstr "قد لا تملك إذْن الكتابة في المورد."
 
 #: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
@@ -1756,7 +1756,7 @@ msgstr ""
 #: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
-msgstr "لا تملك التصاريح الكافية لقبول الوصلة."
+msgstr "لا تملك الأذونات الكافية لقبول الوصلة."
 
 #: core/job_error.cpp:888
 #, kde-format
@@ -1881,14 +1881,14 @@ msgstr "فشلت محاولة تغيير المورد <strong>%1</strong> الم
 #: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "تعذّر تغيير تصاريح المورد"
+msgstr "تعذّر تغيير أذونات المورد"
 
 #: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
-msgstr "فشلت محاولة تغيير تصاريح المورد <strong>%1</strong> المحدّد."
+msgstr "فشلت محاولة تغيير أذونات المورد <strong>%1</strong> المحدّد."
 
 #: core/job_error.cpp:997
 #, kde-format
@@ -4179,7 +4179,7 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"تعذّر تغيير تصاريح\n"
+"تعذّر تغيير أذونات\n"
 "%1"
 
 #: kioworkers/file/file.cpp:749
@@ -4205,12 +4205,12 @@ msgstr "تعذّر العثور على برنامج ”umount“"
 #: kioworkers/file/file_unix.cpp:98
 #, kde-format
 msgid "Change File Permissions"
-msgstr "غير تصاريح الملف"
+msgstr "غير أذونات الملف"
 
 #: kioworkers/file/file_unix.cpp:99
 #, kde-format
 msgid "New Permissions: %1"
-msgstr "تّصاريح جديدة: %1"
+msgstr "أذونات جديدة: %1"
 
 #: kioworkers/file/file_unix.cpp:102
 #, kde-format
@@ -4240,7 +4240,7 @@ msgstr "أنشئ مجلد"
 #: kioworkers/file/file_unix.cpp:113
 #, kde-format
 msgid "Directory Permissions: %1"
-msgstr "تّصاريح المجلد: %1"
+msgstr "أذونات المجلد: %1"
 
 #: kioworkers/file/file_unix.cpp:116
 #, kde-format
@@ -4746,7 +4746,7 @@ msgstr "رُفض النّفاذ"
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
-msgstr "لا تصريح لديك للنّفاذ إلى ميفاق %1."
+msgstr "لا إذْن لديك للنّفاذ إلى ميفاق %1."
 
 #: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
@@ -5426,7 +5426,7 @@ msgstr "التّاريخ"
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذونات"
 
 #: widgets/kdirmodel.cpp:1269
 #, kde-format
@@ -5853,7 +5853,7 @@ msgid ""
 "required to use this option."
 msgstr ""
 "قم بالتأشير هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها "
-"هوية مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و التصاريح "
+"هوية مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذونات "
 "الأخرى. كلمة سر المستخدم مطلوبة لفعل هذا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -6337,23 +6337,23 @@ msgstr "التّ&صاريح"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "Access Permissions"
-msgstr "تصاريح النّفاذ"
+msgstr "أذونات النّفاذ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1202
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "لا ملفّات."
-msgstr[1] "هذا الملفّ عبارة عن رابط ولا تصاريح له."
-msgstr[2] "هذان الملفّان عبارة عن روابط ولا تصاريح لهما."
-msgstr[3] "كلّ الملفّات عبارة عن روابط ولا تصاريح لها."
-msgstr[4] "كلّ الملفّات عبارة عن روابط ولا تصاريح لها."
-msgstr[5] "كلّ الملفّات عبارة عن روابط ولا تصاريح لها."
+msgstr[1] "هذا الملفّ عبارة عن رابط ولا أذونات له."
+msgstr[2] "هذان الملفّان عبارة عن روابط ولا أذونات لهما."
+msgstr[3] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
+msgstr[4] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
+msgstr[5] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "يمكن للمالك فقط تغيير التّصاريح."
+msgstr "يمكن للمالك فقط تغيير الأذونات."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1211
 #, kde-format
@@ -6432,7 +6432,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1239
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr "تصاريح &متقدّمة"
+msgstr "أذونات &متقدّمة"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1247
 #, kde-format
@@ -6457,7 +6457,7 @@ msgstr "طبق التغييرات على جميع المجلدات الفرعي�
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Advanced Permissions"
-msgstr "تصاريح متقدّمة"
+msgstr "أذونات متقدّمة"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1390
 #, kde-format
@@ -6648,27 +6648,27 @@ msgstr "التفاوت (لا تغيير)"
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "لا ملفّات."
-msgstr[1] "يستخدم هذا الملفّ تصاريح متقدّمة."
-msgstr[2] "يستخدم هذين الملفّين تصاريح متقدّمة."
-msgstr[3] "تستخدم هذه الملفّات تصاريح متقدّمة."
-msgstr[4] "تستخدم هذه الملفّات تصاريح متقدّمة."
-msgstr[5] "تستخدم هذه الملفّات تصاريح متقدّمة."
+msgstr[1] "يستخدم هذا الملفّ أذونات متقدّمة."
+msgstr[2] "يستخدم هذين الملفّين أذونات متقدّمة."
+msgstr[3] "تستخدم هذه الملفّات أذونات متقدّمة."
+msgstr[4] "تستخدم هذه الملفّات أذونات متقدّمة."
+msgstr[5] "تستخدم هذه الملفّات أذونات متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "لا مجلّدات."
-msgstr[1] "يستخدم هذا المجلّد تصاريح متقدّمة."
-msgstr[2] "يستخدم هذين المجلّدين تصاريح متقدّمة."
-msgstr[3] "تستخدم هذه المجلّدات تصاريح متقدّمة."
-msgstr[4] "تستخدم هذه المجلّدات تصاريح متقدّمة."
-msgstr[5] "تستخدم هذه المجلّدات تصاريح متقدّمة."
+msgstr[1] "يستخدم هذا المجلّد أذونات متقدّمة."
+msgstr[2] "يستخدم هذين المجلّدين أذونات متقدّمة."
+msgstr[3] "تستخدم هذه المجلّدات أذونات متقدّمة."
+msgstr[4] "تستخدم هذه المجلّدات أذونات متقدّمة."
+msgstr[5] "تستخدم هذه المجلّدات أذونات متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1836
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "تستخدم هذه الملفّات تصاريح متقدّمة."
+msgstr "تستخدم هذه الملفّات أذونات متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2080
 #, kde-format
