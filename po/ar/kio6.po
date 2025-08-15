@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-13 00:39+0000\n"
-"PO-Revision-Date: 2025-08-10 22:39+0400\n"
+"PO-Revision-Date: 2025-08-14 11:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -99,18 +99,18 @@ msgstr ""
 #: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "المجلّد موجود بالفعل"
+msgstr "المجلّد موجود فعلًا"
 
 #: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
-msgstr "الملفّ موجود بالفعل"
+msgstr "الملفّ موجود فعلًا"
 
 #: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "موجود كمجلّد بالفعل"
+msgstr "موجود كمجلّد فعلًا"
 
 #: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
@@ -942,7 +942,7 @@ msgstr "لربّما هناك مستخدم أو تطبيق آخر يستخدم �
 msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
-msgstr "تأكد أن لا يوجد تطبيق أخر أو مستخدم أخر يستخدم الملف أو قام بقفله."
+msgstr "تأكد أن لا يوجد تطبيق أخر أو مستخدم أخر يستخدم الملف أو قفله."
 
 #: core/job_error.cpp:392
 #, kde-format
@@ -2179,9 +2179,9 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"قم بتحرير مساحة كافية على القرص بواسطة 1) حذف الملفات غير المرغوب فيها "
-"والمؤقتة أو 2) أرشفة الملفات إلى وسائط تخزين قابلة للإزالة مثل الأقراص "
-"المضغوطة القابلة للتسجيل  أو 3) الحصول على سعة تخزين أكبر. "
+"حرّر مساحة كافية على القرص بواسطة 1) حذف الملفات غير المرغوب فيها والمؤقتة أو "
+"2) أرشفة الملفات إلى وسائط تخزين قابلة للإزالة مثل الأقراص المضغوطة القابلة "
+"للتسجيل  أو 3) الحصول على سعة تخزين أكبر. "
 
 #: core/job_error.cpp:1205
 #, kde-format
@@ -3494,7 +3494,7 @@ msgstr "الأماكن"
 #: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "الملفّ ”%1“ موجود بالفعل. أتريد الكتابة فوقه؟"
+msgstr "الملفّ ”%1“ موجود فعلًا. أتريد الكتابة فوقه؟"
 
 #: filewidgets/kfilewidget.cpp:1744
 #, kde-format
@@ -3698,13 +3698,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "يوجد مجلد باسم <filename>%1</filename> بالفعل."
+msgstr "يوجد مجلد باسم <filename>%1</filename> فعلًا."
 
 #: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
-msgstr "يوجد ملفّ له اسم <filename>%1</filename> بالفعل."
+msgstr "يوجد ملفّ له اسم <filename>%1</filename> فعلًا."
 
 #: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
@@ -4678,7 +4678,7 @@ msgstr "مجموعة موافيق غير صالحة."
 #: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr "هذا الملفّ في سلّة المهملات بالفعل."
+msgstr "هذا الملفّ في سلّة المهملات فعلًا."
 
 #: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
@@ -5852,8 +5852,8 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"قم بالتأشير هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها "
-"هوية مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذونات "
+"أشر هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها هوية "
+"مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذونات "
 "الأخرى. كلمة سر المستخدم مطلوبة لفعل هذا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -7132,17 +7132,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "هناك ملفّ أقدم بالاسم ’%1‘ بالفعل."
+msgstr "هناك ملفّ أقدم بالاسم ’%1‘ فعلًا."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "هناك ملفّ مشابه بالاسم ’%1‘ بالفعل."
+msgstr "هناك ملفّ مشابه بالاسم ’%1‘ فعلًا."
 
 #: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "هناك ملفّ أحدث باسم ’%1‘ بالفعل."
+msgstr "هناك ملفّ أحدث باسم ’%1‘ فعلًا."
 
 #: widgets/renamedialog.cpp:484
 #, kde-format

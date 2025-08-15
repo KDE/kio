@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-13 00:39+0000\n"
-"PO-Revision-Date: 2025-06-21 20:33-0300\n"
+"PO-Revision-Date: 2025-08-13 23:29-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -28,17 +28,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "André Marcelo Alvarenga, Geraldo Simião"
+msgstr "André Marcelo Alvarenga, Geraldo Simião, Guilherme Marçal Silva"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "alvarenga@kde.org, geraldosimiao@fedoraproject.org"
+msgstr ""
+"alvarenga@kde.org, geraldosimiao@fedoraproject.org, guimarcalsilva@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -3850,9 +3851,7 @@ msgstr "Criar novo arquivo"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Insira o nome do arquivo"
 
@@ -5134,9 +5133,7 @@ msgid "Destination"
 msgstr "Destino"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Copiando"
 
@@ -5151,10 +5148,9 @@ msgid "Renaming"
 msgstr "Renomeando"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Mover para a Lixeira"
+msgstr "Movendo para a lixeira"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5214,61 +5210,52 @@ msgstr "Desfazer: Ren&omear em lote"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "Desfaze&r"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "Desfazer: C&opiar"
+msgstr "Desfaze&r: Copiar"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "Desfa&zer: Link"
+msgstr "Desfaze&r: Link"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "Desfazer: M&over"
+msgstr "Desfaze&r: Mover"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "Desfazer: Ren&omear"
+msgstr "Desfazer: &Renomear"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "Desfa&zer: Lixeira"
+msgstr "Desfaze&r: Lixeira"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "Desfa&zer: Criar pasta"
+msgstr "Desfazer: Cria&r pasta"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Desfa&zer: Criar pasta(s)"
+msgstr "Desfazer: Cria&r pasta(s)"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Desfa&zer: Criar arquivo"
+msgstr "Desfazer: Cria&r arquivo"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Desfazer: Ren&omear em lote"
+msgstr "Desfazer: &Renomear em lote"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -6039,38 +6026,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Digite aqui a descrição deste aplicativo, baseada em seu uso. Exemplos: um "
-"aplicativo para discagem (KPPP) seria \"Ferramenta de discagem\"."
+"Digite aqui um nome genérico para o aplicativo. Exemplos: um aplicativo para "
+"visualização de imagens seria \"Visualizador de imagens\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Geral"
+msgstr "Nome &genérico:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
 "Digite aqui a descrição deste aplicativo, baseada em seu uso. Exemplos: um "
-"aplicativo para discagem (KPPP) seria \"Ferramenta de discagem\"."
+"aplicativo para visualização de imagens seria \"Veja e edite imagens\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6080,8 +6059,7 @@ msgstr "&Comentário:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Variáveis de ambiente:"
 
@@ -6845,16 +6823,14 @@ msgid "Verifying checksum…"
 msgstr "Verificando soma de verificação…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Os arquivos são <b>idênticos</b>."
+msgstr "As somas de verificação de todos os arquivos é idêntica."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Os arquivos são <b>diferentes</b>."
+msgstr "Os arquivos têm somas de verificação diferentes."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -7276,12 +7252,10 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Renomear o item <filename>%1</filename> para:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info error a file already exists"
-#| msgid "A File named <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Um arquivo com o nome <filename>%1</filename> já existe."
+msgstr "Um arquivo com o nome <filename>%1</filename> já existe.a"
 
 #: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
@@ -7322,15 +7296,12 @@ msgstr ""
 "ser que todos os arquivos tenham extensões de arquivos diferentes."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Renomear o %1 item selecionado para:"
-msgstr[1] "Renomear os %1 itens selecionados para:"
+msgstr[0] "Renomear o %1 item selecionado por:"
+msgstr[1] "Renomear os %1 itens selecionados por:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
@@ -7373,43 +7344,36 @@ msgstr ""
 "ficasse com um nome de arquivo vazio."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Renomear o %1 item selecionado para:"
-msgstr[1] "Renomear os %1 itens selecionados para:"
+msgstr[0] "Renomear o %1 item selecionado:"
+msgstr[1] "Renomear os %1 itens selecionados:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Adicionar texto:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Texto a ser adicionado"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Insira o nome do arquivo"
+msgstr "Antes do nome do arquivo"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Insira o nome do arquivo"
+msgstr "Depois do nome do arquivo"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7451,7 +7415,7 @@ msgstr "Substituir texto"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Adicionar texto"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
