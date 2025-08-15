@@ -60,9 +60,8 @@ public:
     QMap<QString, int> m_deviceIdMap;
 };
 
-FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot)
+FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap)
     : m_item(item)
-    , m_thumbPath(m_item.thumbPath)
     , m_size(m_item.size)
     , m_cacheSize(m_item.cacheSize)
     , m_scaleType(m_item.scaleType)
@@ -72,6 +71,7 @@ FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot
     , m_devicePixelRatio(m_item.devicePixelRatio)
     , m_deviceIdMap(m_item.deviceIdMap)
     , m_preview(QImage())
+    , m_mimeMap(mimeMap)
 {
 }
 
@@ -130,18 +130,128 @@ QString FilePreviewJob::parentDirPath(const QString &path) const
 
 void FilePreviewJob::statFile()
 {
+    if (!m_item.item.targetUrl().isValid()) {
+        emitResult();
+        return;
+    }
     // We need to first check the device id's so we can find out if the images can be cached
-    KIO::Job *statJob = KIO::stat(m_item.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+    QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode;
+
+    if (!m_item.item.isMimeTypeKnown()) {
+        details.setFlag(KIO::StatMimeType);
+    }
+
+    KIO::Job *statJob = KIO::stat(m_item.item.targetUrl(), StatJob::SourceSide, details, KIO::HideProgressInfo);
     statJob->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
     statJob->start();
 }
 
+void FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
+{
+    auto setUpCaching = [this]() {
+        short cacheSize = 0;
+        const int longer = std::max(m_item.size.width(), m_item.size.height());
+        if (longer <= 128) {
+            cacheSize = 128;
+        } else if (longer <= 256) {
+            cacheSize = 256;
+        } else if (longer <= 512) {
+            cacheSize = 512;
+        } else {
+            cacheSize = 1024;
+        }
+
+        struct CachePool {
+            QString path;
+            int minSize;
+        };
+
+        const static auto pools = {
+            CachePool{QStringLiteral("normal/"), 128},
+            CachePool{QStringLiteral("large/"), 256},
+            CachePool{QStringLiteral("x-large/"), 512},
+            CachePool{QStringLiteral("xx-large/"), 1024},
+        };
+
+        QString thumbDir;
+        int wants = m_item.devicePixelRatio * cacheSize;
+        for (const auto &p : pools) {
+            if (p.minSize < wants) {
+                continue;
+            } else {
+                thumbDir = p.path;
+                break;
+            }
+        }
+        QString thumbPath = m_thumbRoot + thumbDir;
+        QDir().mkpath(m_thumbRoot);
+        if (!QDir(thumbPath).exists() && !QDir(m_thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
+            qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
+        }
+        m_thumbPath = thumbPath;
+        m_cacheSize = cacheSize;
+    };
+
+    auto pluginIt = m_mimeMap.constFind(mimeType);
+    if (pluginIt == m_mimeMap.constEnd()) {
+        // check MIME type inheritance, resolve aliases
+        QMimeDatabase db;
+        const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
+        if (mimeInfo.isValid()) {
+            const QStringList parentMimeTypes = mimeInfo.allAncestors();
+            for (const QString &parentMimeType : parentMimeTypes) {
+                pluginIt = m_mimeMap.constFind(parentMimeType);
+                if (pluginIt != m_mimeMap.constEnd()) {
+                    break;
+                }
+            }
+        }
+
+        if (pluginIt == m_mimeMap.constEnd()) {
+            // Check the wildcards last, see BUG 453480
+            QString groupMimeType = mimeType;
+            const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
+            if (slashIdx != -1) {
+                // Replace everything after '/' with '*'
+                groupMimeType.truncate(slashIdx + 1);
+                groupMimeType += QLatin1Char('*');
+            }
+            pluginIt = m_mimeMap.constFind(groupMimeType);
+        }
+    }
+
+    if (pluginIt != m_mimeMap.constEnd()) {
+        const KPluginMetaData plugin = *pluginIt;
+
+        if (!plugin.isValid()) {
+            qCDebug(KIO_GUI) << "Plugin for item " << m_item.item << " is not valid. Emitting result.";
+            emitResult();
+            return;
+        }
+
+        m_standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
+        m_plugin = plugin;
+        m_thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(m_plugin.value(QStringLiteral("HandleSequences"), false)));
+
+        if (m_item.scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
+            const QUrl url = m_item.item.targetUrl();
+            if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot)) {
+                setUpCaching();
+            }
+        }
+    } else {
+        qCDebug(KIO_GUI) << "Could not get plugin for, " << m_item.item << " - emitting result.";
+        emitResult();
+        return;
+    }
+}
+
 void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
-        qCDebug(KIO_GUI) << "Job failed" << job->errorString();
+        qCDebug(KIO_GUI) << "Job stat failed" << job->errorString();
         emitResult();
         return;
     }
@@ -150,6 +260,12 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KIO::UDSEntry statResult = statJob->statResult();
     m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
     m_tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+
+    if (m_item.item.isMimeTypeKnown()) {
+        preparePluginForMimetype(m_item.item.mimetype());
+    } else {
+        preparePluginForMimetype(statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE));
+    }
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0) {
@@ -162,7 +278,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_item.item.isSlow()) {
         const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-        skipCurrentItem = !m_ignoreMaximumSize && size > maximumLocalSize && !m_item.plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+        skipCurrentItem = !m_ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
     } else {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
         // Also we need to check if remote (but locally mounted) folder preview is enabled
@@ -175,8 +291,8 @@ void FilePreviewJob::slotStatFile(KJob *job)
         return;
     }
 
-    bool pluginHandlesSequences = m_item.plugin.value(QStringLiteral("HandleSequences"), false);
-    if (!m_item.plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_sequenceIndex && pluginHandlesSequences)) {
+    bool pluginHandlesSequences = m_plugin.value(QStringLiteral("HandleSequences"), false);
+    if (!m_plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_sequenceIndex && pluginHandlesSequences)) {
         // This preview will not be cached, no need to look for a saved thumbnail
         // Just create it, and be done
         getOrCreateThumbnail();
@@ -238,7 +354,7 @@ bool FilePreviewJob::loadThumbnailFromCache()
     // When a thumbnail is DPR-invariant, use the DPR passed in the request.
     thumb.setDevicePixelRatio(m_devicePixelRatio);
 
-    QString thumbnailerVersion = m_item.plugin.value(QStringLiteral("ThumbnailerVersion"));
+    QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
 
     if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QLatin1String("KDE Thumbnail Generator"))) {
         // Check if the version matches
@@ -431,7 +547,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     QFileInfo info(pixPath);
     Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
 
-    bool save = m_scaleType == PreviewJob::ScaledAndCached && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
+    bool save = m_scaleType == PreviewJob::ScaledAndCached && m_plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
 
     bool isRemoteProtocol = m_item.item.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
@@ -441,7 +557,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         return;
     }
 
-    if (m_item.standardThumbnailer) {
+    if (m_standardThumbnailer) {
         if (m_tempDirPath.isEmpty()) {
             auto tempDir = QTemporaryDir();
             Q_ASSERT(tempDir.isValid());
@@ -459,8 +575,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
             return;
         }
 
-        KIO::StandardThumbnailJob *job =
-            new KIO::StandardThumbnailJob(m_item.plugin.value(u"Exec"), m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
+        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
@@ -487,7 +602,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("mimeType"), m_item.item.mimetype());
     job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
-    job->addMetaData(QStringLiteral("plugin"), m_item.plugin.fileName());
+    job->addMetaData(QStringLiteral("plugin"), m_plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), m_enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_devicePixelRatio));
     job->addMetaData(QStringLiteral("cache"), QString::number(m_currentDeviceCachePolicy == CachePolicy::Allow));
@@ -553,7 +668,7 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
 void FilePreviewJob::saveThumbnailData(QImage &thumb)
 {
     const bool save = m_scaleType == PreviewJob::ScaledAndCached && !m_sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
-        && m_item.plugin.value(QStringLiteral("CacheThumbnail"), true)
+        && m_plugin.value(QStringLiteral("CacheThumbnail"), true)
         && (!m_item.item.targetUrl().isLocalFile() || !m_item.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot));
 
     if (save) {
@@ -561,8 +676,8 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(m_tOrig.toSecsSinceEpoch()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(m_item.item.size()));
         thumb.setText(QStringLiteral("Thumb::Mimetype"), m_item.item.mimetype());
-        QString thumbnailerVersion = m_item.plugin.value(QStringLiteral("ThumbnailerVersion"));
-        QString signature = QLatin1String("KDE Thumbnail Generator ") + m_item.plugin.name();
+        QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
+        QString signature = QLatin1String("KDE Thumbnail Generator ") + m_plugin.name();
         if (!thumbnailerVersion.isEmpty()) {
             signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
         }

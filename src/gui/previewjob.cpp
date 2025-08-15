@@ -67,6 +67,8 @@ public:
     // Cache the deviceIdMap so we dont need to stat the files every time
     QMap<QString, int> deviceIdMap;
 
+    QMap<QString, KPluginMetaData> mimeMap;
+
     void determineNextFile();
     void startPreview();
 
@@ -97,7 +99,6 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     }
 
     d->maximumWorkers = KProtocolInfo::maxWorkers(QStringLiteral("thumbnail"));
-
     // Return to event loop first, determineNextFile() might delete this;
     QTimer::singleShot(0, this, [d]() {
         d->startPreview();
@@ -123,55 +124,10 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
+
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
-    QMap<QString, KPluginMetaData> mimeMap;
 
-    auto setUpCaching = [this](PreviewItem *previewItem) {
-        short cacheSize = 0;
-        const int longer = std::max(size.width(), size.height());
-        if (longer <= 128) {
-            cacheSize = 128;
-        } else if (longer <= 256) {
-            cacheSize = 256;
-        } else if (longer <= 512) {
-            cacheSize = 512;
-        } else {
-            cacheSize = 1024;
-        }
-
-        struct CachePool {
-            QString path;
-            int minSize;
-        };
-
-        const static auto pools = {
-            CachePool{QStringLiteral("normal/"), 128},
-            CachePool{QStringLiteral("large/"), 256},
-            CachePool{QStringLiteral("x-large/"), 512},
-            CachePool{QStringLiteral("xx-large/"), 1024},
-        };
-
-        QString thumbDir;
-        int wants = devicePixelRatio * cacheSize;
-        for (const auto &p : pools) {
-            if (p.minSize < wants) {
-                continue;
-            } else {
-                thumbDir = p.path;
-                break;
-            }
-        }
-        QString thumbPath = thumbRoot + thumbDir;
-        QDir().mkpath(thumbRoot);
-        if (!QDir(thumbPath).exists() && !QDir(thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
-            qCWarning(KIO_GUI) << "couldn't create thumbnail dir " << thumbPath;
-        }
-        previewItem->thumbPath = thumbPath;
-        previewItem->cacheSize = cacheSize;
-    };
-
-    // Using thumbnailer plugin
     for (const KPluginMetaData &plugin : plugins) {
         bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
@@ -182,65 +138,16 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    // Look for images and store the items in our todo list :)
     for (const auto &fileItem : std::as_const(initialItems)) {
         PreviewItem previewItem;
         previewItem.item = fileItem;
-
-        const QString mimeType = previewItem.item.mimetype();
-
-        auto pluginIt = mimeMap.constFind(mimeType);
-        if (pluginIt == mimeMap.constEnd()) {
-            // check MIME type inheritance, resolve aliases
-            QMimeDatabase db;
-            const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
-            if (mimeInfo.isValid()) {
-                const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                for (const QString &parentMimeType : parentMimeTypes) {
-                    pluginIt = mimeMap.constFind(parentMimeType);
-                    if (pluginIt != mimeMap.constEnd()) {
-                        break;
-                    }
-                }
-            }
-
-            if (pluginIt == mimeMap.constEnd()) {
-                // Check the wildcards last, see BUG 453480
-                QString groupMimeType = mimeType;
-                const int slashIdx = groupMimeType.indexOf(QLatin1Char('/'));
-                if (slashIdx != -1) {
-                    // Replace everything after '/' with '*'
-                    groupMimeType.truncate(slashIdx + 1);
-                    groupMimeType += QLatin1Char('*');
-                }
-                pluginIt = mimeMap.constFind(groupMimeType);
-            }
-        }
-
-        if (pluginIt != mimeMap.constEnd()) {
-            const KPluginMetaData plugin = *pluginIt;
-
-            previewItem.standardThumbnailer = plugin.description() == QStringLiteral("standardthumbnailer");
-            previewItem.plugin = plugin;
-            previewItem.devicePixelRatio = devicePixelRatio;
-            previewItem.sequenceIndex = sequenceIndex;
-            previewItem.ignoreMaximumSize = ignoreMaximumSize;
-            previewItem.scaleType = scaleType;
-            previewItem.size = size;
-            previewItem.deviceIdMap = deviceIdMap;
-
-            bool handlesSequencesValue = previewItem.plugin.value(QStringLiteral("HandleSequences"), false);
-            thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(handlesSequencesValue));
-            if (scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-                const QUrl url = fileItem.targetUrl();
-                if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
-                    setUpCaching(&previewItem);
-                }
-            }
-            items.push_back(previewItem);
-        } else {
-            Q_EMIT q->failed(fileItem);
-        }
+        previewItem.devicePixelRatio = devicePixelRatio;
+        previewItem.sequenceIndex = sequenceIndex;
+        previewItem.ignoreMaximumSize = ignoreMaximumSize;
+        previewItem.scaleType = scaleType;
+        previewItem.size = size;
+        previewItem.deviceIdMap = deviceIdMap;
+        items.push_back(previewItem);
     }
 
     initialItems.clear();
@@ -312,7 +219,7 @@ void PreviewJobPrivate::determineNextFile()
     for (int i = 0; i < jobsToRun; i++) {
         auto item = items.front();
         items.pop_front();
-        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot);
+        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot, mimeMap);
         q->addSubjob(job);
         job->start();
     }

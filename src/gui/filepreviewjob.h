@@ -21,10 +21,7 @@ namespace KIO
 
 struct PreviewItem {
     KFileItem item;
-    KPluginMetaData plugin;
-    bool standardThumbnailer = false;
     QSize size = QSize();
-    QString thumbPath;
     qreal devicePixelRatio = 1.0;
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
@@ -82,7 +79,7 @@ class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot);
+    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap);
     ~FilePreviewJob();
 
     void start() override;
@@ -107,7 +104,7 @@ private:
 
     QStringList m_enabledPlugins;
     // The current item
-    const KIO::PreviewItem m_item;
+    KIO::PreviewItem m_item;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -146,6 +143,11 @@ private:
     // The preview image. If when emitting return this is empty, job can be considered as failed.
     QImage m_preview;
 
+    bool m_standardThumbnailer = false;
+    KPluginMetaData m_plugin;
+
+    const QMap<QString, KPluginMetaData> m_mimeMap;
+
     void statFile();
     void getOrCreateThumbnail();
     bool loadThumbnailFromCache();
@@ -161,11 +163,13 @@ private:
     CachePolicy canBeCached(const QString &path);
     int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
+
+    void preparePluginForMimetype(const QString &mimeType);
 };
 
-inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot)
+inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap)
 {
-    auto job = new FilePreviewJob(item, thumbRoot);
+    auto job = new FilePreviewJob(item, thumbRoot, mimeMap);
     return job;
 }
 }
