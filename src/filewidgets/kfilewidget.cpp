@@ -2046,18 +2046,6 @@ void KFileWidgetPrivate::readViewConfig()
 {
     m_ops->setViewConfig(m_configGroup);
     m_ops->readConfig(m_configGroup);
-    KUrlComboBox *combo = m_urlNavigator->editor();
-
-    KCompletion::CompletionMode cm =
-        (KCompletion::CompletionMode)m_configGroup.readEntry(PathComboCompletionMode, static_cast<int>(KCompletion::CompletionPopup));
-    if (cm != KCompletion::CompletionPopup) {
-        combo->setCompletionMode(cm);
-    }
-
-    cm = (KCompletion::CompletionMode)m_configGroup.readEntry(LocationComboCompletionMode, static_cast<int>(KCompletion::CompletionPopup));
-    if (cm != KCompletion::CompletionPopup) {
-        m_locationEdit->setCompletionMode(cm);
-    }
 
     // Show or don't show the places panel
     togglePlacesPanel(m_configGroup.readEntry(ShowSpeedbar, true));
@@ -2089,11 +2077,6 @@ void KFileWidgetPrivate::writeViewConfig()
     KConfig tmp(QString(), KConfig::SimpleConfig);
     KConfigGroup tmpGroup(&tmp, ConfigGroup);
 
-    KUrlComboBox *pathCombo = m_urlNavigator->editor();
-    // saveDialogSize( tmpGroup, KConfigGroup::Persistent | KConfigGroup::Global );
-    tmpGroup.writeEntry(PathComboCompletionMode, static_cast<int>(pathCombo->completionMode()));
-    tmpGroup.writeEntry(LocationComboCompletionMode, static_cast<int>(m_locationEdit->completionMode()));
-
     const bool showPlacesPanel = m_placesDock && !m_placesDock->isHidden();
     tmpGroup.writeEntry(ShowSpeedbar, showPlacesPanel);
     if (m_placesViewWidth > 0) {
@@ -2111,6 +2094,8 @@ void KFileWidgetPrivate::writeViewConfig()
 
     // clean up no longer used values
     m_configGroup.revertToDefault("Show Bookmarks", KConfigGroup::Global);
+    m_configGroup.revertToDefault("PathCombo Completionmode", KConfigGroup::Global);
+    m_configGroup.revertToDefault("LocationCombo Completionmode", KConfigGroup::Global);
 }
 
 void KFileWidgetPrivate::readRecentFiles()

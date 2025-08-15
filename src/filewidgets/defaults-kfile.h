@@ -21,8 +21,6 @@ static const QLatin1String RecentURLs("Recent URLs");
 static const QLatin1String RecentFiles("Recent Files");
 static const QLatin1String RecentURLsNumber("Maximum of recent URLs");
 static const QLatin1String RecentFilesNumber("Maximum of recent files");
-static const QLatin1String PathComboCompletionMode("PathCombo Completionmode");
-static const QLatin1String LocationComboCompletionMode("LocationCombo Completionmode");
 static const QLatin1String ShowSpeedbar("Show Speedbar");
 static const QLatin1String SpeedbarWidth("Speedbar Width");
 static const QLatin1String AutoSelectExtChecked("Automatically select filename extension");
