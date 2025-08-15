@@ -58,8 +58,8 @@ public:
      * \a mimeType the MIME type to filter
      * \a filters the list of MIME types to filter
      */
-    bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
-    bool doMimeExcludeFilter(const QString &mimeExclude, const QStringList &filters) const;
+    bool doMimeFilter(const QMimeType &mimeType, const QStringList &filters) const;
+    bool doMimeExcludeFilter(const QMimeType &mimeExclude, const QStringList &filters) const;
     void connectJob(KIO::ListJob *);
     void jobDone(KIO::ListJob *);
     uint numJobs();

@@ -2429,31 +2429,30 @@ bool KCoreDirListerPrivate::matchesMimeFilter(const KFileItem &item) const
     if (settings.mimeFilter.isEmpty() && settings.mimeExcludeFilter.isEmpty()) {
         return true;
     }
-    return doMimeFilter(item.mimetype(), settings.mimeFilter) && doMimeExcludeFilter(item.mimetype(), settings.mimeExcludeFilter);
+
+    return doMimeFilter(item.determineMimeType(), settings.mimeFilter) && doMimeExcludeFilter(item.determineMimeType(), settings.mimeExcludeFilter);
 }
 
-bool KCoreDirListerPrivate::doMimeFilter(const QString &mime, const QStringList &filters) const
+bool KCoreDirListerPrivate::doMimeFilter(const QMimeType &mime, const QStringList &filters) const
 {
     if (filters.isEmpty()) {
         return true;
     }
 
-    QMimeDatabase db;
-    const QMimeType mimeptr = db.mimeTypeForName(mime);
-    if (!mimeptr.isValid()) {
+    if (!mime.isValid()) {
         return false;
     }
 
-    qCDebug(KIO_CORE_DIRLISTER) << "doMimeFilter: investigating:" << mimeptr.name();
-    return std::any_of(filters.cbegin(), filters.cend(), [&mimeptr](const QString &filter) {
-        return mimeptr.inherits(filter);
+    qCDebug(KIO_CORE_DIRLISTER) << "doMimeFilter: investigating:" << mime.name();
+    return std::any_of(filters.cbegin(), filters.cend(), [&mime](const QString &filter) {
+        return mime.inherits(filter);
     });
 }
 
-bool KCoreDirListerPrivate::doMimeExcludeFilter(const QString &mime, const QStringList &filters) const
+bool KCoreDirListerPrivate::doMimeExcludeFilter(const QMimeType &mime, const QStringList &filters) const
 {
     return !std::any_of(filters.cbegin(), filters.cend(), [&mime](const QString &filter) {
-        return mime == filter;
+        return mime.name() == filter;
     });
 }
 
