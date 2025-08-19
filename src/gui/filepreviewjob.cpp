@@ -331,11 +331,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         }
 
     });
-    QFuture<QImage> future = QtConcurrent::run(
-        loadThumbnailFromCache,
-        m_thumbPath + m_thumbName,
-        m_devicePixelRatio
-        );
+    QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_devicePixelRatio);
 
     watcher->setFuture(future);
 }
