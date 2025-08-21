@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:39+0000\n"
-"PO-Revision-Date: 2025-08-14 11:38+0400\n"
+"PO-Revision-Date: 2025-08-20 20:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -675,7 +675,7 @@ msgid ""
 "Internal error in server\n"
 "%1"
 msgstr ""
-"خطأ داخليّ في الخادوم\n"
+"خطأ داخليّ في الخادم\n"
 "%1"
 
 #: core/job_error.cpp:182
@@ -684,7 +684,7 @@ msgid ""
 "Timeout on server\n"
 "%1"
 msgstr ""
-"انتهت المهلة على الخادوم\n"
+"انتهت المهلة على الخادم\n"
 "%1"
 
 #: core/job_error.cpp:185
@@ -776,7 +776,7 @@ msgstr ""
 #: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "يتطلّب الخادوم %1، ولكنّه غير متوفّر."
+msgstr "يتطلّب الخادم %1، ولكنّه غير متوفّر."
 
 #: core/job_error.cpp:234
 #, kde-format
@@ -916,7 +916,7 @@ msgstr ""
 #: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
-msgstr "راسل مدير الخادوم لمساعدة إضافيّة."
+msgstr "راسل مدير الخادم لمساعدة إضافيّة."
 
 #: core/job_error.cpp:381
 #, kde-format
@@ -1008,8 +1008,7 @@ msgstr ""
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
-msgstr ""
-"قد تكون هناك مشكلة في مكان ما على مسار الّشبكة بين الخادوم وهذا الحاسوب."
+msgstr "قد تكون هناك مشكلة في مكان ما على مسار الّشبكة بين الخادم وهذا الحاسوب."
 
 #: core/job_error.cpp:421
 #, kde-format
@@ -1159,7 +1158,7 @@ msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr ""
-"قد تكون إصدارات الميفاق %1 المتاحة على هذا الحاسوب وعلى الخادوم غير متوافقة."
+"قد تكون إصدارات الميفاق %1 المتاحة على هذا الحاسوب وعلى الخادم غير متوافقة."
 
 #: core/job_error.cpp:506
 #, kde-format
@@ -1247,7 +1246,7 @@ msgstr "توقّع الطّلب ملفًّا، ولكن المجلّد <strong>%
 #: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
-msgstr "قد يكون هذا خطأً من جانب الخادوم."
+msgstr "قد يكون هذا خطأً من جانب الخادم."
 
 #: core/job_error.cpp:554
 #, kde-format
@@ -1326,7 +1325,7 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادوم بالاسم المطلوب <strong>"
+"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادم بالاسم المطلوب <strong>"
 "%1</strong> في الشّابكة."
 
 #: core/job_error.cpp:603
@@ -1348,7 +1347,7 @@ msgstr "رُفض النّفاذ إلى المورد، <strong>%1</strong>."
 #: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
-msgstr "ربما قدمت تفاصيل مصادقة غير صحيحة أو لا شيء على الإطلاق. "
+msgstr "ربما قدمت تفاصيل استيثاق غير صحيحة أو لا شيء على الإطلاق."
 
 #: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
@@ -1495,14 +1494,14 @@ msgstr ""
 #: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "رُفض الاتّصال بالخادوم"
+msgstr "رُفض الاتّصال بالخادم"
 
 #: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
-msgstr "رفض الخادوم <strong>%1</strong> السّماح لهذا الحاسوب بإنشاء اتّصال."
+msgstr "رفض الخادم <strong>%1</strong> السّماح لهذا الحاسوب بإنشاء اتّصال."
 
 #: core/job_error.cpp:720
 #, kde-format
@@ -1531,7 +1530,7 @@ msgstr ""
 #: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "أُغلق الاتّصال بالخادوم بشكل غير متوقّع"
+msgstr "أُغلق الاتّصال بالخادم بشكل غير متوقّع"
 
 #: core/job_error.cpp:736
 #, kde-format
@@ -1861,7 +1860,7 @@ msgstr ""
 #: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "قد لا يتيح الميفاق أو الخادوم استئناف الملفّات."
+msgstr "قد لا يتيح الميفاق أو الخادم استئناف الملفّات."
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -1953,7 +1952,7 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "عند جلب معلومات عن اسم الوكيل المحدد <strong>%1</strong> حصل خطأ مضيف مجهول. "
-"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادوم بالاسم المطلوب  في "
+"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادم بالاسم المطلوب  في "
 "الشّابكة."
 
 #: core/job_error.cpp:1046
@@ -2003,7 +2002,7 @@ msgstr "أُجهض الطّلب"
 #: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
-msgstr "خطأ داخليّ في الخادوم"
+msgstr "خطأ داخليّ في الخادم"
 
 #: core/job_error.cpp:1079
 #, kde-format
@@ -2011,7 +2010,7 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"أبلغ الخادوم الذي يزوّد النّفاذ إلى الميفاق <strong>%1</strong> عن خطأ داخليّ: "
+"أبلغ الخادم الذي يزوّد النّفاذ إلى الميفاق <strong>%1</strong> عن خطأ داخليّ: "
 "%2."
 
 #: core/job_error.cpp:1085
@@ -2020,13 +2019,13 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"غالبًا ما يكون هذا بسبب علّة في برنامج الخادوم. رجاءً أرسل تقرير علّة كامل كما "
-"هو مفصّل أدناه."
+"غالبًا ما يكون هذا بسبب علّة في برنامج الخادم. رجاءً أرسل تقرير علّة كامل كما هو "
+"مفصّل أدناه."
 
 #: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr "راسل إدارة الخادوم لإعلامهم بالمشكلة."
+msgstr "راسل إدارة الخادم لإعلامهم بالمشكلة."
 
 #: core/job_error.cpp:1092
 #, kde-format
@@ -2052,7 +2051,7 @@ msgstr ""
 #: core/job_error.cpp:1104
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
-msgstr "كان الخادوم منشغلًا بالرّدّ على طلبات أخرى ليردّ علينا."
+msgstr "كان الخادم منشغلًا بالرّدّ على طلبات أخرى ليردّ علينا."
 
 #: core/job_error.cpp:1110 core/slavebase.cpp:1540
 #, kde-format
@@ -2237,7 +2236,7 @@ msgstr "انقل العنصر إلى مجلّد آخر."
 #: core/job_error.cpp:1235
 #, kde-format
 msgid "Could not communicate with password server"
-msgstr "تعذّر التّواصل مع خادوم كلمات السر"
+msgstr "تعذّر التّواصل مع خادم كلمات السر"
 
 #: core/job_error.cpp:1237
 #, kde-format
@@ -4336,7 +4335,7 @@ msgstr ""
 "الرّسالة المرسلة:\n"
 "لِج مستخدمًا اسم المستخدم=%1 وكلمة السّر=[مخفيّة]\n"
 "\n"
-"ردّ الخادوم:\n"
+"ردّ الخادم:\n"
 "%2\n"
 "\n"
 
@@ -4380,7 +4379,7 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"عليك تزويد اسم مستخدم وكلمة سرّ للخادوم الوكيل الموجود أدناه قبل أن يُسمح لك "
+"عليك تزويد اسم مستخدم وكلمة سرّ للخادم الوكيل الموجود أدناه قبل أن يُسمح لك "
 "النّفاذ إلى أيّ موقع."
 
 #: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:383
@@ -4443,7 +4442,7 @@ msgstr "أتريد قبول هذه الشّهادة للأبد دون سؤال؟
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
-msgstr "استيثاق الخادوم"
+msgstr "استيثاق الخادم"
 
 #: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
 #: kioworkers/http/http.cpp:402
@@ -4527,7 +4526,7 @@ msgstr "حذف الملفّ أو المجلّد المطلوب"
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
-msgstr "الاستعلام عن إمكانيّات الخادوم"
+msgstr "الاستعلام عن إمكانيّات الخادم"
 
 #: kioworkers/http/http.cpp:1366
 #, kde-format
@@ -4593,7 +4592,7 @@ msgstr "تعذر منح القفل المطلوب. %1"
 #: kioworkers/http/http.cpp:1471
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "لا يتيح الخادوم نوع الطّلب للمتن."
+msgstr "لا يتيح الخادم نوع الطّلب للمتن."
 
 #: kioworkers/http/http.cpp:1476 kioworkers/http/http.cpp:1593
 #, kde-format
@@ -4612,7 +4611,7 @@ msgctxt "%1: request type"
 msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
-msgstr "تعذّر %1 لأنّ الخادوم المقصد رفض قبول الملفّ أو المجلّد."
+msgstr "تعذّر %1 لأنّ الخادم المقصد رفض قبول الملفّ أو المجلّد."
 
 #: kioworkers/http/http.cpp:1496 kioworkers/http/http.cpp:1609
 #, kde-format
