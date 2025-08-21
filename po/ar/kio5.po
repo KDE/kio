@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-08-14 11:38+0400\n"
+"PO-Revision-Date: 2025-08-20 20:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -675,7 +675,7 @@ msgid ""
 "Internal error in server\n"
 "%1"
 msgstr ""
-"خطأ داخليّ في الخادوم\n"
+"خطأ داخليّ في الخادم\n"
 "%1"
 
 #: core/job_error.cpp:178
@@ -684,7 +684,7 @@ msgid ""
 "Timeout on server\n"
 "%1"
 msgstr ""
-"انتهت المهلة على الخادوم\n"
+"انتهت المهلة على الخادم\n"
 "%1"
 
 #: core/job_error.cpp:181
@@ -776,7 +776,7 @@ msgstr ""
 #: core/job_error.cpp:227
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "يتطلّب الخادوم %1، ولكنّه غير متوفّر."
+msgstr "يتطلّب الخادم %1، ولكنّه غير متوفّر."
 
 #: core/job_error.cpp:230
 #, kde-format
@@ -916,7 +916,7 @@ msgstr ""
 #: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
-msgstr "راسل مدير الخادوم لمساعدة إضافيّة."
+msgstr "راسل مدير الخادم لمساعدة إضافيّة."
 
 #: core/job_error.cpp:377
 #, kde-format
@@ -1008,8 +1008,7 @@ msgstr ""
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
-msgstr ""
-"قد تكون هناك مشكلة في مكان ما على مسار الّشبكة بين الخادوم وهذا الحاسوب."
+msgstr "قد تكون هناك مشكلة في مكان ما على مسار الّشبكة بين الخادم وهذا الحاسوب."
 
 #: core/job_error.cpp:417
 #, kde-format
@@ -1159,7 +1158,7 @@ msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr ""
-"قد تكون إصدارات الميفاق %1 المتاحة على هذا الحاسوب وعلى الخادوم غير متوافقة."
+"قد تكون إصدارات الميفاق %1 المتاحة على هذا الحاسوب وعلى الخادم غير متوافقة."
 
 #: core/job_error.cpp:502
 #, kde-format
@@ -1247,7 +1246,7 @@ msgstr "توقّع الطّلب ملفًّا، ولكن المجلّد <strong>%
 #: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
-msgstr "قد يكون هذا خطأً من جانب الخادوم."
+msgstr "قد يكون هذا خطأً من جانب الخادم."
 
 #: core/job_error.cpp:550
 #, kde-format
@@ -1326,7 +1325,7 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادوم بالاسم المطلوب <strong>"
+"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادم بالاسم المطلوب <strong>"
 "%1</strong> في الشّابكة."
 
 #: core/job_error.cpp:599
@@ -1348,7 +1347,7 @@ msgstr "رُفض النّفاذ إلى المورد، <strong>%1</strong>."
 #: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
-msgstr "ربما قدمت تفاصيل مصادقة غير صحيحة أو لا شيء على الإطلاق. "
+msgstr "ربما قدمت تفاصيل استيثاق غير صحيحة أو لا شيء على الإطلاق."
 
 #: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
@@ -1495,14 +1494,14 @@ msgstr ""
 #: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "رُفض الاتّصال بالخادوم"
+msgstr "رُفض الاتّصال بالخادم"
 
 #: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
-msgstr "رفض الخادوم <strong>%1</strong> السّماح لهذا الحاسوب بإنشاء اتّصال."
+msgstr "رفض الخادم <strong>%1</strong> السّماح لهذا الحاسوب بإنشاء اتّصال."
 
 #: core/job_error.cpp:716
 #, kde-format
@@ -1531,7 +1530,7 @@ msgstr ""
 #: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "أُغلق الاتّصال بالخادوم بشكل غير متوقّع"
+msgstr "أُغلق الاتّصال بالخادم بشكل غير متوقّع"
 
 #: core/job_error.cpp:732
 #, kde-format
@@ -1861,7 +1860,7 @@ msgstr ""
 #: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "قد لا يتيح الميفاق أو الخادوم استئناف الملفّات."
+msgstr "قد لا يتيح الميفاق أو الخادم استئناف الملفّات."
 
 #: core/job_error.cpp:965
 #, kde-format
@@ -1953,7 +1952,7 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "عند جلب معلومات عن اسم الوكيل المحدد <strong>%1</strong> حصل خطأ مضيف مجهول. "
-"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادوم بالاسم المطلوب  في "
+"يُشير خطأ ”المضيف مجهول“ إلى تعذّر العثور على الخادم بالاسم المطلوب  في "
 "الشّابكة."
 
 #: core/job_error.cpp:1042
@@ -2003,7 +2002,7 @@ msgstr "أُجهض الطّلب"
 #: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
-msgstr "خطأ داخليّ في الخادوم"
+msgstr "خطأ داخليّ في الخادم"
 
 #: core/job_error.cpp:1075
 #, kde-format
@@ -2011,7 +2010,7 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"أبلغ الخادوم الذي يزوّد النّفاذ إلى الميفاق <strong>%1</strong> عن خطأ داخليّ: "
+"أبلغ الخادم الذي يزوّد النّفاذ إلى الميفاق <strong>%1</strong> عن خطأ داخليّ: "
 "%2."
 
 #: core/job_error.cpp:1081
@@ -2020,13 +2019,13 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"غالبًا ما يكون هذا بسبب علّة في برنامج الخادوم. رجاءً أرسل تقرير علّة كامل كما "
-"هو مفصّل أدناه."
+"غالبًا ما يكون هذا بسبب علّة في برنامج الخادم. رجاءً أرسل تقرير علّة كامل كما هو "
+"مفصّل أدناه."
 
 #: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr "راسل إدارة الخادوم لإعلامهم بالمشكلة."
+msgstr "راسل إدارة الخادم لإعلامهم بالمشكلة."
 
 #: core/job_error.cpp:1088
 #, kde-format
@@ -2060,7 +2059,7 @@ msgstr ""
 #: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
-msgstr "كان الخادوم منشغلًا بالرّدّ على طلبات أخرى ليردّ علينا."
+msgstr "كان الخادم منشغلًا بالرّدّ على طلبات أخرى ليردّ علينا."
 
 #: core/job_error.cpp:1114 core/slavebase.cpp:1626
 #, kde-format
@@ -2245,7 +2244,7 @@ msgstr "انقل العنصر إلى مجلّد آخر."
 #: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
-msgstr "تعذّر التّواصل مع خادوم كلمات السر"
+msgstr "تعذّر التّواصل مع خادم كلمات السر"
 
 #: core/job_error.cpp:1241
 #, kde-format
@@ -2559,7 +2558,7 @@ msgstr ""
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
-msgstr "استيثاق الخادوم"
+msgstr "استيثاق الخادم"
 
 #: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
@@ -4386,17 +4385,17 @@ msgid ""
 "received.</p>"
 msgstr ""
 "<h1>الكعكات</h1><p>تحوي الكعكات معلومات تخزّنها تطبيقات كِيدِي التي تستخدم "
-"ميفاق HTTP (مثل كونكيور) على الحاسوب، وهي تبدأ بطلب من خادوم الإنترنت "
-"البعيد. هذا يعني أنّ خادوم الوِب يمكنه تخزين معلومات عنك وعن نشاطات المتصفّح في "
-"الحاسوب لكي يستخدمها في وقت لاحق، قد تعتبر هذا انتهاكًا لخصوصيتك.</p><p> على "
-"أيّ حال، قد تكون الكعكات مفيدة في بعض الأحيان. فعلى سبيل المثال، تُستخدم "
-"الكعكات في المتاجر الإلكترونية لتُنشئ سلة مشتريات. بعض المواقع تطلب أن يكون "
-"المتصفّح يوفر الكعكات.</p><p> وبسبب أنّ أغلب الناس تريد أن توازن بين الخصوصية "
-"ومنافع الكعكات، فإنّ كِيدِي توفّر لك إمكانية تخصيص طريقة التعامل مع الكعكات. فقد "
-"ترغب أن تعيّن سياسة كِيدِي المبدئية لسؤالك فيما كان الخادوم يودّ تعيين كعكة، "
-"سامحًا لك بأن ترفض. قد ترغب بتعيين السياسة للسماح بكعكات مواقع الوِب للشراء "
-"المفضّلة لديك والتي تثق بها، فيمكنك الوصول إلى الموقع دون الحاجة إلى تأكيدك "
-"لاستقبال كِيدِي الكعكة في كلّ مرة.</p>"
+"ميفاق HTTP (مثل كونكيور) على الحاسوب، وهي تبدأ بطلب من خادم الإنترنت البعيد. "
+"هذا يعني أنّ خادم الوِب يمكنه تخزين معلومات عنك وعن نشاطات المتصفّح في الحاسوب "
+"لكي يستخدمها في وقت لاحق، قد تعتبر هذا انتهاكًا لخصوصيتك.</p><p> على أيّ حال، "
+"قد تكون الكعكات مفيدة في بعض الأحيان. فعلى سبيل المثال، تُستخدم الكعكات في "
+"المتاجر الإلكترونية لتُنشئ سلة مشتريات. بعض المواقع تطلب أن يكون المتصفّح يوفر "
+"الكعكات.</p><p> وبسبب أنّ أغلب الناس تريد أن توازن بين الخصوصية ومنافع "
+"الكعكات، فإنّ كِيدِي توفّر لك إمكانية تخصيص طريقة التعامل مع الكعكات. فقد ترغب "
+"أن تعيّن سياسة كِيدِي المبدئية لسؤالك فيما كان الخادم يودّ تعيين كعكة، سامحًا لك "
+"بأن ترفض. قد ترغب بتعيين السياسة للسماح بكعكات مواقع الوِب للشراء المفضّلة "
+"لديك والتي تثق بها، فيمكنك الوصول إلى الموقع دون الحاجة إلى تأكيدك لاستقبال "
+"كِيدِي الكعكة في كلّ مرة.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4665,7 +4664,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "ا&قبل الكعكات من الخادوم الأصليّ فقط"
+msgstr "ا&قبل الكعكات من الخادم الأصليّ فقط"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -5035,12 +5034,12 @@ msgstr "الاتّصال بال&وكيل:"
 #: kcms/netpref/netpref.cpp:59
 #, kde-format
 msgid "Server co&nnect:"
-msgstr "الاتصال بال&خادوم:"
+msgstr "الاتصال بال&خادم:"
 
 #: kcms/netpref/netpref.cpp:65
 #, kde-format
 msgid "&Server response:"
-msgstr "ر&دّ الخادوم:"
+msgstr "ر&دّ الخادم:"
 
 #: kcms/netpref/netpref.cpp:67
 #, kde-format
@@ -5155,7 +5154,7 @@ msgid ""
 "to block out requests for ads, spam, or anything else you want to block.</"
 "p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
-"<h1>الوكيل</h1><p>خادوم الوكيل هو برنامج يتوسّط بين الجهاز والإنترنت، ويقدّم "
+"<h1>الوكيل</h1><p>خادم الوكيل هو برنامج يتوسّط بين الجهاز والإنترنت، ويقدّم "
 "خدمات مثل التخزين المؤقت لصفحات الإنترنت و/أو التنقية.</p><p>خوادم التخزين "
 "المؤقت تعطيك سرعة النفاذ عالية للمواقع التي زرتها من قبل بواسطة تخزين هذه "
 "محتويات هذه المواقع بشكل مؤقت، أما خوادم التقنية أو الترشيح فيه تعطيك القدرة "
@@ -5313,7 +5312,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"أدخِل اسم متغيّر البيئة، مثلًا <b>HTTP_PROXY</b>، ليُستخدم في تخزين عنوان خادوم "
+"أدخِل اسم متغيّر البيئة، مثلًا <b>HTTP_PROXY</b>، ليُستخدم في تخزين عنوان خادم "
 "وكيل HTTP.<p>\n"
 "بشكل بديل، يمكنك نقر زرّ <b>\"اكتشف آليًّا\"</b> لمحاولة اكتشاف هذا المتغيّر "
 "آليًّا.</p>\n"
@@ -5339,7 +5338,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"أدخِل اسم متغيّر البيئة، مثلًا <b>HTTPS_PROXY</b>، ليُستخدم في تخزين عنوان خادوم "
+"أدخِل اسم متغيّر البيئة، مثلًا <b>HTTPS_PROXY</b>، ليُستخدم في تخزين عنوان خادم "
 "وكيل HTTPS.<p>\n"
 "بشكل بديل، يمكنك نقر زرّ <b>\"اكتشف آليًّا\"</b> لمحاولة اكتشاف هذا المتغيّر "
 "آليًّا.</p>\n"
@@ -5365,7 +5364,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"أدخِل اسم متغيّر البيئة، مثلًا <b>FTP_PROXY</b>، ليُستخدم في تخزين عنوان خادوم "
+"أدخِل اسم متغيّر البيئة، مثلًا <b>FTP_PROXY</b>، ليُستخدم في تخزين عنوان خادم "
 "وكيل FTP.<p>\n"
 "بشكل بديل، يمكنك نقر زرّ <b>\"اكتشف آليًّا\"</b> لمحاولة اكتشاف هذا المتغيّر "
 "آليًّا.</p>\n"
@@ -5390,7 +5389,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"أدخِل اسم متغيّر البيئة، مثلًا <b>SOCKS_PROXY</b>، ليُستخدم في تخزين عنوان خادوم "
+"أدخِل اسم متغيّر البيئة، مثلًا <b>SOCKS_PROXY</b>، ليُستخدم في تخزين عنوان خادم "
 "وكيل SOCKS.<p>\n"
 "بشكل بديل، يمكنك نقر زرّ <b>\"اكتشف آليًّا\"</b> لمحاولة اكتشاف هذا المتغيّر "
 "آليًّا.</p>\n"
@@ -5413,7 +5412,7 @@ msgid ""
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
 "<qt>أدخِل اسم متغيّر البيئة، مثلًا <b>SOCKS_PROXY</b>، ليُستخدم في تخزين عنوان "
-"خادوم وكيل SOCKS.<p>بشكل بديل، يمكنك نقر زرّ <b>&quot;اكتشف آليًّا&quot;</b> "
+"خادم وكيل SOCKS.<p>بشكل بديل، يمكنك نقر زرّ <b>&quot;اكتشف آليًّا&quot;</b> "
 "لمحاولة اكتشاف هذا المتغيّر آليًّا.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
@@ -5430,7 +5429,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "أدخِل اسم متغيّر البيئة، مثلًا <b>NO_PROXY</b>، ليُستخدم في تخزين عنوانين "
-"المواقع التي لا يجب استخدام خادوم وكيل فيها.<p>\n"
+"المواقع التي لا يجب استخدام خادم وكيل فيها.<p>\n"
 "بشكل بديل، يمكنك نقر زرّ <b>\"اكتشف آليًّا\"</b> لمحاولة اكتشاف هذا المتغيّر "
 "آليًّا.</p>\n"
 "</qt>"
@@ -5452,7 +5451,7 @@ msgid ""
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
 "<qt>أدخِل اسم متغيّر البيئة، مثلًا <b>NO_PROXY</b>، ليُستخدم في تخزين عناوين "
-"المواقع التي لا يجب استخدام خادوم وكيل فيها. <p>بشكل بديل، يمكنك نقر زرّ "
+"المواقع التي لا يجب استخدام خادم وكيل فيها. <p>بشكل بديل، يمكنك نقر زرّ "
 "<b>&quot;اكتشف آليًّا&quot;</b> لمحاولة اكتشاف هذا المتغيّر آليًّا.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
@@ -5465,7 +5464,7 @@ msgstr "اعرض قيم مت&غيّرات البيئة"
 #: kcms/proxy/kproxydlg.ui:343
 #, kde-format
 msgid "Manually enter proxy server configuration information."
-msgstr "أدخِل معلومات ضبط خادوم الوكيل يدويًّا."
+msgstr "أدخِل معلومات ضبط خادم الوكيل يدويًّا."
 
 #. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:346
@@ -5477,7 +5476,7 @@ msgstr "استخدم ضبط الوكيل المحدّد يدويًّا:"
 #: kcms/proxy/kproxydlg.ui:398
 #, kde-format
 msgid "Enter the address of the HTTP proxy server."
-msgstr "أدخِل عنوان خادوم وكيل HTTP."
+msgstr "أدخِل عنوان خادم وكيل HTTP."
 
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
@@ -5493,49 +5492,49 @@ msgstr "المنفذ:"
 #: kcms/proxy/kproxydlg.ui:421
 #, kde-format
 msgid "Enter the port number of the HTTP proxy server."
-msgstr "أدخِل رقم منفذ خادوم وكيل HTTP."
+msgstr "أدخِل رقم منفذ خادم وكيل HTTP."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "استخدم خادوم الوكيل هذا ل&كلّ الموافيق"
+msgstr "استخدم خادم الوكيل هذا ل&كلّ الموافيق"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
 #, kde-format
 msgid "Enter the address of the HTTPS proxy server."
-msgstr "أدخِل عنوان خادوم وكيل HTTPS."
+msgstr "أدخِل عنوان خادم وكيل HTTPS."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
 #: kcms/proxy/kproxydlg.ui:481
 #, kde-format
 msgid "Enter the port number of the HTTPS proxy server."
-msgstr "أدخِل رقم منفذ خادوم وكيل HTTPS."
+msgstr "أدخِل رقم منفذ خادم وكيل HTTPS."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
 #: kcms/proxy/kproxydlg.ui:517
 #, kde-format
 msgid "Enter the address of the FTP proxy server."
-msgstr "أدخِل عنوان خادوم وكيل FTP."
+msgstr "أدخِل عنوان خادم وكيل FTP."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
 #: kcms/proxy/kproxydlg.ui:534
 #, kde-format
 msgid "Enter the port number of the FTP proxy server."
-msgstr "أدخِل رقم منفذ خادوم وكيل FTP."
+msgstr "أدخِل رقم منفذ خادم وكيل FTP."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:567
 #, kde-format
 msgid "Enter the address of the SOCKS proxy server."
-msgstr "أدخِل عنوان خادوم وكيل SOCKS."
+msgstr "أدخِل عنوان خادم وكيل SOCKS."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr "أدخِل رقم منفذ خادوم وكيل SOCKS."
+msgstr "أدخِل رقم منفذ خادم وكيل SOCKS."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:628
@@ -5816,7 +5815,7 @@ msgstr ""
 "الرّسالة المرسلة:\n"
 "لِج مستخدمًا اسم المستخدم=%1 وكلمة السّر=[مخفيّة]\n"
 "\n"
-"ردّ الخادوم:\n"
+"ردّ الخادم:\n"
 "%2\n"
 "\n"
 
@@ -5861,7 +5860,7 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"عليك تزويد اسم مستخدم وكلمة سرّ للخادوم الوكيل الموجود أدناه قبل أن يُسمح لك "
+"عليك تزويد اسم مستخدم وكلمة سرّ للخادم الوكيل الموجود أدناه قبل أن يُسمح لك "
 "النّفاذ إلى أيّ موقع."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
@@ -5997,7 +5996,7 @@ msgstr "حذف الملفّ أو المجلّد المطلوب"
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
-msgstr "الاستعلام عن إمكانيّات الخادوم"
+msgstr "الاستعلام عن إمكانيّات الخادم"
 
 #: kioworkers/http/http.cpp:1590
 #, kde-format
@@ -6021,7 +6020,7 @@ msgstr "حدث خطأ غير متوقّع (%1) أثناء محاولة %2."
 #: kioworkers/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
-msgstr "لا يتيح الخادوم ميفاق WebDAV."
+msgstr "لا يتيح الخادم ميفاق WebDAV."
 
 #: kioworkers/http/http.cpp:1658
 #, kde-format
@@ -6068,7 +6067,7 @@ msgstr "تعذر منح القفل المطلوب. %1"
 #: kioworkers/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "لا يتيح الخادوم نوع الطّلب للمتن."
+msgstr "لا يتيح الخادم نوع الطّلب للمتن."
 
 #: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
 #, kde-format
@@ -6087,7 +6086,7 @@ msgctxt "%1: request type"
 msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
-msgstr "تعذّر %1 لأنّ الخادوم المقصد رفض قبول الملفّ أو المجلّد."
+msgstr "تعذّر %1 لأنّ الخادم المقصد رفض قبول الملفّ أو المجلّد."
 
 #: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
 #, kde-format
@@ -6128,9 +6127,9 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
-"<p> أنت على وشك تسجيل الدخول إلى الموقع \"\"%1\"\" باسم المستخدم \"%2\"، لكن "
-"موقع الويب لا يتطلب مصادقة. قد تكون هذه محاولة لخداعك. </p> <p> هل \"%1\" "
-"الموقع الذي تريد زيارته؟ </p> "
+"<p> أنت على وشك الولوج إلى الموقع \"\"%1\"\" باسم المستخدم \"%2\"، لكن موقع "
+"الويب لا يتطلب استيثاق. قد تكون هذه محاولة لخداعك. </p> <p> هل \"%1\" الموقع "
+"الذي تريد زيارته؟ </p> "
 
 #: kioworkers/http/http.cpp:2992
 #, kde-format
@@ -6141,7 +6140,7 @@ msgstr "أكّد النّفاذ إلى الموقع"
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "يعالج الخادوم الطّلب، رجاءً انتظر..."
+msgstr "يعالج الخادم الطّلب، رجاءً انتظر..."
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
