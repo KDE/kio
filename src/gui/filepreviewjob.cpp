@@ -691,7 +691,7 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
         }
         thumb.setText(QStringLiteral("Software"), signature);
         // we don't need to block for the saving to complete, it can run in it's own time
-        QFuture<void> future = QtConcurrent::run(saveThumbnailToCache, thumb, m_thumbPath + m_thumbName);
+        QFuture<void> future = QtConcurrent::run(saveThumbnailToCache, thumb, QString(m_thumbPath + m_thumbName));
     }
 }
 
