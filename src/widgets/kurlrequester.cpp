@@ -17,6 +17,7 @@
 #include <kprotocolmanager.h>
 #include <kurlcompletion.h>
 
+#include <QAccessibleWidget>
 #include <QAction>
 #include <QApplication>
 #include <QDrag>
@@ -28,6 +29,40 @@
 
 #include <private/qguiapplication_p.h>
 #include <qpa/qplatformtheme.h>
+
+class AccessibleLabelFromParentLineEdit : public QAccessibleWidget
+{
+public:
+    AccessibleLabelFromParentLineEdit(KLineEdit *parent)
+    : QAccessibleWidget{parent}
+    {}
+
+    QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> relations(QAccessible::Relation match = QAccessible::AllRelations) const override
+    {
+        auto relations = QAccessibleWidget::relations(match);
+        constexpr auto labelType = QAccessible::Label;
+        if (match & labelType) {
+            for (const auto &relation : relations) {
+                if (relation.second == labelType) {
+                    return relations;
+                }
+            }
+            const QAccessibleInterface *parentInterface = QAccessible::queryAccessibleInterface(parentObject());
+            const auto parentLabelledRelation = parentInterface->relations(labelType);
+            relations.append(parentLabelledRelation);
+        }
+        return relations;
+    }
+};
+
+QAccessibleInterface *accessibleInterfaceFactory(const QString &key, QObject *object)
+{
+    Q_UNUSED(key)
+    if (KLineEdit *lineEdit = qobject_cast<KLineEdit *>(object)) {
+        return new AccessibleLabelFromParentLineEdit(lineEdit);
+    }
+    return nullptr;
+};
 
 class KUrlDragPushButton : public QPushButton
 {
@@ -358,6 +393,8 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     m_parent->connect(openAction, &QAction::triggered, m_parent, [this]() {
         slotOpenDialog();
     });
+
+    QAccessible::installFactory(accessibleInterfaceFactory);
 }
 
 void KUrlRequester::setUrl(const QUrl &url)
