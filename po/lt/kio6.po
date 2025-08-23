@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:39+0000\n"
-"PO-Revision-Date: 2025-01-11 13:33+0200\n"
+"PO-Revision-Date: 2025-08-23 01:00+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2606,20 +2606,16 @@ msgid "&Current Session only"
 msgstr "Tik &dabartinis seansas"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Sukurti naują aplanką"
+msgstr "Perkelti į naują aplanką"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Sukurti naują aplanką"
+msgstr "Sukurti šiems elementams naują aplanką"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
@@ -3878,18 +3874,16 @@ msgstr "Įveskite %1 failo pavadinimą:"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Pasirinkite programą, skirtą %1"
+msgstr "Pasirinkti tinkintą piktogramą ar spalvą"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:119
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Pasirinkite &piktogramą:"
+msgstr "Pasirinkti kitą piktogramą…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:135
@@ -5058,11 +5052,10 @@ msgid "&Link Here"
 msgstr "Sukurti čia &nuorodą"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Paleidžiama %1"
+msgstr "Pa&leisti"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
@@ -5082,25 +5075,22 @@ msgid "What do you wish to do with this file?"
 msgstr "Ką norite daryti su šiuo failu?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Atverti"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Atverti naudojant %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Ką norite daryti su šiuo failu?"
+msgstr "Ar norėtumėte paleisti šį failą?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
@@ -5145,9 +5135,7 @@ msgid "Destination"
 msgstr "Paskirtis"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopijuojama"
 
@@ -5162,10 +5150,9 @@ msgid "Renaming"
 msgstr "Pervadinama"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Perkelti į šiukšlinę"
+msgstr "Perkeliama į šiukšlinę"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5225,61 +5212,52 @@ msgstr "Atša&ukti: Masinis pervadinimas"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Grąžinti"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "Atša&ukti: Kopijuoti"
+msgstr "&Grąžinti: Kopijuoti"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "Atša&ukti: Sukurti nuorodą"
+msgstr "&Grąžinti: Sukurti nuorodą"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "Atša&ukti: Perkelti"
+msgstr "&Grąžinti: Perkelti"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "Atša&ukti: Pervadinti"
+msgstr "&Grąžinti: Pervadinti"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "Atša&ukti: Perkelti į šiukšlinę"
+msgstr "&Grąžinti: Perkelti į šiukšlinę"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "Atša&ukti: Sukurti aplanką"
+msgstr "&Grąžinti: Sukurti aplanką"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Atšau&kti: Sukurti aplanką(-us)"
+msgstr "&Grąžinti: Sukurti aplanką(-us)"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Atša&ukti: Sukurti failą"
+msgstr "&Grąžinti: Sukurti failą"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Atša&ukti: Masinis pervadinimas"
+msgstr "&Grąžinti: Masinis pervadinimas"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5378,7 +5356,9 @@ msgstr ""
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ar tikrai norite perkelti šį elementą į šiukšlinę?"
-msgstr[1] "Ar tikrai norite perkelti %1 elementus į šiukšlinę?"
+msgstr[1] ""
+"Ar tikrai norite perkelti %1 \n"
+"elementus į šiukšlinę?"
 msgstr[2] "Ar tikrai norite perkelti %1 elementų į šiukšlinę?"
 msgstr[3] "Ar tikrai norite perkelti %1 elementą į šiukšlinę?"
 
@@ -7363,50 +7343,44 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Pervadinti %1 pažymėtą elementą į:"
-msgstr[1] "Pervadinti %1 pažymėtus elementus į:"
-msgstr[2] "Pervadinti %1 pažymėtų elementų į:"
-msgstr[3] "Pervadinti %1 pažymėtą elementą į:"
+msgstr[0] "Pervadinti %1 pažymėtą elementą:"
+msgstr[1] "Pervadinti %1 pažymėtus elementus:"
+msgstr[2] "Pervadinti %1 pažymėtų elementų:"
+msgstr[3] "Pervadinti %1 pažymėtą elementą:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Pakeisti"
+msgstr "Pakeičiant:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Šablonas"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Atverti naudojant:"
+msgstr "Kuo:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Pakeisti"
+msgstr "Pakeitimas"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Jokiame failo pavadinime nėra šablono."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7417,45 +7391,38 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Pervadinti %1 pažymėtą elementą į:"
-msgstr[1] "Pervadinti %1 pažymėtus elementus į:"
-msgstr[2] "Pervadinti %1 pažymėtų elementų į:"
-msgstr[3] "Pervadinti %1 pažymėtą elementą į:"
+msgstr[0] "Pervadinti %1 pažymėtą elementą:"
+msgstr[1] "Pervadinti %1 pažymėtus elementus:"
+msgstr[2] "Pervadinti %1 pažymėtų elementų:"
+msgstr[3] "Pervadinti %1 pažymėtą elementą:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Pridėti tekstą:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Tekstas, kurį pridėti"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Įveskite %1 failo pavadinimą:"
+msgstr "Prieš failo pavadinimą"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Įveskite %1 failo pavadinimą:"
+msgstr "Po failo pavadinimo"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7476,37 +7443,34 @@ msgid "&Rename"
 msgstr "Pe&rvadinti"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Ištrinti ar pervadinti:"
+msgstr "Kaip pervadinti:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Išskaičiuoti"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Pakeisti"
+msgstr "Pakeisti tekstą"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Pridėti tekstą"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Rodyti peržiūrą"
+msgstr "Peržiūra:"
 
 #: widgets/renamefiledialog.cpp:691
 #, fuzzy, kde-kuit-format
