@@ -7,7 +7,7 @@ find_dependency(KF6CoreAddons "@KF_DEP_VERSION@")
 find_dependency(KF6Config "@KF_DEP_VERSION@")
 
 if (NOT @BUILD_SHARED_LIBS@)
-    find_package(KI18n "@KF_DEP_VERSION@")
+    find_dependency(KF6I18n "@KF_DEP_VERSION@")
 
     if (NOT ANDROID)
         find_dependency(KF6Crash "@KF_DEP_VERSION@")
