@@ -19,6 +19,7 @@ Name[it]=npm
 Name[ka]=npm
 Name[ko]=npm
 Name[lg]=npm
+Name[lt]=npm
 Name[lv]=npm
 Name[nb]=npm
 Name[nl]=npm
@@ -53,6 +54,7 @@ Query[it]=https://www.npmjs.com/search?q=\\{@}
 Query[ka]=https://www.npmjs.com/search?q=\\{@}
 Query[ko]=https://www.npmjs.com/search?q=\\{@}
 Query[lg]=https://www.npmjs.com/search?q=\\{@}
+Query[lt]=https://www.npmjs.com/search?q=\\{@}
 Query[lv]=https://www.npmjs.com/search?q=\\{@}
 Query[nb]=https://www.npmjs.com/search?q=\\{@}
 Query[nl]=https://www.npmjs.com/search?q=\\{@}

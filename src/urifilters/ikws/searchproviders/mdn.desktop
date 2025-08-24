@@ -19,6 +19,7 @@ Name[it]=Mozilla Developer Network (MDN)
 Name[ka]=Mozilla Developer Network (MDN)
 Name[ko]=Mozilla 개발자 네트워크(MDN)
 Name[lg]=Kifo Ky'abawandisi ba Puloguramu Ekya Mozilla (MDN)
+Name[lt]=Mozilla Developer Network (MDN)
 Name[lv]=„Mozilla“ izstrādātāju tīkls (MDN)
 Name[nb]=Mozilla Developer Network (MDN)
 Name[nl]=Mozilla Developer Network (MDN)
@@ -53,6 +54,7 @@ Query[it]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ka]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ko]=https://developer.mozilla.org/ko/search?q=\\{@}
 Query[lg]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[lt]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[lv]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nb]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
