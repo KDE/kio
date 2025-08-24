@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
 "PO-Revision-Date: 2025-08-20 20:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -261,7 +261,7 @@ msgid "Creating directory"
 msgstr "يُنشئ الدّليل"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "الدّليل"
@@ -273,7 +273,7 @@ msgid "Deleting"
 msgstr "يحذف"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "الملفّ"
@@ -6877,7 +6877,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "اضبط اختصارات الوبّ…"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "افتح حواريّ الملفّات"

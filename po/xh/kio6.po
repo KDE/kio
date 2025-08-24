@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -241,7 +241,7 @@ msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -253,7 +253,7 @@ msgid "Deleting"
 msgstr " (Iyacima)"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, fuzzy, kde-format
 msgid "File"
 msgstr "&Isihluzo:"
@@ -6981,7 +6981,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Tshintsha Inkqubo ye Cookie"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, fuzzy, kde-format
 msgid "Open file dialog"
 msgstr "Vula Ifayile Yencoko yababini"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
 "PO-Revision-Date: 2025-06-22 15:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -249,7 +249,7 @@ msgid "Creating directory"
 msgstr "Creando un cartafol"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Cartafol"
@@ -261,7 +261,7 @@ msgid "Deleting"
 msgstr "Eliminando"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Ficheiro"
@@ -6979,7 +6979,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configurar os atallos da web…"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Diálogo para abrir ficheiros"

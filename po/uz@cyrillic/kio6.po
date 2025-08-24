@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -239,7 +239,7 @@ msgid "Creating directory"
 msgstr "Жилд яратилмоқда"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -251,7 +251,7 @@ msgid "Deleting"
 msgstr "Ўчирилмоқда"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Файл"
@@ -6789,7 +6789,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Қоидани ў&згартириш"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Файлни танлаш ойнасини очиш"

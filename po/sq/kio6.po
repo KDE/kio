@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -238,7 +238,7 @@ msgid "Creating directory"
 msgstr "Po krijohet drejtori"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Drejtori"
@@ -250,7 +250,7 @@ msgid "Deleting"
 msgstr "Po fshihet"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Kartelë"
@@ -6997,7 +6997,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Formësoni Shkurtore Web…"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Hap dialog kartelash"

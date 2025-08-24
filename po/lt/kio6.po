@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:39+0000\n"
-"PO-Revision-Date: 2025-08-23 01:00+0300\n"
+"POT-Creation-Date: 2025-08-24 00:39+0000\n"
+"PO-Revision-Date: 2025-08-23 14:53+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -250,7 +250,7 @@ msgid "Creating directory"
 msgstr "Kuriamas katalogas"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
-#: widgets/kurlrequester.cpp:441
+#: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Katalogas"
@@ -262,7 +262,7 @@ msgid "Deleting"
 msgstr "Ištrinama"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
-#: widgets/kurlrequester.cpp:440
+#: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Failas"
@@ -3470,10 +3470,9 @@ msgid "Show Places Panel"
 msgstr "Rodyti vietų skydelį"
 
 #: filewidgets/kfilewidget.cpp:1215
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Rodyti paslėptus failus"
+msgstr "Rodyti greito filtro juostą"
 
 #: filewidgets/kfilewidget.cpp:1223
 #, kde-format
@@ -3520,31 +3519,27 @@ msgid "&Name:"
 msgstr "Pa&vadinimas:"
 
 #: filewidgets/kfilewidget.cpp:1319
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Atšaukti pakeitimus"
+msgstr "Atšaukti failo pavadinimo pakeitimą"
 
 #: filewidgets/kfilewidget.cpp:1370
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Atverti vidinį aplanką"
+msgstr "Išlaikyti filtrą keičiant aplankus"
 
 #: filewidgets/kfilewidget.cpp:1374
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Failo pavadinimas:"
+msgstr "Filtruoti pagal pavadinimą…"
 
 #: filewidgets/kfilewidget.cpp:1382
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Paskiausiai paslėpti failai"
+msgstr "Slėpti filtro juostą"
 
 #: filewidgets/kfilewidget.cpp:1431
 #, kde-format
@@ -3843,19 +3838,15 @@ msgid "Create new folder in %1:"
 msgstr "Sukurti naują aplanką ties %1:"
 
 #: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Įveskite %1 failo pavadinimą:"
+msgstr "Įveskite aplanko pavadinimą"
 
 #: filewidgets/knewfilemenu.cpp:1630
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
-msgstr "Numatytas"
+msgstr "Numatytasis"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
@@ -3866,11 +3857,9 @@ msgstr "Sukurti naują failą"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Įveskite %1 failo pavadinimą:"
+msgstr "Įveskite failo pavadinimą"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
@@ -3889,7 +3878,7 @@ msgstr "Pasirinkti kitą piktogramą…"
 #: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Vėliau aplanko savybėse galite pakeisti piktogramą."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -5061,13 +5050,13 @@ msgstr "Pa&leisti"
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Neklausiant paleisti vykdomuosius failus"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Neklausiant atverti vykdomuosius failus numatytojoje programoje"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -5668,7 +5657,7 @@ msgstr "Dydis:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Nustatyti aplanko dydį"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5680,7 +5669,7 @@ msgstr "Stabdyti"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Nustoti nustatinėti aplanko dydį"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5696,10 +5685,9 @@ msgstr "Veda į:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Rodyti įspėjimą"
+msgstr "Rodyti paskirtį"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6063,11 +6051,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Bendros"
+msgstr "&Bendrinis pavadinimas:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -6092,8 +6078,7 @@ msgstr "Kome&ntaras:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Aplinkos kintamieji:"
 
@@ -6316,12 +6301,10 @@ msgid "&General"
 msgstr "&Bendros"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Įveskite %1 failo pavadinimą:"
+msgstr "Įveskite failo pavadinimą"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6339,16 +6322,14 @@ msgstr "Įkelti iš naujo"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Įveskite paskirties vietą"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Nepavyko perduoti <filename>%1</filename>"
+msgstr "Rodyti <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6860,16 +6841,14 @@ msgid "Verifying checksum…"
 msgstr "Tikrinama kontrolinė suma…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Failai yra <b>vienodi</b>."
+msgstr "Visų failų kontrolinės sumos yra vienodos."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Failai <b>skiriasi</b>."
+msgstr "Pažymėti failai turi skirtingas kontrolines sumas."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -7021,7 +7000,7 @@ msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfigūruoti saityno trumpinius…"
 
-#: widgets/kurlrequester.cpp:332
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Failo atvėrimo dialogas"
@@ -7032,12 +7011,10 @@ msgid "Filename for clipboard content:"
 msgstr "Iškarpinės turinio failo pavadinimas:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Į&dėti failą"
+msgstr "įdėtas failas"
 
 #: widgets/paste.cpp:123
 #, kde-format
