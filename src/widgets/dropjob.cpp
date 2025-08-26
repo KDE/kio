@@ -452,7 +452,12 @@ void DropJobPrivate::handleCopyToDirectory()
         if (mountPoints.isEmpty()) {
             mountPoints = KMountPoint::currentMountPoints();
         }
-        destDevice = mountPoints.findByPath(m_destUrl.path())->mountedFrom();
+        KMountPoint::Ptr destMountPoint = mountPoints.findByPath(m_destUrl.path());
+        if (destMountPoint) {
+            destDevice = destMountPoint->mountedFrom();
+        } else {
+            qCWarning(KIO_WIDGETS) << "Could not determine mount point for destination drop target " << m_destUrl;
+        }
     } else {
         allItemsAreSameDevice = false;
     }
@@ -498,10 +503,17 @@ void DropJobPrivate::handleCopyToDirectory()
             if (mountPoints.isEmpty()) {
                 mountPoints = KMountPoint::currentMountPoints();
             }
-            const QString &sourceDevice = mountPoints.findByPath(url.path())->mountedFrom();
+            QString sourceDevice;
+            KMountPoint::Ptr sourceMountPoint = mountPoints.findByPath(url.path());
+            if (sourceMountPoint) {
+                sourceDevice = sourceMountPoint->mountedFrom();
+            } else {
+                qCWarning(KIO_WIDGETS) << "Could not determine mount point for destination drag source " << url;
+            }
             if (sourceDevice != destDevice && !KFileItem(url).isLink()) {
                 allItemsAreSameDevice = false;
-            } else if (sourceDevice.isEmpty()) {
+            }
+            if (sourceDevice.isEmpty()) {
                 // Sanity check in case we somehow have a local files that we can't get the mount points from.
                 allItemsAreSameDevice = false;
             }
