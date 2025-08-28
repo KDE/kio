@@ -3739,12 +3739,10 @@ msgid "Create new folder in %1:"
 msgstr "Vytvořit novou složku v %1:"
 
 #: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Zadejte %1 název souboru:"
+msgstr ""
 
 #: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
@@ -3760,11 +3758,9 @@ msgstr "Vytvořit nový soubor"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Zadejte %1 název souboru:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
@@ -5014,9 +5010,7 @@ msgid "Destination"
 msgstr "Cíl"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopírování"
 
@@ -5031,10 +5025,9 @@ msgid "Renaming"
 msgstr "Přejmenovávám"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Přesunout do koše"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5094,61 +5087,52 @@ msgstr "Zpět: Dávkové přejmen&ování"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "Zn&ovu"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "Zpět: K&opírování"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "Zpět: &Odkaz"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "Zpět: Př&esun"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "Zpět: přejmen&ování"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "Zpět: Vyh&ození do koše"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "Zpět: Vytv&oření složky"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Zpět: Vytv&oření složky(ek)"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Zpět: Vytv&oření souboru"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Zpět: Dávkové přejmen&ování"
+msgstr ""
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5579,10 +5563,9 @@ msgstr "Odkazuje na:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgid "Show target"
-msgstr "Zobrazit náhled"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5921,38 +5904,26 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Zadejte popis aplikace založený na jejím použití. Příklad: pro aplikaci "
-"vytáčení připojení (KPPP) by popis byl \"Nástroj vytáčení\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Obecné"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Zadejte popis aplikace založený na jejím použití. Příklad: pro aplikaci "
-"vytáčení připojení (KPPP) by popis byl \"Nástroj vytáčení\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5962,10 +5933,9 @@ msgstr "Kom&entář:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
-msgstr "Proměnné prostředí:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -6180,12 +6150,10 @@ msgid "&General"
 msgstr "&Obecné"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Zadejte %1 název souboru:"
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6207,12 +6175,10 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Nelze přesunout <filename>%1</filename>"
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6710,16 +6676,14 @@ msgid "Verifying checksum…"
 msgstr "Ověřování kontrolního součtu…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Soubory jsou <b>identické</b>."
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Soubory jsou <b>rozdílné</b>."
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -7134,11 +7098,10 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Přejmenovat položku <filename>%1</filename> na:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgid "A file named %1 already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Soubor pojmenovaný %1 již existuje."
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
@@ -7178,23 +7141,19 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Přejmenovat vybranou položku na:"
-msgstr[1] "Přejmenovat %1 vybrané položky na:"
-msgstr[2] "Přejmenovat %1 vybraných položek na:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Nahradit"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
@@ -7203,18 +7162,16 @@ msgid "Pattern"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Otevřít pomocí:"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Nahradit"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
@@ -7231,16 +7188,13 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Přejmenovat vybranou položku na:"
-msgstr[1] "Přejmenovat %1 vybrané položky na:"
-msgstr[2] "Přejmenovat %1 vybraných položek na:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
@@ -7255,20 +7209,16 @@ msgid "Text to add"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Zadejte %1 název souboru:"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Zadejte %1 název souboru:"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7289,11 +7239,10 @@ msgid "&Rename"
 msgstr "Pře&jmenovat"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Smazat nebo přejmenovat?"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7302,11 +7251,10 @@ msgid "Enumerate"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Nahradit"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7315,11 +7263,10 @@ msgid "Add text"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Zobrazit náhled"
+msgstr ""
 
 #: widgets/renamefiledialog.cpp:691
 #, kde-kuit-format
@@ -7480,33 +7427,16 @@ msgstr[2] ""
 "strong='true'>Tento krok nelze vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Přesunutí této položky do koše selhalo protože je příliš velká. Chcete ji "
-"namísto toho smazat?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7516,17 +7446,8 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Přesunutí této %1 položky do koše selhalo protože je příliš velká. Chcete ji "
-"namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
-"emphasis>"
 msgstr[1] ""
-"Přesunutí těchto %1 položek do koše selhalo protože jsou příliš velké. "
-"Chcete je namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze "
-"vrátit.</emphasis>"
 msgstr[2] ""
-"Přesunutí těchto %1 položek do koše selhalo protože jsou příliš velké. "
-"Chcete je namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze "
-"vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
 #, kde-kuit-format
@@ -7581,15 +7502,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "Show Bookmarks Button"
-#~ msgstr "Zobrazit tlačítko záložek"
-
-#~ msgid "&Description:"
-#~ msgstr "&Popis:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Zde zadejte jakýkoliv užitečný komentář."
-
-#~ msgid "Do not ask again"
-#~ msgstr "Znovu se nedotazovat"
