@@ -77,8 +77,8 @@ msgstr ""
 "No s'ha pogut crear «%1».\n"
 "El sistema de fitxers de destinació (%2) no permet els caràcters següents en "
 "els noms de carpeta: %3\n"
-"Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
-"de la carpeta de destinació) amb un subratllat «_»."
+"Triar substitució, substituirà qualsevol caràcter no vàlid (en el nom de la "
+"carpeta de destinació) amb un subratllat «_»."
 
 #: core/copyjob.cpp:184
 #, kde-format
@@ -92,8 +92,8 @@ msgstr ""
 "No s'ha pogut crear «%1».\n"
 "El sistema de fitxers de destinació (%2) no permet els caràcters següents en "
 "els noms de fitxer: %3\n"
-"Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
-"del fitxer de destinació) amb un subratllat «_»."
+"Triar substitució, substituirà qualsevol caràcter no vàlid (en el nom del "
+"fitxer de destinació) amb un subratllat «_»."
 
 #: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
@@ -3087,9 +3087,9 @@ msgid ""
 "current application (%1).<br /><br />If this setting is not selected, the "
 "entry will be available in all applications.</qt>"
 msgstr ""
-"<qt>Seleccioneu esta opció si voleu que esta entrada només es mostre en "
-"utilitzar l'aplicació actual (%1).<br /><br />Si no se selecciona esta "
-"opció, l'entrada estarà disponible en totes les aplicacions.</qt>"
+"<qt>Trieu esta opció si voleu que esta entrada només es mostre en utilitzar "
+"l'aplicació actual (%1).<br /><br />Si no se selecciona esta opció, "
+"l'entrada estarà disponible en totes les aplicacions.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:177
 #, kde-format
@@ -3456,8 +3456,7 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 "S'ha seleccionat més d'una carpeta i este diàleg no accepta carpetes, per "
-"tant, no es pot decidir en quina entrar. Seleccioneu-ne només una per a "
-"llistar-la."
+"tant, no es pot decidir en quina entrar. Trieu-ne només una per a llistar-la."
 
 #: filewidgets/kfilewidget.cpp:883
 #, kde-format
@@ -3571,9 +3570,9 @@ msgid ""
 msgstr ""
 "<qt>Este botó us permet apuntar una adreça d'interés cap a ubicacions "
 "específiques. Cliqueu-lo per a obrir el menú d'adreces d'interés, des d'on "
-"podeu afegir, editar o seleccionar una dreça d'interés.<br /><br/>Estes "
-"adreces d'interés són específiques del diàleg de fitxer, però altrament "
-"operen com les adreces d'interés arreu de KDE.</qt>"
+"podeu afegir, editar o triar una dreça d'interés.<br /><br/>Estes adreces "
+"d'interés són específiques del diàleg de fitxer, però altrament operen com "
+"les adreces d'interés arreu de KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
@@ -3663,7 +3662,7 @@ msgstr "Mida de la icona: %1 píxels"
 #: filewidgets/kfilewidget.cpp:2471
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer (%1)"
+msgstr "Tria automàticament l'e&xtensió del nom de fitxer (%1)"
 
 #: filewidgets/kfilewidget.cpp:2472
 #, kde-format
@@ -3673,7 +3672,7 @@ msgstr "l'extensió <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2478
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer"
+msgstr "Tria automàticament l'e&xtensió del nom de fitxer"
 
 #: filewidgets/kfilewidget.cpp:2479
 #, kde-format
@@ -5054,7 +5053,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Seleccioneu la política desitjada:\n"
+"Trieu la política desitjada:\n"
 "<ul>\n"
 "<li><b>Accepta</b> - Permet a este lloc establir galetes</li>\n"
 "<li><b>Accepta fins al final de sessió</b> Permet que este lloc establisca "
@@ -6438,7 +6437,7 @@ msgid ""
 "Select this option to only accept or reject this cookie. You will be "
 "prompted again if you receive another cookie."
 msgstr ""
-"Seleccioneu esta opció per a acceptar/rebutjar només esta galeta. Se vos "
+"Trieu esta opció per a acceptar/rebutjar només esta galeta. Se vos "
 "preguntarà en rebre una altra galeta."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:161
@@ -6454,9 +6453,9 @@ msgid ""
 "This policy will be permanent until you manually change it from the System "
 "Settings."
 msgstr ""
-"Seleccioneu esta opció per a acceptar/rebutjar totes les galetes d'este "
-"lloc. En triar esta opció s'afegirà una política nova per al lloc des d'on "
-"s'ha originat esta galeta. Esta política serà permanent fins que la canvieu "
+"Trieu esta opció per a acceptar/rebutjar totes les galetes d'este lloc. En "
+"triar esta opció s'afegirà una política nova per al lloc des d'on s'ha "
+"originat esta galeta. Esta política serà permanent fins que la canvieu "
 "manualment des de Configuració del sistema."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:170
@@ -6471,9 +6470,9 @@ msgid ""
 "option will change the global cookie policy for all cookies until you "
 "manually change it from the System Settings."
 msgstr ""
-"Seleccioneu esta opció per a acceptar/rebutjar totes les galetes de tot "
-"arreu. En triar esta opció es canviarà la política global de les galetes "
-"establida a Configuració del sistema per a totes les galetes."
+"Trieu esta opció per a acceptar/rebutjar totes les galetes de tot arreu. En "
+"triar esta opció es canviarà la política global de les galetes establida a "
+"Configuració del sistema per a totes les galetes."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:240
 #, kde-format
@@ -6693,9 +6692,9 @@ msgstr ""
 "ràpides o buscar paraules a Internet. Per exemple, per a buscar informació "
 "quant al projecte KDE utilitzant el motor de Google, senzillament teclegeu "
 "<emphasis>gg:KDE</emphasis> o <emphasis>google:KDE</emphasis>.</"
-"para><para>Si seleccioneu un motor predeterminat de busca, les paraules "
-"normals o les frases es buscaran en el motor predeterminat de busca "
-"senzillament teclejant-les al giny d'entrada de les aplicacions que tenen la "
+"para><para>Si trieu un motor predeterminat de busca, les paraules normals o "
+"les frases es buscaran en el motor predeterminat de busca senzillament "
+"teclejant-les al giny d'entrada de les aplicacions que tenen la "
 "implementació integrada d'esta característica, com Konqueror.</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
@@ -6772,7 +6771,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Seleccioneu el motor de busca que s'utilitzarà en els quadros d'entrada que "
+"Trieu el motor de busca que s'utilitzarà en els quadros d'entrada que "
 "proporcionen el servei de busca automàtica quan teclegeu paraules normals o "
 "frases en lloc d'un URL. Per a desactivar esta característica seleccioneu "
 "<b>Cap</b> en la llista.\n"
@@ -6794,7 +6793,7 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
-"<html><head/><body><p>Seleccioneu una paraula clau de busca en la web "
+"<html><head/><body><p>Trieu una paraula clau de busca en la web "
 "predeterminada.</p><p>Açò permet que les aplicacions convertisquen "
 "automàticament la paraula o frase teclejada a les consultes de les paraules "
 "clau de busca en la web quan no es poden filtrar en un URL apropiat.</"
@@ -6808,8 +6807,8 @@ msgid ""
 "Choose the delimiter that separates the keyword from the phrase or word to "
 "be searched."
 msgstr ""
-"Seleccioneu el delimitador que separa la paraula clau de la frase o paraula "
-"que es buscarà."
+"Trieu el delimitador que separa la paraula clau de la frase o paraula que es "
+"buscarà."
 
 #. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:185
@@ -6822,8 +6821,7 @@ msgstr "Delimitador de la paraula &clau:"
 #, kde-format
 msgid "Choose a delimiter to mark the Web search keyword."
 msgstr ""
-"Seleccioneu un delimitador per a marcar la paraula clau de la busca en la "
-"web."
+"Trieu un delimitador per a marcar la paraula clau de la busca en la web."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:208
@@ -6871,7 +6869,7 @@ msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr ""
-"La drecera «%1» ja es troba assignada a «%2». Seleccioneu-ne una de diferent."
+"La drecera «%1» ja es troba assignada a «%2». Trieu-ne una de diferent."
 
 #: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
@@ -6885,8 +6883,7 @@ msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
-"Les dreceres següents ja estan assignades. Seleccioneu-ne altres de "
-"diferents.\n"
+"Les dreceres següents ja estan assignades. Trieu-ne altres de diferents.\n"
 "%1"
 
 #: urifilters/ikws/searchproviderdlg.cpp:143
@@ -6967,8 +6964,8 @@ msgstr "&URL de la drecera:"
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
 msgstr ""
-"Seleccioneu el joc de caràcters que s'utilitzarà per a codificar la consulta "
-"de la busca."
+"Trieu el joc de caràcters que s'utilitzarà per a codificar la consulta de la "
+"busca."
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
@@ -7013,8 +7010,8 @@ msgstr "&Dreceres:"
 #, kde-format
 msgid "Select the character set that will be used to encode your search query"
 msgstr ""
-"Seleccioneu el joc de caràcters que s'utilitzarà per a codificar la consulta "
-"de la busca"
+"Trieu el joc de caràcters que s'utilitzarà per a codificar la consulta de la "
+"busca"
 
 #. i18n: ectx: property (text), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
@@ -7840,8 +7837,7 @@ msgstr "Trieu el nom del programa que obrirà els fitxers seleccionats."
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir el fitxer<br/>"
-"%1</qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir el fitxer<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:591
 #, kde-format
@@ -7849,10 +7845,9 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir el fitxer.</qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir el fitxer.</qt>"
 msgstr[1] ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir els %1 fitxers.</"
-"qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir els %1 fitxers.</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -8319,8 +8314,8 @@ msgid ""
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
 "Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació no "
-"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu "
-"damunt d'este botó."
+"pot manipular, trieu el tipus MIME de la llista de dalt i cliqueu damunt "
+"d'este botó."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -8918,7 +8913,7 @@ msgstr "Afig un tipus de fitxer per a %1"
 #: widgets/kpropertiesdialog.cpp:3436
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "Seleccioneu un o més tipus de fitxers que s'hagen d'afegir:"
+msgstr "Trieu un o més tipus de fitxers que s'hagen d'afegir:"
 
 #: widgets/kpropertiesdialog.cpp:3578
 #, kde-format

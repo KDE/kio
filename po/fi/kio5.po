@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-05-29 15:18+0300\n"
+"PO-Revision-Date: 2025-08-14 17:20+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -335,7 +335,7 @@ msgstr "Kopioi tiedostot"
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
-msgstr "Kopioinnin suorittaminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
+msgstr "Kopioiminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
 
 #: core/job.cpp:283
 #, kde-format
@@ -348,8 +348,8 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
-"Poiston suorittaminen vaatii pääkäyttäjäoikeuksia. Tämä voi vahingoittaa "
-"järjestelmääsi. Haluatko jatkaa?"
+"Poistaminen vaatii pääkäyttäjäoikeuksia. Järjestelmä voi kuitenkin tällöin "
+"vahingoittua. Haluatko jatkaa?"
 
 #: core/job.cpp:289
 #, kde-format
@@ -372,7 +372,7 @@ msgstr "Siirrä tietueet"
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
-msgstr "Siirron suorittaminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
+msgstr "Siirtäminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
 
 #: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
@@ -659,7 +659,7 @@ msgstr ""
 #: core/job_error.cpp:166
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Tunnistus epäonnistui, %1 todennusta ei tueta"
+msgstr "Todennus epäonnistui: %1 todennusta ei tueta"
 
 #: core/job_error.cpp:172
 #, kde-format
@@ -667,7 +667,7 @@ msgid ""
 "User canceled action\n"
 "%1"
 msgstr ""
-"Käyttäjän peruma toiminto\n"
+"Käyttäjän perui toiminnon\n"
 "%1"
 
 #: core/job_error.cpp:175
@@ -721,7 +721,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Osittaista tiedostoa %1 ei saatu poistettua.\n"
+"Osittaista tiedostoa %1 ei voitu poistaa.\n"
 "Tarkista käyttöoikeudet."
 
 #: core/job_error.cpp:201
@@ -739,7 +739,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Osittaistiedoston %1 nimeä ei voitu muuttaa.\n"
+"Osittaisen tiedoston %1 nimeä ei voitu muuttaa.\n"
 "Tarkista käyttöoikeudet."
 
 #: core/job_error.cpp:207
@@ -757,13 +757,13 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Ei voitu luoda symlinkkejä kohteeseen %1.\n"
-"Kohdetiedostojärjestelmä ei tue symlinkkejä."
+"Symlinkkejä ei voi luoda kohteeseen %1.\n"
+"Kohdetiedostojärjestelmä ei tue niitä."
 
 #: core/job_error.cpp:216
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
-msgstr "Levytila ei riittämään tiedoston %1 kirjoittamiseen."
+msgstr "Levytila ei riitä tiedoston %1 kirjoittamiseksi."
 
 #: core/job_error.cpp:219
 #, kde-format
@@ -777,7 +777,7 @@ msgstr ""
 #: core/job_error.cpp:227
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "Palvelin vaatii %1:n, mutta sitä ei ole saatavilla."
+msgstr "Palvelin vaatii ”%1”, mutta se ei ole käytettävissä."
 
 #: core/job_error.cpp:230
 #, kde-format
@@ -788,7 +788,7 @@ msgstr "Rajoitetun POST-portin käyttö kielletty."
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
-msgstr "Vaadittua sisällön kokotietoa ei annettu POST-pyynnössä."
+msgstr "POST-toimenpiteelle ei annettu vaadittua sisällön kokotietoa."
 
 #: core/job_error.cpp:236
 #, kde-format
@@ -7952,7 +7952,7 @@ msgstr "Erillinen GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Suorita omassa grafiikkakortissa"
+msgstr "Suorita omalla näytönohjaimella"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
