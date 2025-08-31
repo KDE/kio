@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-24 00:39+0000\n"
-"PO-Revision-Date: 2025-07-14 11:22+0300\n"
+"PO-Revision-Date: 2025-08-14 17:20+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -335,7 +335,7 @@ msgstr "Kopioi tiedostot"
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
-msgstr "Kopioinnin suorittaminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
+msgstr "Kopioiminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
 
 #: core/job.cpp:276
 #, kde-format
@@ -348,8 +348,8 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
-"Poiston suorittaminen vaatii pääkäyttäjäoikeuksia. Tämä voi vahingoittaa "
-"järjestelmääsi. Haluatko jatkaa?"
+"Poistaminen vaatii pääkäyttäjäoikeuksia. Järjestelmä voi kuitenkin tällöin "
+"vahingoittua. Haluatko jatkaa?"
 
 #: core/job.cpp:282
 #, kde-format
@@ -372,7 +372,7 @@ msgstr "Siirrä tietueet"
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
-msgstr "Siirron suorittaminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
+msgstr "Siirtäminen vaatii pääkäyttäjäoikeuksia. Haluatko jatkaa?"
 
 #: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
 #, kde-format
@@ -659,7 +659,7 @@ msgstr ""
 #: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Tunnistus epäonnistui, %1 todennusta ei tueta"
+msgstr "Todennus epäonnistui: %1 todennusta ei tueta"
 
 #: core/job_error.cpp:176
 #, kde-format
@@ -667,7 +667,7 @@ msgid ""
 "User canceled action\n"
 "%1"
 msgstr ""
-"Käyttäjän peruma toiminto\n"
+"Käyttäjän perui toiminnon\n"
 "%1"
 
 #: core/job_error.cpp:179
@@ -721,7 +721,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Osittaista tiedostoa %1 ei saatu poistettua.\n"
+"Osittaista tiedostoa %1 ei voitu poistaa.\n"
 "Tarkista käyttöoikeudet."
 
 #: core/job_error.cpp:205
@@ -739,7 +739,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Osittaistiedoston %1 nimeä ei voitu muuttaa.\n"
+"Osittaisen tiedoston %1 nimeä ei voitu muuttaa.\n"
 "Tarkista käyttöoikeudet."
 
 #: core/job_error.cpp:211
@@ -757,13 +757,13 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Ei voitu luoda symlinkkejä kohteeseen %1.\n"
-"Kohdetiedostojärjestelmä ei tue symlinkkejä."
+"Symlinkkejä ei voi luoda kohteeseen %1.\n"
+"Kohdetiedostojärjestelmä ei tue niitä."
 
 #: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
-msgstr "Levytila ei riittämään tiedoston %1 kirjoittamiseen."
+msgstr "Levytila ei riitä tiedoston %1 kirjoittamiseksi."
 
 #: core/job_error.cpp:223
 #, kde-format
@@ -777,7 +777,7 @@ msgstr ""
 #: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "Palvelin vaatii %1:n, mutta sitä ei ole saatavilla."
+msgstr "Palvelin vaatii ”%1”, mutta se ei ole käytettävissä."
 
 #: core/job_error.cpp:234
 #, kde-format
@@ -788,7 +788,7 @@ msgstr "Rajoitetun POST-portin käyttö kielletty."
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
-msgstr "Vaadittua sisällön kokotietoa ei annettu POST-pyynnössä."
+msgstr "POST-toimenpiteelle ei annettu vaadittua sisällön kokotietoa."
 
 #: core/job_error.cpp:240
 #, kde-format
@@ -3805,9 +3805,7 @@ msgstr "Luo uusi tiedosto"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Enter file name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Anna tiedostonimi"
 
@@ -5082,9 +5080,7 @@ msgstr "Kohde"
 
 # pmap: =:teonnimi=Kopiointi:
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopioidaan"
 
@@ -5099,10 +5095,9 @@ msgid "Renaming"
 msgstr "Muutetaan nimiä"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Siirrä roskakoriin"
+msgstr "Siirretään roskakoriin"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5162,61 +5157,52 @@ msgstr "K&umoa nimien muutos"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "Tee &uudelleen"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "K&umoa kopiointi"
+msgstr "Tee &uudelleen: Kopioi"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "K&umoa linkitys"
+msgstr "Tee &uudelleen: Linkitä"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "K&umoa siirto"
+msgstr "Tee &uudelleen: Siirrä"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "K&umoa nimen muutos"
+msgstr "Tee &uudelleen: Muuta nimeä"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "K&umoa roskakoriin siirtäminen"
+msgstr "Tee &uudelleen: Siirrä roskakoriin"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "K&umoa kansion luominen"
+msgstr "Tee &uudelleen: Luo kansio"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "K&umoa kansioiden luominen"
+msgstr "Tee &uudelleen: Luo kansioita"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "K&umoa tiedoston luominen"
+msgstr "Tee &uudelleen: Luo tiedosto"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "K&umoa nimien muutos"
+msgstr "Tee &uudelleen: Muuta nimiä eräajona"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5943,7 +5929,7 @@ msgstr "Erillinen GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:136
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Suorita omassa grafiikkakortissa"
+msgstr "Suorita omalla näytönohjaimella"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:146
@@ -6765,16 +6751,14 @@ msgid "Verifying checksum…"
 msgstr "Tarkistetaan tarkistussummaa…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Tiedostot ovat <b>identtiset</b>."
+msgstr "Kaikkien tiedostojen tarkistussummat on sama."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Tiedostot <b>eroavat</b>."
+msgstr "Valituilla tiedostoilla on eri tarkistussummat."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
