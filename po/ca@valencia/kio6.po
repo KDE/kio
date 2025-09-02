@@ -77,8 +77,8 @@ msgstr ""
 "No s'ha pogut crear «%1».\n"
 "El sistema de fitxers de destinació (%2) no permet els caràcters següents en "
 "els noms de carpeta: %3\n"
-"Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
-"de la carpeta de destinació) amb un subratllat «_»."
+"Triar substitució, substituirà qualsevol caràcter no vàlid (en el nom de la "
+"carpeta de destinació) amb un subratllat «_»."
 
 #: core/copyjob.cpp:187
 #, kde-format
@@ -92,8 +92,8 @@ msgstr ""
 "No s'ha pogut crear «%1».\n"
 "El sistema de fitxers de destinació (%2) no permet els caràcters següents en "
 "els noms de fitxer: %3\n"
-"Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
-"del fitxer de destinació) amb un subratllat «_»."
+"Triar substitució, substituirà qualsevol caràcter no vàlid (en el nom del "
+"fitxer de destinació) amb un subratllat «_»."
 
 #: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
@@ -3040,9 +3040,9 @@ msgid ""
 "current application (%1).<br /><br />If this setting is not selected, the "
 "entry will be available in all applications.</qt>"
 msgstr ""
-"<qt>Seleccioneu esta opció si voleu que esta entrada només es mostre en "
-"utilitzar l'aplicació actual (%1).<br /><br />Si no se selecciona esta "
-"opció, l'entrada estarà disponible en totes les aplicacions.</qt>"
+"<qt>Trieu esta opció si voleu que esta entrada només es mostre en utilitzar "
+"l'aplicació actual (%1).<br /><br />Si no se selecciona esta opció, "
+"l'entrada estarà disponible en totes les aplicacions.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:221
 #, kde-format
@@ -3518,9 +3518,9 @@ msgid ""
 msgstr ""
 "<qt>Este botó us permet apuntar una adreça d'interés cap a ubicacions "
 "específiques. Cliqueu-lo per a obrir el menú d'adreces d'interés, des d'on "
-"podeu afegir, editar o seleccionar una dreça d'interés.<br /><br/>Estes "
-"adreces d'interés són específiques del diàleg de fitxer, però altrament "
-"operen com les adreces d'interés arreu de KDE.</qt>"
+"podeu afegir, editar o triar una dreça d'interés.<br /><br/>Estes adreces "
+"d'interés són específiques del diàleg de fitxer, però altrament operen com "
+"les adreces d'interés arreu de KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
@@ -3627,7 +3627,7 @@ msgstr "Mida de la icona: %1 píxels"
 #: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer (%1)"
+msgstr "Tria automàticament l'e&xtensió del nom de fitxer (%1)"
 
 #: filewidgets/kfilewidget.cpp:2431
 #, kde-format
@@ -3637,7 +3637,7 @@ msgstr "l'extensió <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer"
+msgstr "Tria automàticament l'e&xtensió del nom de fitxer"
 
 #: filewidgets/kfilewidget.cpp:2438
 #, kde-format
@@ -5771,8 +5771,7 @@ msgstr "Trieu el nom del programa que obrirà els fitxers seleccionats."
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir el fitxer<br/>"
-"%1</qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir el fitxer<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:592
 #, kde-format
@@ -5780,10 +5779,9 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir el fitxer.</qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir el fitxer.</qt>"
 msgstr[1] ""
-"<qt>Seleccioneu el programa que voleu utilitzar per a obrir els %1 fitxers.</"
-"qt>"
+"<qt>Trieu el programa que voleu utilitzar per a obrir els %1 fitxers.</qt>"
 
 #: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
@@ -6237,8 +6235,8 @@ msgid ""
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
 "Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació no "
-"pot manipular, seleccioneu el tipus MIME de la llista de dalt i cliqueu "
-"damunt d'este botó."
+"pot manipular, trieu el tipus MIME de la llista de dalt i cliqueu damunt "
+"d'este botó."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:255
@@ -6879,7 +6877,7 @@ msgstr "Afig un tipus de fitxer per a %1"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2852
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "Seleccioneu un o més tipus de fitxers que s'hagen d'afegir:"
+msgstr "Trieu un o més tipus de fitxers que s'hagen d'afegir:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2990
 #, kde-format
@@ -7670,14 +7668,3 @@ msgstr "Iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en este programa, cliqueu damunt «Cancel·la»"
-
-#~ msgid "Show Bookmarks Button"
-#~ msgstr "Mostra el botó de les adreces d'interés"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being moved"
-#~ msgstr "S'estan movent els fitxers"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being copied"
-#~ msgstr "S'estan copiant els fitxers"
