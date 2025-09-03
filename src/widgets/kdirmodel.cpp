@@ -17,6 +17,7 @@
 #include <kio/fileundomanager.h>
 #include <kio/simplejob.h>
 #include <kio/statjob.h>
+#include <kio/copyjob.h>
 
 #include <QBitArray>
 #include <QDebug>
@@ -1026,7 +1027,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             }
             QUrl newUrl = item.url().adjusted(QUrl::RemoveFilename);
             newUrl.setPath(newUrl.path() + KIO::encodeFileName(newName));
-            KIO::Job *job = KIO::rename(item.url(), newUrl, item.url().isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
+            KIO::Job *job = KIO::moveAs(item.url(), newUrl, item.url().isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
             job->uiDelegate()->setAutoErrorHandlingEnabled(true);
             // undo handling
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Rename, QList<QUrl>() << item.url(), newUrl, job);
