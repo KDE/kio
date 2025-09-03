@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:39+0000\n"
+"POT-Creation-Date: 2025-09-03 00:40+0000\n"
 "PO-Revision-Date: 2025-08-20 20:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2307,17 +2307,17 @@ msgstr "أعد تهيئة قرص المقصد ليستخدم نظام ملفات
 msgid "Undocumented Error"
 msgstr "خطأ غير موثّق"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(رابط رمزيّ إلى %1)"
 
-#: core/kfileitem.cpp:1498
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1، رابط إلى %2)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1502
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (يشير إلى %1)"

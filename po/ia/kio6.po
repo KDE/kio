@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:39+0000\n"
-"PO-Revision-Date: 2025-05-30 18:40+0200\n"
+"POT-Creation-Date: 2025-09-03 00:40+0000\n"
+"PO-Revision-Date: 2025-09-02 17:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2408,17 +2408,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error non documentate"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Ligamine symbolic a %1)"
 
-#: core/kfileitem.cpp:1498
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Attacca a %2)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1502
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"
@@ -3851,11 +3851,9 @@ msgstr "Crea nove file"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Entra nomine de file %1:"
+msgstr "Inserta nomine de file"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
@@ -5214,7 +5212,7 @@ msgstr "A&nnulla : Renomina Batch"
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Reface"
 
 #: widgets/fileundomanager.cpp:368
 #, fuzzy, kde-format
@@ -5697,7 +5695,7 @@ msgstr "Puncta a:"
 #, fuzzy, kde-format
 #| msgid "Show a Warning"
 msgid "Show target"
-msgstr "Monstra un aviso"
+msgstr "Monstra Objectivo"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -6057,10 +6055,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "Nomine de &usator:"
+msgstr "Nomine de &Generic:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -6085,8 +6082,7 @@ msgstr "Comm&ento:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Variabiles de ambiente:"
 
@@ -6306,12 +6302,10 @@ msgid "&General"
 msgstr "&General"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Entra nomine de file %1:"
+msgstr "Inserta nomine de file"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6338,7 +6332,7 @@ msgstr ""
 #| msgid "Cannot transfer <filename>%1</filename>"
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Non pote transferer <filename>%1</filename>"
+msgstr "Monstra %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -7273,7 +7267,7 @@ msgstr "Renomina le elemento <filename>%1</filename>in:"
 #| msgid "A file with name <filename>%1</filename> already exists."
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Un file con nomine <filename>%1</filename> ja existe."
+msgstr "Un file appellate %1 ja existe."
 
 #: widgets/renamefiledialog.cpp:144
 #, fuzzy, kde-kuit-format
@@ -7335,7 +7329,7 @@ msgstr "Reimplacia"
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Patrono"
 
 #: widgets/renamefiledialog.cpp:320
 #, fuzzy, kde-format
@@ -7345,11 +7339,10 @@ msgid "With:"
 msgstr "Aperi con:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Reimplacia"
+msgstr "Reimplaciamento"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
@@ -7377,10 +7370,10 @@ msgstr[0] "Renomina le %1 elemento selectionate in:"
 msgstr[1] "Renomina le %1 elementos selectionate in:"
 
 #: widgets/renamefiledialog.cpp:407
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Adde texto"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
@@ -7433,27 +7426,26 @@ msgstr "Dele o renomina:"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Lista numerate"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Reimplacia"
+msgstr "Reimplacia texto"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Adde texto"
 
 #: widgets/renamefiledialog.cpp:567
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Monstrar vista preliminar"
+msgstr "Vista preliminar:"
 
 #: widgets/renamefiledialog.cpp:691
 #, fuzzy, kde-kuit-format

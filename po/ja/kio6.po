@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:39+0000\n"
+"POT-Creation-Date: 2025-09-03 00:40+0000\n"
 "PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2328,17 +2328,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "ドキュメント化されていないエラー"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 へのシンボリックリンク)"
 
-#: core/kfileitem.cpp:1498
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 へのリンク)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1502
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (リンク先: %1)"

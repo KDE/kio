@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:39+0000\n"
+"POT-Creation-Date: 2025-09-03 00:40+0000\n"
 "PO-Revision-Date: 2025-07-29 05:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2347,17 +2347,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "არადოკუმენტირებული შეცდომა"
 
-#: core/kfileitem.cpp:1496
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(სიმბმული %1-მდე)"
 
-#: core/kfileitem.cpp:1498
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ბმული %2-მდე)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1502
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (მიუთითებს %1-ზე)"
