@@ -11,11 +11,11 @@
 #include <kio/storedtransferjob.h>
 
 #include <QBuffer>
+#include <QObject>
 #include <QProcess>
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
-#include <qobject.h>
 
 class WebDAVTest : public QObject
 {

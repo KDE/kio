@@ -7,11 +7,11 @@
 
 #include "kfilefilter.h"
 
+#include <QChar>
 #include <QDebug>
 #include <QMetaType>
 #include <QMimeDatabase>
 #include <algorithm>
-#include <qchar.h>
 
 #include "kiocoredebug.h"
 
