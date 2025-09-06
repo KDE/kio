@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:40+0000\n"
+"POT-Creation-Date: 2025-09-06 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -5559,49 +5559,49 @@ msgstr "Uqwalaselo Lomshicileli"
 msgid "Updating system configuration…"
 msgstr "Yakha kwakhona indlela yendawo efihlakeleyo emayiqwalaselwe."
 
-#: widgets/kdirmodel.cpp:1261
+#: widgets/kdirmodel.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Igama"
 
-#: widgets/kdirmodel.cpp:1263
+#: widgets/kdirmodel.cpp:1264
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Ubungakanani"
 
-#: widgets/kdirmodel.cpp:1265
+#: widgets/kdirmodel.cpp:1266
 #, fuzzy, kde-format
 #| msgid "Date"
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Umhla"
 
-#: widgets/kdirmodel.cpp:1267
+#: widgets/kdirmodel.cpp:1268
 #, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Iimvume"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Umniniyo"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, fuzzy, kde-format
 #| msgid "Group"
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Iqela"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "@title:column"

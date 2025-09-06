@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:40+0000\n"
+"POT-Creation-Date: 2025-09-06 00:39+0000\n"
 "PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -5399,43 +5399,43 @@ msgstr "システムの設定を更新中"
 msgid "Updating system configuration…"
 msgstr "システムの設定を更新しています..."
 
-#: widgets/kdirmodel.cpp:1261
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "名前"
 
-#: widgets/kdirmodel.cpp:1263
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "サイズ"
 
-#: widgets/kdirmodel.cpp:1265
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "日付"
 
-#: widgets/kdirmodel.cpp:1267
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "パーミッション"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "所有者"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "グループ"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
