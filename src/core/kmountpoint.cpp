@@ -48,6 +48,10 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 // Linux
 #if HAVE_LIB_MOUNT
 #include <libmount/libmount.h>
+#if HAVE_STATX_MNT_ID
+#include <fcntl.h>
+#include <sys/stat.h>
+#endif
 #endif
 
 static bool isNetfs(const QString &mountType)
@@ -85,6 +89,10 @@ public:
     QString m_mountType;
     QStringList m_mountOptions;
     dev_t m_deviceId = 0;
+#if HAVE_STATX_MNT_ID
+    // the mount id seems to start at 1. 0 should be safe as a undefined default
+    __u64 m_mountId = 0;
+#endif
     bool m_isNetFs = false;
 };
 
@@ -359,6 +367,13 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
                 mp->d->m_isNetFs = mnt_fs_is_netfs(fs) == 1;
+#if HAVE_STATX_MNT_ID
+                // mnt_fs_get_id actually returns a int whereas the kernel uses __u64
+                int mnt_id = mnt_fs_get_id(fs);
+                if (mnt_id != -1) {
+                    mp->d->m_mountId = (__u64)mnt_id;
+                }
+#endif
 
                 // handle bind mounts
                 if (mp->d->m_mountedFrom != mp->d->m_mountPoint) {
@@ -447,6 +462,19 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 #endif
 
     KMountPoint::Ptr result;
+#if HAVE_STATX_MNT_ID
+    // If we have statx, there is no need to guess. take the mount id from statx and get the mountpoint.
+    if (struct statx buff; statx(0, QFile::encodeName(realPath).constData(), AT_NO_AUTOMOUNT, STATX_MNT_ID, &buff) == 0) {
+        auto it = std::find_if(this->cbegin(), this->cend(), [&buff](const KMountPoint::Ptr &mountPtr) {
+            return mountPtr->d->m_mountId == buff.stx_mnt_id;
+        });
+
+        if (it != this->cend()) {
+            return *it;
+        }
+    }
+#endif
+
 
     if (QT_STATBUF buff; QT_LSTAT(QFile::encodeName(realPath).constData(), &buff) == 0) {
         auto it = std::find_if(this->cbegin(), this->cend(), [&buff, &realPath](const KMountPoint::Ptr &mountPtr) {

@@ -8,3 +8,5 @@
 #cmakedefine01 HAVE_SYS_PARAM_H
 
 #cmakedefine01 HAVE_VOLMGT
+
+#cmakedefine01 HAVE_STATX_MNT_ID

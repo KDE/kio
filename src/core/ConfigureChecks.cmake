@@ -37,6 +37,21 @@ if (LIBC_IS_GLIBC)
             return 0;
         }
     " HAVE_STATX)
+    check_cxx_source_compiles(
+        "#include <sys/types.h>
+        #include <sys/stat.h>
+        #include <unistd.h>
+        #include <fcntl.h>
+
+        int main()
+        {
+            struct statx st;
+            int res = statx(AT_FDCWD, \".\", AT_NO_AUTOMOUNT, STATX_MNT_ID, &st);
+            st.stx_mnt_id = 1;
+        }"  HAVE_STATX_MNT_ID)
+
 else()
     set(HAVE_STATX 0)
+    set(HAVE_STATX_MNT_ID 0)
 endif()
+
