@@ -329,26 +329,6 @@ WorkerResult FileProtocol::stat(const QUrl &url)
 
     return WorkerResult::pass();
 }
-
-bool FileProtocol::privilegeOperationUnitTestMode()
-{
-    return false;
-}
-
-WorkerResult FileProtocol::execWithElevatedPrivilege(ActionType, const QVariantList &, int err)
-{
-    return WorkerResult::fail(err);
-}
-WorkerResult FileProtocol::tryOpen(QFile &f, const QByteArray &, int, int, int err)
-{
-    return WorkerResult::fail(err);
-}
-
-WorkerResult FileProtocol::tryChangeFileAttr(ActionType, const QVariantList &, int err)
-{
-    return WorkerResult::fail(err);
-}
-
 int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
 {
     Q_UNUSED(path);

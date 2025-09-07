@@ -45,7 +45,3 @@ endif ()
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
 endif()
-
-if (UNIX)
-  add_subdirectory(kauth)
-endif()

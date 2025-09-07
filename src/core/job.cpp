@@ -311,11 +311,6 @@ QByteArray JobPrivate::privilegeOperationData()
             default:
                 break;
             }
-
-            if (m_outgoingMetaData.value(QStringLiteral("UnitTesting")) == QLatin1String("true")) {
-                // Set meta-data for the top-level job
-                m_incomingMetaData.insert(QStringLiteral("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
-            }
         }
     }
 

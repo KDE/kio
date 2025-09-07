@@ -79,10 +79,6 @@ private:
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     KIO::WorkerResult deleteRecursive(const QString &path);
 
-    bool privilegeOperationUnitTestMode();
-    KIO::WorkerResult execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode);
-    KIO::WorkerResult tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode);
-
     // We want to execute chmod/chown/utime with elevated privileges (in copy & put)
     // only during the brief period privileges are elevated. If it's not the case show
     // a warning and continue.

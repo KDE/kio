@@ -81,14 +81,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     )
 endif()
 
-if(UNIX)
-  ecm_add_tests(
-    privilegejobtest.cpp
-    NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
-  )
-endif()
-
 if (TARGET KF6::KIOGui)
   ecm_add_tests(
     favicontest.cpp
