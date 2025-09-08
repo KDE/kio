@@ -94,7 +94,6 @@ Name[uz@cyrillic]=Voila
 Name[vi]=Voila
 Name[wa]=Voilà
 Name[xh]=Voila
-Name[x-test]=xxVoilaxx
 Name[zh_CN]=Voila
 Name[zh_TW]=Voila
 Keys=voila
@@ -149,6 +148,5 @@ Query[tok]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[tr]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[uk]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[vi]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
-Query[x-test]=xxhttps://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*xx
 Query[zh_CN]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[zh_TW]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

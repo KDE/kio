@@ -77,7 +77,6 @@ Name[ug]=ئامازون MP3
 Name[uk]=Amazon MP3
 Name[vi]=Amazon MP3
 Name[wa]=Amazon MP3
-Name[x-test]=xxAmazon MP3xx
 Name[zh_CN]=Amazon MP3
 Name[zh_TW]=Amazon MP3
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
@@ -133,7 +132,6 @@ Query[tok]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-musi
 Query[tr]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[uk]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[vi]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
-Query[x-test]=xxhttps://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[zh_TW]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Type=Service

@@ -77,7 +77,6 @@ Name[ug]=Magnatune
 Name[uk]=Magnatune
 Name[vi]=Magnatune
 Name[wa]=Magnatune
-Name[x-test]=xxMagnatunexx
 Name[zh_CN]=Magnatune
 Name[zh_TW]=Magnatune
 Query=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
@@ -132,7 +131,6 @@ Query[tok]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[tr]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[uk]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[vi]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
-Query[x-test]=xxhttps://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0xx
 Query[zh_CN]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[zh_TW]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Type=Service

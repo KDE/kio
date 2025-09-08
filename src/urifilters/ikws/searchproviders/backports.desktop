@@ -88,7 +88,6 @@ Name[ug]=Debian ئامبار ئىزدە
 Name[uk]=Пошук серед додаткових пакетів Debian
 Name[vi]=Tìm kiếm Debian Backports
 Name[wa]=Cweraedje di backports Debian
-Name[x-test]=xxDebian Backports Searchxx
 Name[zh_CN]=Debian 向后移植软件包搜索
 Name[zh_TW]=Debian Backports 搜尋
 Query=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
@@ -145,7 +144,6 @@ Query[tok]=https://packages.debian.org/search?suite=squeeze-backports&section=al
 Query[tr]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[uk]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[vi]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
-Query[x-test]=xxhttps://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}xx
 Query[zh_CN]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[zh_TW]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Type=Service

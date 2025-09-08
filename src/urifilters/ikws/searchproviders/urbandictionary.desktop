@@ -75,7 +75,6 @@ Name[ug]=Urban لۇغىتى
 Name[uk]=Urban Dictionary
 Name[vi]=Từ điển Thành thị
 Name[wa]=Urban Dictionary
-Name[x-test]=xxUrban Dictionaryxx
 Name[zh_CN]=Urban Dictionary 俚语词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
@@ -129,7 +128,6 @@ Query[tok]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[tr]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[uk]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[vi]=https://www.urbandictionary.com/define.php?term=\\{@}
-Query[x-test]=xxhttps://www.urbandictionary.com/define.php?term=\\{@}xx
 Query[zh_CN]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[zh_TW]=https://www.urbandictionary.com/define.php?term=\\{@}
 Type=Service

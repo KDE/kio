@@ -88,7 +88,6 @@ Name[ug]=Technorati بەلگە
 Name[uk]=Статті Technorati
 Name[vi]=Các thẻ ở Technorati
 Name[wa]=Tags Technocrati
-Name[x-test]=xxTechnorati Tagsxx
 Name[zh_CN]=Technorati 标签
 Name[zh_TW]=Technorati Tags
 Keys=tags,tag,technoratitags
@@ -143,7 +142,6 @@ Query[tok]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tr]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[uk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[vi]=https://technorati.com/tag/\\{@}?sourceid=kde-search
-Query[x-test]=xxhttps://technorati.com/tag/\\{@}?sourceid=kde-searchxx
 Query[zh_CN]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[zh_TW]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Charset=utf8

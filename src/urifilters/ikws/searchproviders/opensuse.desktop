@@ -45,7 +45,6 @@ Name[sv]=openSUSE-programvara
 Name[tr]=openSUSE Yazılım
 Name[uk]=Програмне забезпечення openSUSE
 Name[vi]=Phần mềm openSUSE
-Name[x-test]=xxopenSUSE Softwarexx
 Name[zh_CN]=openSUSE 软件
 Name[zh_TW]=openSUSE 軟體
 Type=Service
@@ -96,6 +95,5 @@ Query[sv]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[tr]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[uk]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[vi]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
-Query[x-test]=xxhttps://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}xx
 Query[zh_CN]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[zh_TW]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

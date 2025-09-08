@@ -46,7 +46,6 @@ Name[sv]=Reddit
 Name[tr]=Reddit
 Name[uk]=Reddit
 Name[vi]=Reddit
-Name[x-test]=xxRedditxx
 Name[zh_CN]=Reddit
 Name[zh_TW]=Reddit
 Type=Service
@@ -98,6 +97,5 @@ Query[sv]=https://www.reddit.com/search/?q=\\{@}
 Query[tr]=https://www.reddit.com/search/?q=\\{@}
 Query[uk]=https://www.reddit.com/search/?q=\\{@}
 Query[vi]=https://www.reddit.com/search/?q=\\{@}
-Query[x-test]=xxhttps://www.reddit.com/search/?q=\\{@}xx
 Query[zh_CN]=https://www.reddit.com/search/?q=\\{@}
 Query[zh_TW]=https://www.reddit.com/search/?q=\\{@}

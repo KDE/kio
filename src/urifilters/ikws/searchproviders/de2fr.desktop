@@ -89,7 +89,6 @@ Name[uz]=LEO - Olmonchadan Fransuzchaga tarjima
 Name[uz@cyrillic]=LEO - Олмончадан Французчага таржима
 Name[vi]=LEO - Dịch giữa tiếng Đức và tiếng Pháp
 Name[wa]=LEO - Ratoûne inte l' Almand eyet l' Francès
-Name[x-test]=xxLEO - Translate Between German and Frenchxx
 Name[zh_CN]=LEO - 在德语和法语之间互译
 Name[zh_TW]=LEO - 翻譯德語和法語
 Keys=de2fr
@@ -144,6 +143,5 @@ Query[tok]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tr]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[vi]=https://dict.leo.org/?lp=frde&search=\\{@}
-Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx
 Query[zh_CN]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?lp=frde&search=\\{@}

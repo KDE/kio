@@ -91,7 +91,6 @@ Name[uz]=WordReference.com tarjima: Inglizchadan Fransuzchaga
 Name[uz@cyrillic]=WordReference.com таржима: Инглизчадан Французчага
 Name[vi]=WordReference.com Dịch: Tiếng Anh sang tiếng Pháp
 Name[wa]=WordReference.com ratournaedje di l' inglès viè l' francès
-Name[x-test]=xxWordReference.com Translation: English to Frenchxx
 Name[zh_CN]=WordReference.com 翻译：英语译法语
 Name[zh_TW]=WordReference.com 翻譯: 英文至法文
 Query=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
@@ -146,7 +145,6 @@ Query[tok]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[tr]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[uk]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[vi]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
-Query[x-test]=xxhttps://www.wordreference.com/fr/Translation.asp?enfr=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[zh_TW]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Type=Service

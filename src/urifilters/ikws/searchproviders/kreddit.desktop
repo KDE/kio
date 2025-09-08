@@ -47,7 +47,6 @@ Name[sv]=KDE Reddit
 Name[tr]=KDE Reddit
 Name[uk]=KDE Reddit
 Name[vi]=Reddit KDE
-Name[x-test]=xxKDE Redditxx
 Name[zh_CN]=KDE Reddit 版块
 Name[zh_TW]=KDE Reddit
 Type=Service
@@ -98,7 +97,6 @@ Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[vi]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
-Query[x-test]=xxhttps://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1xx
 Query[zh_CN]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[zh_TW]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Icon=kde

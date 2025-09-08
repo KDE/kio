@@ -76,7 +76,6 @@ Name[ug]=openDesktop.org
 Name[uk]=openDesktop.org
 Name[vi]=openDesktop.org
 Name[wa]=openDesktop.org
-Name[x-test]=xxopenDesktop.orgxx
 Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
@@ -131,7 +130,6 @@ Query[tok]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{
 Query[tr]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
-Query[x-test]=xxhttps://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Type=Service

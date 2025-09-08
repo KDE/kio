@@ -92,7 +92,6 @@ Name[uz]=WordReference.com Inglizcha lugʻat
 Name[uz@cyrillic]=WordReference.com Инглизча луғат
 Name[vi]=Từ điển tiếng Anh WordReference.com
 Name[wa]=WordReference.com diccionaire inglès
-Name[x-test]=xxWordReference.com English Dictionaryxx
 Name[zh_CN]=WordReference.com 英语词典
 Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
@@ -147,7 +146,6 @@ Query[tok]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[tr]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[uk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[vi]=https://www.wordreference.com/english/definition.asp?en=\\{@}
-Query[x-test]=xxhttps://www.wordreference.com/english/definition.asp?en=\\{@}xx
 Query[zh_CN]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[zh_TW]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Type=Service

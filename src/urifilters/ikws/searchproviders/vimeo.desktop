@@ -77,7 +77,6 @@ Name[ug]=Vimeo
 Name[uk]=Vimeo
 Name[vi]=Vimeo
 Name[wa]=Vimeo
-Name[x-test]=xxVimeoxx
 Name[zh_CN]=Vimeo
 Name[zh_TW]=Vimeo
 Query=https://vimeo.com/search?q=\\{@}
@@ -131,7 +130,6 @@ Query[tok]=https://vimeo.com/search?q=\\{@}
 Query[tr]=https://vimeo.com/search?q=\\{@}
 Query[uk]=https://vimeo.com/search?q=\\{@}
 Query[vi]=https://vimeo.com/search?q=\\{@}
-Query[x-test]=xxhttps://vimeo.com/search?q=\\{@}xx
 Query[zh_CN]=https://vimeo.com/search?q=\\{@}
 Query[zh_TW]=https://vimeo.com/search?q=\\{@}
 Type=Service

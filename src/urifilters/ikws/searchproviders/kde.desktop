@@ -94,7 +94,6 @@ Name[uz]=KDE API boʻyicha qoʻllanmalar
 Name[uz@cyrillic]=KDE API бўйича қўлланмалар
 Name[vi]=Tài liệu về API của KDE
 Name[wa]=Documintåcion di l' API di KDE
-Name[x-test]=xxKDE API Documentationxx
 Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 說明文件
 Query=https://api.kde.org/search.html?query=\\{@}
@@ -143,7 +142,6 @@ Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[tr]=https://api.kde.org/search.html?query=\\{@}
 Query[uk]=https://api.kde.org/search.html?query=\\{@}
 Query[vi]=https://api.kde.org/search.html?query=\\{@}
-Query[x-test]=xxhttps://api.kde.org/search.html?query=\\{@}xx
 Query[zh_CN]=https://api.kde.org/search.html?query=\\{@}
 Query[zh_TW]=https://api.kde.org/search.html?query=\\{@}
 Type=Service

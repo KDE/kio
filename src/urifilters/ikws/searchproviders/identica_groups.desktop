@@ -76,7 +76,6 @@ Name[ug]=Identi.ca گۇرۇپپىلار
 Name[uk]=Групи Identi.ca
 Name[vi]=Identi.ca Nhóm
 Name[wa]=Identi.ca Groupes
-Name[x-test]=xxIdenti.ca Groupsxx
 Name[zh_CN]=Identi.ca 群组
 Name[zh_TW]=Identi.ca Groups
 Query=https://identi.ca/search/group?q=\\{@}
@@ -141,7 +140,6 @@ Query[ug]=https://identi.ca/search/group?q=\\{@}
 Query[uk]=https://identi.ca/search/group?q=\\{@}
 Query[vi]=https://identi.ca/search/group?q=\\{@}
 Query[wa]=https://identi.ca/search/group?q=\\{@}
-Query[x-test]=xxhttps://identi.ca/search/group?q=\\{@}xx
 Query[zh_CN]=https://identi.ca/search/group?q=\\{@}
 Query[zh_TW]=https://identi.ca/search/group?q=\\{@}
 Type=Service
