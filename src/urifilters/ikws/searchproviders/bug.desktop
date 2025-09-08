@@ -57,7 +57,6 @@ Name[tok]=pakala pi ilo tan kulupu KDE
 Name[tr]=KDE Hataları
 Name[uk]=Вади KDE
 Name[vi]=Lỗi KDE
-Name[x-test]=xxKDE Bugsxx
 Name[zh_CN]=KDE 程序缺陷搜索
 Name[zh_TW]=KDE Bugs 問題回報
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
@@ -127,7 +126,6 @@ Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[uk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[vi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[wa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[x-test]=xxhttps://bugs.kde.org/buglist.cgi?quicksearch=\\{@}xx
 Query[zh_CN]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[zh_TW]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Type=Service

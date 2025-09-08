@@ -76,7 +76,6 @@ Name[ug]=Bing
 Name[uk]=Bing
 Name[vi]=Bing
 Name[wa]=Bing
-Name[x-test]=xxBingxx
 Name[zh_CN]=必应
 Name[zh_TW]=Bing
 Keys=bing
@@ -137,6 +136,5 @@ Query[tok]=https://www.bing.com/search?q=\\{@}
 Query[tr]=https://www.bing.com/search?q=\\{@}
 Query[uk]=https://www.bing.com/search?q=\\{@}
 Query[vi]=https://www.bing.com/search?q=\\{@}
-Query[x-test]=xxhttps://www.bing.com/search?q=\\{@}xx
 Query[zh_CN]=https://www.bing.com/search?q=\\{@}
 Query[zh_TW]=https://www.bing.com/search?q=\\{@}

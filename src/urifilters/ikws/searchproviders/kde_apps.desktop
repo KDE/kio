@@ -30,7 +30,6 @@ Name[sv]=Plasma tillägg och utökningar
 Name[th]=Plasma Add-Ons and Extensions
 Name[tr]=Plasma Eklentileri ve Genişletmeleri
 Name[uk]=Додатки і розширення Плазми
-Name[x-test]=xxPlasma Add-Ons and Extensionsxx
 Name[zh_CN]=Plasma 附加组件和扩展
 Name[zh_TW]=Plasma 延伸元件與擴充功能
 Keys=ext,extension
@@ -64,6 +63,5 @@ Query[sv]=https://store.kde.org/browse?tag=\\{@}
 Query[th]=https://store.kde.org/browse?tag=\\{@}
 Query[tr]=https://store.kde.org/browse?tag=\\{@}
 Query[uk]=https://store.kde.org/browse?tag=\\{@}
-Query[x-test]=xxhttps://store.kde.org/browse?tag=\\{@}xx
 Query[zh_CN]=https://store.kde.org/browse?tag=\\{@}
 Query[zh_TW]=https://store.kde.org/browse?tag=\\{@}

@@ -29,7 +29,6 @@ Name[sv]=Fedora-paket
 Name[th]=แพ็คเกจ Fedora
 Name[tr]=Fedora Paketleri
 Name[uk]=Пакунки Fedora
-Name[x-test]=xxFedora Packagesxx
 Name[zh_CN]=Fedora 软件包
 Name[zh_TW]=Fedora 軟體包
 Type=Service
@@ -64,6 +63,5 @@ Query[sv]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[th]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[tr]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[uk]=https://packages.fedoraproject.org/search?query=\\{@}
-Query[x-test]=xxhttps://packages.fedoraproject.org/search?query=\\{@}xx
 Query[zh_CN]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[zh_TW]=https://packages.fedoraproject.org/search?query=\\{@}

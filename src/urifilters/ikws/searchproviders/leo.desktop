@@ -94,7 +94,6 @@ Name[uz@cyrillic]=LEO таржима
 Name[vi]=LEO-Dịch
 Name[wa]=LEO-Translate
 Name[xh]=LEO-Guqulela
-Name[x-test]=xxLEO-Translatexx
 Name[zh_CN]=LEO 翻译
 Name[zh_TW]=LEO-Translate
 Keys=leo
@@ -155,6 +154,5 @@ Query[tok]=https://dict.leo.org/?search=\\{@}
 Query[tr]=https://dict.leo.org/?search=\\{@}
 Query[uk]=https://dict.leo.org/?search=\\{@}
 Query[vi]=https://dict.leo.org/?search=\\{@}
-Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx
 Query[zh_CN]=https://dict.leo.org/?search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?search=\\{@}

@@ -54,7 +54,6 @@ Name[th]=ProtonDB
 Name[tr]=ProtonDB
 Name[uk]=ProtonDB
 Name[vi]=ProtonDB
-Name[x-test]=xxProtonDBxx
 Name[zh_CN]=ProtonDB
 Name[zh_TW]=ProtonDB
 Type=Service
@@ -114,7 +113,6 @@ Query[th]=https://www.protondb.com/search?q=\\{@}
 Query[tr]=https://www.protondb.com/search?q=\\{@}
 Query[uk]=https://www.protondb.com/search?q=\\{@}
 Query[vi]=https://www.protondb.com/search?q=\\{@}
-Query[x-test]=xxhttps://www.protondb.com/search?q=\\{@}xx
 Query[zh_CN]=https://www.protondb.com/search?q=\\{@}
 Query[zh_TW]=https://www.protondb.com/search?q=\\{@}
 Icon=wine

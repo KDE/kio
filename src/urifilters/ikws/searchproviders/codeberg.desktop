@@ -45,7 +45,6 @@ Name[sv]=Codeberg
 Name[th]=Codeberg
 Name[tr]=Codeberg
 Name[uk]=Codeberg
-Name[x-test]=xxCodebergxx
 Name[zh_CN]=Codeberg
 Name[zh_TW]=Codeberg
 Query=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
@@ -91,7 +90,6 @@ Query[sv]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[th]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[tr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[uk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
-Query[x-test]=xxhttps://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=truexx
 Query[zh_CN]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[zh_TW]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Type=Service

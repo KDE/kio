@@ -54,7 +54,6 @@ Name[th]=Linguee
 Name[tr]=Linguee
 Name[uk]=Linguee
 Name[vi]=Linguee
-Name[x-test]=xxLingueexx
 Name[zh_CN]=Linguee
 Name[zh_TW]=Linguee
 Type=Service
@@ -114,6 +113,5 @@ Query[th]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[tr]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[uk]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[vi]=https://www.linguee.com/search?source=auto&query=\\{@}
-Query[x-test]=xxhttps://www.linguee.com/search?source=auto&query=\\{@}xx
 Query[zh_CN]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[zh_TW]=https://www.linguee.com/search?source=auto&query=\\{@}

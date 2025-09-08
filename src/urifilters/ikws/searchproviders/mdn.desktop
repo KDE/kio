@@ -31,7 +31,6 @@ Name[sv]=Mozilla Developer Network (MDN)
 Name[th]=Mozilla Developer Network (MDN)
 Name[tr]=Mozilla Developer Network (MDN)
 Name[uk]=Мережа розробників Mozilla (MDN)
-Name[x-test]=xxMozilla Developer Network (MDN)xx
 Name[zh_CN]=Mozilla 开发者网络 (MDN)
 Name[zh_TW]=Mozilla 開發者文件 (MDN)
 Keys=mdn
@@ -66,7 +65,6 @@ Query[sv]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[th]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[tr]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[uk]=https://developer.mozilla.org/en-US/search?q=\\{@}
-Query[x-test]=xxhttps://developer.mozilla.org/en-US/search?q=\\{@}xx
 Query[zh_CN]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[zh_TW]=https://developer.mozilla.org/zh-TW/search?q=\\{@}
 Charset=utf8

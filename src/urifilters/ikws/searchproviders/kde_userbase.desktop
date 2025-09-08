@@ -78,7 +78,6 @@ Name[ug]=KDE UserBase
 Name[uk]=UserBase KDE
 Name[vi]=Cơ sở Người dùng KDE
 Name[wa]=KDE UserBase (Uzeus)
-Name[x-test]=xxKDE UserBasexx
 Name[zh_CN]=KDE 用户百科网站
 Name[zh_TW]=KDE UserBase
 Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
@@ -137,7 +136,6 @@ Query[tok]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tr]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[vi]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
-Query[x-test]=xxhttps://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 Query[zh_CN]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_TW]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Type=Service

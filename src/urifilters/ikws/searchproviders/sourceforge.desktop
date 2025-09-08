@@ -95,7 +95,6 @@ Name[uz@cyrillic]=SourceForge
 Name[vi]=SourceForge
 Name[wa]=SourceForge
 Name[xh]=SourceForge
-Name[x-test]=xxSourceForgexx
 Name[zh_CN]=SourceForge
 Name[zh_TW]=SourceForge
 Query=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
@@ -154,7 +153,6 @@ Query[tok]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=
 Query[tr]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[uk]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[vi]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
-Query[x-test]=xxhttps://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}xx
 Query[zh_CN]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[zh_TW]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Type=Service

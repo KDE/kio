@@ -33,7 +33,6 @@ Name[sv]=DuckDuckGo
 Name[th]=DuckDuckGo
 Name[tr]=DuckDuckGo
 Name[uk]=DuckDuckGo
-Name[x-test]=xxDuckDuckGoxx
 Name[zh_CN]=DuckDuckGo
 Name[zh_TW]=DuckDuckGo
 Query=https://duckduckgo.com/?q=\\{@}&t=kde
@@ -103,7 +102,6 @@ Query[ug]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[vi]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&t=kde
-Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[zh_TW]=https://duckduckgo.com/?q=\\{@}&t=kde
 Type=Service

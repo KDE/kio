@@ -60,7 +60,6 @@ Name[tok]=ilo GitLab
 Name[tr]=GitLab
 Name[uk]=GitLab
 Name[vi]=GitLab
-Name[x-test]=xxGitLabxx
 Name[zh_CN]=GitLab
 Name[zh_TW]=GitLab
 Query=https://gitlab.com/search?search=\\{@}
@@ -120,6 +119,5 @@ Query[tok]=https://gitlab.com/search?search=\\{@}
 Query[tr]=https://gitlab.com/search?search=\\{@}
 Query[uk]=https://gitlab.com/search?search=\\{@}
 Query[vi]=https://gitlab.com/search?search=\\{@}
-Query[x-test]=xxhttps://gitlab.com/search?search=\\{@}xx
 Query[zh_CN]=https://gitlab.com/search?search=\\{@}
 Query[zh_TW]=https://gitlab.com/search?search=\\{@}

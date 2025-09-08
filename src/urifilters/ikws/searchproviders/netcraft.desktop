@@ -94,7 +94,6 @@ Name[uz]=Netcraft
 Name[uz@cyrillic]=Netcraft
 Name[vi]=Netcraft
 Name[wa]=Netcraft
-Name[x-test]=xxNetcraftxx
 Name[zh_CN]=Netcraft
 Name[zh_TW]=Netcraft
 Keys=nc,netcraft
@@ -155,6 +154,5 @@ Query[tok]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[tr]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[vi]=https://uptime.netcraft.com/up/graph?site=\\{@}
-Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx
 Query[zh_CN]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[zh_TW]=https://uptime.netcraft.com/up/graph?site=\\{@}
