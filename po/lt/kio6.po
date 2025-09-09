@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-06 00:39+0000\n"
-"PO-Revision-Date: 2025-08-23 14:53+0300\n"
+"PO-Revision-Date: 2025-09-09 00:21+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -2123,6 +2123,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Nors su serveriu ir buvo užmegztas ryšys, nebuvo gautas atsakymas per "
+"užklausai skirtą laiką."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2569,6 +2571,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO darbininkas, skirtas „%1“ protokolui, esančiam %2, nebuvo įkeltas, nes "
+"visi KIO darbininkai, kurie yra už %3 ribų ir prašo didesnių teisių, yra "
+"laikomi nesaugiais."
 
 #: core/worker.cpp:422
 #, kde-format
@@ -3675,16 +3680,13 @@ msgstr ""
 "kuriuo bus failas bus įrašytas.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2918
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti formatą, "
-"kuriuo bus failas bus įrašytas.</qt>"
+"<qt>Tai yra failo tipo parinkiklis. Jis yra naudojamas pasirinkti rodomų "
+"failų formatą.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3775,18 +3777,14 @@ msgstr ""
 "Kairiniai brūkšniai negali būti naudojami failų ir aplankų pavadinimuose."
 
 #: filewidgets/knewfilemenu.cpp:1295
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"Nepavyko sukurti aplanko vardu <filename>%1</filename><nl/>, nes jis skirtas "
-"operacinei sistemai."
+"Neįmanoma sukurti failo ar aplanko pavadinimu <filename>%1</filename>, nes "
+"jis dalinai sutaptų su naudotojo namų aplanko vieta."
 
 #: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
@@ -5086,7 +5084,7 @@ msgstr "Ar norėtumėte paleisti šį failą?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Prisiminti visiems vykdomiesiems failams"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5095,6 +5093,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Galite tai atšaukti Dolphin failų tvarkytuvės nuostatose, „Patvirtinimų“ "
+"dalyje."
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -6037,17 +6037,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Įrašykite čia programos aprašą, atitinkantį jos panaudojimo sritį. Pavyzdys: "
-"prisijungimo skambinant priemonė (KPPP) galėtų būti apibūdinta kaip "
-"„Skambinimo įrankis“."
+"Įrašykite čia bendrinį programos pavadinimą. Pavyzdžiai: paveikslų peržiūros "
+"programa būtų „Paveikslų žiūryklė“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -6058,17 +6054,14 @@ msgstr "&Bendrinis pavadinimas:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Įrašykite čia programos aprašą, atitinkantį jos panaudojimo sritį. Pavyzdys: "
-"prisijungimo skambinant priemonė (KPPP) galėtų būti apibūdinta kaip "
-"„Skambinimo įrankis“."
+"Įrašykite čia šios programos aprašą, atitinkantį jos panaudojimo sritį. "
+"Pavyzdžiai: paveikslų peržiūros programa būtų „Žiūrėti ir taisyti "
+"paveikslus“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6412,7 +6405,7 @@ msgstr "Keisti…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Keisti numatytąją programą, skirtą atverti „%1“ tipo failus."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -7272,20 +7265,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Pervadinti elementą <filename>%1</filename> į:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Failas, pavadinimu <filename>%1</filename>, jau yra."
+msgstr "Failas pavadinimu <filename>%1</filename> jau yra."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "Atrodo, kad <filename>%1</filename> nėra vykdomoji programa."
+msgstr "<filename>%1</filename> nėra tinkamas failo pavadinimas."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7318,6 +7307,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Neteisingas failo pavadinimas: Naujame pavadinime turėtų būti viena # seka, "
+"nebent visi failai turi skirtingą failo prievardį."
 
 #: widgets/renamefiledialog.cpp:310
 #, kde-format
@@ -7366,6 +7357,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Pakeitus „%1“ tuščiu pakeitimu, <filename>%2</filename> bus priverstas "
+"turėti tuščią failo pavadinimą."
 
 #: widgets/renamefiledialog.cpp:404
 #, kde-format
@@ -7450,12 +7443,11 @@ msgid "Preview:"
 msgstr "Peržiūra:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "Atrodo, kad <filename>%1</filename> nėra vykdomoji programa."
+msgstr ""
+"<filename>%1</filename> negali būti pervadintas į tuščią failo pavadinimą."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7613,33 +7605,19 @@ msgstr[3] ""
 "strong='true'>Šio veiksmo nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Nepavyko perkelti šio elemento į šiukšlinę, nes jis yra per didelis. Ar "
-"vietoj to, ištrinti jį visam laikui?<nl/><nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Šio veiksmo nebegalėsite atšaukti.</emphasis>"
+"Šiukšlinė yra pernelyg pilna, kad priimtų šį failą. Ar, vietoj to, ištrinti "
+"jį visam laikui?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Šio veiksmo nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7649,20 +7627,20 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Nepavyko perkelti šio %1 elemento į šiukšlinę, nes jis yra per didelis. Ar "
-"vietoj to, ištrinti jį visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
+"Šiukšlinė yra pernelyg pilna, kad priimtų šį %1 failą. Ar, vietoj to, "
+"ištrinti jį visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 msgstr[1] ""
-"Nepavyko perkelti šių %1 elementų į šiukšlinę, nes jie yra per dideli. Ar "
-"vietoj to, ištrinti juos visam laikui?<nl/><emphasis strong='true'>Šio "
-"veiksmo nebegalėsite atšaukti.</emphasis>"
+"Šiukšlinė yra pernelyg pilna, kad priimtų šiuos %1 failus. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
+"nebegalėsite atšaukti.</emphasis>"
 msgstr[2] ""
-"Nepavyko perkelti šių %1 elementų į šiukšlinę, nes jie yra per dideli. Ar "
-"vietoj to, ištrinti juos visam laikui?<nl/><emphasis strong='true'>Šio "
-"veiksmo nebegalėsite atšaukti.</emphasis>"
+"Šiukšlinė yra pernelyg pilna, kad priimtų šiuos %1 failus. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
+"nebegalėsite atšaukti.</emphasis>"
 msgstr[3] ""
-"Nepavyko perkelti šio %1 elemento į šiukšlinę, nes jis yra per didelis. Ar "
-"vietoj to, ištrinti jį visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
+"Šiukšlinė yra pernelyg pilna, kad priimtų šį %1 failą. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
