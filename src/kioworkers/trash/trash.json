@@ -263,10 +263,6 @@
                 "Đường dẫn ban đầu",
                 "Ngày xoá"
             ],
-            "ExtraNames[x-test]": [
-                "xxOriginal Path",
-                "Deletion Datexx"
-            ],
             "ExtraNames[zh_CN]": [
                 "原始路径",
                 "删除日期"
