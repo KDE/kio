@@ -1840,8 +1840,8 @@ void KFilePlacesViewPrivate::adaptItemSize()
     }
 
     const int totalItemsHeight = (fm.height() / 2) * rowCount;
-    const int totalSectionsHeight = m_delegate->sectionHeaderHeight(QModelIndex()) * sectionsCount();
-    const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount) - 1;
+    const int totalSectionsHeight = (m_delegate->sectionHeaderHeight(QModelIndex()) - s_lateralMargin - q->spacing()) * sectionsCount();
+    const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount);
 
     int size = qMin(maxHeight, maxWidth);
 
