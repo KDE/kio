@@ -1332,7 +1332,7 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
         QVERIFY(QDir(dst_dir).removeRecursively());
     });
 
-    KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
+    KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), expectedErrorCode);

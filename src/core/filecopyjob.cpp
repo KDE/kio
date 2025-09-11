@@ -95,10 +95,6 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            job->d_func()->m_operationType = move ? Move : Copy;
-        }
         return job;
     }
 };

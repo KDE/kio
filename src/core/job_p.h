@@ -45,7 +45,6 @@ public:
         : m_parentJob(nullptr)
         , m_extraFlags(0)
         , m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension())
-        , m_privilegeExecutionEnabled(false)
     {
     }
 
@@ -84,12 +83,7 @@ public:
     MetaData m_outgoingMetaData;
     JobUiDelegateExtension *m_uiDelegateExtension;
     Job *q_ptr;
-    // For privilege operation
-    bool m_privilegeExecutionEnabled;
-    QString m_title, m_message;
-    FileOperationType m_operationType;
 
-    QByteArray privilegeOperationData();
     void slotSpeed(KJob *job, unsigned long speed);
 
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);
@@ -182,11 +176,6 @@ public:
     void _k_slotWorkerInfoMessage(const QString &s);
 
     /*!
-     * Called when privilegeOperationRequested() is emitted by worker.
-     */
-    void slotPrivilegeOperationRequested();
-
-    /*!
      * \internal
      * Called by the scheduler when a worker gets to
      * work on this job.
@@ -223,25 +212,6 @@ public:
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
-        }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            // Only delete, rename and symlink operation accept JobFlags.
-            FileOperationType opType;
-            switch (command) {
-            case CMD_DEL:
-                opType = Delete;
-                break;
-            case CMD_RENAME:
-                opType = Rename;
-                break;
-            case CMD_SYMLINK:
-                opType = Symlink;
-                break;
-            default:
-                return job;
-            }
-            job->d_func()->m_operationType = opType;
         }
         return job;
     }
@@ -313,10 +283,6 @@ public:
             job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
         }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            job->d_func()->m_operationType = Transfer;
-        }
         return job;
     }
 
@@ -327,10 +293,6 @@ public:
         if (!(flags & HideProgressInfo)) {
             job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
-        }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            job->d_func()->m_operationType = Transfer;
         }
         return job;
     }

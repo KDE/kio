@@ -1014,20 +1014,31 @@ public:
     int waitForHostInfo(QHostInfo &info);
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*!
      * Checks with job if privilege operation is allowed.
      * Returns privilege operation status.
      * \sa PrivilegeOperationStatus
+     * \deprecated[6.19]
+     * Not implemented
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not implemented")
     PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*!
      * Adds \a action to the list of PolicyKit actions which the
      * worker is authorized to perform.
      *
      * \a action the PolicyKit action
+     *
+     * \deprecated[6.19]
+     * Not implemented
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not implemented")
     void addTemporaryAuthorization(const QString &action);
+#endif
 
     /*!
      * Set the Incoming Meta Data

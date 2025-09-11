@@ -26,7 +26,6 @@ Dependencies:
 
  - 'on': ['Linux', 'FreeBSD']
    'require':
-    'frameworks/kauth': '@same'
     'frameworks/kdbusaddons': '@same'
     'frameworks/kwallet': '@same'
 

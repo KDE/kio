@@ -429,15 +429,18 @@ int WorkerBase::waitForHostInfo(QHostInfo & /*info*/)
 }
 #endif
 
-PrivilegeOperationStatus WorkerBase::requestPrivilegeOperation(const QString &operationDetails)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
+PrivilegeOperationStatus WorkerBase::requestPrivilegeOperation(const QString & /*operationDetails*/)
 {
-    return d->bridge.requestPrivilegeOperation(operationDetails);
+    return OperationNotAllowed;
 }
+#endif
 
-void WorkerBase::addTemporaryAuthorization(const QString &action)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
+void WorkerBase::addTemporaryAuthorization(const QString & /*action*/)
 {
-    d->bridge.addTemporaryAuthorization(action);
 }
+#endif
 
 class WorkerResultPrivate
 {

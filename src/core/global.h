@@ -309,6 +309,7 @@ enum CacheControl {
 };
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
 /*!
  * Specifies privilege file operation status.
  * \since 5.43
@@ -316,12 +317,15 @@ enum CacheControl {
  * \value OperationAllowed
  * \value OperationCanceled
  * \value OperationNotAllowed
+ *
+ * \deprecated[6.19]
  */
 enum PrivilegeOperationStatus {
     OperationAllowed = 1,
     OperationCanceled,
     OperationNotAllowed,
 };
+#endif
 
 /*!
  * Describes the fields that a stat command will retrieve

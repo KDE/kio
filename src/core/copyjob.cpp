@@ -410,24 +410,6 @@ public:
             job->d_func()->m_bOverwriteAllDirs = true;
             job->d_func()->m_bOverwriteAllFiles = true;
         }
-        if (!(flags & KIO::NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            FileOperationType copyType;
-            switch (mode) {
-            case CopyJob::Copy:
-                copyType = Copy;
-                break;
-            case CopyJob::Move:
-                copyType = Move;
-                break;
-            case CopyJob::Link:
-                copyType = Symlink;
-                break;
-            default:
-                Q_UNREACHABLE();
-            }
-            job->d_func()->m_operationType = copyType;
-        }
         return job;
     }
 };
@@ -568,7 +550,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             // This assumes all KIO workers set permissions correctly...
             const int permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
             const bool isWritable = (permissions != -1) && (permissions & S_IWUSR);
-            if (!m_privilegeExecutionEnabled && !isWritable) {
+            if (!isWritable) {
                 const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
                 q->setError(ERR_WRITE_ACCESS_DENIED);
                 q->setErrorText(dest.toDisplayString(QUrl::PreferLocalFile));

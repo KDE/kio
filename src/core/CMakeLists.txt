@@ -210,10 +210,6 @@ if (HAVE_QTDBUS)
     target_link_libraries(KF6KIOCore PUBLIC ${DBUS_LIB})
 endif()
 
-if (TARGET KF6::AuthCore)
-  target_link_libraries(KF6KIOCore PRIVATE KF6::AuthCore)   #SlaveBase uses KAuth::Action
-endif()
-
 if(ACL_FOUND)
   target_link_libraries(KF6KIOCore PRIVATE ${ACL_LIBS})
 endif()

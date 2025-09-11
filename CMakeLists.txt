@@ -89,10 +89,6 @@ if (NOT KIOCORE_ONLY)
     endif()
 endif()
 
-if (UNIX AND NOT ANDROID)
-    find_package(KF6Auth ${KF_DEP_VERSION} REQUIRED)
-endif()
-
 # tell what is missing without doctools
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
                        TYPE OPTIONAL

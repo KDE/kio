@@ -39,12 +39,6 @@
 #include <stdint.h>
 #include <utime.h>
 
-#include <KAuth/Action>
-#include <KAuth/ExecuteJob>
-#include <KRandom>
-
-#include "fdreceiver.h"
-
 #ifdef Q_OS_LINUX
 
 #include <linux/fs.h>

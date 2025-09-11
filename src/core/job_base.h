@@ -268,14 +268,14 @@ private:
  * \value Overwrite When set, automatically overwrite the destination if it exists already. This is used by KIO::rename(), KIO::put(), KIO::file_copy(),
  * KIO::file_move(), KIO::symlink(). Otherwise the operation will fail with ERR_FILE_ALREADY_EXIST or ERR_DIR_ALREADY_EXIST
  * \value [since 5.43] NoPrivilegeExecution When set, notifies the worker that application/job does not want privilege execution. So in case of failure due to
- * insufficient privileges show an error without attempting to run the operation as root first
+ * insufficient privileges show an error without attempting to run the operation as root first. (Deprecated)
  */
 enum JobFlag {
     DefaultFlags = 0,
     HideProgressInfo = 1,
     Resume = 2,
     Overwrite = 4,
-    NoPrivilegeExecution = 8,
+    NoPrivilegeExecution KIOCORE_ENUMERATOR_DEPRECATED_VERSION(6, 19, "Not implemented") = 8,
 };
 
 Q_DECLARE_FLAGS(JobFlags, JobFlag)

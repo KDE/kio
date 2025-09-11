@@ -112,24 +112,6 @@ public:
             m_remoteArkDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
             m_remoteArkDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
         }
-
-        if (!(m_flags & KIO::NoPrivilegeExecution)) {
-            m_privilegeExecutionEnabled = true;
-            switch (m_dropAction) {
-            case Qt::CopyAction:
-                m_operationType = Copy;
-                break;
-            case Qt::MoveAction:
-                m_operationType = Move;
-                break;
-            case Qt::LinkAction:
-                m_operationType = Symlink;
-                break;
-            default:
-                m_operationType = Other;
-                break;
-            }
-        }
     }
 
     bool destIsDirectory() const
@@ -423,7 +405,7 @@ void DropJobPrivate::handleCopyToDirectory()
         return;
     }
 
-    if (!m_destItem.isNull() && !m_destItem.isWritable() && (m_flags & KIO::NoPrivilegeExecution)) {
+    if (!m_destItem.isNull() && !m_destItem.isWritable()) {
         slotDropActionDetermined(KIO::ERR_WRITE_ACCESS_DENIED);
         return;
     }

@@ -51,10 +51,6 @@
 #include "kpasswdserverclient.h"
 #include "workerinterface_p.h"
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
-#include <KAuth/Action>
-#endif
-
 // TODO: Enable once file KIO worker is ported away and add endif, similar in the header file
 // #if KIOCORE_BUILD_DEPRECATED_SINCE(version where file:/ KIO worker was ported)
 
@@ -99,8 +95,6 @@ public:
     explicit SlaveBasePrivate(SlaveBase *owner)
         : q(owner)
         , nextTimeoutMsecs(0)
-        , m_confirmationAsked(false)
-        , m_privilegeOperationStatus(OperationNotAllowed)
     {
         if (!qEnvironmentVariableIsEmpty("KIOWORKER_ENABLE_TESTMODE")) {
             QStandardPaths::setTestModeEnabled(true);
@@ -153,32 +147,6 @@ public:
     std::unique_ptr<KPasswdServerClient> m_passwdServerClient;
 #endif
     bool m_rootEntryListed = false;
-
-    bool m_confirmationAsked;
-    QSet<QString> m_tempAuths;
-    QString m_warningTitle;
-    QString m_warningMessage;
-    int m_privilegeOperationStatus;
-
-    void updateTempAuthStatus()
-    {
-#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
-        QSet<QString>::iterator it = m_tempAuths.begin();
-        while (it != m_tempAuths.end()) {
-            KAuth::Action action(*it);
-            if (action.status() != KAuth::Action::AuthorizedStatus) {
-                it = m_tempAuths.erase(it);
-            } else {
-                ++it;
-            }
-        }
-#endif
-    }
-
-    bool hasTempAuth() const
-    {
-        return !m_tempAuths.isEmpty();
-    }
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -373,7 +341,6 @@ void SlaveBase::dispatchLoop()
                 disconnectSlave();
                 d->isConnectedToApp = false;
                 closeConnection();
-                d->updateTempAuthStatus();
                 connectSlave(d->poolSocket);
             } else {
                 break;
@@ -560,8 +527,6 @@ void SlaveBase::error(int _errid, const QString &_text)
     // reset
     d->totalSize = 0;
     d->inOpenLoop = false;
-    d->m_confirmationAsked = false;
-    d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
 void SlaveBase::connected()
@@ -620,8 +585,6 @@ void SlaveBase::finished()
     d->totalSize = 0;
     d->inOpenLoop = false;
     d->m_rootEntryListed = false;
-    d->m_confirmationAsked = false;
-    d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
 void SlaveBase::canResume()
@@ -1500,37 +1463,4 @@ void SlaveBase::virtual_hook(int id, void *data)
 void SlaveBase::setRunInThread(bool b)
 {
     d->runInThread = b;
-}
-
-PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &operationDetails)
-{
-    if (d->m_privilegeOperationStatus == OperationNotAllowed) {
-        QByteArray buffer;
-        send(MSG_PRIVILEGE_EXEC);
-        waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
-        QDataStream ds(buffer);
-        ds >> d->m_privilegeOperationStatus >> d->m_warningTitle >> d->m_warningMessage;
-    }
-
-    if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
-        // WORKER_MESSAGEBOX_DETAILS_HACK
-        // SlaveBase::messageBox() overloads miss a parameter to pass an details argument.
-        // As workaround details are passed instead via metadata before and then cached by the WorkerInterface,
-        // to be used in the upcoming messageBox call (needs WarningContinueCancelDetailed type)
-        // TODO: add a messageBox() overload taking details and use here,
-        // then remove or adapt all code marked with WORKER_MESSAGEBOX_DETAILS
-        setMetaData(QStringLiteral("privilege_conf_details"), operationDetails);
-        sendMetaData();
-
-        int result = messageBox(d->m_warningMessage, WarningContinueCancelDetailed, d->m_warningTitle, QString(), QString(), QString());
-        d->m_privilegeOperationStatus = result == Continue ? OperationAllowed : OperationCanceled;
-        d->m_confirmationAsked = true;
-    }
-
-    return KIO::PrivilegeOperationStatus(d->m_privilegeOperationStatus);
-}
-
-void SlaveBase::addTemporaryAuthorization(const QString &action)
-{
-    d->m_tempAuths.insert(action);
 }

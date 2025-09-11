@@ -13,10 +13,6 @@ if (NOT @BUILD_SHARED_LIBS@)
         find_dependency(KF6Crash "@KF_DEP_VERSION@")
     endif()
 
-    if (UNIX AND NOT ANDROID)
-        find_dependency(KF6Auth "@KF_DEP_VERSION@")
-    endif()
-
     if (@LibMount_FOUND@)
         find_dependency(LibMount)
     endif()

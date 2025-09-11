@@ -45,10 +45,6 @@ public:
             job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
         }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            job->d_func()->m_operationType = Transfer;
-        }
         return job;
     }
 
@@ -59,10 +55,6 @@ public:
         if (!(flags & HideProgressInfo)) {
             job->setFinishedNotificationHidden();
             KIO::getJobTracker()->registerJob(job);
-        }
-        if (!(flags & NoPrivilegeExecution)) {
-            job->d_func()->m_privilegeExecutionEnabled = true;
-            job->d_func()->m_operationType = Transfer;
         }
         return job;
     }

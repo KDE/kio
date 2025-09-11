@@ -134,10 +134,6 @@ void SimpleJobPrivate::start(Worker *worker)
         slotConnected();
     });
 
-    QObject::connect(worker, &Worker::privilegeOperationRequested, q, [this]() {
-        slotPrivilegeOperationRequested();
-    });
-
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
         QObject::connect(worker, &Worker::totalSize, q, [this](KIO::filesize_t size) {
             slotTotalSize(size);
@@ -311,11 +307,6 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
     if (!d->m_internalMetaData.isEmpty()) {
         Scheduler::updateInternalMetaData(this);
     }
-}
-
-void SimpleJobPrivate::slotPrivilegeOperationRequested()
-{
-    m_worker->send(MSG_PRIVILEGE_EXEC, privilegeOperationData());
 }
 
 //////////

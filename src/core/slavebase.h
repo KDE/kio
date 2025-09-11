@@ -906,23 +906,6 @@ public:
      */
     void setKillFlag();
 
-    /*
-     * Checks with job if privilege operation is allowed.
-     * Returns privilege operation status.
-     * \sa PrivilegeOperationStatus
-     * \since 5.66
-     */
-    PrivilegeOperationStatus requestPrivilegeOperation(const QString &operationDetails);
-
-    /*
-     * Adds @p action to the list of PolicyKit actions which the
-     * slave is authorized to perform.
-     *
-     * \a action the PolicyKit action
-     * \since 5.45
-     */
-    void addTemporaryAuthorization(const QString &action);
-
 protected:
     /*
      * Name of the protocol supported by this slave
