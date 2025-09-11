@@ -94,8 +94,6 @@ public:
     KIO::WorkerResult get(const QUrl &url) override;
     KIO::WorkerResult put(const QUrl &url, int permissions, KIO::JobFlags flags) override;
 
-    void worker_status() override;
-
     /*!
      * Handles the case that one side of the job is a local file
      */
@@ -149,8 +147,6 @@ public:
     Q_REQUIRED_RESULT Result get(const QUrl &url);
     Q_REQUIRED_RESULT Result put(const QUrl &url, int permissions, KIO::JobFlags flags);
     // virtual void mimetype( const QUrl& url );
-
-    void worker_status();
 
     /*!
      * Handles the case that one side of the job is a local file

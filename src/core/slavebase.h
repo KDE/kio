@@ -139,14 +139,6 @@ public:
     void finished();
 
     /*
-     * Used to report the status of the slave.
-     * \a host the slave is currently connected to. (Should be
-     *        empty if not connected)
-     * \a connected Whether an actual network connection exists.
-     **/
-    void slaveStatus(const QString &host, bool connected);
-
-    /*
      * Call this from stat() to express details about an object, the
      * UDSEntry customarily contains the atoms describing file name, size,
      * MIME type, etc.
@@ -657,12 +649,6 @@ public:
      * Document your slave's commands, at least in its header file.
      */
     virtual void special(const QByteArray &data);
-
-    /*
-     * Called to get the status of the slave. Slave should respond
-     * by calling slaveStatus(...)
-     */
-    virtual void slave_status();
 
     /*
      * Called by the scheduler to tell the slave that the configuration

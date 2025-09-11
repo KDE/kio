@@ -132,6 +132,7 @@ public:
      */
     void dataReq();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*!
      * Used to report the status of the worker.
      *
@@ -139,8 +140,14 @@ public:
      *        empty if not connected)
      *
      * \a connected Whether an actual network connection exists.
+     *
+     * \deprecated[6.19]
+     *
+     * Not implemented.
      **/
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not implemented")
     void workerStatus(const QString &host, bool connected);
+#endif
 
     /*!
      * Call this from stat() to express details about an object, the
@@ -726,11 +733,18 @@ public:
      */
     Q_REQUIRED_RESULT virtual WorkerResult fileSystemFreeSpace(const QUrl &url);
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
     /*!
      * Called to get the status of the worker. Worker should respond
      * by calling workerStatus(...)
+     *
+     * \deprecated[6.19]
+     *
+     * Not implemented.
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not implemented")
     virtual void worker_status();
+#endif
 
     /*!
      * Called by the scheduler to tell the worker that the configuration

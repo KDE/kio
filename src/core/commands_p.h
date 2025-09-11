@@ -20,7 +20,7 @@ enum Command {
     CMD_HOST = '0', // 48
     CMD_CONNECT = '1', // 49
     CMD_DISCONNECT = '2', // 50
-    CMD_WORKER_STATUS = '3', // 51
+    // Unused: '3', // 51
     CMD_NONE = 'A', // 65
     // Unused: 'B', // 66
     CMD_GET = 'C', // 67

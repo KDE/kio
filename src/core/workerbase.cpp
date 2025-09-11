@@ -107,10 +107,11 @@ void WorkerBase::dataReq()
     d->bridge.dataReq();
 }
 
-void WorkerBase::workerStatus(const QString &host, bool connected)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
+void WorkerBase::workerStatus(const QString & /*host*/, bool /*connected*/)
 {
-    d->bridge.slaveStatus(host, connected);
 }
+#endif
 
 void WorkerBase::canResume()
 {
@@ -315,10 +316,12 @@ WorkerResult WorkerBase::fileSystemFreeSpace(const QUrl &)
     return WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(d->protocolName(), CMD_FILESYSTEMFREESPACE));
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
 void WorkerBase::worker_status()
 {
     workerStatus(QString(), false);
 }
+#endif
 
 void WorkerBase::reparseConfiguration()
 {

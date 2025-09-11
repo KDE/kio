@@ -624,14 +624,6 @@ void SlaveBase::finished()
     d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
-void SlaveBase::slaveStatus(const QString &host, bool connected)
-{
-    qint64 pid = getpid();
-    qint8 b = connected ? 1 : 0;
-    KIO_DATA << pid << mProtocol << host << b << d->onHold << d->onHoldUrl << d->hasTempAuth();
-    send(MSG_WORKER_STATUS, data);
-}
-
 void SlaveBase::canResume()
 {
     send(MSG_CANRESUME);
@@ -709,8 +701,7 @@ static bool isSubCommand(int cmd)
     /* clang-format off */
     return cmd == CMD_REPARSECONFIGURATION
         || cmd == CMD_META_DATA
-        || cmd == CMD_CONFIG
-        || cmd == CMD_WORKER_STATUS;
+        || cmd == CMD_CONFIG;
     /* clang-format on */
 }
 
@@ -975,11 +966,6 @@ void SlaveBase::chown(QUrl const &, const QString &, const QString &)
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CHOWN));
 }
 
-void SlaveBase::slave_status()
-{
-    slaveStatus(QString(), false);
-}
-
 void SlaveBase::reparseConfiguration()
 {
     delete d->remotefile;
@@ -1151,14 +1137,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     }
     case CMD_DISCONNECT: {
         closeConnection();
-        break;
-    }
-    case CMD_WORKER_STATUS: {
-        d->m_state = d->InsideMethod;
-        d->m_finalityCommand = false;
-        slave_status();
-        // TODO verify that the slave has called slaveStatus()?
-        d->m_state = d->Idle;
         break;
     }
     case CMD_REPARSECONFIGURATION: {

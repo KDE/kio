@@ -1518,13 +1518,6 @@ Result FtpInternal::listDir(const QUrl &url)
     return Result::pass();
 }
 
-void FtpInternal::worker_status()
-{
-    qCDebug(KIO_FTP) << "Got worker_status host = " << (!m_host.toLatin1().isEmpty() ? m_host.toLatin1() : "[None]") << " ["
-                     << (m_bLoggedOn ? "Connected" : "Not connected") << "]";
-    q->workerStatus(m_host, m_bLoggedOn);
-}
-
 Result FtpInternal::ftpOpenDir(const QString &path)
 {
     // QString path( _url.path(QUrl::RemoveTrailingSlash) );
@@ -2589,11 +2582,6 @@ KIO::WorkerResult Ftp::get(const QUrl &url)
 KIO::WorkerResult Ftp::put(const QUrl &url, int permissions, JobFlags flags)
 {
     return d->put(url, permissions, flags);
-}
-
-void Ftp::worker_status()
-{
-    d->worker_status();
 }
 
 KIO::WorkerResult Ftp::copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags)
