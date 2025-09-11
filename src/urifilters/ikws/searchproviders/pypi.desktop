@@ -28,6 +28,7 @@ Name[ko]=PyPI
 Name[lg]=PyPI
 Name[lt]=PyPI
 Name[lv]=PyPI
+Name[my]=PyPI
 Name[nb]=PyPI
 Name[nl]=PyPI
 Name[nn]=PyPI
@@ -74,6 +75,7 @@ Query[ko]=https://pypi.org/search/?q=\\{@}
 Query[lg]=https://pypi.org/search/?q=\\{@}
 Query[lt]=https://pypi.org/search/?q=\\{@}
 Query[lv]=https://pypi.org/search/?q=\\{@}
+Query[my]=https://pypi.org/search/?q=\\{@}
 Query[nb]=https://pypi.org/search/?q=\\{@}
 Query[nl]=https://pypi.org/search/?q=\\{@}
 Query[nn]=https://pypi.org/search/?q=\\{@}

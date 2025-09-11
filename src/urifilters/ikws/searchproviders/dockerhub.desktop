@@ -21,6 +21,7 @@ Name[ko]=Docker Hub
 Name[lg]=Docker Hub
 Name[lt]=Docker Hub
 Name[lv]=„Docker“ centrs
+Name[my]=Docker Hub
 Name[nb]=Docker Hub
 Name[nl]=Docker-hub
 Name[pl]=Docker Hub
@@ -55,6 +56,7 @@ Query[ko]=https://hub.docker.com/search?q=\\{@}
 Query[lg]=https://hub.docker.com/search?q=\\{@}
 Query[lt]=https://hub.docker.com/search?q=\\{@}
 Query[lv]=https://hub.docker.com/search?q=\\{@}
+Query[my]=https://hub.docker.com/search?q=\\{@}
 Query[nb]=https://hub.docker.com/search?q=\\{@}
 Query[nl]=https://hub.docker.com/search?q=\\{@}
 Query[pl]=https://hub.docker.com/search?q=\\{@}

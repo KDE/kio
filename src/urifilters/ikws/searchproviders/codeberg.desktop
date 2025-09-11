@@ -29,6 +29,7 @@ Name[ko]=Codeberg
 Name[lg]=Codeberg
 Name[lt]=Codeberg
 Name[lv]=Codeberg
+Name[my]=Codeberg
 Name[nb]=Codeberg
 Name[nl]=Codeberg
 Name[nn]=Codeberg
@@ -74,6 +75,7 @@ Query[ko]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[lg]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[lt]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[lv]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[my]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[nb]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[nl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[nn]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true

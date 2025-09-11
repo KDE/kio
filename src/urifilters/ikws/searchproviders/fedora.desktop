@@ -19,6 +19,7 @@ Name[ko]=Fedora 패키지
 Name[lg]=Emiganda gya mu Fedora
 Name[lt]=Fedora paketai
 Name[lv]=„Fedora“ pakotnes
+Name[my]=Fedora Packages
 Name[nb]=Fedora-pakker
 Name[nl]=Fedora-pakketten
 Name[pl]=Pakiety Fedory
@@ -53,6 +54,7 @@ Query[ko]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[lg]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[lt]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[lv]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[my]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nb]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pl]=https://packages.fedoraproject.org/search?query=\\{@}
