@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave نى تۇرغۇزالمىدى: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -347,7 +347,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -360,7 +360,6 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "بەلگە ئۇلانما قۇر"
@@ -3920,9 +3919,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "كۆچۈر"
@@ -4320,12 +4319,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "%1 نىڭ ACL تەڭشىكى"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4334,7 +4328,7 @@ msgstr ""
 "تۆۋەندىكىنىڭ ھوقۇقىنى ئۆزگەرتكىلى بولمىدى\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4343,129 +4337,32 @@ msgid ""
 "%1"
 msgstr "%1 نىڭ ئىگىدارلىق ھوقۇقىنى ئۆزگەرتەلمىدى."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" پروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" پروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
-msgid "Change File Permissions"
-msgstr "ئالاھىدە ھوقۇقلار"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "New Permissions: %1"
-msgstr "ئىمتىيازلار"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove File"
-msgstr "چىقىرىۋەت"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Remove Directory"
-msgstr "مۇندەرىجە"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create directory"
-msgid "Create Directory"
-msgstr "مۇندەرىجە قۇر"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "Directory Permissions: %1"
-msgstr "ئىمتىيازلار"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Open File Manager"
-msgid "Open File"
-msgstr "ھۆججەت باشقۇرغۇچنى ئاچ"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Open Directory"
-msgstr "مۇندەرىجە"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "File name:"
-msgid "New Filename: %1"
-msgstr "ھۆججەت ئىسمى:"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "Drive: %1"
-msgid "Target: %1"
-msgstr "قوزغاتقۇچ: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
-msgid "Unknown Action"
-msgstr "يوچۇن ئۈزۈلۈش"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ھۆججەتنى %1 دىن %2 غا كۆچۈرەلمىدى. (خاتالىق نومۇرى: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتكۈچى كىملىكىگە ئېرىشەلمىدى"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"
@@ -7857,6 +7754,67 @@ msgstr "بۇ پروگراممىنى قوزغىتىدۇ:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز كەچنى چېكىڭ"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "%1 نىڭ ACL تەڭشىكى"
+
+#, fuzzy
+#~| msgid "Advanced Permissions"
+#~ msgid "Change File Permissions"
+#~ msgstr "ئالاھىدە ھوقۇقلار"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "New Permissions: %1"
+#~ msgstr "ئىمتىيازلار"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "Remove File"
+#~ msgstr "چىقىرىۋەت"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Remove Directory"
+#~ msgstr "مۇندەرىجە"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Create directory"
+#~ msgid "Create Directory"
+#~ msgstr "مۇندەرىجە قۇر"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "ئىمتىيازلار"
+
+#, fuzzy
+#~| msgid "Open File Manager"
+#~ msgid "Open File"
+#~ msgstr "ھۆججەت باشقۇرغۇچنى ئاچ"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Open Directory"
+#~ msgstr "مۇندەرىجە"
+
+#, fuzzy
+#~| msgid "File name:"
+#~ msgid "New Filename: %1"
+#~ msgstr "ھۆججەت ئىسمى:"
+
+#, fuzzy
+#~| msgid "Drive: %1"
+#~ msgid "Target: %1"
+#~ msgstr "قوزغاتقۇچ: %1"
+
+#, fuzzy
+#~| msgid "Unknown Interruption"
+#~ msgid "Unknown Action"
+#~ msgstr "يوچۇن ئۈزۈلۈش"
 
 #, fuzzy
 #~| msgid "Show Bookmarks"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не ўдалося стварыць KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -374,7 +374,7 @@ msgstr ""
 "Для завяршэння аперацыі перамяшчэння патрэбныя правы суперкарыстальніка "
 "(root). Хочаце працягнуць?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Змяніць назву"
@@ -388,7 +388,6 @@ msgstr ""
 "працягнуць?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Стварыць сімвалічную спасылку"
@@ -3884,9 +3883,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Капіяваць"
@@ -4278,12 +4277,7 @@ msgstr "Каманда для выканання"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL-адрас(ы) або лакальны(я) файл(ы) для \"command\""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Параметр ACL для %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4292,7 +4286,7 @@ msgstr ""
 "Не ўдалося змяніць правы доступу для\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4300,120 +4294,34 @@ msgid ""
 "%1"
 msgstr "Не ўдалося змяніць уласніка і групу для %1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Не ўдалося знайсці праграму \"mount\""
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Не ўдалося знайсці праграму \"umount\""
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Змяніць правы доступу да файла"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Новыя правы доступу: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Змяніць уласніка файла"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Новы ўласнік: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Выдаліць файл"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Выдаліць каталог"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Стварыць каталог"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Правы доступу да каталога: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Адкрыць файл"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Адкрыць каталог"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Новая назва файла: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Мэта: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Змяніць адзнаку часу"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "З: %1, У: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Невядомае дзеянне"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Дзеянне: %1\n"
-"Крыніца: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не ўдалося скапіяваць файл з %1 у %2. (Код памылкі: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носьбіта ў прыладзе %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Не ўдалося атрымаць ідэнтыфікатар карыстальніка для пададзенага імя "
 "карыстальніка %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не ўдалося атрымаць ідэнтыфікатар групы для пададзенай групы %1"
@@ -7776,6 +7684,63 @@ msgstr "Гэта запусціць праграму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Параметр ACL для %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Змяніць правы доступу да файла"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Новыя правы доступу: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Змяніць уласніка файла"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Новы ўласнік: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Выдаліць файл"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Выдаліць каталог"
+
+#~ msgid "Create Directory"
+#~ msgstr "Стварыць каталог"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Правы доступу да каталога: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Адкрыць файл"
+
+#~ msgid "Open Directory"
+#~ msgstr "Адкрыць каталог"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Новая назва файла: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Мэта: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Змяніць адзнаку часу"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "З: %1, У: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Невядомае дзеянне"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Дзеянне: %1\n"
+#~ "Крыніца: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Паказваць кнопку закладак"

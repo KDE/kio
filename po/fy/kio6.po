@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Net by steat io-slave '%1' oan te meitsjen."
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -355,7 +355,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -368,7 +368,6 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
@@ -4078,9 +4077,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopiearje"
@@ -4483,13 +4482,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sending data to %1"
-msgid "Setting ACL for %1"
-msgstr "Ynterne ynstelling foar ûnthalde"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4498,7 +4491,7 @@ msgstr ""
 "Koe de tagongsrjochten foar\n"
 "%1 net feroarje"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change permissions for %1."
 msgctxt "@info"
@@ -4507,129 +4500,33 @@ msgid ""
 "%1"
 msgstr "Koe de tagongsrjochten foar %1 net feroarje."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Koe it programma \"mount\" net fine"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Koe it programma \"umount\" net fine"
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
-msgid "Change File Permissions"
-msgstr "Avansearre tagongsrjochten"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "New Permissions: %1"
-msgstr "Tagongsrjochten"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove File"
-msgstr "Fuortsmite"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Remove Directory"
-msgstr "Triemtafel"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgid "Creating Folder"
-msgid "Create Directory"
-msgstr "Iepen Directory"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "Directory Permissions: %1"
-msgstr "Tagongsrjochten"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
-msgid "Open File"
-msgstr "Triem-iepenje-dialooch"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Open Directory"
-msgstr "Triemtafel"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "Devices"
-msgid "New Filename: %1"
-msgstr "Algemiene namme"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "size %1"
-msgid "Target: %1"
-msgstr "grutte %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
-msgid "Unknown Action"
-msgstr "Unbekende ûnderbrekking"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Triem kin net fan %1 nei %2 kopiearre wurde. (flaterkoade: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Gjin media yn apparaat foar %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Koe net yn map %1 komme."
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -8079,6 +7976,68 @@ msgstr "KDE test programma"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Sending data to %1"
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Ynterne ynstelling foar ûnthalde"
+
+#, fuzzy
+#~| msgid "Advanced Permissions"
+#~ msgid "Change File Permissions"
+#~ msgstr "Avansearre tagongsrjochten"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "New Permissions: %1"
+#~ msgstr "Tagongsrjochten"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "Remove File"
+#~ msgstr "Fuortsmite"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Remove Directory"
+#~ msgstr "Triemtafel"
+
+#, fuzzy
+#~| msgid "Creating Folder"
+#~ msgid "Create Directory"
+#~ msgstr "Iepen Directory"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Tagongsrjochten"
+
+#, fuzzy
+#~| msgid "Open file dialog"
+#~ msgid "Open File"
+#~ msgstr "Triem-iepenje-dialooch"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Open Directory"
+#~ msgstr "Triemtafel"
+
+#, fuzzy
+#~| msgid "Devices"
+#~ msgid "New Filename: %1"
+#~ msgstr "Algemiene namme"
+
+#, fuzzy
+#~| msgid "size %1"
+#~ msgid "Target: %1"
+#~ msgstr "grutte %1"
+
+#, fuzzy
+#~| msgid "Unknown Interruption"
+#~ msgid "Unknown Action"
+#~ msgstr "Unbekende ûnderbrekking"
 
 #, fuzzy
 #~| msgid "Show Bookmarks"

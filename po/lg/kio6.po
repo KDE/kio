@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nnemedwa okukolawo puloguramu eyeyazikibwa eya KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -357,7 +357,7 @@ msgid ""
 msgstr ""
 "Okusimbuliza kyetaagisa buyinza bwa muteesiteesi. Oyagala okugenda mu maaso?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Kyusa erinnya"
@@ -371,7 +371,6 @@ msgstr ""
 "maaso?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Kolawo nyunzi"
@@ -3898,9 +3897,9 @@ msgstr "Akafaananyi oyinza okukakyusa edda mu nteekateeka za tterekero."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Koppa"
@@ -4301,12 +4300,7 @@ msgstr ""
 "Endagiriro eya (eza) URL oba fayiro eya (eza) ku sisitemu eno 'kiragiro' mwe "
 "kinaanonebwa"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Ntegeka olukalala olufuga abakkirizibwa okwetuusako %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4315,7 +4309,7 @@ msgstr ""
 "Nnemedwa okukyusa obuyinza obw'oku\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4325,118 +4319,32 @@ msgstr ""
 "Nnemedwa okukyusa obwanannyini ne guluupu ku\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Puloguramu \"mount\" embuze"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Puloguramu \"umount\" embuze"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Kyusa Ndukusa za ku Fayiro"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Endukusa empya: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Kyusa Nannyini Fayiro"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Nanyini Omupya: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Gyawo Fayiro"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Gyawo Tterekero"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Kolawo Tterekero"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Endukusa eza ku Tterekero: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Bikkula Fayiro"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Bikkula Tterekero"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Erinnya Ppya: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Kigenderwa: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Kyusa Kirambe Ekiraga Ddi Fayiro Lwe Yakolebwawo"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Okuva ku: %1, Okudda ku: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Ekikolwa Tekimanyidwa"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Kikolwa: %1\n"
-"Nnono: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Mu kyuma temuli mediya ya %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"
@@ -7764,6 +7672,63 @@ msgstr "Kino kijja okutandika puloguramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Ntegeka olukalala olufuga abakkirizibwa okwetuusako %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Kyusa Ndukusa za ku Fayiro"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Endukusa empya: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Kyusa Nannyini Fayiro"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Nanyini Omupya: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Gyawo Fayiro"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Gyawo Tterekero"
+
+#~ msgid "Create Directory"
+#~ msgstr "Kolawo Tterekero"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Endukusa eza ku Tterekero: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Bikkula Fayiro"
+
+#~ msgid "Open Directory"
+#~ msgstr "Bikkula Tterekero"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Erinnya Ppya: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Kigenderwa: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Kyusa Kirambe Ekiraga Ddi Fayiro Lwe Yakolebwawo"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Okuva ku: %1, Okudda ku: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Ekikolwa Tekimanyidwa"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Kikolwa: %1\n"
+#~ "Nnono: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Wabewo Ppeesa erya Bukwatakifo"

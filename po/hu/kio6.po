@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-09-03 20:54+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KIO szolgáltatást: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -357,7 +357,7 @@ msgid ""
 msgstr ""
 "Root jogosultság szükséges az áthelyezés befejezéséhez. Szeretné folytatni?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Átnevezés"
@@ -370,7 +370,6 @@ msgstr ""
 "Root jogosultság szükséges az átnevezés befejezéséhez Szeretné folytatni?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Szimbolikus link létrehozása"
@@ -3844,9 +3843,9 @@ msgstr "Az ikont később a mappa tulajdonságaiban módosíthatja."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Másolás"
@@ -4245,12 +4244,7 @@ msgstr "A végrehajtandó parancs"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "A parancsban használt URL-ek és helyi fájlok"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Hozzáférési jog (ACL) beállítása: %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4259,7 +4253,7 @@ msgstr ""
 "Nem sikerült megváltoztatni a jogosultságokat itt:\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4269,118 +4263,32 @@ msgstr ""
 "Nem sikerült megváltoztatni a következő tulajdonosát és csoportját:\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "A „mount” program nem található"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Az „umount” program nem található"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Fájl jogosultságainak módosítása"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Új jogosultságok: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Fájl tulajdonosának megváltoztatása"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Új tulajdonos: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Fájl törlése"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Mappa törlése"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Mappa létrehozása"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Mappa jogosultságai: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Fájl megnyitása"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Mappa megnyitása"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Új fájlnév: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Cél: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Időbélyeg módosítása"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Innen: %1, ide: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Ismeretlen művelet"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Művelet: %1\n"
-"Forrás: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
@@ -7608,6 +7516,63 @@ msgstr "Elindítja a programot:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ha nem bízik meg a programban, kattintson a Mégsem gombra"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Hozzáférési jog (ACL) beállítása: %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Fájl jogosultságainak módosítása"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Új jogosultságok: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Fájl tulajdonosának megváltoztatása"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Új tulajdonos: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Fájl törlése"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Mappa törlése"
+
+#~ msgid "Create Directory"
+#~ msgstr "Mappa létrehozása"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Mappa jogosultságai: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Fájl megnyitása"
+
+#~ msgid "Open Directory"
+#~ msgstr "Mappa megnyitása"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Új fájlnév: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Cél: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Időbélyeg módosítása"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Innen: %1, ide: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Ismeretlen művelet"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Művelet: %1\n"
+#~ "Forrás: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "A könyvjelzők gomb mutatása"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-09-06 05:28+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie można utworzyć pracownika KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -365,7 +365,7 @@ msgstr ""
 "Wymagane są uprawnienia administratora do przeniesienia. Czy chcesz "
 "kontynuować?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Zmień nazwę"
@@ -379,7 +379,6 @@ msgstr ""
 "kontynuować?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Utwórz jako dowiązanie symboliczne"
@@ -3830,9 +3829,9 @@ msgstr "Możesz zmienić ikonę później we właściwościach katalogu."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Skopiuj"
@@ -4225,12 +4224,7 @@ msgstr "Polecenie do wykonania"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Adresy URL lub lokalny plik(i) używany dla 'polecenia'"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Ustawianie ACL dla %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4239,7 +4233,7 @@ msgstr ""
 "Nie można zmienić praw do\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4249,118 +4243,32 @@ msgstr ""
 "Nie można zmienić właściciela i grupy dla\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie można znaleźć programu \"mount\""
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie można znaleźć programu \"umount\""
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Zmień uprawnienia do pliku"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Nowe uprawnienia: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Zmień właściciela pliku"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Nowy właściciel: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Usuń plik"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Usuń katalog"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Utwórz katalog"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Uprawnienia do katalogu: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Otwórz plik"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Otwórz katalog"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Nowa nazwa pliku: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Cel: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Zmień znacznik czasu"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Od: %1, Do: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Nieznane działanie"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Działanie: %1\n"
-"Źródło: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie można skopiować pliku z %1 do %2. (Błąd: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Brak nośnika w urządzeniu %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nie można pobrać identyfikatora użytkownika dla danej nazwy %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nie można pobrać identyfikatora grupy dla danej nazwy %1"
@@ -7610,6 +7518,63 @@ msgstr "To uruchomi program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jeśli nie ufasz temu programowi, naciśnij Anuluj"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Ustawianie ACL dla %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Zmień uprawnienia do pliku"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Nowe uprawnienia: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Zmień właściciela pliku"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Nowy właściciel: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Usuń plik"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Usuń katalog"
+
+#~ msgid "Create Directory"
+#~ msgstr "Utwórz katalog"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Uprawnienia do katalogu: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Otwórz plik"
+
+#~ msgid "Open Directory"
+#~ msgstr "Otwórz katalog"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Nowa nazwa pliku: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Cel: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Zmień znacznik czasu"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Od: %1, Do: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Nieznane działanie"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Działanie: %1\n"
+#~ "Źródło: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Pokaż przycisk zakładek"

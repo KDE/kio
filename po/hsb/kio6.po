@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Njemóžach io-slave stworić: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -347,7 +347,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Přemjenować"
@@ -359,7 +359,6 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symboliski wotkaz (symlink) stworić"
@@ -3883,9 +3882,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, fuzzy, kde-format
 #| msgid "Copying"
 msgid "Copy"
@@ -4277,12 +4276,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Sćelu ACL na %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4291,7 +4285,7 @@ msgstr ""
 "Njemóžach přistupne prawa změnić za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4300,128 +4294,33 @@ msgid ""
 "%1"
 msgstr "Njemóžach wobsydnika změnić za %1."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Njemóžach program 'mount' namakać"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Njemóžach program 'umount' namakać."
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
-msgid "Change File Permissions"
-msgstr "Dalše přistupne prawa"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "New Permissions: %1"
-msgstr "Prawa"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove File"
-msgstr "Zničić"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Remove Directory"
-msgstr "Zapisk"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgid "Creating directory"
-msgid "Create Directory"
-msgstr "Stworju zapisk"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "Directory Permissions: %1"
-msgstr "Prawa"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
-msgid "Open File"
-msgstr "Dialog za wočinjenje dataje"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Open Directory"
-msgstr "Zapisk"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "Device name"
-msgid "New Filename: %1"
-msgstr "Mjeno grata"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-msgid "Target: %1"
-msgstr "wulkosć %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
-msgid "Unknown Action"
-msgstr "Njeznate přetorhnjenje"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Žadyn medij w graće %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Njemóžach do zapiska %1 hić"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -7726,6 +7625,65 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Sćelu ACL na %1"
+
+#, fuzzy
+#~| msgid "Advanced Permissions"
+#~ msgid "Change File Permissions"
+#~ msgstr "Dalše přistupne prawa"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "New Permissions: %1"
+#~ msgstr "Prawa"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "Remove File"
+#~ msgstr "Zničić"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Remove Directory"
+#~ msgstr "Zapisk"
+
+#, fuzzy
+#~| msgid "Creating directory"
+#~ msgid "Create Directory"
+#~ msgstr "Stworju zapisk"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Prawa"
+
+#, fuzzy
+#~| msgid "Open file dialog"
+#~ msgid "Open File"
+#~ msgstr "Dialog za wočinjenje dataje"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Open Directory"
+#~ msgstr "Zapisk"
+
+#, fuzzy
+#~| msgid "Device name"
+#~ msgid "New Filename: %1"
+#~ msgstr "Mjeno grata"
+
+#, fuzzy
+#~ msgid "Target: %1"
+#~ msgstr "wulkosć %1"
+
+#, fuzzy
+#~| msgid "Unknown Interruption"
+#~ msgid "Unknown Action"
+#~ msgstr "Njeznate přetorhnjenje"
 
 #, fuzzy
 #~ msgid "Show Bookmarks Button"

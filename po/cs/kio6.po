@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-10-09 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nelze vytvořit nástroj KIO: '%1'"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -351,7 +351,7 @@ msgstr ""
 "Pro dokončení operace přesun je potřeba oprávnění uživatele root. Přejete si "
 "pokračovat?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Přejmenovat"
@@ -365,7 +365,6 @@ msgstr ""
 "Přejete si pokračovat?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Vytvořit symbolický odkaz"
@@ -3785,9 +3784,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopírovat"
@@ -4170,12 +4169,7 @@ msgstr "Příkaz ke spuštění"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL nebo lokální soubor pro 'příkaz'"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Nastavování ACL pro %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4184,7 +4178,7 @@ msgstr ""
 "Nelze změnit přístupová práva\n"
 "k %1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4194,118 +4188,32 @@ msgstr ""
 "Nelze změnit vlastníka a skupinu pro\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nelze nalézt program \"mount\"."
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nelze nalézt program \"umount\"."
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Změnit oprávnění souboru"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Nová oprávnění: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Změnit vlastníka souboru"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Odstranit soubor"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Odstranit adresář"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Vytvořit adresář"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Oprávnění adresáře: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Otevřít soubor"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Otevřít adresář"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Nový název souboru: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Cíl: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Změnit časové razítko"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Od: %1, Komu: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Neznámá činnost"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Činnost: %1\n"
-"Zdroj: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nelze kopírovat soubor z %1 do %2 (chyba č. %3)."
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Žádné médium v zařízení pro %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nelze získat ID uživatele pro uživatele %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nelze získat ID skupiny pro skupinu %1"
@@ -7502,3 +7410,57 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Nastavování ACL pro %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Změnit oprávnění souboru"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Nová oprávnění: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Změnit vlastníka souboru"
+
+#~ msgid "Remove File"
+#~ msgstr "Odstranit soubor"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Odstranit adresář"
+
+#~ msgid "Create Directory"
+#~ msgstr "Vytvořit adresář"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Oprávnění adresáře: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Otevřít soubor"
+
+#~ msgid "Open Directory"
+#~ msgstr "Otevřít adresář"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Nový název souboru: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Cíl: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Změnit časové razítko"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Od: %1, Komu: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Neznámá činnost"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Činnost: %1\n"
+#~ "Zdroj: %2\n"
+#~ "%3"

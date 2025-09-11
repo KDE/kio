@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -352,7 +352,7 @@ msgid ""
 msgstr ""
 "ਭੇਜਣ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "ਨਾਂ-ਬਦਲੋ"
@@ -364,7 +364,6 @@ msgid ""
 msgstr "ਨਾਂ ਬਦਲਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਓ"
@@ -3680,9 +3679,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
@@ -4064,12 +4063,7 @@ msgstr "ਚਲਾਉਣ ਲਈ ਕਮਾਂਡ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "%1 ਲਈ ACL ਸੈਟਿੰਗ"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4078,7 +4072,7 @@ msgstr ""
 "%1\n"
 "ਲਈ ਇਜਾਜ਼ਤਾਂ ਬਦਲੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4088,118 +4082,32 @@ msgstr ""
 "%1\n"
 "ਲਈ ਮਾਲਕ ਅਤੇ ਗਰੁੱਪ ਨਹੀਂ ਬਦਲੇ ਜਾ ਸਕੇ।"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ਪਰੋਗਰਾਮ \"mount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "ਫਾਇਲ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਬਦਲੋ"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "ਨਵੀਆਂ ਇਜਾਜ਼ਤਾਂ: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "ਫਾਇਲ ਮਾਲਕ ਬਦਲੋ"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "ਨਵਾਂ ਮਾਲਕ: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "ਫਾਇਲ ਨੂੰ ਹਟਾਓ"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਹਟਾਓ"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਓ"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "ਡਾਇਰੈਕਟਰੀ ਇਜਾਜ਼ਤਾਂ: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "ਫਾਇਲ ਨੂੰ ਖੋਲ੍ਹੋ"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਖੋਲ੍ਹੋ"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "ਨਵਾਂ ਫਾਇਲ ਨਾਂ: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "ਟੀਚਾ: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "ਸਮਾਂ-ਮੋਹਰ ਬਦਲੋ"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "ਤੋਂ: %1, ਵੱਲ: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "ਅਣਪਛਾਣ ਕਾਰਵਾਈ"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"ਕਾਰਵਾਈ: %1\n"
-"ਸਰੋਤ: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 ਤੋਂ %2 ਲਈ ਫਾਇਲ ਦੀ ਕਾਪੀ ਹੋ ਨਹੀਂ ਸਕਦੀ ਹੈ। (ਗਲਤੀ: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 ਲਈ ਡਿਵਾਈਸ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤੋਂਕਾਰ ID ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਿਆ"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
@@ -7416,6 +7324,63 @@ msgstr "ਇਹ ਪਰੋਗਰਾਮ ਨੂੰ ਸ਼ੁਰੂ ਕਰੇਗਾ:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ ਭਰੋਸਾ ਨਹੀਂ ਤਾਂ ਰੱਦ ਕਰੋ ਨੂੰ ਕਲਿੱਕ ਕਰੋ"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "%1 ਲਈ ACL ਸੈਟਿੰਗ"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "ਫਾਇਲ ਇਜਾਜ਼ਤਾਂ ਨੂੰ ਬਦਲੋ"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "ਨਵੀਆਂ ਇਜਾਜ਼ਤਾਂ: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "ਫਾਇਲ ਮਾਲਕ ਬਦਲੋ"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "ਨਵਾਂ ਮਾਲਕ: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "ਫਾਇਲ ਨੂੰ ਹਟਾਓ"
+
+#~ msgid "Remove Directory"
+#~ msgstr "ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਹਟਾਓ"
+
+#~ msgid "Create Directory"
+#~ msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਓ"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "ਡਾਇਰੈਕਟਰੀ ਇਜਾਜ਼ਤਾਂ: %1"
+
+#~ msgid "Open File"
+#~ msgstr "ਫਾਇਲ ਨੂੰ ਖੋਲ੍ਹੋ"
+
+#~ msgid "Open Directory"
+#~ msgstr "ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਖੋਲ੍ਹੋ"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "ਨਵਾਂ ਫਾਇਲ ਨਾਂ: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "ਟੀਚਾ: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "ਸਮਾਂ-ਮੋਹਰ ਬਦਲੋ"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "ਤੋਂ: %1, ਵੱਲ: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "ਅਣਪਛਾਣ ਕਾਰਵਾਈ"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "ਕਾਰਵਾਈ: %1\n"
+#~ "ਸਰੋਤ: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "ਬੁੱਕਮਾਰਕ ਬਟਨ ਵੇਖਾਓ"

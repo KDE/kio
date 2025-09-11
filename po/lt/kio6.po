@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-09-09 00:21+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nepavyko sukurti KIO darbininko: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -370,7 +370,7 @@ msgstr ""
 "Norint užbaigti perkėlimo operaciją, reikia supernaudotojo (root) teisių. Ar "
 "norite tęsti?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Pervadinti"
@@ -384,7 +384,6 @@ msgstr ""
 "tęsti?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Sukurti simbolinę nuorodą"
@@ -3882,9 +3881,9 @@ msgstr "Vėliau aplanko savybėse galite pakeisti piktogramą."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopijuoti"
@@ -4277,19 +4276,14 @@ msgstr "Komanda, kurią vykdyti"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL ar vietinis(-iai) failas(-ai), naudojami su „command“"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Nustatomas ACL, skirtas %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "Nepavyksta pakeisti %1 leidimų"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4299,118 +4293,32 @@ msgstr ""
 "Nepavyko pakeisti %1 savininko\n"
 "ir grupės"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nepavyksta rasti programos „mount“"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nepavyksta rasti programos „umount“"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Keisti failo leidimus"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Nauji leidimai: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Keisti failo savininką"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Naujas savininkas: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Šalinti failą"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Šalinti katalogą"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Sukurti katalogą"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Katalogo leidimai: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Atverti failą"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Atverti katalogą"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Naujas failo pavadinimas: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Paskirtis: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Keisti laiko žymą"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Iš: %1, Į: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Nežinomas veiksmas"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Veiksmas: %1\n"
-"Šaltinis: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nepavyksta nukopijuoti failo iš %1 į %2. (Klaidos nr.: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Įrenginyje nėra jokios laikmenos, skirtos %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nepavyko gauti naudotojo id pateiktam naudotojui %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nepavyko gauti nurodytos grupės pavadinimo %1 grupės ID"
@@ -7697,6 +7605,63 @@ msgstr "Tai paleis programą:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Nustatomas ACL, skirtas %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Keisti failo leidimus"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Nauji leidimai: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Keisti failo savininką"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Naujas savininkas: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Šalinti failą"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Šalinti katalogą"
+
+#~ msgid "Create Directory"
+#~ msgstr "Sukurti katalogą"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Katalogo leidimai: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Atverti failą"
+
+#~ msgid "Open Directory"
+#~ msgstr "Atverti katalogą"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Naujas failo pavadinimas: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Paskirtis: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Keisti laiko žymą"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Iš: %1, Į: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Nežinomas veiksmas"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Veiksmas: %1\n"
+#~ "Šaltinis: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Rodyti žymelių mygtuką"

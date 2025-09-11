@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-07-30 18:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi oluşturulamıyor: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -372,7 +372,7 @@ msgstr ""
 "Taşıma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Sürdürmek "
 "istiyor musunuz?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Yeniden Adlandır"
@@ -386,7 +386,6 @@ msgstr ""
 "Sürdürmek istiyor musunuz?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Sembolik Bağlantı Oluştur"
@@ -3810,9 +3809,9 @@ msgstr "Klasör özelliklerinden simgeyi daha sonra değiştirebilirsiniz."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopyala"
@@ -4209,12 +4208,7 @@ msgstr "Yürütülecek komut"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "“Komut” için yerel dosya(lar) veya URL(’ler)"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "%1 için ACL ayarlanıyor"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4223,7 +4217,7 @@ msgstr ""
 "%1 dosyası için\n"
 "izinler değiştirilemiyor"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4233,118 +4227,32 @@ msgstr ""
 "%1\n"
 "sahibi ve grubu değiştirilemiyor"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "“mount” programı bulunamadı"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "“umount” programı bulunamadı"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Dosya İzinlerini Değiştir"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Yeni izinler: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Dosya Sahibini Değiştir"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Yeni sahip: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Dosyayı Kaldır"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Dizini Kaldır"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Dizin oluştur"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Dizin izinleri: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Dosya Aç"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Dizin Aç"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Yeni dosya adı: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Hedef: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Zaman Damgasını Değiştir"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Nereden: %1, Nereye: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Bilinmeyen Eylem"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Eylem: %1\n"
-"Kaynak: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Dosya %1 konumundan %2 konumuna kopyalanamadı. (Hata: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 için aygıtta medya bulunamadı"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
@@ -7574,6 +7482,63 @@ msgstr "Bu eylem, şu uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "%1 için ACL ayarlanıyor"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Dosya İzinlerini Değiştir"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Yeni izinler: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Dosya Sahibini Değiştir"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Yeni sahip: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Dosyayı Kaldır"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Dizini Kaldır"
+
+#~ msgid "Create Directory"
+#~ msgstr "Dizin oluştur"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Dizin izinleri: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Dosya Aç"
+
+#~ msgid "Open Directory"
+#~ msgstr "Dizin Aç"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Yeni dosya adı: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Hedef: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Zaman Damgasını Değiştir"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Nereden: %1, Nereye: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Bilinmeyen Eylem"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Eylem: %1\n"
+#~ "Kaynak: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Yer İmleri Düğmesini Göster"

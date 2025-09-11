@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nevar izveidot KIO strādnieku: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -368,7 +368,7 @@ msgstr ""
 "Lai pabeigtu pārvietošanu, ir nepieciešamas saknes lietotāja tiesības. Vai "
 "vēlaties turpināt?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Pārdēvēt"
@@ -382,7 +382,6 @@ msgstr ""
 "vēlaties turpināt?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Izveidot simbolisko saiti"
@@ -3838,9 +3837,9 @@ msgstr "Ikonu varat nomainīt arī vēlāk mapes īpašību lodziņā"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Kopēt"
@@ -4230,12 +4229,7 @@ msgstr "Izpildāmā komanda"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL vai lokālā datne(-es), ko izmanto „komandai“"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Iestata ACL priekš „%1“"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4244,7 +4238,7 @@ msgstr ""
 "Nevar izmainīt atļaujas\n"
 "„%1“"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4254,118 +4248,32 @@ msgstr ""
 "Nevar izmainīt īpašnieku un grupu\n"
 "„%1“"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nevar atrast programmu „mount“"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nevar atrast programmu „umount“"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Mainīt datnes atļaujas"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Jaunas atļaujas: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Mainīt datnes īpašnieku"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Jauns īpašnieks: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Noņemt datni"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Noņemt mapi"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Izveidot mapi"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Mapes atļaujas: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Atvērt datni"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Atvērt mapi"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Jauns datnes nosaukums: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Mērķis: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Mainīt laika zīmogu"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "No „%1“ uz „%2“"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Nezināma darbība"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Darbība: %1\n"
-"Avots: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nevar kopēt datni no „%1“ uz „%2“. (Kļūda: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nav atrasts „%1“ datu nesējs"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nevar atrast lietotāja ID lietotājvārdam „%1“"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nevar atrast grupas ID grupas nosaukumam „%1“"
@@ -7603,6 +7511,63 @@ msgstr "Šis palaidīs programmu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ja neuzticaties šai programmai, spiediet „Atcelt“"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Iestata ACL priekš „%1“"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Mainīt datnes atļaujas"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Jaunas atļaujas: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Mainīt datnes īpašnieku"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Jauns īpašnieks: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Noņemt datni"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Noņemt mapi"
+
+#~ msgid "Create Directory"
+#~ msgstr "Izveidot mapi"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Mapes atļaujas: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Atvērt datni"
+
+#~ msgid "Open Directory"
+#~ msgstr "Atvērt mapi"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Jauns datnes nosaukums: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Mērķis: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Mainīt laika zīmogu"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "No „%1“ uz „%2“"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Nezināma darbība"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Darbība: %1\n"
+#~ "Avots: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Rādīt grāmatzīmju pogu"

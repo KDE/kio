@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "In-/Utgaavmoduul %1 lett sik nich opstellen"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -352,7 +352,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -365,7 +365,6 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symboolsch Link opstellen"
@@ -3967,9 +3966,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Koperen"
@@ -4380,12 +4379,7 @@ msgstr "Befehl, den Du utföhren wullt"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) oder lokaal Datei(en) för \"command\""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Togriepverlöven för %1 warrt sett"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4394,7 +4388,7 @@ msgstr ""
 "Verlöven laat sik nich ännern för:\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4403,129 +4397,32 @@ msgid ""
 "%1"
 msgstr "Eegner vun \"%1\" lett sik nich ännern."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Programm \"mount\" lett sik nich finnen."
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Programm \"umount\" lett sik nich finnen."
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
-msgid "Change File Permissions"
-msgstr "Verwiedert Verlöven"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "New Permissions: %1"
-msgstr "Verlöven"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove File"
-msgstr "Wegdoon"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Remove Directory"
-msgstr "Orner"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create directory"
-msgid "Create Directory"
-msgstr "Orner opstellen"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "Directory Permissions: %1"
-msgstr "Verlöven"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Open File Manager"
-msgid "Open File"
-msgstr "Dateipleger opmaken"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Open Directory"
-msgstr "Orner"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "File name:"
-msgid "New Filename: %1"
-msgstr "Dateinaam:"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "Drive: %1"
-msgid "Target: %1"
-msgstr "Loopwark: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
-msgid "Unknown Action"
-msgstr "Nich begäng Ünnerbreken"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Datei lett sik nich vun %1 na %2 koperen. (Fehlernr.: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Keen Medium in Reedschap för %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "De Bruker-ID för den Brukernaam \"%1\" lett sik nich halen."
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "De Koppel-ID för den Brukernaam \"%1\" lett sik nich halen."
@@ -7930,6 +7827,67 @@ msgstr "Dit start dat Programm:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Togriepverlöven för %1 warrt sett"
+
+#, fuzzy
+#~| msgid "Advanced Permissions"
+#~ msgid "Change File Permissions"
+#~ msgstr "Verwiedert Verlöven"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "New Permissions: %1"
+#~ msgstr "Verlöven"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "Remove File"
+#~ msgstr "Wegdoon"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Remove Directory"
+#~ msgstr "Orner"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Create directory"
+#~ msgid "Create Directory"
+#~ msgstr "Orner opstellen"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Verlöven"
+
+#, fuzzy
+#~| msgid "Open File Manager"
+#~ msgid "Open File"
+#~ msgstr "Dateipleger opmaken"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Open Directory"
+#~ msgstr "Orner"
+
+#, fuzzy
+#~| msgid "File name:"
+#~ msgid "New Filename: %1"
+#~ msgstr "Dateinaam:"
+
+#, fuzzy
+#~| msgid "Drive: %1"
+#~ msgid "Target: %1"
+#~ msgstr "Loopwark: %1"
+
+#, fuzzy
+#~| msgid "Unknown Interruption"
+#~ msgid "Unknown Action"
+#~ msgstr "Nich begäng Ünnerbreken"
 
 #, fuzzy
 #~| msgid "Show Bookmarks"

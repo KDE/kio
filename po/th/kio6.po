@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -47,7 +47,7 @@ msgstr "ไม่สามารถแก้ไขเจ้าของ ขอ�
 msgid "Unable to create KIO worker: %1"
 msgstr "ไม่สามารถสร้าง KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -339,7 +339,7 @@ msgid ""
 "continue?"
 msgstr "ต้องมีสิทธิ์รูทจึงจะเคลื่อนย้ายไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "เปลี่ยนชื่อ"
@@ -351,7 +351,6 @@ msgid ""
 msgstr "ต้องมีสิทธิ์รูทจึงจะเปลี่ยนชื่อของไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "สร้างการเชื่อมโยงแบบสัญลักษณ์"
@@ -3731,9 +3730,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "คัดลอก"
@@ -4119,12 +4118,7 @@ msgstr "คำสั่งให้ดำเนินการ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL หรือไฟล์ภายในเครื่องที่ใช้สำหรับ 'คำสั่ง'"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "ตั้งค่าการควบคุมสิทธิ์ (ACL) ของ %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4133,7 +4127,7 @@ msgstr ""
 "ไม่สามารถเปลี่ยนสิทธิ์ที่อนุญาตของ\n"
 "%1 ได้"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4143,118 +4137,32 @@ msgstr ""
 "ไม่สามารถเปลี่ยนเจ้าของและกลุ่มสำหรับ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"mount\" ได้"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"umount\" ได้"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "การเปลี่ยนแปลงสิทธิ์ของไฟล์"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "สิทธิ์ใหม่: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "เปลี่ยนเจ้าของไฟล์"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "เจ้าของใหม่: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "ลบไฟล์"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "ลบไดเรกทอรี"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "สร้างไดเรกทอรี"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "สิทธิ์ไดเรกทอรี: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "เปิดไฟล์"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "เปิดไดเรกทอรี"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "ชื่อไฟล์ใหม่: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "เป้าหมาย: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "เปลี่ยนเวลา"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "จาก: %1 , ไป: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "การกระทำที่ไม่ทราบ"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"การกระทำ: %1\n"
-"แหล่งที่มา: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ไม่สามารถคัดลอกแฟ้มจาก %1 ไปยัง %2 ได้ (หมายเลขข้อผิดพลาด: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ไม่พบสื่อในอุปกรณ์ %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขผู้ใช้ (user id) ของชื่อผู้ใช้ %1 ได้"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขกลุ่ม (group id) ของชื่อกลุ่ม %1 ได้"
@@ -7466,6 +7374,63 @@ msgstr "จะทำการเรียกใช้โปรแกรม:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "หากคุณไม่เชื่อถือโปรแกรมนี้ โปรดคลิก ยกเลิก"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "ตั้งค่าการควบคุมสิทธิ์ (ACL) ของ %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "การเปลี่ยนแปลงสิทธิ์ของไฟล์"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "สิทธิ์ใหม่: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "เปลี่ยนเจ้าของไฟล์"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "เจ้าของใหม่: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "ลบไฟล์"
+
+#~ msgid "Remove Directory"
+#~ msgstr "ลบไดเรกทอรี"
+
+#~ msgid "Create Directory"
+#~ msgstr "สร้างไดเรกทอรี"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "สิทธิ์ไดเรกทอรี: %1"
+
+#~ msgid "Open File"
+#~ msgstr "เปิดไฟล์"
+
+#~ msgid "Open Directory"
+#~ msgstr "เปิดไดเรกทอรี"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "ชื่อไฟล์ใหม่: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "เป้าหมาย: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "เปลี่ยนเวลา"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "จาก: %1 , ไป: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "การกระทำที่ไม่ทราบ"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "การกระทำ: %1\n"
+#~ "แหล่งที่มา: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "แสดงปุ่มคั่นหน้า"

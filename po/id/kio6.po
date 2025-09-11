@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Tidak dapat membuat pekerja KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -360,7 +360,7 @@ msgstr ""
 "Hak istimewa root diperlukan untuk melengkapi operasi pindah. Apakah Anda "
 "ingin meneruskan?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Ubah nama"
@@ -374,7 +374,6 @@ msgstr ""
 "ingin meneruskan?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Ciptakan TautanSimbolis"
@@ -3902,9 +3901,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Salin"
@@ -4307,12 +4306,7 @@ msgstr "Perintah untuk mengeksekusi"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL atau berkas lokal digunakan untuk 'perintah'"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Mengeset ACL untuk %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4321,7 +4315,7 @@ msgstr ""
 "Tak dapat mengubah hak akses untuk\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4331,119 +4325,33 @@ msgstr ""
 "Tidak bisa mengubah pemilik dan grup untuk\n"
 "%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Tidak dapat menemukan program kait \"mount\""
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat menemukan program lepaskait \"umount\""
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "Ubah Perizinan berkas"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "Perizinan Baru: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "Ubah Pemilik berkas"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "Pemilik Baru: UID=%1, GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "Buang berkas"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "Buang Direktori"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "Ciptakan Direktori"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Perizinan Direktori: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "Buka berkas"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "Buka Direktori"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "Nama berkas Baru: %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "Target: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "Ubah Stempel Waktu"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "Dari: %1, Ke: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "Aksi Tidak Diketahui"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"Aksi: %1\n"
-"Sumber: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Tak bisa menyalin berkas dari %1 ke %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tak ada media di peranti untuk %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Tidak bisa mendapatkan id pengguna untuk nama pengguna %1 yang diberikan"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Tidak bisa mendapatkan id grup untuk nama grup %1 yang diberikan"
@@ -7791,6 +7699,63 @@ msgstr "Ini akan menjalankan program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jika Anda tidak percaya program ini, klik Batal"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Mengeset ACL untuk %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "Ubah Perizinan berkas"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "Perizinan Baru: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "Ubah Pemilik berkas"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "Pemilik Baru: UID=%1, GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "Buang berkas"
+
+#~ msgid "Remove Directory"
+#~ msgstr "Buang Direktori"
+
+#~ msgid "Create Directory"
+#~ msgstr "Ciptakan Direktori"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Perizinan Direktori: %1"
+
+#~ msgid "Open File"
+#~ msgstr "Buka berkas"
+
+#~ msgid "Open Directory"
+#~ msgstr "Buka Direktori"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "Nama berkas Baru: %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "Target: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "Ubah Stempel Waktu"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "Dari: %1, Ke: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "Aksi Tidak Diketahui"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "Aksi: %1\n"
+#~ "Sumber: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "Tampilkan Panel Markah"

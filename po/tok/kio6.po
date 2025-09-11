@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "mi ken ala lon e ilo pi pali lipu: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -351,7 +351,7 @@ msgid ""
 "continue?"
 msgstr "wawa li wile tawa tawa ijo. sina wile ala wile awen pali?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "o ante e nimi"
@@ -363,7 +363,6 @@ msgid ""
 msgstr "wawa li wile tawa ante nimi. sina wile ala wile awen pali?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "o lon e nimi nanpa tu tawa ijo"
@@ -3654,9 +3653,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "o tu e lipu tawa lipu jo"
@@ -4051,12 +4050,7 @@ msgstr "ilo tawa kepeken"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "nimi URL anu lipu li kepeken tawa 'ilo'"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "mi lon e lawa sin ACL tawa %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4065,7 +4059,7 @@ msgstr ""
 "mi ken ala ante e lawa tawa\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4074,119 +4068,33 @@ msgid ""
 "%1"
 msgstr "ilo li ken ala ante e jo pi ijo %1."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "mi ken ala alasa e ilo \"mount\""
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "mi ken ala alasa e ilo \"umount\""
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "o ante e lawa lipu"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "lawa sin: %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "o ante e jan jo"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "jan lawa sin: nimi UID=%1, nimi GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "o weka e lipu"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "o weka e poki"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "o pali e poki"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "ken poki: %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "o open e lipu"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "o open e poki lipu"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "nimi lipu sin li %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "pini tawa: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "o pana e tenpo ante"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "tan: %1, tawa: %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "mi sona ala e pali ni"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"pali: %1\n"
-"tan: %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 "ilo li ken ala sama e lipu tan poki %1 tawa poki %2. (nanpa pakala: %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ijo li lon ala ilo tawa %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"
@@ -7399,6 +7307,63 @@ msgstr "ni li open e ilo:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "sina pilin ike tan ilo ni la o pilin lon \"pini\""
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "mi lon e lawa sin ACL tawa %1"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "o ante e lawa lipu"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "lawa sin: %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "o ante e jan jo"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "jan lawa sin: nimi UID=%1, nimi GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "o weka e lipu"
+
+#~ msgid "Remove Directory"
+#~ msgstr "o weka e poki"
+
+#~ msgid "Create Directory"
+#~ msgstr "o pali e poki"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "ken poki: %1"
+
+#~ msgid "Open File"
+#~ msgstr "o open e lipu"
+
+#~ msgid "Open Directory"
+#~ msgstr "o open e poki lipu"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "nimi lipu sin li %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "pini tawa: %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "o pana e tenpo ante"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "tan: %1, tawa: %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "mi sona ala e pali ni"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "pali: %1\n"
+#~ "tan: %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "o sitelen e nena pi ijo suli"

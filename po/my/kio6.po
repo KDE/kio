@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kio package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2025 zayar lwin <lw1nzayar@yandex.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
-"PO-Revision-Date: 2022-10-05 21:57+0630\n"
-"Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
+"PO-Revision-Date: 2025-09-10 15:28+0630\n"
+"Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
 "Language: my\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.7\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -26,12 +25,12 @@ msgstr "ဇေယျာလွင်"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lw1nzayar@yandex.com"
+msgstr "zyl.pol.mm@zohomail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "ဖိုင်လ် %1 ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ"
+msgstr "ဖိုင် %1 ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ"
 
 #: core/chmodjob.cpp:235
 #, kde-kuit-format
@@ -39,16 +38,14 @@ msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
-"ဖိုင်လ် <filename>%1</filename> ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ။ ပြောင်းလဲရန် သင်၌ ဖိုင်လ်အသုံးပြုခွင့် "
-"မလုံလောက်ပါ။"
+"ဖိုင် <filename>%1</filename> ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ။ ပြောင်းလဲရန် သင်၌ ဖိုင်အသုံးပြုခွင့် မလုံလောက်ပါ။"
 
 #: core/connectionbackend.cpp:107
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "အိုင်အို-ကျွန် - %1 ကို မဖန်တီးနိုင်ခဲ့ပါ"
+msgstr "ဖန်တီး၍မရခဲ့ပါ KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -58,7 +55,7 @@ msgid ""
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
 "\"%1\" ဆင်းလင့်ခ်ကို မဖန်တီးနိုင်ခဲ့ပါ။\n"
-"ဦးတည်ဖိုင်လ်စနစ်(%2) သည် ဆင်းလင့်ခ်ဆိုင်ရာလုပ်ဆောင်ချက် မဆောင်ရွက်နိုင်ပါ။"
+"ဦးတည်ဖိုင်စနစ်(%2) သည် ဆင်းလင့်ခ်ဆိုင်ရာလုပ်ဆောင်ချက် မဆောင်ရွက်နိုင်ပါ။"
 
 #: core/copyjob.cpp:179
 #, kde-format
@@ -70,7 +67,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 "\"%1\"ကို မဖန်တီးနိုင်ခဲ့ပါ။\n"
-" ဦးတည်နေရာဖြစ်သော ဖိုင်လ်စစ်တမ် (%2)သည် အောက်ပါအက္ခရာများကို ဖိုလ်ဒါအမည်များတွင် ပါဝင်ခွင့်မပြုပါ - "
+" ဦးတည်နေရာဖြစ်သော ဖိုင်စစ်တမ် (%2)သည် အောက်ပါအက္ခရာများကို ဖိုင်တွဲအမည်များတွင် ပါဝင်ခွင့်မပြုပါ - "
 "%3\n"
 "'အစားထိုး'ကိုရွေးပါက မမှန်ကန်သော အက္ခရာများကို \"_\"ဖြင့်အစားထိုးသွားမည်။"
 
@@ -84,25 +81,24 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 "\"%1\"ကို မဖန်တီးနိုင်ခဲ့ပါ။\n"
-" ဦးတည်နေရာဖြစ်သော ဖိုင်လ်စစ်တမ် (%2)သည် အောက်ပါအက္ခရာများကို ဖိုင်လ်အမည်များတွင် ပါဝင်ခွင့်မပြုပါ - "
-"%3\n"
+" ဦးတည်နေရာဖြစ်သော ဖိုင်စစ်တမ် (%2)သည် အောက်ပါအက္ခရာများကို ဖိုင်အမည်များတွင် ပါဝင်ခွင့်မပြုပါ - %3\n"
 "'အစားထိုး'ကိုရွေးပါက မမှန်ကန်သော အက္ခရာများကို \"_\"ဖြင့်အစားထိုးသွားမည်။"
 
 #: core/copyjob.cpp:1393 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "ဖိုလ်ဒါရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "ဖိုင်တွဲရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
-msgstr "ဖိုင်လ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "ဖိုင်ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/copyjob.cpp:1717 core/copyjob.cpp:2422
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "ဖိုလ်ဒါအဖြစ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "ဖိုင်တွဲအဖြစ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
@@ -161,13 +157,13 @@ msgstr[0] "အိုင်တမ် %1ခု"
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
-msgstr[0] "ဖိုလ်ဒါ %1ခု"
+msgstr[0] "ဖိုင်တွဲ %1ခု"
 
 #: core/global.cpp:93
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
-msgstr[0] "ဖိုင်လ် %1ခု"
+msgstr[0] "ဖိုင် %1ခု"
 
 #: core/global.cpp:95
 #, kde-format
@@ -204,14 +200,14 @@ msgstr "ရွေ့နေသည်"
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
-msgstr "မူလဖိုင်လ်"
+msgstr "မူလဖိုင်"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
 #: widgets/fileundomanager.cpp:142
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
-msgstr "ဦိးတည်ဖိုင်လ်"
+msgstr "ဦိးတည်ဖိုင်"
 
 #: core/job.cpp:105
 #, kde-format
@@ -229,13 +225,13 @@ msgstr "ကူးယူနေသည်"
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "ဒါရိုက်ထရီဖန်တီးနေသည်"
+msgstr "ဖိုင်တွဲဖန်တီးနေသည်"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:131
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
-msgstr "ဒါရိုက်ထရီ"
+msgstr "ဖိုင်တွဲ"
 
 #: core/job.cpp:128
 #, kde-format
@@ -247,7 +243,7 @@ msgstr "ဖျက်နေသည်"
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
-msgstr "ဖိုင်လ်"
+msgstr "ဖိုင်"
 
 #: core/job.cpp:135
 #, kde-format
@@ -293,12 +289,12 @@ msgstr "ကိုယ်ပိုင်လက္ခဏာ ပြောင်း�
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
-msgstr "ဖိုင်လ်၏ သက်ဆိုင်-တန်ဖိုးများ ပြောင်းလဲရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+msgstr "ဖိုင်၏ သက်ဆိုင်-တန်ဖိုးများ ပြောင်းလဲရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
 #: core/job.cpp:270
 #, kde-format
 msgid "Copy Files"
-msgstr "ဖိုင်လ်များကူးယူရန်"
+msgstr "ဖိုင်များကူးယူရန်"
 
 #: core/job.cpp:272
 #, kde-format
@@ -310,7 +306,7 @@ msgstr "ကူးယူခြင်းလုပ်ဆောင်ချက် �
 #: core/job.cpp:276
 #, kde-format
 msgid "Delete Files"
-msgstr "ဖိုင်လ်များဖျက်ရန်"
+msgstr "ဖိုင်များဖျက်ရန်"
 
 #: core/job.cpp:278
 #, kde-format
@@ -324,13 +320,13 @@ msgstr ""
 #: core/job.cpp:282
 #, kde-format
 msgid "Create Folder"
-msgstr "ဖိုလ်ဒါတည်ဆောက်ရန်"
+msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
 
 #: core/job.cpp:284
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
-msgstr "ဤဖိုလ်ဒါ ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+msgstr "ဤဖိုင်တွဲ ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
 #: core/job.cpp:288
 #, kde-format
@@ -344,7 +340,7 @@ msgid ""
 "continue?"
 msgstr "ရွေ့ပြောင်းခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "အမည်ပြောင်းရန်"
@@ -356,7 +352,6 @@ msgid ""
 msgstr "အမည်ပြောင်းလဲခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "ဆင်းလင့်ခ်ဖန်တီးရန်"
@@ -423,27 +418,27 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 သည် စစ်�
 #: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1ဖိုလ်ဒါသည် ဖိုင်လ်မဟုတ်ပါ။"
+msgstr "%1ဖိုင်တွဲသည် ဖိုင်မဟုတ်ပါ။"
 
 #: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1ဖိုင်လ်သည် ဖိုလ်ဒါမဟုတ်ပါ။"
+msgstr "%1ဖိုင်သည် ဖိုင်တွဲမဟုတ်ပါ။"
 
 #: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "ဖိုင်လ်၊ သို့ ဖိုလ်ဒါ %1 မရှိပါ။"
+msgstr "ဖိုင်၊ သို့ ဖိုင်တွဲ %1 မရှိပါ။"
 
 #: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "%1အမည်ရဖိုင်လ် ရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "%1အမည်ရဖိုင် ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "%1အမည်ရ ဖိုလ်ဒါ ရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "%1အမည်ရ ဖိုင်တွဲ ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/job_error.cpp:77
 #, kde-format
@@ -472,12 +467,12 @@ msgstr ""
 #: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
-msgstr "%1ဖိုလ်ဒါကို မဝင်နိုင်ခဲ့ပါ။"
+msgstr "%1ဖိုင်တွဲကို မဝင်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "%1 လုပ်ရိုးလုပ်ထုံးတွင် ဖိုလ်ဒါဝန်ဆောင်မှု မပါဝင်ပါ။"
+msgstr "%1 လုပ်ရိုးလုပ်ထုံးတွင် ဖိုင်တွဲဝန်ဆောင်မှု မပါဝင်ပါ။"
 
 #: core/job_error.cpp:92
 #, kde-format
@@ -534,12 +529,12 @@ msgstr ""
 #: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
-msgstr "%1 ဖိုင်လ်ကိုမဖတ်နိုင်ခဲ့ပါ။"
+msgstr "%1 ဖိုင်ကိုမဖတ်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
-msgstr "%1 ဖိုင်လ်ကိုမရေးနိုင်ခဲ့ပါ။"
+msgstr "%1 ဖိုင်ကိုမရေးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:122
 #, kde-format
@@ -569,22 +564,22 @@ msgstr "%1ကိုနားထောင်နေခြင်းအား မရ
 #: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
-msgstr "%1 ဖိုလ်ဒါကို မတည်ဆောက်နိုင်ခဲ့ပါ။"
+msgstr "%1 ဖိုင်တွဲကို မတည်ဆောက်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
-msgstr "%1ဖိုလ်ဒါကို မဖယ်ရှားနိုင်ခဲ့ပါ။"
+msgstr "%1ဖိုင်တွဲကို မဖယ်ရှားနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
-msgstr "ဖိုင်လ် %1 ကို ပြန်၍မစတင်နိုင်ပါ။"
+msgstr "ဖိုင် %1 ကို ပြန်၍မစတင်နိုင်ပါ။"
 
 #: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "%1 ဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
+msgstr "%1 ဖိုင်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:152
 #, kde-format
@@ -599,7 +594,7 @@ msgstr "%1အတွက် ပိုင်ဆိုင်မှုကို ပ�
 #: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "%1 ဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
+msgstr "%1 ဖိုင်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:161
 #, kde-format
@@ -680,7 +675,7 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"ဇစ်မြစ်ဖိုင်လ် %1 ကိုမဖျက်နိုင်ခဲ့ပါ။\n"
+"ဇစ်မြစ်ဖိုင် %1 ကိုမဖျက်နိုင်ခဲ့ပါ။\n"
 "ခွင့်ပြုချက်ရှိ၊ မရှိ စစ်ဆေးပါ။"
 
 #: core/job_error.cpp:202
@@ -689,7 +684,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"ဖိုင်လ်အပိုင်းအစ %1 ကို မဖျက်နိုင်ခဲ့ပါ။\n"
+"ဖိုင်အပိုင်းအစ %1 ကို မဖျက်နိုင်ခဲ့ပါ။\n"
 "ခွင့်ပြုချက်ရှိ၊ မရှိ စစ်ဆေးပါ။"
 
 #: core/job_error.cpp:205
@@ -698,7 +693,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"ဇစ်မြစ်ဖိုင်လ် %1 ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။\n"
+"ဇစ်မြစ်ဖိုင် %1 ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။\n"
 "ခွင့်ပြုချက်ရှိ၊ မရှိ စစ်ဆေးပါ။"
 
 #: core/job_error.cpp:208
@@ -707,7 +702,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"ဖိုင်လ်အပိုင်းအစ %1 ကို အမည်မပြောင်းနိုင်ခဲ့ပါ။\n"
+"ဖိုင်အပိုင်းအစ %1 ကို အမည်မပြောင်းနိုင်ခဲ့ပါ။\n"
 "ခွင့်ပြုချက်ရှိ၊ မရှိ စစ်ဆေးပါ။"
 
 #: core/job_error.cpp:211
@@ -726,7 +721,7 @@ msgid ""
 "The destination filesystem doesn't support symlinks."
 msgstr ""
 "ဆင်းလင့်ခ်များကို %1 ၌မဖန်တီးနိုင်ခဲ့ပါ။\n"
-"ဦးတည်ဖိုင်လ်စနစ်သည် ဆင်းလင့်ခ်ဆိုင်ရာလုပ်ဆောင်ချက် မဆောင်ရွက်နိုင်ပါ။"
+"ဦးတည်ဖိုင်စနစ်သည် ဆင်းလင့်ခ်ဆိုင်ရာလုပ်ဆောင်ချက် မဆောင်ရွက်နိုင်ပါ။"
 
 #: core/job_error.cpp:220
 #, kde-format
@@ -739,7 +734,7 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
-"မူလဇစ်မြစ်နှင့်ဦးတည်ဖိုင်လ်သည် တစ်ဖိုင်တည်းဖြစ်နေသည်။\n"
+"မူလဇစ်မြစ်နှင့်ဦးတည်ဖိုင်သည် တစ်ဖိုင်တည်းဖြစ်နေသည်။\n"
 "%1"
 
 #: core/job_error.cpp:231
@@ -761,12 +756,12 @@ msgstr "ပီအိုအက်စ်တီ လုပ်ဆောင်မှ�
 #: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
-msgstr "ဖိုင်လ်၊ ဖိုလ်ဒို တစ်ခုအနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချ၍ မရပါ"
+msgstr "ဖိုင်၊ ဖိုလ်ဒို တစ်ခုအနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချ၍ မရပါ"
 
 #: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
-msgstr "ဖိုလ်ဒါအနေဖြင့် ၎င်း၏အတွင်းသို့ ၎င်းကို ရွေ့မရပါ"
+msgstr "ဖိုင်တွဲအနေဖြင့် ၎င်း၏အတွင်းသို့ ၎င်းကို ရွေ့မရပါ"
 
 #: core/job_error.cpp:246
 #, kde-format
@@ -774,10 +769,9 @@ msgid "Communication with the local password server failed"
 msgstr "စက်တွင်း-စကားဝှက်ဆာဗာနှင့် ဆက်သွယ်မှု မအောင်မြင်ပါ"
 
 #: core/job_error.cpp:249
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "အိုင်အို-ကျွန်ကို မဖန်တီးနိုင်ခဲ့ပါ။ %1"
+msgstr "KIO worker မဖန်တီးနိုင်ခဲ့ပါ။ %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -786,8 +780,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"<filename>%1</filename>သည်အလွန်ကြီးမားသဖြင့် မကူးပြောင်းနိုင်ပါ။ ဦိးတည်ဖိုင်လ်စနစ်သည် အများဆုံး ၄ "
-"ဂစ်ဘီဘိုက်ရှိ ဖိုင်လ်များသာ သိမ်းဆည်းနိုင်သည်"
+"<filename>%1</filename>သည်အလွန်ကြီးမားသဖြင့် မကူးပြောင်းနိုင်ပါ။ ဦိးတည်ဖိုင်စနစ်သည် အများဆုံး ၄ "
+"ဂစ်ဘီဘိုက်ရှိ ဖိုင်များသာ သိမ်းဆည်းနိုင်သည်"
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -801,10 +795,9 @@ msgstr ""
 "ခွင့်ပြုချက်ပြောင်းပြီးလျှင် ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:261
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "အမှိုက်ပုံးသို့ ပို့ရန်အတွက် ဖိုင်လ်သည် အလွန်အမင်း ကြီးမားနေပါသည်။"
+msgstr "အမှိုက်ပုံးသို့ ပို့ရန်အတွက် ဖိုင်သည် အလွန်အမင်း ကြီးမားနေပါသည်။"
 
 #: core/job_error.cpp:264
 #, kde-format
@@ -903,7 +896,7 @@ msgstr "တောင်းဆိုထားသော လုပ်ဆောင�
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
-msgstr "အခြားအသုံးပြုသူ သို့ အပ္ပလီကေးရှင်းမှ ဖိုင်လ်ကို သုံးနေသည်(ထို့ကြောင့် သော့ခတ်ထားသည်)။"
+msgstr "အခြားအသုံးပြုသူ သို့ အပ္ပလီကေးရှင်းမှ ဖိုင်ကို သုံးနေသည်(ထို့ကြောင့် သော့ခတ်ထားသည်)။"
 
 #: core/job_error.cpp:389
 #, kde-format
@@ -911,7 +904,7 @@ msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
 msgstr ""
-"အခြားမည်သည့် အပ္ပလီကေးရှင်း သို့မဟုတ် အသုံးပြုသူ မှ ဤဖိုင်လ်ကို အသုံးပြုနေခြင်း၊ သော့ခတ်ထားခြင်း မရှိစေရန် "
+"အခြားမည်သည့် အပ္ပလီကေးရှင်း သို့မဟုတ် အသုံးပြုသူ မှ ဤဖိုင်ကို အသုံးပြုနေခြင်း၊ သော့ခတ်ထားခြင်း မရှိစေရန် "
 "သေချာစစ်ဆေးပါ။"
 
 #: core/job_error.cpp:392
@@ -1019,13 +1012,13 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"ဆိုလိုချက်မှာ ဖတ်ရန်ခွင့်ပြုချက်မရရှိခဲ့သောကြောင့် တောင်းဆိုထားသလို ဖိုင်လ်၊ သို့ ဖိုလ်ဒါ <strong>%1</strong> "
+"ဆိုလိုချက်မှာ ဖတ်ရန်ခွင့်ပြုချက်မရရှိခဲ့သောကြောင့် တောင်းဆိုထားသလို ဖိုင်၊ သို့ ဖိုင်တွဲ <strong>%1</strong> "
 "၏ပါဝင်ဒေတာများကို မရယူနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "ဖိုင်လ်ဖတ်ရန် သို့ ဖိုလ်ဒါ ဖွင့်ရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။"
+msgstr "ဖိုင်ဖတ်ရန် သို့ ဖိုင်တွဲ ဖွင့်ရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။"
 
 #: core/job_error.cpp:446
 #, kde-format
@@ -1038,7 +1031,7 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"ဆိုလိုချက်မှာ ရေးရန်ခွင့်ပြုချက်မရရှိခဲ့သောကြောင့် တောင်းဆိုထားသလို ဖိုင်လ် <strong>%1</strong> ကို "
+"ဆိုလိုချက်မှာ ရေးရန်ခွင့်ပြုချက်မရရှိခဲ့သောကြောင့် တောင်းဆိုထားသလို ဖိုင် <strong>%1</strong> ကို "
 "မရေးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:457
@@ -1130,21 +1123,14 @@ msgid ""
 msgstr "ဤကွန်ပြူတာနှင့် ဆာဗာမှ ထောက်ပံ့သော လုပ်ရိုးလုပ်ထုံး %1၏ ဗာရှင်းများ မကိုက်ညီပါ။"
 
 #: core/job_error.cpp:506
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"ဤလုပ်ရိုးလုပ်ထုံးကို လုပ်ဆောင်နိုင်ပေးသည့် ကေဒီအီး ပရိုဂရမ် (ကေအိုင်အိုကျွန် သို့မဟုတ် အိုင်အိုကျွန်) ကို အင်တာနက်တွင် "
-"ရှာဖွေနိုင်သည်။ ရှာရမည့်နေရာများမှာ <a href=\"https://kde-apps.org/\">https://kde-apps."
-"org/</a> နှင့် <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a> "
-"တို့ဖြစ်သည်။"
+"ဤစနစ်ကိုထောက်ပံ့ပေးနိုင်သော (\"KIO worker\"ဟုခေါ်သော) ဆော့ဖ်ဝဲလ်ပလပ်ဂင်ကို အင်တာနက်တွင်ရှာဖွေနိုင်ပါသည်။  "
+"<a href=\"https://store.kde.org/\">https://store.kde.org</a> တွင်ရှာကြည့်နိုင်ပါသည်။"
 
 #: core/job_error.cpp:514
 #, kde-format
@@ -1209,14 +1195,14 @@ msgstr "တူညီသောရလဒ်ရရှိစေသောနောက
 #: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
-msgstr "ဖိုင်လ်ကိုမျှော်လင့်ထားသည်"
+msgstr "ဖိုင်ကိုမျှော်လင့်ထားသည်"
 
 #: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
-msgstr "တောင်းဆိုချက်သည် ဖိုင်လ်ကို မျှော်လင့်ထားသော်လည်း ဖိုလ်ဒါ <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
+msgstr "တောင်းဆိုချက်သည် ဖိုင်ကို မျှော်လင့်ထားသော်လည်း ဖိုင်တွဲ <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
 
 #: core/job_error.cpp:549
 #, kde-format
@@ -1226,68 +1212,68 @@ msgstr "ဆာဗာအမှား ဖြစ်နိုင်သည်။"
 #: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
-msgstr "ဖိုလ်ဒါကို မျှော်လင့်ထားသည်"
+msgstr "ဖိုင်တွဲကို မျှော်လင့်ထားသည်"
 
 #: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
-msgstr "တောင်းဆိုချက်သည် ဖိုလ်ဒါကို မျှော်လင့်ထားသော်လည်း ဖိုင်လ် <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
+msgstr "တောင်းဆိုချက်သည် ဖိုင်တွဲကို မျှော်လင့်ထားသော်လည်း ဖိုင် <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
 
 #: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
-msgstr "ဖိုင်လ်၊ ဖိုလ်ဒါ မရှိပါ"
+msgstr "ဖိုင်၊ ဖိုင်တွဲ မရှိပါ"
 
 #: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "ဖော်ပြထားသော ဖိုင်လ်၊ သို့မဟုတ် ဖိုလ်ဒါ <strong>%1</strong> မရှိပါ။"
+msgstr "ဖော်ပြထားသော ဖိုင်၊ သို့မဟုတ် ဖိုင်တွဲ <strong>%1</strong> မရှိပါ။"
 
 #: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
-msgstr "အမည်တူဖိုင်လ်ရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုင်လ်ကို မဖန်တီးနိုင်ခဲ့ပါ။"
+msgstr "အမည်တူဖိုင်ရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုင်ကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
-msgstr "လက်ရှိဖိုင်လ်ကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
+msgstr "လက်ရှိဖိုင်ကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
-msgstr "ယခုဖိုင်လ်ကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
+msgstr "ယခုဖိုင်ကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
-msgstr "ဖိုင်လ်အသစ်အတွက် အမည်သစ်ပေး။"
+msgstr "ဖိုင်အသစ်အတွက် အမည်သစ်ပေး။"
 
 #: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
-msgstr "အမည်တူဖိုလ်ဒါရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုလ်ဒါကို မဖန်တီးနိုင်ခဲ့ပါ။"
+msgstr "အမည်တူဖိုင်တွဲရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုင်တွဲကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
-msgstr "လက်ရှိဖိုလ်ဒါကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
+msgstr "လက်ရှိဖိုင်တွဲကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
-msgstr "ယခုဖိုလ်ဒါကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
+msgstr "ယခုဖိုင်တွဲကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
-msgstr "ဖိုလ်ဒါအသစ်အတွက် အမည်သစ်ပေး။"
+msgstr "ဖိုင်တွဲအသစ်အတွက် အမည်သစ်ပေး။"
 
 #: core/job_error.cpp:596
 #, kde-format
@@ -1348,29 +1334,29 @@ msgstr "ရေးခွင့် ပယ်ခံရ"
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
-msgstr "ဖိုင်လ် <strong>%1</strong> သို့ရေးရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
+msgstr "ဖိုင် <strong>%1</strong> သို့ရေးရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
 
 #: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
-msgstr "ဖိုလ်ဒါကို မဝင်နိုင်ပါ။"
+msgstr "ဖိုင်တွဲကို မဝင်နိုင်ပါ။"
 
 #: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
-msgstr "ဖိုလ်ဒါ <strong>%1</strong> ကိုဖွင့်ရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
+msgstr "ဖိုင်တွဲ <strong>%1</strong> ကိုဖွင့်ရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
 
 #: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
-msgstr "ဖိုလ်ဒါစာရင်းပြမရသေးပါ"
+msgstr "ဖိုင်တွဲစာရင်းပြမရသေးပါ"
 
 #: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
-msgstr "%1 လုပ်ရိုးလုပ်ထုံးသည် ဖိုင်လ်စတစ်တစ်ခု မဟုတ်ပါ"
+msgstr "%1 လုပ်ရိုးလုပ်ထုံးသည် ဖိုင်စတစ်တစ်ခု မဟုတ်ပါ"
 
 #: core/job_error.cpp:655
 #, kde-format
@@ -1379,7 +1365,7 @@ msgid ""
 "of the folder, and the KDE program supporting this protocol is unable to do "
 "so."
 msgstr ""
-"ဖိုလ်ဒါ၏ပါဝင်ဒေတာဆုံးဖြတ်ရန် လိုအပ်သော တောင်းခံမှုပြုလုပ်ခဲ့သည်။ သို့သော် ဤလုပ်ရိုးလုပ်ထုံးထောက်ပံ့နေသည့် ကေဒီအီး "
+"ဖိုင်တွဲ၏ပါဝင်ဒေတာဆုံးဖြတ်ရန် လိုအပ်သော တောင်းခံမှုပြုလုပ်ခဲ့သည်။ သို့သော် ဤလုပ်ရိုးလုပ်ထုံးထောက်ပံ့နေသည့် ကေဒီအီး "
 "ပရိုဂရမ်သည် ထိုကဲ့သို့ မလုပ်ဆောင်နိုင်ပါ။"
 
 #: core/job_error.cpp:663
@@ -1395,8 +1381,8 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"ယူနစ်စ်-စစ်စတမ်ပတ်ဝန်းကျင်များသည် ဖိုင်လ်၊ သို့ ဖိုလ်ဒါ တစ်ခုကို မတူညီကွဲပြားသော အခြား အမည် နှင့်/သို့ တည်နေရာ "
-"ဖြင့် လင့်ခ်ချိတ်နိုင်သည်။ ကေဒီအီးသည် ထာဝရအကွင်းဖြစ်စေသော လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်လ်သည် ၎င်းကို "
+"ယူနစ်စ်-စစ်စတမ်ပတ်ဝန်းကျင်များသည် ဖိုင်၊ သို့ ဖိုင်တွဲ တစ်ခုကို မတူညီကွဲပြားသော အခြား အမည် နှင့်/သို့ တည်နေရာ "
+"ဖြင့် လင့်ခ်ချိတ်နိုင်သည်။ ကေဒီအီးသည် ထာဝရအကွင်းဖြစ်စေသော လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်သည် ၎င်းကို "
 "၎င်း လင့်ခ်ချိတ်ထားသည်။"
 
 #: core/job_error.cpp:670 core/job_error.cpp:696
@@ -1434,9 +1420,9 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"ယူနစ်စ်-စစ်စတမ်ပတ်ဝန်းကျင်များသည် ဖိုင်လ်၊ သို့ ဖိုလ်ဒါ တစ်ခုကို မတူညီကွဲပြားသော အခြား အမည် နှင့်/သို့ တည်နေရာ "
+"ယူနစ်စ်-စစ်စတမ်ပတ်ဝန်းကျင်များသည် ဖိုင်၊ သို့ ဖိုင်တွဲ တစ်ခုကို မတူညီကွဲပြားသော အခြား အမည် နှင့်/သို့ တည်နေရာ "
 "ဖြင့် လင့်ခ်ချိတ်နိုင်သည်။ တောင်းဆိုထားသော ကူးယူရန် လုပ်ဆောင်ချက်အတွင်း ကေဒီအီးသည် ထာဝရအကွင်းဖြစ်စေသော "
-"လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်လ်သည် ၎င်းကို ၎င်း လင့်ခ်ချိတ်ထားသည်။"
+"လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်သည် ၎င်းကို ၎င်း လင့်ခ်ချိတ်ထားသည်။"
 
 #: core/job_error.cpp:702
 #, kde-format
@@ -1775,48 +1761,48 @@ msgstr "ပြင်ပါ - ဤအရာကို မှတ်တမ််း�
 #: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
-msgstr "ဖိုလ်ဒါကို မတည်ဆောက်နိုင်ခဲ့ပါ"
+msgstr "ဖိုင်တွဲကို မတည်ဆောက်နိုင်ခဲ့ပါ"
 
 #: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
-msgstr "တောင်းဆိုထားသောဖိုလ်ဒါ တည်ဆောက်ရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
+msgstr "တောင်းဆိုထားသောဖိုင်တွဲ တည်ဆောက်ရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr "ဖိုလ်ဒါတည်ဆောက်ရမည့် တည်နေရာ မရှိတော့ပါ။"
+msgstr "ဖိုင်တွဲတည်ဆောက်ရမည့် တည်နေရာ မရှိတော့ပါ။"
 
 #: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
-msgstr "ဖိုလ်ဒါကို မဖယ်ရှားနိုင်ခဲ့ပါ"
+msgstr "ဖိုင်တွဲကို မဖယ်ရှားနိုင်ခဲ့ပါ"
 
 #: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
-"သေချာဖော်ပြထားသော ဖိုလ်ဒါ <strong>%1</strong> အားဖယ်ရှားရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
+"သေချာဖော်ပြထားသော ဖိုင်တွဲ <strong>%1</strong> အားဖယ်ရှားရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
-msgstr "သေချာသတ်မှတ်ထားသော ဖိုလ်ဒါမရှိပါ။"
+msgstr "သေချာသတ်မှတ်ထားသော ဖိုင်တွဲမရှိပါ။"
 
 #: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
-msgstr "သေချာသတ်မှတ်ထားသော ဖိုလ်ဒါသည် ဗလာမဟုတ်ပါ။"
+msgstr "သေချာသတ်မှတ်ထားသော ဖိုင်တွဲသည် ဗလာမဟုတ်ပါ။"
 
 #: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
-msgstr "ဖိုလ်ဒါ ရှိနေလား၊ ဗလာဖြစ်နေသလား သေချာအောင်စစ်ဆေးပြီး ပြန်ကြိုးစားကြည့်ပါ။"
+msgstr "ဖိုင်တွဲ ရှိနေလား၊ ဗလာဖြစ်နေသလား သေချာအောင်စစ်ဆေးပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
 #: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
-msgstr "ဖိုင်လ်ကူးပြောင်းမှု ကို ပြန်၍မစတင်နိုင်ပါ။"
+msgstr "ဖိုင်ကူးပြောင်းမှု ကို ပြန်၍မစတင်နိုင်ပါ။"
 
 #: core/job_error.cpp:961
 #, kde-format
@@ -1824,13 +1810,13 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
-"ဖော်ပြခဲ့သောတောင်းဆိုချက်သည် ကူးပြောင်းမှု၏ တစ်ခုသောအမှတ်မှ ဖိုင်လ် <strong>%1</strong> "
+"ဖော်ပြခဲ့သောတောင်းဆိုချက်သည် ကူးပြောင်းမှု၏ တစ်ခုသောအမှတ်မှ ဖိုင် <strong>%1</strong> "
 "ကူးပြောင်းခြင်း ပြန်၍စရန် လိုချင်သည်။ မဖြစ်နိုင်ပါ။(လုပ်၍မရပါ)"
 
 #: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "လုပ်ရိုးလုပ်ထုံး၊ သို့မဟုတ် ဆာဗာ သည် ဖိုင်လ်ကူးပြောင်းခြင်း ပြန်၍စတင်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး၊ သို့မဟုတ် ဆာဗာ သည် ဖိုင်ကူးပြောင်းခြင်း ပြန်၍စတင်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -2017,7 +2003,7 @@ msgstr "အချိန်ကုန်မှုဆိုင်ရာ အမှ�
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
-msgstr ""
+msgstr "ဆာဗာနှင့်ဆက်သွယ်၍ရခဲ့သော်လည်း တုံ့ပြန်မှုကို ပေးထားသောအချိန်အတွင်း ပြန်မရခဲ့ပါ။"
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2054,7 +2040,7 @@ msgstr ""
 #: core/job_error.cpp:1134
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "မူလဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
+msgstr "မူလဖိုင်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1136
 #, kde-format
@@ -2063,14 +2049,14 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင်လ်အား ဖျက်ရန် "
-"လိုအပ်သည်(ရွေ့ပြောင်းလုပ်ဆောင်ချက်အဆုံးတွင်ဖြစ်နိုင်သည်)။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
+"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင်အား ဖျက်ရန် "
+"လိုအပ်သည်(ရွေ့ပြောင်းလုပ်ဆောင်ချက်အဆုံးတွင်ဖြစ်နိုင်သည်)။ သို့သော် ယင်းဖိုင်<strong>%1</strong>ကို "
 "ဖျက်၍မရပါ။"
 
 #: core/job_error.cpp:1145
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "ယာယီဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
+msgstr "ယာယီဖိုင်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1147
 #, kde-format
@@ -2079,13 +2065,13 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ်ဖန်တီးရန် လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
+"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်ဖန်တီးရန် လိုအပ်သည်။ သို့သော် ယင်းဖိုင်<strong>%1</strong>ကို "
 "ဖန်တီး၍မရပါ။"
 
 #: core/job_error.cpp:1157
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "ဇစ်မြစ်ဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
+msgstr "ဇစ်မြစ်ဖိုင်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1159
 #, kde-format
@@ -2093,13 +2079,13 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင်လ် <strong>%1</strong> အား အမည်ပြောင်းရန် "
-"လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်ကို အမည်ပြောင်း၍မရပါ။"
+"တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင် <strong>%1</strong> အား အမည်ပြောင်းရန် "
+"လိုအပ်သည်။ သို့သော် ယင်းဖိုင်ကို အမည်ပြောင်း၍မရပါ။"
 
 #: core/job_error.cpp:1168
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "ယာယီဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
+msgstr "ယာယီဖိုင်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
 #: core/job_error.cpp:1170
 #, kde-format
@@ -2107,7 +2093,7 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
-"တောင်းဆိုထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ် <strong>%1</strong>ကို ဖန်တီးရန်လိုအပ်သော်လည်း ၎င်းဖိုင်လ်ကို "
+"တောင်းဆိုထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင် <strong>%1</strong>ကို ဖန်တီးရန်လိုအပ်သော်လည်း ၎င်းဖိုင်ကို "
 "မဖန်တီးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1179
@@ -2141,7 +2127,7 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"တောင်းဆိုထားသော ဖိုင်လ် <strong>%1</strong>ကို မှတ်ဉာဏ်နေရာလွတ် မလုံလောက်သောကြောင့် ရေးမရခဲ့ပါ။"
+"တောင်းဆိုထားသော ဖိုင် <strong>%1</strong>ကို မှတ်ဉာဏ်နေရာလွတ် မလုံလောက်သောကြောင့် ရေးမရခဲ့ပါ။"
 
 #: core/job_error.cpp:1198
 #, kde-format
@@ -2150,47 +2136,47 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"လုံလောက်သောမှတ်ဉာဏ်နေရာလွတ်ရရှိရန် ၁) မလိုချင်သော ဖိုင်လ်နှင့် ယာယီဖိုင်လ်များဖျက်ပစ်ပါ၊ ၂)စီဒီ၊ ယူအက်စ်ဘီ ကဲ့သို့ "
+"လုံလောက်သောမှတ်ဉာဏ်နေရာလွတ်ရရှိရန် ၁) မလိုချင်သော ဖိုင်နှင့် ယာယီဖိုင်များဖျက်ပစ်ပါ၊ ၂)စီဒီ၊ ယူအက်စ်ဘီ ကဲ့သို့ "
 "ဖြုတ်လို့ရသော မီဒီယာမှတ်ဉာဏ်စက်များသို့ သိမ်းရန်၊ သို့မဟုတ် ၃) ပိုများသော မှတ်ဉာဏ်ပမာဏ တပ်ဆင်ပါ။"
 
 #: core/job_error.cpp:1205
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "မူလဇစ်မြစ်ဖိုင်လ်နှင့် ဦးတည်ဖိုင်လ် တစ်ထပ်တည်းကျသည်။"
+msgstr "မူလဇစ်မြစ်ဖိုင်နှင့် ဦးတည်ဖိုင် တစ်ထပ်တည်းကျသည်။"
 
 #: core/job_error.cpp:1207
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
-msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
+msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင် တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1209
 #, kde-format
 msgid "Choose a different filename for the destination file."
-msgstr "ဦးတည်ဖိုင်လ်အတွက် အမည်သစ်ပေး။"
+msgstr "ဦးတည်ဖိုင်အတွက် အမည်သစ်ပေး။"
 
 #: core/job_error.cpp:1213
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "ဖိုင်လ်၊ ဖိုလ်ဒို အနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချခဲ့သည်"
+msgstr "ဖိုင်၊ ဖိုလ်ဒို အနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချခဲ့သည်"
 
 #: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
-msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် သို့မဟုတ် ဖိုလ်ဒါ တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
+msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင် သို့မဟုတ် ဖိုင်တွဲ တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1217
 #, kde-format
 msgid "Drop the item into a different file or folder."
-msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုင်လ် သို့ ဖိုလ်ဒါ အတွင်း လွှတ်ချပါ။"
+msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုင် သို့ ဖိုင်တွဲ အတွင်း လွှတ်ချပါ။"
 
 #: core/job_error.cpp:1227
 #, kde-format
 msgid "Folder moved into itself"
-msgstr "ဖိုလ်ဒါသည် ၎င်း၏အတွင်းသို့ ၎င်း ရွေ့ခဲ့သည်"
+msgstr "ဖိုင်တွဲသည် ၎င်း၏အတွင်းသို့ ၎င်း ရွေ့ခဲ့သည်"
 
 #: core/job_error.cpp:1229
 #, kde-format
@@ -2202,7 +2188,7 @@ msgstr "မူလဇစ်မြစ်အနေဖြင့် ၎င်းထ�
 #: core/job_error.cpp:1231
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုလ်ဒါ အတွင်း ရွေ့ပြောင်းပါ။"
+msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုင်တွဲ အတွင်း ရွေ့ပြောင်းပါ။"
 
 #: core/job_error.cpp:1235
 #, kde-format
@@ -2229,34 +2215,27 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို မစတင်နိုင်ပါ"
 
 #: core/job_error.cpp:1244
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "အိုင်အို-ကျွန်ကို မဖန်တီးနိုင်ခဲ့ပါ"
+msgstr "KIO worker မဖန်တီးနိုင်ခဲ့ပါ။"
 
 #: core/job_error.cpp:1246
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"<strong>%1</strong> လုပ်ရိုးလုပ်ထုံး အသုံးပြုခွင့် ပေးသော အိုင်အို-ကျွန် ကို "
-"နည်းပညာဆိုင်ရာအခက်အခဲများကြောင့် စတင်၍မရခဲ့ပါ။"
+"<strong>%1</strong> စနစ် အသုံးပြုခွင့် ပေးသော KIO worker ကို နည်းပညာဆိုင်ရာအခက်အခဲများကြောင့် "
+"စတင်၍မရခဲ့ပါ။"
 
 #: core/job_error.cpp:1251
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"လုပ်ရိုးလုပ်ထုံးကို ပေးသော ပလပ်ဂင်ကို ကေလောင်ချာ ရှာမတွေ့ပါ၊ သို့ မစတင်နိုင်ခဲ့ပါ။ သင်သည် ပလပ်ဂင်၏ "
-"ခေတ်နောက်ကျသော ဗားရှင်းသုံးနေပုံရသည်။"
+"စနစ်ထောက်ပံ့ပေးသော ပလပ်ဂင်ကို klauncher ရှာမတွေ့ပါ၊ သို့ မစတင်နိုင်ခဲ့ပါ။ ခေတ်နောက်ကျသော "
+"ပလပ်ဂင်ဗားရှင်းသုံးနေပုံရသည်။"
 
 #: core/job_error.cpp:1257
 #, kde-kuit-format
@@ -2271,8 +2250,8 @@ msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
 msgstr ""
-"'<filename>%1</filename>'ဖိုင်လ် ကိုကူးပြောင်း၍မရပါ။ အဘယ့်ကြောင့်ဆိုသော် ဦးတည်ဖိုင်လ်စနစ်သည် "
-"ထိုမျှကြီးသောဖိုင်လ်ကို မသိမ်းဆည်းနိုင်ပါ။"
+"'<filename>%1</filename>'ဖိုင် ကိုကူးပြောင်း၍မရပါ။ အဘယ့်ကြောင့်ဆိုသော် ဦးတည်ဖိုင်စနစ်သည် "
+"ထိုမျှကြီးသောဖိုင်ကို မသိမ်းဆည်းနိုင်ပါ။"
 
 #: core/job_error.cpp:1262
 #, kde-format
@@ -2280,7 +2259,7 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
-"ထိုမျှကြီးမားသော ဖိုင်လ်များ သိမ်းဆည်းနိုင်သည့် ဖိုင်လ်စနစ်အဖြစ် ဦးတည်မှတ်ဉာဏ်စက်ကို ပြန်လည်စီစဥ်ဖွဲ့စည်းနေရာချပါ။"
+"ထိုမျှကြီးမားသော ဖိုင်များ သိမ်းဆည်းနိုင်သည့် ဖိုင်စနစ်အဖြစ် ဦးတည်မှတ်ဉာဏ်စက်ကို ပြန်လည်စီစဥ်ဖွဲ့စည်းနေရာချပါ။"
 
 #: core/job_error.cpp:1267
 #, kde-format
@@ -2315,14 +2294,14 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr "%1၏ ဖိုင်လ်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
+msgstr "%1၏ ဖိုင်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
 
 #: core/openwith.cpp:90
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
-msgstr "'%1' မှ လုပ်ဆောင်-ဖိုင်လ်အမည် မရခဲ့ပါ။ ကျေးဇူးပြု၍ မှန်ကန်သော ပရိုဂရမ်အမည် ရိုက်သွင်းပါ။"
+msgstr "'%1' မှ လုပ်ဆောင်-ဖိုင်အမည် မရခဲ့ပါ။ ကျေးဇူးပြု၍ မှန်ကန်သော ပရိုဂရမ်အမည် ရိုက်သွင်းပါ။"
 
 #: core/openwith.cpp:142
 #, kde-kuit-format
@@ -2353,7 +2332,7 @@ msgstr "လုပ်ရိုးလုပ်ထုံး '%1' တွင် ခ�
 #: core/slavebase.cpp:857
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:859
 #, kde-format
@@ -2368,7 +2347,7 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 အတွက် အ�
 #: core/slavebase.cpp:863
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုလ်ဒါများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:865
 #, kde-format
@@ -2383,7 +2362,7 @@ msgstr "%1 မှ အမ်အိုင်အမ်အီးတိုက် ဆ�
 #: core/slavebase.cpp:869
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "%1 အတွင်း ဖိုင်လ်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
+msgstr "%1 အတွင်း ဖိုင်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
 
 #: core/slavebase.cpp:871
 #, kde-format
@@ -2393,32 +2372,32 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဆ�
 #: core/slavebase.cpp:873
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "%1 အတွင်း ဖိုင်လ်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
+msgstr "%1 အတွင်း ဖိုင်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
 
 #: core/slavebase.cpp:875
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "%1မှဖိုင်လ်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
+msgstr "%1မှဖိုင်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
 #: core/slavebase.cpp:877
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုလ်ဒါများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:879
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:881
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:883
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
+msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
 #: core/slavebase.cpp:885
 #, kde-format
@@ -2433,6 +2412,8 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"ခွင့်ပြုချက်လိုသည်များအတွက် တောင်းခံပေးသည့် '%1' KIO worker၏လုံခြုံရေးလုပ်ထုံးကိုတရားသေယုံကြည့်ထား၍မရပါ။ "
+"rootအပြင်အခြားသုံးစွဲသူများကလည်း %2တွင် လုပ်ထုံးကိုပြင်ဆင်ထားနိုင်သောကြောင့်ဖြစ်သည်။"
 
 #: core/worker.cpp:392
 #, kde-format
@@ -2440,10 +2421,9 @@ msgid "Unknown protocol '%1'."
 msgstr "မသိသောလုပ်ရိုးလုပ်ထုံး '%1'။"
 
 #: core/worker.cpp:403
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "'%1' လုပ်ရိုးလုပ်ထုံးအတွက် အိုင်အို-ကျွန် ရှာမတွေ့ပါ။"
+msgstr "'%1' စနစ်အတွက် KIO workerရှာမတွေ့ပါ။"
 
 #: core/worker.cpp:410
 #, kde-format
@@ -2453,18 +2433,18 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"%2ရှိ \"%1\" KIO workerကို မတွန်းတင်ထားပါ။ %3အပြင်ရောက်နေပြီး "
+"အဆင့်တိုးမြင့်သတ်မှတ်ချက်တောင်းခံမှုလုပ်ဆောင်ခြင်းသည် မယုံကြည့်ရ၍ဖြစ်သည်"
 
 #: core/worker.cpp:422
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "လုပ်ရိုးလုပ်ထုံး'%1'အတွက် အိုင်အို-ကျွန် စတင်ရန် ဆော့ကတ် မဖန်တီးနိုင်ပါ။"
+msgstr "'%1' စနစ်အတွက် KIO worker လွှင့်တင်ရန် socketမဖန်တီးနိုင်ခဲ့ပါ"
 
 #: core/worker.cpp:462
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "'%1'၌ 'ကေအိုင်အိုကျွန်၅' ဆောင်ရွက်ဖိုင်လ်ကို ရှာမတွေ့ပါ"
+msgstr "'%1'တွင်'kioworker'ကိုရှာမတွေ့ပါ"
 
 #: core/workerinterface.cpp:358 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
@@ -2490,29 +2470,27 @@ msgid "&Current Session only"
 msgstr "&C လက်ရှိဆက်ရှင်အတွက်သာ"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "ဖိုလ်ဒါတည်ဆောက်ရန်"
+msgstr "ဖိုင်တွဲအသစ်သို့ရွှေ့"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "ဖိုလ်ဒါတည်ဆောက်ရန်"
+msgstr "ယင်းအိုင်တမ်းများအတွက်ဖိုင်တွဲအသစ်တည်ဆောက်ရန်"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
 msgid "You did not select a file to delete."
-msgstr "ဖျက်ရန် သင် ဖိုင်လ်မရွေးချယ်ထားပါ။"
+msgstr "ဖျက်ရန် သင် ဖိုင်မရွေးချယ်ထားပါ။"
 
 #: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
@@ -2522,7 +2500,7 @@ msgstr "ဖျက်ရန်မရှိ"
 #: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
 msgid "You did not select a file to trash."
-msgstr "အမှိုက်ပုံးသို့ပို့ရန် သင် ဖိုင်လ်မရွေးချယ်ထားပါ။"
+msgstr "အမှိုက်ပုံးသို့ပို့ရန် သင် ဖိုင်မရွေးချယ်ထားပါ။"
 
 #: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
 #, kde-format
@@ -2532,7 +2510,7 @@ msgstr "အမှိုက်ပုံးပို့ရန်မရှိ"
 #: filewidgets/kdiroperator.cpp:928 filewidgets/kdiroperator.cpp:1051
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
-msgstr "ဖော်ပြထားသော ဖိုလ်ဒါ မရှိပါ၊ သို့မဟုတ် ဖတ်မရပါ။"
+msgstr "ဖော်ပြထားသော ဖိုင်တွဲ မရှိပါ၊ သို့မဟုတ် ဖတ်မရပါ။"
 
 #: filewidgets/kdiroperator.cpp:2007
 #, kde-format
@@ -2542,7 +2520,7 @@ msgstr "မီနူး"
 #: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Parent Folder"
-msgstr "မိခင်ဖိုလ်ဒါ"
+msgstr "မိခင်ဖိုင်တွဲ"
 
 #: filewidgets/kdiroperator.cpp:2019
 #, kde-format
@@ -2559,7 +2537,7 @@ msgstr "ရှေ့သွားရန်"
 #: filewidgets/kdiroperator.cpp:2027
 #, kde-format
 msgid "Home Folder"
-msgstr "အိမ်ဖိုလ်ဒါ"
+msgstr "အိမ်ဖိုင်တွဲ"
 
 #: filewidgets/kdiroperator.cpp:2031
 #, kde-format
@@ -2567,12 +2545,10 @@ msgid "Reload"
 msgstr "ပြန်တွန်းတင်"
 
 #: filewidgets/kdiroperator.cpp:2034
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "ဖိုလ်ဒါအသစ်"
+msgstr "ဖိုင်တွဲအသစ်…"
 
 #: filewidgets/kdiroperator.cpp:2044 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
@@ -2624,12 +2600,12 @@ msgstr "ဆင်းနေသည်"
 #: filewidgets/kdiroperator.cpp:2103
 #, kde-format
 msgid "Folders First"
-msgstr "ဖိုလ်ဒါများ အရင်"
+msgstr "ဖိုင်တွဲများ အရင်"
 
 #: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Hidden Files Last"
-msgstr "ဖွက်ထားသောဖိုင်လ်များနောက်ဆုံး"
+msgstr "ဖွက်ထားသောဖိုင်များနောက်ဆုံး"
 
 #: filewidgets/kdiroperator.cpp:2116
 #, kde-format
@@ -2654,12 +2630,12 @@ msgstr "အိုင်ကွန် တည်နေရာ"
 #: filewidgets/kdiroperator.cpp:2152
 #, kde-format
 msgid "Next to File Name"
-msgstr "ဖိုင်လ်အမည်ဘေးသို့"
+msgstr "ဖိုင်အမည်ဘေးသို့"
 
 #: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Above File Name"
-msgstr "ဖိုင်လ်အမည်ပေါ်"
+msgstr "ဖိုင်အမည်ပေါ်"
 
 #: filewidgets/kdiroperator.cpp:2172
 #, kde-format
@@ -2689,7 +2665,7 @@ msgstr "အသေးစိတ်ပြမြင်ကွင်းတွင် �
 #: filewidgets/kdiroperator.cpp:2212
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "ဖွက်ထားသောဖိုင်လ်များပြမည်"
+msgstr "ဖွက်ထားသောဖိုင်များပြမည်"
 
 #: filewidgets/kdiroperator.cpp:2219
 #, kde-format
@@ -2704,12 +2680,12 @@ msgstr "အကြိုကြည့်မြင်ကွင်း ပြမည�
 #: filewidgets/kdiroperator.cpp:2233
 #, kde-format
 msgid "Open Containing Folder"
-msgstr "ဖိုင်လ်ပါဝင်သောဖိုလ်ဒါကို ဖွင့်မည်"
+msgstr "ဖိုင်ပါဝင်သောဖိုင်တွဲကို ဖွင့်မည်"
 
 #: filewidgets/kdiroperator.cpp:2240 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
-msgstr "ကိုယ်ပိုင်လက္ခဏာများ"
+msgstr "အချက်အလက်"
 
 #: filewidgets/kdiroperator.cpp:2249
 #, kde-format
@@ -2787,18 +2763,16 @@ msgstr "သို့ရွေ့ယူရန်"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Home Folder"
-msgstr "အိမ်ဖိုလ်ဒါ"
+msgstr "အိမ်ဖိုင်တွဲ"
 
 #: filewidgets/kfilecopytomenu.cpp:110
 #, kde-format
 msgctxt "@title:menu"
 msgid "Root Folder"
-msgstr "Root ဖိုလ်ဒါ"
+msgstr "Root ဖိုင်တွဲ"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "ရှောက်ကြည့်…"
@@ -2819,7 +2793,7 @@ msgstr "ဤနေရာသို့ရွေ့ယူရန်"
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
-msgstr "*|ဖိုင်လ်အားလုံး"
+msgstr "*|ဖိုင်အားလုံး"
 
 #: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
@@ -2836,7 +2810,7 @@ msgstr "အသုံးပြုနိုင်သော ဖိုင်မျ�
 #: filewidgets/kfilewidget.cpp:2034
 #, kde-format
 msgid "All Files"
-msgstr "ဖိုင်လ်အားလုံး"
+msgstr "ဖိုင်အားလုံး"
 
 #: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
@@ -2959,11 +2933,10 @@ msgid "Tags"
 msgstr "တပ်ဂ်များ"
 
 #: filewidgets/kfileplacesitem.cpp:344
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (အမှား %2)"
+msgstr "%1 (%2မှ)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -2995,7 +2968,7 @@ msgstr "ဒေါင်းလုတ်"
 #: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Network"
-msgstr "ဆ.သ.ရ-ကွန်ရက်"
+msgstr "ကွန်ရက်"
 
 #: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
@@ -3015,12 +2988,12 @@ msgstr "ပုံ"
 #: filewidgets/kfileplacesmodel.cpp:364
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
-msgstr "ဗီဒီယိုများ"
+msgstr "ဗွီဒီယိုများ"
 
 #: filewidgets/kfileplacesmodel.cpp:391
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
-msgstr "မကြာသေးမီကဖိုင်လ်များ"
+msgstr "မကြာသေးမီကဖိုင်များ"
 
 #: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
@@ -3046,7 +3019,7 @@ msgstr "နေရာများပန်နယ်သို့ မထည့်�
 #: filewidgets/kfileplacesmodel.cpp:1098
 #, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "နေရာများပန်နယ်သို့ ဖိုလ်ဒါများသာထည့်သွင်းနိုင်သည်။"
+msgstr "နေရာများပန်နယ်သို့ ဖိုင်တွဲများသာထည့်သွင်းနိုင်သည်။"
 
 #: filewidgets/kfileplacesmodel.cpp:1359
 #, kde-format
@@ -3108,7 +3081,7 @@ msgstr "'%1'ရယူအသုံးပြုနေစဥ် အမှားဖ�
 #: filewidgets/kfileplacesmodel.cpp:1508
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "ဤစက်ရှိ တစ်ခုသို့တစ်ခုထက်ပိုသောဖိုင်များကိုဖွင့်ထားသည်"
 
 #: filewidgets/kfileplacesmodel.cpp:1511
 #, kde-kuit-format
@@ -3118,24 +3091,22 @@ msgid ""
 msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
-msgstr[0] ""
+msgstr[0] "ဤစက်ရှိ တစ်ခုသို့တစ်ခုထက်ပိုသောဖိုင်များကို <application>%2</application>.တွင်ဖွင့်ထားသည်"
 
 #: filewidgets/kfileplacesmodel.cpp:1514
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesmodel.cpp:1561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Partition မန်နေဂျာဖြင့် ပုံစံပြန်ချ သို့ တည်းဖြတ်ရန်"
 
 #: filewidgets/kfileplacesview.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1 - %2"
@@ -3189,11 +3160,10 @@ msgid "&Edit…"
 msgstr "&Eတည်းဖြတ်…"
 
 #: filewidgets/kfileplacesview.cpp:1268
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "ဖိုင်လ်ဖယ်ရှားမည်"
+msgstr "နေရာများမှဖယ်ရှား"
 
 #: filewidgets/kfileplacesview.cpp:1272
 #, kde-format
@@ -3259,22 +3229,22 @@ msgstr "အလွန်ကြီး (%1x%1)"
 #: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "You can only select one file"
-msgstr "တစ်ဖိုင်လ်သာရွေးနိုင်သည်"
+msgstr "တစ်ဖိုင်သာရွေးနိုင်သည်"
 
 #: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "More than one file provided"
-msgstr "တစ်ခုထက်ပိုသောဖိုင်လ်ပေးထားသည်"
+msgstr "တစ်ခုထက်ပိုသောဖိုင်ပေးထားသည်"
 
 #: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "You can only select local files"
-msgstr "စက်တွင်းဖိုင်လ်များသာရွေးနိုင်သည်"
+msgstr "စက်တွင်းဖိုင်များသာရွေးနိုင်သည်"
 
 #: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "Remote files not accepted"
-msgstr "အဝေးဖိုင်လ်များလက်မခံပါ"
+msgstr "အဝေးဖိုင်များလက်မခံပါ"
 
 #: filewidgets/kfilewidget.cpp:801
 #, kde-format
@@ -3295,12 +3265,12 @@ msgstr "အသုံးပြု၍မရသော ယူအာအယ်လ်�
 #: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "\"%1\" ဖိုင်လ်ကိုရှာမတွေ့နိုင်ခဲ့ပါ"
+msgstr "\"%1\" ဖိုင်ကိုရှာမတွေ့နိုင်ခဲ့ပါ"
 
 #: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Cannot open file"
-msgstr "ဖိုင်လ်ဖွင့်မရပါ"
+msgstr "ဖိုင်ဖွင့်မရပါ"
 
 #: filewidgets/kfilewidget.cpp:1197
 #, kde-format
@@ -3309,8 +3279,8 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>မိခင်ဖိုလ်ဒါသို့ ဝင်ရောက်ရန် ဤခလုတ်ကိုနှိပ်ပါ။ <br/><br/> ဥပမာအားဖြင့် လက်ရှိတည်နေရာသည် file:/"
-"home/konqi ဖြစ်သည်ဆိုပါဆို ဤခလုတ်ကို နှိပ်လိုက်လျှင် file:/home သို့ရောက်သွားမည်ဖြစ်သည်။</qt>"
+"<qt>မိခင်ဖိုင်တွဲသို့ ဝင်ရောက်ရန် ဤခလုတ်ကိုနှိပ်ပါ။ <br/><br/> ဥပမာအားဖြင့် လက်ရှိတည်နေရာသည် file:/home/"
+"konqi ဖြစ်သည်ဆိုပါဆို ဤခလုတ်ကို နှိပ်လိုက်လျှင် file:/home သို့ရောက်သွားမည်ဖြစ်သည်။</qt>"
 
 #: filewidgets/kfilewidget.cpp:1201
 #, kde-format
@@ -3330,7 +3300,7 @@ msgstr "လက်ရှိတည်နေရာ၏ ဒေတာများ ပ�
 #: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr "ဖိုလ်ဒါ အသစ်တည်ဆောက်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
+msgstr "ဖိုင်တွဲ အသစ်တည်ဆောက်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
 #: filewidgets/kfilewidget.cpp:1208
 #, kde-format
@@ -3338,10 +3308,9 @@ msgid "Show Places Panel"
 msgstr "နေရာများ ပန်နယ် ပြမည်"
 
 #: filewidgets/kfilewidget.cpp:1215
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "ဖွက်ထားသောဖိုင်လ်များပြမည်"
+msgstr "လျှင်မြန်စစ်ထုတ်တန်းပြရန်"
 
 #: filewidgets/kfilewidget.cpp:1223
 #, kde-format
@@ -3357,10 +3326,10 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
-"<qt>ဖိုင်လ် အပြော-ဝင်းဒိုးအတွက် ပိုနှစ်သက်ချက်များမီနူး ဖြစ်သည်။ အမျိုးမျိုးသော ရွေးချယ်စရာများကိ ဤမီနူး "
-"မှတစ်ဆင့် သုံးနိုင်သည်။ အောက်ပါတို့လည်း ပါဝင်သည်-<ul><li>ဖိုင်လ်စာရင်းဘယ်လိုစီမည်</"
-"li><li>မြင်ကွင်းအမျိုးအစားများ(အိုင်ကွန်ပြ၊ စာရင်းပြ)</li><li>ဖွက်ထားသော ဖိုင်လ်များပြမည်</"
-"li><li>နေရာများ ပန်နယ်</li><li>ဖိုင်အကြိုပြချက်များ</li><li>ဖိုင်လ်မှ ဖိုလ်ဒါ ခွဲထားမည်</li></"
+"<qt>ဖိုင် အပြော-ဝင်းဒိုးအတွက် ပိုနှစ်သက်ချက်များမီနူး ဖြစ်သည်။ အမျိုးမျိုးသော ရွေးချယ်စရာများကိ ဤမီနူး "
+"မှတစ်ဆင့် သုံးနိုင်သည်။ အောက်ပါတို့လည်း ပါဝင်သည်-<ul><li>ဖိုင်စာရင်းဘယ်လိုစီမည်</"
+"li><li>မြင်ကွင်းအမျိုးအစားများ(အိုင်ကွန်ပြ၊ စာရင်းပြ)</li><li>ဖွက်ထားသော ဖိုင်များပြမည်</"
+"li><li>နေရာများ ပန်နယ်</li><li>ဖိုင်အကြိုပြချက်များ</li><li>ဖိုင်မှ ဖိုင်တွဲ ခွဲထားမည်</li></"
 "ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1245
@@ -3378,7 +3347,7 @@ msgid ""
 msgstr ""
 "<qt>သေချာဖော်ပြထားသော တည်နေရာများကို ဤခလုတ်ကို သုံး၍ မှတ်သားထားနိုင်သည်။ ထည့်၊ တည်းဖြတ် သို့ ရွေးချယ် "
 "စသည်တို့ကို လုပ်ဆောင်နိုင်သော စာမျက်နှာမှတ်သားချက်များ မီနူးကို ခလုတ်နိုပ်၍ ဖွင့်ပါ။<br /><br /"
-">ထိုစာမျက်နှာမှတ်သားချက်များသည် ဖိုင်လ် အပြော-ဝင်းဒိုးတွင်သာ တည်နေရာ မှတ်သားခြင်းဖြစ်သည်။</qt>"
+">ထိုစာမျက်နှာမှတ်သားချက်များသည် ဖိုင် အပြော-ဝင်းဒိုးတွင်သာ တည်နေရာ မှတ်သားခြင်းဖြစ်သည်။</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
@@ -3387,30 +3356,27 @@ msgid "&Name:"
 msgstr "&Nအမည် -"
 
 #: filewidgets/kfilewidget.cpp:1319
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "ပြောင်းထားချက်များပြန်ဆုတ်"
+msgstr "အမည်ပြောင်းမှု ချေမည်"
 
 #: filewidgets/kfilewidget.cpp:1370
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "ဖိုင်လ်ပါဝင်သောဖိုလ်ဒါကို ဖွင့်မည်"
+msgstr "ဖိုင်တွဲပြောင်းလဲသောအခါ စစ်ထုတ်တန်းကို ထားထားမည်"
 
 #: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "အမည်ဖြင့်စစ်ထုတ်…"
 
 #: filewidgets/kfilewidget.cpp:1382
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "ဖွက်ထားသောဖိုင်လ်များနောက်ဆုံး"
+msgstr "စစ်ထုတ်တမ်းမပြတော့ပါ"
 
 #: filewidgets/kfilewidget.cpp:1431
 #, kde-format
@@ -3427,19 +3393,19 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1438
 #, kde-format
 msgid "This is the name to save the file as."
-msgstr "သိမ်းဆည်းမည့်ဖိုင်လ်၏ အမည်ဖြစ်သည်။"
+msgstr "သိမ်းဆည်းမည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
 #: filewidgets/kfilewidget.cpp:1441
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
-msgstr "၎င်းသည် ဖွင့်ရမည့် ဖိုင်လ်စာရင်းဖြစ်သည်။ ဖိုင်လ်တစ်ခုမက 'နေရာလွတ်'အက္ခရာ ခြား၍ ဖော်ပြနိုင်သည်။"
+msgstr "၎င်းသည် ဖွင့်ရမည့် ဖိုင်စာရင်းဖြစ်သည်။ ဖိုင်တစ်ခုမက 'နေရာလွတ်'အက္ခရာ ခြား၍ ဖော်ပြနိုင်သည်။"
 
 #: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid "This is the name of the file to open."
-msgstr "ဖွင့်မည့်ဖိုင်လ်၏ အမည်ဖြစ်သည်။"
+msgstr "ဖွင့်မည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
 #: filewidgets/kfilewidget.cpp:1459
 #, kde-format
@@ -3450,7 +3416,7 @@ msgstr "နေရာများ"
 #: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "ဖိုင်လ် \"%1\" ရှိနှင့်ပြီးဖြစ်သည်။ ထပ်ရေးချင်ပါသလား။"
+msgstr "ဖိုင် \"%1\" ရှိနှင့်ပြီးဖြစ်သည်။ ထပ်ရေးချင်ပါသလား။"
 
 #: filewidgets/kfilewidget.cpp:1741
 #, kde-format
@@ -3460,18 +3426,17 @@ msgstr "ဖိုင်ကို ထပ်ရေးမှာလား။"
 #: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
-msgstr "စက်တွင်းဖိုင်လ်များသာရွေးနိုင်သည်။"
+msgstr "စက်တွင်းဖိုင်များသာရွေးနိုင်သည်။"
 
 #: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "Remote Files Not Accepted"
-msgstr "အဝေးဖိုင်လ်များလက်မခံပါ"
+msgstr "အဝေးဖိုင်များလက်မခံပါ"
 
 #: filewidgets/kfilewidget.cpp:2032
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|ဖိုလ်ဒါအားလုံး"
+msgstr "ဖိုင်တွဲအားလုံး"
 
 #: filewidgets/kfilewidget.cpp:2183 widgets/kfileitemactions.cpp:791
 #, kde-format
@@ -3486,7 +3451,7 @@ msgstr "အိုင်ကွန် အရွယ်အစား - %1 ပစ်�
 #: filewidgets/kfilewidget.cpp:2430
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "&xဖိုင်လ်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည်် (%1)"
+msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည်် (%1)"
 
 #: filewidgets/kfilewidget.cpp:2431
 #, kde-format
@@ -3496,7 +3461,7 @@ msgstr "တိုးချဲ့မှု <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2437
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "&xဖိုင်လ်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည််"
+msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည််"
 
 #: filewidgets/kfilewidget.cpp:2438
 #, kde-format
@@ -3518,20 +3483,20 @@ msgid ""
 "period will be automatically removed).</li></ol>If unsure, keep this option "
 "enabled as it makes your files more manageable."
 msgstr ""
-"ဤရွေးချယ်ချက်သည် ဖိုင်လ်များကို တိုးချဲ့အမည်များဖြင့် သိမ်းဆည်းရာတွင် အသုံးတည့်သော အချို့စွမ်းရည်များကို "
-"ဖွင့်ပေးသည် -<br /><ol><li>သင် သိမ်းဆည်းမည့် ဖိုင်လ်အမျိုးအစားကို ပြောင်းခဲ့လျှင် စာသားဧရိယာ <b>%1</"
+"ဤရွေးချယ်ချက်သည် ဖိုင်များကို တိုးချဲ့အမည်များဖြင့် သိမ်းဆည်းရာတွင် အသုံးတည့်သော အချို့စွမ်းရည်များကို "
+"ဖွင့်ပေးသည် -<br /><ol><li>သင် သိမ်းဆည်းမည့် ဖိုင်အမျိုးအစားကို ပြောင်းခဲ့လျှင် စာသားဧရိယာ <b>%1</"
 "b> ထဲတွင် ဖော်ပြထားသော တိုးချဲ့အမည်မှန်သမျှကို အပ်ဒိတ်တင်သွားမည်။<br /><br /></li><li>စာသားဧရိယာ "
 "<b>%2</b> ထဲတွင် မည်သည့်တိုးချဲ့အမည်မှ မဖော်ပြထားလျှင် <b>သိမ်းဆည်းမည်</b> ကိုနှိပ်လိုက်သောအခါ၊ %3 ကို "
-"ဖိုင်လ်အမည်၏အဆုံးတွင် ထည့်ပေါင်းသွားမည် (ဖိုင်လ်အမည်မရှိနှင့်မှသာ)။ ဤတိုးချဲ့အမည်သည် သင်သိမ်းဆည်းရန် "
-"ရွေးချယ်ထားသော ဖိုင်လ်အမျိုးအစားပေါ် မူတည်သည်။<br /><br />အကယ်၍ ကေဒီအီးက ဖိုင်လ်အမည်အတွက် "
-"တိုးချဲ့အမည်ပေးခြင်းကို သင်မလိုလားလျှင် ဤရွေးချယ်ချက်ကို ပိတ်ထားလို့ရသည် သို့ ဖိုင်လ်အမည်၏နောက်တွင် period (.) "
-"ထည့်၍ ပယ်ချနိုင်သည်။ (period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ "
-"သင်၏ဖိုင်လ်များကို ပိုမိုလွယ်ကူစွာ စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
+"ဖိုင်အမည်၏အဆုံးတွင် ထည့်ပေါင်းသွားမည် (ဖိုင်အမည်မရှိနှင့်မှသာ)။ ဤတိုးချဲ့အမည်သည် သင်သိမ်းဆည်းရန် ရွေးချယ်ထားသော "
+"ဖိုင်အမျိုးအစားပေါ် မူတည်သည်။<br /><br />အကယ်၍ ကေဒီအီးက ဖိုင်အမည်အတွက် တိုးချဲ့အမည်ပေးခြင်းကို "
+"သင်မလိုလားလျှင် ဤရွေးချယ်ချက်ကို ပိတ်ထားလို့ရသည် သို့ ဖိုင်အမည်၏နောက်တွင် period (.) ထည့်၍ ပယ်ချနိုင်သည်။ "
+"(period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ သင်၏ဖိုင်များကို ပိုမိုလွယ်ကူစွာ "
+"စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
 
 #: filewidgets/kfilewidget.cpp:2912
 #, kde-format
 msgid "&File type:"
-msgstr "&Fဖိုင်လ်အမျိုးအစား -"
+msgstr "&Fဖိုင်အမျိုးအစား -"
 
 #: filewidgets/kfilewidget.cpp:2916
 #, kde-format
@@ -3539,20 +3504,16 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
-"<qt>၎င်းသည် ဖိုင်လ်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်လ်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။"
-"</qt>"
+"<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</"
+"qt>"
 
 #: filewidgets/kfilewidget.cpp:2918
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>၎င်းသည် ဖိုင်လ်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်လ်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။"
-"</qt>"
+"<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်ပြရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3562,7 +3523,7 @@ msgstr "စိတ်မကောင်းပါဘူး"
 #: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>မူကြမ်းဖိုင်လ် <b>%1</b> မရှိပါ။</qt>"
+msgstr "<qt>မူကြမ်းဖိုင် <b>%1</b> မရှိပါ။</qt>"
 
 #: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
 #, kde-format
@@ -3581,12 +3542,10 @@ msgid "%1"
 msgstr "%1"
 
 #: filewidgets/knewfilemenu.cpp:1121
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "%1ဖိုင်အမည်ရေးပါ-"
 
 #: filewidgets/knewfilemenu.cpp:1220
 #, kde-kuit-format
@@ -3620,36 +3579,32 @@ msgstr ""
 #: filewidgets/knewfilemenu.cpp:1254
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
-msgstr "ဖိုလ်ဒါအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုလ်ဒါများကို တည်ဆောက်လိမ့်မည်၊ နောက်ပါကဲ့သို့ -"
+msgstr "ဖိုင်တွဲအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုင်တွဲများကို တည်ဆောက်လိမ့်မည်၊ နောက်ပါကဲ့သို့ -"
 
 #: filewidgets/knewfilemenu.cpp:1264
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
-msgstr "ဖိုလ်ဒါအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုလ်ဒါများကို တည်ဆောက်လိမ့်မည်။"
+msgstr "ဖိုင်တွဲအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုင်တွဲများကို တည်ဆောက်လိမ့်မည်။"
 
 #: filewidgets/knewfilemenu.cpp:1276
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
-msgstr "မျဥ်းစောင်း('/')ကို ဖိုင်လ်၊ ဖိုလ်ဒါအမည်များတွင် သုံးမရပါ။"
+msgstr "မျဥ်းစောင်း('/')ကို ဖိုင်၊ ဖိုင်တွဲအမည်များတွင် သုံးမရပါ။"
 
 #: filewidgets/knewfilemenu.cpp:1281
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
-msgstr "ပြောင်းပြန်မျဥ်းစောင်း('\\')ကို ဖိုင်လ်၊ ဖိုလ်ဒါအမည်များတွင် သုံးမရပါ။"
+msgstr "ပြောင်းပြန်မျဥ်းစောင်း('\\')ကို ဖိုင်၊ ဖိုင်တွဲအမည်များတွင် သုံးမရပါ။"
 
 #: filewidgets/knewfilemenu.cpp:1295
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
-"<filename>%1</filename>အမည်ဖြင့် ဖိုလ်ဒါတည်ဆောက်မရပါ။<nl/>အဘယ့်ကြောင့်ဆိုသော် "
-"စီမံစနစ်မှအသုံးပြုရန်သိမ်းထားသောကြောင့်ဖြစ်သည်။"
+"<filename>%1</filename>အမည်ဖြင့် ဖိုင်တွဲ သို့ ဖိုင်သည် သုံးစွဲသူ၏အိမ်ဖိုင်တွဲနေရာဖြင့်တိုက်နေသောကြောင့် "
+"ဖန်တီး၍မရပါ။"
 
 #: filewidgets/knewfilemenu.cpp:1304
 #, kde-format
@@ -3657,20 +3612,20 @@ msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
-"ဖိုင်လ်၊ ဖိုလ်ဒါ အမည်ပေးရာတွင် တယ်ဒါး('~') နှင့်စတင်ခြင်းကို အားမပေးပါ။ အဘယ်ကြောင့်ဆိုသော် တာမီနယ်တွင် "
-"ဖိုင်လ်၊ဖိုလ်ဒါများ ဖျက်ရာတွင် အငြင်းပွားဖွယ် သို့ အန္တရာယ်များဖွယ် ဖြစ်လိမ့်မည်။"
+"ဖိုင်၊ ဖိုင်တွဲ အမည်ပေးရာတွင် တယ်ဒါး('~') နှင့်စတင်ခြင်းကို အားမပေးပါ။ အဘယ်ကြောင့်ဆိုသော် တာမီနယ်တွင် ဖိုင်၊"
+"ဖိုင်တွဲများ ဖျက်ရာတွင် အငြင်းပွားဖွယ် သို့ အန္တရာယ်များဖွယ် ဖြစ်လိမ့်မည်။"
 
 #: filewidgets/knewfilemenu.cpp:1376
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename>အမည်ရ ဒါရိုက်ထရီ ရှိနှင့်ပြီးဖြစ်သည်။"
+msgstr "<filename>%1</filename>အမည်ရ ဖိုင်တွဲ ရှိနှင့်ပြီးဖြစ်သည်။"
 
 #: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename>အမည်ရ ဖိုင်လ်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
+msgstr "<filename>%1</filename>အမည်ရ ဖိုင်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
 #: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
@@ -3686,82 +3641,72 @@ msgstr "စက်သို့လင့်ခ်ချိတ်ရန်"
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
-msgstr "ဖိုလ်ဒါအသစ်"
+msgstr "ဖိုင်တွဲအသစ်"
 
 #: filewidgets/knewfilemenu.cpp:1568
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "ဖိုလ်ဒါတည်ဆောက်ရန်"
+msgstr "ဖိုင်တွဲအသစ်တည်ဆောက်ရန်"
 
 #: filewidgets/knewfilemenu.cpp:1570
 #, kde-format
 msgid "Create new folder in %1:"
-msgstr "%1တွင် ဖိုလ်ဒါအသစ်တည်ဆောက်မည် -"
+msgstr "%1တွင် ဖိုင်တွဲအသစ်တည်ဆောက်မည် -"
 
 #: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "ဖိုင်တွဲအမည်ရေးပါ"
 
 #: filewidgets/knewfilemenu.cpp:1630
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "မူလသတ်မှတ်ချက်"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "ဖိုင်လ်အမျိုးအစားသစ်ဖန်တီးမည်"
+msgstr "ဖိုင်အသစ်တည်ဆောက်ရန်"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgid "Enter file name"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "ဖိုင်အမည်ရေးရန်"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "%1အတွက် အပ္ပလီကေးရှင်းရွေးရန်"
+msgstr "စိတ်ကြိုက်အရောင် သို့ အိုင်ကွန်းရွေးရန်"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:119
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "&iအိုင်ကွန် ရွေးရန် -"
+msgstr "အခြားအိုင်ကွန်ရွေးရန်…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "ဖိုင်တွဲအချက်အလက်တွင် အိုင်ကွန်ကိုပြင်ဆင်နိုင်သည်။"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
-msgstr "ကူးယူရန်"
+msgstr "ကူးယူ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:42
@@ -3797,12 +3742,10 @@ msgid "Show Full Path"
 msgstr "လမ်းကြောင်းအပြည့်အစုံပြမည်"
 
 #: filewidgets/kurlnavigator.cpp:818
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "<filename>%1</filename>ကို မကူးပြောင်းနိုင်ပါ"
+msgstr "<filename>%1</filename> လမ်းကြောင်းပေါ်ရှိ ကြိုက်သည့်နေရာသို့သွားရန်"
 
 #: filewidgets/kurlnavigatorbutton.cpp:731
 #, kde-format
@@ -3814,7 +3757,7 @@ msgstr "ပိုမို"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "လမ်းကြောင်းပြထားသောနေရာသို့သွားရန်"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3852,7 +3795,7 @@ msgstr "တည်နေရာတည်းဖြတ်ရန် နှိပ်�
 #: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "ဤဖိုင်လ်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
+msgstr "ဤဖိုင်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
 
 #: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
 #, kde-format
@@ -3866,13 +3809,13 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
+"ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
 #: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
-msgstr "ဤဖိုင်လ်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
+msgstr "ဤဖိုင်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
 
 #: gui/applicationlauncherjob.cpp:299
 #, kde-format
@@ -3884,7 +3827,7 @@ msgstr "စနစ်အတွင်းပိုင်းအမှား - ဘယ
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "ဘာအမိန့်မှမပေးထားပါ"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3899,7 +3842,7 @@ msgstr "%1 သို့ ပုံသိမ်းရာတွင် အမှာ�
 #: gui/faviconrequestjob.cpp:166
 #, kde-format
 msgid "Icon file too big, download aborted"
-msgstr "အိုင်ကွန်ဖိုင်လ် အလွန်ကြီးမားလှသည့်အတွက် ဒေါင်းလုတ်ရယူမှု စွန့်လွှတ်ခဲ့သည်"
+msgstr "အိုင်ကွန်ဖိုင် အလွန်ကြီးမားလှသည့်အတွက် ဒေါင်းလုတ်ရယူမှု စွန့်လွှတ်ခဲ့သည်"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -3913,7 +3856,7 @@ msgid ""
 "%1\n"
 "is not valid."
 msgstr ""
-"ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ်\n"
+"ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်\n"
 "%1\n"
 "မမှန်ကန်ပါ။"
 
@@ -3923,11 +3866,10 @@ msgid "Launching %1"
 msgstr "%1 လွှင်တင်နေသည်"
 
 #: gui/kprocessrunner.cpp:468
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "\"%1\" ဖိုင်လ်ကိုရှာမတွေ့နိုင်ခဲ့ပါ"
+msgstr "အမိန့် <command>%1</command>ကိုရှာမတွေ့ပါ။"
 
 #: gui/kterminallauncherjob.cpp:130
 #, kde-format
@@ -3946,7 +3888,7 @@ msgid ""
 "%1\n"
 "is of type Link but has no URL=... entry."
 msgstr ""
-"ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ်\n"
+"ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်\n"
 "%1\n"
 "သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=…' မပါဝင်ပါ။"
 
@@ -3955,13 +3897,13 @@ msgstr ""
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
-msgstr "လုပ်ဆောင်-ဖိုင်လ် \"%1\" သည် အဝေးဖိုင်လ်စနစ်တွင်ရှိသည်။ လုံခြုရေးအရ ၎င်းကို စတင်မည်မဟုတ်ပါ။"
+msgstr "လုပ်ဆောင်-ဖိုင် \"%1\" သည် အဝေးဖိုင်စနစ်တွင်ရှိသည်။ လုံခြုရေးအရ ၎င်းကို စတင်မည်မဟုတ်ပါ။"
 
 #: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
-msgstr "လုံခြုံရေးအရ ဤဆက်စပ်နေရာတွင် လုပ်ဆောင်-ဖိုင်လ်များ လွှင့်တင်ခြင်း ခွင့်မပြုထားပါ။"
+msgstr "လုံခြုံရေးအရ ဤဆက်စပ်နေရာတွင် လုပ်ဆောင်-ဖိုင်များ လွှင့်တင်ခြင်း ခွင့်မပြုထားပါ။"
 
 #: gui/openurljob.cpp:445
 #, kde-format
@@ -3976,13 +3918,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"ဖိုင်လ် \"%1\" ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ။\n"
+"ဖိုင် \"%1\" ကို လုပ်ဆောင်-ဖိုင် မလုပ်နိုင်ခဲ့ပါ။\n"
 "%2။"
 
 #: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ် %1 တွင် 'Type=…' မပါဝင်ပါ။"
+msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
 #: gui/openurljob.cpp:635
 #, kde-format
@@ -3991,14 +3933,14 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
-"ဤဖိုင်လ်သည် မပြည့်စုံသေးသောကြောင့် မဖွင့်သင့်ပါ။\n"
+"ဤဖိုင်သည် မပြည့်စုံသေးသောကြောင့် မဖွင့်သင့်ပါ။\n"
 "သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
 "စစ်ကြည့်ပါ။"
 
 #: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
-msgstr "ဖိုင်လ်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
+msgstr "ဖိုင်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
 
 #: gui/openurljob.cpp:695
 #, kde-format
@@ -4006,22 +3948,19 @@ msgid "The program \"%1\" could not be launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မရပါ။"
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"ဖိုင်လ် %1\n"
-"အားမွမ်းမံထားသည်။ ပြောင်းလဲမှုများကို အပ်လုတ်တင်ချင်ပါသလား။"
+"ဖိုင် <filename>%1</filename><nl/> ကို မွမ်းမံထားပြီးဖြစ်သည်။ ပြောင်းလဲချက်များကို "
+"တင်ချင်ပါသလား"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
-msgstr "ဖိုင်လ်ပြောင်းလဲသွားသည်"
+msgstr "ဖိုင်ပြောင်းလဲသွားသည်"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
@@ -4041,7 +3980,7 @@ msgstr "မမှန်ကန်သောURL - %1"
 #: kioexec/main.cpp:64
 #, kde-format
 msgid "File not found: %1"
-msgstr "ဖိုင်လ်မတွေ့ပါ - %1"
+msgstr "ဖိုင်မတွေ့ပါ - %1"
 
 #: kioexec/main.cpp:81
 #, kde-format
@@ -4069,7 +4008,7 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
-"ယာယီဖိုင်လ်\n"
+"ယာယီဖိုင်\n"
 "%1\n"
 "ကို မွမ်းမံထားသည်။\n"
 "၎င်းကို ဖျက်ပစ်ချင်တုန်းလား။"
@@ -4087,7 +4026,7 @@ msgid ""
 "has been modified.\n"
 "Do you want to upload the changes?"
 msgstr ""
-"ဖိုင်လ်\n"
+"ဖိုင်\n"
 "%1\n"
 "အားမွမ်းမံထားသည်။\n"
 "ပြောင်းလဲမှုများကို အပ်လုတ်တင်ချင်ပါသလား။"
@@ -4100,7 +4039,7 @@ msgstr "ကေအိုင်အိုအိပ်စ်"
 #: kioexec/main.cpp:302
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
-msgstr "ကေအိုင်အို အိပ်စ် - အဝေးဖိုင်လ်များ ဖွင့်ရန်၊ မွမ်းမံပြင်ဆင်ချက်များ ကြည့်ရန်၊ အပ်လုတ်တင်ဖို့ တောင်းဆိုရန်"
+msgstr "ကေအိုင်အို အိပ်စ် - အဝေးဖိုင်များ ဖွင့်ရန်၊ မွမ်းမံပြင်ဆင်ချက်များ ကြည့်ရန်၊ အပ်လုတ်တင်ဖို့ တောင်းဆိုရန်"
 
 #: kioexec/main.cpp:304
 #, kde-format
@@ -4135,12 +4074,12 @@ msgstr "အော့စဝပ်ဒ်ဘတ်ဒမ်ဟဂမ်"
 #: kioexec/main.cpp:314
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr "ယူအာအယ်လ်များကို စက်တွင်းဖိုင်လ်များအဖြစ် သတ်မှတ်ဆက်ဆံ၍ပြီးလျှင် ဖျက်မည်"
+msgstr "ယူအာအယ်လ်များကို စက်တွင်းဖိုင်များအဖြစ် သတ်မှတ်ဆက်ဆံ၍ပြီးလျှင် ဖျက်မည်"
 
 #: kioexec/main.cpp:316
 #, kde-format
 msgid "Suggested file name for the downloaded file"
-msgstr "ဒေါင်းလုတ်ရယူထားသော ဖိုင်လ်အတွက် အကြံပြုထားသည့် အမည်"
+msgstr "ဒေါင်းလုတ်ရယူထားသော ဖိုင်အတွက် အကြံပြုထားသည့် အမည်"
 
 #: kioexec/main.cpp:317
 #, kde-format
@@ -4150,141 +4089,51 @@ msgstr "ဆောင်ရွက်ရန်အမိန့်"
 #: kioexec/main.cpp:318
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်လ်"
+msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်"
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "%1 အတွက် အေစီအယ်လ်သတ်မှတ်နေသည်"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1အတွက် ခွင့်ပြုချက်များကို ပြောင်းလဲမရပါ"
 
-#: kioworkers/file/file.cpp:749
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#: kioworkers/file/file.cpp:658
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "%1အတွက် ပိုင်ဆိုင်မှုကို ပြောင်းလဲမရပါ။"
+msgstr ""
+"အောက်ပါအတွက် ပိုင်ရှင်နှင့်အုပ်စု ပြောင်းမရခဲ့ပါ\n"
+"%1"
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: kioworkers/file/file_unix.cpp:98
-#, kde-format
-msgid "Change File Permissions"
-msgstr "ဖိုင်လ်ခွင့်ပြုချက်များပြောင်းမည်"
-
-#: kioworkers/file/file_unix.cpp:99
-#, kde-format
-msgid "New Permissions: %1"
-msgstr "ခွင့်ပြုချက်အသစ်များ - %1"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr "ဖိုင်လ်ပိုင်ရှင်ပြောင်းမည်"
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr "ပိုင်ရှင်သစ် - UID=%1၊ GID=%2"
-
-#: kioworkers/file/file_unix.cpp:106
-#, kde-format
-msgid "Remove File"
-msgstr "ဖိုင်လ်ဖယ်ရှားမည်"
-
-#: kioworkers/file/file_unix.cpp:109
-#, kde-format
-msgid "Remove Directory"
-msgstr "ဒါရိုက်ထရီဖယ်ရှားမည်"
-
-#: kioworkers/file/file_unix.cpp:112
-#, kde-format
-msgid "Create Directory"
-msgstr "ဒါရိုက်ထရီတည်ဆောက်ရန်"
-
-#: kioworkers/file/file_unix.cpp:113
-#, kde-format
-msgid "Directory Permissions: %1"
-msgstr "ဒါရိုက်ထရီခွင့်ပြုချက်များ - %1"
-
-#: kioworkers/file/file_unix.cpp:116
-#, kde-format
-msgid "Open File"
-msgstr "ဖိုင်လ်ဖွင့်မည်"
-
-#: kioworkers/file/file_unix.cpp:119
-#, kde-format
-msgid "Open Directory"
-msgstr "ဒါရိုက်ထရီဖွင့်မည်"
-
-#: kioworkers/file/file_unix.cpp:123
-#, kde-format
-msgid "New Filename: %1"
-msgstr "ဖိုင်လ်အမည်သစ် - %1"
-
-#: kioworkers/file/file_unix.cpp:127
-#, kde-format
-msgid "Target: %1"
-msgstr "ပစ်မှတ် - %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr "အချိန်မှတ်သားချက်ပြောင်းမည်"
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr "မှ- %1၊ သို့- %2"
-
-#: kioworkers/file/file_unix.cpp:137
-#, kde-format
-msgid "Unknown Action"
-msgstr "မသိသော လုပ်ဆောင်ချက်"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-"လုပ်ဆောင်ချက်- %1\n"
-"မူလဇစ်မြစ် %2\n"
-"%3"
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "%1 မှ %2 သို့ ဖိုင်လ်ကူးယူမရပါ။ (အမှားနံပါတ် - %3)"
+msgstr "%1 မှ %2 သို့ ဖိုင်ကူးယူမရပါ။ (အမှားနံပါတ် - %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1အတွက် စက်တွင် မီဒီယာမရှိပါ"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ပေးထားသော အသုံးပြုသူအမည် %1 အတွက် အသုံးပြုသူအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ပေးထားသော အုပ်စုအမည် %1 အတွက် အုပ်စုအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
@@ -4387,7 +4236,7 @@ msgstr "%1 အတွက် ဒိုကူမန်တေးရှင်း မ�
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "မှန်ကန်သာဖိုင်လ် ရှာဖွေနေသည်"
+msgstr "မှန်ကန်သာဖိုင် ရှာဖွေနေသည်"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
@@ -4397,7 +4246,7 @@ msgstr "မှတ်တမ်းစာအုပ် ပြင်ဆင်နေ�
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
 #, kde-format
 msgid "The requested help file could not be parsed:<br />%1"
-msgstr "တောင်းဆိုထားသော အကူအညီဖိုင်လ်ကို အဓိပ္ပာယ်ရှိအောင် မလုပ်နိုင်ခဲ့ပါ-<br />%1"
+msgstr "တောင်းဆိုထားသော အကူအညီဖိုင်ကို အဓိပ္ပာယ်ရှိအောင် မလုပ်နိုင်ခဲ့ပါ-<br />%1"
 
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
@@ -4417,7 +4266,7 @@ msgstr "အပိုင်းရှာဖွေနေသည်"
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "%2 တွင် ဖိုင်လ်အမည် %1 ရှာမတွေ့ပါ။"
+msgstr "%2 တွင် ဖိုင်အမည် %1 ရှာမတွေ့ပါ။"
 
 #: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
@@ -4458,43 +4307,43 @@ msgstr "ကိုယ်ပိုင်လက္ခဏာတန်ဖိုးမ
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
-msgstr "တောင်းဆိုထားသောဖိုလ်ဒါ တည်ဆောက်ရန်"
+msgstr "တောင်းဆိုထားသောဖိုင်တွဲ တည်ဆောက်ရန်"
 
 #: kioworkers/http/http.cpp:1352
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ကူးယူရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ကူးယူရန်"
 
 #: kioworkers/http/http.cpp:1354
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ရွေ့ရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ရွေ့ရန်"
 
 #: kioworkers/http/http.cpp:1356
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုလ်ဒါတွင် ရှာရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်တွဲတွင် ရှာရန်"
 
 #: kioworkers/http/http.cpp:1358
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို သော့ခတ်ရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို သော့ခတ်ရန်"
 
 #: kioworkers/http/http.cpp:1360
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို သော့ဖွင့်ရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို သော့ဖွင့်ရန်"
 
 #: kioworkers/http/http.cpp:1362
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ဖျက်ရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ဖျက်ရန်"
 
 #: kioworkers/http/http.cpp:1364
 #, kde-format
@@ -4506,13 +4355,13 @@ msgstr "ဆာဗာ၏စွမ်းဆောင်ရည်ကို စု�
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါ၏ ပါဝင်ဒေတာများကို ရယူရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲ၏ ပါဝင်ဒေတာများကို ရယူရန်"
 
 #: kioworkers/http/http.cpp:1368
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုလ်ဒါကို အစီအရင်ခံစာတင်ရန်"
+msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်တွဲကို အစီအရင်ခံစာတင်ရန်"
 
 #: kioworkers/http/http.cpp:1376
 #, kde-format
@@ -4539,8 +4388,7 @@ msgstr "%1 ကို ဆောင်ရွက်ဖို့ကြိုးပ�
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
-msgstr ""
-"တစ်ခု၊ တစ်ခုထက်ပိုသော ကြားခံဖိုလ်ဒါများ မတည်ဆောက်ရသေးမီ ရင်းမြစ်ကို ဦးတည်နေရာတွင် မဖန်တီးနိုင်ပါ။"
+msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ကြားခံဖိုင်တွဲများ မတည်ဆောက်ရသေးမီ ရင်းမြစ်ကို ဦးတည်နေရာတွင် မဖန်တီးနိုင်ပါ။"
 
 #: kioworkers/http/http.cpp:1457
 #, kde-format
@@ -4553,8 +4401,8 @@ msgid ""
 msgstr ""
 "ဆာဗာသည် propertybehavior XML element တွင် စာရင်းပြထားသော ကိုယ်ပိုင်လက္ခဏာများ\n"
 "၏ရှင်သန်မှုကို ထိန်းမထားနိုင်ပါ\n"
-"သို့မဟုတ် သင်သည် ဖိုင်လ်ထပ်မရေးထားဖို့ တောင်းခံနေစဥ်\n"
-"ဖိုင်လ်ကိုထပ်ရေးရန်ကြံခဲ့သည်\n"
+"သို့မဟုတ် သင်သည် ဖိုင်ထပ်မရေးထားဖို့ တောင်းခံနေစဥ်\n"
+"ဖိုင်ကိုထပ်ရေးရန်ကြံခဲ့သည်\n"
 "%1"
 
 #: kioworkers/http/http.cpp:1465
@@ -4584,7 +4432,7 @@ msgctxt "%1: request type"
 msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
-msgstr "ဦးတည်ဆာဗာမှ ဖိုင်လ် သို့ ဖိုလ်ဒါ လက်ခံရန် ငြင်းဆိုသဖြင့် %1 မလုပ်နိုင်ခဲ့ပါ။"
+msgstr "ဦးတည်ဆာဗာမှ ဖိုင် သို့ ဖိုင်တွဲ လက်ခံရန် ငြင်းဆိုသဖြင့် %1 မလုပ်နိုင်ခဲ့ပါ။"
 
 #: kioworkers/http/http.cpp:1496 kioworkers/http/http.cpp:1609
 #, kde-format
@@ -4631,7 +4479,7 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"ဒါရိုက်ထရီ %1 မရှိတော့ပါ။ ဤအိုင်တမ်ကို နဂိုနေရာ ပြန်ပို့ရန် မဖြစ်နိုင်တော့ပါ။ ထိုဒါရိုက်ထရီကို ပြန်တည်ဆောက်၍ "
+"ဖိုင်တွဲ %1 မရှိတော့ပါ။ ဤအိုင်တမ်ကို နဂိုနေရာ ပြန်ပို့ရန် မဖြစ်နိုင်တော့ပါ။ ထိုဖိုင်တွဲကို ပြန်တည်ဆောက်၍ "
 "ပြန်ကြိုးစားကြည့်ပါ သို့မဟုတ် ၎င်းအိုင်တမ်ကို ကြိုက်သည့်နေရာသို့ ဆွဲသွားပြီး ထားပါ။"
 
 #: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
@@ -4642,7 +4490,7 @@ msgstr "လုပ်ရိုးလုပ်ထုံးများ၏ မမ�
 #: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr "ဤဖိုင်လ်သည် အမှိုက်ပုံထဲ ရောက်နှင့်ပြီးဖြစ်သည်။"
+msgstr "ဤဖိုင်သည် အမှိုက်ပုံထဲ ရောက်နှင့်ပြီးဖြစ်သည်။"
 
 #: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
@@ -4662,7 +4510,7 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "ကေဒီအီးအမှိုက်ပုံး ကိုင်တွယ်ရန် အကူအညီပရိုဂရမ်\n"
-"မှတ်ချက် - အမှိုက်ပုံးသို့ ဖိုင်လ်များ ရွေ့ရန် ktrash မသုံးပါနှင့်။ \"kioclient move 'url' trash:/\" "
+"မှတ်ချက် - အမှိုက်ပုံးသို့ ဖိုင်များ ရွေ့ရန် ktrash မသုံးပါနှင့်။ \"kioclient move 'url' trash:/\" "
 "သုံးရန်။"
 
 #: kioworkers/trash/ktrash.cpp:31
@@ -4673,7 +4521,7 @@ msgstr "အမှိုက်ပုံးရှင်း"
 #: kioworkers/trash/ktrash.cpp:33
 #, kde-format
 msgid "Restore a trashed file to its original location"
-msgstr "အမှိုက်ပုံးသို့ ပို့ထားသောာ ဖိုင်လ်အား ၎င်း၏နဂိုနေရာသို့ ပြန်ပို့မည်"
+msgstr "အမှိုက်ပုံးသို့ ပို့ထားသောာ ဖိုင်အား ၎င်း၏နဂိုနေရာသို့ ပြန်ပို့မည်"
 
 #: kioworkers/trash/trashimpl.cpp:1337
 #, kde-format
@@ -4724,7 +4572,7 @@ msgstr "ရှာဖွေခြင်းဝန်ဆောင်မှုပေ
 #: urifilters/shorturi/kshorturifilter.cpp:247
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
-msgstr "<qt><b>%1</b> ၌ အိမ်ဖိုလ်ဒါ မရှိပါ။</qt>"
+msgstr "<qt><b>%1</b> ၌ အိမ်ဖိုင်တွဲ မရှိပါ။</qt>"
 
 #: urifilters/shorturi/kshorturifilter.cpp:249
 #, kde-format
@@ -4810,7 +4658,7 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"အောက်ပါကွက်လပ်ထဲသို့ ပေါင်းလဒ်စစ်တမ်းကို ကူးယူ၍ပွားထည့်ပါ။<br/> ပေါင်းလဒ်စစ်တမ်းအား ဒီဖိုင်လ်ကို "
+"အောက်ပါကွက်လပ်ထဲသို့ ပေါင်းလဒ်စစ်တမ်းကို ကူးယူ၍ပွားထည့်ပါ။<br/> ပေါင်းလဒ်စစ်တမ်းအား ဒီဖိုင်ကို "
 "သင်ဒေါင်းလုတ်ရယူထားသော ဝက်ဘ်ဆိုက်မှ ပေးထားလေ့ရှိသည်။"
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
@@ -4887,12 +4735,10 @@ msgid "&Move Here"
 msgstr "&Mဤနေရာသို့ရွေ့ယူရန်"
 
 #: widgets/dropjob.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "ဒေါင်းလုတ်"
+msgstr "ဤတွင်&ဒေါင်းလုတ်ဆွဲပါ"
 
 #: widgets/dropjob.cpp:316
 #, kde-format
@@ -4905,56 +4751,52 @@ msgid "&Link Here"
 msgstr "&Lဤနေရာသို့လင့်ခ်ချိတ်ရန်"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "%1 လွှင်တင်နေသည်"
+msgstr "&လွှင်တင်နေသည်"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "လုပ်ဆောင်ဖိုင်များကိုမမေးဘဲလွှင့်တင်မည်"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "မမေးဘဲ လုပ်ဆောင်ဖိုင်များကို မူလသတ်မှတ်ချက်အပ္ပလီကေးရှင်းတွင်ဖွင့်မည်"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
 msgid "What do you wish to do with this file?"
-msgstr "ဤဖိုင်လ်ကို သင်ဘာလုပ်ချင်သလဲ။"
+msgstr "ဤဖိုင်ကို သင်ဘာလုပ်ချင်သလဲ။"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
-msgstr "&Oဖွင့်"
+msgstr "&ဖွင့်"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
-msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
+msgstr "%1 ဖြင့်&ဖွင့်ရန်"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "ဤဖိုင်လ်ကို သင်ဘာလုပ်ချင်သလဲ။"
+msgstr "ဤဖိုင်ကို လွှင့်တင်ချင်ပါသလား။"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "လုပ်ဆောင်ဖိုင်အားလုံးအတွက်မှတ်ထားမည်"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4962,7 +4804,7 @@ msgstr ""
 msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
+msgstr "ဤပြောင်းလဲချက်ကို လင်းပိုင်ဖိုင်မန်နေဂျာသတ်မှတ်ချက်တွင် ပြန်ပြင်နိုင်သည်။"
 
 #: widgets/fileundomanager.cpp:123
 #, kde-format
@@ -4978,7 +4820,7 @@ msgstr "ဤလုပ်ဆောင်ချက်ကို ပြန်ဆု�
 #: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Creating directory"
-msgstr "ဒါရိုက်ထရီဖန်တီးနေသည်"
+msgstr "ဖိုင်တွဲဖန်တီးနေသည်"
 
 #: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
 #, kde-format
@@ -4991,9 +4833,7 @@ msgid "Destination"
 msgstr "ဦးတည်နေရာ"
 
 #: widgets/fileundomanager.cpp:136
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "ကူးယူနေသည်"
 
@@ -5008,10 +4848,9 @@ msgid "Renaming"
 msgstr "အမည်ပြောင်းနေသည်"
 
 #: widgets/fileundomanager.cpp:152
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "အမှိုက်ပုံးသို့ရွေ့ယူရန်"
+msgstr "အမှိုက်ပုံးသို့ ပစ်နေသည်"
 
 #: widgets/fileundomanager.cpp:157
 #, kde-format
@@ -5051,17 +4890,17 @@ msgstr "&ပြန်ဆုတ် -အမှိုက်ပုံး"
 #: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Create Folder"
-msgstr "&oဖိုလ်ဒါတည်ဆောက်ခြင်းပြန်ဆုတ်"
+msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
 #: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "&oဖိုလ်ဒါတည်ဆောက်ခြင်းပြန်ဆုတ်"
+msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
 #: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "&oဖိုင်လ်ဖန်တီးခြင်းပြန်ဆုတ်"
+msgstr "&oဖိုင်ဖန်တီးခြင်းပြန်ဆုတ်"
 
 #: widgets/fileundomanager.cpp:353
 #, kde-format
@@ -5071,61 +4910,52 @@ msgstr "&oအစုလိုက်အပုံလိုက်အမည်ပြ�
 #: widgets/fileundomanager.cpp:362
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:368
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&oကူးယူခြင်းပြန်ဆုတ်"
+msgstr "ကူးယူချက်-&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&oလင့်ခ်လုပ်ခြင်းပြန်ဆုတ်"
+msgstr "ကွင်းဆက်ချိတ်-&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:372
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&oရွေ့ပြောင်းခြင်းပြန်ဆုတ်"
+msgstr "ရွှေ့ပြောင်းမှု-&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:374
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&oအမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
+msgstr "အမည်ပြောင်းမှု-&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:376
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&ပြန်ဆုတ် -အမှိုက်ပုံး"
+msgstr "အမှိုက်ပစ်မှု-&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:378
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&oဖိုလ်ဒါတည်ဆောက်ခြင်းပြန်ဆုတ်"
+msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:380
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&oဖိုလ်ဒါတည်ဆောက်ခြင်းပြန်ဆုတ်"
+msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:382
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&oဖိုင်လ်ဖန်တီးခြင်းပြန်ဆုတ်"
+msgstr "ဖိုင်ဖန်တီးမှု -&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:384
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&oအစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
+msgstr "အစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
 #: widgets/fileundomanager.cpp:907
 #, kde-format
@@ -5135,14 +4965,14 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
-"ဖိုင်လ် %1 ကို %2 မှကူးယူခဲ့သည်။ ထို့နောက် သိရသရွေ့ ၎င်းအာ %3 ၌ မွမ်းမံခံခဲ့ရသည်။\n"
+"ဖိုင် %1 ကို %2 မှကူးယူခဲ့သည်။ ထို့နောက် သိရသရွေ့ ၎င်းအာ %3 ၌ မွမ်းမံခံခဲ့ရသည်။\n"
 "ကူးယူမှုကို ပြန်ဆုတ်ပါက ဖိုင်ကို ဖျက်ပစ်မည်ဖြစ်၍ မွမ်းမံချက်အားလုံး ပျောက်ဆုံးကုန်မည်။\n"
 "%4 ကို ဖျက်မှာ သေချာပြီလား။"
 
 #: widgets/fileundomanager.cpp:917
 #, kde-format
 msgid "Undo File Copy Confirmation"
-msgstr "ဖိုင်လ်ကူးယူမှုအတည်ပြုခြင်းပြန်ဆုတ်ရန်"
+msgstr "ဖိုင်ကူးယူမှုအတည်ပြုခြင်းပြန်ဆုတ်ရန်"
 
 #: widgets/jobuidelegate.cpp:230
 #, kde-kuit-format
@@ -5164,8 +4994,7 @@ msgstr "အမြဲတမ်းအတွက်ဖျက်ရန်"
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "အမြဲတမ်းအတွက်ဖျက်ရန်"
@@ -5217,15 +5046,13 @@ msgstr[0] "ဤအိုင်တမ် %1ခုကို အမှိုက်�
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "ထည့်…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&Eတည်းဖြတ်…"
+msgstr "&တည်းဖြတ်…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5281,7 +5108,7 @@ msgstr "စာရင်းမှတ်ချက် အမျိုးအစာ�
 #: widgets/kacleditwidget.cpp:394
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "ဤဖိုလ်ဒါအတွင်းရှိ ဖိုင်လ်အသစ်များအတွက် မူလသတ်မှတ်ချက်"
+msgstr "ဤဖိုင်တွဲအတွင်းရှိ ဖိုင်အသစ်များအတွက် မူလသတ်မှတ်ချက်"
 
 #: widgets/kacleditwidget.cpp:401
 #, kde-format
@@ -5362,10 +5189,9 @@ msgid "Updating System Configuration"
 msgstr "စစ်စတမ်ပြင်ဆင်ချက် အဆင့်မြင့်တင်နေသည်"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
-msgstr "စစ်စတမ်ပြင်ဆင်ချက် အဆင့်မြင့်တင်နေသည်။"
+msgstr "စနစ်ပြင်ဆင်ချက် အဆင့်မြင့်တင်နေသည်။"
 
 #: widgets/kdirmodel.cpp:1262
 #, kde-format
@@ -5427,25 +5253,21 @@ msgid "&Actions"
 msgstr "&Aလုပ်ဆောင်ချက်များ"
 
 #: widgets/kfileitemactions.cpp:705
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
+msgstr "ဖြင့် ဖိုင်တွဲ &ဖွင့်ရန်…"
 
 #: widgets/kfileitemactions.cpp:705
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Oဖြင့်ဖွင့်ရန်"
+msgstr "ဖြင့်&ဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:780
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "%1ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
+msgstr "%1ဖြင့် ဖိုင်တွဲ &Oဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:780
 #, kde-format
@@ -5456,7 +5278,7 @@ msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "ဖြင့် ဖိုလ်ဒါ &Oဖွင့်ရန်"
+msgstr "ဖြင့် ဖိုင်တွဲ &Oဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:821
 #, kde-format
@@ -5465,12 +5287,10 @@ msgid "&Open With"
 msgstr "&Oဖြင့်ဖွင့်ရန်"
 
 #: widgets/kfileitemactions.cpp:832
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Oအခြားအပ္ပလီကေးရှင်း…"
+msgstr "&အခြားအပ္ပလီကေးရှင်း…"
 
 #: widgets/kfileitemdelegate.cpp:217
 #, kde-format
@@ -5525,7 +5345,7 @@ msgstr "အရွယ်အစား -"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "ဖိုင်တွဲအရွယ်အစားဆုံးဖြတ်ရန်"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5537,13 +5357,13 @@ msgstr "ရပ်"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "ဖိုင်တွဲအရွယ်အစားမဆုံးဖြတ်တော့ပါ"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Explore in Filelight"
-msgstr "ဖိုင်လ်လိုက်တွင် စူးစမ်းရန်"
+msgstr "ဖိုင်လိုက်တွင် စူးစမ်းရန်"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
 #: widgets/kfilepropspluginwidget.ui:330
@@ -5553,10 +5373,9 @@ msgstr "ညွှန်ပြသည် -"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "သတ်ိပေးချက် ပြမည်"
+msgstr "ဦးတည်နေရာပြရန်"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5628,19 +5447,19 @@ msgstr ""
 #: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr "ရွေးချယ်ထားသောဖိုင်လ်များကိုဖွင့်ရန် ပရိုဂရမ်အမည်ရွေးပါ။"
+msgstr "ရွေးချယ်ထားသောဖိုင်များကိုဖွင့်ရန် ပရိုဂရမ်အမည်ရွေးပါ။"
 
 #: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
-msgstr "<qt>ဖိုင်လ် %1<br/>ကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
+msgstr "<qt>ဖိုင် %1<br/>ကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
 
 #: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
-msgstr[0] "<qt>ဖိုင်လ် %1ခုကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
+msgstr[0] "<qt>ဖိုင် %1ခုကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
 
 #: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
@@ -5658,7 +5477,7 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>ဖိုင်လ်အမျိုးအစား <b>%1</b> အတွက် ပရိုဂရမ်ရွေးချယ်မည်။ ပရိုဂရမ်မပြထားလျှင် အမည်ရိုက်ထည့်ပါ သို့ "
+"<qt>ဖိုင်အမျိုးအစား <b>%1</b> အတွက် ပရိုဂရမ်ရွေးချယ်မည်။ ပရိုဂရမ်မပြထားလျှင် အမည်ရိုက်ထည့်ပါ သို့ "
 "ရှောက်ကြည့်မည် ခလုတ်ကို နှိပ်ပါ။</qt>"
 
 #: widgets/kopenwithdialog.cpp:630
@@ -5695,12 +5514,12 @@ msgid ""
 "%c - the comment"
 msgstr ""
 "အမိန့်နောက်တွင် ပရိုဂရမ််လုပ်ဆောင်သည့်အခါ တကယ့်တန်ဖိုးနှင့် အစားထိုးခံရမည့် နေရာယူမှု အများအပြား လိုက်နိုင်သည်-\n"
-"%f - ဖိုင်လ်အမည်တစ်ခု\n"
-"%F - ဖိုင်လ်စာရင်း၊ စက်တွင်းဖိုင်လ်အများအပြားကို တစ်ပြိုင်နက်ဖွင့်နိုင်သည့် အပ္ပလီကေးရှင်းများတွင်သုံးသည်\n"
+"%f - ဖိုင်အမည်တစ်ခု\n"
+"%F - ဖိုင်စာရင်း၊ စက်တွင်းဖိုင်အများအပြားကို တစ်ပြိုင်နက်ဖွင့်နိုင်သည့် အပ္ပလီကေးရှင်းများတွင်သုံးသည်\n"
 "%u - ယူအာအယ်လ်တစ်ခု\n"
 "%U - ယူအာအယ်လ်စာရင်း\n"
-"%d - ဖွင့်ရမည့်ဖိုင်လ်၏ ဒါရိုက်ထရီ\n"
-"%D - ဒါရိုက်ထရီ စာရင်း\n"
+"%d - ဖွင့်ရမည့်ဖိုင်၏ ဖိုင်တွဲ\n"
+"%D - ဖိုင်တွဲ စာရင်း\n"
 "%i - အိုင်ကွန်\n"
 "%m - အိုင်ကွန်အငယ်\n"
 "%c - မှတ်ချက်"
@@ -5711,7 +5530,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"ဖိုင်လ်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
+"ဖိုင်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:744
@@ -5720,7 +5539,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"အောက်ပါဖိုင်လ်အမျိုးအစားနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း &Rမှတ်ထားမည်\n"
+"အောက်ပါဖိုင်အမျိုးအစားနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း &Rမှတ်ထားမည်\n"
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:754
@@ -5811,7 +5630,7 @@ msgid ""
 "required to use this option."
 msgstr ""
 "ဤအပ္ပလီကေးရှင်းကို အခြားအသုံးပြုသူအိုင်ဒီဖြင့် မောင်းနှင်လိုပါက အမှန်ခြစ်ပါ။ ဖြစ်စဥ်တိုင်းတွင် ၎င်းတို့နှင့်သက်ဆိုင်သည့် "
-"အသုံးပြုသူအိုင်ဒီပါရှိသည်။ ယင်းအိုင်ဒီုကုတ်နံပါတ်ကို သုံး၍ ဖိုင်လ်အသုံးပြုခွင့်နှင့် အခြားခွင့်ပြုချက်များကို ဆုံးဖြတ်သည်။ "
+"အသုံးပြုသူအိုင်ဒီပါရှိသည်။ ယင်းအိုင်ဒီုကုတ်နံပါတ်ကို သုံး၍ ဖိုင်အသုံးပြုခွင့်နှင့် အခြားခွင့်ပြုချက်များကို ဆုံးဖြတ်သည်။ "
 "ဤအချက်ကို သုံးရန် အသုံးပြုသူ၏စကားဝှက် လိုအပ်သည်။"
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -5889,38 +5708,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) အတွက်ဆို "
-"\"ဖုန်းခေါ်ကိရိယာ\"။"
+"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်းကို ယေဘုယျအမည်ရေးပေးပါ။ သာဓက။ ။ ပုံကြည့်အပ် အတွက်ဆို \"ပုံကြည့်ကိရိယာ"
+"\"။"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Gယေဘုယျ"
+msgstr "&ယေဘုယျအမည်"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) အတွက်ဆို "
-"\"ဖုန်းခေါ်ကိရိယာ\"။"
+"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်းကို ဖော်ပြချက်ရေးပေးပါ။ သာဓက။ ။ ပုံကြည့်အပ် အတွက်ဆို \"ပုံများ "
+"တည်းဖြတ်၊ကြည့်ရှုရန်အတွက်\"။"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5930,18 +5741,16 @@ msgstr "&eမှတ်ချက် -"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Show the &value of the environment variables"
+#, kde-format
 msgid "Environment variables:"
-msgstr "&vစစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ၏ တန်ဖိုး ပြမည်"
+msgstr "စနစ်ကိန်းရှင်များ-"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:107
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "အပ္ပလီကေးရှင်းကို မောင်းနှင်သူအဖြစ် သင်အသုံးပြုလိုသော အသုံးပြုသူအမည် ရေးသွင်းပါ။"
+msgstr "ဤတွင်အပ္ပလီကေးရှင်းကိုစတင်ရန် အမိန့်ရေးသားပါ"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:95
@@ -5955,7 +5764,7 @@ msgstr "ပရိုဂရမ်-"
 msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
-msgstr "လိုချင်သော လုပ်ဆောင်-ဖိုင်လ်ရှာဖွေရန် သင်၏ဖိုင်လ်စနစ်အတွင်း ရှောက်ကြည့်ဖို့ ဒီနေရာကို နှိပ်ပါ။"
+msgstr "လိုချင်သော လုပ်ဆောင်-ဖိုင်ရှာဖွေရန် သင်၏ဖိုင်စနစ်အတွင်း ရှောက်ကြည့်ဖို့ ဒီနေရာကို နှိပ်ပါ။"
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:117
@@ -5966,20 +5775,7 @@ msgstr "&Bရှောက်ကြည့်…"
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:159
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5996,30 +5792,28 @@ msgid ""
 msgstr ""
 "ဤအပ္ပလီကေးရှင်းကို စတင်ရန် အမိန့် ရိုက်ထည့်ပါ။\n"
 "\n"
-"အမိန့်နောက်တွင် ပရိုဂရမ် မောင်းနှင်ချိန်တွင် တကယ်တန်ဖိုးများနှင့် အစားထိုးမည်ဖြစ်သော "
-"နေရာယူထားမှုအများအပြားလိုက်နိုင်သည်-\n"
+"ပရိုဂရမ်တကယ်မောင်းနှင်ချိန်တွင် တကယ်တန်ဖိုးများဖြင့်အစားထိုးသွားမည်ဖြစ်သည်\n"
 "\n"
-"%f - ဖိုင်လ်အမည်တစ်ခု\n"
-"%F - ဖိုင်လ်စာရင်း (ဖိုင်လ်အများအပြား တစ်ပြိုင်တည်း ဖွင့်နိုင်သည့် ပရိုဂရမ်းများအတွက်သာ)\n"
-"%u - ယူအာအယ်လ်တစ်ခုတည်း\n"
-"%U - ယူအာအယ်လ်စာရင်း\n"
-"%i - .desktop ဖိုင်လ်၏ အိုင်ကွန်\n"
-"%c - .desktop ဖိုင်လ်၏အမည်\n"
-"%k - .desktop ဖိုင်လ်၏တည်နေရာ"
+"%f - ဖိုင်အမည်တစ်ခု\n"
+"%F - ဖိုင်စာရင်း (ဖိုင်အများအပြား တစ်ပြိုင်တည်း ဖွင့်နိုင်သည့် ပရိုဂရမ်းများအတွက်သာ)\n"
+"%u - URLတစ်ခုတည်း\n"
+"%U - URLစာရင်း\n"
+"%i - .desktop ဖိုင်၏ အိုင်ကွန်\n"
+"%c - .desktop ဖိုင်၏အမည်\n"
+"%k - .desktop ဖိုင်၏တည်နေရာ"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:139
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "ပေးချက်များ-"
+msgstr "&ပေးချက်များ-"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
 #: widgets/kpropertiesdesktopbase.ui:166 widgets/kpropertiesdesktopbase.ui:179
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "သင့်အပ္ပလီကေးရှင်းအတွက် အလုပ်လုပ်မည့်နေရာ ဒါရိုက်ထရီသတ်မှတ်ပါ။"
+msgstr "သင့်အပ္ပလီကေးရှင်းအတွက် အလုပ်လုပ်မည့်နေရာ ဖိုင်တွဲသတ်မှတ်ပါ။"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:169
@@ -6047,13 +5841,13 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>ဤစာရင်းသည် သင်၏အပ္ပလီကေးရှင်း ကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစားများကို ပြသင့်သည်။ ယင်းကို "
+"<qt><p>ဤစာရင်းသည် သင်၏အပ္ပလီကေးရှင်း ကိုင်တွယ်နိုင်သော ဖိုင်အမျိုးအစားများကို ပြသင့်သည်။ ယင်းကို "
 "<u>အမ်အိုင်အမ်အီးတိုက်</u> ဖြင့် စုစည်းစီစဥ်ထားသည်။</p>\n"
 "<p> အမ်အိုင်အမ်အီး (MIME)၊ Multipurpose Internet (e)Mail Extensionသည် "
-"ဖိုင်လ်အမည်နောက်တွဲများနှင့် ယင်းတို့၏သက်ဆိုင်ရာ <u>အမ်အိုင်အမ်အီးတိုက်</u>များကို အခြေခံ၍ ဒေတာအမျိုးအစားကို "
-"ခွဲခြားသတ်မှတ်သော စံလုပ်ရိုးလုပ်ထုံးဖြစ်သည်။ သာဓက။ ။ ပန်း.bmp တွင် '.'နောက်မှလာသော ဖိုင်လ်အမည်နောက်တွဲ "
-"\"bmp\" က ယင်းဖိုင်လ်သည် <u>image/x-bmp</u> ပုံရိပ်အမျိုးအစားဖြစ်ကြောင့်ပြသနေသည်။ ဘယ်ဖိုင်လ်ကို "
-"ဘယ်အပ္ပလီကေးရှင်းနှင့် ဖွင့်ရမည်ဆိုသည်ကို သိရှိရန် စစ်စတမ်ကို အပ္ပလီကေးရှင်းတစ်ခုချင်းစီ၏ ဖိုင်လ်အမည်နောက်တွဲနှင့် "
+"ဖိုင်အမည်နောက်တွဲများနှင့် ယင်းတို့၏သက်ဆိုင်ရာ <u>အမ်အိုင်အမ်အီးတိုက်</u>များကို အခြေခံ၍ ဒေတာအမျိုးအစားကို "
+"ခွဲခြားသတ်မှတ်သော စံလုပ်ရိုးလုပ်ထုံးဖြစ်သည်။ သာဓက။ ။ ပန်း.bmp တွင် '.'နောက်မှလာသော ဖိုင်အမည်နောက်တွဲ "
+"\"bmp\" က ယင်းဖိုင်သည် <u>image/x-bmp</u> ပုံရိပ်အမျိုးအစားဖြစ်ကြောင့်ပြသနေသည်။ ဘယ်ဖိုင်ကို "
+"ဘယ်အပ္ပလီကေးရှင်းနှင့် ဖွင့်ရမည်ဆိုသည်ကို သိရှိရန် စစ်စတမ်ကို အပ္ပလီကေးရှင်းတစ်ခုချင်းစီ၏ ဖိုင်အမည်နောက်တွဲနှင့် "
 "အမ်အိုင်အမ်အီးတိုက်များကို ကိုင်တွယ်နိုင်စွမ်းအကြောင်းအား အသိပေးထားရမည်။</p>\n"
 "<p>ဤအပ္ပလီကေးရှင်းကို စာရင်းတွင်မပါသော အမ်အိုင်အမ်အီးတိုက်များနှင့် ပတ်သက်စေလိုပါက အောက်ပါ <b>ထည့်မည်</b> "
 "ခလုတ်ကို နှိပ်ပါ။ ၎င်း မကိုင်တွယ်နိုင်သော အမ်အိုင်အမ်အီးတိုက်များ စာရင်းတွင်ပါပါက ထုတ်ပစ်ရန် <b>ဖယ်မည်</b> "
@@ -6083,7 +5877,7 @@ msgstr "ဖော်ပြချက်"
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
-msgstr "သင်၏အပ္ပလီကေးရှင်းကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype) ထည့်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
+msgstr "သင်၏အပ္ပလီကေးရှင်းကိုင်တွယ်နိုင်သော ဖိုင်အမျိုးအစား(mimetype) ထည့်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -6098,7 +5892,7 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"သင်၏အပ္ပလီကေးရှင်း မကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype)ကို ဖယ်ရှားချင်ပါက အထက်ပါစာရင်းမှ "
+"သင်၏အပ္ပလီကေးရှင်း မကိုင်တွယ်နိုင်သော ဖိုင်အမျိုးအစား(mimetype)ကို ဖယ်ရှားချင်ပါက အထက်ပါစာရင်းမှ "
 "ရွေးချယ်ပြီး ဤခလုတ်ကို နှိပ်ပါ။"
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
@@ -6149,7 +5943,7 @@ msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"အောက်ပါဖိုင်လ်သို့ လုံလောက်သော ရေးခွင့်မရှိမှုကြောင့် ကိုယ်ပိုင်လက္ခဏာများ မသိမ်းဆည်းနိုင်ခဲ့ပါ -<nl/><filename>"
+"အောက်ပါဖိုင်သို့ လုံလောက်သော ရေးခွင့်မရှိမှုကြောင့် ကိုယ်ပိုင်လက္ခဏာများ မသိမ်းဆည်းနိုင်ခဲ့ပါ -<nl/><filename>"
 "%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:232
@@ -6159,12 +5953,10 @@ msgid "&General"
 msgstr "&Gယေဘုယျ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "ဖိုင်အမည်ရေးပါ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6182,16 +5974,14 @@ msgstr "အသစ်တင်မည်"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "ပစ်မှတ်နေရာရေးရန်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "<filename>%1</filename>ကို မကူးပြောင်းနိုင်ပါ"
+msgstr "<filename>%1</filename>ပြပါ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6218,14 +6008,14 @@ msgstr ""
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
-msgstr[0] "ဖိုင်လ် %1ခု"
+msgstr[0] "ဖိုင် %1ခု"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:700
 #: widgets/kpropertiesdialogbuiltin_p.cpp:715
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
-msgstr[0] "လက်အောက်ခံ-ဖိုလ်ဒါ %1ခု"
+msgstr[0] "လက်အောက်ခံ-ဖိုင်တွဲ %1ခု"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:728
 #, kde-format
@@ -6240,12 +6030,12 @@ msgstr "အနည်းဆုံး %1\n"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:797
 #, kde-format
 msgid "The new file name is empty."
-msgstr "ဖိုင်လ်အသစ်၏အမည်သည် ဗလာဖြစ်နေသည်။"
+msgstr "ဖိုင်အသစ်၏အမည်သည် ဗလာဖြစ်နေသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:995
 #, kde-format
 msgid "No registered file type"
-msgstr "မှတ်တမ်းမတင်ထားသောဖိုင်လ်အမျိုးအစား"
+msgstr "မှတ်တမ်းမတင်ထားသောဖိုင်အမျိုးအစား"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:997
 #, kde-format
@@ -6268,7 +6058,7 @@ msgstr "ပြောင်းမည်…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "\"%1\"အမျိုးအစားဖိုင်များဖွင့်ရန် သတ်မှတ်ထားသောအပ္ပလီကေးရှင်း ပြောင်းသည်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -6315,7 +6105,7 @@ msgstr "အသုံးပြုခွင့်ပေးချက်များ
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] "ဖိုင်လ်သည် လင့်ခ်ဖြစ်ပြီး ခွင့်ပြုချက်များ မရှိပါ။"
+msgstr[0] "ဖိုင်သည် လင့်ခ်ဖြစ်ပြီး ခွင့်ပြုချက်များ မရှိပါ။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1204
 #, kde-format
@@ -6356,28 +6146,24 @@ msgstr ""
 "ခွင့်ပြုထားသော (ပိုင်ရှင် မဟုတ်သည့်၊ အုပ်စုထဲတွင် မပါဝင်သည့်) အခြားအသုံးပြုသူများ၏ လုပ်ဆောင်မှုများ သတ်မှတ်မည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "ဖိုလ်ဒါ၏ပါဝင်ဒေတာကို ပိုင်ရှင်သာ အမည်ပြောင်း၊ ဖျက်နိုင်သည်။"
+msgstr "ပိုင်&ရှင်သာ ဖျက်နိုင် အမည်ပြောင်းနိုင်သည်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "ဖိုင်လ်ကို ပရိုဂရမ်အဖြစ်ဆောင်ရွက်ခွင့်ပြုရန် ဤအလံကို ဖွင့်ပါ။"
+msgstr "ပရိုဂရမ်အဖြစ်ကို &လုပ်ဆောင်ရန် ခွင့်ပြုမည်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1230
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "မူလသတ်မှတ်သော အသုံးပြုသူအမည် -"
+msgstr "ဖျက် သို့ အမည်ပြောင်း-"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1230
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "&Eဆောင်ရွက်ရန်"
+msgstr "ဆောင်ရွက်-"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1231
 #, kde-format
@@ -6386,8 +6172,8 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"ဤအချက်ကို အသုံးပြုပါက ဖိုလ်ဒါပိုင်ရှင်ကိုသာ ပါဝင်ဖိုင်လ်၊ ဖိုလ်ဒါများ ဖျက်ခြင်း၊ အမည်ပြောင်းခြင်းတို့ကို "
-"ခွင့်ပြုမည်။ အခြားအသုံးပြုသူများအနေဖြင့် 'ပါဝင်ဒေတာမွမ်းမံမည်' ခွင့်ပြုချက်ရှိလျှင် ဖိုင်လ်အသစ်များ ထည့်နိုင်သည်။"
+"ဤအချက်ကို အသုံးပြုပါက ဖိုင်တွဲပိုင်ရှင်ကိုသာ ပါဝင်ဖိုင်၊ ဖိုင်တွဲများ ဖျက်ခြင်း၊ အမည်ပြောင်းခြင်းတို့ကို ခွင့်ပြုမည်။ "
+"အခြားအသုံးပြုသူများအနေဖြင့် 'ပါဝင်ဒေတာမွမ်းမံမည်' ခွင့်ပြုချက်ရှိလျှင် ဖိုင်အသစ်များ ထည့်နိုင်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1235
 #, kde-format
@@ -6395,8 +6181,8 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"ဖိုင်လ်ကို လုပ်ဆောင်-ဖိုင်လ် အဖြစ် မှတ်သားရန် ဤအချက်ကို အသုံးပြုပါ။ ယင်းအချက်သည် ပရိုဂရမ်နှင့် "
-"ညွှန်ကြားစာဖိုင်လ်များ အတွက်သာ အသုံးဝင်သည်။ ထိုအရာများကို လုပ်ဆောင်ချင်သောအခါ ယင်းအချက်ကို လိုအပ်သည်။"
+"ဖိုင်ကို လုပ်ဆောင်-ဖိုင် အဖြစ် မှတ်သားရန် ဤအချက်ကို အသုံးပြုပါ။ ယင်းအချက်သည် ပရိုဂရမ်နှင့် ညွှန်ကြားစာဖိုင်များ "
+"အတွက်သာ အသုံးဝင်သည်။ ထိုအရာများကို လုပ်ဆောင်ချင်သောအခါ ယင်းအချက်ကို လိုအပ်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1239
 #, kde-format
@@ -6421,7 +6207,7 @@ msgstr "အုပ်စု -"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1327
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
-msgstr "ပြောင်းလဲမှုများကို လက်အောက်ခံဖိုလ်ဒါများနှင့် ယင်းတို့၏အကြောင်းအရာများအား သက်ရောက်စေမည်"
+msgstr "ပြောင်းလဲမှုများကို လက်အောက်ခံဖိုင်တွဲများနှင့် ယင်းတို့၏အကြောင်းအရာများအား သက်ရောက်စေမည်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
@@ -6445,7 +6231,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
-msgstr "ဤအလံသည် ဖိုင်လ်၏ပါဝင်ဒေတာများကို ကြည့်ခွင့်ပြုသည်။"
+msgstr "ဤအလံသည် ဖိုင်၏ပါဝင်ဒေတာများကို ကြည့်ခွင့်ပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
@@ -6455,7 +6241,7 @@ msgstr "ဖတ်"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1401
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
-msgstr "'ဖတ်' အလံသည် ဖိုင်လ်၏ပါဝင်ဒေတာများကို ကြည့်ခွင့်ပြုသည်။"
+msgstr "'ဖတ်' အလံသည် ဖိုင်၏ပါဝင်ဒေတာများကို ကြည့်ခွင့်ပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1407
 #, kde-format
@@ -6472,7 +6258,7 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"ဤအလံသည် ဖိုင်လ်များ အသစ်ဖြည့်ခြင်း၊ အမည်ပြောင်းခြင်းနှင့် ဖျက်ခြင်းစသည်တို့ကို ခွင့်ပြုသည်။ ဖျက်ခြင်းနှင့် "
+"ဤအလံသည် ဖိုင်များ အသစ်ဖြည့်ခြင်း၊ အမည်ပြောင်းခြင်းနှင့် ဖျက်ခြင်းစသည်တို့ကို ခွင့်ပြုသည်။ ဖျက်ခြင်းနှင့် "
 "အမည်ပြောင်းခြင်းကိုတော့ စေးကပ်အလံ သုံး၍ ကန့်သတ်နိုင်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1412
@@ -6483,7 +6269,7 @@ msgstr "ရေး"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1413
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
-msgstr "'ရေး' အလံသည် ဖိုင်လ်၏ပါဝင်ဒေတာများကို မွမ်းမံခွင့်ပြုသည်။"
+msgstr "'ရေး' အလံသည် ဖိုင်၏ပါဝင်ဒေတာများကို မွမ်းမံခွင့်ပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
@@ -6494,7 +6280,7 @@ msgstr "ဝင်ရန်"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1420
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
-msgstr "ဖိုလ်ဒါအတွင်းဝင်ရောက်ခွင့်ပြုရန် ဤအလံကို ဖွင့်ပါ။"
+msgstr "ဖိုင်တွဲအတွင်းဝင်ရောက်ခွင့်ပြုရန် ဤအလံကို ဖွင့်ပါ။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
@@ -6504,7 +6290,7 @@ msgstr "ဆောင်ရွက်"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "ဖိုင်လ်ကို ပရိုဂရမ်အဖြစ်ဆောင်ရွက်ခွင့်ပြုရန် ဤအလံကို ဖွင့်ပါ။"
+msgstr "ဖိုင်ကို ပရိုဂရမ်အဖြစ်ဆောင်ရွက်ခွင့်ပြုရန် ဤအလံကို ဖွင့်ပါ။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
@@ -6516,7 +6302,7 @@ msgstr "အထူး"
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
-msgstr "အထူးအလံ။ ဖိုလ်ဒါတစ်ခုလုံးအတွက် အကျုံးဝင်သည်။ ယင်းအလံ၏ အဓိပ္ပါယ်အတိအကျကို ညာဘက်တိုင်တွင် တွေ့နိုင်သည်။"
+msgstr "အထူးအလံ။ ဖိုင်တွဲတစ်ခုလုံးအတွက် အကျုံးဝင်သည်။ ယင်းအလံ၏ အဓိပ္ပါယ်အတိအကျကို ညာဘက်တိုင်တွင် တွေ့နိုင်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
@@ -6540,27 +6326,27 @@ msgstr "အုပ်စု"
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
-msgstr "ဤအလံသတ်မှတ်ထားပါက ဤဖိုလ်ဒါ၏ပိုင်ရှင်သည် ဖိုင်လ်အသစ်အားလုံး၏ ပိုင်ရှင်ဖြစ်လာမည်။"
+msgstr "ဤအလံသတ်မှတ်ထားပါက ဤဖိုင်တွဲ၏ပိုင်ရှင်သည် ဖိုင်အသစ်အားလုံး၏ ပိုင်ရှင်ဖြစ်လာမည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1464
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
-msgstr "ဤဖိုင်လ်သည် လုပ်ဆောင်-ဖိုင်လ်ဖြစ်၍ အလံသတ်မှတ်ထားလျှင် ပိုင်ရှင်၏ခွင့်ပြုချက်များနှင့် အညီ လုပ်ဆောင်သွားမည်။"
+msgstr "ဤဖိုင်သည် လုပ်ဆောင်-ဖိုင်ဖြစ်၍ အလံသတ်မှတ်ထားလျှင် ပိုင်ရှင်၏ခွင့်ပြုချက်များနှင့် အညီ လုပ်ဆောင်သွားမည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1471
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
-msgstr "ဤအလံသတ်မှတ်ထားပါက ဤဖိုလ်ဒါ၏အုပ်စုထဲသို့ ဖိုင်လ်အသစ်အားလုံး ပို့မည်။"
+msgstr "ဤအလံသတ်မှတ်ထားပါက ဤဖိုင်တွဲ၏အုပ်စုထဲသို့ ဖိုင်အသစ်အားလုံး ပို့မည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1475
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
-msgstr "ဤဖိုင်လ်သည် လုပ်ဆောင်-ဖိုင်လ်ဖြစ်၍ အလံသတ်မှတ်ထားလျှင် အုပ်စု၏ခွင့်ပြုချက်များနှင့် အညီ လုပ်ဆောင်သွားမည်။"
+msgstr "ဤဖိုင်သည် လုပ်ဆောင်-ဖိုင်ဖြစ်၍ အလံသတ်မှတ်ထားလျှင် အုပ်စု၏ခွင့်ပြုချက်များနှင့် အညီ လုပ်ဆောင်သွားမည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1482
 #, kde-format
@@ -6568,7 +6354,7 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"ဖိုလ်ဒါတစ်ခုအပေါ် စေးကပ်-အလံ သတ်မှတ်ထားလျှင် ပိုင်ရှင်နှင့် rootသာ ၎င်း၏ဖိုင်လ်များကို ဖျက်နိုင်သည်၊ "
+"ဖိုင်တွဲတစ်ခုအပေါ် စေးကပ်-အလံ သတ်မှတ်ထားလျှင် ပိုင်ရှင်နှင့် rootသာ ၎င်း၏ဖိုင်များကို ဖျက်နိုင်သည်၊ "
 "အမည်ပြောင်းနိုင်သည်။ မသတ်မှတ်ထားလျှင် ရေးခွင့် ရထားသော လူတိုင်း ထိုကဲ့သို့ လုပ်နိုင်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1487
@@ -6609,18 +6395,18 @@ msgstr "လှုပ်နေသည်(ပြောင်းလဲချက်�
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "ဖိုင်လ်သည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
+msgstr[0] "ဖိုင်သည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1822
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "ဖိုလ်ဒါသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
+msgstr[0] "ဖိုင်တွဲသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1836
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "ဤဖိုင်လ်များသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
+msgstr "ဤဖိုင်များသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2080
 #, kde-format
@@ -6658,7 +6444,7 @@ msgid ""
 "source of the file."
 msgstr ""
 "<p>ပေါင်းလဒ်စစ်တမ်းများ မကိုက်ပါ။</p>အမှားပါသောဒေါင်းလုတ်တစ်ခုကြောင့်ဖြစ်နိုင်သည်။ ဖိုင်ကို "
-"နောက်တစ်ကြိမ်ဒေါင်းလုတ်ဆွဲကြည့်ပါ။<br/>အကယ်၍ စစ်ဆေးခြင်း မအောင်မြင်လျှင် ဖိုင်လ်ဇစ်မြစ်ကို ဆက်သွယ်ပါ။"
+"နောက်တစ်ကြိမ်ဒေါင်းလုတ်ဆွဲကြည့်ပါ။<br/>အကယ်၍ စစ်ဆေးခြင်း မအောင်မြင်လျှင် ဖိုင်ဇစ်မြစ်ကို ဆက်သွယ်ပါ။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2406
 #, kde-format
@@ -6667,29 +6453,23 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကွဲပြားသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "ဖိုင်လ်များ တစ်ထပ်တည်းကျသည်။"
+msgstr "ဖိုင်များ၏checksums တစ်ထပ်တည်းကျသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "ဖိုင်လ်များ မတူပါ။"
+msgstr "ဖိုင်များ မတူပါ။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "တွက်နေသည်…"
@@ -6710,7 +6490,7 @@ msgstr "ယူအာအယ်လ် -"
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
-"ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်လ်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
+"ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2711
 #, kde-format
@@ -6720,17 +6500,17 @@ msgstr "&Aအပ္ပလီကေးရှင်း"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "%1 အတွက်ဖိုင်လ်အမျိုးအစားထည့်မည်"
+msgstr "%1 အတွက်ဖိုင်အမျိုးအစားထည့်မည်"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2852
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်လ်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
+msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2990
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်လ်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
+msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:3005
 #, kde-format
@@ -6827,29 +6607,26 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ ပြင်ဆင်မည်…"
+msgstr "ဝက်ဘ်ဖြတ်လမ်းများ ပြင်ဆင်မည်…"
 
 #: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
-msgstr "ဖိုင်လ် အပြော-ဝင်းဒိုး ဖွင့်မည်"
+msgstr "ဖိုင် အပြော-ဝင်းဒိုး ဖွင့်မည်"
 
 #: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr "ကလစ်ဘုတ်ပါဝင်ဒေတာအတွက် ဖိုင်လ်အမည် -"
+msgstr "ကလစ်ဘုတ်ပါဝင်ဒေတာအတွက် ဖိုင်အမည် -"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Pဖိုင်လ် %1ခုပွား"
+msgstr "ကူးထည့်ထားသောဖိုင်"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -6864,13 +6641,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "ဖိုလ်ဒါတစ်ခုပွား"
+msgstr "ဖိုင်တွဲတစ်ခုပွား"
 
 #: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "ဖိုင်လ်တစ်ခုပွား"
+msgstr "ဖိုင်တစ်ခုပွား"
 
 #: widgets/paste.cpp:255
 #, kde-format
@@ -6880,11 +6657,10 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "အိုင်တမ် %1ခုပွား"
 
 #: widgets/paste.cpp:257
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "&Pကလစ်ဘုတ်ရှိဒေတာများ ပွားမည်"
+msgstr "ကလစ်ဘုတ်ဒေတာများ ပွားထည့်မည်"
 
 #: widgets/paste.cpp:261
 #, kde-format
@@ -6905,7 +6681,7 @@ msgstr "%1 (%2)"
 #: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr "ပြစ်ချခဲ့သော ဒေတာများအတွက် ဖိုင်လ်အမည် -"
+msgstr "ပြစ်ချခဲ့သော ဒေတာများအတွက် ဖိုင်အမည် -"
 
 #: widgets/renamedialog.cpp:66
 #, kde-format
@@ -6932,7 +6708,7 @@ msgid ""
 msgstr ""
 "ဤအရာကို အမှန်ခြစ်ထားသည့်အခါ နှိပ်ထားသော ခလုတ်ကို လက်ရှိအလုပ်ပြီးဆုံးသည်အထိ နောက်ဖြစ်လာမည့် "
 "အငြင်းပွားမှုများအတွက် သုံးသွားမည်။\n"
-"'ကျော်မည်'ခလုတ်ကို မနှ်ိပ်ထားလျှင် ဒါရိုက်ထရီအတွင်း ရှိပြီးသားဖိုင်လ်နှင့် အငြင်းပွားဖွယ်ဖြစ်ပါက သင်ထံ "
+"'ကျော်မည်'ခလုတ်ကို မနှ်ိပ်ထားလျှင် ဖိုင်တွဲအတွင်း ရှိပြီးသားဖိုင်နှင့် အငြင်းပွားဖွယ်ဖြစ်ပါက သင်ထံ "
 "ဆုံးဖြတ်ချက်တောင်းခံမည်ဖြစ်သည်။"
 
 #: widgets/renamedialog.cpp:236
@@ -6962,12 +6738,12 @@ msgstr "&Sကျော်"
 #: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
-msgstr "ဤဖိုလ်ဒါအား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
+msgstr "ဤဖိုင်တွဲအား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
 
 #: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
-msgstr "ဤဖိုင်လ်အား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
+msgstr "ဤဖိုင်အား ကူးယူခြင်း၊ ရွေ့ပြောင်းခြင်း မလုပ်ပါနှင့်။ နောက်တစ်ခုသို့ ကျော်သွားပါ။"
 
 #: widgets/renamedialog.cpp:263
 #, kde-format
@@ -6983,14 +6759,14 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"ရှိနှင့်ပြီး ဒါရိုက်ထရီအတွင်းသို့ ဖိုင််လ်နှင့်ဖိုလ်ဒါများ ကူးယူလိမ့်မည်။\n"
-"၎င်းဒါရိုက်ထရီအတွင်းရှိ ရှိပြီးသားဖိုင်လ်တစ်ခုခုနှင့် အငြင်းပွာဖွယ်ဖြစ်လာပါက သင်ထံ အကြံတောင်းမည်။"
+"ရှိနှင့်ပြီး ဖိုင်တွဲအတွင်းသို့ ဖိုင််လ်နှင့်ဖိုင်တွဲများ ကူးယူလိမ့်မည်။\n"
+"၎င်းဖိုင်တွဲအတွင်းရှိ ရှိပြီးသားဖိုင်တစ်ခုခုနှင့် အငြင်းပွာဖွယ်ဖြစ်လာပါက သင်ထံ အကြံတောင်းမည်။"
 
 #: widgets/renamedialog.cpp:271
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "&Oဖိုင်လ်အိုများကို အပေါ်ကနေထပ်ရေးမည်"
+msgstr "&Oဖိုင်အိုများကို အပေါ်ကနေထပ်ရေးမည်"
 
 #: widgets/renamedialog.cpp:275
 #, kde-format
@@ -6998,7 +6774,7 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
-"ဦးတည်ဖိုင်လ်များ၌ သက်တမ်းပိုကြာသောမွမ်းမံအချိန်ရှိလျှင် ဇစ်မြစ်ဖိုင်လ်များနှင့် အပေါ်ကထပ်ရေးမည်။ မရှိပါက "
+"ဦးတည်ဖိုင်များ၌ သက်တမ်းပိုကြာသောမွမ်းမံအချိန်ရှိလျှင် ဇစ်မြစ်ဖိုင်များနှင့် အပေါ်ကထပ်ရေးမည်။ မရှိပါက "
 "ကျော်သွားမည်။"
 
 #: widgets/renamedialog.cpp:287
@@ -7021,58 +6797,49 @@ msgid "C&ontinue"
 msgstr "&oဆက်ရန်"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "ဤလုပ်ဆောင်ချက်သည် ဦးတည်ဖိုင်လ်ကို ထပ်ရေးလိမ့်မည်။"
+msgstr "ဦးတည်နေရာရှိဖိုင်ကို ဖျက်ရေးလိုပါသလား"
 
 #: widgets/renamedialog.cpp:366
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "ဤလုပ်ဆောင်ချက်သည် ဦးတည်ဖိုင်လ်ကို ထပ်ရေးလိမ့်မည်။"
+msgstr "'%1'၏ဒေတာကို '%2'ထဲသို့ ပေါင်းရေးလိုပါသလား"
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
+msgstr "ဇစ်မြစ်သည် <b>ပို၍လတ်တလောဖြစ်သည်</b>"
 
 #: widgets/renamedialog.cpp:409
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
+msgstr "ဇစ်မြစ်သည် <b>သက်တမ်းပိုကြီးပါသည်</b>"
 
 #: widgets/renamedialog.cpp:418
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "ဦးတည်နေရာသည် <b>%1 ပိုငယ်နေပါသည်</b>"
+msgstr "ဇစ်မြစ်သည် <b>%1 ပိုငယ်နေပါသည်</b>"
 
 #: widgets/renamedialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "ဦးတည်နေရာသည် <b>%1 ပိုကြီးနေပါသည်</b>"
+msgstr "ဇစ်မြစ်သည် <b>%1 ပိုကြီးနေပါသည်</b>"
 
 #: widgets/renamedialog.cpp:434
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "ဖိုင်လ်များ တစ်ထပ်တည်းကျသည်။"
+msgstr "ဖိုင်များ <b>တစ်ထပ်တည်းပါ</b>"
 
 #: widgets/renamedialog.cpp:437
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "ဖိုင်လ်များ တစ်ထပ်တည်းကျပုံရသည်။"
+msgstr "ဖိုင်များ <b>တစ်ထပ်တည်း</b>ကျပုံရသည်။"
 
 #: widgets/renamedialog.cpp:440
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "ဖိုင်လ်များ မတူပါ။"
+msgstr "ဖိုင်များ<b>မတူပါ</b>။"
 
 #: widgets/renamedialog.cpp:448
 #, kde-format
@@ -7080,7 +6847,7 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
-"ဖိုင်လ်များ တစ်ထပ်တည်းကျနိုင်ချေများသည်။ ၎င်းတို့သည် အရွယ်အစားတူ၍ ၎င်းတို့၏ပါဝင်ဒေတာများမှာ စ၊လယ်၊ဆုံးတို့၌ "
+"ဖိုင်များ တစ်ထပ်တည်းကျနိုင်ချေများသည်။ ၎င်းတို့သည် အရွယ်အစားတူ၍ ၎င်းတို့၏ပါဝင်ဒေတာများမှာ စ၊လယ်၊ဆုံးတို့၌ "
 "တူညီနေသည်။"
 
 #: widgets/renamedialog.cpp:467
@@ -7091,7 +6858,7 @@ msgstr "အသက်ပိုကြီးသော '%1' အမည်ရ အိ�
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "%1အမည်ရ သဏ္ဌာန်တူဖိုင်လ် ရှိနှင့်ပြီးဖြစ်ပါသည်"
+msgstr "%1အမည်ရ သဏ္ဌာန်တူဖိုင် ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: widgets/renamedialog.cpp:471
 #, kde-format
@@ -7110,20 +6877,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "<filename>%1</filename>အိုင်တမ်ကို အမည်ပြောင်းမည် -"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "<filename>%1</filename>အမည်ရ ဖိုင်လ်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
+msgstr "<filename>%1</filename>အမည်ဖြင့် ဖိုင်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> သည် ဆောင်ရွက်၍ရသော ပရိုဂရမ်မဟုတ်ပါ။"
+msgstr "<filename>%1</filename> ဖိုင်အမည်ပေး၍မရပါ"
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7152,41 +6915,35 @@ msgctxt "@info"
 msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
-msgstr ""
+msgstr "ဖိုင်အမည်သုံးမရပါ - ဖိုင်အားလုံး အမျိုးအစားမတူလျှင် အမည်တွင် # တစ်ခုပါဝင်ရပါမည်။"
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "ရွေးချယ်ထားသော အိုင်တမ် %1ခုကို အမည်ပြောင်းမည် -"
+msgstr[0] "ရွေးထားသော အိုင်တမ် %1ခုကို အောက်ပါဖြင့်အမည်ပြောင်းမည် -"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "အစားထိုး"
+msgstr "အစားထိုး-"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "ပုံစံ"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "ဖြင့်ဖွင့်ရန် -"
+msgstr "ဖြင့် -"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "အစားထိုး"
@@ -7195,7 +6952,7 @@ msgstr "အစားထိုး"
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "မည်သည့်ဖိုင်အမည်မှာမှ ဤပုံစံမပါပါ"
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7204,44 +6961,38 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"\"%1\"ကို ဗလာစာသားဖြင့် အစားထိုးပါက <filename>%2</filename>သည် ဗလာဖိုင်အမည် ဖြစ်သွားလိမ့်မည်"
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "ရွေးချယ်ထားသော အိုင်တမ် %1ခုကို အမည်ပြောင်းမည် -"
+msgstr[0] "ရွေးထားသော အိုင်တမ် %1ခုကို အမည်ပြောင်းမည် -"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "စာထည့်-"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "ထည့်ရန်စာသား"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "ဖိုင်အမည်ရှေ့တွင်"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "ကွဲပြားသောအမည်ရေးပါ"
+msgstr "ဖိုင်အမည်နောက်တွင်"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7262,45 +7013,40 @@ msgid "&Rename"
 msgstr "&Rအမည်ပြောင်း"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "မူလသတ်မှတ်သော အသုံးပြုသူအမည် -"
+msgstr "အမည်ပြောင်း-"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "ရေတွက်"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "အစားထိုး"
+msgstr "အစားထိုးရန်စာသား"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "စာထည့်"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "အကြိုကြည့်မြင်ကွင်း ပြမည်"
+msgstr "အကြိုကြည့်မြင်ကွင်း-"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> သည် ဆောင်ရွက်၍ရသော ပရိုဂရမ်မဟုတ်ပါ။"
+msgstr "<filename>%1</filename> ကို အမည်ဗလာ ပေး၍မရပါ။"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7424,20 +7170,15 @@ msgstr ""
 "\n"
 
 #: widgets/widgetsaskuseractionhandler.cpp:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
+"ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><filename>%1</filename><nl/"
+"><nl/><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:240
 #, kde-kuit-format
@@ -7453,30 +7194,18 @@ msgstr[0] ""
 "strong='true'>ဖျက်ပြီးလျှင် ပြန်ယူလို့မရတော့ပါ။</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><filename>%1</filename><nl/><nl/"
+"အမှိုက်ပုံးတွင်မဆံ့သဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ။<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7486,7 +7215,7 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"ဤအိုင်တမ် %1ခုကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><emphasis "
+"ဤ %1ဖိုင်များကို ပစ်ရန် အမှိုက်ပုံးပြည့်နေသဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:288
@@ -7540,6 +7269,63 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "%1 အတွက် အေစီအယ်လ်သတ်မှတ်နေသည်"
+
+#~ msgid "Change File Permissions"
+#~ msgstr "ဖိုင်ခွင့်ပြုချက်များပြောင်းမည်"
+
+#~ msgid "New Permissions: %1"
+#~ msgstr "ခွင့်ပြုချက်အသစ်များ - %1"
+
+#~ msgid "Change File Owner"
+#~ msgstr "ဖိုင်ပိုင်ရှင်ပြောင်းမည်"
+
+#~ msgid "New Owner: UID=%1, GID=%2"
+#~ msgstr "ပိုင်ရှင်သစ် - UID=%1၊ GID=%2"
+
+#~ msgid "Remove File"
+#~ msgstr "ဖိုင်ဖယ်ရှားမည်"
+
+#~ msgid "Remove Directory"
+#~ msgstr "ဖိုင်တွဲဖယ်ရှားမည်"
+
+#~ msgid "Create Directory"
+#~ msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
+
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "ဖိုင်တွဲခွင့်ပြုချက်များ - %1"
+
+#~ msgid "Open File"
+#~ msgstr "ဖိုင်ဖွင့်မည်"
+
+#~ msgid "Open Directory"
+#~ msgstr "ဖိုင်တွဲဖွင့်မည်"
+
+#~ msgid "New Filename: %1"
+#~ msgstr "ဖိုင်အမည်သစ် - %1"
+
+#~ msgid "Target: %1"
+#~ msgstr "ပစ်မှတ် - %1"
+
+#~ msgid "Change Timestamp"
+#~ msgstr "အချိန်မှတ်သားချက်ပြောင်းမည်"
+
+#~ msgid "From: %1, To: %2"
+#~ msgstr "မှ- %1၊ သို့- %2"
+
+#~ msgid "Unknown Action"
+#~ msgstr "မသိသော လုပ်ဆောင်ချက်"
+
+#~ msgid ""
+#~ "Action: %1\n"
+#~ "Source: %2\n"
+#~ "%3"
+#~ msgstr ""
+#~ "လုပ်ဆောင်ချက်- %1\n"
+#~ "မူလဇစ်မြစ် %2\n"
+#~ "%3"
 
 #~ msgid "Show Bookmarks Button"
 #~ msgstr "စာမျက်နှာမှတ်သားချက်များ ခလုတ် ပြမည်"

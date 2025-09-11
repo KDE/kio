@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не можe да се создаде io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -358,7 +358,7 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
@@ -371,7 +371,6 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
@@ -3993,9 +3992,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, kde-format
 msgid "Copy"
 msgstr "Копирај"
@@ -4398,12 +4397,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, kde-format
-msgid "Setting ACL for %1"
-msgstr "Поставувам ACL за %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4412,7 +4406,7 @@ msgstr ""
 "Не можат да се променат дозволите за\n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4421,129 +4415,32 @@ msgid ""
 "%1"
 msgstr "Не може да се смени сопственикот на %1."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Не можам да ја најдам програмата „mount“"
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Не можам да ја најдам програмата „umount“"
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
-msgid "Change File Permissions"
-msgstr "Напредни дозволи"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "New Permissions: %1"
-msgstr "Дозволи"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove File"
-msgstr "Отстрани"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Remove Directory"
-msgstr "Папка"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create directory"
-msgid "Create Directory"
-msgstr "Креирај папка"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
-msgid "Directory Permissions: %1"
-msgstr "Дозволи"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Open file dialog"
-msgid "Open File"
-msgstr "Дијалог за отворање на датотека"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Directory"
-msgid "Open Directory"
-msgstr "Папка"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "Device name"
-msgid "New Filename: %1"
-msgstr "Име на уред"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "Drive: %1"
-msgid "Target: %1"
-msgstr "Уред: %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
-msgid "Unknown Action"
-msgstr "Непознато прекинување"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не можам да ја копирам датотеката од %1 во %2. (грешка бр. %3)"
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Нема носач во уредот за %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не можам да го пронајдам ид. на корисник за корисникот %1"
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не можам да го пронајдам ид. на група за групата %1"
@@ -7964,6 +7861,67 @@ msgstr "Ова ќе ја стартува програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не ѝ верувате на оваа програма, кликнете „Откажи“"
+
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Поставувам ACL за %1"
+
+#, fuzzy
+#~| msgid "Advanced Permissions"
+#~ msgid "Change File Permissions"
+#~ msgstr "Напредни дозволи"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "New Permissions: %1"
+#~ msgstr "Дозволи"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "Remove File"
+#~ msgstr "Отстрани"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Remove Directory"
+#~ msgstr "Папка"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Create directory"
+#~ msgid "Create Directory"
+#~ msgstr "Креирај папка"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Permissions"
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Дозволи"
+
+#, fuzzy
+#~| msgid "Open file dialog"
+#~ msgid "Open File"
+#~ msgstr "Дијалог за отворање на датотека"
+
+#, fuzzy
+#~| msgid "Directory"
+#~ msgid "Open Directory"
+#~ msgstr "Папка"
+
+#, fuzzy
+#~| msgid "Device name"
+#~ msgid "New Filename: %1"
+#~ msgstr "Име на уред"
+
+#, fuzzy
+#~| msgid "Drive: %1"
+#~ msgid "Target: %1"
+#~ msgstr "Уред: %1"
+
+#, fuzzy
+#~| msgid "Unknown Interruption"
+#~ msgid "Unknown Action"
+#~ msgstr "Непознато прекинување"
 
 #, fuzzy
 #~| msgid "Show Bookmarks"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:39+0000\n"
+"POT-Creation-Date: 2025-09-11 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Tidak dapat mencipta io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1146
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -356,7 +356,7 @@ msgstr ""
 "Hak root diperlukan untuk melakukan operasi mengalih. Adakah anda mahu "
 "meneruskan?"
 
-#: core/job.cpp:294 kioworkers/file/file_unix.cpp:122
+#: core/job.cpp:294
 #, kde-format
 msgid "Rename"
 msgstr "Namakan Semula"
@@ -370,7 +370,6 @@ msgstr ""
 "meneruskan?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "Create Symlink"
 msgstr "Cipta Pautan Simbolik"
@@ -3848,9 +3847,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:598 kioworkers/file/file_unix.cpp:133
-#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
-#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#: filewidgets/kurlnavigator.cpp:598 widgets/checksumswidget.ui:145
+#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
+#: widgets/checksumswidget.ui:286
 #, fuzzy, kde-format
 msgid "Copy"
 msgstr "Menyalin"
@@ -4221,12 +4220,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:166
-#, fuzzy, kde-format
-msgid "Setting ACL for %1"
-msgstr "Menghantar data ke %1"
-
-#: kioworkers/file/file.cpp:739
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4235,7 +4229,7 @@ msgstr ""
 "Tidak dapat ubah keizinan untuk \n"
 "%1"
 
-#: kioworkers/file/file.cpp:749
+#: kioworkers/file/file.cpp:658
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4244,115 +4238,32 @@ msgid ""
 "%1"
 msgstr "Gagal mengubah keizinan untuk %1."
 
-#: kioworkers/file/file.cpp:855
+#: kioworkers/file/file.cpp:762
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Tidak dapat jumpa program \"mount\""
 
-#: kioworkers/file/file.cpp:929
+#: kioworkers/file/file.cpp:836
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat jumpa program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:98
-#, fuzzy, kde-format
-msgid "Change File Permissions"
-msgstr "Keizinan Lanjutan"
-
-#: kioworkers/file/file_unix.cpp:99
-#, fuzzy, kde-format
-msgid "New Permissions: %1"
-msgstr "Keizinan"
-
-#: kioworkers/file/file_unix.cpp:102
-#, kde-format
-msgid "Change File Owner"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:103
-#, kde-format
-msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-msgid "Remove File"
-msgstr "&Buang Input"
-
-#: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-msgid "Remove Directory"
-msgstr "Mencipta Folder"
-
-#: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-msgid "Create Directory"
-msgstr "Mencipta Folder"
-
-#: kioworkers/file/file_unix.cpp:113
-#, fuzzy, kde-format
-msgid "Directory Permissions: %1"
-msgstr "Keizinan"
-
-#: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-msgid "Open File"
-msgstr "Buka dialog fail"
-
-#: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-msgid "Open Directory"
-msgstr "Mencipta Folder"
-
-#: kioworkers/file/file_unix.cpp:123
-#, fuzzy, kde-format
-msgid "New Filename: %1"
-msgstr "Peranti:"
-
-#: kioworkers/file/file_unix.cpp:127
-#, fuzzy, kde-format
-msgid "Target: %1"
-msgstr "saiz %1"
-
-#: kioworkers/file/file_unix.cpp:130
-#, kde-format
-msgid "Change Timestamp"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:134
-#, kde-format
-msgid "From: %1, To: %2"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-msgid "Unknown Action"
-msgstr "Sampukan Tidak Diketahui"
-
-#: kioworkers/file/file_unix.cpp:142
-#, kde-format
-msgid ""
-"Action: %1\n"
-"Source: %2\n"
-"%3"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:720
+#: kioworkers/file/file_unix.cpp:562
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:944
+#: kioworkers/file/file_unix.cpp:776
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tiada media di dalam peranti untuk %1"
 
-#: kioworkers/file/file_unix.cpp:1236
+#: kioworkers/file/file_unix.cpp:1033
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Tidak dapat memasuki folder %1."
 
-#: kioworkers/file/file_unix.cpp:1247
+#: kioworkers/file/file_unix.cpp:1044
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -7551,6 +7462,54 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Setting ACL for %1"
+#~ msgstr "Menghantar data ke %1"
+
+#, fuzzy
+#~ msgid "Change File Permissions"
+#~ msgstr "Keizinan Lanjutan"
+
+#, fuzzy
+#~ msgid "New Permissions: %1"
+#~ msgstr "Keizinan"
+
+#, fuzzy
+#~ msgid "Remove File"
+#~ msgstr "&Buang Input"
+
+#, fuzzy
+#~ msgid "Remove Directory"
+#~ msgstr "Mencipta Folder"
+
+#, fuzzy
+#~ msgid "Create Directory"
+#~ msgstr "Mencipta Folder"
+
+#, fuzzy
+#~ msgid "Directory Permissions: %1"
+#~ msgstr "Keizinan"
+
+#, fuzzy
+#~ msgid "Open File"
+#~ msgstr "Buka dialog fail"
+
+#, fuzzy
+#~ msgid "Open Directory"
+#~ msgstr "Mencipta Folder"
+
+#, fuzzy
+#~ msgid "New Filename: %1"
+#~ msgstr "Peranti:"
+
+#, fuzzy
+#~ msgid "Target: %1"
+#~ msgstr "saiz %1"
+
+#, fuzzy
+#~ msgid "Unknown Action"
+#~ msgstr "Sampukan Tidak Diketahui"
 
 #, fuzzy
 #~ msgid "Show Bookmarks Button"
