@@ -499,8 +499,10 @@ WorkerResult::WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr)
 {
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
 void WorkerBase::setIncomingMetaData(const KIO::MetaData &metaData)
 {
     d->bridge.setIncomingMetaData(metaData);
 }
+#endif
 } // namespace KIO

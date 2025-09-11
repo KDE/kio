@@ -1040,6 +1040,7 @@ public:
     void addTemporaryAuthorization(const QString &action);
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*!
      * Set the Incoming Meta Data
      * This is only really useful if your worker wants to overwrite the
@@ -1048,8 +1049,13 @@ public:
      *
      * \a metaData metadata to set
      * \since 5.99
+     * \deprecated[6.19]
+     *
+     * Not used
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not used")
     void setIncomingMetaData(const KIO::MetaData &metaData);
+#endif
 
 private:
     std::unique_ptr<WorkerBasePrivate> d;
