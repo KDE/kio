@@ -9,7 +9,6 @@
 
 #include "commands_p.h"
 #include "connection_p.h"
-#include "hostinfo.h"
 #include "kiocoredebug.h"
 #include "usernotificationhandler_p.h"
 #include "workerbase.h"
@@ -266,12 +265,6 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT metaData(m);
         break;
     }
-    case MSG_HOST_INFO_REQ: {
-        QString hostName;
-        stream >> hostName;
-        HostInfo::lookupHost(hostName, this, SLOT(slotHostInfo(QHostInfo)));
-        break;
-    }
     case MSG_PRIVILEGE_EXEC:
         Q_EMIT privilegeOperationRequested();
         break;
@@ -372,14 +365,6 @@ void WorkerInterface::messageBox(int type,
     }
 
     globalUserNotificationHandler()->requestMessageBox(this, type, data);
-}
-
-void WorkerInterface::slotHostInfo(const QHostInfo &info)
-{
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
-    stream << info.hostName() << info.addresses() << info.error() << info.errorString();
-    m_connection->send(CMD_HOST_INFO, data);
 }
 
 #include "moc_workerinterface_p.cpp"

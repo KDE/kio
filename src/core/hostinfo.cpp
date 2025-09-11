@@ -44,11 +44,8 @@ public:
     ~HostInfoAgentPrivate() override
     {
     }
-    void lookupHost(const QString &hostName, QObject *receiver, const char *member);
     QHostInfo lookupCachedHostInfoFor(const QString &hostName);
     void cacheLookup(const QHostInfo &);
-private Q_SLOTS:
-    void queryFinished(const QHostInfo &info, Query *sender);
 
 private:
     class Result;
@@ -60,49 +57,6 @@ private:
     };
     QCache<QString, HostCacheInfo> dnsCache;
     QDateTime resolvConfMTime;
-};
-
-class HostInfoAgentPrivate::Result : public QObject
-{
-    Q_OBJECT
-Q_SIGNALS:
-    void result(const QHostInfo &);
-
-private:
-    friend class HostInfoAgentPrivate;
-};
-
-class HostInfoAgentPrivate::Query : public QObject
-{
-    Q_OBJECT
-public:
-    Query()
-        : m_watcher()
-        , m_hostName()
-    {
-        connect(&m_watcher, &QFutureWatcher<QHostInfo>::finished, this, &Query::relayFinished);
-    }
-    void start(const QString &hostName)
-    {
-        m_hostName = hostName;
-        QFuture<QHostInfo> future = QtConcurrent::run(&QHostInfo::fromName, hostName);
-        m_watcher.setFuture(future);
-    }
-    QString hostName() const
-    {
-        return m_hostName;
-    }
-Q_SIGNALS:
-    void result(const QHostInfo &);
-private Q_SLOTS:
-    void relayFinished()
-    {
-        Q_EMIT result(m_watcher.result());
-    }
-
-private:
-    QFutureWatcher<QHostInfo> m_watcher;
-    QString m_hostName;
 };
 
 class NameLookupThreadRequest
@@ -234,11 +188,6 @@ using namespace KIO;
 Q_GLOBAL_STATIC(HostInfoAgentPrivate, hostInfoAgentPrivate)
 Q_GLOBAL_STATIC(NameLookUpThread, nameLookUpThread)
 
-void HostInfo::lookupHost(const QString &hostName, QObject *receiver, const char *member)
-{
-    hostInfoAgentPrivate()->lookupHost(hostName, receiver, member);
-}
-
 QHostInfo HostInfo::lookupHost(const QString &hostName, unsigned long timeout)
 {
     // Do not perform a reverse lookup here...
@@ -299,49 +248,6 @@ HostInfoAgentPrivate::HostInfoAgentPrivate(int cacheSize)
     qRegisterMetaType<QHostInfo>();
 }
 
-void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver, const char *member)
-{
-#ifdef _PATH_RESCONF
-    QFileInfo resolvConf(QFile::decodeName(_PATH_RESCONF));
-    QDateTime currentMTime = resolvConf.lastModified();
-    if (resolvConf.exists() && currentMTime != resolvConfMTime) {
-        // /etc/resolv.conf has been modified
-        // clear our cache
-        resolvConfMTime = currentMTime;
-        dnsCache.clear();
-    }
-#endif
-
-    if (HostCacheInfo *info = dnsCache.object(hostName)) {
-        if (QTime::currentTime() <= info->time.addSecs(TTL)) {
-            Result result;
-            if (receiver) {
-                QObject::connect(&result, SIGNAL(result(QHostInfo)), receiver, member);
-                Q_EMIT result.result(info->hostInfo);
-            }
-            return;
-        }
-        dnsCache.remove(hostName);
-    }
-
-    if (Query *query = openQueries.value(hostName)) {
-        if (receiver) {
-            connect(query, SIGNAL(result(QHostInfo)), receiver, member);
-        }
-        return;
-    }
-
-    Query *query = new Query();
-    openQueries.insert(hostName, query);
-    connect(query, &Query::result, this, [this, query](const QHostInfo &info) {
-        queryFinished(info, query);
-    });
-    if (receiver) {
-        connect(query, SIGNAL(result(QHostInfo)), receiver, member);
-    }
-    query->start(hostName);
-}
-
 QHostInfo HostInfoAgentPrivate::lookupCachedHostInfoFor(const QString &hostName)
 {
     HostCacheInfo *info = dnsCache.object(hostName);
@@ -366,16 +272,6 @@ void HostInfoAgentPrivate::cacheLookup(const QHostInfo &info)
     }
 
     dnsCache.insert(info.hostName(), new HostCacheInfo{info, QTime::currentTime()});
-}
-
-void HostInfoAgentPrivate::queryFinished(const QHostInfo &info, Query *sender)
-{
-    const auto host = sender->hostName();
-    openQueries.remove(host);
-    if (info.error() == QHostInfo::NoError) {
-        dnsCache.insert(host, new HostCacheInfo{info, QTime::currentTime()});
-    }
-    sender->deleteLater();
 }
 
 #include "hostinfo.moc"

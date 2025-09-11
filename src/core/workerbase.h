@@ -984,15 +984,21 @@ public:
      */
     bool wasKilled() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*! Internally used
      * \internal
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not used")
     void lookupHost(const QString &host);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 19)
     /*! Internally used
      * \internal
      */
+    KIOCORE_DEPRECATED_VERSION(6, 19, "Not used")
     int waitForHostInfo(QHostInfo &info);
+#endif
 
     /*!
      * Checks with job if privilege operation is allowed.

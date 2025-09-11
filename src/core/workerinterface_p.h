@@ -63,7 +63,6 @@ enum Message {
     MSG_CANRESUME,
     MSG_OPENED,
     MSG_WRITTEN,
-    MSG_HOST_INFO_REQ,
     MSG_PRIVILEGE_EXEC,
     MSG_WORKER_STATUS,
     // add new ones here once a release is done, to avoid breaking binary compatibility
@@ -158,9 +157,6 @@ protected:
 
 protected Q_SLOTS:
     void calcSpeed();
-
-private Q_SLOTS:
-    void slotHostInfo(const QHostInfo &info);
 
 protected:
     Connection *m_connection = nullptr;

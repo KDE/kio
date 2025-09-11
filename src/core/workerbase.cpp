@@ -413,15 +413,18 @@ bool WorkerBase::wasKilled() const
     return d->bridge.wasKilled();
 }
 
-void WorkerBase::lookupHost(const QString &host)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
+void WorkerBase::lookupHost(const QString & /*host*/)
 {
-    return d->bridge.lookupHost(host);
 }
+#endif
 
-int WorkerBase::waitForHostInfo(QHostInfo &info)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 19)
+int WorkerBase::waitForHostInfo(QHostInfo & /*info*/)
 {
-    return d->bridge.waitForHostInfo(info);
+    return 0;
 }
+#endif
 
 PrivilegeOperationStatus WorkerBase::requestPrivilegeOperation(const QString &operationDetails)
 {

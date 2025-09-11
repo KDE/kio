@@ -28,8 +28,6 @@ namespace KIO
 namespace HostInfo
 {
 /// \internal
-void lookupHost(const QString &hostName, QObject *receiver, const char *member);
-/// \internal
 KIOCORE_EXPORT QHostInfo lookupHost(const QString &hostName, unsigned long timeout);
 /// \internal
 KIOCORE_EXPORT QHostInfo lookupCachedHostInfoFor(const QString &hostName);
