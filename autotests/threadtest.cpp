@@ -23,7 +23,7 @@ private Q_SLOTS:
 
 private:
     struct FileData;
-    bool copyLocalFile(FileData *fileData);
+    static bool copyLocalFile(FileData *fileData);
 };
 
 void KIOThreadTest::initTestCase()
@@ -78,7 +78,7 @@ void KIOThreadTest::concurrentCopying()
     tp.setMaxThreadCount(numThreads);
     QList<QFuture<bool>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
-        futures[i] = QtConcurrent::run(&tp, &KIOThreadTest::copyLocalFile, this, &data[i]);
+        futures[i] = QtConcurrent::run(&tp, &KIOThreadTest::copyLocalFile, &data[i]);
     }
     QVERIFY(tp.waitForDone(60000));
 
