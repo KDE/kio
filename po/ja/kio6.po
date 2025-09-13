@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:39+0000\n"
+"POT-Creation-Date: 2025-09-13 00:45+0000\n"
 "PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2060,7 +2060,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "サーバは他の要求に答えるのに忙しくて、応答できませんでした。"
 
-#: core/job_error.cpp:1110 core/slavebase.cpp:1540
+#: core/job_error.cpp:1110
 #, kde-format
 msgid "Unknown Error"
 msgstr "未知のエラー"
@@ -2380,88 +2380,88 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "接続の確立は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "接続の切断は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ファイルへのアクセスは %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 への書き込みはサポートされていません。"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "プロトコル %1 に特有な動作はありません"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "フォルダのリスティング (一覧表示) は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 からのデータの取得はサポートされていません。"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 からの MIME タイプ情報の取得はサポートされていません。"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 中でのファイルの名前変更、移動はサポートされていません。"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "シンボリックリンクの作成は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 中でのファイルのコピーはサポートされていません。"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 からのファイル削除はサポートされていません。"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "フォルダの作成は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ファイルの属性変更は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ファイルの所有者の変更は %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:874
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ファイルを開くことは %1 プロトコルでサポートされていません。"
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:876
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 プロトコルは %2 の動作をサポートしていません。"
@@ -2507,24 +2507,24 @@ msgstr "%1 プロトコルの io-slave が見つかりません。"
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "%1 プロトコルの io-slave が見つかりません。"
 
-#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "詳細(&D)"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "永久(&F)"
 
-#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "続行(&N)"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3517,37 +3517,37 @@ msgstr "リモートファイルは指定できません"
 msgid "All Folders"
 msgstr "すべてのフォルダ"
 
-#: filewidgets/kfilewidget.cpp:2183 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "開く(&O)"
 
-#: filewidgets/kfilewidget.cpp:2283
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "アイコンサイズ: %1 ピクセル"
 
-#: filewidgets/kfilewidget.cpp:2430
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ファイル名の拡張子を自動的に選択する(&X) (%1)"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "拡張子 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2437
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ファイル名の拡張子を自動的に選択する(&X)"
 
-#: filewidgets/kfilewidget.cpp:2438
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "適切な拡張子"
 
-#: filewidgets/kfilewidget.cpp:2446
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3572,19 +3572,19 @@ msgstr ""
 "(ピリオドは自動的に削除されます)。</li></ol>このオプションを利用するとファイ"
 "ルが管理しやすくなるので、よく分からなければ有効にしておきましょう。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2912
+#: filewidgets/kfilewidget.cpp:2897
 #, kde-format
 msgid "&File type:"
 msgstr "ファイルのタイプ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2916
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2918
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -4271,7 +4271,7 @@ msgstr "このサイトにアクセスするためにはユーザ名とパスワ
 msgid "Site:"
 msgstr "サイト:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2497
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4295,7 +4295,7 @@ msgstr ""
 "\n"
 "サーバの応答: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2492 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4304,12 +4304,12 @@ msgstr ""
 "サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
 "が必要です。"
 
-#: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "プロキシ:"
 
-#: kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "プロキシ認証に失敗しました。"

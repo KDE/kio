@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:39+0000\n"
+"POT-Creation-Date: 2025-09-13 00:45+0000\n"
 "PO-Revision-Date: 2025-07-29 09:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2115,7 +2115,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сервер перевантажено обробкою відповідей на інші запити."
 
-#: core/job_error.cpp:1110 core/slavebase.cpp:1540
+#: core/job_error.cpp:1110
 #, kde-format
 msgid "Unknown Error"
 msgstr "Невідома помилка"
@@ -2441,87 +2441,87 @@ msgstr ""
 "<filename>%1</filename> не знайдено. Будь ласка, вкажіть чинний шлях до "
 "виконуваної програми."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Відкриття з'єднань не підтримується протоколом %1."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Закриття з'єднань не підтримується протоколом %1."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Доступ до файлів не підтримується протоколом %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Запис до %1 не підтримується."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Протокол %1 не має спеціальних дій."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Отримання списку тек не підтримується для протоколу %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Отримання даних від %1 не підтримується."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Отримання типу MIME від %1 не підтримується."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Перейменування або пересування файлів у межах %1 не підтримується."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Створення символічних посилань не підтримується протоколом %1."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Копіювання файлів у межах %1 не підтримується."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Стирання файлів з %1 не підтримується."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Створення тек не підтримується протоколом %1."
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Зміна атрибутів файлів не підтримується протоколом %1."
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Зміна власників файлів не підтримується протоколом %1."
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:874
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Відкривання файлів не підтримується протоколом %1."
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:876
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не підтримує дію %2."
@@ -2572,24 +2572,24 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не вдалося знайти виконуваний файл «kioworker» у «%1»"
 
-#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "&Подробиці"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Завжди"
 
-#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Про&довжити"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3595,37 +3595,37 @@ msgstr "Віддалені файли не приймаються"
 msgid "All Folders"
 msgstr "Всі теки"
 
-#: filewidgets/kfilewidget.cpp:2183 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Відкрити"
 
-#: filewidgets/kfilewidget.cpp:2283
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Розмір піктограм: %1 пікселів"
 
-#: filewidgets/kfilewidget.cpp:2430
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Автоматично вибрати с&уфікс назви файла (%1)"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "суфікс <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2437
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Автоматично вибрати с&уфікс назви файла"
 
-#: filewidgets/kfilewidget.cpp:2438
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "відповідний суфікс"
 
-#: filewidgets/kfilewidget.cpp:2446
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3652,12 +3652,12 @@ msgstr ""
 "впевнені щодо потрібних вам налаштувань, позначте цей пункт, оскільки це "
 "зробить назви файлів більш керованими."
 
-#: filewidgets/kfilewidget.cpp:2912
+#: filewidgets/kfilewidget.cpp:2897
 #, kde-format
 msgid "&File type:"
 msgstr "&Тип файла:"
 
-#: filewidgets/kfilewidget.cpp:2916
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3666,7 +3666,7 @@ msgstr ""
 "<qt>Це засіб вибору типу файлів. Його використовують для вибору формату, у "
 "якому буде збережено дані файла.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2918
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -4365,7 +4365,7 @@ msgstr "Щоб дістатися цього сайта, потрібно над
 msgid "Site:"
 msgstr "Сайт:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2497
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4389,7 +4389,7 @@ msgstr ""
 "\n"
 "Повідомлення сервера: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2492 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4398,12 +4398,12 @@ msgstr ""
 "Ви повинні надати ім'я користувача та пароль для сервера проксі, вказаного "
 "нижче, перед тим, як отримати дозвіл на доступ до будь-яких сайтів."
 
-#: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Проксі:"
 
-#: kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Помилка розпізнавання на проксі-сервері."

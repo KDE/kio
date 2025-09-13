@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:39+0000\n"
+"POT-Creation-Date: 2025-09-13 00:45+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -1983,7 +1983,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ਸਰਵਰ ਇੰਨਾ ਰੁੱਝਿਆ ਹੋਇਆ ਹੈ ਕਿ ਹੋਰ ਬੇਨਤੀਆਂ ਨੂੰ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦਾ ਹੈ।"
 
-#: core/job_error.cpp:1110 core/slavebase.cpp:1540
+#: core/job_error.cpp:1110
 #, kde-format
 msgid "Unknown Error"
 msgstr "ਅਣਜਾਣ ਗਲਤੀ"
@@ -2290,87 +2290,87 @@ msgid ""
 "executable program."
 msgstr "<filename>%1</filename> ਨਹੀਂ ਲੱਭਿਆ, ਚੱਲਣਯੋਗ ਪਰੋਗਰਾਮ ਲਈ ਢੁੱਕਵਾਂ ਮਾਰਗ ਦਿਓ।"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਨਾ-ਸਹਾਇਕ ਕਨੈਕਸ਼ਨ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਕਨੈਕਸ਼ਨ ਬੰਦ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "ਲਿਖਣ ਲਈ %1 ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਲਈ ਖਾਸ ਕਾਰਵਾਈ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਲਈ ਫੋਲਡਰ ਲਿਸਟ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹਨ।"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 ਤੋਂ ਮੁੜ ਡਾਟਾ ਪਰਾਪਤ ਕਰਨਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "mime ਕਿਸਮ ਜਾਣਕਾਰੀ %1 ਤੋਂ ਪਰਾਪਤ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ਫਾਇਲਾਂ ਦਾ ਨਾਂ-ਬਦਲੋ ਜਾਂ ਥਾਂ ਤਬਦੀਲੀ %1 ਵਿੱਚ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ symlink ਬਣਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 ਤੋਂ ਫਾਇਲਾਂ ਕਾਪੀ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 ਤੋਂ ਫਾਇਲ ਹਟਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਤਬਦੀਲ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਬਦਲਣੇ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:874
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:876
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਐਕਸ਼ਨ %2 ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
@@ -2414,24 +2414,24 @@ msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ KIO ਵਰਕਰ ਚਲਾਉਣ �
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
-#: core/workerinterface.cpp:358 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:491
 #, kde-format
 msgid "&Details"
 msgstr "ਵੇਰਵੇ(&D)"
 
-#: core/workerinterface.cpp:360 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "ਹਮੇਸ਼ਾ(&F)"
 
-#: core/workerinterface.cpp:364 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "ਜਾਰੀ ਰੱਖੋ(&n)"
 
-#: core/workerinterface.cpp:366 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3423,37 +3423,37 @@ msgstr "ਰਿਮੋਟ ਫਾਇਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
 msgid "All Folders"
 msgstr "ਸਭ ਫੋਲਡਰ"
 
-#: filewidgets/kfilewidget.cpp:2183 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "ਖੋਲ੍ਹੋ(&O)"
 
-#: filewidgets/kfilewidget.cpp:2283
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ਆਈਕਾਨ ਸਾਈਜ਼: %1 ਪਿਕਸਲ"
 
-#: filewidgets/kfilewidget.cpp:2430
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ਆਟੋਮੈਟਿਕ ਹੀ ਫਾਇਲ ਨਾਂ ਇਕਸਟੈਨਸ਼ਨ ਚੁਣੋ (%1)(&x)"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2437
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ਆਟੋਮੈਟਿਕ ਚੁਣੀ ਫਾਇਲ-ਨਾਂ ਇਕਸਟੈਨਸ਼ਨ(&x)"
 
-#: filewidgets/kfilewidget.cpp:2438
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "ਇੱਕ ਢੁੱਕਵੀਂ ਇਕਸਟੈਨਸ਼ਨ"
 
-#: filewidgets/kfilewidget.cpp:2446
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3469,19 +3469,19 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2912
+#: filewidgets/kfilewidget.cpp:2897
 #, kde-format
 msgid "&File type:"
 msgstr "ਫਾਇਲ ਕਿਸਮ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2916
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2918
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -4159,7 +4159,7 @@ msgstr "ਤੁਹਾਨੂੰ ਇਹ ਸਾਇਟ ਦੀ ਵਰਤੋਂ ਕਰ�
 msgid "Site:"
 msgstr "ਸਾਇਟ:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2497
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4183,7 +4183,7 @@ msgstr ""
 "\n"
 "ਸਰਵਰ ਤੋਂ ਸੁਨੇਹਾ: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2492 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4192,12 +4192,12 @@ msgstr ""
 "ਇਸ ਤੋਂ ਪਹਿਲਾਂ ਕਿ ਤੁਸੀ ਕੋਈ ਸਾਇਟ ਖੋਲ੍ਹੋ, ਇਹ ਲਾਜ਼ਮੀ ਹੈ ਕਿ ਹੇਠ ਦਿੱਤੀ ਪਰਾਕਸੀ ਸਰਵਰ ਲਿਸਟ ਵਿੱਚੋਂ "
 "ਕਿਸੇ ਲਈ ਵਰਤੋਂਕਾਰ ਨਾਂ ਤੇ ਪਾਸਵਰਡ ਭਰੋ।"
 
-#: kioworkers/ftp/ftp.cpp:2496 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "ਪਰਾਕਸੀ:"
 
-#: kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ਪਰਾਕਸੀ ਪਰਮਾਣਕਿਤਾ ਫੇਲ੍ਹ ਹੋਈ।"
