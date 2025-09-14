@@ -19,6 +19,8 @@
 
 struct KEncodingFileDialogPrivate;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 19)
+
 /*!
  * \class KEncodingFileDialog
  * \inmodule KIOFileWidgets
@@ -28,6 +30,8 @@ struct KEncodingFileDialogPrivate;
  *
  * This class comes with a private constructor, the only way to show a file dialog
  * is through its static methods.
+ *
+ * \deprecated[6.19] Use QFileDialog instead.
  */
 class KEncodingFileDialog : public QDialog
 {
@@ -85,6 +89,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
                                                                    const QString &filter = QString(),
@@ -122,6 +127,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
                                                                     const QUrl &startDir = QUrl(),
                                                                     const QString &filter = QString(),
@@ -159,6 +165,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
                                                               const QString &filter = QString(),
@@ -196,6 +203,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
                                                                const QUrl &startDir = QUrl(),
                                                                const QString &filter = QString(),
@@ -234,6 +242,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
                                                                    const QUrl &startDir = QUrl(),
                                                                    const QString &filter = QString(),
@@ -273,6 +282,7 @@ public:
      *
      * \a title The name of the dialog widget.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Use QFileDialog")
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
                                                               const QUrl &startDir = QUrl(),
                                                               const QString &filter = QString(),
@@ -341,4 +351,5 @@ private:
     std::unique_ptr<KEncodingFileDialogPrivate> const d;
 };
 
+#endif
 #endif

@@ -25,6 +25,8 @@
 #include <QPushButton>
 #include <QStringDecoder>
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 19)
+
 struct KEncodingFileDialogPrivate {
     KEncodingFileDialogPrivate()
         : cfgGroup(KSharedConfig::openConfig(), ConfigGroup)
@@ -234,5 +236,7 @@ void KEncodingFileDialog::slotCancel()
     d->w->slotCancel();
     reject();
 }
+
+#endif
 
 #include "moc_kencodingfiledialog.cpp"
