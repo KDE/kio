@@ -14,6 +14,7 @@
 #include "kprotocolinfo.h"
 
 #include <KConfigGroup>
+#include <KPluginFactory>
 #include <KSharedConfig>
 #include <QMetaMethod>
 #include <QMimeDatabase>
@@ -21,6 +22,7 @@
 #include <QStandardPaths>
 
 #include "job_p.h"
+#include "thumbnailcreator.h"
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -34,6 +36,7 @@ static qreal s_defaultDevicePixelRatio = 1.0;
 }
 
 using namespace KIO;
+using namespace Qt::StringLiterals;
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
@@ -130,7 +133,18 @@ void PreviewJobPrivate::startPreview()
 
     for (const KPluginMetaData &plugin : plugins) {
         bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
-        const auto mimeTypes = plugin.mimeTypes();
+        QStringList mimeTypes;
+        if (plugin.value("X-KIO-DynamicMimeTypes"_L1, false)) {
+            auto result = KPluginFactory::loadFactory(plugin);
+            if (auto result = KPluginFactory::instantiatePlugin<KIO::DynamicThumbnailCreator>(plugin, q, {})) {
+                mimeTypes = result.plugin->supportedMimeTypes();
+            } else {
+                qCWarning(KIO_GUI) << "Unable to load plugin for additional mimetypes for \"" << plugin.pluginId() << "\". Error: " << result.errorText;
+                continue;
+            }
+        } else {
+            mimeTypes = plugin.mimeTypes();
+        }
         for (const QString &mimeType : mimeTypes) {
             if (pluginIsEnabled && !mimeMap.contains(mimeType)) {
                 mimeMap.insert(mimeType, plugin);
