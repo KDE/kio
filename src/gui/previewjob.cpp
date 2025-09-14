@@ -15,6 +15,7 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QImageReader>
 #include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QPixmap>
@@ -34,6 +35,7 @@ static qreal s_defaultDevicePixelRatio = 1.0;
 }
 
 using namespace KIO;
+using namespace Qt::StringLiterals;
 
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
@@ -130,7 +132,15 @@ void PreviewJobPrivate::startPreview()
 
     for (const KPluginMetaData &plugin : plugins) {
         bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
-        const auto mimeTypes = plugin.mimeTypes();
+        QStringList mimeTypes;
+        if (plugin.pluginId() == "imagethumbnail"_L1) {
+            const auto mimes = QImageReader::supportedMimeTypes();
+            std::ranges::transform(mimes, std::back_inserter(mimeTypes), [](const auto &mimetype) {
+                return QString::fromUtf8(mimetype);
+            });
+        } else {
+            mimeTypes = plugin.mimeTypes();
+        }
         for (const QString &mimeType : mimeTypes) {
             if (pluginIsEnabled && !mimeMap.contains(mimeType)) {
                 mimeMap.insert(mimeType, plugin);
