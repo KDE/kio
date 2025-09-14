@@ -10,16 +10,15 @@
 #include <QLayout>
 #include <QMimeDatabase>
 
+#include <KConfigGroup>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <QDebug>
 #include <kimagefilepreview.h>
 #include <kio/previewjob.h>
 
-bool KFileMetaPreview::s_tryAudioPreview = true;
-
 KFileMetaPreview::KFileMetaPreview(QWidget *parent)
     : KPreviewWidgetBase(parent)
-    , haveAudioPreview(false)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -29,6 +28,10 @@ KFileMetaPreview::KFileMetaPreview(QWidget *parent)
     // ###
     //     m_previewProviders.setAutoDelete( true );
     initPreviewProviders();
+
+    // clean up old config from kfileaudiopreview
+    auto config = KSharedConfig::openConfig();
+    config->deleteGroup(QStringLiteral("Audio Preview Settings"));
 }
 
 KFileMetaPreview::~KFileMetaPreview()
@@ -97,41 +100,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
         return nullptr;
     }
 
-    KPreviewWidgetBase *provider = findExistingProvider(mimeType, mimeInfo);
-    if (provider) {
-        return provider;
-    }
-
-    // qDebug("#### didn't find anything for: %s", mimeType.toLatin1().constData());
-
-    if (s_tryAudioPreview && !mimeType.startsWith(QLatin1String("text/")) && !mimeType.startsWith(QLatin1String("image/"))) {
-        if (!haveAudioPreview) {
-            KPreviewWidgetBase *audioPreview = createAudioPreview(m_stack);
-            if (audioPreview) {
-                haveAudioPreview = true;
-                (void)m_stack->addWidget(audioPreview);
-                const QStringList mimeTypes = audioPreview->supportedMimeTypes();
-                QStringList::ConstIterator it = mimeTypes.begin();
-                for (; it != mimeTypes.end(); ++it) {
-                    // only add non already handled MIME types
-                    if (m_previewProviders.constFind(*it) == m_previewProviders.constEnd()) {
-                        m_previewProviders.insert(*it, audioPreview);
-                    }
-                }
-            }
-        }
-    }
-
-    // with the new MIME types from the audio-preview, try again
-    provider = findExistingProvider(mimeType, mimeInfo);
-    if (provider) {
-        return provider;
-    }
-
-    // The logic in this code duplicates the logic in PreviewJob.
-    // But why do we need multiple KPreviewWidgetBase instances anyway?
-
-    return nullptr;
+    return findExistingProvider(mimeType, mimeInfo);
 }
 
 void KFileMetaPreview::showPreview(const QUrl &url)
@@ -172,19 +141,6 @@ void KFileMetaPreview::clearPreviewProviders()
     }
     qDeleteAll(m_previewProviders);
     m_previewProviders.clear();
-}
-
-// static
-KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
-{
-    KPluginMetaData data(QStringLiteral("kfileaudiopreview"));
-    if (auto plugin = KPluginFactory::instantiatePlugin<KPreviewWidgetBase>(data, parent).plugin) {
-        plugin->setObjectName(QStringLiteral("kfileaudiopreview"));
-        return plugin;
-    } else {
-        s_tryAudioPreview = false;
-        return nullptr;
-    }
 }
 
 #include "moc_kfilemetapreview_p.cpp"
