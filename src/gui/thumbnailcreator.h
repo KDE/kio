@@ -23,6 +23,7 @@ namespace KIO
 {
 
 class ThumbnailCreatorPrivate;
+class DynamicThumbnailCreatorPrivate;
 class ThumbnailRequestPrivate;
 class ThumbnailResultPrivate;
 
@@ -212,7 +213,7 @@ private:
  * \endcode
  *
  * You also need a JSON file containing the metadata:
- * \code
+ * \badcode
  * {
  *   "CacheThumbnail": true,
  *   "KPlugin": {
@@ -255,6 +256,43 @@ public:
      * Creates a thumbnail for a given request
      */
     virtual ThumbnailResult create(const ThumbnailRequest &request) = 0;
+
+private:
+    void *d; // Placeholder
+};
+
+/*!
+ * \class KIO::DynamicThumbnailCreator
+ * \inheaderfile KIO/ThumbnailCreator
+ * \inmodule KIOGui
+ *
+ * \brief Extended class for thumbnail generator plugins with a dynamic list of supported mimetypes.
+ *
+ * The corresponding JSON file need to contains, a spcial key "X-KIO-DynamicMimetypes" set to true:
+ *
+ * \badcode
+ * {
+ *   "CacheThumbnail": true,
+ *   "X-KIO-DynamicMimetypes": true,
+ *   "KPlugin": {
+ *       "Name": "Foo Documents"
+ *   }
+ * }
+ * \endcode
+ *
+ * \since 6.20
+ */
+class KIOGUI_EXPORT DynamicThumbnailCreator : public ThumbnailCreator
+{
+    Q_OBJECT
+public:
+    explicit DynamicThumbnailCreator(QObject *parent, const QVariantList &args);
+    virtual ~DynamicThumbnailCreator();
+
+    /*!
+     * Returns the dynamic list of supported mime types.
+     */
+    virtual QStringList supportedMimeTypes() = 0;
 
 private:
     void *d; // Placeholder
