@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -32,12 +32,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@punlinux.org"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "%1 ਫਾਇਲ ਦੀ ਮਲਕੀਅਤ ਸੋਧੀ ਨਹੀਂ ਜਾ ਸਕੀ"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -89,23 +89,23 @@ msgstr ""
 "ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ (%2) ਫਾਇਲ ਨਾਂ ਵਿੱਚ ਅੱਗੇ ਦਿੱਤੇ ਅੱਖਰਾਂ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦਾ ਹੈ: %3\n"
 "ਗਲਤ ਅੱਖਰਾਂ (ਟਿਕਾਣਾ ਫਾਇਲ ਨਾਂ) ਨੂੰ \"_\" ਰੇਖਾ ਨਾਲ ਬਦਲ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ਫੋਲਡਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ਪਹਿਲਾਂ ਹੀ ਫੋਲਡਰ ਵਾਂਗ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ਰੱਦੀ"
@@ -205,14 +205,14 @@ msgid "Moving"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -236,7 +236,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -248,7 +248,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -287,104 +287,6 @@ msgstr "ਮਾਊਂਟ ਪੁਆਇੰਟ"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "ਅਣ-ਮਾਊਂਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "ਗੁਣ ਬਦਲੋ"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "ਫਾਇਲ ਦੇ ਗੁਣ ਬਦਲਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "ਫਾਇਲ ਕਾਪੀ ਕਰੋ"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"ਕਾਪੀ ਕਰਨ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ "
-"ਹੋ?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "ਫਾਇਲਾਂ ਨੂੰ ਹਟਾਓ"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"ਹਟਾਉਣ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਇਸ ਨੁਾਲ ਤੁਹਾਡੇ ਸਿਸਟਮ ਦਾ ਨੁਕਸਾਨ ਹੋ "
-"ਸਕਦਾ ਹੈ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "ਫੋਲਡਰ ਬਣਾਓ"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "ਇਹ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "ਆਈਟਮਾਂ ਭੇਜੋ"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"ਭੇਜਣ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "ਨਾਂ-ਬਦਲੋ"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "ਨਾਂ ਬਦਲਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਓ"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "ਡਾਟਾ ਟਰਾਂਸਫਰ ਕਰੋ"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr "ਡਾਟਾ ਭੇਜਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2290,87 +2192,87 @@ msgid ""
 "executable program."
 msgstr "<filename>%1</filename> ਨਹੀਂ ਲੱਭਿਆ, ਚੱਲਣਯੋਗ ਪਰੋਗਰਾਮ ਲਈ ਢੁੱਕਵਾਂ ਮਾਰਗ ਦਿਓ।"
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਨਾ-ਸਹਾਇਕ ਕਨੈਕਸ਼ਨ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਕਨੈਕਸ਼ਨ ਬੰਦ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "ਲਿਖਣ ਲਈ %1 ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਲਈ ਖਾਸ ਕਾਰਵਾਈ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਲਈ ਫੋਲਡਰ ਲਿਸਟ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹਨ।"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 ਤੋਂ ਮੁੜ ਡਾਟਾ ਪਰਾਪਤ ਕਰਨਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "mime ਕਿਸਮ ਜਾਣਕਾਰੀ %1 ਤੋਂ ਪਰਾਪਤ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ਫਾਇਲਾਂ ਦਾ ਨਾਂ-ਬਦਲੋ ਜਾਂ ਥਾਂ ਤਬਦੀਲੀ %1 ਵਿੱਚ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ symlink ਬਣਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 ਤੋਂ ਫਾਇਲਾਂ ਕਾਪੀ ਕਰਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 ਤੋਂ ਫਾਇਲ ਹਟਾਉਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਤਬਦੀਲ ਕਰਨੇ ਸੰਭਵ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ਪਰੋਟੋਕਾਲ %1 ਨਾਲ ਫਾਇਲਾਂ ਦੇ ਗੁਣ ਬਦਲਣੇ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣਾ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਐਕਸ਼ਨ %2 ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
@@ -3503,6 +3405,11 @@ msgstr "<qt>ਟੈਂਪਲੇਟ ਫਾਇਲ <b>%1</b> ਮੌਜੂਦ ਨਹ�
 msgid "Name for new link:"
 msgstr "ਨਵੇਂ ਲਿੰਕ ਲਈ ਨਾਂ:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਓ"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4092,22 +3999,22 @@ msgstr "ਪਰੋਗਰਾਮ \"mount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 msgid "Could not find program \"umount\""
 msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 ਤੋਂ %2 ਲਈ ਫਾਇਲ ਦੀ ਕਾਪੀ ਹੋ ਨਹੀਂ ਸਕਦੀ ਹੈ। (ਗਲਤੀ: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 ਲਈ ਡਿਵਾਈਸ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤੋਂਕਾਰ ID ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਿਆ"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
@@ -4693,17 +4600,17 @@ msgstr "ਗਿਣੋ"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "ਰੱਦ ਕਰੋ(&a)"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "ਇੱਥੇ ਭੇਜੋ(&M)"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4711,12 +4618,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "ਇੱਥੇ ਕਾਪੀ ਕਰੋ(&C)"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "ਇੱਥੇ ਲਿੰਕ ਬਣਾਓ(&L)"
@@ -4781,170 +4688,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "ਤਬਦੀਲੀਆਂ ਵਾਪਸ ਲਵੋ"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਵਾਪਸ ਲੈਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "ਟਿਕਾਣਾ"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "ਕਾਪੀ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "ਨਾਂ ਬਦਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "ਰੱਦੀ ਵਿੱਚ ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "ਵਾਪਸ(&o)"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "ਵਾਪਸ(&o): ਕਾਪੀ"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "ਵਾਪਸ(&o): ਲਿੰਕ"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "ਵਾਪਸ(&o): ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "ਵਾਪਸ(&o): ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "ਵਾਪਸ(&o): ਰੱਦੀ"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "ਵਾਪਸ(&o): ਫਾਇਲ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "ਵਾਪਸ(&o): ਇਕੱਠੇ ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "ਵਾਪਸ(&o): ਕਾਪੀ"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "ਵਾਪਸ(&o): ਲਿੰਕ"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "ਵਾਪਸ(&o): ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "ਵਾਪਸ(&o): ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "ਵਾਪਸ(&o): ਰੱਦੀ"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "ਵਾਪਸ(&o): ਫਾਇਲ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "ਵਾਪਸ(&o): ਇਕੱਠੇ ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4953,7 +4849,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "ਫਾਇਲ ਕਾਪੀ ਨੂੰ ਵਾਪਸ ਲੈਣ ਦੀ ਤਸਦੀਕ"
@@ -7324,6 +7220,79 @@ msgstr "ਇਹ ਪਰੋਗਰਾਮ ਨੂੰ ਸ਼ੁਰੂ ਕਰੇਗਾ:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ ਭਰੋਸਾ ਨਹੀਂ ਤਾਂ ਰੱਦ ਕਰੋ ਨੂੰ ਕਲਿੱਕ ਕਰੋ"
+
+#~ msgid "Change Attribute"
+#~ msgstr "ਗੁਣ ਬਦਲੋ"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr "ਫਾਇਲ ਦੇ ਗੁਣ ਬਦਲਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Copy Files"
+#~ msgstr "ਫਾਇਲ ਕਾਪੀ ਕਰੋ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "ਕਾਪੀ ਕਰਨ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ "
+#~ "ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Delete Files"
+#~ msgstr "ਫਾਇਲਾਂ ਨੂੰ ਹਟਾਓ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "ਹਟਾਉਣ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਇਸ ਨੁਾਲ ਤੁਹਾਡੇ ਸਿਸਟਮ ਦਾ "
+#~ "ਨੁਕਸਾਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Create Folder"
+#~ msgstr "ਫੋਲਡਰ ਬਣਾਓ"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "ਇਹ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Move Items"
+#~ msgstr "ਆਈਟਮਾਂ ਭੇਜੋ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "ਭੇਜਣ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Rename"
+#~ msgstr "ਨਾਂ-ਬਦਲੋ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr "ਨਾਂ ਬਦਲਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Transfer data"
+#~ msgstr "ਡਾਟਾ ਟਰਾਂਸਫਰ ਕਰੋ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "ਡਾਟਾ ਭੇਜਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "ਤਬਦੀਲੀਆਂ ਵਾਪਸ ਲਵੋ"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਵਾਪਸ ਲੈਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "%1 ਲਈ ACL ਸੈਟਿੰਗ"

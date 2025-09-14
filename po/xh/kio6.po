@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -35,12 +35,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lwandle@translate.org.za"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, fuzzy, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Ayinakutshintsha iimvumelwano ze %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ayikwazi ukwenza i io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -90,23 +90,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, fuzzy, kde-format
 msgid "Folder Already Exists"
 msgstr "Ifayile Sele Ikhona"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Ifayile Sele Ikhona"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, fuzzy, kde-format
 msgid "Already Exists as Folder"
 msgstr "Isilawulo Sele Sikhona"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 msgid "Trash"
 msgstr "Umonakalo"
@@ -207,14 +207,14 @@ msgid "Moving"
 msgstr "Iyashukuma"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, fuzzy, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Imvelaphi:"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, fuzzy, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -240,7 +240,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -252,7 +252,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr " (Iyacima)"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, fuzzy, kde-format
 msgid "File"
@@ -294,102 +294,6 @@ msgstr "Incopho yonyuso:"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Ayinyuki"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr ""
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-
-#: core/job.cpp:270
-#, fuzzy, kde-format
-#| msgid "*|All Files"
-msgid "Copy Files"
-msgstr "*|Zonke Iifayile"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Cima Iifayile"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-
-#: core/job.cpp:282
-#, fuzzy, kde-format
-msgid "Create Folder"
-msgstr "Ayinakwenza Umngxuma"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-
-#: core/job.cpp:288
-#, fuzzy, kde-format
-msgid "Move Items"
-msgstr "Yiya kwi %1"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-
-#: core/job.cpp:294
-#, fuzzy, kde-format
-#| msgid "&Rename"
-msgid "Rename"
-msgstr "&Yinike igama kwakhona"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, fuzzy, kde-format
-#| msgid "Could Not Create Symbolic Link"
-msgid "Create Symlink"
-msgstr "Ayikwazanha Ukwenza Ikhonkco Elinophawu"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr ""
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
 
 #: core/job_error.cpp:37
 #, fuzzy, kde-format
@@ -2463,88 +2367,88 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, fuzzy, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, fuzzy, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, fuzzy, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ukunikeza iifayile aluxhaswa ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, fuzzy, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ukubhalo kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, fuzzy, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Akukho ntshukumo ezikhethekileyo ezifumaneka kumthetho olandelwayo %1"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, fuzzy, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ukudweliso lwabalawuli aluxhaselwanga umthetho olandelwayo %1"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, fuzzy, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, fuzzy, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, fuzzy, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Ukunika igama kwakhona okanye ukususa iifayile ngaphakathi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, fuzzy, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ukwenza i symlinks akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, fuzzy, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ukukhuphela iifayile ngapakhathi kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, fuzzy, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ukucima iifayile kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, fuzzy, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, fuzzy, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, fuzzy, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
@@ -3765,6 +3669,12 @@ msgstr ""
 msgid "Name for new link:"
 msgstr ""
 
+#: filewidgets/knewfilemenu.cpp:679
+#, fuzzy, kde-format
+#| msgid "Could Not Create Symbolic Link"
+msgid "Create Symlink"
+msgstr "Ayikwazanha Ukwenza Ikhonkco Elinophawu"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, fuzzy, kde-format
 msgid "Create link to URL"
@@ -4355,22 +4265,22 @@ msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 msgid "Could not find program \"umount\""
 msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, fuzzy, kde-format
 msgid "No media in device for %1"
 msgstr "Akukho metainfo ye %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ayinakungena kulawulo %1"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4992,28 +4902,28 @@ msgstr "Bala"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, fuzzy, kde-format
 msgid "C&ancel"
 msgstr "Rhoxisa"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -5077,165 +4987,154 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr ""
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, fuzzy, kde-format
 msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, fuzzy, kde-format
 msgid "Source"
 msgstr "Imvelaphi:"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, fuzzy, kde-format
 msgid "Destination"
 msgstr "Indawo ephelela kuyo:"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Iyakhuphela"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, fuzzy, kde-format
 #| msgid "Moving"
 msgid "Moving"
 msgstr "Iyashukuma"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Renaming"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 msgid "Moving to Trash"
 msgstr "Yiya kwi %1"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, fuzzy, kde-format
 msgid "Deleting"
 msgstr " (Iyacima)"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, fuzzy, kde-format
 msgid "Und&o: Trash"
 msgstr "Umonakalo"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, fuzzy, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, fuzzy, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, fuzzy, kde-format
 msgid "Und&o: Create File"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Und&o: Batch Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "&Redo: Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 msgid "&Redo: Trash"
 msgstr "Umonakalo"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 msgid "&Redo: Create Folder"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 msgid "&Redo: Create File"
 msgstr "Ayinakwenza Umngxuma"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "&Redo: Batch Rename"
 msgstr "&Yinike igama kwakhona"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5244,7 +5143,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, fuzzy, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Uqwalaselo Lomshicileli"
@@ -7559,6 +7458,27 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "*|All Files"
+#~ msgid "Copy Files"
+#~ msgstr "*|Zonke Iifayile"
+
+#~ msgid "Delete Files"
+#~ msgstr "Cima Iifayile"
+
+#, fuzzy
+#~ msgid "Create Folder"
+#~ msgstr "Ayinakwenza Umngxuma"
+
+#, fuzzy
+#~ msgid "Move Items"
+#~ msgstr "Yiya kwi %1"
+
+#, fuzzy
+#~| msgid "&Rename"
+#~ msgid "Rename"
+#~ msgstr "&Yinike igama kwakhona"
 
 #, fuzzy
 #~ msgid "Setting ACL for %1"

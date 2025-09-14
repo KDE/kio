@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2024-02-24 15:31+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -31,12 +31,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ",sergiu@cip.md"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Nu s-a putut schimba proprietarul fișierului %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nu se poate crea lucrătorul KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -92,23 +92,23 @@ msgstr ""
 "Alegerea „Înlocuiește” va înlocui orice caracter nevalid (în denumirea "
 "fișierului-destinație) cu o subliniere „_”."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dosarul există deja"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fișierul există deja"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Deja există ca dosar"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Gunoi"
@@ -212,14 +212,14 @@ msgid "Moving"
 msgstr "Mutare"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Sursă"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Creare dosar"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -255,7 +255,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Ștergere"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -294,115 +294,6 @@ msgstr "Punct de montare"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Demontare"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Schimbare atribut"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a schimba atributele "
-"fișierului. Doriți să continuați?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Copiere fișiere"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a finaliza operația de "
-"copiere. Doriți să continuați?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Ștergere fișiere"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a finaliza operația de "
-"ștergere. Făcând asta, puteți deteriora sistemul. Doriți să continuați?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Creare dosar"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a crea acest dosar. Doriți "
-"să continuați?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Mutare elemente"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a finaliza operația de "
-"mutare. Doriți să continuați?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Redenumire"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a finaliza redenumirea. "
-"Doriți să continuați?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Creează legătură simbolică"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a crea legătura simbolică. "
-"Doriți să continuați?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Transfer de date"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Sunt necesare privilegii de administrator pentru a finaliza transferul de "
-"date. Doriți să continuați?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2456,89 +2347,89 @@ msgstr ""
 "<filename>%1</filename> nu a fost găsit. Introduceți o cale validă spre un "
 "program executabil."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Protocolul „%1” nu suportă deschiderea de conexiuni."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Protocolul „%1” nu suportă închiderea de conexiuni."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protocolul „%1” nu suportă accesarea fișierelor."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Nu este suportată scrierea în %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nu sunt disponibile acțiuni speciale pentru protocolul %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Protocolul „%1” nu suportă listarea de dosare."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Nu este suportată citirea de date din %1."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Nu este suportată citirea de informații MIME din %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Nu este suportată redenumirea sau mutarea fișierelor în %1."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Nu este suportată crearea de legături simbolice cu protocolul „%1”."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Nu este suportată copierea de fișiere în %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Nu este suportată ștergerea de fișiere în %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Nu este suportată crearea de dosare cu protocolul „%1”."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Nu este suportată modificarea atributelor fișierelor cu protocolul „%1”."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Nu este suportată modificarea proprietarului fișierelor cu protocolul %1."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Nu este suportată deschiderea fișierelor cu protocolul %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocolul %1 nu suportă acțiunea %2."
@@ -3715,6 +3606,11 @@ msgstr "<qt>Fișierul-șablon <b>%1</b> nu există.</qt>"
 msgid "Name for new link:"
 msgstr "Denumire pentru legătura nouă:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Creează legătură simbolică"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4343,22 +4239,22 @@ msgstr "Programul „mount” nu a putut fi găsit"
 msgid "Could not find program \"umount\""
 msgstr "Programul „umount” nu a putut fi găsit"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nu s-a putut copia fișierul din %1 în %2. (Nr. eroare: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Niciun mediu în dispozitiv pentru %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nu s-a putut obține id. utilizatorului pentru numele de utilizator %1"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nu s-a putut obține id. grupului pentru denumirea de grup %1"
@@ -4960,17 +4856,17 @@ msgstr "Calculează"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Apăsați pentru a copia suma de control în clipboard."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "R&enunță"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mută aici"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4978,12 +4874,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Descărcări"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copiază aici"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Leagă aici"
@@ -5048,172 +4944,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Desfă modificările"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Desfacerea acestei operații necesită drepturi de administrator. Doriți să "
-"continuați?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Creez dosarul"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Sursă"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Destinație"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Copiere"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Mut"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Redenumire"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "Mută în coșul de gunoi"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Șterg"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "&Desfă"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Desfă: Copiere"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Desfă: Legătură"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Desfă: Mutare"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Desfă: Redenumire"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Desfă: Gunoi"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Desfă: Creare dosar"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Desfă: Creare dosar(e)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Desfă: Creare fișier"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Desfă: Redenumire în lot"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "&Desfă: Copiere"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "&Desfă: Legătură"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "&Desfă: Mutare"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "&Desfă: Redenumire"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "&Desfă: Gunoi"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "&Desfă: Creare dosar"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "&Desfă: Creare dosar(e)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "&Desfă: Creare fișier"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "&Desfă: Redenumire în lot"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5227,7 +5110,7 @@ msgstr ""
 "pierdute.\n"
 "Sigur ștergeți %4?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Confirmarea desfacerii copierii fișierului"
@@ -7726,6 +7609,91 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Schimbare atribut"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a schimba atributele "
+#~ "fișierului. Doriți să continuați?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Copiere fișiere"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a finaliza operația de "
+#~ "copiere. Doriți să continuați?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Ștergere fișiere"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a finaliza operația de "
+#~ "ștergere. Făcând asta, puteți deteriora sistemul. Doriți să continuați?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Creare dosar"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a crea acest dosar. "
+#~ "Doriți să continuați?"
+
+#~ msgid "Move Items"
+#~ msgstr "Mutare elemente"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a finaliza operația de "
+#~ "mutare. Doriți să continuați?"
+
+#~ msgid "Rename"
+#~ msgstr "Redenumire"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a finaliza redenumirea. "
+#~ "Doriți să continuați?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a crea legătura "
+#~ "simbolică. Doriți să continuați?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Transfer de date"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Sunt necesare privilegii de administrator pentru a finaliza transferul de "
+#~ "date. Doriți să continuați?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Desfă modificările"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Desfacerea acestei operații necesită drepturi de administrator. Doriți să "
+#~ "continuați?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "Stabilire ACL pentru %1"

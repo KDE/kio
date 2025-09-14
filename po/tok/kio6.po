@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -24,12 +24,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "mi ken ala ante e jan lawa pi lipu %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "mi ken ala lon e ilo pi pali lipu: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -82,23 +82,23 @@ msgstr ""
 "poki poki (%2) li wile ala e nimi lili ni: %3\n"
 "sina kepeken \"ante\" li weka e nimi pi wile ala li lon e nimi \"_\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "poki li lon awen"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ijo li lon awen"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ona li lon li poki"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ilo wile ala"
@@ -206,14 +206,14 @@ msgid "Moving"
 msgstr "ilo li tawa e ijo"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "tan ijo"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -238,7 +238,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "mi lon e poki sin"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -250,7 +250,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "mi weka e lipu"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -289,101 +289,6 @@ msgstr "nimi pi poki poki"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "mi weka e ken kepeken tawa poki poki"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "ni la o ante e ijo"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "wawa li wile tawa ante ijo poki. sina wile ala wile awen pali?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "o lon e lipu sama lipu ante"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr "wawa li wile tawa lon pi ijo sama tu. sina wile ala wile awen pali?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "o weka e lipu"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"wawa li wile tawa weka ijo. ni li ken pakala e ilo sina. sina wile ala wile "
-"awen pali?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "o pali e poki"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "wawa li wile tawa lon pi poki poki. sina wile ala wile awen?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "o tawa e ijo"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr "wawa li wile tawa tawa ijo. sina wile ala wile awen pali?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "o ante e nimi"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "wawa li wile tawa ante nimi. sina wile ala wile awen pali?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "o lon e nimi nanpa tu tawa ijo"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "wawa li wile tawa lon pi nimi ante ijo. sina wile ala wile awen?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "o tawa e sona"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr "wawa li wile tawa tawa sona. sina wile ala wile awen pali?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2253,87 +2158,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "mi ken ala open e linluwi kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "mi ken ala pini e linluwi kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "mi ken ala lukin e lipu kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "mi ken ala sitelen e %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "pali ante li lon ala tawa nasin toki ilo %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "mi ken ala lukin e poki kepeken nasin toki ilo %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "mi ken ala kama jo e sona tan %1."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "mi ken ala kama sona e kule lipu tan %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "mi ken ala ante li ken ala tawa e lipu lon %1."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ilo %1 li ken ala lon e nasin lipu."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "ilo li ken ala sama e lipu lon insa pi poki %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "weka lipu tan %1 li ken ala."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ilo %1 li ken ala lon e poki."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala ante e ijo lipu."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala ante e jan jo lipu."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ilo %1 li ken ala open e lipu."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "toki ilo %1 li ken ala pali %2."
@@ -3479,6 +3384,11 @@ msgstr "<qt>lipu tan <b>%1</b> li lon ala.</qt>"
 msgid "Name for new link:"
 msgstr "nimi pi nasin tawa sin:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "o lon e nimi nanpa tu tawa ijo"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4078,23 +3988,23 @@ msgstr "mi ken ala alasa e ilo \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "mi ken ala alasa e ilo \"umount\""
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 "ilo li ken ala sama e lipu tan poki %1 tawa poki %2. (nanpa pakala: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ijo li lon ala ilo tawa %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"
@@ -4668,17 +4578,17 @@ msgstr "o nanpa e ni"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "sina pilin e ni la sitelen pimeja li tawa supa pali."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "o &pini"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "o &tawa ni"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4686,12 +4596,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "tan ilo ante"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "o &pana e ijo sama lon ni"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "o lon e &nasin"
@@ -4756,171 +4666,160 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "o weka e ante"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "weka pi pali ni li wile ken wawa. sina wile ala wile awen?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "poki lipu li kama lon"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "tan ijo"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "pini ijo"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "mi lon e lipu sama lipu ante"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "ilo li tawa e ijo"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Renaming"
 msgstr "o ante e nimi"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "o weka e ni tawa poki jaki"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "ilo li weka e ni"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "o weka e pali"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "o &weka e sama lipu"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "o &weka e lon nasin"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "o &weka e tawa"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "o &weka e ante nimi"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "o &weka e tawa jaki"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "o &weka e lon lipu"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "o &weka e ante pi nimi mute"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "o &weka e sama lipu"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "o &weka e lon nasin"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "o &weka e tawa"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "o &weka e ante nimi"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "o &weka e tawa jaki"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "o &weka e lon poki"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "o &weka e lon lipu"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "o &weka e ante pi nimi mute"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4933,7 +4832,7 @@ msgstr ""
 "sina wile weka e sama lipu la, ante ni li kama weka kin.\n"
 "sina wile ala wile weka e lipu %4?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "o weka e wile pona pi sama lipu"
@@ -7307,6 +7206,75 @@ msgstr "ni li open e ilo:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "sina pilin ike tan ilo ni la o pilin lon \"pini\""
+
+#~ msgid "Change Attribute"
+#~ msgstr "ni la o ante e ijo"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr "wawa li wile tawa ante ijo poki. sina wile ala wile awen pali?"
+
+#~ msgid "Copy Files"
+#~ msgstr "o lon e lipu sama lipu ante"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr "wawa li wile tawa lon pi ijo sama tu. sina wile ala wile awen pali?"
+
+#~ msgid "Delete Files"
+#~ msgstr "o weka e lipu"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "wawa li wile tawa weka ijo. ni li ken pakala e ilo sina. sina wile ala "
+#~ "wile awen pali?"
+
+#~ msgid "Create Folder"
+#~ msgstr "o pali e poki"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "wawa li wile tawa lon pi poki poki. sina wile ala wile awen?"
+
+#~ msgid "Move Items"
+#~ msgstr "o tawa e ijo"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr "wawa li wile tawa tawa ijo. sina wile ala wile awen pali?"
+
+#~ msgid "Rename"
+#~ msgstr "o ante e nimi"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr "wawa li wile tawa ante nimi. sina wile ala wile awen pali?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr "wawa li wile tawa lon pi nimi ante ijo. sina wile ala wile awen?"
+
+#~ msgid "Transfer data"
+#~ msgstr "o tawa e sona"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr "wawa li wile tawa tawa sona. sina wile ala wile awen pali?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "o weka e ante"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "weka pi pali ni li wile ken wawa. sina wile ala wile awen?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "mi lon e lawa sin ACL tawa %1"

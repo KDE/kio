@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -32,12 +32,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "hasso@linux.ee, qiilaq69@gmail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Faili %1 omaniku muutmine nurjus"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "IO-mooduli loomine nurjus: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -92,23 +92,23 @@ msgstr ""
 "Sihtfaili nimes sobimatute märkide alakriipsuga \"_\" asendamiseks vali "
 "\"Asenda\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kataloog on juba olemas"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fail on juba olemas"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Eksisteerib juba kataloogina"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Prügikast"
@@ -209,14 +209,14 @@ msgid "Moving"
 msgstr "Liigutamine"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Lähtekoht"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -240,7 +240,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Kataloogi loomine"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -252,7 +252,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Kustutamine"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -291,110 +291,6 @@ msgstr "Ühenduspunkt"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Lahutamine"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Atribuudi muutmine"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Faili atribuutide muutmiseks on tarvilikud administraatori õigused. Kas "
-"jätkata?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Failide kopeerimine"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Kopeerimise sooritamiseks on tarvilikud administraatori õigused. Kas jätkata?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Failide kustutamine"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Kustutamise sooritamiseks on tarvilikud administraatori õigused. Kuid see "
-"võib tekitada süsteemile kahju. Kas jätkata?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Kataloogi loomine"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"Selle kataloogi loomiseks on tarvilikud administraatori õigused. Kas jätkata?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Elementide liigutamine"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Liigutamise sooritamieks on tarvilikud administraatori õigused. Kas jätkata?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Nime muutmine"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"Nime muutmise sooritamiseks on tarvilikud administraatori õigused. Kas "
-"jätkata?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Nimeviida loomine"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Nimeviida loomiseks on tarvilikud administraatori õigused. Kas jätkata?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Andmete ülekanne"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Andmete ülekandmiseks on tarvilikud administraatori õigused. Kas jätkata?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2422,87 +2318,87 @@ msgstr ""
 "<filename>%1</filename> jäi leidmata; palun sisesta kehtiv tee käivitatava "
 "programmi juurde."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ühenduste avamine pole protokollis %1 toetatud."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ühenduste sulgemine pole protokollis %1 toetatud."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Failidele ligipääs pole protokollis %1 toetatud."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Kirjutamine asukohta %1 pole toetatud."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Protokollis %1 puuduvad spetsiaalsed tegevused."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Kataloogide sisu nimekiri pole protokollis %1 toetatud."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Andmete vastuvõtmine asukohast %1 pole toetatud."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "MIME tüübi vastuvõtmine asukohast %1 pole toetatud."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Failide ümbernimetamine või liigutamine asukohas %1 pole toetatud."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Nimeviitade loomine pole protokollis %1 toetatud."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Failide kopeerimine asukohta %1 pole toetatud."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Failide kustutamine asukohast %1 pole toetatud."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Kataloogide loomine pole %1 protokollis toetatud."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Failide atribuutide muutmine pole %1 protokollis toetatud."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Failide omaniku muutmine pole %1 protokollis toetatud."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Failide avamine pole %1 protokollis toetatud."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokoll %1 ei toeta tegevust %2."
@@ -3667,6 +3563,11 @@ msgstr "<qt>Mallifaili <b>%1</b> ei ole olemas.</qt>"
 msgid "Name for new link:"
 msgstr "Uue viida nimi:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Nimeviida loomine"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4287,22 +4188,22 @@ msgstr "Rakendust \"mount\" ei leitud"
 msgid "Could not find program \"umount\""
 msgstr "Rakendust \"umount\" ei leitud"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Faili kopeerimine asukohast %1 asukohta %2 nurjus (viga: %3)."
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Andmekandja pole %1 seadmes"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Määratud kasutajanimele %1 ei õnnestunud hankida kasutaja ID-d."
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Määratud grupi nimele %1 ei õnnestunud hankida grupi ID-d"
@@ -4903,17 +4804,17 @@ msgstr "Arvuta"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klõpsa kontrollsuuma kopeerimiseks lõikepuhvrisse."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "Loo&bu"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "Lii&guta siia"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4921,12 +4822,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Allalaadimised"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopeeri siia"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lingi siia"
@@ -4991,171 +4892,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Muudatuste tühistamine"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Selle operatsiooni tühistamine nõuab administraatori õigusi. Kas jätkata?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Lähtefail"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Sihtfail"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Kopeerimine"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Liigutamine"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Nime muutmine"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "Liigutamine prügikasti"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Kustutamine"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "&Võta tagasi"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Võta tagasi: kopeerimine"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Võta tagasi: linkimine"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Võta tagasi: liigutamine"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Võta tagasi: ümbernimetamine"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Võta tagasi: viskamine prügikasti"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Võta tagasi: kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Võta tagasi: kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Võta tagasi: faili loomine"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Võta tagasi: hulgiümbernimetamine"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "&Võta tagasi: kopeerimine"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "&Võta tagasi: linkimine"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "&Võta tagasi: liigutamine"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "&Võta tagasi: ümbernimetamine"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "&Võta tagasi: viskamine prügikasti"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "&Võta tagasi: kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "&Võta tagasi: kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "&Võta tagasi: faili loomine"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "&Võta tagasi: hulgiümbernimetamine"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5167,7 +5056,7 @@ msgstr ""
 "Kopeerimise tagasivõtmine kustutab faili ja kõik muudatused lähevad kaotsi.\n"
 "Kas tõesti kustutada %4?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Faili kopeerimise tagasivõtmise kinnitus"
@@ -7615,6 +7504,88 @@ msgstr "See käivitab programmi:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Atribuudi muutmine"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Faili atribuutide muutmiseks on tarvilikud administraatori õigused. Kas "
+#~ "jätkata?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Failide kopeerimine"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Kopeerimise sooritamiseks on tarvilikud administraatori õigused. Kas "
+#~ "jätkata?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Failide kustutamine"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Kustutamise sooritamiseks on tarvilikud administraatori õigused. Kuid see "
+#~ "võib tekitada süsteemile kahju. Kas jätkata?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Kataloogi loomine"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Selle kataloogi loomiseks on tarvilikud administraatori õigused. Kas "
+#~ "jätkata?"
+
+#~ msgid "Move Items"
+#~ msgstr "Elementide liigutamine"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Liigutamise sooritamieks on tarvilikud administraatori õigused. Kas "
+#~ "jätkata?"
+
+#~ msgid "Rename"
+#~ msgstr "Nime muutmine"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Nime muutmise sooritamiseks on tarvilikud administraatori õigused. Kas "
+#~ "jätkata?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Nimeviida loomiseks on tarvilikud administraatori õigused. Kas jätkata?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Andmete ülekanne"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Andmete ülekandmiseks on tarvilikud administraatori õigused. Kas jätkata?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Muudatuste tühistamine"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Selle operatsiooni tühistamine nõuab administraatori õigusi. Kas jätkata?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "ACL-iks määratakse %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2025-07-29 12:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Kon de eigenaar van bestand %1 niet wijzigen"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Niet in staat KIO-worker aan te maken: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -89,23 +89,23 @@ msgstr ""
 "Vervangen kiezen zal elk ongeldig teken (in de bestandsnaam op de "
 "bestemming) vervangen door een onderstreping \"_\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Map bestaat reeds"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Bestand bestaat al"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Bestaat reeds als map"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Prullenbak"
@@ -207,14 +207,14 @@ msgid "Moving"
 msgstr "Verplaatsen"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Bron"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -238,7 +238,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Map wordt aangemaakt"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -250,7 +250,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Verwijderen"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -289,115 +289,6 @@ msgstr "Aankoppelpunt"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Afkoppelen"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Attribuut wijzigen"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het wijzigen van attributen van "
-"bestanden. Wilt u doorgaan?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Bestanden kopiëren"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het volledig uitvoeren van de "
-"kopieeractie. Wilt u doorgaan?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Bestanden verwijderen"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het volledig uitvoeren van de "
-"verwijderactie. Dat doen kan echter uw systeem beschadigen. Wilt u doorgaan?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Map aanmaken"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het aanmaken van deze map. Wilt u "
-"doorgaan?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Items verplaatsen"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het volledig uitvoeren van de "
-"verplaatsingsactie. Wilt u doorgaan?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Hernoemen"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het volledig uitvoeren van het "
-"hernoemen. Wilt u doorgaan?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Symbolische koppeling aanmaken"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het aanmaken van een symbolische "
-"koppeling. Wilt u doorgaan?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Gegevens overbrengen"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het volledig uitvoeren van het "
-"overdragen van gegevens. Wilt u doorgaan?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2476,98 +2367,98 @@ msgstr ""
 "<filename>%1</filename> is niet gevonden; voer een geldig pad in naar een "
 "uitvoerbaar programma."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 "Het openen van verbindingen wordt niet ondersteund door het protocol %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 "Het sluiten van verbindingen wordt niet ondersteund door het protocol %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr ""
 "Toegang verschaffen tot bestanden wordt niet ondersteund door protocol %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Het schrijven naar %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Er zijn geen speciale acties beschikbaar voor protocol %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "Het tonen van mappen en mapinhoud wordt niet ondersteund voor protocol %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Het ophalen van gegevens vanuit %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Het ophalen van mimetype-gegevens vanuit %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Het hernoemen of verplaatsen van bestanden binnen %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "Het aanmaken van symbolische koppelingen wordt niet ondersteund door "
 "protocol %1."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Het kopiëren van bestanden binnen %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Het verwijderen van bestanden in %1 wordt niet ondersteund."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Het aanmaken van mappen wordt niet ondersteund door protocol %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Het veranderen van bestandsattributen wordt niet ondersteund door protocol "
 "%1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Het veranderen van het eigendom voor bestanden wordt niet ondersteund door "
 "protocol %1."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Het openen van bestanden wordt niet ondersteund door protocol %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocol %1 biedt geen ondersteuning voor actie %2."
@@ -3728,6 +3619,11 @@ msgstr "<qt>Het sjabloonbestand <b>%1</b> bestaat niet.</qt>"
 msgid "Name for new link:"
 msgstr "Naam voor nieuwe koppeling:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Symbolische koppeling aanmaken"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4335,22 +4231,22 @@ msgstr "Kon het programma \"mount\" niet vinden"
 msgid "Could not find program \"umount\""
 msgstr "Kon het programma \"umount\" niet vinden"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bestand kan niet van %1 naar %2 worden gekopieerd. (foutcode: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Geen medium in station voor %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kon gebruikers-id voor de opgegeven gebruikersnaam %1 niet verkrijgen"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"
@@ -4957,28 +4853,28 @@ msgstr "Berekenen"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klik om de controlesom naar het klembord te kopiëren."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Annuleren"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "Hierheen &verplaatsen"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Hier &downloaden"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "Hierheen &kopiëren"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "Hierheen ver&binden"
@@ -5041,160 +4937,147 @@ msgstr ""
 "U kunt dit ongedaan maken onder \"Bevestigingen\" in de instellingen van de "
 "bestandsbeheerder Dolphin."
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Wijzigingen ongedaan maken"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Er zijn root-privileges vereist voor het ongedaan maken van deze bewerking. "
-"Wilt u doorgaan?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Map wordt aangemaakt"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Bron"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Bestemming"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Copying"
 msgstr "Kopiëren"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Verplaatsen"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Bezig met hernoemen"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
 msgstr "Naar de prullenbak verplaatsen"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Verwijderen"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "&Ongedaan maken"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Ongedaan maken: kopiëren"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Ongedaan maken: koppelen"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Ongedaan maken: verplaatsen"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Ongedaan maken: hernoemen"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Ongedaan maken: naar prullenbak"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Ongedaan maken: map aanmaken"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Ongedaan maken: map(pen) aanmaken"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Ongedaan maken: bestand aanmaken"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Ongedaan maken: hernoemen in bulk"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr "Opnie&uw"
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "Opnie&uw: kopiëren"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr "Opnie&uw: koppelen"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr "Opnie&uw: verplaatsen"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "Opnie&uw: hernoemen"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "Opnie&uw: naar prullenbak"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "Opnie&uw: map aanmaken"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "Opnie&uw: map(pen) aanmaken"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "Opnie&uw: bestand aanmaken"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "Opnie&uw: hernoemen in bulk"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5207,7 +5090,7 @@ msgstr ""
 "wijzigingen verloren doen gaan.\n"
 "Wilt u toch %4 verwijderen?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Verwijderen van bestandskopie bevestigen"
@@ -7614,6 +7497,92 @@ msgstr "Dit start het programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Als u dit programma niet vertrouwt, klik op Annuleren"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Attribuut wijzigen"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het wijzigen van attributen van "
+#~ "bestanden. Wilt u doorgaan?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Bestanden kopiëren"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
+#~ "kopieeractie. Wilt u doorgaan?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Bestanden verwijderen"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
+#~ "verwijderactie. Dat doen kan echter uw systeem beschadigen. Wilt u "
+#~ "doorgaan?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Map aanmaken"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het aanmaken van deze map. Wilt u "
+#~ "doorgaan?"
+
+#~ msgid "Move Items"
+#~ msgstr "Items verplaatsen"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het volledig uitvoeren van de "
+#~ "verplaatsingsactie. Wilt u doorgaan?"
+
+#~ msgid "Rename"
+#~ msgstr "Hernoemen"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het volledig uitvoeren van het "
+#~ "hernoemen. Wilt u doorgaan?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het aanmaken van een symbolische "
+#~ "koppeling. Wilt u doorgaan?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Gegevens overbrengen"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het volledig uitvoeren van het "
+#~ "overdragen van gegevens. Wilt u doorgaan?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Wijzigingen ongedaan maken"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Er zijn root-privileges vereist voor het ongedaan maken van deze "
+#~ "bewerking. Wilt u doorgaan?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "ACL instellen voor %1"

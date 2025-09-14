@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -29,12 +29,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "phu.nguyen@kdemail.net,herophuong93@gmail.com,clytie@riverland.net.au"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Không chỉnh sửa được quyền sở hữu của tệp %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Không thể tạo thợ KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "Chọn \"Thay thế\" để thay thế mỗi kí tự không hợp lệ (trong tên tệp đích) "
 "bằng một dấu gạch dưới \"_\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Thư mục đã tồn tại"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tệp đã tồn tại"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Đã tồn tại, là thư mục"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Thùng rác"
@@ -201,14 +201,14 @@ msgid "Moving"
 msgstr "Chuyển"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Nguồn"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -232,7 +232,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Tạo thư mục"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -244,7 +244,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Xoá"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -283,109 +283,6 @@ msgstr "Điểm gắn kết"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Bỏ gắn kết"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Thay đổi thuộc tính"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Cần có đặc quyền gốc để thay đổi thuộc tính tệp. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Chép tệp"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Cần có đặc quyền gốc để hoàn tất thao tác chép. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Xoá tệp"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Cần có đặc quyền gốc để hoàn tất thao tác xoá. Tuy nhiên, làm vậy có thể gây "
-"tổn hại cho hệ thống của bạn. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Tạo thư mục"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "Cần có đặc quyền gốc để tạo thư mục này. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Chuyển các thứ"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Cần có đặc quyền gốc để hoàn tất thao tác chuyển. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Đổi tên"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"Cần có đặc quyền gốc để hoàn tất việc đổi tên. Bạn có muốn tiếp tục không?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Tạo liên kết tượng trưng"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Cần có đặc quyền gốc để tạo được một liên kết tượng trưng. Bạn có muốn tiếp "
-"tục không?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Truyền dữ liệu"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Cần có đặc quyền gốc để hoàn tất việc truyền dữ liệu. Bạn có muốn tiếp tục "
-"không?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2405,87 +2302,87 @@ msgstr ""
 "Không tìm thấy <filename>%1</filename>; vui lòng nhập một đường dẫn hợp lệ "
 "đến một chương trình thực thi."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Việc mở kết nối không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Việc đóng kết nối không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Việc truy cập tệp không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Việc ghi vào %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Không có hành động đặc biệt nào khả dụng cho giao thức %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Việc liệt kê thư mục không được hỗ trợ cho giao thức %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Việc lấy dữ liệu từ %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Việc lấy thông tin kiểu MIME từ %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Việc đổi tên hoặc chuyển tệp trong %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Việc tạo liên kết tượng trưng không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Việc chép tệp trong %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Việc xoá tệp trong %1 không được hỗ trợ."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Việc tạo thư mục không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Việc thay đổi thuộc tính tệp không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Việc thay đổi quyền sở hữu tệp không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Việc mở tệp không được hỗ trợ với giao thức %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Giao thức %1 không hỗ trợ hành động %2."
@@ -3645,6 +3542,11 @@ msgstr "<qt>Tệp bản mẫu <b>%1</b> không tồn tại.</qt>"
 msgid "Name for new link:"
 msgstr "Tên cho liên kết mới:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Tạo liên kết tượng trưng"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4265,22 +4167,22 @@ msgstr "Không tìm được chương trình \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Không tìm được chương trình \"unmount\""
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Không thể chép tệp từ %1 đến %2. (Lỗi: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Không có phương tiện trong thiết bị cho %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Không lấy được mã định danh người dùng cho tên người dùng đã cho %1"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Không lấy được mã định danh nhóm cho tên nhóm đã cho %1"
@@ -4877,17 +4779,17 @@ msgstr "Tính"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Bấm để chép giá trị tổng kiểm vào bảng nháp."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "H&uỷ"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "&Chuyển vào đây"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4895,12 +4797,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Tải về"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "Ché&p vào đây"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Liên kết đến đây"
@@ -4966,172 +4868,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Đảo ngược các thay đổi"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Việc đảo ngược thao tác này đòi hỏi đặc quyền gốc. Bạn có muốn tiếp tục "
-"không?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Tạo thư mục"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Nguồn"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Đích"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Chép"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Chuyển"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Đổi tên"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "Chuyển vào thùng rác"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Xoá"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "Đả&o ngược"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "Đả&o ngược: Chép"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "Đả&o ngược: Liên kết"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "Đả&o ngược: Chuyển"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "Đả&o ngược: Đổi tên"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "Đả&o ngược: Vứt"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Đả&o ngược: Tạo thư mục"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Đả&o ngược: Tạo (các) thư mục"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "Đả&o ngược: Tạo tệp"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Đả&o ngược: Đổi tên một loạt"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "Đả&o ngược: Chép"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "Đả&o ngược: Liên kết"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "Đả&o ngược: Chuyển"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "Đả&o ngược: Đổi tên"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "Đả&o ngược: Vứt"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "Đả&o ngược: Tạo thư mục"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "Đả&o ngược: Tạo (các) thư mục"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "Đả&o ngược: Tạo tệp"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "Đả&o ngược: Đổi tên một loạt"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5143,7 +5032,7 @@ msgstr ""
 "Đảo ngược việc chép này sẽ xoá tệp đó, và tất cả các chỉnh sửa sẽ bị mất.\n"
 "Bạn có chắc chắn muốn xoá %4 không?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Xác nhận đảo ngược việc chép tệp"
@@ -7565,6 +7454,89 @@ msgstr "Việc này sẽ khởi động chương trình đó:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Thay đổi thuộc tính"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để thay đổi thuộc tính tệp. Bạn có muốn tiếp tục "
+#~ "không?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Chép tệp"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để hoàn tất thao tác chép. Bạn có muốn tiếp tục "
+#~ "không?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Xoá tệp"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để hoàn tất thao tác xoá. Tuy nhiên, làm vậy có thể "
+#~ "gây tổn hại cho hệ thống của bạn. Bạn có muốn tiếp tục không?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Tạo thư mục"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để tạo thư mục này. Bạn có muốn tiếp tục không?"
+
+#~ msgid "Move Items"
+#~ msgstr "Chuyển các thứ"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để hoàn tất thao tác chuyển. Bạn có muốn tiếp tục "
+#~ "không?"
+
+#~ msgid "Rename"
+#~ msgstr "Đổi tên"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để hoàn tất việc đổi tên. Bạn có muốn tiếp tục không?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để tạo được một liên kết tượng trưng. Bạn có muốn "
+#~ "tiếp tục không?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Truyền dữ liệu"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Cần có đặc quyền gốc để hoàn tất việc truyền dữ liệu. Bạn có muốn tiếp "
+#~ "tục không?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Đảo ngược các thay đổi"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Việc đảo ngược thao tác này đòi hỏi đặc quyền gốc. Bạn có muốn tiếp tục "
+#~ "không?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "Đặt ACL cho %1"

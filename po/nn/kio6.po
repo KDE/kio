@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2024-10-27 14:42+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -32,12 +32,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "gaute@verdsveven.com,karl@huftis.org"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Klarte ikkje endra eigenskapar til fila %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Klarte ikkje laga KIO-arbeidar: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -89,23 +89,23 @@ msgstr ""
 "Filsystemet (%2) til målfila godtek ikkje desse teikna i filnamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målfila) med underteikn («_»)."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finst frå før som mappe"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papirkorg"
@@ -205,14 +205,14 @@ msgid "Moving"
 msgstr "Flyttar"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Kjelde"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -236,7 +236,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Lagar mappe"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -248,7 +248,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Slettar"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -287,102 +287,6 @@ msgstr "Monteringspunkt"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Avmonterer"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Endra attributt"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "Du treng rotløyve for å endra filattributt. Vil du halda fram?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Kopier filer"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr "Du treng rotløyve for å fullføra kopieringa. Vil du halda fram?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Slett filer"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Du treng rotløyve for å fullføra slettinga. Men dette kan skada systemet. "
-"Vil du likevel halda fram?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Lag mappe"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "Du treng rotløyve for å oppretta mappa. Vil du halda fram?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Flytt element"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr "Du treng rotløyve for å fullføra flyttinga. Vil du halda fram?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Endra namn"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "Du treng rotløyve for å fullføra endringa av namn. Vil du halda fram?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Lag symbolsk lenkje"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "Du treng rotløyve for å laga symbolske lenkjer. Vil du halda fram?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Overfør data"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Du treng rotløyve for å fullføra overføring av data. Vil du halda fram?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2392,87 +2296,87 @@ msgstr ""
 "Klarte ikkje finna <filename>%1</filename>. Skriv inn ei gyldig adresse til "
 "eit køyrbart program."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Du kan ikkje opna samband med protokollen %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Du kan ikkje lukka samband med protokollen %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Du kan ikkje få tilgang til filer med protokollen %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Skriving til %1 er ikkje støtta."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Det finst ingen spesielle handlingar for protokollen %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Kataloglister er ikkje støtta for protokollen %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Henting av data frå %1 er ikkje støtta."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Henting av MIME-typeinformasjon frå %1 er ikkje støtta."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Endring av filnamn eller flytting av filer i %1 er ikkje støtta."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Du kan ikkje laga symbolske lenkjer med protokollen %1."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiering av filer i %1 er ikkje støtta."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Sletting av filer frå %1 er ikkje støtta."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Du kan ikkje laga mapper med protokollen %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Du kan ikkje endra filattributt med protokollen %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Du kan ikkje endra filattributt med protokollen %1."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Du kan ikkje opna filer med protokollen %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokollen %1 støttar ikkje handlinga %2."
@@ -3627,6 +3531,11 @@ msgstr "<qt>Malfila <b>%1</b> finst ikkje.</qt>"
 msgid "Name for new link:"
 msgstr "Namn på ny lenkje:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Lag symbolsk lenkje"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4230,22 +4139,22 @@ msgstr "Fann ikkje programmet «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Fann ikkje programmet «unmount»"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Klarte ikkje kopiera fil frå %1 til %2. (Feilkode: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ingen media i eininga for %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Klarte ikkje henta brukar-ID-en til det oppgjevne brukarnamnet %1."
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Klarte ikkje henta gruppe-ID-en til det oppgjevne gruppenamnet %1."
@@ -4845,28 +4754,28 @@ msgstr "Rekn ut"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Trykk for å kopiera sjekksummen til utklippstavla."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Avbryt"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "&Flytt hit"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Last ned hit"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopier hit"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lag lenkje hit"
@@ -4931,170 +4840,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Angra endringar"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "Du treng rotløyve for å angra denne handlinga. Vil du halda fram?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Lagar mappe"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Kjelde"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Mål"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Kopierer"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Flyttar"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Endrar filnamn"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "Flytt til papirkorga"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Slettar"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "A&ngra"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "A&ngra: Kopier"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "A&ngra: Lenkje"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "A&ngra: Flytt"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "A&ngra: Endra namn"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "A&ngra: Legg i papirkorg"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "A&ngra: Opprett mappe"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "A&ngra: Opprett mappe(r)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "A&ngra: Opprett fil"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "A&ngra: Endra namn på fleire filer"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "A&ngra: Kopier"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "A&ngra: Lenkje"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "A&ngra: Flytt"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "A&ngra: Endra namn"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "A&ngra: Legg i papirkorg"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "A&ngra: Opprett mappe"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "A&ngra: Opprett mappe(r)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "A&ngra: Opprett fil"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "A&ngra: Endra namn på fleire filer"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5106,7 +5004,7 @@ msgstr ""
 "Viss du angrar kopieringa, vert fila slett, og alle endringane går tapt.\n"
 "Er du sikker på at du vil sletta «%4»?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Angra stadfesting av filkopiering"
@@ -7529,59 +7427,73 @@ msgstr "Dette vil starta programmet:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
 
-#~ msgid "Setting ACL for %1"
-#~ msgstr "Vel ACL til %1"
-
-#~ msgid "Change File Permissions"
-#~ msgstr "Endra filløyve"
-
-#~ msgid "New Permissions: %1"
-#~ msgstr "Nye løyve: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Endra fileigar"
-
-#~ msgid "New Owner: UID=%1, GID=%2"
-#~ msgstr "Ny eigar: UID = %1, GID = %2"
-
-#~ msgid "Remove File"
-#~ msgstr "Fjern fil"
-
-#~ msgid "Remove Directory"
-#~ msgstr "Fjern mappe"
-
-#~ msgid "Create Directory"
-#~ msgstr "Lag ny mappe"
-
-#~ msgid "Directory Permissions: %1"
-#~ msgstr "Mappeløyve: %1"
-
-#~ msgid "Open File"
-#~ msgstr "Opna fil"
-
-#~ msgid "Open Directory"
-#~ msgstr "Opna mappe"
-
-#~ msgid "New Filename: %1"
-#~ msgstr "Nytt filnamn: %1"
-
-#~ msgid "Target: %1"
-#~ msgstr "Mål: %1"
-
-#~ msgid "Change Timestamp"
-#~ msgstr "Endra dato/klokkeslett"
-
-#~ msgid "From: %1, To: %2"
-#~ msgstr "Frå: %1, til: %2"
-
-#~ msgid "Unknown Action"
-#~ msgstr "Ukjend handling"
+#~ msgid "Change Attribute"
+#~ msgstr "Endra attributt"
 
 #~ msgid ""
-#~ "Action: %1\n"
-#~ "Source: %2\n"
-#~ "%3"
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr "Du treng rotløyve for å endra filattributt. Vil du halda fram?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Kopier filer"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr "Du treng rotløyve for å fullføra kopieringa. Vil du halda fram?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Slett filer"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
 #~ msgstr ""
-#~ "Handling: %1\n"
-#~ "Kjelde: %2\n"
-#~ "%3"
+#~ "Du treng rotløyve for å fullføra slettinga. Men dette kan skada systemet. "
+#~ "Vil du likevel halda fram?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Lag mappe"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "Du treng rotløyve for å oppretta mappa. Vil du halda fram?"
+
+#~ msgid "Move Items"
+#~ msgstr "Flytt element"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr "Du treng rotløyve for å fullføra flyttinga. Vil du halda fram?"
+
+#~ msgid "Rename"
+#~ msgstr "Endra namn"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Du treng rotløyve for å fullføra endringa av namn. Vil du halda fram?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr "Du treng rotløyve for å laga symbolske lenkjer. Vil du halda fram?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Overfør data"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Du treng rotløyve for å fullføra overføring av data. Vil du halda fram?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Angra endringar"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "Du treng rotløyve for å angra denne handlinga. Vil du halda fram?"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2025-07-21 01:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -29,12 +29,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name,daemul72@gmail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "%1 파일의 소유권을 수정할 수 없음"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
@@ -200,14 +200,14 @@ msgid "Moving"
 msgstr "이동 중"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "원본"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -231,7 +231,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -282,103 +282,6 @@ msgstr "마운트 지점"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "마운트 해제 중"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "속성 변경"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "파일 속성을 변경하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "파일 복사"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr "복사 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "파일 지우기"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"삭제 작업을 진행하려면 루트 권한이 필요하지만 시스템을 망가트릴 수 있습니다. "
-"계속 진행하시겠습니까?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "폴더 만들기"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "폴더를 만들려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "항목 이동"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr "이동 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "이름 변경"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "이름을 바꾸려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "심볼릭 링크 만들기"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"심볼릭 링크를 만들하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "데이터 전송"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"데이터 전송 작업을 완료하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2354,87 +2257,87 @@ msgstr ""
 "<filename>%1</filename>을(를) 찾을 수 없습니다. 실행 가능한 프로그램의 올바"
 "른 경로를 입력하십시오."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 여는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 닫는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 파일 접근이 지원되지 않습니다."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1에 쓰는 것은 지원되지 않습니다."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 프로토콜에 사용할 특별한 작업이 없습니다."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 프로토콜에는 폴더 목록 가져오기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1에서 데이터 검색은 지원되지 않습니다."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1에서 MIME 형식 정보 가져오기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1에서 파일 이름을 바꾸거나 이동하기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 프로토콜에서 심볼릭 링크를 만들기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 프로토콜에서 파일 복사가 지원되지 않습니다."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 프로토콜에서 파일 삭제가 지원되지 않습니다."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 프로토콜에서 폴더 만들기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 속성 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 소유권 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
@@ -3570,6 +3473,11 @@ msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
 msgid "Name for new link:"
 msgstr "새 링크 이름:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "심볼릭 링크 만들기"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4163,22 +4071,22 @@ msgstr "\"mount\" 프로그램을 찾을 수 없음"
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
@@ -4775,28 +4683,28 @@ msgstr "계산하기"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "체크섬을 클립보드에 복사하려면 클릭하십시오."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "취소(&A)"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "여기로 이동(&M)"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "여기에 다운로드(&D)"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "여기로 복사(&C)"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "여기로 링크(&L)"
@@ -4857,170 +4765,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr "Dolphin 파일 관리자 설정의 \"확인\"에서 이 설정을 취소할 수 있습니다."
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "변경 사항 취소"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "이 작업을 취소하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "원본"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "대상"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "복사 중"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "이동 중"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "이름 바꾸는 중"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "휴지통으로 이동"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "실행 취소(&O)"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "실행 취소: 복사(&O)"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "실행 취소: 링크 걸기(&O)"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "실행 취소: 이동(&O)"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "실행 취소: 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "실행 취소: 휴지통에 버리기(&O)"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "실행 취소: 파일 생성(&O)"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "실행 취소: 일괄 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "실행 취소: 복사(&O)"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "실행 취소: 링크 걸기(&O)"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "실행 취소: 이동(&O)"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "실행 취소: 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "실행 취소: 휴지통에 버리기(&O)"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "실행 취소: 파일 생성(&O)"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "실행 취소: 일괄 이름 변경(&O)"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5032,7 +4929,7 @@ msgstr ""
 "파일 복사를 실행 취소하면 파일을 지우며 모든 변경 사항이 삭제됩니다.\n"
 "%4을(를) 삭제하시겠습니까?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "파일 복사 실행 취소 확인"
@@ -7355,6 +7252,81 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid "Change Attribute"
+#~ msgstr "속성 변경"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "파일 속성을 변경하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid "Copy Files"
+#~ msgstr "파일 복사"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "복사 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid "Delete Files"
+#~ msgstr "파일 지우기"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "삭제 작업을 진행하려면 루트 권한이 필요하지만 시스템을 망가트릴 수 있습니"
+#~ "다. 계속 진행하시겠습니까?"
+
+#~ msgid "Create Folder"
+#~ msgstr "폴더 만들기"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "폴더를 만들려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid "Move Items"
+#~ msgstr "항목 이동"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "이동 작업을 진행하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid "Rename"
+#~ msgstr "이름 변경"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr "이름을 바꾸려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "심볼릭 링크를 만들하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
+
+#~ msgid "Transfer data"
+#~ msgstr "데이터 전송"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "데이터 전송 작업을 완료하려면 루트 권한이 필요합니다. 계속 진행하시겠습니"
+#~ "까?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "변경 사항 취소"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "이 작업을 취소하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "%1의 ACL을 설정하는 중"

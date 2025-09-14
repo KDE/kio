@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -32,12 +32,12 @@ msgstr ""
 "guoyunhebrave@gmail.com, jxiong@offtopic.org, lilith.ex@gmail.com, "
 "shuizhuyuanluo@126.com, tds00@qq.com, lark@linux.net.cn, wengxt@gmail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "无法修改文件 %1 的所有者"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "无法创建 KIO 工作程序：%1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "目标文件系统 (%2) 不允许文件名称包含以下字符：%3\n"
 "选择“替换”将把目标文件名称中的所有无效字符替换为下划线“_”。"
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "文件夹已存在"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "文件已存在"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在同名文件夹"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "回收站"
@@ -200,14 +200,14 @@ msgid "Moving"
 msgstr "正在移动"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "来源"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -231,7 +231,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "正在创建目录"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "正在删除"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -282,101 +282,6 @@ msgstr "挂载点"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "正在卸载"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "更改属性"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "更改文件属性需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "复制文件"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr "完成复制操作需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "删除文件"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"完成删除操作需要 Root 权限。请注意，继续此操作可能会损坏您的系统。您想要继续"
-"吗？"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "创建文件夹"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "创建此文件夹需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "移动项目"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr "完成移动操作需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "重命名"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "完成重命名需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "创建符号链接"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "创建符号链接需要 Root 权限。您想要继续吗？"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "传输数据"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr "完成传输数据需要 Root 权限。您想要继续吗？"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2280,87 +2185,87 @@ msgid ""
 "executable program."
 msgstr "找不到 <filename>%1</filename>；请输入一个可执行程序的有效路径。"
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持打开连接。"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持关闭连接。"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "协议 %1 不支持访问文件。"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "不支持写入 %1。"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "协议 %1 没有可用的特殊操作。"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "协议 %1 不支持列出文件夹内容。"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "不支持从 %1 获取数据。"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "对不起，程序不支持从 %1 获取 MIME 类型信息。"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "不支持在 %1 中重命名或者移动文件。"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "协议 %1 不支持创建符号链接。"
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "不支持在 %1 中复制文件。"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "不支持从 %1 删除文件。"
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "协议 %1 不支持创建文件夹。"
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件属性。"
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件所有者。"
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "协议 %1 不支持打开文件。"
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "协议 %1 不支持操作 %2。"
@@ -3481,6 +3386,11 @@ msgstr "<qt>模板文件 <b>%1</b> 不存在。</qt>"
 msgid "Name for new link:"
 msgstr "新链接名称："
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "创建符号链接"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4068,22 +3978,22 @@ msgstr "找不到程序“mount”"
 msgid "Could not find program \"umount\""
 msgstr "找不到程序“umount”"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 设备中没有媒体"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "无法获取给定的用户名 %1 的用户 ID"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "无法获取给定的用户组名 %1 的用户组 ID"
@@ -4671,28 +4581,28 @@ msgstr "计算"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "点击以将校验和复制到剪贴板。"
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "取消(&A)"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "移动到此位置(&M)"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "下载到此位置(&D)"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "复制到此位置(&C)"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "链接到此位置(&L)"
@@ -4753,158 +4663,147 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr "您可以在 Dolphin 文件管理器设置中的“请求确认”选项卡中撤销此操作。"
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "撤销更改"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "撤销此操作需要 Root 权限。您想要继续吗？"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "正在创建目录"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "来源"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "目标"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Copying"
 msgstr "正在复制"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "正在移动"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "正在重命名"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
 msgstr "正在移动到回收站"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "正在删除"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "撤销(&O)"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "撤销：复制(&O)"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "撤销：链接(&O)"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "撤销：移动(&O)"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "撤销：重命名(&O)"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "撤销：移动到回收站(&O)"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "撤销：创建文件(&O)"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "撤销(&O)：批量重命名"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr "重做(&R)"
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "重做：复制(&R)"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr "重做：链接(&R)"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr "重做：移动(&R)"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "重做：重命名(&R)"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "重做：移动到回收站(&R)"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "重做：创建文件夹(&R)"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "重做：创建文件夹(&R)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "重做：创建文件(&R)"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "重做：批量重命名(&R)"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4916,7 +4815,7 @@ msgstr ""
 "撤销该复制操作将会删除该文件，所有的修改都将丢失。\n"
 "您确定要删除 %4 吗？"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "确认撤销文件复制"
@@ -7196,6 +7095,75 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "Change Attribute"
+#~ msgstr "更改属性"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr "更改文件属性需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Copy Files"
+#~ msgstr "复制文件"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr "完成复制操作需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Delete Files"
+#~ msgstr "删除文件"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "完成删除操作需要 Root 权限。请注意，继续此操作可能会损坏您的系统。您想要继"
+#~ "续吗？"
+
+#~ msgid "Create Folder"
+#~ msgstr "创建文件夹"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "创建此文件夹需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Move Items"
+#~ msgstr "移动项目"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr "完成移动操作需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Rename"
+#~ msgstr "重命名"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr "完成重命名需要 Root 权限。您想要继续吗？"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr "创建符号链接需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Transfer data"
+#~ msgstr "传输数据"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr "完成传输数据需要 Root 权限。您想要继续吗？"
+
+#~ msgid "Undo Changes"
+#~ msgstr "撤销更改"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "撤销此操作需要 Root 权限。您想要继续吗？"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "正在为 %1 设置 ACL"

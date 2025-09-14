@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "%1 sənədinin sahibini dəyişdirmək mümkün olmadı"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi yaratmaq mümkün olmadı: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -87,23 +87,23 @@ msgstr ""
 "Əvəz etmək, seçilməsi icazə verilməyən simvolları (hədəf fayl adında) \"_"
 "\" (alt cizgi) ilə əvəz edəcək."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Qovluq Artıq Mövcuddur"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fayl Artıq Mövcuddur"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Artıq Qovluq kimi verilib"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Səbət"
@@ -205,14 +205,14 @@ msgid "Moving"
 msgstr "Köcürmə"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Mənbə"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -236,7 +236,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Qovluq yaradılır"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -248,7 +248,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Silinir"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -287,113 +287,6 @@ msgstr "Qoşulma Nöqtəsi"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Ayrılır"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Atributu Dəyişdir"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Fayl atributlarını dəyişdirmək üçün root imtiyaz tələb olunur. Davam etmək "
-"istəyirsiniz?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Faylları Kopyala"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Kopyalamanı bitirmək üçün root imtiyaz tələb olunur. Davam etmək "
-"istəyirsinizmi?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Faylları Sil"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Silinmə əməliyyatını başa çatdırmaq üçün root imtiyaz tələb olunur. "
-"Həmçinin, bunu etmək sisteminizə zərər verə bilər. Davam etmək "
-"istəyirsinizmi?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Qovluq yaradın"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"Bu qovluğu yaratmağa root imtiyaz tələb olunur. Davam etmək istəyirsiniz?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Obyektləri Köcürün"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Bu köçürmə əməliyyatı üçün root imtiyaz tələb olunur. Davam etmək "
-"istəyirsiniz?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Yenidən adlandır"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "Ad dəyişmə üçün root imtiyaz tələb olunur. DAvam etmək istəyirsiniz?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Keçid linki yarat"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Keçid linki yaratmaq üçün root imtiyaz tələb olunur. DAvam etmək "
-"istəyirsiniz?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Məlumatın ötürülməsi"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Məlumatın ötürülməsi üçün root imtiyaz tələb olunur. Davam etmək "
-"istəyirsiniz?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2418,87 +2311,87 @@ msgstr ""
 "<filename>%1</filename> tapılmadı, icraediləbilən prorama düzgün yolu daxil "
 "edin."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Açılan bağlantılar protokol %1 tərəfindən dəstəklənmir."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Söndürülən bağlantılar protokol %1 tərəfindən dəstəklənmir."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Giriş faylları protokol %1 tərəfindən dəstəklənmir."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 üzərinə yazmaq dəstəklənmir."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "protokol %1 üçün xüsusi əməl yoxdur."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Qovluqların siyahıya alınması protokol %1 tərəfindən dəstəklənmir."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 ünvanından məlumat alınması dəstəklənmir."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 ünvanından mime növləri üçün məlumat alınması dəstəklənmir."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Faylların adının dəyişdirilməsi və ya daşınması %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Simlink yaradılması protokol %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Faylların kopyalanması %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 ünvanından faylların silinməsi dəstəklənmir."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Qovluqların yaradılması protokol %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Faylların atributlarının dəyişdirilməsi protokol %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Faylların sahibinin dəstəklənməsi protokol %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Açılan fayllar protokol %1 ilə dəstəklənmir."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1, %2 əməlini dəstəkləmir."
@@ -3669,6 +3562,11 @@ msgstr "<qt>Müvəqqəti fayl.<b>%1</b> mövcud deyil.</qt>"
 msgid "Name for new link:"
 msgstr "Yeni keçid üçün ad:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Keçid linki yarat"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4293,22 +4191,22 @@ msgstr "\"mount\" proqramı tapılmadı"
 msgid "Could not find program \"umount\""
 msgstr "\"unmoumt\" proqramı tapılmadı"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Faylı %1 ünvanından %2 ünvanına kopyalana bilmir. (Xəta: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 üçün Daşıyıcı yoxdur"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Verilən %1 istifadəçi adı üçün istifadəçi kimliyi (İD) alına bilmədi"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Verilən %1 qrup adı üçün qrup kimliyi (İD) alınmadı"
@@ -4909,17 +4807,17 @@ msgstr "Hesablayın"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Yoxlama cəmini yaddaş buferinə kopyala."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "İmtina &et"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "Bura &Köçür"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4927,12 +4825,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Yükləmələr"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "Bura &Kopyala"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Link Yarat"
@@ -4998,172 +4896,159 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Dəyişiklikləri Ləğv et"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Bu əməliyyatdan imtina etmək üçün root imtiyazları tələb olunur. Davam etmək "
-"istəyirsiniz?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Qovluq Yaratmaq"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Mənbə"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Təyinat"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "Kopyalanır"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Köçürmə"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Addəyişmə"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "Səbətə Daşı"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Silmək"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "Ge&ri"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "Kopyalamanı &Ləğv et"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "Link yaratmanı &ləğv et"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "Köçürməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "Ad dəyişməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "Səbətə atmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Qovluq yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Qovluqlar yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "Fayl yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Paket halında addəyişməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "Kopyalamanı &Ləğv et"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "Link yaratmanı &ləğv et"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "Köçürməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "Ad dəyişməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "Səbətə atmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "Qovluq yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "Qovluqlar yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "Fayl yaratmağı &ləğv et"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "Paket halında addəyişməni &ləğv et"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5175,7 +5060,7 @@ msgstr ""
 "Kopyalamanı ləğv etmək, faylı bütün dəyişikliklər ilə bərabər silir.\n"
 "Siz %4 faylını silməık istəyirsiniz?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Fayl kopyalama məlumatlarının ləğvi"
@@ -7630,6 +7515,90 @@ msgstr "Bu proqramı başladacaq:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Bu proqrama etibar etmirsinizsə, \"Ləğv et\" vurun"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Atributu Dəyişdir"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Fayl atributlarını dəyişdirmək üçün root imtiyaz tələb olunur. Davam "
+#~ "etmək istəyirsiniz?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Faylları Kopyala"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Kopyalamanı bitirmək üçün root imtiyaz tələb olunur. Davam etmək "
+#~ "istəyirsinizmi?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Faylları Sil"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Silinmə əməliyyatını başa çatdırmaq üçün root imtiyaz tələb olunur. "
+#~ "Həmçinin, bunu etmək sisteminizə zərər verə bilər. Davam etmək "
+#~ "istəyirsinizmi?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Qovluq yaradın"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Bu qovluğu yaratmağa root imtiyaz tələb olunur. Davam etmək istəyirsiniz?"
+
+#~ msgid "Move Items"
+#~ msgstr "Obyektləri Köcürün"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Bu köçürmə əməliyyatı üçün root imtiyaz tələb olunur. Davam etmək "
+#~ "istəyirsiniz?"
+
+#~ msgid "Rename"
+#~ msgstr "Yenidən adlandır"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Ad dəyişmə üçün root imtiyaz tələb olunur. DAvam etmək istəyirsiniz?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Keçid linki yaratmaq üçün root imtiyaz tələb olunur. DAvam etmək "
+#~ "istəyirsiniz?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Məlumatın ötürülməsi"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Məlumatın ötürülməsi üçün root imtiyaz tələb olunur. Davam etmək "
+#~ "istəyirsiniz?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Dəyişiklikləri Ləğv et"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Bu əməliyyatdan imtina etmək üçün root imtiyazları tələb olunur. Davam "
+#~ "etmək istəyirsiniz?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "ACL -n %1 üçün ayarlanması"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2025-07-29 21:42+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -29,12 +29,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "radnev@yahoo.com,zlatkopopov@fsa-bg.org"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Неуспешно променяне на собствеността на файл %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Невъзможно създаване на входно/изходна връзка: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -90,23 +90,23 @@ msgstr ""
 "Избирането на Замяна ще замени всички невалидни знаци (в името на файла на "
 "местоназначението) с долна черта \"_\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Вече има такава директория"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Вече има такъв файл"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Вече съществува като директория"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Кошче"
@@ -208,14 +208,14 @@ msgid "Moving"
 msgstr "Преместване"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Източник"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -239,7 +239,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Създаване на директория"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -251,7 +251,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Изтриване"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -290,115 +290,6 @@ msgstr "Точка на монтиране"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Демонтиране"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Промяна на атрибута"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"За промяна на атрибутите на файла се изискват права на root. Искате ли да "
-"продължите?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Копиране на файлове"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"За да завършите операцията за копиране, са необходими root права. Искате ли "
-"да продължите?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Изтриване на файлове"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"За да завършите операцията за изтриване, са необходими root права. Въпреки "
-"това,това може да повреди вашата система. Искате ли да продължите?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Създаване на папка"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"За създаването на тази папка са необходими root права. Искате ли да "
-"продължите?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Преместване на елементи"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"За да завършите операцията по преместване, са необходими root права. Искате "
-"ли да продължите?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Преименуване"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"За да завършите преименуването, са необходими root права. Искате ли да "
-"продължите?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Създаване на символна връзка"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"За създаването на символна връзка се изискват root права. Искате ли да "
-"продължите?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Прехвърляне на данни"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"За да завършите прехвърлянето на данни, са необходими root права. Искате ли "
-"да продължите?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2420,87 +2311,87 @@ msgstr ""
 "<filename>%1</filename> не е намерен; моля въведете валиден път до изпълнима "
 "програма."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа отваряне на връзка."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа затваряне на връзка."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа достъп до файлове."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Протоколът %1 не поддържа запис."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Няма налично действие за протокола %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Протоколът „%1“ не поддържа показване на съдържанието на директории."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на данни."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на информация за типа MIME."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа преименуване и преместване на файлове."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа създаване на символна връзка."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа копиране на файлове."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Протоколът %1 не поддържа изтриване на файлове."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Протоколът „%1“ не поддържа създаване на директории."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Протоколът „%1“ не поддържа създаване на директории."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколът %1 не поддържа операцията %2."
@@ -3661,6 +3552,11 @@ msgstr "<qt>Файлът на шаблона <b>%1</b> не съществува
 msgid "Name for new link:"
 msgstr "Име на новата връзка:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Създаване на символна връзка"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4271,22 +4167,22 @@ msgstr "Програмата \"mount\" не може да бъде намере�
 msgid "Could not find program \"umount\""
 msgstr "Програмата \"umount\" не може да бъде намерена"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Копирането на файла от %1 в %2 беше неуспешно. (грешка: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носител в устройството %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ИД за потребител „%1“ не може да бъде получен"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ИД за група „%1“ не може да бъде получен"
@@ -4889,28 +4785,28 @@ msgstr "Изчисление"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Щракнете, за да копирате контролната сума в клипборда."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "О&тказ"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "Преместване тук"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Изтегляне тук"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "Копиране тук"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Създаване на връзка тук"
@@ -4974,158 +4870,147 @@ msgstr ""
 "Можете да отмените това в „Потвърждения“ в настройките на файловия мениджър "
 "Dolphin."
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Отмяна на промените"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "Отмяната на тази операция изисква root права. Искате ли да продължите?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Създаване на директория"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Източник"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Назначение"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Copying"
 msgstr "Копиране"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Преместване"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Преименуване"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
 msgstr "Преместване в кошчето"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Изтриване"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "Отм&яна"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "Отмя&на: копиране"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "Отмя&на: създаване на връзка"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "Отмя&на: преместване"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "Отм&яна: преименуване"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "Отм&яна: преместване в кошчето"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Отм&яна: създаване на директория"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Отм&яна: Създаване на папка (и)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "Отм&яна: Създаване на файл"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Отм&яна: Преименуване на партида"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr "&Повтаряне"
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "&Повтаряне: Копиране"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr "&Повтаряне: Препратка"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr "&Повтаряне: Преместване"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "&Повтаряне: Преименуване"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "&Повтаряне: Кошче"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "&Повтаряне: създаване на директория"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "&Повтаряне: Създаване на папка (и)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "&Повтаряне: Създаване на файл"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "&Повтаряне: Преименуване на партида"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5137,7 +5022,7 @@ msgstr ""
 "Отмяната на копирането ще изтрие файла и промените ще бъдат загубени.\n"
 "Искате ли да изтриете %4?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Отмяна на копирането"
@@ -7516,6 +7401,90 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Промяна на атрибута"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "За промяна на атрибутите на файла се изискват права на root. Искате ли да "
+#~ "продължите?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Копиране на файлове"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "За да завършите операцията за копиране, са необходими root права. Искате "
+#~ "ли да продължите?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Изтриване на файлове"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "За да завършите операцията за изтриване, са необходими root права. "
+#~ "Въпреки това,това може да повреди вашата система. Искате ли да продължите?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Създаване на папка"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "За създаването на тази папка са необходими root права. Искате ли да "
+#~ "продължите?"
+
+#~ msgid "Move Items"
+#~ msgstr "Преместване на елементи"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "За да завършите операцията по преместване, са необходими root права. "
+#~ "Искате ли да продължите?"
+
+#~ msgid "Rename"
+#~ msgstr "Преименуване"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "За да завършите преименуването, са необходими root права. Искате ли да "
+#~ "продължите?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "За създаването на символна връзка се изискват root права. Искате ли да "
+#~ "продължите?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Прехвърляне на данни"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "За да завършите прехвърлянето на данни, са необходими root права. Искате "
+#~ "ли да продължите?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Отмяна на промените"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Отмяната на тази операция изисква root права. Искате ли да продължите?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "Изпращане на ACL за %1"

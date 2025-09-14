@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zyl.pol.mm@zohomail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "ဖိုင် %1 ပိုင်ဆိုင်မှုကို မွမ်းမံမရပါ"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "ဖန်တီး၍မရခဲ့ပါ KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -84,23 +84,23 @@ msgstr ""
 " ဦးတည်နေရာဖြစ်သော ဖိုင်စစ်တမ် (%2)သည် အောက်ပါအက္ခရာများကို ဖိုင်အမည်များတွင် ပါဝင်ခွင့်မပြုပါ - %3\n"
 "'အစားထိုး'ကိုရွေးပါက မမှန်ကန်သော အက္ခရာများကို \"_\"ဖြင့်အစားထိုးသွားမည်။"
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ဖိုင်တွဲရှိနှင့်ပြီးဖြစ်ပါသည်"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ဖိုင်ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ဖိုင်တွဲအဖြစ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "အမှိုက်ပုံး"
@@ -196,14 +196,14 @@ msgid "Moving"
 msgstr "ရွေ့နေသည်"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "မူလဖိုင်"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -227,7 +227,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "ဖိုင်တွဲဖန်တီးနေသည်"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -239,7 +239,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "ဖျက်နေသည်"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -278,101 +278,6 @@ msgstr "တပ်ဆင်သည့်နေရာ"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "ဖြုတ်နေသည်"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "ကိုယ်ပိုင်လက္ခဏာ ပြောင်းရန်"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr "ဖိုင်၏ သက်ဆိုင်-တန်ဖိုးများ ပြောင်းလဲရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "ဖိုင်များကူးယူရန်"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr "ကူးယူခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "ဖိုင်များဖျက်ရန်"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"ဖျက်ခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သို့သော် ထိုကဲ့သို့ လုပ်ခြင်းအားဖြင့် သင်၏စစ်စတမ်ကို "
-"ထိခိုက်စေလိမ့်မည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr "ဤဖိုင်တွဲ ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "အိုင်တမ်များရွေ့ရန်"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr "ရွေ့ပြောင်းခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "အမည်ပြောင်းရန်"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "အမည်ပြောင်းလဲခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "ဆင်းလင့်ခ်ဖန်တီးရန်"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "ဆင်းလင့်ခ်ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "ဒေတာလွှဲပြောင်းရန်"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr "ကူးပြောင်းခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2319,87 +2224,87 @@ msgstr ""
 "<filename>%1</filename> ကိုမတွေ့ပါ။ ကျေးဇူးပြု၍ ဆောင်ရွက်၍ရသောပရိုဂရမ်သို့ "
 "မှန်ကန်စွာပြသောလမ်းကြောင်းရေးထည့်ပါ။"
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ချိတ်ဆက်မှုဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး '%1' တွင် ချိတ်ဆက်မှုပိတ်သောလုပ်ဆောင်ချက်မပါပါ။"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 သို့ ရေးမရပါ။"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 အတွက် အထူးပြုလုပ်ဆောင်ချက်များ မရှိပါ။"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 မှ ဒေတာရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 မှ အမ်အိုင်အမ်အီးတိုက် ဆိုင်ရာ အချက်အလက် ရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဆင်းလင့်ခ်များဖန်တီးခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1မှဖိုင်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
@@ -3530,6 +3435,11 @@ msgstr "<qt>မူကြမ်းဖိုင် <b>%1</b> မရှိပါ။
 msgid "Name for new link:"
 msgstr "လင့်ခ်အသစ်တွက် အမည် -"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "ဆင်းလင့်ခ်ဖန်တီးရန်"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4118,22 +4028,22 @@ msgstr "\"mount\" ပရိုဂရမ်ကို ရှာမတွေ့ပ�
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 မှ %2 သို့ ဖိုင်ကူးယူမရပါ။ (အမှားနံပါတ် - %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1အတွက် စက်တွင် မီဒီယာမရှိပါ"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ပေးထားသော အသုံးပြုသူအမည် %1 အတွက် အသုံးပြုသူအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ပေးထားသော အုပ်စုအမည် %1 အတွက် အုပ်စုအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
@@ -4724,28 +4634,28 @@ msgstr "တွက်ချက်ရန်"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "ကလစ်ဘုတ်သို့ ပေါင်းလဒ်စစ်တမ်း ကူးယူရန် နှိပ်ပါ။"
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&aပယ်ဖျက်"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mဤနေရာသို့ရွေ့ယူရန်"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ဤတွင်&ဒေါင်းလုတ်ဆွဲပါ"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Cဤနေရာသို့ကူးယူရန်"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Lဤနေရာသို့လင့်ခ်ချိတ်ရန်"
@@ -4806,158 +4716,147 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr "ဤပြောင်းလဲချက်ကို လင်းပိုင်ဖိုင်မန်နေဂျာသတ်မှတ်ချက်တွင် ပြန်ပြင်နိုင်သည်။"
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "ပြောင်းထားချက်များပြန်ဆုတ်"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr "ဤလုပ်ဆောင်ချက်ကို ပြန်ဆုတ်ရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ ဆက်လုပ်လိုပါသလား။"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "ဖိုင်တွဲဖန်တီးနေသည်"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "မူလဇစ်မြစ်"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "ဦးတည်နေရာ"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Copying"
 msgstr "ကူးယူနေသည်"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "ရွေ့နေသည်"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "အမည်ပြောင်းနေသည်"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
 msgstr "အမှိုက်ပုံးသို့ ပစ်နေသည်"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "ဖျက်နေသည်"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "&oပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&oကူးယူခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&oလင့်ခ်လုပ်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&oရွေ့ပြောင်းခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&oအမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&ပြန်ဆုတ် -အမှိုက်ပုံး"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&oဖိုင်ဖန်တီးခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&oအစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr "&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "ကူးယူချက်-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr "ကွင်းဆက်ချိတ်-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr "ရွှေ့ပြောင်းမှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "အမည်ပြောင်းမှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "အမှိုက်ပစ်မှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "ဖိုင်ဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "အစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4969,7 +4868,7 @@ msgstr ""
 "ကူးယူမှုကို ပြန်ဆုတ်ပါက ဖိုင်ကို ဖျက်ပစ်မည်ဖြစ်၍ မွမ်းမံချက်အားလုံး ပျောက်ဆုံးကုန်မည်။\n"
 "%4 ကို ဖျက်မှာ သေချာပြီလား။"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "ဖိုင်ကူးယူမှုအတည်ပြုခြင်းပြန်ဆုတ်ရန်"
@@ -7269,6 +7168,75 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "Change Attribute"
+#~ msgstr "ကိုယ်ပိုင်လက္ခဏာ ပြောင်းရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr "ဖိုင်၏ သက်ဆိုင်-တန်ဖိုးများ ပြောင်းလဲရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Copy Files"
+#~ msgstr "ဖိုင်များကူးယူရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr "ကူးယူခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Delete Files"
+#~ msgstr "ဖိုင်များဖျက်ရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "ဖျက်ခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သို့သော် ထိုကဲ့သို့ လုပ်ခြင်းအားဖြင့် "
+#~ "သင်၏စစ်စတမ်ကို ထိခိုက်စေလိမ့်မည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Create Folder"
+#~ msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr "ဤဖိုင်တွဲ ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Move Items"
+#~ msgstr "အိုင်တမ်များရွေ့ရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr "ရွေ့ပြောင်းခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Rename"
+#~ msgstr "အမည်ပြောင်းရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr "အမည်ပြောင်းလဲခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr "ဆင်းလင့်ခ်ဖန်တီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Transfer data"
+#~ msgstr "ဒေတာလွှဲပြောင်းရန်"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr "ကူးပြောင်းခြင်းလုပ်ဆောင်ချက် ပြီးရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ သင်ဆက်လုပ်ချင်ပါသလား။"
+
+#~ msgid "Undo Changes"
+#~ msgstr "ပြောင်းထားချက်များပြန်ဆုတ်"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr "ဤလုပ်ဆောင်ချက်ကို ပြန်ဆုတ်ရန် root၏အခွင့်အာဏာ လိုအပ်သည်။ ဆက်လုပ်လိုပါသလား။"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "%1 အတွက် အေစီအယ်လ်သတ်မှတ်နေသည်"

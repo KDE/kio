@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:45+0000\n"
+"POT-Creation-Date: 2025-09-14 00:39+0000\n"
 "PO-Revision-Date: 2025-09-06 05:28+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -31,12 +31,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mrudolf@kdewebdev.org, lukasz.wojnilowicz@gmail.com"
 
-#: core/chmodjob.cpp:201
+#: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
 msgstr "Nie można zmienić właściciela pliku %1"
 
-#: core/chmodjob.cpp:235
+#: core/chmodjob.cpp:231
 #, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie można utworzyć pracownika KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:965
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -92,23 +92,23 @@ msgstr ""
 "Wybranie zastąpienie zastąpi każdy nieprawidłowy znak (w nazwie pliku "
 "docelowego) znakiem podkreślenia \"_\"."
 
-#: core/copyjob.cpp:1393 core/job_error.cpp:585
+#: core/copyjob.cpp:1375 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Katalog już istnieje"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422 core/filecopyjob.cpp:372
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Plik już istnieje"
 
-#: core/copyjob.cpp:1717 core/copyjob.cpp:2422
+#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Istnieje już jako katalog"
 
-#: core/copyjob.cpp:1871 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Kosz"
@@ -214,14 +214,14 @@ msgid "Moving"
 msgstr "Przenoszenie"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
-#: widgets/fileundomanager.cpp:141
+#: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Z miejsca"
 
 #: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
-#: widgets/fileundomanager.cpp:142
+#: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -245,7 +245,7 @@ msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Tworzenie katalogu"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:131
+#: core/job.cpp:122 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
@@ -257,7 +257,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Usuwanie"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:157
+#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -296,114 +296,6 @@ msgstr "Punkt podpięcia"
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Odpinanie"
-
-#: core/job.cpp:264
-#, kde-format
-msgid "Change Attribute"
-msgstr "Zmień atrybut"
-
-#: core/job.cpp:266
-#, kde-format
-msgid ""
-"Root privileges are required to change file attributes. Do you want to "
-"continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do zmiany atrybutów pliku. Czy chcesz "
-"kontynuować?"
-
-#: core/job.cpp:270
-#, kde-format
-msgid "Copy Files"
-msgstr "Skopiuj pliki"
-
-#: core/job.cpp:272
-#, kde-format
-msgid ""
-"Root privileges are required to complete the copy operation. Do you want to "
-"continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do kopiowania. Czy chcesz kontynuować?"
-
-#: core/job.cpp:276
-#, kde-format
-msgid "Delete Files"
-msgstr "Usuwanie plików"
-
-#: core/job.cpp:278
-#, kde-format
-msgid ""
-"Root privileges are required to complete the delete operation. However, "
-"doing so may damage your system. Do you want to continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do usunięcia. Może to uszkodzić twój "
-"system. Czy chcesz kontynuować?"
-
-#: core/job.cpp:282
-#, kde-format
-msgid "Create Folder"
-msgstr "Utwórz katalog"
-
-#: core/job.cpp:284
-#, kde-format
-msgid ""
-"Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do utworzenia tego katalogu. Czy "
-"chcesz kontynuować?"
-
-#: core/job.cpp:288
-#, kde-format
-msgid "Move Items"
-msgstr "Przenieś elementy"
-
-#: core/job.cpp:290
-#, kde-format
-msgid ""
-"Root privileges are required to complete the move operation. Do you want to "
-"continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do przeniesienia. Czy chcesz "
-"kontynuować?"
-
-#: core/job.cpp:294
-#, kde-format
-msgid "Rename"
-msgstr "Zmień nazwę"
-
-#: core/job.cpp:296
-#, kde-format
-msgid ""
-"Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do zmiany nazwy. Czy chcesz "
-"kontynuować?"
-
-#: core/job.cpp:300 filewidgets/knewfilemenu.cpp:679
-#, kde-format
-msgid "Create Symlink"
-msgstr "Utwórz jako dowiązanie symboliczne"
-
-#: core/job.cpp:302
-#, kde-format
-msgid ""
-"Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do utworzenia dowiązania "
-"symbolicznego. Czy chcesz kontynuować?"
-
-#: core/job.cpp:306
-#, kde-format
-msgid "Transfer data"
-msgstr "Przenoszenie danych"
-
-#: core/job.cpp:308
-#, kde-format
-msgid ""
-"Root privileges are required to complete transferring data. Do you want to "
-"continue?"
-msgstr ""
-"Wymagane są uprawnienia administratora do przeniesienia danych. Czy chcesz "
-"kontynuować?"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -2410,89 +2302,89 @@ msgstr ""
 "Nie znaleziono <filename>%1</filename>; wpisz poprawną ścieżkę do pliku "
 "wykonywalnego."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Nawiązywanie połączeń nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Zamykanie połączeń nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protokół %1 nie pozwala na dostęp do plików."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapisywanie do %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nie ma dostępnych żadnych szczególnych działań dla protokołu %1."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "Wyświetlanie zawartości katalogów nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Pobieranie danych z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Pobieranie informacji o typie MIME z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiana nazwy lub przenoszenie plików w %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "Tworzenie dowiązań symbolicznych nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiowanie plików w %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Usuwanie plików z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Tworzenie katalogów nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmiana atrybutów plików nie jest obsługiwana przez protokół %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiana właściciela plików nie jest obsługiwana przez protokół %1."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Otwieranie plików nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokół %1 nie obsługuje działania %2."
@@ -3652,6 +3544,11 @@ msgstr "<qt>Plik szablonu <b>%1</b> nie istnieje.</qt>"
 msgid "Name for new link:"
 msgstr "Nazwa nowego łącza:"
 
+#: filewidgets/knewfilemenu.cpp:679
+#, kde-format
+msgid "Create Symlink"
+msgstr "Utwórz jako dowiązanie symboliczne"
+
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
@@ -4253,22 +4150,22 @@ msgstr "Nie można znaleźć programu \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Nie można znaleźć programu \"umount\""
 
-#: kioworkers/file/file_unix.cpp:562
+#: kioworkers/file/file_unix.cpp:556
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie można skopiować pliku z %1 do %2. (Błąd: %3)"
 
-#: kioworkers/file/file_unix.cpp:776
+#: kioworkers/file/file_unix.cpp:770
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Brak nośnika w urządzeniu %1"
 
-#: kioworkers/file/file_unix.cpp:1033
+#: kioworkers/file/file_unix.cpp:1027
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nie można pobrać identyfikatora użytkownika dla danej nazwy %1"
 
-#: kioworkers/file/file_unix.cpp:1044
+#: kioworkers/file/file_unix.cpp:1038
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nie można pobrać identyfikatora grupy dla danej nazwy %1"
@@ -4872,28 +4769,28 @@ msgstr "Oblicz"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Kliknij, aby skopiować sumę sprawdzającą do schowka."
 
-#: widgets/dropjob.cpp:196
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anuluj"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "&Przenieś tutaj"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Pobierz tutaj"
 
-#: widgets/dropjob.cpp:316
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "S&kopiuj tutaj"
 
-#: widgets/dropjob.cpp:323
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "&Dowiąż tutaj"
@@ -4954,159 +4851,147 @@ msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr "Możesz wycofać się z tego w \"Potwierdzenia\" w ustawieniach Dolphina."
 
-#: widgets/fileundomanager.cpp:123
-#, kde-format
-msgid "Undo Changes"
-msgstr "Wycofaj zmiany"
-
-#: widgets/fileundomanager.cpp:124
-#, kde-format
-msgid ""
-"Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
-"Wycofanie zmiany wymaga uprawnień administratora. Czy chcesz kontynuować?"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:126
 #, kde-format
 msgid "Creating directory"
 msgstr "Tworzenie katalogu"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Source"
 msgstr "Element źródłowy"
 
-#: widgets/fileundomanager.cpp:136 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Destination"
 msgstr "Element docelowy"
 
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:131
 #, kde-format
 msgid "Copying"
 msgstr "Kopiowanie"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
 msgstr "Przenoszenie"
 
-#: widgets/fileundomanager.cpp:145
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
 msgstr "Zmiana nazwy"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
 msgstr "Wyrzucanie do kosza"
 
-#: widgets/fileundomanager.cpp:157
+#: widgets/fileundomanager.cpp:152
 #, kde-format
 msgid "Deleting"
 msgstr "Usuwanie"
 
-#: widgets/fileundomanager.cpp:331
+#: widgets/fileundomanager.cpp:326
 #, kde-format
 msgid "Und&o"
 msgstr "C&ofnij"
 
-#: widgets/fileundomanager.cpp:337
+#: widgets/fileundomanager.cpp:332
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "C&ofnij: Kopiowanie"
 
-#: widgets/fileundomanager.cpp:339
+#: widgets/fileundomanager.cpp:334
 #, kde-format
 msgid "Und&o: Link"
 msgstr "C&ofnij: Dowiązanie"
 
-#: widgets/fileundomanager.cpp:341
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o: Move"
 msgstr "C&ofnij: Przenoszenie"
 
-#: widgets/fileundomanager.cpp:343
+#: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "C&ofnij: Zmiana nazwy"
 
-#: widgets/fileundomanager.cpp:345
+#: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "C&ofnij: Do kosza"
 
-#: widgets/fileundomanager.cpp:347
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "C&ofnij: Utworzenie katalogu"
 
-#: widgets/fileundomanager.cpp:349
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "C&ofnij: Utwórz katalog(i)"
 
-#: widgets/fileundomanager.cpp:351
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "C&ofnij: Utworzenie pliku"
 
-#: widgets/fileundomanager.cpp:353
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "C&ofnij: Wsadowa zmiana nazwy"
 
-#: widgets/fileundomanager.cpp:362
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
 msgstr "&Ponów"
 
-#: widgets/fileundomanager.cpp:368
+#: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "&Ponów: Kopiowanie"
 
-#: widgets/fileundomanager.cpp:370
+#: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
 msgstr "&Ponów: Dowiązanie"
 
-#: widgets/fileundomanager.cpp:372
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
 msgstr "&Ponów: Przenoszenie"
 
-#: widgets/fileundomanager.cpp:374
+#: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "&Ponów: Zmiana nazwy"
 
-#: widgets/fileundomanager.cpp:376
+#: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "&Ponów: Do kosza"
 
-#: widgets/fileundomanager.cpp:378
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "&Ponów: Utworzenie katalogu"
 
-#: widgets/fileundomanager.cpp:380
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "&Ponów: Utwórz katalog(i)"
 
-#: widgets/fileundomanager.cpp:382
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "&Ponów: Utworzenie pliku"
 
-#: widgets/fileundomanager.cpp:384
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "&Ponów: Wsadowa zmiana nazwy"
 
-#: widgets/fileundomanager.cpp:907
+#: widgets/fileundomanager.cpp:902
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5119,7 +5004,7 @@ msgstr ""
 "utracone.\n"
 "Czy na pewno usunąć %4?"
 
-#: widgets/fileundomanager.cpp:917
+#: widgets/fileundomanager.cpp:912
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Potwierdzenie cofnięcia kopiowania pliku"
@@ -7518,6 +7403,90 @@ msgstr "To uruchomi program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jeśli nie ufasz temu programowi, naciśnij Anuluj"
+
+#~ msgid "Change Attribute"
+#~ msgstr "Zmień atrybut"
+
+#~ msgid ""
+#~ "Root privileges are required to change file attributes. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do zmiany atrybutów pliku. Czy "
+#~ "chcesz kontynuować?"
+
+#~ msgid "Copy Files"
+#~ msgstr "Skopiuj pliki"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the copy operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do kopiowania. Czy chcesz "
+#~ "kontynuować?"
+
+#~ msgid "Delete Files"
+#~ msgstr "Usuwanie plików"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the delete operation. However, "
+#~ "doing so may damage your system. Do you want to continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do usunięcia. Może to uszkodzić "
+#~ "twój system. Czy chcesz kontynuować?"
+
+#~ msgid "Create Folder"
+#~ msgstr "Utwórz katalog"
+
+#~ msgid ""
+#~ "Root privileges are required to create this folder. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do utworzenia tego katalogu. Czy "
+#~ "chcesz kontynuować?"
+
+#~ msgid "Move Items"
+#~ msgstr "Przenieś elementy"
+
+#~ msgid ""
+#~ "Root privileges are required to complete the move operation. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do przeniesienia. Czy chcesz "
+#~ "kontynuować?"
+
+#~ msgid "Rename"
+#~ msgstr "Zmień nazwę"
+
+#~ msgid ""
+#~ "Root privileges are required to complete renaming. Do you want to "
+#~ "continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do zmiany nazwy. Czy chcesz "
+#~ "kontynuować?"
+
+#~ msgid ""
+#~ "Root privileges are required to create a symlink. Do you want to continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do utworzenia dowiązania "
+#~ "symbolicznego. Czy chcesz kontynuować?"
+
+#~ msgid "Transfer data"
+#~ msgstr "Przenoszenie danych"
+
+#~ msgid ""
+#~ "Root privileges are required to complete transferring data. Do you want "
+#~ "to continue?"
+#~ msgstr ""
+#~ "Wymagane są uprawnienia administratora do przeniesienia danych. Czy "
+#~ "chcesz kontynuować?"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Wycofaj zmiany"
+
+#~ msgid ""
+#~ "Undoing this operation requires root privileges. Do you want to continue?"
+#~ msgstr ""
+#~ "Wycofanie zmiany wymaga uprawnień administratora. Czy chcesz kontynuować?"
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "Ustawianie ACL dla %1"
