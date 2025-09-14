@@ -533,12 +533,14 @@ void KFileWidget::clearFilter()
     d->updateAutoSelectExtension();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 19)
 void KFileWidget::setPreviewWidget(KPreviewWidgetBase *w)
 {
     d->m_ops->setPreviewWidget(w);
     d->m_ops->clearHistory();
     d->m_hasView = true;
 }
+#endif
 
 QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
 {

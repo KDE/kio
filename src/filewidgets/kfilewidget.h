@@ -241,6 +241,7 @@ public:
      */
     void clearFilter();
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 19)
     /*!
      * Adds a preview widget and enters the preview mode.
      *
@@ -251,8 +252,12 @@ public:
      * preview-widget with "new", i.e. on the heap.
      *
      * \a w The widget to be used for the preview.
+     *
+     * \deprecated[6.19] Unused.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Unused")
     void setPreviewWidget(KPreviewWidgetBase *w);
+#endif
 
     /*!
      * Sets the mode of the dialog.

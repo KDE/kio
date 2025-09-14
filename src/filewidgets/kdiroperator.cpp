@@ -425,6 +425,7 @@ void KDirOperator::updateSelectionDependentActions()
     action(KDirOperator::Properties)->setEnabled(hasSelection);
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 19)
 void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
 {
     const bool showPreview = (w != nullptr);
@@ -446,6 +447,7 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
     previewAction->setChecked(showPreview);
     setViewMode(static_cast<KFile::FileView>(d->m_viewKind));
 }
+#endif
 
 KFileItemList KDirOperator::selectedItems() const
 {

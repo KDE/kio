@@ -401,13 +401,18 @@ public:
      */
     KFile::Modes mode() const;
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 19)
     /*!
      * Sets a preview-widget to be shown next to the file-view.
      *
      * The ownership of \a w is transferred to KDirOperator, so don't
      * delete it yourself!
+     *
+     * \deprecated[6.19] Unused.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(6, 19, "Unused")
     virtual void setPreviewWidget(KPreviewWidgetBase *w);
+#endif
 
     /*!
      * Returns a list of all currently selected items. If there is no view,
