@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-14 00:39+0000\n"
+"POT-Creation-Date: 2025-09-16 00:38+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -2572,21 +2572,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "suli li lon pini"
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:73
 #, kde-format
 msgid "Encoding:"
 msgstr "nasin sitelen:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:123
+#: filewidgets/kencodingfiledialog.cpp:137
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "o open"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:178
+#: filewidgets/kencodingfiledialog.cpp:196
 #, kde-format
 msgid "Save As"
 msgstr "kama awen kepeken nimi"

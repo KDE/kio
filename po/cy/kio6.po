@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-14 00:39+0000\n"
+"POT-Creation-Date: 2025-09-16 00:38+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2761,21 +2761,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "Lleiaf yn Gyntaf"
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:73
 #, kde-format
 msgid "Encoding:"
 msgstr "Amgôdiad:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:123
+#: filewidgets/kencodingfiledialog.cpp:137
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Agor"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:178
+#: filewidgets/kencodingfiledialog.cpp:196
 #, kde-format
 msgid "Save As"
 msgstr "Achub Fel"

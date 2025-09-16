@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-14 00:39+0000\n"
+"POT-Creation-Date: 2025-09-16 00:38+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -2827,21 +2827,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "I n' a nou ridant"
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:73
 #, kde-format
 msgid "Encoding:"
 msgstr "Ecôdaedje:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:123
+#: filewidgets/kencodingfiledialog.cpp:137
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Drovi"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:178
+#: filewidgets/kencodingfiledialog.cpp:196
 #, kde-format
 msgid "Save As"
 msgstr "Schaper eyet rlomer"

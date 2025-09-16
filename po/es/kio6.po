@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-14 00:39+0000\n"
+"POT-Creation-Date: 2025-09-16 00:38+0000\n"
 "PO-Revision-Date: 2025-07-29 13:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2540,7 +2540,7 @@ msgstr "Crear nueva carpeta para estos elementos"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr "%p%"
+msgstr "%p %"
 
 #: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
 #, kde-format
@@ -2783,21 +2783,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "Más pequeños primero"
 
-#: filewidgets/kencodingfiledialog.cpp:71
+#: filewidgets/kencodingfiledialog.cpp:73
 #, kde-format
 msgid "Encoding:"
 msgstr "Codificación:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:123
+#: filewidgets/kencodingfiledialog.cpp:137
+#: filewidgets/kencodingfiledialog.cpp:150
+#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:178
+#: filewidgets/kencodingfiledialog.cpp:196
 #, kde-format
 msgid "Save As"
 msgstr "Guardar como"
@@ -3181,7 +3181,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%1 libre de %2 (%3% usado)"
+msgstr "%1 libre de %2 (%3 % usado)"
 
 #: filewidgets/kfileplacesview.cpp:664
 #, kde-format
@@ -7479,154 +7479,3 @@ msgstr "Esto iniciará el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confía en este programa, pulse «Cancelar»"
-
-#~ msgid "Change Attribute"
-#~ msgstr "Cambiar atributo"
-
-#~ msgid ""
-#~ "Root privileges are required to change file attributes. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para cambiar atributos de archivos. ¿Desea "
-#~ "continuar?"
-
-#~ msgid "Copy Files"
-#~ msgstr "Copiar archivos"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the copy operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para completar la operación de copia. ¿Desea "
-#~ "continuar?"
-
-#~ msgid "Delete Files"
-#~ msgstr "Borrar archivos"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the delete operation. However, "
-#~ "doing so may damage your system. Do you want to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para completar la operación de borrado. No "
-#~ "obstante, esta operación puede dañar su sistema. ¿Desea continuar?"
-
-#~ msgid "Create Folder"
-#~ msgstr "Crear carpeta"
-
-#~ msgid ""
-#~ "Root privileges are required to create this folder. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para crear esta carpeta. ¿Desea continuar?"
-
-#~ msgid "Move Items"
-#~ msgstr "Mover elementos"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the move operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para completar la operación de movimiento. "
-#~ "¿Desea continuar?"
-
-#~ msgid "Rename"
-#~ msgstr "Cambiar nombre"
-
-#~ msgid ""
-#~ "Root privileges are required to complete renaming. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para completar el cambio de nombre. ¿Desea "
-#~ "continuar?"
-
-#~ msgid ""
-#~ "Root privileges are required to create a symlink. Do you want to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para crear un enlace simbólico. ¿Desea "
-#~ "continuar?"
-
-#~ msgid "Transfer data"
-#~ msgstr "Transferir datos"
-
-#~ msgid ""
-#~ "Root privileges are required to complete transferring data. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para completar la transferencia de datos. "
-#~ "¿Desea continuar?"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Deshacer cambios"
-
-#~ msgid ""
-#~ "Undoing this operation requires root privileges. Do you want to continue?"
-#~ msgstr ""
-#~ "Necesita permisos de root para deshacer esta operación. ¿Desea continuar?"
-
-#~ msgid "Setting ACL for %1"
-#~ msgstr "Estableciendo ACL para %1"
-
-#~ msgid "Change File Permissions"
-#~ msgstr "Cambiar permisos del archivo"
-
-#~ msgid "New Permissions: %1"
-#~ msgstr "Nuevos permisos: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Cambiar propietario del archivo"
-
-#~ msgid "New Owner: UID=%1, GID=%2"
-#~ msgstr "Nuevo propietario: UID=%1, GID=%2"
-
-#~ msgid "Remove File"
-#~ msgstr "Eliminar archivo"
-
-#~ msgid "Remove Directory"
-#~ msgstr "Eliminar directorio"
-
-#~ msgid "Create Directory"
-#~ msgstr "Crear directorio"
-
-#~ msgid "Directory Permissions: %1"
-#~ msgstr "Permisos del directorio: %1"
-
-#~ msgid "Open File"
-#~ msgstr "Abrir archivo"
-
-#~ msgid "Open Directory"
-#~ msgstr "Abrir directorio"
-
-#~ msgid "New Filename: %1"
-#~ msgstr "Nuevo nombre de archivo: %1"
-
-#~ msgid "Target: %1"
-#~ msgstr "Destino: %1"
-
-#~ msgid "Change Timestamp"
-#~ msgstr "Cambiar marca de tiempo"
-
-#~ msgid "From: %1, To: %2"
-#~ msgstr "Desde: %1, hasta: %2"
-
-#~ msgid "Unknown Action"
-#~ msgstr "Acción desconocida"
-
-#~ msgid ""
-#~ "Action: %1\n"
-#~ "Source: %2\n"
-#~ "%3"
-#~ msgstr ""
-#~ "Acción: %1\n"
-#~ "Origen: %2\n"
-#~ "%3"
-
-#~ msgid "Show Bookmarks Button"
-#~ msgstr "Mostrar botón de marcadores"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being moved"
-#~ msgstr "Se están moviendo archivos"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being copied"
-#~ msgstr "Se están copiando archivos"
