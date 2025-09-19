@@ -66,7 +66,6 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
         return false;
     }
 
-    config.writeEntry("exportsFile", exportsFile);
     return true;
 }
 
