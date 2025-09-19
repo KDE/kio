@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-16 00:38+0000\n"
-"PO-Revision-Date: 2025-04-04 09:44+0200\n"
+"PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -4786,7 +4786,7 @@ msgstr "&Flytt hit"
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "%Last ned hit"
+msgstr "&Last ned hit"
 
 #: widgets/dropjob.cpp:298
 #, kde-format
@@ -4799,23 +4799,22 @@ msgid "&Link Here"
 msgstr "&Lag lenke hit"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Starter %1"
+msgstr "&Start"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Start programfiler uten å spørre"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Åpne programfiler i standardprogrammet uten å spørre"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4823,32 +4822,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Hva vil du gjøre med denne fila?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Åpne"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Åpne med %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Hva vil du gjøre med denne fila?"
+msgstr "Vil du starte denne fila?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Husk for alle programfiler"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4874,9 +4870,7 @@ msgid "Destination"
 msgstr "Mål"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Kopierer"
 
@@ -4891,8 +4885,7 @@ msgid "Renaming"
 msgstr "Endrer filnavn"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
 msgstr "Flytt til papirkurven"
 
@@ -4954,61 +4947,52 @@ msgstr "A&ngrer: Endrer navn på flere filer"
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Gjør om"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "A&ngre: Kopier"
+msgstr "&Angre: Kopiering"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "A&ngre: Lenke"
+msgstr "&Angre: Lenke"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "A&ngre: Flytt"
+msgstr "&Angre: Flytt"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "A&ngre: Endre navn"
+msgstr "&Angre: Endre navn"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "A&ngre: Legg i papirkurv"
+msgstr "&Angre: Legg i papirkurv"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "A&ngre: Lag ny mappe"
+msgstr "&Angre: Lag ny mappe"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "A&ngre: Lag ny(e) mappe(r)"
+msgstr "&Angre: Lag ny(e) mappe(r)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "A&ngre: Lag ny fil"
+msgstr "&Angre: Lag ny fil"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "A&ngrer: Endrer navn på flere filer"
+msgstr "&Angre: Endre navn på flere filer"
 
 #: widgets/fileundomanager.cpp:902
 #, kde-format
@@ -5793,11 +5777,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Generelt"
+msgstr "&Generisk navn:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -5821,8 +5803,7 @@ msgstr "Komm&entar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Miljøvariabler:"
 
@@ -6041,12 +6022,10 @@ msgid "&General"
 msgstr "&Generelt"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Skriv inn %1 filnavn."
+msgstr "Oppgi et filnavn"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6064,16 +6043,14 @@ msgstr "Oppdater"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Skriv inn ny plassering"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Kan ikke overføre <filename>%1</filename>"
+msgstr "Vis <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -7444,81 +7421,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk «Avbryt»."
-
-#~ msgid "Change Attribute"
-#~ msgstr "Endre attributt"
-
-#~ msgid ""
-#~ "Root privileges are required to change file attributes. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å endre filattributt. Vil du fortsette?"
-
-#~ msgid "Copy Files"
-#~ msgstr "Kopier filer"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the copy operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å fullføre kopieringa. Vil du fortsette?"
-
-#~ msgid "Delete Files"
-#~ msgstr "Slett filer"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the delete operation. However, "
-#~ "doing so may damage your system. Do you want to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å fullføre slettinga. Men dette kan skade "
-#~ "systemet. Vil du likevel fortsette?"
-
-#~ msgid "Create Folder"
-#~ msgstr "Lag mappe"
-
-#~ msgid ""
-#~ "Root privileges are required to create this folder. Do you want to "
-#~ "continue?"
-#~ msgstr "Du trenger rottillatelser for å opprette mappa. Vil du fortsette?"
-
-#~ msgid "Move Items"
-#~ msgstr "Flytt element"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the move operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å fullføre flyttinga. Vil du fortsette?"
-
-#~ msgid "Rename"
-#~ msgstr "Endre navn"
-
-#~ msgid ""
-#~ "Root privileges are required to complete renaming. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å fullføre endringa av navn. Vil du "
-#~ "fortsette?"
-
-#~ msgid ""
-#~ "Root privileges are required to create a symlink. Do you want to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å lage symbolske lenker. Vil du fortsette?"
-
-#~ msgid "Transfer data"
-#~ msgstr "Overfør data"
-
-#~ msgid ""
-#~ "Root privileges are required to complete transferring data. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å fullføre overføring av data. Vil du "
-#~ "fortsette?"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Angre endringer"
-
-#~ msgid ""
-#~ "Undoing this operation requires root privileges. Do you want to continue?"
-#~ msgstr ""
-#~ "Du trenger rottillatelser for å angre denne handlinga. Vil du fortsette?"

@@ -7186,12 +7186,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "Delete Files"
-#~ msgstr "Sihko fiillaid"
-
-#~ msgid "Rename"
-#~ msgstr "Rievdat nama"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Gađa rievdadusaid"
