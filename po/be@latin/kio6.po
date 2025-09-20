@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:38+0000\n"
+"POT-Creation-Date: 2025-09-20 00:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2565,64 +2565,64 @@ msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
+#: filewidgets/kdiroperator.cpp:724 filewidgets/kdiroperator.cpp:757
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Vy nie abrali fajl dlia vydaliennia."
 
-#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
+#: filewidgets/kdiroperator.cpp:724 filewidgets/kdiroperator.cpp:757
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Niama čaho vydaliać"
 
-#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
+#: filewidgets/kdiroperator.cpp:770 filewidgets/kdiroperator.cpp:858
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Vy nie abrali fajl dlia pieramiaščennia ŭ smietnicu."
 
-#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
+#: filewidgets/kdiroperator.cpp:770 filewidgets/kdiroperator.cpp:858
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Niama čaho pieramiaščać u smietnicu"
 
-#: filewidgets/kdiroperator.cpp:928 filewidgets/kdiroperator.cpp:1051
+#: filewidgets/kdiroperator.cpp:930 filewidgets/kdiroperator.cpp:1053
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Vyznačany kataloh nie isnuje abo jaho niemahčyma pračytać."
 
-#: filewidgets/kdiroperator.cpp:2007
+#: filewidgets/kdiroperator.cpp:2009
 #, kde-format
 msgid "Menu"
 msgstr "Mieniu"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Parent Folder"
 msgstr "Baćkoŭski kataloh"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Nazad"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Napierad"
 
-#: filewidgets/kdiroperator.cpp:2027
+#: filewidgets/kdiroperator.cpp:2029
 #, kde-format
 msgid "Home Folder"
 msgstr "Chatni kataloh"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Reload"
 msgstr "Pierazahruzić"
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2036
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2630,179 +2630,179 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "Novy kataloh"
 
-#: filewidgets/kdiroperator.cpp:2044 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Pieramiascić u smietnicu"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Delete"
 msgstr "Vydalić"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Sorting"
 msgstr "Sartavannie"
 
-#: filewidgets/kdiroperator.cpp:2062
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sartavać pa nazvie"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sartavać pa pamiery"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2076
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sartavać pa dacie"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2082
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sartavać pa typu"
 
-#: filewidgets/kdiroperator.cpp:2089
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Ascending"
 msgstr "Pa pavieličenni"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Descending"
 msgstr "Pa pamianšenni"
 
-#: filewidgets/kdiroperator.cpp:2103
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Folders First"
 msgstr "Spačatku katalohi"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Schavanyja fajly ŭ kancy"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Icons View"
 msgstr "Znački"
 
-#: filewidgets/kdiroperator.cpp:2123
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Compact View"
 msgstr "Kampaktny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Details View"
 msgstr "Padrabiazny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2151
 #, kde-format
 msgid "Icon Position"
 msgstr "Pazicyja značkoŭ"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2154
 #, kde-format
 msgid "Next to File Name"
 msgstr "Paslia nazvy fajla"
 
-#: filewidgets/kdiroperator.cpp:2158
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Above File Name"
 msgstr "Nad nazvaj fajla"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2174
 #, kde-format
 msgid "Short View"
 msgstr "Scisly vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2179
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Detailed View"
 msgstr "Padrabiazny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Tree View"
 msgstr "U vyhliadzie dreva"
 
-#: filewidgets/kdiroperator.cpp:2193
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Padrabiazny ŭ vyhliadzie dreva"
 
-#: filewidgets/kdiroperator.cpp:2206
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Dazvolić razhortvannie ŭ padrabiaznym vyhliadzie"
 
-#: filewidgets/kdiroperator.cpp:2212
+#: filewidgets/kdiroperator.cpp:2214
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Pakazvać schavanyja fajly"
 
-#: filewidgets/kdiroperator.cpp:2219
+#: filewidgets/kdiroperator.cpp:2221
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Pakazvać paneĺ papiaredniaha prahliadu"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2228
 #, kde-format
 msgid "Show Preview"
 msgstr "Pakazvać papiaredni prahliad"
 
-#: filewidgets/kdiroperator.cpp:2233
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Adkryć kataloh zmiesciva"
 
-#: filewidgets/kdiroperator.cpp:2240 filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kdiroperator.cpp:2242 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
 msgstr "Ulascivasci"
 
-#: filewidgets/kdiroperator.cpp:2249
+#: filewidgets/kdiroperator.cpp:2251
 #, kde-format
 msgid "&View Mode"
 msgstr "&Vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2352 filewidgets/kdiroperator.cpp:2364
+#: filewidgets/kdiroperator.cpp:2354 filewidgets/kdiroperator.cpp:2366
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Ja-A"
 
-#: filewidgets/kdiroperator.cpp:2353 filewidgets/kdiroperator.cpp:2365
+#: filewidgets/kdiroperator.cpp:2355 filewidgets/kdiroperator.cpp:2367
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Ja"
 
-#: filewidgets/kdiroperator.cpp:2356
+#: filewidgets/kdiroperator.cpp:2358
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Spačatku starejšyja"
 
-#: filewidgets/kdiroperator.cpp:2357
+#: filewidgets/kdiroperator.cpp:2359
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Spačatku naviejšyja"
 
-#: filewidgets/kdiroperator.cpp:2360
+#: filewidgets/kdiroperator.cpp:2362
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Spačatku boĺšyja"
 
-#: filewidgets/kdiroperator.cpp:2361
+#: filewidgets/kdiroperator.cpp:2363
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2889,7 +2889,7 @@ msgid "All Supported Files"
 msgstr "Usie fajly, jakija padtrymlivajucca"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2036
 #, kde-format
 msgid "All Files"
 msgstr "Usie fajly"
@@ -3335,27 +3335,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Vializnyja (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:624
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "Vy možacie abrać toĺki adzin fajl"
 
-#: filewidgets/kfilewidget.cpp:624
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr "Padadziena boĺš za adzin fajl"
 
-#: filewidgets/kfilewidget.cpp:794
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid "You can only select local files"
 msgstr "Vy možacie abrać toĺki lakaĺnyja fajly"
 
-#: filewidgets/kfilewidget.cpp:794
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Adliehlyja fajly nie dapuskajucca"
 
-#: filewidgets/kfilewidget.cpp:801
+#: filewidgets/kfilewidget.cpp:803
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3376,22 +3376,22 @@ msgstr[3] ""
 "Abrany URL vykarystoŭvaje schiemu, jakaja nie padtrymlivajecca. Kali laska, "
 "vykarystoŭvajcie nastupnyja schiemy: %2"
 
-#: filewidgets/kfilewidget.cpp:807
+#: filewidgets/kfilewidget.cpp:809
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Schiema URL nie padtrymlivajecca"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nie ŭdalosia znajsci fajl \"%1\""
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nie ŭdalosia adkryć fajl"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3402,49 +3402,49 @@ msgstr ""
 ">Napryklad, kali biahučaje razmiaščennie file:/home/konqi, to nacisnuŭšy "
 "knopku, vy piarojdziecie ŭ file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierajsci na adzin krok nazad u historyi "
 "prahliadu."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierajsci na adzin krok upierad u historyi "
 "prahliadu."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierazahruzić zmiesciva biahučaha "
 "razmiaščennia."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Nacisnicie hetuju knopku, kab stvaryć novy kataloh."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Pakazvać paneĺ razmiaščenniaŭ"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1217
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Pakazvać schavanyja fajly"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Options"
 msgstr "Paramietry"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3459,12 +3459,12 @@ msgstr ""
 "razmiaščenniaŭ</li><li>prahliad fajlaŭ</li><li>addzialiennie katalohaŭ ad "
 "fajlaŭ</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1247
 #, kde-format
 msgid "Bookmarks"
 msgstr "Zakladki"
 
-#: filewidgets/kfilewidget.cpp:1249
+#: filewidgets/kfilewidget.cpp:1251
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3479,39 +3479,39 @@ msgstr ""
 "inšych miescach u KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nazva:"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1321
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Adrabić zmieny"
 
-#: filewidgets/kfilewidget.cpp:1370
+#: filewidgets/kfilewidget.cpp:1372
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Adkryć kataloh zmiesciva"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1376
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "Filter by name…"
 msgstr "Prylady"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1384
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Schavanyja fajly ŭ kancy"
 
-#: filewidgets/kfilewidget.cpp:1431
+#: filewidgets/kfilewidget.cpp:1433
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3524,12 +3524,12 @@ msgstr ""
 "abraŭšy patrebny režym z mieniu <b>Aŭtamatyčnaje zapaŭniennie tekstu</b>.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1438
+#: filewidgets/kfilewidget.cpp:1440
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Heta nazva, z jakoj treba zachavać fajl."
 
-#: filewidgets/kfilewidget.cpp:1441
+#: filewidgets/kfilewidget.cpp:1443
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3538,74 +3538,74 @@ msgstr ""
 "Heta spis fajlaŭ, jakija treba adkryć. Možna paznačyć niekaĺki fajlaŭ, "
 "razdzialiŭšy ich nazvy prahalami."
 
-#: filewidgets/kfilewidget.cpp:1446
+#: filewidgets/kfilewidget.cpp:1448
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Heta nazva fajla, jaki treba adkryć."
 
-#: filewidgets/kfilewidget.cpp:1459
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Adrasy"
 
-#: filewidgets/kfilewidget.cpp:1740
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fajl \"%1\" užo isnuje. Chočacie pierazapisać?"
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Pierazapisać fajl?"
 
-#: filewidgets/kfilewidget.cpp:1938
+#: filewidgets/kfilewidget.cpp:1940
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vy možacie abrać toĺki lakaĺnyja fajly."
 
-#: filewidgets/kfilewidget.cpp:1938
+#: filewidgets/kfilewidget.cpp:1940
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Adliehlyja fajly nie dapuskajucca"
 
-#: filewidgets/kfilewidget.cpp:2032
+#: filewidgets/kfilewidget.cpp:2034
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Usie katalohi"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Adkryć"
 
-#: filewidgets/kfilewidget.cpp:2268
+#: filewidgets/kfilewidget.cpp:2270
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Pamier značka: %1 piksieliaŭ"
 
-#: filewidgets/kfilewidget.cpp:2415
+#: filewidgets/kfilewidget.cpp:2417
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Aŭtamatyčna abirać p&ašyrennie (%1) dlia nazvy fajla"
 
-#: filewidgets/kfilewidget.cpp:2416
+#: filewidgets/kfilewidget.cpp:2418
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pašyrennie <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2422
+#: filewidgets/kfilewidget.cpp:2424
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Aŭtamatyčna abirać p&ašyrennie dlia nazvy fajla"
 
-#: filewidgets/kfilewidget.cpp:2423
+#: filewidgets/kfilewidget.cpp:2425
 #, kde-format
 msgid "a suitable extension"
 msgstr "prydatnaje pašyrennie"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2433
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3633,12 +3633,12 @@ msgstr ""
 "pakińcie hety paramietr ŭkliučanym, bo jon dapamahaje paliepšyć kiravannie "
 "vašymi fajlami."
 
-#: filewidgets/kfilewidget.cpp:2897
+#: filewidgets/kfilewidget.cpp:2899
 #, kde-format
 msgid "&File type:"
 msgstr "&Typ fajla:"
 
-#: filewidgets/kfilewidget.cpp:2901
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3647,7 +3647,7 @@ msgstr ""
 "<qt>Heta srodak vybaru typu fajla. Jon vykarystoŭvajecca dlia vybaru "
 "farmatu, u jakim budzie zachavany fajl.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2905
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:38+0000\n"
+"POT-Creation-Date: 2025-09-20 00:39+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2487,64 +2487,64 @@ msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
+#: filewidgets/kdiroperator.cpp:724 filewidgets/kdiroperator.cpp:757
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Sa ei valinud kustutavat faili."
 
-#: filewidgets/kdiroperator.cpp:722 filewidgets/kdiroperator.cpp:755
+#: filewidgets/kdiroperator.cpp:724 filewidgets/kdiroperator.cpp:757
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Pole midagi kustutada"
 
-#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
+#: filewidgets/kdiroperator.cpp:770 filewidgets/kdiroperator.cpp:858
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Sa ei valinud faili, mida prügikasti visata."
 
-#: filewidgets/kdiroperator.cpp:768 filewidgets/kdiroperator.cpp:856
+#: filewidgets/kdiroperator.cpp:770 filewidgets/kdiroperator.cpp:858
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Pole midagi prügikasti visata"
 
-#: filewidgets/kdiroperator.cpp:928 filewidgets/kdiroperator.cpp:1051
+#: filewidgets/kdiroperator.cpp:930 filewidgets/kdiroperator.cpp:1053
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Määratud kataloogi ei ole olemas või pole selle lugemine lubatud."
 
-#: filewidgets/kdiroperator.cpp:2007
+#: filewidgets/kdiroperator.cpp:2009
 #, kde-format
 msgid "Menu"
 msgstr "Menüü"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Parent Folder"
 msgstr "Emakataloog"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Mine tagasi"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Mine edasi"
 
-#: filewidgets/kdiroperator.cpp:2027
+#: filewidgets/kdiroperator.cpp:2029
 #, kde-format
 msgid "Home Folder"
 msgstr "Kodukataloog"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Reload"
 msgstr "Laadi uuesti"
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2036
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2552,179 +2552,179 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "Uus kataloog"
 
-#: filewidgets/kdiroperator.cpp:2044 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgid "Move to Trash"
 msgstr "Liigutamine prügikasti"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Delete"
 msgstr "Kustuta"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgid "Sorting"
 msgstr "Sortimine"
 
-#: filewidgets/kdiroperator.cpp:2062
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sortimine nime järgi"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sortimine suuruse järgi"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2076
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sortimine kuupäeva järgi"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2082
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sortimine tüübi järgi"
 
-#: filewidgets/kdiroperator.cpp:2089
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Ascending"
 msgstr "Ülenevalt"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Descending"
 msgstr "Alanevalt"
 
-#: filewidgets/kdiroperator.cpp:2103
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Folders First"
 msgstr "Kataloogid esimesena"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Peidetud failid viimasena"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Icons View"
 msgstr "Ikoonivaade"
 
-#: filewidgets/kdiroperator.cpp:2123
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Compact View"
 msgstr "Kompaktne vaade"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Details View"
 msgstr "Detailne vaade"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2151
 #, kde-format
 msgid "Icon Position"
 msgstr "Ikooni asukoht"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2154
 #, kde-format
 msgid "Next to File Name"
 msgstr "Failinime kõrval"
 
-#: filewidgets/kdiroperator.cpp:2158
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Above File Name"
 msgstr "Failinime kohal"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2174
 #, kde-format
 msgid "Short View"
 msgstr "Lühike vaade"
 
-#: filewidgets/kdiroperator.cpp:2179
+#: filewidgets/kdiroperator.cpp:2181
 #, kde-format
 msgid "Detailed View"
 msgstr "Detailne vaade"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Tree View"
 msgstr "Puuvaade"
 
-#: filewidgets/kdiroperator.cpp:2193
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Detailne puuvaade"
 
-#: filewidgets/kdiroperator.cpp:2206
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Laienemise lubamine detailses vaates"
 
-#: filewidgets/kdiroperator.cpp:2212
+#: filewidgets/kdiroperator.cpp:2214
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Peidetud failide näitamine"
 
-#: filewidgets/kdiroperator.cpp:2219
+#: filewidgets/kdiroperator.cpp:2221
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Eelvaatluse paneeli näitamine"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2228
 #, kde-format
 msgid "Show Preview"
 msgstr "Eelvaatluse näitamine"
 
-#: filewidgets/kdiroperator.cpp:2233
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Ava sisaldav kataloog"
 
-#: filewidgets/kdiroperator.cpp:2240 filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kdiroperator.cpp:2242 filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgid "Properties"
 msgstr "Omadused"
 
-#: filewidgets/kdiroperator.cpp:2249
+#: filewidgets/kdiroperator.cpp:2251
 #, kde-format
 msgid "&View Mode"
 msgstr "&Vaaterežiim"
 
-#: filewidgets/kdiroperator.cpp:2352 filewidgets/kdiroperator.cpp:2364
+#: filewidgets/kdiroperator.cpp:2354 filewidgets/kdiroperator.cpp:2366
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Y-A"
 
-#: filewidgets/kdiroperator.cpp:2353 filewidgets/kdiroperator.cpp:2365
+#: filewidgets/kdiroperator.cpp:2355 filewidgets/kdiroperator.cpp:2367
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Y"
 
-#: filewidgets/kdiroperator.cpp:2356
+#: filewidgets/kdiroperator.cpp:2358
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Vanim esimesena"
 
-#: filewidgets/kdiroperator.cpp:2357
+#: filewidgets/kdiroperator.cpp:2359
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Uusim esimesena"
 
-#: filewidgets/kdiroperator.cpp:2360
+#: filewidgets/kdiroperator.cpp:2362
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Suurim esimesena"
 
-#: filewidgets/kdiroperator.cpp:2361
+#: filewidgets/kdiroperator.cpp:2363
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2811,7 +2811,7 @@ msgid "All Supported Files"
 msgstr "Kõik toetatud failid"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2036
 #, kde-format
 msgid "All Files"
 msgstr "Kõik failid"
@@ -3237,27 +3237,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Hiiglaslik (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:624
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "You can only select one file"
 msgstr "Valida saab ainult ühe faili"
 
-#: filewidgets/kfilewidget.cpp:624
+#: filewidgets/kfilewidget.cpp:626
 #, kde-format
 msgid "More than one file provided"
 msgstr "Valiti rohkem kui üks fail"
 
-#: filewidgets/kfilewidget.cpp:794
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid "You can only select local files"
 msgstr "Valida saab ainult kohalike failide seast"
 
-#: filewidgets/kfilewidget.cpp:794
+#: filewidgets/kfilewidget.cpp:796
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:801
+#: filewidgets/kfilewidget.cpp:803
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3271,22 +3271,22 @@ msgstr[1] ""
 "Valitud URL kasutab toetamata skeemi. Palun kasuta üht järgmistest "
 "skeemidest: %2"
 
-#: filewidgets/kfilewidget.cpp:807
+#: filewidgets/kfilewidget.cpp:809
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Toetamata URL-i skeem"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Faili \"%1\" ei leitud"
 
-#: filewidgets/kfilewidget.cpp:828
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "Cannot open file"
 msgstr "Faili avamine nurjus"
 
-#: filewidgets/kfilewidget.cpp:1197
+#: filewidgets/kfilewidget.cpp:1199
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3297,45 +3297,45 @@ msgstr ""
 "aktiivseks asukohaks on nt. file:/home/konqi, siis sellel nupul klõpsamine "
 "viib sind kataloogi file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1201
+#: filewidgets/kfilewidget.cpp:1203
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra tagasi."
 
-#: filewidgets/kfilewidget.cpp:1202
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra edasi."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Sellel nupul klõpsamine laadib aktiivse asukoha sisu uuesti."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Uue kataloogi loomiseks klõpsa sellel nupul."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1210
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Asukohtade paneeli näitamine"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1217
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Peidetud failide näitamine"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Options"
 msgstr "Valikud"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3350,12 +3350,12 @@ msgstr ""
 "paneeli,</li> <li>failide eelvaatlusi,</li> <li>eraldi katalooge</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1247
 #, kde-format
 msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
-#: filewidgets/kfilewidget.cpp:1249
+#: filewidgets/kfilewidget.cpp:1251
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3369,39 +3369,39 @@ msgstr ""
 "kuid kõiges muus on nad samasugused kui muud KDE järjehoidjad.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1321
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Muudatuste tühistamine"
 
-#: filewidgets/kfilewidget.cpp:1370
+#: filewidgets/kfilewidget.cpp:1372
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Ava sisaldav kataloog"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1376
 #, fuzzy, kde-format
 #| msgid "File name:"
 msgid "Filter by name…"
 msgstr "Failinimi:"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1384
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Peidetud failid viimasena"
 
-#: filewidgets/kfilewidget.cpp:1431
+#: filewidgets/kfilewidget.cpp:1433
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3414,12 +3414,12 @@ msgstr ""
 "nupuga ning valides menüüst <b>Teksti lõpetamine</b> sulle sobiva variandi.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1438
+#: filewidgets/kfilewidget.cpp:1440
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "See on salvestatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1441
+#: filewidgets/kfilewidget.cpp:1443
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3428,74 +3428,74 @@ msgstr ""
 "See on avatavate failide nimekiri. Tühikut eraldajana kasutades saab "
 "sisestada ka rohkem kui ühe faili."
 
-#: filewidgets/kfilewidget.cpp:1446
+#: filewidgets/kfilewidget.cpp:1448
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "See on avatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1459
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Asukohad"
 
-#: filewidgets/kfilewidget.cpp:1740
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fail \"%1\" on juba olemas. Kas kirjutada see üle?"
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Kas kirjutada fail üle?"
 
-#: filewidgets/kfilewidget.cpp:1938
+#: filewidgets/kfilewidget.cpp:1940
 #, kde-format
 msgid "You can only select local files."
 msgstr "Valida saab ainult kohalike failide seast."
 
-#: filewidgets/kfilewidget.cpp:1938
+#: filewidgets/kfilewidget.cpp:1940
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:2032
+#: filewidgets/kfilewidget.cpp:2034
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Kõik kataloogid"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Ava"
 
-#: filewidgets/kfilewidget.cpp:2268
+#: filewidgets/kfilewidget.cpp:2270
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikooni suurus: %1 pikslit"
 
-#: filewidgets/kfilewidget.cpp:2415
+#: filewidgets/kfilewidget.cpp:2417
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&Failinime laiend valitakse automaatselt (%1)"
 
-#: filewidgets/kfilewidget.cpp:2416
+#: filewidgets/kfilewidget.cpp:2418
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "laiend <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2422
+#: filewidgets/kfilewidget.cpp:2424
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&Failinime laiend valitakse automaatselt"
 
-#: filewidgets/kfilewidget.cpp:2423
+#: filewidgets/kfilewidget.cpp:2425
 #, kde-format
 msgid "a suitable extension"
 msgstr "sobiv laiend"
 
-#: filewidgets/kfilewidget.cpp:2431
+#: filewidgets/kfilewidget.cpp:2433
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3522,12 +3522,12 @@ msgstr ""
 "ei ole kindel, mida teha, jäta see võimalus sisselülitatuks, sest igatahes "
 "võimaldab see mugavamalt faile hallata."
 
-#: filewidgets/kfilewidget.cpp:2897
+#: filewidgets/kfilewidget.cpp:2899
 #, kde-format
 msgid "&File type:"
 msgstr "&Failitüüp:"
 
-#: filewidgets/kfilewidget.cpp:2901
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3536,7 +3536,7 @@ msgstr ""
 "<qt>See on failitüübi valija. Selle abil saab valida vormingu, millesse fail "
 "salvestatakse.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2905
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
