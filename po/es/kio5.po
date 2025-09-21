@@ -1,7 +1,6 @@
-# Translation of kcmkio to Spanish
-# translation of kcmkio.po to Spanish
-# Translation to spanish.
-# Copyright (C) 2000-2002.
+# Spanish translations for kio5.po package.
+# Copyright (C) 2000-2025 This file is copyright:
+# This file is distributed under the same license as the kio package.
 #
 # SPDX-FileCopyrightText: 2000-2002 Pablo de Vicente <vicente@oan.es>
 # SPDX-FileCopyrightText: 2003, 2007, 2008 Jaime Robles <jaime@kde.org>
@@ -13,10 +12,10 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2013 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: kcmkio\n"
+"Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-01-31 20:19+0100\n"
+"PO-Revision-Date: 2025-09-20 22:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -24,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -2757,7 +2756,7 @@ msgstr "Volver a cargar"
 #: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
-msgstr "Nueva carpeta..."
+msgstr "Nueva carpeta…"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
@@ -2984,7 +2983,7 @@ msgstr "Carpeta raíz"
 #, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "Explorar..."
+msgstr "Explorar…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3230,7 +3229,7 @@ msgstr "Solo se pueden añadir carpetas al panel de «Lugares»."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Liberando..."
+msgstr "Liberando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3242,7 +3241,7 @@ msgstr "Libe&rar"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Extrayendo con seguridad..."
+msgstr "Extrayendo con seguridad…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3254,7 +3253,7 @@ msgstr "Extraer con &seguridad"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Desmontando..."
+msgstr "Desmontando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3344,13 +3343,13 @@ msgstr "Abrir en nueva ventana"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Añadir entrada..."
+msgstr "Añadir entrada…"
 
 #: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Editar..."
+msgstr "&Editar…"
 
 #: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
@@ -4059,7 +4058,7 @@ msgid ""
 msgstr ""
 "El archivo de entradas del escritorio\n"
 "%1\n"
-"es del tipo «Link», pero no tiene entrada URL=..."
+"es del tipo «Link», pero no tiene entrada URL=…"
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -4099,7 +4098,7 @@ msgstr ""
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "El archivo de entradas del escritorio %1 no tiene entrada Type=..."
+msgstr "El archivo de entradas del escritorio %1 no tiene entrada Type=…"
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -4616,7 +4615,7 @@ msgstr "Borrar &todo"
 #: kcms/cookies/kcookiesmanagement.ui:70
 #, kde-format
 msgid "Configure &Policy..."
-msgstr "Configurar &política..."
+msgstr "Configurar &política…"
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
@@ -4919,10 +4918,10 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Para añadir una nueva política, basta con que pulse el botón <b>Añadir...</"
-"b> y proporcione la información necesaria. Para cambiar una política "
-"existente, utilice el botón <b>Cambiar...</b> y seleccione la nueva política "
-"en el diálogo. Si pulsa el botón <b>Borrar</b>, se eliminará la política "
+"Para añadir una nueva política, basta con que pulse el botón <b>Añadir…</b> "
+"y proporcione la información necesaria. Para cambiar una política existente, "
+"utilice el botón <b>Cambiar…</b> y seleccione la nueva política en el "
+"diálogo. Si pulsa el botón <b>Borrar</b>, se eliminará la política "
 "seleccionada provocando que para ese dominio se utilice la política "
 "predefinida, mientras que <b>Borrar todo</b> eliminará todas las políticas "
 "específicas de sitios.\n"
@@ -4944,7 +4943,7 @@ msgstr "Buscar dominios interactivamente"
 #: kcms/cookies/kcookiespolicies.ui:138
 #, kde-format
 msgid "Search..."
-msgstr "Buscar..."
+msgstr "Buscar…"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -4977,13 +4976,13 @@ msgstr "Política"
 #: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
 #, kde-format
 msgid "&New..."
-msgstr "&Nuevo..."
+msgstr "&Nuevo…"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "Ca&mbiar..."
+msgstr "Ca&mbiar…"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
@@ -6283,7 +6282,7 @@ msgstr "Se produjo un error inesperado (%1) al intentar %2."
 #: kioworkers/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 contactado. Esperando respuesta..."
+msgstr "%1 contactado. Esperando respuesta…"
 
 #: kioworkers/http/http.cpp:2985
 #, kde-format
@@ -6306,7 +6305,7 @@ msgstr "Confirmar acceso a sitio web"
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "Servidor procesando petición, espere..."
+msgstr "Servidor procesando petición, espere…"
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
@@ -6316,7 +6315,7 @@ msgstr "Enviando datos a %1"
 #: kioworkers/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "Recibiendo información de %1 desde %2..."
+msgstr "Recibiendo información de %1 desde %2…"
 
 #: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
 #, kde-format
@@ -6883,8 +6882,8 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
-"La URL del acceso rápido no contiene un parámetro \\{...} para la consulta "
-"del usuario.\n"
+"La URL del acceso rápido no contiene un parámetro \\{…} para la consulta del "
+"usuario.\n"
 "Esto significa que siempre se visitará la misma página, independientemente "
 "del texto escrito junto al acceso rápido."
 
@@ -6933,11 +6932,11 @@ msgstr ""
 "<br/>\n"
 "Se recomienda \\{@}, porque elimina todas las variables de consulta "
 "(nombre=valor) de la cadena resultante, mientras que \\{0} será sustituido "
-"por la cadena de consulta sin modificaciones.<br/> Puede usar \\{1} ... "
-"\\{n} para indicar ciertas palabras de la consulta y \\{nombre} para indicar "
-"un valor dado por «nombre=valor» en la consulta del usuario.<br/>Además, es "
+"por la cadena de consulta sin modificaciones.<br/> Puede usar \\{1} … \\{n} "
+"para indicar ciertas palabras de la consulta y \\{nombre} para indicar un "
+"valor dado por «nombre=valor» en la consulta del usuario.<br/>Además, es "
 "posible indicar varias referencias (nombres, números y cadenas) a la vez "
-"(\\{nombre1,nombre2,...,\"cadena\"}).<br/>Se usará el primer valor que "
+"(\\{nombre1,nombre2,…,\"cadena\"}).<br/>Se usará el primer valor que "
 "coincida (empezando por la izquierda) como valor de sustitución en el URI "
 "resultante.<br/>Se puede usar una cadena entrecomillada como valor "
 "predeterminado si no hay nada que coincida por la izquierda en la lista de "
@@ -7122,7 +7121,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Suma de verificación esperada (MD5, SHA1, SHA256 o SHA512)..."
+msgstr "Suma de verificación esperada (MD5, SHA1, SHA256 o SHA512)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7407,13 +7406,13 @@ msgstr "SSL"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7575,7 +7574,7 @@ msgid ""
 msgstr ""
 "El archivo de entradas del escritorio\n"
 "%1\n"
-"es del tipo «FSDevice», pero no tiene entrada Dev=..."
+"es del tipo «FSDevice», pero no tiene entrada Dev=…"
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7650,13 +7649,13 @@ msgstr "&Acciones"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Abrir carpeta con..."
+msgstr "&Abrir carpeta con…"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Abrir con..."
+msgstr "&Abrir con…"
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
@@ -7684,7 +7683,7 @@ msgstr "&Abrir con"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Otra aplicación..."
+msgstr "&Otra aplicación…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -7740,7 +7739,7 @@ msgstr "Ubicación:"
 #: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:347
@@ -8207,7 +8206,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
-msgstr "E&xaminar..."
+msgstr "E&xaminar…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -8294,7 +8293,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -8386,7 +8385,7 @@ msgstr "%1:"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%1 libre de %2 (%3% usado)"
+msgstr "%1 libre de %2 (%3 % usado)"
 
 #: widgets/kpropertiesdialog.cpp:1363
 #, kde-format
@@ -8400,7 +8399,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Calculando...%1 (%2)\n"
+"Calculando…%1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
@@ -8420,7 +8419,7 @@ msgstr[1] "%1 subcarpetas"
 #: widgets/kpropertiesdialog.cpp:1405
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Calculando...\n"
+msgstr "Calculando…\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
 #, kde-format
@@ -8446,13 +8445,13 @@ msgstr "Sin aplicación asociada"
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Crear..."
+msgstr "Crear…"
 
 #: widgets/kpropertiesdialog.cpp:1683
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #: widgets/kpropertiesdialog.cpp:1759 widgets/kpropertiesdialog.cpp:1760
 #: widgets/kpropertiesdialog.cpp:1762
@@ -8826,7 +8825,7 @@ msgstr "&Sumas de verificación"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "Calculando..."
+msgstr "Calculando…"
 
 #: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
@@ -8877,7 +8876,7 @@ msgstr ""
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Comprobando suma de verificación..."
+msgstr "Comprobando suma de verificación…"
 
 #: widgets/kpropertiesdialog.cpp:3148
 #, kde-format
@@ -9032,7 +9031,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Configurar accesos rápidos web..."
+msgstr "Configurar accesos rápidos web…"
 
 #: widgets/kurlrequester.cpp:395
 #, kde-format
@@ -9101,7 +9100,7 @@ msgstr[1] "Pegar %1 elementos"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "Pegar el contenido del portapapeles..."
+msgstr "Pegar el contenido del portapapeles…"
 
 #: widgets/paste.cpp:339
 #, kde-format
@@ -9563,1108 +9562,3 @@ msgstr "Esto iniciará el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confía en este programa, pulse «Cancelar»"
-
-#~ msgid "None"
-#~ msgstr "Ninguno"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "Múltiples instancias"
-
-#~ msgid "Single Instance"
-#~ msgstr "Única instancia"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "Ejecutar hasta finalizar"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "Registro de D-Bus:"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "Imágenes"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "Sonido"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "¿Realmente desea borrar de forma permanente este elemento?<nl/><filename>"
-#~ "%1</filename><emphasis strong='true'>Esta acción no se puede deshacer.</"
-#~ "emphasis>"
-
-#~ msgid "Co&mmand:"
-#~ msgstr "&Orden:"
-
-#~ msgid "Zoom out"
-#~ msgstr "Reducir"
-
-#~ msgid "Zoom in"
-#~ msgstr "Ampliar"
-
-#~ msgid "Icon size: %1 pixels (standard size)"
-#~ msgstr "Tamaño del icono: %1 píxeles (tamaño estándar)"
-
-#~ msgid "Open %1 in tab"
-#~ msgstr "Abrir %1 en una pestaña"
-
-#~ msgid "Authentication is required to change this file's permissions."
-#~ msgstr ""
-#~ "Se necesita autenticación para cambiar los permisos de este archivo."
-
-#~ msgid "Authentication is required to change who owns this file."
-#~ msgstr ""
-#~ "Se necesita autenticación para cambiar el propietario de este archivo."
-
-#~ msgid "Authentication is required to delete this file."
-#~ msgstr "Se necesita autenticación para borrar este archivo."
-
-#~ msgid "Authentication is required to create a folder."
-#~ msgstr "Se necesita autenticación para crear una carpeta."
-
-#~ msgid "Authentication is required to open this file."
-#~ msgstr "Se necesita autenticación para abrir este archivo."
-
-#~ msgid "Authentication is required to open this folder."
-#~ msgstr "Se necesita autenticación para abrir esta carpeta."
-
-#~ msgid "Authentication is required to rename this file."
-#~ msgstr "Se necesita autenticación para cambiar el nombre de este archivo."
-
-#~ msgid "Authentication is required to delete this folder."
-#~ msgstr "Se necesita autenticación para borrar esta carpeta."
-
-#~ msgid "Authentication is required to create a symlink."
-#~ msgstr "Se necesita autenticación para crear un enlace simbólico."
-
-#~ msgid "Authentication is required to modify this file's last updated time."
-#~ msgstr ""
-#~ "Se necesita autenticación para modificar la fecha de última actualización "
-#~ "de este archivo."
-
-#~ msgid "Authentication is required to copy this item."
-#~ msgstr "Se necesita autenticación para copiar este elemento."
-
-#~ msgid "Authentication is required to perform this action."
-#~ msgstr "Se necesita autenticación para realizar esta acción."
-
-#~ msgid "KFilePropsPluginWidget"
-#~ msgstr "KFilePropsPluginWidget"
-
-#~ msgid "KSqueezedTextLabel"
-#~ msgstr "KSqueezedTextLabel"
-
-#~ msgid "&Unmount '%1'"
-#~ msgstr "&Desmontar «%1»"
-
-#~ msgid "&Eject '%1'"
-#~ msgstr "&Expulsar «%1»"
-
-#~ msgid "&Edit Entry '%1'..."
-#~ msgstr "&Editar la entrada «%1»..."
-
-#~ msgid "&Hide Entry '%1'"
-#~ msgstr "&Ocultar la entrada «%1»"
-
-#~ msgid "&Remove Entry '%1'"
-#~ msgstr "Elimina&r la entrada «%1»"
-
-#~ msgctxt "@action:button"
-#~ msgid "Enter a Different Name"
-#~ msgstr "Introduzca un nombre diferente"
-
-#~ msgid "Invalid Directory Name"
-#~ msgstr "Nombres de directorio no válido"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Could not create a folder with the name <filename>%1</filename><nl/"
-#~ ">because it is reserved for use by the operating system."
-#~ msgstr ""
-#~ "No se ha podido crear una carpeta con el nombre <filename>%1</"
-#~ "filename><nl/>porque está reservado para que lo use el sistema operativo."
-
-#~ msgid "Create New File Type"
-#~ msgstr "Crear nuevo tipo de archivo"
-
-#~ msgid "File Type Options"
-#~ msgstr "Opciones de tipo de archivo"
-
-#~ msgid "Edit Entry..."
-#~ msgstr "Editar entrada..."
-
-#~ msgid "Delete Entry"
-#~ msgstr "Borrar entrada"
-
-#~ msgid "Cannot talk to klauncher: %1"
-#~ msgstr "No se puede dialogar con klauncher: %1"
-
-#~ msgid "klauncher said: %1"
-#~ msgstr "klauncher ha respondido: %1"
-
-#~ msgid "Custom Path"
-#~ msgstr "Ruta personalizada"
-
-#~ msgid ""
-#~ "The trash has reached its maximum size!\n"
-#~ "Cleanup the trash manually."
-#~ msgstr ""
-#~ "La papelera ha alcanzado su tamaño máximo.\n"
-#~ "Vacíe la papelera manualmente."
-
-#~ msgid "'%1' is not an executable file."
-#~ msgstr "«%1» no es un archivo ejecutable."
-
-#~ msgid "'%1' not found, please type a valid program name."
-#~ msgstr "No se encuentra «%1». Escriba un nombre de programa válido."
-
-#~ msgid "No Media inserted or Media not recognized."
-#~ msgstr "No hay ningún medio insertado o reconocido."
-
-#~ msgid "\"vold\" is not running."
-#~ msgstr "«vold» no está ejecutándose."
-
-#~ msgid "unmounting is not supported by wince."
-#~ msgstr "Wince no permite desmontar."
-
-#~ msgid "File name:"
-#~ msgstr "Nombre de archivo:"
-
-#~ msgid ""
-#~ "<h1>Cache</h1><p>This module lets you configure your cache settings.</"
-#~ "p><p>This specific cache is an area on the disk where recently read web "
-#~ "pages are stored. If you want to retrieve a web page again that you have "
-#~ "recently read, it will not be downloaded from the Internet, but rather "
-#~ "retrieved from the cache, which is a lot faster.</p>"
-#~ msgstr ""
-#~ "<h1>Caché</h1><p>Este módulo permite configurar las opciones de la caché."
-#~ "</p><p>Esta caché específica es un área del disco donde se guardan las "
-#~ "páginas Web más recientes. Si usted desea cargar nuevamente una página "
-#~ "leída recientemente, no la obtendrá de Internet, sino de la caché, que es "
-#~ "mucho más rápida.</p>"
-
-#~ msgid ""
-#~ "Check this box if you want the web pages you visit to be stored on your "
-#~ "hard disk for quicker access. The stored pages will only be updated as "
-#~ "needed instead of on every visit to that site. This is especially useful "
-#~ "if you have a slow connection to the Internet."
-#~ msgstr ""
-#~ "Active esta casilla si desea que las páginas web visitadas se almacenen "
-#~ "en el disco duro para un acceso más rápido. Las páginas web almacenadas "
-#~ "se actualizarán según sea necesario en vez de durante cada visita. Esto "
-#~ "resulta útil si dispone de una conexión lenta a Internet."
-
-#~ msgid "&Use cache"
-#~ msgstr "&Usar caché"
-
-#~ msgid ""
-#~ "Verify whether the cached web page is valid before attempting to fetch "
-#~ "the web page again."
-#~ msgstr ""
-#~ "Verificar si la página almacena es válida antes de intentar volver a "
-#~ "descargarla."
-
-#~ msgid "&Keep cache in sync"
-#~ msgstr "Ma&ntener caché sincronizada"
-
-#~ msgid ""
-#~ "Always use documents from the cache when available. You can still use the "
-#~ "reload button to synchronize the cache with the remote host."
-#~ msgstr ""
-#~ "Utilizar siempre documentos almacenados si están disponibles. Puede "
-#~ "utilizar el botón de recarga para sincronizar la caché con el servidor "
-#~ "remoto."
-
-#~ msgid "Use cache whenever &possible"
-#~ msgstr "Usar caché si es &posible"
-
-#~ msgid ""
-#~ "Do not fetch web pages that are not already stored in the cache. Offline "
-#~ "mode prevents you from viewing pages that you have not previously visited."
-#~ msgstr ""
-#~ "No descargar páginas web que ya estén almacenadas localmente. El modo "
-#~ "fuera de línea impide ver páginas que no hayan sido visitadas previamente."
-
-#~ msgid "O&ffline browsing mode"
-#~ msgstr "Modo de navegación &desconectado"
-
-#~ msgid "Disk cache &size:"
-#~ msgstr "Tamaño de caché de di&sco:"
-
-#~ msgid " KiB"
-#~ msgstr " KiB"
-
-#~ msgid "C&lear Cache"
-#~ msgstr "&Limpiar la caché"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add Identification"
-#~ msgstr "Añadir identificación"
-
-#~ msgctxt "@title:window"
-#~ msgid "Modify Identification"
-#~ msgstr "Modificar identificación"
-
-#~ msgid ""
-#~ "<qt><center>Found an existing identification for<br/><b>%1</b><br/>Do you "
-#~ "want to replace it?</center></qt>"
-#~ msgstr ""
-#~ "<qt><center>Ya existe una identificación para<br/><b>%1</b><br/>¿Desea "
-#~ "reemplazarla?</center></qt>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Duplicate Identification"
-#~ msgstr "Duplicar identificación"
-
-#~ msgid ""
-#~ "<h1>Browser Identification</h1><p>The browser-identification module "
-#~ "allows you to have full control over how KDE applications using the HTTP "
-#~ "protocol (like Konqueror) will identify itself to web sites you browse.</"
-#~ "p><p>This ability to fake identification is necessary because some web "
-#~ "sites do not display properly when they detect that they are not talking "
-#~ "to current versions of either Netscape Navigator or Internet Explorer, "
-#~ "even if the browser actually supports all the necessary features to "
-#~ "render those pages properly. For such sites, you can use this feature to "
-#~ "try to browse them. Please understand that this might not always work, "
-#~ "since such sites might be using non-standard web protocols and or "
-#~ "specifications.</p><p><u>NOTE:</u> To obtain specific help on a "
-#~ "particular section of the dialog box, simply click on the quick help "
-#~ "button on the window title bar, then click on the section for which you "
-#~ "are seeking help.</p>"
-#~ msgstr ""
-#~ "<h1>Identificación del navegador</h1><p>El módulo de identificación del "
-#~ "navegador le permite tener control total sobre cómo las aplicaciones de "
-#~ "KDE que usan el protocolo HTTP (como Konqueror) se identifican a sí "
-#~ "mismas ante los servidores que visiten.</p><p>Esta capacidad para falsear "
-#~ "la identidad es necesaria porque algunos servidores web no muestran "
-#~ "adecuadamente su contenido si detectan que no están negociando con "
-#~ "versiones actualizadas de Netscape Navigator o de Internet Explorer, "
-#~ "aunque su navegador permita usar todas las funcionalidades necesarias "
-#~ "para mostrar dichas páginas de forma correcta. Puede usar esta función "
-#~ "para intentar navegar por dichos sitios. Tenga en cuenta que esto no "
-#~ "garantiza que la página funcione, pues algunas usan protocolos o "
-#~ "especificaciones que no son estándares.</p><p><u>NOTA:</u> Para obtener "
-#~ "ayuda específica de una sección en particular del cuadro de diálogo, "
-#~ "pulse en el botón de ayuda rápida que hay en la barra de título y a "
-#~ "continuación en la sección sobre la que necesita ayuda.</p>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Here you can modify the default browser-identification text or set a site "
-#~ "<code>(eg. www.kde.org)</code> or a domain <code>(eg. kde.org)</code> "
-#~ "specific identification text.<p>\n"
-#~ "To add a new site-specific identification text, click the <code>New</"
-#~ "code> button and supply the necessary information. To change an existing "
-#~ "site-specific entry, click on the <code>Change</code> button. The "
-#~ "<code>Delete</code> button will remove the selected site-specific "
-#~ "identification text, causing the default setting to be used for that site "
-#~ "or domain.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Aquí puede modificar el texto predefinido de identificación del "
-#~ "navegador, o establecer un texto de identificación específico para un "
-#~ "sitio <code>(p.e. www.kde.org)</code> o un dominio <code>(p.e. kde.org)</"
-#~ "code>.<p>\n"
-#~ "Para añadir un texto identificativo específico para un nuevo sitio, pulse "
-#~ "el botón <code>Nuevo</code> y proporcione la información necesaria. Para "
-#~ "cambiar el texto para un sitio específico ya existente, pulse el botón "
-#~ "<code>Cambiar</code>. El botón <code>Borrar</code> eliminará el texto "
-#~ "identificativo para un sitio específico, provocando que, en su lugar, se "
-#~ "utilice la identificación predefinida.\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Send the browser identification to web sites.<p>\n"
-#~ "<u>NOTE:</u> Many sites rely on this information to display pages "
-#~ "properly, hence, it is highly recommended that you do not totally disable "
-#~ "this feature but rather customize it.<p>\n"
-#~ "By default, only minimal identification information is sent to remote "
-#~ "sites. The identification text that will be sent is shown below.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enviar cadena de identificación del navegador a los sitios web.<p>\n"
-#~ "<u>NOTA:</u> Muchos sitios necesitan esa información para mostrar páginas "
-#~ "adecuadamente, por tanto, es muy recomendable que personalice esta opción "
-#~ "en lugar de desactivarla completamente.<p>\n"
-#~ "De forma predeterminada, solo se envía una mínima información de "
-#~ "identificación a los sitios remotos. La cadena de texto que se envía se "
-#~ "muestra a continuación.\n"
-#~ "</qt>"
-
-#~ msgid "&Send identification"
-#~ msgstr "&Enviar identificación"
-
-#~ msgid ""
-#~ "The browser identification text sent to the sites you visit. Use the "
-#~ "provided options to customize it."
-#~ msgstr ""
-#~ "La cadena de identificación del navegador enviadas a los sitios "
-#~ "visitados. Utilice las opciones proporcionadas para personalizarla."
-
-#~ msgid "Default Identification"
-#~ msgstr "Identificación predeterminada"
-
-#~ msgid ""
-#~ "The browser identification text sent to the sites you visit. You can "
-#~ "customize it using the options provided below."
-#~ msgstr ""
-#~ "La cadena de identificación del navegador enviadas a los sitios "
-#~ "visitados. Puede utilizar las opciones proporcionadas para personalizarla."
-
-#~ msgid ""
-#~ "Includes your operating system's name in the browser identification text."
-#~ msgstr ""
-#~ "Incluye el nombre del sistema operativo en la cadena de identificación."
-
-#~ msgid "Add operating s&ystem name"
-#~ msgstr "Añadir nombre del &sistema operativo"
-
-#~ msgid ""
-#~ "Includes your operating system's version number in the browser "
-#~ "identification text."
-#~ msgstr ""
-#~ "Incluye la versión del sistema operativo en la cadena de identificación."
-
-#~ msgid "Add operating system &version"
-#~ msgstr "Añadir &versión del sistema operativo"
-
-#~ msgid "Includes your machine's CPU type in the browser identification text."
-#~ msgstr "Incluye el tipo de CPU del equipo en la cadena de identificación."
-
-#~ msgid "Add &machine (processor) type"
-#~ msgstr "Añadir tipo de &máquina (procesador)"
-
-#~ msgid ""
-#~ "Includes your language settings in the browser identification text to "
-#~ "obtain localized versions of the page."
-#~ msgstr ""
-#~ "Incluye sus opciones de idioma en la cadena de identificación del "
-#~ "navegador para obtener versiones localizadas de la página."
-
-#~ msgid "Add lang&uage information"
-#~ msgstr "Añadir información del &idioma"
-
-#~ msgid "Site Specific Identification"
-#~ msgstr "Identificación específica del sitio"
-
-#~ msgid "Site Name"
-#~ msgstr "Nombre del sitio"
-
-#~ msgid "Identification"
-#~ msgstr "Identificación"
-
-#~ msgid "User Agent"
-#~ msgstr "Agente de usuario"
-
-#~ msgid "Add new identification text for a site."
-#~ msgstr "Añadir nueva cadena de identificación para un sitio."
-
-#~ msgid "Change the selected identifier text."
-#~ msgstr "Cambiar la cadena de identificación seleccionada."
-
-#~ msgid "Delete the selected identifier text."
-#~ msgstr "Borrar la cadena de identificación seleccionada."
-
-#~ msgid "Delete all identifiers."
-#~ msgstr "Borrar todos los identificadores."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the site or domain name where a fake browser identification should "
-#~ "be used.<p>\n"
-#~ "<u>NOTE:</u> Wildcard syntax such as \\\"*,?\\\" is NOT allowed: instead, "
-#~ "use the top level address of a site to make generic matches; for example, "
-#~ "if you want all KDE sites to receive a fake browser identification, you "
-#~ "would enter <code>kde.org</code> - the fake identity would then be sent "
-#~ "to any KDE site that ends with <code>kde.org</code>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduzca el sitio o nombre de dominio donde se debería utilizar una "
-#~ "identidad de navegador falsa.<p>\n"
-#~ "<u>NOTA:</u> La sintaxis de comodines («*,?») NO está permitida: en su "
-#~ "lugar, introduzca la dirección raíz de cualquier sitio para hacer "
-#~ "consultas genéricas; por ejemplo, si desea que todos los sitios de KDE "
-#~ "reciban una identidad del navegador falsa, debería introducir <code>kde."
-#~ "org</code>. Esta se enviará a todos los sitios de KDE que terminen en "
-#~ "<code>kde.org</code>.</p>\n"
-#~ "</qt>"
-
-#~ msgid "&When browsing the following site:"
-#~ msgstr "Cuando se conecte al siguien&te sitio:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the browser identification to use whenever contacting the site you "
-#~ "specified above.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Seleccione la identificación del navegador a usar siempre que contacte el "
-#~ "sitio o nombre de dominio introducido más arriba.\n"
-#~ "</qt>"
-
-#~ msgid "&Use the following identification:"
-#~ msgstr "&Usar la siguiente identificación:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The actual browser identification text that will be sent to the remote "
-#~ "machine.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "El texto de la identificación del navegador que se enviará al servidor "
-#~ "remoto.\n"
-#~ "</qt>"
-
-#~ msgid "Real identification:"
-#~ msgstr "Identificación real:"
-
-#~ msgid "De&vice"
-#~ msgstr "Dispositi&vo"
-
-#~ msgid "Device (/dev/fd0):"
-#~ msgstr "Dispositivo (/dev/fd0):"
-
-#~ msgid "Device:"
-#~ msgstr "Dispositivo:"
-
-#~ msgid "Read only"
-#~ msgstr "Solo lectura"
-
-#~ msgid "File system:"
-#~ msgstr "Sistema de archivos:"
-
-#~ msgid "Mount point (/mnt/floppy):"
-#~ msgstr "Punto de montaje (/mnt/floppy):"
-
-#~ msgid "Mount point:"
-#~ msgstr "Punto de montaje:"
-
-#~ msgid ""
-#~ "URL cannot be listed\n"
-#~ "%1"
-#~ msgstr ""
-#~ "No se puede listar la URL\n"
-#~ "%1"
-
-#~ msgid "Invalid link target"
-#~ msgstr "Destino de enlace no válido"
-
-#~ msgid "Add Network Folder"
-#~ msgstr "Añadir carpeta de red"
-
-#, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#~| "strong='true'>This action cannot be undone.</emphasis>"
-#~| msgid_plural ""
-#~| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#~| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#~ "><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "¿Realmente desea borrar de forma permanente este elemento?<nl/><nl/"
-#~ "><emphasis strong='true'>Esta acción no se puede deshacer.</emphasis>"
-
-#, fuzzy
-#~| msgid "Do you really want to move this item to the Trash?"
-#~| msgid_plural "Do you really want to move these %1 items to the Trash?"
-#~ msgctxt "@info"
-#~ msgid "Do you really want to move these %1 items to the Trash?"
-#~ msgstr "¿Realmente desea mover este elemento a la Papelera?"
-
-#~ msgid "Enter the certificate password:"
-#~ msgstr "Introduzca la contraseña del certificado:"
-
-#~ msgid "SSL Certificate Password"
-#~ msgstr "Contraseña del certificado SSL"
-
-#~ msgid "Unable to open the certificate. Try a new password?"
-#~ msgstr ""
-#~ "No se ha podido abrir el certificado. ¿Desea intentar una nueva "
-#~ "contraseña?"
-
-#~ msgid "The procedure to set the client certificate for the session failed."
-#~ msgstr ""
-#~ "El procedimiento para establecer el certificado del cliente para la "
-#~ "sesión falló."
-
-#~ msgid ""
-#~ "You have indicated that you wish to accept this certificate, but it is "
-#~ "not issued to the server who is presenting it. Do you wish to continue "
-#~ "loading?"
-#~ msgstr ""
-#~ "Ha indicado que desea aceptar este certificado, pero no está expedido al "
-#~ "servidor que lo presenta. ¿Desea continuar la carga?"
-
-#~ msgid ""
-#~ "SSL certificate is being rejected as requested. You can disable this in "
-#~ "the KDE System Settings."
-#~ msgstr ""
-#~ "El certificado SSL ha sido rechazado tal y como se solicitó. Puede "
-#~ "inhabilitar esto en las «Preferencias del sistema» de KDE."
-
-#~ msgid "A folder named \"%1\" already exists."
-#~ msgstr "Ya existe una carpeta con el nombre «%1»."
-
-#~ msgid "Web Shortcuts"
-#~ msgstr "Accesos rápidos web"
-
-#~ msgctxt "@title:column Name label from web shortcuts column"
-#~ msgid "Name"
-#~ msgstr "Nombre"
-
-#~ msgctxt "@title:column"
-#~ msgid "Shortcuts"
-#~ msgstr "Accesos rápidos"
-
-#~ msgctxt "@item:inlistbox No default web shortcut"
-#~ msgid "None"
-#~ msgstr "Ninguno"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "The name <filename>%1</filename> ends with a space, which is a bit "
-#~ "unusual and may be unintentional."
-#~ msgstr ""
-#~ "El nombre <filename>%1</filename> termina con un espacio, que es algo "
-#~ "inusual y tal vez no sea intencionado."
-
-#~ msgid "Drive: %1"
-#~ msgstr "Unidad: %1"
-
-#~ msgid "The source file is bigger."
-#~ msgstr "El archivo de origen es mayor."
-
-#~ msgid ""
-#~ "The chosen filenames do not\n"
-#~ "appear to be valid."
-#~ msgstr ""
-#~ "Parece que los nombres de archivo\n"
-#~ "elegidos no son válidos."
-
-#~ msgid "Invalid Filenames"
-#~ msgstr "Nombres de archivos no válidos"
-
-#~ msgid "&Overwrite"
-#~ msgstr "S&obrescribir"
-
-#~ msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
-#~ msgstr "<qt>No tiene permiso para ejecutar <b>%1</b>.</qt>"
-
-#~ msgid ""
-#~ "<qt>Unable to enter <b>%1</b>.\n"
-#~ "You do not have access rights to this location.</qt>"
-#~ msgstr ""
-#~ "<qt>Imposible acceder a <b>%1</b>.\n"
-#~ "No tiene permisos de acceso a esta ubicación.</qt>"
-
-#~ msgid "You are not authorized to execute this service."
-#~ msgstr "No dispone de autorización para ejecutar este servicio."
-
-#~ msgid "Specified socket path is invalid"
-#~ msgstr "La ruta del socket indicado no es válida"
-
-#~ msgid "The socket operation is not supported"
-#~ msgstr "La operación del socket no está permitida"
-
-#~ msgid "Connection refused"
-#~ msgstr "Conexión rechazada"
-
-#~ msgid "Permission denied"
-#~ msgstr "Permiso denegado"
-
-#~ msgid "Connection timed out"
-#~ msgstr "Tiempo de conexión agotado"
-
-#~ msgid "Unknown error"
-#~ msgstr "Error desconocido"
-
-#~ msgid "Could not set non-blocking mode"
-#~ msgstr "No se ha podido establecer el modo no bloqueante"
-
-#~ msgid "Address is already in use"
-#~ msgstr "La dirección ya está en uso"
-
-#~ msgid "Path cannot be used"
-#~ msgstr "No se puede usar la ruta"
-
-#~ msgid "No such file or directory"
-#~ msgstr "No existe el archivo o directorio"
-
-#~ msgid "Not a directory"
-#~ msgstr "No es un directorio"
-
-#~ msgid "Read-only filesystem"
-#~ msgstr "Sistema de archivos de solo lectura"
-
-#~ msgid "Unknown socket error"
-#~ msgstr "Error de socket desconocido"
-
-#~ msgid "Operation not supported"
-#~ msgstr "Operación no permitida"
-
-#~ msgid "AutoSkip"
-#~ msgstr "Omitir automáticamente"
-
-#~ msgid "SSL support is not available in this build of KDE."
-#~ msgstr "El uso SSL no está disponible en esta compilación de KDE."
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Today"
-#~ msgstr "Hoy"
-
-#~ msgctxt "@item"
-#~ msgid "Recently Saved"
-#~ msgstr "Guardados recientemente"
-
-#~ msgctxt "SSL error"
-#~ msgid "No error"
-#~ msgstr "Ningún error"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate authority's certificate is invalid"
-#~ msgstr "El certificado de la autoridad de certificación no es válido"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate has expired"
-#~ msgstr "El certificado ha expirado"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate is invalid"
-#~ msgstr "El certificado no es válido"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate is not signed by any trusted certificate authority"
-#~ msgstr ""
-#~ "El certificado no está firmado por ninguna autoridad de certificación de "
-#~ "confianza"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate has been revoked"
-#~ msgstr "El certificado ha sido revocado"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate is unsuitable for this purpose"
-#~ msgstr "El certificado no es apropiado para este propósito"
-
-#~ msgctxt "SSL error"
-#~ msgid ""
-#~ "The root certificate authority's certificate is not trusted for this "
-#~ "purpose"
-#~ msgstr ""
-#~ "El certificado raíz de la autoridad de certificación no es de confianza "
-#~ "para este propósito"
-
-#~ msgctxt "SSL error"
-#~ msgid ""
-#~ "The certificate authority's certificate is marked to reject this "
-#~ "certificate's purpose"
-#~ msgstr ""
-#~ "El certificado de la autoridad de certificación está marcado para "
-#~ "rechazar el propósito de este certificado"
-
-#~ msgctxt "SSL error"
-#~ msgid "The peer did not present any certificate"
-#~ msgstr "El par no ha presentado ningún certificado"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate does not apply to the given host"
-#~ msgstr "El certificado no es aplicable a la máquina indicada"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate cannot be verified for internal reasons"
-#~ msgstr "No se puede verificar el certificado por motivos internos"
-
-#~ msgctxt "SSL error"
-#~ msgid "The certificate chain is too long"
-#~ msgstr "La cadena de certificados es demasiado larga"
-
-#~ msgctxt "SSL error"
-#~ msgid "Unknown error"
-#~ msgstr "Error desconocido"
-
-#~ msgid "Named Group"
-#~ msgstr "Grupo denominado"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Root"
-#~ msgstr "Raíz"
-
-#~ msgid "Could not change permissions for '%1'"
-#~ msgstr "No ha sido posible cambiar los permisos de «%1»"
-
-#~ msgid "Create hidden directory?"
-#~ msgstr "¿Crear directorio oculto?"
-
-#~ msgid "Show Aside Preview"
-#~ msgstr "Mostrar vista previa al lado"
-
-#~ msgid "Device usage:"
-#~ msgstr "Uso del dispositivo:"
-
-#~ msgid ""
-#~ "Automatically disabled for small icon sizes; increase icon size to see "
-#~ "previews"
-#~ msgstr ""
-#~ "Desactivado automáticamente para tamaños de icono pequeños; aumente el "
-#~ "tamaño de los iconos para ver vistas previas."
-
-#~ msgid "By Name"
-#~ msgstr "Por nombre"
-
-#~ msgid "By Size"
-#~ msgstr "Por tamaño"
-
-#~ msgid "By Type"
-#~ msgstr "Por tipo"
-
-#~ msgid "You may have incorrectly typed the location."
-#~ msgstr "Puede que haya introducido incorrectamente la ubicación."
-
-#~ msgid ""
-#~ "Could not write file %1.\n"
-#~ "Disk full."
-#~ msgstr ""
-#~ "No se ha podido escribir al archivo %1.\n"
-#~ "Disco lleno."
-
-#~ msgctxt "size in bytes"
-#~ msgid "%1 B"
-#~ msgstr "%1 B"
-
-#~ msgctxt "size in 1000 bytes"
-#~ msgid "%1 kB"
-#~ msgstr "%1 kB"
-
-#~ msgctxt "size in 10^6 bytes"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
-
-#~ msgctxt "size in 10^9 bytes"
-#~ msgid "%1 GB"
-#~ msgstr "%1 GB"
-
-#~ msgctxt "size in 10^12 bytes"
-#~ msgid "%1 TB"
-#~ msgstr "%1 TB"
-
-#~ msgctxt "size in 10^15 bytes"
-#~ msgid "%1 PB"
-#~ msgstr "%1 PB"
-
-#~ msgctxt "size in 10^18 bytes"
-#~ msgid "%1 EB"
-#~ msgstr "%1 EB"
-
-#~ msgctxt "size in 10^21 bytes"
-#~ msgid "%1 ZB"
-#~ msgstr "%1 ZB"
-
-#~ msgctxt "size in 10^24 bytes"
-#~ msgid "%1 YB"
-#~ msgstr "%1 YB"
-
-#~ msgctxt "memory size in 1024 bytes"
-#~ msgid "%1 KB"
-#~ msgstr "%1 KB"
-
-#~ msgctxt "memory size in 2^20 bytes"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
-
-#~ msgctxt "memory size in 2^30 bytes"
-#~ msgid "%1 GB"
-#~ msgstr "%1 GB"
-
-#~ msgctxt "memory size in 2^40 bytes"
-#~ msgid "%1 TB"
-#~ msgstr "%1 TB"
-
-#~ msgctxt "memory size in 2^50 bytes"
-#~ msgid "%1 PB"
-#~ msgstr "%1 PB"
-
-#~ msgctxt "memory size in 2^60 bytes"
-#~ msgid "%1 EB"
-#~ msgstr "%1 EB"
-
-#~ msgctxt "memory size in 2^70 bytes"
-#~ msgid "%1 ZB"
-#~ msgstr "%1 ZB"
-
-#~ msgctxt "memory size in 2^80 bytes"
-#~ msgid "%1 YB"
-#~ msgstr "%1 YB"
-
-#~ msgctxt "size in 1024 bytes"
-#~ msgid "%1 KiB"
-#~ msgstr "%1 KiB"
-
-#~ msgctxt "size in 2^20 bytes"
-#~ msgid "%1 MiB"
-#~ msgstr "%1 MiB"
-
-#~ msgctxt "size in 2^30 bytes"
-#~ msgid "%1 GiB"
-#~ msgstr "%1 GiB"
-
-#~ msgctxt "size in 2^40 bytes"
-#~ msgid "%1 TiB"
-#~ msgstr "%1 TiB"
-
-#~ msgctxt "size in 2^50 bytes"
-#~ msgid "%1 PiB"
-#~ msgstr "%1 PiB"
-
-#~ msgctxt "size in 2^60 bytes"
-#~ msgid "%1 EiB"
-#~ msgstr "%1 EiB"
-
-#~ msgctxt "size in 2^70 bytes"
-#~ msgid "%1 ZiB"
-#~ msgstr "%1 ZiB"
-
-#~ msgctxt "size in 2^80 bytes"
-#~ msgid "%1 YiB"
-#~ msgstr "%1 YiB"
-
-#~ msgid "Forbidden"
-#~ msgstr "Prohibido"
-
-#~ msgid "Can Read"
-#~ msgstr "Lectura posible"
-
-#~ msgid "Can Read & Write"
-#~ msgstr "Lectura y escritura posibles"
-
-#~ msgid "Can View Content & Read"
-#~ msgstr "Se puede visualizar y leer el contenido"
-
-#~ msgid "Limit to maximum size"
-#~ msgstr "Limitar a un tamaño máximo"
-
-#~ msgid "Maximum size:"
-#~ msgstr "Tamaño máximo:"
-
-#~ msgid "When limit reached:"
-#~ msgstr "Cuando se alcance el límite:"
-
-#~ msgid "Warn Me"
-#~ msgstr "Avisarme"
-
-#~ msgid "Do you really want to delete this item?"
-#~ msgid_plural "Do you really want to delete these %1 items?"
-#~ msgstr[0] "¿Desea realmente borrar este elemento?"
-#~ msgstr[1] "¿Desea realmente borrar estos %1 elementos?"
-
-#~ msgctxt "Verb"
-#~ msgid "&Trash"
-#~ msgstr "&Tirar a la papelera"
-
-#~ msgctxt "@action:inmenu Open With"
-#~ msgid "&Other..."
-#~ msgstr "&Otros..."
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "This Month"
-#~ msgstr "Este mes"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Last Month"
-#~ msgstr "Último mes"
-
-#~ msgid "Continue"
-#~ msgstr "Continuar"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
-#~ msgstr "<qt>El archivo o carpeta <b>%1</b> no existe.</qt>"
-
-#~ msgid "Advanced options"
-#~ msgstr "Opciones avanzadas"
-
-#~ msgid ""
-#~ "<p><h1>Windows Shares</h1>Konqueror is able to access shared Microsoft "
-#~ "Windows file systems, if properly configured. If there is a specific "
-#~ "computer from which you want to browse, fill in the <em>Browse server</"
-#~ "em> field. This is mandatory if you are not running Samba locally. The "
-#~ "<em>Broadcast address</em> and <em>WINS address</em> fields will also be "
-#~ "available, if you use the native code, or the location of the 'smb.conf' "
-#~ "file from which the options are read, when using Samba. In any case, the "
-#~ "broadcast address (interfaces in smb.conf) must be set up if it is "
-#~ "guessed incorrectly or you have multiple cards. A WINS server usually "
-#~ "improves performance, and reduces the network load a lot.</p><p>The "
-#~ "bindings are used to assign a default user for a given server, possibly "
-#~ "with the corresponding password, or for accessing specific shares. If you "
-#~ "choose to, new bindings will be created for logins and shares accessed "
-#~ "during browsing. You can edit all of them from here. Passwords will be "
-#~ "stored locally, and scrambled so as to render them unreadable to the "
-#~ "human eye. For security reasons, you may not want to do that, as entries "
-#~ "with passwords are clearly indicated as such.</p>"
-#~ msgstr ""
-#~ "<p><h1>Recursos compartidos de Windows</h1>Konqueror puede acceder a "
-#~ "sistemas de archivos compartidos de Windows si se configura "
-#~ "correctamente. Si hay un equipo específico desde el que desea navegar, "
-#~ "rellene el campo <em>Explorar el servidor</em>. Esto es obligatorio si no "
-#~ "está ejecutando Samba localmente. Los campos para la <em>Dirección de "
-#~ "difusión</em> y los campos <em>dirección WINS</em> también estarán "
-#~ "disponibles si se usa el código nativo o está disponible el lugar del "
-#~ "archivo «smb.conf» con la configuración. De cualquier forma, la dirección "
-#~ "de difusión (interfaz en smb.conf) se debe configurar si se presupone "
-#~ "incorrectamente o si se poseen varias tarjetas de red. Un servidor WINS "
-#~ "generalmente mejora el rendimiento, y reduce mucho la carga de la red.</"
-#~ "p><p> Las asociaciones se usan para atribuir un usuario predeterminado a "
-#~ "un servidor dado, posiblemente con la contraseña correspondiente o para "
-#~ "acceder a recursos compartidos específicos. Si se elige esta opción, se "
-#~ "crearán nuevas asociaciones para usuarios y recursos compartidos a los "
-#~ "que se accedieron durante la navegación. Todas se pueden editar desde "
-#~ "aquí. Las contraseñas se almacenarán localmente y se cifrarán para que "
-#~ "sean ilegibles. Por razones de seguridad puede que no desee hacerlo. Las "
-#~ "entradas con contraseñas, se indican claramente como tales.</p>"
-
-#~ msgid ""
-#~ "Check this option if you want to have a system tray handle for your "
-#~ "application."
-#~ msgstr ""
-#~ "Marque esta opción si desea tener un bandeja del sistema que maneje su "
-#~ "aplicación."
-
-#~ msgid "Place in system tray"
-#~ msgstr "Colocar en la bandeja del sistema"
-
-#~ msgid "Do not &close when command exits"
-#~ msgstr "No &cerrar cuando finalice la orden"
-
-#~ msgid ""
-#~ "Unable to create io-slave:\n"
-#~ "klauncher said: %1"
-#~ msgstr ""
-#~ "Imposible crear esclavo de E/S:\n"
-#~ "Klauncher devolvió: %1"
-
-#~ msgid ""
-#~ "Basic links can only point to local files or directories.\n"
-#~ "Please use \"Link to Location\" for remote URLs."
-#~ msgstr ""
-#~ "Los enlaces básicos solo pueden apuntar a archivos o directorios "
-#~ "locales.\n"
-#~ "Utilice «Enlazar ubicación» para URL remotas."
-
-#~ msgid ""
-#~ "Unable to start the cookie handler service.\n"
-#~ "You will not be able to manage the cookies that are stored on your "
-#~ "computer."
-#~ msgstr ""
-#~ "No fue posible arrancar el servicio controlador de cookies.\n"
-#~ "No podrá gestionar las cookies almacenadas en su equipo."
-
-#~ msgid "Open with:"
-#~ msgstr "Abrir con:"
-
-#~ msgid ""
-#~ "%1.\n"
-#~ "\n"
-#~ "Reason: %2"
-#~ msgstr ""
-#~ "%1.\n"
-#~ "\n"
-#~ "Razón: %2"
-
-#~ msgid ""
-#~ "<h1>My Bookmarks</h1><p>This module lets you configure the bookmarks home "
-#~ "page.</p><p>The bookmarks home page is accessible at <a href=\"bookmarks:/"
-#~ "\">bookmarks:/</a>.</p>"
-#~ msgstr ""
-#~ "<h1>Mis marcadores</h1><p>Este módulo le permite configurar la página de "
-#~ "inicio de los marcadores.</p><p>La página de inicio de marcadores será "
-#~ "accesible en <a href=\"bookmarks:/\">bookmarks:/</a>.</p>"
-
-#~ msgid ""
-#~ "If this option is unchecked, bookmarks at the root of the hierarchy (not "
-#~ "in a folder) are not displayed.\n"
-#~ "If checked, they are gathered in a \"root\" folder."
-#~ msgstr ""
-#~ "Si esta opción se deshabilita, los marcadores en la raíz de la jerarquía "
-#~ "(que no están en una carpeta) no se mostrarán.\n"
-#~ "Si se habilita, se agruparán en la carpeta «raíz»."
-
-#~ msgid "&Show bookmarks without folder"
-#~ msgstr "Mo&strar marcadores sin carpeta"
-
-#~ msgid ""
-#~ "Sub-folders are shown within their parent by default. If you activate "
-#~ "this option, sub-folders are displayed on their own.\n"
-#~ "It looks less nice but it may help if you have a very big folder you want "
-#~ "to spread in two columns."
-#~ msgstr ""
-#~ "Las subcarpetas se muestran bajo su padre de forma predeterminada. Si "
-#~ "activa esta opción, las subcarpetas se mostrarán por sí mismas.\n"
-#~ "Es menos bonito pero puede ayudarle si tiene una carpeta muy grande y "
-#~ "quiere separarla en dos columnas."
-
-#~ msgid "&Flatten bookmarks tree"
-#~ msgstr "&Aplanar el árbol de marcadores"
-
-#~ msgid ""
-#~ "Show a box with KDE places (Home, Network, ...). Useful if you use "
-#~ "konqueror as a file manager."
-#~ msgstr ""
-#~ "Mostrar una caja con lugares de KDE (Home, Red, ...) Útil si usa "
-#~ "konqueror como gestor de archivos."
-
-#~ msgid "Show system &places"
-#~ msgstr "Mostrar lugares del &sistema"
-
-#~ msgid "General Settings"
-#~ msgstr "Preferencias generales"
-
-#~ msgid ""
-#~ "Folders are automatically distributed in several columns. The optimal "
-#~ "number of columns depends on the width of the konqueror window and the "
-#~ "number of bookmarks you have."
-#~ msgstr ""
-#~ "Las carpetas se distribuyen automáticamente en varias columnas. El número "
-#~ "óptimo de columnas depende del ancho de la ventana de Konqueror y de los "
-#~ "marcadores que tenga."
-
-#~ msgid "Number of columns to show:"
-#~ msgstr "Número de columnas a mostrar:"
-
-#~ msgid "Disable it on slow system to disable background images."
-#~ msgstr ""
-#~ "Deshabilitar en sistemas lentos para deshabilitar imágenes de fondo."
-
-#~ msgid "Show folder &backgrounds"
-#~ msgstr "Mostrar fondos de ca&rpeta"
-
-#~ msgid "How much disk space is used to cache the pixmaps"
-#~ msgstr "Cuánto disco se usa para cachear los gráficos"
-
-#~ msgid "Pixmap Cache"
-#~ msgstr "Caché de gráficos"
-
-#~ msgid "Disk cache size:"
-#~ msgstr "Tamaño de caché de disco:"
-
-#~ msgid " kB"
-#~ msgstr " kB"
-
-#~ msgid "Clear the pixmap cache"
-#~ msgstr "Limpiar caché de gráficos"
-
-#~ msgid "&Clear Cache"
-#~ msgstr "Limpiar &caché"
