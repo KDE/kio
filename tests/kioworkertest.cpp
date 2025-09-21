@@ -14,7 +14,6 @@
 #include <kio/listjob.h>
 #include <kio/mimetypejob.h>
 #include <kio/mkdirjob.h>
-#include <kio/simplejob.h>
 #include <kio/statjob.h>
 #include <kio/transferjob.h>
 #include <kprotocolinfo.h>

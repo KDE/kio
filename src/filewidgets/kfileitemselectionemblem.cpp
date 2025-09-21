@@ -8,9 +8,7 @@
 #include "kfileitemdelegate.h"
 
 #include <QAbstractItemDelegate>
-#include <QAbstractItemView>
 #include <QApplication>
-#include <QModelIndex>
 #include <QPoint>
 
 KFileItemSelectionEmblem::KFileItemSelectionEmblem(QAbstractItemView *itemView, QModelIndex index, KDirOperator *dirOperator)

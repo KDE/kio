@@ -27,7 +27,6 @@
 #include <KDirWatch>
 
 #include <QDebug>
-#include <QTemporaryFile>
 #include <QTest>
 
 using namespace Qt::StringLiterals;

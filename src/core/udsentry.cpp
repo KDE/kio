@@ -14,7 +14,6 @@
 
 #include <QDataStream>
 #include <QDebug>
-#include <QList>
 #include <QString>
 
 #include <KUser>

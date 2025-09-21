@@ -11,7 +11,6 @@
 #include "filepreviewjob.h"
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
-#include "previewjob.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
 #include "transferjob.h"

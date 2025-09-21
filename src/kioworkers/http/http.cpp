@@ -25,7 +25,6 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QNetworkProxy>
-#include <QNetworkReply>
 #include <QSslCipher>
 
 #include <KLocalizedString>

@@ -26,7 +26,6 @@
 #include <QFile>
 #include <QList>
 #include <QMap>
-#include <QSsl>
 #include <QtGlobal>
 
 #include <KAboutData>

@@ -8,7 +8,6 @@
 
 #include "connectionserver.h"
 #include "connection_p.h"
-#include "connectionbackend_p.h"
 #include "kiocoredebug.h"
 
 using namespace KIO;
