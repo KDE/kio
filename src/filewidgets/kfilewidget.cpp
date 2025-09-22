@@ -596,6 +596,8 @@ void KFileWidget::slotOk()
 {
     //     qDebug() << "slotOk\n";
 
+    QPointer guard(this);
+
     const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
 
     QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
@@ -662,6 +664,9 @@ void KFileWidget::slotOk()
                 statJob = KIO::stat(topMostUrl, KIO::HideProgressInfo);
                 KJobWidgets::setWindow(statJob, this);
                 res = statJob->exec();
+                if (!guard) {
+                    return;
+                }
                 start++;
             }
 
@@ -680,6 +685,9 @@ void KFileWidget::slotOk()
                 KIO::StatJob *statJob = KIO::stat(currUrl, KIO::HideProgressInfo);
                 KJobWidgets::setWindow(statJob, this);
                 int res = statJob->exec();
+                if (!guard) {
+                    return;
+                }
                 if (res) {
                     // again, we don't care about filenames
                     if (!statJob->statResult().isDir()) {
@@ -732,6 +740,9 @@ void KFileWidget::slotOk()
                     KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
                     KJobWidgets::setWindow(statJob, this);
                     int res = statJob->exec();
+                    if (!guard) {
+                        return;
+                    }
                     if (res) {
                         if (!statJob->statResult().isDir()) {
                             fileName = url.fileName();
@@ -746,6 +757,9 @@ void KFileWidget::slotOk()
                     KIO::StatJob *statJob = KIO::stat(directory, KIO::HideProgressInfo);
                     KJobWidgets::setWindow(statJob, this);
                     int res = statJob->exec();
+                    if (!guard) {
+                        return;
+                    }
                     if (res) {
                         if (statJob->statResult().isDir()) {
                             url = url.adjusted(QUrl::StripTrailingSlash);
@@ -777,13 +791,21 @@ void KFileWidget::slotOk()
         QUrl url(*it);
 
         if (d->m_operationMode == Saving && !directoryMode) {
+            // appendExtension execs a statjob
             d->appendExtension(url);
+            if (!guard) {
+                return;
+            }
         }
 
         d->m_url = url;
         KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
         KJobWidgets::setWindow(statJob, this);
         int res = statJob->exec();
+
+        if (!guard) {
+            return;
+        }
 
         if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("open"), QUrl(), url)) {
             QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, d->m_url.toDisplayString());
@@ -794,6 +816,10 @@ void KFileWidget::slotOk()
         // if we are on local mode, make sure we haven't got a remote base url
         if ((mode & KFile::LocalOnly) && !d->mostLocalUrl(d->m_url).isLocalFile()) {
             KMessageBox::error(this, i18n("You can only select local files"), i18n("Remote files not accepted"));
+            return;
+        }
+        // mostLocalUrl execs a statjob
+        if (!guard) {
             return;
         }
 
@@ -1733,9 +1759,15 @@ bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
 {
     //     qDebug();
 
+    QPointer guard{q};
+
     KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
     KJobWidgets::setWindow(statJob, q);
     bool res = statJob->exec();
+
+    if (!guard) {
+        return false;
+    }
 
     if (res) {
         int ret = KMessageBox::warningContinueCancel(q,
@@ -1931,9 +1963,13 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 QString KFileWidget::selectedFile() const
 {
     //     qDebug();
-
+    QPointer guard(this);
     if (d->m_inAccept) {
         const QUrl url = d->mostLocalUrl(d->m_url);
+        // mostLocalUrl execs a statjob
+        if (!guard) {
+            return QString();
+        }
         if (url.isLocalFile()) {
             return url.toLocalFile();
         } else {
@@ -1948,12 +1984,17 @@ QStringList KFileWidget::selectedFiles() const
     //     qDebug();
 
     QStringList list;
+    QPointer guard{this};
 
     if (d->m_inAccept) {
         if (d->m_ops->mode() & KFile::Files) {
             const QList<QUrl> urls = d->m_urlList;
             for (const auto &u : urls) {
                 const QUrl url = d->mostLocalUrl(u);
+                // mostLocalUrl execs a statjob
+                if (!guard) {
+                    break;
+                }
                 if (url.isLocalFile()) {
                     list.append(url.toLocalFile());
                 }
@@ -2498,7 +2539,12 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         // exists?
         KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
         KJobWidgets::setWindow(statJob, q);
+
+        QPointer guard{q};
         bool result = statJob->exec();
+        if (!guard) {
+            return;
+        }
         if (result) {
             //             qDebug() << "\tfile exists";
 
