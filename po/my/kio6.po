@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-20 00:39+0000\n"
+"POT-Creation-Date: 2025-09-23 00:39+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2224,87 +2224,87 @@ msgstr ""
 "<filename>%1</filename> ကိုမတွေ့ပါ။ ကျေးဇူးပြု၍ ဆောင်ရွက်၍ရသောပရိုဂရမ်သို့ "
 "မှန်ကန်စွာပြသောလမ်းကြောင်းရေးထည့်ပါ။"
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ချိတ်ဆက်မှုဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး '%1' တွင် ချိတ်ဆက်မှုပိတ်သောလုပ်ဆောင်ချက်မပါပါ။"
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 သို့ ရေးမရပါ။"
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 အတွက် အထူးပြုလုပ်ဆောင်ချက်များ မရှိပါ။"
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 မှ ဒေတာရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 မှ အမ်အိုင်အမ်အီးတိုက် ဆိုင်ရာ အချက်အလက် ရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:825
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဆင်းလင့်ခ်များဖန်တီးခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:827
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:829
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1မှဖိုင်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/slavebase.cpp:831
+#: core/slavebase.cpp:830
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:832
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:834
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:836
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:838
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
@@ -2357,7 +2357,7 @@ msgstr "'%1'တွင်'kioworker'ကိုရှာမတွေ့ပါ"
 msgid "&Details"
 msgstr "&Dအသေးစိတ်"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:214
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2368,7 +2368,7 @@ msgstr "&Fထာဝရ"
 msgid "Co&ntinue"
 msgstr "&nဆက်ရန်"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -4085,12 +4085,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:328
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "ဤဆိုက်ကို ဝင်ရောက်အသုံးပြုရန် အသုံးပြုအမည်နှင့် စကားဝှက် ပေးရန်လိုအပ်သည်။"
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:330
 #, kde-format
 msgid "Site:"
 msgstr "ဆိုက် -"
@@ -4119,7 +4119,7 @@ msgstr ""
 "\n"
 "ဆာဗာအကြောင်းပြန်ချက် - \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:378
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4128,7 +4128,7 @@ msgstr ""
 "မည်သည့်ဆိုက်မဆို ဝင်ရောက်အသုံးပြုခွင့်မရမီ အောက်တွင်ပြထားသည့် ကြားခံဆာဗာစာရင်းအတွက် အသုံးပြုအမည်နှင့် စကားဝှက် "
 "ပေးရန်လိုအပ်သည်။"
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:382
 #, kde-format
 msgid "Proxy:"
 msgstr "ကြားခံ -"
@@ -4178,108 +4178,108 @@ msgstr "အပိုင်းရှာဖွေနေသည်"
 msgid "Could not find filename %1 in %2."
 msgstr "%2 တွင် ဖိုင်အမည် %1 ရှာမတွေ့ပါ။"
 
-#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:210 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "ဤအသိအမှတ်ပြုစာချွန်ကို ခွင့်မတောင်းပဲ အမြဲလက်ခံချင်ပါသလား။"
 
-#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "ဆာဗာ ယုံကြည်မှုရယူခြင်း"
 
-#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
-#: kioworkers/http/http.cpp:402
+#: kioworkers/http/http.cpp:348 kioworkers/http/http.cpp:387
+#: kioworkers/http/http.cpp:401
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> ၌ <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1343
+#: kioworkers/http/http.cpp:1342
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "အဲ့လိုမဟုတ်ခဲ့လျှင် တောင်းဆိုချက် အောင်မြင်ခဲ့လောက်သည်။"
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ကိုယ်ပိုင်လက္ခဏာ တန်ဖိုးများ ရယူရန်"
 
-#: kioworkers/http/http.cpp:1348
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ကိုယ်ပိုင်လက္ခဏာတန်ဖိုးများသတ်မှတ်မည်"
 
-#: kioworkers/http/http.cpp:1350
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "တောင်းဆိုထားသောဖိုင်တွဲ တည်ဆောက်ရန်"
 
-#: kioworkers/http/http.cpp:1352
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ကူးယူရန်"
 
-#: kioworkers/http/http.cpp:1354
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ရွေ့ရန်"
 
-#: kioworkers/http/http.cpp:1356
+#: kioworkers/http/http.cpp:1355
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်တွဲတွင် ရှာရန်"
 
-#: kioworkers/http/http.cpp:1358
+#: kioworkers/http/http.cpp:1357
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို သော့ခတ်ရန်"
 
-#: kioworkers/http/http.cpp:1360
+#: kioworkers/http/http.cpp:1359
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို သော့ဖွင့်ရန်"
 
-#: kioworkers/http/http.cpp:1362
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲကို ဖျက်ရန်"
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1363
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "ဆာဗာ၏စွမ်းဆောင်ရည်ကို စုံးစမ်းရန်"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1365
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင် သို့ ဖိုင်တွဲ၏ ပါဝင်ဒေတာများကို ရယူရန်"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်တွဲကို အစီအရင်ခံစာတင်ရန်"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1375
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် မမျှော်လင့်ထားသောအမှား (%1) ဖြစ်ပေါ်ခဲ့သည်။"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4287,20 +4287,20 @@ msgid ""
 "below."
 msgstr "%1၊ %2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်။ အကျဥ်းချုပ်ကိုအောက်တွင်ဖော်ပြထားသည်။"
 
-#: kioworkers/http/http.cpp:1434 kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 ကို ဆောင်ရွက်ဖို့ကြိုးပမ်းရာတွင် အသုံးပြုခွင့် ငြင်းပယ်ခံခဲ့ရသည်။"
 
-#: kioworkers/http/http.cpp:1448 kioworkers/http/http.cpp:1585
+#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ကြားခံဖိုင်တွဲများ မတည်ဆောက်ရသေးမီ ရင်းမြစ်ကို ဦးတည်နေရာတွင် မဖန်တီးနိုင်ပါ။"
 
-#: kioworkers/http/http.cpp:1457
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4315,28 +4315,28 @@ msgstr ""
 "ဖိုင်ကိုထပ်ရေးရန်ကြံခဲ့သည်\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "တောင်းဆိုထားသည့် သော့ကို ပေး၍မရပါ။ %1"
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "စာကိုယ်၏ တောင်းခံမှု အမျိုးအစားကို ဆာဗာမှ မထောက်ပံ့ပါ။"
 
-#: kioworkers/http/http.cpp:1476 kioworkers/http/http.cpp:1593
+#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "ရင်းမြစ်ကို ပိတ်ပင်ကန့်သတ်ထားသောကြောင့် %1 လုပ်မရပါ။"
 
-#: kioworkers/http/http.cpp:1480
+#: kioworkers/http/http.cpp:1479
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ဤလုပ်ဆောင်မှုကို အခြားအမှားမှ ရပ်တန့်ခဲ့သည်။"
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1600
+#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4344,25 +4344,25 @@ msgid ""
 "folder."
 msgstr "ဦးတည်ဆာဗာမှ ဖိုင် သို့ ဖိုင်တွဲ လက်ခံရန် ငြင်းဆိုသဖြင့် %1 မလုပ်နိုင်ခဲ့ပါ။"
 
-#: kioworkers/http/http.cpp:1496 kioworkers/http/http.cpp:1609
+#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "ဦးတည်ရင်းမြစ်၌ လုံလောက်သော နေရာလွတ်မရှိပါ။"
 
-#: kioworkers/http/http.cpp:1549
+#: kioworkers/http/http.cpp:1548
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ရင်းမြစ်ကို ဖျက်၍မရပါ။"
 
-#: kioworkers/http/http.cpp:1569
+#: kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 တင်မည်"
 
-#: kioworkers/http/http.cpp:1620
+#: kioworkers/http/http.cpp:1619
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

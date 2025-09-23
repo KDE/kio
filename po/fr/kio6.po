@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-20 00:39+0000\n"
+"POT-Creation-Date: 2025-09-23 00:39+0000\n"
 "PO-Revision-Date: 2025-07-30 09:19+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2385,91 +2385,91 @@ msgstr ""
 "Il est impossible de trouver <filename>%1</filename>. Veuillez saisir un "
 "emplacement valable vers un programme exécutable."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 "L'ouverture des connexions avec le protocole %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 "La fermeture des connexions avec le protocole %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "L'accès à des fichiers avec le protocole %1 n'est pas pris en charge."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "L'écriture vers %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Aucune action spéciale n'est disponible pour le protocole %1."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Le protocole %1 ne gère pas le listage de dossiers."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "La réception de données depuis %1 n'est pas gérée."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "La réception du type MIME depuis %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Le renommage ou le déplacement de fichiers dans %1 n'est pas géré."
 
-#: core/slavebase.cpp:825
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas la création de liens symboliques."
 
-#: core/slavebase.cpp:827
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "La copie de fichiers dans %1 n'est pas prise en charge."
 
-#: core/slavebase.cpp:829
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "La suppression de fichiers dans %1 n'est pas gérée."
 
-#: core/slavebase.cpp:831
+#: core/slavebase.cpp:830
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas la création de dossiers."
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:832
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Le protocole %1 ne permet pas la modification des attributs de fichiers."
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:834
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Le protocole %1 ne permet pas la modification des attributs de fichiers."
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:836
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Le protocole %1 ne gère pas l'ouverture de fichiers."
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:838
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Le protocole %1 ne prend pas en charge l'action %2."
@@ -2529,7 +2529,7 @@ msgstr "Impossible de trouver le programme « kioworker »à « %1 »"
 msgid "&Details"
 msgstr "&Détails"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:214
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2540,7 +2540,7 @@ msgstr "Oui, &toujours"
 msgid "Co&ntinue"
 msgstr "Co&ntinuer"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -4320,14 +4320,14 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:328
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Vous devez fournir un nom d'utilisateur et un mot de passe pour accéder à ce "
 "site."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:330
 #, kde-format
 msgid "Site:"
 msgstr "Site :"
@@ -4356,7 +4356,7 @@ msgstr ""
 "\n"
 "Le serveur a indiqué : « %1 »"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:378
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4366,7 +4366,7 @@ msgstr ""
 "mandataire (proxy) listé ci-dessous avant de pouvoir accéder à n'importe "
 "quel site."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:382
 #, kde-format
 msgid "Proxy:"
 msgstr "Mandataire (proxy) :"
@@ -4416,7 +4416,7 @@ msgstr "Recherche de la session"
 msgid "Could not find filename %1 in %2."
 msgstr "Impossible de trouver le nom de fichier %1 dans %2."
 
-#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:210 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
@@ -4424,102 +4424,102 @@ msgstr ""
 "Voulez-vous désormais accepter ce certificat sans que la question vous soit "
 "posée à chaque fois ?"
 
-#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:489
 #, kde-format
 msgid "Server Authentication"
 msgstr "Authentification du serveur"
 
-#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
-#: kioworkers/http/http.cpp:402
+#: kioworkers/http/http.cpp:348 kioworkers/http/http.cpp:387
+#: kioworkers/http/http.cpp:401
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> à <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1343
+#: kioworkers/http/http.cpp:1342
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Sinon, la requête aurait réussi."
 
-#: kioworkers/http/http.cpp:1346
+#: kioworkers/http/http.cpp:1345
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "trouver les valeurs de propriété"
 
-#: kioworkers/http/http.cpp:1348
+#: kioworkers/http/http.cpp:1347
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "déterminer les valeurs de propriété"
 
-#: kioworkers/http/http.cpp:1350
+#: kioworkers/http/http.cpp:1349
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "créer le dossier demandé"
 
-#: kioworkers/http/http.cpp:1352
+#: kioworkers/http/http.cpp:1351
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copier le fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1354
+#: kioworkers/http/http.cpp:1353
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "déplacer le fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1356
+#: kioworkers/http/http.cpp:1355
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "chercher dans le dossier spécifié"
 
-#: kioworkers/http/http.cpp:1358
+#: kioworkers/http/http.cpp:1357
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "verrouiller le fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1360
+#: kioworkers/http/http.cpp:1359
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "déverrouiller le fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1362
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "supprimer le fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1363
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "interroger les possibilités du serveur"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1365
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "trouver le contenu du fichier ou dossier spécifié"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "chercher dans le dossier spécifié"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1375
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Une erreur inattendue (%1) est survenue en tentant de %2."
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4529,13 +4529,13 @@ msgstr ""
 "Une erreur est survenue en tentant de %1, %2. Un résumé des raisons est ci-"
 "dessous."
 
-#: kioworkers/http/http.cpp:1434 kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Accès refusé en tentant de %1."
 
-#: kioworkers/http/http.cpp:1448 kioworkers/http/http.cpp:1585
+#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4544,7 +4544,7 @@ msgstr ""
 "Une ressource ne peut être créée à la destination jusqu'à ce qu'une "
 "collection (dossier) intermédiaire ait été créée."
 
-#: kioworkers/http/http.cpp:1457
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4559,28 +4559,28 @@ msgstr ""
 "les fichiers.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Le verrou demandé n'a pas pu être accordé. %1"
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Le serveur ne prend pas en charge le type de requête du corps."
 
-#: kioworkers/http/http.cpp:1476 kioworkers/http/http.cpp:1593
+#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Impossible de %1 car la ressource est verrouillée."
 
-#: kioworkers/http/http.cpp:1480
+#: kioworkers/http/http.cpp:1479
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Cette action a été empêchée par une autre erreur."
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1600
+#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4590,7 +4590,7 @@ msgstr ""
 "Impossible de %1 car le serveur de destination refuse d'accepter le fichier "
 "ou le dossier."
 
-#: kioworkers/http/http.cpp:1496 kioworkers/http/http.cpp:1609
+#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4599,18 +4599,18 @@ msgstr ""
 "La ressource de destination n'a pas assez d'espace pour enregistrer l'état "
 "de la ressource après l'exécution de cette méthode."
 
-#: kioworkers/http/http.cpp:1549
+#: kioworkers/http/http.cpp:1548
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "La ressource ne peut être effacée."
 
-#: kioworkers/http/http.cpp:1569
+#: kioworkers/http/http.cpp:1568
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "envoi de %1"
 
-#: kioworkers/http/http.cpp:1620
+#: kioworkers/http/http.cpp:1619
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
