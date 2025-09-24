@@ -16,8 +16,6 @@
 
 #include "../utils_p.h"
 #include "kfilebookmarkhandler_p.h"
-#include "kfileplacesmodel.h"
-#include "kfileplacesview.h"
 #include "kfilepreviewgenerator.h"
 #include "kfilewidgetdocktitlebar_p.h"
 #include "kurlcombobox.h"
@@ -44,6 +42,7 @@
 #include <KDirLister>
 #include <KFileItem>
 #include <KFilePlacesModel>
+#include <KFilePlacesView>
 #include <KIconLoader>
 #include <KJobWidgets>
 #include <KLocalizedString>
@@ -54,7 +53,6 @@
 #include <KStandardActions>
 #include <KToggleAction>
 
-#include <QAbstractProxyModel>
 #include <QApplication>
 #include <QCheckBox>
 #include <QDebug>

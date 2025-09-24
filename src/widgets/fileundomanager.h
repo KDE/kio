@@ -270,14 +270,14 @@ Q_SIGNALS:
      * or FileUndoManager::recordCopyJob(). After the job recording has been finished,
      * the signal jobRecordingFinished() will be emitted.
      */
-    void jobRecordingStarted(CommandType op);
+    void jobRecordingStarted(KIO::FileUndoManager::CommandType op);
 
     /*!
      * Emitted when a job that has been recorded by FileUndoManager::recordJob()
      * or FileUndoManager::recordCopyJob has been finished. The command
      * is now available for an undo-operation.
      */
-    void jobRecordingFinished(FileUndoManager::CommandType op);
+    void jobRecordingFinished(KIO::FileUndoManager::CommandType op);
 
 private:
     KIOWIDGETS_NO_EXPORT FileUndoManager();

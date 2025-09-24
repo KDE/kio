@@ -87,7 +87,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     int insert = 0;
     int system = 0;
     bool foundRequested = false;
-    for (const auto &encoding : encodings) {
+    for (const auto &encoding : std::as_const(encodings)) {
         d->encoding->addItem(encoding);
         const auto codecName = QStringDecoder(encoding.toUtf8().constData()).name();
         if ((codecName == sEncoding) || (encoding.toUtf8() == sEncoding)) {

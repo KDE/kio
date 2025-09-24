@@ -891,7 +891,7 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
     }
 
     auto lastButton = m_navButtons.last();
-    for (const auto &button : m_navButtons) {
+    for (const auto &button : std::as_const(m_navButtons)) {
         if (button != lastButton) {
             button->setDrawSeparator(true);
         } else {

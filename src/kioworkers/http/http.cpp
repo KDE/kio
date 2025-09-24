@@ -143,7 +143,7 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
     QList<QSslCertificate> certs = reply->sslConfiguration().peerCertificateChain();
 
     QStringList peerCertChain;
-    for (const QSslCertificate &cert : certs) {
+    for (const QSslCertificate &cert : std::as_const(certs)) {
         peerCertChain += QString::fromUtf8(cert.toPem());
     }
 
@@ -175,7 +175,7 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
 
     QStringList certificateErrors;
     // encode the two-dimensional numeric error list using '\n' and '\t' as outer and inner separators
-    for (const QSslCertificate &cert : certs) {
+    for (const QSslCertificate &cert : std::as_const(certs)) {
         QString errorStr;
         for (const QSslError &error : std::as_const(sslErrors)) {
             if (error.certificate() == cert) {

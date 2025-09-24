@@ -313,10 +313,6 @@ WorkerResult FileProtocol::stat(const QUrl &url)
         return redirect(url);
     }
 
-    const QString sDetails = metaData(QLatin1String("details"));
-    int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
-    // qDebug() << "FileProtocol::stat details=" << details;
-
     const QString localFile = url.toLocalFile();
     QFileInfo fileInfo(localFile);
     if (!fileInfo.exists()) {

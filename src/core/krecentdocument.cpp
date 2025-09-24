@@ -282,7 +282,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                     foundMatchingBookmark = true;
 
                     QXmlStreamAttributes newAttributes;
-                    for (const QXmlStreamAttribute &old : attributes) {
+                    for (const QXmlStreamAttribute &old : std::as_const(attributes)) {
                         if (old.name() == modifiedAttribute) {
                             continue;
                         }
