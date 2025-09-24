@@ -287,8 +287,8 @@ void FilePreviewJob::slotStatFile(KJob *job)
     m_thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
-    if (size == 0) {
-        qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, migth be a broken symlink" << m_item.item.url();
+    if (size == 0 && !statResult.isDir()) {
+        qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, might be a broken symlink" << m_item.item.url();
         emitResult();
         return;
     }
