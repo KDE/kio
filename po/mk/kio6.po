@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-23 00:39+0000\n"
+"POT-Creation-Date: 2025-09-25 00:39+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -2897,7 +2897,7 @@ msgid "All Supported Files"
 msgstr "Сите поддржани датотеки"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2036
+#: filewidgets/kfilewidget.cpp:2034
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3360,27 +3360,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "You can only select one file"
 msgstr "Може да изберете само една датотека."
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "More than one file provided"
 msgstr "Наведена е повеќе од една датотека"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "You can only select local files"
 msgstr "Може да избирате само локални датотеки."
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Оддалечени датотеки не се прифаќаат"
 
-#: filewidgets/kfilewidget.cpp:803
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3392,22 +3392,22 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: filewidgets/kfilewidget.cpp:809
+#: filewidgets/kfilewidget.cpp:807
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Датотеката „%1“ не можеше да биде пронајдена"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Cannot open file"
 msgstr "Не може да биде отворена датотеката"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1197
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3422,49 +3422,49 @@ msgstr ""
 "пример, ако е активната локација file:/home/%1, кликањето на ова копче ќе ве "
 "одведе на file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Кликнете на ова копче за да се придвижите еден чекор назад во историјата на "
 "прелистувањето."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Кликнете на ова копче за да се придвижите еден чекор напред во историјата на "
 "прелистувањето."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Кликнете на ова копче за да ја превчитате содржината на тековната локација."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Кликнете на ова копче за да создадете нова папка."
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Прикажи панел со навигација за места"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Покажи скриени датотеки"
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Options"
 msgstr "Опции"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1226
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3486,12 +3486,12 @@ msgstr ""
 "li><li>прегледи на датотеки</li><li>одделување на папките од датотеките</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1247
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid "Bookmarks"
 msgstr "Обележувачи"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1249
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3506,38 +3506,38 @@ msgstr ""
 "во остатокот на KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Име:"
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1319
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Отповикај: преименување"
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1374
 #, fuzzy, kde-format
 #| msgid "Device name"
 msgid "Filter by name…"
 msgstr "Име на уред"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Покажи скриени датотеки"
 
-#: filewidgets/kfilewidget.cpp:1433
+#: filewidgets/kfilewidget.cpp:1431
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3550,12 +3550,12 @@ msgstr ""
 "глушецот и избирање на претпочитан режим од менито <b>Довршување на текст</"
 "b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1438
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ова е името под кое ќе се зачува датотеката."
 
-#: filewidgets/kfilewidget.cpp:1443
+#: filewidgets/kfilewidget.cpp:1441
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3564,74 +3564,74 @@ msgstr ""
 "Ова е листа на датотеки за отворање. Може да се наведе повеќе од една "
 "датотека со наведување на повеќе датотеки, одделени со празни места."
 
-#: filewidgets/kfilewidget.cpp:1448
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ова е името на датотеката за отворање."
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1459
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Места"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Датотеката „%1“ веќе постои. Дали сакате да запишете врз неа?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Запишување врз датотека?"
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
 msgstr "Може да избирате само локални датотеки."
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Далечински датотеки не се прифаќаат"
 
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2032
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Сите папки"
 
-#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Отвори"
 
-#: filewidgets/kfilewidget.cpp:2270
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Големина на икона: %1 пиксели"
 
-#: filewidgets/kfilewidget.cpp:2417
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Автоматски избор на &наставката на името (%1)"
 
-#: filewidgets/kfilewidget.cpp:2418
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "наставката <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2424
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Автоматски избор на &наставката на името"
 
-#: filewidgets/kfilewidget.cpp:2425
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "соодветна наставка"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3659,20 +3659,20 @@ msgstr ""
 "сигурни, оставете ја оваа опција активна бидејќи така може полесно да "
 "управувате со вашите датотеки."
 
-#: filewidgets/kfilewidget.cpp:2899
+#: filewidgets/kfilewidget.cpp:2897
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Филтер:"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2905
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

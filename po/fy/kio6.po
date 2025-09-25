@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-23 00:39+0000\n"
+"POT-Creation-Date: 2025-09-25 00:39+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2932,7 +2932,7 @@ msgid "All Supported Files"
 msgstr "Alle stipe triemen"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2036
+#: filewidgets/kfilewidget.cpp:2034
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3430,30 +3430,30 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, fuzzy, kde-format
 msgid "More than one file provided"
 msgstr "mear as ien dokuminttype definieart"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, fuzzy, kde-format
 #| msgid "Remote Files Not Accepted"
 msgid "Remote files not accepted"
 msgstr "Net-lokale triemen wurde net akseptearre"
 
-#: filewidgets/kfilewidget.cpp:803
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3464,23 +3464,23 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:809
+#: filewidgets/kfilewidget.cpp:807
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The file \"%1\" could not be found"
 msgstr "De module %1 wie net te finen."
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, fuzzy, kde-format
 msgid "Cannot open file"
 msgstr "Kin de triem %1 net iepenje."
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1197
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<p>For instance, if the "
@@ -3495,46 +3495,46 @@ msgstr ""
 "de lokaasje fan dit stuit file:/home/%1 is, dan komme jo yn de map file:/"
 "home at  jo op dizze knop drukke.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Klik op dizze knop om in stap tebek te gean in de sneup-skiednis."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Klik op dizze knop om in stap foarút te gean yn de sneup-skiednis."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Klik op dizze knop om de ynhâld fan de aktive lokaasje op'e nij te laden."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik op dizze knop om in nije map oan te meitsjen."
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Show Quick Access Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Untwikkelder (navigaasjepaniel-framewerk)"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1223
 #, fuzzy, kde-format
 #| msgid "Operation"
 msgid "Options"
 msgstr "Opsjes"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1226
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the configuration menu for the file dialog. Various options "
@@ -3556,12 +3556,12 @@ msgstr ""
 "litten fan it navigaasjepaniel</li> <li>triemfoarbylden</li><li>mappen "
 "skieden fan triemen werjaan</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1247
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid "Bookmarks"
 msgstr "Blêdwizers"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1249
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3582,38 +3582,38 @@ msgstr ""
 
 #  i18n: file ./kfile/kpropertiesdesktopbase.ui line 103
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Namme:"
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1319
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Inline omneame"
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1374
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "Filter by name…"
 msgstr "Algemiene namme"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kfilewidget.cpp:1433
+#: filewidgets/kfilewidget.cpp:1431
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3631,12 +3631,12 @@ msgstr ""
 "de rjochter mûsknop yn it tekstgebiet te klikken en yn it menu "
 "<b>tekstoanfolling</b> in oare metoade te selektearjen."
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1438
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dit is de namme dy't jo de triem jouwe by it bewarjen."
 
-#: filewidgets/kfilewidget.cpp:1443
+#: filewidgets/kfilewidget.cpp:1441
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3645,76 +3645,76 @@ msgstr ""
 "Dit is in list mei te iepenjen triemen. Jo kinne mear dan ien triem "
 "oantsjutte troch meardere triemnammen, skieden troch spaasjes, op te jaan."
 
-#: filewidgets/kfilewidget.cpp:1448
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dit is de namme fan de te iepenjen triem."
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1459
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Places"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1740
 #, fuzzy, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "In sesje mei de namme '%1' bestiet al, wolle jo it oerskriuwe?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1741
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "Triem oerskriuwe?"
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
 msgstr "Jo kinne allinne lokale triemen selektearje."
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Net-lokale triemen wurde net akseptearre"
 
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2032
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&Iepenje"
 
-#: filewidgets/kfilewidget.cpp:2270
+#: filewidgets/kfilewidget.cpp:2268
 #, fuzzy, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ofbylding - %1x%2 piksels"
 
-#: filewidgets/kfilewidget.cpp:2417
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatysk triemnammetahea&ksels selektearje (%1)"
 
-#: filewidgets/kfilewidget.cpp:2418
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "it taheaksel <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2424
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatysk triemnammetahea&ksels selektearje"
 
-#: filewidgets/kfilewidget.cpp:2425
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "in gaadlik taheaksel"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2431
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3753,20 +3753,20 @@ msgstr ""
 "(dizze punt sil automatysk fuorthelle wurde).</li></ol>Binne jo net wis? Lit "
 "dizze opsje dan oanstean. Dit makket it behearen fan jo triemen ienfâldiger."
 
-#: filewidgets/kfilewidget.cpp:2899
+#: filewidgets/kfilewidget.cpp:2897
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filterje:"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2905
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

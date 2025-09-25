@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-23 00:39+0000\n"
+"POT-Creation-Date: 2025-09-25 00:39+0000\n"
 "PO-Revision-Date: 2025-08-03 12:33+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2770,7 +2770,7 @@ msgid "All Supported Files"
 msgstr "ஆதரவுள்ள எல்லாக் கோப்புகளும்"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2036
+#: filewidgets/kfilewidget.cpp:2034
 #, kde-format
 msgid "All Files"
 msgstr "அனைத்து கோப்புகள்"
@@ -3197,27 +3197,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "மிகப்பெரியது (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "You can only select one file"
 msgstr "நீங்கள் ஒரு கோப்பை மட்டும் தேர்ந்தெடுக்க முடியும்"
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "More than one file provided"
 msgstr "ஒன்றுக்கு மேற்பட்ட கோப்புகள் வழங்கப்பட்டன"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "You can only select local files"
 msgstr "நீங்கள் உள்ளமைக் கோப்புகளை மட்டும் தேர்ந்தெடுக்க முடியும்"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "தொலைக் கோப்புகள் ஏற்றுக்கொள்ளப்படாது"
 
-#: filewidgets/kfilewidget.cpp:803
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3231,22 +3231,22 @@ msgstr[1] ""
 "தேர்ந்தெடுத்த முகவரி ஆதரிக்கப்படாத முறையில் உள்ளது. இந்த முறைகளில் ஏதாவது ஒன்றை "
 "பயன்படுத்தவும்: %2"
 
-#: filewidgets/kfilewidget.cpp:809
+#: filewidgets/kfilewidget.cpp:807
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "ஆதரிக்கப்படாத முகவரி முறை"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" என்கிற கோப்பை கண்டுபிடிக்க முடியவில்லை"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Cannot open file"
 msgstr "கோப்பை திறக்க முடியவில்லை"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3257,42 +3257,42 @@ msgstr ""
 "இருப்பிடம் file:/home/konqi என்றால், இந்த பட்டனை அழுத்துதல் உங்களை file:/home -க்கு "
 "கொண்டு செல்லும்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "உலாவல் வரலாற்றில் ஒரு படி பின்னே செல்ல இந்தப் பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "உலாவல் வரலாற்றில் ஒரு படி முன்னே செல்ல இந்தப் பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "இந்த இடத்தின் உள்ளடக்கத்தை மீளேற்ற இந்த பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ஒரு புதிய அடைவை உருவாக்க இந்த பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr "இடங்கள் பலகையைக் காட்டு"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Show Quick Filter"
 msgstr "விரை வடிகட்டியைக் காட்டு"
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1226
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3307,12 +3307,12 @@ msgstr ""
 "காட்டுதல்</li><li> இடங்கள் பலகை</li><li> கோப்பு முன்தோற்றங்கள்</li><li> அடைவுகளையும் "
 "கோப்புகளையும் பிரித்து காட்டுதல்</li></ul> </qt>"
 
-#: filewidgets/kfilewidget.cpp:1247
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid "Bookmarks"
 msgstr "நினைவுக்குறிகள்"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1249
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3326,35 +3326,35 @@ msgstr ""
 "இல் மற்ற இடங்களில் உள்ள நினைவுக்குறிகளைப் போலவே இவை செயல்படும்.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&பெயர்:"
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "பெயர்மாற்றியதை செயல்நீக்கு"
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "வேறு அடைவுக்கு செல்லும்போது வடிகட்டியை காலியாக்காதே"
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "Filter by name…"
 msgstr "பெயர் படி வடிகட்டு…"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1382
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "வடிகட்டிப் பட்டையை மறை"
 
-#: filewidgets/kfilewidget.cpp:1433
+#: filewidgets/kfilewidget.cpp:1431
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3366,12 +3366,12 @@ msgstr ""
 "அம்சத்தை அமைக்க, வலது சுட்டி பட்டனை அழுத்தி <b>உரை நிறைவு</b> பட்டியிலிருந்து "
 "விருப்பமான பயன்முறையை தேர்வு செய்யுங்கள்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1438
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "இது கோப்பினை சேமிக்க வேண்டிய பெயர்."
 
-#: filewidgets/kfilewidget.cpp:1443
+#: filewidgets/kfilewidget.cpp:1441
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3380,73 +3380,73 @@ msgstr ""
 "இது திறக்க வேண்டிய கோப்புகளின் பட்டியல். ஒன்றுக்கு மேற்பட்ட கோப்புகளைக் குறிப்பிட, "
 "கோப்பு பெயர்களை, காலியிடத்தால் பிரித்து உள்ளிடவும்."
 
-#: filewidgets/kfilewidget.cpp:1448
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "இது திறக்க வேண்டிய கோப்பின் பெயர்."
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1459
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "இடங்கள்"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" என்று ஏற்கனவே ஒரு கோப்பு உள்ளது. அதை மேலெழுத விரும்புகிறீர்களா?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "Overwrite File?"
 msgstr "கோப்பினை மேலெழுதவா?"
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
 msgstr "உள்ளமை கோப்புகளை மட்டுமே நீங்கள் தேர்வு செய்ய முடியும்."
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "தொலைக் கோப்புகள் ஏற்றுக் கொள்ளப்படாது"
 
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2032
 #, kde-format
 msgid "All Folders"
 msgstr "எல்லா அடைவுகள்"
 
-#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
 
-#: filewidgets/kfilewidget.cpp:2270
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "சின்னத்தின் அளவு: %1 பிக்செல்கள்"
 
-#: filewidgets/kfilewidget.cpp:2417
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "கோப்பு &வகைப்பெயரை தானாக தேர்வு செய் (%1)"
 
-#: filewidgets/kfilewidget.cpp:2418
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> என்ற வகைப்பெயர்"
 
-#: filewidgets/kfilewidget.cpp:2424
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "கோப்பு &வகைப்பெயரை தானாக தேர்வு செய்"
 
-#: filewidgets/kfilewidget.cpp:2425
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "பொருத்தமான ஒரு வகைப்பெயர்"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3472,12 +3472,12 @@ msgstr ""
 "இறுதியில் இடவும்  (புள்ளி தானாகவே அகற்றப்படும்). </li></ol>சந்தேகமாக இருந்தால், "
 "இத்தேர்வினை இயக்குங்கள், ஏனெனில் இது உங்கள் கோப்புகளை எளிதில் கையாள உதவும்."
 
-#: filewidgets/kfilewidget.cpp:2899
+#: filewidgets/kfilewidget.cpp:2897
 #, kde-format
 msgid "&File type:"
 msgstr "&கோப்பின் வகை:"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3485,7 +3485,7 @@ msgid ""
 msgstr ""
 "<qt>இது கோப்பு வகை தேர்வி. கோப்பு சேமிக்கப்படும் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2905
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

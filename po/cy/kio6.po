@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-23 00:39+0000\n"
+"POT-Creation-Date: 2025-09-25 00:39+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2842,7 +2842,7 @@ msgid "All Supported Files"
 msgstr "Pob Ffeil a Cynhelir"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2036
+#: filewidgets/kfilewidget.cpp:2034
 #, kde-format
 msgid "All Files"
 msgstr "Holl Ffeiliau"
@@ -3275,27 +3275,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Enfawr (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "You can only select one file"
 msgstr "Gallwch ddewis 'mond un ffeil"
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "More than one file provided"
 msgstr "Mwy nag un ffeil cynnigwyd"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "You can only select local files"
 msgstr "Gallwch ddewis 'mond ffeiliau lleol"
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ni derbynnir Ffeiliau Anghysbell"
 
-#: filewidgets/kfilewidget.cpp:803
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3310,22 +3310,22 @@ msgstr[1] ""
 "Mae'r URL dewiswyd yn defnyddio cynllun anghynaledig. Atolwg defnyddiwch un "
 "o'r cynlluniau canlynol: %2"
 
-#: filewidgets/kfilewidget.cpp:809
+#: filewidgets/kfilewidget.cpp:807
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Cynllun URL anghynaledig"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Methu canfod file \"%1\""
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Cannot open file"
 msgstr "Methu agor ffeil"
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1197
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3336,43 +3336,43 @@ msgstr ""
 "enghraifft, os file:/home/konqi yw'r lleoliad cyfredol, bydd clicio'r botwm "
 "yma yn mynd â chi i file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Cliciwch y botwm yma i symud un cam yn ôl yn yr hanes pori."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Cliciwch y botwm yma i symud un cam ymlaen yn yr hanes pori."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Cliciwch y botwm yma i ail-lwytho cynnwys y lleoliad cyfredol."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1206
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Cliciwch y botwm yma i greu plygell newydd."
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1208
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Dangos Panel Lleoedd"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Dangos Ffeiliau Cudd"
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Options"
 msgstr "Dewisiadau"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1226
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3387,12 +3387,12 @@ msgstr ""
 "li><li>y panel morlywio Cyrchu ar Frys</li><li>rhagolygon ffeil</"
 "li><li>gwahanu plygyll oddiwrth ffeiliau</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1247
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid "Bookmarks"
 msgstr "Tudnodiau"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1249
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3407,38 +3407,38 @@ msgstr ""
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Enw:"
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1319
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Dadwneud Newidiau"
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1370
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Agor Plygell Argynhwysiedig"
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1374
 #, fuzzy, kde-format
 msgid "Filter by name…"
 msgstr "Dyfais:"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Ffeiliau Cudd yn Olaf"
 
-#: filewidgets/kfilewidget.cpp:1433
+#: filewidgets/kfilewidget.cpp:1431
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3450,12 +3450,12 @@ msgstr ""
 "nodwedd yma drwy glicio efo botwm de y llygoden, a dewis modd amgen oddiar y "
 "ddewislen <b>Cwblhau Testun</b></qt>"
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1438
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Yr enw i ddefnyddio wrth gadw'r ffeil."
 
-#: filewidgets/kfilewidget.cpp:1443
+#: filewidgets/kfilewidget.cpp:1441
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3464,76 +3464,76 @@ msgstr ""
 "Y rhestr o ffeiliau i agor.  Gellir benodi mwy nac un ffeil drwy restru "
 "amryw ffeil, wedi eu gwahanu gan fylchau."
 
-#: filewidgets/kfilewidget.cpp:1448
+#: filewidgets/kfilewidget.cpp:1446
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Mae'r hwn yr enw'r ffeil i agor."
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1459
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Lleoedd"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 "Mae'r ffeil \"%1\" yn eisoes yn bodoli. Ai ydych yn eisiau i'w "
 "ddrosysgrifennu?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Dros-ysgrifennu Ffeil?"
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
 msgstr "Gallwch ddewis 'mond ffeiliau lleol."
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ni derbynnir Ffeiliau anghysbell"
 
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2032
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Pob Plygell"
 
-#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, kde-format
 msgid "&Open"
 msgstr "Ag&or"
 
-#: filewidgets/kfilewidget.cpp:2270
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Maint eicon: %1 picsel"
 
-#: filewidgets/kfilewidget.cpp:2417
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Dewis e&styniad yr enw ffeil yn awtomatig (%1)"
 
-#: filewidgets/kfilewidget.cpp:2418
+#: filewidgets/kfilewidget.cpp:2416
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "yr estyniad <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2424
+#: filewidgets/kfilewidget.cpp:2422
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Dewis e&styniad yr enw ffeil yn awtomatig"
 
-#: filewidgets/kfilewidget.cpp:2425
+#: filewidgets/kfilewidget.cpp:2423
 #, kde-format
 msgid "a suitable extension"
 msgstr "estyniad addas"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2431
 #, fuzzy, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3561,12 +3561,12 @@ msgstr ""
 "sicr, alluogwch y dewisiad yma, oherwydd mae'n gwneud eich ffeiliau yn haws "
 "eu trefnu."
 
-#: filewidgets/kfilewidget.cpp:2899
+#: filewidgets/kfilewidget.cpp:2897
 #, kde-format
 msgid "&File type:"
 msgstr "Math &ffeil:"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3575,7 +3575,7 @@ msgstr ""
 "<qt>Mae'r hwn y dewiswr math ffeil. Mae'n ei ddefnyddio i ddewis y "
 "ffurfiadaeth fydd y ffeil yn cael ei achub fel.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2905
+#: filewidgets/kfilewidget.cpp:2903
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "

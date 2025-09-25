@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-23 00:39+0000\n"
+"POT-Creation-Date: 2025-09-25 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2870,7 +2870,7 @@ msgid "All Supported Files"
 msgstr "Zonke iifayile ezixhasiweyo"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2036
+#: filewidgets/kfilewidget.cpp:2034
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3344,29 +3344,29 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "Ungakhetha kuphela ifayile zobulali."
 
-#: filewidgets/kfilewidget.cpp:626
+#: filewidgets/kfilewidget.cpp:624
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "Ungakhetha kuphela ifayile zobulali."
 
-#: filewidgets/kfilewidget.cpp:796
+#: filewidgets/kfilewidget.cpp:794
 #, fuzzy, kde-format
 msgid "Remote files not accepted"
 msgstr "Iifayile Ezibekwe kude Azamkelwanga"
 
-#: filewidgets/kfilewidget.cpp:803
+#: filewidgets/kfilewidget.cpp:801
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3377,23 +3377,23 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:809
+#: filewidgets/kfilewidget.cpp:807
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The file \"%1\" could not be found"
 msgstr "Ikhonco oluceliweyo elitsixiweyo alenzekanga.%1"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:828
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1199
+#: filewidgets/kfilewidget.cpp:1197
 #, fuzzy, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3404,49 +3404,49 @@ msgstr ""
 "indawo yangoku yifayile:/home/%1 ukunqakraza eliqosha kuzakusa kwifayile:/"
 "home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1203
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Nqakraza eliqhosha ukuya ngasemva inyathelo elinye kwimbali yokhangelo "
 "lweencwadi."
 
-#: filewidgets/kfilewidget.cpp:1204
+#: filewidgets/kfilewidget.cpp:1202
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Nqakraza eliqhosha ukuya phambili inqwanqwa elinye kwimbali yokhangelo "
 "zincwadi."
 
-#: filewidgets/kfilewidget.cpp:1206
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Nqakraza eliqhosha ukulayisha kwakhona imixholo yendawo yangoku."
 
-#: filewidgets/kfilewidget.cpp:1208
+#: filewidgets/kfilewidget.cpp:1206
 #, fuzzy, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Nqakraza eliqhosha ukwenza ulawulo olutsha."
 
-#: filewidgets/kfilewidget.cpp:1210
+#: filewidgets/kfilewidget.cpp:1208
 #, fuzzy, kde-format
 #| msgid "Show Quick Access Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Bonisa lfestile yenkcukacha Yolawulo lwe Quick Access"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Bonisa Iifayile Ezifihlakeleyo"
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1223
 #, fuzzy, kde-format
 #| msgid "Operation"
 msgid "Options"
 msgstr "Umsebenzi"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1226
 #, fuzzy, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3462,12 +3462,12 @@ msgstr ""
 "Access</li><li>iimboniselo zefayile</li><li>eyahlula abalawuli kwifayile</"
 "li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1247
+#: filewidgets/kfilewidget.cpp:1245
 #, fuzzy, kde-format
 msgid "Bookmarks"
 msgstr "Amanqaku eencwadi"
 
-#: filewidgets/kfilewidget.cpp:1251
+#: filewidgets/kfilewidget.cpp:1249
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3487,37 +3487,37 @@ msgstr ""
 "indawo kwi KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1296 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1294 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Igama:"
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1319
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Yinike igama kwakhona"
 
-#: filewidgets/kfilewidget.cpp:1372
+#: filewidgets/kfilewidget.cpp:1370
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1376
+#: filewidgets/kfilewidget.cpp:1374
 #, fuzzy, kde-format
 msgid "Filter by name…"
 msgstr "Icebo:"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Bonisa Iifayile Ezifihlakeleyo"
 
-#: filewidgets/kfilewidget.cpp:1433
+#: filewidgets/kfilewidget.cpp:1431
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3535,12 +3535,12 @@ msgstr ""
 "lasekunene nokukhetha indlela ekhethekileyo evela kwi <b>Ugqibezelo "
 "Lombhalo</b> menu."
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1438
 #, fuzzy, kde-format
 msgid "This is the name to save the file as."
 msgstr "<p>Eli ligama ozakugcina ifayile ngalo."
 
-#: filewidgets/kfilewidget.cpp:1443
+#: filewidgets/kfilewidget.cpp:1441
 #, fuzzy, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3549,74 +3549,74 @@ msgstr ""
 "<qt>Olu luluhlu lweefayile ezizakuvulwa. Kungakhankanywa iifayile "
 "esingaphezulu kwenye ngokudwelisa iifayile eziliqela, ezahlulwe ngezithuba."
 
-#: filewidgets/kfilewidget.cpp:1448
+#: filewidgets/kfilewidget.cpp:1446
 #, fuzzy, kde-format
 msgid "This is the name of the file to open."
 msgstr "<qt>Eli ligama lefayile ekufuneka ivulwe."
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1459
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Iphepha"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1740
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1741
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "B&hala ngaphezulu Kwento yonke"
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, kde-format
 msgid "You can only select local files."
 msgstr "Ungakhetha kuphela ifayile zobulali."
 
-#: filewidgets/kfilewidget.cpp:1940
+#: filewidgets/kfilewidget.cpp:1938
 #, fuzzy, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Iifayile Ezibekwe kude Azamkelwanga"
 
-#: filewidgets/kfilewidget.cpp:2034
+#: filewidgets/kfilewidget.cpp:2032
 #, fuzzy, kde-format
 msgid "All Folders"
 msgstr "*|Zonke Iifayile"
 
-#: filewidgets/kfilewidget.cpp:2170 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Vula"
 
-#: filewidgets/kfilewidget.cpp:2270
+#: filewidgets/kfilewidget.cpp:2268
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2417
+#: filewidgets/kfilewidget.cpp:2415
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2418
+#: filewidgets/kfilewidget.cpp:2416
 #, fuzzy, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "Inxutyelelaniswe kumamkeli <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2424
+#: filewidgets/kfilewidget.cpp:2422
 #, fuzzy, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Sebenzisa usebenziso &lolwandiso-lwefayile:"
 
-#: filewidgets/kfilewidget.cpp:2425
+#: filewidgets/kfilewidget.cpp:2423
 #, fuzzy, kde-format
 msgid "a suitable extension"
 msgstr "Sebenzisa usebenziso &lolwandiso-lwefayile:"
 
-#: filewidgets/kfilewidget.cpp:2433
+#: filewidgets/kfilewidget.cpp:2431
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3632,20 +3632,20 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2899
+#: filewidgets/kfilewidget.cpp:2897
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Isihluzo:"
 
-#: filewidgets/kfilewidget.cpp:2903
+#: filewidgets/kfilewidget.cpp:2901
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2905
+#: filewidgets/kfilewidget.cpp:2903
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
