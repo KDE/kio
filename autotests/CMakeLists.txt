@@ -135,6 +135,7 @@ ecm_add_tests(
  ${jobguitest_SRC}
  pastetest.cpp
  kurifiltersearchprovideractionstest.cpp
+ ENVIRONMENT QT_QPA_PLATFORM=offscreen
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
 )
@@ -147,6 +148,7 @@ set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB})
 set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
 ecm_add_test(kurifiltertest.cpp
     LINK_LIBRARIES ${kurifiltertest_libs}
+    ENVIRONMENT QT_QPA_PLATFORM=offscreen
     TEST_NAME ${URIFILTER_COLON_TEST}
 )
 target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=':'")
@@ -154,6 +156,7 @@ target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARAT
 set(URIFILTER_SPACE_TEST kiowidgets-kurifiltertest-space-separator)
 ecm_add_test(kurifiltertest.cpp
     LINK_LIBRARIES ${kurifiltertest_libs}
+    ENVIRONMENT QT_QPA_PLATFORM=offscreen
     TEST_NAME ${URIFILTER_SPACE_TEST}
 )
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
@@ -162,6 +165,7 @@ target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARAT
 ecm_add_test(
  kurlcompletiontest.cpp
  TEST_NAME kurlcompletiontest-nowait
+ ENVIRONMENT QT_QPA_PLATFORM=offscreen
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
  )
@@ -184,6 +188,7 @@ ecm_add_tests(
  kfileplacesviewtest.cpp
  kurlrequestertest.cpp
  kfilefiltercombotest.cpp
+ ENVIRONMENT QT_QPA_PLATFORM=offscreen
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n KF6::WindowSystem
 )
