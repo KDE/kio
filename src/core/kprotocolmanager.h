@@ -380,6 +380,8 @@ public:
      * This is defined in the protocol description file using an entry like
      * "archiveMimetype=application/x-zip"
      *
+     * This excludes compressed stream of file, like gzip or xz files.
+     *
      * \a mimeType the MIME type to check
      */
     static QString protocolForArchiveMimetype(const QString &mimeType);
