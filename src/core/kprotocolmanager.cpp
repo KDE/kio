@@ -370,10 +370,13 @@ QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
     QMutexLocker lock(&d->mutex);
     if (d->protocolForArchiveMimetypes.isEmpty()) {
         const QList<KProtocolInfoPrivate *> allProtocols = KProtocolInfoFactory::self()->allProtocols();
-        for (KProtocolInfoPrivate *allProtocol : allProtocols) {
-            const QStringList archiveMimetypes = allProtocol->m_archiveMimeTypes;
+        for (KProtocolInfoPrivate *protocol : allProtocols) {
+            if (protocol->m_inputType != KProtocolInfo::Type::T_FILESYSTEM) {
+                continue;
+            }
+            const QStringList archiveMimetypes = protocol->m_archiveMimeTypes;
             for (const QString &mime : archiveMimetypes) {
-                d->protocolForArchiveMimetypes.insert(mime, allProtocol->m_name);
+                d->protocolForArchiveMimetypes.insert(mime, protocol->m_name);
             }
         }
     }
