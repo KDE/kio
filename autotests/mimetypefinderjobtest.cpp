@@ -76,6 +76,8 @@ void MimeTypeFinderJobTest::determineMimeType()
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->mimeType(), mimeType);
 
+    // Check that the result is the same when accessing the source, skip on Windows
+#ifndef Q_OS_WIN
     // Check that the result is the same when accessing the source
     // file through a symbolic link (bug #436708)
     const QString srcLink = srcDir + QLatin1String("/link_") + fileName;
@@ -85,6 +87,7 @@ void MimeTypeFinderJobTest::determineMimeType()
     job = new KIO::MimeTypeFinderJob(linkUrl, this);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->mimeType(), mimeType);
+#endif
 }
 
 void MimeTypeFinderJobTest::invalidUrl()
