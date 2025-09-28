@@ -1322,11 +1322,12 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
     }
 
     // before we start to remove any files from the trash,
-    // check whether the new file will fit into the trash
-    // at all...
+    // check whether the new file can ever fit into the trash at all...
     const qint64 partitionSize = util.size();
+    const qint64 totalMaxSizeAllowed = qRound(partitionSize * percent / 100.0);
 
-    if ((util.usage(partitionSize + additionalSize)) >= percent) {
+    // Only reject if the new file itself is larger than the maximum allowed trash size
+    if (additionalSize > totalMaxSizeAllowed) {
         m_lastErrorCode = KIO::ERR_TRASH_FILE_TOO_LARGE;
         m_lastErrorMessage = KIO::buildErrorString(m_lastErrorCode, {});
         return false;
