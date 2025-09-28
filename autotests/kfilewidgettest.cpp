@@ -683,8 +683,8 @@ void KFileWidgetTest::testTokenize_data()
     // Note that we are also testing quote at the end of the name
     QTest::newRow("quote-multi-file") << QStringList{"test\"quote", "test2-quote\"", "test"} << QString("\"test\\\"quote\" \"test2-quote\\\"\" \"test\"");
 
-    // Ok, enough with quotes... lets do some backslashes
     // Backslash literals in file names - Unix only case
+#ifndef Q_OS_WIN
     QTest::newRow("backslash-single-file") << QStringList{"test\\backslash"} << QString("test\\\\backslash");
 
     QTest::newRow("backslash-multi-file") << QStringList{"test\\back\\slash", "test"} << QString("\"test\\\\back\\\\slash\" \"test\"");
@@ -694,6 +694,7 @@ void KFileWidgetTest::testTokenize_data()
     QTest::newRow("double-backslash-end") << QStringList{"test\\\\"} << QString("test\\\\\\\\");
 
     QTest::newRow("single-backslash-end") << QStringList{"some thing", "test\\"} << QString("\"some thing\" \"test\\\\\"");
+#endif
 
     QTest::newRow("sharp") << QStringList{"some#thing"} << QString("some#thing");
 
