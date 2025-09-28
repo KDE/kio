@@ -126,7 +126,6 @@ ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
  kdynamicjobtrackernowidgetstest.cpp
- desktopexecparsertest.cpp
  kdirlistertest.cpp
  kdirmodeltest.cpp
  kfileitemactionstest.cpp
@@ -140,8 +139,17 @@ ecm_add_tests(
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
 )
 
-set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
-target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
+# desktopexecparsertest needs a classic unix shell & terminal
+if (NOT WIN32)
+  ecm_add_tests(
+    desktopexecparsertest.cpp
+    ENVIRONMENT QT_QPA_PLATFORM=offscreen
+    NAME_PREFIX "kiowidgets-"
+    LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
+  )
+  set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
+  target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
+endif()
 
 set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB})
 
@@ -170,7 +178,6 @@ ecm_add_test(
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
  )
 set_target_properties(kurlcompletiontest-nowait PROPERTIES COMPILE_FLAGS "-DNO_WAIT")
-
 
 endif()
 
