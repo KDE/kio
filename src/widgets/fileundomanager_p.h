@@ -21,7 +21,7 @@ namespace KIO
 class FileUndoManagerAdaptor;
 
 struct BasicOperation {
-    enum Type {
+    enum Type : unsigned char {
         File,
         Link,
         Directory,
@@ -50,7 +50,7 @@ struct BasicOperation {
     bool m_valid = false;
     bool m_renamed;
 
-    Type m_type : 2;
+    Type m_type;
 
     QUrl m_src;
     QUrl m_dst;
