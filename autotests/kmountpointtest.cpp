@@ -19,6 +19,11 @@ void KMountPointTest::initTestCase()
 
 void KMountPointTest::testCurrentMountPoints()
 {
+    // on Windows we just create pseudo mount points for drives, that will fail the tests below
+#ifdef Q_OS_WIN
+    QSKIP("Skipping test on Windows, KMountPoint only has pseudo mounts for drive letters");
+#endif
+
     const KMountPoint::List mountPoints = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName);
     if (mountPoints.isEmpty()) { // can happen in chroot jails
         QSKIP("mtab is empty");
@@ -138,6 +143,11 @@ void KMountPointTest::testCurrentMountPointOptions()
 
 void KMountPointTest::testPossibleMountPoints()
 {
+    // on Windows we just create pseudo mount points for drives, that will fail the tests below
+#ifdef Q_OS_WIN
+    QSKIP("Skipping test on Windows, KMountPoint only has pseudo mounts for drive letters");
+#endif
+
     const KMountPoint::List mountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedRealDeviceName | KMountPoint::NeedMountOptions);
     if (mountPoints.isEmpty()) { // can happen in chroot jails
         QSKIP("fstab is empty");
