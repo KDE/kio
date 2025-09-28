@@ -272,6 +272,10 @@ static QString getAltIconUrl()
 
 void FavIconTest::concurrentRequestsShouldWork()
 {
+#ifdef Q_OS_WIN
+    QSKIP("Skipping test on Windows, QSaveFile fails to handle concurrent accesses");
+#endif
+
     const int numThreads = 3;
     QThreadPool tp;
     tp.setMaxThreadCount(numThreads);
