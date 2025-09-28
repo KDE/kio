@@ -219,6 +219,10 @@ void KUrlNavigatorTest::testUrlParsing()
 
 void KUrlNavigatorTest::testRelativePaths()
 {
+#ifdef Q_OS_WIN
+    QSKIP("Skipping test using a symlink on Windows");
+#endif
+
     QTemporaryDir tempDir;
     const QString tempDirPath = tempDir.path();
     const QString dirA = tempDirPath + QLatin1String("/a");
