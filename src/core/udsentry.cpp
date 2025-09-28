@@ -125,7 +125,7 @@ void UDSEntryPrivate::replace(uint udsField, long long value)
 
 int UDSEntryPrivate::count() const
 {
-    return storage.size();
+    return int(storage.size());
 }
 
 QString UDSEntryPrivate::stringValue(uint udsField) const
