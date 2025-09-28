@@ -1933,6 +1933,19 @@ bool KFileItem::isRegularFile() const
     return Utils::isRegFileMask(d->m_fileMode);
 }
 
+uint64_t KFileItem::mountId() const
+{
+    if (!d) {
+        return false;
+    }
+
+    auto value = d->m_entry.numberValue(KIO::UDSEntry::UDS_MNT_ID, 0);
+    if (value != 0) {
+        return static_cast<uint64_t>(value);
+    }
+    return 0;
+}
+
 QString KFileItem::suffix() const
 {
     if (!d || isDir()) {

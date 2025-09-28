@@ -160,6 +160,12 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         // mimetype
         entries += 1;
     }
+#ifdef STATX_MNT_ID_UNIQUE
+    if (details & KIO::StatMountId) {
+        // uniq_mnt_id
+        entries += 1;
+    }
+#endif
     entry.reserve(entries);
 
     if (details & KIO::StatBasic) {
@@ -272,6 +278,12 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
         entry.fastInsert(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
     }
+
+#if defined(HAVE_STATX) && defined(STATX_MNT_ID_UNIQUE)
+    if (details & KIO::StatMountId) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MNT_ID, stat_mnt_id(buff));
+    }
+#endif
 
     if (details & KIO::StatMimeType) {
         if (type == 0 || type != S_IFDIR) {

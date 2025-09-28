@@ -178,6 +178,12 @@ class KIOCORE_EXPORT KFileItem
      */
     Q_PROPERTY(bool isRegularFile READ isRegularFile)
 
+    /*!
+     * \property KFileItem::mountId
+     * \since 6.20
+     */
+    Q_PROPERTY(uint64_t mountId READ mountId)
+
 public:
     enum {
         Unknown = static_cast<mode_t>(-1)
@@ -607,6 +613,15 @@ public:
      * \since 6.0
      */
     QString suffix() const;
+
+    /*!
+     * Return the uniq mount id of the underlying filesystem
+     *
+     * Corresponds to statx stx_mnt_id with STATX_MNT_ID_UNIQUE flags
+     *
+     * \since 6.20
+     */
+    uint64_t mountId() const;
 
     /*!
      * Somewhat like a comparison operator, but more explicit,

@@ -1875,14 +1875,21 @@ void JobTest::statWithInode()
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
-    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatInode);
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatInode | KIO::StatMountId);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     const KIO::UDSEntry entry = job->statResult();
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_DEVICE_ID));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_INODE));
+
+#ifdef STATX_MNT_ID_UNIQUE
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_MNT_ID));
+    QCOMPARE(entry.count(), 3);
+    QVERIFY(static_cast<uint64_t>(entry.numberValue(KIO::UDSEntry::UDS_MNT_ID)) > 0);
+#else
     QCOMPARE(entry.count(), 2);
+#endif
 
     const QString path = otherTmpDir() + "otherFile";
     createTestFile(path);

@@ -43,6 +43,10 @@ inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
         // dev, inode
         mask |= STATX_INO;
     }
+    if (details & KIO::StatMountId) {
+        // uniq mnt_id
+        mask |= STATX_MNT_ID_UNIQUE;
+    }
     return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
 }
 inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &details)
@@ -100,6 +104,13 @@ inline static int64_t stat_mtime(const struct statx &buf)
 {
     return buf.stx_mtime.tv_sec;
 }
+#ifdef STATX_MNT_ID_UNIQUE
+inline static int64_t stat_mnt_id(const struct statx &buf)
+{
+    return buf.stx_mnt_id;
+}
+#endif
+
 #else
 // regular stat struct
 inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
