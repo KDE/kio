@@ -4,6 +4,7 @@ Name[ar]=حزم فيدورا
 Name[bg]=Пакети на Fedora
 Name[ca]=Paquets Fedora
 Name[ca@valencia]=Paquets Fedora
+Name[de]=Fedora-Pakete
 Name[eo]=Fedora-Pakoj
 Name[es]=Paquetes de Fedora
 Name[eu]=Fedora paketeak
@@ -39,6 +40,7 @@ Query[ar]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[bg]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[de]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[eo]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[es]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[eu]=https://packages.fedoraproject.org/search?query=\\{@}
