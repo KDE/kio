@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-25 00:39+0000\n"
+"POT-Creation-Date: 2025-09-29 00:39+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -4622,7 +4622,7 @@ msgid "Restore a trashed file to its original location"
 msgstr ""
 "Riktheni te vendndodhja origjinale e saj një kartelë të shpënë te hedhurinat"
 
-#: kioworkers/trash/trashimpl.cpp:1337
+#: kioworkers/trash/trashimpl.cpp:1338
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Hedhurinat janë plot. Zbrazini, ose hiqni objekte dorazi."

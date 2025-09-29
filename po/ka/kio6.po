@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-25 00:39+0000\n"
+"POT-Creation-Date: 2025-09-29 00:39+0000\n"
 "PO-Revision-Date: 2025-07-29 05:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -4552,7 +4552,7 @@ msgstr "ნაგვის დაცარიელება"
 msgid "Restore a trashed file to its original location"
 msgstr "ნაგავში ჩაგდებული ფაილის საწყის მდებარეობაზე აღდგენა"
 
-#: kioworkers/trash/trashimpl.cpp:1337
+#: kioworkers/trash/trashimpl.cpp:1338
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "ნაგავი გადავსებულია. დააცარიელეთ ან ხელით გადაიტანეთ ელემენტები."

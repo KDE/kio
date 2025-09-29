@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-25 00:39+0000\n"
+"POT-Creation-Date: 2025-09-29 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -4755,7 +4755,7 @@ msgstr "Испразни садржај смећа"
 msgid "Restore a trashed file to its original location"
 msgstr "Врати фајл из смећа на његову изворну локацију"
 
-#: kioworkers/trash/trashimpl.cpp:1337
+#: kioworkers/trash/trashimpl.cpp:1338
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""

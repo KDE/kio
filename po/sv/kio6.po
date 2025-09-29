@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-25 00:39+0000\n"
+"POT-Creation-Date: 2025-09-29 00:39+0000\n"
 "PO-Revision-Date: 2025-07-29 12:17+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4594,7 +4594,7 @@ msgstr "Töm papperskorgens innehåll"
 msgid "Restore a trashed file to its original location"
 msgstr "Återställ en fil släng i papperskorgen till dess ursprungliga plats"
 
-#: kioworkers/trash/trashimpl.cpp:1337
+#: kioworkers/trash/trashimpl.cpp:1338
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Papperskorgen är full. Töm den eller ta bort objekt manuellt."
