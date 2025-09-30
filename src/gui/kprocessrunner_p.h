@@ -17,6 +17,7 @@
 #if HAVE_X11
 #include <KStartupInfo>
 #endif
+#include <QFuture>
 #include <QObject>
 #include <memory>
 
@@ -160,6 +161,7 @@ protected:
     qint64 m_pid = 0;
     KService::Ptr m_service;
     QString m_serviceEntryPath;
+    QFuture<QString> m_xdgActivationTokenFuture;
     bool m_waitingForXdgToken = false;
     QList<QUrl> m_urls;
 #if HAVE_X11

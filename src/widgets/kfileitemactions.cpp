@@ -735,30 +735,17 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
                 QDBusConnection::sessionBus().asyncCall(message);
             }
         };
+        connect(openWithAction, &QAction::triggered, this, [this, sendMessage] {
 #if HAVE_WAYLAND
-        if (KWindowSystem::isPlatformWayland() && !qGuiApp->allWindows().isEmpty()) {
-            QObject::connect(openWithAction, &QAction::triggered, this, [] {
+            if (KWindowSystem::isPlatformWayland() && !qGuiApp->allWindows().isEmpty()) {
                 auto window = qGuiApp->allWindows().constFirst();
-                KWaylandExtras::requestXdgActivationToken(window, KWaylandExtras::lastInputSerial(window), {});
-            });
-            QObject::connect(
-                KWaylandExtras::self(),
-                &KWaylandExtras::xdgActivationTokenArrived,
-                this,
-                [sendMessage](int, const QString &token) {
-                    sendMessage(token);
-                },
-                Qt::SingleShotConnection);
-        } else {
-            QObject::connect(openWithAction, &QAction::triggered, this, [sendMessage] {
-                sendMessage({});
-            });
-        }
-#else
-        QObject::connect(openWithAction, &QAction::triggered, this, [sendMessage] {
+                auto tokenFuture = KWaylandExtras::xdgActivationToken(window, {});
+                tokenFuture.then(this, sendMessage);
+                return;
+            }
+#endif
             sendMessage({});
         });
-#endif
         topMenu->insertAction(before, openWithAction);
         return;
     }

@@ -176,18 +176,10 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
             if (!window && !qGuiApp->allWindows().isEmpty()) {
                 window = qGuiApp->allWindows().constFirst();
             }
-            const int launchedSerial = KWaylandExtras::lastInputSerial(window);
-            QObject::connect(
-                KWaylandExtras::self(),
-                &KWaylandExtras::xdgActivationTokenArrived,
-                this,
-                [launchedSerial, runWithToken](int serial, const QString &token) {
-                    if (serial == launchedSerial) {
-                        runWithToken(token.toUtf8());
-                    }
-                },
-                Qt::SingleShotConnection);
-            KWaylandExtras::requestXdgActivationToken(window, launchedSerial, {});
+            auto tokenFuture = KWaylandExtras::xdgActivationToken(window, {});
+            tokenFuture.then([runWithToken](const QString &token) {
+                runWithToken(token.toUtf8());
+            });
         } else {
             runWithToken({});
         }

@@ -314,29 +314,20 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                 window = qGuiApp->allWindows().constFirst();
             }
             if (window) {
-                const int launchedSerial = KWaylandExtras::lastInputSerial(window);
                 m_waitingForXdgToken = true;
-                connect(
-                    KWaylandExtras::self(),
-                    &KWaylandExtras::xdgActivationTokenArrived,
-                    m_process.get(),
-                    [this, launchedSerial](int tokenSerial, const QString &token) {
-                        if (tokenSerial == launchedSerial) {
-                            m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
-                            m_waitingForXdgToken = false;
-                            startProcess();
-                        }
-                    },
-                    Qt::SingleShotConnection);
-                KWaylandExtras::requestXdgActivationToken(window, launchedSerial, resolveServiceAlias());
+                m_xdgActivationTokenFuture = KWaylandExtras::xdgActivationToken(window, resolveServiceAlias());
+                m_xdgActivationTokenFuture.then(this, [this](const QString &token) {
+                    m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
+                    m_waitingForXdgToken = false;
+                    startProcess();
+                });
+                return;
             }
         }
     }
 #endif
 
-    if (!m_waitingForXdgToken) {
-        startProcess();
-    }
+    startProcess();
 }
 
 void ForkingProcessRunner::startProcess()
