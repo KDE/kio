@@ -346,19 +346,16 @@ public:
     QWidget *badgeWidget() const;
 
     /*!
-     * Sets the background painting enabled or disabled for the buttons layout.
+     * Sets whether painting of the background and frame is enabled.
      *
      * In frameless styles, its recommended to set the background to disabled.
      *
-     * Does not affect the input mode.
      * \since 6.14
      */
     void setBackgroundEnabled(bool enabled);
 
     /*!
-     * Returns true if the background of the buttons layout is being painted.
-     *
-     * Does not represent the input mode background.
+     * Returns true if the background and frame is being painted.
      *
      * \since 6.14
      */

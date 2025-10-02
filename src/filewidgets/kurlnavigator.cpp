@@ -1437,11 +1437,6 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
             option.palette.setColor(QPalette::Base, palette().alternateBase().color());
         }
         style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
-    } else {
-        // Draw primitive only for the input field
-        if (d->m_editable) {
-            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
-        }
     }
 }
 
