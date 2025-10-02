@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-29 00:39+0000\n"
+"POT-Creation-Date: 2025-10-02 00:39+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -3490,7 +3490,7 @@ msgstr "S’u Pranuan Kartela të Largëta"
 msgid "All Folders"
 msgstr "Krejt Dosjet"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Hap"
@@ -3942,7 +3942,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Po niset %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:459
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5374,29 +5374,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Hapeni &Me…"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Hape dosjen me %1"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Hape me %1"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Hape Dosjen Me"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Hape Me"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

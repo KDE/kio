@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-29 00:39+0000\n"
+"POT-Creation-Date: 2025-10-02 00:39+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -3684,7 +3684,7 @@ msgstr "Net-lokale triemen wurde net akseptearre"
 msgid "All Folders"
 msgstr "*|Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Iepenje"
@@ -4163,7 +4163,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Opstarte fan %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:459
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"
@@ -5656,33 +5656,33 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Iepenje mei"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "&Iepenje mei '%1'"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "&Iepenje mei '%1'"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Iepenje mei"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Iepenje mei"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

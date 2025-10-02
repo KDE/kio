@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-29 00:39+0000\n"
+"POT-Creation-Date: 2025-10-02 00:39+0000\n"
 "PO-Revision-Date: 2025-08-13 23:29-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -3492,7 +3492,7 @@ msgstr "Arquivos remotos não são aceitos"
 msgid "All Folders"
 msgstr "Todas as pastas"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
@@ -3935,7 +3935,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Iniciando %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:459
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5356,29 +5356,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Abrir com…"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Abrir pasta c&om %1"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "Abrir c&om %1"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Abrir pasta com"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Abrir com"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

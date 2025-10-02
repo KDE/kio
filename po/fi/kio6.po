@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-29 00:39+0000\n"
+"POT-Creation-Date: 2025-10-02 00:39+0000\n"
 "PO-Revision-Date: 2025-08-14 17:20+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3463,7 +3463,7 @@ msgstr "Etätiedostoja ei hyväksytä"
 msgid "All Folders"
 msgstr "Kaikki kansiot"
 
-#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:791
+#: filewidgets/kfilewidget.cpp:2168 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Avaa"
@@ -3905,7 +3905,7 @@ msgstr ""
 msgid "Launching %1"
 msgstr "Käynnistetään %1"
 
-#: gui/kprocessrunner.cpp:468
+#: gui/kprocessrunner.cpp:459
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5324,29 +5324,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "A&vaa ohjelmalla…"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Avaa &kansio ohjelmalla %1"
 
-#: widgets/kfileitemactions.cpp:780
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "A&vaa ohjelmalla %1"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Avaa &kansio ohjelmalla"
 
-#: widgets/kfileitemactions.cpp:821
+#: widgets/kfileitemactions.cpp:808
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "A&vaa ohjelmalla"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
