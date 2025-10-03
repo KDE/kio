@@ -3,22 +3,22 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2024 Vít Pelčák <vit@pelcak.org>
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011, 2012, 2013.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-02 00:39+0000\n"
-"PO-Revision-Date: 2024-10-09 09:33+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2025-10-01 17:44+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3347,7 +3347,7 @@ msgstr "Ponechat filtr při změně složek"
 #: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "Filter by name…"
-msgstr ""
+msgstr "Filtrovat podle názvu:"
 
 #: filewidgets/kfilewidget.cpp:1382
 #, kde-format
@@ -3600,13 +3600,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr ""
+msgstr "Složka s názvem <filename>%1</filename> již existuje."
 
 #: filewidgets/knewfilemenu.cpp:1378
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
-msgstr ""
+msgstr "Soubor s názvem <filename>%1</filename> již existuje."
 
 #: filewidgets/knewfilemenu.cpp:1464
 #, kde-format
@@ -3639,7 +3639,7 @@ msgstr "Vytvořit novou složku v %1:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr ""
+msgstr "Zadejte název složky"
 
 #: filewidgets/knewfilemenu.cpp:1630
 #, kde-format
@@ -3657,26 +3657,26 @@ msgstr "Vytvořit nový soubor"
 #: filewidgets/knewfilemenu_newfiledialog.ui:51
 #, kde-format
 msgid "Enter file name"
-msgstr ""
+msgstr "Zadejte název souboru"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:69
 #, kde-format
 msgid "Choose custom icon or color"
-msgstr ""
+msgstr "Zvolit vlastní ikonu či barvu"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr ""
+msgstr "Vyberte jinou ikonu…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:135
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Ikonu lze změnit i později ve vlastnostech složky."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -4885,47 +4885,47 @@ msgstr "Zn&ovu"
 #: widgets/fileundomanager.cpp:363
 #, kde-format
 msgid "&Redo: Copy"
-msgstr ""
+msgstr "Zn&ovu: Kopírování"
 
 #: widgets/fileundomanager.cpp:365
 #, kde-format
 msgid "&Redo: Link"
-msgstr ""
+msgstr "Zn&ovu: Odkázání"
 
 #: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo: Move"
-msgstr ""
+msgstr "Zn&ovu: Přesouvání"
 
 #: widgets/fileundomanager.cpp:369
 #, kde-format
 msgid "&Redo: Rename"
-msgstr ""
+msgstr "Zn&ovu: Přejmenování"
 
 #: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
-msgstr ""
+msgstr "Zn&ovu: Do koše"
 
 #: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Create Folder"
-msgstr ""
+msgstr "Zn&ovu: Vytvoření složky"
 
 #: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr ""
+msgstr "Zn&ovu: Vytvoření složky/ek"
 
 #: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Create File"
-msgstr ""
+msgstr "Zn&ovu: Vytvoření souboru"
 
 #: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
-msgstr ""
+msgstr "Zn&ovu: Dávkové přejmenování"
 
 #: widgets/fileundomanager.cpp:902
 #, kde-format
@@ -5358,7 +5358,7 @@ msgstr "Odkazuje na:"
 #: widgets/kfilepropspluginwidget.ui:361
 #, kde-format
 msgid "Show target"
-msgstr ""
+msgstr "Zobrazit cíl"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5971,7 +5971,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr ""
+msgstr "Zobrazit <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6938,39 +6938,39 @@ msgstr ""
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Přejmenovat vybranou položku:"
+msgstr[1] "Přejmenovat %1 vybrané položky:"
+msgstr[2] "Přejmenovat %1 vybraných položek:"
 
 #: widgets/renamefiledialog.cpp:314
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr ""
+msgstr "Nahrazovat:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Vzorek"
 
 #: widgets/renamefiledialog.cpp:320
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr ""
+msgstr "Za:"
 
 #: widgets/renamefiledialog.cpp:322
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr ""
+msgstr "Náhrada"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Žádný soubor neobsahuje daný vzorek."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -6985,33 +6985,33 @@ msgstr ""
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Přejmenovat vybranou položku:"
+msgstr[1] "Přejmenovat %1 vybrané položky:"
+msgstr[2] "Přejmenovat %1 vybraných položek:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Přidat text:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Text k přidání"
 
 #: widgets/renamefiledialog.cpp:414
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr ""
+msgstr "Před název souboru"
 
 #: widgets/renamefiledialog.cpp:415
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr ""
+msgstr "Za názvem souboru"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7035,31 +7035,31 @@ msgstr "Pře&jmenovat"
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr ""
+msgstr "Jak přejmenovat:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Sekvenčně"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr ""
+msgstr "Nahrazením textu"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Přidáním textu"
 
 #: widgets/renamefiledialog.cpp:567
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr ""
+msgstr "Náhled:"
 
 #: widgets/renamefiledialog.cpp:691
 #, kde-kuit-format
@@ -7295,135 +7295,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "Change Attribute"
-#~ msgstr "Změnit atribut"
-
-#~ msgid ""
-#~ "Root privileges are required to change file attributes. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Pro změnu atributu souboru je potřeba oprávnění uživatele root. Přejete "
-#~ "si pokračovat?"
-
-#~ msgid "Copy Files"
-#~ msgstr "Kopírovat soubory"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the copy operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Pro dokončení operace kopírování je potřeba oprávnění uživatele root. "
-#~ "Přejete si pokračovat?"
-
-#~ msgid "Delete Files"
-#~ msgstr "Smazat soubory"
-
-#~ msgid "Create Folder"
-#~ msgstr "Vytvořit složku"
-
-#~ msgid ""
-#~ "Root privileges are required to create this folder. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Pro vytvoření této složky je potřeba oprávnění uživatele root. Přejete si "
-#~ "pokračovat?"
-
-#~ msgid "Move Items"
-#~ msgstr "Přesunout položky"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the move operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Pro dokončení operace přesun je potřeba oprávnění uživatele root. Přejete "
-#~ "si pokračovat?"
-
-#~ msgid "Rename"
-#~ msgstr "Přejmenovat"
-
-#~ msgid ""
-#~ "Root privileges are required to complete renaming. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Pro dokončení operace přejmenování je potřeba oprávnění uživatele root. "
-#~ "Přejete si pokračovat?"
-
-#~ msgid ""
-#~ "Root privileges are required to create a symlink. Do you want to continue?"
-#~ msgstr ""
-#~ "Pro vytvoření symbolického odkazu je potřeba oprávnění uživatele root. "
-#~ "Přejete si pokračovat?"
-
-#~ msgid "Transfer data"
-#~ msgstr "Přenést data"
-
-#~ msgid ""
-#~ "Root privileges are required to complete transferring data. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Pro dokončení operace přenos dat je potřeba oprávnění uživatele root. "
-#~ "Přejete si pokračovat?"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Vrátit změny"
-
-#~ msgid ""
-#~ "Undoing this operation requires root privileges. Do you want to continue?"
-#~ msgstr ""
-#~ "Pro vrácení této operace je potřeba oprávnění uživatele root. Přejete si "
-#~ "pokračovat?"
-
-#~ msgid "Setting ACL for %1"
-#~ msgstr "Nastavování ACL pro %1"
-
-#~ msgid "Change File Permissions"
-#~ msgstr "Změnit oprávnění souboru"
-
-#~ msgid "New Permissions: %1"
-#~ msgstr "Nová oprávnění: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Změnit vlastníka souboru"
-
-#~ msgid "Remove File"
-#~ msgstr "Odstranit soubor"
-
-#~ msgid "Remove Directory"
-#~ msgstr "Odstranit adresář"
-
-#~ msgid "Create Directory"
-#~ msgstr "Vytvořit adresář"
-
-#~ msgid "Directory Permissions: %1"
-#~ msgstr "Oprávnění adresáře: %1"
-
-#~ msgid "Open File"
-#~ msgstr "Otevřít soubor"
-
-#~ msgid "Open Directory"
-#~ msgstr "Otevřít adresář"
-
-#~ msgid "New Filename: %1"
-#~ msgstr "Nový název souboru: %1"
-
-#~ msgid "Target: %1"
-#~ msgstr "Cíl: %1"
-
-#~ msgid "Change Timestamp"
-#~ msgstr "Změnit časové razítko"
-
-#~ msgid "From: %1, To: %2"
-#~ msgstr "Od: %1, Komu: %2"
-
-#~ msgid "Unknown Action"
-#~ msgstr "Neznámá činnost"
-
-#~ msgid ""
-#~ "Action: %1\n"
-#~ "Source: %2\n"
-#~ "%3"
-#~ msgstr ""
-#~ "Činnost: %1\n"
-#~ "Zdroj: %2\n"
-#~ "%3"
