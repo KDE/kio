@@ -38,6 +38,7 @@
 #include <KConfigGroup>
 #include <KJob>
 #include <KLocalizedString>
+#include <KProtocolInfo>
 #include <KSharedConfig>
 #include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
 #include <kdirnotify.h>
@@ -1199,6 +1200,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *newWindow = nullptr;
     QAction *highPriorityActionsPlaceholder = new QAction();
     QAction *properties = nullptr;
+    QAction *openRecentlyUsedSetting = nullptr;
 
     QAction *add = nullptr;
     QAction *edit = nullptr;
@@ -1208,6 +1210,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *hideSection = nullptr;
     QAction *showAll = nullptr;
     QMenu *iconSizeMenu = nullptr;
+
+    const bool hasRecentlyUsed = qEnvironmentVariableIsSet("KDE_FULL_SESSION") && KProtocolInfo::isKnownProtocol(QStringLiteral("recentlyused"));
 
     if (!clickOverEmptyArea) {
         if (placeUrl.scheme() == QLatin1String("trash")) {
@@ -1238,6 +1242,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             if (placesModel->setupNeeded(index)) {
                 mount = new QAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"), &menu);
             }
+        }
+
+        if (hasRecentlyUsed) {
+            openRecentlyUsedSetting = placesModel->openRecentOption(index);
         }
 
         // TODO What about active tab?
@@ -1315,6 +1323,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     addActionToMenu(newTab);
     addActionToMenu(newWindow);
     addActionToMenu(highPriorityActionsPlaceholder);
+    addActionToMenu(openRecentlyUsedSetting);
     addActionToMenu(properties);
     menu.addSeparator();
 
