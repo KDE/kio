@@ -1199,6 +1199,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *newWindow = nullptr;
     QAction *highPriorityActionsPlaceholder = new QAction();
     QAction *properties = nullptr;
+    QAction *openRecentlyUsedSetting = nullptr;
 
     QAction *add = nullptr;
     QAction *edit = nullptr;
@@ -1239,6 +1240,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                 mount = new QAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"), &menu);
             }
         }
+
+        openRecentlyUsedSetting = placesModel->openRecentOption(index);
 
         // TODO What about active tab?
         if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
@@ -1315,6 +1318,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     addActionToMenu(newTab);
     addActionToMenu(newWindow);
     addActionToMenu(highPriorityActionsPlaceholder);
+    addActionToMenu(openRecentlyUsedSetting);
     addActionToMenu(properties);
     menu.addSeparator();
 
