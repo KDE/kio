@@ -1331,6 +1331,24 @@ int KFilePlacesModel::hiddenCount() const
     return hidden;
 }
 
+QAction *KFilePlacesModel::openRecentOption(const QModelIndex &index) const
+{
+    const auto bookmark = bookmarkForIndex(index);
+
+    QAction *action = nullptr;
+
+    if (bookmark.url().scheme() == QStringLiteral("recentlyused")) {
+        action = new QAction(QIcon::fromTheme(QStringLiteral("settings-configure")), i18nc("@action:inmenu", "Configure…"), nullptr);
+
+        connect(action, &QAction::triggered, this, []() {
+            auto job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {QStringLiteral("kcm_recentFiles")});
+            job->start();
+        });
+    }
+
+    return action;
+}
+
 QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) const
 {
     Solid::Device device = deviceForIndex(index);

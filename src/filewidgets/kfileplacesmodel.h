@@ -239,6 +239,11 @@ public:
     Q_INVOKABLE QAction *teardownActionForIndex(const QModelIndex &index) const;
 
     /*!
+     * Returns a QAction to open the systemsettings recent documents kcm
+     */
+    Q_INVOKABLE QAction *openRecentOption(const QModelIndex &index) const;
+
+    /*!
      * Returns A QAction with a proper translated label that can be used to trigger the requestEject()
      * method for the place at index \a index.
      * \sa requestEject()
