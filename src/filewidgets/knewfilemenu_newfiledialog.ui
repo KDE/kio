@@ -47,14 +47,14 @@
      </item>
      <item alignment="Qt::AlignmentFlag::AlignVCenter">
       <widget class="QLineEdit" name="lineEdit">
-       <property name="placeholderText">
-        <string>Enter file name</string>
-       </property>
        <property name="minimumSize">
         <size>
          <width>400</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="placeholderText">
+        <string>Enter file name</string>
        </property>
        <property name="clearButtonEnabled">
         <bool>true</bool>
@@ -62,6 +62,16 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="KMessageWidget" name="messageWidget">
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="closeButtonVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="KCollapsibleGroupBox" name="chooseIconBox">
@@ -151,16 +161,6 @@
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="KMessageWidget" name="messageWidget">
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-     <property name="closeButtonVisible">
-      <bool>false</bool>
      </property>
     </widget>
    </item>
