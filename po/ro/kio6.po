@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:39+0000\n"
+"POT-Creation-Date: 2025-10-07 00:39+0000\n"
 "PO-Revision-Date: 2025-10-04 22:12+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -3746,26 +3746,26 @@ msgid "Create New File"
 msgstr "Creează fișier nou"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:51
+#: filewidgets/knewfilemenu_newfiledialog.ui:57
 #, kde-format
 msgid "Enter file name"
 msgstr "Introduceți denumirea fișierului"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:69
+#: filewidgets/knewfilemenu_newfiledialog.ui:79
 #, kde-format
 msgid "Choose custom icon or color"
 msgstr "Alege culoare sau pictogramă personalizată"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:119
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Alege altă pictogramă…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:135
+#: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr "Puteți schimba pictograma mai târziu în proprietățile dosarului."

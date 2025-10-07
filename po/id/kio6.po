@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:39+0000\n"
+"POT-Creation-Date: 2025-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -3764,7 +3764,7 @@ msgid "Create New File"
 msgstr "Ciptakan Tipe File Baru"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
-#: filewidgets/knewfilemenu_newfiledialog.ui:51
+#: filewidgets/knewfilemenu_newfiledialog.ui:57
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a Different Name"
@@ -3772,14 +3772,14 @@ msgid "Enter file name"
 msgstr "Masukkan sebuah Nama Berbeda"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
-#: filewidgets/knewfilemenu_newfiledialog.ui:69
+#: filewidgets/knewfilemenu_newfiledialog.ui:79
 #, fuzzy, kde-format
 #| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Pilihlah Aplikasi untuk %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
-#: filewidgets/knewfilemenu_newfiledialog.ui:119
+#: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, fuzzy, kde-format
 #| msgid "Choose an &icon:"
 msgctxt "@action:button"
@@ -3787,7 +3787,7 @@ msgid "Choose Other Icon…"
 msgstr "Pilihlah sebuah &ikon:"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
-#: filewidgets/knewfilemenu_newfiledialog.ui:135
+#: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
