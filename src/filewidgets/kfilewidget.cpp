@@ -273,6 +273,7 @@ public:
     bool m_inAccept = false; // true between beginning and end of accept()
     bool m_confirmOverwrite = false;
     bool m_differentHierarchyLevelItemsEntered = false;
+    bool m_allowEmptyLocationEdit = false;
 
     const std::array<short, 8> m_stdIconSizes = {
         KIconLoader::SizeSmall,
@@ -1313,7 +1314,11 @@ void KFileWidgetPrivate::initLocationWidget()
         clearAction->setVisible(m_locationEdit->lineEdit()->text().length() > 0);
     });
     q->connect(m_locationEdit->lineEdit(), &QLineEdit::textChanged, q, [this](const QString &text) {
-        m_okButton->setEnabled(!text.isEmpty());
+        if (!m_allowEmptyLocationEdit) {
+            m_okButton->setEnabled(!text.isEmpty());
+        } else {
+            m_okButton->setEnabled(true);
+        }
     });
 
     QAction *undoAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-undo")), i18nc("@info:tooltip", "Undo filename change"), m_locationEdit->lineEdit());
@@ -3027,6 +3032,23 @@ void KFileWidget::setSupportedSchemes(const QStringList &schemes)
 QStringList KFileWidget::supportedSchemes() const
 {
     return d->m_model->supportedSchemes();
+}
+
+void KFileWidget::setAllowOkWithEmptyLocationEdit(bool allow)
+{
+    d->m_allowEmptyLocationEdit = allow;
+}
+
+void KFileWidget::setLocationEditVisible(bool show)
+{
+    d->m_locationEdit->setVisible(show);
+    d->m_locationLabel->setVisible(show);
+}
+
+void KFileWidget::setFilterWidgetVisible(bool show)
+{
+    d->m_filterWidget->setVisible(show);
+    d->m_filterLabel->setVisible(show);
 }
 
 #include "moc_kfilewidget.cpp"

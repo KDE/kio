@@ -452,6 +452,29 @@ public:
      */
     QStringList supportedSchemes() const;
 
+    /*!
+     * If set true, the location edit field can be empty and still allow pressing OK.
+     * This can be useful in situations where KFileWidget is expected to work
+     * inside any location, like with Ark extraction dialog.
+     *
+     * \since 6.20
+     */
+    void setAllowOkWithEmptyLocationEdit(bool allow);
+
+    /*!
+     * Shows or hides the locationEdit and its label.
+     *
+     * \since 6.20
+     */
+    void setLocationEditVisible(bool show);
+
+    /*!
+     * Shows or hides the filterWidget and its label.
+     *
+     * \since 6.20
+     */
+    void setFilterWidgetVisible(bool show);
+
 public Q_SLOTS:
     /*!
      * Called when clicking ok (when this widget is used in KFileDialog)
