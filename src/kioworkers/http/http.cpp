@@ -566,6 +566,7 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
         QUrl newUrl = url;
         newUrl.setPath(newUrl.path() + QLatin1Char('/'));
+        reply->deleteLater();
         return makeRequest(newUrl, method, inputData, dataMode, extraHeaders);
     }
     if (inputData) {
