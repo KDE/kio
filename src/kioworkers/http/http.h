@@ -59,7 +59,7 @@ private:
     struct Response {
         int httpCode;
         QByteArray data;
-        int kioCode = 0;
+        int kioCode = KJob::NoError;
     };
 
     /*!
