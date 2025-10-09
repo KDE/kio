@@ -581,6 +581,29 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         data(QByteArray());
     });
 
+    const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    if (reply->error() != QNetworkReply::NoError && statusCode == 0) {
+        reply->deleteLater();
+
+        // anything not listed here gets KIO::ERR_CANNOT_CONNECT
+        static constexpr const std::pair<QNetworkReply::NetworkError, int> qnam2kio_errors[] = {
+            {QNetworkReply::HostNotFoundError, KIO::ERR_UNKNOWN_HOST},
+            {QNetworkReply::TimeoutError, KIO::ERR_SERVER_TIMEOUT},
+            {QNetworkReply::OperationCanceledError, KIO::ERR_USER_CANCELED},
+            {QNetworkReply::TemporaryNetworkFailureError, KIO::ERR_CONNECTION_BROKEN},
+            {QNetworkReply::NetworkSessionFailedError, KIO::ERR_CONNECTION_BROKEN},
+            {QNetworkReply::ProxyConnectionClosedError, KIO::ERR_CONNECTION_BROKEN},
+            {QNetworkReply::ProxyNotFoundError, KIO::ERR_UNKNOWN_PROXY_HOST},
+            {QNetworkReply::ProxyTimeoutError, KIO::ERR_SERVER_TIMEOUT},
+            {QNetworkReply::ProtocolUnknownError, KIO::ERR_UNSUPPORTED_PROTOCOL},
+        };
+
+        const auto it = std::ranges::find_if(qnam2kio_errors, [reply](const auto &m) {
+            return m.first == reply->error();
+        });
+
+        return {0, QByteArray(), it != std::end(qnam2kio_errors) ? (*it).second : KIO::ERR_CANNOT_CONNECT};
+    }
     if (reply->error() == QNetworkReply::AuthenticationRequiredError) {
         reply->deleteLater();
         return {0, QByteArray(), KIO::ERR_ACCESS_DENIED};
@@ -602,8 +625,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     if (dataMode == Return) {
         returnData = reply->readAll();
     }
-
-    int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
     setMetaData(QStringLiteral("responsecode"), QString::number(statusCode));
     setMetaData(QStringLiteral("content-type"), readMimeType(reply));
