@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-07 00:39+0000\n"
-"PO-Revision-Date: 2025-07-21 01:09+0200\n"
+"PO-Revision-Date: 2025-10-09 00:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -4781,9 +4781,7 @@ msgid "Destination"
 msgstr "대상"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "복사 중"
 
@@ -4798,10 +4796,9 @@ msgid "Renaming"
 msgstr "이름 바꾸는 중"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "휴지통으로 이동"
+msgstr "휴지통으로 이동 중"
 
 #: widgets/fileundomanager.cpp:152
 #, kde-format
@@ -4831,12 +4828,12 @@ msgstr "실행 취소: 이동(&O)"
 #: widgets/fileundomanager.cpp:338
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "실행 취소: 이름 변경(&O)"
+msgstr "실행 취소: 이름 바꾸기(&O)"
 
 #: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "실행 취소: 휴지통에 버리기(&O)"
+msgstr "실행 취소: 휴지통으로 이동(&O)"
 
 #: widgets/fileundomanager.cpp:342
 #, kde-format
@@ -4856,66 +4853,57 @@ msgstr "실행 취소: 파일 생성(&O)"
 #: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "실행 취소: 일괄 이름 변경(&O)"
+msgstr "실행 취소: 일괄 이름 바꾸기(&O)"
 
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "다시 실행(&R)"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "실행 취소: 복사(&O)"
+msgstr "다시 실행: 복사(&R)"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "실행 취소: 링크 걸기(&O)"
+msgstr "다시 실행: 링크 걸기(&R)"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "실행 취소: 이동(&O)"
+msgstr "다시 실행: 이동(&R)"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "실행 취소: 이름 변경(&O)"
+msgstr "다시 실행: 이름 바꾸기(&R)"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "실행 취소: 휴지통에 버리기(&O)"
+msgstr "다시 실행: 휴지통으로 이동(&R)"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "실행 취소: 폴더 생성(&O)"
+msgstr "다시 실행: 폴더 만들기(&R)"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "실행 취소: 폴더 생성(&O)"
+msgstr "다시 실행: 폴더 만들기(&R)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "실행 취소: 파일 생성(&O)"
+msgstr "다시 실행: 파일 만들기(&R)"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "실행 취소: 일괄 이름 변경(&O)"
+msgstr "다시 실행: 일괄 이름 바꾸기(&R)"
 
 #: widgets/fileundomanager.cpp:902
 #, kde-format
@@ -6112,7 +6100,7 @@ msgstr "파일의 소유자 또는 그룹에 속하지 않은 모든 사용자�
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
 msgid "Only own&er can delete or rename contents"
-msgstr "소유자만 내용 삭제 및 이름 변경 가능(&E)"
+msgstr "소유자만 내용 삭제 및 이름 바꾸기 가능(&E)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
@@ -6223,8 +6211,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"이 플래그를 사용하면 파일 추가, 이름 변경 및 삭제를 허용합니다. 스티키 플래그"
-"를 사용하여 삭제 및 이름 변경을 제한할 수 있습니다."
+"이 플래그를 사용하면 파일 추가, 이름 바꾸기 및 삭제를 허용합니다. 스티키 플래"
+"그를 사용하여 삭제 및 이름 바꾸기를 제한할 수 있습니다."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
@@ -6700,7 +6688,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "&Rename"
-msgstr "이름 변경(&R)"
+msgstr "이름 바꾸기(&R)"
 
 #: widgets/renamedialog.cpp:244
 #, kde-format
