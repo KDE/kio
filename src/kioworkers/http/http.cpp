@@ -1633,13 +1633,12 @@ static int httpPutError(const QUrl &url, int responseCode, QString *errorString)
 
 KIO::WorkerResult HTTPProtocol::sendHttpError(const QUrl &url, KIO::HTTP_METHOD method, const HTTPProtocol::Response &response)
 {
-    QString errorString;
-    int errorCode = 0;
-
-    if (response.kioCode == KIO::ERR_ACCESS_DENIED) {
+    if (response.kioCode != KJob::NoError) {
         return KIO::WorkerResult::fail(response.kioCode, url.toDisplayString());
     }
 
+    QString errorString;
+    int errorCode = KJob::NoError;
     int responseCode = response.httpCode;
 
     if (method == KIO::HTTP_PUT) {
