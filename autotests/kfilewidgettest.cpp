@@ -1067,7 +1067,7 @@ void KFileWidgetTest::testSaveDirectoryCurrentDirSelectableSubDir()
     QVERIFY(fw.okButton()->isEnabled());
     fw.dirOperator()->highlightFile(KFileItem{subDirUrl});
     QCOMPARE(fw.locationEdit()->currentText(), subDirUrl.fileName());
-    fw.slotOk(); // Enter the selected Dir
+    fw.slotOk(); // Accept the selected Dir
     fw.accept(); // Accept the popup
 
     // THEN
