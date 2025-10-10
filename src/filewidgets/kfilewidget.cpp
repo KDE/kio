@@ -391,6 +391,14 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     connect(d->m_urlNavigator, &KUrlNavigator::urlChanged, this, [this](const QUrl &url) {
         d->enterUrl(url);
+        if (d->m_currentDirSelectable) {
+            const auto dir = QDir(url.path()).dirName();
+            if (!dir.isEmpty()) {
+                d->m_locationEdit->lineEdit()->setPlaceholderText(i18n("Current Directory: %1", dir));
+            } else {
+                d->m_locationEdit->lineEdit()->setPlaceholderText(QString());
+            }
+        }
     });
     connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
 
