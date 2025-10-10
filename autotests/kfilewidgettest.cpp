@@ -1029,7 +1029,6 @@ void KFileWidgetTest::testSaveDirectoryCurrentDirSelectable()
     KFileWidget fw(baseUrl);
     fw.setOperationMode(KFileWidget::OperationMode::Saving);
     fw.setMode(KFile::Directory);
-    fw.setCurrentDirSelectable(true);
 
     QSignalSpy acceptedSpy(&fw, &KFileWidget::accepted);
 
@@ -1058,7 +1057,6 @@ void KFileWidgetTest::testSaveDirectoryCurrentDirSelectableSubDir()
     KFileWidget fw(baseUrl);
     fw.setOperationMode(KFileWidget::OperationMode::Saving);
     fw.setMode(KFile::Directory);
-    fw.setCurrentDirSelectable(true);
 
     QSignalSpy acceptedSpy(&fw, &KFileWidget::accepted);
     QSignalSpy urlEnteredSpy(fw.dirOperator(), &KDirOperator::urlEntered);
