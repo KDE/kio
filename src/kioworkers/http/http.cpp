@@ -461,6 +461,9 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     }
 
     QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
+    const auto replyDeleter = qScopeGuard([reply] {
+        reply->deleteLater();
+    });
 
     bool mimeTypeEmitted = false;
 
@@ -566,7 +569,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
         QUrl newUrl = url;
         newUrl.setPath(newUrl.path() + QLatin1Char('/'));
-        reply->deleteLater();
         return makeRequest(newUrl, method, inputData, dataMode, extraHeaders);
     }
     if (inputData) {
@@ -583,8 +585,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
     const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (reply->error() != QNetworkReply::NoError && statusCode == 0) {
-        reply->deleteLater();
-
         // anything not listed here gets KIO::ERR_CANNOT_CONNECT
         static constexpr const std::pair<QNetworkReply::NetworkError, int> qnam2kio_errors[] = {
             {QNetworkReply::HostNotFoundError, KIO::ERR_UNKNOWN_HOST},
@@ -605,7 +605,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         return {0, QByteArray(), it != std::end(qnam2kio_errors) ? (*it).second : KIO::ERR_CANNOT_CONNECT};
     }
     if (reply->error() == QNetworkReply::AuthenticationRequiredError) {
-        reply->deleteLater();
         return {0, QByteArray(), KIO::ERR_ACCESS_DENIED};
     }
 
@@ -628,8 +627,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
     setMetaData(QStringLiteral("responsecode"), QString::number(statusCode));
     setMetaData(QStringLiteral("content-type"), readMimeType(reply));
-
-    reply->deleteLater();
 
     return {statusCode, returnData};
 }
