@@ -428,6 +428,8 @@ public:
      */
     void setIcon(const QIcon &icon);
 
+    void showMessageWidget();
+
     QAction *m_newFolderShortcutAction = nullptr;
     QAction *m_newFileShortcutAction = nullptr;
 
@@ -547,6 +549,13 @@ void KNewFileMenuPrivate::setIcon(const QIcon &icon)
         m_iconLabel->setPixmap(icon.pixmap(iconSize, m_fileDialog->devicePixelRatioF()));
     }
     m_iconLabel->setVisible(!icon.isNull());
+}
+
+void KNewFileMenuPrivate::showMessageWidget()
+{
+    if (!m_messageWidget->isVisible()) {
+        m_messageWidget->animatedShow();
+    }
 }
 
 bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
@@ -1125,7 +1134,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         m_messageWidget->setText(
             xi18nc("@info", "The name <filename>%1</filename> cannot be used because it is reserved for use by the operating system.", text));
         m_messageWidget->setMessageType(KMessageWidget::Error);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 
@@ -1133,7 +1142,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     else if (text.startsWith(QLatin1Char('.'))) {
         m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a dot, so it will be hidden by default.", text));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
     }
 
     // File or folder begins with a space; show warning
@@ -1143,7 +1152,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
                                         "sorting alphabetically, among other potential oddities.",
                                         text));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
     }
 #ifndef Q_OS_WIN
     // Inform the user that slashes in folder names create a directory tree
@@ -1175,7 +1184,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
             }
             m_messageWidget->setText(label);
             m_messageWidget->setMessageType(KMessageWidget::Information);
-            m_messageWidget->animatedShow();
+            showMessageWidget();
         }
     }
 #endif
@@ -1185,12 +1194,12 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     else if (text.contains(QLatin1Char('/'))) {
         m_messageWidget->setText(i18n("Slashes cannot be used in file and folder names."));
         m_messageWidget->setMessageType(KMessageWidget::Error);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     } else if (text.contains(QLatin1Char('\\'))) {
         m_messageWidget->setText(i18n("Backslashes cannot be used in file and folder names."));
         m_messageWidget->setMessageType(KMessageWidget::Error);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 #endif
@@ -1206,7 +1215,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
                        text,
                        KShell::tildeExpand(text)));
             m_messageWidget->setMessageType(KMessageWidget::Error);
-            m_messageWidget->animatedShow();
+            showMessageWidget();
             m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
         } else {
 #endif
@@ -1214,13 +1223,11 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
                 "Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete "
                 "things."));
             m_messageWidget->setMessageType(KMessageWidget::Warning);
-            m_messageWidget->animatedShow();
+            showMessageWidget();
 #ifndef Q_OS_WIN
             m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
         }
 #endif
-    } else {
-        m_messageWidget->hide();
     }
 
     if (!text.isEmpty()) {
@@ -1237,6 +1244,8 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
             _k_slotStatResult(job);
         });
         job->start();
+    } else {
+        m_messageWidget->hide();
     }
 
     m_text = text;
@@ -1264,6 +1273,7 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
     m_acceptedPressed = false;
     auto error = job->error();
     if (error) {
+        m_messageWidget->hide();
         if (error == KIO::ERR_DOES_NOT_EXIST) {
             // fine for file creation
             if (accepted) {
@@ -1288,7 +1298,7 @@ void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
             m_messageWidget->setText(xi18nc("@info", "A file with name <filename>%1</filename> already exists.", m_text));
         }
         m_messageWidget->setMessageType(messageType);
-        m_messageWidget->animatedShow();
+        showMessageWidget();
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(shouldEnable);
 
         if (accepted && shouldEnable) {
