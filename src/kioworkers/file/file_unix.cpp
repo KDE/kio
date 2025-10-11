@@ -911,7 +911,10 @@ WorkerResult FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::
             // src was removed, TOCTOU case
             return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
         } else {
-            return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
+            char *error = strerror(errno);
+            QString message = src + QStringLiteral(" (") + QString::fromLatin1(error, strlen(error)) + QStringLiteral(")");
+
+            return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, message);
         }
     }
 
