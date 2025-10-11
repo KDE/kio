@@ -907,6 +907,9 @@ WorkerResult FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::
             return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
         } else if (errno == EROFS) { // The file is on a read-only filesystem
             return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
+        } else if (errno == ENOENT) {
+            // src was removed, TOCTOU case
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
         } else {
             return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
         }
