@@ -564,7 +564,7 @@ void KRecentDocument::removeFile(const QUrl &url)
 
     auto xbelTags = document.elementsByTagName(xbelTag);
     if (xbelTags.length() != 1) {
-        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel elememt";
+        qCWarning(KIO_CORE) << "Invalid Xbel file, missing xbel element";
         return;
     }
     auto xbelElement = xbelTags.item(0);

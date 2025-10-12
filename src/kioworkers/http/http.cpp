@@ -151,7 +151,7 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
 
     const QList<QSslError> fatalErrors = KSslCertificateManager::nonIgnorableErrors(sslErrors);
     if (!fatalErrors.isEmpty()) {
-        qCWarning(KIOHTTP_LOG) << "SSL errors that cannot be ignored occured" << fatalErrors;
+        qCWarning(KIOHTTP_LOG) << "SSL errors that cannot be ignored occurred" << fatalErrors;
         Q_EMIT errorOut(KIO::ERR_CANNOT_CONNECT);
         return;
     }

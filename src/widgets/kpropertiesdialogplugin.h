@@ -48,7 +48,7 @@ class KIOWIDGETS_EXPORT KPropertiesDialogPlugin : public QObject
     Q_OBJECT
 public:
     /*!
-     * Constructor whos parent will be cast to KPropertiesDialog
+     * Constructor whose parent will be cast to KPropertiesDialog
      * To insert tabs into the properties dialog, use the add methods provided by
      * KPageDialog (the properties dialog is a KPageDialog).
      */

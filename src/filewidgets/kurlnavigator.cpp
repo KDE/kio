@@ -81,7 +81,7 @@ public:
     void applyUncommittedUrl(ApplyUrlMethod method);
     void slotApplyUrl(QUrl url);
 
-    // Returns the URI if "text" matched a URI filter (i.e. was fitlered),
+    // Returns the URI if "text" matched a URI filter (i.e. was filtered),
     // otherwise returns nullopt.
     std::optional<QUrl> checkFilters(const QString &text);
 

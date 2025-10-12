@@ -34,7 +34,7 @@ QList<QAction *> DropIntoNewFolderPlugin::setup(const KFileItemListProperties &f
     if (!destination.isLocalFile()) {
         return actionList;
     }
-    // need to check write acccess to dest and m_urls
+    // need to check write access to dest and m_urls
     bool allowed = fileItemProps.supportsMoving();
 
     if (allowed) {

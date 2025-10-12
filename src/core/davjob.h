@@ -43,7 +43,7 @@ class KIOCORE_EXPORT DavJob : public TransferJob
     Q_OBJECT
 public:
     /*!
-     * Returns the reponse data.
+     * Returns the response data.
      * \since 5.86
      */
     QByteArray responseData() const;

@@ -89,7 +89,7 @@ void KFileItemTest::testPermissionsString()
              CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Empty document, Link to %1/afile)").arg(tempDir.path())));
 
 #ifdef Q_OS_UNIX
-    // changing home temporarly
+    // changing home temporarily
     auto home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
     setenv("HOME", tempDir.path().toLatin1(), 1);
 

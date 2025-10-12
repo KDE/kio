@@ -68,9 +68,9 @@ static constexpr int s_kioFuseMountTimeout = 10000;
  * we just get the next item in the sequence and return that result.
  *
  * If we're not sequencing, first we try to pull the thumbnail from the cache.
- * If that is succesful, we just return the file and end the job.
+ * If that is successful, we just return the file and end the job.
  *
- * If not succesful, it's likely we do not have thumbnail for this item, so
+ * If not successful, it's likely we do not have thumbnail for this item, so
  * we generate one, either by using thumbnailerPlugin or standardThumbnailer.
  *
  * We then return the result, whatever it may be.

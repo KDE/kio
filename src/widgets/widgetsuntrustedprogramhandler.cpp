@@ -96,7 +96,7 @@ protected:
         m_textEdit->setMinimumSize(curRect.size() + fudge);
         m_textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        // Mimicks a message box
+        // Mimics a message box
         KMessageDialog::beep(KMessageDialog::WarningContinueCancel, text, this);
     }
 

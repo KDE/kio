@@ -88,7 +88,7 @@ public:
     /*!
      * Whether the filter is valid.
      *
-     * Creating a filter from an invalid/unkown MIME type will result in an invalid filter.
+     * Creating a filter from an invalid/unknown MIME type will result in an invalid filter.
      *
      * \since 6.0
      */

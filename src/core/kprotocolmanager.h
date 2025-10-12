@@ -401,7 +401,7 @@ public:
     static QString charsetFor(const QUrl &url);
 
     /*!
-     * Returns whether the protocol suppports KIO/POSIX permissions handling.
+     * Returns whether the protocol supports KIO/POSIX permissions handling.
      *
      * When this is false the Permissions properties tab may be hidden, for example. The protocol may still support
      * permission control through other means, specific to the individual KIO worker.

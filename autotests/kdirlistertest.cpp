@@ -1687,7 +1687,7 @@ void KDirListerTest::testBug386763()
 
     // Create a file in 'newsubdir' while still opened in dirLister2
     // bug was that the watch on ’newsubdir’ when dirLister left this dir
-    // eventhough dirLister2 is still listing it
+    // even though dirLister2 is still listing it
     QCOMPARE(dirLister2.spyCompleted.count(), 1);
     createTestFile(path + "newFile-1");
 

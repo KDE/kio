@@ -42,7 +42,7 @@ class KIOGUI_EXPORT ThumbnailRequest
 {
 public:
     /*!
-     * Contruct a new ThumbnailRequest for a given file.
+     * Construct a new ThumbnailRequest for a given file.
      *
      * \a url URL of the relevant file.
      *

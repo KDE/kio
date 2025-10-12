@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <suppressions>
 <suppress>
-<!-- d_func() in hierachies -->
+<!-- d_func() in hierarchies -->
 <id>duplInheritedMember</id>
 <fileName>src/*</fileName>
 <symbolName>d_func</symbolName>

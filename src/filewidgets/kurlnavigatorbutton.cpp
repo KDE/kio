@@ -674,7 +674,7 @@ bool KUrlNavigatorButton::isAboveSeparator(int x) const
 
 bool KUrlNavigatorButton::isTextClipped() const
 {
-    // Ignore padding when resizing, so text doesnt go under it
+    // Ignore padding when resizing, so text doesn't go under it
     int availableWidth = width() - arrowWidth() - m_padding;
 
     return textWidth() >= availableWidth;

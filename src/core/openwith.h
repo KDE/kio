@@ -37,7 +37,7 @@ public:
          */
         bool accept;
         /*!
-         * The error message if the acccept failed
+         * The error message if the accept failed
          */
         QString error;
         /*!
