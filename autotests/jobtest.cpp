@@ -41,6 +41,9 @@
 #include <QUrl>
 #include <QVariant>
 
+#include <source_location>
+#include <string_view>
+
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
@@ -158,7 +161,7 @@ void JobTest::enterLoop()
 void JobTest::storedGet()
 {
     // qDebug();
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     QUrl u = QUrl::fromLocalFile(filePath);
     m_result = -1;
@@ -185,7 +188,7 @@ void JobTest::slotGetResult(KJob *job)
 
 void JobTest::put()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     QUrl u = QUrl::fromLocalFile(filePath);
     KIO::TransferJob *job = KIO::put(u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
@@ -208,11 +211,11 @@ void JobTest::put()
 
 void JobTest::putPermissionKept()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     QVERIFY2(::chmod(filePath.toUtf8(), 0644) == 0, strerror(errno));
 
-    QUrl u = QUrl::fromLocalFile(filePath);
-    KIO::TransferJob *job = KIO::put(u, -1, KIO::Overwrite | KIO::HideProgressInfo);
+    QUrl url = QUrl::fromLocalFile(filePath);
+    KIO::TransferJob *job = KIO::put(url, -1, KIO::Overwrite | KIO::HideProgressInfo);
     quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
     QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
@@ -255,7 +258,7 @@ void JobTest::slotResult(KJob *job)
 
 void JobTest::storedPut()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     QUrl u = QUrl::fromLocalFile(filePath);
     QByteArray putData = "This is the put data";
     KIO::TransferJob *job = KIO::storedPut(putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
@@ -277,7 +280,7 @@ void JobTest::storedPut()
 
 void JobTest::storedPutIODevice()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     QBuffer putData;
     putData.setData("This is the put data");
     QVERIFY(putData.open(QIODevice::ReadOnly));
@@ -301,12 +304,12 @@ void JobTest::storedPutIODevice()
 void JobTest::storedPutIODeviceFile()
 {
     // Given a source file and a destination file
-    const QString src = homeTmpDir() + "fileFromHome";
+    const QString src = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(src);
     QVERIFY(QFile::exists(src));
     QFile srcFile(src);
     QVERIFY(srcFile.open(QIODevice::ReadOnly));
-    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    const QString dest = homeTmpDir() + "fileFromHome_copied" + std::source_location::current().function_name();
     QFile::remove(dest);
     const QUrl destUrl = QUrl::fromLocalFile(dest);
 
@@ -349,7 +352,7 @@ void JobTest::storedPutIODeviceTempFile()
 
 void JobTest::storedPutIODeviceFastDevice()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QByteArray putDataContents = "This is the put data";
     QBuffer putDataBuffer;
@@ -386,7 +389,7 @@ void JobTest::storedPutIODeviceFastDevice()
 
 void JobTest::storedPutIODeviceSlowDevice()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QByteArray putDataContents = "This is the put data";
     QBuffer putDataBuffer;
@@ -432,7 +435,7 @@ void JobTest::storedPutIODeviceSlowDevice()
 
 void JobTest::storedPutIODeviceSlowDeviceBigChunk()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QByteArray putDataContents(300000, 'K'); // Make sure the 300000 is bigger than MAX_READ_BUF_SIZE
     QBuffer putDataBuffer;
@@ -477,7 +480,7 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
 
 void JobTest::asyncStoredPutReadyReadAfterFinish()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QUrl u = QUrl::fromLocalFile(filePath);
 
     QBuffer putDataBuffer;
@@ -780,8 +783,8 @@ static void copyLocalSymlink(const QString &src, const QString &dest, const QStr
 void JobTest::copyFileToSamePartition()
 {
     const QString homeDir = homeTmpDir();
-    const QString filePath = homeDir + "fileFromHome";
-    const QString dest = homeDir + "fileFromHome_copied";
+    const QString filePath = homeDir + "fileFromHome" + std::source_location::current().function_name();
+    const QString dest = homeDir + "fileFromHome_copied" + std::source_location::current().function_name();
     createTestFile(filePath);
     if (checkXattrFsSupport(homeDir)) {
         setXattr(filePath);
@@ -792,8 +795,8 @@ void JobTest::copyFileToSamePartition()
 void JobTest::copyDirectoryToSamePartition()
 {
     // qDebug();
-    const QString src = homeTmpDir() + "dirFromHome";
-    const QString dest = homeTmpDir() + "dirFromHome_copied";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
+    const QString dest = homeTmpDir() + "dirFromHome_copied + std::source_location::current().function_name()";
     createTestDirectory(src);
     copyLocalDirectory(src, dest);
 }
@@ -803,8 +806,8 @@ void JobTest::copyDirectoryToExistingDirectory()
     // qDebug();
     // just the same as copyDirectoryToSamePartition, but this time dest exists.
     // So we get a subdir, "dirFromHome_copy/dirFromHome"
-    const QString src = homeTmpDir() + "dirFromHome";
-    const QString dest = homeTmpDir() + "dirFromHome_copied";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
+    const QString dest = homeTmpDir() + "dirFromHome_copied + std::source_location::current().function_name()";
     createTestDirectory(src);
     createTestDirectory(dest);
     copyLocalDirectory(src, dest, AlreadyExists);
@@ -816,7 +819,7 @@ void JobTest::copyDirectoryToExistingSymlinkedDirectory()
     // just the same as copyDirectoryToSamePartition, but this time dest is a symlink.
     // So we get a file in the symlink dir, "dirFromHome_symlink/dirFromHome" and
     // "dirFromHome_symOrigin/dirFromHome"
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     const QString origSymlink = homeTmpDir() + "dirFromHome_symOrigin";
     const QString targetSymlink = homeTmpDir() + "dirFromHome_symlink";
     createTestDirectory(src);
@@ -848,7 +851,7 @@ void JobTest::copyFileToOtherPartition()
     // qDebug();
     const QString homeDir = homeTmpDir();
     const QString otherHomeDir = otherTmpDir();
-    const QString filePath = homeDir + "fileFromHome";
+    const QString filePath = homeDir + "fileFromHome" + std::source_location::current().function_name();
     const QString dest = otherHomeDir + "fileFromHome_copied";
     bool canRead = checkXattrFsSupport(homeDir);
     bool canWrite = checkXattrFsSupport(otherHomeDir);
@@ -865,7 +868,7 @@ void JobTest::testCopyFilePermissionsToSamePartition()
 {
 #if defined(Q_OS_UNIX)
     const QString homeDir = homeTmpDir();
-    const QString src = homeDir + "fileFromHome";
+    const QString src = homeDir + "fileFromHome" + std::source_location::current().function_name();
     const QUrl u = QUrl::fromLocalFile(src);
     createTestFile(src);
 
@@ -923,7 +926,7 @@ void JobTest::testCopyFilePermissionsToSamePartition()
 void JobTest::copyDirectoryToOtherPartition()
 {
     // qDebug();
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     const QString dest = otherTmpDir() + "dirFromHome_copied";
     createTestDirectory(src);
     copyLocalDirectory(src, dest);
@@ -934,8 +937,8 @@ void JobTest::copyRelativeSymlinkToSamePartition() // #352927
 #ifdef Q_OS_WIN
     QSKIP("Skipping symlink test on Windows");
 #else
-    const QString filePath = homeTmpDir() + "testlink";
-    const QString dest = homeTmpDir() + "testlink_copied";
+    const QString filePath = homeTmpDir() + "testlink" + std::source_location::current().function_name();
+    const QString dest = homeTmpDir() + "testlink_copied" + std::source_location::current().function_name();
     createTestSymlink(filePath, "relative");
     copyLocalSymlink(filePath, dest, QStringLiteral("relative"));
     QFile::remove(filePath);
@@ -947,8 +950,8 @@ void JobTest::copyAbsoluteSymlinkToOtherPartition()
 #ifdef Q_OS_WIN
     QSKIP("Skipping symlink test on Windows");
 #else
-    const QString filePath = homeTmpDir() + "testlink";
-    const QString dest = otherTmpDir() + "testlink_copied";
+    const QString filePath = homeTmpDir() + "testlink" + std::source_location::current().function_name();
+    const QString dest = otherTmpDir() + "testlink_copied" + std::source_location::current().function_name();
     createTestSymlink(filePath, QFile::encodeName(homeTmpDir()));
     copyLocalSymlink(filePath, dest, homeTmpDir());
     QFile::remove(filePath);
@@ -1026,8 +1029,8 @@ void JobTest::copyDataUrl()
 
 void JobTest::suspendFileCopy()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
-    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
+    const QString dest = homeTmpDir() + "fileFromHome_copied" + std::source_location::current().function_name();
     createTestFile(filePath);
 
     const QUrl u = QUrl::fromLocalFile(filePath);
@@ -1046,8 +1049,8 @@ void JobTest::suspendFileCopy()
 
 void JobTest::suspendCopy()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
-    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
+    const QString dest = homeTmpDir() + "fileFromHome_copied" + std::source_location::current().function_name();
     createTestFile(filePath);
 
     const QUrl u = QUrl::fromLocalFile(filePath);
@@ -1139,7 +1142,7 @@ void JobTest::moveLocalDirectory(const QString &src, const QString &dest)
 void JobTest::moveFileToSamePartition()
 {
     qDebug();
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QString dest = homeTmpDir() + "fileFromHome_moved";
     createTestFile(filePath);
     moveLocalFile(filePath, dest);
@@ -1148,7 +1151,7 @@ void JobTest::moveFileToSamePartition()
 void JobTest::moveDirectoryToSamePartition()
 {
     qDebug();
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     const QString dest = homeTmpDir() + "dirFromHome_moved";
     createTestDirectory(src);
     moveLocalDirectory(src, dest);
@@ -1157,7 +1160,7 @@ void JobTest::moveDirectoryToSamePartition()
 void JobTest::moveDirectoryIntoItself()
 {
     qDebug();
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     const QString dest = src + "/foo";
     createTestDirectory(src);
     QVERIFY(QFile::exists(src));
@@ -1173,7 +1176,7 @@ void JobTest::moveDirectoryIntoItself()
 void JobTest::moveFileToOtherPartition()
 {
     qDebug();
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     const QString dest = otherTmpDir() + "fileFromHome_moved";
     createTestFile(filePath);
     moveLocalFile(filePath, dest);
@@ -1183,7 +1186,7 @@ void JobTest::moveSymlinkToOtherPartition()
 {
 #ifndef Q_OS_WIN
     qDebug();
-    const QString filePath = homeTmpDir() + "testlink";
+    const QString filePath = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     const QString dest = otherTmpDir() + "testlink_moved";
     createTestSymlink(filePath);
     moveLocalSymlink(filePath, dest);
@@ -1194,7 +1197,7 @@ void JobTest::moveDirectoryToOtherPartition()
 {
     qDebug();
 #ifndef Q_OS_WIN
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     const QString dest = otherTmpDir() + "dirFromHome_moved";
     createTestDirectory(src);
     moveLocalDirectory(src, dest);
@@ -1424,7 +1427,7 @@ void JobTest::multipleListRecursive()
 
 void JobTest::listFile()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     KIO::ListJob *job = KIO::listDir(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -1592,7 +1595,7 @@ void JobTest::deleteSymlink(bool using_fast_path)
     kio_resolve_local_urls = !using_fast_path;
 
 #ifndef Q_OS_WIN
-    const QString src = homeTmpDir() + "dirFromHome";
+    const QString src = homeTmpDir() + "dirFromHome" + std::source_location::current().function_name();
     createTestDirectory(src);
     QVERIFY(QFile::exists(src));
     const QString dest = homeTmpDir() + "/dirFromHome_link";
@@ -1740,7 +1743,7 @@ void JobTest::rmdirNotEmpty()
 void JobTest::stat()
 {
 #if 1
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
     KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
@@ -1795,7 +1798,7 @@ void JobTest::stat()
 
 void JobTest::statDetailsBasic()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
     KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
@@ -1833,7 +1836,7 @@ void JobTest::statDetailsBasic()
 
 void JobTest::statDetailsBasicSetDetails()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
     KIO::StatJob *job = KIO::stat(url);
@@ -1872,7 +1875,7 @@ void JobTest::statDetailsBasicSetDetails()
 
 void JobTest::statWithInode()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
     KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatInode);
@@ -1912,7 +1915,7 @@ void JobTest::statWithInode()
 #ifndef Q_OS_WIN
 void JobTest::statSymlink()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     const QString symlink = otherTmpDir() + "link";
     QVERIFY(QFile(filePath).link(symlink));
@@ -2013,7 +2016,7 @@ void JobTest::statTimeResolution()
 
 void JobTest::mostLocalUrl()
 {
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     KIO::StatJob *job = KIO::mostLocalUrl(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
@@ -2098,7 +2101,7 @@ void JobTest::chmodFileError()
 void JobTest::mimeType()
 {
 #if 1
-    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString filePath = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(filePath);
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
@@ -2145,13 +2148,13 @@ void JobTest::moveFileDestAlreadyExists() // #157601
 {
     QFETCH(bool, autoSkip);
 
-    const QString file1 = homeTmpDir() + "fileFromHome";
+    const QString file1 = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(file1);
     const QString file2 = homeTmpDir() + "fileFromHome2";
     createTestFile(file2);
     const QString file3 = homeTmpDir() + "anotherFile";
     createTestFile(file3);
-    const QString existingDest = otherTmpDir() + "fileFromHome";
+    const QString existingDest = otherTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(existingDest);
     const QString existingDest2 = otherTmpDir() + "fileFromHome2";
     createTestFile(existingDest2);
@@ -2208,11 +2211,11 @@ static void simulatePressingSkip(KJob *job)
 void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
 {
     QFETCH(bool, autoSkip);
-    const QString file1 = homeTmpDir() + "fileFromHome";
+    const QString file1 = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(file1);
     const QString file2 = homeTmpDir() + "anotherFile";
     createTestFile(file2);
-    const QString existingDest = otherTmpDir() + "fileFromHome";
+    const QString existingDest = otherTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(existingDest);
 
     ScopedCleaner cleaner([] {
@@ -2633,9 +2636,9 @@ void JobTest::overwriteOlderFiles()
 
 void JobTest::moveAndOverwrite()
 {
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
-    QString existingDest = otherTmpDir() + "fileFromHome";
+    QString existingDest = otherTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(existingDest);
 
     KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(existingDest), -1, KIO::HideProgressInfo | KIO::Overwrite);
@@ -2677,9 +2680,9 @@ void JobTest::moveAndOverwrite()
 void JobTest::moveOverSymlinkToSelf() // #169547
 {
 #ifndef Q_OS_WIN
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
-    const QString existingDest = homeTmpDir() + "testlink";
+    const QString existingDest = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     createTestSymlink(existingDest, QFile::encodeName(sourceFile));
     QVERIFY(QFile::exists(existingDest));
 
@@ -2696,7 +2699,7 @@ void JobTest::createSymlink()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
     const QString destDir = homeTmpDir() + "dest";
     QVERIFY(QDir().mkpath(destDir));
@@ -2728,7 +2731,7 @@ void JobTest::createSymlinkTargetDirDoesntExist()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
     const QString destDir = homeTmpDir() + "dest/does/not/exist";
 
@@ -2742,9 +2745,9 @@ void JobTest::createSymlinkAsShouldSucceed()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
-    const QString dest = homeTmpDir() + "testlink";
+    const QString dest = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     QFile::remove(dest); // just in case
 
     ScopedCleaner cleaner([&] {
@@ -2762,7 +2765,7 @@ void JobTest::createSymlinkAsShouldFailDirectoryExists()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
     const QString dest = homeTmpDir() + "dest";
     QVERIFY(QDir().mkpath(dest)); // dest exists as a directory
@@ -2790,9 +2793,9 @@ void JobTest::createSymlinkAsShouldFailFileExists()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
-    const QString dest = homeTmpDir() + "testlink";
+    const QString dest = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     QFile::remove(dest); // just in case
 
     ScopedCleaner cleaner([&] {
@@ -2821,9 +2824,9 @@ void JobTest::createSymlinkWithOverwriteShouldWork()
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
 #endif
-    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    const QString sourceFile = homeTmpDir() + "fileFromHome" + std::source_location::current().function_name();
     createTestFile(sourceFile);
-    const QString dest = homeTmpDir() + "testlink";
+    const QString dest = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     QFile::remove(dest); // just in case
 
     ScopedCleaner cleaner([&] {
@@ -2855,7 +2858,7 @@ void JobTest::createBrokenSymlink()
     QSKIP("Test skipped on Windows");
 #endif
     const QString sourceFile = "/does/not/exist";
-    const QString dest = homeTmpDir() + "testlink";
+    const QString dest = homeTmpDir() + "testlink" + std::source_location::current().function_name();
     QFile::remove(dest); // just in case
     KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
