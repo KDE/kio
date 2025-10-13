@@ -89,6 +89,9 @@ private Q_SLOTS:
     void testThumbnailPreviewSetting();
     void testReplaceLocationEditFilename_data();
     void testReplaceLocationEditFilename();
+
+    void testSaveDirectoryCurrentDirSelectable();
+    void testSaveDirectoryCurrentDirSelectableSubDir();
 };
 
 void KFileWidgetTest::initTestCase()
@@ -1015,6 +1018,59 @@ void KFileWidgetTest::testReplaceLocationEditFilename()
     } else {
         QCOMPARE(fw.locationEdit()->lineEdit()->text(), modifiedText);
     }
+}
+
+void KFileWidgetTest::testSaveDirectoryCurrentDirSelectable()
+{
+    // GIVEN
+    QTemporaryDir tempDir;
+    const QUrl baseUrl = QUrl::fromLocalFile(tempDir.path());
+
+    KFileWidget fw(baseUrl);
+    fw.setOperationMode(KFileWidget::OperationMode::Saving);
+    fw.setMode(KFile::Directory);
+
+    QSignalSpy acceptedSpy(&fw, &KFileWidget::accepted);
+
+    QCOMPARE(fw.locationEdit()->currentText(), QString());
+    QVERIFY(fw.okButton()->isEnabled());
+
+    // WHEN
+    fw.slotOk(); // okButton is not hooked by default to slotOk
+    fw.accept(); // Accept the popup
+
+    // THEN
+    QCOMPARE(acceptedSpy.count(), 1);
+    QCOMPARE(fw.locationEdit()->currentText(), QString());
+    QCOMPARE(fw.selectedUrl().adjusted(QUrl::StripTrailingSlash), baseUrl);
+}
+
+void KFileWidgetTest::testSaveDirectoryCurrentDirSelectableSubDir()
+{
+    // GIVEN
+    QTemporaryDir tempDir;
+    const QUrl baseUrl = QUrl::fromLocalFile(tempDir.path());
+    auto subDirPath = tempDir.filePath(QStringLiteral("subdir"));
+    QVERIFY(QDir().mkdir(subDirPath));
+    const QUrl subDirUrl = QUrl::fromLocalFile(subDirPath);
+
+    KFileWidget fw(baseUrl);
+    fw.setOperationMode(KFileWidget::OperationMode::Saving);
+    fw.setMode(KFile::Directory);
+
+    QSignalSpy acceptedSpy(&fw, &KFileWidget::accepted);
+    QSignalSpy urlEnteredSpy(fw.dirOperator(), &KDirOperator::urlEntered);
+
+    // WHEN
+    QVERIFY(fw.okButton()->isEnabled());
+    fw.dirOperator()->highlightFile(KFileItem{subDirUrl});
+    QCOMPARE(fw.locationEdit()->currentText(), subDirUrl.fileName());
+    fw.slotOk(); // Accept the selected Dir
+    fw.accept(); // Accept the popup
+
+    // THEN
+    QCOMPARE(acceptedSpy.count(), 1);
+    QCOMPARE(fw.selectedUrl(), subDirUrl);
 }
 
 QTEST_MAIN(KFileWidgetTest)

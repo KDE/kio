@@ -200,6 +200,14 @@ public:
 
     void setInlinePreviewShown(bool show);
 
+    /*
+     * If we're saving and our mode is Directory
+     * allow selecting the current folder we're browsing.
+     * This behavior is expected from Ark, where it is used for extracting
+     * to current folder even if the input is empty.
+     */
+    bool currentDirSelectable() const;
+
     KFileWidget *const q;
 
     // the last selected url
@@ -390,6 +398,14 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     connect(d->m_urlNavigator, &KUrlNavigator::urlChanged, this, [this](const QUrl &url) {
         d->enterUrl(url);
+        if (d->currentDirSelectable()) {
+            const auto dir = QDir(url.path()).dirName();
+            if (!dir.isEmpty()) {
+                d->m_locationEdit->lineEdit()->setPlaceholderText(i18n("Current Directory: %1", dir));
+            } else {
+                d->m_locationEdit->lineEdit()->setPlaceholderText(QString());
+            }
+        }
     });
     connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
 
@@ -762,6 +778,12 @@ void KFileWidget::slotOk()
                 locationEditCurrentTextList = {url};
             }
         }
+    } else if (d->currentDirSelectable() && d->m_locationEdit->lineEdit()->text().isEmpty()) {
+        // select the current Url
+        d->m_url = d->m_ops->url();
+
+        Q_EMIT accepted();
+        return;
     }
 
     // restore it
@@ -1313,7 +1335,7 @@ void KFileWidgetPrivate::initLocationWidget()
         clearAction->setVisible(m_locationEdit->lineEdit()->text().length() > 0);
     });
     q->connect(m_locationEdit->lineEdit(), &QLineEdit::textChanged, q, [this](const QString &text) {
-        m_okButton->setEnabled(!text.isEmpty());
+        m_okButton->setEnabled(currentDirSelectable() || !text.isEmpty());
     });
 
     QAction *undoAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-undo")), i18nc("@info:tooltip", "Undo filename change"), m_locationEdit->lineEdit());
@@ -2035,6 +2057,10 @@ void KFileWidget::setMode(KFile::Modes m)
     }
 
     d->updateAutoSelectExtension();
+
+    // Need to make sure we enable the okButton when expected to do so,
+    // since it's possible we call setMode and setOperationMode in different order.
+    d->m_okButton->setEnabled(d->currentDirSelectable() || !d->m_locationEdit->lineEdit()->text().isEmpty());
 }
 
 KFile::Modes KFileWidget::mode() const
@@ -2172,6 +2198,7 @@ void KFileWidget::setOperationMode(OperationMode mode)
         d->m_toolbar->removeAction(d->m_ops->action(KDirOperator::NewFolder));
     } else if (mode == Saving) {
         KGuiItem::assign(d->m_okButton, KStandardGuiItem::save());
+        d->m_okButton->setEnabled(d->currentDirSelectable() || !d->m_locationEdit->lineEdit()->text().isEmpty());
         d->setNonExtSelection();
     } else {
         KGuiItem::assign(d->m_okButton, KStandardGuiItem::ok());
@@ -2282,9 +2309,24 @@ void KFileWidgetPrivate::slotIconSizeSliderMoved(int size)
 
 void KFileWidgetPrivate::slotViewDoubleClicked(const QModelIndex &index)
 {
+    if (!index.isValid()) {
+        return;
+    }
     // double clicking to save should only work on files
-    if (m_operationMode == KFileWidget::Saving && index.isValid() && m_ops->selectedItems().constFirst().isFile()) {
+    auto fileItem = m_ops->selectedItems().constFirst();
+    if (m_operationMode == KFileWidget::Saving && fileItem.isFile()) {
         q->slotOk();
+        return;
+    }
+
+    // dirs are instead opened by KDirOperator firing urlEntered
+    if (fileItem.isDir()) {
+        // the folder is going to be opened, no need to keep its name in the locationEdit
+        if (fileItem.name() == m_locationEdit->currentText() || fileItem.url().toString() == m_locationEdit->currentText()) {
+            m_locationEdit->blockSignals(true);
+            m_locationEdit->setCurrentText(QString());
+            m_locationEdit->blockSignals(false);
+        }
     }
 }
 
@@ -2989,6 +3031,11 @@ QUrl KFileWidgetPrivate::mostLocalUrl(const QUrl &url)
 void KFileWidgetPrivate::setInlinePreviewShown(bool show)
 {
     m_ops->setInlinePreviewShown(show);
+}
+
+bool KFileWidgetPrivate::currentDirSelectable() const
+{
+    return (m_operationMode == KFileWidget::OperationMode::Saving && m_ops->mode() & KFile::Directory);
 }
 
 void KFileWidget::setConfirmOverwrite(bool enable)
