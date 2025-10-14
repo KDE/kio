@@ -546,16 +546,19 @@ void CopyJobPrivate::slotResultStating(KJob *job)
         } else {
             const bool isDir = entry.isDir();
 
-            // Check for writability, before spending time stat'ing everything (#141564).
-            // This assumes all KIO workers set permissions correctly...
             const int permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
-            const bool isWritable = (permissions != -1) && (permissions & S_IWUSR);
-            if (!isWritable) {
-                const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
-                q->setError(ERR_WRITE_ACCESS_DENIED);
-                q->setErrorText(dest.toDisplayString(QUrl::PreferLocalFile));
-                q->emitResult();
-                return;
+            // Skip check if we have no definite permissions set (BUG: 510567)
+            if (permissions != -1) {
+                // Check for writability, before spending time stat'ing everything (#141564).
+                // This assumes all KIO workers set permissions correctly...
+                const bool isWritable = (permissions & S_IWUSR);
+                if (!isWritable) {
+                    const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
+                    q->setError(ERR_WRITE_ACCESS_DENIED);
+                    q->setErrorText(dest.toDisplayString(QUrl::PreferLocalFile));
+                    q->emitResult();
+                    return;
+                }
             }
 
             // Treat symlinks to dirs as dirs here, so no test on isLink
