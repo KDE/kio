@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:39+0000\n"
-"PO-Revision-Date: 2025-07-29 21:42+0200\n"
+"PO-Revision-Date: 2025-10-14 21:57+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -3020,12 +3020,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Само папки могат да се добавят в панел Места."
 
 #: filewidgets/kfileplacesmodel.cpp:1341
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Настройки на уеб-препратки…"
+msgstr "Конфигуриране…"
 
 #: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
@@ -3239,10 +3237,9 @@ msgid "Huge (%1x%1)"
 msgstr "Огромен (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Създаване на директория"
+msgstr "Текуща директория:%1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format

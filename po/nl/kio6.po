@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:39+0000\n"
-"PO-Revision-Date: 2025-07-29 12:16+0200\n"
+"PO-Revision-Date: 2025-10-14 23:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3087,12 +3087,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Alleen mappen kunnen toegevoegd worden aan het paneel Plaatsen."
 
 #: filewidgets/kfileplacesmodel.cpp:1341
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Websnelkoppelingen configureren…"
+msgstr "Configureren…"
 
 #: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
@@ -3307,10 +3305,9 @@ msgid "Huge (%1x%1)"
 msgstr "Enorm (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Map aanmaken"
+msgstr "Huidige map: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
