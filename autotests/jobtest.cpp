@@ -676,6 +676,7 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::Error::ERR_FILE_ALREADY_EXIST);
 
     // Clean up
     QFile::remove(src);
@@ -743,6 +744,7 @@ void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int f
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::ERR_DIR_ALREADY_EXIST);
 }
 
 #ifndef Q_OS_WIN
@@ -1507,6 +1509,7 @@ void JobTest::directorySizeError()
     KIO::DirectorySizeJob *job = KIO::directorySize(QUrl::fromLocalFile(QStringLiteral("/I/Dont/Exist")));
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::Error::ERR_DOES_NOT_EXIST);
     qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
@@ -1542,6 +1545,7 @@ void JobTest::getInvalidUrl()
     job->setUiDelegate(nullptr);
 
     QVERIFY(!job->exec()); // it should fail :)
+    QCOMPARE(job->error(), (int)KIO::ERR_MALFORMED_URL);
 }
 
 void JobTest::slotMimetype(KIO::Job *job, const QString &type)
@@ -1734,6 +1738,7 @@ void JobTest::rmdirNotEmpty()
     createTestDirectory(dir + "/subdir");
     KIO::Job *job = KIO::rmdir(QUrl::fromLocalFile(dir));
     QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::ERR_CANNOT_RMDIR);
     QVERIFY(QFile::exists(dir));
 }
 
