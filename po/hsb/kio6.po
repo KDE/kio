@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:39+0000\n"
+"POT-Creation-Date: 2025-10-16 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -80,23 +80,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1375 core/job_error.cpp:585
+#: core/copyjob.cpp:1378 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Zapisk hižo eksistuje"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dataja hižo eksistuje"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Eksistuje hižo jako zapisk"
 
-#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papjernik"
@@ -4405,78 +4405,78 @@ msgstr "Přepruwowanje servera"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> at <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1342
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Hewak by so poradźiło."
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1364
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hódnoty atributow wobstarać"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1366
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "hódnoty atributow postajić"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1368
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "trěbny zapisk stworić"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "wotpowědnu dataju abo zapisk kopěrować"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "wotpowědnu dataju abo zapisk přesunyć"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "we wotpowědnym zapisku pytać"
 
-#: kioworkers/http/http.cpp:1357
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "wotpowědnu dataju abo zapisk zamknyć"
 
-#: kioworkers/http/http.cpp:1359
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "wotpowědnu dataju abo zapisk wotamknyć"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "wotpowědnu dataju abo zapisk zničić"
 
-#: kioworkers/http/http.cpp:1363
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "so za móžnosćemi servera woprašeć"
 
-#: kioworkers/http/http.cpp:1365
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "wobsah wotpowědneje dataje abo zapiska dóstać"
 
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1386
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "search in the specified folder"
@@ -4484,13 +4484,13 @@ msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "we wotpowědnym zapisku pytać"
 
-#: kioworkers/http/http.cpp:1375
+#: kioworkers/http/http.cpp:1394
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Njewočakowany zmylk (%1) je so stał při pospyće %2."
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4498,13 +4498,13 @@ msgid ""
 "below."
 msgstr "Zmylk je so stał při pospyće %1, %2. Zjeće přičin namakaće deleka."
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
+#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Přistup bu wotpokazany, jako spytach %1."
 
-#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
+#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4513,7 +4513,7 @@ msgstr ""
 "Resursa njehodźi so na tutym městnje wutworić, doniž njebu žadyn zapisk "
 "stworjeny."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1475
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4530,28 +4530,28 @@ msgstr ""
 "\"propertybehavior\", abo sće spytali dataju přepisać, hačrunjež běšće to do "
 "toho zakazali. %1"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Pominane blokowanje njehodźeše so zarjadować. %1"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server tutu družinu elementa \"Body\" njepodpěruje."
 
-#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Njemóžu %1; resursa je blokowana."
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1498
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Tutej operaciji je někajki druhi zmylk zadźěwał."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
+#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4559,7 +4559,7 @@ msgid ""
 "folder."
 msgstr "Njemóžu %1, dokelž cilowy server dataju abo zapisk njeakceptuje."
 
-#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
+#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4568,19 +4568,19 @@ msgstr ""
 "Cilowa resursa nima dosć městna, zo by staw resursy po wuwjedźenju tuteje "
 "metody zawěsćiła."
 
-#: kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1567
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "pominana resursa snano njeeksistuje."
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "kopěrować %1 na serwer"
 
-#: kioworkers/http/http.cpp:1619
+#: kioworkers/http/http.cpp:1638
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

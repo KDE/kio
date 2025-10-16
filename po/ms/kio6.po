@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:39+0000\n"
+"POT-Creation-Date: 2025-10-16 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -87,23 +87,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1375 core/job_error.cpp:585
+#: core/copyjob.cpp:1378 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Folder Sudah Wujud"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fail Sudah Wujud"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Sudah Wujud sebagai Folder"
 
-#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 msgid "Trash"
 msgstr "&Tong Sampah"
@@ -4323,90 +4323,90 @@ msgstr "Autentikasi Pelayan"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> pada <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1342
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Jika tidak, permintaan akan berjaya."
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1364
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "mengambil nilai ciri-ciri"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1366
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "tetapkan ciri-ciri"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1368
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "Cipta folder yang dipinta"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1370
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "salin fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1372
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pindah fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1374
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cari pada folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1357
+#: kioworkers/http/http.cpp:1376
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "kunci fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1359
+#: kioworkers/http/http.cpp:1378
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "nyahkunci fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1380
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "padam fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1363
+#: kioworkers/http/http.cpp:1382
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "menanyakan keupayaan pelayan"
 
-#: kioworkers/http/http.cpp:1365
+#: kioworkers/http/http.cpp:1384
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "Mengambil kandungan daripada fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1386
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "cari pada folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1375
+#: kioworkers/http/http.cpp:1394
 #, fuzzy, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ralat yang tidak terjangka (%1) berlaku ketika cuba untuk %2."
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1434
 #, fuzzy, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4415,13 +4415,13 @@ msgid ""
 msgstr ""
 "Ralat berlaku semasa mencuba ke %1, %2. Ringkasan alasan adalah di bawah.<ul>"
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
+#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Akses dinafikan ketika sedang mencuba untuk %1."
 
-#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
+#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4430,7 +4430,7 @@ msgstr ""
 "Sumber tidak dapat dicipta di destinasi hingga satu atau lebih koleksi "
 "perantara (folder) telah dicipta."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1475
 #, fuzzy, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4443,28 +4443,28 @@ msgstr ""
 "laku ciri elemen XML atau anda cuba menulis ganti semasa meminta agar fail "
 "tersebut tidak boleh ditulis ganti. %1"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Kunci yang dipinta tidak dapat diberikan. %1"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Pelayan tidak menyokong jenis permintaan kandungan"
 
-#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Gagal untuk %1 kerana sumber dikunci."
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1498
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Tindakan ini telah gagal dilaksanakan oleh masalah yang lain."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
+#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4472,7 +4472,7 @@ msgid ""
 "folder."
 msgstr "Gagal %1 kerana destinasi pelayan enggan menerima fail atau folder."
 
-#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
+#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4481,18 +4481,18 @@ msgstr ""
 "Destinasi kepada sumber tidak mempunyai ruang yang cukup untuk merakam "
 "keadaan sumber tersebut selepas pelaksanaan kepada kaedah ini."
 
-#: kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1567
 #, fuzzy, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Sumber ditentukan mungkin tidak wujud."
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1587
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "muatnaik %1"
 
-#: kioworkers/http/http.cpp:1619
+#: kioworkers/http/http.cpp:1638
 #, fuzzy, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:39+0000\n"
+"POT-Creation-Date: 2025-10-16 00:39+0000\n"
 "PO-Revision-Date: 2025-09-02 17:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -89,23 +89,23 @@ msgstr ""
 "Seliger Reimplacia reimplaciara ulle characteres invalide (in le nomine de "
 "file de destination) con un sublinea \"_\"."
 
-#: core/copyjob.cpp:1375 core/job_error.cpp:585
+#: core/copyjob.cpp:1378 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dossier ja existe"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "File Ja existe"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Un dossier ja es existente"
 
-#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Corbe"
@@ -4387,90 +4387,90 @@ msgstr "Authentication de servitor"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> a <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1342
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Alteremente, le requesta haberea habite successo."
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1364
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recupera valores de proprietate"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1366
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "fixa valores de proprietate"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1368
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea le requirite dossier"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "move le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cerca in le specificate dossier"
 
-#: kioworkers/http/http.cpp:1357
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloca le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1359
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "disbloca le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "dele le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1363
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "demanda le capacitate del servitor"
 
-#: kioworkers/http/http.cpp:1365
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera le contentos del specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un reporto in le specificate dossier"
 
-#: kioworkers/http/http.cpp:1375
+#: kioworkers/http/http.cpp:1394
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Un error inexpectate (%1) occurreva durante que on tentava  %2"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4480,13 +4480,13 @@ msgstr ""
 "Un error occurreva durante que on essayava  %1,%2. Un summario de "
 "motivationes es a basso."
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
+#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Accesso esseva refusate durante que on essayava  %1."
 
-#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
+#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4495,7 +4495,7 @@ msgstr ""
 "Un ressource non pote esser create al destination usque un o plure "
 "collectiones intermedie (dossieres) ha essite create."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4511,28 +4511,28 @@ msgstr ""
 "de file de non esser super scribite.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Le bloco requirite non pote esser garantite. %1"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Le servitor non supporta le requirite typo del corpore."
 
-#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Il non pote %1 proque le ressource es blocate."
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1498
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Iste action esseva impedite per un altere error."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
+#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4542,7 +4542,7 @@ msgstr ""
 "Il non pote %1 proque le servitor de destination refusa de dar acceptation "
 "al file o dossier."
 
-#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
+#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4551,18 +4551,18 @@ msgstr ""
 "Le ressource de destination non ha spatio sufficiente pro registrar le stato "
 "del ressource postea le execution de iste methodo."
 
-#: kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1567
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Le ressource non pote esser delite."
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "carga %1"
 
-#: kioworkers/http/http.cpp:1619
+#: kioworkers/http/http.cpp:1638
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

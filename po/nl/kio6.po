@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:39+0000\n"
+"POT-Creation-Date: 2025-10-16 00:39+0000\n"
 "PO-Revision-Date: 2025-10-14 23:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -89,23 +89,23 @@ msgstr ""
 "Vervangen kiezen zal elk ongeldig teken (in de bestandsnaam op de "
 "bestemming) vervangen door een onderstreping \"_\"."
 
-#: core/copyjob.cpp:1375 core/job_error.cpp:585
+#: core/copyjob.cpp:1378 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Map bestaat reeds"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Bestand bestaat al"
 
-#: core/copyjob.cpp:1699 core/copyjob.cpp:2404
+#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Bestaat reeds als map"
 
-#: core/copyjob.cpp:1853 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Prullenbak"
@@ -4413,91 +4413,91 @@ msgstr "Serverauthenticatie"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> bij <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1342
+#: kioworkers/http/http.cpp:1361
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Anders had het verzoek succes geboekt."
 
-#: kioworkers/http/http.cpp:1345
+#: kioworkers/http/http.cpp:1364
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ophalen van de eigenschapswaarden"
 
-#: kioworkers/http/http.cpp:1347
+#: kioworkers/http/http.cpp:1366
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "instellen van de eigenschapswaarden"
 
-#: kioworkers/http/http.cpp:1349
+#: kioworkers/http/http.cpp:1368
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "aanmaken van de gevraagde map"
 
-#: kioworkers/http/http.cpp:1351
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiëren van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1353
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "verplaatsen van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1355
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "zoeken in de opgegeven map"
 
-#: kioworkers/http/http.cpp:1357
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "vergrendelen van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1359
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ontgrendelen van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "verwijderen van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1363
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "opvragen van de mogelijkheden van de server"
 
-#: kioworkers/http/http.cpp:1365
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ophalen van de inhoud van het opgegeven bestand of de opgegeven map"
 
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "een rapport maken in de opgegeven map"
 
-#: kioworkers/http/http.cpp:1375
+#: kioworkers/http/http.cpp:1394
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr ""
 "Er deed zich een onverwachte fout (%1) voor tijdens de poging tot het %2."
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4507,13 +4507,13 @@ msgstr ""
 "Er deed zich een fout voor tijdens de poging tot het %1, %2. Een "
 "samenvatting van de oorzaken vindt u hieronder."
 
-#: kioworkers/http/http.cpp:1433 kioworkers/http/http.cpp:1577
+#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "De toegang werd geweigerd tijdens de poging tot het %1."
 
-#: kioworkers/http/http.cpp:1447 kioworkers/http/http.cpp:1584
+#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4522,7 +4522,7 @@ msgstr ""
 "Een hulpbron kan niet worden aangemaakt op de bestemming totdat er één of "
 "meer intermediaire collecties (mappen) zijn aangemaakt."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4537,28 +4537,28 @@ msgstr ""
 "verzocht geen bestanden te overschrijven.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "De gevraagde vergrendeling %1 kon niet worden aangemaakt"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "De server ondersteunt het request-type van het lichaam (de body) niet."
 
-#: kioworkers/http/http.cpp:1475 kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Het %1 mislukte omdat de gegevensbron is vergrendeld."
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1498
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Deze actie werd verhinderd door een andere fout."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1599
+#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4568,7 +4568,7 @@ msgstr ""
 "Het %1 mislukte omdat de bestemmingsserver weigert het bestand of de map te "
 "accepteren."
 
-#: kioworkers/http/http.cpp:1495 kioworkers/http/http.cpp:1608
+#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4577,18 +4577,18 @@ msgstr ""
 "De bestemmingsgegevensbron heeft onvoldoende ruimte om de status van de "
 "gegevensbron na het uitvoeren van deze methode op te nemen."
 
-#: kioworkers/http/http.cpp:1548
+#: kioworkers/http/http.cpp:1567
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "De bron kan niet worden verwijderd."
 
-#: kioworkers/http/http.cpp:1568
+#: kioworkers/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "uploaden van %1"
 
-#: kioworkers/http/http.cpp:1619
+#: kioworkers/http/http.cpp:1638
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
