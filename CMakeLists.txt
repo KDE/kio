@@ -95,7 +95,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                        PURPOSE "Required to build help KIO worker and documentation"
                       )
 
-set(REQUIRED_QT_VERSION 6.7.0)
+set(REQUIRED_QT_VERSION 6.8.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
 
 if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
