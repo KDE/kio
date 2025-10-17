@@ -2974,6 +2974,11 @@ void JobTest::renameFileWithNoUDSACCESS() // #510567
                         return KIO::WorkerResult::pass();
                     }
 
+                    if (url.toString() == u"kio-test://foo@bar/baz/text_two.txt"_s) {
+                        statEntry(fakeEntry(u"text_two.txt"_s, 1000));
+                        return KIO::WorkerResult::pass();
+                    }
+
                     return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, u"Unsupported URL: %1"_s.arg(url.toString()));
                 }
                 Q_REQUIRED_RESULT KIO::WorkerResult copy(QUrl const &start, QUrl const &dest, int permissions, KIO::JobFlags flags) override
@@ -2992,7 +2997,7 @@ void JobTest::renameFileWithNoUDSACCESS() // #510567
     auto factory = std::make_shared<Factory>();
     KIO::Worker::setTestWorkerFactory(factory);
     QUrl testUrl(u"kio-test://foo@bar/baz/text.txt"_s);
-    QUrl testUrl2(u"kio-test://foo@bar/baz/text.txt"_s);
+    QUrl testUrl2(u"kio-test://foo@bar/baz/text_two.txt"_s);
     KIO::StatJob *statJob = KIO::stat(testUrl, KIO::HideProgressInfo);
     QVERIFY(statJob);
     QVERIFY2(statJob->exec(), qPrintable(statJob->errorString()));
