@@ -495,7 +495,20 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
         if (statusCode >= 300 && statusCode < 400) {
             const QString redir = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
-            const QUrl newUrl = url.resolved(QUrl(redir));
+            QUrl newUrl = url.resolved(QUrl(redir));
+
+            // If we were doing webdav restore the appropriate protocol after the redirection
+            if (newUrl.scheme() == QLatin1String{"http"}) {
+                if (url.scheme().startsWith(QLatin1String{"webdav"})) // also matches webdavs
+                    newUrl.setScheme(QLatin1String{"webdav"});
+                else if (url.scheme().startsWith(QLatin1String{"dav"})) // also matches davs
+                    newUrl.setScheme(QLatin1String{"dav"});
+            } else if (newUrl.scheme() == QLatin1String{"https"}) {
+                if (url.scheme().startsWith(QLatin1String{"webdav"}))
+                    newUrl.setScheme(QLatin1String{"webdavs"});
+                else if (url.scheme().startsWith(QLatin1String{"dav"}))
+                    newUrl.setScheme(QLatin1String{"davs"});
+            }
 
             // Handled after returning from the event loop.
             // 301 is necessary for Apache (see bugs 209508 and 187970).
