@@ -3207,10 +3207,9 @@ msgid "Huge (%1x%1)"
 msgstr "Obrovské (%1x%)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Creating directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Vytváření adresáře"
+msgstr ""
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
