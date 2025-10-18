@@ -368,6 +368,7 @@ RenameDialog::RenameDialog(QWidget *parent,
                             KShell::tildeCollapse(d->dest.toDisplayString(QUrl::PreferLocalFile)));
         }
         auto *questionLabel = new QLabel(question, this);
+        questionLabel->setWordWrap(true);
         questionLabel->setAlignment(Qt::AlignHCenter);
         gridLayout->addWidget(questionLabel, gridRow, 0, 1, 4); // takes the complete first line
 
