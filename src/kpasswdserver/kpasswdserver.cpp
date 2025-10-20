@@ -535,7 +535,7 @@ void KPasswdServer::processRequest()
             dlg->setObjectName(QStringLiteral("warningOKCancel"));
             KGuiItem retryButton(i18nc("@action:button filter-continue", "Retry"));
 
-            dlg->setButtons(retryButton);
+            dlg->setButtons(retryButton, KGuiItem(), KStandardGuiItem::cancel());
 
             connect(dlg, &QDialog::finished, this, [this, dlg](int result) {
                 retryDialogDone(result, dlg);
