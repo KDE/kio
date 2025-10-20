@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:39+0000\n"
+"POT-Creation-Date: 2025-10-20 00:39+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2270,7 +2270,7 @@ msgid " (Points to %1)"
 msgstr " (Peker til %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:609
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4873,12 +4873,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Lager mappe"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
 #, kde-format
 msgid "Source"
 msgstr "Kilde"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
 #, kde-format
 msgid "Destination"
 msgstr "Mål"
@@ -6923,42 +6923,42 @@ msgstr "Vil du overskrive målet?"
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Dette vil slå sammen innholdet i «%1» med «%2»?"
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:408
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Kildeversjonen er <b>nyere</b>."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:410
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Kildeversjonen er <b>eldre</b>."
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:419
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Kildeversjonen er <b>%1 mindre</b>."
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:422
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Kildeversjonen er <b>%1 større</b>."
 
-#: widgets/renamedialog.cpp:434
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Filene er <b>helt like</b>."
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Filene <b>ser like ut</b>."
 
-#: widgets/renamedialog.cpp:440
+#: widgets/renamedialog.cpp:441
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Filene er <b>forskjellige</b>."
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6967,22 +6967,22 @@ msgstr ""
 "Filene er trolig like. De har samme størrelse og er like på starten, midten "
 "og slutten."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Et eldre element med navnet «%1» finnes fra før."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:470
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "En lignende fil med navnet «%1» finnes fra før."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Et nyere element med navnet «%1» finnes fra før."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "Rename:"
 msgstr "Endre navn:"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:39+0000\n"
+"POT-Creation-Date: 2025-10-20 00:39+0000\n"
 "PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2167,7 +2167,7 @@ msgid " (Points to %1)"
 msgstr "（指向 %1）"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:609
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4700,12 +4700,12 @@ msgstr "您可以在 Dolphin 檔案管理員的「確認」設定裡復原這個
 msgid "Creating directory"
 msgstr "建立目錄"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
 #, kde-format
 msgid "Source"
 msgstr "來源"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
 #, kde-format
 msgid "Destination"
 msgstr "目的地"
@@ -6671,42 +6671,42 @@ msgstr "您確定要覆寫目的地嗎？"
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "您確定要將「%1」的內容合併到「%2」中嗎？"
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:408
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "來源<b>較新</b>。"
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:410
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "來源<b>較舊</b>。"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:419
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "來源<b>小了 %1</b>"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:422
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "來源<b>大了 %1</b>"
 
-#: widgets/renamedialog.cpp:434
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "檔案<b>相同</b>。"
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "檔案<b>看起來相同</b>。"
 
-#: widgets/renamedialog.cpp:440
+#: widgets/renamedialog.cpp:441
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "檔案<b>不同</b>。"
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6715,22 +6715,22 @@ msgstr ""
 "檔案很可能相同：它們有一樣的大小，而且它們的內容開頭、中間一部分和結尾也相"
 "同。"
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "舊項目中已經有一個叫做「%1」存在了。"
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:470
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "另一個名為 %1 的同類檔案已經存在。"
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "已經有一個更新的，叫做「%1」的項目存在了。"
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "Rename:"
 msgstr "重新命名："

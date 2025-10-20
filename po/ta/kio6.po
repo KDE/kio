@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:39+0000\n"
+"POT-Creation-Date: 2025-10-20 00:39+0000\n"
 "PO-Revision-Date: 2025-08-03 12:33+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2241,7 +2241,7 @@ msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:609
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4823,12 +4823,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "அடைவு உருவாக்கப் படுகிறது"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
 #, kde-format
 msgid "Source"
 msgstr "மூலம்"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
 #, kde-format
 msgid "Destination"
 msgstr "சேருமிடம்"
@@ -6853,42 +6853,42 @@ msgstr "சேருமிடத்தை மேலெழுத வேண்ட�
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1' என்பதன் உள்ளடக்கத்தை '%2' என்பதுடன் ஒன்றுசேர்க்க வேண்டுமா?"
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:408
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "மூலம் <b>இதைவிட புதிதாக</b> உள்ளது."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:410
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "மூலம் <b>இதைவிட பழையதாக</b> உள்ளது."
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:419
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "மூலம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:422
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "மூலம் <b>%1 அளவால் பெரிதாக</b> உள்ளது"
 
-#: widgets/renamedialog.cpp:434
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "இந்த கோப்புகள் முழுதும் <b>ஒத்தவையாக</b> உள்ளன."
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "கோப்புகள் <b>ஒத்தவையாக இருக்கக் கூடும்</b>."
 
-#: widgets/renamedialog.cpp:440
+#: widgets/renamedialog.cpp:441
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "கோப்புகள் <b>வேறுபட்டு</b> உள்ளன."
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6897,22 +6897,22 @@ msgstr ""
 "இந்த கோப்புகள் முழுதும் ஒத்தவையாக இருக்கக் கூடும்: ஒரே அளவைக் கொண்டுள்ளன, மேலும் அவற்றின் "
 "உள்ளடக்கம் தொடக்கத்திலும், நடுவிலும், முடிவிலும் ஒன்றாக உள்ளது."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "''%1' பெயருடைய பழைய உருப்படி ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:470
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' பெயருடைய கோப்பு ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "''%1' பெயருடைய இதைவிட புதிய உருப்படி ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "Rename:"
 msgstr "மறுபெயரிடு:"

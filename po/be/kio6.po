@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:39+0000\n"
+"POT-Creation-Date: 2025-10-20 00:39+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2292,7 +2292,7 @@ msgid " (Points to %1)"
 msgstr " (Спасылаецца на %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:609
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4920,12 +4920,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Стварэнне каталога"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
 #, kde-format
 msgid "Source"
 msgstr "Зыходны элемент"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
 #, kde-format
 msgid "Destination"
 msgstr "Мэтавы элемент"
@@ -7047,42 +7047,42 @@ msgstr "Хочаце перазапісаць мэтавы элемент?"
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Хочаце аб'яднаць змесціва \"%1\" у \"%2\"?"
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:408
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Крыніца <b>навейшая</b>."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:410
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Крыніца <b>старэйшая</b>."
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:419
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Крыніца <b>меншая на %1</b>."
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:422
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Крыніца <b>большая на %1</b>."
 
-#: widgets/renamedialog.cpp:434
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Файлы <b>аднолькавыя</b>."
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Файлы <b>выглядаюць аднолькавымі</b>."
 
-#: widgets/renamedialog.cpp:440
+#: widgets/renamedialog.cpp:441
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Файлы <b>адрозніваюцца</b>."
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7091,22 +7091,22 @@ msgstr ""
 "Файлы выглядаюць аднолькавымі: яны маюць аднолькавы памер і аднолькавае "
 "змесціва у пачатку, сярэдзіне і ў канцы."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Ужо існуе старэйшы элемент з назвай \"%1\"."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:470
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Ужо існуе падобны файл з назвай \"%1\"."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Ужо існуе навейшы элемент з назвай \"%1\"."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "Rename:"
 msgstr "Змяніць назву:"

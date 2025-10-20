@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:39+0000\n"
+"POT-Creation-Date: 2025-10-20 00:39+0000\n"
 "PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -2354,7 +2354,7 @@ msgid " (Points to %1)"
 msgstr " (Aponta para %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:609
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4988,12 +4988,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "A criar a pasta"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:374
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
 #, kde-format
 msgid "Source"
 msgstr "Origem"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
 #, kde-format
 msgid "Destination"
 msgstr "Destino"
@@ -7105,49 +7105,49 @@ msgstr "Esta acção irá sobrepor o destino."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Esta acção irá sobrepor o destino."
 
-#: widgets/renamedialog.cpp:407
+#: widgets/renamedialog.cpp:408
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "O destino é <b>menor em %1</b>"
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:410
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>older</b>."
 msgstr "O destino é <b>menor em %1</b>"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:419
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "O destino é <b>menor em %1</b>"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:422
 #, fuzzy, kde-format
 #| msgid "The destination is <b>bigger by %1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "O destino é <b>maior em %1</b>"
 
-#: widgets/renamedialog.cpp:434
+#: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
 msgstr "Os ficheiros são idênticos."
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:438
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
 msgstr "Os ficheiros parecem idênticos."
 
-#: widgets/renamedialog.cpp:440
+#: widgets/renamedialog.cpp:441
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
 msgstr "Os ficheiros são diferentes."
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7156,22 +7156,22 @@ msgstr ""
 "Os ficheiros são provavelmente idênticos: têm o mesmo tamanho e o conteúdo "
 "deles é igual do início ao fim."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Já existe um item mais antigo chamado '%1'."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:470
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Já existe um ficheiro semelhante chamado '%1'."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Já existe um item mais recente chamado '%1'."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "Rename:"
 msgstr "Mudar o nome:"
