@@ -153,7 +153,7 @@ void TestTrash::initTestCase()
     for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
         if (it.key() == 0) {
             QCOMPARE(it.value(), m_trashDir);
-            QVERIFY(topDirs.find(0) == topDirs.end());
+            QCOMPARE(topDirs.find(0), topDirs.end());
             foundTrashDir = true;
         } else {
             QVERIFY(topDirs.find(it.key()) != topDirs.end());
@@ -1330,7 +1330,7 @@ void TestTrash::emptyTrash()
 
     KConfig cfg("trashrc", KConfig::SimpleConfig);
     QVERIFY(cfg.hasGroup("Status"));
-    QVERIFY(cfg.group("Status").readEntry("Empty", false) == true);
+    QCOMPARE(cfg.group("Status").readEntry("Empty",false), true);
 
     QVERIFY(!QFile::exists(m_trashDir + "/files/fileFromHome"));
     QVERIFY(!QFile::exists(m_trashDir + "/files/readonly"));

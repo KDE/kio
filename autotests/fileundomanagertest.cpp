@@ -116,7 +116,7 @@ static void createTestSymlink(const QString &path)
         if (!ok) {
             qFatal("couldn't create symlink: %s", strerror(errno));
         }
-        QVERIFY(QT_LSTAT(QFile::encodeName(path).constData(), &buf) == 0);
+        QCOMPARE(QT_LSTAT(QFile::encodeName(path).constData(), &buf), 0);
         QVERIFY(Utils::isLinkMask(buf.st_mode));
     } else {
         QVERIFY(Utils::isLinkMask(buf.st_mode));

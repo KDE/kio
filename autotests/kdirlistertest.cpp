@@ -1874,14 +1874,14 @@ void KDirListerTest::testSFTPRedirect()
     dirLister.openUrl(testUrl);
     QVERIFY(dirLister.spyCompleted.wait(500));
     // Make sure we have the items listed properly on the first time.
-    QVERIFY(dirLister.items().count() == 2);
+    QCOMPARE(dirLister.items().count(), 2);
 
     // This should not crash!
     dirLister.openUrl(testUrl);
     QVERIFY(dirLister.spyCompleted.wait(500));
     // This should not list any items: We have already done it in the previous iteration.
     // If this lists items, the view (for example in Dolphin) will have the items duplicated.
-    QVERIFY(dirLister.items().count() == 0);
+    QCOMPARE(dirLister.items().count(), 0);
 }
 
 #include "moc_kdirlistertest.cpp"

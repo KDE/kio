@@ -256,7 +256,7 @@ void KDirModelTest::testIndex()
     QCOMPARE(m_fileInDirIndex.model(), static_cast<const QAbstractItemModel *>(m_dirModel));
     // QCOMPARE(m_fileInDirIndex.row(), 0); // ordering isn't guaranteed
     QCOMPARE(m_fileInDirIndex.column(), 0);
-    QVERIFY(m_fileInDirIndex.parent() == m_dirIndex);
+    QCOMPARE(m_fileInDirIndex.parent(), m_dirIndex);
     QVERIFY(!m_dirModel->hasChildren(m_fileInDirIndex));
 
     // Index of subdir/subsubdir/testfile
@@ -264,7 +264,7 @@ void KDirModelTest::testIndex()
     QCOMPARE(m_fileInSubdirIndex.model(), static_cast<const QAbstractItemModel *>(m_dirModel));
     QCOMPARE(m_fileInSubdirIndex.row(), 0); // we can check it because it's the only file there
     QCOMPARE(m_fileInSubdirIndex.column(), 0);
-    QVERIFY(m_fileInSubdirIndex.parent().parent() == m_dirIndex);
+    QCOMPARE(m_fileInSubdirIndex.parent().parent(), m_dirIndex);
     QVERIFY(!m_dirModel->hasChildren(m_fileInSubdirIndex));
 
     // Test sibling() by going from subdir/testfile to subdir/subsubdir
@@ -272,7 +272,7 @@ void KDirModelTest::testIndex()
     QVERIFY(subsubdirIndex.isValid());
     QModelIndex sibling1 = m_dirModel->sibling(subsubdirIndex.row(), 0, m_fileInDirIndex);
     QVERIFY(sibling1.isValid());
-    QVERIFY(sibling1 == subsubdirIndex);
+    QCOMPARE(sibling1, subsubdirIndex);
     QVERIFY(m_dirModel->hasChildren(subsubdirIndex));
 
     // Invalid sibling call
@@ -281,7 +281,7 @@ void KDirModelTest::testIndex()
     // Test index() with a valid parent (dir).
     QModelIndex index2 = m_dirModel->index(m_fileInSubdirIndex.row(), m_fileInSubdirIndex.column(), subsubdirIndex);
     QVERIFY(index2.isValid());
-    QVERIFY(index2 == m_fileInSubdirIndex);
+    QCOMPARE(index2, m_fileInSubdirIndex);
 
     // Test index() with a non-parent (file).
     QModelIndex index3 = m_dirModel->index(m_fileInSubdirIndex.row(), m_fileInSubdirIndex.column(), m_fileIndex);
@@ -504,7 +504,7 @@ void KDirModelTest::testIcon()
     // Test the custom icon is correctly loaded for the directory
     const QIcon icon = m_dirModel->data(dirWithIconIndex, Qt::DecorationRole).value<QIcon>();
     QCOMPARE(m_dirModel->itemForIndex(dirWithIconIndex).iconName(), exampleIconPath);
-    QVERIFY(icon.pixmap(comparedSize).toImage() == expectedIconImage);
+    QCOMPARE(icon.pixmap(comparedSize).toImage(), expectedIconImage);
 
     // Test "unknown" icon will be used when the icon path refers to an invalid icon
     const QIcon icon2 = m_dirModel->data(dirWithInvalidIconIndex, Qt::DecorationRole).value<QIcon>();

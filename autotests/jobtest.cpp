@@ -197,7 +197,7 @@ void JobTest::put()
     m_result = -1;
     m_dataReqCount = 0;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     QFileInfo fileInfo(filePath);
     QVERIFY(fileInfo.exists());
@@ -222,7 +222,7 @@ void JobTest::putPermissionKept()
     m_result = -1;
     m_dataReqCount = 0;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     QFileInfo fileInfo(filePath);
     QVERIFY(fileInfo.exists());
@@ -762,7 +762,7 @@ static QString linkTarget(const QString &path)
 static void copyLocalSymlink(const QString &src, const QString &dest, const QString &expectedLinkTarget)
 {
     QT_STATBUF buf;
-    QVERIFY(QT_LSTAT(QFile::encodeName(src).constData(), &buf) == 0);
+    QCOMPARE(QT_LSTAT(QFile::encodeName(src).constData(), &buf), 0);
     QUrl u = QUrl::fromLocalFile(src);
     QUrl d = QUrl::fromLocalFile(dest);
 
@@ -771,7 +771,7 @@ static void copyLocalSymlink(const QString &src, const QString &dest, const QStr
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(QString::number(job->error())));
-    QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) == 0); // dest exists
+    QCOMPARE(QT_LSTAT(QFile::encodeName(dest).constData(), &buf), 0); // dest exists
     QCOMPARE(linkTarget(dest), expectedLinkTarget);
 
     // cleanup
@@ -1092,7 +1092,7 @@ void JobTest::moveLocalFile(const QString &src, const QString &dest)
 static void moveLocalSymlink(const QString &src, const QString &dest)
 {
     QT_STATBUF buf;
-    QVERIFY(QT_LSTAT(QFile::encodeName(src).constData(), &buf) == 0);
+    QCOMPARE(QT_LSTAT(QFile::encodeName(src).constData(), &buf), 0);
     QUrl u = QUrl::fromLocalFile(src);
     QUrl d = QUrl::fromLocalFile(dest);
 
@@ -1101,7 +1101,7 @@ static void moveLocalSymlink(const QString &src, const QString &dest)
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) == 0);
+    QCOMPARE(QT_LSTAT(QFile::encodeName(dest).constData(), &buf), 0);
     QVERIFY(!QFile::exists(src)); // not there anymore
 
     // move it back with KIO::move()
@@ -1110,7 +1110,7 @@ static void moveLocalSymlink(const QString &src, const QString &dest)
     job->setUiDelegateExtension(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) != 0); // doesn't exist anymore
-    QVERIFY(QT_LSTAT(QFile::encodeName(src).constData(), &buf) == 0); // it's back
+    QCOMPARE(QT_LSTAT(QFile::encodeName(src).constData(), &buf), 0); // it's back
 }
 
 void JobTest::moveLocalDirectory(const QString &src, const QString &dest)

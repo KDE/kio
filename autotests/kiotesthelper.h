@@ -80,7 +80,7 @@ static void createTestSymlink(const QString &path, const QByteArray &target = "/
         qFatal("couldn't create symlink: %s", strerror(errno));
     }
     QT_STATBUF buf;
-    QVERIFY(QT_LSTAT(QFile::encodeName(path), &buf) == 0);
+    QCOMPARE(QT_LSTAT(QFile::encodeName(path), &buf), 0);
     QVERIFY(Utils::isLinkMask(buf.st_mode));
     // qDebug( "symlink %s created", qPrintable( path ) );
     QVERIFY(QFileInfo(path).isSymLink());
@@ -94,7 +94,7 @@ void createTestPipe(const QString &path)
         qFatal("couldn't create named pipe: %s", strerror(errno));
     }
     QT_STATBUF buf;
-    QVERIFY(QT_LSTAT(QFile::encodeName(path), &buf) == 0);
+    QCOMPARE(QT_LSTAT(QFile::encodeName(path), &buf), 0);
     QVERIFY(S_ISFIFO(buf.st_mode));
 #else
     // to not change the filecount everywhere in the tests

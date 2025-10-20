@@ -125,7 +125,7 @@ void JobRemoteTest::putAndGet()
     m_result = -1;
     m_dataReqCount = 0;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     m_result = -1;
 
@@ -190,7 +190,7 @@ void JobRemoteTest::openFileWriting()
 
     enterLoop();
     QEXPECT_FAIL("", "Needs fixing in kio_file", Abort);
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     KIO::StoredTransferJob *getJob = KIO::storedGet(u, KIO::NoReload, KIO::HideProgressInfo);
     getJob->setUiDelegate(nullptr);
@@ -271,7 +271,7 @@ void JobRemoteTest::openFileReading()
     connect(putJob, &KJob::result, this, &JobRemoteTest::slotResult);
     m_result = -1;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     m_rwCount = 4;
     m_data = QByteArray();
@@ -292,7 +292,7 @@ void JobRemoteTest::openFileReading()
     m_closeSignalCalled = false;
 
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
     QVERIFY(m_closeSignalCalled); // close signal called.
     qDebug() << "resulting m_data: " << QString(m_data);
     QCOMPARE(m_data, QByteArray("test5test4test3test2test1"));
@@ -366,7 +366,7 @@ void JobRemoteTest::openFileRead0Bytes()
     connect(putJob, &KJob::result, this, &JobRemoteTest::slotResult);
     m_result = -1;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     m_data = QByteArray();
 
@@ -388,7 +388,7 @@ void JobRemoteTest::openFileRead0Bytes()
 
     enterLoop();
     // Previously reading 0 bytes would cause both data() and error() being emitted...
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
     QVERIFY(m_closeSignalCalled); // close signal called.
 }
 
@@ -428,7 +428,7 @@ void JobRemoteTest::openFileTruncating()
     connect(putJob, &KJob::result, this, &JobRemoteTest::slotResult);
     m_result = -1;
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
 
     m_truncatedFile.setFileName(u.toLocalFile());
     QVERIFY(m_truncatedFile.exists());
@@ -447,7 +447,7 @@ void JobRemoteTest::openFileTruncating()
     m_closeSignalCalled = false;
 
     enterLoop();
-    QVERIFY(m_result == 0); // no error
+    QCOMPARE(m_result, 0); // no error
     QVERIFY(m_closeSignalCalled); // close signal called.
 }
 

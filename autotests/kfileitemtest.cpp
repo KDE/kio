@@ -101,7 +101,7 @@ void KFileItemTest::testPermissionsString()
 #ifdef Q_OS_UNIX
     // relative Symlink to a file
     QString relativeSymlink = tempDir.path() + "/afolder/relative-symlink";
-    QVERIFY(::symlink("../afile", relativeSymlink.toLatin1()) == 0);
+    QCOMPARE(::symlink("../afile", relativeSymlink.toLatin1()), 0);
     QUrl relativeSymlinkUrl = QUrl::fromLocalFile(relativeSymlink);
     KFileItem relativeSymlinkItem(relativeSymlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)relativeSymlinkItem.permissions(), (uint)0604);
@@ -209,18 +209,18 @@ void KFileItemTest::testDetach()
     KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
     QCOMPARE(fileItem.name(), QStringLiteral("one"));
     KFileItem fileItem2(fileItem);
-    QVERIFY(fileItem == fileItem2);
-    QVERIFY(fileItem.d == fileItem2.d);
+    QCOMPARE(fileItem, fileItem2);
+    QCOMPARE(fileItem.d, fileItem2.d);
     fileItem2.setName(QStringLiteral("two"));
     QCOMPARE(fileItem2.name(), QStringLiteral("two"));
     QCOMPARE(fileItem.name(), QStringLiteral("one")); // it detached
-    QVERIFY(fileItem == fileItem2);
+    QCOMPARE(fileItem, fileItem2);
     QVERIFY(fileItem.d != fileItem2.d);
 
     fileItem = fileItem2;
     QCOMPARE(fileItem.name(), QStringLiteral("two"));
-    QVERIFY(fileItem == fileItem2);
-    QVERIFY(fileItem.d == fileItem2.d);
+    QCOMPARE(fileItem, fileItem2);
+    QCOMPARE(fileItem.d, fileItem2.d);
     QVERIFY(!(fileItem != fileItem2));
 }
 
@@ -447,7 +447,7 @@ void KFileItemTest::testCmp()
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
     fileItem.setDelayedMimeTypes(true);
     KFileItem fileItem2(QUrl::fromLocalFile(file.fileName()));
-    QVERIFY(fileItem == fileItem2); // created independently, but still 'equal'
+    QCOMPARE(fileItem, fileItem2); // created independently, but still 'equal'
     QVERIFY(fileItem.d != fileItem2.d);
     QVERIFY(!(fileItem != fileItem2));
     QVERIFY(fileItem.cmp(fileItem2));
@@ -465,7 +465,7 @@ void KFileItemTest::testCmpAndInit()
     QVERIFY(dirItem.cmp(dirItem2));
     QVERIFY(dirItem2.isDir());
     QVERIFY(dirItem.cmp(dirItem2));
-    QVERIFY(dirItem == dirItem2);
+    QCOMPARE(dirItem, dirItem2);
     QVERIFY(dirItem.d != dirItem2.d);
     QVERIFY(!(dirItem != dirItem2));
 
@@ -475,7 +475,7 @@ void KFileItemTest::testCmpAndInit()
     QVERIFY(dirItem3.cmp(dirItem));
     QVERIFY(dirItem3.isDir());
     QVERIFY(dirItem3.cmp(dirItem));
-    QVERIFY(dirItem == dirItem3);
+    QCOMPARE(dirItem, dirItem3);
     QVERIFY(dirItem.d != dirItem3.d);
     QVERIFY(!(dirItem != dirItem3));
 }
