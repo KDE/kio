@@ -194,7 +194,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
     // Sort each group
     for (ServiceList &group : allGroups) {
         std::sort(group.begin(), group.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
-            return a1.name() < a2.name();
+            return a1.actionsKey() < a2.actionsKey();
         });
     }
 
