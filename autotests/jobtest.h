@@ -130,6 +130,8 @@ private Q_SLOTS:
     void cancelCopyAndCleanDest();
     void cancelCopyAndCleanDest_data();
 
+    void renameFileWithNoUDSACCESS();
+
     // Remote tests
     // void copyFileToSystem();
 

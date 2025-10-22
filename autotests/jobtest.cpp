@@ -10,6 +10,9 @@
 
 #include "kio/job.h"
 #include "kiotesthelper.h" // createTestFile etc.
+#include "worker_p.h"
+#include "workerbase.h"
+#include "workerfactory.h"
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
@@ -44,6 +47,8 @@
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
+
+using namespace Qt::StringLiterals;
 
 QTEST_MAIN(JobTest)
 
@@ -2936,6 +2941,74 @@ void JobTest::cancelCopyAndCleanDest()
     // the destination file actual deletion happens after finished() is emitted
     // we need to give some time to the KIO worker to finish the file cleaning
     QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
+}
+
+void JobTest::renameFileWithNoUDSACCESS() // #510567
+{
+    // This mock worker is needed to emulate very specific copyjob case
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class CopyWorker : public KIO::WorkerBase
+            {
+            public:
+                CopyWorker(const QByteArray &pool, const QByteArray &app)
+                    : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+                {
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult stat(const QUrl &url) override
+                {
+                    // Create fake entries
+                    auto fakeEntry = [](QString name, int size) {
+                        KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
+                        return entry;
+                    };
+
+                    if (url.toString() == u"kio-test://foo@bar/baz/text.txt"_s) {
+                        statEntry(fakeEntry(u"text.txt"_s, 1000));
+                        return KIO::WorkerResult::pass();
+                    }
+
+                    if (url.toString() == u"kio-test://foo@bar/baz/text_two.txt"_s) {
+                        statEntry(fakeEntry(u"text_two.txt"_s, 1000));
+                        return KIO::WorkerResult::pass();
+                    }
+
+                    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, u"Unsupported URL: %1"_s.arg(url.toString()));
+                }
+                Q_REQUIRED_RESULT KIO::WorkerResult copy(QUrl const &start, QUrl const &dest, int permissions, KIO::JobFlags flags) override
+                {
+                    return KIO::WorkerResult::pass();
+                }
+                Q_REQUIRED_RESULT KIO::WorkerResult del(QUrl const &url, bool b) override
+                {
+                    return KIO::WorkerResult::pass();
+                }
+            };
+
+            return std::unique_ptr<KIO::WorkerBase>(new CopyWorker(pool, app));
+        }
+    };
+    auto factory = std::make_shared<Factory>();
+    KIO::Worker::setTestWorkerFactory(factory);
+    QUrl testUrl(u"kio-test://foo@bar/baz/text.txt"_s);
+    QUrl testUrl2(u"kio-test://foo@bar/baz/text_two.txt"_s);
+    KIO::StatJob *statJob = KIO::stat(testUrl, KIO::HideProgressInfo);
+    QVERIFY(statJob);
+    QVERIFY2(statJob->exec(), qPrintable(statJob->errorString()));
+    const KIO::UDSEntry &entry = statJob->statResult();
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
+    QVERIFY(!entry.contains(KIO::UDSEntry::UDS_ACCESS));
+
+    // If we check for UDS_ACCESS in copyjob, this will fail
+    KIO::CopyJob *copyJob = KIO::copy(testUrl, testUrl2, KIO::HideProgressInfo);
+    QVERIFY(copyJob);
+    QVERIFY2(copyJob->exec(), qPrintable(copyJob->errorString()));
 }
 
 #include "moc_jobtest.cpp"
