@@ -900,14 +900,18 @@ WorkerResult FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::
     }
 
     if (::rename(_src.data(), _dest.data()) == -1) {
-        qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest;
-        if ((errno == EACCES) || (errno == EPERM)) {
+        const int error = errno;
+        if ((error == EACCES) || (error == EPERM)) {
             return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-        } else if (errno == EXDEV) {
+        } else if (error == EXDEV) {
             return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
-        } else if (errno == EROFS) { // The file is on a read-only filesystem
+        } else if (error == EROFS) { // The file is on a read-only filesystem
             return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
+        } else if (error == ENOENT) {
+            // src was removed, TOCTOU case
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
         } else {
+            qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest << ":" << strerror(error) << "(" << error << ")";
             return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
         }
     }
