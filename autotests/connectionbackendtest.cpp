@@ -14,7 +14,9 @@ class ConnectionBackendTest : public QObject
 private Q_SLOTS:
     void testJumboPackets()
     {
+#if defined(Q_OS_FREEBSD)
         QSKIP("TODO testJumboPackets doesn't pass FIXME");
+#endif
 
         KIO::ConnectionBackend server;
         KIO::ConnectionBackend clientConnection;
@@ -30,7 +32,7 @@ private Q_SLOTS:
         spy = std::make_unique<QSignalSpy>(&clientConnection, &KIO::ConnectionBackend::commandReceived);
         constexpr auto cmd = 64; // completely arbitrary value we don't actually care about the command in this test
         const auto data = randomByteArray(clientConnection.StandardBufferSize * 4L);
-        serverConnection->sendCommand(cmd, data);
+        QVERIFY(serverConnection->sendCommand(cmd, data));
         spy->wait();
         QVERIFY(!spy->isEmpty());
 
