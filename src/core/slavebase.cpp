@@ -713,7 +713,7 @@ void SlaveBase::exit() // possibly called from another thread, only use atomics 
 {
     d->exit_loop = true;
     if (d->runInThread) {
-        d->wasKilled = true;
+        setKillFlag();
     } else {
         // Using ::exit() here is too much (crashes in qdbus's qglobalstatic object),
         // so let's cleanly exit dispatchLoop() instead.
@@ -1437,7 +1437,9 @@ void SlaveBase::send(int cmd, const QByteArray &arr)
             slaveWriteError = true;
         }
         if (slaveWriteError) {
-            qCWarning(KIO_CORE) << "An error occurred during write. The worker terminates now.";
+            if (!wasKilled()) {
+                qCWarning(KIO_CORE) << "An error occurred during send cmd:" << cmd << ". The worker terminates now.";
+            }
             exit();
         }
     }

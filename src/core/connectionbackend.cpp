@@ -184,7 +184,7 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     }
 
     if (socket->state() != QLocalSocket::LocalSocketState::ConnectedState) {
-        qCWarning(KIO_CORE_CONNECTION) << "Socket not connected" << socket->error();
+        qCWarning(KIO_CORE_CONNECTION) << "Socket not connected" << socket->error() << "cmd:" << cmd;
     }
 
     return socket->state() == QLocalSocket::LocalSocketState::ConnectedState;
