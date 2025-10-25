@@ -15,6 +15,9 @@ class MetaDataTest : public QObject
 
 private Q_SLOTS:
     void testToVariant();
+
+    void testOperatorPlusEqualVariantMap_data();
+    void testOperatorPlusEqualVariantMap();
 };
 
 #endif
