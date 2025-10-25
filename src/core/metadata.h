@@ -100,11 +100,8 @@ inline KIO::MetaData::MetaData(const QMap<QString, QVariant> &map)
 
 inline KIO::MetaData &KIO::MetaData::operator+=(const QMap<QString, QVariant> &metaData)
 {
-    QMapIterator<QString, QVariant> it(metaData);
-
-    while (it.hasNext()) {
-        it.next();
-        insert(it.key(), it.value().toString());
+    for (const auto &[key, value] : metaData.asKeyValueRange()) {
+        insert(key, value.toString());
     }
 
     return *this;
@@ -119,11 +116,9 @@ inline KIO::MetaData &KIO::MetaData::operator=(const QMap<QString, QVariant> &me
 inline QVariant KIO::MetaData::toVariant() const
 {
     QMap<QString, QVariant> map;
-    QMapIterator<QString, QString> it(*this);
 
-    while (it.hasNext()) {
-        it.next();
-        map.insert(it.key(), it.value());
+    for (const auto &[key, value] : asKeyValueRange()) {
+        map.insert(key, QVariant(value));
     }
 
     return QVariant(map);

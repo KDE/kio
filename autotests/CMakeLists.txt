@@ -11,6 +11,12 @@ add_subdirectory(http)
 
 find_package(Qt6Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
+ecm_add_test(
+    metadatatest.cpp
+    NAME_PREFIX "kiocore-"
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test
+)
+
 if (ACL_FOUND)
     set (kacltest_SRC kacltest.cpp)
 endif()
