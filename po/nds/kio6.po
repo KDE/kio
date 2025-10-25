@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:39+0000\n"
+"POT-Creation-Date: 2025-10-25 00:39+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "In-/Utgaavmoduul %1 lett sik nich opstellen"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4337,12 +4337,12 @@ msgstr "Datei lett sik nich vun %1 na %2 koperen. (Fehlernr.: %3)"
 msgid "No media in device for %1"
 msgstr "Keen Medium in Reedschap för %1"
 
-#: kioworkers/file/file_unix.cpp:1027
+#: kioworkers/file/file_unix.cpp:1031
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "De Bruker-ID för den Brukernaam \"%1\" lett sik nich halen."
 
-#: kioworkers/file/file_unix.cpp:1038
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "De Koppel-ID för den Brukernaam \"%1\" lett sik nich halen."

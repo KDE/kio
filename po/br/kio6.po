@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:39+0000\n"
+"POT-Creation-Date: 2025-10-25 00:39+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Divarrek da grouiñ restr gwareziñ"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3999,13 +3999,13 @@ msgstr ""
 msgid "No media in device for %1"
 msgstr "N'eus media ebet en trobarzhell evit %1"
 
-#: kioworkers/file/file_unix.cpp:1027
+#: kioworkers/file/file_unix.cpp:1031
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "N'hellan ket mont er renkell %1."
 
-#: kioworkers/file/file_unix.cpp:1038
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

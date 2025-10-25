@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:39+0000\n"
+"POT-Creation-Date: 2025-10-25 00:39+0000\n"
 "PO-Revision-Date: 2025-07-30 09:19+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Impossible de créer un module d'entrée / sortie : %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4288,12 +4288,12 @@ msgstr "Impossible de copier le fichier %1 vers %2. (Num. d'erreur : %3)"
 msgid "No media in device for %1"
 msgstr "Aucune méta-information dans le périphérique pour %1"
 
-#: kioworkers/file/file_unix.cpp:1027
+#: kioworkers/file/file_unix.cpp:1031
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Impossible de trouver l'identifiant de l'utilisateur nommé %1"
 
-#: kioworkers/file/file_unix.cpp:1038
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Impossible de trouver l'identifiant de du groupe nommé %1"

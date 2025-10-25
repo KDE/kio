@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:39+0000\n"
+"POT-Creation-Date: 2025-10-25 00:39+0000\n"
 "PO-Revision-Date: 2025-10-14 15:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi oluşturulamıyor: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:959
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4154,12 +4154,12 @@ msgstr "Dosya %1 konumundan %2 konumuna kopyalanamadı. (Hata: %3)"
 msgid "No media in device for %1"
 msgstr "%1 için aygıtta medya bulunamadı"
 
-#: kioworkers/file/file_unix.cpp:1027
+#: kioworkers/file/file_unix.cpp:1031
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 
-#: kioworkers/file/file_unix.cpp:1038
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
