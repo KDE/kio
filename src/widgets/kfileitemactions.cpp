@@ -508,7 +508,6 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
 
     const KConfigGroup showGroup = m_config.group(QStringLiteral("Show"));
 
-    const QMimeDatabase db;
     const QStringList files = serviceMenuFilePaths();
     for (const QString &file : files) {
         const KDesktopFile desktopFile(file);
