@@ -225,6 +225,14 @@ void FavIconTest::tooBigFaviconShouldAbort()
     job->setIconUrl(QUrl("http://download.kde.org/Attic/4.13.2/src/kcalc-4.13.2.tar.xz"));
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
+
+#if defined(Q_OS_WINDOWS)
+    if (job->error() == int(KIO::ERR_CANNOT_CONNECT)) {
+        // some hosts may not be reachable by the VM
+        QVERIFY(job->errorString().startsWith(QStringLiteral("Could not connect to host"));
+        return;
+    }
+#endif
     QCOMPARE(job->error(), int(KIO::ERR_WORKER_DEFINED));
     QCOMPARE(job->errorString(), QStringLiteral("Icon file too big, download aborted"));
 }
