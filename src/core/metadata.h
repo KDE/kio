@@ -86,7 +86,8 @@ public:
     /*!
      * Returns the contents of the map as a QVariant.
      *
-     * Returns a QVariant representation of the meta data map.
+     * Returns a QVariant representation of the meta data map,
+     * using QMap<QString, QVariant> as stored type.
      *
      * \since 4.3.1
      */
