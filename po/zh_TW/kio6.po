@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-25 00:39+0000\n"
+"POT-Creation-Date: 2025-10-27 00:39+0000\n"
 "PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3332,7 +3332,7 @@ msgstr "不接受遠端檔案"
 msgid "All Folders"
 msgstr "所有資料夾"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
 #, kde-format
 msgid "&Open"
 msgstr "開啟(&O)"
@@ -5124,47 +5124,47 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:540
+#: widgets/kfileitemactions.cpp:539
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "動作(&A)"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "資料夾開啟方式(&O)…"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "開啟方式(&O)…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "用 %1 開啟資料夾(&O)"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open with %1"
 msgstr "用 %1 開啟(&O)"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "資料夾開啟方式(&O)"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "開啟方式(&O)"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:818
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

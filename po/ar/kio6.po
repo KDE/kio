@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-25 00:39+0000\n"
+"POT-Creation-Date: 2025-10-27 00:39+0000\n"
 "PO-Revision-Date: 2025-10-15 20:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3425,7 +3425,7 @@ msgstr "الملفّات البعيدة غير مقبولة"
 msgid "All Folders"
 msgstr "كلّ المجلّدات"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
 #, kde-format
 msgid "&Open"
 msgstr "ا&فتح"
@@ -5269,47 +5269,47 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "‏%1"
 
-#: widgets/kfileitemactions.cpp:540
+#: widgets/kfileitemactions.cpp:539
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "إ&جراءات"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "ا&فتح المجلد بـ…"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "اف&تح ب‍…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "ا&فتح المجلد بـ %1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open with %1"
 msgstr "ا&فتح في %1"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "ا&فتح المجلد بـ"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "ا&فتح في"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:818
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
