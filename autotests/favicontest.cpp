@@ -229,7 +229,7 @@ void FavIconTest::tooBigFaviconShouldAbort()
 #if defined(Q_OS_WINDOWS)
     if (job->error() == int(KIO::ERR_CANNOT_CONNECT)) {
         // some hosts may not be reachable by the VM
-        QVERIFY(job->errorString().startsWith(QStringLiteral("Could not connect to host"));
+        QVERIFY(job->errorString().startsWith(QStringLiteral("Could not connect to host")));
         return;
     }
 #endif
