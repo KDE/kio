@@ -495,7 +495,17 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
         if (statusCode >= 300 && statusCode < 400) {
             const QString redir = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
-            const QUrl newUrl = url.resolved(QUrl(redir));
+            QUrl newUrl = url.resolved(QUrl(redir));
+
+            // Restore the old protocol (http, webdav or dav) after the redirection, but with the correct encryption status
+            bool upgradeToSecure = !url.scheme().endsWith(QLatin1Char('s')) && newUrl.scheme().endsWith(QLatin1Char('s'));
+            bool downgradeToInsecure = url.scheme().endsWith(QLatin1Char('s')) && !newUrl.scheme().endsWith(QLatin1Char('s'));
+            if (upgradeToSecure)
+                newUrl.setScheme(url.scheme() + QLatin1Char('s'));
+            else if (downgradeToInsecure)
+                newUrl.setScheme(url.scheme().chopped(1));
+            else
+                newUrl.setScheme(url.scheme());
 
             // Handled after returning from the event loop.
             // 301 is necessary for Apache (see bugs 209508 and 187970).
