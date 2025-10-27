@@ -805,13 +805,9 @@ KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
 
     Response response = makeDavRequest(url, method, inputData, DataMode::Return, extraHeaders);
 
-    // Has a redirection already been called? If so, we're done.
-    // if (m_isRedirection || m_kioError) {
-    // if (m_isRedirection) {
-    // return davFinished();
-    // }
-    // return WorkerResult::pass();
-    // }
+    // If this is a redirection we don't have anything to do
+    if (response.httpCode >= 300 && response.httpCode < 400)
+        return KIO::WorkerResult::pass();
 
     QDomDocument multiResponse;
     multiResponse.setContent(response.data, QDomDocument::ParseOption::UseNamespaceProcessing);
