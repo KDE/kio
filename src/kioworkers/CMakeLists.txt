@@ -1,3 +1,5 @@
+set(ECM_TEST_NAME_PREFIX "kioworkers-")
+
 add_subdirectory( file )
 add_subdirectory( ftp )
 add_subdirectory( help )

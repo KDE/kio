@@ -1,5 +1,7 @@
 include(ECMAddTests)
 
+set(ECM_TEST_NAME_PREFIX "kpasswdserver-")
+
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/.. )
 
 set (kpasswdservertest_dbus_SRCS)

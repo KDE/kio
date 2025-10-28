@@ -35,4 +35,4 @@ if(APPLE)
 endif(APPLE)
 
 # other tests like dropjob and fileundomanager use the trash in ~/.qttest, which this test cleans up
-set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
+set_tests_properties(kioworkers-testtrash PROPERTIES RUN_SERIAL TRUE)

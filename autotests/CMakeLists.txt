@@ -11,9 +11,10 @@ add_subdirectory(http)
 
 find_package(Qt6Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
+set(ECM_TEST_NAME_PREFIX "kiocore-")
+
 ecm_add_test(
     metadatatest.cpp
-    NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF6::KIOCore Qt6::Test
 )
 
@@ -37,7 +38,6 @@ ecm_add_tests(
  batchrenamejobtest.cpp
  ksambasharetest.cpp
  filefiltertest.cpp
- NAME_PREFIX "kiocore-"
  LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
 )
 
@@ -52,7 +52,6 @@ if (NOT WIN32)
     deletejobtest.cpp
     deleteortrashjobtest.cpp
     krecentdocumenttest.cpp
-    NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
   )
 
@@ -64,7 +63,6 @@ ecm_add_test(
     ../src/core/connectionbackend.cpp
     ../src/core/kiocoreconnectiondebug.cpp
     TEST_NAME connectionbackendtest
-    NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n
 )
 
@@ -79,7 +77,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     add_definitions(-DRubyExe_EXECUTABLE="${RubyExe_EXECUTABLE}")
     ecm_add_tests(
         ftptest.cpp
-        NAME_PREFIX "kiocore-"
         LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
     )
 
@@ -90,17 +87,17 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
         URL "https://pypi.org/project/WsgiDAV/")
     ecm_add_tests(
         webdavtest.cpp
-        NAME_PREFIX "kiocore-"
         LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
     )
 endif()
 
 if (TARGET KF6::KIOGui)
+  set(ECM_TEST_NAME_PREFIX "kiogui-")
+
   ecm_add_tests(
     favicontest.cpp
     openurljobtest.cpp
     kemailclientlauncherjobtest.cpp
-    NAME_PREFIX "kiogui-"
     LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt6::Test
   )
 
@@ -126,8 +123,9 @@ if (TARGET KF6::KIOGui)
         add_executable(${KPR_TEST_TARGET} ${_kprocessrunnerTest}test.cpp)
         target_link_libraries(${KPR_TEST_TARGET} KF6::WindowSystem KF6::KIOCore KF6::KIOGui Qt6::Test)
         ecm_mark_as_test(${KPR_TEST_TARGET})
-        add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
-        set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT
+        set(KPR_TEST_NAME "${ECM_TEST_NAME_PREFIX}${KPR_TEST_TARGET}")
+        add_test(NAME ${KPR_TEST_NAME} COMMAND ${KPR_TEST_TARGET})
+        set_tests_properties(${KPR_TEST_NAME} PROPERTIES ENVIRONMENT
           "_KDE_APPLICATIONS_AS_SERVICE=${_service};
           _KDE_APPLICATIONS_AS_SCOPE=${_scope};
           _KDE_APPLICATIONS_AS_FORKING=${_forking};"
@@ -139,13 +137,14 @@ endif()
 
 if (NOT ANDROID)
 if (TARGET KF6::KIOWidgets)
+set(ECM_TEST_NAME_PREFIX "kiowidgets-")
+
 ecm_add_tests(
  clipboardupdatertest.cpp
  kfileitemactionstest.cpp
  pastetest.cpp
  kurifiltersearchprovideractionstest.cpp
  ENVIRONMENT QT_QPA_PLATFORM=offscreen
- NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
 )
 
@@ -159,7 +158,6 @@ if (NOT WIN32)
     kdynamicjobtrackernowidgetstest.cpp
     kurlcompletiontest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
-    NAME_PREFIX "kiowidgets-"
     LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
   set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
@@ -170,7 +168,7 @@ endif()
 if (NOT WIN32)
   set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB})
 
-  set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
+  set(URIFILTER_COLON_TEST kurifiltertest-colon-separator)
   ecm_add_test(kurifiltertest.cpp
       LINK_LIBRARIES ${kurifiltertest_libs}
       ENVIRONMENT QT_QPA_PLATFORM=offscreen
@@ -178,7 +176,7 @@ if (NOT WIN32)
   )
   target_compile_definitions(${URIFILTER_COLON_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=':'")
 
-  set(URIFILTER_SPACE_TEST kiowidgets-kurifiltertest-space-separator)
+  set(URIFILTER_SPACE_TEST kurifiltertest-space-separator)
   ecm_add_test(kurifiltertest.cpp
       LINK_LIBRARIES ${kurifiltertest_libs}
       ENVIRONMENT QT_QPA_PLATFORM=offscreen
@@ -193,7 +191,6 @@ if (NOT WIN32)
     kurlcompletiontest.cpp
     TEST_NAME kurlcompletiontest-nowait
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
-    NAME_PREFIX "kiowidgets-"
     LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
   )
   set_target_properties(kurlcompletiontest-nowait PROPERTIES COMPILE_FLAGS "-DNO_WAIT")
@@ -202,6 +199,8 @@ endif()
 endif()
 
 if (TARGET KF6::KIOFileWidgets)
+set(ECM_TEST_NAME_PREFIX "kiofilewidgets-")
+
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
  kurlnavigatortest.cpp
@@ -211,7 +210,6 @@ ecm_add_tests(
  kurlrequestertest.cpp
  kfilefiltercombotest.cpp
  ENVIRONMENT QT_QPA_PLATFORM=offscreen
- NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n KF6::WindowSystem
 )
 
@@ -225,7 +223,6 @@ if (NOT WIN32)
     kfileplacesviewtest.cpp
     kdirlistertest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
-    NAME_PREFIX "kiofilewidgets-"
     LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n KF6::WindowSystem
   )
 
