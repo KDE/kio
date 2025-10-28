@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-10-28 00:39+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -4388,90 +4388,90 @@ msgstr "Mirëfilltësim Më Anë Shërbyesi"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> më <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Përndryshe, kërkesa do të kish pasur sukses."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "të marrë vlera vetish"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "të caktojë vlera vetish"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "të krijojë dosjen e kërkuar"
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "të kopjojë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "të zhvendosë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "të kërkojë në dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "të kyçë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "të shkyçë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "të fshijë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1388
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "të bëjë kërkim mbi aftësitë e shërbyesit"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1390
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "të marrë lëndë të kartelës, ose dosjes së treguar"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "të krijojë një raport te dosja e specifikuar"
 
-#: kioworkers/http/http.cpp:1394
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ndodhi një gabim i papritur (%1) teksa provohej %2."
 
-#: kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4481,13 +4481,13 @@ msgstr ""
 "Ndodhi një gabim teksa provohej %1, %2. Më poshtë ka një përmbledhje të "
 "arsyeve."
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Hyrje e mohuar teksa provohet %1."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4496,7 +4496,7 @@ msgstr ""
 "Te vendmbërritja s’krijohet dot një burim, para se të jetë krijuar një ose "
 "më tepër koleksione (dosje) të ndërmjetme."
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1481
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4511,28 +4511,28 @@ msgstr ""
 "kërkoni që kartelat të mos mbishkruhen.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Kyçja e kërkuar s’u akordua dot. %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1495
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Shërbyesi s’mbulon lloj kërkesë të lëndës."
 
-#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "S’arrihet %1, ngaqë burimi është i kyçur."
 
-#: kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ky veprim u pengua nga një tjetër gabim."
 
-#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4542,7 +4542,7 @@ msgstr ""
 "S’arrihet %1, ngaqë shërbyesi vendmbërritje refuzon të pranojë kartelën, ose "
 "dosjen."
 
-#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4551,18 +4551,18 @@ msgstr ""
 "Burimi vendmbërritje s’ka hapësirë të mjaftueshme për të regjistruar "
 "gjendjen e burimit pas ekzekutimit të kësaj metode."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1573
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Burimi s’mund të fshihet."
 
-#: kioworkers/http/http.cpp:1587
+#: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "të ngarkojë %1"
 
-#: kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1644
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

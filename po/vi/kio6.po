@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-10-28 00:39+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -4349,90 +4349,90 @@ msgstr "Xác thực máy chủ"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> ở <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Nếu không thì, yêu cầu đã thành công."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "lấy các giá trị thuộc tính"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "đặt các giá trị thuộc tính"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "tạo thư mục được yêu cầu"
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "chép tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "chuyển tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "tìm kiếm trong thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "khoá tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "mở khoá tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "xoá tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1388
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "truy vấn khả năng của máy chủ"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1390
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "lấy nội dung của tệp hoặc thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "chạy một báo cáo trong thư mục được chỉ định"
 
-#: kioworkers/http/http.cpp:1394
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Một lỗi bất ngờ (%1) đã xảy ra khi đang thử %2."
 
-#: kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4440,13 +4440,13 @@ msgid ""
 "below."
 msgstr "Một lỗi xảy ra khi đang thử %1, %2. Tóm tắt lí do ở bên dưới."
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Truy cập bị từ chối khi đang thử %1."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4455,7 +4455,7 @@ msgstr ""
 "Không thể tạo tài nguyên ở đích cho đến khi một hoặc nhiều hơn các tập hợp "
 "(thư mục) trung gian được tạo xong."
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1481
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4470,28 +4470,28 @@ msgstr ""
 "các tệp không bị ghi đè.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Không cấp được khoá theo yêu cầu. %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1495
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Máy chủ không hỗ trợ kiểu yêu cầu đó của phần thân."
 
-#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Không thể %1 vì tài nguyên bị khoá."
 
-#: kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Hành động này bị ngăn cản bởi một lỗi khác."
 
-#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4499,7 +4499,7 @@ msgid ""
 "folder."
 msgstr "Không thể %1 vì máy chủ đích từ chối chấp nhận tệp hoặc thư mục."
 
-#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4508,18 +4508,18 @@ msgstr ""
 "Tài nguyên đích không có đủ không gian để ghi lại trạng thái tài nguyên sau "
 "việc thực thi phương thức này."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1573
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Không thể xoá tài nguyên."
 
-#: kioworkers/http/http.cpp:1587
+#: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "tải lên %1"
 
-#: kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1644
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

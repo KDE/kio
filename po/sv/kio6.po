@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-10-28 00:39+0000\n"
 "PO-Revision-Date: 2025-10-15 21:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4359,90 +4359,90 @@ msgstr "Serverbehörighetskontroll"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> på <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars skulle begäran ha lyckats."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hämta egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ange egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "skapa den begärda katalogen"
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiera den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "flytta den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "söka i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "låsa den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "låsa upp den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ta bort den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1388
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "fråga om serverns funktioner"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1390
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "hämta innehållet i angiven fil eller katalog"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "skapa en rapport i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1394
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ett oväntat fel (%1) uppstod vid försök att %2."
 
-#: kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4452,13 +4452,13 @@ msgstr ""
 "Ett fel uppstod vid försök att %1, %2. En sammanfattning av orsakerna anges "
 "nedan."
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Åtkomst nekades vid försök att %1."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4467,7 +4467,7 @@ msgstr ""
 "En resurs kan inte skapas på destinationen innan en eller flera "
 "mellanliggande samlingar (kataloger) har skapats."
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1481
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4482,28 +4482,28 @@ msgstr ""
 "begärde att filer inte ska skrivas över.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Den begärda låsningen kunde inte erhållas. %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1495
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Servern stödjer inte typen av begäran i meddelandet."
 
-#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Kan inte %1 eftersom resursen är låst."
 
-#: kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Åtgärden förhindrades av ett annat fel."
 
-#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4512,7 +4512,7 @@ msgid ""
 msgstr ""
 "Kan inte %1 eftersom målservern vägrar att acceptera filen eller katalogen."
 
-#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4521,18 +4521,18 @@ msgstr ""
 "Målresursen har inte tillräckligt med utrymme för att registrera resursens "
 "tillstånd efter den här metoden har körts."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1573
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resursen kan inte tas bort."
 
-#: kioworkers/http/http.cpp:1587
+#: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ladda upp %1"
 
-#: kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1644
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

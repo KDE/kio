@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-10-28 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4447,94 +4447,94 @@ msgstr "Ububhali Bomncedisi"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b>ku-<b>%2</b>"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Kungenjalo, isicelo besinga phumelela."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1370
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "Fumana amaxabiso ezinto zobunini"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1372
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "cwangcisa amaxabiso ento yobunini"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1374
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "yenza ulawulo oluceliweyo"
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1376
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "Khupela leyo fayili okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1378
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "hambisa ifayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1380
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "phendla kulawulo olukhankanyiweyo"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1382
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "tshixa leyo fayili ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1384
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "vula leyo fayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1386
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "cima leyo fayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1388
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "buza ukukwazi ukwenza bomncedisi "
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1390
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "vumbulula imixholo yefayile ekhankayiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1392
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "phendla kulawulo olukhankanyiweyo"
 
-#: kioworkers/http/http.cpp:1394
+#: kioworkers/http/http.cpp:1400
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Imposiso engalindelekanga (%1) yenzekile ngexesha uzama ukulayisha %2."
 
-#: kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1440
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4547,14 +4547,14 @@ msgstr ""
 "Impazamo yenzekile ngexesha uzama uku %1, %2.  Isishwakathelo sezizathu "
 "sanga phantsi.<ul>"
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Unikezelo alwamkelekanga mgexesha uzama kwi %1."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
 #, fuzzy, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4563,7 +4563,7 @@ msgstr ""
 "Icebo alikwazi ukwenzeka kuze enye ye phakati yabaqhokeleli (abalawuli) "
 "sebenziwe."
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1481
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4580,29 +4580,29 @@ msgstr ""
 "okanye uzame uku bhala ngaphezulu i fayili ngexhesha bhala ngaphezulu cela "
 "ukuba ifayile zinga bhala ngaphezulu. %1"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ikhonco oluceliweyo elitsixiweyo alenzekanga.%1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1495
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Umncedisi akakwazanga ukuncedisa isiscelo salomhlobo lomzimba."
 
-#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ayikwazanga %1 ngenxa yokuba icebo litshixiwe."
 
-#: kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Lentshukumo ivimbelwa ngenye imposiso."
 
-#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4612,7 +4612,7 @@ msgstr ""
 "Ayikwazi %1 ngenxa yokuba indawo yesiphelo yomncedisi akavumi ukwamkela "
 "ifayile okanye ulawulo."
 
-#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4621,19 +4621,19 @@ msgstr ""
 "Icebo lendawo yesiphelo ayina sikhala esaneleyo uku shicilela imeko yecebo "
 "emva kokwenzeka kwale ndlela."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1573
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "Ulawulo olukhankanyiweyo lunokungabikho."
 
-#: kioworkers/http/http.cpp:1587
+#: kioworkers/http/http.cpp:1593
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "Ulayisho %1"
 
-#: kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1644
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"
