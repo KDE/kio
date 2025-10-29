@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-25 00:39+0000\n"
+"POT-Creation-Date: 2025-10-28 00:39+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3502,7 +3502,7 @@ msgstr "پرونده‌های دور پذیرش نمی‌شوند"
 msgid "All Folders"
 msgstr "*|تمام پوشه‌ها"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
 #, kde-format
 msgid "&Open"
 msgstr "&گشودن"
@@ -4366,90 +4366,90 @@ msgstr "تأیید کارساز"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> در <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1361
+#: kioworkers/http/http.cpp:1367
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "در غیر این صورت، درخواست به نتیجه رسیده است."
 
-#: kioworkers/http/http.cpp:1364
+#: kioworkers/http/http.cpp:1370
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "بازیابی مقادیر ویژگی"
 
-#: kioworkers/http/http.cpp:1366
+#: kioworkers/http/http.cpp:1372
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "تنظیم مقادیر ویژگی"
 
-#: kioworkers/http/http.cpp:1368
+#: kioworkers/http/http.cpp:1374
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ایجاد پوشهٔ درخواست‌شده"
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1376
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "رونویسی پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1378
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "انتقال پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1380
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "جست‌وجو در پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1382
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "قفل پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1384
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "باز کردن قفل پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1386
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "حذف پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1388
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "پرس‌وجوی قابلیت‌های کار‌ساز"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1390
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "باز‌یابی محتویات پرونده یا پوشهٔ تعیین‌شده"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "اجرای یک گزارش در پوشهٔ مشخص شده"
 
-#: kioworkers/http/http.cpp:1394
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "هنگام تلاش برای %2، خطای غیرمنتظره (%1) رخ داد."
 
-#: kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4458,13 +4458,13 @@ msgid ""
 msgstr ""
 "هنگام تلاش برای %1، %2، خطایی رخ داد. خلاصه‌ای از دلایل در زیر آمده است."
 
-#: kioworkers/http/http.cpp:1452 kioworkers/http/http.cpp:1596
+#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "هنگام تلاش برای %1، دسترسی رد شد."
 
-#: kioworkers/http/http.cpp:1466 kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4473,7 +4473,7 @@ msgstr ""
 "یک منبع را نمی‌توان در مقصد ایجاد کرد، تا زمانی که یک یا چند مجموعه (پوشه‌) "
 "واسطه ایجاد شده باشد."
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1481
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4490,28 +4490,28 @@ msgstr ""
 "نبود، یا این که زمانی که در حال درخواست پرونده‌هایی که جای‌نوشت نمی‌شوند بودید؛ "
 "برای جای‌نوشت یک پرونده تلاش می‌کردید. %1"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "نتوانست قفل درخواست‌شده را تصدیق کند. %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1495
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "کار‌ساز، از درخواست نوع بدنه پشتیبانی نمی‌کند."
 
-#: kioworkers/http/http.cpp:1494 kioworkers/http/http.cpp:1611
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "ناتوان از %1، زیرا منبع قفل است."
 
-#: kioworkers/http/http.cpp:1498
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "این کنش توسط خطای دیگری پیشگیری شده بود."
 
-#: kioworkers/http/http.cpp:1505 kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4519,7 +4519,7 @@ msgid ""
 "folder."
 msgstr "ناتوان از %1، زیرا کار‌ساز مقصد، پرونده یا پوشه را رد نمی‌پذیرد."
 
-#: kioworkers/http/http.cpp:1514 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4527,18 +4527,18 @@ msgid ""
 msgstr ""
 "منبع مقصد، فضای کافی برای ضبط وضعیت منبع بعد از اجرای این روش را ندارد."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1573
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "منبع نمی‌تواند حذف شود."
 
-#: kioworkers/http/http.cpp:1587
+#: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "بارگذاری %1"
 
-#: kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1644
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5349,13 +5349,13 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:540
+#: widgets/kfileitemactions.cpp:539
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&کنش‌ها‌"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open Folder With"
@@ -5363,7 +5363,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&گشودن پوشه با"
 
-#: widgets/kfileitemactions.cpp:705
+#: widgets/kfileitemactions.cpp:704
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5371,29 +5371,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&گشودن با"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&گشودن پوشه با %1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:766
 #, kde-format
 msgid "&Open with %1"
 msgstr "&باز کردن %1 با‌"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&گشودن پوشه با"
 
-#: widgets/kfileitemactions.cpp:808
+#: widgets/kfileitemactions.cpp:807
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&گشودن با"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:818
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
