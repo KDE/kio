@@ -223,6 +223,7 @@ if (NOT WIN32)
     knewfilemenutest.cpp
     kfileplacesmodeltest.cpp
     kfileplacesviewtest.cpp
+    kdirlistertest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
     NAME_PREFIX "kiofilewidgets-"
     LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n KF6::WindowSystem
