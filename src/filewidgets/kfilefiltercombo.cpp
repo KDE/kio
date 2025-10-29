@@ -99,8 +99,8 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
         const bool isAllFileFilters = std::any_of(mimeTypes.cbegin(), mimeTypes.cend(), [&db](const QString &mimeTypeName) {
             const QMimeType type = db.mimeTypeForName(mimeTypeName);
 
-            if (!type.isValid()) {
-                qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << mimeTypeName << "is not a valid MIME type";
+            if (!type.isValid() && !type.name().endsWith(QLatin1String("/*"))) {
+                qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << mimeTypeName << "is not a valid filter";
                 return false;
             }
 

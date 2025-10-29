@@ -2358,28 +2358,59 @@ QString KCoreDirLister::nameFilter() const
     return d->nameFilter;
 }
 
+static QStringList expandMimeGlob(const QString &mimeString)
+{
+    auto expression = QRegularExpression::fromWildcard(mimeString, Qt::CaseSensitive);
+    const auto allMimeTypes = QMimeDatabase().allMimeTypes();
+    QStringList mimetypes;
+    for (const auto &mimeType : allMimeTypes) {
+        if (mimeType.name().contains(expression)) {
+            mimetypes.push_back(mimeType.name());
+        }
+    }
+    return mimetypes;
+}
+
 void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
 {
-    if (d->settings.mimeFilter == mimeFilter) {
+    QStringList newFilters;
+    for (const auto &filter : mimeFilter) {
+        if (filter.endsWith(u'*')) {
+            newFilters += expandMimeGlob(filter);
+        } else {
+            newFilters += filter;
+        }
+    }
+
+    if (d->settings.mimeFilter == newFilters) {
         return;
     }
 
     d->prepareForSettingsChange();
-    if (mimeFilter.contains(QLatin1String("application/octet-stream")) || mimeFilter.contains(QLatin1String("all/allfiles"))) { // all files
+    if (newFilters.contains(QLatin1String("application/octet-stream")) || newFilters.contains(QLatin1String("all/allfiles"))) { // all files
         d->settings.mimeFilter.clear();
     } else {
-        d->settings.mimeFilter = mimeFilter;
+        d->settings.mimeFilter = newFilters;
     }
 }
 
 void KCoreDirLister::setMimeExcludeFilter(const QStringList &mimeExcludeFilter)
 {
-    if (d->settings.mimeExcludeFilter == mimeExcludeFilter) {
+    QStringList newFilters;
+    for (const auto &filter : mimeExcludeFilter) {
+        if (filter.endsWith(u'*')) {
+            newFilters += expandMimeGlob(filter);
+        } else {
+            newFilters += filter;
+        }
+    }
+
+    if (d->settings.mimeExcludeFilter == newFilters) {
         return;
     }
 
     d->prepareForSettingsChange();
-    d->settings.mimeExcludeFilter = mimeExcludeFilter;
+    d->settings.mimeExcludeFilter = newFilters;
 }
 
 void KCoreDirLister::clearMimeFilter()

@@ -390,6 +390,7 @@ public:
 
     /*!
      * Set MIME type based filter to only list items matching the given MIME types.
+     * Since 6.20 mime globs such as "image/*" are supported.
      *
      * \note Setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.
@@ -407,6 +408,7 @@ public:
      * revision of KCoreDirLister. This method may be removed then.
      *
      * Set MIME type based exclude filter to only list items not matching the given MIME types
+     * Since 6.20 mime globs such as "image/*" are supported.
      *
      * \note setting the filter does not automatically reload directory.
      * Also calling this function will not affect any named filter already set.

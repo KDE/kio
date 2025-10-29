@@ -1534,11 +1534,12 @@ void KDirListerTest::testMimeFilter_data()
     QTest::addColumn<QStringList>("mimeTypes");
     QTest::addColumn<QStringList>("filteredFiles");
 
-    const QStringList files = {"bla.txt", "main.cpp", "main.c", "image.jpeg"};
+    const QStringList files = {"bla.txt", "main.cpp", "main.c", "image.jpeg", "picture.png"};
 
     QTest::newRow("single_file_exact_mimetype") << files << QStringList{"text/x-c++src"} << QStringList{"main.cpp"};
     QTest::newRow("inherited_mimetype") << files << QStringList{"text/plain"} << QStringList{"bla.txt", "main.cpp", "main.c"};
     QTest::newRow("no_match") << files << QStringList{"audio/flac"} << QStringList{};
+    QTest::newRow("glob") << files << QStringList{"image/*"} << QStringList{"image.jpeg", "picture.png"};
 }
 
 void KDirListerTest::testMimeFilter()
