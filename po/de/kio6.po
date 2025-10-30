@@ -10,20 +10,21 @@
 # SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-28 00:39+0000\n"
-"PO-Revision-Date: 2025-09-17 23:06+0200\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2025-10-21 20:48+0200\n"
+"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2048,6 +2049,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Obwohl der Server erfolgreich kontaktiert wurde, kam innerhalb der "
+"festgelegten Zeit keine Antwort."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -2503,6 +2506,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Ein-/Ausgabemodul für Protokoll „%1“ in %2 wurde nicht geladen, weil alle "
+"Ein-/Ausgabemodule, die sich außerhalb von %3 befinden und nach erweiterten "
+"Rechten fragen, als unsicher eingestuft werden."
 
 #: core/worker.cpp:422
 #, kde-format
@@ -2618,7 +2624,7 @@ msgstr "Erneut laden"
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "Neuer Ordner …"
+msgstr "Neuer Ordner …"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
@@ -2845,7 +2851,7 @@ msgstr "Basisordner"
 #, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
-msgstr "Auswählen …"
+msgstr "Durchsuchen …"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -2926,7 +2932,9 @@ msgid ""
 msgstr ""
 "<qt>Dies ist die Adresse, die mit dem Element verknüpft wird. Dafür ist jede "
 "gültige URL verwendbar. Zum Beispiel:<br /><br />%1<br />http://www.kde."
-"de<br />ftp://ftp.kde.org/pub/kde/stable</qt>"
+"org<br />ftp://ftp.kde.org/pub/kde/stable<br /><br />Wenn Sie den Knopf "
+"neben dem Textbearbeitungsfeld anklicken, können Sie zu einer passenden "
+"Adresse navigieren.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3107,7 +3115,7 @@ msgstr "Web-Kurzbefehle festlegen ..."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Wird freigegeben ..."
+msgstr "Wird freigegeben …"
 
 #: filewidgets/kfileplacesmodel.cpp:1379
 #, kde-format
@@ -3119,7 +3127,7 @@ msgstr "&Freigeben"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Wird sicher entfernt …"
+msgstr "Wird sicher entfernt …"
 
 #: filewidgets/kfileplacesmodel.cpp:1385
 #, kde-format
@@ -3131,7 +3139,7 @@ msgstr "&Sicher entfernen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Wird ausgehängt ..."
+msgstr "Wird ausgehängt …"
 
 #: filewidgets/kfileplacesmodel.cpp:1392
 #, kde-format
@@ -3242,13 +3250,13 @@ msgstr "In neuem Fenster öffnen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Eintrag hinzufügen ..."
+msgstr "Eintrag hinzufügen …"
 
 #: filewidgets/kfileplacesview.cpp:1271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Bearbeiten …"
+msgstr "&Bearbeiten …"
 
 #: filewidgets/kfileplacesview.cpp:1276
 #, kde-format
@@ -3480,7 +3488,7 @@ msgstr "Filter beim Wechsel der Ordner beibehalten"
 #: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgid "Filter by name…"
-msgstr "Nach Namen filtern …"
+msgstr "Nach Namen filtern …"
 
 #: filewidgets/kfilewidget.cpp:1404
 #, kde-format
@@ -3819,7 +3827,7 @@ msgstr "Wählen Sie ein benutzerdefiniertes Symbol oder eine Farbe aus"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Wählen Sie ein anderes Symbol aus …"
+msgstr "Anderes Symbol auswählen …"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
@@ -4023,7 +4031,7 @@ msgid ""
 msgstr ""
 "Die Desktop-Datei\n"
 "%1\n"
-"ist vom Typ „Link“, hat aber keinen Eintrag „URL=...“."
+"ist vom Typ „Link“, hat aber keinen Eintrag „URL=…“."
 
 #: gui/openurljob.cpp:379
 #, kde-format
@@ -4063,7 +4071,7 @@ msgstr ""
 #: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "Die Desktop-Datei %1 hat keinen Eintrag „Type=...“"
+msgstr "Die Desktop-Datei %1 hat keinen Eintrag „Type=…“"
 
 #: gui/openurljob.cpp:635
 #, kde-format
@@ -4831,7 +4839,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Erwartete Prüfsumme (MD5, SHA1, SHA256 oder SHA512) ..."
+msgstr "Erwartete Prüfsumme (MD5, SHA1, SHA256 oder SHA512) …"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:39
@@ -5215,13 +5223,13 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr "Hinzufügen …"
+msgstr "Hinzufügen …"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "Bearbeiten …"
+msgstr "Bearbeiten …"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5360,7 +5368,7 @@ msgstr "System-Einrichtung wird aktualisiert"
 #: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating system configuration…"
-msgstr "System-Einrichtung wird aktualisiert …"
+msgstr "System-Einrichtung wird aktualisiert …"
 
 #: widgets/kdirmodel.cpp:1262
 #, kde-format
@@ -5425,13 +5433,13 @@ msgstr "&Aktionen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "Ordner öff&nen mit …"
+msgstr "Ordner öff&nen mit …"
 
 #: widgets/kfileitemactions.cpp:704
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "Öff&nen mit …"
+msgstr "Öff&nen mit …"
 
 #: widgets/kfileitemactions.cpp:766
 #, kde-format
@@ -5459,7 +5467,7 @@ msgstr "Öff&nen mit"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
-msgstr "&Andere Anwendung ..."
+msgstr "&Andere Anwendung …"
 
 #: widgets/kfileitemdelegate.cpp:217
 #, kde-format
@@ -5497,7 +5505,7 @@ msgstr "Öffnen mit:"
 #: widgets/kfilepropspluginwidget.ui:192
 #, kde-format
 msgid "Change..."
-msgstr "Ändern ..."
+msgstr "Ändern …"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:204 widgets/kurlrequesterdialog.cpp:44
@@ -5613,7 +5621,7 @@ msgid ""
 msgstr ""
 "<qt>Wählen Sie das Programm, das zum Öffnen von <b>%1</b> benutzt werden "
 "soll. Wenn das Programm nicht aufgeführt ist, geben Sie den Namen ein oder "
-"klicken Sie auf den Knopf „Auswählen“.</qt>"
+"klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:569
 #, kde-format
@@ -5656,7 +5664,7 @@ msgid ""
 msgstr ""
 "<qt>Wählen Sie das Programm, das zum Öffnen von Dateien des Typs <b>%1</b> "
 "benutzt werden soll. Wenn das Programm nicht aufgeführt ist, geben Sie den "
-"Namen ein oder klicken Sie auf den Knopf „Auswählen“.</qt>"
+"Namen ein oder klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:630
 #, kde-format
@@ -5665,7 +5673,7 @@ msgid ""
 "the browse button.</qt>"
 msgstr ""
 "<qt>Wählen Sie ein Programm aus. Ist das Programm nicht aufgeführt, geben "
-"Sie bitte den Namen ein oder klicken Sie auf den Knopf „Dateiauswahl“.</qt>"
+"Sie bitte den Namen ein oder klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:676
 #, kde-format
@@ -5855,7 +5863,7 @@ msgstr "Dedizierte GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:136
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Ausführung mit bestimmter Grafikkarte"
+msgstr "Mit dedizierter Grafikkarte ausführen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:146
@@ -5963,7 +5971,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:117
 #, kde-format
 msgid "&Browse..."
-msgstr "&Auswählen ..."
+msgstr "&Durchsuchen …"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -6081,7 +6089,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid "Add..."
-msgstr "Hinzufügen ..."
+msgstr "Hinzufügen …"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:252
@@ -6201,7 +6209,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Berechnung läuft ... %1 (%2)\n"
+"Berechnung läuft … %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:699
@@ -6223,7 +6231,7 @@ msgstr[1] "%1 Unterordner"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:728
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Berechnung läuft ...\n"
+msgstr "Berechnung läuft …\n"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:751
 #, kde-format
@@ -6249,13 +6257,13 @@ msgstr "Kein zugehöriges Programm"
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Erstellen …"
+msgstr "Erstellen …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1007
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Ändern ..."
+msgstr "Ändern …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1009
 #, kde-format
@@ -6688,7 +6696,7 @@ msgstr "Die berechnete und die erwartete Prüfsumme stimmen nicht überein."
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
-msgstr "Prüfsumme wird verifiziert ..."
+msgstr "Prüfsumme wird verifiziert …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
 #, kde-format
@@ -6704,7 +6712,7 @@ msgstr "Die ausgewählten Dateien haben unterschiedliche Prüfsummen."
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Berechnung läuft ..."
+msgstr "Berechnung läuft …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2565
 #, kde-format
@@ -6847,7 +6855,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr "Web-Kurzbefehle festlegen ..."
+msgstr "Web-Kurzbefehle einrichten …"
 
 #: widgets/kurlrequester.cpp:367
 #, kde-format
@@ -6899,7 +6907,7 @@ msgstr[1] "Einfügen (%1 Elemente)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "&Inhalt der Zwischenablage einfügen …"
+msgstr "Inhalt der Zwischenablage einfügen …"
 
 #: widgets/paste.cpp:261
 #, kde-format
