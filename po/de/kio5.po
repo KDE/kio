@@ -10,20 +10,21 @@
 # SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-15 01:57+0000\n"
-"PO-Revision-Date: 2025-07-23 10:35+0200\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2025-10-21 20:48+0200\n"
+"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2786,7 +2787,7 @@ msgstr "Erneut laden"
 #: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
-msgstr "Neuer Ordner …"
+msgstr "Neuer Ordner …"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
@@ -3013,7 +3014,7 @@ msgstr "Basisordner"
 #, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "Auswählen ..."
+msgstr "Durchsuchen …"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -3093,7 +3094,9 @@ msgid ""
 msgstr ""
 "<qt>Dies ist die Adresse, die mit dem Element verknüpft wird. Dafür ist jede "
 "gültige URL verwendbar. Zum Beispiel:<br /><br />%1<br />http://www.kde."
-"de<br />ftp://ftp.kde.org/pub/kde/stable</qt>"
+"org<br />ftp://ftp.kde.org/pub/kde/stable<br /><br />Wenn Sie den Knopf "
+"neben dem Textbearbeitungsfeld anklicken, können Sie zu einer passenden "
+"Adresse navigieren.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3260,7 +3263,7 @@ msgstr "Zur Seitenleiste Orte können nur Ordner hinzugefügt werden."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Wird freigegeben ..."
+msgstr "Wird freigegeben …"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3272,7 +3275,7 @@ msgstr "&Freigeben"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Wird sicher entfernt …"
+msgstr "Wird sicher entfernt …"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3284,7 +3287,7 @@ msgstr "&Sicher entfernen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Wird ausgehängt ..."
+msgstr "Wird ausgehängt …"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3376,13 +3379,13 @@ msgstr "In neuem Fenster öffnen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Eintrag hinzufügen ..."
+msgstr "Eintrag hinzufügen …"
 
 #: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Bearbeiten …"
+msgstr "&Bearbeiten …"
 
 #: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
@@ -4098,7 +4101,7 @@ msgid ""
 msgstr ""
 "Die Desktop-Datei\n"
 "%1\n"
-"ist vom Typ „Link“, hat aber keinen Eintrag „URL=...“."
+"ist vom Typ „Link“, hat aber keinen Eintrag „URL=…“."
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -4138,7 +4141,7 @@ msgstr ""
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "Die Desktop-Datei %1 hat keinen Eintrag „Type=...“"
+msgstr "Die Desktop-Datei %1 hat keinen Eintrag „Type=…“"
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -4659,7 +4662,7 @@ msgstr "&Alle löschen"
 #: kcms/cookies/kcookiesmanagement.ui:70
 #, kde-format
 msgid "Configure &Policy..."
-msgstr "&Regelung einrichten ..."
+msgstr "&Regelung einrichten …"
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
@@ -4960,14 +4963,13 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Um eine neue Regelung einzuführen, klicken Sie auf den Knopf "
-"<b>Hinzufügen ...</b> und machen Sie die nötigen Angaben, die über den "
-"Dialog angefordert werden. Um bereits existierende Regelungen zu ändern, "
-"klicken Sie auf den Knopf <b>Ändern ...</b> und wählen Sie die neue Regelung "
-"aus dem entsprechenden Dialog. Ein Klick auf <b>Löschen</b> entfernt die "
-"ausgewählte Regelung und führt wieder die Standardregeln für die betreffende "
-"Domain ein. <b>Alle löschen</b> entfernt alle Domain-spezifischen "
-"Regelungen.\n"
+"Um eine neue Regelung einzuführen, klicken Sie auf den Knopf <b>Hinzufügen …"
+"</b> und machen Sie die nötigen Angaben. Um bereits existierende Regelungen "
+"zu ändern, klicken Sie auf den Knopf <b>Ändern …</b> und wählen Sie die neue "
+"Regelung aus dem entsprechenden Dialog. Ein Klick auf <b>Löschen</b> "
+"entfernt die ausgewählte Regelung und führt wieder die Standardregeln für "
+"die betreffende Domain ein. <b>Alle löschen</b> entfernt alle Domain-"
+"spezifischen Regelungen.\n"
 "</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
@@ -4986,7 +4988,7 @@ msgstr "Interaktiv nach Domains suchen"
 #: kcms/cookies/kcookiespolicies.ui:138
 #, kde-format
 msgid "Search..."
-msgstr "Suchen ..."
+msgstr "Suchen …"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -5019,13 +5021,13 @@ msgstr "Regelung"
 #: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
 #, kde-format
 msgid "&New..."
-msgstr "&Neu ..."
+msgstr "&Neu …"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "Ä&ndern ..."
+msgstr "Ä&ndern …"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
@@ -5309,10 +5311,10 @@ msgid ""
 "use a modem to connect to the Internet, you might want to adjust these "
 "settings."
 msgstr ""
-"<h1>Netzwerkeinstellungen</h1> Hier können Sie das Verhalten von KDE-"
+"<h1>Netzwerkeinstellungen</h1>Hier können Sie das Verhalten von KDE-"
 "Programmen bei Internet- und Netzwerkverbindungen festlegen. Falls Sie "
 "Aussetzer oder sonstige Probleme feststellen oder eine Modem-Einwahl "
-"benutzen, möchten Sie diese Werte vielleicht ein wenig anpassen."
+"benutzen, sollten Sie diese Werte eventuell anpassen."
 
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
@@ -6322,7 +6324,7 @@ msgstr "Bei der Aktion „%2“ ist der unerwartete Fehler %1 aufgetreten."
 #: kioworkers/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
-msgstr "Kontaktaufnahme zu %1. Warten auf Antwort ..."
+msgstr "%1 wurde kontaktiert. Warten auf Antwort …"
 
 #: kioworkers/http/http.cpp:2985
 #, kde-format
@@ -6346,7 +6348,7 @@ msgstr "Internetseitenzugriff bestätigen"
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "Server verarbeitet die Anfrage, bitte warten Sie ..."
+msgstr "Server verarbeitet die Anfrage, bitte warten Sie …"
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
@@ -6356,7 +6358,7 @@ msgstr "Senden der Daten an %1"
 #: kioworkers/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "Übertragung läuft für %1 von %2 ..."
+msgstr "%1 wird von %2 übertragen …"
 
 #: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
 #, kde-format
@@ -6723,7 +6725,7 @@ msgid ""
 "them into the input widget of applications that have built-in support for "
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
-"<para>In diesem Modul können Sie Kurzbefehle für das Web festlegen (Web-"
+"<para>In diesem Modul können Sie Kurzbefehle für das Web einrichten (Web-"
 "Kürzel), mit deren Hilfe sich das Internet rasch nach bestimmten "
 "Stichwörtern durchsuchen lässt. Falls Sie etwa Informationen über das KDE-"
 "Projekt mit Hilfe der Suchmaschine Google finden möchten, geben Sie "
@@ -6928,7 +6930,7 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
-"In der Adresse fehlt der Platzhalter „a \\{...}“ für den Suchtext des "
+"In der Adresse fehlt ein „\\{…}“-Platzhalter für den Suchtext des "
 "Benutzers.\n"
 "Das bedeutet, dass immer dieselbe Seite geladen wird, gleichgültig was der "
 "Benutzer mit dem Web-Kürzel eingibt."
@@ -6982,7 +6984,7 @@ msgstr ""
 "durch \\{1} ... \\{n} vorgeben bzw. ein bestimmtes Element aus „Name=Wert“ "
 "innerhalb der Benutzerabfrage durch \\{name} bezeichnen.<br/>Außerdem ist es "
 "möglich, mehrere Verweise auf einmal anzugeben (Namen, Zahlen, "
-"Zahlenfolgen), nämlich als \\{name1,name2, ...,\"zeichenfolge\"}.<br/>Der "
+"Zahlenfolgen), nämlich als \\{name1,name2,...,\"zeichenfolge\"}.<br/>Der "
 "erste übereinstimmende Wert (von links) wird als Ersetzungswert für die sich "
 "ergebende URI benutzt.<br/>Eine Zeichenfolge in Anführungszeichen lässt sich "
 "als Wert voreinstellen für den Fall, dass es keine Übereinstimmungen mit der "
@@ -7169,7 +7171,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Erwartete Prüfsumme (MD5, SHA1, SHA256 oder SHA512) ..."
+msgstr "Erwartete Prüfsumme (MD5, SHA1, SHA256 oder SHA512) …"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7457,13 +7459,13 @@ msgstr "SSL"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Hinzufügen ..."
+msgstr "Hinzufügen …"
 
 #: widgets/kacleditwidget.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Bearbeiten ..."
+msgstr "Bearbeiten …"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7625,7 +7627,7 @@ msgid ""
 msgstr ""
 "Die Desktop-Datei\n"
 "%1\n"
-"ist vom Typ „FSDevice“, hat aber keinen Eintrag „Dev=...“."
+"ist vom Typ „FSDevice“, hat aber keinen Eintrag „Dev=…“."
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7700,13 +7702,13 @@ msgstr "&Aktionen"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "Ordner öff&nen mit ..."
+msgstr "Ordner öff&nen mit …"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "Öff&nen mit ..."
+msgstr "Öff&nen mit …"
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
@@ -7734,7 +7736,7 @@ msgstr "Öff&nen mit"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Andere Anwendung ..."
+msgstr "&Andere Anwendung …"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -7790,7 +7792,7 @@ msgstr "Adresse:"
 #: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
-msgstr "Ändern ..."
+msgstr "Ändern …"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:347
@@ -7864,7 +7866,7 @@ msgid ""
 msgstr ""
 "<qt>Wählen Sie das Programm, das zum Öffnen von <b>%1</b> benutzt werden "
 "soll. Wenn das Programm nicht aufgeführt ist, geben Sie den Namen ein oder "
-"klicken Sie auf den Knopf „Auswählen“.</qt>"
+"klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -7907,7 +7909,7 @@ msgid ""
 msgstr ""
 "<qt>Wählen Sie das Programm, das zum Öffnen von Dateien des Typs <b>%1</b> "
 "benutzt werden soll. Wenn das Programm nicht aufgeführt ist, geben Sie den "
-"Namen ein oder klicken Sie auf den Knopf „Auswählen“.</qt>"
+"Namen ein oder klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
@@ -7916,7 +7918,7 @@ msgid ""
 "the browse button.</qt>"
 msgstr ""
 "<qt>Wählen Sie ein Programm aus. Ist das Programm nicht aufgeführt, geben "
-"Sie bitte den Namen ein oder klicken Sie auf den Knopf „Dateiauswahl“.</qt>"
+"Sie bitte den Namen ein oder klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
@@ -8131,7 +8133,7 @@ msgstr "Dedizierte GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Ausführung mit bestimmter Grafikkarte"
+msgstr "Mit dedizierter Grafikkarte ausführen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -8258,7 +8260,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
-msgstr "&Auswählen ..."
+msgstr "&Durchsuchen …"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -8346,7 +8348,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
-msgstr "Hinzufügen ..."
+msgstr "Hinzufügen …"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:245
@@ -8452,7 +8454,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Berechnung läuft ... %1 (%2)\n"
+"Berechnung läuft … %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
@@ -8472,7 +8474,7 @@ msgstr[1] "%1 Unterordner"
 #: widgets/kpropertiesdialog.cpp:1405
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Berechnung läuft ...\n"
+msgstr "Berechnung läuft …\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
 #, kde-format
@@ -8498,13 +8500,13 @@ msgstr "Kein zugehöriges Programm"
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Erstellen …"
+msgstr "Erstellen …"
 
 #: widgets/kpropertiesdialog.cpp:1683
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Ändern ..."
+msgstr "Ändern …"
 
 #: widgets/kpropertiesdialog.cpp:1759 widgets/kpropertiesdialog.cpp:1760
 #: widgets/kpropertiesdialog.cpp:1762
@@ -8880,7 +8882,7 @@ msgstr "&Prüfsummen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "Berechnung läuft ..."
+msgstr "Berechnung läuft …"
 
 #: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
@@ -8927,7 +8929,7 @@ msgstr "Die berechnete und die erwartete Prüfsumme stimmen nicht überein."
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Prüfsumme wird verifiziert ..."
+msgstr "Prüfsumme wird verifiziert …"
 
 #: widgets/kpropertiesdialog.cpp:3148
 #, kde-format
@@ -9082,7 +9084,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Web-Kurzbefehle festlegen ..."
+msgstr "Web-Kurzbefehle einrichten …"
 
 #: widgets/kurlrequester.cpp:395
 #, kde-format
@@ -9152,7 +9154,7 @@ msgstr[1] "Einfügen (%1 Elemente)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "Inhalt der Zwischenablage einfügen ..."
+msgstr "Inhalt der Zwischenablage einfügen …"
 
 #: widgets/paste.cpp:339
 #, kde-format
