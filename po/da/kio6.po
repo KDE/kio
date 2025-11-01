@@ -5,21 +5,21 @@
 # Lars K. Schunk <lars@schunk.dk>, 2001.
 # Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2011, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # scootergrisen, 2017.
-# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
+# SPDX-FileCopyrightText: 2024, 2025 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-28 00:39+0000\n"
-"PO-Revision-Date: 2024-10-29 10:47+0100\n"
-"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
+"PO-Revision-Date: 2025-10-31 23:33+0100\n"
+"Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1998,6 +1998,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Selvom kontakten var lavet med serveren, blev et svar ikke modtagen i den "
+"tidsperiode allokeret for forespørgslen."
 
 #: core/job_error.cpp:1104
 #, kde-format
@@ -3730,17 +3732,13 @@ msgid "Create new folder in %1:"
 msgstr "Opret ny mappe i %1:"
 
 #: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Angiv %1 filnavn:"
+msgstr "Angiv mappenavn"
 
 #: filewidgets/knewfilemenu.cpp:1630
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Standard"
 
@@ -3753,11 +3751,9 @@ msgstr "Opret ny fil"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Angiv %1 filnavn:"
+msgstr "Angiv filnavn"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
@@ -3778,7 +3774,7 @@ msgstr "Vælg et &ikon:"
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Du kan ændrer ikonet senere i mappeegenskaberne."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3842,7 +3838,7 @@ msgstr "Mere"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Gå til lokation eller sti"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -4855,23 +4851,22 @@ msgid "&Link Here"
 msgstr "&Link hertil"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Starter %1"
+msgstr "&Start"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Kør kørbare filer uden at spørge"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Åbn kørbare filer i standardprogrammet uden at spørge"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4904,7 +4899,7 @@ msgstr "Hvad vil du gøre med denne fil?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Husk for alle kørbare filer"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4913,6 +4908,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Du kan fortryde dette i \"Bekræftelser\" i indstillingerne for Dolphin-"
+"filhåndtøren"
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -5010,7 +5007,7 @@ msgstr "F&ortryd: Masseomdøbning"
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Gentag"
 
 #: widgets/fileundomanager.cpp:363
 #, fuzzy, kde-format
@@ -5025,10 +5022,9 @@ msgid "&Redo: Link"
 msgstr "F&ortryd: Link"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "F&ortryd: Flyt"
+msgstr "&Gentag: Flyt"
 
 #: widgets/fileundomanager.cpp:369
 #, fuzzy, kde-format
@@ -5462,7 +5458,7 @@ msgstr "Størrelse:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Bestem mappestørrelsen"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5474,7 +5470,7 @@ msgstr "Stop"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Stop med at bestemme mappestørrelsen"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5490,10 +5486,9 @@ msgstr "Peger på:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Vis advarsel"
+msgstr "Vis mål"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5849,10 +5844,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Brugernavn:"
+msgstr "&Generisk navn:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -6096,12 +6090,10 @@ msgid "&General"
 msgstr "&Generelt"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Angiv %1 filnavn:"
+msgstr "Angiv filnavn"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6207,7 +6199,7 @@ msgstr "Ændr..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Skift standardprogrammet for at åbne filer af typen \"%1\":"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -6795,12 +6787,10 @@ msgid "Filename for clipboard content:"
 msgstr "Filnavn for udklipsholderindhold:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Indsæt fil"
+msgstr "Indsat fil"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -7054,21 +7044,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Omdøb elementet <filename>%1</filename> til:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Der findes allerede en fil med navnet <filename>%1</filename>."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr ""
-"<filename>%1</filename> ser ikke ud til at være et eksekverbart program."
+msgstr "<filename>%1</filename> er ikke et gyldigt filnavn."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7099,6 +7084,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Ugyldigt navn: Det nye navn skal indeholde én sekvens af #, medmindre alle "
+"filerne har forskellige udvidelser."
 
 #: widgets/renamefiledialog.cpp:310
 #, fuzzy, kde-format
@@ -7112,17 +7099,16 @@ msgstr[0] "Ændr det %1 valgte element til:"
 msgstr[1] "Ændr de %1 valgte elementer til:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Erstat"
+msgstr "Erstatter:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Mønster"
 
 #: widgets/renamefiledialog.cpp:320
 #, fuzzy, kde-format
@@ -7132,17 +7118,16 @@ msgid "With:"
 msgstr "Åbn med:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Erstat"
+msgstr "Erstatning"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Ingen filnavne indeholder mønsteret."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7167,29 +7152,25 @@ msgstr[1] "Ændr de %1 valgte elementer til:"
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Tilføj tekst:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Tekst, der skal tilføjes"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Angiv %1 filnavn:"
+msgstr "Før filnavn"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Angiv %1 filnavn:"
+msgstr "Efter filnavn"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7220,20 +7201,19 @@ msgstr "Slet eller omdøb:"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Optæl"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Erstat"
+msgstr "Erstat tekst"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Tilføj tekst"
 
 #: widgets/renamefiledialog.cpp:567
 #, fuzzy, kde-format
@@ -7243,13 +7223,10 @@ msgid "Preview:"
 msgstr "Se forhåndsvisning"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr ""
-"<filename>%1</filename> ser ikke ud til at være et eksekverbart program."
+msgstr "<filename>%1</filename> kan ikke omdøbes til et tomt filnavn."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
