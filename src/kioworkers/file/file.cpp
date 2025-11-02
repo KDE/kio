@@ -564,19 +564,19 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 f.setFileName(dest);
 
                 if ((_flags & KIO::Resume)) {
-                    f.open(QIODevice::ReadWrite | QIODevice::Append);
+                    if (!f.open(QIODevice::ReadWrite | QIODevice::Append)) {
+                        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                    }
                 } else {
-                    f.open(QIODevice::Truncate | QIODevice::WriteOnly);
+                    if (!f.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
+                        return WorkerResult::fail(KIO::ERR_CANNOT_TRUNCATE, dest);
+                    }
                     if (_mode != -1) {
                         // WABA: Make sure that we keep writing permissions ourselves,
                         // otherwise we can be in for a surprise on NFS.
                         mode_t initialMode = _mode | S_IWUSR | S_IRUSR;
                         f.setPermissions(modeToQFilePermissions(initialMode));
                     }
-                }
-
-                if (!f.isOpen()) {
-                    return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
                 }
             }
 
