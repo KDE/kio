@@ -517,6 +517,8 @@ private Q_SLOTS:
         QVERIFY(okButton);
 
         QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
+        QSignalSpy dirCreationRejectedSpy(&menu, &KNewFileMenu::directoryCreationRejected);
+        QSignalSpy fileCreationRejectedSpy(&menu, &KNewFileMenu::fileCreationRejected);
         okButton->click();
 
         QVERIFY(folderSpy.wait(1000));
@@ -529,6 +531,40 @@ private Q_SLOTS:
             KDesktopFile desktopFile{desktopPath};
             QCOMPARE(desktopFile.readIcon(), iconName);
         }
+        QCOMPARE(dirCreationRejectedSpy.count(), 0);
+        QCOMPARE(fileCreationRejectedSpy.count(), 0);
+    }
+
+    void testDirectoryCreationRejected()
+    {
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(false);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
+        menu.checkUpToDate();
+
+        openActionText(&menu, QStringLiteral("Folder..."));
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        QDialogButtonBox *buttonsList = dialog->findChild<QDialogButtonBox *>();
+        QVERIFY(buttonsList);
+        auto cancelButton = buttonsList->button(QDialogButtonBox::Cancel);
+        QVERIFY(cancelButton);
+
+        QSignalSpy folderSpy(&menu, &KNewFileMenu::directoryCreated);
+        QSignalSpy dirCreationRejectedSpy(&menu, &KNewFileMenu::directoryCreationRejected);
+        QSignalSpy fileCreationRejectedSpy(&menu, &KNewFileMenu::fileCreationRejected);
+        cancelButton->click();
+
+        QCOMPARE(folderSpy.count(), 0);
+        QCOMPARE(dirCreationRejectedSpy.count(), 1);
+        QCOMPARE(fileCreationRejectedSpy.count(), 0);
     }
 
     // TODO test custom folder icon and that it remembers it.

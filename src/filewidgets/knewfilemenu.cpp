@@ -914,7 +914,8 @@ QUrl KNewFileMenuPrivate::mostLocalUrl(const QUrl &url)
 
 void KNewFileMenuPrivate::slotAbortDialog()
 {
-    m_text = QString();
+    m_text.clear();
+
     if (m_creatingDirectory) {
         Q_EMIT q->directoryCreationRejected(m_baseUrl);
     } else {
@@ -1006,12 +1007,11 @@ void KNewFileMenuPrivate::slotCreateDirectory()
     job->uiDelegate()->setAutoErrorHandlingEnabled(true);
     KJobWidgets::setWindow(job, m_parentWidget);
 
-    if (job) {
-        // We want the error handling to be done by slotResult so that subclasses can reimplement it
-        job->uiDelegate()->setAutoErrorHandlingEnabled(false);
-        QObject::connect(job, &KJob::result, q, &KNewFileMenu::slotResult);
-    }
-    slotAbortDialog();
+    // We want the error handling to be done by slotResult so that subclasses can reimplement it
+    job->uiDelegate()->setAutoErrorHandlingEnabled(false);
+    QObject::connect(job, &KJob::result, q, &KNewFileMenu::slotResult);
+
+    m_text.clear();
 }
 
 static QStringList getInstalledTemplates()
@@ -1180,7 +1180,7 @@ void KNewFileMenuPrivate::slotRealFileOrDir()
         m_text.chop(1);
     }
     m_copyData.m_chosenFileName = m_text;
-    slotAbortDialog();
+    m_text.clear();
     executeStrategy();
 }
 
