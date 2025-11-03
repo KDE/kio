@@ -1129,10 +1129,11 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
 #endif
             const QByteArray trashDir_c = QFile::encodeName(trashDir);
             if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
-                if ((buff.st_uid == uid) // must be owned by user
-                    && (S_ISDIR(buff.st_mode)) // must be a dir
+                if ((S_ISDIR(buff.st_mode)) // must be a dir
                     && (!S_ISLNK(buff.st_mode)) // not a symlink
-                    && (buff.st_mode & 0777) == 0700) { // rwx for user
+                    // we use access() because checking mode isn't sufficient for remote directories
+                    && (::access(trashDir_c.constData(), W_OK | X_OK) == 0) // must be user-writable
+                ) {
 #ifdef Q_OS_OSX
                     trashDir += QStringLiteral("/KDE.trash");
 #endif
@@ -1152,11 +1153,10 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     const QString trashDir = topdir + QLatin1String("/.Trash-") + QString::number(uid);
     const QByteArray trashDir_c = QFile::encodeName(trashDir);
     if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
-        if ((buff.st_uid == uid) // must be owned by user
-            && S_ISDIR(buff.st_mode) // must be a dir
-            && !S_ISLNK(buff.st_mode) // not a symlink
-            && ((buff.st_mode & 0700) == 0700)) { // and we need write access to it
-
+        if ((S_ISDIR(buff.st_mode)) // must be a dir
+            && (!S_ISLNK(buff.st_mode)) // not a symlink
+            && (::access(trashDir_c.constData(), W_OK | X_OK) == 0) // and we need write access to it
+        ) {
             if (buff.st_dev == m_homeDevice) // bind mount, maybe
                 return QString();
             if (checkTrashSubdirs(trashDir_c)) {
