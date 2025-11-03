@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:39+0000\n"
+"POT-Creation-Date: 2025-11-03 00:39+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -3753,22 +3753,22 @@ msgstr ""
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1264
+#: filewidgets/knewfilemenu.cpp:1268
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1280
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1281
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1299
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3776,51 +3776,51 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1304
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1380
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Dat gifft al en ölleren Indrag mit den Naam \"%1\"."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1382
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Dat gifft al en Datei mit den Naam %1."
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1468
 #, kde-format
 msgid "Create New"
 msgstr "Nieg opstellen"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1503
 #, kde-format
 msgid "Link to Device"
 msgstr "Link na Reedschap"
 
-#: filewidgets/knewfilemenu.cpp:1545
+#: filewidgets/knewfilemenu.cpp:1549
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nieg Orner"
 
-#: filewidgets/knewfilemenu.cpp:1568
+#: filewidgets/knewfilemenu.cpp:1572
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "&Torüchnehmen: Orner opstellen"
 
-#: filewidgets/knewfilemenu.cpp:1570
+#: filewidgets/knewfilemenu.cpp:1574
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3830,7 +3830,7 @@ msgstr ""
 "Nieg Orner opstellen in:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3838,7 +3838,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "En anner Naam ingeven"
 
-#: filewidgets/knewfilemenu.cpp:1630
+#: filewidgets/knewfilemenu.cpp:1634
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"

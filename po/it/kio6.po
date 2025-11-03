@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:39+0000\n"
+"POT-Creation-Date: 2025-11-03 00:39+0000\n"
 "PO-Revision-Date: 2025-10-15 17:53+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3681,27 +3681,27 @@ msgstr ""
 "Se si usano dei caratteri sbarra nel nome di cartelle verranno create delle "
 "sotto-cartelle, come in:"
 
-#: filewidgets/knewfilemenu.cpp:1264
+#: filewidgets/knewfilemenu.cpp:1268
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Se si usano dei caratteri sbarra nel nome di cartelle verranno create delle "
 "sotto-cartelle."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1280
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 "I caratteri sbarra non possono essere usati nei nomi di file e cartelle."
 
-#: filewidgets/knewfilemenu.cpp:1281
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "I caratteri barra inversa (backslash) non possono essere usati nei nomi di "
 "file e cartelle."
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1299
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3712,7 +3712,7 @@ msgstr ""
 "possibile perché coinciderebbe con la posizione della cartella personale di "
 "un qualche utente."
 
-#: filewidgets/knewfilemenu.cpp:1304
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3722,52 +3722,52 @@ msgstr ""
 "perché può essere causa di confusione e pericoloso quando si usa il "
 "terminale per eliminare degli oggetti."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1380
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Esiste già una cartella chiamata <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1382
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Esiste già un file chiamato <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1468
 #, kde-format
 msgid "Create New"
 msgstr "Crea"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1503
 #, kde-format
 msgid "Link to Device"
 msgstr "Collegamento a dispositivo"
 
-#: filewidgets/knewfilemenu.cpp:1545
+#: filewidgets/knewfilemenu.cpp:1549
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nuova cartella"
 
-#: filewidgets/knewfilemenu.cpp:1568
+#: filewidgets/knewfilemenu.cpp:1572
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Crea una nuova cartella"
 
-#: filewidgets/knewfilemenu.cpp:1570
+#: filewidgets/knewfilemenu.cpp:1574
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Crea una nuova cartella in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Inserisci il nome della cartella"
 
-#: filewidgets/knewfilemenu.cpp:1630
+#: filewidgets/knewfilemenu.cpp:1634
 #, kde-format
 msgid "Default"
 msgstr "Predefinita"

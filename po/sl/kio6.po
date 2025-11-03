@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:39+0000\n"
+"POT-Creation-Date: 2025-11-03 00:39+0000\n"
 "PO-Revision-Date: 2025-10-14 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3632,22 +3632,22 @@ msgstr ""
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape, kot so:"
 
-#: filewidgets/knewfilemenu.cpp:1264
+#: filewidgets/knewfilemenu.cpp:1268
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1280
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1281
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Povratne poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1299
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3657,7 +3657,7 @@ msgstr ""
 "Kreiranje datoteke ali mape z imenom <filename>%1</filename> ni mogoče, ker "
 "bi se prekrivala z lokacijo uporabnikove domače mape."
 
-#: filewidgets/knewfilemenu.cpp:1304
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3666,52 +3666,52 @@ msgstr ""
 "Začeti ime datoteke ali mape s tildo ni priporočljivo, ker je lahko dvoumno "
 "ali nevarno, če uporabite terminal za brisanje stvari."
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1380
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Imenik z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1382
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Datoteka z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1468
 #, kde-format
 msgid "Create New"
 msgstr "Ustvari novo"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1503
 #, kde-format
 msgid "Link to Device"
 msgstr "Povezava do naprave"
 
-#: filewidgets/knewfilemenu.cpp:1545
+#: filewidgets/knewfilemenu.cpp:1549
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova mapa"
 
-#: filewidgets/knewfilemenu.cpp:1568
+#: filewidgets/knewfilemenu.cpp:1572
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Ustvari novo mapo"
 
-#: filewidgets/knewfilemenu.cpp:1570
+#: filewidgets/knewfilemenu.cpp:1574
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Ustvari novo mapo v: %1:"
 
-#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Vnesite ime mape"
 
-#: filewidgets/knewfilemenu.cpp:1630
+#: filewidgets/knewfilemenu.cpp:1634
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"

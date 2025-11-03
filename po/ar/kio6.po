@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:39+0000\n"
+"POT-Creation-Date: 2025-11-03 00:39+0000\n"
 "PO-Revision-Date: 2025-10-15 20:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3574,22 +3574,22 @@ msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "سيؤدي استخدام الخطوط المائلة في أسماء المجلدات إلى إنشاء مجلدات فرعية، مثل: "
 
-#: filewidgets/knewfilemenu.cpp:1264
+#: filewidgets/knewfilemenu.cpp:1268
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "سيؤدي استخدام الخطوط المائلة في أسماء المجلدات إلى إنشاء مجلدات فرعية."
 
-#: filewidgets/knewfilemenu.cpp:1276
+#: filewidgets/knewfilemenu.cpp:1280
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "لا يمكن استخدام الخطوط المائلة في أسماء الملفات والمجلدات. "
 
-#: filewidgets/knewfilemenu.cpp:1281
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "لا يمكن استخدام الخطوط المائلة للخلف في أسماء الملفات والمجلدات. "
 
-#: filewidgets/knewfilemenu.cpp:1295
+#: filewidgets/knewfilemenu.cpp:1299
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3599,7 +3599,7 @@ msgstr ""
 "لا يمكن إنشاء ملف أو مجلد باسم <filename>%1</filename> لأنه يتداخل مع موقع "
 "المجلد المنزل للمستخدم."
 
-#: filewidgets/knewfilemenu.cpp:1304
+#: filewidgets/knewfilemenu.cpp:1308
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3608,52 +3608,52 @@ msgstr ""
 "لا يُنصح ببدء اسم ملف أو مجلد باستخدام علامة التلدة لأنه قد يكون محيرًا أو "
 "خطيرًا عند استخدام الجهاز لحذف الأشياء. "
 
-#: filewidgets/knewfilemenu.cpp:1376
+#: filewidgets/knewfilemenu.cpp:1380
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "يوجد مجلد باسم <filename>%1</filename> فعلًا."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1382
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "يوجد ملفّ له اسم <filename>%1</filename> فعلًا."
 
-#: filewidgets/knewfilemenu.cpp:1464
+#: filewidgets/knewfilemenu.cpp:1468
 #, kde-format
 msgid "Create New"
 msgstr "أنشئ جديدًا"
 
-#: filewidgets/knewfilemenu.cpp:1499
+#: filewidgets/knewfilemenu.cpp:1503
 #, kde-format
 msgid "Link to Device"
 msgstr "اربط بالجهاز"
 
-#: filewidgets/knewfilemenu.cpp:1545
+#: filewidgets/knewfilemenu.cpp:1549
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "مجلد جديد"
 
-#: filewidgets/knewfilemenu.cpp:1568
+#: filewidgets/knewfilemenu.cpp:1572
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "أنشئ مجلدًّا جديدًا"
 
-#: filewidgets/knewfilemenu.cpp:1570
+#: filewidgets/knewfilemenu.cpp:1574
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "أنشئ مجلدًّا جديدًا في %1:"
 
-#: filewidgets/knewfilemenu.cpp:1573 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "أَدْخِل اسم المجلد"
 
-#: filewidgets/knewfilemenu.cpp:1630
+#: filewidgets/knewfilemenu.cpp:1634
 #, kde-format
 msgid "Default"
 msgstr "المبدئيّ"
