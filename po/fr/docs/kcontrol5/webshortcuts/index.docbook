@@ -144,7 +144,7 @@
 <para
 >Si vous effectuez un double clic sur une entrée spécifique de la liste des moteurs proposés de recherche ou un simple clic sur le bouton <guibutton
 >Modifier...</guibutton
->, les détails de cette entrée seront affichés dans une boîte de dialogue contextuelle. En plus de l'intitulé de l'entrée, vous verrez également l'&URI; utilisée mais aussi les raccourcis que vous pouvez saisir à tout endroit de &kde; où l'on attend une &URI;. Un moteur de recherche donné peut avoir plusieurs raccourcis, séparés par des virgules.</para>
+>, les détails de cette entrée seront affichés dans une boite de dialogue contextuelle. En plus de l'intitulé de l'entrée, vous verrez également l'&URI; utilisée mais aussi les raccourcis que vous pouvez saisir à tout endroit de &kde; où l'on attend une &URI;. Un moteur de recherche donné peut avoir plusieurs raccourcis, séparés par des virgules.</para>
 
 <para
 >Les champs de texte sont utilisés non seulement pour afficher des informations sur une entrée de la liste des raccourcis web mais aussi pour les modifier ou en ajouter.</para>
@@ -158,14 +158,14 @@
 >Ok</guibutton
 > pour enregistrer vos modifications ou sur le bouton <guibutton
 >Annuler</guibutton
-> pour quitter la boîte de dialogue sans faire de modifications.</para>
+> pour quitter la boite de dialogue sans faire de modifications.</para>
 
 <para
 >Si vous examinez le contenu du champ <guilabel
 >URL du raccourci</guilabel
 >, vous constaterez que la plupart des éléments contiennent les caractères <option
 >\{@}</option
->. Cette chaîne de quatre caractères agit comme un paramètre indiquant que ceux-ci doivent être remplacés par ce que vous saisirez après le caractère « deux points », situé entre le raccourci et son paramètre. Pour ajouter cette marque substitutive à l'&URL; du raccourci, veuillez cliquer sur le bouton situé à droite de la zone de texte. Voyons quelques exemples pour clarifier l'utilisation des raccourcis Internet.</para>
+>. Cette chaine de quatre caractères agit comme un paramètre indiquant que ceux-ci doivent être remplacés par ce que vous saisirez après le caractère « deux points », situé entre le raccourci et son paramètre. Pour ajouter cette marque substitutive à l'&URL; du raccourci, veuillez cliquer sur le bouton situé à droite de la zone de texte. Voyons quelques exemples pour clarifier l'utilisation des raccourcis Internet.</para>
 
 <para
 >Supposons que l'&URI; soit <userinput
@@ -184,7 +184,7 @@
 >:</userinput
 >. Tout ce que vous pourriez avoir saisi, remplacera simplement les caractères <option
 >\{@}</option
-> après avoir été converti en chaîne appropriée de caractères pour le moteur de recherche et encodé correctement en &URL;. Seule la partie <option
+> après avoir été converti en chaine appropriée de caractères pour le moteur de recherche et encodé correctement en &URL;. Seule la partie <option
 >\{@}</option
 > de l'&URI; de recherche est concernée. Le reste est supposé déjà être correctement encodé comme &URL; et laissé tel quel.</para>
 

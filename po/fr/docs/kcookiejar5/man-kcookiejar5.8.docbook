@@ -133,7 +133,7 @@
 ></term>
 <listitem>
 <para
->Arrêter la boîte à cookies et le service &DBus;. </para>
+>Arrêter la boite à cookies et le service &DBus;. </para>
 </listitem>
 </varlistentry>
 
@@ -148,7 +148,7 @@
 <para
 >Supprime les cookies du <parameter
 >domaine</parameter
-> de la boîte à cookies. </para>
+> de la boite à cookies. </para>
 </listitem>
 </varlistentry>
 
@@ -160,7 +160,7 @@
 ></term>
 <listitem>
 <para
->Supprime tous les cookies de la boîte à cookies.</para>
+>Supprime tous les cookies de la boite à cookies.</para>
 </listitem>
 </varlistentry>
 
@@ -191,7 +191,7 @@
 <para
 >Lorsque <command
 >kcookiejar5</command
-> est démarré avec certains paramètres, il effectue des tâches supplémentaires aux boîtes à cookies qu'il fournit, comme supprimer des cookies d'un <parameter
+> est démarré avec certains paramètres, il effectue des tâches supplémentaires aux boites à cookies qu'il fournit, comme supprimer des cookies d'un <parameter
 >domaine</parameter
 >. </para>
 

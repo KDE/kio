@@ -52,7 +52,7 @@
 > (&cad; des dossiers rendus accessibles par le serveur) ainsi qu'à des imprimantes.</para>
 
 <para
->&kde; intègre nativement la gestion du protocole &SMB;. Comme &kde; gère la transparence réseau, vous pouvez accéder à des partages &SMB; depuis tout endroit vous permettant d'accéder à vos fichiers locaux ; &pex;, depuis le gestionnaire de fichiers &konqueror; ou dans la boîte de dialogue de sélection de fichier. Pour bénéficier de cette fonction, vous devrez fournir à &kde; certaines informations sur votre réseau &SMB;. Mais ne vous inquiétez pas, cette opération est normalement assez simple puisque, par exemple, toutes les machines clientes &Windows; du réseau utilisent et ont besoin de ces mêmes informations.</para>
+>&kde; intègre nativement la gestion du protocole &SMB;. Comme &kde; gère la transparence réseau, vous pouvez accéder à des partages &SMB; depuis tout endroit vous permettant d'accéder à vos fichiers locaux ; &pex;, depuis le gestionnaire de fichiers &konqueror; ou dans la boite de dialogue de sélection de fichier. Pour bénéficier de cette fonction, vous devrez fournir à &kde; certaines informations sur votre réseau &SMB;. Mais ne vous inquiétez pas, cette opération est normalement assez simple puisque, par exemple, toutes les machines clientes &Windows; du réseau utilisent et ont besoin de ces mêmes informations.</para>
 
 <!-- Don't know if the following info should go in the base
 documentation --> 

@@ -151,7 +151,7 @@
 ></term>
 <listitem>
 <para
->Si cette option est sélectionnée, on vous demandera confirmation à chaque fois qu'un cookie est enregistré ou retrouvé. La boîte de dialogue de confirmation vous permettra aussi de décider d'une règle spécifique à ce domaine si vous ne voulez pas avoir à confirmer à chaque fois pour ce domaine.</para>
+>Si cette option est sélectionnée, on vous demandera confirmation à chaque fois qu'un cookie est enregistré ou retrouvé. La boite de dialogue de confirmation vous permettra aussi de décider d'une règle spécifique à ce domaine si vous ne voulez pas avoir à confirmer à chaque fois pour ce domaine.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -174,7 +174,7 @@
 <para
 >La règle demander, accepter, accepter jusqu'à la fin de la session ou refuser peut être appliquée à un domaine spécifique en cliquant sur le bouton <guibutton
 >Nouveau...</guibutton
->, qui ouvre une boîte de dialogue. Dans cette boîte, vous pouvez écrire un nom de domaine (commençant par un point), puis sélectionner la règle que vous voulez appliquer à ce domaine. Remarquez que les domaines peuvent être ajoutés pendant que vous naviguez si la règle par défaut est de demander une confirmation et que vous demandez à ce moment là une règle générale pour cet hôte spécifiquement (par exemple en choisissant <guilabel
+>, qui ouvre une boite de dialogue. Dans cette boite, vous pouvez écrire un nom de domaine (commençant par un point), puis sélectionner la règle que vous voulez appliquer à ce domaine. Remarquez que les domaines peuvent être ajoutés pendant que vous naviguez si la règle par défaut est de demander une confirmation et que vous demandez à ce moment là une règle générale pour cet hôte spécifiquement (par exemple en choisissant <guilabel
 >Rejeter</guilabel
 > quand il vous est demandé si vous acceptez un cookie).</para>
 
@@ -202,7 +202,7 @@
 <para
 >Une liste de domaines se trouve dans la partie supérieure de la fenêtre, sous forme d'une arborescence. Cliquez sur le petit <guiicon
 >&gt;</guiicon
-> à côté d'un domaine pour voir tous les cookies qui ont été enregistrés pour ce domaine particulier. Si vous sélectionnez un de ces cookies, vous vous apercevrez que son contenu apparaît dans la zone nommée <guilabel
+> à côté d'un domaine pour voir tous les cookies qui ont été enregistrés pour ce domaine particulier. Si vous sélectionnez un de ces cookies, vous vous apercevrez que son contenu apparait dans la zone nommée <guilabel
 >Détails</guilabel
 > située en dessous.</para>
 
