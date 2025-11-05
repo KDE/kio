@@ -741,7 +741,16 @@ void CopyJobPrivate::slotReport()
         q->emitPercent(m_filesHandledByDirectRename, q->totalAmount(KJob::Files));
         break;
 
-    case STATE_COPYING_FILES:
+    case STATE_COPYING_FILES: {
+        const bool bytesTotalUnknown = (m_totalSize == 0);
+        const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
+        const int totalFiles = m_processedFiles + files.count() + m_filesHandledByDirectRename;
+        if ((bytesTotalUnknown || noByteProgress) && totalFiles > 0) {
+            q->setProgressUnit(KJob::Files);
+        } else {
+            q->setProgressUnit(KJob::Bytes);
+        }
+    }
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (m_bURLDirty) {
