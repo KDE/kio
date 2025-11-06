@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
     extern void makeAgentApplication();
     makeAgentApplication();
 #endif
-    qunsetenv("SESSION_MANAGER"); // disable session management
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager); // disable session management
 
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
     app.setQuitOnLastWindowClosed(false);
