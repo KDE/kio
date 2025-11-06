@@ -19,6 +19,8 @@
 
 int main(int argc, char **argv)
 {
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+
     QApplication a(argc, argv);
 
     if (argc != 2) {
