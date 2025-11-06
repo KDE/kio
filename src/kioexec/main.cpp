@@ -295,6 +295,8 @@ void KIOExec::slotRunApp()
 
 int main(int argc, char **argv)
 {
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kioexec"),
                          i18n("KIOExec"),
