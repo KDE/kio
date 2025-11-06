@@ -233,7 +233,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
 void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     const KDesktopFileAction serviceAction = act->data().value<KDesktopFileAction>();
-    if (KAuthorized::authorizeAction(serviceAction.name())) {
+    if (KAuthorized::authorizeAction(serviceAction.actionsKey())) {
         auto *job = new KIO::ApplicationLauncherJob(serviceAction);
         job->setUrls(m_props.urlList());
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
