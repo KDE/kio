@@ -240,6 +240,8 @@ public:
 
     /*!
      * Returns a QAction to open the systemsettings recent documents kcm
+     *
+     * \since 6.20
      */
     Q_INVOKABLE QAction *openRecentOption(const QModelIndex &index) const;
 
