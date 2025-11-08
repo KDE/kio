@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -3909,66 +3909,66 @@ msgstr ""
 "li ante.\n"
 "sina wile ala wile pana e ante?"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "ilo KIOExec"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "ilo KIO Exec - mi open e lipu lon ilo ante. mi oko e ante lipu. mi alasa e "
 "wile sina tawa pana lipu."
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-200,2003 jan pali pi ilo KFM/Konqueror"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "jan David Faure"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "jan Stephan Kulow"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "jan Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "jan Waldo Bastian"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "jan Oswald Buddenhagen"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr ""
 "o pali kepeken nimi URLs kepeken nasin sama lipu lon ilo sina. o weka e ona "
 "lon pini"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "nimi ken tawa lipu tan linluwi"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "ilo tawa kepeken"
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "nimi URL anu lipu li kepeken tawa 'ilo'"
@@ -4418,12 +4418,12 @@ msgstr "o pali sin"
 msgid "Authentication Dialog"
 msgstr "leko pi wile nimi len"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "sina ken ala lukin e lipu"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "sina jo ala e ken kepeken tawa toki ilo %1."

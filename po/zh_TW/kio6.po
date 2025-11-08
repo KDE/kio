@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3922,62 +3922,62 @@ msgstr ""
 "已經被變更.\n"
 "您是否要上傳改變?"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "KIO Exec - 開啟遠端檔案, 檢查變更, 並提示上傳。"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 KFM/Konqueror 開發團隊"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "將 URL 視為本地端檔案，並稍後刪除它們"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "下載檔案的建議檔名"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "要執行的指令."
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "給 '命令' 用的 URL 或本地端檔案."
@@ -4438,12 +4438,12 @@ msgstr "重試"
 msgid "Authentication Dialog"
 msgstr "認證對話框"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "存取被拒"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "您可能沒有權限存取 %1 通訊協定。"

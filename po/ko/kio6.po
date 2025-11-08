@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2025-10-09 00:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3996,62 +3996,62 @@ msgstr ""
 "수정되었습니다.\n"
 "변경 사항을 업로드하시겠습니까?"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "KIO Exec - 원격 파일을 열고 변경 사항을 감시하여 업로드 확인"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "URL을 로컬 파일로 취급하고 이후 삭제"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "다운로드한 파일의 제안된 이름"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "실행할 명령"
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
@@ -4522,12 +4522,12 @@ msgstr "다시 시도"
 msgid "Authentication Dialog"
 msgstr "인증 대화 상자"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "접근 거부됨"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 프로토콜에 접근할 권한이 없습니다."

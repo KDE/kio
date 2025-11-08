@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2024-11-19 21:00+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
@@ -4128,63 +4128,63 @@ msgstr ""
 "është ndryshuar.\n"
 "Doni të ngarkohen ndryshimet?"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "KIO Exec - Hap kartela të largëta, vëzhgon ndryshime, pyet për ngarkime"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 Zhvilluesit e KFM/Konqueror"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "Trajtoji URL-të si kartela vendore dhe fshiji më pas"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "Emër kartele i sugjeruar për kartelën e shkarkuar"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "Urdhër për t’u përmbushur"
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL() ose kartelë(a) vendore të përdorura për “command”"
@@ -4662,12 +4662,12 @@ msgstr "Riprovoni"
 msgid "Authentication Dialog"
 msgstr "Dialog Mirëfilltësimi"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "Hyrje e mohuar"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "S’keni leje për të përdorur protokollin %1."

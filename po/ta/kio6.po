@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2025-11-02 13:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -4033,63 +4033,63 @@ msgstr ""
 "என்கிற கோப்பு மாற்றப்பட்டுள்ளது.\n"
 "மாற்றங்களை பதிவேற்ற விரும்புகிறீர்களா?"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "KIO Exec - தொலை கோப்புகளை திறக்கும், மாற்றங்களை கண்காணிக்கும், பதிவேற்றுமாறு கேட்கும்"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 KFM/கான்கொரர் நிரலாளர்கள்"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "டேவிட் ஃபவுர்"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "ஸ்டீபன் குளோவ்"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "பெர்னார்டு ரோசென்க்ரென்ஸர்"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "வால்டோ பாஸ்தியன்"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "ஆஸ்வால்டு புட்டென்ஹெகென்"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "முகவரிகளை உள்ளமைக் கோப்புகளாக கருதி பின்பு அகற்று"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "பதிவிறக்கப்படும் கோப்பிற்குப் பரிந்துரைக்கும் பெயர்"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "இயக்க வேண்டிய கட்டளை"
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "கட்டளைக்கு பயன்படும் முகவரி(கள்) அல்லது உள்ளமை கோப்பு(கள்)"
@@ -4557,12 +4557,12 @@ msgstr "மீண்டும் முயற்சி"
 msgid "Authentication Dialog"
 msgstr "உறுதிப்பாடு சாளரம்"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "அணுகல் மறுக்கப்பட்டது"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 நெறிமுறையை அணுக உங்களுக்கு அனுமதி இல்லை."

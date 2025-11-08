@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:39+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3955,62 +3955,62 @@ msgstr ""
 "အားမွမ်းမံထားသည်။\n"
 "ပြောင်းလဲမှုများကို အပ်လုတ်တင်ချင်ပါသလား။"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
 msgstr "ကေအိုင်အိုအိပ်စ်"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "ကေအိုင်အို အိပ်စ် - အဝေးဖိုင်များ ဖွင့်ရန်၊ မွမ်းမံပြင်ဆင်ချက်များ ကြည့်ရန်၊ အပ်လုတ်တင်ဖို့ တောင်းဆိုရန်"
 
-#: kioexec/main.cpp:304
+#: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) ၁၉၉၈-၂၀၀၀၊ ၂၀၀၃ ကေအက်ဖ်အမ်/ကွန်ကွာရာ ဒက်ဗ်ဗလော့ပါများ"
 
-#: kioexec/main.cpp:305
+#: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
 msgstr "ဒေးဗစ်ဖော့"
 
-#: kioexec/main.cpp:306
+#: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "စတီဖန်ကူလော့"
 
-#: kioexec/main.cpp:307
+#: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "ဘမ်ဟာ့ဒ်ရိုဆမ်ခရမ်ဇာ"
 
-#: kioexec/main.cpp:308
+#: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "ဝါလ်ဒိုဘက်စတီရှန်"
 
-#: kioexec/main.cpp:309
+#: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "အော့စဝပ်ဒ်ဘတ်ဒမ်ဟဂမ်"
 
-#: kioexec/main.cpp:314
+#: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "ယူအာအယ်လ်များကို စက်တွင်းဖိုင်များအဖြစ် သတ်မှတ်ဆက်ဆံ၍ပြီးလျှင် ဖျက်မည်"
 
-#: kioexec/main.cpp:316
+#: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "ဒေါင်းလုတ်ရယူထားသော ဖိုင်အတွက် အကြံပြုထားသည့် အမည်"
 
-#: kioexec/main.cpp:317
+#: kioexec/main.cpp:319
 #, kde-format
 msgid "Command to execute"
 msgstr "ဆောင်ရွက်ရန်အမိန့်"
 
-#: kioexec/main.cpp:318
+#: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်"
@@ -4473,12 +4473,12 @@ msgstr "ပြန်ကြိုးစား"
 msgid "Authentication Dialog"
 msgstr "ယုံကြည်မှုရယူခြင်း အပြော-ဝင်းဒိုး"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
 msgstr "အသုံးပြုခွင့် ပယ်ခံရ"
 
-#: schemehandlers/telnet/ktelnetservice.cpp:52
+#: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို သုံးစွဲနိုင်ရန် သင်၌ အခွင့်မရှိပါ။"
