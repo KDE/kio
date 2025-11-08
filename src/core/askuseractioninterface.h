@@ -128,12 +128,15 @@ public:
      * \value EmptyTrash Empty the Trash
      * \value [since 5.100] DeleteInsteadOfTrash This is the same as Delete, but more text is added to the message to inform the user that moving to Trash was
      * tried but failed due to size constraints. Typical use case is re-asking the user about deleting instead of Trashing.
+     * \value [since 6.21] DeleteNoTrashAvailable This is the same as DeleteInsteadOfTrash, but used when trashing failed because no trash directory
+     * was available.
      */
     enum DeletionType {
         Delete,
         Trash,
         EmptyTrash,
-        DeleteInsteadOfTrash,
+        DeleteInsteadOfTrash, // TODO KF7 rename to DeleteTrashToSmall or something like that to prevent confusion
+        DeleteNoTrashAvailable,
     };
 
     /*!

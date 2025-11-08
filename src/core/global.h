@@ -204,6 +204,7 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
  * \value [since 5.88] ERR_SYMLINKS_NOT_SUPPORTED Indicates failure to create a symlink due to the underlying filesystem (FAT/ExFAT) not supporting them. Used
  * by e.g. CopyJob
  * \value [since 5.100] ERR_TRASH_FILE_TOO_LARGE Moving files/dirs to the Trash failed due to size constraints
+ * \value [since 6.21] ERR_TRASH_NOT_AVAILABLE Moving files/dirs to the Trash failed because a trash directory is not available for their location.
  */
 enum Error {
     ERR_CANNOT_OPEN_FOR_READING = KJob::UserDefinedError + 1,
@@ -284,6 +285,7 @@ enum Error {
     ERR_CANNOT_TRUNCATE = KJob::UserDefinedError + 77,
     ERR_SYMLINKS_NOT_SUPPORTED = KJob::UserDefinedError + 78,
     ERR_TRASH_FILE_TOO_LARGE = KJob::UserDefinedError + 79,
+    ERR_TRASH_NOT_AVAILABLE = KJob::UserDefinedError + 80,
 };
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 6)

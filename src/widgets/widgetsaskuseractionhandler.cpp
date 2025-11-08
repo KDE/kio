@@ -268,6 +268,28 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         res.acceptButton = KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete"));
         break;
     }
+    case AskIface::DeleteNoTrashAvailable: {
+        res.dialogType = KMessageDialog::WarningTwoActions;
+        if (res.isSingleUrl) {
+            res.text = xi18nc("@info",
+                              "The trash is not available for this item’s location."
+                              " Permanently delete it instead?<nl/><nl/>"
+                              "<filename>%1</filename><nl/><nl/>"
+                              "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                              res.prettyList.at(0));
+        } else {
+            res.text = xi18ncp("@info",
+                               "The trash is not available for the location of this %1 item."
+                               " Permanently delete it instead?<nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               "The trash is not available for the location of these %1 items."
+                               " Permanently delete them instead?<nl/><nl/>"
+                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
+                               urlCount);
+        }
+        res.acceptButton = KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete"));
+        break;
+    }
     case AskIface::EmptyTrash: {
         res.dialogType = KMessageDialog::QuestionTwoActions; // Using Question* so the Delete button is pre-selected.
         res.icon = QIcon::fromTheme(QStringLiteral("dialog-warning"));
@@ -309,6 +331,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 
         switch (deletionType) {
         case DeleteInsteadOfTrash:
+        case DeleteNoTrashAvailable:
         case Delete:
             keyName = QStringLiteral("ConfirmDelete");
             break;

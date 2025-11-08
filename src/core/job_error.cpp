@@ -260,6 +260,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_TRASH_FILE_TOO_LARGE:
         result = i18n("File is too large to be trashed.");
         break;
+    case KIO::ERR_TRASH_NOT_AVAILABLE:
+        result = i18n("A trash folder could not be found or created for this location.");
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at https://bugs.kde.org.", errorCode, errorText);
         break;

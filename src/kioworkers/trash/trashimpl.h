@@ -157,7 +157,9 @@ private:
 #endif
     void refreshDevices() const;
 
-    /// Find the trash dir to use for a given file to delete, based on original path
+    /// Find the trash dir to use for a given file to delete, based on original path.
+    /// Returns a value < 0 if no trash is available. The different values below zero
+    /// have no meaning and should only ease debugging.
     int findTrashDirectory(const QString &origPath);
 
     QString trashDirectoryPath(int trashId) const;

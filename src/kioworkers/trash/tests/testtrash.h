@@ -10,7 +10,6 @@
 
 #include "udsentry.h"
 #include <QObject>
-#include <QTemporaryDir>
 
 #include <KIO/Job>
 
@@ -38,16 +37,17 @@ private Q_SLOTS:
     void trashUtf8FileFromHome();
     void trashUmlautFileFromHome();
     void testTrashNotEmpty();
-    void trashFileFromOther();
     void trashFileIntoOtherPartition();
+    void trashFileIntoOtherPartitionNotAvailable();
     void trashFileOwnedByRoot();
     void trashSymlinkFromHome();
-    void trashSymlinkFromOther();
+    void trashSymlinkFromOtherPartition();
     void trashBrokenSymlinkFromHome();
+    void trashBrokenSymlinkFromOtherPartition();
     void trashDirectoryFromHome();
     void trashDotDirectory();
     void trashReadOnlyDirFromHome();
-    void trashDirectoryFromOther();
+    void trashDirectoryFromOtherPartition();
     void trashDirectoryOwnedByRoot();
     void trashDirectoryWithTrailingSlash();
     void trashBrokenSymlinkIntoSubdir();
@@ -97,8 +97,8 @@ protected Q_SLOTS:
 
 private:
     void trashFile(const QString &origFilePath, const QString &fileId);
-    void trashSymlink(const QString &origFilePath, const QString &fileName, bool broken);
-    void trashDirectory(const QString &origPath, const QString &fileName);
+    void trashSymlink(const QString &origFilePath, const QString &fileName, const QString &trashDir, bool broken);
+    void trashDirectory(const QString &origPath, const QString &fileName, const QString &trashDir);
     void copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
     void moveInTrash(const QString &fileId, const QString &destFileId);
     void moveFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
@@ -121,8 +121,6 @@ private:
     int m_entryCount;
     QStringList m_listResult;
     QStringList m_displayNameListResult;
-
-    QTemporaryDir m_tempDir;
 };
 
 #endif

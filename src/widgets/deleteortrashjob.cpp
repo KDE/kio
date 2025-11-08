@@ -70,6 +70,7 @@ void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &u
         UndoMananger::self()->recordJob(UndoMananger::Trash, urls, QUrl(QStringLiteral("trash:/")), job);
         break;
     case AskIface::DeleteInsteadOfTrash:
+    case AskIface::DeleteNoTrashAvailable:
     case AskIface::Delete:
         Q_ASSERT(!urls.isEmpty());
         job = KIO::del(urls);
@@ -135,9 +136,9 @@ void DeleteOrTrashJob::slotResult(KJob *job)
 {
     const int errCode = job->error();
 
-    if (errCode == KIO::ERR_TRASH_FILE_TOO_LARGE) {
+    if (errCode == KIO::ERR_TRASH_FILE_TOO_LARGE || errCode == KIO::ERR_TRASH_NOT_AVAILABLE) {
         removeSubjob(job);
-        d->m_delType = AskIface::DeleteInsteadOfTrash;
+        d->m_delType = (errCode == KIO::ERR_TRASH_FILE_TOO_LARGE) ? AskIface::DeleteInsteadOfTrash : AskIface::DeleteNoTrashAvailable;
         d->m_confirm = AskIface::ForceConfirmation;
         start();
         return;

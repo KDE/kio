@@ -240,8 +240,9 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
 
     // qCDebug(KIO_TRASH) << origPath;
     // Check source
+    const QByteArray origPath_c = QFile::encodeName(origPath);
     QT_STATBUF buff_src;
-    if (QT_LSTAT(QFile::encodeName(origPath).constData(), &buff_src) == -1) {
+    if (QT_LSTAT(origPath_c.constData(), &buff_src) == -1) {
         if (errno == EACCES) {
             error(KIO::ERR_ACCESS_DENIED, origPath);
         } else {
@@ -249,12 +250,16 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
         }
         return false;
     }
+    if (::faccessat(AT_FDCWD, origPath_c.constData(), W_OK, AT_SYMLINK_NOFOLLOW) == -1) {
+        error(KIO::ERR_ACCESS_DENIED, origPath);
+        return false;
+    }
 
     // Choose destination trash
     trashId = findTrashDirectory(origPath);
     if (trashId < 0) {
-        qCWarning(KIO_TRASH) << "OUCH - internal error, TrashImpl::findTrashDirectory returned" << trashId;
-        return false; // ### error() needed?
+        error(KIO::ERR_TRASH_NOT_AVAILABLE, KIO::buildErrorString(m_lastErrorCode, {}));
+        return false;
     }
     // qCDebug(KIO_TRASH) << "trashing to" << trashId;
 
@@ -329,7 +334,8 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
 
 QString TrashImpl::makeRelativePath(const QString &topdir, const QString &path)
 {
-    QString realPath = QFileInfo(path).canonicalFilePath();
+    const QFileInfo info(path);
+    QString realPath = !info.isSymLink() ? info.canonicalFilePath() : info.absoluteFilePath();
     if (realPath.isEmpty()) { // shouldn't happen
         realPath = path;
     }
@@ -741,7 +747,7 @@ bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
 {
     const int trashId = findTrashDirectory(path);
     if (trashId < 0) {
-        qCWarning(KIO_TRASH) << "No trash directory found! TrashImpl::findTrashDirectory returned" << trashId;
+        qCWarning(KIO_TRASH) << "No trash directory found for " << path << "! TrashImpl::findTrashDirectory returned" << trashId;
         return false;
     }
 
@@ -982,7 +988,7 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(origPath);
     if (!mp) {
         // qCDebug(KIO_TRASH) << "KMountPoint found no mount point for" << origPath;
-        return 0;
+        return -4;
     }
 
     QString mountPoint = mp->mountPoint();
@@ -991,7 +997,7 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
 
 #ifndef Q_OS_OSX
     if (trashDir.isEmpty()) {
-        return 0; // no trash available on partition
+        return -3; // no trash available on partition
     }
 #endif
 
@@ -1009,19 +1015,18 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
     qCDebug(KIO_TRASH) << "Queried Solid with" << query << "got" << lst.count() << "devices";
     if (lst.isEmpty()) { // not a device. Maybe some tmpfs mount for instance.
-        return 0;
+        return -2;
     }
 
     // Pretend we got exactly one...
     const Solid::Device device = lst.at(0);
-    id = idForDevice(device);
+    id = idForDevice(device); // will return -1 if device is neither a block device nor a network share
 #endif
-    if (id == -1) {
-        return 0;
+    if (id > -1) {
+        // New trash dir found, register it
+        insertTrashDir(id, trashDir, mountPoint);
     }
 
-    // New trash dir found, register it
-    insertTrashDir(id, trashDir, mountPoint);
     return id;
 }
 
@@ -1121,7 +1126,7 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
         ) {
             if (buff.st_dev == m_homeDevice) // bind mount, maybe
-                return QString();
+                return m_trashDirectories[0];
 #ifndef Q_OS_OSX
             const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
 #else
@@ -1158,16 +1163,13 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             && (::access(trashDir_c.constData(), W_OK | X_OK) == 0) // and we need write access to it
         ) {
             if (buff.st_dev == m_homeDevice) // bind mount, maybe
-                return QString();
+                return m_trashDirectories[0];
             if (checkTrashSubdirs(trashDir_c)) {
                 return trashDir;
             }
         }
         qCWarning(KIO_TRASH) << "Directory" << trashDir << "exists but didn't pass the security checks, can't use it";
-        // Exists, but not usable
-        return QString();
-    }
-    if (createIfNeeded && initTrashDirectory(trashDir_c)) {
+    } else if (createIfNeeded && initTrashDirectory(trashDir_c)) {
         return trashDir;
     }
 #endif
