@@ -95,7 +95,7 @@ static QStringList prepareEnvironment(const QProcessEnvironment &environment)
         return c.isDigit() || c.isLetter() || c == u'_';
     };
     for (const auto variables = allowedEnvironment.keys(); const auto &variable : variables) {
-        if (!std::ranges::all_of(variable, allowedBySystemd)) {
+        if (variable.isEmpty() || variable.front().isDigit() || !std::ranges::all_of(variable, allowedBySystemd)) {
             qCWarning(KIO_GUI) << "Not passing environment variable" << variable << "to systemd because its name contains illegal characters";
             allowedEnvironment.remove(variable);
         }
