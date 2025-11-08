@@ -340,16 +340,18 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         if (!singleUrl) {
             dlg->setListWidgetItems(prettyList);
         }
-        dlg->setDontAskAgainText(i18nc("@option:checkbox", "Do not ask again"));
-        // If we get here, !ask must be false
-        dlg->setDontAskAgainChecked(!ask);
+        if (confirmationType != ForceConfirmation) {
+            dlg->setDontAskAgainText(i18nc("@option:checkbox", "Do not ask again"));
+            // If we get here, !ask must be false
+            dlg->setDontAskAgainChecked(!ask);
+        }
 
         connect(dlg, &QDialog::finished, this, [=, this](const int buttonCode) {
             const bool isDelete = (buttonCode == KMessageDialog::PrimaryAction);
 
             Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
 
-            if (isDelete) {
+            if (confirmationType != ForceConfirmation && isDelete) {
                 KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
                 KConfigGroup cg = kioConfig->group(QStringLiteral("Confirmations"));
                 cg.writeEntry(keyName, !dlg->isDontAskAgainChecked());

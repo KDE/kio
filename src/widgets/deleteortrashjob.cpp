@@ -138,6 +138,7 @@ void DeleteOrTrashJob::slotResult(KJob *job)
     if (errCode == KIO::ERR_TRASH_FILE_TOO_LARGE) {
         removeSubjob(job);
         d->m_delType = AskIface::DeleteInsteadOfTrash;
+        d->m_confirm = AskIface::ForceConfirmation;
         start();
         return;
     }
