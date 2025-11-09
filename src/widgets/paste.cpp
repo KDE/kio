@@ -182,7 +182,7 @@ KIOWIDGETS_EXPORT bool KIO::canPasteMimeData(const QMimeData *data)
     return data->hasText() || !extractFormats(data).isEmpty();
 }
 
-KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard)
+std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard)
 {
     QByteArray ba;
     const QString suggestedFilename = QString::fromUtf8(mimeData->data(QStringLiteral("application/x-kde-suggestedfilename")));
@@ -199,27 +199,27 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, cons
             return string.startsWith(u"application/x-kde-");
         });
         if (formats.isEmpty() && firstFormat.isEmpty()) {
-            return nullptr;
+            return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
         } else if (formats.size() > 1) {
             QUrl newUrl;
             ba = chooseFormatAndUrl(destUrl, mimeData, formats, dialogText, suggestedFilename, widget, clipboard, &newUrl);
             if (ba.isEmpty() || newUrl.isEmpty()) {
-                return nullptr;
+                return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
             }
-            return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
+            return std::make_pair(putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite), KJob::NoError);
         }
         ba = mimeData->data(firstFormat);
     }
     if (ba.isEmpty()) {
-        return nullptr;
+        return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
     }
 
     const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget);
     if (newUrl.isEmpty()) {
-        return nullptr;
+        return std::make_pair(nullptr, KIO::ERR_USER_CANCELED);
     }
 
-    return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
+    return std::make_pair(putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite), KJob::NoError);
 }
 
 KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem)
