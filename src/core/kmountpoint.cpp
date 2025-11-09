@@ -458,7 +458,7 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
     /* If the path contains symlinks, get the real name */
     QFileInfo fileinfo(path);
     // canonicalFilePath won't work unless file exists
-    const QString realPath = fileinfo.exists() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath();
+    const QString realPath = fileinfo.exists() && !fileinfo.isSymLink() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath();
 #endif
 
     KMountPoint::Ptr result;
