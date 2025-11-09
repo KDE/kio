@@ -21,7 +21,7 @@
 
 using namespace KIO;
 
-extern KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard);
+extern std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard);
 
 PasteJob::PasteJob(PasteJobPrivate &dd)
     : Job(dd)
@@ -69,7 +69,16 @@ void PasteJobPrivate::slotStart()
         }
     } else {
         const QString dialogText = m_clipboard ? i18n("Filename for clipboard content:") : i18n("Filename for dropped contents:");
-        job = pasteMimeDataImpl(m_mimeData, m_destDir, dialogText, KJobWidgets::window(q), m_clipboard);
+        auto [resultJob, error] = pasteMimeDataImpl(m_mimeData, m_destDir, dialogText, KJobWidgets::window(q), m_clipboard);
+
+        if (error) {
+            q->setError(error);
+            q->emitResult();
+            return;
+        }
+
+        job = resultJob;
+
         if (KIO::SimpleJob *simpleJob = qobject_cast<KIO::SimpleJob *>(job)) {
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), simpleJob->url(), job);
         }
