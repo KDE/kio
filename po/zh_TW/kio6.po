@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:38+0000\n"
+"POT-Creation-Date: 2025-11-11 00:39+0000\n"
 "PO-Revision-Date: 2025-08-08 02:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -97,23 +97,23 @@ msgstr ""
 "目標檔案系統 (%2) 不允許檔案名稱使用以下字元：%3\n"
 "選取「取代」將會把目的檔案名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:1378 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "資料夾已存在"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "檔案已存在"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"

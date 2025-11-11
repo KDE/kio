@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:38+0000\n"
+"POT-Creation-Date: 2025-11-11 00:39+0000\n"
 "PO-Revision-Date: 2025-10-14 15:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -104,23 +104,23 @@ msgstr ""
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
-#: core/copyjob.cpp:1378 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Klasör Halihazırda Var"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dosya Halihazırda Var"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Klasör Olarak Halihazırda Var"
 
-#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Çöp Kutusu"

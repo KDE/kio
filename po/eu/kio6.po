@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:38+0000\n"
+"POT-Creation-Date: 2025-11-11 00:39+0000\n"
 "PO-Revision-Date: 2025-10-18 16:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -96,23 +96,23 @@ msgstr ""
 "Ordezkatu hautatuz gero, balio ez duten karaktereak (helmugako fitxategi-"
 "izenean) azpimarrarekin «_» ordeztuko ditu."
 
-#: core/copyjob.cpp:1378 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Karpeta existitzen da dagoeneko"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
 #: core/job_error.cpp:574 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fitxategia existitzen da dagoeneko"
 
-#: core/copyjob.cpp:1702 core/copyjob.cpp:2407
+#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Karpeta gisa existitzen da dagoeneko"
 
-#: core/copyjob.cpp:1856 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Zakarrontzia"
