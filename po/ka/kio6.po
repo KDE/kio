@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:39+0000\n"
+"POT-Creation-Date: 2025-11-13 00:39+0000\n"
 "PO-Revision-Date: 2025-10-14 06:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -89,13 +89,13 @@ msgstr ""
 "\"შეცვლის\" მონიშვნით სამიზნე ფაილის სახელებში დაუშვებელი სიმბოლოები "
 "შეიცვლება ქვედახაზით \"_\"."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "საქაღალდე უკვე არსებობს"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
-#: core/job_error.cpp:574 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ფაილი უკვე არსებობს"
@@ -715,6 +715,11 @@ msgstr "ფაილი მეტისმეტად დიდია ნაგ
 
 #: core/job_error.cpp:264
 #, kde-format
+msgid "A trash folder could not be found or created for this location."
+msgstr ""
+
+#: core/job_error.cpp:267
+#, kde-format
 msgid ""
 "Unknown error code %1\n"
 "%2\n"
@@ -724,65 +729,65 @@ msgstr ""
 "%2\n"
 "გააგზავნეთ შეცდომის სრული ანგარიში https://bugs.kde.org-ზე."
 
-#: core/job_error.cpp:295
+#: core/job_error.cpp:298
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(უცნობი)"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:304
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:308
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>ტექნიკური მიზეზი</b>: "
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>მოთხოვნის დეტალები</b>:"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:312
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>პროტოკოლი: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>თარიღი და დრო: %1 </li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>დამატებითი ინფორმაცია: %1</li>"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:316
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>შესაძლო მიზეზები</b>:"
 
-#: core/job_error.cpp:317
+#: core/job_error.cpp:320
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>შესაძლო გადაწყვეტილებები</b>:"
 
-#: core/job_error.cpp:361
+#: core/job_error.cpp:364
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(უცნობი)"
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -791,17 +796,17 @@ msgstr ""
 "შემდგომი ნაბიჯებისთვის დაუკავშირდით თქვენი კომპიუტერის მომწოდებელს ან "
 "ტექნიკური მხარდაჭერის გუნდს."
 
-#: core/job_error.cpp:378
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "შემდგომი ნაბიჯებისთვის დაუკავშირდით ადმინისტრატორს."
 
-#: core/job_error.cpp:381
+#: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "შეამოწმეთ რესურსზე წვდომის უფლებები."
 
-#: core/job_error.cpp:383
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -810,7 +815,7 @@ msgstr ""
 "წვდომის თქვენი უფლებები შეიძლება არასაკმარისი აღმოჩნდეს რესურსზე მოთხოვნილი "
 "ოპერაციების განსახორციელებლად."
 
-#: core/job_error.cpp:386
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -818,7 +823,7 @@ msgstr ""
 "შეიძლება ფაილი გამოიყენება (ამიტომ იყოს დაბლოკილიც) სხვა მომხმარებლის ან "
 "აპლიკაციის მიერ."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -827,17 +832,17 @@ msgstr ""
 "ჩართეთ, რომ დარწმუნდეთ, რომ სხვა აპლიკაცია და მომხმარებელი ამ ფაილს არც "
 "იყენებენ და არც ჩაუკეტავთ ის."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "ძალიან პატარა შანსით, მაგრამ შეიძლება ეს იყოს აპარატურული პრობლემა."
 
-#: core/job_error.cpp:394
+#: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "შეიძლება შეეჩეხეთ შეცდომას პროგრამაში."
 
-#: core/job_error.cpp:396
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -846,7 +851,7 @@ msgstr ""
 "დიდი ალბათობით ეს გამოიწვია შეცდომამ პროგრამაში. გთხოვთ ატვირთოთ შეცდომის "
 "სრული ანგარიში, როგორც ქვემოთაა აღწერილი."
 
-#: core/job_error.cpp:399
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -855,7 +860,7 @@ msgstr ""
 "განაახლეთ თქვენი პროგრამული უზრუნველყოფა ბოლო ვერსიამდე. თქვენს დისტრიბუტივს "
 "უნდა ჰქონდეს საშუალება, განაახლოს ის."
 
-#: core/job_error.cpp:402
+#: core/job_error.cpp:405
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -874,12 +879,12 @@ msgstr ""
 "და დაურთეთ ისინი თქვენს ანგარიშს შეცდომის შესახებ იმ ყველაფერთან ერთად, "
 "რასაც ფიქრობთ, რომ სასარგებლო იქნება."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "თქვენს ქსელთან მიერთებას შეიძლება პრობლემები აქვს."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -888,49 +893,49 @@ msgstr ""
 "შეიძლება ქსელში პრობლემები გაქვთ. თუ ინტერნეტთან წვდომა ახლახანს გქონდათ, "
 "ალბათ ეს ასე არაა."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
 msgstr "შესაძლო ქსელური პრობლემა თქვენს კომპიუტერსა და სერვერს შორის."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "კიდევ სცადეთ. ახლავე, ან ცოტა ხანში."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "პროტოკოლის შეცდომა ან შეუთავსებლობა."
 
-#: core/job_error.cpp:423
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "დარწმუნდით, რომ რესურსი არსებობს და სცადეთ თავიდან."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "შეიძლება მითითებული რესურსი არ არსებობს."
 
-#: core/job_error.cpp:426
+#: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "გადაამოწმეთ შეყვანილი მდებარეობის სისწორე და სცადეთ თავიდან."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
 msgstr "გადაამოწმეთ ქსელთან კავშირის მდგომარეობა."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "რესურსის წასაკითხად გახსნის შეცდომა"
 
-#: core/job_error.cpp:434
+#: core/job_error.cpp:437
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -939,17 +944,17 @@ msgstr ""
 "ეს ნიშნავს, რომ ფაილის ან საქაღალდის, <strong>%1</strong>, შიგთავსის ნახვა "
 "შეუძლებელია, ან არ გაქვთ წაკითხვის უფლება."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "თქვენ შეიძლება არ გაქვთ უფლება წაიკითხოთ ფაილი ან გახსნათ საქაღალდე."
 
-#: core/job_error.cpp:446
+#: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "რესურსის ჩასაწერად გახსნის შეცდომა"
 
-#: core/job_error.cpp:448
+#: core/job_error.cpp:451
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -958,17 +963,17 @@ msgstr ""
 "ეს ნიშნავს, რომ ფაილის <strong>%1</strong> ჩაწერა ისე, როგორც მოთხოვნილია, "
 "შეუძლებელია, რადგან წვდომა არ გაგაჩნიათ."
 
-#: core/job_error.cpp:457
+#: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "%1 პროტოკოლის მიერ მოთხოვნილი პროცესის გაშვების შეცდომა"
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "პროცესის გაშვების შეცდომა"
 
-#: core/job_error.cpp:460
+#: core/job_error.cpp:463
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -978,7 +983,7 @@ msgstr ""
 "პროგრამა თქვენს კომპიუტერზე, რომელიც <strong>%1</strong> პროტოკოლთან წვდომას "
 "უზრუნველყოფდა, არ ეშვება. როგორც წესი, ეს ტექნიკური პრობლემების გამოა."
 
-#: core/job_error.cpp:465
+#: core/job_error.cpp:468
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -989,12 +994,12 @@ msgstr ""
 "განახლების შემდეგ არ განახლებულა. ამას მიმდინარე ვერსიასთან არათავსებადობა "
 "შეუძლია, გამოიწვიოს."
 
-#: core/job_error.cpp:474
+#: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
 msgstr "შიდა შეცდომა"
 
-#: core/job_error.cpp:476
+#: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1003,12 +1008,12 @@ msgstr ""
 "პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
 "<strong>%1</strong>, შიდა შეცდომა დააბრუნა."
 
-#: core/job_error.cpp:484
+#: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "არასწორად შედგენილი URL"
 
-#: core/job_error.cpp:486
+#: core/job_error.cpp:489
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1022,12 +1027,12 @@ msgstr ""
 "გამოიყურება:<blockquote><strong>protocol://user:password@www.example.org:"
 "port/folder/filename.extension?query=value</strong></blockquote>"
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "პროტოკოლი %1 მხარდაუჭერელია"
 
-#: core/job_error.cpp:497
+#: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1036,12 +1041,12 @@ msgstr ""
 "პროტოკოლი <strong>%1</strong> ამ კომპიუტერზე დაყენებული KDE-ის პროგრამების "
 "მიერ მხარდაჭერილი არაა."
 
-#: core/job_error.cpp:500
+#: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "მოთხოვნილი პროტოკოლის მხარდაჭერა შეიძლება არ არსებობდეს."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1050,7 +1055,7 @@ msgstr ""
 "%1 პროტოკოლის ვერსიები, რომლებსაც ეს კომპიუტერი და სერვერი იყენებენ, "
 "შეიძლება თავსებადი არაა."
 
-#: core/job_error.cpp:506
+#: core/job_error.cpp:509
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
@@ -1061,17 +1066,17 @@ msgstr ""
 "მოძებნოთ, რომელსაც ამ პროტოკოლის მხარდაჭერა გააჩნია. მოსაძებნი ადგილი "
 "შეიცავს საიტს <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:517
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL რესურსზე მიბმული არაა."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "პროტოკოლი ფილტრის პროტოკოლია"
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:520
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1080,7 +1085,7 @@ msgstr ""
 "<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
 "(URL), რომელიც შეიყვანეთ, რესურსზე არ მიუთითებს.."
 
-#: core/job_error.cpp:521
+#: core/job_error.cpp:524
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1092,12 +1097,12 @@ msgstr ""
 "მითითებული პროტოკოლი მხოლოდ ამ სიტუაციისთვისაა, მაგრამ ის ახლა არ ხდება. ეს "
 "იშვიათი მოვლენაა, რომელიც ხშირად პროგრამისტის შეცდომაზე მიუთითებს."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "მხარდაუჭერელი ქმედება: %1"
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1106,7 +1111,7 @@ msgstr ""
 "KDE-ის პროგრამას, რომელიც <strong>%1</strong> პროტოკოლის განხორციელებას "
 "წარმოადგენს, მოთხოვნილი ქმედების მხარდაჭერა არ გააჩნია."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:538
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1116,17 +1121,17 @@ msgstr ""
 "შეცდომა KDE-ის პროგრამაზეა დამოკიდებული. დამატებით ინფორმაციას შეუძლია იმაზე "
 "მეტი რამ მოგცეთ, ვიდრე ის KDE-ის შეტანა/გამოტანის არქიტექტურას გააჩნია."
 
-#: core/job_error.cpp:539
+#: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "მცდელობა, მოვძებნოთ სხვა გზა, რათა იგივე შედეგს მივაღწიოთ."
 
-#: core/job_error.cpp:544
+#: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
 msgstr "მოველოდით ფაილს"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1134,17 +1139,17 @@ msgid ""
 msgstr ""
 "მოთხოვნა მოელოდა ფაილს, თუმცა აღმოჩენილია საქაღალდე <strong>%1</strong>."
 
-#: core/job_error.cpp:549
+#: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "შეცდომა სერვერის მხარეს."
 
-#: core/job_error.cpp:554
+#: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
 msgstr "მოველოდით საქაღლდეს"
 
-#: core/job_error.cpp:556
+#: core/job_error.cpp:559
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1152,17 +1157,17 @@ msgid ""
 msgstr ""
 "მოთხოვნა მოელოდა საქაღალდეს, თუმცა აღმოჩენილია ფაილი <strong>%1</strong>."
 
-#: core/job_error.cpp:564
+#: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "ფაილი ან საქაღალდე არ არსებობს"
 
-#: core/job_error.cpp:566
+#: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "მითითებული ფაილი ან საქაღალდე <strong>%1</strong> არ არსებობს."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:579
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1171,22 +1176,22 @@ msgstr ""
 "მოთხოვნილი ფაილის შექმნა შეუძლებელია, რადგან ფაილი იგივე სახელით უკვე "
 "არსებობს."
 
-#: core/job_error.cpp:579
+#: core/job_error.cpp:582
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "სცადეთ, ჯერ მიმდინარე ფაილი მოიშოროთ, შემდეგ კი თავიდან სცადეთ."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "წაშალეთ მიმდინარე ფაილი და თავიდან სცადეთ."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "ახალი ფაილისთვის სხვა სახელი შეარჩიეთ."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:590
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1195,27 +1200,27 @@ msgstr ""
 "მოთხოვნილი საქაღალდის შექმნა შეუძლებელია, რადგან საქაღალდე იგივე სახელით "
 "უკვე არსებობს."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "სცადეთ, ჯერ მიმდინარე საქაღალდე მოიშოროთ, შემდეგ კი თავიდან სცადეთ."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "წაშალეთ მიმდინარე საქაღალდე და თავიდან სცადეთ."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "ახალი საქაღალდის ალტერნატიული სახელი."
 
-#: core/job_error.cpp:596
+#: core/job_error.cpp:599
 #, kde-format
 msgid "Unknown Host"
 msgstr "უცნობი ჰოსტი"
 
-#: core/job_error.cpp:598
+#: core/job_error.cpp:601
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1224,7 +1229,7 @@ msgstr ""
 "უცნობი ჰოსტის შეცდომა ნიშნავს, რომ სერვერი მითითებული სახელით, <strong>%1</"
 "strong>, ინტერნეტში აღმოჩენილი არაა."
 
-#: core/job_error.cpp:603
+#: core/job_error.cpp:606
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1232,27 +1237,27 @@ msgstr ""
 "სახელი, რომელიც აკრიფეთ, %1, შეიძლება არ არსებობს. შეიძლება აკრეფისას "
 "შეგეშალათ."
 
-#: core/job_error.cpp:611
+#: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
 msgstr "წვდომა აკრძალულია"
 
-#: core/job_error.cpp:613
+#: core/job_error.cpp:616
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "მითითებულ რესურსთან წვდომა აკრძალულია. <strong>%1</strong>."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "თქვენი მითითებული ავთენტიკაციის დეტალები არასწორია ან მითითებული არაა."
 
-#: core/job_error.cpp:620 core/job_error.cpp:896
+#: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "თქვენს ანგარიშს მითითებულ რესურსთან შეიძლება წვდომა არ გააჩნია."
 
-#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
+#: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1261,12 +1266,12 @@ msgstr ""
 "მოთხოვნა თავიდან სცადეთ და დარწმუნდით, რომ შეყვანილი ავთენტიკაციის დეტალები "
 "სწორია."
 
-#: core/job_error.cpp:632
+#: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
 msgstr "ჩაწერის წვდომა აკრძალულია"
 
-#: core/job_error.cpp:634
+#: core/job_error.cpp:637
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1274,12 +1279,12 @@ msgid ""
 msgstr ""
 "ეს ნიშნავს, რომ ფაილში <strong>%1</strong> ჩაწერის მცდელობა უარყოფილია.."
 
-#: core/job_error.cpp:642
+#: core/job_error.cpp:645
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "საქაღალდეში შესვლის შეცდომა"
 
-#: core/job_error.cpp:644
+#: core/job_error.cpp:647
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1288,17 +1293,17 @@ msgstr ""
 "ეს ნიშნავს, რომ სცადეთ შეგეყვანათ (სხვა სიტყვებით, გაგეხსნათ) საქაღალდე "
 "<strong>%1</strong, რაც უარყოფილი იყო."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:655
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "საქაღალდის  ჩამონათვალი მიუწვდომელია"
 
-#: core/job_error.cpp:653
+#: core/job_error.cpp:656
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "პროტოკოლი %1 ფაილური სისტემა არაა"
 
-#: core/job_error.cpp:655
+#: core/job_error.cpp:658
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1309,12 +1314,12 @@ msgstr ""
 "სჭირდება და KDE-ის პროგრამამ რომელიც ამ პროტოკოლის მხარდაჭერას უზრუნველყოფს, "
 "ეს ვერ შეძლო."
 
-#: core/job_error.cpp:663
+#: core/job_error.cpp:666
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "ნაპოვნია ციკლური ბმული"
 
-#: core/job_error.cpp:665
+#: core/job_error.cpp:668
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1326,7 +1331,7 @@ msgstr ""
 "განსხვავებულ სახელს ან/და მდებარეობას მიაბას. KDE-მა აღმოაჩინა ბმულების "
 "სერია, რომელიც უსასრულო მარყუჟს იწვევს - ე.ი ფაილი თავის თავზე იყო მიბმული."
 
-#: core/job_error.cpp:670 core/job_error.cpp:696
+#: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1335,27 +1340,27 @@ msgstr ""
 "მიმდევრობაში წაშალეთ ერთი ნაწილი, რათა უსასრულო მარყუჟი აღარ კეთდებოდეს და "
 "თავიდან სცადეთ."
 
-#: core/job_error.cpp:680
+#: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "გაუქმდა მომხმარებლის მოთხოვნით"
 
-#: core/job_error.cpp:682 core/job_error.cpp:1071
+#: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "მოთხოვნა არ დასრულებულა, რადგან გაუქმდა."
 
-#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
+#: core/job_error.cpp:687 core/job_error.cpp:942 core/job_error.cpp:1076
 #, kde-format
 msgid "Retry the request."
 msgstr "მოთხოვნის თავიდან ცდა."
 
-#: core/job_error.cpp:688
+#: core/job_error.cpp:691
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "კოპირებისას ნაპოვნია ციკლური ბმული"
 
-#: core/job_error.cpp:690
+#: core/job_error.cpp:693
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1368,17 +1373,17 @@ msgstr ""
 "ოპერაციისას KDE-მა აღმოაჩინა ბმულები სერიები, რომლებიც უსასრულო მარყუჟს "
 "იწვევს - ანუ, ფაილი თავის თავზე იყო მიბმული."
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "ქსელური შეერთების შექმნის შეცდომა"
 
-#: core/job_error.cpp:703
+#: core/job_error.cpp:706
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "სოკეტის შექმნის შეცდომა"
 
-#: core/job_error.cpp:705
+#: core/job_error.cpp:708
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1387,8 +1392,8 @@ msgstr ""
 "ეს საკმაოდ ტექნიკური შეცდომაა, რომელშიც ქსელური კავშირის მოწყობილობის "
 "(სოკეტის) შექმნა შეუძლებელია."
 
-#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
-#: core/job_error.cpp:881
+#: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
+#: core/job_error.cpp:884
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1396,12 +1401,12 @@ msgid ""
 msgstr ""
 "ქსელური მიერთება არასწორადაა მორგებული ან ქსელის ინტერფეისი ჩართული არაა."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "დაკავშირება უარყოფილია სერვერის მიერ"
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1409,7 +1414,7 @@ msgid ""
 msgstr ""
 "სერვერმა <strong>%1</strong> ამ კომპიუტერიდან მიერთების მცდელობა უარყო."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1418,7 +1423,7 @@ msgstr ""
 "სერვერი, მიუხედავად იმისა, რომ ინტერნეტთან მიერთებულია, შეიძლება მოთხოვნების "
 "მისაღებად გამართული არაა."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:726
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1427,7 +1432,7 @@ msgstr ""
 "სერვერი, მიუხედავად იმისა, რომ ინტერნეტთან მიერთებულია, შეიძლება მოთხოვილი "
 "სერვისის(%1) მისაღებად გამართული არაა."
 
-#: core/job_error.cpp:727
+#: core/job_error.cpp:730
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1437,12 +1442,12 @@ msgstr ""
 "ბრანდმაუერი (მოწყობილობა, რომელიც ზღუდავს ინტერნეტთან წვდომას), რომელიც "
 "თქვენ ან სერვერის ქსელს იცავს, შეიძლება ჩაერია და მოთხოვნას ხელი შეუშალა."
 
-#: core/job_error.cpp:734
+#: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "სერვერთან შეერთება მოულოდნელად დაიხურა"
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1451,7 +1456,7 @@ msgstr ""
 "იმის მიუხედავად, რომ <strong>%1</strong>-თან მიერთება დამყარებულია, კავშირი "
 "მიმოცვლის მოულოდნელ წერტილში დაიხურა."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1460,17 +1465,17 @@ msgstr ""
 "შეიძლება მოხდა პროტოკოლის შეცდომა, რომელმაც სერვერს პასუხად მიერთების "
 "დახურვა აიძულა."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:751
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "URL-ის რესურსი არასწორია"
 
-#: core/job_error.cpp:749
+#: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "პროტოკოლი %1 ფილტრის პროტოკოლს არ წარმოადგენს"
 
-#: core/job_error.cpp:751
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1481,7 +1486,7 @@ msgstr ""
 "(URL) რომელიც შეიყვანეთ, არ მიუთითებს სწორ მექანიზმზე, რომელიც მითითებულ "
 "რესურსთან, <strong>%1%2</strong> წვდომისთვისაა საჭირო."
 
-#: core/job_error.cpp:758
+#: core/job_error.cpp:761
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1494,17 +1499,17 @@ msgstr ""
 "საშუალება არ გააჩნა. ეს იშვიათი მოვლენაა და როგორც წესი პროგრამისტის "
 "შეცდომას ნიშნავს."
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "შეტანის/გამოტანის მოწყობილობის ინიციალიზაციის შეცდომა"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "მოწყობილობის მიმაგრების შეცდომა"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:772
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1513,7 +1518,7 @@ msgstr ""
 "მოთხოვნილი მოწყობილობის ინიციალიზაცია (მიმაგრება) შეუძლებელია. შეცდომა: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:773
+#: core/job_error.cpp:776
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1524,7 +1529,7 @@ msgstr ""
 "(მაგალითად, CD დისკი CD-ROM-ში) ან, ან შემთხვევაში გარე/მოხსნადი მოწყობილობა "
 "შეიძლება არასწორადაა მიერთებული."
 
-#: core/job_error.cpp:778
+#: core/job_error.cpp:781
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1535,7 +1540,7 @@ msgstr ""
 "გაგაჩნიათ. UNIX სისტემებზე მოწყობილობის ინიციალიზაციისთვის ხშირად "
 "ადმინისტრატორის პრივილეგიებია საჭირო."
 
-#: core/job_error.cpp:783
+#: core/job_error.cpp:786
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1545,17 +1550,17 @@ msgstr ""
 "შეიცავდნენ და გადატანადი მოწყობილობები შეერთებული და ჩართული უნდა იყოს... და "
 "თავიდან სცადეთ."
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "შეტანის/გამოტანის მოწყობილობის ინიციალიზაციის გაუქმების შეცდომა"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "მოწყობილობის მიმაგრების მოხსნის შეცდომა"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:796
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1564,7 +1569,7 @@ msgstr ""
 "მოთხოვნილი მოწყობილობის ინიციალიზაციის გაუქმება (მოხსნა) შეუძლებელია. "
 "შეცდომა: <strong>%1</strong>"
 
-#: core/job_error.cpp:797
+#: core/job_error.cpp:800
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1575,7 +1580,7 @@ msgstr ""
 "ან მომხმარებლის მიერ. ისეთი რამებსაც კი, როგორიცაა ბრაუზერის ღია ფანჯარა ამ "
 "მოწყობილობაზე მდებარე მდებარეობაზე, შეუძლია, ეს გამოიწვიოს."
 
-#: core/job_error.cpp:802
+#: core/job_error.cpp:805
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1585,18 +1590,18 @@ msgstr ""
 "მოწყობილობის მოხსნის (\"unmount\") წვდომა არ გაგაჩნიათ. UNIX სისტემებზე "
 "მოწყობილობის მოსახსნელად სისტემური ადმინისტრატორის პრივილეგიებია საჭირო."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "დარწმუნდით, რომ სხვა აპლიკაცია ამ მოწყობილობას არ იყენებს და თავიდან სცადეთ."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "რესურსიდან წაკითხვის შეცდომა"
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:818
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1605,17 +1610,17 @@ msgstr ""
 "ეს ნიშნავს, რომ მიუხედავად იმისა, რომ რესურსის <strong>%1</strong> გახსნა "
 "შესაძლებელია, მისი შემცველობის წაკითხვის მცდელობა შეცდომით დასრულდა."
 
-#: core/job_error.cpp:819
+#: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "თქვენ შეიძლება არ გაქვთ უფლება წაიკითხოთ რესურსი."
 
-#: core/job_error.cpp:832
+#: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "რესურსში ჩაწერის შეცდომა"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:837
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1624,22 +1629,22 @@ msgstr ""
 "ეს ნიშნავს, რომ მიუხედავად იმისა, რომ რესურსის <strong>%1</strong> გახსნა "
 "შესაძლებელია, მისი შემცველობის ჩაწერის მცდელობა შეცდომით დასრულდა."
 
-#: core/job_error.cpp:837
+#: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "თქვენ შეიძლება არ გაქვთ უფლება, ჩაწეროთ ამ რესურსში."
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "ვერ ვუსმენ ქსელურ კავშირებს"
 
-#: core/job_error.cpp:851
+#: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
 msgstr "მიბმის შეცდომა"
 
-#: core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1649,17 +1654,17 @@ msgstr ""
 "ეს საკმაოდ ტექნიკური შეცდომა, რომელშიც საჭირო მოწყობილობა ქსელური "
 "კომუნიკაციისთვის (სოკეტი) შემომავალი ქსელური მიერთებებისთვის ვერ შეიქმნა."
 
-#: core/job_error.cpp:864
+#: core/job_error.cpp:867
 #, kde-format
 msgid "Could Not Listen"
 msgstr "მოსმენის შეცდომა"
 
-#: core/job_error.cpp:876
+#: core/job_error.cpp:879
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "ვერ ვიღებ ქსელურ ტრაფიკს"
 
-#: core/job_error.cpp:878
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1668,34 +1673,34 @@ msgstr ""
 "ეს საკმაოდ ტექნიკური შეცდომაა, როცა მოხდა შეცდომა შემომავალი ქსელური "
 "მიერთების დადასტურებისას."
 
-#: core/job_error.cpp:883
+#: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "შეიძლება არ აქვთ უფლება, მიიღოთ ეს ქსელური ტრაფიკი."
 
-#: core/job_error.cpp:888
+#: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "%1-ზე შესვლა წარუმატებელია"
 
-#: core/job_error.cpp:890
+#: core/job_error.cpp:893
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "მოთხოვნილი ოპერაციის შესასრულებლად შესვლის მცდელობა წარუმატებლად დასრულდა."
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:909
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "რესურსის სტატუსის განსაზღვრა შეუძლებელია"
 
-#: core/job_error.cpp:907
+#: core/job_error.cpp:910
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "რესურსის აღმოჩენის შეცდომა"
 
-#: core/job_error.cpp:909
+#: core/job_error.cpp:912
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1704,69 +1709,69 @@ msgstr ""
 "რესურსის <strong>%1</strong> შესახებ ინფორმაციის, როგორიცაა მისი სახელი, "
 "ტიპი, ზომა და ა.შ. დადგენის მცდელობა წარუმატებელი აღმოჩნდა."
 
-#: core/job_error.cpp:914
+#: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "მითითებული რესურსი არ არსებობს ან მიუწვდომელია."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "სიის გაუქმება შეუძლებელია"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: საჭიროა დოკუმენტირება"
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "საქაღალდის შექმნის შეცდომა"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "მოთხოვნილი საქაღალდის შექმნის მცდელობა ავარიულად დასრულდა."
 
-#: core/job_error.cpp:934
+#: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "საქაღალდის შესაქმნელად მითითებული მდებარეობა შეიძლება არ არსებობდეს."
 
-#: core/job_error.cpp:943
+#: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "საქაღალდის წაშლა შეუძლებელია"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:948
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
 "მცდელობა, წაგვეშალა მითითებული საქაღალდე, <strong>%1</strong>, წარუმატებელია."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "მითითებული საქაღალდე შეიძლება არ არსებობს."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "მითითებული საქაღალდე შეიძლება ცარიელი არაა."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "დარწმუნდით, რომ საქაღალდე არსებობს და ის ცარიელია და სცადეთ კიდევ."
 
-#: core/job_error.cpp:959
+#: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "ფაილის გადმოწერის გაგრძელება შეუძლებელია"
 
-#: core/job_error.cpp:961
+#: core/job_error.cpp:964
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1775,35 +1780,35 @@ msgstr ""
 "მითითებულმა მოთხოვნამ მოითხოვა, რომ ფაილი <strong>%1</strong>გადაცემა უნდა "
 "გაგრძელდეს რაღაც დროის შემდეგ. ეს შეუძლებელი იყო."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "პროტოკოლს ან სერვერს არ გააჩნიათ ფაილის გადაცემის გაგრძელების მხარდაჭერა."
 
-#: core/job_error.cpp:969
+#: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "თავიდან ცდა გადაცემის გაგრძელების ცდის გარეშე."
 
-#: core/job_error.cpp:974
+#: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "რესურსისთვის სახელის გადარქმევის შეცდომა"
 
-#: core/job_error.cpp:976
+#: core/job_error.cpp:979
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "მცდელობა, მითითებული რესურსისთვის, <strong>%1</strong> სახელი გადაგვერქმია, "
 "წარუმატებლად დასრულდა."
 
-#: core/job_error.cpp:987
+#: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "რესურსის წვდომების ჩასწორების შეცდომა"
 
-#: core/job_error.cpp:989
+#: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1812,12 +1817,12 @@ msgstr ""
 "მცდელობა, მითითებული რესურსისთვის, <strong>%1</strong>, შეგვეცვალა წვდომის "
 "უფლებები, წარუმატებელია."
 
-#: core/job_error.cpp:997
+#: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "რესურსის მფლობელის შეცვლის შეცდომა"
 
-#: core/job_error.cpp:999
+#: core/job_error.cpp:1002
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1826,23 +1831,23 @@ msgstr ""
 "მცდელობა, მითითებული რესურსისთვის, <strong>%1</strong>, შეგვეცვალა მფლობელი, "
 "წარუმატებელია."
 
-#: core/job_error.cpp:1007
+#: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "რესურსის წაშლის შეცდომა"
 
-#: core/job_error.cpp:1009
+#: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "მცდელობა, მითითებული რესურსი, <strong>%1</strong>, წაგვეშალა, წარუმატებელია."
 
-#: core/job_error.cpp:1017
+#: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "პროგრამის გაუთვალისწინებელი დასასრული"
 
-#: core/job_error.cpp:1019
+#: core/job_error.cpp:1022
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1851,12 +1856,12 @@ msgstr ""
 "პროგრამა, რომელიც თქვენს კომპიუტერზე პასუხს აგებს <strong>%1</strong> "
 "პროტოკოლთან წვდომაზე, გაუთვალისწინებლად დასრულდა."
 
-#: core/job_error.cpp:1027
+#: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
 msgstr "არასაკმარისი მეხსიერება"
 
-#: core/job_error.cpp:1029
+#: core/job_error.cpp:1032
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1866,12 +1871,12 @@ msgstr ""
 "პროტოკოლთან წვდომაზე, გაუთვალისწინებლად დასრულდა მეხსიერების არასაკმარისი "
 "რაოდენობის გამო."
 
-#: core/job_error.cpp:1038
+#: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "პროქსის უცნობი ჰოსტი"
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1882,7 +1887,7 @@ msgstr ""
 "მიღებისას უცნობი ჰოსტის შეცდომა დაფიქსირდა. უცნობი ჰოსტის შეცდომა ნიშნავს, "
 "რომ მითითებული სახელის ინტერნეტში პოვნა შეუძლებელია."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1049
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1893,17 +1898,17 @@ msgstr ""
 "თქვენი პროქსის ჰოსტის სახელთან. მაგრამ, თუ ახლახანს ინტერნეტთან წვდომა "
 "გქონდათ, ალბათ ეს ასე არაა."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "დაამოწმეთ პროქსის პარამეტრები და თავიდან სცადეთ."
 
-#: core/job_error.cpp:1054
+#: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "ავთენტიკაციის შეცდომა: მეთოდი %1 მხარდაჭერილი არაა"
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1915,7 +1920,7 @@ msgstr ""
 "პროგრამის მიერ, რომელიც %1 პროტოკოლის მხარდაჭერისთვის გამოიყენება, "
 "მხარდაჭერილი არაა."
 
-#: core/job_error.cpp:1062
+#: core/job_error.cpp:1065
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1925,17 +1930,17 @@ msgstr ""
 "bugs.kde.org/</a>, რათა KDE-ის გუნდს მხარდაუჭერელი ავთენტიკაციის მეთოდის "
 "შესახებ შეატყობინოთ."
 
-#: core/job_error.cpp:1069
+#: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
 msgstr "მოთხოვნა შეწყვეტილია"
 
-#: core/job_error.cpp:1077
+#: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "სერვერის შიდა შეცდომა"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1944,7 +1949,7 @@ msgstr ""
 "პროგრამამ, რომელიც <strong>%1</strong> პროტოკოლთან წვდომას უზრუნველყოფს, "
 "შიდა შეცდომა დააბრუნა: %2."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1953,12 +1958,12 @@ msgstr ""
 "დიდი ალბათობით ეს გამოიწვია შეცდომამ პროგრამაში. გთხოვთ ატვირთოთ შეცდომის "
 "სრული ანგარიში, როგორც ქვემოთაა აღწერილი."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1092
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "დაუკავშირდით სერვერის ადმინისტრატორს და ჰკითხეთ პრობლემის შესახებ."
 
-#: core/job_error.cpp:1092
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1966,12 +1971,12 @@ msgid ""
 msgstr ""
 "თუ იცით, სერვერის პროგრამა ვისი დაწერილია, სჯობს პირდაპირ მას მისწეროთ."
 
-#: core/job_error.cpp:1097
+#: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
 msgstr "დროის გასვლის შეცდომა"
 
-#: core/job_error.cpp:1099
+#: core/job_error.cpp:1102
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -1980,17 +1985,17 @@ msgstr ""
 "მიუხედავად იმისა, რომ სერვერს დავუკავშირდით, დაკავშირებისთვის გამოყოფილ "
 "დროში პასუხის მიღება ვერ მოხერხდა."
 
-#: core/job_error.cpp:1104
+#: core/job_error.cpp:1107
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "სერვერს საპასუხოდ არ სცალია."
 
-#: core/job_error.cpp:1110
+#: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
 msgstr "უცნობი შეცდომა"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1115
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1999,12 +2004,12 @@ msgstr ""
 "პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
 "<strong>%1</strong>, უცნობი შეცდომა დააბრუნა: %2."
 
-#: core/job_error.cpp:1122
+#: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "უცნობი წყვეტა"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2013,12 +2018,12 @@ msgstr ""
 "პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
 "<strong>%1</strong>, უცნობი შეცდომა ან დასრულების კოდი დააბრუნა: %2."
 
-#: core/job_error.cpp:1134
+#: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "საწყისი ფაილის წაშლის შეცდომა"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2029,12 +2034,12 @@ msgstr ""
 "გადატანის ოპერაციის დასრულებისას. ორიგინალური ფაილის <strong>%1</strong> "
 "წაშლა შეუძლებელია."
 
-#: core/job_error.cpp:1145
+#: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "დროებითი ფაილის წაშლის შეცდომა"
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2044,12 +2049,12 @@ msgstr ""
 "მოთხოვნილ ფაილს დროებითი ფაილის შექმნა სჭირდება, რომელშიც ის ახალ გადმოწერილ "
 "ფაილს შეინახავს. დროებითი ფაილის <strong>%1</strong> წაშლა შეუძლებელია."
 
-#: core/job_error.cpp:1157
+#: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "საწყისი ფაილისთვის სახელის გადარქმევის შეცდომა"
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2058,12 +2063,12 @@ msgstr ""
 "მოთხოვნილ ოპერაციას საწყისი ფაილის <strong>%1</strong> სახელის გადარქმევა "
 "სჭირდება, რაც შეუძლებელია."
 
-#: core/job_error.cpp:1168
+#: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "დროებითი ფაილისთვის სახელის გადარქმევის შეცდომა"
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2072,32 +2077,32 @@ msgstr ""
 "მოთხოვილ ოპერაციას დროებითი ფაილის <strong>%1</strong> შექმნა სჭირდება, რაც "
 "შეუძლებელია."
 
-#: core/job_error.cpp:1179
+#: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "ბმულის შექმნის შეცდომა"
 
-#: core/job_error.cpp:1180
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "სიმბმულის შექმნის შეცდომა"
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "მოთხოვნილი სიმბმულის შექმნა ფაილამდე %1 შეუძლებელია."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1190
 #, kde-format
 msgid "No Content"
 msgstr "შიგთავსის გარეშე"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
 msgstr "დისკი გადავსებულია"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2106,7 +2111,7 @@ msgstr ""
 "მოთხოვნილი ფაილის, <strong>%1</strong>, ჩაწერის შეცდომა. დისკზე არასაკმარისი "
 "ადგილია."
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1201
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2116,12 +2121,12 @@ msgstr ""
 "გაათავისუფლეთ ადგილი 1) დროებითი და არასასურველი ფაილების წაშლით 2) ფაილების "
 "დაარქივებით მოხსნად ან CD-RW დისკებზე 3) შეიძინეთ უფრო დიდი დისკი."
 
-#: core/job_error.cpp:1205
+#: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "წყარო და სამიზნე ფაილი ერთი და იგივეა"
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2130,17 +2135,17 @@ msgstr ""
 "ოპერაციის დასრულება შეუძლებელია, რადგან საწყისი და სამიზნე ფაილი ერთი და "
 "იგივეა."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "წყაროსა და სამიზნე ფაილებისთვის აირჩიეთ სხვადასხვა სახელები."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1216
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "ფაილი ან საქაღალდე საკუთარ თავზე დააგდეთ"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2149,17 +2154,17 @@ msgstr ""
 "ოპერაციის დასრულება შეუძლებელია, რადგან საწყისი და სამიზნე საქაღალდე ერთი და "
 "იგივეა."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "ჩააგდეთ სხვა ფაილში ან საქაღალდეში."
 
-#: core/job_error.cpp:1227
+#: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "საქაღალდე საკუთარ თავში ვერ გადავა"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2168,17 +2173,17 @@ msgstr ""
 "ოპერაციის დასრულება შეუძლებელია. რესურსები ვერ იქნება გადატანილი საკუთარ "
 "თავში."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "გადაიტანეთ სხვა საქაღალდეში."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "პაროლების სერვერთან კავშირის შეცდომა"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2187,22 +2192,22 @@ msgstr ""
 "ოპერაციის დასრულება შეუძლებელია, რადგან სერვისთან, რომელიც პაროლებს "
 "გეკითხებათ (kpasswdserver) დაკავშირება შეუძლებელია"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "სცადეთ თქვენი ვერსიის თავიდან გაშვება ან kiod-ის ჟურნალში ჩაიხედეთ."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1246
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "პროტოკოლის %1 დაწყების შეცდომა"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2212,7 +2217,7 @@ msgstr ""
 "პროტოკოლთან წვდომაზე, გაუთვალისწინებლად დასრულდა მეხსიერების არასაკმარისი "
 "რაოდენობის გამო."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2221,13 +2226,13 @@ msgstr ""
 "klauncherმა ვერ იპოვა ან ვერ გაუშვა დამატება, რომელიც ამ პროტოკოლის მუშაობას "
 "უზრუნველყოფს. ეს ნიშნავს, რომ დამატების ვერსია ძალიან ძველია."
 
-#: core/job_error.cpp:1257
+#: core/job_error.cpp:1260
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>-ის გადატანის შეცდომა"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2237,7 +2242,7 @@ msgstr ""
 "ფაილის, <filename>%1</filename>, გადატანა შეუძლებელია. სამიზნე ფაილურ "
 "სისტემას არ გააჩნია ასეთი დიდი ფაილების მხარდაჭერა"
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1265
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2246,7 +2251,7 @@ msgstr ""
 "თავიდან დააფორმატეთ სამიზნე დისკი ფაილური სისტემით, რომელსაც ამხელა ფაილების "
 "მხარდაჭერა გააჩნია."
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "არადოკუმენტირებული შეცდომა"
@@ -2437,7 +2442,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვერ ვიპოვე."
 
 #: core/workerinterface.cpp:343 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:491
+#: widgets/widgetsaskuseractionhandler.cpp:516
 #, kde-format
 msgid "&Details"
 msgstr "&დეტალები"
@@ -2542,7 +2547,7 @@ msgstr "ახალი საქაღალდე…"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "ნაგავში გადატანა"
@@ -4308,7 +4313,7 @@ msgid ""
 msgstr "გნებავთ სერტიფიკატთან სამუდამო წვდომა კითხვის გარეშე?"
 
 #: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:489
+#: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "სერვერის ავთენტიკაცია"
@@ -4563,7 +4568,7 @@ msgstr "ნაგვის დაცარიელება"
 msgid "Restore a trashed file to its original location"
 msgstr "ნაგავში ჩაგდებული ფაილის საწყის მდებარეობაზე აღდგენა"
 
-#: kioworkers/trash/trashimpl.cpp:1338
+#: kioworkers/trash/trashimpl.cpp:1340
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "ნაგავი გადავსებულია. დააცარიელეთ ან ხელით გადაიტანეთ ელემენტები."
@@ -5024,6 +5029,7 @@ msgstr "სამუდამოდ წაშლა"
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5045,7 +5051,7 @@ msgstr[1] ""
 "მართლა გნებავთ %1 ელემენტის სამუდამოდ წაშლა?<nl/><nl/><emphasis strong=\"true"
 "\">ეს ქმედება შეუქცევადია.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5055,13 +5061,13 @@ msgstr ""
 "მართლა გნებავთ სანაგვე ყუთიდან ყველა ელემენტის სამუდამოდ წაშლა?<nl/><nl/"
 "><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "ნაგვის დაცარიელება"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7262,7 +7268,7 @@ msgstr ""
 "დაშორებულ ჰოსტს SSL სერტიფიკატები არ გამოუგზავნია.\n"
 "მუშაობა შეწყდება, რადგან ჰოსტის იდენტიფიკატია შეუძლებელია."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:507
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7327,7 +7333,51 @@ msgstr[1] ""
 "ნაგვის ყუთი მეტისმეტად სავსეა ამ %1 ფაილის მისაღებად. წავშალო ისინი "
 "სამუდამოდ?<nl/><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:288
+#: widgets/widgetsaskuseractionhandler.cpp:275
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The trash is too full to accept this file. Permanently delete it instead?"
+#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
+#| "action cannot be undone.</emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for this item’s location. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+"ნაგვის ყუთი მეტისმეტად სავსეა, რომ ეს ფაილი მიიღოს. წავშალო ფაილი სამუდამოდ?"
+"<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>ეს "
+"ქმედება შეუქცევადია.</emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:282
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The trash is too full to accept this %1 file. Permanently delete it "
+#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
+#| "emphasis>"
+#| msgid_plural ""
+#| "The trash is too full to accept these %1 files. Permanently delete them "
+#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+#| "emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for the location of this %1 item. Permanently "
+"delete it instead?<nl/><emphasis strong='true'>This action cannot be undone."
+"</emphasis>"
+msgid_plural ""
+"The trash is not available for the location of these %1 items. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+"ნაგვის ყუთი მეტისმეტად სავსეა ამ %1 ფაილის მისაღებად. წავშალო ისინი "
+"სამუდამოდ?<nl/><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
+msgstr[1] ""
+"ნაგვის ყუთი მეტისმეტად სავსეა ამ %1 ფაილის მისაღებად. წავშალო ისინი "
+"სამუდამოდ?<nl/><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7335,30 +7385,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "მართლა გნებავთ %1 ელემენტის ნაგვის ყუთში გადატანა?"
 msgstr[1] "მართლა გნებავთ %1 ელემენტის ნაგვის ყუთში გადატანა?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:343
+#: widgets/widgetsaskuseractionhandler.cpp:367
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "აღარ მკითხო"
 
-#: widgets/widgetsaskuseractionhandler.cpp:386
+#: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "აღარ მკითხო"
 
-#: widgets/widgetsaskuseractionhandler.cpp:412
+#: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "მეტჯერ აღარ აჩვენო ეს გაფრთხილება"
 
-#: widgets/widgetsaskuseractionhandler.cpp:547
+#: widgets/widgetsaskuseractionhandler.cpp:572
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "თქვენი პარტნიორის SSL სერტიფიკატის ჯაჭვი, როგორც ჩანს, დაზიანებულია."
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:575
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

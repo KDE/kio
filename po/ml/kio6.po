@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:39+0000\n"
+"POT-Creation-Date: 2025-11-13 00:39+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -83,13 +83,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ഫോള്‍ഡര്‍ നിലവിലുണ്ടു്"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
-#: core/job_error.cpp:574 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ഫയല്‍ നിലവിലുണ്ടു്"
@@ -715,6 +715,11 @@ msgstr ""
 
 #: core/job_error.cpp:264
 #, kde-format
+msgid "A trash folder could not be found or created for this location."
+msgstr ""
+
+#: core/job_error.cpp:267
+#, kde-format
 msgid ""
 "Unknown error code %1\n"
 "%2\n"
@@ -724,65 +729,65 @@ msgstr ""
 "%2\n"
 "ദയവായി http://bugs.kde.org-ലേക്കു് പൂര്‍ണ്ണ ബഗ് റിപോര്‍ട്ട് സമര്‍പ്പിക്കുക."
 
-#: core/job_error.cpp:295
+#: core/job_error.cpp:298
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(അപരിചിതം)"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:304
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:308
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>സാങ്കേതിക കാരണം</b>: "
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>ആവശ്യത്തിന്റെ വിശദാംശങ്ങള്‍</b>:"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>യുആര്‍എല്‍: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:312
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>സംമ്പ്രദായം: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>തീയതിയും സമയവും: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>കൂടുതല്‍ വിവരം: %1</li>"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:316
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>സാധ്യതയുള്ള കാരണങ്ങള്‍</b>:"
 
-#: core/job_error.cpp:317
+#: core/job_error.cpp:320
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>സാധ്യതയുള്ള ഉത്തരങ്ങള്‍</b>:"
 
-#: core/job_error.cpp:361
+#: core/job_error.cpp:364
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(അപരിചിതം)"
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -791,17 +796,17 @@ msgstr ""
 "കൂടുതല്‍ സഹായങ്ങള്‍ക്കായി നിങ്ങളുടെ സിസ്റ്റം ഭരണാധികാരിയുമായോ സിസ്റ്റത്തിനു് സാങ്കേതിക പിന്തുണ നല്‍"
 "കുന്ന സംഘവുമായോ ബന്ധപ്പെടുക."
 
-#: core/job_error.cpp:378
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "കൂടുതല്‍ സഹായങ്ങള്‍ക്കായി സര്‍വറിന്റെ അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെടുക."
 
-#: core/job_error.cpp:381
+#: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "ഈ ശ്രോതസ്സില്‍ നിങ്ങള്‍ക്കുള്ള അനുമതികള്‍ പരിശോധിക്കുക."
 
-#: core/job_error.cpp:383
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -809,14 +814,14 @@ msgid ""
 msgstr ""
 "ഈ ഉറവിടത്തിൽ അഭ്യർത്ഥിച്ച പ്രവർത്തനം നടത്താൻ നിങ്ങളുടെ ആക്സസ് അനുമതികൾ അപര്യാപ്തമായിരിക്കാം."
 
-#: core/job_error.cpp:386
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr ""
 "ഫയല്‍ വേറെ ഉപയോക്താവോ അല്ലെങ്കില്‍ പ്രയോഗമോ ഉപയോഗിക്കുകയാവാം (അതിനാല്‍ പൂട്ടിയിരിയ്ക്കുന്നു)."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -825,17 +830,17 @@ msgstr ""
 "മറ്റേതെങ്കിലും പ്രയോഗങ്ങളോ ഉപയോക്താവോ ഫയൽ ഉപയോഗിക്കുന്നുണ്ടോ അല്ലെങ്കിൽ ഫയൽ ലോക്ക് "
 "ചെയ്തിട്ടില്ലെന്ന് ഉറപ്പാക്കാൻ പരിശോധിക്കുക."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "സാധ്യതയില്ലെങ്കിലും, ഒരു ഹാർഡ്‌വെയർ പിശക് സംഭവിച്ചിരിക്കാം."
 
-#: core/job_error.cpp:394
+#: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "പ്രോഗ്രാമിൽ നിങ്ങൾ ഒരു പിശക് നേരിട്ടിരിക്കാം."
 
-#: core/job_error.cpp:396
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -844,7 +849,7 @@ msgstr ""
 "പ്രോഗ്രാമിലെ ഒരു പിശക് മൂലമാണ് ഇത് മിക്കവാറും സംഭവിക്കുന്നത്. ചുവടെ വിശദീകരിച്ചിരിക്കുന്നതുപോലെ "
 "ഒരു പൂർണ്ണ ബഗ് റിപ്പോർട്ട് സമർപ്പിക്കുന്നത് പരിഗണിക്കുക."
 
-#: core/job_error.cpp:399
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -853,7 +858,7 @@ msgstr ""
 "നിങ്ങളുടെ സോഫ്റ്റ്‌വെയർ ഏറ്റവും പുതിയ പതിപ്പിലേക്ക് അപ്‌ഡേറ്റ് ചെയ്യുക. നിങ്ങളുടെ സോഫ്റ്റ്‌വെയർ "
 "അപ്‌ഡേറ്റ് ചെയ്യുന്നതിനുള്ള ഉപകരണങ്ങൾ നിങ്ങളുടെ ലിനക്സ് വിതരണം നൽകണം."
 
-#: core/job_error.cpp:402
+#: core/job_error.cpp:405
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -872,12 +877,12 @@ msgstr ""
 "വിശദാംശങ്ങൾ ശ്രദ്ധിക്കുക, നിങ്ങളുടെ ബഗ് റിപ്പോർട്ടിൽ ഉൾപ്പെടുത്തുക, സഹായകമാകുമെന്ന് നിങ്ങൾ "
 "കരുതുന്ന മറ്റ് വിശദാംശങ്ങൾക്കൊപ്പം."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "നിങ്ങളുടെ നെറ്റ്‌വര്‍ക്ക് കണക്ഷനില്‍ എന്തേലും പ്രശ്നമുണ്ടാവാം."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -886,7 +891,7 @@ msgstr ""
 "നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ക്രമീകരണത്തിൽ ഒരു പ്രശ്നം ഉണ്ടായിരിക്കാം. അടുത്തിടെ "
 "പ്രശ്നങ്ങളൊന്നുമില്ലാതെ നിങ്ങൾ ഇന്റർനെറ്റ് ആക്‌സസ് ചെയ്തിട്ടുണ്ടായിരിന്നെങ്കിൽ, ഇത് സാധ്യതയില്ല."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -895,42 +900,42 @@ msgstr ""
 "സെർവറിനും ഈ കമ്പ്യൂട്ടറിനും ഇടയിലുള്ള നെറ്റ്‌വർക്ക് പാതയിൽ ചില ഘട്ടങ്ങളിൽ ഒരു പ്രശ്നം "
 "ഉണ്ടായിരിക്കാം."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "ഇപ്പോള്‍ അല്ലെങ്കില്‍ പിന്നീടെപ്പോഴെങ്കിലും വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "ഒരു പ്രോട്ടോക്കോൾ പിശക് അല്ലെങ്കിൽ പൊരുത്തക്കേട് സംഭവിച്ചിരിക്കാം."
 
-#: core/job_error.cpp:423
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "ഉറവിടം ഉണ്ടെന്ന് ഉറപ്പുവരുത്തി, വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടം ചിലപ്പോൾ നിലവിലുണ്ടാവില്ല."
 
-#: core/job_error.cpp:426
+#: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "നിങ്ങൾ ശരിയായ ലൊക്കേഷൻ നൽകിയിട്ടുണ്ടോ എന്ന് രണ്ടുതവണ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
 msgstr "നിങ്ങളുടെ നെറ്റ്‌വർക്ക് കണക്ഷൻ നില പരിശോധിക്കുക."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "വായനയ്ക്കായി ഉറവിടം തുറക്കാനാകില്ല"
 
-#: core/job_error.cpp:434
+#: core/job_error.cpp:437
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -939,17 +944,17 @@ msgstr ""
 "ഇതിനർത്ഥം അഭ്യർത്ഥിച്ച ഫയലിന്റെയോ <strong>%1</strong> അറയുടെയോ ഉള്ളടക്കം "
 "വീണ്ടെടുക്കാനാകില്ല, കാരണം വായനാനുമതി ലഭിച്ചിട്ടില്ല."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "ഫയൽ വായിക്കാനോ അറ തുറക്കാനോ നിങ്ങൾക്ക് അനുമതിയില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:446
+#: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "എഴുത്തിനായുള്ള ഉറവിടം തുറക്കാനായില്ല"
 
-#: core/job_error.cpp:448
+#: core/job_error.cpp:451
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -958,17 +963,17 @@ msgstr ""
 "ഇതിനർത്ഥം, <strong>%1</strong> എന്ന ഫയൽ അഭ്യർത്ഥിച്ചതുപോലെ എഴുതാൻ കഴിയില്ല, കാരണം "
 "എഴുതാനുള്ള അനുമതിയോടെയുള്ള ആക്സസ് ലഭിച്ചിട്ടില്ല."
 
-#: core/job_error.cpp:457
+#: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "%1 പ്രോട്ടോക്കോൾ ആവശ്യപ്പെടുന്ന പ്രക്രിയ ആരംഭിക്കാൻ കഴിയില്ല"
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "പ്രക്രിയ ആരംഭിക്കാനായില്ല"
 
-#: core/job_error.cpp:460
+#: core/job_error.cpp:463
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -978,7 +983,7 @@ msgstr ""
 "നിങ്ങളുടെ കമ്പ്യൂട്ടറിലെ <strong>%1</strong> പ്രോട്ടോക്കോളിലേക്ക് പ്രവേശനം നൽകുന്ന പ്രോഗ്രാം "
 "കണ്ടെത്താനോ ആരംഭിക്കാനോ കഴിഞ്ഞില്ല. ഇത് സാധാരണയായി സാങ്കേതിക കാരണങ്ങളാൽ സംഭവിക്കുന്നു."
 
-#: core/job_error.cpp:465
+#: core/job_error.cpp:468
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -989,12 +994,12 @@ msgstr ""
 "ചെയ്‌തിരിക്കില്ല. പ്രോഗ്രാം നിലവിലെ പതിപ്പുമായി പൊരുത്തപ്പെടാത്തതും അങ്ങനെ "
 "ആരംഭിക്കാതിരിക്കുന്നതിനും ഇത് കാരണമാകും."
 
-#: core/job_error.cpp:474
+#: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
 msgstr "ആന്തരിക പിശക്"
 
-#: core/job_error.cpp:476
+#: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1003,12 +1008,12 @@ msgstr ""
 "നിങ്ങളുടെ <strong>%1</strong> പ്രോട്ടോക്കോളിലേക്ക് ആക്സസ് നൽകുന്ന കമ്പ്യൂട്ടറിലെ പ്രോഗ്രാമിൽ "
 "ഒരു ആന്തരിക പിശക് റിപ്പോർട്ട് ചെയ്തിട്ടുണ്ട്."
 
-#: core/job_error.cpp:484
+#: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "തെറ്റായി എഴുതിയ യുആര്‍എല്‍"
 
-#: core/job_error.cpp:486
+#: core/job_error.cpp:489
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1023,12 +1028,12 @@ msgstr ""
 "password@www.example.org:പോർട്ട്/അറ/ഫയൽനാമം.എക്സ്റ്റെൻഷൻ?query = value</strong></"
 "blockquote>"
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "%1 സമ്പ്രദായത്തിനു് പിന്തുണയില്ല."
 
-#: core/job_error.cpp:497
+#: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1037,19 +1042,19 @@ msgstr ""
 "ഈ കമ്പ്യൂട്ടറിൽ നിലവിൽ ഇൻസ്റ്റാൾ ചെയ്തിട്ടുള്ള കെഡിഇ പ്രോഗ്രാമുകൾ പ്രോട്ടോക്കോൾ <strong>%1</"
 "strong> പിന്തുണയ്ക്കുന്നില്ല."
 
-#: core/job_error.cpp:500
+#: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "അപേക്ഷിച്ച സമ്പ്രദായത്തിനു് പിന്തുണയുണ്ടാകണമെന്നില്ല."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr "ഈ കമ്പ്യൂട്ടറും സെർവറും പിന്തുണയ്ക്കുന്ന %1 പ്രോട്ടോക്കോളിന്റെ പതിപ്പുകൾ പൊരുത്തപ്പെടുന്നില്ല."
 
-#: core/job_error.cpp:506
+#: core/job_error.cpp:509
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1066,17 +1071,17 @@ msgstr ""
 "\"https://kde-apps.org/\">https://kde-apps.org/</a> കൂടാതെ <a href = \"http://"
 "freshmeat.net/\"> http://freshmeat.net/ </a> എന്നിവ ഉൾപ്പെടുന്നു."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:517
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL ഒരു ഉറവിടത്തെ പരാമർശിക്കുന്നില്ല."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "സമ്പ്രദായം ഒരു ഫില്‍ട്ടര്‍ സമ്പ്രദായമാണ്."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:520
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1085,7 +1090,7 @@ msgstr ""
 "നിങ്ങൾ നൽകിയ <strong>യൂ</strong>ണിഫോം <strong>റി</strong>സോഴ്സ് <strong>ലൊ</"
 "strong>ക്കേറ്റർ (URL) ഒരു നിർദ്ദിഷ്ട ഉറവിടത്തെ പരാമർശിക്കുന്നില്ല."
 
-#: core/job_error.cpp:521
+#: core/job_error.cpp:524
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1098,12 +1103,12 @@ msgstr ""
 "സാഹചര്യങ്ങളിൽ ഒന്നല്ല. ഇതൊരു അപൂർവ സംഭവമാണ്, ഇത് ഒരു പ്രോഗ്രാമിംഗ് പിശക് സൂചിപ്പിക്കാൻ "
 "സാധ്യതയുണ്ട്."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "പിന്തുണ നല്‍കാത്ത പ്രവര്‍ത്തനം: %1 "
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1112,7 +1117,7 @@ msgstr ""
 "അഭ്യർത്ഥിച്ച പ്രവർത്തനത്തെ <strong>%1</strong> പ്രോട്ടോക്കോൾ നടപ്പിലാക്കുന്ന കെഡിഇ "
 "പ്രോഗ്രാം പിന്തുണയ്ക്കുന്നില്ല."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:538
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1122,17 +1127,17 @@ msgstr ""
 "ഈ പിശക് കെഡിഇ പ്രോഗ്രാമിനെ വളരെയധികം ആശ്രയിച്ചിരിക്കുന്നു. കെഡിഇ ഇൻപുട്ട്/ഔട്പുട്ട് "
 "ആർക്കിടെക്ചറിൽ ലഭ്യമായതിനേക്കാൾ കൂടുതൽ വിവരങ്ങൾ അധിക വിവരങ്ങൾ നിങ്ങൾക്ക് നൽകും."
 
-#: core/job_error.cpp:539
+#: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "സമാന ഫലം നേടാൻ മറ്റൊരു വഴി കണ്ടെത്താൻ ശ്രമിക്കുക."
 
-#: core/job_error.cpp:544
+#: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
 msgstr "കാത്തിരുന്ന ഫയല്‍"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1140,17 +1145,17 @@ msgid ""
 msgstr ""
 "ഈ അഭ്യർത്ഥന ഒരു ഫയൽ ആണ് പ്രതീക്ഷിച്ചതു. പക്ഷെ <strong>%1</strong> എന്ന അറ ആണ് ലഭിച്ചത്."
 
-#: core/job_error.cpp:549
+#: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "ഇത് സര്‍വര്‍ ഭാഗത്തുനിന്നുള്ള പിശകായിരിക്കാം."
 
-#: core/job_error.cpp:554
+#: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
 msgstr "കാത്തിരുന്ന അറ"
 
-#: core/job_error.cpp:556
+#: core/job_error.cpp:559
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1158,17 +1163,17 @@ msgid ""
 msgstr ""
 "ഈ അഭ്യർത്ഥന ഒരു അറ ആണ് പ്രതീക്ഷിച്ചതു. പക്ഷെ <strong>%1</strong> എന്ന ഫയൽ ആണ് ലഭിച്ചത്."
 
-#: core/job_error.cpp:564
+#: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "ഫയലോ അറയോ നിലവിലില്ല."
 
-#: core/job_error.cpp:566
+#: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "നിര്‍ദ്ദിഷ്‌ടമായ ഫയൽ അല്ലെങ്കിൽ അറ <strong>%1</strong> നിലവിൽ ഇല്ല."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:579
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1176,49 +1181,49 @@ msgid ""
 msgstr ""
 "അഭ്യർത്ഥിച്ച ഫയൽ ഉണ്ടാക്കാൻ സാധിച്ചില്ല കാരണം ആ പേര് ഉള്ള ഒരു ഫയൽ മുൻപേതന്നെ നിലവിൽ ഉണ്ട്."
 
-#: core/job_error.cpp:579
+#: core/job_error.cpp:582
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "നിലവിലെ ഫയൽ ആദ്യം വഴിയിൽ നിന്ന് നീക്കാൻ ശ്രമിക്കുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "നിലവിലുള്ള ഫയൽ ഡിലീറ്റ് ചെയ്തു വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "പുതിയ ഫയലിന് വേറെ ഒരു നാമം തിരയുക."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:590
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "അഭ്യർത്ഥിച്ച അറ സൃഷ്ടിക്കാനായില്ല, കാരണം അതേ പേരിൽ ഒരു അറ ഇതിനകം നിലവിലുണ്ട്."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "നിലവിലെ അറ ആദ്യം വഴിയിൽ നിന്ന് നീക്കാൻ ശ്രമിക്കുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "നിലവിലെ അറ ഇല്ലാതാക്കി വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "പുതിയ അറയ്ക്ക് ഒരു ഇതര നാമം തിരഞ്ഞെടുക്കുക."
 
-#: core/job_error.cpp:596
+#: core/job_error.cpp:599
 #, kde-format
 msgid "Unknown Host"
 msgstr "അപരിചിതമായ ഹോസ്റ്റ്"
 
-#: core/job_error.cpp:598
+#: core/job_error.cpp:601
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1227,35 +1232,35 @@ msgstr ""
 "ഒരു അജ്ഞാത ഹോസ്റ്റ് പിശക്, <strong>%1</strong> എന്ന അഭ്യർത്ഥിച്ച പേരുള്ള സെർവർ "
 "ഇന്റർനെറ്റിൽ കണ്ടെത്താനായില്ലെന്ന് സൂചിപ്പിക്കുന്നു."
 
-#: core/job_error.cpp:603
+#: core/job_error.cpp:606
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr "നിങ്ങൾ ടൈപ്പ് ചെയ്ത പേര്, %1 നിലവിലില്ലായിരിക്കാം: അത് തെറ്റായി ടൈപ്പ് ചെയ്തേക്കാം."
 
-#: core/job_error.cpp:611
+#: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
 msgstr "പ്രവേശനം തടയപ്പെട്ടു"
 
-#: core/job_error.cpp:613
+#: core/job_error.cpp:616
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടത്തിലേക്കുള്ള പ്രവേശനം നിഷേധിച്ചു, <strong>%1</strong>."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "നിങ്ങൾ തെറ്റായ പ്രാമാണീകരണ വിശദാംശങ്ങൾ നൽകിയിരിക്കാം അല്ലെങ്കിൽ ഒന്നും "
 "നൽകിയിട്ടുണ്ടാവില്ല."
 
-#: core/job_error.cpp:620 core/job_error.cpp:896
+#: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടം ആക്സസ് ചെയ്യുന്നതിന് നിങ്ങളുടെ അക്കൗണ്ടിന് അനുമതി ഉണ്ടായിരിക്കില്ല."
 
-#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
+#: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1264,24 +1269,24 @@ msgstr ""
 "അഭ്യർത്ഥന വീണ്ടും പരിശോധിച്ച് നിങ്ങളുടെ പ്രാമാണീകരണ വിശദാംശങ്ങൾ ശരിയായി നൽകിയിട്ടുണ്ടെന്ന് "
 "ഉറപ്പുവരുത്തുക."
 
-#: core/job_error.cpp:632
+#: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
 msgstr "എഴുതാനുള്ള അനുമതി നിഷേധിച്ചിരിയ്ക്കുന്നു"
 
-#: core/job_error.cpp:634
+#: core/job_error.cpp:637
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr "ഇതിനർത്ഥം <strong>%1</strong> ഫയലിലേക്ക് എഴുതാനുള്ള ശ്രമം നിരസിച്ചു എന്നാണ്."
 
-#: core/job_error.cpp:642
+#: core/job_error.cpp:645
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "അറയിലേയ്ക്കു് കടക്കാന്‍ സാധ്യമല്ല"
 
-#: core/job_error.cpp:644
+#: core/job_error.cpp:647
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1290,17 +1295,17 @@ msgstr ""
 "ഇതിനർത്ഥം അഭ്യർത്ഥിച്ച അറ <strong>%1</strong>യിൽ പ്രവേശിക്കാനുള്ള (മറ്റൊരു വിധത്തിൽ "
 "പറഞ്ഞാൽ, തുറക്കാനുള്ള) ശ്രമം നിരസിച്ചു എന്നാണ്."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:655
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "ഫോൾഡർ പട്ടികപ്പെടുത്തൽ ലഭ്യമല്ല"
 
-#: core/job_error.cpp:653
+#: core/job_error.cpp:656
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "പ്രോട്ടോക്കോൾ %1 ഒരു ഫയൽസിസ്റ്റം അല്ല"
 
-#: core/job_error.cpp:655
+#: core/job_error.cpp:658
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1310,12 +1315,12 @@ msgstr ""
 "ഇതിനർത്ഥം അറയിലെ ഉള്ളടക്കങ്ങൾ നിർണ്ണയിക്കേണ്ട ഒരു അഭ്യർത്ഥന നടത്തി എന്നാണ്, കൂടാതെ ഈ "
 "പ്രോട്ടോക്കോളിനെ പിന്തുണയ്ക്കുന്ന കെഡിഇ പ്രോഗ്രാമിന് അത് ചെയ്യാൻ കഴിയില്ല."
 
-#: core/job_error.cpp:663
+#: core/job_error.cpp:666
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "ചാക്രികമായ കണ്ണി കണ്ടെത്തിയിരിക്കുന്നു"
 
-#: core/job_error.cpp:665
+#: core/job_error.cpp:668
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1328,34 +1333,34 @@ msgstr ""
 "ലിങ്കുകളുടെ ഒരു പരമ്പര കെഡിഇ കണ്ടെത്തി - അതായത് ഫയൽ അതിലേക്ക് (ഒരുപക്ഷേ ഒരു റൗണ്ട് എബൗട്ട് "
 "വഴി) തന്നെ ബന്ധിപ്പിച്ചിരിക്കുന്നു."
 
-#: core/job_error.cpp:670 core/job_error.cpp:696
+#: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
 "loop, and try again."
 msgstr "അനന്തമായ ലൂപ്പിന് കാരണമാകാത്തവിധം ലൂപ്പിന്റെ ഒരു ഭാഗം ഇല്ലാതാക്കുക, വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:680
+#: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "അഭ്യർത്ഥന ഉപയോക്താവ് ഉപേക്ഷിച്ചു"
 
-#: core/job_error.cpp:682 core/job_error.cpp:1071
+#: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "അഭ്യർത്ഥന ഉപേക്ഷിച്ചതിനാൽ പൂർത്തിയായില്ല."
 
-#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
+#: core/job_error.cpp:687 core/job_error.cpp:942 core/job_error.cpp:1076
 #, kde-format
 msgid "Retry the request."
 msgstr "അഭ്യർത്ഥന വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:688
+#: core/job_error.cpp:691
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "പകര്‍ത്തുന്നതിനിടയില്‍ ചാക്രികമായ കണ്ണി കണ്ടെത്തിയിരിക്കുന്നു."
 
-#: core/job_error.cpp:690
+#: core/job_error.cpp:693
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1368,17 +1373,17 @@ msgstr ""
 "ലൂപ്പിന് കാരണമാകുന്ന ഒരു ലിങ്ക് അല്ലെങ്കിൽ ലിങ്കുകളുടെ ഒരു പരമ്പര കെഡിഇ കണ്ടെത്തി - അതായത് ഫയൽ "
 "(ഒരുപക്ഷേ ഒരു റൗണ്ട് എബൗട്ട് വഴി) തന്നെ ബന്ധിപ്പിച്ചിരിക്കുന്നു."
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "നെറ്റ്‌വർക്ക് കണക്ഷൻ സൃഷ്ടിക്കാനായില്ല"
 
-#: core/job_error.cpp:703
+#: core/job_error.cpp:706
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "സോക്കറ്റ് ഉണ്ടാക്കാന്‍ സാധ്യമല്ല"
 
-#: core/job_error.cpp:705
+#: core/job_error.cpp:708
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1387,8 +1392,8 @@ msgstr ""
 "നെറ്റ്‌വർക്ക് ആശയവിനിമയത്തിന് ആവശ്യമായ ഒരു ഉപകരണം (ഒരു സോക്കറ്റ്) സൃഷ്ടിക്കാൻ കഴിയാത്ത ഒരു "
 "സാങ്കേതിക പിഴവാണ് ഇത്."
 
-#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
-#: core/job_error.cpp:881
+#: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
+#: core/job_error.cpp:884
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1397,19 +1402,19 @@ msgstr ""
 "നെറ്റ്‌വർക്ക് കണക്ഷൻ തെറ്റായി ക്രമീകരിച്ചിരിക്കാം, അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക് ഇന്റർഫേസ് "
 "പ്രവർത്തനക്ഷമമാക്കിയിരിക്കില്ല."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "സെർവറിലേക്കുള്ള കണക്ഷൻ നിരസിച്ചു"
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "സെർവർ <strong>%1</strong> ഈ കമ്പ്യൂട്ടറിനെ ബന്ധിപ്പിക്കാൻ വിസമ്മതിച്ചു."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1418,7 +1423,7 @@ msgstr ""
 "സെർവർ, നിലവിൽ ഇന്റർനെറ്റിലേക്ക് കണക്റ്റുചെയ്തിരിക്കുമ്പോൾ, അഭ്യർത്ഥനകൾ അനുവദിക്കുന്നതിനായി "
 "ക്രമീകരിച്ചിരിക്കില്ല."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:726
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1427,7 +1432,7 @@ msgstr ""
 "സെർവർ, നിലവിൽ ഇന്റർനെറ്റിലേക്ക് കണക്റ്റുചെയ്തിരിക്കുമ്പോൾ, അഭ്യർത്ഥിച്ച സേവനം "
 "പ്രവർത്തിച്ചേക്കില്ല (%1)."
 
-#: core/job_error.cpp:727
+#: core/job_error.cpp:730
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1438,12 +1443,12 @@ msgstr ""
 "ഫയർവാൾ (ഇന്റർനെറ്റ് അഭ്യർത്ഥനകൾ നിയന്ത്രിക്കുന്ന ഒരു ഉപകരണം), ഈ അഭ്യർത്ഥന തടഞ്ഞുകൊണ്ട് "
 "ഇടപെട്ടിരിക്കാം."
 
-#: core/job_error.cpp:734
+#: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "സെർവറിലേക്കുള്ള കണക്ഷൻ അപ്രതീക്ഷിതമായി അടച്ചു"
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1452,7 +1457,7 @@ msgstr ""
 "<strong>%1</strong> ലേക്ക് ഒരു കണക്ഷൻ സ്ഥാപിച്ചിട്ടുണ്ടെങ്കിലും, ആശയവിനിമയത്തിലെ "
 "അപ്രതീക്ഷിത ഘട്ടത്തിൽ കണക്ഷൻ അടച്ചു."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1461,17 +1466,17 @@ msgstr ""
 "ഒരു പ്രോട്ടോക്കോൾ പിശക് സംഭവിച്ചിരിക്കാം, ഇത് പിശകിനുള്ള പ്രതികരണമായി കണക്ഷൻ അടയാൻ "
 "കാരണമാകുന്നു."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:751
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "യുആർഎൽ ഉറവിടം അസാധുവാണ്"
 
-#: core/job_error.cpp:749
+#: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "%1 സമ്പ്രദായം ഫില്‍ട്ടര്‍ സമ്പ്രദായം അല്ല."
 
-#: core/job_error.cpp:751
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1482,7 +1487,7 @@ msgstr ""
 "strong> ക്കേറ്റർ (URL) നിർദ്ദിഷ്ട ഉറവിടം ആക്സസ് ചെയ്യുന്നതിനുള്ള ഒരു സാധുവായ സംവിധാനത്തെ "
 "പരാമർശിക്കുന്നില്ല, <strong> %1%2 </strong>."
 
-#: core/job_error.cpp:758
+#: core/job_error.cpp:761
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1495,17 +1500,17 @@ msgstr ""
 "പ്രോട്ടോക്കോളിന് അത്തരമൊരു പ്രവർത്തനത്തിന് കഴിവില്ല. ഇതൊരു അപൂർവ സംഭവമാണ്, ഇത് ഒരു "
 "പ്രോഗ്രാമിംഗ് പിശക് സൂചിപ്പിക്കാൻ സാധ്യതയുണ്ട്."
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "ഇൻപുട്ട്/ഔട്ട്പുട്ട് ഉപകരണം ആരംഭിക്കാൻ കഴിയുന്നില്ല"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "ഉപകരണം ഘടിപ്പിയ്ക്കാനായില്ല"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:772
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1514,7 +1519,7 @@ msgstr ""
 "അഭ്യർത്ഥിച്ച ഉപകരണം ആരംഭിക്കാൻ കഴിഞ്ഞില്ല (\"ഘടിപ്പിച്ചിട്ടുണ്ട്\"). റിപ്പോർട്ടുചെയ്‌ത പിശക്: "
 "<strong>%1 </strong>"
 
-#: core/job_error.cpp:773
+#: core/job_error.cpp:776
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1525,7 +1530,7 @@ msgstr ""
 "ഇല്ലായിരിക്കാം (അതായത് ഒരു സിഡി-ഡ്രൈവിൽ സിഡി-റോം ഇല്ല), അല്ലെങ്കിൽ ഒരു പെരിഫറൽ/"
 "പോർട്ടബിൾ ഉപകരണത്തിന്റെ കാര്യത്തിൽ, ഉപകരണം ശരിയായി കണക്റ്റുചെയ്‌തിരിക്കില്ല."
 
-#: core/job_error.cpp:778
+#: core/job_error.cpp:781
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1535,7 +1540,7 @@ msgstr ""
 "ഉപകരണം ആരംഭിക്കാൻ (\"മൗണ്ട്\") നിങ്ങൾക്ക് അനുമതികൾ ഉണ്ടാകണമെന്നില്ല. യുണിക്സ് സിസ്റ്റങ്ങളിൽ, "
 "ഒരു ഉപകരണം ആരംഭിക്കുന്നതിന് പലപ്പോഴും സിസ്റ്റം അഡ്മിനിസ്ട്രേറ്റർ അധികാരങ്ങൾ ആവശ്യമാണ്."
 
-#: core/job_error.cpp:783
+#: core/job_error.cpp:786
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1544,17 +1549,17 @@ msgstr ""
 "ഉപകരണം തയ്യാറാണോയെന്ന് പരിശോധിക്കുക; നീക്കം ചെയ്യാവുന്ന ഡ്രൈവുകളിൽ മീഡിയ അടങ്ങിയിരിക്കണം, "
 "കൂടാതെ പോർട്ടബിൾ ഉപകരണങ്ങൾ കണക്റ്റുചെയ്ത് പവർ ചെയ്യണം .; വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "ഇൻപുട്ട്/ഔട്ട്പുട്ട് ഉപകരണം ആരംഭിക്കാൻ കഴിയില്ല"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "ഉപകരണം നീക്കം ചെയ്യാനായില്ല"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:796
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1563,7 +1568,7 @@ msgstr ""
 "അഭ്യർത്ഥിച്ച ഉപകരണം ആരംഭിക്കാനാകില്ല (\"നീക്കം ചെയ്തിരിക്കുന്നു\"). റിപ്പോർട്ടുചെയ്‌ത പിശക്: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:797
+#: core/job_error.cpp:800
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1574,7 +1579,7 @@ msgstr ""
 "ഉപകരണത്തിലെ ഒരു ലൊക്കേഷനിൽ ഒരു തുറന്ന ബ്രൗസർ ജാലകം ഉള്ളത് പോലെയുള്ള കാര്യങ്ങൾ പോലും ഉപകരണം "
 "ഉപയോഗത്തിൽ തുടരാൻ ഇടയാക്കും."
 
-#: core/job_error.cpp:802
+#: core/job_error.cpp:805
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1582,17 +1587,17 @@ msgid ""
 "uninitialize a device."
 msgstr ""
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "ആപ്ലിക്കേഷനുകളൊന്നും ഉപകരണത്തിലേക്ക് പ്രവേശിക്കുന്നില്ലെന്ന് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "വിഭവത്തില്‍ നിന്നും വായിയ്ക്കാന്‍ സാധ്യമല്ല"
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:818
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1601,17 +1606,17 @@ msgstr ""
 "ഇതിനർത്ഥം, ഉറവിടം <strong>%1</strong> തുറക്കാൻ കഴിഞ്ഞെങ്കിലും, ഉറവിടത്തിന്റെ "
 "ഉള്ളടക്കങ്ങൾ വായിക്കുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു എന്നാണ്."
 
-#: core/job_error.cpp:819
+#: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "നിങ്ങള്‍ക്ക് ഈ വിഭവത്തില്‍ നിന്നും വായിയ്ക്കാനുള്ള അധികാരമില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:832
+#: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "വിഭവത്തിലേയ്ക്ക് എഴുതുവാന്‍ സാധ്യമല്ല"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:837
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1620,22 +1625,22 @@ msgstr ""
 "ഇതിനർത്ഥം, ഉറവിടം <strong>%1</strong> തുറക്കാൻ കഴിഞ്ഞെങ്കിലും, ഉറവിടത്തിലേക്ക് "
 "എഴുതുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു എന്നാണ്."
 
-#: core/job_error.cpp:837
+#: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "ഉറവിടത്തിലേക്ക് എഴുതാൻ നിങ്ങൾക്ക് അനുമതിയില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr ""
 
-#: core/job_error.cpp:851
+#: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
 msgstr "ബന്ധിപ്പിക്കാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1643,17 +1648,17 @@ msgid ""
 "network connections."
 msgstr ""
 
-#: core/job_error.cpp:864
+#: core/job_error.cpp:867
 #, kde-format
 msgid "Could Not Listen"
 msgstr ""
 
-#: core/job_error.cpp:876
+#: core/job_error.cpp:879
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "നെറ്റ്‌വർക്ക് കണക്ഷൻ സ്വീകരിക്കാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:878
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1662,133 +1667,133 @@ msgstr ""
 "ഇൻകമിംഗ് നെറ്റ്‌വർക്ക് കണക്ഷൻ സ്വീകരിക്കാൻ ശ്രമിക്കുമ്പോൾ സംഭവിച്ച തികച്ചും സാങ്കേതികമായ "
 "പിഴവാണിത്."
 
-#: core/job_error.cpp:883
+#: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "കണക്ഷൻ സ്വീകരിക്കാൻ നിങ്ങൾക്ക് അനുമതിയില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:888
+#: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "ലോഗിൻ ചെയ്യാനായില്ല: %1"
 
-#: core/job_error.cpp:890
+#: core/job_error.cpp:893
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "അഭ്യർത്ഥിച്ച പ്രവർത്തനം നടത്താൻ ലോഗിൻ ചെയ്യാനുള്ള ശ്രമം വിജയിച്ചില്ല."
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:909
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "ഉറവിട അവസ്ഥ നിർണ്ണയിക്കാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:907
+#: core/job_error.cpp:910
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr ""
 
-#: core/job_error.cpp:909
+#: core/job_error.cpp:912
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
 "%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
 msgstr ""
 
-#: core/job_error.cpp:914
+#: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടം ഉണ്ടായിരിക്കില്ല അല്ലെങ്കിൽ ആക്സസ് ചെയ്യാനാകില്ല."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr ""
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
 msgstr ""
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "അറ സൃഷ്ടിക്കാനായില്ല"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "അഭ്യർത്ഥിച്ച അറ സൃഷ്ടിക്കാനുള്ള ശ്രമം പരാജയപ്പെട്ടു."
 
-#: core/job_error.cpp:934
+#: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "അറ സൃഷ്ടിക്കേണ്ട സ്ഥലം നിലവിലില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:943
+#: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "അറ നീക്കം ചെയ്യാനായില്ല"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:948
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "നിർദ്ദിഷ്ട അറ, <strong>%1</strong> നീക്കം ചെയ്യാനുള്ള ശ്രമം പരാജയപ്പെട്ടു."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "നിർദ്ദിഷ്ട അറ നിലവിലില്ലായിരിക്കാം."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "നിർദ്ദിഷ്ട അറ ശൂന്യമായിരിക്കില്ല."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "അറ നിലവിലുണ്ടെന്നും ശൂന്യമാണെന്നും ഉറപ്പുവരുത്തി, വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:959
+#: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "ഫയൽ കൈമാറ്റം പുനരാരംഭിക്കാനായില്ല"
 
-#: core/job_error.cpp:961
+#: core/job_error.cpp:964
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "ഫയൽ പുനരാരംഭിക്കുന്നതിനെ പ്രോട്ടോക്കോൾ അല്ലെങ്കിൽ സെർവർ പിന്തുണച്ചേക്കില്ല."
 
-#: core/job_error.cpp:969
+#: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "കൈമാറ്റം പുനരാരംഭിക്കാൻ ശ്രമിക്കാതെ അഭ്യർത്ഥന വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:974
+#: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "ഉറവിടത്തിന്റെ പേരുമാറ്റാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:976
+#: core/job_error.cpp:979
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടത്തിന്റെ പേരുമാറ്റാനുള്ള ശ്രമം പരാജയപ്പെട്ടു <strong>%1</strong>."
 
-#: core/job_error.cpp:987
+#: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "ഉറവിടത്തിന്റെ അനുമതികൾ മാറ്റാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:989
+#: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1796,12 +1801,12 @@ msgid ""
 msgstr ""
 "നിർദ്ദിഷ്ട ഉറവിടത്തിലെ അനുമതികൾ മാറ്റാനുള്ള ശ്രമം <strong>%1</strong> പരാജയപ്പെട്ടു."
 
-#: core/job_error.cpp:997
+#: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "ഉറവിടത്തിന്റെ ഉടമസ്ഥാവകാശം മാറ്റാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:999
+#: core/job_error.cpp:1002
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1810,46 +1815,46 @@ msgstr ""
 "നിർദ്ദിഷ്ട ഉറവിടത്തിന്റെ ഉടമസ്ഥാവകാശം മാറ്റാനുള്ള ശ്രമം <strong>%1</strong> "
 "പരാജയപ്പെട്ടു."
 
-#: core/job_error.cpp:1007
+#: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "ഉറവിടം ഇല്ലാതാക്കാനായില്ല"
 
-#: core/job_error.cpp:1009
+#: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "നിർദ്ദിഷ്ട ഉറവിടം <strong>%1</strong> ഇല്ലാതാക്കാനുള്ള ശ്രമം പരാജയപ്പെട്ടു."
 
-#: core/job_error.cpp:1017
+#: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "അപ്രതീക്ഷിത പ്രോഗ്രാം അവസാനിപ്പിക്കൽ"
 
-#: core/job_error.cpp:1019
+#: core/job_error.cpp:1022
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has unexpectedly terminated."
 msgstr ""
 
-#: core/job_error.cpp:1027
+#: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
 msgstr ""
 
-#: core/job_error.cpp:1029
+#: core/job_error.cpp:1032
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol could not obtain the memory required to continue."
 msgstr ""
 
-#: core/job_error.cpp:1038
+#: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "അജ്ഞാത പ്രോക്സി ഹോസ്റ്റ്"
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1860,7 +1865,7 @@ msgstr ""
 "ഒരു അജ്ഞാത ഹോസ്റ്റ് പിശക് നേരിട്ടു. അഭ്യർത്ഥിച്ച പേര് ഇന്റർനെറ്റിൽ കണ്ടെത്താനായില്ലെന്നത് ഒരു "
 "അജ്ഞാത ഹോസ്റ്റ് പിശക് സൂചിപ്പിക്കുന്നു."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1049
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1871,17 +1876,17 @@ msgstr ""
 "പ്രശ്നം ഉണ്ടായിരിക്കാം. അടുത്തിടെ പ്രശ്നങ്ങളൊന്നുമില്ലാതെ നിങ്ങൾ ഇന്റർനെറ്റ് ആക്‌സസ് ചെയ്യാൻ "
 "കഴിഞ്ഞെങ്കിൽ, ഇതിന് സാധ്യതയില്ല."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "നിങ്ങളുടെ പ്രോക്സി ക്രമീകരണങ്ങൾ രണ്ടുതവണ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
 
-#: core/job_error.cpp:1054
+#: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "പ്രാമാണീകരണം പരാജയപ്പെട്ടു: രീതി %1 പിന്തുണയ്ക്കുന്നില്ല"
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1892,7 +1897,7 @@ msgstr ""
 "കാരണം സെർവർ ഉപയോഗിക്കുന്ന രീതിയെ പ്രോട്ടോക്കോൾ %1 നടപ്പിലാക്കുന്ന KDE പ്രോഗ്രാം "
 "പിന്തുണയ്ക്കുന്നില്ല."
 
-#: core/job_error.cpp:1062
+#: core/job_error.cpp:1065
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1901,17 +1906,17 @@ msgstr ""
 "പിന്തുണയ്ക്കാത്ത പ്രമാണീകരണ രീതി KDE ടീമിനെ അറിയിക്കാൻ ദയവായി <a href=\"https://"
 "bugs.kde.org/\">https://bugs.kde.org/</a> എന്നതിൽ ഒരു ബഗ് ഫയൽ ചെയ്യുക."
 
-#: core/job_error.cpp:1069
+#: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
 msgstr "അഭ്യർത്ഥന ഉപേക്ഷിച്ചു"
 
-#: core/job_error.cpp:1077
+#: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "സെർവറിലെ ആന്തരിക പിശക്"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1920,7 +1925,7 @@ msgstr ""
 "<strong>%1</strong> പ്രോട്ടോക്കോളിലേക്ക് ആക്സസ് നൽകുന്ന സെർവറിലെ പ്രോഗ്രാം ഒരു ആന്തരിക "
 "പിശക് റിപ്പോർട്ട് ചെയ്തു: %2."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1929,12 +1934,12 @@ msgstr ""
 "സെർവർ പ്രോഗ്രാമിലെ ഒരു പിശക് മൂലമാണ് ഇത് സംഭവിക്കുന്നത്. ചുവടെ വിശദീകരിച്ചിരിക്കുന്നതുപോലെ ഒരു "
 "പൂർണ്ണ പിശക് റിപ്പോർട്ട് സമർപ്പിക്കുന്നത് പരിഗണിക്കുക."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1092
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "പ്രശ്നത്തെക്കുറിച്ച് ഉപദേശിക്കാൻ സെർവറിന്റെ അഡ്മിനിസ്ട്രേറ്ററെ ബന്ധപ്പെടുക."
 
-#: core/job_error.cpp:1092
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1943,53 +1948,53 @@ msgstr ""
 "സെർവർ സോഫ്റ്റ്‍വെയറിന്റെ രചയിതാക്കൾ ആരാണെന്ന് നിങ്ങൾക്കറിയാമെങ്കിൽ, പിശക് റിപ്പോർട്ട് അവർക്ക് "
 "നേരിട്ട് സമർപ്പിക്കുക."
 
-#: core/job_error.cpp:1097
+#: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
 msgstr "കാലഹരണപ്പെടൽ പിശക്"
 
-#: core/job_error.cpp:1099
+#: core/job_error.cpp:1102
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
 
-#: core/job_error.cpp:1104
+#: core/job_error.cpp:1107
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 
-#: core/job_error.cpp:1110
+#: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
 msgstr "അജ്ഞാത പിശക്"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1115
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
 
-#: core/job_error.cpp:1122
+#: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "അജ്ഞാതമായ തടസ്സം"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
 
-#: core/job_error.cpp:1134
+#: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "യഥാർത്ഥ ഫയൽ ഇല്ലാതാക്കാനായില്ല"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -1997,12 +2002,12 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 
-#: core/job_error.cpp:1145
+#: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "താൽക്കാലിക ഫയൽ ഇല്ലാതാക്കാനായില്ല"
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2010,56 +2015,56 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 
-#: core/job_error.cpp:1157
+#: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "യഥാർത്ഥ ഫയലിന്റെ പേരുമാറ്റാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
 
-#: core/job_error.cpp:1168
+#: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "താൽക്കാലിക ഫയലിന്റെ പേരുമാറ്റാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
 
-#: core/job_error.cpp:1179
+#: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "കണ്ണി സൃഷ്ടിക്കാനായില്ല"
 
-#: core/job_error.cpp:1180
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "പ്രതീകാത്മക കണ്ണി സൃഷ്ടിക്കാനായില്ല"
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "അഭ്യർത്ഥിച്ച പ്രതീകാത്മക കണ്ണി %1 സൃഷ്ടിക്കാനായില്ല."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1190
 #, kde-format
 msgid "No Content"
 msgstr "ഉള്ളടക്കം ഇല്ല"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
 msgstr "ഡിസ്ക് നിറഞ്ഞു"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2068,7 +2073,7 @@ msgstr ""
 "ആവശ്യപ്പെട്ട ഫയൽ <strong>%1</strong> അപര്യാപ്തമായ ഡിസ്ക് സ്ഥലം ഉള്ളതിനാൽ എഴുതാൻ "
 "കഴിഞ്ഞില്ല."
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1201
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2076,63 +2081,63 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 
-#: core/job_error.cpp:1205
+#: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "ഉറവിടവും ലക്ഷ്യസ്ഥാന ഫയലുകളും ഒരേപോലെ"
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "ഉറവിടവും ലക്ഷ്യസ്ഥാന ഫയലുകളും ഒരേ ഫയലായതിനാൽ പ്രവർത്തനം പൂർത്തിയാക്കാനായില്ല."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "ലക്ഷ്യസ്ഥാന ഫയലിനായി മറ്റൊരു ഫയൽ നാമം തിരഞ്ഞെടുക്കുക."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1216
 #, fuzzy, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "ഫയലോ അറയോ നിലവിലില്ല."
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "ഉറവിടവും ലക്ഷ്യസ്ഥാന ഫയലോ അറയോ ഒന്നുതന്നെയായതിനാൽ പ്രവർത്തനം പൂർത്തിയാക്കാനായില്ല."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr ""
 
-#: core/job_error.cpp:1227
+#: core/job_error.cpp:1230
 #, fuzzy, kde-format
 msgid "Folder moved into itself"
 msgstr "ഫയലോ അറയോ നിലവിലില്ല."
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr ""
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "ഇനം മറ്റൊരു അറയിലേക്ക് നീക്കുക."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "പാസ്‌വേഡ് സെർവറുമായി ആശയവിനിമയം നടത്താനായില്ല"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2141,25 +2146,25 @@ msgstr ""
 "പാസ്‌വേഡുകൾ അഭ്യർത്ഥിക്കുന്നതിനുള്ള സേവനം (kpasswdserver) ബന്ധപ്പെടാൻ കഴിയാത്തതിനാൽ "
 "പ്രവർത്തനം പൂർത്തിയാക്കാനായില്ല"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "നിങ്ങളുടെ സെഷൻ പുനരാരംഭിക്കാൻ ശ്രമിക്കുക, അല്ലെങ്കിൽ kiod- ൽ നിന്നുള്ള പിശകുകൾക്കായി ലോഗുകൾ "
 "നോക്കുക."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1246
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 പ്രോട്ടോക്കോൾ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1247
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "ഐഒ സ്ലേവ് നിര്‍മ്മിക്കാന്‍ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2172,20 +2177,20 @@ msgstr ""
 "നിങ്ങളുടെ കമ്പ്യൂട്ടറിലെ <strong>%1</strong> പ്രോട്ടോക്കോളിലേക്ക് പ്രവേശനം നൽകുന്ന പ്രോഗ്രാം "
 "കണ്ടെത്താനോ ആരംഭിക്കാനോ കഴിഞ്ഞില്ല. ഇത് സാധാരണയായി സാങ്കേതിക കാരണങ്ങളാൽ സംഭവിക്കുന്നു."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1257
+#: core/job_error.cpp:1260
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename> കൈമാറാൻ കഴിഞ്ഞില്ല"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2193,14 +2198,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1265
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "രേഖപ്പെടുത്താത്ത പിശക്"
@@ -2380,7 +2385,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "%1-ല്‍ പ്രവേശിക്കുവാന്‍ സോക്കറ്റ് നിര്‍മ്മിക്കാന്‍ സാധ്യമല്ല."
 
 #: core/workerinterface.cpp:343 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:491
+#: widgets/widgetsaskuseractionhandler.cpp:516
 #, kde-format
 msgid "&Details"
 msgstr "&വിശദാംശങ്ങള്‍"
@@ -2487,7 +2492,7 @@ msgstr "പുതിയ ഫോള്‍ഡര്‍"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "ചവറ്റുകുട്ടയിലേക്കു് നീക്കുക"
@@ -4187,7 +4192,7 @@ msgid ""
 msgstr ""
 
 #: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:489
+#: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "സര്‍വര്‍ ഉറപ്പാക്കല്‍"
@@ -4427,7 +4432,7 @@ msgstr ""
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1338
+#: kioworkers/trash/trashimpl.cpp:1340
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4895,6 +4900,7 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -4912,7 +4918,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4920,13 +4926,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7025,7 +7031,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:507
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7075,7 +7081,30 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:288
+#: widgets/widgetsaskuseractionhandler.cpp:275
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The trash is not available for this item’s location. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:282
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The trash is not available for the location of this %1 item. Permanently "
+"delete it instead?<nl/><emphasis strong='true'>This action cannot be undone."
+"</emphasis>"
+msgid_plural ""
+"The trash is not available for the location of these %1 items. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:310
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7083,30 +7112,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "നിങ്ങള്‍ക്കു് ഈ വസ്തു ചവറ്റുകുട്ടയിലേക്കു് നീക്കണമോ?"
 msgstr[1] "നിങ്ങള്‍ക്കു് ഈ വസ്തു ചവറ്റുകുട്ടയിലേക്കു് നീക്കണമോ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:343
+#: widgets/widgetsaskuseractionhandler.cpp:367
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:386
+#: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:412
+#: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:547
+#: widgets/widgetsaskuseractionhandler.cpp:572
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:575
 #, kde-format
 msgid "SSL"
 msgstr "എസ്എസ്എല്‍"

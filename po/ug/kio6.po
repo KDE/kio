@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:39+0000\n"
+"POT-Creation-Date: 2025-11-13 00:39+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -86,13 +86,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "مۇندەرىجە مەۋجۇت"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
-#: core/job_error.cpp:574 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "ھۆججەت مەۋجۇت"
@@ -716,6 +716,11 @@ msgid "File is too large to be trashed."
 msgstr ""
 
 #: core/job_error.cpp:264
+#, kde-format
+msgid "A trash folder could not be found or created for this location."
+msgstr ""
+
+#: core/job_error.cpp:267
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unknown error code %1\n"
@@ -730,65 +735,65 @@ msgstr ""
 "%2\n"
 "http://bugs.kde.org غا تولۇق بولغان خاتالىق دوكىلاتنى يوللاڭ."
 
-#: core/job_error.cpp:295
+#: core/job_error.cpp:298
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(نامەلۇم)"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:304
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:308
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>تېخنىكىلىق سەۋەب</b>: "
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>ئىلتىماس تەپسىلاتى</b>:"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:312
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>كېلىشىم: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>چېسىلا ۋە ۋاقىت: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>قوشۇمچە ئۇچۇر: %1</li>"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:316
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>مۇمكىن بولغان سەۋەب</b>:"
 
-#: core/job_error.cpp:317
+#: core/job_error.cpp:320
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>مۇمكىن بولغان ھەل قىلىش ئۇسۇلى</b>:"
 
-#: core/job_error.cpp:361
+#: core/job_error.cpp:364
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(نامەلۇم)"
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -797,18 +802,18 @@ msgstr ""
 "مۇۋاپىق بولغان كومپيۇتېر قوللايدىغان سىستېما بىلەن ئالاقە قىلىپ تېخىمۇ كۆپ "
 "ياردەمگە ئېرىشىڭ، مەسىلەن، سىستېما باشقۇرغۇچى ياكى تېخنىكا قوللاش گۇرۇپپىسى."
 
-#: core/job_error.cpp:378
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr ""
 "مۇلازىمېتىرنىڭ باشقۇرغۇچىسى بىلەن ئالاقىلىشىپ تېخىمۇ كۆپ ياردەمگە ئېرىشىڭ."
 
-#: core/job_error.cpp:381
+#: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "بۇ مەنبەنى زىيارەت قىلىش ھوقۇقىڭىزنى تەكشۈرۈڭ."
 
-#: core/job_error.cpp:383
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -817,7 +822,7 @@ msgstr ""
 "ئىلتىماس قىلىنغان بۇ مەنبەنىڭ مەشغۇلاتىنى ئىجرا قىلىشقا يېتەرلىك ھوقۇقىڭىز "
 "بولماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:386
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -825,7 +830,7 @@ msgstr ""
 "ھۆججەت باشقا ئىشلەتكۈچى ياكى پروگرامما تەرىپىدىن ئىشلىتىلىۋاتقان(شۇڭا "
 "قۇلۇپلانغان) بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -834,18 +839,18 @@ msgstr ""
 "باشقا پروگرامما ياكى ئىشلەتكۈچى بۇ ھۆججەتنى ئىشلەتمىگەن ياكى "
 "قۇلۇپلانمىغانلىقىنى  تەكشۈرۈپ جەزملەڭ."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr ""
 "ئېھتىماللىقى تۆۋەن بولسىمۇ قاتتىق دېتال خاتالىقى كۆرۈلگەن بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:394
+#: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "پىروگراممىدىكى ئىۋەنگە يولۇققان بولۇشىڭىز مۇمكىن."
 
-#: core/job_error.cpp:396
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -854,7 +859,7 @@ msgstr ""
 "مۇمكىنلىكى يۇقىرى سەۋەب پىروگراممىدىكى ئىۋەن كەلتۈرۈپ چىقارغان بولۇشى "
 "مۇمكىن. تەپسىلىي خاتالىق دوكلاتى يوللاشنى ئويلىشىڭ."
 
-#: core/job_error.cpp:399
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -863,7 +868,7 @@ msgstr ""
 "يۇمشاق دېتالىڭىزنى ئەڭ يېڭى نەشرىگە يېڭىلاڭ. سىز ئىشلىتىۋاتقان تارقىتىلغان "
 "نەشرى يېڭىلاش قورالى بىلەن تەمىنلىگەن."
 
-#: core/job_error.cpp:402
+#: core/job_error.cpp:405
 #, fuzzy, kde-format
 #| msgid ""
 #| "When all else fails, please consider helping the KDE team or the third "
@@ -893,12 +898,12 @@ msgstr ""
 "خاتالىق دوكلاتىدا ئاشۇ ئۇچۇرلارنى  ھەمدە ياردىمى تېگىدىغان باشقا "
 "تەپسىلاتلارنىمۇ قوشۇڭ."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "سىزنىڭ تور باغلىنىشىڭىزدا خاتالىق بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -907,7 +912,7 @@ msgstr ""
 "تور سەپلىمىڭىزدە خاتالىق بولۇشى مۇمكىن. ئەگەر يېقىندا تور زىيارەت قىلغاندا "
 "مەسىلە بولمىسا، بۇ ئانچە مۇمكىن ئەمەس."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -916,43 +921,43 @@ msgstr ""
 "توردا بۇ كومپيۇتېر بىلەن مۇلازىمېتىر ئوتتۇرىسىدىكى يولدا خاتالىق بولۇشى "
 "مۇمكىن."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "ھازىرلا ياكى سەل تۇرۇپ قايتا سىناپ بېقىڭ."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "كېلىشىم ياكى ماسلاشماسلىق خاتالىقى كۆرۈلگەن بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:423
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "مەنبەنىڭ مەۋجۇتلۇقىغا جەزم قىلغاندىن كېيىن قايتا سىناڭ."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "بەلگىلەنگەن مەنبە بەلكىم مەۋجۇت ئەمەس."
 
-#: core/job_error.cpp:426
+#: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "كىرگۈزگەن ئورۇننىڭ توغرىلىقىنى قايتا جەزملىگەندىن كېيىن ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
 msgstr "تورنىڭ ئۇلىنىش ھالىتىنى تەكشۈرۈڭ."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "مەنبەنى ئېچىپ ئوقۇيالمىدى"
 
-#: core/job_error.cpp:434
+#: core/job_error.cpp:437
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -961,17 +966,17 @@ msgstr ""
 "ئوقۇش ھوقۇقىغا ئېرىشەلمىگەنلىكتىن ئىلتىماس قىلغان ھۆججەت ياكى قىسقۇچ<strong>"
 "%1</strong> نىڭ مەزمۇنىغا ئېرىشەلمىدى."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "ھۆججەت ئوقۇش ياكى قىسقۇچ ئېچىش ھوقۇقىڭىز بولماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:446
+#: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "مەنبەنى ئېچىپ يازالمىدى"
 
-#: core/job_error.cpp:448
+#: core/job_error.cpp:451
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -980,18 +985,18 @@ msgstr ""
 "ھۆججەت <strong>%1</strong>نى  يېزىش ھوقۇقىغا ئېرىشكىلى بولمىغانلىقتىن تەلەپ "
 "بويىچە يازالمىدى."
 
-#: core/job_error.cpp:457
+#: core/job_error.cpp:460
 #, fuzzy, kde-format
 #| msgid "Cannot Initiate the %1 Protocol"
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "%1 كېلىشىمىنى دەسلەسلەپلەشتۈرەلمىدى"
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "جەرياننى قوزغىتالمىدى"
 
-#: core/job_error.cpp:460
+#: core/job_error.cpp:463
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -1005,7 +1010,7 @@ msgstr ""
 "كومپيۇتېرىڭىزدىكى <strong>%1</strong> كېلىشىمنى تەمىنلەيدىغان پروگرامما "
 "قوزغىلالمىدى. بۇ ئادەتتە تېخنىكىلىق سەۋەبتىن بولىدۇ."
 
-#: core/job_error.cpp:465
+#: core/job_error.cpp:468
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1016,12 +1021,12 @@ msgstr ""
 "بىللە يېڭىلانمىغان بولۇشى مۇمكىن. بۇ پروگراممىنىڭ نۆۋەتتىكى نەشرى بىلەن "
 "ماسلاشماسلىقنى كەلتۈرۈپ چىقىرىدۇ شۇڭا قوزغاتقىلى بولمايدۇ."
 
-#: core/job_error.cpp:474
+#: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
 msgstr "ئىچكى خاتالىق"
 
-#: core/job_error.cpp:476
+#: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1030,12 +1035,12 @@ msgstr ""
 "كومپيۇتېرىڭىزدا <strong>%1</strong> كېلىشىم بىلەن تەمىنلەيدىغان پروگرامما "
 "ئىچكى خاتالىقتىن بىرنى مەلۇم قىلدى."
 
-#: core/job_error.cpp:484
+#: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "ناتوغرا پىچىمدىكى URL"
 
-#: core/job_error.cpp:486
+#: core/job_error.cpp:489
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1048,12 +1053,12 @@ msgstr ""
 "ناتوغرا. URL نىڭ پىچىمى:  <blockquote><strong>protocol://user:password@www."
 "example.org:port/folder/filename.extension?query=value</strong></blockquote>"
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "قوللىمايدىغان كېلىشىم %1"
 
-#: core/job_error.cpp:497
+#: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1062,12 +1067,12 @@ msgstr ""
 "نۆۋەتتە بۇ كومپيۇتېرغا ئورنىتىلغان KDE پروگراممىسى كېلىشىم <strong>%1</"
 "strong> نى قوللىمايدۇ ."
 
-#: core/job_error.cpp:500
+#: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "ئىلتىماس قىلغان كېلىشىمنى قوللىماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1076,7 +1081,7 @@ msgstr ""
 "بۇ كومپيۇتېر قوللايدىغان %1 كېلىشىمنىڭ نەشرى مۇلازىمېتىردىكى نەشرى بىلەن "
 "ماسلاشماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:506
+#: core/job_error.cpp:509
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1093,17 +1098,17 @@ msgstr ""
 "href=\"http://kde-apps.org/\">http://kde-apps.org/</a> ۋە <a href=\"http://"
 "freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:517
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL بىر مەنبە ئەمەس."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "كېلىشىم — بىر سۈزگۈچ كېلىشىم"
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:520
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1112,7 +1117,7 @@ msgstr ""
 "سىز كىرگۈزگەن ئورتاق مەنبە بېكىتىش بەلگىسى(<strong>URL</strong>) بەلگىلەنگەن "
 "مەنبە ئەمەس."
 
-#: core/job_error.cpp:521
+#: core/job_error.cpp:524
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1125,12 +1130,12 @@ msgstr ""
 "بىرى ئەمەس. بۇ خىل ئەھۋال ناھايىتى ئاز ئۇچرايدۇ، بەلكىم پروگرامما تۈزۈش "
 "خاتالىقى كۆرۈلگەن بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "قوللىمايدىغان مەشغۇلات: %1"
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1139,7 +1144,7 @@ msgstr ""
 "<strong>%1</strong> كېلىشىمنى ئىشقا ئاشۇرىدىغان KDE پروگراممىسى ئىلتىماس "
 "قىلغان مەشغۇلاتنى قوللىمايدۇ."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:538
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1149,51 +1154,51 @@ msgstr ""
 "بۇ خاتالىق KDE پروگراممىسىغا تايىنىدۇ. نورمىدىن ئارتۇق ئۇچۇر سىزگە KDE نىڭ "
 "كىرگۈزۈش چىقىرىش سىستېمىسىدىنمۇ كۆپ ئۇچۇرنى تەمىنلەيدۇ."
 
-#: core/job_error.cpp:539
+#: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "ئوخشاش نەتىجىگە ئېرىشىدىغان باشقا ئۇسۇلنى ئىزدىمەكچى."
 
-#: core/job_error.cpp:544
+#: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
 msgstr "ھۆججەت كېرەك"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr "بىر ھۆججەتنى ئىلتىماس قىلدى ئەمما <strong>%1</strong> بىر قىسقۇچ."
 
-#: core/job_error.cpp:549
+#: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "بۇ مۇلازىمېتىر تەرەپنىڭ خاتالىقى بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:554
+#: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
 msgstr "قىسقۇچ كېرەك"
 
-#: core/job_error.cpp:556
+#: core/job_error.cpp:559
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr "بىر قىسقۇچنى ئىلتىماس قىلدى ئەمما <strong>%1</strong> بىر ھۆججەت."
 
-#: core/job_error.cpp:564
+#: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "ھۆججەت ياكى قىسقۇچ مەۋجۇت ئەمەس"
 
-#: core/job_error.cpp:566
+#: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچ <strong>%1</strong> مەۋجۇت ئەمەس."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:579
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1201,49 +1206,49 @@ msgid ""
 msgstr ""
 "ئىلتىماس قىلىنغان ھۆججەتنى قۇرالمىدى چۈنكى ئوخشاش ئاتلىق ھۆججەت مەۋجۇت."
 
-#: core/job_error.cpp:579
+#: core/job_error.cpp:582
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "ئالدى بىلەن نۆۋەتتىكى ھۆججەتنى باشقا جايغا يۆتكەپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "نۆۋەتتىكى ھۆججەتنى ئۆچۈرۈپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "يېڭى قۇرغان ھۆججەتكە باشقا ئات تاللاڭ."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:590
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "ئىلتىماس قىلغان قىسقۇچنى قۇرالمىدى چۈنكى ئوخشاش ئاتلىق قىسقۇچ مەۋجۇت."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "ئالدى بىلەن نۆۋەتتىكى قىسقۇچنى باشقا جايغا يۆتكەپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "نۆۋەتتىكى قىسقۇچنى ئۆچۈرۈپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "يېڭى قۇرغان قىسقۇچكە باشقا ئات تاللاڭ."
 
-#: core/job_error.cpp:596
+#: core/job_error.cpp:599
 #, kde-format
 msgid "Unknown Host"
 msgstr "يوچۇن ماشىنا"
 
-#: core/job_error.cpp:598
+#: core/job_error.cpp:601
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1252,7 +1257,7 @@ msgstr ""
 "يوچۇن خاتالىق ئىنتېرنېتتا ئىلتىماس قىلغان <strong>%1</strong> ئاتلىق "
 "مۇلازىمېتىرنى تاپالمىغانلىقىنى بىلدۈردى."
 
-#: core/job_error.cpp:603
+#: core/job_error.cpp:606
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1260,28 +1265,28 @@ msgstr ""
 "سىز كىرگۈزگەن ئات %1 مەۋجۇت بولماسلىقى مۇمكىن؛ بەلكىم خاتا كىرگۈزگەن "
 "بولۇشىڭىز مۇمكىن."
 
-#: core/job_error.cpp:611
+#: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
 msgstr "زىيارەت رەت قىلىندى"
 
-#: core/job_error.cpp:613
+#: core/job_error.cpp:616
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "بەلگىلەنگەن مەنبە <strong>%1</strong> نى زىيارەت قىلىش رەت قىلىندى."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "سىز ناتوغرا دەلىللەش تەپسىلاتىنى تەمىنلىدىڭىز ياكى ھېچنېمە تەمىنلىمىدىڭىز."
 
-#: core/job_error.cpp:620 core/job_error.cpp:896
+#: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "ھېساباتىڭىزنىڭ بەلگىلەنگەن مەنبەنى زىيارەت قىلىش ھوقۇقى يوق."
 
-#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
+#: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1290,24 +1295,24 @@ msgstr ""
 "ئىلتىماسنى قايتا سىناڭ ھەمدە كىرگۈزگەن دەلىللەش تەپسىلاتىنىڭ توغرىلىقىغا "
 "كاپالەتلىك قىلىڭ."
 
-#: core/job_error.cpp:632
+#: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
 msgstr "يېزىش رەت قىلىندى"
 
-#: core/job_error.cpp:634
+#: core/job_error.cpp:637
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr "بۇ ھۆججەت <strong>%1</strong> كە يېزىش رەت قىلىنغانلىقىنى بىلدۈرىدۇ."
 
-#: core/job_error.cpp:642
+#: core/job_error.cpp:645
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "قىسقۇچقا كىرەلمىدى"
 
-#: core/job_error.cpp:644
+#: core/job_error.cpp:647
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1316,17 +1321,17 @@ msgstr ""
 "بۇ ئىلتىماس قىلغان قىسقۇچ  <strong>%1</strong> قا كىرىش (باشقىچە ئېيتقاندا "
 "ئېچىش) رەت قىلىنغانلىقىنى بىلدۈرىدۇ."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:655
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "قىسقۇچ تىزىمىنى كۆرسىتەلمەيدۇ"
 
-#: core/job_error.cpp:653
+#: core/job_error.cpp:656
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "كېلىشىم %1 ھۆججەت سىستېمىسى ئەمەس"
 
-#: core/job_error.cpp:655
+#: core/job_error.cpp:658
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1337,12 +1342,12 @@ msgstr ""
 "كۆرسىتىدۇ، بۇ كېلىشىمنى قوللايدىغان KDE پروگراممىسى بۇ ئىقتىدارنى "
 "تاماملىيالمايدۇ."
 
-#: core/job_error.cpp:663
+#: core/job_error.cpp:666
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "دەۋرىي ئۇلانما بايقالدى"
 
-#: core/job_error.cpp:665
+#: core/job_error.cpp:668
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1354,7 +1359,7 @@ msgstr ""
 "قويىدۇ. KDE ئۇلانمىنىڭ چەكسىز دەۋرىيلىك ئىكەنلىكىنى بايقىدى. يەنى، ھۆججەت "
 "(بەلكىم ۋاسىتىلىك بولۇشى مۇمكىن) ئۆزىگە ئۇلانغان."
 
-#: core/job_error.cpp:670 core/job_error.cpp:696
+#: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1363,27 +1368,27 @@ msgstr ""
 "دەۋرىيلىكنىڭ بىر قىسمىنى ئۆچۈرۈپ، چەكسىز دەۋرىيلىنىش ھاسىل قىلمىغاندىن كېيىن "
 "ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:680
+#: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "ئىلتىماسنى ئىشلەتكۈچى توختاتتى"
 
-#: core/job_error.cpp:682 core/job_error.cpp:1071
+#: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "ئىلتىماس تاماملانمىدى چۈنكى ئۇ توختىتىلغان."
 
-#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
+#: core/job_error.cpp:687 core/job_error.cpp:942 core/job_error.cpp:1076
 #, kde-format
 msgid "Retry the request."
 msgstr "قايتا ئىلتىماسنى سىنايدۇ."
 
-#: core/job_error.cpp:688
+#: core/job_error.cpp:691
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "كۆچۈرۈۋاتقاندا دەۋرىي ئۇلانما بايقالدى"
 
-#: core/job_error.cpp:690
+#: core/job_error.cpp:693
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1396,17 +1401,17 @@ msgstr ""
 "ئىكەنلىكىنى بايقىدى. يەنى، ھۆججەت (بەلكىم ۋاسىتىلىك بولۇشى مۇمكىن) ئۆزىگە "
 "ئۇلانغان."
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "تور باغلىنىشىنى قۇرالمىدى"
 
-#: core/job_error.cpp:703
+#: core/job_error.cpp:706
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "socket نى قۇرغىلى بولمىدى"
 
-#: core/job_error.cpp:705
+#: core/job_error.cpp:708
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1415,20 +1420,20 @@ msgstr ""
 "بۇ بىر تېخنىكىلىق خاتالىق، تور ئالاقە (socket) ئىلتىماس قىلغان ئۈسكۈنىنى "
 "قۇرالمىدى."
 
-#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
-#: core/job_error.cpp:881
+#: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
+#: core/job_error.cpp:884
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr "تور باغلىنىشىنى توغرا سەپلەنمىگەن ياكى تور ئېغىزى قوزغىتىلمىغان."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "مۇلازىمېتىرغا باغلىنىش رەت قىلىندى"
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1436,7 +1441,7 @@ msgid ""
 msgstr ""
 "مۇلازىمېتىر <strong>%1</strong> بۇ كومپيۇتېر بىلەن باغلىنىشنى رەت قىلدى."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1445,7 +1450,7 @@ msgstr ""
 "نۆۋەتتە ئىنتېرنېتقا باغلانغان بولسىمۇ ئەمما بۇ مۇلازىمېتىر ئىلتىماسنى قوبۇل "
 "قىلىدىغان قىلىپ سەپلەنمىگەن."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:726
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1454,7 +1459,7 @@ msgstr ""
 "نۆۋەتتە ئىنتېرنېتقا باغلانغان بولسىمۇ بۇ مۇلازىمېتىر ئىلتىماس قىلغان "
 "مۇلازىمەت(%1)نى قوزغاتمىغان بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:727
+#: core/job_error.cpp:730
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1465,12 +1470,12 @@ msgstr ""
 "ياكى مۇلازىمېتىر تور ئۈسكۈنىلىرىنى قوغدايدۇ، بەلكىم بۇ ئىلتىماسنى توسقان "
 "بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:734
+#: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "مۇلازىمېتىر بىلەن باغلىنىش تاسادىپىي تاقالدى"
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1479,7 +1484,7 @@ msgstr ""
 "گەرچە <strong>%1</strong> بىلەن باغلىنىش قۇرۇلغان بولسىمۇ بۇ باغلىنىش "
 "ئالاقىنىڭ ئالدىن مۆلچەرلەنمىگەن نۇقتىسىدا تاقالدى."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1488,17 +1493,17 @@ msgstr ""
 "كېلىشىم خاتالىقى كۆرۈلۈپ مۇلازىمېتىر تاقالغان بولۇشى مۇمكىن. باغلىنىش "
 "خاتالىقنىڭ ئىنكاسى."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:751
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "URL مەنبە ئىناۋەتسىز"
 
-#: core/job_error.cpp:749
+#: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "%1 كېلىشىم بىر سۈزگۈچ كېلىشىم ئەمەس"
 
-#: core/job_error.cpp:751
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1509,7 +1514,7 @@ msgstr ""
 "بەلگىلەنگەن مەنبە <strong>%1%2</strong> نى زىيارەت قىلىشنىڭ ئۈنۈملۈك "
 "مېخانىزمى ئەمەس."
 
-#: core/job_error.cpp:758
+#: core/job_error.cpp:761
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1522,17 +1527,17 @@ msgstr ""
 "ئەمەس. بۇ خىل ئەھۋال ناھايىتى ئاز ئۇچرايدۇ، بەلكىم پروگرامما تۈزۈش خاتالىقى "
 "كۆرۈلگەن بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "كىرگۈزۈش چىقىرىش ئۈسكۈنىلىرىنى دەسلەپلەشتۈرەلمىدى"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "ئۈسكۈنىنى ئېگەرلىيەلمىدى"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:772
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1541,7 +1546,7 @@ msgstr ""
 "ئىلتىماس قىلغان ئۈسكۈنە (\"ئېگەرلەنگەن\") قىلىپ دەسلەپلەشتۈرەلمىدى. مەلۇم "
 "قىلغان خاتالىق: <strong>%1</strong>"
 
-#: core/job_error.cpp:773
+#: core/job_error.cpp:776
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1552,7 +1557,7 @@ msgstr ""
 "ئوپتىك دىسكا قوزغاتقۇچ (CD-ROM)دا نۇر دىسكا (CD) يوق) يوق ياكى ئەپلىك "
 "ئۈسكۈنە توغرا باغلانمىغان بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:778
+#: core/job_error.cpp:781
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1563,7 +1568,7 @@ msgstr ""
 "مۇمكىن. UNIX سىستېمىسىدا ئۈسكۈنىنى دەسلەپلەشتۈرۈشتە باشقۇرغۇچى ھوقۇقى بولۇشى "
 "لازىم."
 
-#: core/job_error.cpp:783
+#: core/job_error.cpp:786
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1573,17 +1578,17 @@ msgstr ""
 "چوقۇم ۋاسىتە بولۇش كېرەك. شۇنداقلا ئېلىپ يۈرۈشكە ئەپلىك  ئۈسكۈنىلەر چوقۇم "
 "توغرا ئۇلانغان ھەم توك مەنبەسى ئېچىلغان بولۇشى كېرەك. ئاندىن قايتا سىناڭ ."
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "كىرگۈزۈش/چىقىرىش ئۈسكۈنىسىنى دەسلەپلەشتۈرۈشنى بىكار قىلالمىدى"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "ئۈسكۈنىنى ئېگەرسىزلىيەلمىدى"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:796
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1592,7 +1597,7 @@ msgstr ""
 "ئىلتىماس قىلغان ئۈسكۈنىنى ئېگەرسىزلىيەلمىدى. مەلۇم قىلغان خاتالىق: <strong>"
 "%1</strong>"
 
-#: core/job_error.cpp:797
+#: core/job_error.cpp:800
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1603,7 +1608,7 @@ msgstr ""
 "ئىشلىتىۋاتىدۇ. ھەتتا بۇ ئۈسكۈنىدە توركۆرگۈ كۆزنىكىدىن بىرنى ئېچىشمۇ ئۇنىڭ "
 "ئىشلىتىش ھالىتىدە ئىكەنلىكىنى كەلتۈرۈپ چىقىرىشى مۇمكىن."
 
-#: core/job_error.cpp:802
+#: core/job_error.cpp:805
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1613,19 +1618,19 @@ msgstr ""
 "سىزنىڭ بۇ ئۈسكۈنىنى ئېگەرسىزلەش ھوقۇقىڭىز يوق. UNIX سىستېمىسىدا ئۈسكۈنىنى "
 "ئېگەرسىزلەشكە باشقۇرغۇچى ھوقۇقى بولۇشى كېرەك."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "بۇ ئۈسكۈنىنى ئىشلىتىۋاتقان قوللىنىشچان پروگرامما يوقلۇقىنى جەزملەپ ئاندىن "
 "قايتا سىناڭ."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "مەنبەنى ئوقۇيالمىدى"
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:818
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1634,17 +1639,17 @@ msgstr ""
 "بۇ <strong>%1</strong>مەنبەنى ئاچقىلى بولسىمۇ ئەمما مەنبەنىڭ مەزمۇنىنى "
 "ئوقۇغاندا خاتالىق كۆرۈلگەنلىكىنى بىلدۈرىدۇ."
 
-#: core/job_error.cpp:819
+#: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "سىزنىڭ بۇ مەنبەنى ئوقۇش ھوقۇقىڭىز يوق."
 
-#: core/job_error.cpp:832
+#: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "مەنبەگە يازالمىدى"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:837
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1653,22 +1658,22 @@ msgstr ""
 "بۇ <strong>%1</strong> مەنبەنى ئاچقىلى بولسىمۇ ئەمما مەنبەنى يازغاندا "
 "خاتالىق كۆرۈلگەنلىكىنى بىلدۈرىدۇ."
 
-#: core/job_error.cpp:837
+#: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "سىزنىڭ بۇ مەنبەگە يېزىش ھوقۇقىڭىز يوق."
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "تور باغلىنىشىنى تىڭشىيالمىدى"
 
-#: core/job_error.cpp:851
+#: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
 msgstr "باغلىيالمىدى"
 
-#: core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1678,17 +1683,17 @@ msgstr ""
 "بۇ بىر تېخنىكىلىق خاتالىق، تور ئالاقە (socket) ئىلتىماس قىلغان ئۈسكۈنىنى "
 "قۇرۇپ باغلىنىپ كىرگەن تور باغلىنىشىنى تىڭشىيالمىدى."
 
-#: core/job_error.cpp:864
+#: core/job_error.cpp:867
 #, kde-format
 msgid "Could Not Listen"
 msgstr "تىڭشىيالمىدى"
 
-#: core/job_error.cpp:876
+#: core/job_error.cpp:879
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "تور باغلىنىشىنى قوبۇل قىلمىدى"
 
-#: core/job_error.cpp:878
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1697,34 +1702,34 @@ msgstr ""
 "بۇ بىر تېخنىكىلىق خاتالىق، كىرگۈزۈلگەن تور ئۇلىنىشىنى قوبۇل قىلغاندا خاتالىق "
 "كۆرۈلدى."
 
-#: core/job_error.cpp:883
+#: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "تور باغلىنىشىنى قوبۇل قىلىش ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
 
-#: core/job_error.cpp:888
+#: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "تىزىمغا كىرەلمىدى: %1"
 
-#: core/job_error.cpp:890
+#: core/job_error.cpp:893
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "تىزىمغا كىرىپ ئىلتىماس قىلغان مەشغۇلاتنى مۇۋەپپەقىيەتلىك ئىجرا قىلالمىدى."
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:909
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "مەنبە ھالىتىنى جەزملىيەلمىدى"
 
-#: core/job_error.cpp:907
+#: core/job_error.cpp:910
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "مەنبەگە ئېرىشەلمىدى"
 
-#: core/job_error.cpp:909
+#: core/job_error.cpp:912
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1733,68 +1738,68 @@ msgstr ""
 "مەنبە <strong>%1</strong> نىڭ مەنبە ئاتى، تىپى، چوڭلۇقى قاتارلىق "
 "مۇناسىۋەتلىك ئۇچۇرلىرىنىڭ مەشغۇلاتىنى جەزملەش مۇۋەپپەقىيەتلىك بولمىدى."
 
-#: core/job_error.cpp:914
+#: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "بەلگىلەنگەن مەنبە مەۋجۇت ئەمەس ياكى زىيارەت قىلغىلى بولمايدۇ."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "تىزىمنى كۆرسىتىشتىن ۋاز كېچەلمىدى"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: بۇنى پۈتۈكلە"
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "قىسقۇچ قۇرالمىدى"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "ئىلتىماس قىلغان قىسقۇچنى قۇرالمىدى."
 
-#: core/job_error.cpp:934
+#: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "قىسقۇچ قۇرماقچى بولغان ئورۇن مەۋجۇت بولماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:943
+#: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "قىسقۇچنى چىقىرىۋېتەلمىدى"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:948
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "بەلگىلەنگەن قىسقۇچ <strong>%1</strong> نى چىقىرىۋېتەلمىدى."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "بەلگىلەنگەن قىسقۇچ مەۋجۇت بولماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "بەلگىلەنگەن قىسقۇچ بوش بولماسلىقى مۇمكىن."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "قىسقۇچنىڭ مەۋجۇت ۋە بوش ئىكەنلىكىنى جەزملەپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:959
+#: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "ھۆججەت يوللاشنى داۋاملاشتۇرالمىدى"
 
-#: core/job_error.cpp:961
+#: core/job_error.cpp:964
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1803,67 +1808,67 @@ msgstr ""
 "بەلگىلەنگەن ئىلتىماس يوللىغان ھۆججەت <strong>%1</strong>نى كەلگەن جايدىن "
 "داۋاملاشتۇرۇشنى تەلەپ قىلدى. بۇ مۇمكىن ئەمەس."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "بۇ كېلىشىم ياكى مۇلازىمېتىر ھۆججەتنى داۋاملاشتۇرۇپ يوللاشنى قوللىمايدۇ."
 
-#: core/job_error.cpp:969
+#: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "داۋاملاشتۇرۇپ يوللىماي بەلكى ئىلتىماسنى قايتا سىنايدۇ."
 
-#: core/job_error.cpp:974
+#: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "مەنبە ئاتىنى ئۆزگەرتەلمەيدۇ"
 
-#: core/job_error.cpp:976
+#: core/job_error.cpp:979
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "بەلگىلەنگەن مەنبە <strong>%1</strong> نىڭ ئاتىنى ئۆزگەرتەلمىدى."
 
-#: core/job_error.cpp:987
+#: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "مەنبەنىڭ ھوقۇقىنى ئۆزگەرتەلمەيدۇ"
 
-#: core/job_error.cpp:989
+#: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr "بەلگىلەنگەن مەنبە <strong>%1</strong> نىڭ ھوقۇقىنى ئۆزگەرتەلمىدى."
 
-#: core/job_error.cpp:997
+#: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "مەنبەنىڭ ئىگىدارلىقىنى ئۆزگەرتەلمەيدۇ"
 
-#: core/job_error.cpp:999
+#: core/job_error.cpp:1002
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr "بەلگىلەن مەنبە <strong>%1</strong> نىڭ ئىگىدارلىقىنى ئۆزگەرتەلمەيدۇ."
 
-#: core/job_error.cpp:1007
+#: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "مەنبەنى ئۆچۈرەلمەيدۇ"
 
-#: core/job_error.cpp:1009
+#: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "بەلگىلەنگەن مەنبە <strong>%1</strong> نى ئۆچۈرەلمىدى."
 
-#: core/job_error.cpp:1017
+#: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "ئويلىشىلمىغان پروگرامما ئاخىرىلىشىشى"
 
-#: core/job_error.cpp:1019
+#: core/job_error.cpp:1022
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1872,12 +1877,12 @@ msgstr ""
 "كومپيۇتېرىڭىزدىكى <strong>%1</strong> غا تەمىنلەنگەن كېلىشىم زىيارەت "
 "قىلىدىغان پروگرامما ئويلىشىلمىغان ھالدا ئاخىرلاشتى."
 
-#: core/job_error.cpp:1027
+#: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
 msgstr "ئەسلەك يېتىشمىدى"
 
-#: core/job_error.cpp:1029
+#: core/job_error.cpp:1032
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1886,12 +1891,12 @@ msgstr ""
 "كومپيۇتېرىڭىزدىكى <strong>%1</strong> تەمىنلىگەن كېلىشىمنى زىيارەت قىلىدىغان "
 "پروگرامما ئىجرا قىلىشنى داۋاملاشتۇرىدىغان ئەسلەككە ئېرىشەلمىدى."
 
-#: core/job_error.cpp:1038
+#: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "يوچۇن ۋاكالەتچى ماشىنا"
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1902,7 +1907,7 @@ msgstr ""
 "يوچۇن ماشىنا خاتالىقى كۆرۈلدى. يوچۇن ماشىنا خاتالىقى ئىنتېرنېتتىن ئىلتىماس "
 "قىلغان ئاتنى تاپالمىغانلىقىنى بىلدۈرىدۇ."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1049
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1913,17 +1918,17 @@ msgstr ""
 "ئەگەر سىز يېقىندا ئىنتېرنېتنى زىيارەت قىلغاندا مەسىلە كۆرۈلمىگەن بولسا "
 "بۇنداق بولۇشى مۇمكىن ئەمەس."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "ۋاكالەتچى تەڭشىڭىزنى قايتا-قايتا تەكشۈرۈپ ئاندىن قايتا سىناڭ."
 
-#: core/job_error.cpp:1054
+#: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "دەلىللىيەلمىدى: %1 دەلىللەش ئۇسۇلىنى قوللىمايدۇ"
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1934,7 +1939,7 @@ msgstr ""
 "دەلىللىيەلمىدى. سەۋەبى بۇ مۇلازىمېتىر ئىشلەتكەن ئۇسۇل كېلىشىم %1 نى يولغا "
 "قويىدىغان KDE پىروگراممسى قوللىمايدۇ."
 
-#: core/job_error.cpp:1062
+#: core/job_error.cpp:1065
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -1946,17 +1951,17 @@ msgstr ""
 "<a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</a> غا كەمتۈكلۈك "
 "دوكلاتى يوللاپ، KDE قوشۇنىغا قوللىمايدىغان دەلىللەش ئۇسۇلىنى ئۇقتۇرۇڭ."
 
-#: core/job_error.cpp:1069
+#: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
 msgstr "ئىلتىماس توختىتىلدى"
 
-#: core/job_error.cpp:1077
+#: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "مۇلازىمېتىرنىڭ ئىچكى خاتالىقى"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1965,7 +1970,7 @@ msgstr ""
 "مۇلازىمېتىردا <strong>%1</strong> تەمىنلىگەن كېلىشىم زىيارەت قىلىدىغان "
 "پروگرامما بىر ئىچكى خاتالىقنى مەلۇم قىلدى: %2"
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1974,12 +1979,12 @@ msgstr ""
 "مۇمكىنلىكى يۇقىرى سەۋەب مۇلازىمېتىر پروگرامما خاتالىقى بولۇشى مۇمكىن. تولۇق "
 "كەمتۈكلۈك دوكلاتىدىن بىرنى يوللاشنى ئويلىشىڭ، قەدەم باسقۇچلىرى تۆۋەندىكىدەك."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1092
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ بۇ مەسىلىنى ئۇلارغا ئېيتىڭ."
 
-#: core/job_error.cpp:1092
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1988,31 +1993,31 @@ msgstr ""
 "ئەگەر سىز مۇلازىمېتىر يۇمشاق دېتالىنىڭ يازغۇچىسىنىڭ كىم ئىكەنلىكىنى "
 "بىلسىڭىز، بىۋاسىتە ئۇلارغا كەمتۈكلۈك دوكلاتى يوللاڭ."
 
-#: core/job_error.cpp:1097
+#: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
 msgstr "ۋاقىت ھالقىش خاتالىقى"
 
-#: core/job_error.cpp:1099
+#: core/job_error.cpp:1102
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
 
-#: core/job_error.cpp:1104
+#: core/job_error.cpp:1107
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "مۇلازىمېتىر باشقا تەلەپلەرگە  ئىنكاس قايتۇرۇش بىلەن ئالدىراش شۇڭا بۇ تەلەپكە "
 "ئىنكاس قايتۇرالمايدۇ."
 
-#: core/job_error.cpp:1110
+#: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
 msgstr "نامەلۇم خاتالىق"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1115
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2021,12 +2026,12 @@ msgstr ""
 "كومپيۇتېرىڭىزدا <strong>%1</strong> غا تەمىنلىگەن كېلىشىم زىيارەت قىلىدىغان "
 "پروگرامما يوچۇن خاتالىقتىن بىرنى مەلۇم قىلدى: %2."
 
-#: core/job_error.cpp:1122
+#: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "يوچۇن ئۈزۈلۈش"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2035,12 +2040,12 @@ msgstr ""
 "كومپيۇتېرىڭىزدا <strong>%1</strong> غا تەمىنلىگەن كېلىشىم زىيارەت قىلىدىغان "
 "پروگرامما مەلۇم قىلغان يوچۇن تىپ: %2."
 
-#: core/job_error.cpp:1134
+#: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "ئەسلى ھۆججەتنى ئۆچۈرەلمەيدۇ"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2051,12 +2056,12 @@ msgstr ""
 "مەشغۇلاتىنىڭ ئەڭ ئاخىرقى باسقۇچى بولۇشى مۇمكىن. ئەسلى ھۆججەت <strong>%1</"
 "strong> نى ئۆچۈرەلمەيدۇ."
 
-#: core/job_error.cpp:1145
+#: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "ۋاقىتلىق ھۆججەتنى ئۆچۈرەلمەيدۇ"
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2066,12 +2071,12 @@ msgstr ""
 "تەلەپ قىلغان مەشغۇلات ۋاقىتلىق ھۆججەتتىن بىرنى قۇرۇپ چۈشۈرۈۋاتقان يېڭى "
 "ھۆججەتنى ساقلايدۇ. ۋاقىتلىق ھۆججەت <strong>%1</strong>نى ئۆچۈرەلمەيدۇ."
 
-#: core/job_error.cpp:1157
+#: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "ئەسلى ھۆججەتنىڭ ئاتىنى ئۆزگەرتەلمەيدۇ"
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2080,12 +2085,12 @@ msgstr ""
 "تەلەپ قىلغان مەشغۇلات ئەسلى ھۆججەت ئاتى <strong>%1</strong>نى ئۆزگەرتىشكە "
 "ئېھتىياجلىق ئەمما ئۇنىڭ ئاتىنى ئۆزگەرتەلمەيدۇ."
 
-#: core/job_error.cpp:1168
+#: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "ۋاقىتلىق ھۆججەت ئاتىنى ئۆزگەرتەلمەيدۇ"
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2094,32 +2099,32 @@ msgstr ""
 "تەلەپ قىلغان مەشغۇلات ۋاقىتلىق ھۆججەت <strong>%1</strong> قۇرۇشقا "
 "ئېھتىياجلىق ئەمما ئۇ ھۆججەتنى قۇرالمايدۇ."
 
-#: core/job_error.cpp:1179
+#: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "ئۇلانما قۇرالمايدۇ"
 
-#: core/job_error.cpp:1180
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "بەلگە ئۇلانما قۇرالمايدۇ"
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "تەلەپ قىلغان بەلگە ئۇلانما %1 نى قۇردى."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1190
 #, kde-format
 msgid "No Content"
 msgstr "مەزمۇن يوق"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
 msgstr "دىسكا توشتى"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2128,7 +2133,7 @@ msgstr ""
 "تەلەپ قىلغان ھۆججەت <strong>%1</strong> كە يازالمايدۇ سەۋەبى يېتەرلىك دىسكا "
 "بوشلۇقى يوق."
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1201
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2139,12 +2144,12 @@ msgstr ""
 "ھۆججەتنى ئۆچۈرۈش؛ 2) ھۆججەتنى CD-R قاتارلىق  يۆتكىلىشچان ۋاسىتىلەرگە ئارخىپ "
 "قىلىپ ساقلاش؛ ياكى 3)تېخىمۇ كۆپ ساقلاش سىغىمىغا ئېرىشىش."
 
-#: core/job_error.cpp:1205
+#: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "ئەسلى ۋە نىشان ھۆججەت ئوخشاش بىر ھۆججەت"
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2152,18 +2157,18 @@ msgid ""
 msgstr ""
 "مەشغۇلاتنى تاماملىيالمىدى چۈنكى ئەسلى ۋە نىشان ھۆججەت ئوخشاش بىر ھۆججەت."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "نىشان ھۆججەت ئۈچۈن باشقا بىر ھۆججەت ئاتىنى تاللاڭ."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1216
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "ھۆججەت ياكى قىسقۇچ مەۋجۇت ئەمەس"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2174,20 +2179,20 @@ msgid ""
 msgstr ""
 "مەشغۇلاتنى تاماملىيالمىدى چۈنكى ئەسلى ۋە نىشان ھۆججەت ئوخشاش بىر ھۆججەت."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى كۆچۈر"
 
-#: core/job_error.cpp:1227
+#: core/job_error.cpp:1230
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "ھۆججەت ياكى قىسقۇچ مەۋجۇت ئەمەس"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2198,19 +2203,19 @@ msgid ""
 msgstr ""
 "مەشغۇلاتنى تاماملىيالمىدى چۈنكى ئەسلى ۋە نىشان ھۆججەت ئوخشاش بىر ھۆججەت."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "بەلگىلەنگەن ھۆججەت ياكى قىسقۇچنى كۆچۈر"
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2221,23 +2226,23 @@ msgid ""
 msgstr ""
 "مەشغۇلاتنى تاماملىيالمىدى چۈنكى ئەسلى ۋە نىشان ھۆججەت ئوخشاش بىر ھۆججەت."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1246
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 كېلىشىمىنى دەسلەسلەپلەشتۈرەلمىدى"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1247
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to Create KIO Worker"
 msgstr "io-slave نى تۇرغۇزالمىدى: %1"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2250,20 +2255,20 @@ msgstr ""
 "كومپيۇتېرىڭىزدىكى <strong>%1</strong> كېلىشىمنى تەمىنلەيدىغان پروگرامما "
 "قوزغىلالمىدى. بۇ ئادەتتە تېخنىكىلىق سەۋەبتىن بولىدۇ."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1257
+#: core/job_error.cpp:1260
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2271,14 +2276,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1265
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "پۈتۈكلەنمىگەن خاتالىق"
@@ -2463,7 +2468,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'  كېلىشىم ئىشلىتىدىغان كىرگۈزۈش چىقىرىش ئارقا ئۇچىنى تاپالمىدى."
 
 #: core/workerinterface.cpp:343 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:491
+#: widgets/widgetsaskuseractionhandler.cpp:516
 #, kde-format
 msgid "&Details"
 msgstr "تەپسىلاتلار(&D)"
@@ -2572,7 +2577,7 @@ msgstr "يېڭى قىسقۇچ"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "ئەخلەتخانىغا يۆتكە"
@@ -4429,7 +4434,7 @@ msgid ""
 msgstr "بۇ ئىسپاتنامىنى بۇنىڭدىن كېيىن دەخلىسىز مەڭگۈ قوبۇل قىلامسىز؟"
 
 #: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:489
+#: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "مۇلازىمېتىر ئىسپاتنامىسى"
@@ -4693,7 +4698,7 @@ msgstr ""
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1338
+#: kioworkers/trash/trashimpl.cpp:1340
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -5184,6 +5189,7 @@ msgstr "تۈر ئۆچۈر"
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/widgetsaskuseractionhandler.cpp:290
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -5207,7 +5213,7 @@ msgstr[0] ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5221,13 +5227,13 @@ msgstr ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "ئەخلەتخانىنى تازىلاش"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7532,7 +7538,7 @@ msgstr ""
 "شۇڭلاشقا ماشىنا بىلەن دەلىللەنگەن باغلىنىش قۇرالمايدۇ، مەشغۇلات بىكار "
 "قىلىندى."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:507
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7606,7 +7612,41 @@ msgstr[0] ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:288
+#: widgets/widgetsaskuseractionhandler.cpp:275
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Do you want to permanently delete all items from Trash? This action "
+#| "cannot be undone."
+msgctxt "@info"
+msgid ""
+"The trash is not available for this item’s location. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+"ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
+"بولمايدۇ."
+
+#: widgets/widgetsaskuseractionhandler.cpp:282
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Do you want to permanently delete all items from Trash? This action "
+#| "cannot be undone."
+msgctxt "@info"
+msgid ""
+"The trash is not available for the location of this %1 item. Permanently "
+"delete it instead?<nl/><emphasis strong='true'>This action cannot be undone."
+"</emphasis>"
+msgid_plural ""
+"The trash is not available for the location of these %1 items. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+"ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
+"بولمايدۇ."
+
+#: widgets/widgetsaskuseractionhandler.cpp:310
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7615,33 +7655,33 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "سىز راستلا %1 تۈرنى ئەخلەتخانىغا يۆتكەمسىز؟"
 
-#: widgets/widgetsaskuseractionhandler.cpp:343
+#: widgets/widgetsaskuseractionhandler.cpp:367
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "قايتا سورىما"
 
-#: widgets/widgetsaskuseractionhandler.cpp:386
+#: widgets/widgetsaskuseractionhandler.cpp:411
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "قايتا سورىما"
 
-#: widgets/widgetsaskuseractionhandler.cpp:412
+#: widgets/widgetsaskuseractionhandler.cpp:437
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "قايتا سورىما"
 
-#: widgets/widgetsaskuseractionhandler.cpp:547
+#: widgets/widgetsaskuseractionhandler.cpp:572
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "قارشى ئۇچتىكى SSL گۇۋاھنامىسى بۇزۇلغاندەك قىلىدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:575
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

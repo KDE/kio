@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:39+0000\n"
+"POT-Creation-Date: 2025-11-13 00:39+0000\n"
 "PO-Revision-Date: 2025-10-01 17:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -81,13 +81,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Složka již existuje"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
-#: core/job_error.cpp:574 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Soubor již existuje"
@@ -706,6 +706,11 @@ msgstr "Soubor je příliš velký pro vyhození do koše."
 
 #: core/job_error.cpp:264
 #, kde-format
+msgid "A trash folder could not be found or created for this location."
+msgstr ""
+
+#: core/job_error.cpp:267
+#, kde-format
 msgid ""
 "Unknown error code %1\n"
 "%2\n"
@@ -715,65 +720,65 @@ msgstr ""
 "%2\n"
 "Prosím pošlete úplný popis chyby na https://bugs.kde.org."
 
-#: core/job_error.cpp:295
+#: core/job_error.cpp:298
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(neznámé)"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:304
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:308
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Technický důvod</b>: "
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Podrobnosti požadavku</b>:"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:312
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protokol: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Datum a čas: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Další informace: %1</li>"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:316
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Možné příčiny</b>:"
 
-#: core/job_error.cpp:317
+#: core/job_error.cpp:320
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Možná řešení</b>:"
 
-#: core/job_error.cpp:361
+#: core/job_error.cpp:364
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(neznámý)"
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -782,17 +787,17 @@ msgstr ""
 "Kontaktujte vaši podporu, buď administrátora nebo skupinu technické podpory, "
 "aby vám pomohla."
 
-#: core/job_error.cpp:378
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Pro další podporu kontaktuje správce serveru."
 
-#: core/job_error.cpp:381
+#: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Zkontrolujte přístupová práva k tomuto zdroji."
 
-#: core/job_error.cpp:383
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -801,14 +806,14 @@ msgstr ""
 "Vaše přístupová práva nejsou dostatečná k vykonání požadované operace na "
 "tomto zdroji."
 
-#: core/job_error.cpp:386
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr ""
 "Soubor může být používán (a tedy zamknut) jiným uživatelem nebo aplikací."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -817,17 +822,17 @@ msgstr ""
 "Zkontrolujte, že jiná aplikace nebo uživatel nepoužívá tento soubor nebo jej "
 "nezamknul."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "I když je to nepravděpodobné, tak mohlo dojít k hardwarové chybě."
 
-#: core/job_error.cpp:394
+#: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Je možné, že jste objevil(a) chybu v programu."
 
-#: core/job_error.cpp:396
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -836,7 +841,7 @@ msgstr ""
 "Toto je nejspíše způsobeno chybou v programu. Prosím zvažte zda neodešlete "
 "úplný popis chyby jak je podrobně popsáno níže."
 
-#: core/job_error.cpp:399
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -845,7 +850,7 @@ msgstr ""
 "Aktualizujte svůj software na nejnovější verzi. vaše distribuce by měla "
 "poskytovat nástroje k aktualizaci vašeho softwaru."
 
-#: core/job_error.cpp:402
+#: core/job_error.cpp:405
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -865,12 +870,12 @@ msgstr ""
 "přiložte je ke své zprávě spolu s co nejvíce podrobnostmi, o kterých si "
 "myslíte, že by mohly pomoci nalézt problém."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Pravděpodobně nastal problém s vaším síťovým připojením."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -879,7 +884,7 @@ msgstr ""
 "Vaše nastavení sítě může být špatné. Pokud jste v poslední době bez problémů "
 "přistupovali k internetu, tak je tato varianta nepravděpodobná."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -888,44 +893,44 @@ msgstr ""
 "Je možné, že se vyskytl problém někde na cestě sítí mezi serverem a vaším "
 "počítačem."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Zkuste operaci opakovat, buď okamžitě nebo později."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Nejspíše došlo k chybě nebo nekompatibilitě protokolu."
 
-#: core/job_error.cpp:423
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Ujistěte se, že prostředek existuje, a zkuste znova."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Zadaný prostředek nemusí existovat."
 
-#: core/job_error.cpp:426
+#: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "Překontrolujte si, že jste zadali správné umístění, a zkuste operaci "
 "opakovat."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Zkontrolujte stav vašeho síťového spojení."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Nelze otevřít prostředek ke čtení"
 
-#: core/job_error.cpp:434
+#: core/job_error.cpp:437
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -934,17 +939,17 @@ msgstr ""
 "To znamená, že obsah požadovaného souboru nebo složky <strong>%1</strong> "
 "nebylo možné získat, protože nebylo možné nabýt práva ke čtení."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "Možná nemáte práva ke čtení souboru nebo k otevření složky."
 
-#: core/job_error.cpp:446
+#: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Nelze otevřít prostředek pro zápis"
 
-#: core/job_error.cpp:448
+#: core/job_error.cpp:451
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -953,17 +958,17 @@ msgstr ""
 "To znamená, že do souboru <strong>%1</strong> nebylo možné zapsat, protože "
 "se nezdařilo nabýt práva ke zápisu."
 
-#: core/job_error.cpp:457
+#: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Nelze spustit proces vyžadovaný protokolem %1"
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Nelze spustit proces"
 
-#: core/job_error.cpp:460
+#: core/job_error.cpp:463
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -974,7 +979,7 @@ msgstr ""
 "strong>, nebylo možné najít nebo spustit. To je obvykle způsobeno "
 "technickými problémy."
 
-#: core/job_error.cpp:465
+#: core/job_error.cpp:468
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -985,12 +990,12 @@ msgstr ""
 "poslední aktualizaci KDE aktualizován. To může způsobit nekompatibilitu "
 "programu se současnou verzí a tedy není zaručeno, že bude moci být spuštěn."
 
-#: core/job_error.cpp:474
+#: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
 msgstr "Vnitřní chyba"
 
-#: core/job_error.cpp:476
+#: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -999,12 +1004,12 @@ msgstr ""
 "Program na vašem počítači, který poskytuje přístup k protokolu <strong>%1</"
 "strong> ohlásil vnitřní chybu."
 
-#: core/job_error.cpp:484
+#: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Chybně naformátované URL"
 
-#: core/job_error.cpp:486
+#: core/job_error.cpp:489
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1019,12 +1024,12 @@ msgstr ""
 "priklad.cz:port/slozka/jmeno_souboru.pripona?dotaz=hodnota</strong></"
 "blockquote>"
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Nepodporovaný protokol %1"
 
-#: core/job_error.cpp:497
+#: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1033,12 +1038,12 @@ msgstr ""
 "Protokol <strong>%1</strong> není podporován KDE programy, které jsou nyní "
 "nainstalovány na tomto počítači."
 
-#: core/job_error.cpp:500
+#: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Požadovaný protokol nemusí být podporován."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1047,7 +1052,7 @@ msgstr ""
 "Verze protokolu %1 podporovaná tímto počítačem a serverem mohou být "
 "nekompatibilní."
 
-#: core/job_error.cpp:506
+#: core/job_error.cpp:509
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
@@ -1058,17 +1063,17 @@ msgstr ""
 "\"Nástroj KIO\"), který podporuje tento protokol. Místa, kde byste měli "
 "hledat zahrnují <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:517
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL neodkazuje na prostředek."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokol je filtrovacím protokolem."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:520
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1077,7 +1082,7 @@ msgstr ""
 "<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
 "(URL), které jste zadali neodkazuje na určitý prostředek."
 
-#: core/job_error.cpp:521
+#: core/job_error.cpp:524
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1090,12 +1095,12 @@ msgstr ""
 "taková situace. Toto je neobvyklá událost a nejspíše signalizuje chybu "
 "programu."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Nepodporovaná činnost: %1"
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1104,7 +1109,7 @@ msgstr ""
 "Požadovaná činnost není podporována KDE programem, který implementuje "
 "protokol <strong>%1</strong>."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:538
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1114,17 +1119,17 @@ msgstr ""
 "Tato chyba je velmi závislá na KDE programu. Dodatečná informace by vám měla "
 "dát více informace než je dostupná vstupně/výstupní architektuře KDE."
 
-#: core/job_error.cpp:539
+#: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Pokus o nalezení jiné cesty k dovršení shodného výsledku."
 
-#: core/job_error.cpp:544
+#: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
 msgstr "Očekáván soubor"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1133,17 +1138,17 @@ msgstr ""
 "Požadavek očekával soubor, avšak místo něj byla vrácena složka <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:549
+#: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "To může být chyba na straně serveru."
 
-#: core/job_error.cpp:554
+#: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
 msgstr "Očekávána složka"
 
-#: core/job_error.cpp:556
+#: core/job_error.cpp:559
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1152,17 +1157,17 @@ msgstr ""
 "Požadavek očekával složku, avšak místo něj byl vrácen soubor <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:564
+#: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Soubor nebo složka neexistuje"
 
-#: core/job_error.cpp:566
+#: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Zadaný soubor nebo složka <strong>%1</strong> neexistuje."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:579
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1171,22 +1176,22 @@ msgstr ""
 "Požadovaný soubor nebylo možné vytvořit, protože soubor se stejným názvem "
 "již existuje."
 
-#: core/job_error.cpp:579
+#: core/job_error.cpp:582
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Zkuste nejprve odstranit překážející soubor a pak zopakujte operaci."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Smažte současný soubor a zopakujte operaci."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Vyberte jiný název pro nový soubor."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:590
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1195,27 +1200,27 @@ msgstr ""
 "Požadovanou složku nebylo možné vytvořit, protože složka se stejným názvem "
 "již existuje."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Zkuste nejprve odstranit překážející složku a pak zopakujte operaci."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Smažte aktuální složku a zopakujte operaci."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Vyberte jiný název pro novou složku."
 
-#: core/job_error.cpp:596
+#: core/job_error.cpp:599
 #, kde-format
 msgid "Unknown Host"
 msgstr "Neznámý hostitel"
 
-#: core/job_error.cpp:598
+#: core/job_error.cpp:601
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1224,35 +1229,35 @@ msgstr ""
 "Chyba „neznámý hostitel“ znamená, že server s požadovaným jménem <strong>%1</"
 "strong> nebylo možné na Internetu nalézt."
 
-#: core/job_error.cpp:603
+#: core/job_error.cpp:606
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr "Jméno %1, které jste zadali neexistuje. Možná, že je chybně zadáno."
 
-#: core/job_error.cpp:611
+#: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
 msgstr "Odmítnut přístup"
 
-#: core/job_error.cpp:613
+#: core/job_error.cpp:616
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "K zadanému prostředku <strong>%1</strong> byl odmítnut přístup."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Je možné, že jste poskytli chybné podrobnosti pro ověření nebo jste je vůbec "
 "neposkytli."
 
-#: core/job_error.cpp:620 core/job_error.cpp:896
+#: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Vaše konto nemusí mít přístupová práva k tomuto prostředku."
 
-#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
+#: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1261,12 +1266,12 @@ msgstr ""
 "Opakujte požadavek a ujistěte se, že podrobnosti pro ověření jsou správně "
 "vloženy."
 
-#: core/job_error.cpp:632
+#: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Odmítnut přístup k zápisu"
 
-#: core/job_error.cpp:634
+#: core/job_error.cpp:637
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1274,12 +1279,12 @@ msgid ""
 msgstr ""
 "Toto znamená, že byl odmítnut pokus o zápis do souboru <strong>%1</strong>."
 
-#: core/job_error.cpp:642
+#: core/job_error.cpp:645
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Nelze vstoupit do složky"
 
-#: core/job_error.cpp:644
+#: core/job_error.cpp:647
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1288,17 +1293,17 @@ msgstr ""
 "To znamená, že byl odmítnut pokus o vstup (jinými slovy otevření) do "
 "požadované složky <strong>%1</strong>."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:655
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Výpis složky není dostupný"
 
-#: core/job_error.cpp:653
+#: core/job_error.cpp:656
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokol %1 není systémem souborů"
 
-#: core/job_error.cpp:655
+#: core/job_error.cpp:658
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1308,12 +1313,12 @@ msgstr ""
 "To znamená, že byl vznesen požadavek zjišťující obsah složky a že KDE "
 "program, který podporuje tento protokol, jej nebyl schopen splnit."
 
-#: core/job_error.cpp:663
+#: core/job_error.cpp:666
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Odhalen cyklický odkaz"
 
-#: core/job_error.cpp:665
+#: core/job_error.cpp:668
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1326,7 +1331,7 @@ msgstr ""
 "vytvářejí nekonečnou smyčku, tj. soubor je odkazován (pravděpodobně nepřímo) "
 "sám na sebe."
 
-#: core/job_error.cpp:670 core/job_error.cpp:696
+#: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1334,27 +1339,27 @@ msgid ""
 msgstr ""
 "K přerušení nekonečného řetězce smažte jeden jeho článek a zkuste znova."
 
-#: core/job_error.cpp:680
+#: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Požadavek přerušen uživatelem"
 
-#: core/job_error.cpp:682 core/job_error.cpp:1071
+#: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Požadavek nebyl dokončen, protože byl přerušen."
 
-#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
+#: core/job_error.cpp:687 core/job_error.cpp:942 core/job_error.cpp:1076
 #, kde-format
 msgid "Retry the request."
 msgstr "Opakovat požadavek."
 
-#: core/job_error.cpp:688
+#: core/job_error.cpp:691
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Během kopírování byl odhalen cyklický odkaz"
 
-#: core/job_error.cpp:690
+#: core/job_error.cpp:693
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1367,17 +1372,17 @@ msgstr ""
 "odhalilo odkaz nebo řadu odkazů, které vytvářejí nekonečnou smyčku, tj. "
 "soubor je odkazován (pravděpodobně nepřímo) sám na sebe."
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Nelze vytvořit síťové spojení."
 
-#: core/job_error.cpp:703
+#: core/job_error.cpp:706
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Nelze vytvořit soket"
 
-#: core/job_error.cpp:705
+#: core/job_error.cpp:708
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1386,8 +1391,8 @@ msgstr ""
 "Toto je dosti technická chyba, při které nebylo možné vytvořit požadované "
 "zařízení pro síťovou komunikaci (socket)."
 
-#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
-#: core/job_error.cpp:881
+#: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
+#: core/job_error.cpp:884
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1396,19 +1401,19 @@ msgstr ""
 "Síťové spojení není pravděpodobně správně nastaveno nebo není zapnuto síťové "
 "rozhraní."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Spojení na server bylo odmítnuto."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "Server <strong>%1</strong> odmítl tomuto počítači vytvořit spojení."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1417,7 +1422,7 @@ msgstr ""
 "Server, i když je v současné době připojen k internetu, nemusí být nastaven "
 "tak, aby povoloval dotazy."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:726
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1426,7 +1431,7 @@ msgstr ""
 "Server, i když je v současné době připojen k internetu, nemusí mít spuštěnu "
 "službu (%1)."
 
-#: core/job_error.cpp:727
+#: core/job_error.cpp:730
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1436,12 +1441,12 @@ msgstr ""
 "Nejspíše zasáhl síťový firewall (prostředek, který omezuje internetové "
 "dotazy) chránící buď vaši síť nebo síť serveru a zabránil tomuto dotazu."
 
-#: core/job_error.cpp:734
+#: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Spojení k tomuto serveru neočekávaně uzavřeno."
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1450,7 +1455,7 @@ msgstr ""
 "I přesto, že bylo vytvořeno spojení s <strong>%1</strong>, tak došlo k jeho "
 "přerušení v neočekávaném bodě komunikace."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1459,17 +1464,17 @@ msgstr ""
 "Nejspíše nastala chyba protokolu, která zapříčinila, že server ukončil "
 "spojení."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:751
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Neplatný URL zdroj"
 
-#: core/job_error.cpp:749
+#: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Protokol %1 není filtrovacím protokolem."
 
-#: core/job_error.cpp:751
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1480,7 +1485,7 @@ msgstr ""
 "strong>ocator (URL), které jste zadali, se nevztahuje k platnému mechanismu "
 "přístupu k určitému zdroji <strong>%1%2</strong>."
 
-#: core/job_error.cpp:758
+#: core/job_error.cpp:761
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1493,17 +1498,17 @@ msgstr ""
 "činnosti. Toto se stává zřídka a s největší pravděpodobností jde o chybu v "
 "programu."
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Nelze inicializovat vstupně/výstupní zařízení"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Nelze připojit zařízení"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:772
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1512,7 +1517,7 @@ msgstr ""
 "Požadované zařízení nebylo možné inicializovat (\"připojit\"). Byla ohlášena "
 "chyba: <strong>%1</strong>"
 
-#: core/job_error.cpp:773
+#: core/job_error.cpp:776
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1523,7 +1528,7 @@ msgstr ""
 "(např. není médium v CDROMu) nebo v případě periferního/přenosného zařízení "
 "není správně připojeno."
 
-#: core/job_error.cpp:778
+#: core/job_error.cpp:781
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1533,7 +1538,7 @@ msgstr ""
 "Nejspíše nemáte práva k inicializaci (\"připojení\")zařízení. V unixových "
 "systémech je často potřeba práv správce systému k inicializaci zařízení."
 
-#: core/job_error.cpp:783
+#: core/job_error.cpp:786
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1542,17 +1547,17 @@ msgstr ""
 "Zkontrolujte zda je zařízení připraveno a zkuste znova (zařízení musí "
 "obsahovat médium a přenosná zařízení musí být připojena a zapnuta)."
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Nelze deinicializovat vstupně/výstupní zařízení"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Nelze odpojit zařízení"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:796
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1561,7 +1566,7 @@ msgstr ""
 "Požadované zařízení nelze deinicializovat (\"odpojit\"). Byla nahlášena "
 "chyba: <strong>%1</strong>"
 
-#: core/job_error.cpp:797
+#: core/job_error.cpp:800
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1572,7 +1577,7 @@ msgstr ""
 "uživatelem. I pouhé otevřené okno prohlížeče s obsahem umístěným na zařízení "
 "může způsobit ponechání zařízení v použití."
 
-#: core/job_error.cpp:802
+#: core/job_error.cpp:805
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1583,17 +1588,17 @@ msgstr ""
 "unixových systémech je často nutné mít právo správce systému k "
 "deinicializování zařízení."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "Zkontrolujte zda žádná aplikace nepřistupuje na zařízení a opakujte."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Ze zdroje není možné číst"
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:818
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1602,17 +1607,17 @@ msgstr ""
 "To znamená, že i přesto že bylo možné zdroj <strong>%1</strong> otevřít, "
 "nastala chyba během čtení obsahu zdroje."
 
-#: core/job_error.cpp:819
+#: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Možná nemáte práva ke čtení z tohoto zdroje."
 
-#: core/job_error.cpp:832
+#: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "není možné zapsat do zdroje"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:837
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1621,22 +1626,22 @@ msgstr ""
 "To znamená, že i přesto že bylo možné zdroj <strong>%1</strong> otevřít, "
 "nastala chyba během zápisu obsahu do zdroje."
 
-#: core/job_error.cpp:837
+#: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Možná nemáte práva k zápisu do tohoto zdroje."
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Nelze naslouchat sítovým spojením"
 
-#: core/job_error.cpp:851
+#: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Nelze propojit"
 
-#: core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1647,17 +1652,17 @@ msgstr ""
 "zařízení pro síťovou komunikaci (socket), aby bylo možné čekat na příchozí "
 "sítová spojení."
 
-#: core/job_error.cpp:864
+#: core/job_error.cpp:867
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Nelze čekat na spojení"
 
-#: core/job_error.cpp:876
+#: core/job_error.cpp:879
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Nelze přijmout sítová spojení"
 
-#: core/job_error.cpp:878
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1666,34 +1671,34 @@ msgstr ""
 "Toto je dosti technická chyba, při které nastala chyba během pokusu o "
 "přijetí příchozího sítového spojení."
 
-#: core/job_error.cpp:883
+#: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Nejspíše nemáte práva k přijetí spojení."
 
-#: core/job_error.cpp:888
+#: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Nelze se přihlásit: %1."
 
-#: core/job_error.cpp:890
+#: core/job_error.cpp:893
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "Pokus o přihlášení, nutný k vykonání požadované operace, byl neúspěšný."
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:909
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Nelze určit stav zdroje"
 
-#: core/job_error.cpp:907
+#: core/job_error.cpp:910
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Nelze zjistit informace o zdroji"
 
-#: core/job_error.cpp:909
+#: core/job_error.cpp:912
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1702,68 +1707,68 @@ msgstr ""
 "Pokus o určení informace o stavu zdroje <strong>%1</strong>, jako jméno, "
 "typ, velikost atd., byl neúspěšný."
 
-#: core/job_error.cpp:914
+#: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Určený zdroj neexistoval nebo není přístupný."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Nelze ukončit výpis"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: Document this"
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Nelze vytvořit složku"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Pokus o vytvoření požadované složky se nezdařil."
 
-#: core/job_error.cpp:934
+#: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Umístění, ve kterém měla být vytvořena složka, neexistuje."
 
-#: core/job_error.cpp:943
+#: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Nelze odstranit složku"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:948
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Pokus o odstranění zadané složky <strong>%1</strong> se nezdařil."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Zadaná složka nejspíš neexistuje."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Zadaná složka není nejspíš prázdná."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Ujistěte se, že složka existuje a je prázdná, a pak opakujte operaci."
 
-#: core/job_error.cpp:959
+#: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Nelze navázat přenos souboru"
 
-#: core/job_error.cpp:961
+#: core/job_error.cpp:964
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1772,32 +1777,32 @@ msgstr ""
 "Zadaný požadavek vyžadoval, aby bylo při přenosu souboru <strong>%1</strong> "
 "navázáno od určitého místa přenosu. To nebylo možné provést."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Protokol nebo server nejspíš nepodporuje navazování."
 
-#: core/job_error.cpp:969
+#: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Opakujte požadavek bez pokusu o navazování na předchozí přenos."
 
-#: core/job_error.cpp:974
+#: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Nelze přejmenovat zdroj"
 
-#: core/job_error.cpp:976
+#: core/job_error.cpp:979
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Pokus o přejmenování zadaného zdroje <strong>%1</strong> se nezdařil."
 
-#: core/job_error.cpp:987
+#: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Nelze změnit přístupová práva ke zdroji"
 
-#: core/job_error.cpp:989
+#: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1806,12 +1811,12 @@ msgstr ""
 "Pokus o změnu přístupových práv k zadanému zdroji <strong>%1</strong> se "
 "nezdařil."
 
-#: core/job_error.cpp:997
+#: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Nelze změnit vlastníka zdroje"
 
-#: core/job_error.cpp:999
+#: core/job_error.cpp:1002
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1819,22 +1824,22 @@ msgid ""
 msgstr ""
 "Pokus o změnu vlastníka zadaného zdroje <strong>%1</strong> se nezdařil."
 
-#: core/job_error.cpp:1007
+#: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Nelze smazat zdroj"
 
-#: core/job_error.cpp:1009
+#: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Pokus o smazání zadaného zdroje <strong>%1</strong> se nezdařil."
 
-#: core/job_error.cpp:1017
+#: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Neočekávané ukončení programu"
 
-#: core/job_error.cpp:1019
+#: core/job_error.cpp:1022
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1843,12 +1848,12 @@ msgstr ""
 "Program na vašem počítači, který poskytuje přístup k protokolu <strong>%1</"
 "strong>, byl neočekávaně ukončen."
 
-#: core/job_error.cpp:1027
+#: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
 msgstr "Nedostatek paměti"
 
-#: core/job_error.cpp:1029
+#: core/job_error.cpp:1032
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1857,12 +1862,12 @@ msgstr ""
 "Program na vašem počítači, který poskytuje přístup k protokolu <strong>%1</"
 "strong>, nebyl schopen získat paměť potřebnou k pokračování své činnosti."
 
-#: core/job_error.cpp:1038
+#: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Neznámý proxy hostitel"
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1873,7 +1878,7 @@ msgstr ""
 "nastala chyba 'Neznámý hostitel'. Tato chyba informuje o tom, že požadované "
 "jméno hostitele nebylo možné na Internetu nalézt."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1049
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1884,17 +1889,17 @@ msgstr ""
 "jména hostitele proxy. Tato možnost ovšem není moc pravděpodobná v případě, "
 "že jste v poslední době používali Internet bez problémů."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Znovu zkontrolujte nastavení proxy a zkuste to znovu."
 
-#: core/job_error.cpp:1054
+#: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Udělení oprávnění se nezdařilo: metoda %1 není podporována."
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1905,7 +1910,7 @@ msgstr ""
 "udělení oprávnění, protože server používá jinou metodu než ta, která je "
 "podporována KDE programem, který implementuje protokol %1."
 
-#: core/job_error.cpp:1062
+#: core/job_error.cpp:1065
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1915,17 +1920,17 @@ msgstr ""
 "\">https://bugs.kde.org/</a> a informujte tím KDE tým o nepodporované metodě "
 "udělení oprávnění."
 
-#: core/job_error.cpp:1069
+#: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
 msgstr "Požadavek zrušen"
 
-#: core/job_error.cpp:1077
+#: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Vnitřní chyba serveru"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1934,7 +1939,7 @@ msgstr ""
 "Program na serveru, který poskytuje přístup k protokolu <strong>%1</strong>, "
 "ohlásil vnitřní chybu: %2."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1943,12 +1948,12 @@ msgstr ""
 "To je nejspíše způsobeno chybou v programu serveru. Prosím zvažte, zda "
 "nepošlete úplné chybové hlášení o chybě obsahující podrobnosti zmíněné níže."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1092
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Kontaktujte administrátora server a oznamte mu problém."
 
-#: core/job_error.cpp:1092
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1957,29 +1962,29 @@ msgstr ""
 "Víte-li, kdo je autorem použitého programu na serveru, tak pošlete hlášení o "
 "chybě přímo jemu."
 
-#: core/job_error.cpp:1097
+#: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
 msgstr "Vypršení časového limitu"
 
-#: core/job_error.cpp:1099
+#: core/job_error.cpp:1102
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
 
-#: core/job_error.cpp:1104
+#: core/job_error.cpp:1107
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Server byl příliš zaneprázdněn vyřizováním jiných požadavků."
 
-#: core/job_error.cpp:1110
+#: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
 msgstr "Neznámá chyba"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1115
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1988,12 +1993,12 @@ msgstr ""
 "Program na vašem počítači, který poskytuje přístup k protokolu <strong>%1</"
 "strong>, nahlásil neznámou chybu: %2."
 
-#: core/job_error.cpp:1122
+#: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Neznámé přerušení"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2002,12 +2007,12 @@ msgstr ""
 "Program na vašem počítači, který poskytuje přístup k protokolu <strong>%1</"
 "strong>, nahlásil přerušení neznámého typu: %2."
 
-#: core/job_error.cpp:1134
+#: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Nelze smazat původní soubor"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2018,12 +2023,12 @@ msgstr ""
 "odstranění původního souboru. Původní soubor <strong>%1</strong> se "
 "odstranit nezdařilo."
 
-#: core/job_error.cpp:1145
+#: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Nelze smazat dočasný soubor"
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2034,12 +2039,12 @@ msgstr ""
 "soubor během stahování bude ukládat. Tento dočasný soubor <strong>%1</"
 "strong> se odstranit nezdařilo."
 
-#: core/job_error.cpp:1157
+#: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Nelze přejmenovat původní soubor"
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2048,12 +2053,12 @@ msgstr ""
 "Požadovaná operace vyžaduje přejmenování původního souboru <strong>%1</"
 "strong>, ale to se nezdařilo."
 
-#: core/job_error.cpp:1168
+#: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Nelze přejmenovat dočasný soubor"
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2062,32 +2067,32 @@ msgstr ""
 "Požadovaná operace vyžaduje vytvoření dočasného souboru <strong>%1</strong>, "
 "ale ten není možné vytvořit."
 
-#: core/job_error.cpp:1179
+#: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Nelze vytvořit odkaz"
 
-#: core/job_error.cpp:1180
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Nelze vytvořit symbolický odkaz"
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Požadovaný symbolický odkaz %1 nebylo možné vytvořit."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1190
 #, kde-format
 msgid "No Content"
 msgstr "Žádný obsah"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
 msgstr "Plný disk"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2096,7 +2101,7 @@ msgstr ""
 "Požadovaný soubor <strong>%1</strong> nemohl být uložen, protože na disku "
 "není dostatek místa."
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1201
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2107,12 +2112,12 @@ msgstr ""
 "souborů; 2) archivováním souborů na vyměnitelná média jako jsou CD-R disky "
 "nebo 3) obstarejte si větší úložnou kapacitu."
 
-#: core/job_error.cpp:1205
+#: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Zdrojový a cílový soubor jsou shodné."
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2120,17 +2125,17 @@ msgid ""
 msgstr ""
 "Operaci nebylo možné dokončit, protože zdrojový a cílový soubor jsou shodné."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Zvolte jiná název pro cílový soubor."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1216
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Soubor nebo složka byla přetažena sama do sebe"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2139,17 +2144,17 @@ msgstr ""
 "Operaci nebylo možné dokončit, protože zdrojový a cílový soubor nebo složka "
 "jsou shodné."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Přetáhněte položku na jiný soubor nebo složku."
 
-#: core/job_error.cpp:1227
+#: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Složka přesunuta na sebe samu"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2157,17 +2162,17 @@ msgid ""
 msgstr ""
 "Operaci nebylo možné dokončit, protože zdroj nelze přesunout na sebe sama."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Přesunout položku do jiné složky."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Nelze komunikovat serverem hesel"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2176,22 +2181,22 @@ msgstr ""
 "Operaci nebylo možné dokončit, protože se nelze spojit se službou pro "
 "vyžádání hesla (kpasswdserver)"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "Zkuste restartovat sezení, nebo hledejte v záznamech chyby z kiod."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1246
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nelze iniciovat protokol %1"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Nelze vytvořit nástroj KIO'"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2200,20 +2205,20 @@ msgstr ""
 "Nástroj KIO, který poskytuje přístup k protokolu <strong>%1</strong>, nebylo "
 "možné spustit. To je obvykle způsobeno technickými problémy."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1257
+#: core/job_error.cpp:1260
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Nelze přesunout <filename>%1</filename>"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2223,14 +2228,14 @@ msgstr ""
 "Soubor <filename>%1</filename> nemohl být přesunut, protože souborový systém "
 "nepodporuje tak velké soubory"
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1265
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Nedokumentovaná chyba"
@@ -2410,7 +2415,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"
 
 #: core/workerinterface.cpp:343 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:491
+#: widgets/widgetsaskuseractionhandler.cpp:516
 #, kde-format
 msgid "&Details"
 msgstr "Po&drobnosti"
@@ -2515,7 +2520,7 @@ msgstr "Nová složka…"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
@@ -4264,7 +4269,7 @@ msgid ""
 msgstr "Přejete si přijmout tento certifikát navždy bez dalšího dotazování?"
 
 #: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:489
+#: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "Ověření serveru"
@@ -4517,7 +4522,7 @@ msgstr "Vyprázdnit obsah koše"
 msgid "Restore a trashed file to its original location"
 msgstr "Obnovit vyhozený soubor na původní místo"
 
-#: kioworkers/trash/trashimpl.cpp:1338
+#: kioworkers/trash/trashimpl.cpp:1340
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4976,6 +4981,7 @@ msgstr "Navždy smazat"
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5000,7 +5006,7 @@ msgstr[2] ""
 "Opravdu si přejete natrvalo odstranit těchto %1 položek?<nl/><nl/><emphasis "
 "strong='true'>Tento krok nelze vrátit.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5010,13 +5016,13 @@ msgstr ""
 "Opravdu si přejete natrvalo odstranit všechny položky z koše?<nl/><nl/"
 "><emphasis strong='true'>Tento krok nelze vrátit.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Vyprázdnit koš"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7190,7 +7196,7 @@ msgstr ""
 "Vzdálený hostitel neposlal žádné SSL certifikáty.\n"
 "Přerušuji, protože nelze zjistit identitu hostitele."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:507
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7253,7 +7259,52 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:288
+#: widgets/widgetsaskuseractionhandler.cpp:275
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Do you really want to permanently delete this item?<nl/><nl/><filename>"
+#| "%1</filename><nl/><nl/><emphasis strong='true'>This action cannot be "
+#| "undone.</emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for this item’s location. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
+"emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:282
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
+#| "strong='true'>This action cannot be undone.</emphasis>"
+#| msgid_plural ""
+#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
+#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for the location of this %1 item. Permanently "
+"delete it instead?<nl/><emphasis strong='true'>This action cannot be undone."
+"</emphasis>"
+msgid_plural ""
+"The trash is not available for the location of these %1 items. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><nl/><emphasis "
+"strong='true'>Tento krok nelze vrátit.</emphasis>"
+msgstr[1] ""
+"Opravdu si přejete natrvalo odstranit tyto %1 položky?<nl/><nl/><emphasis "
+"strong='true'>Tento krok nelze vrátit.</emphasis>"
+msgstr[2] ""
+"Opravdu si přejete natrvalo odstranit těchto %1 položek?<nl/><nl/><emphasis "
+"strong='true'>Tento krok nelze vrátit.</emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7262,30 +7313,30 @@ msgstr[0] "Opravdu si přejete přesunout tuto %1 položku do koše?"
 msgstr[1] "Opravdu si přejete přesunout tyto %1 položky do koše?"
 msgstr[2] "Opravdu si přejete přesunout těchto %1 položek do koše?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:343
+#: widgets/widgetsaskuseractionhandler.cpp:367
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Znovu se nedotazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:386
+#: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Znovu se nedotazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:412
+#: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Tuto zprávu již nezobrazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:547
+#: widgets/widgetsaskuseractionhandler.cpp:572
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "SSL certifikát protějšku se zdá být poškozen."
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:575
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

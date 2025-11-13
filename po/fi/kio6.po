@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:39+0000\n"
-"PO-Revision-Date: 2025-08-14 17:20+0300\n"
+"POT-Creation-Date: 2025-11-13 00:39+0000\n"
+"PO-Revision-Date: 2025-10-31 20:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -102,13 +102,13 @@ msgstr ""
 "Valitsemalla ”Korvaa” virheelliset merkit kohdetiedostonimessä korvataan "
 "alaviivoilla (”_”)."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:585
+#: core/copyjob.cpp:1387 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kansio on jo olemassa"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
-#: core/job_error.cpp:574 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tiedosto on jo olemassa"
@@ -740,6 +740,11 @@ msgstr "Tiedosto on liian suuri roskakoriin."
 
 #: core/job_error.cpp:264
 #, kde-format
+msgid "A trash folder could not be found or created for this location."
+msgstr ""
+
+#: core/job_error.cpp:267
+#, kde-format
 msgid ""
 "Unknown error code %1\n"
 "%2\n"
@@ -749,65 +754,65 @@ msgstr ""
 "%2\n"
 "Lähetä vikailmoitus osoitteeseen https://bugs.kde.org/."
 
-#: core/job_error.cpp:295
+#: core/job_error.cpp:298
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(tuntematon)"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:304
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:308
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Tekninen syy</b>: "
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Pyynnön yksityiskohdat</b>:"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:310
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>Verkko-osoite: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:312
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Yhteyskäytäntö: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Päiväys ja aika: %1</li>"
 
-#: core/job_error.cpp:311
+#: core/job_error.cpp:314
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Lisätiedot: %1</li>"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:316
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Mahdolliset syyt</b>:"
 
-#: core/job_error.cpp:317
+#: core/job_error.cpp:320
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Mahdollisia ratkaisuja</b>:"
 
-#: core/job_error.cpp:361
+#: core/job_error.cpp:364
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(tuntematon)"
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -816,17 +821,17 @@ msgstr ""
 "Ota yhteyttä järjestelmän tukipalveluun, järjestelmänvalvojaan tai "
 "tietohallintoon."
 
-#: core/job_error.cpp:378
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Ota yhteyttä palvelun ylläpitoon."
 
-#: core/job_error.cpp:381
+#: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Tarkista käyttöoikeudet tähän resurssiin."
 
-#: core/job_error.cpp:383
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -835,7 +840,7 @@ msgstr ""
 "Käyttöoikeudet eivät välttämättä riitä pyydetyn toiminnon suorittamiseen "
 "tässä resurssissa."
 
-#: core/job_error.cpp:386
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -843,7 +848,7 @@ msgstr ""
 "Tiedosto voi olla toisen käyttäjän tai sovelluksen käytössä (ja siis "
 "lukittu)."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -852,17 +857,17 @@ msgstr ""
 "Varmista, ettei mikään toinen sovellus tai käyttäjä käytä tiedostoa tai ole "
 "lukinnut sitä."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "On mahdollista, että on tapahtunut laitteistovirhe."
 
-#: core/job_error.cpp:394
+#: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Ohjelmassa saattaa olla virhe."
 
-#: core/job_error.cpp:396
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -871,7 +876,7 @@ msgstr ""
 "Tämä johtuu todennäköisesti virheestä ohjelmassa. Lähetä vikailmoitus alla "
 "olevien ohjeiden mukaisesti."
 
-#: core/job_error.cpp:399
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -880,7 +885,7 @@ msgstr ""
 "Päivitä ohjelmistosi uusimpaan versioon. Käyttöjärjestelmästä löytyvät "
 "todennäköisesti päivitystyökalut."
 
-#: core/job_error.cpp:402
+#: core/job_error.cpp:405
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -899,12 +904,12 @@ msgstr ""
 "vikailmoitukseen. Lisää myös muut tiedot, joiden kuvittelet voivan olla "
 "avuksi."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Verkkoyhteydessä saattaa olla ongelmia."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -913,7 +918,7 @@ msgstr ""
 "Verkkoasetuksissa saattaa olla ongelmia. Jos olet käyttänyt Internetiä "
 "äskettäin ilman ongelmia, tämä on epätodennäköistä."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -922,42 +927,42 @@ msgstr ""
 "Tämän tietokoneen ja palvelimen välisessä verkkoyhteydessä saattaa olla "
 "ongelmia."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Yritä uudelleen nyt tai myöhemmin."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "On saattanut sattua yhteyskäytäntövirhe tai yhteensopivuusongelma."
 
-#: core/job_error.cpp:423
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Varmista, että resurssi on käytettävissä ja yritä uudelleen."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Määritettyä resurssia ei välttämättä ole."
 
-#: core/job_error.cpp:426
+#: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "Varmista, että sijainti on kirjoitettu oikein ja yritä uudelleen."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Varmista, että verkkoyhteys on käytössä."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Resurssia ei voitu lukea"
 
-#: core/job_error.cpp:434
+#: core/job_error.cpp:437
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -966,18 +971,18 @@ msgstr ""
 "Tämä tarkoittaa, ettei pyydetyn tiedoston tai kansion <strong>%1</strong> "
 "tietoja voitu hakea, koska siihen ei saatu lukuoikeutta."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr ""
 "Tiedoston lukemiseen tai kansioon siirtymiseen ei välttämättä ole oikeuksia."
 
-#: core/job_error.cpp:446
+#: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Resurssiin ei voitu kirjoittaa"
 
-#: core/job_error.cpp:448
+#: core/job_error.cpp:451
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -986,17 +991,17 @@ msgstr ""
 "Tämä tarkoittaa, ettei tiedostoon <strong>%1</strong> voitu kirjoittaa, "
 "koska siihen ei saatu kirjoitusoikeutta."
 
-#: core/job_error.cpp:457
+#: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Ei saatu käynnistetyksi yhteyskäytännön %1 vaatimaa prosessia"
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Prosessia ei voida käynnistää"
 
-#: core/job_error.cpp:460
+#: core/job_error.cpp:463
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1006,7 +1011,7 @@ msgstr ""
 "Koneesi ohjelmaa, joka tarjoaa pääsyn yhteyskäytäntöön <strong>%1</strong> "
 "ei löytynyt tai saatu käynnistetyksi.  Tämä on yleensä tekninen vika."
 
-#: core/job_error.cpp:465
+#: core/job_error.cpp:468
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1017,12 +1022,12 @@ msgstr ""
 "päivittynyt KDE:n päivittyessä, minkä vuoksi ohjelma voi olla "
 "epäyhteensopiva nykyisen version kanssa eikä käynnisty."
 
-#: core/job_error.cpp:474
+#: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
 msgstr "Sisäinen virhe"
 
-#: core/job_error.cpp:476
+#: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1031,12 +1036,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ilmoitti sisäisestä "
 "virheestä."
 
-#: core/job_error.cpp:484
+#: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Virheellisesti muotoiltu verkko-osoite"
 
-#: core/job_error.cpp:486
+#: core/job_error.cpp:489
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1050,12 +1055,12 @@ msgstr ""
 "<blockquote><strong>yhteyskäytäntö://käyttäjä:salasana@www.esimerkki.org:"
 "portti/hakemisto/tiedosto.pääte?kysely=arvo</strong></blockquote>"
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Ei-tuettu yhteyskäytäntö %1"
 
-#: core/job_error.cpp:497
+#: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1064,12 +1069,12 @@ msgstr ""
 "Yhteyskäytäntöä <strong>%1</strong> ei tueta tietokoneessa nyt olevissaKDE-"
 "sovelluksissa."
 
-#: core/job_error.cpp:500
+#: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Pyydettyä yhteyskäytäntöä ei ehkä tueta."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1078,7 +1083,7 @@ msgstr ""
 "Tämän tietokoneen ja palvelimen tukemat versiot yhteyskäytännössä %1 "
 "saattavat olla yhteensopimattomat."
 
-#: core/job_error.cpp:506
+#: core/job_error.cpp:509
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
@@ -1089,17 +1094,17 @@ msgstr ""
 "etsiäinternetistä. Yksi mahdollinen hakupaikka on <a href=\"https://store."
 "kde.org/\">https://store.kde.org/</a>."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:517
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Verkko-osoite ei viittaa resurssiin."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Yhteyskäytäntö on suodatinyhteyskäytäntö"
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:520
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1108,7 +1113,7 @@ msgstr ""
 "Annettu osoite (<strong>U</strong>niform <strong>R</strong>esource "
 "<strong>L</strong>ocation, URL) ei viittaa mihinkään resurssiin."
 
-#: core/job_error.cpp:521
+#: core/job_error.cpp:524
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1120,12 +1125,12 @@ msgstr ""
 "yhteyskäytäntö on tarkoitettu tähän tarkoitukseen, mutta nyt ei ole "
 "tällainen tilanne. Kyseessä on todennäköisesti ohjelmointivirhe."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Ei-tuettu toiminto: %1"
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1134,7 +1139,7 @@ msgstr ""
 "Pyydettyä toimintoa ei voida suorittaa KDE-ohjelmassa, jossa yhteyskäytäntö "
 "<strong>%1</strong> toimii."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:538
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1144,17 +1149,17 @@ msgstr ""
 "Tämä virhe riippuu KDE-ohjelmasta. Lisätietojen pitäisi kertoa sinulle "
 "enemmän tietoja kuin on saatavilla KDE:n input/output-rakenteesta."
 
-#: core/job_error.cpp:539
+#: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Yritetään toista tapaa saman lopputuloksen saamiseksi."
 
-#: core/job_error.cpp:544
+#: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
 msgstr "Odotettiin tiedostoa"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1163,17 +1168,17 @@ msgstr ""
 "Pyyntö palautti kansion <strong>%1</strong>, vaikka järjestelmä odotti "
 "tiedostoa."
 
-#: core/job_error.cpp:549
+#: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Tämä voi olla palvelinpuolen virhe."
 
-#: core/job_error.cpp:554
+#: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
 msgstr "Odotettiin kansiota"
 
-#: core/job_error.cpp:556
+#: core/job_error.cpp:559
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1181,18 +1186,18 @@ msgid ""
 msgstr ""
 "Pyyntö palautti tiedoston <strong>%1</strong>, vaikka kansiota odotettiin."
 
-#: core/job_error.cpp:564
+#: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Tiedostoa tai kansiota ei ole olemassa"
 
-#: core/job_error.cpp:566
+#: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr ""
 "Määritettyä tiedostoa tai kansiota <strong>%1</strong> ei ole olemassa."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:579
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1200,49 +1205,49 @@ msgid ""
 msgstr ""
 "Pyydettyä tiedostoa ei voitu luoda, koska samalla nimellä on jo tiedosto."
 
-#: core/job_error.cpp:579
+#: core/job_error.cpp:582
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Siirrä olemassa oleva tiedosto pois tieltä ja yritä tallentaa sitten."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Poista nykyinen tiedosto ja yritä uudelleen."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Valitse tiedostolle jokin toinen nimi."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:590
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "Pyydettyä kansiota ei voitu luoda, koska samalla nimellä on jo kansio."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Siirrä olemassa oleva kansio pois tieltä ja yritä tallentaa sitten."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Poista nykyinen kansio ja yritä uudelleen."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Valitse kansiolle jokin toinen nimi."
 
-#: core/job_error.cpp:596
+#: core/job_error.cpp:599
 #, kde-format
 msgid "Unknown Host"
 msgstr "Tuntematon palvelin"
 
-#: core/job_error.cpp:598
+#: core/job_error.cpp:601
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1251,46 +1256,46 @@ msgstr ""
 "Virheilmoitus ”Tuntematon palvelin” tarkoittaa, ettei haetulla nimellä "
 "<strong>%1</strong> löytynyt palvelinta internetistä."
 
-#: core/job_error.cpp:603
+#: core/job_error.cpp:606
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Kirjoittamaasi nimeä %1 ei ehkä ole. Olet saattanut kirjoittaa sen väärin."
 
-#: core/job_error.cpp:611
+#: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
 msgstr "Käsittely kielletty"
 
-#: core/job_error.cpp:613
+#: core/job_error.cpp:616
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Määritettyä resurssia <strong>%1</strong> ei voitu käsitellä."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "Määrittämäsi tunnistautumistiedot ovat virheelliset tai puutteelliset."
 
-#: core/job_error.cpp:620 core/job_error.cpp:896
+#: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Tähän resurssiin ei ole käyttöoikeuksia."
 
-#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
+#: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr "Yritä uudelleen varmistettuasi, että tunnistustiedot ovat oikein."
 
-#: core/job_error.cpp:632
+#: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Kirjoittaminen kielletty"
 
-#: core/job_error.cpp:634
+#: core/job_error.cpp:637
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1299,12 +1304,12 @@ msgstr ""
 "Tämä tarkoittaa, että kirjoittaminen tiedostoon <strong>%1</strong> "
 "estettiin."
 
-#: core/job_error.cpp:642
+#: core/job_error.cpp:645
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Kansioon ei voida siirtyä"
 
-#: core/job_error.cpp:644
+#: core/job_error.cpp:647
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1313,17 +1318,17 @@ msgstr ""
 "Tämä tarkoittaa, että siirtyminen kansioon <strong>%1</strong> (kansion "
 "avaaminen) estettiin."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:655
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Kansioluettelo ei ole käytettävissä"
 
-#: core/job_error.cpp:653
+#: core/job_error.cpp:656
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Yhteyskäytäntö %1 ei ole tiedostojärjestelmä"
 
-#: core/job_error.cpp:655
+#: core/job_error.cpp:658
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1333,12 +1338,12 @@ msgstr ""
 "Tämä tarkoittaa, että pyynnössä yritettiin hakea kansion tietoja, mutta "
 "yhteyskäytäntöä tarjoava ohjelma ei voinut palauttaa niitä."
 
-#: core/job_error.cpp:663
+#: core/job_error.cpp:666
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Havaittu syklinen linkki"
 
-#: core/job_error.cpp:665
+#: core/job_error.cpp:668
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1350,7 +1355,7 @@ msgstr ""
 "tunnisti linkin tai sarjan linkkejä, jotka viittaavat päättymättömään "
 "silmukkaan. Tiedosto on siis linkitetty itseensä."
 
-#: core/job_error.cpp:670 core/job_error.cpp:696
+#: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1359,27 +1364,27 @@ msgstr ""
 "Poista yksi silmukan osa, jotta päättymätön silmukka häviää, ja yritä "
 "uudelleen."
 
-#: core/job_error.cpp:680
+#: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Käyttäjä keskeytti pyynnön"
 
-#: core/job_error.cpp:682 core/job_error.cpp:1071
+#: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Pyyntöä ei suoritettu, koska se keskeytettiin."
 
-#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
+#: core/job_error.cpp:687 core/job_error.cpp:942 core/job_error.cpp:1076
 #, kde-format
 msgid "Retry the request."
 msgstr "Yritä pyyntöä uudelleen"
 
-#: core/job_error.cpp:688
+#: core/job_error.cpp:691
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Kopioinnin aikana havaittiin syklinen linkki"
 
-#: core/job_error.cpp:690
+#: core/job_error.cpp:693
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1391,17 +1396,17 @@ msgstr ""
 "Kopioinnin aikana KDE tunnisti päättymättömään linkkiin johtavan linkin tai "
 "linkkien sarjan, ts. tiedosto viittaa (vähintäänkin mutkan kautta) itseensä."
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Verkkoyhteyttä ei voitu avata"
 
-#: core/job_error.cpp:703
+#: core/job_error.cpp:706
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Pistoketta ei voitu luoda"
 
-#: core/job_error.cpp:705
+#: core/job_error.cpp:708
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1410,8 +1415,8 @@ msgstr ""
 "Teknisen virheen vuoksi verkkoyhteyslaitteen (pistokkeen) luominen ei "
 "onnistunut."
 
-#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
-#: core/job_error.cpp:881
+#: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
+#: core/job_error.cpp:884
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1420,12 +1425,12 @@ msgstr ""
 "Verkkoyhteys saattaa olla virheellisesti asetettu tai verkkolaite ei ole "
 "käytössä."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Yhteys palvelimelle torjuttu"
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1434,7 +1439,7 @@ msgstr ""
 "Palvelin <strong>%1</strong> kieltäytyi avaamasta verkkoyhteyttä tämän "
 "tietokoneen kanssa."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1443,14 +1448,14 @@ msgstr ""
 "Vaikka palvelin on kytketty verkkoon, se saattaa olla asetettu torjumaan "
 "pyynnöt."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:726
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr "Palvelimella ei välttämättä ole käynnissä haluttua palvelua (%1)."
 
-#: core/job_error.cpp:727
+#: core/job_error.cpp:730
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1460,12 +1465,12 @@ msgstr ""
 "Verkon palomuuri (verkkoyhteyksiä rajoittava laite) joko omassa tai "
 "palvelimen verkossa saattaa estää tämän verkkoyhteyden toimintaa."
 
-#: core/job_error.cpp:734
+#: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Yhteys palvelimelle katkesi odottamattomasti"
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1474,7 +1479,7 @@ msgstr ""
 "Vaikka palvelimelle <strong>%1</strong> saatiin verkkoyhteys, se katkesi "
 "kesken verkkoliikenteen."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1483,17 +1488,17 @@ msgstr ""
 "On saattanut tapahtua yhteyskäytäntövirhe, jonka vuoksi palvelin katkaisi "
 "yhteyden."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:751
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Virheellinen verkko-osoiteresurssi"
 
-#: core/job_error.cpp:749
+#: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Yhteyskäytäntö %1 ei ole suodatinyhteyskäytäntö"
 
-#: core/job_error.cpp:751
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1504,7 +1509,7 @@ msgstr ""
 "<strong>L</strong>ocation, URL) ei ole oikea mekanismi resurssin <strong>"
 "%1%2</strong> käyttöön."
 
-#: core/job_error.cpp:758
+#: core/job_error.cpp:761
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1517,17 +1522,17 @@ msgstr ""
 "pysty siihen. Tämä on harvinaista ja kyseessä on todennäköisesti "
 "ohjelmointivirhe."
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "I/O-laitetta ei saatu alustetuksi"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Laitetta ei voitu liittää"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:772
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1536,7 +1541,7 @@ msgstr ""
 "Valittua laitetta ei voitu alustaa (liittää tiedostojärjestelmään). "
 "Järjestelmä palautti virheilmoituksen: <strong>%1</strong>"
 
-#: core/job_error.cpp:773
+#: core/job_error.cpp:776
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1547,7 +1552,7 @@ msgstr ""
 "ole tietovälinettä (esim. CD-asemassa ei ole levyä) tai irrotettavaa "
 "laitetta ei ole kytketty oikein."
 
-#: core/job_error.cpp:778
+#: core/job_error.cpp:781
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1557,7 +1562,7 @@ msgstr ""
 "Laitteen liittämiseen ei ole oikeuksia. UNIX-järjestelmissä liittämiseen "
 "tarvitaan usein pääkäyttäjän oikeudet."
 
-#: core/job_error.cpp:783
+#: core/job_error.cpp:786
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1567,17 +1572,17 @@ msgstr ""
 "mahdollinen kannettava laite on kytketty oikein ja että siihen on kytketty "
 "virta. Yritä sitten uudelleen."
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "I/O-laitetta ei saatu suljetuksi"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Laitetta ei voitu irrottaa"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:796
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1586,7 +1591,7 @@ msgstr ""
 "Pyydettyä laitetta ei voitu irrottaa tiedostojärjestelmästä. Virheilmoitus: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:797
+#: core/job_error.cpp:800
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1597,7 +1602,7 @@ msgstr ""
 "Esimerkiksi avoin selain tai tiedostonhallinnan ikkuna saattaa varata "
 "laitteen."
 
-#: core/job_error.cpp:802
+#: core/job_error.cpp:805
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1607,18 +1612,18 @@ msgstr ""
 "Laitteen irrottamiseen ei ole ehkä käyttöoikeuksia. Unix-järjestelmissä "
 "tähän vaaditaan usein pääkäyttäjän oikeudet."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Varmista, ettei mikään sovellus käytä tätä laitetta, ja yritä uudelleen."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Resurssista ei voitu lukea"
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:818
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1627,17 +1632,17 @@ msgstr ""
 "Tämä tarkoittaa, että vaikka resurssi <strong>%1</strong> voitiin avata, sen "
 "sisältöä luettaessa tapahtui virhe."
 
-#: core/job_error.cpp:819
+#: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Tähän resurssiin ei ole lukuoikeuksia."
 
-#: core/job_error.cpp:832
+#: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Resurssiin ei voida kirjoittaa"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:837
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1646,22 +1651,22 @@ msgstr ""
 "Tämä tarkoittaa, että vaikka resurssi <strong>%1</strong> voitiin avata, sen "
 "sisältöä kirjoitettaessa tapahtui virhe."
 
-#: core/job_error.cpp:837
+#: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Tähän resurssiin ei ole kirjoitusoikeuksia."
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Verkkoyhteyksiä ei voitu kuunnella"
 
-#: core/job_error.cpp:851
+#: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Ei voitu sitoa"
 
-#: core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1671,50 +1676,50 @@ msgstr ""
 "Tämä on teknisehkö virhe, missä verkkoyhteyteen vaadittua laitetta "
 "(pistoketta) ei saatu asetetuksi kuuntelemaan tulevaa verkkoliikennettä."
 
-#: core/job_error.cpp:864
+#: core/job_error.cpp:867
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Ei voi kuunnella"
 
-#: core/job_error.cpp:876
+#: core/job_error.cpp:879
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Verkkoyhteyttä ei saada hyväksytyksi"
 
-#: core/job_error.cpp:878
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr "Teknisen syyn vuoksi tulevia verkkoyhteyksiä ei voitu vastaanottaa."
 
-#: core/job_error.cpp:883
+#: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Tämän yhteyden hyväksymiseen ei ole oikeuksia."
 
-#: core/job_error.cpp:888
+#: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Ei voitu kirjautua: %1"
 
-#: core/job_error.cpp:890
+#: core/job_error.cpp:893
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "Pyynnön suorituksessa tarvittava sisäänkirjautuminen ei onnistunut."
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:909
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Resurssin tilaa ei saatu selville"
 
-#: core/job_error.cpp:907
+#: core/job_error.cpp:910
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Resurssin tilaa ei saatu selville"
 
-#: core/job_error.cpp:909
+#: core/job_error.cpp:912
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1723,70 +1728,70 @@ msgstr ""
 "Resurssin <strong>%1</strong> tilan, kuten nimen, tyypin, koon, ym. "
 "määrittely ei onnistunut."
 
-#: core/job_error.cpp:914
+#: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Määritettyä resurssia ei ole olemassa tai siihen ei ole pääsyä."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Listausta ei voitu lopettaa"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: Dokumentoi tämä"
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Kansiota ei voitu luoda"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Kansion luominen epäonnistui."
 
-#: core/job_error.cpp:934
+#: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Kansion sijaintia ei ehkä ole."
 
-#: core/job_error.cpp:943
+#: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Kansiota ei voitu poistaa"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:948
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Kansion <strong>%1</strong> poistaminen epäonnistui."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Kansiota ei ehkä ole olemassa."
 
-#: core/job_error.cpp:948
+#: core/job_error.cpp:951
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Kansio ei ehkä ole tyhjä."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr ""
 "Varmista, että kansio on olemassa ja että se on tyhjä. Yritä sitten "
 "uudelleen."
 
-#: core/job_error.cpp:959
+#: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Tiedonsiirtoa ei voitu jatkaa"
 
-#: core/job_error.cpp:961
+#: core/job_error.cpp:964
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1795,44 +1800,44 @@ msgstr ""
 "Tiedoston <strong>%1</strong> siirtoa pyydetään jatkamaan määräkohdasta, "
 "mutta tämä ei ole mahdollista."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Yhteyskäytäntö tai palvelin ei välttämättä tue siirron jatkamista."
 
-#: core/job_error.cpp:969
+#: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Yritä uudelleen ilman siirron jatkamista."
 
-#: core/job_error.cpp:974
+#: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Resurssin nimeä ei voi muuttaa"
 
-#: core/job_error.cpp:976
+#: core/job_error.cpp:979
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Yritys muuttaa resurssin <strong>%1</strong> nimeä epäonnistui."
 
-#: core/job_error.cpp:987
+#: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Resurssin käyttöoikeuksia ei voitu muuttaa"
 
-#: core/job_error.cpp:989
+#: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr "Resurssin <strong>%1</strong> käyttöoikeuksia ei voitu muuttaa."
 
-#: core/job_error.cpp:997
+#: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Resurssin omistajaa ei voitu muuttaa"
 
-#: core/job_error.cpp:999
+#: core/job_error.cpp:1002
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1841,22 +1846,22 @@ msgstr ""
 "Määritetyn resurssin <strong>%1</strong> käyttöoikeuksien muuttaminen "
 "epäonnistui."
 
-#: core/job_error.cpp:1007
+#: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Resurssia ei voitu poistaa"
 
-#: core/job_error.cpp:1009
+#: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Resurssin <strong>%1</strong> poistaminen epäonnistui."
 
-#: core/job_error.cpp:1017
+#: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Odottamaton ohjelman pysähtyminen"
 
-#: core/job_error.cpp:1019
+#: core/job_error.cpp:1022
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1865,12 +1870,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma päättyi "
 "odottamattomasti."
 
-#: core/job_error.cpp:1027
+#: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
 msgstr "Muisti lopussa"
 
-#: core/job_error.cpp:1029
+#: core/job_error.cpp:1032
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1879,12 +1884,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ei saanut varatuksi "
 "muistia jatkaakseen."
 
-#: core/job_error.cpp:1038
+#: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Tuntematon välityspalvelin"
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1895,7 +1900,7 @@ msgstr ""
 "havaittiin Tuntematon konenimi -virhe, mikä tarkoittaa, ettei pyydettyä "
 "nimeä löydetty internetistä."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1049
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1906,17 +1911,17 @@ msgstr ""
 "ongelma. Jos olet viime aikoina käyttänyt internetiä ongelmitta, tämä on "
 "epätodennäköistä."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Tarkista välityspalvelimen asetukset ja yritä uudelleen."
 
-#: core/job_error.cpp:1054
+#: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Tunnistautuminen epäonnistui: menetelmää %1 ei tueta"
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1927,7 +1932,7 @@ msgstr ""
 "epäonnistui, koska palvelimen käyttämä tunnistautumismenetelmä ei ole "
 "yhteyskäytännön %1 tarjoavan KDE-ohjelman tukema."
 
-#: core/job_error.cpp:1062
+#: core/job_error.cpp:1065
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1936,17 +1941,17 @@ msgstr ""
 "Tee KDE-työryhmälle todennustavan tuen puutteesta vikailmoitus sivustolla <a "
 "href=\"https://bugs.kde.org/\">https://bugs.kde.org/</a>."
 
-#: core/job_error.cpp:1069
+#: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
 msgstr "Pyyntö keskeytetty"
 
-#: core/job_error.cpp:1077
+#: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Palvelimen sisäinen virhe"
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1955,7 +1960,7 @@ msgstr ""
 "Palvelimen ohjelma, joka tarjoaa yhteyskäytännön <strong>%1</strong>,"
 "ilmoitti sisäisestä virheestä: %2."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1964,12 +1969,12 @@ msgstr ""
 "Tämän aiheutti todennäköisimmin palvelinohjelman virhe. Lähetä täydellinen "
 "virheraportti alla olevien ohjeiden mukaan."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1092
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Ota yhteyttä palvelimen ylläpitäjään ilmoittaaksesi ongelmasta."
 
-#: core/job_error.cpp:1092
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1977,12 +1982,12 @@ msgid ""
 msgstr ""
 "Jos tiedät palvelinohjelmiston tekijät on, ilmoita viasta heille suoraan."
 
-#: core/job_error.cpp:1097
+#: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
 msgstr "Aikakatkaisuvirhe"
 
-#: core/job_error.cpp:1099
+#: core/job_error.cpp:1102
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -1991,17 +1996,17 @@ msgstr ""
 "Vaikka palvelinyhteys muodostui, pyyntöön varatussa ajassa ei vastaanotettu "
 "vastausta."
 
-#: core/job_error.cpp:1104
+#: core/job_error.cpp:1107
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Palvelin oli liian varattu vastatakseen pyyntöön."
 
-#: core/job_error.cpp:1110
+#: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
 msgstr "Tuntematon virhe"
 
-#: core/job_error.cpp:1112
+#: core/job_error.cpp:1115
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2010,12 +2015,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ilmoitti "
 "tuntemattomasta virheestä: %2."
 
-#: core/job_error.cpp:1122
+#: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Tuntematon keskeytys"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2024,12 +2029,12 @@ msgstr ""
 "Yhteyskäytännön <strong>%1</strong> tarjoava ohjelma ilmoitti "
 "tuntemattomasta keskeytyksestä: %2."
 
-#: core/job_error.cpp:1134
+#: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Alkuperäistä tiedostoa ei voitu poistaa"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2040,12 +2045,12 @@ msgstr ""
 "todennäköisesti tiedoston siirto-operaation jälkeen. Alkuperäistä tiedostoa "
 "<strong>%1</strong> ei voitu poistaa."
 
-#: core/job_error.cpp:1145
+#: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Väliaikaista tiedostoa ei voitu poistaa"
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2056,12 +2061,12 @@ msgstr ""
 "tallennettiin sitä haettaessa. Tätä väliaikaistiedostoa <strong>%1</strong> "
 "ei voitu poistaa."
 
-#: core/job_error.cpp:1157
+#: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Alkuperäistä tiedoston nimeä ei voitu muuttaa"
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2070,12 +2075,12 @@ msgstr ""
 "Pyydetty toimenpide vaati muuttamaan alkuperäisen tiedoston <strong>%1</"
 "strong> nimeä, mutta nimeä ei kyetty muuttamaan."
 
-#: core/job_error.cpp:1168
+#: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Väliaikaisen tiedoston nimeä ei voitu muuttaa"
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2084,32 +2089,32 @@ msgstr ""
 "Pyydetty operaatio vaati väliaikaistiedoston <strong>%1</strong> luomista, "
 "mutta sitä ei pystytty luomaan."
 
-#: core/job_error.cpp:1179
+#: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Linkkiä ei voitu luoda"
 
-#: core/job_error.cpp:1180
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Symlinkkiä ei voitu luoda"
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Pyydettyä sylinkkiä %1 ei voitu luoda."
 
-#: core/job_error.cpp:1187
+#: core/job_error.cpp:1190
 #, kde-format
 msgid "No Content"
 msgstr "Ei sisältöä"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
 msgstr "Levy on täynnä"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2118,7 +2123,7 @@ msgstr ""
 "Pyydettyä tiedostoa <strong>%1</strong> ei voitu kirjoittaa, koska levytilaa "
 "ei ole tarpeeksi."
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1201
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2129,12 +2134,12 @@ msgstr ""
 "tiedostoja 2) pakkaamalla tiedostoja siirrettävälle medialle kuten CD-R-"
 "levyille 3) hankkimalla lisää levytilaa."
 
-#: core/job_error.cpp:1205
+#: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Lähde- ja kohdetiedostot ovat samoja"
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2143,17 +2148,17 @@ msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähde- ja kohdetiedostot ovat sama "
 "tiedosto."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Valitse kohdetiedostolle jokin toinen nimi."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1216
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Tiedosto tai kansio pudotettiin itseensä"
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2161,17 +2166,17 @@ msgid ""
 msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähde- ja kohdesijainnit ovat samat."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Pudota kohde toiseen tiedostoon tai kansioon."
 
-#: core/job_error.cpp:1227
+#: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Kansio siirrettiin itseensä"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2179,17 +2184,17 @@ msgid ""
 msgstr ""
 "Toimenpidettä ei voitu suorittaa, koska lähdettä ei voi siirtää itseensä."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Siirrä kohde toiseen kansioon."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Viestintä salasanapalvelimen kanssa epäonnistui"
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2198,23 +2203,23 @@ msgstr ""
 "Toimenpidettä ei voitu suorittaa loppuun, koska salasananpyyntöpalveluun "
 "(kpasswdserver) ei saada yhteyttä"
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Yritä käynnistää istunto uudelleen tai katso kiod-palvelun virheet lokista."
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1246
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Yhteyskäytäntöä %1 ei saada alustetuksi"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO-työskentelijää ei voitu luoda"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2224,7 +2229,7 @@ msgstr ""
 "yhteyskäytäntöön, ei saatu käynnistettyä. Tämä johtuu yleensä teknisistä "
 "syistä."
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2233,13 +2238,13 @@ msgstr ""
 "KLauncher ei löytynyt tai käynnistänyt yhteyskäytännön tarjoavaa "
 "liitännäistä.Liitännäinen saattaa olla versioltaan vanhentunut."
 
-#: core/job_error.cpp:1257
+#: core/job_error.cpp:1260
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Tiedostoa <filename>%1</filename> ei voi siirtää"
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2249,7 +2254,7 @@ msgstr ""
 "Tiedostoa <filename>%1</filename> ei voi siirtää, koska "
 "kohdetiedostojärjestelmä ei tue näin suuria tiedostoja"
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1265
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2258,7 +2263,7 @@ msgstr ""
 "Alusta kohde käyttämään tiedostojärjestelmää, joka tukee näin suuria "
 "tiedostoja."
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Dokumentoimaton virhe"
@@ -2450,7 +2455,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Kohteesta ”%1” ei löytynyt ”kioworker”-ohjelmatiedostoa."
 
 #: core/workerinterface.cpp:343 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:491
+#: widgets/widgetsaskuseractionhandler.cpp:516
 #, kde-format
 msgid "&Details"
 msgstr "&Yksityiskohdat"
@@ -2555,7 +2560,7 @@ msgstr "Uusi kansio…"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
@@ -3028,12 +3033,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Sijaintipaneeliin voi lisätä vain kansioita."
 
 #: filewidgets/kfileplacesmodel.cpp:1341
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Verkkopikavalintojen asetukset…"
+msgstr "Asetukset…"
 
 #: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
@@ -3248,10 +3251,9 @@ msgid "Huge (%1x%1)"
 msgstr "Valtava (%1 × %1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Luo kansio"
+msgstr "Nykyinen kansio: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -4342,7 +4344,7 @@ msgid ""
 msgstr "Haluatko hyväksyä varmenteen pysyvästi?"
 
 #: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:489
+#: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "Palvelimen varmennus"
@@ -4598,7 +4600,7 @@ msgstr "Tyhjennä roskakori"
 msgid "Restore a trashed file to its original location"
 msgstr "Palauta roskakoriin viedyt tiedostot niiden alkuperäisille paikoilleen"
 
-#: kioworkers/trash/trashimpl.cpp:1338
+#: kioworkers/trash/trashimpl.cpp:1340
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Roskakori on täynnä. Tyhjennä se tai poista kohteita itse."
@@ -5062,6 +5064,7 @@ msgstr "Poista pysyvästi"
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
 #: widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/widgetsaskuseractionhandler.cpp:290
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5083,7 +5086,7 @@ msgstr[1] ""
 "Haluatko varmasti poistaa nämä %1 kohdetta pysyvästi?<nl/><nl/><emphasis "
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5093,13 +5096,13 @@ msgstr ""
 "Haluatko varmasti tyhjentää koko roskakorin?<nl/><nl/><emphasis "
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:277
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7279,7 +7282,7 @@ msgstr ""
 "Etäpalvelin ei lähettänyt SSL-varmenteita.\n"
 "Keskeytetään, koska palvelinta ei kyetä tunnistamaan."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:482
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:507
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7345,7 +7348,51 @@ msgstr[1] ""
 "Roskakori on liian täynnä näille %1 tiedostolle. Poistetaanko se pysyvästi?"
 "<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:288
+#: widgets/widgetsaskuseractionhandler.cpp:275
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The trash is too full to accept this file. Permanently delete it instead?"
+#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
+#| "action cannot be undone.</emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for this item’s location. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
+"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Toimintoa ei "
+"voi kumota.</emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:282
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The trash is too full to accept this %1 file. Permanently delete it "
+#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
+#| "emphasis>"
+#| msgid_plural ""
+#| "The trash is too full to accept these %1 files. Permanently delete them "
+#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+#| "emphasis>"
+msgctxt "@info"
+msgid ""
+"The trash is not available for the location of this %1 item. Permanently "
+"delete it instead?<nl/><emphasis strong='true'>This action cannot be undone."
+"</emphasis>"
+msgid_plural ""
+"The trash is not available for the location of these %1 items. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
+"><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
+msgstr[1] ""
+"Roskakori on liian täynnä näille %1 tiedostolle. Poistetaanko se pysyvästi?"
+"<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
+
+#: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7353,30 +7400,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Haluatko varmasti siirtää tämän %1 kohteen roskakoriin?"
 msgstr[1] "Haluatko varmasti siirtää nämä %1 kohdetta roskakoriin?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:343
+#: widgets/widgetsaskuseractionhandler.cpp:367
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:386
+#: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:412
+#: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Älä näytä tätä viestiä uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:547
+#: widgets/widgetsaskuseractionhandler.cpp:572
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vastapään SSL-varmenneketju näyttää olevan vioittunut."
 
-#: widgets/widgetsaskuseractionhandler.cpp:550
+#: widgets/widgetsaskuseractionhandler.cpp:575
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
