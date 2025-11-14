@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-10-14 23:46+0200\n"
+"PO-Revision-Date: 2025-11-13 17:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -722,7 +722,7 @@ msgstr "Bestand is te groot voor de prullenbak."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Voor deze locatie kon geen prullenbak worden gevonden of aangemaakt."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7463,33 +7463,20 @@ msgstr[1] ""
 "niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"De prullenbak ie te vol om dit bestand te accepteren. In plaats daarvan "
-"permanent verwijderen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Deze actie kan niet ongedaan worden gemaakt.</emphasis>"
+"De prullenbak is niet beschikbaar voor de locatie van dit item. In plaats "
+"daarvan permanent verwijderen?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Deze actie kan niet ongedaan worden gemaakt.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7500,13 +7487,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"De prullenbak is te vol om dit ene bestand te accepteren. In plaats daarvan "
-"permanent verwijderen?<nl/><emphasis strong='true'>Deze actie kan niet "
-"ongedaan worden gemaakt.</emphasis>"
-msgstr[1] ""
-"De prullenbak is te vol om deze %1 bestanden te accepteren. In plaats "
+"De prullenbak is niet beschikbaar voor de locatie van dit %1 item. In plaats "
 "daarvan permanent verwijderen?<nl/><emphasis strong='true'>Deze actie kan "
 "niet ongedaan worden gemaakt.</emphasis>"
+msgstr[1] ""
+"De prullenbak is niet beschikbaar voor de locatie van deze %1 items. In "
+"plaats daarvan permanent verwijderen?<nl/><emphasis strong='true'>Deze actie "
+"kan niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format

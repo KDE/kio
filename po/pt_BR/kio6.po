@@ -20,15 +20,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-11-08 21:10-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"PO-Revision-Date: 2025-11-13 07:14-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -730,7 +730,7 @@ msgstr "O arquivo é muito grande para ser colocado na lixeira."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Não foi possível encontrar ou criar uma pasta de lixo para este local."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7415,33 +7415,19 @@ msgstr[1] ""
 "pode ser desfeita.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"A lixeira está muito cheia para aceitar este arquivo. Ao invés disso, deseja "
-"excluí-lo permanentemente?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"A lixeira não está disponível para a localização deste item. Exclua-o "
+"permanentemente. Em vez disso?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Esta ação não pode ser desfeita.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7452,13 +7438,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"A lixeira está muito cheia para aceitar este %1 arquivo. Ao invés disso, "
-"deseja excluí-lo permanentemente?<nl/><emphasis strong='true'>Esta ação não "
-"pode ser desfeita.</emphasis>"
+"A lixeira não está disponível para o local deste %1 item. Excluir "
+"permanentemente?<nl/><emphasis strong='true'>Esta ação não pode ser desfeita."
+"</emphasis>"
 msgstr[1] ""
-"A lixeira está muito cheia para aceitar estes %1 arquivos. Ao invés disso, "
-"deseja excluí-los permanentemente?<nl/><emphasis strong='true'>Esta ação não "
-"pode ser desfeita.</emphasis>"
+"A lixeira não está disponível para o local destes %1 itens. Excluir "
+"permanentemente?<nl/><emphasis strong='true'>Esta ação não pode ser desfeita."
+"</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
