@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-10-14 15:54+0300\n"
+"PO-Revision-Date: 2025-11-14 18:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -731,7 +731,7 @@ msgstr "Dosya çöp kutusuna taşınmak için pek büyük."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Bu konumda bir çöp klasörü bulunamadı veya oluşturulamadı."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7331,33 +7331,19 @@ msgstr[1] ""
 "silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Çöp kutusu, bu dosyayı almak için çok dolu. Bunun yerine kalıcı olarak "
-"silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Çöp kutusu, bu ögenin konumu için kullanılabilir değil. Bunun yerine kalıcı "
+"olarak silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7368,11 +7354,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Çöp kutusu, bu %1 dosyayı almak için çok dolu. Bunun yerine kalıcı olarak "
-"silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Çöp kutusu, bu %1 ögenin konumu için kullanılabilir değil. Bunun yerine "
+"kalıcı olarak silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri "
+"alınamaz.</emphasis>"
 msgstr[1] ""
-"Çöp kutusu, bu %1 dosyayı almak için çok dolu. Bunun yerine kalıcı olarak "
-"silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Çöp kutusu, bu %1 ögenin konumu için kullanılabilir değil. Bunun yerine "
+"kalıcı olarak silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri "
+"alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
