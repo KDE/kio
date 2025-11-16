@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-10-14 09:26+0200\n"
+"PO-Revision-Date: 2025-11-13 14:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -727,6 +727,7 @@ msgstr "El fitxer és massa gros per a anar a dins de la paperera."
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"No s'ha pogut trobar ni crear una carpeta de paperera en esta ubicació."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7425,33 +7426,19 @@ msgstr[1] ""
 "desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"La paperera està massa plena per a acceptar este fitxer. Voleu suprimir-lo "
-"permanentment?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Esta acció no es podrà desfer.</emphasis>"
+"La paperera no està disponible per a esta ubicació de l'element. Voleu "
+"suprimir-lo permanentment?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7462,13 +7449,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"La paperera està massa plena per a acceptar este %1 fitxer. Voleu suprimir-"
-"lo permanentment?<nl/><emphasis strong='true'>Esta acció no es podrà desfer."
-"</emphasis>"
+"La paperera no està disponible per a la ubicació d'este %1 element. Voleu "
+"suprimir-lo permanentment?<nl/><emphasis strong='true'>Esta acció no es "
+"podrà desfer.</emphasis>"
 msgstr[1] ""
-"La paperera està massa plena per a acceptar estos %1 fitxers. Voleu suprimir-"
-"los permanentment?<nl/><nl/><emphasis strong='true'>Esta acció no es podrà "
-"desfer.</emphasis>"
+"La paperera no està disponible per a la ubicació d'estos %1 elements. Voleu "
+"suprimir-los permanentment?<nl/><emphasis strong='true'>Esta acció no es "
+"podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format

@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-11-04 19:55+0100\n"
+"PO-Revision-Date: 2025-11-14 13:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -748,6 +748,7 @@ msgstr "Ce fichier est trop gros pour être mis à la corbeille."
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Impossible de trouver ou de créer un dossier de corbeille à cet emplacement."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7502,34 +7503,20 @@ msgstr[1] ""
 "irréversible.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"La capacité de la corbeille est insuffisante pour accepter ce fichier. "
-"Voulez-vous, à la place, le supprimer définitivement ?<nl/> <nl/><filename>"
-"%1</filename><nl/> <nl/> <emphasis strong='true'>Il est impossible d'annuler "
-"cette action.</emphasis>"
+"La corbeille est indisponible à cet emplacement d'éléments. Voulez-vous, à "
+"la place, la supprimer définitivement ?<nl/> <nl/><filename>%1</filename><nl/"
+"> <nl/> <emphasis strong='true'>Il est impossible d'annuler cette action.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7540,13 +7527,15 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"La capacité de la corbeille est insuffisante pour accepter ce fichier %1. "
-"Voulez-vous, à la place, le supprimer définitivement ?<nl/> <emphasis "
-"strong='true'>Il est impossible d'annuler cette action.</emphasis>"
+"La corbeille est indisponible à cet emplacement pour cet élément %1. Voulez-"
+"vous, à la place, la supprimer définitivement ?<nl/> <nl/><filename>%1</"
+"filename><nl/> <nl/> <emphasis strong='true'>Il est impossible d'annuler "
+"cette action.</emphasis>"
 msgstr[1] ""
-"Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/"
-"><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
-"irréversible.</emphasis>"
+"La corbeille est indisponible à cet emplacement pour ces %1 élément. Voulez-"
+"vous, à la place, la supprimer définitivement ?<nl/> <nl/><filename>%1</"
+"filename><nl/> <nl/> <emphasis strong='true'>Il est impossible d'annuler "
+"cette action.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
