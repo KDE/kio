@@ -73,7 +73,7 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &filters, const KFile
     }();
 
     if (validFilters.isEmpty()) {
-        d->m_filters = {d->m_defaultFilter};
+        d->m_filters.append(d->m_defaultFilter);
         addItem(d->m_defaultFilter.label());
 
         d->m_lastFilter = currentText();
