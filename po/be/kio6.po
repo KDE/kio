@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:39+0000\n"
+"POT-Creation-Date: 2025-11-17 11:49+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3889,7 +3889,7 @@ msgstr "Націсніце, каб перайсці да размяшчэння"
 msgid "Click to Edit Location"
 msgstr "Націсніце, каб рэдагаваць размяшчэнне"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Вы не аўтарызаваныя для выканання гэтага файла."
@@ -3960,12 +3960,12 @@ msgstr ""
 "%1\n"
 "непрыдатны."
 
-#: gui/kprocessrunner.cpp:287
+#: gui/kprocessrunner.cpp:291
 #, kde-format
 msgid "Launching %1"
 msgstr "Запуск %1"
 
-#: gui/kprocessrunner.cpp:459
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

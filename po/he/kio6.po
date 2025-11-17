@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:39+0000\n"
+"POT-Creation-Date: 2025-11-17 11:49+0000\n"
 "PO-Revision-Date: 2025-11-13 10:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3756,7 +3756,7 @@ msgstr "לחיצה לניווט בין מקומות"
 msgid "Click to Edit Location"
 msgstr "לחיצה לעריכת המקום"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "אין לך הרשאה להפעיל קובץ זה."
@@ -3824,12 +3824,12 @@ msgstr ""
 "%1\n"
 "פגומה."
 
-#: gui/kprocessrunner.cpp:287
+#: gui/kprocessrunner.cpp:291
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 מופעל"
 
-#: gui/kprocessrunner.cpp:459
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

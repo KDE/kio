@@ -2,7 +2,7 @@
 # íslenskun kcmkio.po
 # Copyright (C) 2000,2003, 2004, 2005, 2006, 2008, 2009, 2010 Free Software Foundation, Inc.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 # Bjarni R. Einarsson <bre@netverjar.is>, 2000.
 # Richard Allen <ra@ra.is>, 2000-2004.
 # Pjetur G. Hjaltason <pjetur@pjetur.net>, 2003.
@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 09:57+0000\n"
+"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"PO-Revision-Date: 2025-11-16 13:23+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -729,6 +729,8 @@ msgstr "Skráin er of stór til að fara í ruslið."
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Ruslmappa fannst ekki eða ekki tókst að búa hana til fyrir þessa "
+"staðsetningu."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -1983,6 +1985,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Þrátt fyrir að samband hafi náðst við þjóninn barst ekki svar frá honum "
+"innan þess tíma sem beiðnin fær úthlutaðan."
 
 #: core/job_error.cpp:1107
 #, kde-format
@@ -2429,6 +2433,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO-þrælnum fyrir staðalinn “%1” í %2 var ekki hlaðið inn vegna þess að "
+"allir KIO-þrælar sem eru staðsettir utan við %3 og biðja um auknar heimildir "
+"teljast vera óöruggir."
 
 #: core/worker.cpp:422
 #, kde-format
@@ -2466,20 +2473,16 @@ msgid "&Current Session only"
 msgstr "Aðeins í &þessari setu"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Búa til nýja möppu"
+msgstr "Færa í nýja möppu"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Búa til nýja möppu"
+msgstr "Búa til nýja möppu úr þessum atriðum"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
@@ -3025,12 +3028,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Aðeins er hægt að bæta möppum við svæðið Staðir."
 
 #: filewidgets/kfileplacesmodel.cpp:1341
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Skilgreina vefflýtilykla…"
+msgstr "Grunnstilla…"
 
 #: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
@@ -3243,10 +3244,9 @@ msgid "Huge (%1x%1)"
 msgstr "Risastór (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Búa til möppu"
+msgstr "Núverandi mappa: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -3337,10 +3337,9 @@ msgid "Show Places Panel"
 msgstr "Sýna svæðið Staðir"
 
 #: filewidgets/kfilewidget.cpp:1237
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Sýna faldar skrár"
+msgstr "Sýna flýtisíu"
 
 #: filewidgets/kfilewidget.cpp:1245
 #, kde-format
@@ -3388,31 +3387,27 @@ msgid "&Name:"
 msgstr "&Heiti:"
 
 #: filewidgets/kfilewidget.cpp:1341
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Afturkalla breytingar"
+msgstr "Afturkalla breytingu á skrárheiti"
 
 #: filewidgets/kfilewidget.cpp:1392
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Opna umlykjandi möppu"
+msgstr "Halda síunni þegar skipt er um möppu"
 
 #: filewidgets/kfilewidget.cpp:1396
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
-msgstr "Skráarheiti:"
+msgstr "Sía eftir heiti…"
 
 #: filewidgets/kfilewidget.cpp:1404
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Faldar skrár aftast"
+msgstr "Fela síustiku"
 
 #: filewidgets/kfilewidget.cpp:1453
 #, kde-format
@@ -3549,16 +3544,13 @@ msgstr ""
 "þegar skráin er vistuð.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2945
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Þetta er skrárgerðarvalið. Það er notað til að velja sniðið sem er notað "
-"þegar skráin er vistuð.</qt>"
+"<qt>Þetta er skrárgerðarvalið. Það er notað til að velja snið skráarinnarsem "
+"er sýnd.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3578,12 +3570,12 @@ msgstr "Heiti á nýjum tengli:"
 #: filewidgets/knewfilemenu.cpp:679
 #, kde-format
 msgid "Create Symlink"
-msgstr "Búa til tákntengil (symlink)"
+msgstr "Búa til tákntengil"
 
 #: filewidgets/knewfilemenu.cpp:745
 #, kde-format
 msgid "Create link to URL"
-msgstr "Búa til tengil á URL-slóð"
+msgstr "Búa til tengil á slóð"
 
 #: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
 #, kde-format
@@ -3657,6 +3649,8 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"Ekki er hægt að búa til skrá eða möppu með heitinu <filename>%1</filename> "
+"þar sem það myndi skarast við staðsetninguna á heimamöppu notandans."
 
 #: filewidgets/knewfilemenu.cpp:1308
 #, kde-format
@@ -3708,17 +3702,13 @@ msgid "Create new folder in %1:"
 msgstr "Búa til nýja möppu í: %1"
 
 #: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Sláðu inn möppuheiti"
 
 #: filewidgets/knewfilemenu.cpp:1634
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Sjálfgefið"
 
@@ -3731,32 +3721,28 @@ msgstr "Búa til nýja skrá"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgid "Enter file name"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Sláðu inn skrárheiti"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Veldu forrit fyrir %1"
+msgstr "Veldu sérsniðið tákn eða lit"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Veldu &tákn:"
+msgstr "Veldu annað tákn..."
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "Þú getur skipt um tákn seinna í eiginleikastillingum möppunnar."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3853,7 +3839,7 @@ msgstr "Smelltu til að flakka"
 msgid "Click to Edit Location"
 msgstr "Smelltu til að breyta staðsetningu"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:240
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Þú hefur ekki leyfi til að keyra þessa skrá."
@@ -3922,12 +3908,12 @@ msgstr ""
 "%1\n"
 "er ekki gild."
 
-#: gui/kprocessrunner.cpp:287
+#: gui/kprocessrunner.cpp:291
 #, kde-format
 msgid "Launching %1"
 msgstr "Keyri %1"
 
-#: gui/kprocessrunner.cpp:459
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4829,23 +4815,22 @@ msgid "&Link Here"
 msgstr "&Tengja hingað"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Keyri %1"
+msgstr "&Keyra"
 
 #: widgets/executablefileopendialog.cpp:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Launch executable files without asking"
-msgstr ""
+msgstr "Keyra keyranlegar skrár án þess að spyrja"
 
 #: widgets/executablefileopendialog.cpp:84
 #, kde-format
 msgctxt "@option:check Open in the associated app"
 msgid "Open executable files in the default application without asking"
-msgstr ""
+msgstr "Opna keyranlegar skrár í sjálfgefnu forriti án þess að spyrja"
 
 #: widgets/executablefileopendialog.cpp:87
 #, kde-format
@@ -4853,32 +4838,29 @@ msgid "What do you wish to do with this file?"
 msgstr "Hvað viltu gera við þessa skrá?"
 
 #: widgets/executablefileopendialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Opna"
 
 #: widgets/executablefileopendialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Opna með %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Hvað viltu gera við þessa skrá?"
+msgstr "Viltu keyra þessa skrá?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
 #: widgets/executablefileopendialog.ui:97
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Muna fyrir allar keyranlegar skrár"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -4887,6 +4869,8 @@ msgctxt "@info:tooltip How to undo do not ask again"
 msgid ""
 "You can undo this under \"Confirmations\" in Dolphin file manager settings."
 msgstr ""
+"Þú getur afturkallað þetta í \"Staðfestingar\" í stillingum Dolphin "
+"skráastjórans."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -4904,9 +4888,7 @@ msgid "Destination"
 msgstr "Áfangastaður"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Afrita"
 
@@ -4921,10 +4903,9 @@ msgid "Renaming"
 msgstr "Endurnefni"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Setja í ruslið"
+msgstr "Set í ruslið"
 
 #: widgets/fileundomanager.cpp:152
 #, kde-format
@@ -4984,61 +4965,52 @@ msgstr "Afturkalla: &Runuendurnefning"
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Endurtaka"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&Afturkalla: Afrita"
+msgstr "&Endurtaka: Afrita"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&Afturkalla: Tengill"
+msgstr "&Endurtaka: Tengill"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&Afturkalla: Færa"
+msgstr "&Endurtaka: Færa"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&Afturkalla: Endurnefna"
+msgstr "&Endurtaka: Endurnefna"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&Afturkalla: Henda í ruslið"
+msgstr "&Endurtaka: Rusl"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&Afturkalla: Búa til möppu"
+msgstr "&Endurtaka: Búa til möppu"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "Afturkalla: &Búa til möppu(r)"
+msgstr "&Endurtaka: Búa til möppu(r)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "Aftur&kalla: Búa til skrá"
+msgstr "&Endurtaka: Búa til skrá"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "Afturkalla: &Runuendurnefning"
+msgstr "&Endurtaka: Runuendurnefning"
 
 #: widgets/fileundomanager.cpp:902
 #, kde-format
@@ -5436,7 +5408,7 @@ msgstr "Stærð:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Ákvarða stærð möppunnar"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5448,7 +5420,7 @@ msgstr "Stöðva"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Stöðva ákvörðun á stærð möppu"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5464,10 +5436,9 @@ msgstr "Vísar á:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
-msgstr "Birta aðvörun"
+msgstr "Sýna viðtökustað"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:383
@@ -5806,37 +5777,30 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Sláðu inn lýsingu fyrir forritið sem sýnir notagildi þess, hér.  Dæmi:  "
-"forrit til innhringingar (KPPP) myndi verða \"Innhringiforrit\"."
+"Sláðu inn almenna lýsingu fyrir forritið hér.  Dæmi: myndskoðunarforrit "
+"Mætti lýsa sem \"Myndskoðari\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Notandanafn:"
+msgstr "&Almennt heiti:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Sláðu inn lýsingu fyrir forritið sem sýnir notagildi þess, hér.  Dæmi:  "
-"forrit til innhringingar (KPPP) myndi verða \"Innhringiforrit\"."
+"Sláðu inn lýsingu á forritinu hér sem sýnir notagildi þess.  Dæmi: forrit "
+"til að skoða myndir myndi verða \"Skoða og breyta myndum\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5846,8 +5810,7 @@ msgstr "Ath&ugasemd:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Umhverfisbreytur:"
 
@@ -6065,12 +6028,10 @@ msgid "&General"
 msgstr "Al&mennt"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:365
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Sláðu inn skrárheiti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6088,16 +6049,14 @@ msgstr "Endurlesa"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Færa inn viðtökustaðsetningu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:454
 #: widgets/kpropertiesdialogbuiltin_p.cpp:457
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Ekki tókst að flytja <filename>%1</filename>"
+msgstr "Sýna <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:564
 #, kde-format
@@ -6176,7 +6135,7 @@ msgstr "Breyta…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Breyta sjálfgefna forritinu sem á að opna skrár af gerðinni “%1”."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1080
@@ -6595,16 +6554,14 @@ msgid "Verifying checksum…"
 msgstr "Yfirfer gátsummu…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2443
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Skrárnar eru <b>eins</b>."
+msgstr "Gátsummur allra skráa eru eins."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2448
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Skrárnar eru <b>ólíkar</b>."
+msgstr "Skrárnar sem eru valdar eru með mismunandi gátsummur."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2454
 #, kde-format
@@ -6764,12 +6721,10 @@ msgid "Filename for clipboard content:"
 msgstr "Skrárheiti fyrir innihald klippispjalds:"
 
 #: widgets/paste.cpp:111
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "&Líma skrá"
+msgstr "límd skrá"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -7023,20 +6978,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Endurnefna atriðið <filename>%1</filename> sem:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Skrá með heitinu <filename>%1</filename> er þegar til staðar."
+msgstr "Skrá með heitinu <filename>%1</filename> er nú þegar til."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> virðist ekki vera keyranlegt forrit."
+msgstr "<filename>%1</filename> er ekki gilt skrárheiti."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7067,12 +7018,11 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Ógilt skrárheiti: Nýja heitið ætti að innihalda eina runu af #, nema allar "
+"skrárnar séu með mismunandi skrárendingar."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7080,37 +7030,34 @@ msgstr[0] "Endurnefna %1 valið atriði sem:"
 msgstr[1] "Endurnefna %1 valin atriði sem:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Skipta út"
+msgstr "Skipt út:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Mynstur"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Opna með:"
+msgstr "Fyrir:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Skipta út"
+msgstr "Útskipting"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Ekkert skrárheiti inniheldur mynstrið."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7119,45 +7066,40 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Ef “%1” er skipt út fyrir auða útskiptingu veldur það því að <filename>%2</"
+"filename> verður með autt skrárheiti."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Endurnefna %1 valið atriði sem:"
-msgstr[1] "Endurnefna %1 valin atriði sem:"
+msgstr[0] "Endurnefna %1 valið atriði:"
+msgstr[1] "Endurnefna %1 valin atriði:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Bæta við texta:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Texta sem bætt er við"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Á undan skrárheitinu"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Eftir skrárheitinu"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7178,45 +7120,41 @@ msgid "&Rename"
 msgstr "Endu&rnefna"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Eyða eða endurnefna:"
+msgstr "Hvernig á að endurnefna:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Tölusetja"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Skipta út"
+msgstr "Skipta út texta"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Bæta við texta"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Sýna forskoðun"
+msgstr "Forskoðun:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> virðist ekki vera keyranlegt forrit."
+msgstr ""
+"Ekki er hægt að endurnefna <filename>%1</filename> með auðu skrárheiti."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7363,37 +7301,23 @@ msgstr[0] ""
 "Viltu eyða endanlega þessu %1 atriði? <nl/><nl/><emphasis strong='true'>Ekki "
 "er hægt  að afturkalla þessa.</emphasis>"
 msgstr[1] ""
-"Viltu eyða endanlega þessum %1 atriðum? <nl/><nl/><emphasis "
+"Viltu eyða endanlega þessum %1 atriðum?<nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Ekki tókst að setja þetta atriði í ruslið því það er of stórt. Á frekar að "
-"eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Ruslið er of fullt til að geta tekið við skránni. Á frekar að eyða henni "
+"endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7403,42 +7327,28 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Ekki tókst að setja þetta %1 atriði í ruslið því það er of stórt. Á frekar "
-"að eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ruslið er of fullt til að geta tekið við þessari %1 skrá. Á frekar að eyða "
+"henni endanlega?<nl/><emphasis strong='true'>Ekki er hægt að afturkalla "
+"þessa aðgerð.</emphasis>"
 msgstr[1] ""
-"Ekki tókst að setja þessi %1 atriði í ruslið því þau eru of stór. Á frekar "
-"að eyða þeim endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ruslið er of fullt til að geta tekið við þessum %1 skrám. Á frekar að eyða "
+"þeim endanlega?<nl/><nl/><emphasis strong='true'>Ekki er hægt að afturkalla "
+"þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Ekki tókst að setja þetta atriði í ruslið því það er of stórt. Á frekar að "
-"eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Ruslið er ekki tiltækt fyrir staðsetningu þessa atriðis. Á frekar að eyða "
+"því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7449,13 +7359,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Ekki tókst að setja þetta %1 atriði í ruslið því það er of stórt. Á frekar "
-"að eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ruslið er ekki tiltækt fyrir staðsetningu þessa %1 atriðis. Á frekar að eyða "
+"því endanlega?<emphasis strong='true'><nl/>Ekki er hægt að afturkalla þessa "
+"aðgerð.</emphasis>"
 msgstr[1] ""
-"Ekki tókst að setja þessi %1 atriði í ruslið því þau eru of stór. Á frekar "
-"að eyða þeim endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ruslið er ekki tiltækt fyrir staðsetningu þessarar %1 atriða. Á frekar að "
+"eyða þeim endanlega?<nl/><nl/><emphasis strong='true'>Ekki er hægt að "
+"afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
