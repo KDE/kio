@@ -15,6 +15,7 @@ Name[gl]=Rede de desenvolvemento de Mozilla (MDN)
 Name[he]=רשת המפתחים של Mozilla‏ (MDN)
 Name[hu]=Mozilla Developer Network (MDN)
 Name[ia]=Mozilla Developer Network (MDN)
+Name[is]=Mozilla Developer Network (MDN)
 Name[it]=Mozilla Developer Network (MDN)
 Name[ka]=Mozilla Developer Network (MDN)
 Name[ko]=Mozilla 개발자 네트워크(MDN)
@@ -50,6 +51,7 @@ Query[gl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[he]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[hu]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ia]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[is]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[it]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ka]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ko]=https://developer.mozilla.org/ko/search?q=\\{@}

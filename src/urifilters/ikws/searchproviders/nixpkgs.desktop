@@ -15,6 +15,7 @@ Name[gl]=Paquetes de Nix
 Name[he]=חבילות Nix
 Name[hu]=Nix Packages
 Name[ia]=Pacchettos de Nix
+Name[is]=Nix-pakkar
 Name[it]=Pacchetti Nix
 Name[ka]=Nix-ის პაკეტები
 Name[ko]=Nix 패키지
@@ -50,6 +51,7 @@ Query[gl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[he]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[hu]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[is]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[it]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ka]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ko]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
