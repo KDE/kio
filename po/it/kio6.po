@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-13 00:39+0000\n"
-"PO-Revision-Date: 2025-10-15 17:53+0200\n"
+"PO-Revision-Date: 2025-11-14 00:22+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -727,6 +727,8 @@ msgstr "Il file è troppo grande per essere cestinato."
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Non è stato possibile trovare o creare una cartella cestino per questo "
+"indirizzo."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7445,33 +7447,19 @@ msgstr[1] ""
 "non può essere annullata.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Il cestino è troppo pieno per poter contenere questo file. Vuoi invece "
+"Il cestino non è disponibile per l'indirizzo di questo file. Vuoi invece "
 "eliminarlo definitivamente?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Questa azione non può essere annullata.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7482,11 +7470,11 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Il cestino è troppo pieno per poter contenere questo file. Vuoi eliminarlo "
+"Il cestino non è disponibile per l'indirizzo di questo file. Vuoi eliminarlo "
 "definitivamente? <nl/><emphasis strong='true'>Questa azione non può essere "
 "annullata.</emphasis>"
 msgstr[1] ""
-"Il cestino è troppo pieno per poter contenere questi %1 file. Vuoi "
+"Il cestino non è disponibile per l'indirizzo di questi %1 file. Vuoi "
 "eliminarli definitivamente? <nl/><nl/><emphasis strong='true'>Questa azione "
 "non può essere annullata.</emphasis>"
 
