@@ -14,7 +14,6 @@
 
 #include "../utils_p.h"
 #include "kiocoredebug.h"
-#include "kmountpoint.h"
 #include <kio/listjob.h>
 
 #include <KJobUiDelegate>
@@ -128,7 +127,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         lister->d->lstDirs.removeAll(_url);
 
         // clear _url for lister
-        forgetDirs(lister, _url, true, KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions));
+        forgetDirs(lister, _url, true);
 
         if (lister->d->url == _url) {
             lister->d->rootFileItem = KFileItem();
@@ -463,26 +462,12 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister)
     lister->d->lstDirs.clear();
 
     qCDebug(KIO_CORE_DIRLISTER) << "Iterating over dirs" << lstDirsCopy;
-    const auto possibleMountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions);
     for (const QUrl &dir : lstDirsCopy) {
-        forgetDirs(lister, dir, false, possibleMountPoints);
+        forgetDirs(lister, dir, false);
     }
 }
 
-static bool manually_mounted(const QString &path, const KMountPoint::List &possibleMountPoints)
-{
-    KMountPoint::Ptr mp = possibleMountPoints.findByPath(path);
-    if (!mp) { // not listed in fstab -> yes, manually mounted
-        if (possibleMountPoints.isEmpty()) { // no fstab at all -> don't assume anything
-            return false;
-        }
-        return true;
-    }
-    // noauto -> manually mounted. Otherwise, mounted at boot time, won't be unmounted any time soon hopefully.
-    return mp->mountOptions().contains(QLatin1String("noauto"));
-}
-
-void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify, const KMountPoint::List &possibleMountPoints)
+void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify)
 {
     qCDebug(KIO_CORE_DIRLISTER) << lister << " _url: " << _url;
 
@@ -532,41 +517,8 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
 
         insertIntoCache = item->complete;
         if (insertIntoCache) {
-            // TODO(afiestas): remove use of KMountPoint+manually_mounted and port to Solid:
-            // 1) find Volume for the local path "item->url.toLocalFile()" (which could be anywhere
-            // under the mount point) -- probably needs a new operator in libsolid query parser
-            // 2) [**] becomes: if (Drive is hotpluggable or Volume is removable) "set to dirty" else "keep watch"
-
-            // Should we forget the dir for good, or keep a watch on it?
-            // Generally keep a watch, except when it would prevent
-            // unmounting a removable device (#37780)
-            const bool isLocal = item->url.isLocalFile();
-            bool isManuallyMounted = false;
-            bool containsManuallyMounted = false;
-            if (isLocal) {
-                isManuallyMounted = manually_mounted(item->url.toLocalFile(), possibleMountPoints);
-                if (!isManuallyMounted) {
-                    // Look for a manually-mounted directory inside
-                    // If there's one, we can't keep a watch either, FAM would prevent unmounting the CDROM
-                    // I hope this isn't too slow
-                    auto kit = item->lstItems.constBegin();
-                    const auto kend = item->lstItems.constEnd();
-                    for (; kit != kend && !containsManuallyMounted; ++kit) {
-                        if ((*kit).isDir() && manually_mounted((*kit).url().toLocalFile(), possibleMountPoints)) {
-                            containsManuallyMounted = true;
-                        }
-                    }
-                }
-            }
-
-            if (isManuallyMounted || containsManuallyMounted) { // [**]
-                qCDebug(KIO_CORE_DIRLISTER) << "Not adding a watch on " << item->url << " because it "
-                                            << (isManuallyMounted ? "is manually mounted" : "contains a manually mounted subdir");
-                item->complete = false; // set to "dirty"
-            } else {
-                item->incAutoUpdate(); // keep watch, incr refcount to account for cache
-                item->watchedWhileInCache = true;
-            }
+            item->incAutoUpdate(); // keep watch, incr refcount to account for cache
+            item->watchedWhileInCache = true;
         } else {
             delete item;
             item = nullptr;
@@ -1944,7 +1896,6 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
         }
     }
 
-    const auto possibleMountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions);
     for (const QUrl &deletedUrl : std::as_const(affectedItems)) {
         // stop all jobs for deletedUrlStr
         auto dit = directoryData.constFind(deletedUrl);
@@ -1977,7 +1928,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
                         holder->d->lstDirs.removeAll(deletedUrl);
                     }
 
-                    forgetDirs(holder, deletedUrl, treeview, possibleMountPoints);
+                    forgetDirs(holder, deletedUrl, treeview);
                 }
             }
         }
@@ -2147,7 +2098,7 @@ void KCoreDirLister::stop(const QUrl &_url)
 
 void KCoreDirLister::forgetDirs(const QUrl &_url)
 {
-    s_kDirListerCache.localData().forgetDirs(this, _url, true, KMountPoint::possibleMountPoints(KMountPoint::NeedMountOptions));
+    s_kDirListerCache.localData().forgetDirs(this, _url, true);
 }
 
 bool KCoreDirLister::autoUpdate() const
