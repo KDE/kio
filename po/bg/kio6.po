@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2025-10-14 21:57+0200\n"
+"PO-Revision-Date: 2025-11-20 10:56+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -720,6 +720,7 @@ msgstr "Файлът е твърде голям, за да бъде прехвъ
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Папка за Кошче не може да бъде намерена или създадена за това местоположение."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7367,33 +7368,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Действието не може да бъде отменено.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Кошчето е твърде пълно, за да приеме този файл. Да се изтрие ли файлът за "
-"постоянно?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Това действие не може да бъде отменено.</emphasis>"
+"Кошчето не е достъпно за местоположението на този елемент. Вместо това, да "
+"се изтрие ли за постоянно?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Това действие не може да бъде отменено.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7404,12 +7391,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Кошчето е твърде пълно, за да приеме файла %1. Да се изтрие ли файлът за "
-"постоянно?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Това действие не може да бъде отменено.</emphasis>"
+"Кошчето не е достъпно за местоположението на този %1 елемент. Вместо това, "
+"да се изтрие ли за постоянно?<nl/><emphasis strong='true'>Това действие не "
+"може да бъде отменено.</emphasis>"
 msgstr[1] ""
-"Наистина ли искате да изтриете за постоянно тези %1 елемента?<nl/><nl/"
-"><emphasis strong='true'>Действието не може да бъде отменено.</emphasis>"
+"Кошчето не е достъпно за местоположението на тези %1 елемента. Вместо това, "
+"да се изтрият ли за постоянно?<nl/><emphasis strong='true'>Това действие не "
+"може да бъде отменено.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
