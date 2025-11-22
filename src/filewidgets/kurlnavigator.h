@@ -361,6 +361,15 @@ public:
      */
     bool isBackgroundEnabled() const;
 
+    /*!
+     * Sets whether to show additional focus indicator which has been implemented as thick
+     * line rounded at the ends and clipped at the bottom drawing in accent
+     * color (active or inactive - based on m_active state).
+     *
+     * \since 6.21
+     */
+    void setHighlightFocusIndicator(bool show);
+
 public Q_SLOTS:
     /*!
      * Sets the location to \a url. The old URL is added to the history.
@@ -506,6 +515,8 @@ protected:
 private:
     friend class KUrlNavigatorPrivate;
     std::unique_ptr<KUrlNavigatorPrivate> const d;
+
+    bool m_showFocusIndicator = false;
 
     Q_DISABLE_COPY(KUrlNavigator)
 };

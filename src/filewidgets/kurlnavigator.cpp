@@ -44,7 +44,6 @@
 #include <QUrlQuery>
 
 #include <algorithm>
-#include <numeric>
 #include <optional>
 
 using namespace KDEPrivate;
@@ -556,7 +555,12 @@ void KUrlNavigatorPrivate::switchView()
     m_toggleEditableMode->setChecked(m_editable);
     updateContent();
     if (q->isUrlEditable()) {
-        m_pathBox->setFixedHeight(m_badgeWidgetContainer->height());
+        // this "6" is a kind of "magic" value that has been experimentally set
+        // to make enough space for focus indicator at the top of the KUrlNavigator
+        // (see methods KUrlNavigator::paintEvent and KUrlNavigator::setHighlightFocusIndicator)
+        // this value has no direct 1-to-1 relation to what is used in paintEvent
+        // so we can keep it simple as a value here
+        m_pathBox->setFixedHeight(m_badgeWidgetContainer->height() - (q->m_showFocusIndicator ? 6 : 0));
         m_pathBox->setFocus();
     }
 
@@ -1438,6 +1442,30 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
         }
         style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
     }
+
+    if (m_showFocusIndicator) {
+        // here we have some "magic" values (9, 5, 4)
+        // the goal is to have focus indicator similar/indentical to tab focus indicator (from Qt)
+        // so these "magic" values have been experimentally set, but
+        // there is no direct 1-to-1 relation between them
+        const int lineWidth = 9;
+        QColor activeColor = option.palette.color(QPalette::Active, QPalette::Accent);
+        QColor inactiveColor = option.palette.color(QPalette::Inactive, QPalette::Accent);
+
+        QBrush brush(d->m_active ? activeColor : inactiveColor);
+        painter.setPen(QPen(brush, lineWidth, Qt::PenStyle::SolidLine, Qt::PenCapStyle::RoundCap));
+        const int x = 5;
+        const int y = lineWidth - 4;
+        painter.setRenderHint(QPainter::Antialiasing, true);
+        painter.setClipRegion(QRegion(0, 0, width(), 4));
+
+        painter.drawLine(x, y, width() - x, y);
+    }
+}
+
+void KUrlNavigator::setHighlightFocusIndicator(bool show)
+{
+    m_showFocusIndicator = show;
 }
 
 #include "moc_kurlnavigator.cpp"
