@@ -793,15 +793,6 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
             topMenu->insertAction(before, act);
         }
 
-        // Only now remove NoDisplay services. They should work as default application
-        // but not offered as an alternative in the Open With submenu.
-        offers.erase(std::remove_if(offers.begin(),
-                                    offers.end(),
-                                    [](KService::Ptr service) {
-                                        return service->noDisplay();
-                                    }),
-                     offers.end());
-
         // If there are still more apps, show them in a sub-menu
         if (!offers.isEmpty()) { // submenu 'open with'
             QMenu *subMenu = new QMenu(isDir ? i18nc("@title:menu", "&Open Folder With") : i18nc("@title:menu", "&Open With"), topMenu);
