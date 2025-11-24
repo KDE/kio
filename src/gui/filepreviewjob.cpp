@@ -263,11 +263,11 @@ void FilePreviewJob::slotStatFile(KJob *job)
     m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
     m_tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
 
-    if (m_item.item.isMimeTypeKnown()) {
-        preparePluginForMimetype(m_item.item.mimetype());
-    } else {
-        preparePluginForMimetype(statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE));
+    // If we stat'd the file already, might as well report it back.
+    if (!statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty()) {
+        m_item.item = KFileItem(statResult, m_item.item.url());
     }
+    preparePluginForMimetype(m_item.item.mimetype());
 
     if (isLocal) {
         const QFileInfo localFile(itemUrl.toLocalFile());
