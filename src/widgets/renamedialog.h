@@ -142,6 +142,7 @@ protected Q_SLOTS:
     void enableRenameButton(const QString &);
 private Q_SLOTS:
     KIOWIDGETS_NO_EXPORT void applyAllPressed();
+    KIOWIDGETS_NO_EXPORT void comparePressed();
     KIOWIDGETS_NO_EXPORT void showSrcIcon(const KFileItem &);
     KIOWIDGETS_NO_EXPORT void showDestIcon(const KFileItem &);
     KIOWIDGETS_NO_EXPORT void showSrcPreview(const KFileItem &, const QPixmap &);
