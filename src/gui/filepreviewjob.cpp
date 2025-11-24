@@ -148,7 +148,7 @@ void FilePreviewJob::statFile()
     statJob->start();
 }
 
-void FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
+bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
 {
     auto setUpCaching = [this]() {
         short cacheSize = 0;
@@ -227,8 +227,7 @@ void FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
 
         if (!plugin.isValid()) {
             qCDebug(KIO_GUI) << "Plugin for item " << m_item.item << " is not valid. Emitting result.";
-            emitResult();
-            return;
+            return false;
         }
 
         m_standardThumbnailer = plugin.category() == QStringLiteral("standardthumbnailer");
@@ -241,10 +240,10 @@ void FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
                 setUpCaching();
             }
         }
+        return true;
     } else {
         qCDebug(KIO_GUI) << "Could not get plugin for, " << m_item.item << " - emitting result.";
-        emitResult();
-        return;
+        return false;
     }
 }
 
@@ -267,7 +266,11 @@ void FilePreviewJob::slotStatFile(KJob *job)
     if (!statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty()) {
         m_item.item = KFileItem(statResult, m_item.item.url());
     }
-    preparePluginForMimetype(m_item.item.mimetype());
+
+    if (!preparePluginForMimetype(m_item.item.mimetype())) {
+        emitResult();
+        return;
+    }
 
     if (isLocal) {
         const QFileInfo localFile(itemUrl.toLocalFile());
