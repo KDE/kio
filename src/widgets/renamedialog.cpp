@@ -27,12 +27,15 @@
 #include <QScrollBar>
 #include <QToolButton>
 
+#include <KDialogJobUiDelegate>
 #include <KFileUtils>
 #include <KGuiItem>
+#include <KIO/ApplicationLauncherJob>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSeparator>
+#include <KService>
 #include <KSqueezedTextLabel>
 #include <KStandardGuiItem>
 #include <KStringHandler>
@@ -181,12 +184,20 @@ public:
         }
     }
 
+    void maybeShowKompareButton(const KFileItem &fileItem)
+    {
+        if (bKompare && fileItem.currentMimeType().inherits(QStringLiteral("text/plain"))) {
+            bKompare->show();
+        }
+    }
+
     QPushButton *bCancel = nullptr;
     QPushButton *bRename = nullptr;
     QPushButton *bSkip = nullptr;
     QToolButton *bOverwrite = nullptr;
     QAction *bOverwriteWhenOlder = nullptr;
     QPushButton *bResume = nullptr;
+    QPushButton *bKompare = nullptr;
     QPushButton *bSuggestNewName = nullptr;
     QCheckBox *bApplyAll = nullptr;
     QLineEdit *m_pLineEdit = nullptr;
@@ -400,6 +411,7 @@ RenameDialog::RenameDialog(QWidget *parent,
         gridLayout->addWidget(destContainer, gridRow, 2, 1, 2);
 
         // Verdicts
+        bool offerKompare = false;
         auto *hbox_verdicts = new QHBoxLayout();
         pLayout->addLayout(hbox_verdicts);
         hbox_verdicts->addStretch(1);
@@ -421,6 +433,7 @@ RenameDialog::RenameDialog(QWidget *parent,
                 diff = d->srcItem.size() - d->destItem.size();
                 text = i18n("The source is <b>bigger by %1</b>.", KIO::convertSize(diff));
             }
+            offerKompare = true;
             hbox_verdicts->addWidget(createLabel(this, text));
         }
 
@@ -436,9 +449,11 @@ RenameDialog::RenameDialog(QWidget *parent,
                 break;
             case CompareFilesResult::PartiallyIdentical:
                 text = i18n("The files <b>seem identical</b>.");
+                offerKompare = true;
                 break;
             case CompareFilesResult::Different:
                 text = i18n("The files are <b>different</b>.");
+                offerKompare = true;
                 break;
             }
             QLabel *filesIdenticalLabel = createLabel(this, text);
@@ -458,6 +473,15 @@ RenameDialog::RenameDialog(QWidget *parent,
             }
         }
         hbox_verdicts->addStretch(1);
+
+        if (offerKompare) {
+            if (auto kompareService = KService::serviceByDesktopName(QStringLiteral("org.kde.kompare"))) {
+                d->bKompare = new QPushButton(QIcon::fromTheme(kompareService->icon()), i18nc("@action:button", "Compare Files"), this);
+                connect(d->bKompare, &QPushButton::clicked, this, &RenameDialog::komparePressed);
+                // It is only shown once the mime type has been actually determined by the preview job.
+                d->bKompare->hide();
+            }
+        }
 
     } else {
         // This is the case where we don't want to allow overwriting, the existing
@@ -512,6 +536,11 @@ RenameDialog::RenameDialog(QWidget *parent,
     pLayout->addLayout(layout);
 
     layout->setContentsMargins(0, 10, 0, 0); // add some space above the bottom row with buttons
+
+    if (d->bKompare) {
+        layout->addWidget(d->bKompare);
+    }
+
     layout->addStretch(1);
 
     if (d->bApplyAll) {
@@ -695,6 +724,16 @@ void RenameDialog::applyAllPressed()
     }
 }
 
+void RenameDialog::komparePressed()
+{
+    if (auto kompareService = KService::serviceByDesktopName(QStringLiteral("org.kde.kompare"))) {
+        auto *job = new KIO::ApplicationLauncherJob(kompareService);
+        job->setUrls({d->srcItem.url(), d->destItem.url()});
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+        job->start();
+    }
+}
+
 void RenameDialog::showSrcIcon(const KFileItem &fileitem)
 {
     // The preview job failed, show a standard file icon.
@@ -703,6 +742,7 @@ void RenameDialog::showSrcIcon(const KFileItem &fileitem)
     const int size = d->m_srcPreview->height();
     const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_srcPreview->setPixmap(pix);
+    d->maybeShowKompareButton(fileitem);
 }
 
 void RenameDialog::showDestIcon(const KFileItem &fileitem)
@@ -713,6 +753,7 @@ void RenameDialog::showDestIcon(const KFileItem &fileitem)
     const int size = d->m_destPreview->height();
     const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_destPreview->setPixmap(pix);
+    d->maybeShowKompareButton(fileitem);
 }
 
 void RenameDialog::showSrcPreview(const KFileItem &fileitem, const QPixmap &pixmap)
@@ -722,6 +763,7 @@ void RenameDialog::showSrcPreview(const KFileItem &fileitem, const QPixmap &pixm
     if (d->m_srcPendingPreview) {
         d->m_srcPreview->setPixmap(pixmap);
         d->m_srcPendingPreview = false;
+        d->maybeShowKompareButton(fileitem);
     }
 }
 
@@ -732,6 +774,7 @@ void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pix
     if (d->m_destPendingPreview) {
         d->m_destPreview->setPixmap(pixmap);
         d->m_destPendingPreview = false;
+        d->maybeShowKompareButton(fileitem);
     }
 }
 
