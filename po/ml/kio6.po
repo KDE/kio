@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -5186,19 +5186,19 @@ msgstr ""
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "1 ഫയല്‍"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

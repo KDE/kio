@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -5585,21 +5585,21 @@ msgstr "Drovi avou:"
 msgid "&Open with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

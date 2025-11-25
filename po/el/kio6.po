@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -5450,19 +5450,19 @@ msgstr "Άνοιγμα φα&κέλου με %1"
 msgid "&Open with %1"
 msgstr "Ά&νοιγμα με %1"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Άνοιγ&μα φακέλου με"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Άνοιγμα &με"
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -5305,19 +5305,19 @@ msgstr "Buka dengan:"
 msgid "&Open with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

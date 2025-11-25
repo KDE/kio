@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2025-10-31 20:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -5351,19 +5351,19 @@ msgstr "Avaa &kansio ohjelmalla %1"
 msgid "&Open with %1"
 msgstr "A&vaa ohjelmalla %1"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Avaa &kansio ohjelmalla"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "A&vaa ohjelmalla"
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

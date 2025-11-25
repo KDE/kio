@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -5164,19 +5164,19 @@ msgstr "o &open e poki kepeken %1"
 msgid "&Open with %1"
 msgstr "o &open kepeken %1"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "o &open e poki kepeken"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "o &lukin e ni kepeken"
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

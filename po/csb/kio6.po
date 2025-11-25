@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-24 00:39+0000\n"
+"POT-Creation-Date: 2025-11-25 00:39+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -5418,20 +5418,20 @@ msgstr ""
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 #| msgid "File"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Lopk"
 
-#: widgets/kfileitemactions.cpp:807
+#: widgets/kfileitemactions.cpp:798
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:818
+#: widgets/kfileitemactions.cpp:809
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
