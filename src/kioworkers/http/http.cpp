@@ -460,7 +460,32 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         inputData->startTransaction(); // To be able to restart after redirects.
     }
 
-    QNetworkReply *reply = nam.sendCustomRequest(request, methodToString(method), inputData);
+    // sendCustomRequest(..., "FOO") behaves differently from dedicated foo().
+    // This sometimes causes requests to get stuck, when e.g. head() knows it shouldn't
+    // expect content but custom("HEAD") keeps waiting until the connection times out.
+    // Therefore, use the proper method, if possible.
+    // This has been addressed in Qt 6.11, see https://codereview.qt-project.org/c/qt/qtbase/+/666393
+    QNetworkReply *reply = nullptr;
+    switch (method) {
+    case KIO::HTTP_GET:
+        reply = nam.get(request, inputData);
+        break;
+    case KIO::HTTP_PUT:
+        reply = nam.put(request, inputData);
+        break;
+    case KIO::HTTP_POST:
+        reply = nam.post(request, inputData);
+        break;
+    case KIO::HTTP_HEAD:
+        reply = nam.head(request);
+        break;
+    case KIO::HTTP_DELETE:
+        reply = nam.deleteResource(request);
+        break;
+    default:
+        reply = nam.sendCustomRequest(request, methodToString(method), inputData);
+    }
+
     const auto replyDeleter = qScopeGuard([reply] {
         reply->deleteLater();
     });

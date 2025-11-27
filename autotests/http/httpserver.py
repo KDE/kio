@@ -203,7 +203,9 @@ def verify_password(username, password):
 @app.route('/auth/test')
 @auth.login_required
 def index():
-    return "Hello"
+    # Authentication required error page will also be text/html, use another mimetype.
+    resp = Response("# Hello", mimetype='text/markdown')
+    return resp
 
 @app.route("/useragent/enforce")
 def useragent_enforce():

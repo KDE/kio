@@ -5,6 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <KIO/MimetypeJob>
 #include <KIO/TransferJob>
 
 #include <QSignalSpy>
@@ -16,6 +17,8 @@ class AuthTest : public QObject
 private Q_SLOTS:
     void testGet();
     void testGet_data();
+    void testMimeType();
+    void testMimeType_data();
 };
 
 void AuthTest::testGet_data()
@@ -24,8 +27,8 @@ void AuthTest::testGet_data()
     QTest::addColumn<QString>("expectedMimeType");
     QTest::addColumn<QByteArray>("expectedData");
 
-    QTest::addRow("html") << "http://localhost:5000/auth/test"
-                          << "text/html" << QByteArray("Hello");
+    // Error page will also be text/html, use something else.
+    QTest::addRow("markdown") << "http://localhost:5000/auth/test" << "text/markdown" << QByteArray("# Hello");
 }
 
 void AuthTest::testGet()
@@ -48,6 +51,26 @@ void AuthTest::testGet()
     qWarning() << "error" << job->error();
 
     QCOMPARE(job->error(), KJob::NoError);
+}
+
+void AuthTest::testMimeType_data()
+{
+    QTest::addColumn<QString>("url");
+    QTest::addColumn<QString>("expectedMimeType");
+
+    QTest::addRow("markdown") << "http://localhost:5000/auth/test" << "text/markdown";
+}
+
+void AuthTest::testMimeType()
+{
+    QFETCH(QString, url);
+    QFETCH(QString, expectedMimeType);
+
+    // KIO::MimeTypeFinderJob does a GET request,
+    // only KIO::mimetype does a HEAD which could break with auth.
+    auto *job = KIO::mimetype(QUrl(url), KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(job->mimetype(), expectedMimeType);
 }
 
 QTEST_GUILESS_MAIN(AuthTest)
