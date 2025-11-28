@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:39+0000\n"
+"POT-Creation-Date: 2025-11-28 00:39+0000\n"
 "PO-Revision-Date: 2025-11-19 20:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -4289,7 +4289,7 @@ msgstr "<b>%1</b> عند <b>%2</b>"
 # the properties listed in the propertybehavior XML
 # و
 # The requested lock could not be granted
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "خلاف ذلك، كان الطلب قد نجح. "
@@ -4302,86 +4302,86 @@ msgstr "خلاف ذلك، كان الطلب قد نجح. "
 # Access was denied while attempting to %1.
 # و
 # Unable to %1 because the resource is locked.
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1395
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "جلب قيم الخاصيّات"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "تعيين قيم الخاصية"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "إنشاء المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "نسخ الملفّ أو المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "نقل الملفّ أو المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "البحث في المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "قفل الملفّ أو المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "فكّ قفل الملفّ أو المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "حذف الملفّ أو المجلّد المطلوب"
 
-#: kioworkers/http/http.cpp:1388
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "الاستعلام عن إمكانيّات الخادم"
 
-#: kioworkers/http/http.cpp:1390
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "جلب محتويات الملفّ أو المجلّد المحدّد"
 
 # إلى هنا
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "تشغيل تقرير في المجلّد المحدّد"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1425
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "حدث خطأ غير متوقّع (%1) أثناء محاولة %2."
 
-#: kioworkers/http/http.cpp:1440
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4389,13 +4389,13 @@ msgid ""
 "below."
 msgstr "حدث خطأ أثناء محاولة %1، %2. تجد أسفله ملخّصًا بالأسباب."
 
-#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1483 kioworkers/http/http.cpp:1627
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "رُفض النّفاذ أثناء محاولة %1."
 
-#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
+#: kioworkers/http/http.cpp:1497 kioworkers/http/http.cpp:1634
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4403,7 +4403,7 @@ msgid ""
 msgstr ""
 "لا يمكن إنشاء مورد في المقصد حتى تُنشئ مجموعة (مجلدات) وسيطة واحدة أو أكثر."
 
-#: kioworkers/http/http.cpp:1481
+#: kioworkers/http/http.cpp:1506
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4418,28 +4418,28 @@ msgstr ""
 "الكتابة فوق ملف أثناء مطالبتك بعدم قيام الملفات بذلك. \n"
 " %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "تعذر منح القفل المطلوب. %1"
 
-#: kioworkers/http/http.cpp:1495
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "لا يتيح الخادم نوع الطّلب للمتن."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
+#: kioworkers/http/http.cpp:1525 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "تعذّر %1 لأنّ المورد مُقفل."
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "منع هذا الإجراء من خلال خطأ آخر. "
 
-#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1536 kioworkers/http/http.cpp:1649
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4447,7 +4447,7 @@ msgid ""
 "folder."
 msgstr "تعذّر %1 لأنّ الخادم المقصد رفض قبول الملفّ أو المجلّد."
 
-#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1545 kioworkers/http/http.cpp:1658
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4456,18 +4456,18 @@ msgstr ""
 "لا يحتوي المورد الوجهة على مساحة كافية لتسجيل حالة المورد بعد تنفيذ هذه "
 "الطريقة. "
 
-#: kioworkers/http/http.cpp:1573
+#: kioworkers/http/http.cpp:1598
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "تعذّر حذف المورد."
 
-#: kioworkers/http/http.cpp:1593
+#: kioworkers/http/http.cpp:1618
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "رفع %1"
 
-#: kioworkers/http/http.cpp:1644
+#: kioworkers/http/http.cpp:1669
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:39+0000\n"
+"POT-Creation-Date: 2025-11-28 00:39+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4598,103 +4598,103 @@ msgstr "Bediener Geldigheidsverklaring"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1367
+#: kioworkers/http/http.cpp:1392
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Andersins, die versoek sal het geslaag."
 
-#: kioworkers/http/http.cpp:1370
+#: kioworkers/http/http.cpp:1395
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "onttrek eienskap waardes"
 
-#: kioworkers/http/http.cpp:1372
+#: kioworkers/http/http.cpp:1397
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "stel eienskap waardes"
 
-#: kioworkers/http/http.cpp:1374
+#: kioworkers/http/http.cpp:1399
 #, fuzzy, kde-format
 #| msgid "create the requested folder"
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "skep die aangevraagde gids"
 
-#: kioworkers/http/http.cpp:1376
+#: kioworkers/http/http.cpp:1401
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: kioworkers/http/http.cpp:1378
+#: kioworkers/http/http.cpp:1403
 #, fuzzy, kde-format
 #| msgid "move the specified file or folder"
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "skuif die gespesifiseerde lêer of gids"
 
-#: kioworkers/http/http.cpp:1380
+#: kioworkers/http/http.cpp:1405
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "soek in die gespesifiseerde gids"
 
-#: kioworkers/http/http.cpp:1382
+#: kioworkers/http/http.cpp:1407
 #, fuzzy, kde-format
 #| msgid "lock the specified file or folder"
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "sluit die gespesifiseerde lêer of gids"
 
-#: kioworkers/http/http.cpp:1384
+#: kioworkers/http/http.cpp:1409
 #, fuzzy, kde-format
 #| msgid "unlock the specified file or folder"
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "sluit die gespesifiseerde lêer of gids oop"
 
-#: kioworkers/http/http.cpp:1386
+#: kioworkers/http/http.cpp:1411
 #, fuzzy, kde-format
 #| msgid "delete the specified file or folder"
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "vee die gespesifiseerde lêer of gids uit"
 
-#: kioworkers/http/http.cpp:1388
+#: kioworkers/http/http.cpp:1413
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "navraag vir die bediener se vermoë"
 
-#: kioworkers/http/http.cpp:1390
+#: kioworkers/http/http.cpp:1415
 #, fuzzy, kde-format
 #| msgid "retrieve the contents of the specified file or folder"
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "onttrek die inhoud van die gespesifiseerde lêer of gids"
 
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1417
 #, fuzzy, kde-format
 #| msgid "search in the specified folder"
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "soek in die gespesifiseerde gids"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1425
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "'n onverwagte fout (%1) voorgekom terwyl probeer na %2."
 
-#: kioworkers/http/http.cpp:1440
+#: kioworkers/http/http.cpp:1465
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4707,14 +4707,14 @@ msgstr ""
 "'n fout voorgekom terwyl probeer na %1, %2. 'n opsomming van die redes is "
 "onder.<ul>"
 
-#: kioworkers/http/http.cpp:1458 kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1483 kioworkers/http/http.cpp:1627
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Toegang verkry was verbied terwyl probeer na %1."
 
-#: kioworkers/http/http.cpp:1472 kioworkers/http/http.cpp:1609
+#: kioworkers/http/http.cpp:1497 kioworkers/http/http.cpp:1634
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4723,7 +4723,7 @@ msgstr ""
 "'n Hulpbron kan nie geskep word by die bestemming voordat een of meer "
 "tussengangers (gidse) geskep is nie."
 
-#: kioworkers/http/http.cpp:1481
+#: kioworkers/http/http.cpp:1506
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4740,29 +4740,29 @@ msgstr ""
 "gelys in Die eienskappe-gedrag Xml element of jy het probeer om na oorskryf "
 "'n lêer terwyl versoek wat lêers word nie oorskryf word. %1"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Die versoekte sluit kon nie wees toegestaan. %1"
 
-#: kioworkers/http/http.cpp:1495
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Die bediener doen nie ondersteun Die versoek tipe van Die liggaam."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1617
+#: kioworkers/http/http.cpp:1525 kioworkers/http/http.cpp:1642
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie moontlik na %1 omdat die hulpbron is geslote."
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Hierdie aksie was verhoed deur nog 'n fout."
 
-#: kioworkers/http/http.cpp:1511 kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1536 kioworkers/http/http.cpp:1649
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unable to %1 because the destination server refuses to accept the file or "
@@ -4775,7 +4775,7 @@ msgstr ""
 "Kon nie %1 nie, want die bestemming bediener weier om die lêer of gids te "
 "aanvaar."
 
-#: kioworkers/http/http.cpp:1520 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1545 kioworkers/http/http.cpp:1658
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4784,20 +4784,20 @@ msgstr ""
 "Die bestemming hulpbron doen nie het voldoende spasie na opneem Die staat "
 "van Die hulpbron na Die uitvoering van hierdie metode."
 
-#: kioworkers/http/http.cpp:1573
+#: kioworkers/http/http.cpp:1598
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "Die gespesifiseer hulpbron dalk mag nie bestaan."
 
-#: kioworkers/http/http.cpp:1593
+#: kioworkers/http/http.cpp:1618
 #, fuzzy, kde-format
 #| msgid "upload %1"
 msgctxt "request type"
 msgid "upload %1"
 msgstr "Laai %1 op"
 
-#: kioworkers/http/http.cpp:1644
+#: kioworkers/http/http.cpp:1669
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"
