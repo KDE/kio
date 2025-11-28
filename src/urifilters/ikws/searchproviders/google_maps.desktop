@@ -106,6 +106,7 @@ Query[gd]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[gl]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[he]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[hi]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[hr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[hu]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ia]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[id]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

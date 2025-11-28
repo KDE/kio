@@ -24,6 +24,7 @@ Name[fi]=KDE Inventin yhdistämispyynnöt
 Name[fr]=Requêtes de fusion de KDE Invent
 Name[gl]=Solicitudes de inclusión de KDE Invent
 Name[he]=בקשות מיזוג ב־KDE Invent
+Name[hr]=KDE Invent zahtjevi za spajanje
 Name[hu]=KDE Invent beolvasztási kérések
 Name[ia]=Requestas de fusionar de KDE Invent
 Name[id]=Permintaan Penggabungan KDE Invent
@@ -79,6 +80,7 @@ Query[fi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[he]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[hr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[hu]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ia]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[id]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

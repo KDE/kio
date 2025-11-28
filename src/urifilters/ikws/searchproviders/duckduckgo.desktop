@@ -16,6 +16,7 @@ Name[fi]=DuckDuckGo
 Name[fr]=DuckDuckGo
 Name[gl]=DuckDuckGo
 Name[he]=DuckDuckGo
+Name[hr]=DuckDuckGo
 Name[hu]=DuckDuckGo
 Name[ia]=DuckDuckGo
 Name[is]=DuckDuckGo
@@ -64,6 +65,7 @@ Query[gd]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[gl]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[he]=https://duckduckgo.com/?q=\\{@}&t=kde&kl=he
 Query[hi]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[hr]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ia]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&t=kde

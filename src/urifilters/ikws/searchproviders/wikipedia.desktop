@@ -15,6 +15,7 @@ Name[fi]=Wikipedia
 Name[fr]=Wikipedia
 Name[gl]=Wikipedia
 Name[he]=ויקיפדיה
+Name[hr]=Wikipedia
 Name[hu]=Wikipédia
 Name[ia]=Wikipedia
 Name[is]=Wikipedia
@@ -65,6 +66,7 @@ Query[gd]=https://gd.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[gl]=http://gl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[he]=https://he.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hi]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[hr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ia]=http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

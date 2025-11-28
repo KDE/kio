@@ -27,6 +27,7 @@ Name[gd]=Freecode
 Name[gl]=Freecode
 Name[he]=Freecode
 Name[hi]=Freecode
+Name[hr]=Freecode
 Name[hu]=Freecode
 Name[ia]=Freecode
 Name[id]=Freecode
@@ -97,6 +98,7 @@ Query[gd]=http://freecode.com/search?q=\\{@}
 Query[gl]=http://freecode.com/search?q=\\{@}
 Query[he]=http://freecode.com/search?q=\\{@}
 Query[hi]=http://freecode.com/search?q=\\{@}
+Query[hr]=http://freecode.com/search?q=\\{@}
 Query[hu]=http://freecode.com/search?q=\\{@}
 Query[ia]=http://freecode.com/search?q=\\{@}
 Query[id]=http://freecode.com/search?q=\\{@}

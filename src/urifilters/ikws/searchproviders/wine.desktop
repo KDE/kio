@@ -24,6 +24,7 @@ Name[fi]=WineHQ-tietokanta
 Name[fr]=Base de données de WineHQ
 Name[gl]=Base de datos de WineHQ
 Name[he]=מסד הנתונים של WineHQ
+Name[hr]=Baza podataka WineHQ
 Name[hu]=WineHQ adatbázis
 Name[ia]=Base de Datos de WineHQ
 Name[id]=Database WineHQ
@@ -83,6 +84,7 @@ Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}
 Query[he]=https://www.winehq.org/search?q=\\{@}
+Query[hr]=https://www.winehq.org/search?q=\\{@}
 Query[hu]=https://www.winehq.org/search?q=\\{@}
 Query[ia]=https://www.winehq.org/search?q=\\{@}
 Query[id]=https://www.winehq.org/search?q=\\{@}

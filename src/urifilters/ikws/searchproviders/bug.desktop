@@ -25,6 +25,7 @@ Name[fi]=KDE Bugs
 Name[fr]=Bogues de KDE
 Name[gl]=KDE Bugs
 Name[he]=תקלות ב־KDE
+Name[hr]=KDE greške
 Name[hu]=KDE Bugs
 Name[ia]=KDE Bugs
 Name[id]=KDE Bugs
@@ -85,6 +86,7 @@ Query[gd]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[he]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[hr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ia]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[id]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

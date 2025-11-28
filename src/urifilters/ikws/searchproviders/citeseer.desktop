@@ -36,7 +36,7 @@ Name[gu]=CiteSeer: વૈજ્ઞાનિક સાહિત્ય ડિજ�
 Name[he]=‏CiteSeer: ספרייה דיגיטלית לספרות מדעית
 Name[hi]=CiteSeer: वैज्ञानिक साहित्य डिजिटल पुस्तकालय
 Name[hne]=CiteSeer: वैग्यानिक साहित्य डिजिटल लाइब्रेरी
-Name[hr]=CiteSeer: Digitalna knjižnica znanstvene literature 
+Name[hr]=CiteSeer: Digitalna knjižnica znanstvene literature
 Name[hsb]=CiteSeer: Scientific Literature Digital Library
 Name[hu]=CiteSeer: tudományos szakirodalom digitális könyvtára
 Name[ia]=CiteSeer: Libreria Digital de litteratura Scientific
@@ -120,6 +120,7 @@ Query[fi]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[fr]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[gl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[he]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[hr]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[hu]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[id]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

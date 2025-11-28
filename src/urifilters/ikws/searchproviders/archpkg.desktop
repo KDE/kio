@@ -25,6 +25,7 @@ Name[fr]=Recherche de paquets Arch Linux
 Name[gd]=Lorg pacaidean Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
 Name[he]=חיפוש חבילות של Arch Linux
+Name[hr]=Pretraživanje paketa Arch Linuxa
 Name[hu]=Arch Linux csomagkereső
 Name[ia]=Cerca de Pacchetto de Arch Linux
 Name[id]=Pencarian Paket Arch Linux
@@ -88,6 +89,7 @@ Query[fi]=https://www.archlinux.org/packages/?q=\\{@}
 Query[fr]=https://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[he]=https://www.archlinux.org/packages/?q=\\{@}
+Query[hr]=https://www.archlinux.org/packages/?q=\\{@}
 Query[hu]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[id]=https://www.archlinux.org/packages/?q=\\{@}

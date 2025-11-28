@@ -24,6 +24,7 @@ Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
 Name[gl]=Manual de Krita
 Name[he]=המדריך של Krita
+Name[hr]=Priručnik za Kritu
 Name[hu]=Krita kézikönyv
 Name[ia]=Manual de Krita
 Name[id]=Manual Krita
@@ -83,6 +84,7 @@ Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[he]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[hr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[hu]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ia]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[id]=https://docs.krita.org/en/search.html?q=\\{@}

@@ -13,6 +13,7 @@ Name[fi]=npm
 Name[fr]=npm
 Name[gl]=npm
 Name[he]=npm
+Name[hr]=npm
 Name[hu]=npm
 Name[ia]=npm
 Name[is]=npm
@@ -49,6 +50,7 @@ Query[fi]=https://www.npmjs.com/search?q=\\{@}
 Query[fr]=https://www.npmjs.com/search?q=\\{@}
 Query[gl]=https://www.npmjs.com/search?q=\\{@}
 Query[he]=https://www.npmjs.com/search?q=\\{@}
+Query[hr]=https://www.npmjs.com/search?q=\\{@}
 Query[hu]=https://www.npmjs.com/search?q=\\{@}
 Query[ia]=https://www.npmjs.com/search?q=\\{@}
 Query[is]=https://www.npmjs.com/search?q=\\{@}

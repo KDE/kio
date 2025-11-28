@@ -26,6 +26,7 @@ Name[fr]=Actualités « Qwant »
 Name[gd]=Qwant News
 Name[gl]=Noticias en Qwant
 Name[he]=חדשות Qwant
+Name[hr]=Qwant Vijesti
 Name[hu]=Qwant hírek
 Name[ia]=Novas de Qwant
 Name[id]=Qwant News
@@ -91,6 +92,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[hr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

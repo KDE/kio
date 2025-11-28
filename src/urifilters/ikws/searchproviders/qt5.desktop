@@ -26,6 +26,7 @@ Name[fi]=Qt5-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt5
 Name[gl]=Documentación en liña de Qt5
 Name[he]=התיעוד המקוון של Qt5
+Name[hr]=Qt5 Online dokumentacija
 Name[hu]=Qt5 online dokumentáció
 Name[ia]=Documentation de Qt in linea
 Name[id]=Dokumentasi Qt5 Online
@@ -82,6 +83,7 @@ Query[fi]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[he]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[hr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[hu]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[id]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

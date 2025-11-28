@@ -24,6 +24,7 @@ Name[fi]=CPlusPlus
 Name[fr]=CPlusPlus
 Name[gl]=CPlusPlus
 Name[he]=CPlusPlus
+Name[hr]=CPlusPlus
 Name[hu]=CPlusPlus
 Name[ia]=CPlusPlus
 Name[id]=CPlusPlus
@@ -83,6 +84,7 @@ Query[fi]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}
 Query[gl]=http://cplusplus.com/search.do?q=\\{@}
 Query[he]=http://cplusplus.com/search.do?q=\\{@}
+Query[hr]=http://cplusplus.com/search.do?q=\\{@}
 Query[hu]=http://cplusplus.com/search.do?q=\\{@}
 Query[ia]=http://cplusplus.com/search.do?q=\\{@}
 Query[id]=http://cplusplus.com/search.do?q=\\{@}
