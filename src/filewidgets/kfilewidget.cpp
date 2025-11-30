@@ -2312,6 +2312,11 @@ void KFileWidgetPrivate::slotViewDoubleClicked(const QModelIndex &index)
     if (!index.isValid()) {
         return;
     }
+
+    if (m_ops->selectedItems().isEmpty()) {
+        return;
+    }
+
     // double clicking to save should only work on files
     auto fileItem = m_ops->selectedItems().constFirst();
     if (m_operationMode == KFileWidget::Saving && fileItem.isFile()) {
