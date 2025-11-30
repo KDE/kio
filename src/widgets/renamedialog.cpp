@@ -27,6 +27,7 @@
 #include <QScrollBar>
 #include <QToolButton>
 
+#include <KContextualHelpButton>
 #include <KFileUtils>
 #include <KGuiItem>
 #include <KIconLoader>
@@ -443,15 +444,13 @@ RenameDialog::RenameDialog(QWidget *parent,
             }
             QLabel *filesIdenticalLabel = createLabel(this, text);
             if (CompareFilesResult == CompareFilesResult::PartiallyIdentical) {
-                auto *pixmapLabel = new QLabel(this);
-                pixmapLabel->setPixmap(QIcon::fromTheme(QStringLiteral("help-about")).pixmap(QSize(16, 16)));
-                pixmapLabel->setToolTip(
+                auto *helpLabel = new KContextualHelpButton(this);
+                helpLabel->setContextualHelpText(
                     i18n("The files are likely to be identical: they have the same size and their contents are the same at the beginning, middle and end."));
-                pixmapLabel->setCursor(Qt::WhatsThisCursor);
 
                 auto *hbox = new QHBoxLayout();
                 hbox->addWidget(filesIdenticalLabel);
-                hbox->addWidget(pixmapLabel);
+                hbox->addWidget(helpLabel);
                 hbox_verdicts->addLayout(hbox);
             } else {
                 hbox_verdicts->addWidget(filesIdenticalLabel);
