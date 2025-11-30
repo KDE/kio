@@ -26,6 +26,8 @@
 #include <QDirIterator>
 #include <QLocale>
 #include <QMimeDatabase>
+#include <QRegularExpression>
+#include <QTimeZone>
 
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -1585,7 +1587,24 @@ QString KFileItem::timeString(FileTimes which) const
         return QString();
     }
 
-    return QLocale::system().toString(d->time(which), QLocale::LongFormat);
+    const QDateTime dt = d->time(which);
+    if (!dt.isValid()) {
+        return QString();
+    }
+
+    QString format = QLocale::system().dateTimeFormat(QLocale::LongFormat);
+
+    // QLocale::LongFormat annyoingly include the full time zone name.
+    // Only display the time zone when it is different from the current one
+    // and also replace it by the abbreviation.
+    static QRegularExpression s_timeZoneRegExp(QStringLiteral(R"((\stttt$))"));
+    if (dt.timeZone() != QTimeZone::systemTimeZone()) {
+        format.replace(s_timeZoneRegExp, QLatin1StringView("t"));
+    } else {
+        format.remove(s_timeZoneRegExp);
+    }
+
+    return QLocale::system().toString(dt, format);
 }
 
 QUrl KFileItem::mostLocalUrl(bool *local) const
