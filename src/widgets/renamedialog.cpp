@@ -747,9 +747,11 @@ void RenameDialog::resizePanels()
     d->m_destDateLabel->setMinimumWidth(minDateWidth);
 
     KIO::PreviewJob *srcJob = KIO::filePreview(KFileItemList{d->srcItem}, QSize(d->m_srcPreview->width() * qreal(0.9), d->m_srcPreview->height()));
+    srcJob->setDevicePixelRatio(devicePixelRatioF());
     srcJob->setScaleType(KIO::PreviewJob::Unscaled);
 
     KIO::PreviewJob *destJob = KIO::filePreview(KFileItemList{d->destItem}, QSize(d->m_destPreview->width() * qreal(0.9), d->m_destPreview->height()));
+    destJob->setDevicePixelRatio(devicePixelRatioF());
     destJob->setScaleType(KIO::PreviewJob::Unscaled);
 
     connect(srcJob, &PreviewJob::gotPreview, this, &RenameDialog::showSrcPreview);
