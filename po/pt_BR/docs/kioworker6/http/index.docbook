@@ -32,9 +32,7 @@
 </articleinfo>
 
 <para
-><acronym
->http</acronym
-> significa <emphasis
+>&HTTP; significa <emphasis
 >H</emphasis
 >yper <emphasis
 >T</emphasis
@@ -45,13 +43,11 @@
 >rotocol ou: Protocolo de Transferência de HiperTexto.</para>
 
 <para
->O 'kioslave' http é usado por todos os aplicativos do &kde; para manipular conexões para os servidores http, isto é, servidores web. O uso mais comum é para visualizar páginas web no navegador &konqueror;.</para>
+>O KIO do 'http' é usado por todos os aplicativos do &kde; para manipular conexões para os servidores &HTTP;, isto é, servidores web. O uso mais comum é para visualizar páginas web no navegador &konqueror;.</para>
 
 <para
->Você pode usar o 'kioslave' http no &konqueror; fornecendo a ele uma <acronym
->URL</acronym
->: <userinput
->http://<replaceable
+>Você pode usar o KIO do 'http' no &konqueror; fornecendo a ele uma &URL;: <userinput
+>https://<replaceable
 >www.kde.org</replaceable
 ></userinput
 >.</para>

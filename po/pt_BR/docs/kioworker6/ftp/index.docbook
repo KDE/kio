@@ -49,11 +49,10 @@
 <para
 >O &FTP; é comumente usado para recuperar informações e obter software armazenado nos arquivos dos sites &FTP; no mundo todo. </para>
 
-
 <para
->Fonte: Citado em <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
-> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> </para>
+>Veja o RFC: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Veja o manual do <ulink url="man:/ftp"

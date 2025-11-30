@@ -42,14 +42,10 @@
 >A</emphasis
 >uthoring e <emphasis
 >V</emphasis
->ersioning (ou Versionamento Autoritativo Distribuído) para a Web. Ele permite um fácil gerenciamento de documentos e scripts em um servidor <ulink url="help:/kioslave/webdav.html"
->http</ulink
->, e possui características adicionais projetadas para simplificar o gerenciamento de versões com múltiplos autores.</para>
+>ersioning (ou Versionamento Autoritativo Distribuído) para a Web. Ele permite um fácil gerenciamento de documentos e scripts em um servidor &HTTP;, e possui características adicionais projetadas para simplificar o gerenciamento de versões com múltiplos autores.</para>
 
 <para
->O uso deste protocolo é simples. Digite a localização que deseja ver, similar a uma URL com <acronym
->http</acronym
->, exceto o nome do protocolo no início para o protocolo webdav://. Um exemplo seria <userinput
+>O uso deste protocolo é simples. Digite a localização que deseja ver, similar a uma &URL; com &HTTP;, exceto o nome do protocolo no início para o protocolo webdav://. Um exemplo seria <userinput
 >webdav:// <replaceable
 >www.dominio.com/caminho/</replaceable
 ></userinput
@@ -87,7 +83,7 @@
 </variablelist>
 
 <para
->Para aproveitar essas capacidades adicionais, você precisará de um aplicativo que as suporte. Nenhum aplicativo atualmente as suporta através deste 'kioslave'.</para>
+>Para aproveitar essas capacidades adicionais, você precisará de um aplicativo que as suporte. Nenhum aplicativo atualmente as suporta através deste KIO.</para>
 
 <para
 ><acronym

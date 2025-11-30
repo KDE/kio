@@ -8,7 +8,7 @@
 	
 <article lang="&language;" id="data">
 <title
->URLs de Dados</title>
+>&URL;s de Dados</title>
 
 <articleinfo>
 <authorgroup>
@@ -49,7 +49,7 @@
 </articleinfo>
 
 <para
->URLs de dados permitem que pequenos documentos de dados sejam incluídos na URL. Isto é útil para pequenos casos de testes HTML ou outras ocasiões que não justificam um documento por si só.</para>
+>&URL;s de dados permitem que pequenos documentos de dados sejam incluídos na &URL;. Isto é útil para pequenos casos de testes &HTML; ou outras ocasiões que não justificam um documento por si só.</para>
 
 <para
 ><userinput
@@ -59,20 +59,28 @@
 > </para>
 
 <para
->O último exemplo entregou um documento texto. Para documentos HTML deve ser especificado o tipo MIME <literal
+>O último exemplo entregou um documento texto. Para documentos &HTML; deve ser especificado o tipo &MIME; <literal
 >text/html</literal
->: <userinput
+>: <quote
+><userinput
 >data:text/html,&lt;title&gt;Caso de Teste&lt;/title&gt;&lt;p&gt;Isto é um teste&lt;/p&gt;</userinput
+></quote
 >. Este exemplo produz exatamente o mesmo resultado do que se o conteúdo tivesse sido carregado de um documento separado. </para>
 
 <para
->Também é possível especificar conjuntos de caracteres alternantes. Note que caracteres de 8 bits têm de ser escapados com um sinal de porcentagem e seus códigos de dois dígitos hexadecimais: <userinput
+>Também é possível especificar conjuntos de caracteres alternantes. Note que caracteres de 8 bits têm de ser escapados com um sinal de porcentagem e seus códigos de dois dígitos hexadecimais: <quote
+><userinput
 >data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
-> resulta em <literal
+></quote
+> resulta em <quote
+><literal
 >Gr&uuml;&szlig;e aus Schl&auml;gl</literal
->, onde, ao omitir o atributo de conjunto de caracteres deve deixar algo como <literal
+></quote
+>, onde, ao omitir o atributo de conjunto de caracteres deve deixar algo como <quote
+><literal
 >Gr??e aus Schl?gl</literal
-> </para>
+></quote
+>. </para>
 
 <para
 ><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
