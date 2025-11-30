@@ -482,23 +482,22 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     // Time widgets
     if (!d->bMultiple) {
-        QLocale locale;
-        if (const QDateTime dt = firstItem.time(KFileItem::CreationTime); !dt.isNull()) {
-            d->m_ui->createdTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        if (const QString timeString = firstItem.timeString(KFileItem::CreationTime); !timeString.isEmpty()) {
+            d->m_ui->createdTimeLabel->setText(timeString);
         } else {
             d->m_ui->createdTimeLabel->hide();
             d->m_ui->createdTimeLabel_Left->hide();
         }
 
-        if (const QDateTime dt = firstItem.time(KFileItem::ModificationTime); !dt.isNull()) {
-            d->m_ui->modifiedTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        if (const QString timeString = firstItem.timeString(KFileItem::ModificationTime); !timeString.isEmpty()) {
+            d->m_ui->modifiedTimeLabel->setText(timeString);
         } else {
             d->m_ui->modifiedTimeLabel->hide();
             d->m_ui->modifiedTimeLabel_Left->hide();
         }
 
-        if (const QDateTime dt = firstItem.time(KFileItem::AccessTime); !dt.isNull() && hasAccessTime) {
-            d->m_ui->accessTimeLabel->setText(locale.toString(dt, QLocale::LongFormat));
+        if (const QString timeString = firstItem.timeString(KFileItem::AccessTime); !timeString.isEmpty()) {
+            d->m_ui->accessTimeLabel->setText(timeString);
         } else {
             d->m_ui->accessTimeLabel->hide();
             d->m_ui->accessTimeLabel_Left->hide();
