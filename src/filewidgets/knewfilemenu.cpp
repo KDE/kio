@@ -673,7 +673,12 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
 void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &entry)
 {
-    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, m_popupFiles.first(), m_parentWidget);
+    auto targetUrl = m_popupFiles.first();
+    if (!targetUrl.isLocalFile()) {
+        targetUrl = mostLocalUrl(targetUrl);
+    }
+
+    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, targetUrl, m_parentWidget);
     dlg->setModal(q->isModal());
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(i18n("Create Symlink"));
