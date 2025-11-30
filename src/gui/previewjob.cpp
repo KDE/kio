@@ -123,8 +123,6 @@ PreviewJob::ScaleType PreviewJob::scaleType() const
 
 void PreviewJobPrivate::startPreview()
 {
-    Q_Q(PreviewJob);
-
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
 

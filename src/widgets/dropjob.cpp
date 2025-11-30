@@ -284,8 +284,6 @@ void DropJobPrivate::slotStart()
 
 void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 {
-    Q_Q(DropJob);
-
     const int separatorLength = QCoreApplication::translate("QShortcut", "+").size();
     QString seq = QKeySequence(Qt::ShiftModifier).toString(QKeySequence::NativeText);
     seq.chop(separatorLength); // chop superfluous '+'
