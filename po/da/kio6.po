@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-28 00:39+0000\n"
+"POT-Creation-Date: 2025-12-01 00:39+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2296,7 +2296,7 @@ msgid " (Points to %1)"
 msgstr "(Peger på %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:609
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -3149,7 +3149,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:355
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3510,27 +3510,27 @@ msgstr "Å&bn"
 msgid "Icon size: %1 pixels"
 msgstr "Ikonstørrelse: %1 pixel"
 
-#: filewidgets/kfilewidget.cpp:2457
+#: filewidgets/kfilewidget.cpp:2462
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Vælg filnavnee&ndelse automatisk (%1)"
 
-#: filewidgets/kfilewidget.cpp:2458
+#: filewidgets/kfilewidget.cpp:2463
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "endelsen <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Vælg filnavnee&ndelse automatisk"
 
-#: filewidgets/kfilewidget.cpp:2465
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "a suitable extension"
 msgstr "en passende endelse"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2478
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3557,12 +3557,12 @@ msgstr ""
 "automatisk blive fjernet).</li></ol>Hvis du er usikker, så behold dette "
 "slået til da det gør dine filer nemmere at håndtere."
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid "&File type:"
 msgstr "&Filtype:"
 
-#: filewidgets/kfilewidget.cpp:2943
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3571,7 +3571,7 @@ msgstr ""
 "<qt>Dette er filtypevælgeren. Den bruges til at vælge det format, filen vil "
 "blive gemt som.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2945
+#: filewidgets/kfilewidget.cpp:2950
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -3593,34 +3593,34 @@ msgstr "Beklager"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Skabelonfilen <b>%1</b> findes ikke.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
+#: filewidgets/knewfilemenu.cpp:681 filewidgets/knewfilemenu.cpp:746
 #, kde-format
 msgid "Name for new link:"
 msgstr "Navn på nyt link:"
 
-#: filewidgets/knewfilemenu.cpp:679
+#: filewidgets/knewfilemenu.cpp:684
 #, kde-format
 msgid "Create Symlink"
 msgstr "Opret symlink"
 
-#: filewidgets/knewfilemenu.cpp:745
+#: filewidgets/knewfilemenu.cpp:750
 #, kde-format
 msgid "Create link to URL"
 msgstr "Opret link til URL"
 
-#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
+#: filewidgets/knewfilemenu.cpp:791 filewidgets/knewfilemenu.cpp:846
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1121
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Angiv %1 filnavn:"
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1225
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3630,7 +3630,7 @@ msgstr ""
 "Navnet <filename>%1</filename><nl/> kan ikke bruges, fordi det er reserveret "
 "til brug af operativsystemet."
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1233
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3640,7 +3640,7 @@ msgstr ""
 "Navnet <filename>%1</filename> starter med punktum, så den vil blive skjult "
 "som standard."
 
-#: filewidgets/knewfilemenu.cpp:1236
+#: filewidgets/knewfilemenu.cpp:1241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3652,27 +3652,27 @@ msgstr ""
 "at det vises før andre elementer ved alfabetisk sortering og potentielt "
 "andre særheder."
 
-#: filewidgets/knewfilemenu.cpp:1254
+#: filewidgets/knewfilemenu.cpp:1259
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Brug af skråstreger i mappenavne vil oprette undermapper, såsom:"
 
-#: filewidgets/knewfilemenu.cpp:1268
+#: filewidgets/knewfilemenu.cpp:1273
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Brug af skråstreger i mappenavne vil oprette undermapper."
 
-#: filewidgets/knewfilemenu.cpp:1280
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Skråstreger kan ikke bruges i fil- og mappenavne."
 
-#: filewidgets/knewfilemenu.cpp:1285
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Baglæns skråstreger kan ikke bruges i fil- og mappenavne."
 
-#: filewidgets/knewfilemenu.cpp:1299
+#: filewidgets/knewfilemenu.cpp:1304
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -3686,7 +3686,7 @@ msgstr ""
 "Kunne ikke oprette en mappe med navnet <filename>%1</filename><nl/>fordi det "
 "er reserveret til brug af operativsystemet."
 
-#: filewidgets/knewfilemenu.cpp:1308
+#: filewidgets/knewfilemenu.cpp:1313
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3696,53 +3696,53 @@ msgstr ""
 "kan være forvirrende eller risikabelt når terminalen bruges til at slette "
 "ting."
 
-#: filewidgets/knewfilemenu.cpp:1380
+#: filewidgets/knewfilemenu.cpp:1385
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr ""
 "Der findes allerede en ældre mappe med navnet  <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1382
+#: filewidgets/knewfilemenu.cpp:1387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Der findes allerede en fil med navnet <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1468
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgid "Create New"
 msgstr "Opret ny(t)"
 
-#: filewidgets/knewfilemenu.cpp:1503
+#: filewidgets/knewfilemenu.cpp:1508
 #, kde-format
 msgid "Link to Device"
 msgstr "Link til enhed"
 
-#: filewidgets/knewfilemenu.cpp:1549
+#: filewidgets/knewfilemenu.cpp:1554
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Ny mappe"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1577
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Opret ny mappe"
 
-#: filewidgets/knewfilemenu.cpp:1574
+#: filewidgets/knewfilemenu.cpp:1579
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Opret ny mappe i %1:"
 
-#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1582 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Angiv mappenavn"
 
-#: filewidgets/knewfilemenu.cpp:1634
+#: filewidgets/knewfilemenu.cpp:1639
 #, kde-format
 msgid "Default"
 msgstr "Standard"
@@ -4834,23 +4834,23 @@ msgstr "Klik for at kopiere tjeksummen til udklipsholderen."
 msgid "C&ancel"
 msgstr "&Annullér"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&Flyt hertil"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Download her"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopiér hertil"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&Link hertil"
@@ -4921,12 +4921,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Opretter mappe"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Source"
 msgstr "Kilde"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
 #, kde-format
 msgid "Destination"
 msgstr "Destination"
@@ -5238,7 +5238,7 @@ msgstr "Ejer"
 msgid "Owning Group"
 msgstr "Ejergruppe"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1453
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "Others"
 msgstr "Andre"
@@ -6108,7 +6108,7 @@ msgid "Explore in %1"
 msgstr "Undersøg i %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:441
-#: widgets/kpropertiesdialogbuiltin_p.cpp:719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:718
 #, kde-format
 msgid "Refresh"
 msgstr "Genopfrisk"
@@ -6128,18 +6128,18 @@ msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Kan ikke overføre <filename>%1</filename>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:564
+#: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Ukendt størrelse"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6148,144 +6148,144 @@ msgstr ""
 "Beregner... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
-#: widgets/kpropertiesdialogbuiltin_p.cpp:714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:713
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 fil"
 msgstr[1] "%1 filer"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:700
-#: widgets/kpropertiesdialogbuiltin_p.cpp:715
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 undermappe"
 msgstr[1] "%1 undermapper"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:728
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Beregner...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:751
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
 #, kde-format
 msgid "At least %1\n"
 msgstr "Mindst %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:796
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Det nye filnavn er tomt."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:995
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No registered file type"
 msgstr "Ingen registrerede filtyper"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:997
+#: widgets/kpropertiesdialogbuiltin_p.cpp:996
 #, kde-format
 msgid "No associated application"
 msgstr "Ingen associeret applikation"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1003
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Opret..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1007
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Ændr..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1009
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr "Skift standardprogrammet for at åbne filer af typen \"%1\":"
 
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
 msgstr "Ingen adgang"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
 msgstr "Kan kun se"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can View & Modify"
 msgstr "Kan se og ændre"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View Content"
 msgstr "Kan kun se indhold"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify Content"
 msgstr "Kan se og ændre indhold"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can Only View/Read Content"
 msgstr "Kan se/læse indhold"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can View/Read & Modify/Write"
 msgstr "Kan se/læse og ændre/skrive"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "&Permissions"
 msgstr "&Rettigheder"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
 msgstr "Adgangsrettigheder"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Denne file er et link og har ingen rettigheder."
 msgstr[1] "Alle filer er links og har ingen rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Kun ejeren kan ændre rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&wner:"
 msgstr "E&jer:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Angiver de handlinger som ejeren har lov til at udføre."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&uppe:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Angiver de handlinger som medlemmer af gruppen har lov til at udføre."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "O&thers:"
 msgstr "&Andre:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6294,27 +6294,27 @@ msgstr ""
 "Angiver de handlinger som alle brugere, som hverken er ejere eller i gruppen "
 "har lov til at udføre."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Kun e&jeren kan slette eller omdøber indholdet"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Aktivér at &køre filen som et program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Slet eller omdøb:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Execute:"
 msgstr "Kør:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1231
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6325,7 +6325,7 @@ msgstr ""
 "indeholdte filer og mapper. Andre brugere kan kun tilføje nye filer, hvilket "
 "kræver \"Ændr indhold\"-rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6334,42 +6334,42 @@ msgstr ""
 "Aktivér dette for at markere filen som kørbar. Dette giver kun mening for "
 "programmer og scripts. Det er påkrævet hvis du vil køre dem."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1239
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "A&vancerede rettigheder"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
 #, kde-format
 msgid "Ownership"
 msgstr "Ejerskab"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1255
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "User:"
 msgstr "Bruger:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1293
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
 #, kde-format
 msgid "Group:"
 msgstr "Gruppe:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Anvend ændringer på alle undermapper og deres indhold"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Avancerede rettigheder"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "Class"
 msgstr "Klasse"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "Show\n"
@@ -6378,22 +6378,22 @@ msgstr ""
 "Vis\n"
 "indgange"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Dette flag tillader visning af indholdet af mappen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Read"
 msgstr "Læs"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Det røde flag tillader visning af indholdet af filen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "Write\n"
@@ -6402,7 +6402,7 @@ msgstr ""
 "Skriv\n"
 "indgange"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6411,43 +6411,43 @@ msgstr ""
 "Dette flag tillader tilføjelse, navneændring og sletning af filer. Bemærk at "
 "sletning og navneændring kan begrænses ved brug af klæbrigt flag."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Write"
 msgstr "Skriv"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Skriveflaget tillader ændring af indholdet af filen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Få tilgang til"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Aktivér dette flag for at tillade at gå ind i mappen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Exec"
 msgstr "Exec"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Aktivér dette flag for at tillade at køre filen som et program."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "Special"
 msgstr "Speciel"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6456,7 +6456,7 @@ msgstr ""
 "Specielt flag. Gyldigt for hele mappen, den nøjagtige betydning af flaget "
 "kan ses i den højre kolonne."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6464,17 +6464,17 @@ msgid ""
 msgstr ""
 "Specielt flag. Den nøjagtige betydning af flaget kan ses i højre kolonne."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "User"
 msgstr "Bruger"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid "Group"
 msgstr "Gruppe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6483,7 +6483,7 @@ msgstr ""
 "Hvis dette flag er sat, vil ejeren af denne mappe blive ejeren af alle nye "
 "filer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6492,7 +6492,7 @@ msgstr ""
 "Hvis denne fil er kørbar og flaget er sat, vil den blive kørt med ejerens "
 "rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6500,7 +6500,7 @@ msgstr ""
 "Hvis dette flag er sat, vil gruppen for denne mappe blive sat for alle nye "
 "filer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1475
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6509,7 +6509,7 @@ msgstr ""
 "Hvis denne fil er en kørbar fil og flaget er sat, vil den blive kørt med "
 "gruppens rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1482
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6519,7 +6519,7 @@ msgstr ""
 "kan slette eller omdøbe filer. Ellers er det alle der har skriverettighed "
 "der kan gøre dette."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1487
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6528,80 +6528,80 @@ msgstr ""
 "Det klæbrige flag for en file ignoreres af Linux, men bruges muligvis på "
 "visse andre systemer"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
 #, kde-format
 msgid "Set UID"
 msgstr "Sæt UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1552
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
 #, kde-format
 msgid "Set GID"
 msgstr "Sæt GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1556
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Klæbrig"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Link"
 msgstr "Link"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Varierer (Ingen ændring)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1800
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Denne fil bruger avancerede rettigheder"
 msgstr[1] "Disse filer bruger avancerede rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Denne mappe bruger avancerede rettigheder."
 msgstr[1] "Disse mapper bruger avancerede rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1836
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Disse filer bruger avancerede rettigheder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2079
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "T&jeksummer"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2370
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Ugyldig tjeksum."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2374
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2373
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Det givne input er ikke en gyldig MD5-, SHA1- eller SHA256-tjeksum."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgid "Checksums match."
 msgstr "Tjeksummerne matcher."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2388
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Den beregnede tjeksum og den forventede tjeksum er ens."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2399
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6612,48 +6612,48 @@ msgstr ""
 "Prøv at downloade filen igen.<br/>Kontakt kilden til filen, hvis "
 "verifikationen stadig fejler."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Den beregnede tjeksum og den forventede tjeksum er forskellige."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2413
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Verificerer tjeksum..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2443
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2442
 #, fuzzy, kde-format
 #| msgid "The files are <b>identical</b>."
 msgid "The checksums of all files are identical."
 msgstr "Filerne er <b>identiske</b>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
 #, fuzzy, kde-format
 #| msgid "The files are <b>different</b>."
 msgid "The selected files have different checksums."
 msgstr "Filerne er <b>forskellige</b>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2454
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Beregner..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2565
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2564
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2571
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2570
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2640
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2911
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2639
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2910
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6661,27 +6661,27 @@ msgstr ""
 "Kunne ikke gemme egenskaber. Kun indgange på lokale filsystemer er "
 "understøttet."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2710
 #, kde-format
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2850
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Tilføj filtype for %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2852
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Vælg en eller flere filtyper at tilføje:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2990
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2989
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Kun kørbare filer på lokale filsystemer er understøttet."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3005
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3004
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avancerede tilvalg for %1"
@@ -6854,22 +6854,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Filnavn til indhold som slippes:"
 
-#: widgets/renamedialog.cpp:66
+#: widgets/renamedialog.cpp:67
 #, kde-format
 msgid "Date: %1"
 msgstr "Dato: %1"
 
-#: widgets/renamedialog.cpp:75
+#: widgets/renamedialog.cpp:76
 #, kde-format
 msgid "Size: %1"
 msgstr "Størrelse: %1"
 
-#: widgets/renamedialog.cpp:231
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid "Appl&y to All"
 msgstr "An&vend på alle"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:233
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6882,7 +6882,7 @@ msgstr ""
 "Medmindre du trykker på Skip vil du stadig blive spurgt i tilfælde af en "
 "konflikt med en eksisterende fil i mappen."
 
-#: widgets/renamedialog.cpp:236
+#: widgets/renamedialog.cpp:237
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6891,38 +6891,38 @@ msgstr ""
 "Når dette er markeret vil den knap der trykkes på blive anvendt på alle "
 "efterfølgende konflikter i resten af det aktuelle job."
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "&Rename"
 msgstr "&Omdøb"
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:245
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Foreslå nyt &navn"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "&Skip"
 msgstr "&Skip"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Kopiér eller flyt ikke denne mappe, gå til næste element i stedet"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:253
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Kopiér eller flyt ikke denne fil, gå til næste element i stedet"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "Skri&v ind i"
 
-#: widgets/renamedialog.cpp:266
+#: widgets/renamedialog.cpp:267
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6935,13 +6935,13 @@ msgstr ""
 "Du vil blive spurgt igen, i tilfælde af en konflikt med en eksisterende fil "
 "i mappen."
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Overskriv ældre filer"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:276
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6950,12 +6950,12 @@ msgstr ""
 "Destinationsfiler, som har ældre modifikationstider vil blive overskrevet af "
 "kilden, ellers sprunget over."
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:288
 #, kde-format
 msgid "&Resume"
 msgstr "&Genoptag"
 
-#: widgets/renamedialog.cpp:296
+#: widgets/renamedialog.cpp:297
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6964,52 +6964,52 @@ msgstr ""
 "Denne handling ville overskrive \"%1\" med sig selv.\n"
 "Angiv venligst et nyt filnavn:"
 
-#: widgets/renamedialog.cpp:302
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid "C&ontinue"
 msgstr "F&ortsæt"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:365
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Vil du gerne overskrive destinationen?"
 
-#: widgets/renamedialog.cpp:366
+#: widgets/renamedialog.cpp:367
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Vil du gerne flette indholdet af '%1' ind i '%2'?"
 
-#: widgets/renamedialog.cpp:408
+#: widgets/renamedialog.cpp:409
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Kilden er <b>nyere</b>."
 
-#: widgets/renamedialog.cpp:410
+#: widgets/renamedialog.cpp:411
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Kilden er <b>ældrere</b>."
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:420
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Kilden er <b>%1 mindre</b>"
 
-#: widgets/renamedialog.cpp:422
+#: widgets/renamedialog.cpp:423
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Kilden er <b>%1 større</b>"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:436
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Filerne er <b>identiske</b>."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Filerne <b>lader til at være identiske</b>."
 
-#: widgets/renamedialog.cpp:441
+#: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Filerne er <b>forskellige</b>."
@@ -7023,22 +7023,22 @@ msgstr ""
 "Filerne er sandsynligvis identiske. De har samme størrelse og deres indhold "
 "er det samme i begyndelsen, midten og slutningen."
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Et ældre element ved navn \"%1\" findes allerede."
 
-#: widgets/renamedialog.cpp:470
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "En lignende fil ved navn \"%1\" findes allerede."
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Et nyere element med navnet \"%1\" findes allerede."
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "Omdøb:"

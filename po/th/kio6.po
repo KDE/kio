@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-28 00:39+0000\n"
+"POT-Creation-Date: 2025-12-01 00:39+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -2212,7 +2212,7 @@ msgid " (Points to %1)"
 msgstr " (ชี้ไปยัง %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:609
+#: widgets/renamedialog.cpp:608
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -3049,7 +3049,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:355
-#: widgets/kpropertiesdialogbuiltin_p.cpp:679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:678
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3395,27 +3395,27 @@ msgstr "เ&ปิด"
 msgid "Icon size: %1 pixels"
 msgstr "ขนาดไอคอน: %1 พิกเซล"
 
-#: filewidgets/kfilewidget.cpp:2457
+#: filewidgets/kfilewidget.cpp:2462
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "เลือกส่วนข&ยายชื่อแฟ้ม (%1) อัตโนมัติ"
 
-#: filewidgets/kfilewidget.cpp:2458
+#: filewidgets/kfilewidget.cpp:2463
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ส่วนขยายแฟ้ม <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "เลือกส่วนข&ยายแฟ้มอัตโนมัติ"
 
-#: filewidgets/kfilewidget.cpp:2465
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "a suitable extension"
 msgstr "ส่วนขยายแฟ้มที่เหมาะสม"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2478
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3441,19 +3441,19 @@ msgstr ""
 "(เครื่องหมายมหัพภาคจะถูกเอาออกเองโดยอัตโนมัติ)</li></ol>หากไม่แน่ใจ "
 "ให้เปิดใช้งานตัวเลือกนี้เอาไว้ เพราะว่ามันจะทำให้แฟ้มของคุณสามารถที่จะจัดการได้ง่าย"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid "&File type:"
 msgstr "&ชนิดไฟล์:"
 
-#: filewidgets/kfilewidget.cpp:2943
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>นี่คือตัวเลือกประเภทไฟล์ ใช้เพื่อเลือกรูปแบบที่จะบันทึกไฟล์</qt>"
 
-#: filewidgets/kfilewidget.cpp:2945
+#: filewidgets/kfilewidget.cpp:2950
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -3473,34 +3473,34 @@ msgstr "ขออภัย"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ยังไม่มีแฟ้มแม่แบบ <b>%1</b> อยู่</qt>"
 
-#: filewidgets/knewfilemenu.cpp:676 filewidgets/knewfilemenu.cpp:741
+#: filewidgets/knewfilemenu.cpp:681 filewidgets/knewfilemenu.cpp:746
 #, kde-format
 msgid "Name for new link:"
 msgstr "ชื่อสำหรับลิงค์ใหม่:"
 
-#: filewidgets/knewfilemenu.cpp:679
+#: filewidgets/knewfilemenu.cpp:684
 #, kde-format
 msgid "Create Symlink"
 msgstr "สร้างการเชื่อมโยงแบบสัญลักษณ์"
 
-#: filewidgets/knewfilemenu.cpp:745
+#: filewidgets/knewfilemenu.cpp:750
 #, kde-format
 msgid "Create link to URL"
 msgstr "สร้างลิงก์ไปยัง URL"
 
-#: filewidgets/knewfilemenu.cpp:786 filewidgets/knewfilemenu.cpp:841
+#: filewidgets/knewfilemenu.cpp:791 filewidgets/knewfilemenu.cpp:846
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1121
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1225
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3509,7 +3509,7 @@ msgid ""
 msgstr ""
 "ไม่สามารถใช้ชื่อ <filename>%1</filename> ได้เนื่องจากมีการสงวนไว้สำหรับใช้โดยระบบปฏิบัติการ"
 
-#: filewidgets/knewfilemenu.cpp:1228
+#: filewidgets/knewfilemenu.cpp:1233
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3517,7 +3517,7 @@ msgid ""
 "default."
 msgstr "ชื่อ <filename>%1</filename> ขึ้นต้นด้วยจุด ซึ่งจะทำให้ถูกซ่อนไปโดยปกติ"
 
-#: filewidgets/knewfilemenu.cpp:1236
+#: filewidgets/knewfilemenu.cpp:1241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3529,27 +3529,27 @@ msgstr ""
 "ซึ่งจะทำให้ชื่อนั้นปรากฏก่อนรายการอื่นเมื่อจัดเรียงตามตัวอักษร นอกเหนือจากความแปลกประหลาดอื่นๆ "
 "ที่อาจเกิดขึ้น"
 
-#: filewidgets/knewfilemenu.cpp:1254
+#: filewidgets/knewfilemenu.cpp:1259
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อยดังนี้:"
 
-#: filewidgets/knewfilemenu.cpp:1268
+#: filewidgets/knewfilemenu.cpp:1273
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อย"
 
-#: filewidgets/knewfilemenu.cpp:1280
+#: filewidgets/knewfilemenu.cpp:1285
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้เครื่องหมายทับในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1285
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้แบ็กสแลชในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1299
+#: filewidgets/knewfilemenu.cpp:1304
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3559,7 +3559,7 @@ msgstr ""
 "การสร้างไฟล์หรือโฟลเดอร์ที่ชื่อ <filename>%1</filename> เป็นไปไม่ได้ "
 "เนื่องจากจะทับซ้อนกับตำแหน่งของโฟลเดอร์โฮมของผู้ใช้"
 
-#: filewidgets/knewfilemenu.cpp:1308
+#: filewidgets/knewfilemenu.cpp:1313
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3568,46 +3568,46 @@ msgstr ""
 "ไม่แนะนำให้เริ่มชื่อไฟล์หรือโฟลเดอร์ด้วยเครื่องหมายติลเดอ (~) "
 "เพราะอาจสร้างความสับสนหรืออันตรายได้เมื่อใช้เทอร์มินัลเพื่อลบข้อมูล"
 
-#: filewidgets/knewfilemenu.cpp:1380
+#: filewidgets/knewfilemenu.cpp:1385
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "มีรายการที่ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1382
+#: filewidgets/knewfilemenu.cpp:1387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1468
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgid "Create New"
 msgstr "สร้างใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1503
+#: filewidgets/knewfilemenu.cpp:1508
 #, kde-format
 msgid "Link to Device"
 msgstr "เชื่อมโยงไปยังอุปกรณ์"
 
-#: filewidgets/knewfilemenu.cpp:1549
+#: filewidgets/knewfilemenu.cpp:1554
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1577
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1574
+#: filewidgets/knewfilemenu.cpp:1579
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
 
-#: filewidgets/knewfilemenu.cpp:1577 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1582 widgets/kpropertiesdialogbuiltin_p.cpp:365
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3615,7 +3615,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1634
+#: filewidgets/knewfilemenu.cpp:1639
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -4690,23 +4690,23 @@ msgstr "คลิกเพื่อคัดลอก checksum ไปยัง�
 msgid "C&ancel"
 msgstr "ย&กเลิก"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&ย้ายมาที่นี่"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&ดาวน์โหลดที่นี่"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "&คัดลอกที่นี่"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&ลิงค์ที่นี่"
@@ -4776,12 +4776,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "ทำการสร้างไดเรกทอรี"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:375
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Source"
 msgstr "ต้นทาง"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:377
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
 #, kde-format
 msgid "Destination"
 msgstr "ปลายทาง"
@@ -5087,7 +5087,7 @@ msgstr "เจ้าของ"
 msgid "Owning Group"
 msgstr "กลุ่มของเจ้าของ"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1453
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "Others"
 msgstr "อื่น ๆ"
@@ -5947,7 +5947,7 @@ msgid "Explore in %1"
 msgstr "สำรวจใน %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:441
-#: widgets/kpropertiesdialogbuiltin_p.cpp:719
+#: widgets/kpropertiesdialogbuiltin_p.cpp:718
 #, kde-format
 msgid "Refresh"
 msgstr "ปรับปรุงใหม่"
@@ -5967,18 +5967,18 @@ msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "ไม่สามารถโอน <filename>%1</filename> ได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:564
+#: widgets/kpropertiesdialogbuiltin_p.cpp:563
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:685
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "ไม่รู้ขนาด"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -5987,168 +5987,168 @@ msgstr ""
 "กำลังคำนวณ... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
-#: widgets/kpropertiesdialogbuiltin_p.cpp:714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:713
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "แฟ้ม %1 แฟ้ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:700
-#: widgets/kpropertiesdialogbuiltin_p.cpp:715
+#: widgets/kpropertiesdialogbuiltin_p.cpp:699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:714
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "โฟลเดอร์ย่อย %1 โฟลเดอร์"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:728
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "Calculating...\n"
 msgstr "กำลังคำนวณ...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:751
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
 #, kde-format
 msgid "At least %1\n"
 msgstr "อย่างน้อย %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:796
 #, kde-format
 msgid "The new file name is empty."
 msgstr "ยังไม่มีชื่อของแฟ้มใหม่"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:995
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No registered file type"
 msgstr "ไม่มีประเภทไฟล์ที่ลงทะเบียน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:997
+#: widgets/kpropertiesdialogbuiltin_p.cpp:996
 #, kde-format
 msgid "No associated application"
 msgstr "ไม่มีโปรแกรมเกี่ยวข้อง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1003
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "สร้าง..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1007
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "เปลี่ยน..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1009
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
 
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
 msgstr "ไม่มีสิทธิ์เข้าถึง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can Only View"
 msgstr "สามารถดูได้เท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
 msgid "Can View & Modify"
 msgstr "สามารถดูและแก้ไขได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View Content"
 msgstr "สามารถดูเนื้อหาได้เท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View & Modify Content"
 msgstr "ดูและแก้ไขเนื้อหาภายในได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can Only View/Read Content"
 msgstr "อ่านหรือดูได้เท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "Can View/Read & Modify/Write"
 msgstr "ดูหรืออ่านและแก้ไขหรือเขียนได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1181
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "&Permissions"
 msgstr "&สิทธิ์ที่อนุญาต"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1192
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
 msgstr "สิทธิ์ในการเข้าใช้งาน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1202
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "แฟ้มทั้งหมดเป็นที่อยู่เชื่อมโยงและไม่มีสิทธิ์ที่อนุญาต"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1204
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "เจ้าของเท่านั้นที่สามารถเปลี่ยนสิทธิ์ที่อนุญาตได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1211
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "O&wner:"
 msgstr "เ&จ้าของ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "ระบุการกระทำที่อนุญาตให้เจ้าของทำได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1216
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Gro&up:"
 msgstr "ก&ลุ่ม:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "ระบุการกระทำที่อนุญาตให้สมาชิกของกลุ่มทำได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
 #, kde-format
 msgid "O&thers:"
 msgstr "&อื่น ๆ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "ระบุการกระทำที่อนุญาตให้ผู้ใช้ทั้งหมด แม้ว่าจะไม่ใช่เจ้าของหรืออยู่ในกลุ่มหรือไม่ สามารถทำได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "เจ้าของเ&ท่านั้นที่เปลี่ยนชื่อและลบเนื้อหาได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "อนุญาตให้ &ประมวลผลแฟ้มในรูปแบบของโปรแกรมได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Delete or rename:"
 msgstr "ลบหรือเปลี่ยนชื่อ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Execute:"
 msgstr "ดําเนินการ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1231
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6159,7 +6159,7 @@ msgstr ""
 "ที่สามารถทำการลบหรือเปลี่ยนชื่อแฟ้มหรือโฟลเดอร์ที่อยู่ภายในได้ ส่วนผู้ใช้อื่นจะทำได้เพียงเพิ่มแฟ้มใหม่ "
 "โดยจะต้องมีสิทธิ์ 'แก้ไขเนื้อหา' ด้วย"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6168,42 +6168,42 @@ msgstr ""
 "เปิดใช้งานตัวเลือกนี้เพื่อทำเครื่องหมายว่าแฟ้มนี้สามารถสั่งประมวลผลได้ ซึ่งการทำแบบนี้ "
 "จำเป็นสำหรับโปรแกรมและสคริปต์เท่านั้น มันเป็นสิ่งจำเป็นเมื่อคุณต้องการสั่งประมวลผลแฟ้ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1239
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "สิ&ทธิ์ในการใช้งานขั้นสูง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
 #, kde-format
 msgid "Ownership"
 msgstr "ความเป็นเจ้าของ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1255
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "User:"
 msgstr "ผู้ใช้:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1293
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
 #, kde-format
 msgid "Group:"
 msgstr "กลุ่ม:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "ปรับให้มีผลกับโฟลเดอร์ย่อยและแฟ้มในโฟลเดอร์ทั้งหมด"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "สิทธิ์ที่อนุญาตขั้นสูง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1390
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
 #, kde-format
 msgid "Class"
 msgstr "คลาส"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
 #, kde-format
 msgid ""
 "Show\n"
@@ -6212,22 +6212,22 @@ msgstr ""
 "แสดง\n"
 "รายการ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "แฟล็กนี้อนุญาตให้ดูเนื้อหาภายในโฟลเดอร์ได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Read"
 msgstr "อ่าน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "แฟล็กอ่าน อนุญาตให้ดูเนื้อหาภายในแฟ้มได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1407
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "Write\n"
@@ -6236,7 +6236,7 @@ msgstr ""
 "เขียน\n"
 "รายการ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6245,43 +6245,43 @@ msgstr ""
 "แฟล็กนี้อนุญาตให้ทำการเพิ่ม, เปลี่ยนชื่อ และลบแฟ้มได้ ข้อควรจำ การลบและเปลี่ยนชื่อนั้น "
 "สามารถถูกจำกัดสิทธิ์ได้โดยการใช้แฟล็กปักหมุด"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
 #, kde-format
 msgid "Write"
 msgstr "เขียน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "แฟล็กเขียน อนุญาตให้ทำการแก้ไขเนื้อหาภายในแฟ้มได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "เข้าใช้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "เปิดใช้แฟล็กนี้เพื่ออนุญาตให้เข้าใช้โฟลเดอร์ได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Exec"
 msgstr "ประมวลผล"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "เปิดใช้แฟล็กนี้เพื่ออนุญาตให้ประมวลผลแฟ้มในรูปแบบของโปรแกรมได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
 #, kde-format
 msgid "Special"
 msgstr "พิเศษ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1436
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6290,24 +6290,24 @@ msgstr ""
 "แฟล็กพิเศษ จะใช้ได้กับโฟลเดอร์ทั้งหมด "
 "โดยความหมายที่ชัดเจนของแฟล็กจะเห็นได้ในส่วนคอลัมน์ทางด้านขวามือ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "แฟล็กพิเศษ ดูความหมายที่ชัดเจนของแฟล็กได้ในส่วนคอลัมน์ทางด้านขวามือ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "User"
 msgstr "ผู้ใช้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid "Group"
 msgstr "กลุ่ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6315,7 +6315,7 @@ msgid ""
 msgstr ""
 "หากเปิดใช้แฟล็กนี้ จะมีการกำหนดเจ้าของโฟลเดอร์นี้ให้กับแฟ้มใหม่ที่สร้างขึ้นภายในโฟลเดอร์นี้ด้วย"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6324,13 +6324,13 @@ msgstr ""
 "หากแฟ้มเป็นแฟ้มที่ประมวลผลได้ และมีการตั้งค่าแฟล็กนี้ด้วย เมื่อประมวลผล "
 "มันจะถูกประมวลผลโดยใช้สิทธิ์ของเจ้าของแฟ้ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr "หากเปิดใช้แฟล็กนี้ จะมีการกำหนดกลุ่มของโฟลเดอร์นี้ให้กับแฟ้มใหม่ที่สร้างขึ้นในโฟลเดอร์นี้ด้วย"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1475
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6339,7 +6339,7 @@ msgstr ""
 "หากแฟ้มเป็นแฟ้มที่ประมวลผลได้ และมีการตั้งค่าแฟล็กนี้ด้วย เมื่อประมวลผล "
 "มันจะถูกประมวลผลโดยใช้สิทธิ์ของกลุ่มของแฟ้ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1482
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6348,85 +6348,85 @@ msgstr ""
 "หากใช้แฟล็กปักหมุดกับโฟลเดอร์ จะมีเพียงเจ้าของและผู้ดูแลระบบ "
 "รวมถึงผู้ใช้อื่นนอกเหนือจากนี้ที่ได้รับสิทธิ์ในการเขียนเท่านั้นที่สามารถลบหรือเปลี่ยนชื่อแฟ้มได้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1487
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr "แฟล็กปักหมุดไม่สามารถใช้ได้บนระบบลินุกซ์ แต่อาจจะใช้ได้กับบางระบบ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1548
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
 #, kde-format
 msgid "Set UID"
 msgstr "ตั้งหมายเลขผู้ใช้"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1552
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
 #, kde-format
 msgid "Set GID"
 msgstr "ตั้งหมายเลขกลุ่ม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1556
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "ปักหมุด"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1669
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
 #, kde-format
 msgid "Link"
 msgstr "เชื่อมโยง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1689
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "การเปลี่ยนแปลง (ไม่เปลี่ยนแปลง)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1800
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "แฟ้มเหล่านี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1822
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "โฟลเดอร์เหล่านี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1836
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "แฟ้มเหล่านี้มีการใช้สิทธิ์ที่อนุญาตขั้นสูง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2080
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2079
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "C&hecksums"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2370
 #, kde-format
 msgid "Invalid checksum."
 msgstr "checksum ไม่ถูกต้อง."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2374
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2373
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "อินพุตที่กำหนดไม่ใช่ checksum MD5, SHA1 หรือ SHA256 ที่ถูกต้อง"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgid "Checksums match."
 msgstr "Checksums เหมือนกัน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2388
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "checksum ที่คำนวณและ checksum ที่คาดหวังตรงกัน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2399
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6436,74 +6436,74 @@ msgstr ""
 "<p>ค่า Checksum ไม่ตรงกัน</p>สาเหตุอาจเกิดจากการดาวน์โหลดที่ผิดพลาด "
 "ลองดาวน์โหลดไฟล์อีกครั้ง<br/>หากการตรวจสอบยังคงล้มเหลว โปรดติดต่อแหล่งที่มาของไฟล์"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "checksum ที่คำนวณและ checksum ที่คาดหวังมีความแตกต่างกัน"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2413
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "กำลังตรวจสอบ checksum"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2443
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2442
 #, fuzzy, kde-format
 #| msgid "The files are <b>identical</b>."
 msgid "The checksums of all files are identical."
 msgstr "ไฟล์<b>เหมือนกัน</b>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
 #, fuzzy, kde-format
 #| msgid "The files are <b>different</b>."
 msgid "The selected files have different checksums."
 msgstr "ไฟล์<b>แตกต่างกัน</b>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2454
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "กำลังคำนวณ..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2565
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2564
 #, kde-format
 msgid "U&RL"
 msgstr "ที่อยู่ U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2571
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2570
 #, kde-format
 msgid "URL:"
 msgstr "ที่อยู่ URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2640
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2911
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2639
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2910
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "ไม่สามารถบันทึกคุณสมบัติได้ รองรับเฉพาะรายการในระบบไฟล์ภายในเท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2710
 #, kde-format
 msgid "&Application"
 msgstr "โ&ปรแกรม"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2850
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "เพิ่มชนิดแฟ้มสำหรับ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2852
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "เลือกชนิดแฟ้มหนึ่งหรือหลายชนิดเพื่อเพิ่ม:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2990
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2989
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "ใช้ได้เฉพาะแฟ้ม ที่สามารถประมวลผลได้ภายในระบบเท่านั้น"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3005
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3004
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "ตัวเลือกขั้นสูงสำหรับ %1"
@@ -6674,22 +6674,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "ชื่อไฟล์สำหรับเนื้อหาที่ถูกวาง:"
 
-#: widgets/renamedialog.cpp:66
+#: widgets/renamedialog.cpp:67
 #, kde-format
 msgid "Date: %1"
 msgstr "วันที่: %1"
 
-#: widgets/renamedialog.cpp:75
+#: widgets/renamedialog.cpp:76
 #, kde-format
 msgid "Size: %1"
 msgstr "ขนาด: %1"
 
-#: widgets/renamedialog.cpp:231
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid "Appl&y to All"
 msgstr "ปรั&บใช้กับทั้งหมด"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:233
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6702,7 +6702,7 @@ msgstr ""
 "และคุณจะยังถูกถามอยู่เสมอหากพบว่ามีการขัดแย้งกับแฟ้มที่มีอยู่ก่อนแล้วในไดเรกทอรี "
 "จนกว่าคุณจะทำการกดปุ่ม ข้าม"
 
-#: widgets/renamedialog.cpp:236
+#: widgets/renamedialog.cpp:237
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6711,38 +6711,38 @@ msgstr ""
 "เมื่อกาเลือกตัวเลือกนี้ การกดที่ปุ่มจะเป็นการปรับใช้กับโฟลเดอร์ที่ตามมาทั้งหมด "
 "ซึ่งอาจจะขัดแย้งกับส่วนที่เหลืออยู่ของงานปัจจุบัน"
 
-#: widgets/renamedialog.cpp:242
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "&Rename"
 msgstr "เปลี่&ยนชื่อ"
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:245
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "แ&นะนำชื่อใหม่"
 
-#: widgets/renamedialog.cpp:250
+#: widgets/renamedialog.cpp:251
 #, kde-format
 msgid "&Skip"
 msgstr "ข้า&ม"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:252
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "ไม่ต้องคัดลอกหรือย้ายโฟลเดอร์นี้ ให้ข้ามไปยังรายการถัดไปแทน"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:253
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "ไม่ต้องคัดลอกหรือย้ายแฟ้มนี้ ให้ข้ามไปยังรายการถัดไปแทน"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "เ&ขียนไปยัง"
 
-#: widgets/renamedialog.cpp:266
+#: widgets/renamedialog.cpp:267
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6753,25 +6753,25 @@ msgstr ""
 "แฟ้มและโฟลเดอร์จะถูกคัดลอกไปยังไดเรกทอรีที่มีอยู่ โดยจะปรากฏอยู่ด้านข้างของเนื้อหาที่มีอยู่ก่อนแล้ว\n"
 "คุณจะถูกถามอีกครั้งหากพบว่ามีข้อขัดแย้งเช่นเดิมเกิดขึ้นกับไดเรกทอรีที่มีอยู่"
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&เขียนทับไฟล์เก่าหรือไม่ ?"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:276
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr "ไฟล์ปลายทางซึ่งมีเวลาแก้ไขที่เก่ากว่าจะถูกเขียนทับโดยแหล่งที่มา มิฉะนั้นจะข้ามไป"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:288
 #, kde-format
 msgid "&Resume"
 msgstr "ทำงานที่ค้&างไว้"
 
-#: widgets/renamedialog.cpp:296
+#: widgets/renamedialog.cpp:297
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6780,52 +6780,52 @@ msgstr ""
 "การกระทำนี้จะเขียนทับ '%1' ด้วยตัวมันเอง\n"
 "โปรดป้อนชื่อแฟ้มใหม่"
 
-#: widgets/renamedialog.cpp:302
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid "C&ontinue"
 msgstr "ทำต่&อไป"
 
-#: widgets/renamedialog.cpp:364
+#: widgets/renamedialog.cpp:365
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "อยากเขียนทับปลายทางหรือไม่"
 
-#: widgets/renamedialog.cpp:366
+#: widgets/renamedialog.cpp:367
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "คุณต้องการรวมเนื้อหาของ '%1' เข้าใน '%2' หรือไม่"
 
-#: widgets/renamedialog.cpp:408
+#: widgets/renamedialog.cpp:409
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "คำเตือน, ปลายทาง<b>ใหม่กว่า</b>"
 
-#: widgets/renamedialog.cpp:410
+#: widgets/renamedialog.cpp:411
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "คำเตือน, ปลายทาง<b>เก่ากว่า</b>"
 
-#: widgets/renamedialog.cpp:419
+#: widgets/renamedialog.cpp:420
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "แหล่งที่มามีขนาดเล็กกว่า <b>%1</b>"
 
-#: widgets/renamedialog.cpp:422
+#: widgets/renamedialog.cpp:423
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "แหล่งที่มามีขนาดใหญ่กว่า <b>%1</b>"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:436
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "ไฟล์<b>เหมือนกัน</b>"
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "ไฟล์เหล่านี้<b>ดูเหมือนกัน</b>"
 
-#: widgets/renamedialog.cpp:441
+#: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "ไฟล์<b>แตกต่างกัน</b>"
@@ -6839,22 +6839,22 @@ msgstr ""
 "ไฟล์เหล่านี้น่าจะเหมือนกันทุกประการ คือ มีขนาดเท่ากัน และเนื้อหาในตอนต้น ตอนกลาง "
 "และตอนจบก็เหมือนกัน"
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "มีรายการเดิมที่ชื่อ '%1' ซึ่งเก่ากว่าอยู่ก่อนแล้ว"
 
-#: widgets/renamedialog.cpp:470
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "มีแฟ้มชื่อเดียวกันที่ชื่อ '%1' อยู่ก่อนแล้ว"
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "รายการที่ใหม่กว่าชื่อ '%1' มีอยู่แล้ว"
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
 msgstr "เปลี่ยนชื่อ:"
