@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:39+0000\n"
+"POT-Creation-Date: 2025-12-02 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2190,17 +2190,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेज़ीकृत त्रुटि"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एक सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, इस पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1502
+#: core/kfileitem.cpp:1504
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"

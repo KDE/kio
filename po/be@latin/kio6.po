@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:39+0000\n"
+"POT-Creation-Date: 2025-12-02 00:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2341,17 +2341,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Niezadakumientavanaja pamylka"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simvaličnaja spasylka na %1)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, spasylka na %2)"
 
-#: core/kfileitem.cpp:1502
+#: core/kfileitem.cpp:1504
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Spasylajecca na %1)"

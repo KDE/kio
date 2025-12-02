@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:39+0000\n"
+"POT-Creation-Date: 2025-12-02 00:39+0000\n"
 "PO-Revision-Date: 2025-11-20 21:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2156,17 +2156,17 @@ msgstr "重新格式化目標硬碟的檔案系統到支援大檔案的檔案系
 msgid "Undocumented Error"
 msgstr "未說明的錯誤"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "（符號連結到 %1）"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "（%1，連結到 %2）"
 
-#: core/kfileitem.cpp:1502
+#: core/kfileitem.cpp:1504
 #, kde-format
 msgid " (Points to %1)"
 msgstr "（指向 %1）"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:39+0000\n"
+"POT-Creation-Date: 2025-12-02 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2139,17 +2139,17 @@ msgstr "请将目标驱动器重新格式化为支持此大小文件的文件系
 msgid "Undocumented Error"
 msgstr "程序文档中没有提及的错误"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1499
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(指向 %1 的符号链接)"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1，链接到 %2)"
 
-#: core/kfileitem.cpp:1502
+#: core/kfileitem.cpp:1504
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (指向 %1)"

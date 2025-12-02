@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:39+0000\n"
+"POT-Creation-Date: 2025-12-02 00:39+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -2349,19 +2349,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ongedokumenteerde Fout"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1499
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Simboliese Skakel"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1501
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "Skakel na %1 (%2)"
 
-#: core/kfileitem.cpp:1502
+#: core/kfileitem.cpp:1504
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
