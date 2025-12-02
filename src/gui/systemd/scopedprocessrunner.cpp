@@ -20,8 +20,9 @@ void ScopedProcessRunner::startProcess()
     m_process->setChildProcessModifier([efd, oldModifier]() {
         // wait for the parent process to be done registering the transient unit
         eventfd_read(efd, nullptr);
-        if (oldModifier)
+        if (oldModifier) {
             oldModifier();
+        }
     });
 
     // actually start

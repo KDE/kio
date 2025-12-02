@@ -112,8 +112,9 @@ QUrl protocolChangedToHttp(const QUrl &url)
     // Keeps the 's' at the end, if present.
     protocol.replace(QLatin1String{"webdav"}, QLatin1String{"http"});
     protocol.replace(QLatin1String{"dav"}, QLatin1String{"http"});
-    if (newUrl.scheme() != protocol)
+    if (newUrl.scheme() != protocol) {
         newUrl.setScheme(protocol);
+    }
     return newUrl;
 }
 };
@@ -525,12 +526,13 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
             // Restore the old protocol (http, webdav or dav) after the redirection, but with the correct encryption status
             bool upgradeToSecure = !url.scheme().endsWith(QLatin1Char('s')) && newUrl.scheme().endsWith(QLatin1Char('s'));
             bool downgradeToInsecure = url.scheme().endsWith(QLatin1Char('s')) && !newUrl.scheme().endsWith(QLatin1Char('s'));
-            if (upgradeToSecure)
+            if (upgradeToSecure) {
                 newUrl.setScheme(url.scheme() + QLatin1Char('s'));
-            else if (downgradeToInsecure)
+            } else if (downgradeToInsecure) {
                 newUrl.setScheme(url.scheme().chopped(1));
-            else
+            } else {
                 newUrl.setScheme(url.scheme());
+            }
 
             // Handled after returning from the event loop.
             // 301 is necessary for Apache (see bugs 209508 and 187970).
@@ -831,8 +833,9 @@ KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
     Response response = makeDavRequest(url, method, inputData, DataMode::Return, extraHeaders);
 
     // If this is a redirection we don't have anything to do
-    if (response.httpCode >= 300 && response.httpCode < 400)
+    if (response.httpCode >= 300 && response.httpCode < 400) {
         return KIO::WorkerResult::pass();
+    }
 
     QDomDocument multiResponse;
     multiResponse.setContent(response.data, QDomDocument::ParseOption::UseNamespaceProcessing);

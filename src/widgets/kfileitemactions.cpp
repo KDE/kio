@@ -722,8 +722,9 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
                 QVariant uriOrFd;
                 if (local) {
                     QFile localFile(fileItem.localPath());
-                    if (!localFile.open(QIODevice::ReadOnly))
+                    if (!localFile.open(QIODevice::ReadOnly)) {
                         continue;
+                    }
 
                     uriOrFd = QVariant::fromValue(QDBusUnixFileDescriptor(localFile.handle()));
                 } else {
