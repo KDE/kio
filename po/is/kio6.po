@@ -10,20 +10,20 @@
 # Stígur Snæsson <stigur@vortex.is>, 2004.
 # Þröstur Svanbergsson <throstur@bylur.net>, 2004.
 # Arnar Leosson <leosson@frisurf.no>, 2004, 2005.
-# Sveinn í Felli <sv1@fellsnet.is>, 2008, 2009, 2010, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2021, 2022, 2023, 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-02 00:39+0000\n"
-"PO-Revision-Date: 2025-11-16 13:23+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-12-02 13:27+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -97,8 +97,8 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 "Tókst ekki að búa til \"%1\".\n"
-"Viðtökuskráakerfið (%2) leyfir ekki eftirfarandi stafi í skrárheitum: %3\n"
-"Með því að velja Skipta út verður öllum ógildum stöfum (í skrárheitinu á "
+"Viðtökuskráakerfið (%2) leyfir ekki eftirfarandi stafi í skráaheitum: %3\n"
+"Með því að velja 'Skipta ú't verður öllum ógildum stöfum (í skráarheitinu á "
 "viðtökuskráakerfinu) skipt út fyrir undirstrik \"_\"."
 
 #: core/copyjob.cpp:1387 core/job_error.cpp:588
@@ -1039,9 +1039,9 @@ msgid ""
 "strong></blockquote>"
 msgstr ""
 "Slóðin (<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
-"strong>ocator (URL)) sem þú slóst inn var óskiljanleg. Almennt form vefslóða "
-"er: <blockquote><strong>samskiptaregla://notandi:lykilorð@www.dæmi.is: gátt/"
-"mappa/skrárheiti.ending?breyta=gildi </strong></blockquote>"
+"strong>ocator (URL)) sem þú settir inn var óskiljanleg. Almennt form "
+"vefslóða er: <blockquote><strong>samskiptaregla://notandi:lykilorð@www.dæmi."
+"is: gátt/mappa/skráarheiti.ending?breyta=gildi </strong></blockquote>"
 
 #: core/job_error.cpp:498
 #, kde-format
@@ -1201,7 +1201,7 @@ msgstr "Eyddu skránni og reyndu svo aftur."
 #: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
-msgstr "Veldu annað skrárheiti fyrir nýju skrána."
+msgstr "Veldu annað skráarheiti fyrir nýju skrána."
 
 #: core/job_error.cpp:590
 #, kde-format
@@ -2291,7 +2291,7 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr "Ekki tókst að ákvarða skrárgerð fyrir %1"
+msgstr "Ekki tókst að ákvarða skráagerðina fyrir %1"
 
 #: core/openwith.cpp:90
 #, kde-format
@@ -2633,12 +2633,12 @@ msgstr "Staðsetning tákns"
 #: filewidgets/kdiroperator.cpp:2154
 #, kde-format
 msgid "Next to File Name"
-msgstr "Við hlið skrárheitis"
+msgstr "Við hlið skráarheitis"
 
 #: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Above File Name"
-msgstr "Fyrir ofan skrárheiti"
+msgstr "Fyrir ofan skráarheiti"
 
 #: filewidgets/kdiroperator.cpp:2174
 #, kde-format
@@ -3390,7 +3390,7 @@ msgstr "&Heiti:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr "Afturkalla breytingu á skrárheiti"
+msgstr "Afturkalla breytingu á skráarheiti"
 
 #: filewidgets/kfilewidget.cpp:1392
 #, kde-format
@@ -3518,21 +3518,21 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 "Þessi möguleiki kveikir á ýmsum þægilegum þjónustum til að vista skrár með "
-"endingu:<br /><ol><li>Ending sem er tilgreind í textasvæðinu <b>%1</b> "
-"uppfærist ef þú breytir skrárgerðinni sem á að vista.<br /><br /></li><li>Ef "
+"skráarendingu:<br /><ol><li>Ending sem er tilgreind í textasvæðinu <b>%1</b> "
+"uppfærist ef þú breytir skráagerðinni sem á að vista.<br /><br /></li><li>Ef "
 "engin ending er tilgreind í textasvæðinu <b>%2</b> þegar þú smellir á "
-"<b>Vista</b> verður endingunni %3 bætt við enda skrárheitisins (ef "
-"skrárheitið er ekki til nú þegar).  Þessi ending veltur á skrárgerðinni sem "
+"<b>Vista</b> verður endingunni %3 bætt við enda skráarheitisins (ef "
+"skráarheitið er ekki til nú þegar).  Þessi ending veltur á skráagerðinni sem "
 "þú hefur valið til vistunar.<br /><br />Ef þú vilt ekki að KDE gefi upp "
-"endingu fyrir skrárheitið geturðu annað hvort slökkt á valkostinum með því "
-"að setja punkt (.) fyrir aftan skrárheitið (punkturinn verður fjarlægður "
+"endingu fyrir skráarheitið geturðu annað hvort slökkt á valkostinum með því "
+"að setja punkt (.) fyrir aftan skráarheitið (punkturinn verður fjarlægður "
 "sjálfkrafa) eða slökkt á eiginleikanum.</li></ol>Hafðu þessa stillingu á ef "
 "þú ert ekki viss því þá verða skrárnar þínar meðfærilegri."
 
 #: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid "&File type:"
-msgstr "&Skrárgerð:"
+msgstr "S&kráartegund:"
 
 #: filewidgets/kfilewidget.cpp:2948
 #, kde-format
@@ -3540,7 +3540,7 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
-"<qt>Þetta er skrárgerðarvalið. Það er notað til að velja sniðið sem er notað "
+"<qt>Þetta er skráagerðarvalið. Það er notað til að velja sniðið sem er notað "
 "þegar skráin er vistuð.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2950
@@ -3549,8 +3549,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Þetta er skrárgerðarvalið. Það er notað til að velja snið skráarinnarsem "
-"er sýnd.</qt>"
+"<qt>Þetta er skráagerðarvalið. Það er notað til að velja snið skráarinnar "
+"sem er sýnd.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3587,7 +3587,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Sláðu inn %1 skrárheiti:"
+msgstr "Settu inn %1 skráarheiti:"
 
 #: filewidgets/knewfilemenu.cpp:1225
 #, kde-kuit-format
@@ -3723,7 +3723,7 @@ msgstr "Búa til nýja skrá"
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
 #, kde-format
 msgid "Enter file name"
-msgstr "Sláðu inn skrárheiti"
+msgstr "Settu inn skráarheiti"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
@@ -5541,7 +5541,7 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>Veldu forrit til að opna skrárgerðina <b>%1</b>. Ef forritið er ekki á "
+"<qt>Veldu forrit til að opna skráagerðina <b>%1</b>. Ef forritið er ekki á "
 "listanum skaltu slá inn heitið eða smelltu á \"Velja\".</qt>"
 
 #: widgets/kopenwithdialog.cpp:630
@@ -5859,12 +5859,12 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Sláðu inn viðföngin sem á að nota þegar forritið er ræst hér.\n"
+"Settu inn viðföngin sem á að nota þegar forritið er ræst hér.\n"
 "\n"
 "Hægt er að setja ýmis staðgengilstákn á eftir skipuninni.  Þeim verður skipt "
 "út fyrir raunveruleg gildi þegar forritið er keyrt:\n"
 "\n"
-"%f - stakt skrárheiti\n"
+"%f - stakt skráarheiti\n"
 "%F - listi yfir skrár (notist á forrit sem geta opnað margar skrár í einu)\n"
 "%u - stök slóð (URL)\n"
 "%U - listi yfir slóðir\n"
@@ -5911,17 +5911,17 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>Þessi listi ætti að sýna þær skráargerðir sem forritið þitt ræður "
+"<qt><p>Þessi listi ætti að sýna þær skráagerðir sem forritið þitt ræður "
 "við.  Listinn er flokkaður eftir <u>MIME-tögum</u>.</p>\n"
 "<p>MIME, Multipurpose Internet (e)Mail Extension, er staðall til þess að "
 "auðkenna gerð gagna út frá skráarendingu og samsvarandi <u>MIME-tagi</u>.  "
 "Til dæmis gefur \"bmp\" sem kemur á eftir punktinum í blóm.bmp til kynna að "
 "hér sé um ákveðna tegund myndar að ræða, <u>image/x-bmp</u>.  Til að að "
-"stýrikerfið viti hvaða forrit á að opna hverja tegundSvo þarf að láta það "
+"stýrikerfið viti hvaða forrit á að opna hverja tegund. Svo þarf að láta það "
 "vita hvaða forrit ráða við hvaða skráarendingar og MIME-tag.</p>\n"
 "<p>Ef þú vilt tengja þetta forrit við skráarendingu sem er ekki í listanum "
 "skaltu smella á <b>Bæta við</b> fyrir neðan.  Ef það er ein eða fleiri "
-"skrárgerðir í listanum sem forritið ræður ekki við er líklegast betra "
+"skráagerðir í listanum sem forritið ræður ekki við er líklegast betra "
 "fjarlægja þær með því að velja þær og smella á <b>Fjarlægja</b> fyrir neðan."
 "</p></qt>"
 
@@ -6031,7 +6031,7 @@ msgstr "Al&mennt"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr "Sláðu inn skrárheiti"
+msgstr "Settu inn skráarheiti"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:430
 #, kde-format
@@ -6596,12 +6596,12 @@ msgstr "&Forrit"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2850
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "Bæta við skrárgerð fyrir %1"
+msgstr "Bæta við skráagerð fyrir %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2851
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "Veldu eina eða fleiri skrárgerðir til að bæta við:"
+msgstr "Veldu eina eða fleiri skráagerðir til að bæta við:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2989
 #, kde-format
@@ -6718,7 +6718,7 @@ msgstr "Opna skráarglugga"
 #: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr "Skrárheiti fyrir innihald klippispjalds:"
+msgstr "Skráarheiti fyrir innihald klippispjalds:"
 
 #: widgets/paste.cpp:111
 #, kde-format
@@ -6780,7 +6780,7 @@ msgstr "%1 (%2)"
 #: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr "Skrárheiti fyrir gögn sem er sleppt:"
+msgstr "Skráarheiti fyrir gögn sem er sleppt:"
 
 #: widgets/renamedialog.cpp:67
 #, kde-format
@@ -6987,7 +6987,7 @@ msgstr "Skrá með heitinu <filename>%1</filename> er nú þegar til."
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> er ekki gilt skrárheiti."
+msgstr "<filename>%1</filename> er ekki gilt skráarheiti."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7018,8 +7018,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
-"Ógilt skrárheiti: Nýja heitið ætti að innihalda eina runu af #, nema allar "
-"skrárnar séu með mismunandi skrárendingar."
+"Ógilt skráarheiti: Nýja heitið ætti að innihalda eina runu af #, nema allar "
+"skrárnar séu með mismunandi skráarendingar."
 
 #: widgets/renamefiledialog.cpp:310
 #, kde-format
@@ -7057,7 +7057,7 @@ msgstr "Útskipting"
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr "Ekkert skrárheiti inniheldur mynstrið."
+msgstr "Ekkert skráarheiti inniheldur mynstrið."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7067,7 +7067,7 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 "Ef “%1” er skipt út fyrir auða útskiptingu veldur það því að <filename>%2</"
-"filename> verður með autt skrárheiti."
+"filename> verður með autt skráarheiti."
 
 #: widgets/renamefiledialog.cpp:404
 #, kde-format
@@ -7093,13 +7093,13 @@ msgstr "Texta sem bætt er við"
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Á undan skrárheitinu"
+msgstr "Á undan skráarheitinu"
 
 #: widgets/renamefiledialog.cpp:415
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Eftir skrárheitinu"
+msgstr "Eftir skráarheitinu"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7154,7 +7154,7 @@ msgstr "Forskoðun:"
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
-"Ekki er hægt að endurnefna <filename>%1</filename> með auðu skrárheiti."
+"Ekki er hægt að endurnefna <filename>%1</filename> með auðu skráarheiti."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

@@ -12,20 +12,21 @@
 # SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-02 00:39+0000\n"
-"PO-Revision-Date: 2025-11-08 23:37+0100\n"
-"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
+"PO-Revision-Date: 2025-12-01 17:08+0100\n"
+"Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -734,6 +735,7 @@ msgstr "Datei ist zu groß für den Papierkorb."
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Für diesen Speicherort konnte kein Papierkorb gefunden oder erstellt werden."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7497,34 +7499,20 @@ msgstr[1] ""
 "Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Der Papierkorb ist zu voll, um diese Datei aufzunehmen. Möchten Sie sie "
-"stattdessen endgültig löschen?<nl/><nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden."
-"</emphasis>"
+"Der Papierkorb ist für den Speicherort dieses Elements nicht verfügbar. "
+"Möchten Sie es stattdessen endgültig löschen?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
+"rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7535,13 +7523,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Der Papierkorb ist zu voll, um diese %1 Datei aufzunehmen. Möchten Sie sie "
-"stattdessen endgültig löschen?<nl/><emphasis strong='true'>Dieser Vorgang "
-"kann nicht rückgängig gemacht werden.</emphasis>"
+"Der Papierkorb ist für den Speicherort dieses %1 Elements nicht verfügbar. "
+"Möchten Sie es stattdessen endgültig löschen?<nl/><emphasis "
+"strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 msgstr[1] ""
-"Der Papierkorb ist zu voll, um diese %1 Dateien aufzunehmen. Möchten Sie sie "
-"stattdessen endgültig löschen?<nl/><nl/><emphasis strong='true'>Dieser "
-"Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
+"Der Papierkorb ist für den Speicherort dieser %1 Elemente nicht verfügbar. "
+"Möchten Sie sie stattdessen endgültig löschen?<nl/><nl/><emphasis "
+"strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
