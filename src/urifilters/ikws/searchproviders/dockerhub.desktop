@@ -27,6 +27,7 @@ Name[my]=Docker Hub
 Name[nb]=Docker Hub
 Name[nl]=Docker-hub
 Name[pl]=Docker Hub
+Name[pt]=Hub do Docker
 Name[pt_BR]=Docker Hub
 Name[ru]=Репозиторий Docker Hub
 Name[sl]=Docker Hub
@@ -64,6 +65,7 @@ Query[my]=https://hub.docker.com/search?q=\\{@}
 Query[nb]=https://hub.docker.com/search?q=\\{@}
 Query[nl]=https://hub.docker.com/search?q=\\{@}
 Query[pl]=https://hub.docker.com/search?q=\\{@}
+Query[pt]=https://hub.docker.com/search?q=\\{@}
 Query[pt_BR]=https://hub.docker.com/search?q=\\{@}
 Query[ru]=https://hub.docker.com/search?q=\\{@}
 Query[sl]=https://hub.docker.com/search?q=\\{@}

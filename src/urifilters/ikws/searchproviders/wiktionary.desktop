@@ -67,7 +67,7 @@ Name[nn]=Wiktionary – den frie ordboka
 Name[or]=Wiktionary - ମୁକ୍ତ ଅଭିଧାନ
 Name[pa]=ਵਿਕੀਸ਼ਨਰੀ - ਮੁਫਤ ਡਿਕਸ਼ਨਰੀ
 Name[pl]=Wiktionary - Otwarty słownik
-Name[pt]=Wiktionary - O Dicionário Livre
+Name[pt]=Wikcionário - O Dicionário Livre
 Name[pt_BR]=Wikcionário - o dicionário livre
 Name[ro]=Wiktionary - Dictionarul liber
 Name[ru]=Свободный словарь Wiktionary
@@ -144,7 +144,7 @@ Query[nl]=https://nl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nn]=https://nn.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pa]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pl]=https://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[pt]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[pt]=https://pt.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pt_BR]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ro]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ru]=https://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

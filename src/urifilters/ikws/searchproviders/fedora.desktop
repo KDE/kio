@@ -26,6 +26,7 @@ Name[my]=Fedora Packages
 Name[nb]=Fedora-pakker
 Name[nl]=Fedora-pakketten
 Name[pl]=Pakiety Fedory
+Name[pt]=Pesquisa de Pacotes do Fedora
 Name[pt_BR]=Pacotes Fedora
 Name[ru]=Пакеты Fedora
 Name[sl]=Paketi Fedora
@@ -64,6 +65,7 @@ Query[my]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nb]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[pt]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pt_BR]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ru]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}

@@ -29,6 +29,7 @@ Name[my]=ဝီကီပီးဒီးယား
 Name[nb]=Wikipedia
 Name[nl]=Wikipedia
 Name[pl]=Wikipedia
+Name[pt]=Wikipédia - A Enciclopédia Livre
 Name[pt_BR]=Wikipédia
 Name[ru]=Википедия
 Name[sl]=Wikipedia
@@ -87,7 +88,7 @@ Query[nl]=https://nl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nn]=https://nn.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pa]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pl]=https://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[pt]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[pt]=https://pt.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pt_BR]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ro]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ru]=https://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

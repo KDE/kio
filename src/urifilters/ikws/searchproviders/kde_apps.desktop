@@ -27,6 +27,7 @@ Name[my]=ပလက်စမာ တိုးချဲ့ပရိုဂရမ်�
 Name[nb]=Plasma tillegg og utvidelser
 Name[nl]=Plasma Add-ons en Extensies
 Name[pl]=Dodatki i rozszerzenia do Plazmy
+Name[pt]=Complementos e Extensões do Plasma
 Name[pt_BR]=Adicionais e extensões do Plasma
 Name[ru]=Дополнения и расширения Plasma
 Name[sl]=Plasma dodatki in razširitve
@@ -64,6 +65,7 @@ Query[my]=https://store.kde.org/browse?tag=\\{@}
 Query[nb]=https://store.kde.org/browse?tag=\\{@}
 Query[nl]=https://store.kde.org/browse?tag=\\{@}
 Query[pl]=https://store.kde.org/browse?tag=\\{@}
+Query[pt]=https://store.kde.org/browse?tag=\\{@}
 Query[pt_BR]=https://store.kde.org/browse?tag=\\{@}
 Query[ru]=https://store.kde.org/browse?tag=\\{@}
 Query[sl]=https://store.kde.org/browse?tag=\\{@}

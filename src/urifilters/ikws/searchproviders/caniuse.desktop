@@ -64,6 +64,7 @@ Query[my]=https://caniuse.com/?search=\\{@}
 Query[nb]=https://caniuse.com/?search=\\{@}
 Query[nl]=https://caniuse.com/?search=\\{@}
 Query[pl]=https://caniuse.com/?search=\\{@}
+Query[pt]=https://caniuse.com/?search=\\{@}
 Query[pt_BR]=https://caniuse.com/?search=\\{@}
 Query[ru]=https://caniuse.com/?search=\\{@}
 Query[sl]=https://caniuse.com/?search=\\{@}
