@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:39+0000\n"
+"POT-Creation-Date: 2025-12-04 00:40+0000\n"
 "PO-Revision-Date: 2025-02-23 13:21+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2423,7 +2423,7 @@ msgstr "%1 プロトコルの io-slave が見つかりません。"
 msgid "&Details"
 msgstr "詳細(&D)"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:214
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2434,7 +2434,7 @@ msgstr "永久(&F)"
 msgid "Co&ntinue"
 msgstr "続行(&N)"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3441,7 +3441,7 @@ msgstr "リモートファイルは指定できません"
 msgid "All Folders"
 msgstr "すべてのフォルダ"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "開く(&O)"
@@ -4190,12 +4190,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:328
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "このサイトにアクセスするためにはユーザ名とパスワードが必要です。"
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:330
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
 #, kde-format
 msgid "Site:"
 msgstr "サイト:"
@@ -4224,7 +4224,7 @@ msgstr ""
 "\n"
 "サーバの応答: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:378
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4233,7 +4233,7 @@ msgstr ""
 "サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
 "が必要です。"
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:382
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "プロキシ:"
@@ -4286,108 +4286,108 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "ファイル <filename>%1</filename> を読めませんでした。"
 
-#: kioworkers/http/http.cpp:210 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "この証明書を今後は確認なしで永久に受け入れますか？"
 
-#: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "サーバ認証"
 
-#: kioworkers/http/http.cpp:348 kioworkers/http/http.cpp:387
-#: kioworkers/http/http.cpp:401
+#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
+#: kioworkers/http/http.cpp:402
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> の <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1395
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "そうでなければ要求は成功していたでしょう。"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "プロパティの値を取得"
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "プロパティの値をセット"
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "要求されたフォルダを作成"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをコピー"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを移動"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "指定されたフォルダで検索"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをロック"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダのロックを解除"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを削除"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "サーバの機能を問い合わせ"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "指定されたファイルまたはフォルダの内容を取得"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "指定されたフォルダでレポートを実行"
 
-#: kioworkers/http/http.cpp:1425
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1468
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4397,13 +4397,13 @@ msgstr ""
 "%1しようとしていたときにエラーが発生しました (%2)。原因の要約は以下のとおりで"
 "す。"
 
-#: kioworkers/http/http.cpp:1483 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1しようとしていたときにアクセスが拒否されました。"
 
-#: kioworkers/http/http.cpp:1497 kioworkers/http/http.cpp:1634
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4412,7 +4412,7 @@ msgstr ""
 "一つ以上の中間コレクション (フォルダ) が作成されるまで、リソースはその場所に"
 "作成できません。"
 
-#: kioworkers/http/http.cpp:1506
+#: kioworkers/http/http.cpp:1509
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4429,28 +4429,28 @@ msgstr ""
 "の liveness を保持できなかったか、ファイルを上書きしないよう要求しながら、あ"
 "なたがファイルを上書きしようとしました。%1"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "要求されたロックは承諾されませんでした。%1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "サーバはこのタイプの body の要求をサポートしていません。"
 
-#: kioworkers/http/http.cpp:1525 kioworkers/http/http.cpp:1642
+#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1できません。リソースがロックされています。"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "このアクションは他のエラーによって妨害されました。"
 
-#: kioworkers/http/http.cpp:1536 kioworkers/http/http.cpp:1649
+#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4460,7 +4460,7 @@ msgstr ""
 "%1できません。相手のサーバがファイルまたはフォルダの受け取りを拒否していま"
 "す。"
 
-#: kioworkers/http/http.cpp:1545 kioworkers/http/http.cpp:1658
+#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4469,18 +4469,18 @@ msgstr ""
 "ターゲットのリソースには、このメソッドを実行した後にリソースの状態を保存する"
 "のに十分なスペースがありません。"
 
-#: kioworkers/http/http.cpp:1598
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "このリソースは削除できません。"
 
-#: kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1621
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 をアップロード"
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1672
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4552,7 +4552,7 @@ msgstr "ごみ箱を空にする"
 msgid "Restore a trashed file to its original location"
 msgstr "ごみ箱のファイルを元の場所に戻す"
 
-#: kioworkers/trash/trashimpl.cpp:1340
+#: kioworkers/trash/trashimpl.cpp:1342
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -5300,29 +5300,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "アプリケーションで開く(&O)..."
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "フォルダを %1 で開く(&O)"
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 で開く(&O)"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "アプリケーションでフォルダを開く(&O)"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "アプリケーションで開く(&O)"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:810
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

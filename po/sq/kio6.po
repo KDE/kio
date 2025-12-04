@@ -1,23 +1,24 @@
 # Albanian translation for kio5
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kio5 package.
 # Besnik Bleta <besnik@programeshqip.org>, 2023,2024.
 #
+# SPDX-FileCopyrightText: 2025 Agron Selimaj <as9902613@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:39+0000\n"
-"PO-Revision-Date: 2024-11-19 21:00+0200\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
-"Language-Team: Albanian <kde-i18n-sq@kde.org>\n"
+"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"PO-Revision-Date: 2025-12-02 20:17-0500\n"
+"Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
+"Language-Team: sq\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Launchpad-Export-Date: 2011-04-22 14:32+0000\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -99,12 +100,12 @@ msgstr "Dosja Ekziston Tashmë"
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
-msgstr "Kartela Ekziston Tashmë"
+msgstr "Skeda ekziston që më parë"
 
 #: core/copyjob.cpp:1711 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "Ekziston Tashmë si Dosje"
+msgstr "Ekziston Tashmë si Skedar"
 
 #: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
@@ -173,7 +174,7 @@ msgstr[1] "%1 Dosje"
 msgid "1 File"
 msgid_plural "%1 Files"
 msgstr[0] "1 Kartelë"
-msgstr[1] "%1 Kartela"
+msgstr[1] "%1 Skeda"
 
 #: core/global.cpp:95
 #, kde-format
@@ -253,7 +254,7 @@ msgstr "Po fshihet"
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
-msgstr "Kartelë"
+msgstr "Skedë"
 
 #: core/job.cpp:135
 #, kde-format
@@ -343,7 +344,7 @@ msgstr "%1 është një kartelë, por pritej një dosje."
 #: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "Kartela, ose dosja %1 s’ekziston."
+msgstr "Skeda, ose dosja %1 s’ekziston."
 
 #: core/job_error.cpp:71
 #, kde-format
@@ -368,7 +369,7 @@ msgstr "Strehë e panjohur %1"
 #: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
-msgstr "Hyrje e mohuar te %1."
+msgstr "Çasja u mohua për të %1."
 
 #: core/job_error.cpp:83
 #, kde-format
@@ -376,8 +377,8 @@ msgid ""
 "Access denied.\n"
 "Could not write to %1."
 msgstr ""
-"Hyrje e mohuar.\n"
-"S’u shkrua dot te %1."
+"Çasja u mohua.\n"
+"S'u shkrua dot te %1."
 
 #: core/job_error.cpp:86
 #, kde-format
@@ -444,12 +445,12 @@ msgstr ""
 #: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
-msgstr "S’u lexua dot kartela %1."
+msgstr "S’u lexua dot skada %1."
 
 #: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
-msgstr "S’u shkrua dot te kartela %1."
+msgstr "S’u shkrua dot te skeda %1."
 
 #: core/job_error.cpp:122
 #, kde-format
@@ -489,12 +490,12 @@ msgstr "S’u hoq dot dosja %1."
 #: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
-msgstr "S’u rimor dot kartela %1."
+msgstr "S’u rimor dot skeda %1."
 
 #: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "S’i riemërtua dot kartela %1."
+msgstr "S’i riemërtua dot skeda %1."
 
 #: core/job_error.cpp:152
 #, kde-format
@@ -509,7 +510,7 @@ msgstr "S’u ndryshua dot pronësia për %1."
 #: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "S’u fshi dot kartela %1."
+msgstr "S’u fshi dot skeda %1."
 
 #: core/job_error.cpp:161
 #, kde-format
@@ -590,7 +591,7 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"S’u fshi dot kartela origjinale %1.\n"
+"S’u fshi dot skeda origjinale %1.\n"
 "Ju lutemi, kontrolloni lejet."
 
 #: core/job_error.cpp:202
@@ -608,7 +609,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"S’u riemërtua dot kartela origjinale %1.\n"
+"S’u riemërtua dot skeda origjinale %1.\n"
 "Ju lutemi, kontrolloni lejet."
 
 #: core/job_error.cpp:208
@@ -698,7 +699,7 @@ msgid ""
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
 "S’mund të shpërngulet <filename>%1</filename>, ngaqë është shumë e madhe. "
-"Sistemi vendmbërritje i kartelave mbulon vetëm kartela deri në 4GiB"
+"Sistemi vendmbërritje i kartelave mbulon vetëm skeda deri në 4GiB"
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -714,7 +715,7 @@ msgstr ""
 #: core/job_error.cpp:261
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr "Kartela është shumë e madhe për t’u shpënë te hedhurinat."
+msgstr "Skeda është shumë e madhe për t’u shpënë te hedhurinat."
 
 #: core/job_error.cpp:264
 #, kde-format
@@ -824,8 +825,8 @@ msgstr ""
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr ""
-"Kartela mund të jetë në përdorim (dhe ndaj e kyçur) nga një tjetër "
-"përdorues, ose aplikacion."
+"Skeda mund të jetë në përdorim (dhe ndaj e kyçur) nga një tjetër përdorues, "
+"ose aplikacion."
 
 #: core/job_error.cpp:392
 #, kde-format
@@ -969,7 +970,7 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"Kjo do të thotë se kartela <strong>%1</strong> s’u shkrua dot si u kërkua, "
+"Kjo do të thotë se skeda <strong>%1</strong> s’u shkrua dot si u kërkua, "
 "ngaqë s’morën dot leje hyrjeje për shkrim."
 
 #: core/job_error.cpp:460
@@ -1169,18 +1170,18 @@ msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"Kërkesa priste një dosje, por në vend të kësaj u gjet kartela <strong>%1</"
+"Kërkesa priste një dosje, por në vend të kësaj u gjet skeda <strong>%1</"
 "strong>."
 
 #: core/job_error.cpp:567
 #, kde-format
 msgid "File or Folder Does Not Exist"
-msgstr "Kartela, ose Dosja S’ekziston"
+msgstr "Skeda, ose Dosja S’ekziston"
 
 #: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "Kartela, ose dosja e përcaktuar <strong>%1</strong> s’ekziston."
+msgstr "Skeda, ose dosja e përcaktuar <strong>%1</strong> s’ekziston."
 
 #: core/job_error.cpp:579
 #, kde-format
@@ -1188,7 +1189,7 @@ msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr ""
-"Kartela e kërkuar s’u krijua dot, ngaqë ka tashmë një kartelë me të njëjtin "
+"Skeda e kërkuar s’u krijua dot, ngaqë ka tashmë një kartelë me të njëjtin "
 "emër."
 
 #: core/job_error.cpp:582
@@ -1255,7 +1256,7 @@ msgstr ""
 #: core/job_error.cpp:614
 #, kde-format
 msgid "Access Denied"
-msgstr "Hyrje e Mohuar"
+msgstr "Çasja u Mohua"
 
 #: core/job_error.cpp:616
 #, kde-format
@@ -1295,7 +1296,7 @@ msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr ""
-"Kjo do të thotë se u hodh poshtë një përpjekje për shkrim te kartela <strong>"
+"Kjo do të thotë se u hodh poshtë një përpjekje për shkrim te skeda <strong>"
 "%1</strong>."
 
 #: core/job_error.cpp:645
@@ -1347,7 +1348,7 @@ msgid ""
 msgstr ""
 "Mjediset UNIX janë zakonisht në gjendje ta lidhin një kartelë, ose një dosje "
 "me një emër dhe/ose vendndodhje të caktuar. KDE-ja pikasi një lidhje, ose "
-"një varg lidhjesh që prodhojnë një qerthull të pafund - d.m.th., kartela qe "
+"një varg lidhjesh që prodhojnë një qerthull të pafund - d.m.th., skeda qe "
 "(ndoshta sipas një rrethrrotullimi) lidhur me veten."
 
 #: core/job_error.cpp:673 core/job_error.cpp:699
@@ -1390,7 +1391,7 @@ msgstr ""
 "Mjediset UNIX janë zakonisht në gjendje ta lidhin një kartelë, ose një dosje "
 "me një emër dhe/ose vendndodhje të caktuar. Gjatë veprimit të kopjimit të "
 "kërkuar, KDE-ja pikasi një lidhje, ose një varg lidhjesh që prodhojnë një "
-"qerthull të pafund - d.m.th., kartela qe (ndoshta sipas një rrethrrotullimi) "
+"qerthull të pafund - d.m.th., skeda qe (ndoshta sipas një rrethrrotullimi) "
 "lidhur me veten."
 
 #: core/job_error.cpp:705
@@ -2052,7 +2053,7 @@ msgstr ""
 #: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "S’u Fshi Dot Kartela Origjinale"
+msgstr "S’u Fshi Dot Skeda Origjinale"
 
 #: core/job_error.cpp:1139
 #, kde-format
@@ -2062,13 +2063,13 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 "Veprimi i kërkuar lypte fshirjen e kartelës origjinale, sipas gjasave në "
-"fund të një veprimi zhvendosjeje kartele. Kartela origjinale <strong>%1</"
+"fund të një veprimi zhvendosjeje kartele. Skeda origjinale <strong>%1</"
 "strong> s’u fshi dot."
 
 #: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "S’u Fshi Dot Kartela e Përkohshme"
+msgstr "S’u Fshi Dot Skeda e Përkohshme"
 
 #: core/job_error.cpp:1150
 #, kde-format
@@ -2078,13 +2079,13 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 "Veprimi i kërkuar lypte krijimin një kartele të përkohshme, te e cila të "
-"ruhej kartela e re teksa po shkarkohej. Kjo kartelë e përkohshme <strong>%1</"
+"ruhej skeda e re teksa po shkarkohej. Kjo kartelë e përkohshme <strong>%1</"
 "strong> s’u fshi dot."
 
 #: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "S’u Riemërtua Dot Kartela Origjinale"
+msgstr "S’u Riemërtua Dot Skeda Origjinale"
 
 #: core/job_error.cpp:1162
 #, kde-format
@@ -2098,7 +2099,7 @@ msgstr ""
 #: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "S’u Riemërtua Dot Kartela e Përkohshme"
+msgstr "S’u Riemërtua Dot Skeda e Përkohshme"
 
 #: core/job_error.cpp:1173
 #, kde-format
@@ -2140,8 +2141,8 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"Kartela e domosdoshme <strong>%1</strong> s’u shkrua dot, ngaqë s’ka "
-"hapësirë të mjaftueshme disku."
+"Skeda e domosdoshme <strong>%1</strong> s’u shkrua dot, ngaqë s’ka hapësirë "
+"të mjaftueshme disku."
 
 #: core/job_error.cpp:1201
 #, kde-format
@@ -2150,15 +2151,14 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"Lironi hapësirë të mjaftueshme disku duke 1) fshirë kartela që s’i doni dhe "
-"kartela të përkohshme; 2) duke arkivuar kartela në depozita të heqshme "
-"media, b.f., disqe CD-Recordable; ose 3) siguroni më tepër kapacitet "
-"depozitimi."
+"Lironi hapësirë të mjaftueshme disku duke 1) fshirë skeda që s’i doni dhe "
+"skeda të përkohshme; 2) duke arkivuar skeda në depozita të heqshme media, b."
+"f., disqe CD-Recordable; ose 3) siguroni më tepër kapacitet depozitimi."
 
 #: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "Kartela Burim dhe Vendmbërritje Identike"
+msgstr "Skeda Burim dhe Vendmbërritje Identike"
 
 #: core/job_error.cpp:1210
 #, kde-format
@@ -2166,7 +2166,7 @@ msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr ""
-"Veprimi s’u plotësua dot, ngaqë kartela burim dhe ajo vendmbërritje janë e "
+"Veprimi s’u plotësua dot, ngaqë skeda burim dhe ajo vendmbërritje janë e "
 "njëjta kartelë."
 
 #: core/job_error.cpp:1212
@@ -2185,8 +2185,8 @@ msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
-"Veprimi s’u plotësua dot, ngaqë kartela ose dosja burim dhe vendmbërritje "
-"janë të njëjta."
+"Veprimi s’u plotësua dot, ngaqë skeda ose dosja burim dhe vendmbërritje janë "
+"të njëjta."
 
 #: core/job_error.cpp:1220
 #, kde-format
@@ -2272,8 +2272,8 @@ msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
 msgstr ""
-"Kartela <filename>%1</filename> s’mund të shpërngulet, ngaqë sistemi "
-"vendmbërritje i kartelave s’mbulon kartela kaq të mëdha"
+"Skeda <filename>%1</filename> s’mund të shpërngulet, ngaqë sistemi "
+"vendmbërritje i kartelave s’mbulon skeda kaq të mëdha"
 
 #: core/job_error.cpp:1265
 #, kde-format
@@ -2282,7 +2282,7 @@ msgid ""
 "large."
 msgstr ""
 "Riformatojeni diskun vendmbërritje, që të përdorë një sistem kartelash që "
-"mbulon kartela kaq të mëdha."
+"mbulon skeda kaq të mëdha."
 
 #: core/job_error.cpp:1270
 #, kde-format
@@ -2357,7 +2357,7 @@ msgstr "Me protokollin %1 s’mbulohet mbyllje lidhjesh."
 #: core/slavebase.cpp:810
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "Me protokollin %1 s’mbulohet hyrje në kartela."
+msgstr "Me protokollin %1 s’mbulohet hyrje në skeda."
 
 #: core/slavebase.cpp:812
 #, kde-format
@@ -2478,7 +2478,7 @@ msgstr "S’gjendet dot i ekzekutueshëm 'kioworker' te '%1'"
 msgid "&Details"
 msgstr "&Hollësi"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:214
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2489,7 +2489,7 @@ msgstr "&Përgjithmonë"
 msgid "Co&ntinue"
 msgstr "_Vazhdo"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2695,7 +2695,7 @@ msgstr "Lejo Zgjerim në Pamje Hollësish"
 #: filewidgets/kdiroperator.cpp:2214
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Shfaq Kartela të Fshehura"
+msgstr "Shfaq Skeda të Fshehura"
 
 #: filewidgets/kdiroperator.cpp:2221
 #, kde-format
@@ -2834,13 +2834,13 @@ msgstr "%1 (%2)"
 #: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
-msgstr "Tërë Kartelat e Mbuluara"
+msgstr "Të Gjitha Skedat e Përkrahura"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:2056
 #, kde-format
 msgid "All Files"
-msgstr "Krejt Kartelat"
+msgstr "Të Gjithë Skedat"
 
 #: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
@@ -2975,7 +2975,7 @@ msgstr "%1 (nga %2)"
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
-msgstr "Krejt etiketat"
+msgstr "Të gjitha etiketat"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
@@ -3027,7 +3027,7 @@ msgstr "Video"
 #: filewidgets/kfileplacesmodel.cpp:391
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
-msgstr "Kartela Së Fundi"
+msgstr "Skeda Së Fundi"
 
 #: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
@@ -3073,7 +3073,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr ""
+msgstr "&Publikim"
 
 #: filewidgets/kfileplacesmodel.cpp:1383
 #, kde-format
@@ -3124,7 +3124,7 @@ msgstr "Ndodhi një gabim teksa hyhej te “%1”"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
-"Një ose më tepër kartela në këtë pajisje janë hapur brenda një aplikacioni."
+"Një ose më tepër skeda në këtë pajisje janë hapur brenda një aplikacioni."
 
 #: filewidgets/kfileplacesmodel.cpp:1529
 #, kde-kuit-format
@@ -3135,10 +3135,10 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"Një ose më tepër kartela në këtë pajisje janë hapur në aplikacionin "
+"Një ose më tepër skeda në këtë pajisje janë hapur në aplikacionin "
 "<application>“%2”</application>."
 msgstr[1] ""
-"Një ose më tepër kartela në këtë pajisje janë hapur në aplikacionet vijues: "
+"Një ose më tepër skeda në këtë pajisje janë hapur në aplikacionet vijues: "
 "<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1532
@@ -3293,12 +3293,12 @@ msgstr "U dhanë më shumë se një kartelë"
 #: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid "You can only select local files"
-msgstr "Mund të përzgjidhni vetëm kartela vendore"
+msgstr "Mund të përzgjidhni vetëm skeda vendore"
 
 #: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid "Remote files not accepted"
-msgstr "S’u pranuan kartela të largëta"
+msgstr "S’u pranuan skeda të largëta"
 
 #: filewidgets/kfilewidget.cpp:823
 #, kde-format
@@ -3323,12 +3323,12 @@ msgstr "Skemë URL e pambuluar"
 #: filewidgets/kfilewidget.cpp:850
 #, kde-format
 msgid "The file \"%1\" could not be found"
-msgstr "S’u gjet dot kartela “%1”"
+msgstr "S’u gjet dot skeda “%1”"
 
 #: filewidgets/kfilewidget.cpp:850
 #, kde-format
 msgid "Cannot open file"
-msgstr "S’hapet dot kartela"
+msgstr "S’hapet dot skeda"
 
 #: filewidgets/kfilewidget.cpp:1219
 #, kde-format
@@ -3373,7 +3373,7 @@ msgstr "Shfaq Panel Vendesh"
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
-msgstr "Shfaq Kartela të Fshehura"
+msgstr "Shfaq Skeda të Fshehura"
 
 #: filewidgets/kfilewidget.cpp:1245
 #, kde-format
@@ -3393,7 +3393,7 @@ msgstr ""
 "të përdoren mundësi të ndryshme, përfshi: <ul><li>si renditen kartelat te "
 "lista</li><li>llojet e pamjes, përfshi si ikona dhe si listë</"
 "li><li>shfaqjen e kartelave të fshehura</li><li>panelin Vende</"
-"li><li>paraparje kartelash</li><li>veçim dosjesh nga kartela</li></ul></qt>"
+"li><li>paraparje kartelash</li><li>veçim dosjesh nga skeda</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1267
 #, kde-format
@@ -3462,7 +3462,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgid "This is the name to save the file as."
-msgstr "Ky është emri nën të cilin të ruhet kartela."
+msgstr "Ky është emri nën të cilin të ruhet skeda."
 
 #: filewidgets/kfilewidget.cpp:1463
 #, kde-format
@@ -3487,29 +3487,29 @@ msgstr "Vende"
 #: filewidgets/kfilewidget.cpp:1762
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "Kartela “%1” ekziston tashmë. Doni të mbishkruhet?"
+msgstr "Skeda “%1” ekziston tashmë. Doni të mbishkruhet?"
 
 #: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "Overwrite File?"
-msgstr "Të mbishkruhet Kartela?"
+msgstr "Të mbishkruhet Skeda?"
 
 #: filewidgets/kfilewidget.cpp:1960
 #, kde-format
 msgid "You can only select local files."
-msgstr "Mund të përzgjidhni vetëm kartela vendore."
+msgstr "Mund të përzgjidhni vetëm skeda vendore."
 
 #: filewidgets/kfilewidget.cpp:1960
 #, kde-format
 msgid "Remote Files Not Accepted"
-msgstr "S’u Pranuan Kartela të Largëta"
+msgstr "S’u Pranuan Skeda të Largëta"
 
 #: filewidgets/kfilewidget.cpp:2054
 #, kde-format
 msgid "All Folders"
-msgstr "Krejt Dosjet"
+msgstr "Të Gjithë Skedarët"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Hap"
@@ -3579,7 +3579,7 @@ msgid ""
 "file will be saved as.</qt>"
 msgstr ""
 "<qt>Ky është përzgjedhësi i llojit të kartelave. Përdoret për të përzgjedhur "
-"formatin nën të cilin do të ruhet kartela.</qt>"
+"formatin nën të cilin do të ruhet skeda.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2950
 #, fuzzy, kde-format
@@ -3591,7 +3591,7 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 "<qt>Ky është përzgjedhësi i llojit të kartelave. Përdoret për të përzgjedhur "
-"formatin nën të cilin do të ruhet kartela.</qt>"
+"formatin nën të cilin do të ruhet skeda.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:518
 #, kde-format
@@ -3601,7 +3601,7 @@ msgstr "Na ndjeni"
 #: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>Kartela gjedhe <b>%1</b> s’ekziston.</qt>"
+msgstr "<qt>Skeda gjedhe <b>%1</b> s’ekziston.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:681 filewidgets/knewfilemenu.cpp:746
 #, kde-format
@@ -3647,8 +3647,8 @@ msgid ""
 "The name <filename>%1</filename> starts with a dot, so it will be hidden by "
 "default."
 msgstr ""
-"Kartela <filename>%1</filename> nis me një pikë, ndaj, si parazgjedhje, do "
-"të jetë e fshehur."
+"Skeda <filename>%1</filename> nis me një pikë, ndaj, si parazgjedhje, do të "
+"jetë e fshehur."
 
 #: filewidgets/knewfilemenu.cpp:1241
 #, kde-kuit-format
@@ -3658,9 +3658,9 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
-"Kartela <filename>%1</filename> nis me një hapësirë, çka do të sjellë "
-"shfaqjen para objekteve të tjera, kur renditen këta alfabetikisht, mes "
-"sjellje të tjera potenciale të çuditshme."
+"Skeda <filename>%1</filename> nis me një hapësirë, çka do të sjellë shfaqjen "
+"para objekteve të tjera, kur renditen këta alfabetikisht, mes sjellje të "
+"tjera potenciale të çuditshme."
 
 #: filewidgets/knewfilemenu.cpp:1259
 #, kde-format
@@ -3952,7 +3952,7 @@ msgid ""
 "%1\n"
 "is not valid."
 msgstr ""
-"Kartela e zërit desktop\n"
+"Skeda e zërit desktop\n"
 "%1\n"
 "s’është e vlefshme."
 
@@ -3984,7 +3984,7 @@ msgid ""
 "%1\n"
 "is of type Link but has no URL=... entry."
 msgstr ""
-"Kartela për zë desktopi\n"
+"Skeda për zë desktopi\n"
 "%1\n"
 "është e llojit Lidhje, por s’ka zë URL=…."
 
@@ -3994,7 +3994,7 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"Kartela e ekzekutueshme “%1” ndodhet në një sistem të largët kartelash. Për "
+"Skeda e ekzekutueshme “%1” ndodhet në një sistem të largët kartelash. Për "
 "arsye sigurie, s’do të niset."
 
 #: gui/openurljob.cpp:415
@@ -4020,13 +4020,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"S’arrihet të bëhet e ekzekutueshme kartela “%1”.\n"
+"S’arrihet të bëhet e ekzekutueshme skeda “%1”.\n"
 "%2."
 
 #: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "Kartela për zë desktopi %1 s’ka zë Type=…."
+msgstr "Skeda për zë desktopi %1 s’ka zë Type=…."
 
 #: gui/openurljob.cpp:635
 #, kde-format
@@ -4042,7 +4042,7 @@ msgstr ""
 #: gui/openurljob.cpp:661
 #, kde-format
 msgid "Failed to open the file."
-msgstr "S’u arrit të hapet kartela."
+msgstr "S’u arrit të hapet skeda."
 
 #: gui/openurljob.cpp:695
 #, kde-format
@@ -4056,13 +4056,13 @@ msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
-"Kartela <filename>%1</filename><nl/>është ndryshuar. Doni të ngarkohen "
+"Skeda <filename>%1</filename><nl/>është ndryshuar. Doni të ngarkohen "
 "ndryshimet?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
 msgid "File Changed"
-msgstr "Kartela u Ndryshua"
+msgstr "Skeda u Ndryshua"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:251
 #, kde-format
@@ -4110,7 +4110,7 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
-"Kartela gjoja e përkohshme\n"
+"Skeda gjoja e përkohshme\n"
 "%1\n"
 "është ndryshuar.\n"
 "Doni ende të fshihet?"
@@ -4128,7 +4128,7 @@ msgid ""
 "has been modified.\n"
 "Do you want to upload the changes?"
 msgstr ""
-"Kartela\n"
+"Skeda\n"
 "%1\n"
 "është ndryshuar.\n"
 "Doni të ngarkohen ndryshimet?"
@@ -4141,8 +4141,7 @@ msgstr "KIOExec"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
-msgstr ""
-"KIO Exec - Hap kartela të largëta, vëzhgon ndryshime, pyet për ngarkime"
+msgstr "KIO Exec - Hap skeda të largëta, vëzhgon ndryshime, pyet për ngarkime"
 
 #: kioexec/main.cpp:306
 #, kde-format
@@ -4177,7 +4176,7 @@ msgstr "Oswald Buddenhagen"
 #: kioexec/main.cpp:316
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr "Trajtoji URL-të si kartela vendore dhe fshiji më pas"
+msgstr "Trajtoji URL-të si skeda vendore dhe fshiji më pas"
 
 #: kioexec/main.cpp:318
 #, kde-format
@@ -4280,14 +4279,14 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:328
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Që të përdorni këtë sajt, lypset të jepni një emër përdoruesi dhe një "
 "fjalëkalim."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:330
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
 #, kde-format
 msgid "Site:"
 msgstr "Sajt:"
@@ -4316,7 +4315,7 @@ msgstr ""
 "\n"
 "Shërbyesi tha: “%1”"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:378
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4325,7 +4324,7 @@ msgstr ""
 "Lypset të jepni një emër përdoruesi dhe një fjalëkalim për shërbyesin "
 "ndërmjetës të treguar më poshtë, para se t’ju lejohet hyrje në çfarëdo sajti."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:382
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Ndërmjetës:"
@@ -4343,7 +4342,7 @@ msgstr "S’ka dokumente gati për %1."
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "Po kërkohet kartela e saktë"
+msgstr "Po kërkohet skeda e saktë"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
@@ -4353,7 +4352,7 @@ msgstr "Po përgatitet dokument"
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
 #, kde-format
 msgid "The requested help file could not be parsed:<br />%1"
-msgstr "S’analizohet dot kartela ndihmë e kërkuar:<br />%1"
+msgstr "S’analizohet dot skeda ndihmë e kërkuar:<br />%1"
 
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
@@ -4375,108 +4374,108 @@ msgstr "Po kërkohet pjesa"
 msgid "Could not find filename %1 in %2."
 msgstr "S’u gjet dot emër kartele %1 në %2."
 
-#: kioworkers/http/http.cpp:210 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Doni të pranohet kjo dëshmi përgjithmonë, pa jua kërkuar?"
 
-#: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "Mirëfilltësim Më Anë Shërbyesi"
 
-#: kioworkers/http/http.cpp:348 kioworkers/http/http.cpp:387
-#: kioworkers/http/http.cpp:401
+#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
+#: kioworkers/http/http.cpp:402
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> më <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1395
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Përndryshe, kërkesa do të kish pasur sukses."
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "të marrë vlera vetish"
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "të caktojë vlera vetish"
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "të krijojë dosjen e kërkuar"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "të kopjojë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "të zhvendosë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "të kërkojë në dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "të kyçë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "të shkyçë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "të fshijë kartelën, ose dosjen e treguar"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "të bëjë kërkim mbi aftësitë e shërbyesit"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "të marrë lëndë të kartelës, ose dosjes së treguar"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "të krijojë një raport te dosja e specifikuar"
 
-#: kioworkers/http/http.cpp:1425
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ndodhi një gabim i papritur (%1) teksa provohej %2."
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1468
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4486,13 +4485,13 @@ msgstr ""
 "Ndodhi një gabim teksa provohej %1, %2. Më poshtë ka një përmbledhje të "
 "arsyeve."
 
-#: kioworkers/http/http.cpp:1483 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Hyrje e mohuar teksa provohet %1."
 
-#: kioworkers/http/http.cpp:1497 kioworkers/http/http.cpp:1634
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4501,7 +4500,7 @@ msgstr ""
 "Te vendmbërritja s’krijohet dot një burim, para se të jetë krijuar një ose "
 "më tepër koleksione (dosje) të ndërmjetme."
 
-#: kioworkers/http/http.cpp:1506
+#: kioworkers/http/http.cpp:1509
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4516,28 +4515,28 @@ msgstr ""
 "kërkoni që kartelat të mos mbishkruhen.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Kyçja e kërkuar s’u akordua dot. %1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Shërbyesi s’mbulon lloj kërkesë të lëndës."
 
-#: kioworkers/http/http.cpp:1525 kioworkers/http/http.cpp:1642
+#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "S’arrihet %1, ngaqë burimi është i kyçur."
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ky veprim u pengua nga një tjetër gabim."
 
-#: kioworkers/http/http.cpp:1536 kioworkers/http/http.cpp:1649
+#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4547,7 +4546,7 @@ msgstr ""
 "S’arrihet %1, ngaqë shërbyesi vendmbërritje refuzon të pranojë kartelën, ose "
 "dosjen."
 
-#: kioworkers/http/http.cpp:1545 kioworkers/http/http.cpp:1658
+#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4556,18 +4555,18 @@ msgstr ""
 "Burimi vendmbërritje s’ka hapësirë të mjaftueshme për të regjistruar "
 "gjendjen e burimit pas ekzekutimit të kësaj metode."
 
-#: kioworkers/http/http.cpp:1598
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Burimi s’mund të fshihet."
 
-#: kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1621
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "të ngarkojë %1"
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1672
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4627,7 +4626,7 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "Program ndihmës për të trajtuar koshin e hedhurinave të KDE-së\n"
-"Shënim: që të shpini kartela te hedhurinat, mos përdorni ktrash-in, por "
+"Shënim: që të shpini skeda te hedhurinat, mos përdorni ktrash-in, por "
 "\"kioclient move 'url' trash:/\""
 
 #: kioworkers/trash/ktrash.cpp:31
@@ -4641,7 +4640,7 @@ msgid "Restore a trashed file to its original location"
 msgstr ""
 "Riktheni te vendndodhja origjinale e saj një kartelë të shpënë te hedhurinat"
 
-#: kioworkers/trash/trashimpl.cpp:1340
+#: kioworkers/trash/trashimpl.cpp:1342
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Hedhurinat janë plot. Zbrazini, ose hiqni objekte dorazi."
@@ -4670,7 +4669,7 @@ msgstr "Dialog Mirëfilltësimi"
 #: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
 msgid "Access denied"
-msgstr "Hyrje e mohuar"
+msgstr "Çasja u mohua"
 
 #: schemehandlers/telnet/ktelnetservice.cpp:54
 #, kde-format
@@ -5024,61 +5023,52 @@ msgstr "&Zhbëje: Riemërtim Masiv"
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Ribëj"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&Zhbëje: Kopjoje"
+msgstr "&Ribëje: Kopjoje"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&Zhbëje: Lidhe"
+msgstr "&Ribëje: Lidhen"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&Zhbëje: Lëvize"
+msgstr "&Ribëje: Lëvize"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&Zhbëje: Riemërtojeni"
+msgstr "&Ribëje: Riemëro"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&Zhbëje: Shpjere te Hedhurinat"
+msgstr "&Ribëje: Hedhurinë"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&Zhbëje: Krijo Dosje"
+msgstr "&Ribëje: Krijo Skedar"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&Zhbëje: Krijo Dosje()"
+msgstr "&Ribëje: Krijo Skedar(ët)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&Zhbëje: Krijo Kartelë"
+msgstr "&Ribëje: Krijo Skedë"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&Zhbëje: Riemërtim Masiv"
+msgstr "&Ribëje: Tufë Riemërtime"
 
 #: widgets/fileundomanager.cpp:902
 #, kde-format
@@ -5088,7 +5078,7 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
-"Kartela %1 u kopjua nga %2, pro që atëherë duket se është ndryshuar më %3.\n"
+"Skeda %1 u kopjua nga %2, pro që atëherë duket se është ndryshuar më %3.\n"
 "Zhbërja e kopjimit do ta fshijë kartelën dhe krejt ndryshimet do të humbin.\n"
 "Jeni i sigurt se doni të fshihet %4?"
 
@@ -5238,7 +5228,7 @@ msgstr "Lloj Zëri"
 #: widgets/kacleditwidget.cpp:394
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "Parazgjedhje për kartela të reja në këtë dosje"
+msgstr "Parazgjedhje për skeda të reja në këtë dosje"
 
 #: widgets/kacleditwidget.cpp:401
 #, kde-format
@@ -5394,29 +5384,29 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Hapeni &Me…"
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Hape dosjen me %1"
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Hape me %1"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Hape Dosjen Me"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Hape Me"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:810
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -5658,7 +5648,7 @@ msgstr ""
 "vlerat faktike, kur të xhirohet faktikisht programi:\n"
 "%f - një emër kartele njëshe\n"
 "%F - një listë kartelash; përdoreni për aplikacione që mund të hapin disa "
-"kartela njëherësh\n"
+"skeda njëherësh\n"
 "%u - një URL njëshe\n"
 "%U - një listë URL-sh\n"
 "%d - drejtoria e kartelës për t’u hapur\n"
@@ -5776,7 +5766,7 @@ msgid ""
 msgstr ""
 "I vini shenjë kësaj mundësie, nëse doni ta xhironi këtë aplikacion me një ID "
 "tjetër përdoruesit. Çdo proces ka të përshoqëruar me të një ID të ndryshme "
-"përdoruesi. Ky kod ID përcakton leje mbi kartela dhe leje të tjera. Që të "
+"përdoruesi. Ky kod ID përcakton leje mbi skeda dhe leje të tjera. Që të "
 "përdoret kjo mundësi, lypset fjalëkalimi i përdoruesit."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -5958,7 +5948,7 @@ msgstr ""
 "\n"
 "%f - një emër kartele\n"
 "%F - një listë kartelash (për aplikacione që mund të hapin njëherësh disa "
-"kartela)\n"
+"skeda)\n"
 "%u - një URL\n"
 "%U - një listë URL-sh\n"
 "%i - ikona e kartelës .desktop\n"
@@ -6184,7 +6174,7 @@ msgstr ""
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 kartelë"
-msgstr[1] "%1 kartela"
+msgstr[1] "%1 skeda"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:699
 #: widgets/kpropertiesdialogbuiltin_p.cpp:714
@@ -6276,7 +6266,7 @@ msgstr "&Leje"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Access Permissions"
-msgstr "Leje Hyrjesh"
+msgstr "Të Drejtat e Çasjes"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
@@ -6332,7 +6322,7 @@ msgstr "Vetëm i &zoti mund të riemërtojë dhe fshijë lëndë"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Allow &executing file as program"
-msgstr "Lejo &ekzekutimin e kartelës si program"
+msgstr "Lejo &ekzekutimin e skedës si program"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
@@ -6353,7 +6343,7 @@ msgid ""
 msgstr ""
 "Aktivizojeni këtë mundësi që të lejoni vetëm të zotin e dosjes të fshijë, "
 "ose të riemërtojë kartelat dhe dosjet që përmban ajo. Përdoruesit e tjerë "
-"vetëm mund të shtojnë kartela të reja, çka lyp lejen “Të Ndryshojë Lëndë”."
+"vetëm mund të shtojnë skeda të reja, çka lyp lejen “Të Ndryshojë Lëndë”."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1234
 #, kde-format
@@ -6547,8 +6537,8 @@ msgid ""
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
 "Nëse mbi një dosje është vënë shenja “Ngjitëse”, vetëm i zoti dhe përdoruesi "
-"rrënjë mund të fshijnë apo riemërtojnë kartela. Përndryshe, këtë mund ta "
-"bëjë gjithkush me leje shkrimi."
+"rrënjë mund të fshijnë apo riemërtojnë skeda. Përndryshe, këtë mund ta bëjë "
+"gjithkush me leje shkrimi."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1486
 #, kde-format
@@ -6590,7 +6580,7 @@ msgstr ""
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Kjo kartelë përdor leje të thelluara"
-msgstr[1] "Këto kartela përdorin leje të thelluara."
+msgstr[1] "Këto skeda përdorin leje të thelluara."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1821
 #, kde-format
@@ -6602,7 +6592,7 @@ msgstr[1] "Këto dosje përdorin leje të thelluara."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1835
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "Këto kartela përdorin leje të thelluara."
+msgstr "Këto skeda përdorin leje të thelluara."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2079
 #, kde-format
@@ -6975,7 +6965,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "&Mbishkruaj kartela më të vjetra"
+msgstr "&Mbishkruaj skeda më të vjetra"
 
 #: widgets/renamedialog.cpp:276
 #, kde-format
@@ -6983,8 +6973,8 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
-"Kartela për në vendmbërritje, të cilat kanë kohë më të vjetra ndryshimi, do "
-"të mbishkruhen nga burimi, përndryshe do të anashkalohet."
+"Skeda për në vendmbërritje, të cilat kanë kohë më të vjetra ndryshimi, do të "
+"mbishkruhen nga burimi, përndryshe do të anashkalohet."
 
 #: widgets/renamedialog.cpp:288
 #, kde-format
@@ -7198,7 +7188,7 @@ msgstr[1] "Riemërtoni %1 objektet e përzgjedhur si:"
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Shto Tekst:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
@@ -7215,12 +7205,10 @@ msgid "Before filename"
 msgstr "Jepni emër kartele për %1:"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Jepni emër kartele për %1:"
+msgstr "Pas emrit të skedës"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7264,7 +7252,7 @@ msgstr "Zëvendësoje"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Shto Tekst"
 
 #: widgets/renamefiledialog.cpp:567
 #, fuzzy, kde-format

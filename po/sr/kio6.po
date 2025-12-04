@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:39+0000\n"
+"POT-Creation-Date: 2025-12-04 00:40+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2492,7 +2492,7 @@ msgstr "Не могу да пронађем извршни фајл kioslave н�
 msgid "&Details"
 msgstr "&Детаљи"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:214
+#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2503,7 +2503,7 @@ msgstr "&Заувек"
 msgid "Co&ntinue"
 msgstr "Нас&тави"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3591,7 +3591,7 @@ msgstr "Удаљени фајлови се не прихватају"
 msgid "All Folders"
 msgstr "*|Све фасцикле"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:777
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
 #, kde-format
 msgid "&Open"
 msgstr "&Отвори"
@@ -4368,12 +4368,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:328
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Морате навести корисничко име и лозинку за приступ овом сајту."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:330
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
 #, kde-format
 msgid "Site:"
 msgstr "Сајт:"
@@ -4401,7 +4401,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "К‑лансер одговара: %1"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:378
+#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4410,7 +4410,7 @@ msgstr ""
 "Морате навести корисничко име и лозинку за прокси сервер наведен испод пре "
 "него што вам се дозволи приступ било ком сајту."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:382
+#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Прокси:"
@@ -4462,31 +4462,31 @@ msgstr "Трагам за одељком"
 msgid "Could not find filename %1 in %2."
 msgstr "Не могу да пронађем име фајла %1 у %2."
 
-#: kioworkers/http/http.cpp:210 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Желите ли да прихватите овај сертификат заувек, без питања убудуће?"
 
-#: kioworkers/http/http.cpp:213 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "Server Authentication"
 msgstr "Аутентификација сервера"
 
-#: kioworkers/http/http.cpp:348 kioworkers/http/http.cpp:387
-#: kioworkers/http/http.cpp:401
+#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
+#: kioworkers/http/http.cpp:402
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> на <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1392
+#: kioworkers/http/http.cpp:1395
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Иначе, захтев би успео."
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
@@ -4495,7 +4495,7 @@ msgstr ""
 "да се добаве']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
@@ -4504,7 +4504,7 @@ msgstr ""
 "да се поставе']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
@@ -4513,7 +4513,7 @@ msgstr ""
 "направи']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
@@ -4522,7 +4522,7 @@ msgstr ""
 "фасцикла не може да се копира']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
@@ -4531,7 +4531,7 @@ msgstr ""
 "фасцикла не може да се помери']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
@@ -4540,7 +4540,7 @@ msgstr ""
 "може да се тражи']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
@@ -4549,7 +4549,7 @@ msgstr ""
 "фасцикла не може да се закључа']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
@@ -4558,7 +4558,7 @@ msgstr ""
 "фасцикла не може да се откључа']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
@@ -4567,7 +4567,7 @@ msgstr ""
 "фасцикла не може да се обрише']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
@@ -4576,7 +4576,7 @@ msgstr ""
 "за способности']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
@@ -4585,7 +4585,7 @@ msgstr ""
 "наведеног фајла или фасцикле не може да се добави']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
@@ -4593,13 +4593,13 @@ msgstr ""
 "изврши извештај у наведеној фасцикли|/|$[својства Не-може 'У наведеној "
 "фасцикли не може да се изврши извештај']"
 
-#: kioworkers/http/http.cpp:1425
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Неочекивана грешка (%1) при покушају да се %2."
 
-#: kioworkers/http/http.cpp:1465
+#: kioworkers/http/http.cpp:1468
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4607,13 +4607,13 @@ msgid ""
 "below."
 msgstr "Грешка при покушају да се %1, %2. Сажетак разлога је дат испод."
 
-#: kioworkers/http/http.cpp:1483 kioworkers/http/http.cpp:1627
+#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Одбијен је приступ при покушају да се %1."
 
-#: kioworkers/http/http.cpp:1497 kioworkers/http/http.cpp:1634
+#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4622,7 +4622,7 @@ msgstr ""
 "Ресурс не може бити направљен на одредишту све док се једна или више "
 "посредишних збирки (фасцикли) не направи."
 
-#: kioworkers/http/http.cpp:1506
+#: kioworkers/http/http.cpp:1509
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4643,17 +4643,17 @@ msgstr ""
 "пребрисују.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Тражено закључавање није било одобрено. %1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер не подржава тип захтева у телу."
 
-#: kioworkers/http/http.cpp:1525 kioworkers/http/http.cpp:1642
+#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
@@ -4661,12 +4661,12 @@ msgstr ""
 "Не може да се %1 зато што је ресурс закључан.|/|$[Не-може %1] зато што је "
 "ресурс закључан."
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ова радња је спречена другом грешком."
 
-#: kioworkers/http/http.cpp:1536 kioworkers/http/http.cpp:1649
+#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4677,7 +4677,7 @@ msgstr ""
 "фасциклу.|/|$[Не-може %1] зато што одредишни сервер одбија да прихвати фајл "
 "или фасциклу."
 
-#: kioworkers/http/http.cpp:1545 kioworkers/http/http.cpp:1658
+#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4686,19 +4686,19 @@ msgstr ""
 "Одредишни ресурс нема довољно простора да запише стање ресурса после "
 "извршења ове методе."
 
-#: kioworkers/http/http.cpp:1598
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ресурс се не може обрисати."
 
 # У склопу реченице: „при покушају да се ...“ или „не може ...“
-#: kioworkers/http/http.cpp:1618
+#: kioworkers/http/http.cpp:1621
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "отпреми %1|/|$[својства Не-може %1' не може да се отпреми']"
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1672
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4774,7 +4774,7 @@ msgstr "Испразни садржај смећа"
 msgid "Restore a trashed file to its original location"
 msgstr "Врати фајл из смећа на његову изворну локацију"
 
-#: kioworkers/trash/trashimpl.cpp:1340
+#: kioworkers/trash/trashimpl.cpp:1342
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -5582,18 +5582,18 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
 
-#: widgets/kfileitemactions.cpp:766
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5601,13 +5601,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:798
+#: widgets/kfileitemactions.cpp:799
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:810
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
