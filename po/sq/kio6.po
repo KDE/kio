@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 00:40+0000\n"
-"PO-Revision-Date: 2025-12-02 20:17-0500\n"
+"PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
 "Language: sq\n"
@@ -42,7 +42,7 @@ msgid ""
 "insufficient access to the file to perform the change."
 msgstr ""
 "S’u ndryshua dot pronësia e kartelës <filename>%1</filename>. S’keni leje të "
-"mjaftueshme mbi kartelën, për të kryer ndryshimin."
+"mjaftueshme mbi skedarin, për të kryer ndryshimin."
 
 #: core/connectionbackend.cpp:107
 #, kde-format
@@ -166,14 +166,14 @@ msgstr[1] "%1 Objekte"
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
-msgstr[0] "1 Dosje"
-msgstr[1] "%1 Dosje"
+msgstr[0] "1 Skedar"
+msgstr[1] "%1 Skedar"
 
 #: core/global.cpp:93
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
-msgstr[0] "1 Kartelë"
+msgstr[0] "1 Skedë"
 msgstr[1] "%1 Skeda"
 
 #: core/global.cpp:95
@@ -835,7 +835,7 @@ msgid ""
 "has locked the file."
 msgstr ""
 "Kontrolloni për t’u siguruar se s’ka aplikacion, ose përdorues tjetër duke "
-"përdorur kartelën, ose që e ka kyçur atë."
+"përdorur skedarin, ose që e ka kyçur atë."
 
 #: core/job_error.cpp:395
 #, kde-format
@@ -957,7 +957,7 @@ msgstr ""
 #: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "Mund të mos keni leje për të lexuar kartelën, ose për të hapur dosjen."
+msgstr "Mund të mos keni leje për të lexuar skedarin, ose për të hapur dosjen."
 
 #: core/job_error.cpp:449
 #, kde-format
@@ -1143,7 +1143,7 @@ msgstr "Përpiquni të gjeni tjetër rrugë për të arritur te i njëjti përfu
 #: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
-msgstr "Pritej Kartelë"
+msgstr "Pritej Skedë"
 
 #: core/job_error.cpp:549
 #, kde-format
@@ -1162,7 +1162,7 @@ msgstr "Ky mund të jetë një gabim më anë të shërbyesit."
 #: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
-msgstr "Pritej Dosje"
+msgstr "Pritej Skedar"
 
 #: core/job_error.cpp:559
 #, kde-format
@@ -1196,17 +1196,17 @@ msgstr ""
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
-"Provoni të hiqni nga mesi kartelën e tanishme së pari dhe mandej riprovoni."
+"Provoni të hiqni nga mesi skedarin e tanishme së pari dhe mandej riprovoni."
 
 #: core/job_error.cpp:584
 #, kde-format
 msgid "Delete the current file and try again."
-msgstr "Fshijeni kartelën e tanishme dhe riprovoni."
+msgstr "Fshijeni skedarin e tanishme dhe riprovoni."
 
 #: core/job_error.cpp:584
 #, kde-format
 msgid "Choose an alternate filename for the new file."
-msgstr "Zgjidhni për kartelën e re një tjetër emër alternativ kartele."
+msgstr "Zgjidhni për skedarin e re një tjetër emër alternativ kartele."
 
 #: core/job_error.cpp:590
 #, kde-format
@@ -1759,7 +1759,7 @@ msgstr "NDREQMËNI: Dokumentojeni këtë"
 #: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
-msgstr "S’u Krijua Dot Dosje"
+msgstr "S’u Krijua Dot Skedar"
 
 #: core/job_error.cpp:934
 #, kde-format
@@ -2172,12 +2172,12 @@ msgstr ""
 #: core/job_error.cpp:1212
 #, kde-format
 msgid "Choose a different filename for the destination file."
-msgstr "Zgjidhni për kartelën vendmbërritje një tjetër emër kartele."
+msgstr "Zgjidhni për skedarin vendmbërritje një tjetër emër kartele."
 
 #: core/job_error.cpp:1216
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "Kartelë, ose Dosje u hodh brenda vetes"
+msgstr "Skedë, ose Skedar u hodh brenda vetes"
 
 #: core/job_error.cpp:1218
 #, kde-format
@@ -2196,7 +2196,7 @@ msgstr "Hidheni objektin në një tjetër kartelë, a dosje."
 #: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
-msgstr "Dosje u shpu te vetvetja"
+msgstr "Skedar u shpu te vetvetja"
 
 #: core/job_error.cpp:1232
 #, kde-format
@@ -2387,7 +2387,7 @@ msgstr "Nuk mbulohet marrje informacioni lloji MIME për %1."
 #: core/slavebase.cpp:822
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "S’mbulohet riemërtim, apo lëvizje kartelash brenda %1."
+msgstr "Riemërtimi apo bartja e skedave brenda %1 nuk bën."
 
 #: core/slavebase.cpp:824
 #, kde-format
@@ -2501,7 +2501,7 @@ msgstr "Vetëm Sesionin e &Tanishëm"
 #| msgid "Create New Folder"
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Krijo Dosje të Re"
+msgstr "Krijo Skedar të Re"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
 #, fuzzy, kde-format
@@ -2509,7 +2509,7 @@ msgstr "Krijo Dosje të Re"
 #| msgid "Create New Folder"
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Krijo Dosje të Re"
+msgstr "Krijo Skedar të Re"
 
 #: filewidgets/kdiroperator.cpp:312
 #, kde-format
@@ -2550,7 +2550,7 @@ msgstr "Menu"
 #: filewidgets/kdiroperator.cpp:2014
 #, kde-format
 msgid "Parent Folder"
-msgstr "Dosje Mëmë"
+msgstr "Skedar Mëmë"
 
 #: filewidgets/kdiroperator.cpp:2021
 #, kde-format
@@ -2567,7 +2567,7 @@ msgstr "Shko përpara"
 #: filewidgets/kdiroperator.cpp:2029
 #, kde-format
 msgid "Home Folder"
-msgstr "Dosje Shtëpi"
+msgstr "Skedar Shtëpi"
 
 #: filewidgets/kdiroperator.cpp:2033
 #, kde-format
@@ -2578,7 +2578,7 @@ msgstr "Ringarkoje"
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
-msgstr "Dosje e Re…"
+msgstr "Skedar e Re…"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
@@ -2630,12 +2630,12 @@ msgstr "Zbritës"
 #: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Folders First"
-msgstr "Dosjet Së Pari"
+msgstr "Skedarët Së Pari"
 
 #: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Hidden Files Last"
-msgstr "Të fundit Kartelat e Fshehura"
+msgstr "Të fundit Skedat e Fshehura"
 
 #: filewidgets/kdiroperator.cpp:2118
 #, kde-format
@@ -2823,7 +2823,7 @@ msgstr "Kaloje Këtu"
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
-msgstr "*|Krejt Kartelat"
+msgstr "*|Krejt Skedat"
 
 #: filewidgets/kfilefiltercombo.cpp:123
 #, kde-format
@@ -2934,7 +2934,7 @@ msgstr "Vende"
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
-msgstr "I largët"
+msgstr "Në largësi"
 
 #: filewidgets/kfileplacesitem.cpp:227
 #, kde-format
@@ -3067,7 +3067,7 @@ msgstr "Formësoni Shkurtore Web…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr ""
+msgstr "Duke e liruar..."
 
 #: filewidgets/kfileplacesmodel.cpp:1379
 #, kde-format
@@ -3390,7 +3390,7 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 "<qt>Kjo është menuja e parapëlqimeve për dialogun e kartelave. Prej saj mund "
-"të përdoren mundësi të ndryshme, përfshi: <ul><li>si renditen kartelat te "
+"të përdoren mundësi të ndryshme, përfshi: <ul><li>si renditen skedat te "
 "lista</li><li>llojet e pamjes, përfshi si ikona dhe si listë</"
 "li><li>shfaqjen e kartelave të fshehura</li><li>panelin Vende</"
 "li><li>paraparje kartelash</li><li>veçim dosjesh nga skeda</li></ul></qt>"
@@ -3444,7 +3444,7 @@ msgstr ""
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Të fundit Kartelat e Fshehura"
+msgstr "Të fundit Skedat e Fshehura"
 
 #: filewidgets/kfilewidget.cpp:1453
 #, kde-format
@@ -3565,7 +3565,7 @@ msgstr ""
 "çaktivizoni këtë mundësi, ose ta nxirrni jashtë loje duke shtuar një pikë "
 "(.) në fund të emrit të kartelës (pika do të hiqet automatikisht).</li></"
 "ol>Nëse s’jeni i sigurt, mbajeni të aktivizuar këtë mundësi, ngaqë i bën "
-"kartelat tuaja të administrueshme më lehtë."
+"skedat tuaja të administrueshme më lehtë."
 
 #: filewidgets/kfilewidget.cpp:2944
 #, kde-format
@@ -3727,13 +3727,13 @@ msgstr "Lidhni Pajisje"
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
-msgstr "Dosje e Re"
+msgstr "Skedar e Re"
 
 #: filewidgets/knewfilemenu.cpp:1577
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Krijo Dosje të Re"
+msgstr "Krijo Skedar të Re"
 
 #: filewidgets/knewfilemenu.cpp:1579
 #, kde-format
@@ -3759,7 +3759,7 @@ msgstr "I zoti (Parazgjedhje)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Krijoni Kartelë të Re"
+msgstr "Krijoni Skedë të Re"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
@@ -3938,7 +3938,7 @@ msgstr "Gabim në ruajtje figure te %1"
 #: gui/faviconrequestjob.cpp:166
 #, kde-format
 msgid "Icon file too big, download aborted"
-msgstr "Kartelë shumë e madhe ikone, shkarkimi u ndërpre"
+msgstr "Skedë shumë e madhe ikone, shkarkimi u ndërpre"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4181,7 +4181,7 @@ msgstr "Trajtoji URL-të si skeda vendore dhe fshiji më pas"
 #: kioexec/main.cpp:318
 #, kde-format
 msgid "Suggested file name for the downloaded file"
-msgstr "Emër kartele i sugjeruar për kartelën e shkarkuar"
+msgstr "Emër kartele i sugjeruar për skedarin e shkarkuar"
 
 #: kioexec/main.cpp:319
 #, kde-format
@@ -4419,13 +4419,13 @@ msgstr "të krijojë dosjen e kërkuar"
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "të kopjojë kartelën, ose dosjen e treguar"
+msgstr "të kopjojë skedarin, ose dosjen e treguar"
 
 #: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "të zhvendosë kartelën, ose dosjen e treguar"
+msgstr "të zhvendosë skedarin, ose dosjen e treguar"
 
 #: kioworkers/http/http.cpp:1408
 #, kde-format
@@ -4437,19 +4437,19 @@ msgstr "të kërkojë në dosjen e treguar"
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "të kyçë kartelën, ose dosjen e treguar"
+msgstr "të kyçë skedarin, ose dosjen e treguar"
 
 #: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "të shkyçë kartelën, ose dosjen e treguar"
+msgstr "të shkyçë skedarin, ose dosjen e treguar"
 
 #: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "të fshijë kartelën, ose dosjen e treguar"
+msgstr "të fshijë skedarin, ose dosjen e treguar"
 
 #: kioworkers/http/http.cpp:1416
 #, kde-format
@@ -4512,7 +4512,7 @@ msgstr ""
 "Shërbyesi s’qe në gjendje të mbante “liveness” e\n"
 "vetive të radhitura te elementi XML propertybehavior\n"
 "ose u përpoqët të mbishkruani një kartelë, teksa\n"
-"kërkoni që kartelat të mos mbishkruhen.\n"
+"kërkoni që skedat të mos mbishkruhen.\n"
 " %1"
 
 #: kioworkers/http/http.cpp:1517
@@ -4543,7 +4543,7 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
-"S’arrihet %1, ngaqë shërbyesi vendmbërritje refuzon të pranojë kartelën, ose "
+"S’arrihet %1, ngaqë shërbyesi vendmbërritje refuzon të pranojë skedarin, ose "
 "dosjen."
 
 #: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
@@ -4917,7 +4917,7 @@ msgstr "Ç’doni të bëhet me këtë kartelë?"
 #, kde-format
 msgctxt "@option:check Always open/launch executable files (dont ask again)"
 msgid "Remember for all executable files"
-msgstr ""
+msgstr "Mbaje mend për të gjitha skedarët e ekzekutueshëm"
 
 #. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
 #: widgets/executablefileopendialog.ui:104
@@ -5003,17 +5003,17 @@ msgstr "&Zhbëje: Shpjere te Hedhurinat"
 #: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Create Folder"
-msgstr "&Zhbëje: Krijo Dosje"
+msgstr "&Zhbëje: Krijo Skedar"
 
 #: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Create Folder(s)"
-msgstr "&Zhbëje: Krijo Dosje()"
+msgstr "&Zhbëje: Krijo Skedar()"
 
 #: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Create File"
-msgstr "&Zhbëje: Krijo Kartelë"
+msgstr "&Zhbëje: Krijo Skedë"
 
 #: widgets/fileundomanager.cpp:348
 #, kde-format
@@ -5079,7 +5079,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 "Skeda %1 u kopjua nga %2, pro që atëherë duket se është ndryshuar më %3.\n"
-"Zhbërja e kopjimit do ta fshijë kartelën dhe krejt ndryshimet do të humbin.\n"
+"Zhbërja e kopjimit do ta fshijë skedarin dhe krejt ndryshimet do të humbin.\n"
 "Jeni i sigurt se doni të fshihet %4?"
 
 #: widgets/fileundomanager.cpp:912
@@ -5570,14 +5570,13 @@ msgstr ""
 #: widgets/kopenwithdialog.cpp:569
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr ""
-"Zgjidhni emrin e programit me të cilin të hapen kartelat e përzgjedhura."
+msgstr "Zgjidhni emrin e programit me të cilin të hapen skedat e përzgjedhura."
 
 #: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
-"<qt>Përzgjidhni programin që doni të përdoret për të hapur kartelën<br/>%1</"
+"<qt>Përzgjidhni programin që doni të përdoret për të hapur skedarin<br/>%1</"
 "qt>"
 
 #: widgets/kopenwithdialog.cpp:592
@@ -5586,9 +5585,9 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
-"<qt>Përzgjidhni programin që doni të përdoret për të hapur kartelën.</qt>"
+"<qt>Përzgjidhni programin që doni të përdoret për të hapur skedarin.</qt>"
 msgstr[1] ""
-"<qt>Përzgjidhni programin që doni të përdoret për të hapur %1 kartelat.</qt>"
+"<qt>Përzgjidhni programin që doni të përdoret për të hapur %1 skedat.</qt>"
 
 #: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
@@ -5663,7 +5662,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Mba mend përshoqërim aplikacioni për krejt kartelat e lloji\n"
+"&Mba mend përshoqërim aplikacioni për krejt skedat e lloji\n"
 "“%1” (%2)"
 
 #: widgets/kopenwithdialog.cpp:744
@@ -5672,7 +5671,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Mba mend përshoqërim aplikacioni për krejt kartelat e lloji\n"
+"&Mba mend përshoqërim aplikacioni për krejt skedat e lloji\n"
 "“%1”"
 
 #: widgets/kopenwithdialog.cpp:754
@@ -6273,7 +6272,7 @@ msgstr "Të Drejtat e Çasjes"
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Kjo kartelë është një lidhje dhe s’ka leje."
-msgstr[1] "Krejt kartelat janë lidhje dhe s’kanë leje."
+msgstr[1] "Krejt skedat janë lidhje dhe s’kanë leje."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
@@ -6342,7 +6341,7 @@ msgid ""
 "requires the 'Modify Content' permission."
 msgstr ""
 "Aktivizojeni këtë mundësi që të lejoni vetëm të zotin e dosjes të fshijë, "
-"ose të riemërtojë kartelat dhe dosjet që përmban ajo. Përdoruesit e tjerë "
+"ose të riemërtojë skedat dhe dosjet që përmban ajo. Përdoruesit e tjerë "
 "vetëm mund të shtojnë skeda të reja, çka lyp lejen “Të Ndryshojë Lëndë”."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1234
@@ -6630,7 +6629,7 @@ msgid ""
 "source of the file."
 msgstr ""
 "<p>Checksum-et s’përputhen.</p>Kjo mund të vijë për shkak të një shkarkimi "
-"me gabime. Provoni të rishkarkoni kartelën.<br/>Nëse verifikoni prapë "
+"me gabime. Provoni të rishkarkoni skedarin.<br/>Nëse verifikoni prapë "
 "dështon, lidhuni me burimin e kartelës."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2405
@@ -6649,13 +6648,13 @@ msgstr "Po verifikohet checksum-i…"
 #, fuzzy, kde-format
 #| msgid "The files are <b>identical</b>."
 msgid "The checksums of all files are identical."
-msgstr "Kartelat janë <b>identike</b>."
+msgstr "Skedat janë <b>identike</b>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2447
 #, fuzzy, kde-format
 #| msgid "The files are <b>different</b>."
 msgid "The selected files have different checksums."
-msgstr "Kartelat janë <b>të ndryshme</b>."
+msgstr "Skedat janë <b>të ndryshme</b>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
@@ -6820,7 +6819,7 @@ msgstr "Emër kartele për lëndë nga e papastra:"
 #| msgid "Paste One File"
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr "Ngjitni Një Kartelë"
+msgstr "Ngjitni Një Skedë"
 
 #: widgets/paste.cpp:123
 #, kde-format
@@ -6835,13 +6834,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "Ngjite Një Dosje"
+msgstr "Ngjite Një Skedar"
 
 #: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "Ngjitni Një Kartelë"
+msgstr "Ngjitni Një Skedë"
 
 #: widgets/paste.cpp:255
 #, kde-format
@@ -6956,7 +6955,7 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"Kartelat dhe dosjet do të kopjohen te drejtoria ekzistuese, tok me lëndën "
+"Skedat dhe dosjet do të kopjohen te drejtoria ekzistuese, tok me lëndën "
 "ekzistuese të saj.\n"
 "Do të pyeteni sërish, në rast të një përplasjeje menjë kartelë ekzistuese te "
 "drejtoria."
@@ -7028,17 +7027,17 @@ msgstr "Burimi është <b>më i madhe me %1</b>"
 #: widgets/renamedialog.cpp:436
 #, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Kartelat janë <b>identike</b>."
+msgstr "Skedat janë <b>identike</b>."
 
 #: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Kartelat <b>duken identike</b>."
+msgstr "Skedat <b>duken identike</b>."
 
 #: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Kartelat janë <b>të ndryshme</b>."
+msgstr "Skedat janë <b>të ndryshme</b>."
 
 #: widgets/renamedialog.cpp:449
 #, kde-format
@@ -7046,7 +7045,7 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
-"Kartelat, sipas gjasash, janë identike: kanë të njëjtën madhësi dhe lënda e "
+"Skedat, sipas gjasash, janë identike: kanë të njëjtën madhësi dhe lënda e "
 "tyre është e njëjtë në fillim, mes dhe fund."
 
 #: widgets/renamedialog.cpp:467
@@ -7067,13 +7066,13 @@ msgstr "Ka tashmë një objekt më të ri të quajtur “%1”."
 #: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
-msgstr "Riemërtojeni:"
+msgstr "Riemërtoni:"
 
 #: widgets/renamefiledialog.cpp:91
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "Riemërtoni objektin <filename>%1</filename> si:"
+msgstr "Riemërtoni objektin <filename>%1</filename> në:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
 #, fuzzy, kde-kuit-format
@@ -7096,8 +7095,8 @@ msgstr "<filename>%1</filename> s’duket të jetë një program i ekzekutueshë
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "Riemërtoni %1 objektin e përzgjedhur si:"
-msgstr[1] "Riemërtoni %1 objektet e përzgjedhur si:"
+msgstr[0] "Riemërtoni %1 objektin e përzgjedhur në:"
+msgstr[1] "Riemërtoni %1 objektet e përzgjedhura në:"
 
 #: widgets/renamefiledialog.cpp:167
 #, kde-format
@@ -7122,15 +7121,12 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Riemërtoni %1 objektin e përzgjedhur si:"
-msgstr[1] "Riemërtoni %1 objektet e përzgjedhur si:"
+msgstr[0] "Riemërtoni %1 objektin e përzgjedhur nga:"
+msgstr[1] "Riemërtoni %1 objektet e përzgjedhura nga:"
 
 #: widgets/renamefiledialog.cpp:314
 #, fuzzy, kde-format
@@ -7153,11 +7149,10 @@ msgid "With:"
 msgstr "Hape Me:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Zëvendësoje"
+msgstr "Zëvendësimi"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
@@ -7172,17 +7167,16 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Zëvendësimi i “%1” with an empty replacement would cause <filename>%2</"
+"filename> to have an empty file name."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Riemërtoni %1 objektin e përzgjedhur si:"
-msgstr[1] "Riemërtoni %1 objektet e përzgjedhur si:"
+msgstr[0] "Riemërtoni %1 objektin e përzgjedhur:"
+msgstr[1] "Riemërtoni %1 objektet e përzgjedhura:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
@@ -7242,11 +7236,10 @@ msgid "Enumerate"
 msgstr ""
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Zëvendësoje"
+msgstr "Zëvendëso tekstin"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7277,7 +7270,7 @@ msgstr "Informacion"
 #: widgets/skipdialog.cpp:48
 #, kde-format
 msgid "Replace"
-msgstr "Zëvendësoje"
+msgstr "Zëvendëso"
 
 #: widgets/skipdialog.cpp:54
 #, kde-format
@@ -7287,7 +7280,7 @@ msgstr "Riprovo"
 #: widgets/skipdialog.cpp:61
 #, kde-format
 msgid "Replace All"
-msgstr "Zëvendësoji Krejt"
+msgstr "Zëvendëso të Gjitha"
 
 #: widgets/skipdialog.cpp:68
 #, kde-format
