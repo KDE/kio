@@ -218,11 +218,12 @@ void UDSEntryPrivate::load(QDataStream &s)
             QString buffer;
             s >> buffer;
 
-            if (buffer != cachedStrings.at(i)) {
-                cachedStrings[i] = buffer;
+            QString &cachedString = cachedStrings[i];
+            if (buffer != cachedString) {
+                cachedString = buffer;
             }
 
-            insert(uds, cachedStrings.at(i));
+            insert(uds, cachedString);
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
