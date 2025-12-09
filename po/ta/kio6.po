@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"POT-Creation-Date: 2025-12-09 00:39+0000\n"
 "PO-Revision-Date: 2025-11-30 15:32+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -2246,7 +2246,7 @@ msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:637
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4825,12 +4825,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "அடைவு உருவாக்கப் படுகிறது"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
 #, kde-format
 msgid "Source"
 msgstr "மூலம்"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
 #, kde-format
 msgid "Destination"
 msgstr "சேருமிடம்"
@@ -6731,22 +6731,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "போட்டவற்றிற்கான கோப்புப்பெயர்:"
 
-#: widgets/renamedialog.cpp:67
+#: widgets/renamedialog.cpp:70
 #, kde-format
 msgid "Date: %1"
 msgstr "தேதி: %1"
 
-#: widgets/renamedialog.cpp:76
+#: widgets/renamedialog.cpp:79
 #, kde-format
 msgid "Size: %1"
 msgstr "அளவு: %1"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "Appl&y to All"
 msgstr "&அனைத்துக்கும் செயல்படுத்து"
 
-#: widgets/renamedialog.cpp:233
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6759,7 +6759,7 @@ msgstr ""
 "'தவிர்' என்பதை அழுத்தினால் தவிர, அடைவில் ஏற்கனவே உள்ள கோப்புடன் முரண்பாடு ஏற்பட்டால் என்ன "
 "செய்வதென்று மறுபடியும் கேட்கப்படுவீர்கள்."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6768,38 +6768,38 @@ msgstr ""
 "இது குறிக்கப்பட்டிருந்தால், நீங்கள் அழுத்தும் பட்டன், இதற்கு பிறகு ஏற்படும் அனைத்து "
 "முரண்பாடுகளுக்கும் பொருத்தப்படும்."
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:254
 #, kde-format
 msgid "&Rename"
 msgstr "&மறுபெயரிடு"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:256
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "புதிய &பெயர் ஒன்றை பரிந்துரை"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid "&Skip"
 msgstr "&தவிர்"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "இந்த அடைவை நகலெடுக்காதே மற்றும் நகற்றாதே, பதிலாக அடுத்த உருப்படிக்கு செல்லவும்"
 
-#: widgets/renamedialog.cpp:253
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "இந்த கோப்பை நகலெடுக்காதே மற்றும் நகற்றாதே, பதிலாக அடுத்த உருப்படிக்கு செல்லவும்"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&உள்ளே எழுது"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6812,13 +6812,13 @@ msgstr ""
 "அந்த அடைவில் ஏற்கனவே உள்ள ஒரு கோப்புடன் முரண்பாடு ஏற்பட்டால் என்ன செய்வதென்று "
 "கேட்கப்படுவீற்கள்."
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "பழைய கோப்புகளை &மேலெழுது"
 
-#: widgets/renamedialog.cpp:276
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6827,12 +6827,12 @@ msgstr ""
 "சேருமிடத்தில் உள்ள கோப்புகளை கடைசியாக மாற்றிய நேரம் மூலத்தைவிட பழையதாக இருந்தால் அவை "
 "மூலத்தால் மேலெழுதப்படும், இல்லையெனில் தவிர்க்கப்படும்."
 
-#: widgets/renamedialog.cpp:288
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "&Resume"
 msgstr "&தொடர்"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:308
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6841,57 +6841,57 @@ msgstr ""
 "இச்செயல் '%1'-ஐ தனக்கு மேலே எழுதும்.\n"
 "புதிய கோப்பு பெயரை உள்ளிடவும்:"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid "C&ontinue"
 msgstr "&தொடர்"
 
-#: widgets/renamedialog.cpp:365
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "சேருமிடத்தை மேலெழுத வேண்டுமா?"
 
-#: widgets/renamedialog.cpp:367
+#: widgets/renamedialog.cpp:378
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1' என்பதன் உள்ளடக்கத்தை '%2' என்பதுடன் ஒன்றுசேர்க்க வேண்டுமா?"
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "மூலம் <b>இதைவிட புதிதாக</b> உள்ளது."
 
-#: widgets/renamedialog.cpp:411
+#: widgets/renamedialog.cpp:423
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "மூலம் <b>இதைவிட பழையதாக</b> உள்ளது."
 
-#: widgets/renamedialog.cpp:420
+#: widgets/renamedialog.cpp:432
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "மூலம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "மூலம் <b>%1 அளவால் பெரிதாக</b> உள்ளது"
 
-#: widgets/renamedialog.cpp:436
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "இந்த கோப்புகள் முழுதும் <b>ஒத்தவையாக</b> உள்ளன."
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:452
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "கோப்புகள் <b>ஒத்தவையாக இருக்கக் கூடும்</b>."
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:456
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "கோப்புகள் <b>வேறுபட்டு</b> உள்ளன."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:464
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6900,22 +6900,29 @@ msgstr ""
 "இந்த கோப்புகள் முழுதும் ஒத்தவையாக இருக்கக் கூடும்: ஒரே அளவைக் கொண்டுள்ளன, மேலும் அவற்றின் "
 "உள்ளடக்கம் தொடக்கத்திலும், நடுவிலும், முடிவிலும் ஒன்றாக உள்ளது."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:478
+#, fuzzy, kde-format
+#| msgid "Copy Files"
+msgctxt "@action:button"
+msgid "Compare Files"
+msgstr "கோப்புகளை நகலெடுத்தல்"
+
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "''%1' பெயருடைய பழைய உருப்படி ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:493
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' பெயருடைய கோப்பு ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:495
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "''%1' பெயருடைய இதைவிட புதிய உருப்படி ஏற்கனவே உள்ளது."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:508
 #, kde-format
 msgid "Rename:"
 msgstr "மறுபெயரிடு:"
@@ -7376,9 +7383,6 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 #~ "Root privileges are required to change file attributes. Do you want to "
 #~ "continue?"
 #~ msgstr "கோப்பு பண்புகளை மாற்ற ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
-
-#~ msgid "Copy Files"
-#~ msgstr "கோப்புகளை நகலெடுத்தல்"
 
 #~ msgid ""
 #~ "Root privileges are required to complete the copy operation. Do you want "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"POT-Creation-Date: 2025-12-09 00:39+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2224,7 +2224,7 @@ msgid " (Points to %1)"
 msgstr " (Dírithe ar %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:637
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4942,12 +4942,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Comhadlann á cruthú"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
 #, kde-format
 msgid "Source"
 msgstr "Comhad Foinse"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
 #, kde-format
 msgid "Destination"
 msgstr "Comhad Sprice"
@@ -6971,24 +6971,24 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Ainm comhaid d'inneachar na gearrthaisce:"
 
-#: widgets/renamedialog.cpp:67
+#: widgets/renamedialog.cpp:70
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgid "Date: %1"
 msgstr "Tiomántán: %1"
 
-#: widgets/renamedialog.cpp:76
+#: widgets/renamedialog.cpp:79
 #, fuzzy, kde-format
 #| msgid "Size:"
 msgid "Size: %1"
 msgstr "Méid:"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Cuir i bhfeidhm &ar gach rud"
 
-#: widgets/renamedialog.cpp:233
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6997,49 +6997,49 @@ msgid ""
 "an existing file in the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:254
 #, kde-format
 msgid "&Rename"
 msgstr "&Athainmnigh"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:256
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Mol Ainm &Nua"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid "&Skip"
 msgstr "&Ná bac leis"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Ná déan cóip de agus ná bog an fillteán seo; téigh ar aghaidh go dtí an "
 "chéad mhír eile"
 
-#: widgets/renamedialog.cpp:253
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "Ná déan cóip de agus ná bog an comhad seo; téigh ar aghaidh go dtí an chéad "
 "mhír eile"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Scríobh I"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7048,26 +7048,26 @@ msgid ""
 "the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:283
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Forscríobh an Comhad?"
 
-#: widgets/renamedialog.cpp:276
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:288
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "&Resume"
 msgstr "&Lean ar aghaidh"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:308
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7076,88 +7076,95 @@ msgstr ""
 "Scríobhfadh an gníomh seo '%1' air féin.\n"
 "Iontráil ainm nua ar an gcomhad:"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Lean ar aghaidh"
 
-#: widgets/renamedialog.cpp:365
+#: widgets/renamedialog.cpp:376
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "Forscríobhfaidh an gníomh seo an comhad sprice."
 
-#: widgets/renamedialog.cpp:367
+#: widgets/renamedialog.cpp:378
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Forscríobhfaidh an gníomh seo an comhad sprice."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>more recent</b>."
 msgstr "Rabhadh: tá an comhad sprice níos nuaí."
 
-#: widgets/renamedialog.cpp:411
+#: widgets/renamedialog.cpp:423
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>older</b>."
 msgstr "Rabhadh: tá an comhad sprice níos nuaí."
 
-#: widgets/renamedialog.cpp:420
+#: widgets/renamedialog.cpp:432
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Rabhadh: tá an comhad sprice níos nuaí."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "an iarmhír: <b>%1</b>"
 
-#: widgets/renamedialog.cpp:436
+#: widgets/renamedialog.cpp:449
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>identical</b>."
 msgstr "Is folamh é an t-ainm comhaid nua."
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:452
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files <b>seem identical</b>."
 msgstr "Is folamh é an t-ainm comhaid nua."
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:456
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>different</b>."
 msgstr "Is folamh é an t-ainm comhaid nua."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:464
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:478
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@action:button"
+msgid "Compare Files"
+msgstr "Gach Comhad"
+
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Tá mír níos sine darb ainm '%1' ann cheana."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:493
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Tá comhad cosúil leis seo darb ainm %1 ann cheana."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:495
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Tá mír níos nuaí darb ainm '%1' ann cheana."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:508
 #, kde-format
 msgid "Rename:"
 msgstr "Athainmnigh:"
@@ -7629,11 +7636,6 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
-
-#, fuzzy
-#~| msgid "All Files"
-#~ msgid "Copy Files"
-#~ msgstr "Gach Comhad"
 
 #~ msgid "Delete Files"
 #~ msgstr "Scrios Comhaid"

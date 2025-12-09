@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"POT-Creation-Date: 2025-12-09 00:39+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2294,7 +2294,7 @@ msgid " (Points to %1)"
 msgstr " (Көрсететіні %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:637
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4975,12 +4975,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Қапшықты жасау"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
 #, kde-format
 msgid "Source"
 msgstr "Неден"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
 #, kde-format
 msgid "Destination"
 msgstr "Неге"
@@ -7001,24 +7001,24 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Алмасу буферінің мазмұны үшін файл атауы:"
 
-#: widgets/renamedialog.cpp:67
+#: widgets/renamedialog.cpp:70
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgid "Date: %1"
 msgstr "Дискжетек: %1"
 
-#: widgets/renamedialog.cpp:76
+#: widgets/renamedialog.cpp:79
 #, fuzzy, kde-format
 #| msgid "Size:"
 msgid "Size: %1"
 msgstr "Өлшемі:"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "Appl&y to All"
 msgstr "&Барлығына қолдану"
 
-#: widgets/renamedialog.cpp:233
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7031,7 +7031,7 @@ msgstr ""
 "Өткізіп жіберуді басқанша, көшірмелеп не жылжытып жатқан файл не қапшық "
 "көздеген қапшықта бар болса әрекетті істеу-істемеуі сұралады."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7040,38 +7040,38 @@ msgstr ""
 "Бұл белгі қойылса, батырманы басқанда, қалған тапсырманы орындау барысында "
 "кездесетін қайшылықтар көрсетілген әдісімен шешіледі."
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:254
 #, kde-format
 msgid "&Rename"
 msgstr "Қай&та атау"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:256
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "&Басқа атауды ұсыну"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid "&Skip"
 msgstr "&Өткізіп жіберу"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Бұл қапшықты көшірмелемеу де жылжытпау да, келесі нысанға ауысу"
 
-#: widgets/renamedialog.cpp:253
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Бұл файлды көшірмелемеу де жылжытпау да, келесі нысанға ауысу"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Жаза беру"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7083,26 +7083,26 @@ msgstr ""
 "ол әрекетті істей беру.\n"
 "Ондай кездескенде, әрекетті істеу-істемеуі сұралады."
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:283
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Үстінен жазбақсыз ба?"
 
-#: widgets/renamedialog.cpp:276
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:288
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "&Resume"
 msgstr "І&стей беру"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:308
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7111,88 +7111,95 @@ msgstr ""
 "Бұл әрекет '%1' дегенді ауыстырады.\n"
 "Жаңасына басқа атау беріңіз:"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Жалғастыра беру"
 
-#: widgets/renamedialog.cpp:365
+#: widgets/renamedialog.cpp:376
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "Бұл әрекет бар аталымды ауыстырмақ."
 
-#: widgets/renamedialog.cpp:367
+#: widgets/renamedialog.cpp:378
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Бұл әрекет бар аталымды ауыстырмақ."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>more recent</b>."
 msgstr "Ескерту: жаңарағын ауыстырмақсыз."
 
-#: widgets/renamedialog.cpp:411
+#: widgets/renamedialog.cpp:423
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>older</b>."
 msgstr "Ескерту: жаңарағын ауыстырмақсыз."
 
-#: widgets/renamedialog.cpp:420
+#: widgets/renamedialog.cpp:432
 #, fuzzy, kde-format
 #| msgid "Warning, the destination is more recent."
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Ескерту: жаңарағын ауыстырмақсыз."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "жұрнағы <b>%1</b>"
 
-#: widgets/renamedialog.cpp:436
+#: widgets/renamedialog.cpp:449
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>identical</b>."
 msgstr "Файлдың жаңа атауы бос."
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:452
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files <b>seem identical</b>."
 msgstr "Файлдың жаңа атауы бос."
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:456
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>different</b>."
 msgstr "Файлдың жаңа атауы бос."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:464
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:478
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@action:button"
+msgid "Compare Files"
+msgstr "Бүкіл файлдар"
+
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "'%1' дегеннің ескісі бар екен."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:493
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' дегенның ұқсас файлы бар екен."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:495
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "'%1' дегеннің жаңарағы бар екен."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:508
 #, kde-format
 msgid "Rename:"
 msgstr "Қайта атау"
@@ -7666,11 +7673,6 @@ msgstr "Жегілетін бағдарлама:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Бағдарлама күдікті десеңіз 'Қайту' дегенді басыңыз"
-
-#, fuzzy
-#~| msgid "All Files"
-#~ msgid "Copy Files"
-#~ msgstr "Бүкіл файлдар"
 
 #~ msgid "Delete Files"
 #~ msgstr "Файлдарды өшіру"

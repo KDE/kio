@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"POT-Creation-Date: 2025-12-09 00:39+0000\n"
 "PO-Revision-Date: 2025-11-13 15:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2297,7 +2297,7 @@ msgid " (Points to %1)"
 msgstr " (Вказує до %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:637
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4911,12 +4911,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Створення теки"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
 #, kde-format
 msgid "Source"
 msgstr "Джерело"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
 #, kde-format
 msgid "Destination"
 msgstr "Призначення"
@@ -6874,22 +6874,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Назва файла для скинутих даних:"
 
-#: widgets/renamedialog.cpp:67
+#: widgets/renamedialog.cpp:70
 #, kde-format
 msgid "Date: %1"
 msgstr "Дата: %1"
 
-#: widgets/renamedialog.cpp:76
+#: widgets/renamedialog.cpp:79
 #, kde-format
 msgid "Size: %1"
 msgstr "Розмір: %1"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Зас&тосувати до всіх"
 
-#: widgets/renamedialog.cpp:233
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6903,7 +6903,7 @@ msgstr ""
 "Якщо ви не натиснете кнопку «Пропустити», програма запитуватиме вас, якщо "
 "зустрінеться з конфліктами щодо файлів у каталозі."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6913,42 +6913,42 @@ msgstr ""
 "за допомогою натискання відповідної кнопки, буде застосовано до всіх "
 "конфліктів до завершення поточного завдання."
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:254
 #, kde-format
 msgid "&Rename"
 msgstr "П&ерейменувати"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:256
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Запропонувати нову &назву"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid "&Skip"
 msgstr "Проп&устити"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Не копіювати або не пересувати цієї теки, замість цього перейти до "
 "наступного елемента"
 
-#: widgets/renamedialog.cpp:253
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "Не копіювати або не пересувати цього файла, замість цього перейти до "
 "наступного елемента"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Записати"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6960,13 +6960,13 @@ msgstr ""
 "У разі конфлікту з файлом, що вже існує у каталозі, програма знову надішле "
 "вам запит на виконання дії."
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Перезаписати давніші файли"
 
-#: widgets/renamedialog.cpp:276
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6975,12 +6975,12 @@ msgstr ""
 "Файли призначення, які є давнішими за часом внесення змін, буде перезаписано "
 "файлами джерела. Новіші ж файли буде пропущено."
 
-#: widgets/renamedialog.cpp:288
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "&Resume"
 msgstr "&Продовжити"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:308
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6989,57 +6989,57 @@ msgstr ""
 "Ця дія призведе до перезапису «%1» самим собою.\n"
 "Будь ласка, введіть нову назву файла:"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid "C&ontinue"
 msgstr "Пр&одовжити"
 
-#: widgets/renamedialog.cpp:365
+#: widgets/renamedialog.cpp:376
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Хочете переписати дані у теці призначення?"
 
-#: widgets/renamedialog.cpp:367
+#: widgets/renamedialog.cpp:378
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Хочете влити вміст «%1» до «%2»?"
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Файл джерела є <b>новішим</b>."
 
-#: widgets/renamedialog.cpp:411
+#: widgets/renamedialog.cpp:423
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Файл джерела є <b>старішим</b>."
 
-#: widgets/renamedialog.cpp:420
+#: widgets/renamedialog.cpp:432
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Файл джерела є <b>меншим на %1</b>."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:435
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Файл джерела є <b>більшим на %1</b>."
 
-#: widgets/renamedialog.cpp:436
+#: widgets/renamedialog.cpp:449
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Файли є <b>однаковими</b>."
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:452
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Файли <b>здаються однаковими</b>."
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:456
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Файли є <b>різними</b>."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:464
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7048,22 +7048,29 @@ msgstr ""
 "Ймовірно, файли є однаковими: вони мають однаковий розмір, а їхній вміст "
 "збігається на початку, посередині і у кінці."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:478
+#, fuzzy, kde-format
+#| msgid "Copy Files"
+msgctxt "@action:button"
+msgid "Compare Files"
+msgstr "Копіювання файлів"
+
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Вже існує старіший варіант за назвою «%1»."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:493
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Схожий файл з назвою «%1» вже існує."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:495
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Вже існує новіший варіант за назвою «%1»."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:508
 #, kde-format
 msgid "Rename:"
 msgstr "Перейменувати:"
@@ -7561,9 +7568,6 @@ msgstr "Якщо ви не довіряєте цій програмі, нати�
 #~ msgstr ""
 #~ "Для внесення зміни до атрибутів файлів потрібні права доступу "
 #~ "адміністратора (root). Продовжити спробу внесення змін?"
-
-#~ msgid "Copy Files"
-#~ msgstr "Копіювання файлів"
 
 #~ msgid ""
 #~ "Root privileges are required to complete the copy operation. Do you want "

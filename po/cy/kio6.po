@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:40+0000\n"
+"POT-Creation-Date: 2025-12-09 00:39+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2314,7 +2314,7 @@ msgid " (Points to %1)"
 msgstr " (Cyfeirio at %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:608
+#: widgets/renamedialog.cpp:637
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4948,12 +4948,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Yn ei greu plygell"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:376
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
 #, kde-format
 msgid "Source"
 msgstr "Tarddiad"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:378
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
 #, kde-format
 msgid "Destination"
 msgstr "Cyrchfan"
@@ -6949,22 +6949,22 @@ msgstr "%1(%2)"
 msgid "Filename for dropped contents:"
 msgstr "Enw ffeil ar gyfer cynhwysiadau gollyngwyd:"
 
-#: widgets/renamedialog.cpp:67
+#: widgets/renamedialog.cpp:70
 #, kde-format
 msgid "Date: %1"
 msgstr "Dyddiad: %1"
 
-#: widgets/renamedialog.cpp:76
+#: widgets/renamedialog.cpp:79
 #, kde-format
 msgid "Size: %1"
 msgstr "Maint: %1"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:243
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Cymhwys&o i'r Cyfan"
 
-#: widgets/renamedialog.cpp:233
+#: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6977,7 +6977,7 @@ msgstr ""
 "Heblaw os ydych chi'n pwyso Neidio fe fyddwch chi'n dal yn cael eich "
 "cymellwyd yn achos o wrthgyfarfyddiad gyda ffeil bodoliedig yn y cyfeiriadur."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6987,40 +6987,40 @@ msgstr ""
 "gymhwyso dros yr holl gwrthgyfarfyddiadau am y gweddill o'r gorchwyl "
 "rhededig."
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:254
 #, kde-format
 msgid "&Rename"
 msgstr "&Ail-enwi"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:256
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Awgrymu Enw &Newydd"
 
-#: widgets/renamedialog.cpp:251
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid "&Skip"
 msgstr "&Hepgor"
 
-#: widgets/renamedialog.cpp:252
+#: widgets/renamedialog.cpp:263
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Peidiwch ã chopïo neu symud y plygell hon, neidiwch i'r eitem nesaf yn ei le"
 
-#: widgets/renamedialog.cpp:253
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "Peidiwch ã chopïo neu symud y ffeil hwn, neidiwch i'r eitem nesaf yn ei le"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:275
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Ysgrifennu I Mewn"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7033,13 +7033,13 @@ msgstr ""
 "Fe fyddwch chi yn eich cymellwyd unwaith eto yn achos o wrthgyfarfyddiad "
 "gyda ffeil sy'n bodoli yn y cyfeiriadur."
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "D&ros-ysgrifennu ffeiliau hŷn"
 
-#: widgets/renamedialog.cpp:276
+#: widgets/renamedialog.cpp:287
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -7048,12 +7048,12 @@ msgstr ""
 "Fe fydd y ffeiliau cyrchfan gyda'r amserau adnewidiad hŷn yn cael eu "
 "hysgrifennu drosodd gyda'r tarddiad, neu os amgen yn eu neidiwyd."
 
-#: widgets/renamedialog.cpp:288
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "&Resume"
 msgstr "Ai&l-ddechrau"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:308
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7062,66 +7062,66 @@ msgstr ""
 "Buasai'r gweithrediad yma yn ysgrifennu '%1' dros ei hun.\n"
 "Mewnosodwch enw ffeil newydd:"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Mynd ymlaen"
 
-#: widgets/renamedialog.cpp:365
+#: widgets/renamedialog.cpp:376
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "Fe fydd y gweithrediad hwn yn ysgrifennu dros y gyrchfan."
 
-#: widgets/renamedialog.cpp:367
+#: widgets/renamedialog.cpp:378
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Fe fydd y gweithrediad hwn yn ysgrifennu dros y gyrchfan."
 
-#: widgets/renamedialog.cpp:409
+#: widgets/renamedialog.cpp:421
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "Mae'r gyrchfan yn <b>llai gyda %1</b>"
 
-#: widgets/renamedialog.cpp:411
+#: widgets/renamedialog.cpp:423
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>older</b>."
 msgstr "Mae'r gyrchfan yn <b>llai gyda %1</b>"
 
-#: widgets/renamedialog.cpp:420
+#: widgets/renamedialog.cpp:432
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Mae'r gyrchfan yn <b>llai gyda %1</b>"
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "The destination is <b>bigger by %1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Mae'r gyrchfan <b> yn fwy gyda %1</b>"
 
-#: widgets/renamedialog.cpp:436
+#: widgets/renamedialog.cpp:449
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
 msgstr "Mae'r ffeiliau yn unwedd."
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:452
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
 msgstr "Mae'r ffeiliau yn ymddangos yn unwedd."
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:456
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
 msgstr "Mae'r ffeiliau yn wahanol."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:464
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7130,22 +7130,29 @@ msgstr ""
 "Fe debyg y ffeiliau i fod yr unwedd: mae gyda nhw yr un maint a'u "
 "chynhwysiadau o'r un peth ar y dechreuad, canol a'r diwedd."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:478
+#, fuzzy, kde-format
+#| msgid "Copy Files"
+msgctxt "@action:button"
+msgid "Compare Files"
+msgstr "Ailysgrifio Ffeil"
+
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Mae eitem hyn o'r enw '%1' mewn bod yn barod."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:493
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Mae ffeil tebyg o'r enw '%1' mewn bod yn barod."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:495
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Mae eitem diweddarach o'r enw '%1' mewn bod yn barod."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:508
 #, kde-format
 msgid "Rename:"
 msgstr "Ailenwi:"
@@ -7655,9 +7662,6 @@ msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
 #~ msgstr ""
 #~ "Mae'r breintiau gwreiddyn yn eu herfynwyd i newid cyngreddfau ffeil. Ai "
 #~ "ydych yn eisiau i barhau?"
-
-#~ msgid "Copy Files"
-#~ msgstr "Ailysgrifio Ffeil"
 
 #~ msgid ""
 #~ "Root privileges are required to complete the copy operation. Do you want "
