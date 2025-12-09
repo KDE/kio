@@ -207,6 +207,13 @@ void UDSEntryPrivate::load(QDataStream &s)
         cachedStrings.resize(size);
     }
 
+    // We cache the string buffer instance, increasing the capacity by usage,
+    // only change the size on it.
+    // Relying on (undocumented/unspecified) behaviour of
+    // operator>>(QDataStream &stream, QString &string)
+    // to reuse existing allocation.
+    thread_local QString buffer;
+
     for (quint32 i = 0; i < size; ++i) {
         quint32 uds;
         s >> uds;
@@ -215,7 +222,6 @@ void UDSEntryPrivate::load(QDataStream &s)
             // If the QString is the same like the one we read for the
             // previous UDSEntry at the i-th position, use an implicitly
             // shared copy of the same QString to save memory.
-            QString buffer;
             s >> buffer;
 
             QString &cachedString = cachedStrings[i];
