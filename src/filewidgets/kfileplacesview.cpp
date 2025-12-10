@@ -1665,7 +1665,14 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
 void KFilePlacesView::startDrag(Qt::DropActions supportedActions)
 {
     d->m_delegate->startDrag();
-    QListView::startDrag(supportedActions);
+    // here we remove DropAction::MoveAction from the list of supportedActions as this action
+    // makes no sense for "places view" which are rather links to other places in the system (disk, network resources, devices etc.)
+    // and Move-like action can be possibly destructive phisically moving source item (dragged from "places view")
+    // when drop in some other folder
+    // this is particularly dangerous when system general settings are set to "Move by default"
+    // (System settings -> General Behaviour -> Drag and Drop -> When dragging files or folders -> Move if on the same device)
+    // which makes that there is even no warning for the user that some folder is removed from its original location
+    QListView::startDrag(supportedActions & ~Qt::DropAction::MoveAction);
 }
 
 void KFilePlacesView::mousePressEvent(QMouseEvent *event)

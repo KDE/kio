@@ -314,7 +314,18 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
     popup->addAction(popupLinkAction);
 
-    addPluginActions(popup, m_itemProps);
+    if (m_possibleActions & Qt::MoveAction) {
+        // add plugins custom actions to drop popup menu
+        addPluginActions(popup, m_itemProps);
+    } else {
+        // MoveAction has been removed from m_possibleActions which means we should not display
+        // plugins custom actions in drop popup menu because they can contain other
+        // (possibly destructive) Move-like actions (ex. "Move Into New Folder" found in a standard KDE installation)
+        // so in that case we just call addExtraActions with both parameters as empty lists
+        // to add some final common menu items prepared in that method (usually: last separator and "Cancel" action)
+        QList<QAction *> emptyActionList;
+        popup->addExtraActions(emptyActionList, emptyActionList);
+    }
 }
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
