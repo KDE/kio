@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-11-13 03:19+0100\n"
+"PO-Revision-Date: 2025-12-09 09:14+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6954,11 +6954,10 @@ msgstr ""
 "დასაწყისში, შუაში და ბოლოში ერთმანეთს ემთხვევა."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "ფაილების კოპირება"
+msgstr "ფაილების შედარება"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

@@ -6695,11 +6695,10 @@ msgstr ""
 "同。"
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Compact View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "紧凑视图"
+msgstr ""
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

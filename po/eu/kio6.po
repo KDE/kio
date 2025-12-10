@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-12-06 12:40+0100\n"
+"PO-Revision-Date: 2025-12-09 20:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -6996,11 +6996,10 @@ msgstr ""
 "berdina da hasieran, erdian eta bukaeran."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Kopiatu fitxategiak"
+msgstr "Konparatu fitxategiak"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

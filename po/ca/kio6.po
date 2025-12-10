@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-11-13 14:54+0100\n"
+"PO-Revision-Date: 2025-12-09 09:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7032,11 +7032,10 @@ msgstr ""
 "contingut és el mateix al començament, la meitat i el final."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Copia els fitxers"
+msgstr "Compara els fitxers"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

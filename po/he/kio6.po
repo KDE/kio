@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-11-13 10:22+0200\n"
+"PO-Revision-Date: 2025-12-09 09:56+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -6853,11 +6853,10 @@ msgid ""
 msgstr "הקבצים נראים זהים: יש להם אותו הגודל ותחילת, אמצע וסוף התוכן שלהם זהה."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "העתקת קבצים"
+msgstr "השוואת קבצים"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

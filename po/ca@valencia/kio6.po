@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-11-13 14:54+0100\n"
+"PO-Revision-Date: 2025-12-09 09:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1928,7 +1928,7 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "S'ha trobat un error d'amfitrió desconegut en recuperar la informació quant "
-"al amfitrió intermediari especificat <strong>%1</strong>. Un error d'este "
+"a l'amfitrió intermediari especificat <strong>%1</strong>. Un error d'este "
 "tipus indica que el nom sol·licitat no s'ha pogut localitzar en Internet."
 
 #: core/job_error.cpp:1049
@@ -4326,7 +4326,7 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Heu de donar un nom d'usuari i una contrasenya per al amfitrió intermediari "
+"Heu de donar un nom d'usuari i una contrasenya per a l'amfitrió intermediari "
 "llistat davall abans que se vos permeta accedir a altres llocs."
 
 #: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
@@ -7042,11 +7042,10 @@ msgstr ""
 "contingut és el mateix al començament, la meitat i el final."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Compact View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Vista compacta"
+msgstr "Compara els fitxers"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
