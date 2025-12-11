@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-12-09 09:42+0100\n"
+"PO-Revision-Date: 2025-12-10 10:00+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2753,25 +2753,25 @@ msgstr "A-Z"
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
-msgstr "El més antic primer"
+msgstr "Primer el més antic"
 
 #: filewidgets/kdiroperator.cpp:2359
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
-msgstr "El més nou primer"
+msgstr "Primer el més nou"
 
 #: filewidgets/kdiroperator.cpp:2362
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
-msgstr "El més gran primer"
+msgstr "Primer el més gran"
 
 #: filewidgets/kdiroperator.cpp:2363
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
-msgstr "El més petit primer"
+msgstr "Primer el més petit"
 
 #: filewidgets/kencodingfiledialog.cpp:73
 #, kde-format
