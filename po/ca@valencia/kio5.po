@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-07-29 09:46+0200\n"
+"PO-Revision-Date: 2025-12-10 10:02+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -648,7 +648,7 @@ msgid ""
 "Unknown proxy host\n"
 "%1"
 msgstr ""
-"Servidor intermediari desconegut\n"
+"Amfitrió intermediari desconegut\n"
 "%1"
 
 #: core/job_error.cpp:166
@@ -1752,7 +1752,7 @@ msgid ""
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
 "Açò significa que encara que s'ha pogut obrir el recurs <strong>%1</strong>, "
-"hi ha hagut un error en llegir el seu contingut."
+"hi ha hagut un error mentre es llegia el seu contingut."
 
 #: core/job_error.cpp:815
 #, kde-format
@@ -1771,7 +1771,7 @@ msgid ""
 "opened, an error occurred while writing to the resource."
 msgstr ""
 "Açò significa que encara que s'ha pogut obrir el recurs <strong>%1</strong>, "
-"hi ha hagut un error en escriure-hi."
+"hi ha hagut un error mentre s'hi escrivia."
 
 #: core/job_error.cpp:833
 #, kde-format
@@ -1815,8 +1815,8 @@ msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr ""
-"Este és un error bastant tècnic on hi ha hagut un error en intentar acceptar "
-"una connexió d'entrada a la xarxa."
+"Este és un error bastant tècnic on hi ha hagut un error mentre s'intentava "
+"acceptar una connexió d'entrada a la xarxa."
 
 #: core/job_error.cpp:879
 #, kde-format
@@ -2022,7 +2022,7 @@ msgstr ""
 #: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
-msgstr "Servidor intermediari desconegut"
+msgstr "Amfitrió intermediari desconegut"
 
 #: core/job_error.cpp:1036
 #, kde-format
@@ -2032,7 +2032,7 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "S'ha trobat un error d'amfitrió desconegut en recuperar la informació quant "
-"al servidor intermediari especificat <strong>%1</strong>. Un error d'este "
+"a l'amfitrió intermediari especificat <strong>%1</strong>. Un error d'este "
 "tipus indica que el nom sol·licitat no s'ha pogut localitzar en Internet."
 
 #: core/job_error.cpp:1042
@@ -2043,7 +2043,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "Hi pot haver un problema amb la configuració de la vostra xarxa, "
-"específicament el nom del servidor intermediari. Si heu sigut accedint "
+"específicament el nom d'amfitrió de l'intermediari. Si heu sigut accedint "
 "recentment a Internet sense problemes, açò és poc probable."
 
 #: core/job_error.cpp:1046
@@ -2907,25 +2907,25 @@ msgstr "A-Z"
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
-msgstr "El més nou primer"
+msgstr "Primer el més nou"
 
 #: filewidgets/kdiroperator.cpp:2492
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
-msgstr "El més antic primer"
+msgstr "Primer el més antic"
 
 #: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
-msgstr "El més gran primer"
+msgstr "Primer el més gran"
 
 #: filewidgets/kdiroperator.cpp:2496
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
-msgstr "El més xicotet primer"
+msgstr "Primer el més xicotet"
 
 #: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
@@ -3266,12 +3266,13 @@ msgstr "El dispositiu «%1» no és cap disc i no es pot expulsar."
 #: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
-msgstr "S'ha produït un error en accedir a «%1», el sistema ha contestat: %2"
+msgstr ""
+"S'ha produït un error mentre s'accedia a «%1», el sistema ha contestat: %2"
 
 #: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr "S'ha produït un error en accedir a «%1»"
+msgstr "S'ha produït un error mentre s'accedia a «%1»"
 
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
@@ -3998,7 +3999,7 @@ msgstr "No s'ha trobat cap icona de web per a %1"
 #: gui/faviconrequestjob.cpp:157
 #, kde-format
 msgid "Error saving image to %1"
-msgstr "S'ha produït un error en guardar la imatge a %1"
+msgstr "S'ha produït un error mentre es guardava la imatge a %1"
 
 #: gui/faviconrequestjob.cpp:167
 #, kde-format
@@ -4040,7 +4041,7 @@ msgstr "No s'ha trobat cap emulador de terminal"
 #: gui/openurljob.cpp:158
 #, kde-format
 msgid "Failed to open %1"
-msgstr "No s'ha pogut obrir %1"
+msgstr "Ha fallat mentre s'obria %1"
 
 #: gui/openurljob.cpp:296 widgets/kdesktopfileactions.cpp:129
 #, kde-format
@@ -4107,7 +4108,7 @@ msgstr ""
 #: gui/openurljob.cpp:639
 #, kde-format
 msgid "Failed to open the file."
-msgstr "No s'ha pogut obrir el fitxer."
+msgstr "Ha fallat mentre s'obria el fitxer."
 
 #: gui/openurljob.cpp:673
 #, kde-format
@@ -5277,14 +5278,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
-"No totes les aplicacions utilitzaran esta configuració del servidor "
+"No totes les aplicacions utilitzaran esta configuració de l'amfitrió "
 "intermediari. En particular, <application>Firefox</application> i "
 "<application>Chromium</application> o qualsevol que en derive, o qualsevol "
 "cosa que utilitze <application>QtWebEngine</application> -el qual inclou "
 "<application>Konqueror</application> utilitzant la "
 "<application>WebEnginePart</application>-, <application>Akregator</"
 "application> i <application>Falkon</application> no utilitzaran estes "
-"opcions de configuració. Algunes aplicacions poden permetre que el servidor "
+"opcions de configuració. Algunes aplicacions poden permetre que l'amfitrió "
 "intermediari es configure des de la seua pròpia configuració."
 
 #: kcms/proxy/kproxydlg.cpp:545
@@ -5298,7 +5299,7 @@ msgid ""
 "to block out requests for ads, spam, or anything else you want to block.</"
 "p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
-"<h1>Intermediari</h1><p>Un servidor intermediari és un programa intermedi "
+"<h1>Intermediari</h1><p>Un amfitrió intermediari és un programa intermedi "
 "que es posa entre el vostre ordinador i Internet i proporciona serveis com "
 "ara cau de pàgines web i/o filtrat.</p><p>Els servidors intermediaris de cau "
 "donen accés més ràpid als llocs que ja heu visitat guardant localment o "
@@ -5330,7 +5331,7 @@ msgstr ""
 "<qt>\n"
 "Configureu els valors d'intermediari.\n"
 "<p>\n"
-"Un servidor intermediari és un ordinador intermedi situat entre el vostre "
+"Un amfitrió intermediari és un ordinador intermedi situat entre el vostre "
 "ordinador i Internet i proporciona serveis com ara cau de pàgines web i "
 "filtrat. Els servidors intermediaris de cau vos donen accés més ràpid als "
 "llocs web que ja heu visitat guardant localment o encauant aquelles pàgines. "
@@ -5338,7 +5339,7 @@ msgstr ""
 "de bloquejar peticions d'anuncis, correu brossa o qualsevol altra cosa que "
 "vulgueu bloquejar.\n"
 "<p>\n"
-"Si no esteu segur si us cal o no utilitzar un servidor intermediari per a "
+"Si no esteu segur si us cal o no utilitzar un amfitrió intermediari per a "
 "connectar-vos a Internet, consulteu la guia de configuració del vostre "
 "proveïdor de serveis d'Internet o a l'administrador del sistema.\n"
 "</qt>"
@@ -5380,7 +5381,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:49
 #, kde-format
 msgid "Detect proxy configuration automatically"
-msgstr "Detecta automàticament la configuració del servidor intermediari"
+msgstr "Detecta automàticament la configuració de l'amfitrió intermediari"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:59
@@ -5417,9 +5418,9 @@ msgid ""
 "<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 msgstr ""
-"<qt><p>Utilitza la configuració del servidor intermediari definit en el "
+"<qt><p>Utilitza la configuració de l'amfitrió intermediari definit en el "
 "sistema.</p>\n"
-"<p>Algunes plataformes oferixen informació de la configuració del servidor "
+"<p>Algunes plataformes oferixen informació de la configuració de l'amfitrió "
 "intermediari global del sistema i en seleccionar esta opció us permet "
 "utilitzar esta configuració.</p>\n"
 "<p>En plataformes Mac</p>\n"
@@ -5469,8 +5470,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
-"servidor intermediari HTTP, p. ex., <b>HTTP_PROXY</b>.<p>\n"
+"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça de "
+"l'amfitrió intermediari HTTP, p. ex., <b>HTTP_PROXY</b>.<p>\n"
 "De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
 "automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
 "p>\n"
@@ -5481,7 +5482,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
 #, kde-format
 msgid "HTTP Proxy:"
-msgstr "Servidor intermediari HTTP:"
+msgstr "Amfitrió intermediari HTTP:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
@@ -5496,8 +5497,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
-"servidor intermediari HTTPS, p. ex., <b>HTTPS_PROXY</b>.<p>\n"
+"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça de "
+"l'amfitrió intermediari HTTPS, p. ex., <b>HTTPS_PROXY</b>.<p>\n"
 "De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
 "automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
 "p>\n"
@@ -5508,7 +5509,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
 #, kde-format
 msgid "SSL Proxy:"
-msgstr "Servidor intermediari SSL:"
+msgstr "Amfitrió intermediari SSL:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
@@ -5524,7 +5525,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Introduïu el nom de la variable d'entorn, p. ex., <b>FTP_PROXY</b>, emprada "
-"per a guardar l'adreça del servidor intermediari FTP.<p>\n"
+"per a guardar l'adreça de l'amfitrió intermediari FTP.<p>\n"
 "De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
 "automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
 "p>\n"
@@ -5535,7 +5536,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
 #, kde-format
 msgid "FTP Proxy:"
-msgstr "Servidor intermediari FTP:"
+msgstr "Amfitrió intermediari FTP:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
 #: kcms/proxy/kproxydlg.ui:263
@@ -5549,8 +5550,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça del "
-"servidor intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>\n"
+"Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça de "
+"l'amfitrió intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>\n"
 "De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
 "automàticament»</b> per a provar el descobriment automàtic d'esta variable.</"
 "p>\n"
@@ -5561,7 +5562,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
 #, kde-format
 msgid "SOCKS Proxy:"
-msgstr "Servidor intermediari SOCKS:"
+msgstr "Amfitrió intermediari SOCKS:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
@@ -5573,7 +5574,7 @@ msgid ""
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
 "<qt>Introduïu el nom de la variable d'entorn emprada per a guardar l'adreça "
-"del servidor intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>De manera "
+"de l'amfitrió intermediari SOCKS, p. ex., <b>SOCKS_PROXY</b>.<p>De manera "
 "alternativa, podeu clicar damunt del botó <b>«Detecta automàticament»</b> "
 "per a provar el descobriment automàtic d'esta variable.</p></qt>"
 
@@ -5591,7 +5592,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Introduïu la variable d'entorn utilitzada per a guardar les adreces dels "
-"llocs per als quals no s'ha d'utilitzar el servidor intermediari, p. ex., "
+"llocs per als quals no s'ha d'utilitzar l'amfitrió intermediari, p. ex., "
 "<b>NO_PROXY</b>.<p>\n"
 "De manera alternativa, podeu clicar damunt del botó <b>«Detecta "
 "automàticament»</b> per a provar el descobriment automàtic d'esta variable.\n"
@@ -5614,7 +5615,7 @@ msgid ""
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
 "<qt>Introduïu la variable d'entorn utilitzada per a guardar les adreces dels "
-"llocs per als quals no s'ha d'utilitzar la configuració de servidor "
+"llocs per als quals no s'ha d'utilitzar la configuració d'amfitrió "
 "intermediari, p. ex., <b>NO_PROXY</b>.<p>De manera alternativa, podeu clicar "
 "damunt del botó <b>«Detecta automàticament»</b> per a provar el descobriment "
 "automàtic d'esta variable.</p></qt>"
@@ -5630,7 +5631,8 @@ msgstr "Mostra el &valor de les variables d'entorn"
 #, kde-format
 msgid "Manually enter proxy server configuration information."
 msgstr ""
-"Introduïx manualment la informació de configuració del servidor intermediari."
+"Introduïx manualment la informació de configuració de l'amfitrió "
+"intermediari."
 
 #. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:346
@@ -5658,13 +5660,13 @@ msgstr "Port:"
 #: kcms/proxy/kproxydlg.ui:421
 #, kde-format
 msgid "Enter the port number of the HTTP proxy server."
-msgstr "Introduïu el número de port del servidor intermediari HTTP."
+msgstr "Introduïu el número de port de l'amfitrió intermediari HTTP."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "Utilitza &este mateix servidor intermediari per a tots els protocols"
+msgstr "Utilitza &este mateix amfitrió intermediari per a tots els protocols"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -5676,7 +5678,7 @@ msgstr "Introduïu l'adreça de l'amfitrió intermediari HTTPS."
 #: kcms/proxy/kproxydlg.ui:481
 #, kde-format
 msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Introduïu el número de port del servidor intermediari HTTPS."
+msgstr "Introduïu el número de port de l'amfitrió intermediari HTTPS."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
 #: kcms/proxy/kproxydlg.ui:517
@@ -5688,7 +5690,7 @@ msgstr "Introduïu l'adreça de l'amfitrió intermediari FTP."
 #: kcms/proxy/kproxydlg.ui:534
 #, kde-format
 msgid "Enter the port number of the FTP proxy server."
-msgstr "Introduïu el número de port del servidor intermediari FTP."
+msgstr "Introduïu el número de port de l'amfitrió intermediari FTP."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:567
@@ -5700,7 +5702,7 @@ msgstr "Introduïu l'adreça de l'amfitrió intermediari SOCKS."
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Introduïu el número de port del servidor intermediari SOCKS."
+msgstr "Introduïu el número de port de l'amfitrió intermediari SOCKS."
 
 # skip-rule: t-pu_sp
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
@@ -5720,7 +5722,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "<p>Introduïu una llista separada per comes de noms d'amfitrió o adreces IP "
-"que cal excloure d'utilitzar la configuració del servidor intermediari "
+"que cal excloure d'utilitzar la configuració de l'amfitrió intermediari "
 "anterior.</p>\n"
 "<p>Si voleu excloure tots els amfitrions d'un domini donat, introduïu només "
 "el nom de domini precedit amb un punt. Per exemple, per a excloure tots els "
@@ -5739,7 +5741,7 @@ msgid ""
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
 "<qt>\n"
-"Marqueu esta casella si voleu que la configuració del servidor intermediari "
+"Marqueu esta casella si voleu que la configuració de l'amfitrió intermediari "
 "anterior s'aplique només per a les adreces de la llista d'<i>excepcions</i>."
 "</qt>"
 
@@ -5748,7 +5750,7 @@ msgstr ""
 #, kde-format
 msgid "Use proxy settings only for addresses in the Exceptions list"
 msgstr ""
-"Utilitza la configuració del servidor intermediari només per a les adreces "
+"Utilitza la configuració de l'amfitrió intermediari només per a les adreces "
 "de la llista d'excepcions"
 
 #: kcms/smb/smbrodlg.cpp:27
@@ -6040,14 +6042,14 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Heu de donar un nom d'usuari i una contrasenya per al servidor intermediari "
+"Heu de donar un nom d'usuari i una contrasenya per a l'amfitrió intermediari "
 "llistat davall abans que se vos permeta accedir a altres llocs."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
 #: kioworkers/http/http.cpp:5307
 #, kde-format
 msgid "Proxy:"
-msgstr "Servidor intermediari:"
+msgstr "Amfitrió intermediari:"
 
 #: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
 #: kioworkers/http/http.cpp:5322
@@ -6195,8 +6197,8 @@ msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
 msgstr ""
-"S'ha produït un error en intentar %1, %2. A davall hi ha un resum dels "
-"motius."
+"S'ha produït un error mentre s'intentava %1, %2. A davall hi ha un resum "
+"dels motius."
 
 #: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
 #, kde-format
@@ -6555,7 +6557,7 @@ msgstr "Xarxa"
 #, kde-format
 msgid "Could not find a usable proxy configuration script"
 msgstr ""
-"No s'ha trobat cap script utilitzable de configuració del servidor "
+"No s'ha trobat cap script utilitzable de configuració de l'amfitrió "
 "intermediari"
 
 #: kpac/downloader.cpp:77
@@ -6564,14 +6566,14 @@ msgid ""
 "Could not download the proxy configuration script:\n"
 "%1"
 msgstr ""
-"No s'ha pogut baixar l'script de configuració del servidor intermediari:\n"
+"No s'ha pogut baixar l'script de configuració de l'amfitrió intermediari:\n"
 "%1"
 
 #: kpac/downloader.cpp:79
 #, kde-format
 msgid "Could not download the proxy configuration script"
 msgstr ""
-"No s'ha pogut baixar l'script de configuració del servidor intermediari"
+"No s'ha pogut baixar l'script de configuració de l'amfitrió intermediari"
 
 #: kpac/proxyscout.cpp:270
 #, kde-format
@@ -6579,7 +6581,7 @@ msgid ""
 "The proxy configuration script is invalid:\n"
 "%1"
 msgstr ""
-"L'script de configuració del servidor intermediari no és vàlid:\n"
+"L'script de configuració de l'amfitrió intermediari no és vàlid:\n"
 "%1"
 
 #: kpac/proxyscout.cpp:384
@@ -6588,7 +6590,7 @@ msgid ""
 "The proxy configuration script returned an error:\n"
 "%1"
 msgstr ""
-"L'script de configuració del servidor intermediari ha retornat un error:\n"
+"L'script de configuració de l'amfitrió intermediari ha retornat un error:\n"
 "%1"
 
 #: kpac/script.cpp:674
@@ -9502,8 +9504,8 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"No s'ha pogut moure este element cap a dins de la paperera perquè és massa "
-"gros. Voleu suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/"
+"Ha fallat mentre es movia este element a la paperera perquè és massa gros. "
+"Voleu suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
@@ -9518,12 +9520,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"No s'ha pogut moure este %1 element cap a dins de la paperera perquè és "
-"massa gros. Voleu suprimir-lo permanentment?<filename></filename><emphasis "
+"Ha fallat mentre es movia este %1 element a la paperera perquè és massa "
+"gros. Voleu suprimir-lo permanentment?<filename></filename><emphasis "
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 msgstr[1] ""
-"No s'ha pogut moure estos %1 elements cap a dins de la paperera perquè són "
-"massa grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
+"Ha fallat mentre es movien estos %1 elements a la paperera perquè són massa "
+"grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
 "><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
