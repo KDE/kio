@@ -217,7 +217,7 @@ void PreviewJobPrivate::determineNextFile()
     for (int i = 0; i < jobsToRun; i++) {
         auto item = items.front();
         items.pop_front();
-        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot, mimeMap);
+        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
         q->addSubjob(job);
         job->start();
     }
