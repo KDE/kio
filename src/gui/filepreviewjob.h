@@ -78,7 +78,7 @@ class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap);
+    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins);
     ~FilePreviewJob();
 
     void start() override;
@@ -101,7 +101,7 @@ private:
         Unknown
     } m_currentDeviceCachePolicy = Unknown;
 
-    QStringList m_enabledPlugins;
+    const QStringList m_enabledPlugins;
     // The current item
     KIO::PreviewItem m_item;
     // The modification time of that URL
@@ -167,9 +167,10 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap)
+inline FilePreviewJob *
+filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins)
 {
-    auto job = new FilePreviewJob(item, thumbRoot, mimeMap);
+    auto job = new FilePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
     return job;
 }
 }

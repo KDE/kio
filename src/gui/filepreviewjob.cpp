@@ -60,8 +60,12 @@ public:
     QMap<QString, int> m_deviceIdMap;
 };
 
-FilePreviewJob::FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap)
-    : m_item(item)
+FilePreviewJob::FilePreviewJob(const PreviewItem &item,
+                               const QString &thumbRoot,
+                               const QMap<QString, KPluginMetaData> &mimeMap,
+                               const QStringList &enabledPlugins)
+    : m_enabledPlugins(enabledPlugins)
+    , m_item(item)
     , m_size(m_item.size)
     , m_cacheSize(0)
     , m_scaleType(m_item.scaleType)
