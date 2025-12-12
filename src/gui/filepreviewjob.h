@@ -26,7 +26,6 @@ struct PreviewItem {
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
-    int cacheSize = 0;
     QMap<QString, int> deviceIdMap;
 };
 
