@@ -24,14 +24,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-08-18 09:09+0300\n"
+"PO-Revision-Date: 2025-12-11 18:46+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.11.90\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -753,6 +753,7 @@ msgstr "Файл слишком велик для перемещения в ко
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
 msgstr ""
+"Папка корзины не может находиться или быть создана в этом расположении."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -3054,12 +3055,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "На панель быстрого доступа могут быть добавлены только папки."
 
 #: filewidgets/kfileplacesmodel.cpp:1341
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Настроить веб-сокращения…"
+msgstr "Настроить…"
 
 #: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
@@ -3279,10 +3278,9 @@ msgid "Huge (%1x%1)"
 msgstr "Огромные (%1×%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Создание каталога"
+msgstr "Текущий каталог: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -7041,11 +7039,10 @@ msgstr ""
 "начале, середине и конце."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Копирование файлов"
+msgstr "Сравнить файлы"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
@@ -7419,7 +7416,7 @@ msgid ""
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"В корзине недостаточно места для этого файла. Безвозвратно удалить его?<nl/"
+"В корзине недостаточно места для этого файла. Удалить его безвозвратно?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Это действие "
 "невозможно отменить.</emphasis>"
 
@@ -7434,7 +7431,7 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"В корзине недостаточно места для этих файлов (%1). Безвозвратно удалить их?"
+"В корзине недостаточно места для этих файлов (%1). Удалить их безвозвратно?"
 "<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
 msgstr[1] ""
 "В корзине недостаточно места для этих файлов (%1). Безвозвратно удалить их?"
@@ -7447,33 +7444,19 @@ msgstr[3] ""
 "<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"В корзине недостаточно места для этого файла. Безвозвратно удалить его?<nl/"
-"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Это действие "
-"невозможно отменить.</emphasis>"
+"Объект из этого расположения не может быть удалён в корзину. Удалить его "
+"безвозвратно?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Это действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7484,17 +7467,21 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"В корзине недостаточно места для этих файлов (%1). Безвозвратно удалить их?"
-"<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
+"Эти %1 файл не могут быть удалены в корзину из их расположения. Удалить их "
+"безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"
+"emphasis>"
 msgstr[1] ""
-"В корзине недостаточно места для этих файлов (%1). Безвозвратно удалить их?"
-"<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
+"Эти %1 файла не могут быть удалены в корзину из их расположения. Удалить их "
+"безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"
+"emphasis>"
 msgstr[2] ""
-"В корзине недостаточно места для этих файлов (%1). Безвозвратно удалить их?"
-"<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
+"Эти %1 файлов не могут быть удалены в корзину из их расположения. Удалить их "
+"безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"
+"emphasis>"
 msgstr[3] ""
-"В корзине недостаточно места для этого %1 файла. Безвозвратно удалить его?"
-"<nl/><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
+"Этот файл не может быть удалён в корзину из его расположения. Удалить его "
+"безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
