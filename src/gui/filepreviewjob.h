@@ -21,12 +21,12 @@ namespace KIO
 
 struct PreviewItem {
     KFileItem item;
+    int parentDirDeviceId = 0;
     QSize size = QSize();
     qreal devicePixelRatio = 1.0;
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
-    QMap<QString, int> deviceIdMap;
 };
 
 class SHM
@@ -77,16 +77,25 @@ static constexpr int s_kioFuseMountTimeout = 10000;
 class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
+
 public:
-    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins);
+    static constexpr int UnknownDeviceId = -1;
+
+public:
+    FilePreviewJob(const PreviewItem &item,
+                   const QString &thumbRoot,
+                   int thumbRootDeviceId,
+                   const QMap<QString, KPluginMetaData> &mimeMap,
+                   const QStringList &enabledPlugins);
     ~FilePreviewJob();
 
     void start() override;
 
     QMap<QString, QString> thumbnailWorkerMetaData() const;
-    QMap<QString, int> deviceIdMap() const;
     QImage previewImage() const;
     PreviewItem item() const;
+
+    static QString parentDirPath(const QString &path);
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
@@ -127,14 +136,12 @@ private:
     std::unique_ptr<SHM> m_shm;
     // Root of thumbnail cache
     QString m_thumbRoot;
+    const int m_thumbRootDeviceId;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
     qreal m_devicePixelRatio;
-    static const int m_idUnknown = -1;
     // Id of a device storing currently processed file
     int m_currentDeviceId = 0;
-    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
-    QMap<QString, int> m_deviceIdMap;
     // the path of a unique temporary directory
     QString m_tempDirPath;
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
@@ -154,7 +161,6 @@ private:
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
-    QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
@@ -167,10 +173,13 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *
-filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins)
+inline FilePreviewJob *filePreviewJob(const PreviewItem &item,
+                                      const QString &thumbRoot,
+                                      int thumbRootDeviceId,
+                                      const QMap<QString, KPluginMetaData> &mimeMap,
+                                      const QStringList &enabledPlugins)
 {
-    auto job = new FilePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
+    auto job = new FilePreviewJob(item, thumbRoot, thumbRootDeviceId, mimeMap, enabledPlugins);
     return job;
 }
 }
