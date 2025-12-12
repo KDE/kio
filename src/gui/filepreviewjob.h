@@ -19,14 +19,23 @@
 namespace KIO
 {
 
-struct PreviewItem {
-    KFileItem item;
-    QSize size = QSize();
+struct PreviewOptions {
+    // Size of thumbnail
+    QSize size;
     qreal devicePixelRatio = 1.0;
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
+    // Whether the thumbnail should be scaled and/or saved
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
-    QMap<QString, int> deviceIdMap;
+};
+
+struct PreviewSetupData {
+    // Root of thumbnail cache
+    QString thumbRoot;
+    int thumbRootDeviceId;
+
+    QMap<QString, KPluginMetaData> pluginByMimeTable;
+    QStringList enabledPluginIds;
 };
 
 class SHM
@@ -77,16 +86,21 @@ static constexpr int s_kioFuseMountTimeout = 10000;
 class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
+
 public:
-    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins);
+    static constexpr int UnknownDeviceId = -1;
+
+public:
+    FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewSetupData &setupData, const PreviewOptions &options);
     ~FilePreviewJob();
 
     void start() override;
 
     QMap<QString, QString> thumbnailWorkerMetaData() const;
-    QMap<QString, int> deviceIdMap() const;
     QImage previewImage() const;
-    PreviewItem item() const;
+    const KFileItem &item() const;
+
+    static QString parentDirPath(const QString &path);
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
@@ -101,9 +115,10 @@ private:
         Unknown
     } m_currentDeviceCachePolicy = Unknown;
 
-    const QStringList m_enabledPlugins;
     // The current item
-    KIO::PreviewItem m_item;
+    KFileItem m_fileItem;
+    // device ID for parend dir of original url.
+    const int m_parentDirDeviceId;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -113,28 +128,21 @@ private:
     QByteArray m_origName;
     // Thumbnail file name for current item
     QString m_thumbName;
-    // Size of thumbnail
-    QSize m_size;
+
+    const PreviewSetupData m_setupData;
+    const PreviewOptions m_options;
+
     // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
-    short m_cacheSize;
-    // Whether the thumbnail should be scaled and/or saved
-    PreviewJob::ScaleType m_scaleType;
-    bool m_ignoreMaximumSize;
-    int m_sequenceIndex;
+    short m_cacheSize = 0;
+
     // If the file to create a thumb for was a temp file, this is its name
     QString m_tempName;
     // The shared memory
     std::unique_ptr<SHM> m_shm;
-    // Root of thumbnail cache
-    QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
-    qreal m_devicePixelRatio;
-    static const int m_idUnknown = -1;
     // Id of a device storing currently processed file
     int m_currentDeviceId = 0;
-    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
-    QMap<QString, int> m_deviceIdMap;
     // the path of a unique temporary directory
     QString m_tempDirPath;
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
@@ -145,8 +153,6 @@ private:
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
 
-    const QMap<QString, KPluginMetaData> m_mimeMap;
-
     void statFile();
     void getOrCreateThumbnail();
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
@@ -154,24 +160,26 @@ private:
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
-    QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
     void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
-    int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
     bool preparePluginForMimetype(const QString &mimeType);
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *
-filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins)
+inline FilePreviewJob *filePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewSetupData &setupData, const PreviewOptions &options)
 {
-    auto job = new FilePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
+    auto job = new FilePreviewJob(fileItem, parentDirDeviceId, setupData, options);
     return job;
+}
+
+inline const KFileItem &FilePreviewJob::item() const
+{
+    return m_fileItem;
 }
 }
 
