@@ -39,7 +39,7 @@ class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
 public:
     PreviewJobPrivate(const KFileItemList &items, const QSize &size)
-        : initialItems(items)
+        : fileItems(items)
         , size(size)
         , scaleType(PreviewJob::ScaleType::ScaledAndCached)
         , ignoreMaximumSize(false)
@@ -49,7 +49,7 @@ public:
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
-    KFileItemList initialItems;
+    KFileItemList fileItems;
     QStringList enabledPlugins;
     // Our todo list :)
     // We remove the first item at every step, so use std::list
@@ -136,7 +136,7 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    for (const auto &fileItem : std::as_const(initialItems)) {
+    for (const auto &fileItem : std::as_const(fileItems)) {
         PreviewItem previewItem;
         previewItem.item = fileItem;
         previewItem.devicePixelRatio = devicePixelRatio;
@@ -148,7 +148,7 @@ void PreviewJobPrivate::startPreview()
         items.push_back(previewItem);
     }
 
-    initialItems.clear();
+    fileItems.clear();
     determineNextFile();
 }
 
