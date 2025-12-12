@@ -12,6 +12,7 @@
 #include "filepreviewjob.h"
 #include "kiogui_debug.h"
 #include "kprotocolinfo.h"
+#include "statjob.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -35,42 +36,84 @@ static qreal s_defaultDevicePixelRatio = 1.0;
 
 using namespace KIO;
 
+class PathsFileDeviceIdsJob : public KIO::Job
+{
+public:
+    explicit PathsFileDeviceIdsJob(const QStringList &paths);
+
+    QHash<QString, int> takeDeviceIdByPathTable() const;
+
+protected:
+    void slotResult(KJob *job) override;
+
+private:
+    QHash<QString, int> m_deviceIdByPathTable;
+};
+
+// Stat multiple files at same time
+PathsFileDeviceIdsJob::PathsFileDeviceIdsJob(const QStringList &paths)
+{
+    for (const QString &path : paths) {
+        const QUrl url = QUrl::fromLocalFile(path);
+        KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+        job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
+        addSubjob(job);
+    }
+}
+
+void PathsFileDeviceIdsJob::slotResult(KJob *job)
+{
+    auto *const statJob = static_cast<KIO::StatJob *>(job);
+
+    const QString path = statJob->url().toLocalFile();
+    if (!path.isEmpty()) {
+        int id;
+        if (job->error()) {
+            // We set id to 0 to know we tried getting it
+            qCDebug(KIO_GUI) << "Cannot read information about filesystem under path" << path;
+            id = 0;
+        } else {
+            id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
+        }
+        m_deviceIdByPathTable.insert(path, id);
+    }
+
+    removeSubjob(job);
+    if (!hasSubjobs()) {
+        emitResult();
+    }
+}
+
+QHash<QString, int> PathsFileDeviceIdsJob::takeDeviceIdByPathTable() const
+{
+    return std::move(m_deviceIdByPathTable);
+}
+
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
 public:
     PreviewJobPrivate(const KFileItemList &items, const QSize &size)
-        : initialItems(items)
-        , size(size)
-        , scaleType(PreviewJob::ScaleType::ScaledAndCached)
-        , ignoreMaximumSize(false)
-        , sequenceIndex(0)
+        : fileItems(items)
+        , options{size, s_defaultDevicePixelRatio, false, 0, PreviewJob::ScaleType::ScaledAndCached}
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
-        thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+        setupData.thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
-    KFileItemList initialItems;
-    QStringList enabledPlugins;
-    // Our todo list :)
-    // We remove the first item at every step, so use std::list
-    QSize size;
-    std::list<PreviewItem> items;
-    // Whether the thumbnail should be scaled ando/or saved
-    PreviewJob::ScaleType scaleType;
-    bool ignoreMaximumSize;
-    int sequenceIndex;
-    // Root of thumbnail cache
-    QString thumbRoot;
+    void startNextFilePreviewJobBatch();
+    void startPreview();
+
+public:
+    KFileItemList fileItems;
+
+    PreviewOptions options;
+    PreviewSetupData setupData;
+
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
-    qreal devicePixelRatio = s_defaultDevicePixelRatio;
-    // Cache the deviceIdMap so we dont need to stat the files every time
-    QMap<QString, int> deviceIdMap;
 
-    QMap<QString, KPluginMetaData> mimeMap;
-
-    void determineNextFile();
-    void startPreview();
+    // Cache the deviceIdByPathTable so we dont need to stat the files every time
+    QHash<QString, int> deviceIdByPathTable;
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -91,15 +134,15 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if (enabledPlugins) {
-        d->enabledPlugins = *enabledPlugins;
+        d->setupData.enabledPluginIds = *enabledPlugins;
     } else {
-        d->enabledPlugins =
+        d->setupData.enabledPluginIds =
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
     }
 
     d->maximumWorkers = KProtocolInfo::maxWorkers(QStringLiteral("thumbnail"));
-    // Return to event loop first, determineNextFile() might delete this;
+    // Return to event loop first, startNextFilePreviewJobBatch() might delete this;
     QTimer::singleShot(0, this, [d]() {
         d->startPreview();
     });
@@ -112,63 +155,72 @@ PreviewJob::~PreviewJob()
 void PreviewJob::setScaleType(ScaleType type)
 {
     Q_D(PreviewJob);
-    d->scaleType = type;
+    d->options.scaleType = type;
 }
 
 PreviewJob::ScaleType PreviewJob::scaleType() const
 {
     Q_D(const PreviewJob);
-    return d->scaleType;
+    return d->options.scaleType;
 }
 
 void PreviewJobPrivate::startPreview()
 {
+    Q_Q(PreviewJob);
+
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
 
     for (const KPluginMetaData &plugin : plugins) {
-        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
+        bool pluginIsEnabled = setupData.enabledPluginIds.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
-            if (pluginIsEnabled && !mimeMap.contains(mimeType)) {
-                mimeMap.insert(mimeType, plugin);
+            if (pluginIsEnabled && !setupData.pluginByMimeTable.contains(mimeType)) {
+                setupData.pluginByMimeTable.insert(mimeType, plugin);
             }
         }
     }
 
-    for (const auto &fileItem : std::as_const(initialItems)) {
-        PreviewItem previewItem;
-        previewItem.item = fileItem;
-        previewItem.devicePixelRatio = devicePixelRatio;
-        previewItem.sequenceIndex = sequenceIndex;
-        previewItem.ignoreMaximumSize = ignoreMaximumSize;
-        previewItem.scaleType = scaleType;
-        previewItem.size = size;
-        previewItem.deviceIdMap = deviceIdMap;
-        items.push_back(previewItem);
+    // estimate the device ids for relevant paths
+    QStringList paths;
+    for (const auto &fileItem : std::as_const(fileItems)) {
+        auto parentDir = FilePreviewJob::parentDirPath(fileItem.localPath());
+        if (!parentDir.isEmpty() && !paths.contains(parentDir)) {
+            paths.append(parentDir);
+        }
     }
+    // last add thumbRoot, to not add cost to above paths.contains() check
+    paths.append(setupData.thumbRoot);
 
-    initialItems.clear();
-    determineNextFile();
+    auto *const pathsFileDeviceIdsJob = new PathsFileDeviceIdsJob(paths);
+    QObject::connect(pathsFileDeviceIdsJob, &KIO::Job::result, q, [this](KJob *job) {
+        auto *const pathsFileDeviceIdsJob = static_cast<PathsFileDeviceIdsJob *>(job);
+        deviceIdByPathTable = pathsFileDeviceIdsJob->takeDeviceIdByPathTable();
+        // caching info about thumbroot device id separately, to avoid repeated lookup
+        setupData.thumbRootDeviceId = deviceIdByPathTable.value(setupData.thumbRoot);
+
+        startNextFilePreviewJobBatch();
+    });
+    pathsFileDeviceIdsJob->start();
 }
 
 void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
 
-    auto it = std::find_if(d->items.cbegin(), d->items.cend(), [&url](const PreviewItem &pItem) {
-        return url == pItem.item.url();
+    auto it = std::find_if(d->fileItems.cbegin(), d->fileItems.cend(), [&url](const KFileItem &pItem) {
+        return url == pItem.url();
     });
-    if (it != d->items.cend()) {
-        d->items.erase(it);
+    if (it != d->fileItems.cend()) {
+        d->fileItems.erase(it);
     }
 
     for (auto subjob : subjobs()) {
-        FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(subjob);
-        if (previewJob && previewJob->item().item.url() == url) {
+        auto *const previewJob = qobject_cast<KIO::FilePreviewJob *>(subjob);
+        if (previewJob && previewJob->item().url() == url) {
             subjob->kill();
             removeSubjob(subjob);
-            d->determineNextFile();
+            d->startNextFilePreviewJobBatch();
             break;
         }
     }
@@ -176,12 +228,12 @@ void PreviewJob::removeItem(const QUrl &url)
 
 void KIO::PreviewJob::setSequenceIndex(int index)
 {
-    d_func()->sequenceIndex = index;
+    d_func()->options.sequenceIndex = index;
 }
 
 int KIO::PreviewJob::sequenceIndex() const
 {
-    return d_func()->sequenceIndex;
+    return d_func()->options.sequenceIndex;
 }
 
 float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
@@ -196,28 +248,31 @@ bool KIO::PreviewJob::handlesSequences() const
 
 void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
 {
-    d_func()->devicePixelRatio = dpr;
+    d_func()->options.devicePixelRatio = dpr;
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
 {
-    d_func()->ignoreMaximumSize = ignoreSize;
+    d_func()->options.ignoreMaximumSize = ignoreSize;
 }
 
-void PreviewJobPrivate::determineNextFile()
+void PreviewJobPrivate::startNextFilePreviewJobBatch()
 {
     Q_Q(PreviewJob);
 
-    if (q->subjobs().count() == 0 && items.empty()) {
+    if (q->subjobs().empty() && fileItems.empty()) {
         q->emitResult();
         return;
     }
 
-    const int jobsToRun = qMin((int)items.size(), maximumWorkers - q->subjobs().count());
+    const int jobsToRun = qMin((int)fileItems.size(), maximumWorkers - q->subjobs().count());
     for (int i = 0; i < jobsToRun; i++) {
-        auto item = items.front();
-        items.pop_front();
-        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot, mimeMap);
+        auto fileItem = fileItems.takeFirst();
+
+        const auto parentDir = FilePreviewJob::parentDirPath(fileItem.localPath());
+        const int fileDeviceId = deviceIdByPathTable.value(parentDir);
+
+        FilePreviewJob *job = KIO::filePreviewJob(fileItem, fileDeviceId, setupData, options);
         q->addSubjob(job);
         job->start();
     }
@@ -226,17 +281,17 @@ void PreviewJobPrivate::determineNextFile()
 void PreviewJob::slotResult(KJob *job)
 {
     Q_D(PreviewJob);
+
     FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(job);
     if (previewJob) {
-        auto fileItem = previewJob->item().item;
+        const auto &fileItem = previewJob->item();
         if (!previewJob->previewImage().isNull()) {
-            d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
-            d->deviceIdMap = previewJob->deviceIdMap();
+            d->thumbnailWorkerMetaData.insert(previewJob->thumbnailWorkerMetaData());
             auto previewImage = previewJob->previewImage();
             Q_EMIT generated(fileItem, previewImage);
             if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
                 QPixmap pixmap = QPixmap::fromImage(previewImage);
-                pixmap.setDevicePixelRatio(d->devicePixelRatio);
+                pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
                 Q_EMIT gotPreview(fileItem, pixmap);
             }
         } else {
@@ -247,7 +302,7 @@ void PreviewJob::slotResult(KJob *job)
     if (job->error() > 0) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
-    d->determineNextFile();
+    d->startNextFilePreviewJobBatch();
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
