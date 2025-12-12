@@ -66,7 +66,7 @@ public:
 
     QMap<QString, KPluginMetaData> mimeMap;
 
-    void determineNextFile();
+    void startNextFilePreviewJobBatch();
     void startPreview();
 
     Q_DECLARE_PUBLIC(PreviewJob)
@@ -96,7 +96,7 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     }
 
     d->maximumWorkers = KProtocolInfo::maxWorkers(QStringLiteral("thumbnail"));
-    // Return to event loop first, determineNextFile() might delete this;
+    // Return to event loop first, startNextFilePreviewJobBatch() might delete this;
     QTimer::singleShot(0, this, [d]() {
         d->startPreview();
     });
@@ -133,7 +133,7 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    determineNextFile();
+    startNextFilePreviewJobBatch();
 }
 
 #if KIOGUI_BUILD_DEPRECATED_SINCE(6, 22)
@@ -153,7 +153,7 @@ void PreviewJob::removeItem(const QUrl &url)
         if (previewJob && previewJob->item().item.url() == url) {
             subjob->kill();
             removeSubjob(subjob);
-            d->determineNextFile();
+            d->startNextFilePreviewJobBatch();
             break;
         }
     }
@@ -190,7 +190,7 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
     d_func()->ignoreMaximumSize = ignoreSize;
 }
 
-void PreviewJobPrivate::determineNextFile()
+void PreviewJobPrivate::startNextFilePreviewJobBatch()
 {
     Q_Q(PreviewJob);
 
@@ -241,7 +241,7 @@ void PreviewJob::slotResult(KJob *job)
     if (job->error() > 0) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
-    d->determineNextFile();
+    d->startNextFilePreviewJobBatch();
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
