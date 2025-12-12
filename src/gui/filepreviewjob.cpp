@@ -49,26 +49,16 @@
 #endif
 
 using namespace KIO;
-class FileDeviceJob : public KIO::Job
-{
-public:
-    FileDeviceJob(const QStringList paths);
-
-    void getDeviceId(const QString &path);
-    void slotResult(KJob *job) override;
-
-    QMap<QString, int> m_deviceIdMap;
-};
 
 FilePreviewJob::FilePreviewJob(const KFileItem &fileItem,
-                               const QMap<QString, int> &deviceIdMap,
+                               int parentDirDeviceId,
                                const PreviewOptions &options,
                                const PreviewSetupData &setupData)
     : m_fileItem(fileItem)
+    , m_parentDirDeviceId(parentDirDeviceId)
     , m_options(options)
     , m_setupData(setupData)
     , m_cacheSize(0)
-    , m_deviceIdMap(deviceIdMap)
     , m_preview(QImage())
 {
 }
@@ -87,34 +77,7 @@ FilePreviewJob::~FilePreviewJob()
     }
 }
 
-void FilePreviewJob::start()
-{
-    // If our deviceIdMap does not have these items, run FilePreviewStatJob to get them
-    auto parentDir = parentDirPath(m_fileItem.localPath());
-    QStringList paths;
-    if (!m_deviceIdMap.contains(m_setupData.thumbRoot)) {
-        paths.append(m_setupData.thumbRoot);
-    }
-    if (!parentDir.isEmpty() && !m_deviceIdMap.contains(parentDir)) {
-        paths.append(parentDir);
-    }
-
-    if (!paths.isEmpty()) {
-        auto *firstJob = new FileDeviceJob(paths);
-        connect(firstJob, &KIO::Job::result, this, [this](KJob *job) {
-            FileDeviceJob *previewStatJob = static_cast<FileDeviceJob *>(job);
-            for (auto item : previewStatJob->m_deviceIdMap.asKeyValueRange()) {
-                m_deviceIdMap.insert(item.first, item.second);
-            }
-            statFile();
-        });
-        firstJob->start();
-    } else {
-        statFile();
-    }
-}
-
-QString FilePreviewJob::parentDirPath(const QString &path) const
+QString FilePreviewJob::parentDirPath(const QString &path)
 {
     if (!path.isEmpty()) {
         // If checked file is directory on a different filesystem than its parent, we need to check it separately
@@ -126,7 +89,7 @@ QString FilePreviewJob::parentDirPath(const QString &path) const
     return path;
 }
 
-void FilePreviewJob::statFile()
+void FilePreviewJob::start()
 {
     if (!m_fileItem.targetUrl().isValid()) {
         emitResult();
@@ -490,12 +453,11 @@ FilePreviewJob::CachePolicy FilePreviewJob::canBeCached(const QString &path)
 {
     const QString parentDir = parentDirPath(path);
 
-    int parentId = getDeviceId(parentDir);
-    if (parentId == m_idUnknown) {
+    if (m_parentDirDeviceId == UnknownDeviceId) {
         return CachePolicy::Unknown;
     }
 
-    bool isDifferentSystem = !parentId || parentId != m_currentDeviceId;
+    bool isDifferentSystem = !m_parentDirDeviceId || m_parentDirDeviceId != m_currentDeviceId;
     if (!isDifferentSystem && m_currentDeviceCachePolicy != CachePolicy::Unknown) {
         return m_currentDeviceCachePolicy;
     }
@@ -505,18 +467,17 @@ FilePreviewJob::CachePolicy FilePreviewJob::canBeCached(const QString &path)
         checkedId = m_currentDeviceId;
         checkedPath = path;
     } else {
-        checkedId = getDeviceId(parentDir);
+        checkedId = m_parentDirDeviceId;
         checkedPath = parentDir;
-        if (checkedId == m_idUnknown) {
+        if (checkedId == UnknownDeviceId) {
             return CachePolicy::Unknown;
         }
     }
     // If we're checking different filesystem or haven't checked yet see if filesystem matches thumbRoot
-    int thumbRootId = getDeviceId(m_setupData.thumbRoot);
-    if (thumbRootId == m_idUnknown) {
+    if (m_setupData.thumbRootDeviceId == UnknownDeviceId) {
         return CachePolicy::Unknown;
     }
-    bool shouldAllow = checkedId && checkedId == thumbRootId;
+    bool shouldAllow = checkedId && checkedId == m_setupData.thumbRootDeviceId;
     if (!shouldAllow) {
         Solid::Device device = Solid::Device::storageAccessFromPath(checkedPath);
         if (device.isValid()) {
@@ -534,20 +495,6 @@ FilePreviewJob::CachePolicy FilePreviewJob::canBeCached(const QString &path)
         m_currentDeviceCachePolicy = shouldAllow ? CachePolicy::Allow : CachePolicy::Prevent;
     }
     return shouldAllow ? CachePolicy::Allow : CachePolicy::Prevent;
-}
-
-int FilePreviewJob::getDeviceId(const QString &path)
-{
-    auto iter = m_deviceIdMap.find(path);
-    if (iter != m_deviceIdMap.end()) {
-        return iter.value();
-    }
-    QUrl url = QUrl::fromLocalFile(path);
-    if (!url.isValid()) {
-        qCWarning(KIO_GUI) << "Could not get device id for file preview, Invalid url" << path;
-        return 0;
-    }
-    return m_idUnknown;
 }
 
 void FilePreviewJob::createThumbnail(const QString &pixPath)
@@ -780,51 +727,9 @@ QMap<QString, QString> FilePreviewJob::thumbnailWorkerMetaData() const
     return m_thumbnailWorkerMetaData;
 }
 
-QMap<QString, int> FilePreviewJob::deviceIdMap() const
-{
-    return m_deviceIdMap;
-}
-
 QImage FilePreviewJob::previewImage() const
 {
     return m_preview;
-}
-
-// Stat multiple files at same time
-FileDeviceJob::FileDeviceJob(const QStringList paths)
-{
-    for (const QString &path : paths) {
-        getDeviceId(path);
-    }
-}
-
-void FileDeviceJob::slotResult(KJob *job)
-{
-    KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
-    int id;
-    QString path = statJob->url().toLocalFile();
-    if (job->error()) {
-        // We set id to 0 to know we tried getting it
-        qCDebug(KIO_GUI) << "Cannot read information about filesystem under path" << path;
-        id = 0;
-    } else {
-        id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
-    }
-    if (!path.isEmpty()) {
-        m_deviceIdMap[path] = id;
-    }
-    removeSubjob(job);
-    if (!hasSubjobs()) {
-        emitResult();
-    }
-}
-
-void FileDeviceJob::getDeviceId(const QString &path)
-{
-    QUrl url = QUrl::fromLocalFile(path);
-    KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
-    job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
-    addSubjob(job);
 }
 
 std::unique_ptr<SHM> SHM::create(int size)

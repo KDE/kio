@@ -32,6 +32,7 @@ struct PreviewOptions {
 struct PreviewSetupData {
     // Root of thumbnail cache
     QString thumbRoot;
+    int thumbRootDeviceId;
 
     QMap<QString, KPluginMetaData> pluginByMimeTable;
     QStringList enabledPluginIds;
@@ -85,17 +86,21 @@ static constexpr int s_kioFuseMountTimeout = 10000;
 class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
+
 public:
-    FilePreviewJob(const KFileItem &fileItem, const QMap<QString, int> &deviceIdMap, const PreviewOptions &options, const PreviewSetupData &setupData);
+    static constexpr int UnknownDeviceId = -1;
+
+public:
+    FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewOptions &options, const PreviewSetupData &setupData);
     ~FilePreviewJob();
 
     void start() override;
 
     QMap<QString, QString> thumbnailWorkerMetaData() const;
-    QMap<QString, int> deviceIdMap() const;
     QImage previewImage() const;
     const KFileItem &item() const;
 
+    static QString parentDirPath(const QString &path);
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
@@ -112,6 +117,8 @@ private:
 
     // The current item
     KFileItem m_fileItem;
+    // device ID for parend dir of original url.
+    const int m_parentDirDeviceId;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -133,11 +140,8 @@ private:
     std::unique_ptr<SHM> m_shm;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
-    static const int m_idUnknown = -1;
     // Id of a device storing currently processed file
     int m_currentDeviceId = 0;
-    // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
-    QMap<QString, int> m_deviceIdMap;
     // the path of a unique temporary directory
     QString m_tempDirPath;
     // Whether to try using KIOFuse to resolve files. Set to false if KIOFuse is not available.
@@ -148,14 +152,12 @@ private:
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
 
-    void statFile();
     void getOrCreateThumbnail();
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
     bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);
     void createThumbnailViaLocalCopy(const QUrl &);
-    QString parentDirPath(const QString &path) const;
 
     void emitPreview(const QImage &thumb);
     void slotThumbData(KIO::Job *, const QByteArray &);
@@ -168,10 +170,12 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *
-filePreviewJob(const KFileItem &fileItem, const QMap<QString, int> &deviceIdMap, const PreviewOptions &options, const PreviewSetupData &setupData)
+inline FilePreviewJob *filePreviewJob(const KFileItem &fileItem,
+                                      int parentDirDeviceId,
+                                      const PreviewOptions &options,
+                                      const PreviewSetupData &setupData)
 {
-    auto job = new FilePreviewJob(fileItem, deviceIdMap, options, setupData);
+    auto job = new FilePreviewJob(fileItem, parentDirDeviceId, options, setupData);
     return job;
 }
 
