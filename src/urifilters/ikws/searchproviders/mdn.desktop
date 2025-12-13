@@ -11,6 +11,7 @@ Name[es]=Red del desarrollador de Mozilla (MDN)
 Name[eu]=Mozilla Garatzaileen Sarea (MDN - Mozilla Developer Network)
 Name[fi]=Microsoft Developer Network (MDN)
 Name[fr]=Réseau des équipes de développement de Mozilla (MDN)
+Name[ga]=Líonra Forbróirí Mozilla (MDN)
 Name[gl]=Rede de desenvolvemento de Mozilla (MDN)
 Name[he]=רשת המפתחים של Mozilla‏ (MDN)
 Name[hr]=Mozilla Developer Network (MDN)
@@ -49,6 +50,7 @@ Query[es]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[eu]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[fi]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[fr]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[ga]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[gl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[he]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[hr]=https://developer.mozilla.org/en-US/search?q=\\{@}

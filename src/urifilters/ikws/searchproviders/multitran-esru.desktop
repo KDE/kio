@@ -29,7 +29,7 @@ Name[fa]=Multitran - Translate Between Spanish and Russian
 Name[fi]=Multitran – käännä espanjasta venäjään
 Name[fr]=Multitran - Traduction espagnol - russe
 Name[fy]=Multitran - Oersetting tusken Spaansk en Russysk
-Name[ga]=Multitran - Aistriúchán idir Spáinnis agus Rúisis
+Name[ga]=Multitran - Aistrigh idir Spáinnis agus Rúisis
 Name[gd]=Multitran - Eadar-theangachadh eadar an Spàinntis is an Ruisis
 Name[gl]=Multitran, tradución entre castelán e ruso
 Name[gu]=મલ્ટિટ્રાન - સ્પેનિશ અને રશિયન વચ્ચેનું ભાષાંતર
@@ -115,6 +115,7 @@ Query[eu]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[fa]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[fi]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[fr]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[ga]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[gl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[he]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[hr]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

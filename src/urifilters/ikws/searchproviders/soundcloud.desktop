@@ -23,6 +23,7 @@ Name[eu]=Soundcloud
 Name[fa]=ساندکلود
 Name[fi]=Soundcloud
 Name[fr]=SoundCloud
+Name[ga]=Soundcloud
 Name[gl]=Soundcloud
 Name[he]=Soundcloud
 Name[hr]=PlasmaZvuk
@@ -87,6 +88,7 @@ Query[eu]=https://soundcloud.com/search?q=\\{@}
 Query[fa]=https://soundcloud.com/search?q=\\{@}
 Query[fi]=https://soundcloud.com/search?q=\\{@}
 Query[fr]=https://soundcloud.com/search?q=\\{@}
+Query[ga]=https://soundcloud.com/search?q=\\{@}
 Query[gl]=https://soundcloud.com/search?q=\\{@}
 Query[he]=https://soundcloud.com/search?q=\\{@}
 Query[hr]=https://soundcloud.com/search?q=\\{@}

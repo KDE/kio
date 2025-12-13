@@ -28,7 +28,7 @@ Name[fa]=جست‌وجوی پس‌درگاههای دبیان
 Name[fi]=Debianin Backports-tietokanta
 Name[fr]=Recherche dans le système de rétro-portage de Debian
 Name[fy]=Debian Backports Search
-Name[ga]=Cuardach Pacáistí Cobhsaithe Debian
+Name[ga]=Cuardach Cúltaca Debian
 Name[gd]=Lorg airson Debian Backports
 Name[gl]=Busca de backports de Debian
 Name[gu]=ડેબિયન બેકપોર્ટ શોધ
@@ -115,6 +115,7 @@ Query[eu]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[fa]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[fi]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[fr]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[ga]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[gl]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[he]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[hr]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

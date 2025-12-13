@@ -29,7 +29,7 @@ Name[fa]=بایگانی کاربرد Ruby
 Name[fi]=Ruby-sovellusarkisto
 Name[fr]=Archive d'applications Ruby
 Name[fy]=Ruby programma-argyf
-Name[ga]=Cartlann Feidhmchlár Ruby
+Name[ga]=Ruby Application Archive
 Name[gd]=Ruby Application Archive
 Name[gl]=Arquivo de aplicacións en Ruby
 Name[gu]=રૂબી કાર્યક્રમ અર્કાઇવ
@@ -119,6 +119,7 @@ Query[eu]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fa]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fi]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fr]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ga]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[gl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[he]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[hr]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

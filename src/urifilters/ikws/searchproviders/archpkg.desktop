@@ -22,6 +22,7 @@ Name[eu]=Arch Linuxen pakete-bilaketa
 Name[fa]=جست‌وجوی بستهٔ آرچ‌لینوکس
 Name[fi]=Arch Linuxin pakettihaku
 Name[fr]=Recherche de paquets Arch Linux
+Name[ga]=Multitran - Aistriúchán idir Ollainnis agus Rúisis Cuardach Pacáiste Arch Linux
 Name[gd]=Lorg pacaidean Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
 Name[he]=חיפוש חבילות של Arch Linux
@@ -87,6 +88,7 @@ Query[eu]=https://www.archlinux.org/packages/?q=\\{@}
 Query[fa]=https://www.archlinux.org/packages/?q=\\{@}
 Query[fi]=https://www.archlinux.org/packages/?q=\\{@}
 Query[fr]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ga]=https://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[he]=https://www.archlinux.org/packages/?q=\\{@}
 Query[hr]=https://www.archlinux.org/packages/?q=\\{@}

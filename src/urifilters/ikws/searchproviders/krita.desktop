@@ -22,6 +22,7 @@ Name[eu]=Krita-ren eskuliburua
 Name[fa]=کتابچهٔ راهنمای کریتا
 Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
+Name[ga]=Lámhleabhar Krita
 Name[gl]=Manual de Krita
 Name[he]=המדריך של Krita
 Name[hr]=Priručnik za Kritu
@@ -82,6 +83,7 @@ Query[eu]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fa]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[ga]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[he]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[hr]=https://docs.krita.org/en/search.html?q=\\{@}

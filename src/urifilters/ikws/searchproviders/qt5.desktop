@@ -24,6 +24,7 @@ Name[eu]=Qt5-en lerroko dokumentazioa
 Name[fa]=مستندات برخط کیوت۵
 Name[fi]=Qt5-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt5
+Name[ga]=Doiciméadú Ar Líne Qt5
 Name[gl]=Documentación en liña de Qt5
 Name[he]=התיעוד המקוון של Qt5
 Name[hr]=Qt5 Online dokumentacija
@@ -81,6 +82,7 @@ Query[eu]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[fa]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[ga]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[he]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[hr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

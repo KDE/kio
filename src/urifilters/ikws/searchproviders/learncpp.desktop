@@ -22,6 +22,7 @@ Name[eu]=Ikasi CPP
 Name[fa]=یادگیری CPP
 Name[fi]=Learn CPP
 Name[fr]=Apprenez le « CPP »
+Name[ga]=Foghlaim CPP
 Name[gl]=Learn CPP
 Name[he]=Learn CPP
 Name[hr]=Naučite CPP
@@ -82,6 +83,7 @@ Query[eu]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fa]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fr]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ga]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[gl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[he]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[hr]=https://www.learncpp.com/gsearch/?q=\\{@}

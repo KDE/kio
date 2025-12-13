@@ -28,7 +28,7 @@ Name[fa]=جست‌وجوی شبکه توسعه‌دهنده مایکروسافت
 Name[fi]=Microsoft Developer Network -haku
 Name[fr]=Recherche sur le réseau des développeurs Microsoft
 Name[fy]=Microsoft Developer Network Search 
-Name[ga]=Cuardach Microsoft Developer Network
+Name[ga]=Cuardach Líonra Forbróirí Microsoft
 Name[gd]=Lorg ann am Microsoft Developer Network
 Name[gl]=Busca na rede de desenvolvemento de Microsoft
 Name[gu]=માઇક્રોસોફ્ટ ડેવલોપર નેટવર્ક શોધ
@@ -118,6 +118,7 @@ Query[eu]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[fa]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[fi]=https://social.msdn.microsoft.com/Search/fi-FI?query=\\{@}
 Query[fr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[ga]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[gd]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[gl]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[he]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

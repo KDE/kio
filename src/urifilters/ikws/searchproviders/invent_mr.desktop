@@ -22,6 +22,7 @@ Name[eu]=KDE Invent bateratzeko eskaera
 Name[fa]=درخواست‌های ادغام اختراع KDE
 Name[fi]=KDE Inventin yhdistämispyynnöt
 Name[fr]=Requêtes de fusion de KDE Invent
+Name[ga]=Iarratais Chomhcheangail KDE Invent
 Name[gl]=Solicitudes de inclusión de KDE Invent
 Name[he]=בקשות מיזוג ב־KDE Invent
 Name[hr]=KDE Invent zahtjevi za spajanje
@@ -78,6 +79,7 @@ Query[eu]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[ga]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[he]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[hr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

@@ -28,7 +28,7 @@ Name[fa]=جست‌وجوی کلید OpenPGP
 Name[fi]=OpenPGP-avainhaku
 Name[fr]=Recherche de clés « OpenPGP »
 Name[fy]=Sykje nei OpenPGP-Kaaien
-Name[ga]=Cuardach Eochracha OpenPGP
+Name[ga]=Cuardach Eochrach OpenPGP
 Name[gd]=Lorg iuchraichean OpenPGP
 Name[gl]=Busca de chaves de OpenPGP
 Name[gu]=OpenPGP કી શોધ
@@ -117,6 +117,7 @@ Query[eu]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[fa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[fi]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[fr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ga]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[gl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[he]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[hr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

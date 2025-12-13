@@ -26,7 +26,7 @@ Name[eu]=Yahoo Local
 Name[fa]=محلی یاهو
 Name[fi]=Yahoon paikallishaku
 Name[fr]=Yahoo Local
-Name[ga]=Yahoo Logánta
+Name[ga]=Yahoo Áitiúil
 Name[gd]=Yahoo Local
 Name[gl]=Yahoo Local
 Name[gu]=યાહુ સ્થાનિક
@@ -103,6 +103,7 @@ Query[eu]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[fa]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[fi]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[fr]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[ga]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[gl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[he]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[hr]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

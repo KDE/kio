@@ -25,7 +25,7 @@ Name[eu]=Urban Dictionary
 Name[fa]=Urban Dictionary
 Name[fi]=Urban Dictionary
 Name[fr]=Dictionnaire « Urban »
-Name[ga]=Urban Dictionary
+Name[ga]=Foclóir Uirbeach
 Name[gd]=Urban Dictionary
 Name[gl]=Dicionario Urbano
 Name[gu]=અર્બન ડિક્શનરી
@@ -101,6 +101,7 @@ Query[eu]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[fa]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[fi]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[fr]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[ga]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[gl]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[he]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[hr]=https://www.urbandictionary.com/define.php?term=\\{@}

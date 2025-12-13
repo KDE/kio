@@ -30,7 +30,7 @@ Name[fa]=راهنمای مرجع Python
 Name[fi]=Python Reference Manual
 Name[fr]=Manuel de référence de Python
 Name[fy]=Python Reference Manual
-Name[ga]=Lámhleabhar Python
+Name[ga]=Lámhleabhar Tagartha Python
 Name[gd]=Python Reference Manual
 Name[gl]=Manual de referencia de Python
 Name[gu]=Python સંદર્ભ ગ્રંથ
@@ -119,6 +119,7 @@ Query[eu]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[fa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[fi]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[fr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[ga]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[gd]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[gl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[he]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

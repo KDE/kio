@@ -23,6 +23,7 @@ Name[eu]=Qwant Irudiak
 Name[fa]=تصاریو کیووانت
 Name[fi]=Qwant-kuvahaku
 Name[fr]=Images « Qwant »
+Name[ga]=Íomhánna Qwant
 Name[gd]=Qwant Images
 Name[gl]=Imaxes en Qwant
 Name[he]=תמונות Qwant
@@ -89,6 +90,7 @@ Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fa]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ga]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[hr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

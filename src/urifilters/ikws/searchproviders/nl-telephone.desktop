@@ -26,7 +26,7 @@ Name[fa]=فراهم‌کننده جست‌وجوی دفتر تلفن
 Name[fi]=Puhelinluettelohaku
 Name[fr]=Moteur de recherche « Telephonebook »
 Name[fy]=Tillefoanboek-sykmasine
-Name[ga]=Cuardach sa Leabhar Teileafóin
+Name[ga]=Soláthraí Cuardaigh Telephonebook
 Name[gd]=Inneal-luirg àireamhan-fòn
 Name[gl]=Fornecedor de buscas na guía telefónica
 Name[gu]=ટેલ્ફોનબુક સર્ચ પ્રોવાઇડર
@@ -115,6 +115,7 @@ Query[eu]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[fa]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[fi]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[fr]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[ga]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[gl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[he]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[hr]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

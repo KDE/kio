@@ -27,7 +27,7 @@ Name[fa]=گوگل (یا شانس و یا اقبال)
 Name[fi]=Google (kokeilen onneani)
 Name[fr]=Google (J'ai de la chance)
 Name[fy]=Google (Ik doch in gok)
-Name[ga]=Google (Tá an t-ádh orm inniu)
+Name[ga]=Google (Tá an t-ádh orm)
 Name[gd]=Google (Nach buidhe dhomh-sa?)
 Name[gl]=Google (Síntome afortunado)
 Name[gu]=ગુગલ (આજે હું ખુશ છું)
@@ -118,6 +118,7 @@ Query[eu]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[fa]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[fi]=https://www.google.fi/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[fr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[ga]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[gd]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[gl]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[he]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

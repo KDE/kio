@@ -26,7 +26,7 @@ Name[eu]=Yahoo Video
 Name[fa]=ویدیوهای یاهو
 Name[fi]=Yahoon videohaku
 Name[fr]=Vidéos « Yahoo »
-Name[ga]=Fís Yahoo
+Name[ga]=Físeán Yahoo
 Name[gd]=Yahoo Video
 Name[gl]=Yahoo Video
 Name[gu]=યાહુ વિડીઓ
@@ -103,6 +103,7 @@ Query[eu]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.Jz
 Query[fa]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[fi]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[fr]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
+Query[ga]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[gl]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[he]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[hr]=https://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701

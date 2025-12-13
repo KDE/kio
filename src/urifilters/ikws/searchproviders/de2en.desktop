@@ -30,7 +30,7 @@ Name[fa]=ترجمه dict.cc: آلمانی به انگلیسی
 Name[fi]=dict.cc-käännös saksasta englanniksi
 Name[fr]=Traduction dict.cc : allemand vers anglais
 Name[fy]=dict.cc-oersetting Dûts nei Ingelsk
-Name[ga]=dict.cc Aistriúchán: Gearmáinis go Béarla
+Name[ga]=aistriúchán dict.cc: Gearmáinis go Béarla
 Name[gd]=dict.cc Eadar-theangachadh: On Ghearmailtis dhan Bheurla
 Name[gl]=Tradución dict.cc: Alemán a inglés
 Name[gu]=dict.cc ભાષાંતર: જર્મન થી અંગ્રેજી
@@ -118,6 +118,7 @@ Query[eu]=https://www.dict.cc/?s=\\{@}
 Query[fa]=https://www.dict.cc/?s=\\{@}
 Query[fi]=https://www.dict.cc/?s=\\{@}
 Query[fr]=https://www.dict.cc/?s=\\{@}
+Query[ga]=https://www.dict.cc/?s=\\{@}
 Query[gl]=https://www.dict.cc/?s=\\{@}
 Query[he]=https://www.dict.cc/?s=\\{@}
 Query[hr]=https://www.dict.cc/?s=\\{@}

@@ -23,6 +23,7 @@ Name[eu]=Freecode
 Name[fa]=فری‌کُد
 Name[fi]=Freecode
 Name[fr]=Freecode
+Name[ga]=Freecode
 Name[gd]=Freecode
 Name[gl]=Freecode
 Name[he]=Freecode
@@ -94,6 +95,7 @@ Query[eu]=http://freecode.com/search?q=\\{@}
 Query[fa]=http://freecode.com/search?q=\\{@}
 Query[fi]=http://freecode.com/search?q=\\{@}
 Query[fr]=http://freecode.com/search?q=\\{@}
+Query[ga]=http://freecode.com/search?q=\\{@}
 Query[gd]=http://freecode.com/search?q=\\{@}
 Query[gl]=http://freecode.com/search?q=\\{@}
 Query[he]=http://freecode.com/search?q=\\{@}

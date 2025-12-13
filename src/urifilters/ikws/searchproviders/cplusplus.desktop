@@ -22,6 +22,7 @@ Name[eu]=CPlusPlus
 Name[fa]=سی‌پلاس‌پلاس
 Name[fi]=CPlusPlus
 Name[fr]=CPlusPlus
+Name[ga]=CPlusPlus
 Name[gl]=CPlusPlus
 Name[he]=CPlusPlus
 Name[hr]=CPlusPlus
@@ -82,6 +83,7 @@ Query[eu]=http://cplusplus.com/search.do?q=\\{@}
 Query[fa]=http://cplusplus.com/search.do?q=\\{@}
 Query[fi]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}
+Query[ga]=http://cplusplus.com/search.do?q=\\{@}
 Query[gl]=http://cplusplus.com/search.do?q=\\{@}
 Query[he]=http://cplusplus.com/search.do?q=\\{@}
 Query[hr]=http://cplusplus.com/search.do?q=\\{@}

@@ -28,7 +28,7 @@ Name[fa]=CTAN - شبکه وسیع بایگانی TeX
 Name[fi]=CTAN – Comprehensive TeX Archive Network
 Name[fr]=CTAN (Comprehensive TeX Archive Network)
 Name[fy]=CTAN - Comprehensive TeX Archive Network
-Name[ga]=CTAN - Comprehensive TeX Archive Network
+Name[ga]=CTAN - Líonra Cuimsitheach Cartlann TeX
 Name[gd]=CTAN - Comprehensive TeX Archive Network
 Name[gl]=CTAN, o Comprehensive TeX Archive Network
 Name[gu]=CTAN - કોમ્પ્રેસિવ ટેક અર્કાઇવ નેટવર્ક
@@ -118,6 +118,7 @@ Query[eu]=https://ctan.org/search?phrase=\\{@}
 Query[fa]=https://ctan.org/search?phrase=\\{@}
 Query[fi]=https://ctan.org/search?phrase=\\{@}
 Query[fr]=https://ctan.org/search?phrase=\\{@}
+Query[ga]=https://ctan.org/search?phrase=\\{@}
 Query[gl]=https://ctan.org/search?phrase=\\{@}
 Query[he]=https://ctan.org/search?phrase=\\{@}
 Query[hr]=https://ctan.org/search?phrase=\\{@}

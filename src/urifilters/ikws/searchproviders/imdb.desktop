@@ -29,7 +29,7 @@ Name[fa]=پایگاه دادهٔ فیلم اینترنت
 Name[fi]=Internet Movie Database
 Name[fr]=Base de données de films sur Internet
 Name[fy]=Ynternetfilm-databank
-Name[ga]=Internet Movie Database
+Name[ga]=Bunachar Sonraí Scannán Idirlín
 Name[gd]=Internet Movie Database
 Name[gl]=Internet Movie Database
 Name[gu]=ઇન્ટરનેટ ચિત્રપટ ડેટાબેઝ
@@ -118,6 +118,7 @@ Query[eu]=https://imdb.com/find?s=all&q=\\{@}
 Query[fa]=https://imdb.com/find?s=all&q=\\{@}
 Query[fi]=https://imdb.com/find?s=all&q=\\{@}
 Query[fr]=https://imdb.com/find?s=all&q=\\{@}
+Query[ga]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[he]=https://imdb.com/find?s=all&q=\\{@}
 Query[hr]=https://imdb.com/find?s=all&q=\\{@}

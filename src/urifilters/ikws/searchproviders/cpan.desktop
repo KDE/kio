@@ -28,7 +28,7 @@ Name[fa]=CPAN - شبکه‌ وسیع بایگانی پرل
 Name[fi]=CPAN – Comprehensive Perl Archive Network
 Name[fr]=CPAN (Comprehensive Perl Archive Network)
 Name[fy]=CPAN - Comprehensive Perl Archive Network
-Name[ga]=CPAN - Comprehensive Perl Archive Network
+Name[ga]=CPAN - Líonra Cuimsitheach Cartlann Perl
 Name[gd]=CPAN - Comprehensive Perl Archive Network
 Name[gl]=CPAN, o Comprehensive Perl Archive Network
 Name[gu]=CPAN - કોમ્પ્રેસિવ પર્લ અર્કાઇવ નેટવર્ક
@@ -118,6 +118,7 @@ Query[eu]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fa]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fr]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ga]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[gl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[he]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[hr]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

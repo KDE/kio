@@ -21,6 +21,7 @@ Name[eu]=CPP erreferentzia
 Name[fa]=مرجع سی++
 Name[fi]=CPP Reference
 Name[fr]=Manuel de référence de « CPP »
+Name[ga]=Tagairt CPP
 Name[gl]=CPP Reference
 Name[he]=CPP Reference
 Name[hr]=CPP reference
@@ -68,6 +69,7 @@ Query[es]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[eu]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[fi]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[fr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[ga]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[gl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[he]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&t=kde&kl=he
 Query[hr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
