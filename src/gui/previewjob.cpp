@@ -40,27 +40,20 @@ class KIO::PreviewJobPrivate : public KIO::JobPrivate
 public:
     PreviewJobPrivate(const KFileItemList &items, const QSize &size)
         : fileItems(items)
-        , size(size)
-        , scaleType(PreviewJob::ScaleType::ScaledAndCached)
-        , ignoreMaximumSize(false)
-        , sequenceIndex(0)
+        , options{size, s_defaultDevicePixelRatio, false, 0, PreviewJob::ScaleType::ScaledAndCached}
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
     KFileItemList fileItems;
+
+    PreviewOptions options;
     QStringList enabledPlugins;
-    QSize size;
-    // Whether the thumbnail should be scaled ando/or saved
-    PreviewJob::ScaleType scaleType;
-    bool ignoreMaximumSize;
-    int sequenceIndex;
     // Root of thumbnail cache
     QString thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
-    qreal devicePixelRatio = s_defaultDevicePixelRatio;
     // Cache the deviceIdMap so we dont need to stat the files every time
     QMap<QString, int> deviceIdMap;
 
@@ -109,13 +102,13 @@ PreviewJob::~PreviewJob()
 void PreviewJob::setScaleType(ScaleType type)
 {
     Q_D(PreviewJob);
-    d->scaleType = type;
+    d->options.scaleType = type;
 }
 
 PreviewJob::ScaleType PreviewJob::scaleType() const
 {
     Q_D(const PreviewJob);
-    return d->scaleType;
+    return d->options.scaleType;
 }
 
 void PreviewJobPrivate::startPreview()
@@ -162,12 +155,12 @@ void PreviewJob::removeItem(const QUrl &url)
 
 void KIO::PreviewJob::setSequenceIndex(int index)
 {
-    d_func()->sequenceIndex = index;
+    d_func()->options.sequenceIndex = index;
 }
 
 int KIO::PreviewJob::sequenceIndex() const
 {
-    return d_func()->sequenceIndex;
+    return d_func()->options.sequenceIndex;
 }
 
 float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
@@ -182,12 +175,12 @@ bool KIO::PreviewJob::handlesSequences() const
 
 void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
 {
-    d_func()->devicePixelRatio = dpr;
+    d_func()->options.devicePixelRatio = dpr;
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
 {
-    d_func()->ignoreMaximumSize = ignoreSize;
+    d_func()->options.ignoreMaximumSize = ignoreSize;
 }
 
 void PreviewJobPrivate::startNextFilePreviewJobBatch()
@@ -205,13 +198,8 @@ void PreviewJobPrivate::startNextFilePreviewJobBatch()
         fileItems.pop_front();
         PreviewItem previewItem;
         previewItem.item = fileItem;
-        previewItem.devicePixelRatio = devicePixelRatio;
-        previewItem.sequenceIndex = sequenceIndex;
-        previewItem.ignoreMaximumSize = ignoreMaximumSize;
-        previewItem.scaleType = scaleType;
-        previewItem.size = size;
         previewItem.deviceIdMap = deviceIdMap;
-        FilePreviewJob *job = KIO::filePreviewJob(previewItem, thumbRoot, mimeMap, enabledPlugins);
+        FilePreviewJob *job = KIO::filePreviewJob(previewItem, options, thumbRoot, mimeMap, enabledPlugins);
         q->addSubjob(job);
         job->start();
     }
@@ -230,7 +218,7 @@ void PreviewJob::slotResult(KJob *job)
             Q_EMIT generated(fileItem, previewImage);
             if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
                 QPixmap pixmap = QPixmap::fromImage(previewImage);
-                pixmap.setDevicePixelRatio(d->devicePixelRatio);
+                pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
                 Q_EMIT gotPreview(fileItem, pixmap);
             }
         } else {
