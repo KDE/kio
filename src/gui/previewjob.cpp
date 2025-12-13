@@ -191,8 +191,7 @@ void PreviewJobPrivate::startNextFilePreviewJobBatch()
 
     const int jobsToRun = qMin((int)fileItems.size(), maximumWorkers - q->subjobs().count());
     for (int i = 0; i < jobsToRun; i++) {
-        auto fileItem = fileItems.front();
-        fileItems.pop_front();
+        auto fileItem = fileItems.takeFirst();
         FilePreviewJob *job = KIO::filePreviewJob(fileItem, deviceIdMap, options, setupData);
         q->addSubjob(job);
         job->start();
