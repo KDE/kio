@@ -37,11 +37,6 @@ struct PreviewSetupData {
     QStringList enabledPluginIds;
 };
 
-struct PreviewItem {
-    KFileItem item;
-    QMap<QString, int> deviceIdMap;
-};
-
 class SHM
 {
 public:
@@ -91,7 +86,7 @@ class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item, const PreviewOptions &options, const PreviewSetupData &setupData);
+    FilePreviewJob(const KFileItem &fileItem, const QMap<QString, int> &deviceIdMap, const PreviewOptions &options, const PreviewSetupData &setupData);
     ~FilePreviewJob();
 
     void start() override;
@@ -116,7 +111,7 @@ private:
     } m_currentDeviceCachePolicy = Unknown;
 
     // The current item
-    KIO::PreviewItem m_item;
+    KFileItem m_fileItem;
     // The modification time of that URL
     QDateTime m_tOrig;
     // Path to thumbnail cache for the current size
@@ -173,15 +168,16 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const PreviewOptions &options, const PreviewSetupData &setupData)
+inline FilePreviewJob *
+filePreviewJob(const KFileItem &fileItem, const QMap<QString, int> &deviceIdMap, const PreviewOptions &options, const PreviewSetupData &setupData)
 {
-    auto job = new FilePreviewJob(item, options, setupData);
+    auto job = new FilePreviewJob(fileItem, deviceIdMap, options, setupData);
     return job;
 }
 
 inline const KFileItem &FilePreviewJob::item() const
 {
-    return m_item.item;
+    return m_fileItem;
 }
 }
 

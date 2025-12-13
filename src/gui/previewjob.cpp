@@ -193,10 +193,7 @@ void PreviewJobPrivate::startNextFilePreviewJobBatch()
     for (int i = 0; i < jobsToRun; i++) {
         auto fileItem = fileItems.front();
         fileItems.pop_front();
-        PreviewItem previewItem;
-        previewItem.item = fileItem;
-        previewItem.deviceIdMap = deviceIdMap;
-        FilePreviewJob *job = KIO::filePreviewJob(previewItem, options, setupData);
+        FilePreviewJob *job = KIO::filePreviewJob(fileItem, deviceIdMap, options, setupData);
         q->addSubjob(job);
         job->start();
     }
