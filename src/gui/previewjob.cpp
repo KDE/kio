@@ -140,7 +140,7 @@ void PreviewJob::removeItem(const QUrl &url)
 
     for (auto subjob : subjobs()) {
         FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(subjob);
-        if (previewJob && previewJob->item().item.url() == url) {
+        if (previewJob && previewJob->item().url() == url) {
             subjob->kill();
             removeSubjob(subjob);
             d->startNextFilePreviewJobBatch();
@@ -207,7 +207,7 @@ void PreviewJob::slotResult(KJob *job)
     Q_D(PreviewJob);
     FilePreviewJob *previewJob = static_cast<KIO::FilePreviewJob *>(job);
     if (previewJob) {
-        auto fileItem = previewJob->item().item;
+        const auto &fileItem = previewJob->item();
         if (!previewJob->previewImage().isNull()) {
             d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
             d->deviceIdMap = previewJob->deviceIdMap();

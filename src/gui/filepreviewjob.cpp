@@ -787,11 +787,6 @@ QImage FilePreviewJob::previewImage() const
     return m_preview;
 }
 
-PreviewItem FilePreviewJob::item() const
-{
-    return m_item;
-}
-
 // Stat multiple files at same time
 FileDeviceJob::FileDeviceJob(const QStringList paths)
 {
