@@ -152,6 +152,7 @@ void PreviewJobPrivate::startPreview()
     determineNextFile();
 }
 
+#if KIOGUI_BUILD_DEPRECATED_SINCE(6, 22)
 void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
@@ -173,6 +174,7 @@ void PreviewJob::removeItem(const QUrl &url)
         }
     }
 }
+#endif
 
 void KIO::PreviewJob::setSequenceIndex(int index)
 {

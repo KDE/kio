@@ -74,13 +74,17 @@ public:
      */
     ScaleType scaleType() const;
 
+#if KIOGUI_ENABLE_DEPRECATED_SINCE(6, 22)
     /*!
      * Removes an item from preview processing. Use this if you passed
      * an item to filePreview and want to delete it now.
      *
      * \a url the url of the item that should be removed from the preview queue
+     * \deprecated[6.22] Unused.
      */
+    KIOGUI_DEPRECATED_VERSION(6, 22, "Unused.")
     void removeItem(const QUrl &url);
+#endif
 
     /*!
      * If \a ignoreSize is true, then the preview is always
