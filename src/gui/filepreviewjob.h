@@ -19,13 +19,18 @@
 namespace KIO
 {
 
-struct PreviewItem {
-    KFileItem item;
-    QSize size = QSize();
+struct PreviewOptions {
+    // Size of thumbnail
+    QSize size;
     qreal devicePixelRatio = 1.0;
     bool ignoreMaximumSize = false;
     int sequenceIndex = 0;
+    // Whether the thumbnail should be scaled and/or saved
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
+};
+
+struct PreviewItem {
+    KFileItem item;
     QMap<QString, int> deviceIdMap;
 };
 
@@ -78,7 +83,11 @@ class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins);
+    FilePreviewJob(const PreviewItem &item,
+                   const PreviewOptions &options,
+                   const QString &thumbRoot,
+                   const QMap<QString, KPluginMetaData> &mimeMap,
+                   const QStringList &enabledPlugins);
     ~FilePreviewJob();
 
     void start() override;
@@ -113,14 +122,11 @@ private:
     QByteArray m_origName;
     // Thumbnail file name for current item
     QString m_thumbName;
-    // Size of thumbnail
-    QSize m_size;
+
+    const PreviewOptions m_options;
+
     // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
     short m_cacheSize;
-    // Whether the thumbnail should be scaled and/or saved
-    PreviewJob::ScaleType m_scaleType;
-    bool m_ignoreMaximumSize;
-    int m_sequenceIndex;
     // If the file to create a thumb for was a temp file, this is its name
     QString m_tempName;
     // The shared memory
@@ -129,7 +135,6 @@ private:
     QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
-    qreal m_devicePixelRatio;
     static const int m_idUnknown = -1;
     // Id of a device storing currently processed file
     int m_currentDeviceId = 0;
@@ -167,10 +172,13 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *
-filePreviewJob(const PreviewItem &item, const QString &thumbRoot, const QMap<QString, KPluginMetaData> &mimeMap, const QStringList &enabledPlugins)
+inline FilePreviewJob *filePreviewJob(const PreviewItem &item,
+                                      const PreviewOptions &options,
+                                      const QString &thumbRoot,
+                                      const QMap<QString, KPluginMetaData> &mimeMap,
+                                      const QStringList &enabledPlugins)
 {
-    auto job = new FilePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
+    auto job = new FilePreviewJob(item, options, thumbRoot, mimeMap, enabledPlugins);
     return job;
 }
 }

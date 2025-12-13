@@ -61,18 +61,15 @@ public:
 };
 
 FilePreviewJob::FilePreviewJob(const PreviewItem &item,
+                               const PreviewOptions &options,
                                const QString &thumbRoot,
                                const QMap<QString, KPluginMetaData> &mimeMap,
                                const QStringList &enabledPlugins)
     : m_enabledPlugins(enabledPlugins)
     , m_item(item)
-    , m_size(m_item.size)
+    , m_options(options)
     , m_cacheSize(0)
-    , m_scaleType(m_item.scaleType)
-    , m_ignoreMaximumSize(m_item.ignoreMaximumSize)
-    , m_sequenceIndex(m_item.sequenceIndex)
     , m_thumbRoot(thumbRoot)
-    , m_devicePixelRatio(m_item.devicePixelRatio)
     , m_deviceIdMap(m_item.deviceIdMap)
     , m_preview(QImage())
     , m_mimeMap(mimeMap)
@@ -156,7 +153,7 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
 {
     auto setUpCaching = [this]() {
         short cacheSize = 0;
-        const int longer = std::max(m_item.size.width(), m_item.size.height());
+        const int longer = std::max(m_options.size.width(), m_options.size.height());
         if (longer <= 128) {
             cacheSize = 128;
         } else if (longer <= 256) {
@@ -180,7 +177,7 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
         };
 
         QString thumbDir;
-        int wants = m_item.devicePixelRatio * cacheSize;
+        int wants = m_options.devicePixelRatio * cacheSize;
         for (const auto &p : pools) {
             if (p.minSize < wants) {
                 continue;
@@ -238,7 +235,7 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
         m_plugin = plugin;
         m_thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(m_plugin.value(QStringLiteral("HandleSequences"), false)));
 
-        if (m_item.scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
+        if (m_options.scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
             const QUrl url = m_item.item.targetUrl();
             if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot)) {
                 setUpCaching();
@@ -304,13 +301,13 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_item.item.isSlow()) {
         const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-        skipCurrentItem = !m_ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+        skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
     } else {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
         // Also we need to check if remote (but locally mounted) folder preview is enabled
         const KIO::filesize_t maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
         const bool enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
-        skipCurrentItem = (!m_ignoreMaximumSize && size > maximumRemoteSize) || (m_item.item.isDir() && !enableRemoteFolderThumbnail);
+        skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_item.item.isDir() && !enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
         emitResult();
@@ -318,7 +315,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     bool pluginHandlesSequences = m_plugin.value(QStringLiteral("HandleSequences"), false);
-    if (!m_plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_sequenceIndex && pluginHandlesSequences) || m_thumbPath.isEmpty()) {
+    if (!m_plugin.value(QStringLiteral("CacheThumbnail"), true) || (m_options.sequenceIndex && pluginHandlesSequences) || m_thumbPath.isEmpty()) {
         // This preview will not be cached, no need to look for a saved thumbnail
         // Just create it, and be done
         getOrCreateThumbnail();
@@ -337,7 +334,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         }
 
     });
-    QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_devicePixelRatio);
+    QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
 
     watcher->setFuture(future);
 }
@@ -468,7 +465,7 @@ void FilePreviewJob::slotGetOrCreateThumbnail(KJob *job)
 void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
 {
     // Only download for the first sequence
-    if (m_sequenceIndex) {
+    if (m_options.sequenceIndex) {
         emitResult();
         return;
     }
@@ -561,7 +558,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     QFileInfo info(pixPath);
     Q_ASSERT_X(info.isAbsolute(), "PreviewJobPrivate::createThumbnail", qPrintable(QLatin1String("path is not absolute: ") + info.path()));
 
-    bool save = m_scaleType == PreviewJob::ScaledAndCached && m_plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_sequenceIndex;
+    bool save = m_options.scaleType == PreviewJob::ScaledAndCached && m_plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_options.sequenceIndex;
 
     bool isRemoteProtocol = m_item.item.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
@@ -589,7 +586,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
             return;
         }
 
-        KIO::StandardThumbnailJob *job = new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_size.width() * m_devicePixelRatio, pixPath, m_tempDirPath);
+        KIO::StandardThumbnailJob *job =
+            new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_options.size.width() * m_options.devicePixelRatio, pixPath, m_tempDirPath);
         connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
@@ -607,8 +605,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         slotThumbData(job, data);
     });
     connect(job, &KIO::TransferJob::result, this, &FilePreviewJob::emitResult);
-    int thumb_width = m_size.width();
-    int thumb_height = m_size.height();
+    int thumb_width = m_options.size.width();
+    int thumb_height = m_options.size.height();
     if (save) {
         thumb_width = thumb_height = m_cacheSize;
     }
@@ -618,13 +616,13 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
     job->addMetaData(QStringLiteral("plugin"), m_plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), m_enabledPlugins.join(QLatin1Char(',')));
-    job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_devicePixelRatio));
+    job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_options.devicePixelRatio));
     job->addMetaData(QStringLiteral("cache"), QString::number(m_currentDeviceCachePolicy == CachePolicy::Allow));
-    if (m_sequenceIndex) {
-        job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_sequenceIndex));
+    if (m_options.sequenceIndex) {
+        job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_options.sequenceIndex));
     }
 
-    size_t requiredSize = thumb_width * m_devicePixelRatio * thumb_height * m_devicePixelRatio * 4;
+    size_t requiredSize = thumb_width * m_options.devicePixelRatio * thumb_height * m_options.devicePixelRatio * 4;
     m_shm = SHM::create(requiredSize);
 
     if (m_shm) {
@@ -681,7 +679,7 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
 
 void FilePreviewJob::saveThumbnailData(QImage &thumb)
 {
-    const bool save = m_scaleType == PreviewJob::ScaledAndCached && !m_sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
+    const bool save = m_options.scaleType == PreviewJob::ScaledAndCached && !m_options.sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
         && m_plugin.value(QStringLiteral("CacheThumbnail"), true)
         && (!m_item.item.targetUrl().isLocalFile() || !m_item.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_thumbRoot));
 
@@ -717,8 +715,8 @@ void FilePreviewJob::emitPreview(const QImage &thumb)
     const qreal ratio = thumb.devicePixelRatio();
 
     QImage preview = thumb;
-    if (preview.width() > m_size.width() * ratio || preview.height() > m_size.height() * ratio) {
-        preview = preview.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    if (preview.width() > m_options.size.width() * ratio || preview.height() > m_options.size.height() * ratio) {
+        preview = preview.scaled(QSize(m_options.size.width() * ratio, m_options.size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
     m_preview = preview;
