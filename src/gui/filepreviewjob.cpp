@@ -60,12 +60,15 @@ public:
     QMap<QString, int> m_deviceIdMap;
 };
 
-FilePreviewJob::FilePreviewJob(const PreviewItem &item, const PreviewOptions &options, const PreviewSetupData &setupData)
-    : m_item(item)
+FilePreviewJob::FilePreviewJob(const KFileItem &fileItem,
+                               const QMap<QString, int> &deviceIdMap,
+                               const PreviewOptions &options,
+                               const PreviewSetupData &setupData)
+    : m_fileItem(fileItem)
     , m_options(options)
     , m_setupData(setupData)
     , m_cacheSize(0)
-    , m_deviceIdMap(m_item.deviceIdMap)
+    , m_deviceIdMap(deviceIdMap)
     , m_preview(QImage())
 {
 }
@@ -87,7 +90,7 @@ FilePreviewJob::~FilePreviewJob()
 void FilePreviewJob::start()
 {
     // If our deviceIdMap does not have these items, run FilePreviewStatJob to get them
-    auto parentDir = parentDirPath(m_item.item.localPath());
+    auto parentDir = parentDirPath(m_fileItem.localPath());
     QStringList paths;
     if (!m_deviceIdMap.contains(m_setupData.thumbRoot)) {
         paths.append(m_setupData.thumbRoot);
@@ -125,18 +128,18 @@ QString FilePreviewJob::parentDirPath(const QString &path) const
 
 void FilePreviewJob::statFile()
 {
-    if (!m_item.item.targetUrl().isValid()) {
+    if (!m_fileItem.targetUrl().isValid()) {
         emitResult();
         return;
     }
     // We need to first check the device id's so we can find out if the images can be cached
     QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode;
 
-    if (!m_item.item.isMimeTypeKnown()) {
+    if (!m_fileItem.isMimeTypeKnown()) {
         details.setFlag(KIO::StatMimeType);
     }
 
-    KIO::Job *statJob = KIO::stat(m_item.item.targetUrl(), StatJob::SourceSide, details, KIO::HideProgressInfo);
+    KIO::Job *statJob = KIO::stat(m_fileItem.targetUrl(), StatJob::SourceSide, details, KIO::HideProgressInfo);
     statJob->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
@@ -221,7 +224,7 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
         const KPluginMetaData plugin = *pluginIt;
 
         if (!plugin.isValid()) {
-            qCDebug(KIO_GUI) << "Plugin for item " << m_item.item << " is not valid. Emitting result.";
+            qCDebug(KIO_GUI) << "Plugin for item " << m_fileItem << " is not valid. Emitting result.";
             return false;
         }
 
@@ -230,14 +233,14 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
         m_thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(m_plugin.value(QStringLiteral("HandleSequences"), false)));
 
         if (m_options.scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-            const QUrl url = m_item.item.targetUrl();
+            const QUrl url = m_fileItem.targetUrl();
             if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_setupData.thumbRoot)) {
                 setUpCaching();
             }
         }
         return true;
     } else {
-        qCDebug(KIO_GUI) << "Could not get plugin for, " << m_item.item << " - emitting result.";
+        qCDebug(KIO_GUI) << "Could not get plugin for, " << m_fileItem << " - emitting result.";
         return false;
     }
 }
@@ -251,7 +254,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
     bool isLocal;
 
-    const QUrl itemUrl = m_item.item.mostLocalUrl(&isLocal);
+    const QUrl itemUrl = m_fileItem.mostLocalUrl(&isLocal);
     const KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     const KIO::UDSEntry statResult = statJob->statResult();
     m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
@@ -259,10 +262,10 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     // If we stat'd the file already, might as well report it back.
     if (!statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty()) {
-        m_item.item = KFileItem(statResult, m_item.item.url());
+        m_fileItem = KFileItem(statResult, m_fileItem.url());
     }
 
-    if (!preparePluginForMimetype(m_item.item.mimetype())) {
+    if (!preparePluginForMimetype(m_fileItem.mimetype())) {
         emitResult();
         return;
     }
@@ -277,7 +280,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         }
     } else {
         // Don't include the password if any
-        m_origName = m_item.item.targetUrl().toEncoded(QUrl::RemovePassword);
+        m_origName = m_fileItem.targetUrl().toEncoded(QUrl::RemovePassword);
     }
 
     QCryptographicHash md5(QCryptographicHash::Md5);
@@ -286,14 +289,14 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0 && !statResult.isDir()) {
-        qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, might be a broken symlink" << m_item.item.url();
+        qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, might be a broken symlink" << m_fileItem.url();
         emitResult();
         return;
     }
 
     bool skipCurrentItem = false;
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_item.item.isSlow()) {
+    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isSlow()) {
         const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
         skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
     } else {
@@ -301,7 +304,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         // Also we need to check if remote (but locally mounted) folder preview is enabled
         const KIO::filesize_t maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
         const bool enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
-        skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_item.item.isDir() && !enableRemoteFolderThumbnail);
+        skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_fileItem.isDir() && !enableRemoteFolderThumbnail);
     }
     if (skipCurrentItem) {
         emitResult();
@@ -357,7 +360,7 @@ bool FilePreviewJob::isCacheValid(const QImage &thumb)
     }
 
     const QString origSize = thumb.text(QStringLiteral("Thumb::Size"));
-    if (!origSize.isEmpty() && origSize.toULongLong() != m_item.item.size()) {
+    if (!origSize.isEmpty() && origSize.toULongLong() != m_fileItem.size()) {
         // Thumb::Size is not required, but if it is set it should match
         return false;
     }
@@ -391,14 +394,13 @@ bool FilePreviewJob::isCacheValid(const QImage &thumb)
 void FilePreviewJob::getOrCreateThumbnail()
 {
     // We still need to load the orig file ! (This is getting tedious) :)
-    const KFileItem &item = m_item.item;
-    const QString localPath = item.localPath();
+    const QString localPath = m_fileItem.localPath();
     if (!localPath.isEmpty()) {
         createThumbnail(localPath);
         return;
     }
 
-    if (item.isDir() || !KProtocolInfo::isKnownProtocol(item.targetUrl().scheme())) {
+    if (m_fileItem.isDir() || !KProtocolInfo::isKnownProtocol(m_fileItem.targetUrl().scheme())) {
         // Skip remote dirs (bug 208625)
         emitResult();
         return;
@@ -406,11 +408,11 @@ void FilePreviewJob::getOrCreateThumbnail()
     // The plugin does not support this remote content, either copy the
     // file, or try to get a local path using KIOFuse
     if (m_tryKioFuse) {
-        createThumbnailViaFuse(item.targetUrl(), item.mostLocalUrl());
+        createThumbnailViaFuse(m_fileItem.targetUrl(), m_fileItem.mostLocalUrl());
         return;
     }
 
-    createThumbnailViaLocalCopy(item.mostLocalUrl());
+    createThumbnailViaLocalCopy(m_fileItem.mostLocalUrl());
 }
 
 void FilePreviewJob::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &localUrl)
@@ -465,7 +467,6 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
     }
     // No plugin support access to this remote content, copy the file
     // to the local machine, then create the thumbnail
-    const KFileItem &item = m_item.item;
 
     // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
     QString krun_writable =
@@ -475,7 +476,9 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
         emitResult();
         return;
     }
-    m_tempName = QStringLiteral("%1%2.%3").arg(krun_writable, QUuid(item.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces), item.suffix());
+    m_tempName = QStringLiteral("%1%2.%3").arg(krun_writable,
+                                               QUuid(m_fileItem.mostLocalUrl().toString()).createUuid().toString(QUuid::WithoutBraces),
+                                               m_fileItem.suffix());
 
     KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(m_tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
@@ -554,7 +557,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
 
     bool save = m_options.scaleType == PreviewJob::ScaledAndCached && m_plugin.value(QStringLiteral("CacheThumbnail"), true) && !m_options.sequenceIndex;
 
-    bool isRemoteProtocol = m_item.item.localPath().isEmpty();
+    bool isRemoteProtocol = m_fileItem.localPath().isEmpty();
     m_currentDeviceCachePolicy = isRemoteProtocol ? CachePolicy::Allow : canBeCached(pixPath);
 
     if (m_currentDeviceCachePolicy == CachePolicy::Unknown) {
@@ -605,7 +608,7 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         thumb_width = thumb_height = m_cacheSize;
     }
 
-    job->addMetaData(QStringLiteral("mimeType"), m_item.item.mimetype());
+    job->addMetaData(QStringLiteral("mimeType"), m_fileItem.mimetype());
     job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
     job->addMetaData(QStringLiteral("plugin"), m_plugin.fileName());
@@ -675,13 +678,13 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
 {
     const bool save = m_options.scaleType == PreviewJob::ScaledAndCached && !m_options.sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
         && m_plugin.value(QStringLiteral("CacheThumbnail"), true)
-        && (!m_item.item.targetUrl().isLocalFile() || !m_item.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_setupData.thumbRoot));
+        && (!m_fileItem.targetUrl().isLocalFile() || !m_fileItem.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_setupData.thumbRoot));
 
     if (save) {
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(m_origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(m_tOrig.toSecsSinceEpoch()));
-        thumb.setText(QStringLiteral("Thumb::Size"), number(m_item.item.size()));
-        thumb.setText(QStringLiteral("Thumb::Mimetype"), m_item.item.mimetype());
+        thumb.setText(QStringLiteral("Thumb::Size"), number(m_fileItem.size()));
+        thumb.setText(QStringLiteral("Thumb::Mimetype"), m_fileItem.mimetype());
         QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
         QString signature = QLatin1String("KDE Thumbnail Generator ") + m_plugin.name();
         if (!thumbnailerVersion.isEmpty()) {
