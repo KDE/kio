@@ -99,7 +99,8 @@ public:
     QMap<QString, QString> thumbnailWorkerMetaData() const;
     QMap<QString, int> deviceIdMap() const;
     QImage previewImage() const;
-    PreviewItem item() const;
+    const KFileItem &item() const;
+
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
@@ -176,6 +177,11 @@ inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const PreviewOpti
 {
     auto job = new FilePreviewJob(item, options, setupData);
     return job;
+}
+
+inline const KFileItem &FilePreviewJob::item() const
+{
+    return m_item.item;
 }
 }
 
