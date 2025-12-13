@@ -43,21 +43,18 @@ public:
         , options{size, s_defaultDevicePixelRatio, false, 0, PreviewJob::ScaleType::ScaledAndCached}
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
-        thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+        setupData.thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
     KFileItemList fileItems;
 
     PreviewOptions options;
-    QStringList enabledPlugins;
-    // Root of thumbnail cache
-    QString thumbRoot;
+    PreviewSetupData setupData;
+
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
     // Cache the deviceIdMap so we dont need to stat the files every time
     QMap<QString, int> deviceIdMap;
-
-    QMap<QString, KPluginMetaData> mimeMap;
 
     void startNextFilePreviewJobBatch();
     void startPreview();
@@ -81,9 +78,9 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     if (enabledPlugins) {
-        d->enabledPlugins = *enabledPlugins;
+        d->setupData.enabledPluginIds = *enabledPlugins;
     } else {
-        d->enabledPlugins =
+        d->setupData.enabledPluginIds =
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
     }
@@ -117,11 +114,11 @@ void PreviewJobPrivate::startPreview()
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
 
     for (const KPluginMetaData &plugin : plugins) {
-        bool pluginIsEnabled = enabledPlugins.contains(plugin.pluginId());
+        bool pluginIsEnabled = setupData.enabledPluginIds.contains(plugin.pluginId());
         const auto mimeTypes = plugin.mimeTypes();
         for (const QString &mimeType : mimeTypes) {
-            if (pluginIsEnabled && !mimeMap.contains(mimeType)) {
-                mimeMap.insert(mimeType, plugin);
+            if (pluginIsEnabled && !setupData.pluginByMimeTable.contains(mimeType)) {
+                setupData.pluginByMimeTable.insert(mimeType, plugin);
             }
         }
     }
@@ -187,7 +184,7 @@ void PreviewJobPrivate::startNextFilePreviewJobBatch()
 {
     Q_Q(PreviewJob);
 
-    if (q->subjobs().count() == 0 && fileItems.empty()) {
+    if (q->subjobs().empty() && fileItems.empty()) {
         q->emitResult();
         return;
     }
@@ -199,7 +196,7 @@ void PreviewJobPrivate::startNextFilePreviewJobBatch()
         PreviewItem previewItem;
         previewItem.item = fileItem;
         previewItem.deviceIdMap = deviceIdMap;
-        FilePreviewJob *job = KIO::filePreviewJob(previewItem, options, thumbRoot, mimeMap, enabledPlugins);
+        FilePreviewJob *job = KIO::filePreviewJob(previewItem, options, setupData);
         q->addSubjob(job);
         job->start();
     }

@@ -29,6 +29,14 @@ struct PreviewOptions {
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
 };
 
+struct PreviewSetupData {
+    // Root of thumbnail cache
+    QString thumbRoot;
+
+    QMap<QString, KPluginMetaData> pluginByMimeTable;
+    QStringList enabledPluginIds;
+};
+
 struct PreviewItem {
     KFileItem item;
     QMap<QString, int> deviceIdMap;
@@ -83,11 +91,7 @@ class FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
-    FilePreviewJob(const PreviewItem &item,
-                   const PreviewOptions &options,
-                   const QString &thumbRoot,
-                   const QMap<QString, KPluginMetaData> &mimeMap,
-                   const QStringList &enabledPlugins);
+    FilePreviewJob(const PreviewItem &item, const PreviewOptions &options, const PreviewSetupData &setupData);
     ~FilePreviewJob();
 
     void start() override;
@@ -110,7 +114,6 @@ private:
         Unknown
     } m_currentDeviceCachePolicy = Unknown;
 
-    const QStringList m_enabledPlugins;
     // The current item
     KIO::PreviewItem m_item;
     // The modification time of that URL
@@ -124,6 +127,7 @@ private:
     QString m_thumbName;
 
     const PreviewOptions m_options;
+    const PreviewSetupData m_setupData;
 
     // Unscaled size of thumbnail (128, 256 or 512 if cache is enabled)
     short m_cacheSize;
@@ -131,8 +135,6 @@ private:
     QString m_tempName;
     // The shared memory
     std::unique_ptr<SHM> m_shm;
-    // Root of thumbnail cache
-    QString m_thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> m_thumbnailWorkerMetaData;
     static const int m_idUnknown = -1;
@@ -149,8 +151,6 @@ private:
 
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
-
-    const QMap<QString, KPluginMetaData> m_mimeMap;
 
     void statFile();
     void getOrCreateThumbnail();
@@ -172,13 +172,9 @@ private:
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);
 };
 
-inline FilePreviewJob *filePreviewJob(const PreviewItem &item,
-                                      const PreviewOptions &options,
-                                      const QString &thumbRoot,
-                                      const QMap<QString, KPluginMetaData> &mimeMap,
-                                      const QStringList &enabledPlugins)
+inline FilePreviewJob *filePreviewJob(const PreviewItem &item, const PreviewOptions &options, const PreviewSetupData &setupData)
 {
-    auto job = new FilePreviewJob(item, options, thumbRoot, mimeMap, enabledPlugins);
+    auto job = new FilePreviewJob(item, options, setupData);
     return job;
 }
 }
