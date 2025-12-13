@@ -715,6 +715,11 @@ void FilePreviewJob::emitPreview(const QImage &thumb)
     QImage preview = thumb;
     if (preview.width() > m_size.width() * ratio || preview.height() > m_size.height() * ratio) {
         preview = preview.scaled(QSize(m_size.width() * ratio, m_size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+        // Fallback if the scaling fails
+        if (preview.isNull()) {
+            preview = thumb;
+        }
     }
 
     m_preview = preview;
