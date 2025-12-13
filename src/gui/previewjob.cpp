@@ -51,10 +51,7 @@ public:
 
     KFileItemList fileItems;
     QStringList enabledPlugins;
-    // Our todo list :)
-    // We remove the first item at every step, so use std::list
     QSize size;
-    std::list<PreviewItem> items;
     // Whether the thumbnail should be scaled ando/or saved
     PreviewJob::ScaleType scaleType;
     bool ignoreMaximumSize;
@@ -136,19 +133,6 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    for (const auto &fileItem : std::as_const(fileItems)) {
-        PreviewItem previewItem;
-        previewItem.item = fileItem;
-        previewItem.devicePixelRatio = devicePixelRatio;
-        previewItem.sequenceIndex = sequenceIndex;
-        previewItem.ignoreMaximumSize = ignoreMaximumSize;
-        previewItem.scaleType = scaleType;
-        previewItem.size = size;
-        previewItem.deviceIdMap = deviceIdMap;
-        items.push_back(previewItem);
-    }
-
-    fileItems.clear();
     determineNextFile();
 }
 
@@ -157,11 +141,11 @@ void PreviewJob::removeItem(const QUrl &url)
 {
     Q_D(PreviewJob);
 
-    auto it = std::find_if(d->items.cbegin(), d->items.cend(), [&url](const PreviewItem &pItem) {
-        return url == pItem.item.url();
+    auto it = std::find_if(d->fileItems.cbegin(), d->fileItems.cend(), [&url](const KFileItem &pItem) {
+        return url == pItem.url();
     });
-    if (it != d->items.cend()) {
-        d->items.erase(it);
+    if (it != d->fileItems.cend()) {
+        d->fileItems.erase(it);
     }
 
     for (auto subjob : subjobs()) {
@@ -210,16 +194,24 @@ void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
 
-    if (q->subjobs().count() == 0 && items.empty()) {
+    if (q->subjobs().count() == 0 && fileItems.empty()) {
         q->emitResult();
         return;
     }
 
-    const int jobsToRun = qMin((int)items.size(), maximumWorkers - q->subjobs().count());
+    const int jobsToRun = qMin((int)fileItems.size(), maximumWorkers - q->subjobs().count());
     for (int i = 0; i < jobsToRun; i++) {
-        auto item = items.front();
-        items.pop_front();
-        FilePreviewJob *job = KIO::filePreviewJob(item, thumbRoot, mimeMap, enabledPlugins);
+        auto fileItem = fileItems.front();
+        fileItems.pop_front();
+        PreviewItem previewItem;
+        previewItem.item = fileItem;
+        previewItem.devicePixelRatio = devicePixelRatio;
+        previewItem.sequenceIndex = sequenceIndex;
+        previewItem.ignoreMaximumSize = ignoreMaximumSize;
+        previewItem.scaleType = scaleType;
+        previewItem.size = size;
+        previewItem.deviceIdMap = deviceIdMap;
+        FilePreviewJob *job = KIO::filePreviewJob(previewItem, thumbRoot, mimeMap, enabledPlugins);
         q->addSubjob(job);
         job->start();
     }
