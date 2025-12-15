@@ -20,6 +20,7 @@
 #include <QMimeDatabase>
 #include <QPixmap>
 #include <QStandardPaths>
+#include <QTimer>
 
 #include "job_p.h"
 
@@ -110,8 +111,11 @@ public:
     // Cache the deviceIdByPathTable so we dont need to stat the files every time
     QMap<QString, int> deviceIdByPathTable;
 
+    QTimer nextBatchScheduler;
+
     void startNextFilePreviewJobBatch();
     void startPreview();
+    void scheduleNextFilePreviewJobBatch();
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -166,6 +170,11 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
 
+    nextBatchScheduler.setSingleShot(true);
+    nextBatchScheduler.callOnTimeout(q, [this]() {
+        startNextFilePreviewJobBatch();
+    });
+
     // Load the list of plugins to determine which MIME types are supported
     const QList<KPluginMetaData> plugins = KIO::FilePreviewJob::loadAvailablePlugins();
 
@@ -202,6 +211,13 @@ void PreviewJobPrivate::startPreview()
     pathsFileDeviceIdsJob->start();
 }
 
+void PreviewJobPrivate::scheduleNextFilePreviewJobBatch()
+{
+    if (!nextBatchScheduler.isActive()) {
+        nextBatchScheduler.start();
+    }
+}
+
 #if KIOGUI_BUILD_DEPRECATED_SINCE(6, 22)
 void PreviewJob::removeItem(const QUrl &url)
 {
@@ -219,7 +235,7 @@ void PreviewJob::removeItem(const QUrl &url)
         if (previewJob && previewJob->item().url() == url) {
             subjob->kill();
             removeSubjob(subjob);
-            d->startNextFilePreviewJobBatch();
+            d->scheduleNextFilePreviewJobBatch();
             break;
         }
     }
@@ -313,7 +329,9 @@ void PreviewJob::slotResult(KJob *job)
     if (job->error() > 0) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
-    d->startNextFilePreviewJobBatch();
+    // slot might have been called synchronously from startNextFilePreviewJobBatch(), as KIO::stat currently can do
+    // so always delay the next call to the next event-loop, to ensure startNextFilePreviewJobBatch() has exited
+    d->scheduleNextFilePreviewJobBatch();
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
