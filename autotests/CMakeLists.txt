@@ -157,8 +157,9 @@ if (NOT WIN32)
     kdirmodeltest.cpp
     kdynamicjobtrackernowidgetstest.cpp
     kurlcompletiontest.cpp
+    previewjobtest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
-    LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
+    LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
   set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
   target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
