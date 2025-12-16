@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-10-15 13:37+0300\n"
+"PO-Revision-Date: 2025-12-16 01:53+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -731,7 +731,7 @@ msgstr "Failas yra per didelis, kad galėtų būti perkeltas į šiukšlinę."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Nepavyko surasti ar sukurti šiai vietai skirto šiukšlinės aplanko."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -7048,11 +7048,10 @@ msgstr ""
 "pradžioje, viduryje ir pabaigoje yra vienodas."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Kopijuoti failus"
+msgstr "Palyginti failus"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
@@ -7460,33 +7459,19 @@ msgstr[3] ""
 "nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Šiukšlinė yra pernelyg pilna, kad priimtų šį failą. Ar, vietoj to, ištrinti "
-"jį visam laikui?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Šio veiksmo nebegalėsite atšaukti.</emphasis>"
+"Šiukšlinė neprieinama vietai, kurioje yra šis elementas. Ar, vietoj to, "
+"ištrinti jį visam laikui?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Šio veiksmo nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7497,20 +7482,20 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Šiukšlinė yra pernelyg pilna, kad priimtų šį %1 failą. Ar, vietoj to, "
+"Šiukšlinė neprieinama vietai, kurioje yra šis %1 elementas. Ar, vietoj to, "
 "ištrinti jį visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 msgstr[1] ""
-"Šiukšlinė yra pernelyg pilna, kad priimtų šiuos %1 failus. Ar, vietoj to, "
-"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
+"Šiukšlinė neprieinama vietai, kurioje yra šie %1 elementai. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 msgstr[2] ""
-"Šiukšlinė yra pernelyg pilna, kad priimtų šiuos %1 failus. Ar, vietoj to, "
-"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
+"Šiukšlinė neprieinama vietai, kurioje yra šie %1 elementų. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 msgstr[3] ""
-"Šiukšlinė yra pernelyg pilna, kad priimtų šį %1 failą. Ar, vietoj to, "
-"ištrinti juos visam laikui?<nl/><nl/><emphasis strong='true'>Šio veiksmo "
+"Šiukšlinė neprieinama vietai, kurioje yra šis %1 elementas. Ar, vietoj to, "
+"ištrinti juos visam laikui?<nl/><emphasis strong='true'>Šio veiksmo "
 "nebegalėsite atšaukti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
