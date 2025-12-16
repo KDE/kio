@@ -62,7 +62,6 @@ public:
     Q_DECLARE_PUBLIC(PreviewJob)
 
 private:
-    QDir createTemporaryDir();
     int maximumWorkers = 1;
 };
 
