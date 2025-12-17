@@ -6,7 +6,6 @@
 #ifndef STAT_UNIX_H
 #define STAT_UNIX_H
 
-#include "kioglobal_p.h"
 #include "qplatformdefs.h"
 
 #include <config-stat-unix.h>

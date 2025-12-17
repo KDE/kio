@@ -2,8 +2,6 @@
     SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#include "kiowidgets_export.h"
-#include <QObject>
 
 #ifndef KPROPERTIESDIALOGPLUGIN_H
 #define KPROPERTIESDIALOGPLUGIN_H

@@ -13,7 +13,6 @@
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
-#include <QUrl>
 
 #include "../utils_p.h"
 #include "kiotesthelper.h" // createTestFile

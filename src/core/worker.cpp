@@ -9,7 +9,6 @@
 
 #include "worker_p.h"
 
-#include <config-kiocore.h>
 #include <qplatformdefs.h>
 #include <stdio.h>
 
