@@ -105,6 +105,25 @@ if (TARGET KF6::KIOGui)
 
   # disable some tests that fail on Windows ATM
   if (NOT WIN32)
+
+    # Make sure that we do not install this mock thumbnailplugin globally,
+    # it's only used for previewjobtest.
+    set(KCOREADDONS_INTERNAL_SKIP_PLUGIN_INSTALLATION TRUE)
+    kcoreaddons_add_plugin(mockthumbnailplugin
+        INSTALL_NAMESPACE "kf6/thumbcreator"
+        SOURCES mockthumbnailplugin.cpp
+    )
+    target_link_libraries(mockthumbnailplugin
+        Qt::Gui
+        KF6::KIOCore
+        KF6::KIOGui
+    )
+    set(KCOREADDONS_INTERNAL_SKIP_PLUGIN_INSTALLATION FALSE)
+    ecm_add_tests(
+      previewjobtest.cpp
+      LINK_LIBRARIES KF6::KIOCore KF6::KIOGui Qt6::Test
+    )
+
     foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
       foreach(_systemd "" "SCOPE" "SERVICE")
         set(_scope 0)
@@ -157,9 +176,8 @@ if (NOT WIN32)
     kdirmodeltest.cpp
     kdynamicjobtrackernowidgetstest.cpp
     kurlcompletiontest.cpp
-    previewjobtest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
-    LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
+    LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
   set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
   target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")

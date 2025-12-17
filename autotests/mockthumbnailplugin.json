@@ -1,0 +1,10 @@
+{
+    "CacheThumbnail": true,
+    "KPlugin": {
+        "MimeTypes": [
+            "image/png"
+        ],
+        "Name": "MockThumbnailPlugin",
+        "EnabledByDefault": false
+    }
+}
