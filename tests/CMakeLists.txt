@@ -42,6 +42,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     listjobtest
     openfilemanagerwindowtest
     previewtest
+    faviconfinder
     ${runapplication_EXE}
 )
 
