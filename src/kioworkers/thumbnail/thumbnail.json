@@ -1,0 +1,14 @@
+{
+    "KDE-KIO-Protocols": {
+        "thumbnail": {
+            "Icon": "view-preview",
+            "X-DocPath": "kioworker6/thumbnail/index.html",
+            "input": "stream",
+            "maxInstances": 5,
+            "output": "stream",
+            "protocol": "thumbnail",
+            "reading": true,
+            "source": false
+        }
+    }
+}
