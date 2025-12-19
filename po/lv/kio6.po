@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2403,7 +2403,7 @@ msgstr "„%1“ protokols neatbalsta datņu atvēršanu."
 msgid "Protocol %1 does not support action %2."
 msgstr "„%1“ protokols neatbalsta darbību %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2415,17 +2415,17 @@ msgstr ""
 "paaugstinātas privilēģijas, šobrīd nav garantējama, jo tiesības rediģēt „%2“ "
 "ir sniegtas lietotājiem, kas nav saknes lietotāji."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nezināms protokols — „%1“."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nevarēja atrast KIO strādnieku protokolam „%1“."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2437,12 +2437,12 @@ msgstr ""
 "kas atrodas ārpus „%3“ un lūdz paaugstinātas tiesības, tiek uzskatīti par "
 "nedrošiem."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Nevarēja izveidot ligzdu, lai palaistu KIO strādnieku „%1“ protokolam."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nevar atrast KIO strādnieku „%1“ protokolam"

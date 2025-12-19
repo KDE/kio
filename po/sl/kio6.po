@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-12-09 06:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2414,7 +2414,7 @@ msgstr "Ustvarjanje datotek ni podprto za protokol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 ne podpira dejanja %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2426,17 +2426,17 @@ msgstr ""
 "dovoljenja, ni mogoče zagotoviti, ker imajo uporabniki, ki niso root, "
 "dovoljenje za njegovo spreminjanje na %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Neznan protokol '%1'."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ni mogoče najti programa KIO Worker za protokol '%1'."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2447,13 +2447,13 @@ msgstr ""
 "KIO worker za protokol “%1” v %2 ni bil naložen, ker vsi KIO workerji, ki se "
 "nahajajo zunaj %3 in zahtevajo povišane privilegije, veljajo za nevarne."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ni mogoče ustvariti vtiča za zagon programa KIO Worker za protokol '%1'."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ni mogoče najti izvedljive datoteke 'kioworker' v '%1'."

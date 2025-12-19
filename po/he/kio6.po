@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-12-09 09:56+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2341,7 +2341,7 @@ msgstr "אין תמיכה בפתיחת קבצים בפרוטוקול %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "הפרוטוקול %1 לא תומך בפעולה %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2352,17 +2352,17 @@ msgstr ""
 "האבטחה של סוכן ההפעלה KIO לפרוטוקול ‚%1’, שבדרך כלל מבקש הרשאות מורחבות, "
 "אינה מובטחת כיוון שמשתמשים שאינם root יש הרשאות לשנות אותה דרך %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "הפרוטוקול „%1” לא ידוע."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "אי אפשר למצוא סוכן הפעלה של KIO לפרוטוקול ‚%1’."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2373,12 +2373,12 @@ msgstr ""
 "סוכן ההפעלה של KIO לפרוטוקול „%1” תחת %2 לא נטען כיוון שכל סוכני ההפעלה של "
 "KIO שממוקמים מחוץ ל־%3 ומבקשים הרשאות גבוהות נחשבים מפוקפקים."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "אי אפשר ליצור שקע להפעלת סוכן הפעלה של KIO לפרוטוקול ‚%1’."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "אי אפשר למצוא את קובץ ההפעלה ‚kioworker’ תחת ‚%1’"

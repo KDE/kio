@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-10-01 17:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2376,7 +2376,7 @@ msgstr "Protokol %1 nepodporuje otevírání souborů."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 nepodporuje činnost '%2'."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2385,17 +2385,17 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Neznámý protokol '%1'."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nelze nalézt nástroj KIO pro protokol '%1'."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2404,12 +2404,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Nelze vytvořit socket pro spuštění nástroje KIO pro protokol '%1'."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"

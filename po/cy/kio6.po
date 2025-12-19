@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2438,7 +2438,7 @@ msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2447,18 +2447,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol anhysbys '%1'."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Methu canfod gwas-io i brotocol '%1'."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2467,13 +2467,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Methu creu pill ar gyfer lansio gwas-io am brotocol '%1'."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2327,7 +2327,7 @@ msgstr "प्रोटोकॉल %1 के साथ फ़ाइलें �
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकॉल %1 क्रिया %2 को समर्थित नहीं करता."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2336,18 +2336,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "अज्ञात प्रोटोकॉल '%1'."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "प्रोटोकॉल '%1' के लिए आइओ-स्लेव प्राप्त नहीं कर सका."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2356,13 +2356,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "प्रोटोकॉल '%1' के लिए आइओ-स्लेव प्राप्त नहीं कर सका."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"

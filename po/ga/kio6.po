@@ -2,21 +2,22 @@
 # Copyright (C) 2002, 2004 Free Software Foundation, Inc.
 # Séamus Ó Ciardhuáin <seoc@cnds.ucd.ie>, 2002.
 # Kevin Scannell <kscanne@gmail.com>, 2004.
+# SPDX-FileCopyrightText: 2025 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
-"PO-Revision-Date: 2025-12-03 10:09+0000\n"
-"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
+"PO-Revision-Date: 2025-12-17 00:31+0000\n"
+"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish Team\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2441,7 +2442,7 @@ msgstr "Ní féidir comhaid a oscailt le prótacal %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2453,17 +2454,17 @@ msgstr ""
 "ardaithe de ghnáth, a ráthú mar go bhfuil cead ag úsáideoirí seachas an root "
 "é a mhodhnú ag %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Prótacal anaithnid '%1'."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ní féidir oibrí KIO a aimsiú don phrótacal '%1'."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2475,13 +2476,13 @@ msgstr ""
 "bhfuil slán aon oibrí KIO atá suite lasmuigh de %3 agus a iarrann pribhléidí "
 "ardaithe."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ní féidir soicéad a chruthú chun oibrí KIO a sheoladh don phrótacal '%1'."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ní féidir an comhad inrite 'kioworker' a aimsiú ag '%1'"
@@ -7189,11 +7190,10 @@ msgstr ""
 "n-ábhar mar a chéile ag an tús, sa lár agus ag an deireadh."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Gach Comhad"
+msgstr "Déan Comparáid Comhaid"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format

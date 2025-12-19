@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-12-10 10:00+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2445,7 +2445,7 @@ msgstr "No s'accepta l'obertura de fitxers amb el protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "El protocol %1 no accepta l'acció %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2457,17 +2457,17 @@ msgstr ""
 "permisos elevats, no es pot garantir perquè els usuaris que no siguin "
 "administrador tenen permís per modificar-lo a %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol desconegut «%1»."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "No s'ha pogut trobar un procés de treball KIO per al protocol «%1»."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2479,14 +2479,14 @@ msgstr ""
 "tots els processos de treball KIO que es troben fora de %3 i demanen "
 "privilegis elevats es consideren insegurs."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "No s'ha pogut crear el sòcol per a llançar un procés de treball KIO per al "
 "protocol «%1»."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"

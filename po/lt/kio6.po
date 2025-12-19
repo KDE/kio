@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-12-16 01:53+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2436,7 +2436,7 @@ msgstr "Failų atvėrimas yra nepalaikomas naudojant protokolą %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokolas %1 nepalaiko veiksmo %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2448,17 +2448,17 @@ msgstr ""
 "leidimų, saugumas negali būti garantuotas, nes be supernaudotojo (root) yra "
 "ir kitų naudotojų, turinčių leidimą modifikuoti jį ties %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nežinomas protokolas „%1“."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nepavyksta rasti KIO darbininko, skirto „%1“ protokolui."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2470,14 +2470,14 @@ msgstr ""
 "visi KIO darbininkai, kurie yra už %3 ribų ir prašo didesnių teisių, yra "
 "laikomi nesaugiais."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nepavyko sukurti lizdo, kuris paleistų KIO darbininką, skirtą „%1“ "
 "protokolui."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nepavyko rasti „kioworker“ darbininko ties „%1“"

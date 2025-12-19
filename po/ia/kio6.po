@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-09-02 17:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2443,7 +2443,7 @@ msgstr "Aperir files non es supportate con protocollo %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocollo %1 non supporta action %2."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2455,17 +2455,17 @@ msgstr ""
 "solitemente demanda multe permissiones, pote non esser garantite proque "
 "usatores altere que lo de radice (root) ha permissione a modificar lo a %2."
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocollo '%1' Incognite."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Il non pote trovar KIO worker pro protocollo '%1'."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2477,13 +2477,13 @@ msgstr ""
 "perque omne laboratores de KIO que es locate foras de  %3 e demanda "
 "privilegios elevate es considerata insecure."
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Non pote crear un socket per lancear  un KIO worker pro protocollo '%1'."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Non pote trovar 'ḱioworker' executabile a '%1'"

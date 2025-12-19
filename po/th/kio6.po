@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -2332,7 +2332,7 @@ msgstr "ยังไม่รองรับการเปิดแฟ้มก
 msgid "Protocol %1 does not support action %2."
 msgstr "โพรโทคอล %1 ยังไม่รองรับการกระทำ %2"
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2343,17 +2343,17 @@ msgstr ""
 "ความปลอดภัยของ KIO worker สำหรับโปรโตคอล '%1' ซึ่งโดยทั่วไปจะขอสิทธิ์ขั้นสูง "
 "ไม่สามารถรับประกันได้เนื่องจากผู้ใช้ที่ไม่ใช่ root ที่มีสิทธิ์ในการแก้ไขที่ %2"
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "ไม่รู้จักโพรโทคอล '%1'"
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "ไม่พบ KIO worker สำหรับโพรโทคอล '%1'"
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2364,12 +2364,12 @@ msgstr ""
 "KIO worker สําหรับโปรโตคอล \"%1\" ใน %2 ไม่ได้ถูกโหลด เนื่องจาก KIO worker "
 "ทั้งหมดที่อยู่นอก %3 และขอสิทธิ์การใช้งานที่ยกระดับจะถือว่าไม่ปลอดภัย"
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "ไม่สามารถสร้างซ็อกเก็ตสำหรับการเปิดตัว KIO worker สำหรับโปรโตคอล '%1' ได้"
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "ไม่พบไฟล์ปฏิบัติการ 'kioworker' ที่ '%1'"

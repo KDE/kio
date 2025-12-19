@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:39+0000\n"
+"POT-Creation-Date: 2025-12-19 00:40+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2414,7 +2414,7 @@ msgstr "%1 протоколы файлдарды ашуды қолдамайды
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 протоколы %2 әрекетін қолдамайды."
 
-#: core/worker.cpp:354
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2423,18 +2423,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:392
+#: core/worker.cpp:391
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "'%1' деген протоколы беймәлім."
 
-#: core/worker.cpp:403
+#: core/worker.cpp:402
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1'деген протоколы үшін io-slave процесі табылмады."
 
-#: core/worker.cpp:410
+#: core/worker.cpp:409
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2443,13 +2443,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:422
+#: core/worker.cpp:421
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1'деген протоколы үшін io-slave процесі табылмады."
 
-#: core/worker.cpp:462
+#: core/worker.cpp:461
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
