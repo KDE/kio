@@ -8,7 +8,7 @@
 	
 <article lang="&language;" id="data">
 <title
->Veri &URL;'leri</title>
+>Veri &URL;’leri</title>
 
 <articleinfo>
 <authorgroup>
@@ -42,7 +42,7 @@
 </authorgroup>
 
 <date
->2003-02-06</date>
+>2003‒02‒06</date>
 <!--releaseinfo
 >2.20.00</releaseinfo-->
 
@@ -56,7 +56,7 @@
 >data:,veri</userinput
 > (iki noktadan sonraki virgüle dikkat), <literal
 >veri</literal
->'den başka bir şey içermeyen bir metin dosyası döndürür. </para>
+>’den başka bir şey içermeyen bir metin dosyası döndürür. </para>
 
 <para
 >Son örnek bir metin dosyası döndürdü. &HTML; belgeleri için <literal

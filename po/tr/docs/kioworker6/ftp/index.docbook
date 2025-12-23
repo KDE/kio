@@ -49,11 +49,10 @@
 <para
 >&FTP;, genellikle dünyanın her yerinden &FTP; arşivi sitelerine erişmek, bilgi ve dosyalara kaydedilmiş yazılımların indirilmesini sağlamak için kullanılır. </para>
 
-
 <para
->Kaynak: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
-> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> sayfasından yararlanılarak oluşturulmuştur. </para>
+>RFC hakkında bilgi için bakınız: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Kılavuza bakın: <ulink url="man:/ftp"

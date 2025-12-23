@@ -39,7 +39,7 @@
 </authorgroup>
 
 <date
->2020-09-08</date>
+>2020‒09‒08</date>
 <releaseinfo
 >Frameworks 5.73</releaseinfo>
 
@@ -70,14 +70,14 @@
 
 <para
 >Bunu da yaptısanız; ancak yine de uygulama El Kitabı yerine bu sayfayı görüyorsanız yardım sisteminde bir hata bulmuş olmanız olasıdır. Bu durumda, bunu <ulink url="https://bugs.kde.org/"
->&kde;'nin hata izleyicisinde </ulink
+>&kde;’nin hata izleyicisinde </ulink
 > KIO bileşeni altında bildirin. </para>
 
 <para
 ><ulink url="https://docs.kde.org/"
 >&kde; Belgelendirmesi</ulink
 > sitesinde hiçbir belge bulamadıysanız uygulamanın kendisinin çevrimdışı kullanılabilecek bir belgelendirmesi olmayabilir. Bunu, <ulink url="https://bugs.kde.org/"
->&kde;'nin hata izleyicisinde</ulink
+>&kde;’nin hata izleyicisinde</ulink
 > ilgili uygulama bileşeni altında bildirin. </para>
 
 <para
@@ -85,7 +85,7 @@
 >Kullanıcı Tabanı Belgelendirmesi</ulink
 > veya <ulink url="https://forum.kde.org/"
 >&kde; Topluluk Forumları</ulink
->'na bakın. </para>
+>’na bakın. </para>
 
 <para
 >&kde; dışı uygulamalar için lütfen uygulama yazarıyla iletişime geçerek çevrimdışı belgelendirme var mı yok mu diye sorun.</para>

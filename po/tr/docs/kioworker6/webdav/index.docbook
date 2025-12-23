@@ -31,7 +31,7 @@
 </authorgroup>
 
 <date
->2002-01-21</date>
+>2002‒01‒21</date>
 </articleinfo>
 <para
 ><acronym
@@ -45,7 +45,7 @@
 >ersioning (Dağıtılmış Yazma ve Sürümleme) protokolü anlamına gelir. Bir &HTTP; sunucusundaki belgelerin ve betiklerin kolay yönetimine izin verir ve sürüm yönetimini birden çok yazar arasında kolaylaştırmak için ek özelliklere iyedir.</para>
 
 <para
->Bu protokolün kullanımı pek basittir. Görüntlemek istediğiniz konumu bir &HTTP; &URL;'sine benzer biçimde, yalnızca başında webdav:// protokolü adı ile girin. Örnek olarak, <userinput
+>Bu protokolün kullanımı pek basittir. Görüntülemek istediğiniz konumu bir &HTTP; &URL;’sine benzer biçimde, yalnızca başında webdav:// protokolü adı ile girin. Örnek olarak, <userinput
 >webdav://<replaceable
 >www.alanadı.com/yol/</replaceable
 ></userinput

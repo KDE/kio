@@ -46,7 +46,7 @@
 >http KIO işçisi, tüm &kde; uygulamaları tarafından &HTTP; (web) sunucularına yapılan bağlantıları işlemek için kullanılır. En yaygın kullanımı, &konqueror; web tarayıcısında web sayfalarını görüntülemektir.</para>
 
 <para
->&konqueror;'da https KIO işçisini, ona bir &URL;; örneğin, <userinput
+>&konqueror;’da https KIO işçisini, ona bir &URL;; örneğin, <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput
