@@ -123,7 +123,12 @@ static void checkGpuWithSolid()
         QDBusReply<bool> reply = iface.call(QStringLiteral("hasDualGpu"));
         if (reply.isValid() && reply.value()) {
             s_gpuCheck = GpuCheck::Present;
+            // For AMD and Intel dGPUs using Mesa drivers:
             s_gpuEnv.insert(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
+            // For NVIDIA dGPUs using proprietary or Nouveau drivers:
+            s_gpuEnv.insert(QStringLiteral("__NV_PRIME_RENDER_OFFLOAD"), QStringLiteral("1"));
+            s_gpuEnv.insert(QStringLiteral("__VK_LAYER_NV_optimus"), QStringLiteral("NVIDIA_only"));
+            s_gpuEnv.insert(QStringLiteral("__GLX_VENDOR_LIBRARY_NAME"), QStringLiteral("nvidia"));
             return;
         }
     }
