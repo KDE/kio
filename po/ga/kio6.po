@@ -17,17 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
-"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Séamus Ó Ciardhuáin,Kevin Scannell,Aindriú Mac Giolla Eoin"
+msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "seoc@iolfree.ie,kscanne@gmail.com,aindriu80@gmail.com"
+msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: core/chmodjob.cpp:197
 #, kde-format
@@ -603,7 +602,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "Níorbh fhéidir an bunchomhad %1 a scriosadh.\n"
-"Féach an bhfuil an cead cuí agat."
+"Féach an bhfuil an cead cuí agat.\"\""
 
 #: core/job_error.cpp:202
 #, kde-format
@@ -820,7 +819,7 @@ msgstr ""
 #: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "Seiceáil do cheadanna rochtana ar an acmhainn seo."
+msgstr "An bhfuil cead agat an acmhainn seo a rochtain?"
 
 #: core/job_error.cpp:386
 #, kde-format
@@ -995,7 +994,7 @@ msgstr "Ní féidir an próiseas atá riachtanach don Phrótacal %1 a sheoladh"
 #: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
-msgstr "Ní féidir an próiséas a thosú"
+msgstr "Ní féidir an próiséas a thosú."
 
 #: core/job_error.cpp:463
 #, kde-format
@@ -1264,8 +1263,8 @@ msgstr ""
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
-"B’fhéidir nach bhfuil an t-ainm a chlóscríobh tú, %1, ann: b’fhéidir gur "
-"clóscríobhadh go mícheart é."
+"An t-ainm a chuir tú isteach, %1, seans nach bhfuil sé ann; an ndearna tú "
+"botún nuair a chlóscríobh tú é?"
 
 #: core/job_error.cpp:614
 #, kde-format
@@ -6704,7 +6703,7 @@ msgstr "Athraitheach (Gan Athrú)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Úsáideann an comhad seo ardcheadanna"
+msgstr[0] "Úsáideann an comhad seo ardcheadanna."
 msgstr[1] "Úsáideann na comhaid seo ardcheadanna."
 msgstr[2] "Úsáideann na comhaid seo ardcheadanna."
 msgstr[3] "Úsáideann na comhaid seo ardcheadanna."
