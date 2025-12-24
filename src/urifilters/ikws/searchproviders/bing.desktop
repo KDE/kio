@@ -100,6 +100,7 @@ Query[eu]=https://www.bing.com/search?q=\\{@}
 Query[fa]=https://www.bing.com/search?q=\\{@}
 Query[fi]=https://www.bing.com/search?q=\\{@}
 Query[fr]=https://www.bing.com/search?q=\\{@}
+Query[ga]=https://www.bing.com/search?q=\\{@}
 Query[gl]=https://www.bing.com/search?q=\\{@}
 Query[he]=https://www.bing.com/search?q=\\{@}&setlang=he
 Query[hu]=https://www.bing.com/search?q=\\{@}

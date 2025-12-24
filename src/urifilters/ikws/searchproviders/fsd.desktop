@@ -115,6 +115,7 @@ Query[eu]=https://directory.fsf.org/search/?query=\\{@}
 Query[fa]=https://directory.fsf.org/search/?query=\\{@}
 Query[fi]= http://directory.fsf.org/search/?query=\\{@}
 Query[fr]=https://directory.fsf.org/search/?query=\\{@}
+Query[ga]=https://directory.fsf.org/search/?query=\\{@}
 Query[gl]=https://directory.fsf.org/search/?query=\\{@}
 Query[he]=https://directory.fsf.org/search/?query=\\{@}
 Query[hu]=https://directory.fsf.org/search/?query=\\{@}

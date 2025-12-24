@@ -21,6 +21,7 @@ Name[eu]=WineHQ datu-basea
 Name[fa]=پایگاه دادهٔ واین‌اچ‌کیو
 Name[fi]=WineHQ-tietokanta
 Name[fr]=Base de données de WineHQ
+Name[ga]=Bunachar Sonraí WineHQ
 Name[gl]=Base de datos de WineHQ
 Name[he]=מסד הנתונים של WineHQ
 Name[ia]=Base de Datos de WineHQ
@@ -44,7 +45,7 @@ Name[ru]=База данных WineHQ
 Name[sk]=Databáza WineHQ
 Name[sl]=Podatkovna zbirka WineHQ
 Name[sv]=WineHQ-databas
-Name[tr]=WineHQ Veritabanı
+Name[tr]=WineHQ Veri Tabanı
 Name[uk]=База даних WineHQ
 Name[vi]=Cơ sở dữ liệu WineHQ
 Name[zh_CN]=WineHQ 数据库
@@ -73,6 +74,7 @@ Query[eu]=https://www.winehq.org/search?q=\\{@}
 Query[fa]=https://www.winehq.org/search?q=\\{@}
 Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
+Query[ga]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}
 Query[ia]=https://www.winehq.org/search?q=\\{@}
 Query[id]=https://www.winehq.org/search?q=\\{@}

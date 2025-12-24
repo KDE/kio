@@ -117,6 +117,7 @@ Query[eu]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[fa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[fi]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[fr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[ga]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[gd]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[gl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[hi]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

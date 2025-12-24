@@ -23,6 +23,7 @@ Name[eu]=KDEren akatsak
 Name[fa]=اشکال‌های KDE
 Name[fi]=KDE Bugs
 Name[fr]=Bogues de KDE
+Name[ga]=Fabhtanna KDE
 Name[gl]=KDE Bugs
 Name[he]=תקלות ב־KDE
 Name[hu]=KDE Bugs
@@ -77,6 +78,7 @@ Query[eu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[fa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[fi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[fr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[ga]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gd]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

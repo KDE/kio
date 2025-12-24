@@ -84,7 +84,7 @@ Name[te]=ఇంటర్‌నెట్ చలనచిత్ర డాటాబ
 Name[tg]=Пойгоҳи иттилоотии интернетӣ
 Name[th]=ฐานข้อมูลภาพยนตร์ทางอินเทอร์เน็ต
 Name[tok]=ilo alasa IMDB
-Name[tr]=İnternet Film Veritabanı
+Name[tr]=İnternet Film Veri Tabanı
 Name[ug]=ئىنتېرنېت كىنو ساندىنى
 Name[uk]=База даних кінофільмів в Інтернет
 Name[uz]=Internetdagi kino maʼlumot bazasi
@@ -116,6 +116,7 @@ Query[eu]=https://imdb.com/find?s=all&q=\\{@}
 Query[fa]=https://imdb.com/find?s=all&q=\\{@}
 Query[fi]=https://imdb.com/find?s=all&q=\\{@}
 Query[fr]=https://imdb.com/find?s=all&q=\\{@}
+Query[ga]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[hu]=https://imdb.com/find?s=all&q=\\{@}
 Query[ia]=https://imdb.com/find?s=all&q=\\{@}

@@ -21,6 +21,7 @@ Name[eu]=KDE Invent gaiak
 Name[fa]=مسائل اختراع KDE
 Name[fi]=KDE Inventin ongelmat
 Name[fr]=Problèmes de KDE Invent
+Name[ga]=Fadhbanna Invent KDE
 Name[gl]=Tíckets de KDE Invent
 Name[he]=בעיות ב־KDE Invent
 Name[ia]=Questiones de KDE Invent
@@ -71,6 +72,7 @@ Query[eu]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fa]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ga]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[id]=https://invent.kde.org/search?scope=issues&search=\\{@}

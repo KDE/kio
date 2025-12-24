@@ -23,6 +23,7 @@ Name[eu]=Qt6-ren lerroko dokumentazioa
 Name[fa]=مستندات برخط کیوت۶
 Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
+Name[ga]=Doiciméadú Ar Líne Qt6
 Name[gl]=Documentación en liña de Qt6
 Name[he]=התיעוד המקוון של Qt6
 Name[ia]=Documentation in linea de Qt6
@@ -72,6 +73,7 @@ Query[eu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fa]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[ga]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[he]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

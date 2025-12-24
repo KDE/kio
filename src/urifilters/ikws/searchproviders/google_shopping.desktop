@@ -23,6 +23,7 @@ Name[eu]=Google erosketak
 Name[fa]=خرید گوگل
 Name[fi]=Google Shopping
 Name[fr]=Boutique « Google »
+Name[ga]=Siopadóireacht Google
 Name[gd]=Google Shopping
 Name[gl]=Compras en Google
 Name[he]=קניות Google
@@ -89,6 +90,7 @@ Query[eu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fa]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[ga]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gd]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[hi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

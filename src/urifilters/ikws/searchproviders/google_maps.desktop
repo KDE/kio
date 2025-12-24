@@ -100,6 +100,7 @@ Query[eu]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[fa]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[fi]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[fr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[ga]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[gd]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[gl]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[hi]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
