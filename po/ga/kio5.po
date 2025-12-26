@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-12-17 00:31+0000\n"
+"PO-Revision-Date: 2025-12-25 04:20+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
-"Language-Team: Irish Team\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -313,10 +314,9 @@ msgid ""
 msgstr ""
 
 #: core/job.cpp:277
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgid "Copy Files"
-msgstr "Gach Comhad"
+msgstr "Cóipeáil Comhaid"
 
 #: core/job.cpp:279
 #, kde-format
@@ -2950,11 +2950,10 @@ msgid "Root Folder"
 msgstr "Fillteán Fréamh"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgid "&Browse..."
+#, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "&Brabhsáil..."
+msgstr "Brabhsáil..."
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -4133,10 +4132,9 @@ msgstr ""
 "%1"
 
 #: ioslaves/file/file.cpp:828
-#, fuzzy, kde-format
-#| msgid "mounting is not supported by wince."
+#, kde-format
 msgid "mounting is not supported by Windows CE."
-msgstr "ní thacaíonn wince le feistiú."
+msgstr "ní thacaíonn Windows CE le feistiú."
 
 #: ioslaves/file/file.cpp:858
 #, kde-format
@@ -4190,11 +4188,9 @@ msgid "Remove Directory"
 msgstr "Comhadlann"
 
 #: ioslaves/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create directory"
+#, kde-format
 msgid "Create Directory"
-msgstr "Cruthaigh comhadlann"
+msgstr "Cruthaigh Comhadlann"
 
 #: ioslaves/file/file_unix.cpp:117
 #, fuzzy, kde-format
@@ -4204,22 +4200,19 @@ msgid "Directory Permissions: %1"
 msgstr "Ceadanna"
 
 #: ioslaves/file/file_unix.cpp:120
-#, fuzzy, kde-format
-#| msgid "Open File Manager"
+#, kde-format
 msgid "Open File"
-msgstr "Oscail Bainisteoir Comhad"
+msgstr "Oscail Comhad"
 
 #: ioslaves/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "Directory"
+#, kde-format
 msgid "Open Directory"
-msgstr "Comhadlann"
+msgstr "Oscail Comhadlann"
 
 #: ioslaves/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "New Filename: %1"
-msgstr "Ainm comhaid:"
+msgstr "Ainm Comhaid Nua: %1"
 
 #: ioslaves/file/file_unix.cpp:131
 #, fuzzy, kde-format
@@ -5843,18 +5836,12 @@ msgid ""
 msgstr ""
 
 #: kioexec/kioexecd.cpp:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "The file\n"
-#| "%1\n"
-#| "has been modified.\n"
-#| "Do you want to upload the changes?"
+#, kde-format
 msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
 msgstr ""
-"Athraíodh an comhad\n"
-"%1.\n"
+"Athraíodh an comhad %1.\n"
 "An bhfuil fonn ort na hathruithe a uasluchtú?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
@@ -6732,8 +6719,7 @@ msgid "You do not have permission to access the %1 protocol."
 msgstr "Níl cead agat prótacal %1 a rochtain."
 
 #: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Name label from web search keyword column"
 msgid "Name"
 msgstr "Ainm"
@@ -6901,7 +6887,7 @@ msgstr ""
 #, kde-format
 msgctxt "Space as keyword delimiter"
 msgid "Space"
-msgstr ""
+msgstr "Spás"
 
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
@@ -6938,12 +6924,10 @@ msgid ""
 msgstr ""
 
 #: urifilters/ikws/searchproviderdlg.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
-msgstr "%1: %2"
+msgstr "- %1: \"%2\""
 
 #: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
@@ -7262,8 +7246,7 @@ msgid "Do not ask again"
 msgstr "Ná fiafraigh díom arís"
 
 #: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "E&xecute"
+#, kde-format
 msgid "&Execute"
 msgstr "&Rith"
 
@@ -7476,18 +7459,16 @@ msgid "SSL"
 msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Add..."
 msgstr "Cuir Leis..."
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Eagar"
+msgstr "Eagar..."
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7717,12 +7698,10 @@ msgid "&Actions"
 msgstr "Gníomh&artha"
 
 #: widgets/kfileitemactions.cpp:858
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With..."
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Oscail Le..."
+msgstr "&Oscail Fillteán Le..."
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
