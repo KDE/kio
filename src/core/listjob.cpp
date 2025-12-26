@@ -139,6 +139,8 @@ void ListJobPrivate::filterAndEmitEntries(const KIO::UDSEntryList &list)
     Q_Q(ListJob);
 
     const bool includeHidden = listFlags.testFlag(ListJob::ListFlag::IncludeHidden);
+    const bool excludeDot = listFlags.testFlag(ListJob::ListFlag::ExcludeDot);
+    const bool excludeDotDot = listFlags.testFlag(ListJob::ListFlag::ExcludeDotDot);
 
     // Emit progress info (takes care of emit processedSize and percent)
     m_processedEntries += list.count();
@@ -147,7 +149,7 @@ void ListJobPrivate::filterAndEmitEntries(const KIO::UDSEntryList &list)
     // Not recursive, or top-level of recursive listing : return now (send . and .. as well)
     // exclusion of hidden files also requires the full sweep, but the case for full-listing
     // a single dir is probably common enough to justify the shortcut
-    if (m_prefix.isNull() && includeHidden) {
+    if (m_prefix.isNull() && includeHidden && !excludeDot && !excludeDotDot) {
         Q_EMIT q->entries(q, list);
     } else {
         UDSEntryList newlist = list;
@@ -157,13 +159,27 @@ void ListJobPrivate::filterAndEmitEntries(const KIO::UDSEntryList &list)
         // Same for repeat calls to stringValue().
         // Benchmark before you decide to make improvements here!
 
-        auto removeFunc = [this, includeHidden](const UDSEntry &entry) {
+        auto removeFunc = [this, includeHidden, excludeDot, excludeDotDot](const UDSEntry &entry) {
             const QString filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
+
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
-            // the toplevel dir, and skip hidden files/dirs if that was requested
-            const bool shouldEmit = (m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
-                && (includeHidden || (filename[0] != QLatin1Char('.')));
-            return !shouldEmit;
+            // the toplevel dir unless excludeDot/excludeDotDot were passed
+            if (m_prefix.isNull()) {
+                if ((excludeDotDot && filename == QLatin1String("..")) || (excludeDot && filename == QLatin1String("."))) {
+                    return true;
+                }
+            } else {
+                if (filename == QLatin1String("..") || filename == QLatin1String(".")) {
+                    return true;
+                }
+            }
+
+            // skip hidden files/dirs if that was requested
+            if (!includeHidden && filename[0] == QLatin1Char('.')) {
+                return true;
+            }
+
+            return false;
         };
         newlist.erase(std::remove_if(newlist.begin(), newlist.end(), removeFunc), newlist.end());
 

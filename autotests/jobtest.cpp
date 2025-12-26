@@ -1400,6 +1400,96 @@ void JobTest::listRecursive()
     QCOMPARE(joinedNames.toLatin1(), ref_names);
 }
 
+static QByteArray expectedListRecursiveOutputExcludeDots()
+{
+    return QByteArray(
+        "dirFromHome,dirFromHome/testfile,"
+        "dirFromHome/testlink," // exists on Windows too, see createTestDirectory
+        "dirFromHome_copied,"
+        "dirFromHome_copied/dirFromHome,dirFromHome_copied/dirFromHome/testfile,"
+        "dirFromHome_copied/dirFromHome/testlink,"
+        "dirFromHome_copied/testfile,"
+        "dirFromHome_copied/testlink,"
+#ifndef Q_OS_WIN
+        "dirFromHome_link,"
+#endif
+        "fileFromHome");
+}
+
+void JobTest::listRecursiveExcludeDots()
+{
+    // Note: many other tests must have been run before since we rely on the files they created
+
+    const QString src = homeTmpDir();
+
+    m_names.clear();
+    KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src),
+                                           KIO::HideProgressInfo,
+                                           KIO::ListJob::ListFlag::ExcludeDotAndDotDot | KIO::ListJob::ListFlag::ExcludeHidden);
+    job->setUiDelegate(nullptr);
+    connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    m_names.sort();
+    const QByteArray ref_names = expectedListRecursiveOutputExcludeDots();
+    const QString joinedNames = m_names.join(QLatin1Char(','));
+    if (joinedNames.toLatin1() != ref_names) {
+        qDebug("%s", qPrintable(joinedNames));
+        qDebug("%s", ref_names.data());
+    }
+    QCOMPARE(joinedNames.toLatin1(), ref_names);
+}
+
+void JobTest::listRecursiveExcludeDotsHiddenToggle()
+{
+    // Note: many other tests must have been run before since we rely on the files they created
+
+    // create a hidden file in dirFromHome
+    const auto hiddenFileName = homeTmpDir() + "/.hidden-file";
+    createTestFile(hiddenFileName);
+
+    const QString src = homeTmpDir();
+
+    {
+        m_names.clear();
+        KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src),
+                                               KIO::HideProgressInfo,
+                                               KIO::ListJob::ListFlag::ExcludeDotAndDotDot | KIO::ListJob::ListFlag::IncludeHidden);
+        job->setUiDelegate(nullptr);
+        connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        m_names.sort();
+
+        const QByteArray ref_names = ".hidden-file," + expectedListRecursiveOutputExcludeDots();
+        const QString joinedNames = m_names.join(QLatin1Char(','));
+        if (joinedNames.toLatin1() != ref_names) {
+            qDebug("%s", qPrintable(joinedNames));
+            qDebug("%s", ref_names.data());
+        }
+        QCOMPARE(joinedNames.toLatin1(), ref_names);
+    }
+
+    {
+        m_names.clear();
+        KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src),
+                                               KIO::HideProgressInfo,
+                                               KIO::ListJob::ListFlag::ExcludeDotAndDotDot | KIO::ListJob::ListFlag::ExcludeHidden);
+        job->setUiDelegate(nullptr);
+        connect(job, &KIO::ListJob::entries, this, &JobTest::slotEntries);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        m_names.sort();
+
+        const QByteArray ref_names = expectedListRecursiveOutputExcludeDots();
+        const QString joinedNames = m_names.join(QLatin1Char(','));
+        if (joinedNames.toLatin1() != ref_names) {
+            qDebug("%s", qPrintable(joinedNames));
+            qDebug("%s", ref_names.data());
+        }
+        QCOMPARE(joinedNames.toLatin1(), ref_names);
+    }
+
+    QFile::remove(hiddenFileName);
+}
+
 void JobTest::multipleListRecursive()
 {
     // Note: listRecursive() must have been run first
