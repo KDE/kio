@@ -1580,6 +1580,7 @@ QAction *KFilePlacesModel::partitionActionForIndex(const QModelIndex &index) con
     connect(action, &QAction::triggered, this, [device] {
         const auto block = device.as<Solid::Block>();
         auto job = new KIO::CommandLauncherJob(partitionManagerPath(), {QStringLiteral("--device"), block->device()});
+        job->setDesktopName(QStringLiteral("org.kde.partitionmanager"));
         job->start();
     });
     return action;
