@@ -39,7 +39,11 @@ public:
      * \value IncludeHidden Include hidden files in the listing.
      */
     enum class ListFlag {
+        ExcludeHidden = 0, // \since 6.23
         IncludeHidden = 1 << 0,
+        ExcludeDot = 2 << 0, // always skipped for sub-directories |since 6.23
+        ExcludeDotDot = 3 << 0, // always skipped for sub-directories \since 6.23
+        ExcludeDotAndDotDot = ExcludeDot | ExcludeDotDot, // \since 6.23
     };
     Q_DECLARE_FLAGS(ListFlags, ListFlag)
 
