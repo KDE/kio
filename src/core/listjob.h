@@ -36,10 +36,22 @@ public:
     ~ListJob() override;
 
     /*!
+     * \value [since 6.23] ExcludeHidden
+     *        Don't include items whose name starts with '.'
      * \value IncludeHidden Include hidden files in the listing.
+     * \value [since 6.23] ExcludeDot
+     *        Skip the '.' entry for the root dir, there are always skipped for sub-directories
+     * \value [since 6.23] ExcludeDotDot
+     *        Skip the '..' entry for the root dir, there are always skipped for sub-directories
+     * \value [since 6.23] ExcludeDotAndDotDot = ExcludeDot | ExcludeDotDot
+     *
      */
     enum class ListFlag {
+        ExcludeHidden = 0,
         IncludeHidden = 1 << 0,
+        ExcludeDot = 2 << 0,
+        ExcludeDotDot = 1 << 2,
+        ExcludeDotAndDotDot = ExcludeDot | ExcludeDotDot,
     };
     Q_DECLARE_FLAGS(ListFlags, ListFlag)
 
