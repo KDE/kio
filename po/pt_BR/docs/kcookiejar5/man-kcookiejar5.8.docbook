@@ -57,7 +57,7 @@
 >kcookiejar5</command
 ></refname>
 <refpurpose
->Interface da linha de comandos para o servidor de cookies de HTTP para o &kde;</refpurpose>
+>Interface da linha de comandos para o servidor de cookies de &HTTP; para o &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
@@ -91,7 +91,7 @@
 <para
 >O <command
 >kcookiejar5</command
-> é uma interface de linha de comando para armazenar os cookies HTTP usados pelo KDE, um serviço de D-BUS para guardar/obter/limpar os cookies. </para>
+> é uma interface de linha de comando para armazenar os cookies &HTTP; usados pelo &kde;, um serviço de &DBus; para guardar/obter/limpar os cookies. </para>
 </refsect1>
 
 <refsect1>
@@ -122,7 +122,7 @@
 ></term>
 <listitem>
 <para
->Mostra informações sobre a versão</para>
+>Mostra informações sobre a versão.</para>
 </listitem>
 </varlistentry>
 
@@ -133,7 +133,7 @@
 ></term>
 <listitem>
 <para
->Desativa o repositório de cookies e o serviço de D-BUS. </para>
+>Desativa o repositório de cookies e o serviço de &DBus;. </para>
 </listitem>
 </varlistentry>
 
@@ -185,11 +185,9 @@
 <para
 >O <command
 >kcookiejar5</command
-> é uma ferramenta de linha de comando para acessar o módulo do kded, que gerencia os cookies no <command
->Konqueror</command
-> e em outros aplicativos do KDE.</para>
+> é uma ferramenta de linha de comando para acessar o módulo do kded, que gerencia os cookies no &konqueror; e em outros aplicativos do &kde;.</para>
 <para
->Quando é iniciado sem parâmetros, ele carrega o módulo do kded para oferecer a interface de D-Bus para armazenar os cookies. </para>
+>Quando é iniciado sem parâmetros, ele carrega o módulo do kded para oferecer a interface de &DBus; para armazenar os cookies. </para>
 <para
 >Quando o <command
 >kcookiejar5</command
@@ -215,7 +213,7 @@
 >Problemas</title>
 <para
 >Use o <ulink url="https://bugs.kde.org"
->sistema de gerenciamento de erros do KDE</ulink
+>sistema de gerenciamento de erros do &kde;</ulink
 > para relatar erros.</para>
 </refsect1>
 

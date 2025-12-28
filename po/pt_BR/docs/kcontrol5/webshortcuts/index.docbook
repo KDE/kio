@@ -74,14 +74,10 @@
 >F2</keycap
 ></keycombo
 > ou <keycombo action="simul"
->&Alt;<keycap
->Espaço</keycap
-></keycombo
+>&Alt;&Space;</keycombo
 >, a menos que você tenha modificado estas teclas) e digitar uma &URI;. <footnote
 ><para
->URI - Identificador Uniforme do Recurso (Uniform Resource Identifier): um modo padronizado de se referir a recursos tais como seu computador, um endereço Web, um endereço de e-mail, <abbrev
->etc...</abbrev
->.</para
+>URI - Identificador Uniforme do Recurso (Uniform Resource Identifier): um modo padronizado de se referir a recursos tais como seu computador, um endereço Web, um endereço de e-mail, &etc;</para
 ></footnote
 ></para>
 
@@ -108,27 +104,27 @@
 ></note>
 
 <para
->Você pode usar os atalhos da Web nos mesmos locais que usaria um &URI;. Os atalhos para vários mecanismos de busca já devem estar configurados em seu sistema, mas você pode adicionar novos atalhos, ou ainda modificar ou excluir entradas existentes neste módulo. </para>
+>Você pode usar os atalhos da Web nos mesmos locais que usaria um &URI;. Os atalhos para vários mecanismos de busca já devem estar configurados em seu sistema, mas você pode adicionar novos atalhos, ou ainda modificar ou excluir entradas existentes neste módulo.</para>
 
 </sect2>
 
 <sect2 id="ebrowse-use">
 
 <title
->Atalhos da Web</title>
+>Palavras-chave de pesquisa na web</title>
 
 <para
 >Os nomes descritivos dos atalhos definidos são mostrados na caixa de listagem. Como em outras listas no &kde;, você pode clicar no cabeçalho de uma das colunas para alternar a ordenação (ascendente/descendente), bem como redimensionar as colunas.</para>
 
 <para
 >No fundo da lista, a opção <guilabel
->Ativar os atalhos da Web</guilabel
+>Ativar palavras-chave de pesquisa na web</guilabel
 > deverá estar assinalada para ativar esta funcionalidade. Use os botões à direita para criar, modificar ou apagar os atalhos.</para>
 
 <para
 >Se a opção <guilabel
->Usar apenas os atalhos preferidos</guilabel
-> estiver selecionada, somente atalhos Web marcados como preferidos na terceira coluna da lista são usados nos locais onde somente poucos atalhos selecionados podem ser mostrados ao mesmo tempo. </para>
+>Usar apenas palavras-chave preferidas</guilabel
+> estiver selecionada, somente palavras-chave marcadas como preferidas na segunda coluna da lista são usadas nos locais onde somente poucos atalhos selecionados podem ser mostrados ao mesmo tempo. </para>
  
 <para
 >Abaixo da lista, você irá encontrar duas opções adicionais:</para>
@@ -136,7 +132,7 @@
 <varlistentry
 ><term
 ><guilabel
->Atalhos padrão da Web</guilabel
+>Palavra-chave de pesquisa na web padrão:</guilabel
 ></term>
 <listitem>
 <para
@@ -148,7 +144,7 @@
 <varlistentry
 ><term
 ><guilabel
->Separador de palavras-chave</guilabel
+>Separador de palavras-chave:</guilabel
 ></term>
 <listitem>
 <para
@@ -159,7 +155,7 @@
 
 <para
 >Com um clique duplo em um item específico da lista de mecanismos de busca ou com um clique no botão <guibutton
->Alterar</guibutton
+>Alterar...</guibutton
 >, os detalhes para aquele item serão mostrados em uma nova janela. Além disso, para o nome descritivo do item você também pode ver o &URI; que é usado, bem como os atalhos associados, que podem ser digitados em qualquer lugar no &kde; (no local onde uma &URI; é esperada). Um mecanismo de busca pode ter múltiplos atalhos, separados por vírgulas.</para>
 
 <para
@@ -167,9 +163,9 @@
 
 <para
 >Você pode modificar o conteúdo da caixa de texto <guilabel
->URL do atalho</guilabel
+>URL do atalho:</guilabel
 > ou da caixa de texto <guilabel
->Atalhos</guilabel
+>Atalhos:</guilabel
 >. Clique em <guibutton
 >OK</guibutton
 > para salvar suas modificações ou em <guibutton
@@ -178,14 +174,14 @@
 
 <para
 >Se você examinar o conteúdo da caixa de texto <guilabel
->URL de atalho</guilabel
+>URL de atalho:</guilabel
 >, verá que a maioria, se não todas as entradas, possuem um <option
-> \{@}</option
-> contido nelas. Esta sequência de quatro caracteres age como um parâmetro, que diz que elas são substituídas pelo que você digitar depois do caractere de dois pontos, que está entre um atalho e seu parâmetro. Para adicionar este espaço de consulta para uma URL de atalho, clique no botão à direita do campo de texto. Vamos considerar alguns exemplos para esclarecer o uso de atalhos da Web.</para>
+>\{@}</option
+> contido nelas. Esta sequência de quatro caracteres age como um parâmetro, que diz que elas são substituídas pelo que você digitar depois do caractere de dois pontos, que está entre um atalho e seu parâmetro. Para adicionar este espaço de consulta para uma &URL; de atalho, clique no botão à direita do campo de texto. Vamos considerar alguns exemplos para esclarecer o uso de atalhos da Web.</para>
 
 <para
 >Suponha que o &URI; é <userinput
->http://www.google.com/search?q=\{@}</userinput
+>https://www.google.com/search?q=\{@}</userinput
 >, e <userinput
 >gg</userinput
 > é o atalho para este &URI;. Então, digitar <userinput
@@ -193,7 +189,7 @@
 >alpha</replaceable
 ></userinput
 >, equivale a digitar <userinput
->http://www.google.com/search?q=<replaceable
+>https://www.google.com/search?q=<replaceable
 >alpha</replaceable
 ></userinput
 >. Você poderia digitar qualquer coisa depois do caractere <userinput

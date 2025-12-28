@@ -131,22 +131,13 @@
 > (Descoberta Automática de Proxy Web ou <quote
 >Web Proxy Auto-Discovery </quote
 >).</para>
-
-<note
-><para
->Se você tiver problemas usando esta configuração, por favor, consulte a seção de Perguntas Mais Frequentes (<acronym
->FAQ</acronym
->) em <ulink url="https://www.konqueror.org"
->https://www.konqueror.org</ulink
-> para mais informações.</para
-></note>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term
 ><guilabel
->Usar a URL de configuração automática do proxy</guilabel
+>Usar a URL de configuração automática do proxy:</guilabel
 ></term>
 <listitem>
 <para
@@ -159,7 +150,7 @@
 <varlistentry>
 <term
 ><guilabel
->Usar configuração de proxy do sistema</guilabel
+>Usar configuração de proxy do sistema:</guilabel
 ></term>
 <listitem>
 <para
@@ -173,7 +164,7 @@
 <!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
 <para
 >No campo de <guilabel
->Exceções</guilabel
+>Exceções:</guilabel
 >, indique a variável de ambiente, &eg;, $<envar
 >NO_PROXY</envar
 >, que é usada para armazenar os endereços das páginas onde não deverá ser usado o servidor proxy.</para>
@@ -190,20 +181,20 @@ How to enable Auto Detect button?
 <varlistentry>
 <term
 ><guilabel
->Usar a configuração de proxy especificada manualmente</guilabel
+>Usar a configuração de proxy especificada manualmente:</guilabel
 ></term>
 <listitem>
 
 <para
 >A informação completa de endereçamento para o proxy inclui o endereço Internet e o número da porta. Você deve digitar estas duas informações nas caixas de texto relevantes. Assinale a opção <guilabel
 >Usar este servidor proxy para todos os protocolos</guilabel
-> para copiar os endereços e portas do servidor proxy de HTTP para todos os outros campos de proxy, de modo a reduzir a necessidade de digitação.</para>
+> para copiar os endereços e portas do servidor proxy de &HTTP; para todos os outros campos de proxy, de modo a reduzir a necessidade de digitação.</para>
 
 <variablelist>
 <varlistentry>
 <term
 ><guilabel
->Exceções</guilabel
+>Exceções:</guilabel
 ></term>
 <listitem>
 <para
@@ -213,7 +204,7 @@ How to enable Auto Detect button?
 >*</userinput
 > ou <userinput
 >?</userinput
-> não são suportados e não terão efeito. Adicionalmente, você pode também inserir endereços IP, por exemplo, 127.0.0.1, e endereços IP com uma sub-rede, por exemplo, 192.168.0.1/24.</para>
+> não são suportados e não terão efeito. Adicionalmente, você pode também inserir endereços IP, &eg;, 127.0.0.1, e endereços IP com uma sub-rede, &eg;, 192.168.0.1/24.</para>
 </listitem>
 </varlistentry>
 </variablelist>

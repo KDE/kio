@@ -50,7 +50,7 @@
 <varlistentry
 ><term
 ><guilabel
->Limpeza</guilabel
+>Limpeza:</guilabel
 ></term>
 <listitem
 ><para
@@ -63,7 +63,7 @@
 <varlistentry
 ><term
 ><guilabel
->Tamanho</guilabel
+>Tamanho:</guilabel
 ></term>
 <listitem
 ><para
@@ -78,14 +78,14 @@
 ></term>
 <listitem
 ><para
->Esta é a percentagem máxima de espaço em disco que será usada para a Lixeira. O valor calculado para o espaço em disco permitido será apresentado à direita do campo incremental. </para
+>Esta é a porcentagem máxima de espaço em disco que será usada para a Lixeira. O valor calculado para o espaço em disco permitido será apresentado à direita do campo incremental. </para
 ></listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Lixeira cheia</guilabel
+>Lixeira cheia:</guilabel
 ></term>
 <listitem
 ><para

@@ -62,7 +62,7 @@
 >Assim, os cookies possuem um papel muito útil na navegação Web. Infelizmente, os sites frequentemente armazenam e recuperam informações dos cookies sem seu consentimento/conhecimento explícito. Algumas destas informações podem ser úteis para os proprietários dos sites, por exemplo, permitindo-os coletar o número de visitas em diferentes áreas do site de modo a personalizar as propagandas exibidas.</para>
 
 <para
->O página de cookies permite-lhe configurar as políticas para uso de cookies quando você estiver navegando pela Web com o navegador &konqueror;. </para>
+>O página de cookies permite-lhe configurar as políticas para uso de cookies quando você estiver navegando pela Web com o navegador &konqueror;.</para>
 
 <warning
 ><para
@@ -192,7 +192,7 @@
 
 <para
 >Você também pode selecionar uma máquina do domínio e clicar no botão <guibutton
->Alterar</guibutton
+>Alterar...</guibutton
 > para escolher uma política diferente para aquele domínio, em vez da mostrada na lista.</para>
 
 <para
@@ -227,7 +227,7 @@
 
 <para
 >Se for selecionado um domínio, você poderá usar a opção <guibutton
->Configurar política</guibutton
+>Configurar política...</guibutton
 > para definir a política de um site.</para>
 
 <para
