@@ -399,5 +399,3 @@ bool KProtocolManager::supportsPermissions(const QUrl &url)
 }
 
 #undef PRIVATE_DATA
-
-#include "moc_kprotocolmanager_p.cpp"
