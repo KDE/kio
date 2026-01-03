@@ -234,10 +234,11 @@ void Job::addMetaData(const QMap<QString, QString> &values)
 void Job::mergeMetaData(const QMap<QString, QString> &values)
 {
     Q_D(Job);
-    for (auto it = values.cbegin(); it != values.cend(); ++it) {
+    for (const auto &[key, value] : values.asKeyValueRange()) {
         // there's probably a faster way
-        if (!d->m_outgoingMetaData.contains(it.key())) {
-            d->m_outgoingMetaData.insert(it.key(), it.value());
+        //   There is not. QMap lacks try_emplace API in Qt 6.11
+        if (!d->m_outgoingMetaData.contains(key)) {
+            d->m_outgoingMetaData.insert(key, value);
         }
     }
 }
