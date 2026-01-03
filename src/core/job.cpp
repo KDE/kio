@@ -18,6 +18,7 @@
 #include "worker_p.h"
 #include <kio/jobuidelegateextension.h>
 
+using namespace Qt::StringLiterals;
 using namespace KIO;
 
 Job::Job()
@@ -69,9 +70,14 @@ bool Job::addSubjob(KJob *jobBase)
             Q_UNUSED(job);
             emitSpeed(speed);
         });
-        job->setProperty("widget", property("widget")); // see KJobWidgets
-        job->setProperty("window", property("window")); // see KJobWidgets
-        job->setProperty("userTimestamp", property("userTimestamp")); // see KJobWidgets
+        // Inserting dynamic properties is somewhat slow, only do it when actually necessary.
+        const auto dynamicProperties = dynamicPropertyNames();
+        for (const auto &name : {"widget"_ba, "window"_ba, "userTimestamp"_ba}) { // see KJobWidgets
+            if (dynamicProperties.contains(name) || metaObject()->indexOfProperty(name.constData()) != -1) {
+                // known property, forward it
+                job->setProperty(name.constData(), property(name.constData()));
+            }
+        }
         job->setUiDelegateExtension(d->m_uiDelegateExtension);
     }
     return ok;
