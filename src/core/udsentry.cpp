@@ -447,7 +447,11 @@ KIOCORE_EXPORT QDataStream &operator<<(QDataStream &s, const KIO::UDSEntry &a)
 
 KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a)
 {
-    a.d->load(s);
+    // Dereferencing the d pointer directly would cause a detach because a is not const. This is entirely moot
+    // because we are going to overwrite it anyway, so create a new one and swap it instead.
+    auto newD = QSharedDataPointer<UDSEntryPrivate>(new UDSEntryPrivate);
+    newD->load(s);
+    a.d.swap(newD);
     return s;
 }
 
