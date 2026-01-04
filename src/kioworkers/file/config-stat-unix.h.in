@@ -1,3 +1,6 @@
 
 /* Defined if system has the statx function, meaning glibc >= 2.28 */
 #cmakedefine01 HAVE_STATX
+
+/* Defined if system has statx subvol feature, linux 6.10+ */
+#cmakedefine01 HAVE_STATX_SUBVOL
