@@ -145,6 +145,11 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
     } else {
         UDSEntryList newlist = list;
 
+        // Mind that the repeated iteration hardly makes a performance difference here, presumably
+        // because the compiler is smart enough to optimize it away.
+        // Same for repeat calls to stringValue().
+        // Benchmark before you decide to make improvements here!
+
         auto removeFunc = [this, includeHidden](const UDSEntry &entry) {
             const QString filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
@@ -163,7 +168,6 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                 displayName = filename;
             }
 
-            // ## Didn't find a way to use the iterator instead of re-doing a key lookup
             newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
             newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
         }
