@@ -195,8 +195,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     mode_t mode = firstItem.mode();
     bool hasDirs = firstItem.isDir() && !firstItem.isLink();
     bool hasRoot = url.path() == QLatin1String("/");
-    bool hasAccessTime =
-        mp ? !(mp->mountOptions().contains(QLatin1String("noatime")) || (hasDirs && mp->mountOptions().contains(QLatin1String("nodiratime")))) : true;
     QString iconStr = firstItem.iconName();
     QString directory = properties->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
     QString protocol = properties->url().scheme();
