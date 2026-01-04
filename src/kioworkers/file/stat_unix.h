@@ -64,6 +64,12 @@ inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &de
         // atime, mtime, btime
         mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
     }
+#if HAVE_STATX_SUBVOL
+    if (details & KIO::StatSubVolId) {
+        // subvol id
+        mask |= STATX_SUBVOL;
+    }
+#endif
     // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
     return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
@@ -99,6 +105,12 @@ inline static int64_t stat_mtime(const struct statx &buf)
 {
     return buf.stx_mtime.tv_sec;
 }
+#if HAVE_STATX_SUBVOL
+inline static uint64_t stat_subvol(const struct statx &buf)
+{
+    return buf.stx_subvol;
+}
+#endif
 #else
 // regular stat struct
 inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)

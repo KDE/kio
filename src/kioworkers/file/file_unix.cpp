@@ -160,6 +160,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         // mimetype
         entries += 1;
     }
+#if HAVE_STATX_SUBVOL
+    if (details & KIO::StatSubVolId) {
+        entries += 1;
+    }
+#endif
     entry.reserve(entries);
 
     if (details & KIO::StatBasic) {
@@ -282,6 +287,12 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
             entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
         }
     }
+
+#if HAVE_STATX_SUBVOL
+    if (details & KIO::StatSubVolId) {
+        entry.fastInsert(KIO::UDSEntry::UDS_SUBVOL_ID, stat_subvol(buff));
+    }
+#endif
 
     return true;
 }
