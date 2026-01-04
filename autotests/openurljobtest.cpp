@@ -101,7 +101,10 @@ static void createSrcFile(const QString &path)
 static QString readFile(const QString &path)
 {
     QFile file(path);
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning() << "Could not open file in readonly" << path;
+        exit(1);
+    }
     return QString::fromLocal8Bit(file.readAll()).trimmed();
 }
 

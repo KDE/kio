@@ -2965,6 +2965,7 @@ void JobTest::renameFileWithNoUDSACCESS() // #510567
                     // Create fake entries
                     auto fakeEntry = [](QString name, int size) {
                         KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
                         entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
                         return entry;
                     };
@@ -2981,11 +2982,12 @@ void JobTest::renameFileWithNoUDSACCESS() // #510567
 
                     return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, u"Unsupported URL: %1"_s.arg(url.toString()));
                 }
-                Q_REQUIRED_RESULT KIO::WorkerResult copy(QUrl const &start, QUrl const &dest, int permissions, KIO::JobFlags flags) override
+                Q_REQUIRED_RESULT KIO::WorkerResult
+                copy(QUrl const & /*start*/, QUrl const & /*dest*/, int /* permissions */, KIO::JobFlags /* flags*/) override
                 {
                     return KIO::WorkerResult::pass();
                 }
-                Q_REQUIRED_RESULT KIO::WorkerResult del(QUrl const &url, bool b) override
+                Q_REQUIRED_RESULT KIO::WorkerResult del(QUrl const & /*url */, bool /* b */) override
                 {
                     return KIO::WorkerResult::pass();
                 }
