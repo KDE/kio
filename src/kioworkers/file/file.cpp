@@ -737,7 +737,9 @@ WorkerResult FileProtocol::mount(bool _ro, const char *_fstype, const QString &_
     const QLatin1String uuid("UUID=");
     QTemporaryFile tmpFile;
     tmpFile.setAutoRemove(false);
-    tmpFile.open();
+    if (!tmpFile.open()) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, i18n("Could not open temporary file"));
+    }
     QByteArray tmpFileName = QFile::encodeName(tmpFile.fileName());
     QByteArray dev;
     if (_dev.startsWith(label)) { // turn LABEL=foo into -L foo (#71430)
@@ -754,6 +756,7 @@ WorkerResult FileProtocol::mount(bool _ro, const char *_fstype, const QString &_
     bool fstype_empty = !_fstype || !*_fstype;
     QByteArray fstype = KShell::quoteArg(QString::fromLatin1(_fstype)).toLatin1(); // good guess
     QByteArray readonly = _ro ? "-r" : "";
+    // TODO use libmount mnt_context_mount when available
     QByteArray mountProg = QStandardPaths::findExecutable(QStringLiteral("mount")).toLocal8Bit();
     if (mountProg.isEmpty()) {
         mountProg = QStandardPaths::findExecutable(QStringLiteral("mount"), fallbackSystemPath()).toLocal8Bit();
@@ -826,8 +829,11 @@ WorkerResult FileProtocol::unmount(const QString &_point)
 
     QTemporaryFile tmpFile;
     tmpFile.setAutoRemove(false);
-    tmpFile.open();
+    if (!tmpFile.open()) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, i18n("Could not open temporary file"));
+    }
 
+    // TODO use libmount mnt_context_umount when available (avoids the needs for temp file)
     QByteArray umountProg = QStandardPaths::findExecutable(QStringLiteral("umount")).toLocal8Bit();
     if (umountProg.isEmpty()) {
         umountProg = QStandardPaths::findExecutable(QStringLiteral("umount"), fallbackSystemPath()).toLocal8Bit();
