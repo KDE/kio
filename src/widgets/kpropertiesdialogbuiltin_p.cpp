@@ -496,7 +496,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             d->m_ui->modifiedTimeLabel_Left->hide();
         }
 
-        if (const QString timeString = firstItem.timeString(KFileItem::AccessTime); !timeString.isEmpty()) {
+        if (const QString timeString = firstItem.timeString(KFileItem::AccessTime); hasAccessTime && !timeString.isEmpty()) {
             d->m_ui->accessTimeLabel->setText(timeString);
         } else {
             d->m_ui->accessTimeLabel->hide();
