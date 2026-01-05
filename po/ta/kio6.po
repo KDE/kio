@@ -9,13 +9,13 @@
 # Vasee Vaseeharan <vasee@ieee.org>, 2004.
 # Ambalam <tamilpc@ambalam.com>, 2004.
 # root <root@localhost.localdomain>, 2004.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-19 00:40+0000\n"
-"PO-Revision-Date: 2025-11-30 15:32+0530\n"
+"POT-Creation-Date: 2026-01-05 00:39+0000\n"
+"PO-Revision-Date: 2026-01-04 15:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3094,7 +3094,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:355
-#: widgets/kpropertiesdialogbuiltin_p.cpp:678
+#: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3657,7 +3657,7 @@ msgstr "புதிய அடைவை உருவாக்குவது"
 msgid "Create new folder in %1:"
 msgstr "%1 -இல் புதிய அடைவை உருவாக்கு: "
 
-#: filewidgets/knewfilemenu.cpp:1582 widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: filewidgets/knewfilemenu.cpp:1582 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
@@ -5131,7 +5131,7 @@ msgstr "உரிமையாளர்"
 msgid "Owning Group"
 msgstr "உரிமையுள்ள குழு"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1452
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid "Others"
 msgstr "பிறர்"
@@ -5970,55 +5970,55 @@ msgstr ""
 "<filename>%1</filename>-க்கு<nl/> எழுத உங்களுக்கு போதிய உரிமை இல்லாததால் பண்புகளை "
 "சேமிக்க முடியவில்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:232
+#: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&பொதுவானவை"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:365
+#: widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "கோப்பிற்கான பெயரை உள்ளிடவும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "%1-இல் ஆராயுங்கள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:441
-#: widgets/kpropertiesdialogbuiltin_p.cpp:718
+#: widgets/kpropertiesdialogbuiltin_p.cpp:439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:716
 #, kde-format
 msgid "Refresh"
 msgstr "புதுப்பி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:448
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr "இலக்கை உள்ளிடவும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:454
-#: widgets/kpropertiesdialogbuiltin_p.cpp:457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:452
+#: widgets/kpropertiesdialogbuiltin_p.cpp:455
 #, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "<filename>%1</filename> தனை காட்டு"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:563
+#: widgets/kpropertiesdialogbuiltin_p.cpp:561
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:685
+#: widgets/kpropertiesdialogbuiltin_p.cpp:683
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "தெரியாத அளவு"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:693
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6027,144 +6027,144 @@ msgstr ""
 "கணிக்கப்படுகிறது... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:698
-#: widgets/kpropertiesdialogbuiltin_p.cpp:713
+#: widgets/kpropertiesdialogbuiltin_p.cpp:696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:711
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 கோப்பு"
 msgstr[1] "%1 கோப்புகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:699
-#: widgets/kpropertiesdialogbuiltin_p.cpp:714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:712
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 சார் அடைவு"
 msgstr[1] "%1 சார் அடைவுகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:727
+#: widgets/kpropertiesdialogbuiltin_p.cpp:725
 #, kde-format
 msgid "Calculating...\n"
 msgstr "கணிக்கப்படுகிறது...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:750
+#: widgets/kpropertiesdialogbuiltin_p.cpp:748
 #, kde-format
 msgid "At least %1\n"
 msgstr "குறைந்தபட்சம் %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:794
 #, kde-format
 msgid "The new file name is empty."
 msgstr "புதிய கோப்பின் பெயர் காலியாக உள்ளது."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgid "No registered file type"
 msgstr "இக்கோப்புவகை பதிவிடப்படவில்லை"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:996
+#: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No associated application"
 msgstr "எச்செயலியும் அமைக்கப்படவில்லை"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1000
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "உருவாக்கு…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1004
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "மாற்று…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1008
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr "'%1' வகையான கோப்புகளைத் திறப்பதற்கான இயல்பிருப்பு செயலியை மாற்று"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1079
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
 msgid "No Access"
 msgstr "அணுகல் இல்லை"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 msgid "Can Only View"
 msgstr "பார்க்க மட்டும் முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1078
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 msgid "Can View & Modify"
 msgstr "பார்க்கவும் திருத்தவும் முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
 msgid "Can Only View Content"
 msgstr "உள்ளடக்கத்தை மட்டும் பார்க்க முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
 msgid "Can View & Modify Content"
 msgstr "உள்ளடக்கத்தை பார்க்கவும் திருத்தவும் முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can Only View/Read Content"
 msgstr "உள்ளடக்கத்தை பார்க்க/படிக்க மட்டும் முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1081
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
 msgid "Can View/Read & Modify/Write"
 msgstr "பார்க்க/படிக்க & திருத்த/எழுத முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1178
 #, kde-format
 msgid "&Permissions"
 msgstr "&அனுமதிகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1191
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "Access Permissions"
 msgstr "அணுகல் அனுமதிகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "இந்த கோப்பு ஒரு இணைப்பு; இதற்கு அனுமதி என்பதே இல்லை."
 msgstr[1] "அனைத்து கோப்புகளும் இணைப்புகள்; இவற்றுக்கு அனுமதி என்பதே இல்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "உரிமையாளர் மட்டும்தான் அனுமதிகளை மாற்ற முடியும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
 msgid "O&wner:"
 msgstr "&உரிமையாளர்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1212
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "உரிமையாளர் செய்ய அனுமதிக்கப்படும் செயல்களை குறிப்பிடும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
 #, kde-format
 msgid "Gro&up:"
 msgstr "&குழு:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1217
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "குழு உறுப்பினர்கள் செய்ய அனுமதிக்கப்படும் செயல்களை குறிப்பிடும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1220
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
 #, kde-format
 msgid "O&thers:"
 msgstr "&பிறர்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1223
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6173,27 +6173,27 @@ msgstr ""
 "உரிமையாளராகவோ, குழு உறுப்பினராகவோ இல்லாத பயனர்கள் செய்ய அனுமதிக்கப்படும் செயல்களை "
 "குறிப்பிடும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "உ&ரிமையாளர் மட்டும்தான் உள்ளடக்கத்தை நீக்கவோ மறுபெயரிடவோ முடியும்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "கோப்பி&னை ஒரு நிரலாக இயக்க அனுமதி."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Delete or rename:"
 msgstr "நீக்குவது அல்லது மறுபெயரிடுவது:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Execute:"
 msgstr "இயக்குவது:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6204,7 +6204,7 @@ msgstr ""
 "அனுமதிக்க இந்த விருப்பத்தை குறிக்கவும். பிற பயனர்கள் புதிய கோப்புகளை சேர்க்க மட்டும் "
 "முடியும்; அதற்கு 'உள்ளடக்கத்தை மாற்றுதல்' என்ற அனுமதி தேவை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1234
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1232
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6213,42 +6213,42 @@ msgstr ""
 "கோப்பினை இயக்கவல்லதாக குறிக்க இந்த விருப்பத்தை இயக்கவும். நிரல்களுக்கும் "
 "சிறுநிரல்களுக்கும் தான் இது தகுந்தது; அவற்றை இயக்க இது தேவை. "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1238
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "&மேம்பட்ட அனுமதிகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1246
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
 msgid "Ownership"
 msgstr "உரிமை"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1252
 #, kde-format
 msgid "User:"
 msgstr "பயனர்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1292
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
 #, kde-format
 msgid "Group:"
 msgstr "குழு:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1324
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "எல்லா சார் அடைவுகளுக்கும் அவற்றின் உள்ளடக்கத்துக்கும் மாற்றங்களைச் செயல்படுத்து"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "மேம்பட்ட அனுமதிகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1389
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
 msgid "Class"
 msgstr "வகுப்பு"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1396
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
 #, kde-format
 msgid ""
 "Show\n"
@@ -6257,22 +6257,22 @@ msgstr ""
 "பதிவுகளை\n"
 "காட்டுதல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "அடைவின் உள்ளடக்கத்தைப் பார்ப்பதை இந்த குறி அனுமதிக்கும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
 #, kde-format
 msgid "Read"
 msgstr "படித்தல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1400
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "கோப்பின் உள்ளடக்கத்தைப் பார்ப்பதற்கு இந்த குறி அனுமதி தருகிறது."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
 #, kde-format
 msgid ""
 "Write\n"
@@ -6281,7 +6281,7 @@ msgstr ""
 "பதிவுகளை\n"
 "எழுதுதல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1408
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6290,43 +6290,43 @@ msgstr ""
 "இந்த குறி, கோப்புகளை சேர்க்கவும், மறுபெயரிடவும், நீக்கவும் அனுமதிக்கிறது. நீக்குதலையும், "
 "மறுபெயரிடுதலையும் 'ஒட்டக்கூடியது' என்ற குறி மூலம் கட்டுப்படுத்தலாம்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
 #, kde-format
 msgid "Write"
 msgstr "எழுதுதல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1412
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "இந்த குறி, கோப்பின் உள்ளடக்கத்தை மாற்ற அனுமதிக்கிறது."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1418
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "நுழைதல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "அடைவினுள் நுழைவதை அனுமதிக்க இந்த குறியை இடுங்கள்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid "Exec"
 msgstr "இயக்குதல்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "கோப்பினை ஒரு நிரலாக இயக்குவதற்கு இந்த குறியை இடுங்கள்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
 #, kde-format
 msgid "Special"
 msgstr "சிறப்பானது"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1435
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6335,24 +6335,24 @@ msgstr ""
 "சிறப்பு குறி. அடைவு முழுவதற்குமானது, குறியின் சரியான பொருளை வலப்புற "
 "நெடுவரிசையில் பார்க்கலாம்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1437
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "சிறப்பு குறி. குறியின் சரியான பொருளை வலப்புற நெடுவரிசையில் பார்க்கலாம்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1442
 #, kde-format
 msgid "User"
 msgstr "பயனர்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
 #, kde-format
 msgid "Group"
 msgstr "குழு"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1459
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6360,7 +6360,7 @@ msgid ""
 msgstr ""
 "இந்த குறி இடப்பட்டால், இந்த அடைவின் உரிமையாளரே எல்லா புது கோப்புகளின் உரிமையாளராவார்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6369,14 +6369,14 @@ msgstr ""
 "இந்த கோப்பு இயக்கவல்லதாக இருந்து, இந்த குறி இடப்பட்டிருந்தால், உரிமையாளரின் "
 "அனுமதிகளுடனே இது இயக்கப்படும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
 "இந்த குறி இடப்பட்டால், இந்த அடைவின் குழு எல்லா புதிய கோப்புகளுக்கும் அமைக்கப்படும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6385,7 +6385,7 @@ msgstr ""
 "இந்த கோப்பு இயக்கவல்லதாக இருந்து, இந்த குறி இடப்பட்டிருந்தால்,உரிய குழுவின் "
 "அனுமதிகளுடனே இது இயக்கப்படும்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1481
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6395,7 +6395,7 @@ msgstr ""
 "கோப்புகளை நீக்கவோ, மறுபெயரிடவோ முடியும். இல்லாவிட்டால், எழுத அனுமதியுள்ள யாரும் "
 "இதை செய்யலாம்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1486
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1484
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6404,80 +6404,80 @@ msgstr ""
 "கோப்பின் மீதான 'ஒட்டக்கூடியது' என்ற குறி, லினக்ஸில் பொருட்படுத்தப்படாது. ஆனால், அது பிற "
 "இயக்குதளங்களால் பயன்படுத்தப்படலாம்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1547
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
 #, kde-format
 msgid "Set UID"
 msgstr "ஒட்டும் UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1551
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1549
 #, kde-format
 msgid "Set GID"
 msgstr "ஒட்டும் GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1555
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1553
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "ஒட்டக்கூடியது"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1668
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
 #, kde-format
 msgid "Link"
 msgstr "இணைப்பு"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1688
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "வெவ்வேறு (மாற்றம் இல்லை)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1799
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "இந்த கோப்பு மேம்பட்ட அனுமதிகளை பயன்படுத்துகிறது"
 msgstr[1] "இந்த கோப்புகள் மேம்பட்ட அனுமதிகளை பயன்படுத்துகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1821
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "இந்த அடைவு மேம்பட்ட அனுமதிகளை பயன்படுத்துகிறது."
 msgstr[1] "இந்த அடைவுகள் மேம்பட்ட அனுமதிகளை பயன்படுத்துகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1835
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "இந்த கோப்புகள் மேம்பட்ட அனுமதிகளை பயன்படுத்துகின்றன"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&சரிகாண்தொகைகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
 #, kde-format
 msgid "Invalid checksum."
 msgstr "முறையற்ற சரிகாண்தொகை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2373
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "உள்ளீடு ஒரு முறையான MD5, SHA1, அல்லது SHA256 சரிகாண்தொகை இல்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
 #, kde-format
 msgid "Checksums match."
 msgstr "சரிகாண்தொகைகள் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "கணிக்கப்பட்ட சரிகாண்தொகையும் எதிர்பார்க்கப்பட்டதும் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2399
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6488,46 +6488,46 @@ msgstr ""
 "மறுபடியும் பதிவிறக்கி பாருங்கள்.<br/>அதன் பிறகும் சரிபார்த்தல் தோல்வியடைந்தால், கோப்பை "
 "வழங்கியவரை தொடர்பு கொள்ளுங்கள்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2405
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "கணிக்கப்பட்ட சரிகாண்தொகையும் எதிர்பார்க்கப்பட்டதும் ஒன்றாக இல்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "சரிகாண்தொகை சரிபார்க்கப்படுகிறது…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2442
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "அனைத்து கோப்புகளின் சரிகாண்தொகைகளும் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2447
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "தேர்ந்தெடுத்துள்ள கோப்புகளின் சரிகாண்தொகைகள் வேறுபடுகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "கணிக்கப்படுகிறது…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2564
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
 #, kde-format
 msgid "U&RL"
 msgstr "இணைய மு&கவரி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2570
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
 #, kde-format
 msgid "URL:"
 msgstr "முகவரி:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2639
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2910
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6535,27 +6535,27 @@ msgstr ""
 "பண்புகளை சேமிக்க முடியவில்லை. உள்ளமை கோப்பு முறைமைகளில் மட்டும்தான் பதிவுகளுக்கு ஆதரவு "
 "உண்டு."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2710
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
 #, kde-format
 msgid "&Application"
 msgstr "&செயலி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2850
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1-க்கு கோப்பு வகையை சேர்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2851
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "சேர்க்க வேண்டிய கோப்பு வகைகளை தேர்ந்தெடுக்கவும்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2989
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "உள்ளமை கோப்பு முறைமையிலுள்ள இயக்கவல்லவை மட்டும்தான் ஆதரிக்கப்படுகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 -க்கான மேம்பட்ட விருப்பங்கள்"
@@ -6901,11 +6901,10 @@ msgstr ""
 "உள்ளடக்கம் தொடக்கத்திலும், நடுவிலும், முடிவிலும் ஒன்றாக உள்ளது."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "கோப்புகளை நகலெடுத்தல்"
+msgstr "கோப்புகளை ஒப்பிடு"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
