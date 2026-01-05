@@ -86,7 +86,6 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
-    setIcon(QIcon::fromTheme(KIO::iconNameForUrl(url)));
 }
 
 QUrl KUrlNavigatorButton::url() const
@@ -479,11 +478,6 @@ void KUrlNavigatorButton::statFinished(KJob *job)
         setText(name);
 
         Q_EMIT finishedTextResolving();
-    }
-
-    const QString iconName = entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME);
-    if (!iconName.isEmpty()) {
-        setIcon(QIcon::fromTheme(iconName));
     }
 }
 
