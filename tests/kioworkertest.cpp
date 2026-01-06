@@ -245,7 +245,7 @@ void KioWorkerTest::startJob()
     }
 
     case Stat:
-        job = KIO::stat(src);
+        job = KIO::stat(src, KIO::StatJob::StatSide::SourceSide, KIO::StatDefaultDetails | KIO::StatSubVolId, KIO::DefaultFlags);
         break;
 
     case Get: {
@@ -380,6 +380,10 @@ void KioWorkerTest::printUDSEntry(const KIO::UDSEntry &entry)
         case KIO::UDSEntry::UDS_ACCESS_TIME:
             timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
             qDebug() << "AccessTime: " << QLocale().toString(timestamp, QLocale::ShortFormat);
+            break;
+        case KIO::UDSEntry::UDS_SUBVOL_ID:
+            int64_t subVolId = entry.numberValue(*it);
+            qDebug() << "Subvolume id : " << subVolId;
             break;
         }
     }
