@@ -61,10 +61,23 @@ if (LIBC_IS_GLIBC)
             int res = statx(AT_FDCWD, \".\", AT_NO_AUTOMOUNT, STATX_SUBVOL, &st);
             st.stx_subvol = 1;
         }"  HAVE_STATX_SUBVOL)
+    check_cxx_source_compiles(
+        "#include <sys/types.h>
+        #include <sys/stat.h>
+        #include <unistd.h>
+        #include <fcntl.h>
+
+        int main()
+        {
+            struct statx st;
+            int res = statx(AT_FDCWD, \".\", AT_NO_AUTOMOUNT, STATX_MNT_ID_UNIQUE, &st);
+            st.stx_mnt_id = 1;
+        }"  HAVE_STATX_MNT_ID_UNIQUE)
 
 else()
     set(HAVE_STATX 0)
     set(HAVE_STATX_MNT_ID 0)
     set(HAVE_STATX_SUBVOL 0)
+    set(HAVE_STATX_MNT_ID_UNIQUE 0)
 endif()
 

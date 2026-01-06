@@ -4,3 +4,6 @@
 
 /* Defined if system has statx subvol feature, linux 6.10+ */
 #cmakedefine01 HAVE_STATX_SUBVOL
+
+/* Defined if system has statx mount unique id */
+#cmakedefine01 HAVE_STATX_MNT_ID_UNIQUE
