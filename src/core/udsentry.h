@@ -282,6 +282,7 @@ public:
         UDS_LOCAL_USER_ID = 30 | UDS_NUMBER,
         UDS_LOCAL_GROUP_ID = 31 | UDS_NUMBER,
         UDS_SUBVOL_ID = 32 | UDS_NUMBER,
+        UDS_MOUNT_ID = 33 | UDS_NUMBER,
         UDS_EXTRA = 100 | UDS_STRING,
         UDS_EXTRA_END = 140 | UDS_STRING,
     };

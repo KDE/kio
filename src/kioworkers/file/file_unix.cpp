@@ -165,6 +165,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         entries += 1;
     }
 #endif
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (details & KIO::StatMountId) {
+        entries += 1;
+    }
+#endif
     entry.reserve(entries);
 
     if (details & KIO::StatBasic) {
@@ -291,6 +296,12 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 #if HAVE_STATX_SUBVOL
     if (details & KIO::StatSubVolId) {
         entry.fastInsert(KIO::UDSEntry::UDS_SUBVOL_ID, stat_subvol(buff));
+    }
+#endif
+
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (details & KIO::StatMountId) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MOUNT_ID, stat_mnt_id(buff));
     }
 #endif
 

@@ -346,6 +346,7 @@ enum PrivilegeOperationStatus {
  * \value StatDefaultDetails Default StatDetail flag when creating a StatJob. Equivalent to setting \c{StatBasic | StatUser | StatTime | StatAcl |
  * StatResolveSymlink}
  * \value [since 6.23] StatSubVolId in case the filesystem supports it, return its subvol Identifier
+ * \value [since 6.23] StatMountId the unique mount identifier, see man statx
  */
 enum StatDetail {
     StatNoDetails = 0x0,
@@ -359,6 +360,7 @@ enum StatDetail {
     StatRecursiveSize = 0x40,
     StatMimeType = 0x80,
     StatSubVolId = 0x100,
+    StatMountId = 0x200,
 };
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 

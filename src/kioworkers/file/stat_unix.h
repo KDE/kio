@@ -74,6 +74,12 @@ inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &de
         mask |= STATX_SUBVOL;
     }
 #endif
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (details & KIO::StatMountId) {
+        // mount unique id
+        mask |= STATX_MNT_ID_UNIQUE;
+    }
+#endif
     // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
     return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
 }
@@ -113,6 +119,12 @@ inline static int64_t stat_mtime(const struct statx &buf)
 inline static uint64_t stat_subvol(const struct statx &buf)
 {
     return buf.stx_subvol;
+}
+#endif
+#if HAVE_STATX_MNT_ID_UNIQUE
+inline static uint64_t stat_mnt_id(const struct statx &buf)
+{
+    return buf.stx_mnt_id;
 }
 #endif
 #else
