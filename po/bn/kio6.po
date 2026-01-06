@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:39+0000\n"
+"POT-Creation-Date: 2026-01-06 00:39+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -199,92 +199,92 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1 %"
 
-#: core/job.cpp:97
+#: core/job.cpp:104
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "স্থানান্তর করা হচ্ছে"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:136
 #, fuzzy, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "উত্‍স:"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:137
 #, fuzzy, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "গন্তব্য:"
 
-#: core/job.cpp:105
+#: core/job.cpp:112
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "না&ম পরিবর্তন করো"
 
-#: core/job.cpp:113
+#: core/job.cpp:120
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "কপি করা হচ্ছে"
 
-#: core/job.cpp:121
+#: core/job.cpp:128
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "ফোল্ডার তৈরি হচ্ছে"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:126
+#: core/job.cpp:129 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr ""
 
-#: core/job.cpp:128
+#: core/job.cpp:135
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "মুছে ফেলা হচ্ছে"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, fuzzy, kde-format
 msgid "File"
 msgstr "কোন ফাইল নেই"
 
-#: core/job.cpp:135
+#: core/job.cpp:142
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "পরীক্ষা করা হচ্ছে"
 
-#: core/job.cpp:142
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr ""
 
-#: core/job.cpp:149
+#: core/job.cpp:156
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "মাউন্ট করা হচ্ছে"
 
-#: core/job.cpp:149
+#: core/job.cpp:156
 #, fuzzy, kde-format
 msgid "Device"
 msgstr "ডিভাইস"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:156 core/job.cpp:161
 #, fuzzy, kde-format
 msgid "Mountpoint"
 msgstr "মাউন্ট পয়েন্ট:"
 
-#: core/job.cpp:154
+#: core/job.cpp:161
 #, fuzzy, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
