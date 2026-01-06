@@ -81,7 +81,7 @@ class KMountPointPrivate
 public:
     void resolveGvfsMountPoints(KMountPoint::List &result);
     void finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
-    void finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
+    void setAdditionalDetails(KMountPoint::DetailsNeededFlags infoNeeded);
 
     QString m_mountedFrom;
     QString m_device; // Only available when the NeedRealDeviceName flag was set.
@@ -155,17 +155,13 @@ void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFl
         m_mountedFrom = potentialDevice;
     }
 
-    if (infoNeeded & KMountPoint::NeedRealDeviceName) {
-        if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
-            m_device = QFileInfo(m_mountedFrom).canonicalFilePath();
-        }
-    }
+    setAdditionalDetails(infoNeeded);
 
     // Chop trailing slash
     Utils::removeTrailingSlash(m_mountedFrom);
 }
 
-void KMountPointPrivate::finalizeCurrentMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
+void KMountPointPrivate::setAdditionalDetails(KMountPoint::DetailsNeededFlags infoNeeded)
 {
     if (infoNeeded & KMountPoint::NeedRealDeviceName) {
         if (m_mountedFrom.startsWith(QLatin1Char('/'))) {
@@ -326,7 +322,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             }
         }
 
-        mp->d->finalizeCurrentMountPoint(infoNeeded);
+        mp->d->setAdditionalDetails(infoNeeded);
         // TODO: Strip trailing '/' ?
         result.append(mp);
     }
@@ -388,15 +384,9 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                     mp->d->m_mountOptions = QFile::decodeName(mnt_fs_get_options(fs)).split(QLatin1Char(','));
                 }
 
-                if (infoNeeded & NeedRealDeviceName) {
-                    if (mp->d->m_mountedFrom.startsWith(QLatin1Char('/'))) {
-                        mp->d->m_device = mp->d->m_mountedFrom;
-                    }
-                }
-
                 mp->d->resolveGvfsMountPoints(result);
 
-                mp->d->finalizeCurrentMountPoint(infoNeeded);
+                mp->d->setAdditionalDetails(infoNeeded);
                 result.push_back(mp);
             }
 
