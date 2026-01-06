@@ -245,6 +245,8 @@ public:
      * \value[since 5.70] UDS_RECURSIVE_SIZE For folders, the recursize size of its content
      * \value[since 6.0] UDS_LOCAL_USER_ID User ID of the file owner
      * \value[since 6.0] UDS_LOCAL_GROUP_ID Group ID of the file owner
+     * \value[since 6.23] UDS_SUBVOL_ID subvolume identifier for the filesystem
+     * \value[since 6.23] UDS_MOUNT_ID unique mount identifier of the filesystem
      * \value UDS_EXTRA Extra data (used only if you specified Columns/ColumnsTypes). NB: you cannot repeat this entry; use UDS_EXTRA + i until UDS_EXTRA_END
      * \value UDS_EXTRA_END
      */
