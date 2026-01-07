@@ -21,6 +21,10 @@
 #include "kioglobal_p.h"
 #endif
 
+// NOTE: these calls would be nicer if they used real dirfds instead of AT_FDCWD, but benchmarking suggests that
+// it makes no real difference since we need to concatenate a complete path anyway (for UDSEntry). The kernel seems
+// to not care much whether the input is relative or absolute either.
+
 #if HAVE_STATX
 // statx syscall is available
 inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
