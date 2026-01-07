@@ -10,14 +10,15 @@
 #include "kfileitem.h"
 
 #include "joburlcache_p.h"
+#include <KFormat>
 #include <KIconUtils>
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KUrlMimeData>
+#include <kio/copyjob.h>
 #include <kio/fileundomanager.h>
 #include <kio/simplejob.h>
 #include <kio/statjob.h>
-#include <kio/copyjob.h>
 
 #include <QBitArray>
 #include <QDebug>
@@ -879,8 +880,9 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             case Size:
                 return KIO::convertSize(item.size()); // size formatted as QString
             case ModifiedTime: {
-                QDateTime dt = item.time(KFileItem::ModificationTime);
-                return QLocale().toString(dt, QLocale::ShortFormat);
+                static KFormat format;
+                const QDateTime dt = item.time(KFileItem::ModificationTime);
+                return format.formatRelativeDateTime(dt, QLocale::ShortFormat);
             }
             case Permissions:
                 return item.permissionsString();
