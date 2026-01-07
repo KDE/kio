@@ -92,11 +92,7 @@ void ListJobPrivate::maybeRecurse(const KIO::UDSEntryList &list)
         return;
     }
 
-    UDSEntryList::ConstIterator it = list.begin();
-    const UDSEntryList::ConstIterator end = list.end();
-    for (; it != end; ++it) {
-        const UDSEntry &entry = *it;
-
+    for (const KIO::UDSEntry &entry : list) {
         QUrl itemURL;
         const QString udsUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
         QString filename;
