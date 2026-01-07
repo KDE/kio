@@ -53,6 +53,8 @@
 #include <QActionGroup>
 #include <QApplication>
 #include <QDebug>
+#include <QDrag>
+#include <QGestureEvent>
 #include <QHeaderView>
 #include <QListView>
 #include <QMenu>
@@ -1263,6 +1265,22 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     case QEvent::TouchBegin:
         d->m_isTouchEvent = true;
         break;
+    case QEvent::Gesture: {
+        const auto gestureEvent = dynamic_cast<QGestureEvent *>(event);
+        if (auto tap = gestureEvent->gesture(Qt::TapGesture)) {
+            if (tap->state() == Qt::GestureStarted) {
+                d->m_isTouchDrag = true;
+            }
+            if (tap->state() == Qt::GestureCanceled) {
+                d->m_isTouchDrag = false;
+            }
+            if (tap->state() == Qt::GestureFinished && d->m_isTouchDrag) {
+                d->slotActivated(d->m_itemView->indexAt(static_cast<QTapGesture *>(tap)->position().toPoint()));
+                d->m_isTouchDrag = false;
+            }
+        }
+        break;
+    }
     case QEvent::MouseMove: {
         if (d->m_isTouchEvent) {
             return true;
@@ -1352,9 +1370,23 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
         break;
     }
+    case QEvent::DragLeave: {
+        resetCursor();
+        break;
+    }
     case QEvent::DragEnter: {
-        // Accepts drops of one file or folder only
+        // don't allow draggingfrom within our own viewport
         QDragEnterEvent *evt = static_cast<QDragEnterEvent *>(event);
+        if (evt->source()) {
+            auto scrollArea = static_cast<QAbstractScrollArea *>(evt->source());
+            if (scrollArea && scrollArea->viewport() == watched) {
+                QDrag::cancel();
+                event->ignore();
+                return false;
+            }
+        }
+
+        // Accepts drops of one file or folder only
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::PreferLocalUrls);
 
         // only one file/folder can be dropped at the moment
